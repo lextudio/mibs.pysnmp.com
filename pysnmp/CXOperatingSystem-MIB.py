@@ -1,30 +1,257 @@
+# SNMP MIB module (CXOperatingSystem-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CXOperatingSystem-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/CXOperatingSystem-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:17:41 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint")
-cxOperatingSystem, = mibBuilder.importSymbols("CXProduct-SMI", "cxOperatingSystem")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-iso, Counter64, NotificationType, Integer32, MibIdentifier, Counter32, Bits, ModuleIdentity, Gauge32, ObjectIdentity, Unsigned32, TimeTicks, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Counter64", "NotificationType", "Integer32", "MibIdentifier", "Counter32", "Bits", "ModuleIdentity", "Gauge32", "ObjectIdentity", "Unsigned32", "TimeTicks", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-cxOsParameter = MibIdentifier((1, 3, 6, 1, 4, 1, 495, 2, 1, 5, 5, 1))
-cxOsNbBufs = MibScalar((1, 3, 6, 1, 4, 1, 495, 2, 1, 5, 5, 1, 1), Integer32().clone(1200)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cxOsNbBufs.setStatus('mandatory')
-cxOsBufSize = MibScalar((1, 3, 6, 1, 4, 1, 495, 2, 1, 5, 5, 1, 2), Integer32().clone(292)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cxOsBufSize.setStatus('mandatory')
-cxOsNbBufsAvail = MibScalar((1, 3, 6, 1, 4, 1, 495, 2, 1, 5, 5, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cxOsNbBufsAvail.setStatus('mandatory')
-cxOsNbBufsFree = MibScalar((1, 3, 6, 1, 4, 1, 495, 2, 1, 5, 5, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cxOsNbBufsFree.setStatus('mandatory')
-cxOsNbSystemMsg = MibScalar((1, 3, 6, 1, 4, 1, 495, 2, 1, 5, 5, 1, 16), Integer32().clone(1320)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cxOsNbSystemMsg.setStatus('mandatory')
-cxOsNbSystemMsgFree = MibScalar((1, 3, 6, 1, 4, 1, 495, 2, 1, 5, 5, 1, 17), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cxOsNbSystemMsgFree.setStatus('mandatory')
-cxOsOptions = MibScalar((1, 3, 6, 1, 4, 1, 495, 2, 1, 5, 5, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("data", 1), ("inst", 2), ("data-inst", 3), ("pipeline", 4), ("p-data", 5), ("p-inst", 6), ("p-data-inst", 7), ("none", 8))).clone('p-data-inst')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cxOsOptions.setStatus('mandatory')
-mibBuilder.exportSymbols("CXOperatingSystem-MIB", cxOsNbBufsFree=cxOsNbBufsFree, cxOsParameter=cxOsParameter, cxOsOptions=cxOsOptions, cxOsNbBufsAvail=cxOsNbBufsAvail, cxOsNbSystemMsgFree=cxOsNbSystemMsgFree, cxOsNbBufs=cxOsNbBufs, cxOsNbSystemMsg=cxOsNbSystemMsg, cxOsBufSize=cxOsBufSize)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CXOperatingSystem-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:20:44 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(cxOperatingSystem,) = mibBuilder.importSymbols(
+    "CXProduct-SMI",
+    "cxOperatingSystem")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CxOsParameter_ObjectIdentity = ObjectIdentity
+cxOsParameter = _CxOsParameter_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 5, 5, 1)
+)
+
+
+class _CxOsNbBufs_Type(Integer32):
+    """Custom type cxOsNbBufs based on Integer32"""
+    defaultValue = 1200
+
+
+_CxOsNbBufs_Object = MibScalar
+cxOsNbBufs = _CxOsNbBufs_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 5, 5, 1, 1),
+    _CxOsNbBufs_Type()
+)
+cxOsNbBufs.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cxOsNbBufs.setStatus("mandatory")
+
+
+class _CxOsBufSize_Type(Integer32):
+    """Custom type cxOsBufSize based on Integer32"""
+    defaultValue = 292
+
+
+_CxOsBufSize_Object = MibScalar
+cxOsBufSize = _CxOsBufSize_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 5, 5, 1, 2),
+    _CxOsBufSize_Type()
+)
+cxOsBufSize.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cxOsBufSize.setStatus("mandatory")
+_CxOsNbBufsAvail_Type = Integer32
+_CxOsNbBufsAvail_Object = MibScalar
+cxOsNbBufsAvail = _CxOsNbBufsAvail_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 5, 5, 1, 3),
+    _CxOsNbBufsAvail_Type()
+)
+cxOsNbBufsAvail.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cxOsNbBufsAvail.setStatus("mandatory")
+_CxOsNbBufsFree_Type = Integer32
+_CxOsNbBufsFree_Object = MibScalar
+cxOsNbBufsFree = _CxOsNbBufsFree_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 5, 5, 1, 4),
+    _CxOsNbBufsFree_Type()
+)
+cxOsNbBufsFree.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cxOsNbBufsFree.setStatus("mandatory")
+
+
+class _CxOsNbSystemMsg_Type(Integer32):
+    """Custom type cxOsNbSystemMsg based on Integer32"""
+    defaultValue = 1320
+
+
+_CxOsNbSystemMsg_Object = MibScalar
+cxOsNbSystemMsg = _CxOsNbSystemMsg_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 5, 5, 1, 16),
+    _CxOsNbSystemMsg_Type()
+)
+cxOsNbSystemMsg.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cxOsNbSystemMsg.setStatus("mandatory")
+_CxOsNbSystemMsgFree_Type = Integer32
+_CxOsNbSystemMsgFree_Object = MibScalar
+cxOsNbSystemMsgFree = _CxOsNbSystemMsgFree_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 5, 5, 1, 17),
+    _CxOsNbSystemMsgFree_Type()
+)
+cxOsNbSystemMsgFree.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cxOsNbSystemMsgFree.setStatus("mandatory")
+
+
+class _CxOsOptions_Type(Integer32):
+    """Custom type cxOsOptions based on Integer32"""
+    defaultValue = 7
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("data", 1),
+          ("data-inst", 3),
+          ("inst", 2),
+          ("none", 8),
+          ("p-data", 5),
+          ("p-data-inst", 7),
+          ("p-inst", 6),
+          ("pipeline", 4))
+    )
+
+
+_CxOsOptions_Type.__name__ = "Integer32"
+_CxOsOptions_Object = MibScalar
+cxOsOptions = _CxOsOptions_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 5, 5, 1, 18),
+    _CxOsOptions_Type()
+)
+cxOsOptions.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cxOsOptions.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CXOperatingSystem-MIB",
+    **{"cxOsParameter": cxOsParameter,
+       "cxOsNbBufs": cxOsNbBufs,
+       "cxOsBufSize": cxOsBufSize,
+       "cxOsNbBufsAvail": cxOsNbBufsAvail,
+       "cxOsNbBufsFree": cxOsNbBufsFree,
+       "cxOsNbSystemMsg": cxOsNbSystemMsg,
+       "cxOsNbSystemMsgFree": cxOsNbSystemMsgFree,
+       "cxOsOptions": cxOsOptions}
+)

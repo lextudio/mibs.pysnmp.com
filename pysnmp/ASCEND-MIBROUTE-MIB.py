@@ -1,55 +1,428 @@
+# SNMP MIB module (ASCEND-MIBROUTE-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ASCEND-MIBROUTE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/ASCEND-MIBROUTE-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:12:09 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-configuration, = mibBuilder.importSymbols("ASCEND-MIB", "configuration")
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter64, Gauge32, ModuleIdentity, TimeTicks, Counter32, ObjectIdentity, Unsigned32, iso, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, IpAddress, Bits, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Gauge32", "ModuleIdentity", "TimeTicks", "Counter32", "ObjectIdentity", "Unsigned32", "iso", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "IpAddress", "Bits", "MibIdentifier")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-class DisplayString(OctetString):
-    pass
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/ASCEND-MIBROUTE-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 20:42:07 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-mibrouteProfile = MibIdentifier((1, 3, 6, 1, 4, 1, 529, 23, 105))
-mibrouteProfileTable = MibTable((1, 3, 6, 1, 4, 1, 529, 23, 105, 1), )
-if mibBuilder.loadTexts: mibrouteProfileTable.setStatus('mandatory')
-mibrouteProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 529, 23, 105, 1, 1), ).setIndexNames((0, "ASCEND-MIBROUTE-MIB", "routeProfile-Name"))
-if mibBuilder.loadTexts: mibrouteProfileEntry.setStatus('mandatory')
-routeProfile_Name = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 105, 1, 1, 1), DisplayString()).setLabel("routeProfile-Name").setMaxAccess("readonly")
-if mibBuilder.loadTexts: routeProfile_Name.setStatus('mandatory')
-routeProfile_DestAddress = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 105, 1, 1, 2), IpAddress()).setLabel("routeProfile-DestAddress").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: routeProfile_DestAddress.setStatus('mandatory')
-routeProfile_Netmask = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 105, 1, 1, 16), IpAddress()).setLabel("routeProfile-Netmask").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: routeProfile_Netmask.setStatus('mandatory')
-routeProfile_GatewayAddress = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 105, 1, 1, 3), IpAddress()).setLabel("routeProfile-GatewayAddress").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: routeProfile_GatewayAddress.setStatus('mandatory')
-routeProfile_Metric = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 105, 1, 1, 4), Integer32()).setLabel("routeProfile-Metric").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: routeProfile_Metric.setStatus('mandatory')
-routeProfile_Cost = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 105, 1, 1, 5), Integer32()).setLabel("routeProfile-Cost").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: routeProfile_Cost.setStatus('mandatory')
-routeProfile_Preference = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 105, 1, 1, 6), Integer32()).setLabel("routeProfile-Preference").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: routeProfile_Preference.setStatus('mandatory')
-routeProfile_ThirdParty = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 105, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("no", 1), ("yes", 2)))).setLabel("routeProfile-ThirdParty").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: routeProfile_ThirdParty.setStatus('mandatory')
-routeProfile_AseType = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 105, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("type1", 1), ("type2", 2)))).setLabel("routeProfile-AseType").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: routeProfile_AseType.setStatus('mandatory')
-routeProfile_AseTag = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 105, 1, 1, 9), DisplayString()).setLabel("routeProfile-AseTag").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: routeProfile_AseTag.setStatus('mandatory')
-routeProfile_PrivateRoute = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 105, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("no", 1), ("yes", 2)))).setLabel("routeProfile-PrivateRoute").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: routeProfile_PrivateRoute.setStatus('mandatory')
-routeProfile_ActiveRoute = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 105, 1, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("no", 1), ("yes", 2)))).setLabel("routeProfile-ActiveRoute").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: routeProfile_ActiveRoute.setStatus('mandatory')
-routeProfile_Ase7Adv = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 105, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("n-A", 1), ("advertise", 2), ("doNotAdvertise", 3)))).setLabel("routeProfile-Ase7Adv").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: routeProfile_Ase7Adv.setStatus('mandatory')
-routeProfile_Vrouter = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 105, 1, 1, 13), DisplayString()).setLabel("routeProfile-Vrouter").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: routeProfile_Vrouter.setStatus('mandatory')
-routeProfile_InterVrouter = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 105, 1, 1, 14), DisplayString()).setLabel("routeProfile-InterVrouter").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: routeProfile_InterVrouter.setStatus('mandatory')
-routeProfile_Action_o = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 105, 1, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("noAction", 1), ("createProfile", 2), ("deleteProfile", 3)))).setLabel("routeProfile-Action-o").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: routeProfile_Action_o.setStatus('mandatory')
-mibBuilder.exportSymbols("ASCEND-MIBROUTE-MIB", routeProfile_ActiveRoute=routeProfile_ActiveRoute, routeProfile_Action_o=routeProfile_Action_o, routeProfile_Netmask=routeProfile_Netmask, routeProfile_Ase7Adv=routeProfile_Ase7Adv, mibrouteProfileEntry=mibrouteProfileEntry, routeProfile_GatewayAddress=routeProfile_GatewayAddress, DisplayString=DisplayString, mibrouteProfileTable=mibrouteProfileTable, routeProfile_InterVrouter=routeProfile_InterVrouter, mibrouteProfile=mibrouteProfile, routeProfile_PrivateRoute=routeProfile_PrivateRoute, routeProfile_ThirdParty=routeProfile_ThirdParty, routeProfile_Vrouter=routeProfile_Vrouter, routeProfile_Cost=routeProfile_Cost, routeProfile_Name=routeProfile_Name, routeProfile_DestAddress=routeProfile_DestAddress, routeProfile_Metric=routeProfile_Metric, routeProfile_AseTag=routeProfile_AseTag, routeProfile_Preference=routeProfile_Preference, routeProfile_AseType=routeProfile_AseType)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(configuration,) = mibBuilder.importSymbols(
+    "ASCEND-MIB",
+    "configuration")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+
+class DisplayString(OctetString):
+    """Custom type DisplayString based on OctetString"""
+
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_MibrouteProfile_ObjectIdentity = ObjectIdentity
+mibrouteProfile = _MibrouteProfile_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 529, 23, 105)
+)
+_MibrouteProfileTable_Object = MibTable
+mibrouteProfileTable = _MibrouteProfileTable_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 105, 1)
+)
+if mibBuilder.loadTexts:
+    mibrouteProfileTable.setStatus("mandatory")
+_MibrouteProfileEntry_Object = MibTableRow
+mibrouteProfileEntry = _MibrouteProfileEntry_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 105, 1, 1)
+)
+mibrouteProfileEntry.setIndexNames(
+    (0, "ASCEND-MIBROUTE-MIB", "routeProfile-Name"),
+)
+if mibBuilder.loadTexts:
+    mibrouteProfileEntry.setStatus("mandatory")
+_RouteProfile_Name_Type = DisplayString
+_RouteProfile_Name_Object = MibScalar
+routeProfile_Name = _RouteProfile_Name_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 105, 1, 1, 1),
+    _RouteProfile_Name_Type()
+)
+routeProfile_Name.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    routeProfile_Name.setStatus("mandatory")
+_RouteProfile_DestAddress_Type = IpAddress
+_RouteProfile_DestAddress_Object = MibScalar
+routeProfile_DestAddress = _RouteProfile_DestAddress_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 105, 1, 1, 2),
+    _RouteProfile_DestAddress_Type()
+)
+routeProfile_DestAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    routeProfile_DestAddress.setStatus("mandatory")
+_RouteProfile_GatewayAddress_Type = IpAddress
+_RouteProfile_GatewayAddress_Object = MibScalar
+routeProfile_GatewayAddress = _RouteProfile_GatewayAddress_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 105, 1, 1, 3),
+    _RouteProfile_GatewayAddress_Type()
+)
+routeProfile_GatewayAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    routeProfile_GatewayAddress.setStatus("mandatory")
+_RouteProfile_Metric_Type = Integer32
+_RouteProfile_Metric_Object = MibScalar
+routeProfile_Metric = _RouteProfile_Metric_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 105, 1, 1, 4),
+    _RouteProfile_Metric_Type()
+)
+routeProfile_Metric.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    routeProfile_Metric.setStatus("mandatory")
+_RouteProfile_Cost_Type = Integer32
+_RouteProfile_Cost_Object = MibScalar
+routeProfile_Cost = _RouteProfile_Cost_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 105, 1, 1, 5),
+    _RouteProfile_Cost_Type()
+)
+routeProfile_Cost.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    routeProfile_Cost.setStatus("mandatory")
+_RouteProfile_Preference_Type = Integer32
+_RouteProfile_Preference_Object = MibScalar
+routeProfile_Preference = _RouteProfile_Preference_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 105, 1, 1, 6),
+    _RouteProfile_Preference_Type()
+)
+routeProfile_Preference.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    routeProfile_Preference.setStatus("mandatory")
+
+
+class _RouteProfile_ThirdParty_Type(Integer32):
+    """Custom type routeProfile_ThirdParty based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 1),
+          ("yes", 2))
+    )
+
+
+_RouteProfile_ThirdParty_Type.__name__ = "Integer32"
+_RouteProfile_ThirdParty_Object = MibScalar
+routeProfile_ThirdParty = _RouteProfile_ThirdParty_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 105, 1, 1, 7),
+    _RouteProfile_ThirdParty_Type()
+)
+routeProfile_ThirdParty.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    routeProfile_ThirdParty.setStatus("mandatory")
+
+
+class _RouteProfile_AseType_Type(Integer32):
+    """Custom type routeProfile_AseType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("type1", 1),
+          ("type2", 2))
+    )
+
+
+_RouteProfile_AseType_Type.__name__ = "Integer32"
+_RouteProfile_AseType_Object = MibScalar
+routeProfile_AseType = _RouteProfile_AseType_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 105, 1, 1, 8),
+    _RouteProfile_AseType_Type()
+)
+routeProfile_AseType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    routeProfile_AseType.setStatus("mandatory")
+_RouteProfile_AseTag_Type = DisplayString
+_RouteProfile_AseTag_Object = MibScalar
+routeProfile_AseTag = _RouteProfile_AseTag_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 105, 1, 1, 9),
+    _RouteProfile_AseTag_Type()
+)
+routeProfile_AseTag.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    routeProfile_AseTag.setStatus("mandatory")
+
+
+class _RouteProfile_PrivateRoute_Type(Integer32):
+    """Custom type routeProfile_PrivateRoute based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 1),
+          ("yes", 2))
+    )
+
+
+_RouteProfile_PrivateRoute_Type.__name__ = "Integer32"
+_RouteProfile_PrivateRoute_Object = MibScalar
+routeProfile_PrivateRoute = _RouteProfile_PrivateRoute_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 105, 1, 1, 10),
+    _RouteProfile_PrivateRoute_Type()
+)
+routeProfile_PrivateRoute.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    routeProfile_PrivateRoute.setStatus("mandatory")
+
+
+class _RouteProfile_ActiveRoute_Type(Integer32):
+    """Custom type routeProfile_ActiveRoute based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 1),
+          ("yes", 2))
+    )
+
+
+_RouteProfile_ActiveRoute_Type.__name__ = "Integer32"
+_RouteProfile_ActiveRoute_Object = MibScalar
+routeProfile_ActiveRoute = _RouteProfile_ActiveRoute_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 105, 1, 1, 11),
+    _RouteProfile_ActiveRoute_Type()
+)
+routeProfile_ActiveRoute.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    routeProfile_ActiveRoute.setStatus("mandatory")
+
+
+class _RouteProfile_Ase7Adv_Type(Integer32):
+    """Custom type routeProfile_Ase7Adv based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("advertise", 2),
+          ("doNotAdvertise", 3),
+          ("n-A", 1))
+    )
+
+
+_RouteProfile_Ase7Adv_Type.__name__ = "Integer32"
+_RouteProfile_Ase7Adv_Object = MibScalar
+routeProfile_Ase7Adv = _RouteProfile_Ase7Adv_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 105, 1, 1, 12),
+    _RouteProfile_Ase7Adv_Type()
+)
+routeProfile_Ase7Adv.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    routeProfile_Ase7Adv.setStatus("mandatory")
+_RouteProfile_Vrouter_Type = DisplayString
+_RouteProfile_Vrouter_Object = MibScalar
+routeProfile_Vrouter = _RouteProfile_Vrouter_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 105, 1, 1, 13),
+    _RouteProfile_Vrouter_Type()
+)
+routeProfile_Vrouter.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    routeProfile_Vrouter.setStatus("mandatory")
+_RouteProfile_InterVrouter_Type = DisplayString
+_RouteProfile_InterVrouter_Object = MibScalar
+routeProfile_InterVrouter = _RouteProfile_InterVrouter_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 105, 1, 1, 14),
+    _RouteProfile_InterVrouter_Type()
+)
+routeProfile_InterVrouter.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    routeProfile_InterVrouter.setStatus("mandatory")
+
+
+class _RouteProfile_Action_o_Type(Integer32):
+    """Custom type routeProfile_Action_o based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("createProfile", 2),
+          ("deleteProfile", 3),
+          ("noAction", 1))
+    )
+
+
+_RouteProfile_Action_o_Type.__name__ = "Integer32"
+_RouteProfile_Action_o_Object = MibScalar
+routeProfile_Action_o = _RouteProfile_Action_o_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 105, 1, 1, 15),
+    _RouteProfile_Action_o_Type()
+)
+routeProfile_Action_o.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    routeProfile_Action_o.setStatus("mandatory")
+_RouteProfile_Netmask_Type = IpAddress
+_RouteProfile_Netmask_Object = MibScalar
+routeProfile_Netmask = _RouteProfile_Netmask_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 105, 1, 1, 16),
+    _RouteProfile_Netmask_Type()
+)
+routeProfile_Netmask.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    routeProfile_Netmask.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ASCEND-MIBROUTE-MIB",
+    **{"DisplayString": DisplayString,
+       "mibrouteProfile": mibrouteProfile,
+       "mibrouteProfileTable": mibrouteProfileTable,
+       "mibrouteProfileEntry": mibrouteProfileEntry,
+       "routeProfile-Name": routeProfile_Name,
+       "routeProfile-DestAddress": routeProfile_DestAddress,
+       "routeProfile-GatewayAddress": routeProfile_GatewayAddress,
+       "routeProfile-Metric": routeProfile_Metric,
+       "routeProfile-Cost": routeProfile_Cost,
+       "routeProfile-Preference": routeProfile_Preference,
+       "routeProfile-ThirdParty": routeProfile_ThirdParty,
+       "routeProfile-AseType": routeProfile_AseType,
+       "routeProfile-AseTag": routeProfile_AseTag,
+       "routeProfile-PrivateRoute": routeProfile_PrivateRoute,
+       "routeProfile-ActiveRoute": routeProfile_ActiveRoute,
+       "routeProfile-Ase7Adv": routeProfile_Ase7Adv,
+       "routeProfile-Vrouter": routeProfile_Vrouter,
+       "routeProfile-InterVrouter": routeProfile_InterVrouter,
+       "routeProfile-Action-o": routeProfile_Action_o,
+       "routeProfile-Netmask": routeProfile_Netmask}
+)

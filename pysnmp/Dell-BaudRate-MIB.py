@@ -1,27 +1,242 @@
+# SNMP MIB module (Dell-BaudRate-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module Dell-BaudRate-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/Dell-BaudRate-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:40:41 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection")
-rnd, = mibBuilder.importSymbols("Dell-MIB", "rnd")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-iso, Bits, Counter64, NotificationType, Unsigned32, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Gauge32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Bits", "Counter64", "NotificationType", "Unsigned32", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Gauge32", "MibIdentifier")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-rlRs232 = ModuleIdentity((1, 3, 6, 1, 4, 1, 89, 104))
-rlRs232.setRevisions(('2005-04-14 00:00',))
-if mibBuilder.loadTexts: rlRs232.setLastUpdated('200504140000Z')
-if mibBuilder.loadTexts: rlRs232.setOrganization('Dell')
-rlRs232MibVersion = MibScalar((1, 3, 6, 1, 4, 1, 89, 104, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlRs232MibVersion.setStatus('current')
-rlRs232AutoBaudRateStatus = MibScalar((1, 3, 6, 1, 4, 1, 89, 104, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlRs232AutoBaudRateStatus.setStatus('current')
-rlRs232AutoBaudRateStatusAfterReset = MibScalar((1, 3, 6, 1, 4, 1, 89, 104, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlRs232AutoBaudRateStatusAfterReset.setStatus('current')
-rlRs232BaudRate = MibScalar((1, 3, 6, 1, 4, 1, 89, 104, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("baud2400", 1), ("baud4800", 2), ("baud9600", 3), ("baud19200", 4), ("baud38400", 5), ("baud57600", 6), ("baud115200", 7)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlRs232BaudRate.setStatus('current')
-mibBuilder.exportSymbols("Dell-BaudRate-MIB", rlRs232MibVersion=rlRs232MibVersion, rlRs232AutoBaudRateStatus=rlRs232AutoBaudRateStatus, rlRs232AutoBaudRateStatusAfterReset=rlRs232AutoBaudRateStatusAfterReset, rlRs232BaudRate=rlRs232BaudRate, rlRs232=rlRs232, PYSNMP_MODULE_ID=rlRs232)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/Dell-BaudRate-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:34:13 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(rnd,) = mibBuilder.importSymbols(
+    "Dell-MIB",
+    "rnd")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+rlRs232 = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 89, 104)
+)
+rlRs232.setRevisions(
+        ("2005-04-14 00:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_RlRs232MibVersion_Type = Integer32
+_RlRs232MibVersion_Object = MibScalar
+rlRs232MibVersion = _RlRs232MibVersion_Object(
+    (1, 3, 6, 1, 4, 1, 89, 104, 1),
+    _RlRs232MibVersion_Type()
+)
+rlRs232MibVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlRs232MibVersion.setStatus("current")
+
+
+class _RlRs232AutoBaudRateStatus_Type(Integer32):
+    """Custom type rlRs232AutoBaudRateStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 2),
+          ("enable", 1))
+    )
+
+
+_RlRs232AutoBaudRateStatus_Type.__name__ = "Integer32"
+_RlRs232AutoBaudRateStatus_Object = MibScalar
+rlRs232AutoBaudRateStatus = _RlRs232AutoBaudRateStatus_Object(
+    (1, 3, 6, 1, 4, 1, 89, 104, 2),
+    _RlRs232AutoBaudRateStatus_Type()
+)
+rlRs232AutoBaudRateStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlRs232AutoBaudRateStatus.setStatus("current")
+
+
+class _RlRs232AutoBaudRateStatusAfterReset_Type(Integer32):
+    """Custom type rlRs232AutoBaudRateStatusAfterReset based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 2),
+          ("enable", 1))
+    )
+
+
+_RlRs232AutoBaudRateStatusAfterReset_Type.__name__ = "Integer32"
+_RlRs232AutoBaudRateStatusAfterReset_Object = MibScalar
+rlRs232AutoBaudRateStatusAfterReset = _RlRs232AutoBaudRateStatusAfterReset_Object(
+    (1, 3, 6, 1, 4, 1, 89, 104, 3),
+    _RlRs232AutoBaudRateStatusAfterReset_Type()
+)
+rlRs232AutoBaudRateStatusAfterReset.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlRs232AutoBaudRateStatusAfterReset.setStatus("current")
+
+
+class _RlRs232BaudRate_Type(Integer32):
+    """Custom type rlRs232BaudRate based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("baud115200", 7),
+          ("baud19200", 4),
+          ("baud2400", 1),
+          ("baud38400", 5),
+          ("baud4800", 2),
+          ("baud57600", 6),
+          ("baud9600", 3))
+    )
+
+
+_RlRs232BaudRate_Type.__name__ = "Integer32"
+_RlRs232BaudRate_Object = MibScalar
+rlRs232BaudRate = _RlRs232BaudRate_Object(
+    (1, 3, 6, 1, 4, 1, 89, 104, 4),
+    _RlRs232BaudRate_Type()
+)
+rlRs232BaudRate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlRs232BaudRate.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "Dell-BaudRate-MIB",
+    **{"rlRs232": rlRs232,
+       "rlRs232MibVersion": rlRs232MibVersion,
+       "rlRs232AutoBaudRateStatus": rlRs232AutoBaudRateStatus,
+       "rlRs232AutoBaudRateStatusAfterReset": rlRs232AutoBaudRateStatusAfterReset,
+       "rlRs232BaudRate": rlRs232BaudRate}
+)

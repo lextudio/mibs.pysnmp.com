@@ -1,93 +1,664 @@
+# SNMP MIB module (WWP-LEOS-FILTER-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module WWP-LEOS-FILTER-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/WWP-LEOS-FILTER-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 21:31:08 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter32, ModuleIdentity, TimeTicks, iso, Bits, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, NotificationType, IpAddress, Gauge32, Unsigned32, ObjectIdentity, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "ModuleIdentity", "TimeTicks", "iso", "Bits", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "NotificationType", "IpAddress", "Gauge32", "Unsigned32", "ObjectIdentity", "Counter64")
-RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
-wwpModules, wwpModulesLeos = mibBuilder.importSymbols("WWP-SMI", "wwpModules", "wwpModulesLeos")
-wwpLeosFilterMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15))
-wwpLeosFilterMIB.setRevisions(('2006-02-17 18:45', '2003-01-15 17:00',))
-if mibBuilder.loadTexts: wwpLeosFilterMIB.setLastUpdated('200602171830Z')
-if mibBuilder.loadTexts: wwpLeosFilterMIB.setOrganization('World Wide Packets, Inc')
-wwpLeosFilterMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1))
-wwpLeosFilter = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1))
-wwpLeosFilterMIBNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 2))
-wwpLeosFilterMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 2, 0))
-wwpLeosFilterMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 3))
-wwpLeosFilterMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 3, 1))
-wwpLeosFilterMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 3, 2))
-wwpLeosFilterResources = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 1))
-wwpLeosFilterMaxHardwareResources = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 1, 1), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpLeosFilterMaxHardwareResources.setStatus('current')
-wwpLeosFilterUsedHardwareResources = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 1, 2), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpLeosFilterUsedHardwareResources.setStatus('current')
-wwpLeosFilterCreated = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 1, 3), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpLeosFilterCreated.setStatus('current')
-wwpLeosFilterCountersMax = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 1, 4), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpLeosFilterCountersMax.setStatus('current')
-wwpLeosFilterCountersUsed = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 1, 5), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpLeosFilterCountersUsed.setStatus('current')
-wwpLeosFilterTable = MibTable((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 2), )
-if mibBuilder.loadTexts: wwpLeosFilterTable.setStatus('current')
-wwpLeosFilterEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 2, 1), ).setIndexNames((0, "WWP-LEOS-FILTER-MIB", "wwpLeosFilterIndex"))
-if mibBuilder.loadTexts: wwpLeosFilterEntry.setStatus('current')
-wwpLeosFilterIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpLeosFilterIndex.setStatus('current')
-wwpLeosFilterName = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 2, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 16))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: wwpLeosFilterName.setStatus('current')
-wwpLeosFilterAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: wwpLeosFilterAdminState.setStatus('current')
-wwpLeosFilterOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpLeosFilterOperState.setStatus('current')
-wwpLeosFilterCounter = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("on", 1), ("off", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: wwpLeosFilterCounter.setStatus('current')
-wwpLeosFilterStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 2, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: wwpLeosFilterStatus.setStatus('current')
-wwpLeosFilterProtocolTable = MibTable((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 3), )
-if mibBuilder.loadTexts: wwpLeosFilterProtocolTable.setStatus('current')
-wwpLeosFilterProtocolEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 3, 1), ).setIndexNames((0, "WWP-LEOS-FILTER-MIB", "wwpLeosFilterProtocolIndex"))
-if mibBuilder.loadTexts: wwpLeosFilterProtocolEntry.setStatus('current')
-wwpLeosFilterProtocolIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 41))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpLeosFilterProtocolIndex.setStatus('current')
-wwpLeosFilterProtocolName = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 3, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 16))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: wwpLeosFilterProtocolName.setStatus('current')
-wwpLeosFilterProtocolType = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 3, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: wwpLeosFilterProtocolType.setStatus('current')
-wwpLeosFilterProtocolSrcPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 3, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: wwpLeosFilterProtocolSrcPort.setStatus('current')
-wwpLeosFilterProtocolDstPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 3, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: wwpLeosFilterProtocolDstPort.setStatus('current')
-wwpLeosFilterProtocolStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 3, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: wwpLeosFilterProtocolStatus.setStatus('current')
-wwpLeosFilterMemTable = MibTable((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 4), )
-if mibBuilder.loadTexts: wwpLeosFilterMemTable.setStatus('current')
-wwpLeosFilterMemEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 4, 1), ).setIndexNames((0, "WWP-LEOS-FILTER-MIB", "wwpLeosFilterIndex"), (0, "WWP-LEOS-FILTER-MIB", "wwpLeosFilterVlan"), (0, "WWP-LEOS-FILTER-MIB", "wwpLeosFilterPortId"))
-if mibBuilder.loadTexts: wwpLeosFilterMemEntry.setStatus('current')
-wwpLeosFilterVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 24576))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpLeosFilterVlan.setStatus('current')
-wwpLeosFilterPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 4, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpLeosFilterPortId.setStatus('current')
-wwpLeosFilterMemStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 4, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: wwpLeosFilterMemStatus.setStatus('current')
-wwpLeosFilterMemRule = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 4, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("block", 1), ("allow", 2))).clone('block')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: wwpLeosFilterMemRule.setStatus('current')
-wwpLeosFilterProtocolMemTable = MibTable((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 5), )
-if mibBuilder.loadTexts: wwpLeosFilterProtocolMemTable.setStatus('current')
-wwpLeosFilterProtocolMemEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 5, 1), ).setIndexNames((0, "WWP-LEOS-FILTER-MIB", "wwpLeosFilterIndex"), (0, "WWP-LEOS-FILTER-MIB", "wwpLeosFilterProtocolIndex"))
-if mibBuilder.loadTexts: wwpLeosFilterProtocolMemEntry.setStatus('current')
-wwpLeosFilterProtocolMemStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 5, 1, 1), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: wwpLeosFilterProtocolMemStatus.setStatus('current')
-wwpLeosFilterStatsTable = MibTable((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 6), )
-if mibBuilder.loadTexts: wwpLeosFilterStatsTable.setStatus('current')
-wwpLeosFilterStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 6, 1), ).setIndexNames((0, "WWP-LEOS-FILTER-MIB", "wwpLeosFilterIndex"))
-if mibBuilder.loadTexts: wwpLeosFilterStatsEntry.setStatus('current')
-wwpLeosFilterDropBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 6, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpLeosFilterDropBytes.setStatus('current')
-mibBuilder.exportSymbols("WWP-LEOS-FILTER-MIB", wwpLeosFilterProtocolStatus=wwpLeosFilterProtocolStatus, wwpLeosFilterMemRule=wwpLeosFilterMemRule, wwpLeosFilterResources=wwpLeosFilterResources, wwpLeosFilterMIBConformance=wwpLeosFilterMIBConformance, wwpLeosFilterName=wwpLeosFilterName, wwpLeosFilterMIBObjects=wwpLeosFilterMIBObjects, wwpLeosFilterProtocolSrcPort=wwpLeosFilterProtocolSrcPort, wwpLeosFilterMIBNotifications=wwpLeosFilterMIBNotifications, wwpLeosFilterDropBytes=wwpLeosFilterDropBytes, wwpLeosFilter=wwpLeosFilter, wwpLeosFilterCreated=wwpLeosFilterCreated, wwpLeosFilterEntry=wwpLeosFilterEntry, wwpLeosFilterProtocolMemEntry=wwpLeosFilterProtocolMemEntry, wwpLeosFilterMemTable=wwpLeosFilterMemTable, wwpLeosFilterIndex=wwpLeosFilterIndex, wwpLeosFilterProtocolIndex=wwpLeosFilterProtocolIndex, wwpLeosFilterMIB=wwpLeosFilterMIB, wwpLeosFilterMaxHardwareResources=wwpLeosFilterMaxHardwareResources, wwpLeosFilterOperState=wwpLeosFilterOperState, wwpLeosFilterTable=wwpLeosFilterTable, wwpLeosFilterStatus=wwpLeosFilterStatus, wwpLeosFilterMemStatus=wwpLeosFilterMemStatus, wwpLeosFilterVlan=wwpLeosFilterVlan, wwpLeosFilterProtocolTable=wwpLeosFilterProtocolTable, wwpLeosFilterProtocolEntry=wwpLeosFilterProtocolEntry, wwpLeosFilterProtocolDstPort=wwpLeosFilterProtocolDstPort, PYSNMP_MODULE_ID=wwpLeosFilterMIB, wwpLeosFilterMIBNotificationPrefix=wwpLeosFilterMIBNotificationPrefix, wwpLeosFilterProtocolType=wwpLeosFilterProtocolType, wwpLeosFilterStatsEntry=wwpLeosFilterStatsEntry, wwpLeosFilterUsedHardwareResources=wwpLeosFilterUsedHardwareResources, wwpLeosFilterMemEntry=wwpLeosFilterMemEntry, wwpLeosFilterCountersUsed=wwpLeosFilterCountersUsed, wwpLeosFilterProtocolMemTable=wwpLeosFilterProtocolMemTable, wwpLeosFilterProtocolMemStatus=wwpLeosFilterProtocolMemStatus, wwpLeosFilterStatsTable=wwpLeosFilterStatsTable, wwpLeosFilterMIBGroups=wwpLeosFilterMIBGroups, wwpLeosFilterMIBCompliances=wwpLeosFilterMIBCompliances, wwpLeosFilterPortId=wwpLeosFilterPortId, wwpLeosFilterCounter=wwpLeosFilterCounter, wwpLeosFilterCountersMax=wwpLeosFilterCountersMax, wwpLeosFilterProtocolName=wwpLeosFilterProtocolName, wwpLeosFilterAdminState=wwpLeosFilterAdminState)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/WWP-LEOS-FILTER-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:14:52 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "RowStatus",
+    "TextualConvention")
+
+(wwpModules,
+ wwpModulesLeos) = mibBuilder.importSymbols(
+    "WWP-SMI",
+    "wwpModules",
+    "wwpModulesLeos")
+
+
+# MODULE-IDENTITY
+
+wwpLeosFilterMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15)
+)
+wwpLeosFilterMIB.setRevisions(
+        ("2006-02-17 18:45",
+         "2003-01-15 17:00")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_WwpLeosFilterMIBObjects_ObjectIdentity = ObjectIdentity
+wwpLeosFilterMIBObjects = _WwpLeosFilterMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1)
+)
+_WwpLeosFilter_ObjectIdentity = ObjectIdentity
+wwpLeosFilter = _WwpLeosFilter_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1)
+)
+_WwpLeosFilterResources_ObjectIdentity = ObjectIdentity
+wwpLeosFilterResources = _WwpLeosFilterResources_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 1)
+)
+_WwpLeosFilterMaxHardwareResources_Type = Unsigned32
+_WwpLeosFilterMaxHardwareResources_Object = MibScalar
+wwpLeosFilterMaxHardwareResources = _WwpLeosFilterMaxHardwareResources_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 1, 1),
+    _WwpLeosFilterMaxHardwareResources_Type()
+)
+wwpLeosFilterMaxHardwareResources.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpLeosFilterMaxHardwareResources.setStatus("current")
+_WwpLeosFilterUsedHardwareResources_Type = Unsigned32
+_WwpLeosFilterUsedHardwareResources_Object = MibScalar
+wwpLeosFilterUsedHardwareResources = _WwpLeosFilterUsedHardwareResources_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 1, 2),
+    _WwpLeosFilterUsedHardwareResources_Type()
+)
+wwpLeosFilterUsedHardwareResources.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpLeosFilterUsedHardwareResources.setStatus("current")
+_WwpLeosFilterCreated_Type = Unsigned32
+_WwpLeosFilterCreated_Object = MibScalar
+wwpLeosFilterCreated = _WwpLeosFilterCreated_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 1, 3),
+    _WwpLeosFilterCreated_Type()
+)
+wwpLeosFilterCreated.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpLeosFilterCreated.setStatus("current")
+_WwpLeosFilterCountersMax_Type = Unsigned32
+_WwpLeosFilterCountersMax_Object = MibScalar
+wwpLeosFilterCountersMax = _WwpLeosFilterCountersMax_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 1, 4),
+    _WwpLeosFilterCountersMax_Type()
+)
+wwpLeosFilterCountersMax.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpLeosFilterCountersMax.setStatus("current")
+_WwpLeosFilterCountersUsed_Type = Unsigned32
+_WwpLeosFilterCountersUsed_Object = MibScalar
+wwpLeosFilterCountersUsed = _WwpLeosFilterCountersUsed_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 1, 5),
+    _WwpLeosFilterCountersUsed_Type()
+)
+wwpLeosFilterCountersUsed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpLeosFilterCountersUsed.setStatus("current")
+_WwpLeosFilterTable_Object = MibTable
+wwpLeosFilterTable = _WwpLeosFilterTable_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    wwpLeosFilterTable.setStatus("current")
+_WwpLeosFilterEntry_Object = MibTableRow
+wwpLeosFilterEntry = _WwpLeosFilterEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 2, 1)
+)
+wwpLeosFilterEntry.setIndexNames(
+    (0, "WWP-LEOS-FILTER-MIB", "wwpLeosFilterIndex"),
+)
+if mibBuilder.loadTexts:
+    wwpLeosFilterEntry.setStatus("current")
+
+
+class _WwpLeosFilterIndex_Type(Integer32):
+    """Custom type wwpLeosFilterIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 64),
+    )
+
+
+_WwpLeosFilterIndex_Type.__name__ = "Integer32"
+_WwpLeosFilterIndex_Object = MibTableColumn
+wwpLeosFilterIndex = _WwpLeosFilterIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 2, 1, 1),
+    _WwpLeosFilterIndex_Type()
+)
+wwpLeosFilterIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpLeosFilterIndex.setStatus("current")
+
+
+class _WwpLeosFilterName_Type(OctetString):
+    """Custom type wwpLeosFilterName based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 16),
+    )
+
+
+_WwpLeosFilterName_Type.__name__ = "OctetString"
+_WwpLeosFilterName_Object = MibTableColumn
+wwpLeosFilterName = _WwpLeosFilterName_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 2, 1, 2),
+    _WwpLeosFilterName_Type()
+)
+wwpLeosFilterName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    wwpLeosFilterName.setStatus("current")
+
+
+class _WwpLeosFilterAdminState_Type(Integer32):
+    """Custom type wwpLeosFilterAdminState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_WwpLeosFilterAdminState_Type.__name__ = "Integer32"
+_WwpLeosFilterAdminState_Object = MibTableColumn
+wwpLeosFilterAdminState = _WwpLeosFilterAdminState_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 2, 1, 3),
+    _WwpLeosFilterAdminState_Type()
+)
+wwpLeosFilterAdminState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    wwpLeosFilterAdminState.setStatus("current")
+
+
+class _WwpLeosFilterOperState_Type(Integer32):
+    """Custom type wwpLeosFilterOperState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_WwpLeosFilterOperState_Type.__name__ = "Integer32"
+_WwpLeosFilterOperState_Object = MibTableColumn
+wwpLeosFilterOperState = _WwpLeosFilterOperState_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 2, 1, 4),
+    _WwpLeosFilterOperState_Type()
+)
+wwpLeosFilterOperState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpLeosFilterOperState.setStatus("current")
+
+
+class _WwpLeosFilterCounter_Type(Integer32):
+    """Custom type wwpLeosFilterCounter based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 2),
+          ("on", 1))
+    )
+
+
+_WwpLeosFilterCounter_Type.__name__ = "Integer32"
+_WwpLeosFilterCounter_Object = MibTableColumn
+wwpLeosFilterCounter = _WwpLeosFilterCounter_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 2, 1, 5),
+    _WwpLeosFilterCounter_Type()
+)
+wwpLeosFilterCounter.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    wwpLeosFilterCounter.setStatus("current")
+_WwpLeosFilterStatus_Type = RowStatus
+_WwpLeosFilterStatus_Object = MibTableColumn
+wwpLeosFilterStatus = _WwpLeosFilterStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 2, 1, 6),
+    _WwpLeosFilterStatus_Type()
+)
+wwpLeosFilterStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    wwpLeosFilterStatus.setStatus("current")
+_WwpLeosFilterProtocolTable_Object = MibTable
+wwpLeosFilterProtocolTable = _WwpLeosFilterProtocolTable_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 3)
+)
+if mibBuilder.loadTexts:
+    wwpLeosFilterProtocolTable.setStatus("current")
+_WwpLeosFilterProtocolEntry_Object = MibTableRow
+wwpLeosFilterProtocolEntry = _WwpLeosFilterProtocolEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 3, 1)
+)
+wwpLeosFilterProtocolEntry.setIndexNames(
+    (0, "WWP-LEOS-FILTER-MIB", "wwpLeosFilterProtocolIndex"),
+)
+if mibBuilder.loadTexts:
+    wwpLeosFilterProtocolEntry.setStatus("current")
+
+
+class _WwpLeosFilterProtocolIndex_Type(Integer32):
+    """Custom type wwpLeosFilterProtocolIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 41),
+    )
+
+
+_WwpLeosFilterProtocolIndex_Type.__name__ = "Integer32"
+_WwpLeosFilterProtocolIndex_Object = MibTableColumn
+wwpLeosFilterProtocolIndex = _WwpLeosFilterProtocolIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 3, 1, 1),
+    _WwpLeosFilterProtocolIndex_Type()
+)
+wwpLeosFilterProtocolIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpLeosFilterProtocolIndex.setStatus("current")
+
+
+class _WwpLeosFilterProtocolName_Type(OctetString):
+    """Custom type wwpLeosFilterProtocolName based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 16),
+    )
+
+
+_WwpLeosFilterProtocolName_Type.__name__ = "OctetString"
+_WwpLeosFilterProtocolName_Object = MibTableColumn
+wwpLeosFilterProtocolName = _WwpLeosFilterProtocolName_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 3, 1, 2),
+    _WwpLeosFilterProtocolName_Type()
+)
+wwpLeosFilterProtocolName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    wwpLeosFilterProtocolName.setStatus("current")
+
+
+class _WwpLeosFilterProtocolType_Type(Integer32):
+    """Custom type wwpLeosFilterProtocolType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_WwpLeosFilterProtocolType_Type.__name__ = "Integer32"
+_WwpLeosFilterProtocolType_Object = MibTableColumn
+wwpLeosFilterProtocolType = _WwpLeosFilterProtocolType_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 3, 1, 3),
+    _WwpLeosFilterProtocolType_Type()
+)
+wwpLeosFilterProtocolType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    wwpLeosFilterProtocolType.setStatus("current")
+
+
+class _WwpLeosFilterProtocolSrcPort_Type(Integer32):
+    """Custom type wwpLeosFilterProtocolSrcPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_WwpLeosFilterProtocolSrcPort_Type.__name__ = "Integer32"
+_WwpLeosFilterProtocolSrcPort_Object = MibTableColumn
+wwpLeosFilterProtocolSrcPort = _WwpLeosFilterProtocolSrcPort_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 3, 1, 4),
+    _WwpLeosFilterProtocolSrcPort_Type()
+)
+wwpLeosFilterProtocolSrcPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    wwpLeosFilterProtocolSrcPort.setStatus("current")
+
+
+class _WwpLeosFilterProtocolDstPort_Type(Integer32):
+    """Custom type wwpLeosFilterProtocolDstPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_WwpLeosFilterProtocolDstPort_Type.__name__ = "Integer32"
+_WwpLeosFilterProtocolDstPort_Object = MibTableColumn
+wwpLeosFilterProtocolDstPort = _WwpLeosFilterProtocolDstPort_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 3, 1, 5),
+    _WwpLeosFilterProtocolDstPort_Type()
+)
+wwpLeosFilterProtocolDstPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    wwpLeosFilterProtocolDstPort.setStatus("current")
+_WwpLeosFilterProtocolStatus_Type = RowStatus
+_WwpLeosFilterProtocolStatus_Object = MibTableColumn
+wwpLeosFilterProtocolStatus = _WwpLeosFilterProtocolStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 3, 1, 6),
+    _WwpLeosFilterProtocolStatus_Type()
+)
+wwpLeosFilterProtocolStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    wwpLeosFilterProtocolStatus.setStatus("current")
+_WwpLeosFilterMemTable_Object = MibTable
+wwpLeosFilterMemTable = _WwpLeosFilterMemTable_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 4)
+)
+if mibBuilder.loadTexts:
+    wwpLeosFilterMemTable.setStatus("current")
+_WwpLeosFilterMemEntry_Object = MibTableRow
+wwpLeosFilterMemEntry = _WwpLeosFilterMemEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 4, 1)
+)
+wwpLeosFilterMemEntry.setIndexNames(
+    (0, "WWP-LEOS-FILTER-MIB", "wwpLeosFilterIndex"),
+    (0, "WWP-LEOS-FILTER-MIB", "wwpLeosFilterVlan"),
+    (0, "WWP-LEOS-FILTER-MIB", "wwpLeosFilterPortId"),
+)
+if mibBuilder.loadTexts:
+    wwpLeosFilterMemEntry.setStatus("current")
+
+
+class _WwpLeosFilterVlan_Type(Integer32):
+    """Custom type wwpLeosFilterVlan based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 24576),
+    )
+
+
+_WwpLeosFilterVlan_Type.__name__ = "Integer32"
+_WwpLeosFilterVlan_Object = MibTableColumn
+wwpLeosFilterVlan = _WwpLeosFilterVlan_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 4, 1, 1),
+    _WwpLeosFilterVlan_Type()
+)
+wwpLeosFilterVlan.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpLeosFilterVlan.setStatus("current")
+
+
+class _WwpLeosFilterPortId_Type(Integer32):
+    """Custom type wwpLeosFilterPortId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_WwpLeosFilterPortId_Type.__name__ = "Integer32"
+_WwpLeosFilterPortId_Object = MibTableColumn
+wwpLeosFilterPortId = _WwpLeosFilterPortId_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 4, 1, 2),
+    _WwpLeosFilterPortId_Type()
+)
+wwpLeosFilterPortId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpLeosFilterPortId.setStatus("current")
+_WwpLeosFilterMemStatus_Type = RowStatus
+_WwpLeosFilterMemStatus_Object = MibTableColumn
+wwpLeosFilterMemStatus = _WwpLeosFilterMemStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 4, 1, 3),
+    _WwpLeosFilterMemStatus_Type()
+)
+wwpLeosFilterMemStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    wwpLeosFilterMemStatus.setStatus("current")
+
+
+class _WwpLeosFilterMemRule_Type(Integer32):
+    """Custom type wwpLeosFilterMemRule based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("allow", 2),
+          ("block", 1))
+    )
+
+
+_WwpLeosFilterMemRule_Type.__name__ = "Integer32"
+_WwpLeosFilterMemRule_Object = MibTableColumn
+wwpLeosFilterMemRule = _WwpLeosFilterMemRule_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 4, 1, 4),
+    _WwpLeosFilterMemRule_Type()
+)
+wwpLeosFilterMemRule.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    wwpLeosFilterMemRule.setStatus("current")
+_WwpLeosFilterProtocolMemTable_Object = MibTable
+wwpLeosFilterProtocolMemTable = _WwpLeosFilterProtocolMemTable_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 5)
+)
+if mibBuilder.loadTexts:
+    wwpLeosFilterProtocolMemTable.setStatus("current")
+_WwpLeosFilterProtocolMemEntry_Object = MibTableRow
+wwpLeosFilterProtocolMemEntry = _WwpLeosFilterProtocolMemEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 5, 1)
+)
+wwpLeosFilterProtocolMemEntry.setIndexNames(
+    (0, "WWP-LEOS-FILTER-MIB", "wwpLeosFilterIndex"),
+    (0, "WWP-LEOS-FILTER-MIB", "wwpLeosFilterProtocolIndex"),
+)
+if mibBuilder.loadTexts:
+    wwpLeosFilterProtocolMemEntry.setStatus("current")
+_WwpLeosFilterProtocolMemStatus_Type = RowStatus
+_WwpLeosFilterProtocolMemStatus_Object = MibTableColumn
+wwpLeosFilterProtocolMemStatus = _WwpLeosFilterProtocolMemStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 5, 1, 1),
+    _WwpLeosFilterProtocolMemStatus_Type()
+)
+wwpLeosFilterProtocolMemStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    wwpLeosFilterProtocolMemStatus.setStatus("current")
+_WwpLeosFilterStatsTable_Object = MibTable
+wwpLeosFilterStatsTable = _WwpLeosFilterStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 6)
+)
+if mibBuilder.loadTexts:
+    wwpLeosFilterStatsTable.setStatus("current")
+_WwpLeosFilterStatsEntry_Object = MibTableRow
+wwpLeosFilterStatsEntry = _WwpLeosFilterStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 6, 1)
+)
+wwpLeosFilterStatsEntry.setIndexNames(
+    (0, "WWP-LEOS-FILTER-MIB", "wwpLeosFilterIndex"),
+)
+if mibBuilder.loadTexts:
+    wwpLeosFilterStatsEntry.setStatus("current")
+_WwpLeosFilterDropBytes_Type = Counter32
+_WwpLeosFilterDropBytes_Object = MibTableColumn
+wwpLeosFilterDropBytes = _WwpLeosFilterDropBytes_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 1, 1, 6, 1, 1),
+    _WwpLeosFilterDropBytes_Type()
+)
+wwpLeosFilterDropBytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpLeosFilterDropBytes.setStatus("current")
+_WwpLeosFilterMIBNotificationPrefix_ObjectIdentity = ObjectIdentity
+wwpLeosFilterMIBNotificationPrefix = _WwpLeosFilterMIBNotificationPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 2)
+)
+_WwpLeosFilterMIBNotifications_ObjectIdentity = ObjectIdentity
+wwpLeosFilterMIBNotifications = _WwpLeosFilterMIBNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 2, 0)
+)
+_WwpLeosFilterMIBConformance_ObjectIdentity = ObjectIdentity
+wwpLeosFilterMIBConformance = _WwpLeosFilterMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 3)
+)
+_WwpLeosFilterMIBCompliances_ObjectIdentity = ObjectIdentity
+wwpLeosFilterMIBCompliances = _WwpLeosFilterMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 3, 1)
+)
+_WwpLeosFilterMIBGroups_ObjectIdentity = ObjectIdentity
+wwpLeosFilterMIBGroups = _WwpLeosFilterMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 15, 3, 2)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "WWP-LEOS-FILTER-MIB",
+    **{"wwpLeosFilterMIB": wwpLeosFilterMIB,
+       "wwpLeosFilterMIBObjects": wwpLeosFilterMIBObjects,
+       "wwpLeosFilter": wwpLeosFilter,
+       "wwpLeosFilterResources": wwpLeosFilterResources,
+       "wwpLeosFilterMaxHardwareResources": wwpLeosFilterMaxHardwareResources,
+       "wwpLeosFilterUsedHardwareResources": wwpLeosFilterUsedHardwareResources,
+       "wwpLeosFilterCreated": wwpLeosFilterCreated,
+       "wwpLeosFilterCountersMax": wwpLeosFilterCountersMax,
+       "wwpLeosFilterCountersUsed": wwpLeosFilterCountersUsed,
+       "wwpLeosFilterTable": wwpLeosFilterTable,
+       "wwpLeosFilterEntry": wwpLeosFilterEntry,
+       "wwpLeosFilterIndex": wwpLeosFilterIndex,
+       "wwpLeosFilterName": wwpLeosFilterName,
+       "wwpLeosFilterAdminState": wwpLeosFilterAdminState,
+       "wwpLeosFilterOperState": wwpLeosFilterOperState,
+       "wwpLeosFilterCounter": wwpLeosFilterCounter,
+       "wwpLeosFilterStatus": wwpLeosFilterStatus,
+       "wwpLeosFilterProtocolTable": wwpLeosFilterProtocolTable,
+       "wwpLeosFilterProtocolEntry": wwpLeosFilterProtocolEntry,
+       "wwpLeosFilterProtocolIndex": wwpLeosFilterProtocolIndex,
+       "wwpLeosFilterProtocolName": wwpLeosFilterProtocolName,
+       "wwpLeosFilterProtocolType": wwpLeosFilterProtocolType,
+       "wwpLeosFilterProtocolSrcPort": wwpLeosFilterProtocolSrcPort,
+       "wwpLeosFilterProtocolDstPort": wwpLeosFilterProtocolDstPort,
+       "wwpLeosFilterProtocolStatus": wwpLeosFilterProtocolStatus,
+       "wwpLeosFilterMemTable": wwpLeosFilterMemTable,
+       "wwpLeosFilterMemEntry": wwpLeosFilterMemEntry,
+       "wwpLeosFilterVlan": wwpLeosFilterVlan,
+       "wwpLeosFilterPortId": wwpLeosFilterPortId,
+       "wwpLeosFilterMemStatus": wwpLeosFilterMemStatus,
+       "wwpLeosFilterMemRule": wwpLeosFilterMemRule,
+       "wwpLeosFilterProtocolMemTable": wwpLeosFilterProtocolMemTable,
+       "wwpLeosFilterProtocolMemEntry": wwpLeosFilterProtocolMemEntry,
+       "wwpLeosFilterProtocolMemStatus": wwpLeosFilterProtocolMemStatus,
+       "wwpLeosFilterStatsTable": wwpLeosFilterStatsTable,
+       "wwpLeosFilterStatsEntry": wwpLeosFilterStatsEntry,
+       "wwpLeosFilterDropBytes": wwpLeosFilterDropBytes,
+       "wwpLeosFilterMIBNotificationPrefix": wwpLeosFilterMIBNotificationPrefix,
+       "wwpLeosFilterMIBNotifications": wwpLeosFilterMIBNotifications,
+       "wwpLeosFilterMIBConformance": wwpLeosFilterMIBConformance,
+       "wwpLeosFilterMIBCompliances": wwpLeosFilterMIBCompliances,
+       "wwpLeosFilterMIBGroups": wwpLeosFilterMIBGroups}
+)

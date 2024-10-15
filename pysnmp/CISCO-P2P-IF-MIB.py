@@ -1,63 +1,333 @@
+# SNMP MIB module (CISCO-P2P-IF-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-P2P-IF-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/CISCO-P2P-IF-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:52:19 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion")
-ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-Bits, iso, MibIdentifier, ModuleIdentity, Counter64, Counter32, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, TimeTicks, Integer32, IpAddress, Gauge32, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "iso", "MibIdentifier", "ModuleIdentity", "Counter64", "Counter32", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "TimeTicks", "Integer32", "IpAddress", "Gauge32", "Unsigned32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-ciscoP2PIfMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 668))
-ciscoP2PIfMIB.setRevisions(('2008-08-12 00:00',))
-if mibBuilder.loadTexts: ciscoP2PIfMIB.setLastUpdated('200808120000Z')
-if mibBuilder.loadTexts: ciscoP2PIfMIB.setOrganization('Cisco Systems, Inc.')
-ciscoP2PIfMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 668, 0))
-ciscoP2PIfMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 668, 1))
-cp2pIfGeneralObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 668, 1, 1))
-class Cp2pIfCrcMode(TextualConvention, Integer32):
-    reference = 'RFC-2615, PPP over SONET/SDH: Section 5. Configuration Details.'
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("crc16", 1), ("crc32", 2))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CISCO-P2P-IF-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:06:36 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class Cp2pIfScramblingMode(TextualConvention, Integer32):
-    reference = 'RFC-2615, PPP over SONET/SDH: Section 4. X**43 + 1 Scrambler Description.'
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("on", 1), ("off", 2))
+if 'mibBuilder' not in globals():
+    import sys
 
-cp2pIfCfgTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 668, 1, 1, 1), )
-if mibBuilder.loadTexts: cp2pIfCfgTable.setStatus('current')
-cp2pIfCfgEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 668, 1, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: cp2pIfCfgEntry.setStatus('current')
-cp2pIfCfgCrcMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 668, 1, 1, 1, 1, 1), Cp2pIfCrcMode().clone('crc32')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cp2pIfCfgCrcMode.setStatus('current')
-cp2pIfCfgScramblingMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 668, 1, 1, 1, 1, 2), Cp2pIfScramblingMode().clone('off')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cp2pIfCfgScramblingMode.setStatus('current')
-cp2pIfCfgTransmitDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 668, 1, 1, 1, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 18000))).setUnits('microseconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cp2pIfCfgTransmitDelay.setStatus('current')
-cp2pIfStatsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 668, 1, 1, 2), )
-if mibBuilder.loadTexts: cp2pIfStatsTable.setStatus('current')
-cp2pIfStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 668, 1, 1, 2, 1), )
-cp2pIfCfgEntry.registerAugmentions(("CISCO-P2P-IF-MIB", "cp2pIfStatsEntry"))
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ciscoMgmt,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoMgmt")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+ciscoP2PIfMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 668)
+)
+ciscoP2PIfMIB.setRevisions(
+        ("2008-08-12 00:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class Cp2pIfCrcMode(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("crc16", 1),
+          ("crc32", 2))
+    )
+
+
+
+class Cp2pIfScramblingMode(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 2),
+          ("on", 1))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CiscoP2PIfMIBNotifs_ObjectIdentity = ObjectIdentity
+ciscoP2PIfMIBNotifs = _CiscoP2PIfMIBNotifs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 668, 0)
+)
+_CiscoP2PIfMIBObjects_ObjectIdentity = ObjectIdentity
+ciscoP2PIfMIBObjects = _CiscoP2PIfMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 668, 1)
+)
+_Cp2pIfGeneralObjects_ObjectIdentity = ObjectIdentity
+cp2pIfGeneralObjects = _Cp2pIfGeneralObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 668, 1, 1)
+)
+_Cp2pIfCfgTable_Object = MibTable
+cp2pIfCfgTable = _Cp2pIfCfgTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 668, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    cp2pIfCfgTable.setStatus("current")
+_Cp2pIfCfgEntry_Object = MibTableRow
+cp2pIfCfgEntry = _Cp2pIfCfgEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 668, 1, 1, 1, 1)
+)
+cp2pIfCfgEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    cp2pIfCfgEntry.setStatus("current")
+
+
+class _Cp2pIfCfgCrcMode_Type(Cp2pIfCrcMode):
+    """Custom type cp2pIfCfgCrcMode based on Cp2pIfCrcMode"""
+
+
+_Cp2pIfCfgCrcMode_Object = MibTableColumn
+cp2pIfCfgCrcMode = _Cp2pIfCfgCrcMode_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 668, 1, 1, 1, 1, 1),
+    _Cp2pIfCfgCrcMode_Type()
+)
+cp2pIfCfgCrcMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cp2pIfCfgCrcMode.setStatus("current")
+
+
+class _Cp2pIfCfgScramblingMode_Type(Cp2pIfScramblingMode):
+    """Custom type cp2pIfCfgScramblingMode based on Cp2pIfScramblingMode"""
+
+
+_Cp2pIfCfgScramblingMode_Object = MibTableColumn
+cp2pIfCfgScramblingMode = _Cp2pIfCfgScramblingMode_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 668, 1, 1, 1, 1, 2),
+    _Cp2pIfCfgScramblingMode_Type()
+)
+cp2pIfCfgScramblingMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cp2pIfCfgScramblingMode.setStatus("current")
+
+
+class _Cp2pIfCfgTransmitDelay_Type(Unsigned32):
+    """Custom type cp2pIfCfgTransmitDelay based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 18000),
+    )
+
+
+_Cp2pIfCfgTransmitDelay_Type.__name__ = "Unsigned32"
+_Cp2pIfCfgTransmitDelay_Object = MibTableColumn
+cp2pIfCfgTransmitDelay = _Cp2pIfCfgTransmitDelay_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 668, 1, 1, 1, 1, 3),
+    _Cp2pIfCfgTransmitDelay_Type()
+)
+cp2pIfCfgTransmitDelay.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cp2pIfCfgTransmitDelay.setStatus("current")
+if mibBuilder.loadTexts:
+    cp2pIfCfgTransmitDelay.setUnits("microseconds")
+_Cp2pIfStatsTable_Object = MibTable
+cp2pIfStatsTable = _Cp2pIfStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 668, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    cp2pIfStatsTable.setStatus("current")
+_Cp2pIfStatsEntry_Object = MibTableRow
+cp2pIfStatsEntry = _Cp2pIfStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 668, 1, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    cp2pIfStatsEntry.setStatus("current")
+_Cp2pIfStatsInCrcErrors_Type = Counter32
+_Cp2pIfStatsInCrcErrors_Object = MibTableColumn
+cp2pIfStatsInCrcErrors = _Cp2pIfStatsInCrcErrors_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 668, 1, 1, 2, 1, 1),
+    _Cp2pIfStatsInCrcErrors_Type()
+)
+cp2pIfStatsInCrcErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cp2pIfStatsInCrcErrors.setStatus("current")
+_CiscoP2PIfMIBConformance_ObjectIdentity = ObjectIdentity
+ciscoP2PIfMIBConformance = _CiscoP2PIfMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 668, 3)
+)
+_CiscoP2PIfMIBCompliances_ObjectIdentity = ObjectIdentity
+ciscoP2PIfMIBCompliances = _CiscoP2PIfMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 668, 3, 1)
+)
+_CiscoP2PIfMIBGroups_ObjectIdentity = ObjectIdentity
+ciscoP2PIfMIBGroups = _CiscoP2PIfMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 668, 3, 2)
+)
+cp2pIfCfgEntry.registerAugmentions(
+    ("CISCO-P2P-IF-MIB",
+     "cp2pIfStatsEntry")
+)
 cp2pIfStatsEntry.setIndexNames(*cp2pIfCfgEntry.getIndexNames())
-if mibBuilder.loadTexts: cp2pIfStatsEntry.setStatus('current')
-cp2pIfStatsInCrcErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 668, 1, 1, 2, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cp2pIfStatsInCrcErrors.setStatus('current')
-ciscoP2PIfMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 668, 3))
-ciscoP2PIfMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 668, 3, 1))
-ciscoP2PIfMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 668, 3, 2))
-ciscoP2PIfMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 668, 3, 1, 1)).setObjects(("CISCO-P2P-IF-MIB", "ciscoP2PIfMIBGeneralGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoP2PIfMIBCompliance = ciscoP2PIfMIBCompliance.setStatus('current')
-ciscoP2PIfMIBGeneralGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 668, 3, 2, 1)).setObjects(("CISCO-P2P-IF-MIB", "cp2pIfCfgCrcMode"), ("CISCO-P2P-IF-MIB", "cp2pIfCfgScramblingMode"), ("CISCO-P2P-IF-MIB", "cp2pIfCfgTransmitDelay"), ("CISCO-P2P-IF-MIB", "cp2pIfStatsInCrcErrors"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoP2PIfMIBGeneralGroup = ciscoP2PIfMIBGeneralGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-P2P-IF-MIB", cp2pIfStatsInCrcErrors=cp2pIfStatsInCrcErrors, cp2pIfCfgTable=cp2pIfCfgTable, cp2pIfStatsEntry=cp2pIfStatsEntry, ciscoP2PIfMIBCompliance=ciscoP2PIfMIBCompliance, cp2pIfCfgEntry=cp2pIfCfgEntry, cp2pIfStatsTable=cp2pIfStatsTable, ciscoP2PIfMIBNotifs=ciscoP2PIfMIBNotifs, ciscoP2PIfMIBConformance=ciscoP2PIfMIBConformance, Cp2pIfCrcMode=Cp2pIfCrcMode, PYSNMP_MODULE_ID=ciscoP2PIfMIB, ciscoP2PIfMIBGeneralGroup=ciscoP2PIfMIBGeneralGroup, cp2pIfGeneralObjects=cp2pIfGeneralObjects, ciscoP2PIfMIBObjects=ciscoP2PIfMIBObjects, cp2pIfCfgTransmitDelay=cp2pIfCfgTransmitDelay, cp2pIfCfgScramblingMode=cp2pIfCfgScramblingMode, cp2pIfCfgCrcMode=cp2pIfCfgCrcMode, ciscoP2PIfMIBGroups=ciscoP2PIfMIBGroups, ciscoP2PIfMIBCompliances=ciscoP2PIfMIBCompliances, ciscoP2PIfMIB=ciscoP2PIfMIB, Cp2pIfScramblingMode=Cp2pIfScramblingMode)
+# Managed Objects groups
+
+ciscoP2PIfMIBGeneralGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 668, 3, 2, 1)
+)
+ciscoP2PIfMIBGeneralGroup.setObjects(
+      *(("CISCO-P2P-IF-MIB", "cp2pIfCfgCrcMode"),
+        ("CISCO-P2P-IF-MIB", "cp2pIfCfgScramblingMode"),
+        ("CISCO-P2P-IF-MIB", "cp2pIfCfgTransmitDelay"),
+        ("CISCO-P2P-IF-MIB", "cp2pIfStatsInCrcErrors"))
+)
+if mibBuilder.loadTexts:
+    ciscoP2PIfMIBGeneralGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+ciscoP2PIfMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 668, 3, 1, 1)
+)
+if mibBuilder.loadTexts:
+    ciscoP2PIfMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-P2P-IF-MIB",
+    **{"Cp2pIfCrcMode": Cp2pIfCrcMode,
+       "Cp2pIfScramblingMode": Cp2pIfScramblingMode,
+       "ciscoP2PIfMIB": ciscoP2PIfMIB,
+       "ciscoP2PIfMIBNotifs": ciscoP2PIfMIBNotifs,
+       "ciscoP2PIfMIBObjects": ciscoP2PIfMIBObjects,
+       "cp2pIfGeneralObjects": cp2pIfGeneralObjects,
+       "cp2pIfCfgTable": cp2pIfCfgTable,
+       "cp2pIfCfgEntry": cp2pIfCfgEntry,
+       "cp2pIfCfgCrcMode": cp2pIfCfgCrcMode,
+       "cp2pIfCfgScramblingMode": cp2pIfCfgScramblingMode,
+       "cp2pIfCfgTransmitDelay": cp2pIfCfgTransmitDelay,
+       "cp2pIfStatsTable": cp2pIfStatsTable,
+       "cp2pIfStatsEntry": cp2pIfStatsEntry,
+       "cp2pIfStatsInCrcErrors": cp2pIfStatsInCrcErrors,
+       "ciscoP2PIfMIBConformance": ciscoP2PIfMIBConformance,
+       "ciscoP2PIfMIBCompliances": ciscoP2PIfMIBCompliances,
+       "ciscoP2PIfMIBCompliance": ciscoP2PIfMIBCompliance,
+       "ciscoP2PIfMIBGroups": ciscoP2PIfMIBGroups,
+       "ciscoP2PIfMIBGeneralGroup": ciscoP2PIfMIBGeneralGroup}
+)

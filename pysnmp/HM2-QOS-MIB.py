@@ -1,23 +1,161 @@
+# SNMP MIB module (HM2-QOS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HM2-QOS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/HM2-QOS-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:19:40 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint")
-hm2ConfigurationMibs, = mibBuilder.importSymbols("HM2-TC-MIB", "hm2ConfigurationMibs")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Unsigned32, NotificationType, TimeTicks, Gauge32, IpAddress, iso, Bits, ModuleIdentity, ObjectIdentity, Counter32, Integer32, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "NotificationType", "TimeTicks", "Gauge32", "IpAddress", "iso", "Bits", "ModuleIdentity", "ObjectIdentity", "Counter32", "Integer32", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-hm2QosMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 248, 11, 32))
-hm2QosMib.setRevisions(('2011-03-16 00:00',))
-if mibBuilder.loadTexts: hm2QosMib.setLastUpdated('201103160000Z')
-if mibBuilder.loadTexts: hm2QosMib.setOrganization('Hirschmann Automation and Control GmbH')
-hm2QosMibNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 11, 32, 0))
-hm2QosMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 11, 32, 1))
-hm2QosFirstGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 11, 32, 1, 1))
-hm2QosNextGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 11, 32, 1, 2))
-mibBuilder.exportSymbols("HM2-QOS-MIB", hm2QosMibNotifications=hm2QosMibNotifications, PYSNMP_MODULE_ID=hm2QosMib, hm2QosNextGroup=hm2QosNextGroup, hm2QosFirstGroup=hm2QosFirstGroup, hm2QosMib=hm2QosMib, hm2QosMibObjects=hm2QosMibObjects)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HM2-QOS-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:56:30 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(hm2ConfigurationMibs,) = mibBuilder.importSymbols(
+    "HM2-TC-MIB",
+    "hm2ConfigurationMibs")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+hm2QosMib = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 248, 11, 32)
+)
+hm2QosMib.setRevisions(
+        ("2011-03-16 00:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Hm2QosMibNotifications_ObjectIdentity = ObjectIdentity
+hm2QosMibNotifications = _Hm2QosMibNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 248, 11, 32, 0)
+)
+_Hm2QosMibObjects_ObjectIdentity = ObjectIdentity
+hm2QosMibObjects = _Hm2QosMibObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 248, 11, 32, 1)
+)
+_Hm2QosFirstGroup_ObjectIdentity = ObjectIdentity
+hm2QosFirstGroup = _Hm2QosFirstGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 248, 11, 32, 1, 1)
+)
+_Hm2QosNextGroup_ObjectIdentity = ObjectIdentity
+hm2QosNextGroup = _Hm2QosNextGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 248, 11, 32, 1, 2)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HM2-QOS-MIB",
+    **{"hm2QosMib": hm2QosMib,
+       "hm2QosMibNotifications": hm2QosMibNotifications,
+       "hm2QosMibObjects": hm2QosMibObjects,
+       "hm2QosFirstGroup": hm2QosFirstGroup,
+       "hm2QosNextGroup": hm2QosNextGroup}
+)

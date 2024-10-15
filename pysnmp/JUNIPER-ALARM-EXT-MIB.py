@@ -1,28 +1,180 @@
+# SNMP MIB module (JUNIPER-ALARM-EXT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module JUNIPER-ALARM-EXT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/JUNIPER-ALARM-EXT-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:47:47 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-alarmClearEntry, = mibBuilder.importSymbols("ALARM-MIB", "alarmClearEntry")
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint")
-jnxMibs, jnxAlarmExtMibRoot = mibBuilder.importSymbols("JUNIPER-SMI", "jnxMibs", "jnxAlarmExtMibRoot")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Unsigned32, Integer32, NotificationType, Gauge32, IpAddress, Bits, Counter32, MibIdentifier, TimeTicks, Counter64, iso, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Unsigned32", "Integer32", "NotificationType", "Gauge32", "IpAddress", "Bits", "Counter32", "MibIdentifier", "TimeTicks", "Counter64", "iso", "ModuleIdentity")
-DateAndTime, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "DisplayString")
-jnxAlarmMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2636, 3, 72, 1))
-if mibBuilder.loadTexts: jnxAlarmMIB.setLastUpdated('201209041502Z')
-if mibBuilder.loadTexts: jnxAlarmMIB.setOrganization('Juniper Networks, Inc.')
-jnxAlarmObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2636, 3, 72, 1, 1))
-jnxAlarmClearTable = MibTable((1, 3, 6, 1, 4, 1, 2636, 3, 72, 1, 1, 1), )
-if mibBuilder.loadTexts: jnxAlarmClearTable.setStatus('current')
-jnxAlarmClearEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2636, 3, 72, 1, 1, 1, 1), )
-alarmClearEntry.registerAugmentions(("JUNIPER-ALARM-EXT-MIB", "jnxAlarmClearEntry"))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/JUNIPER-ALARM-EXT-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:12:46 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(alarmClearEntry,) = mibBuilder.importSymbols(
+    "ALARM-MIB",
+    "alarmClearEntry")
+
+(jnxAlarmExtMibRoot,
+ jnxMibs) = mibBuilder.importSymbols(
+    "JUNIPER-SMI",
+    "jnxAlarmExtMibRoot",
+    "jnxMibs")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+jnxAlarmMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 72, 1)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_JnxAlarmObjects_ObjectIdentity = ObjectIdentity
+jnxAlarmObjects = _JnxAlarmObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 72, 1, 1)
+)
+_JnxAlarmClearTable_Object = MibTable
+jnxAlarmClearTable = _JnxAlarmClearTable_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 72, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    jnxAlarmClearTable.setStatus("current")
+_JnxAlarmClearEntry_Object = MibTableRow
+jnxAlarmClearEntry = _JnxAlarmClearEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 72, 1, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    jnxAlarmClearEntry.setStatus("current")
+_JnxAlarmClearActiveDateAndTime_Type = DateAndTime
+_JnxAlarmClearActiveDateAndTime_Object = MibTableColumn
+jnxAlarmClearActiveDateAndTime = _JnxAlarmClearActiveDateAndTime_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 72, 1, 1, 1, 1, 1),
+    _JnxAlarmClearActiveDateAndTime_Type()
+)
+jnxAlarmClearActiveDateAndTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxAlarmClearActiveDateAndTime.setStatus("current")
+alarmClearEntry.registerAugmentions(
+    ("JUNIPER-ALARM-EXT-MIB",
+     "jnxAlarmClearEntry")
+)
 jnxAlarmClearEntry.setIndexNames(*alarmClearEntry.getIndexNames())
-if mibBuilder.loadTexts: jnxAlarmClearEntry.setStatus('current')
-jnxAlarmClearActiveDateAndTime = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 72, 1, 1, 1, 1, 1), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxAlarmClearActiveDateAndTime.setStatus('current')
-mibBuilder.exportSymbols("JUNIPER-ALARM-EXT-MIB", jnxAlarmClearEntry=jnxAlarmClearEntry, PYSNMP_MODULE_ID=jnxAlarmMIB, jnxAlarmClearActiveDateAndTime=jnxAlarmClearActiveDateAndTime, jnxAlarmClearTable=jnxAlarmClearTable, jnxAlarmMIB=jnxAlarmMIB, jnxAlarmObjects=jnxAlarmObjects)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "JUNIPER-ALARM-EXT-MIB",
+    **{"jnxAlarmMIB": jnxAlarmMIB,
+       "jnxAlarmObjects": jnxAlarmObjects,
+       "jnxAlarmClearTable": jnxAlarmClearTable,
+       "jnxAlarmClearEntry": jnxAlarmClearEntry,
+       "jnxAlarmClearActiveDateAndTime": jnxAlarmClearActiveDateAndTime}
+)

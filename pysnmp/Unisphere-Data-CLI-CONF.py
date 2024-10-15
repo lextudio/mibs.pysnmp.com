@@ -1,25 +1,166 @@
+# SNMP MIB module (Unisphere-Data-CLI-CONF) expressed in pysnmp data model.
 #
-# PySNMP MIB module Unisphere-Data-CLI-CONF (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/Unisphere-Data-CLI-CONF
-# Produced by pysmi-0.3.4 at Mon Apr 29 21:23:25 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
-AgentCapabilities, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "AgentCapabilities", "ModuleCompliance", "NotificationGroup")
-Gauge32, Integer32, Bits, NotificationType, MibIdentifier, iso, Unsigned32, ObjectIdentity, ModuleIdentity, TimeTicks, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Integer32", "Bits", "NotificationType", "MibIdentifier", "iso", "Unsigned32", "ObjectIdentity", "ModuleIdentity", "TimeTicks", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-usDataAgents, = mibBuilder.importSymbols("Unisphere-Data-Agents", "usDataAgents")
-usdCliSecurityAlertGroup, usdCliSecurityTrapGroup, usdCliGroup = mibBuilder.importSymbols("Unisphere-Data-CLI-MIB", "usdCliSecurityAlertGroup", "usdCliSecurityTrapGroup", "usdCliGroup")
-usdCliAgent = ModuleIdentity((1, 3, 6, 1, 4, 1, 4874, 5, 2, 6))
-usdCliAgent.setRevisions(('2001-03-27 22:30',))
-if mibBuilder.loadTexts: usdCliAgent.setLastUpdated('200103272230Z')
-if mibBuilder.loadTexts: usdCliAgent.setOrganization('Unisphere Networks, Inc.')
-usdCliAgentV1 = AgentCapabilities((1, 3, 6, 1, 4, 1, 4874, 5, 2, 6, 1))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    usdCliAgentV1 = usdCliAgentV1.setProductRelease('Version 1 of the CLI Security Management component of the Unisphere\n        Routing Switch SNMP agent.  This version of the CLI Security Management\n        component is supported in the Unisphere RX 1.3 and subsequent system\n        releases.')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    usdCliAgentV1 = usdCliAgentV1.setStatus('current')
-mibBuilder.exportSymbols("Unisphere-Data-CLI-CONF", usdCliAgentV1=usdCliAgentV1, usdCliAgent=usdCliAgent, PYSNMP_MODULE_ID=usdCliAgent)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/Unisphere-Data-CLI-CONF
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:10:27 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(AgentCapabilities,
+ ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "AgentCapabilities",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+(usDataAgents,) = mibBuilder.importSymbols(
+    "Unisphere-Data-Agents",
+    "usDataAgents")
+
+(usdCliGroup,
+ usdCliSecurityAlertGroup,
+ usdCliSecurityTrapGroup) = mibBuilder.importSymbols(
+    "Unisphere-Data-CLI-MIB",
+    "usdCliGroup",
+    "usdCliSecurityAlertGroup",
+    "usdCliSecurityTrapGroup")
+
+
+# MODULE-IDENTITY
+
+usdCliAgent = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 6)
+)
+usdCliAgent.setRevisions(
+        ("2001-03-27 22:30",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+usdCliAgentV1 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 6, 1)
+)
+if mibBuilder.loadTexts:
+    usdCliAgentV1.setProductRelease("""\
+Version 1 of the CLI Security Management component of the Unisphere
+        Routing Switch SNMP agent.  This version of the CLI Security Management
+        component is supported in the Unisphere RX 1.3 and subsequent system
+        releases.""")
+if mibBuilder.loadTexts:
+    usdCliAgentV1.setStatus(
+        "current"
+    )
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "Unisphere-Data-CLI-CONF",
+    **{"usdCliAgent": usdCliAgent,
+       "usdCliAgentV1": usdCliAgentV1}
+)

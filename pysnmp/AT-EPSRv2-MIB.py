@@ -1,70 +1,463 @@
+# SNMP MIB module (AT-EPSRv2-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module AT-EPSRv2-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/AT-EPSRv2-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:13:49 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
-modules, DisplayStringUnsized = mibBuilder.importSymbols("AT-SMI-MIB", "modules", "DisplayStringUnsized")
-InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-NotificationType, Counter64, ObjectIdentity, TimeTicks, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Integer32, Gauge32, MibIdentifier, ModuleIdentity, IpAddress, iso, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Counter64", "ObjectIdentity", "TimeTicks", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Integer32", "Gauge32", "MibIdentifier", "ModuleIdentity", "IpAddress", "iso", "Counter32")
-TextualConvention, DisplayString, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "TruthValue")
-atEpsrv2 = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536))
-atEpsrv2.setRevisions(('2011-07-07 00:00', '2010-09-07 00:00', '2010-06-14 04:55', '2010-05-24 01:19', '2010-01-15 00:39', '2008-12-23 01:30',))
-if mibBuilder.loadTexts: atEpsrv2.setLastUpdated('201107070000Z')
-if mibBuilder.loadTexts: atEpsrv2.setOrganization('Allied Telesis, Inc')
-class AtEpsrv2NodeState(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))
-    namedValues = NamedValues(("idle", 0), ("complete", 1), ("failed", 2), ("linksUp", 3), ("linksDown", 4), ("preForward", 5), ("unknown", 6))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/AT-EPSRv2-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 20:43:07 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class AtEpsrv2InterfaceState(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("unknown", 1), ("down", 2), ("blocked", 3), ("forward", 4))
+if 'mibBuilder' not in globals():
+    import sys
 
-atEpsrv2Notifications = MibIdentifier((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 0))
-atEpsrv2Notify = NotificationType((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 0, 1)).setObjects(("AT-EPSRv2-MIB", "atEpsrv2NodeType"), ("AT-EPSRv2-MIB", "atEpsrv2DomainName"), ("AT-EPSRv2-MIB", "atEpsrv2DomainID"), ("AT-EPSRv2-MIB", "atEpsrv2FromState"), ("AT-EPSRv2-MIB", "atEpsrv2CurrentState"), ("AT-EPSRv2-MIB", "atEpsrv2ControlVlanId"), ("AT-EPSRv2-MIB", "atEpsrv2PrimaryIfIndex"), ("AT-EPSRv2-MIB", "atEpsrv2PrimaryIfState"), ("AT-EPSRv2-MIB", "atEpsrv2SecondaryIfIndex"), ("AT-EPSRv2-MIB", "atEpsrv2SecondaryIfState"), ("AT-EPSRv2-MIB", "atEpsrv2DomainPriority"), ("AT-EPSRv2-MIB", "atEpsrv2PrimaryIfIsOnCommonSeg"), ("AT-EPSRv2-MIB", "atEpsrv2SecondaryIfIsOnCommonSeg"), ("AT-EPSRv2-MIB", "atEpsrv2HasControlOfPrimaryIf"), ("AT-EPSRv2-MIB", "atEpsrv2HasControlOfSecondaryIf"))
-if mibBuilder.loadTexts: atEpsrv2Notify.setStatus('current')
-atEpsrv2Events = MibIdentifier((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 1))
-atEpsrv2NodeTrap = NotificationType((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 1, 1)).setObjects(("AT-EPSRv2-MIB", "atEpsrv2NodeType"), ("AT-EPSRv2-MIB", "atEpsrv2DomainName"), ("AT-EPSRv2-MIB", "atEpsrv2DomainID"), ("AT-EPSRv2-MIB", "atEpsrv2FromState"), ("AT-EPSRv2-MIB", "atEpsrv2CurrentState"), ("AT-EPSRv2-MIB", "atEpsrv2ControlVlanId"), ("AT-EPSRv2-MIB", "atEpsrv2PrimaryIfIndex"), ("AT-EPSRv2-MIB", "atEpsrv2PrimaryIfState"), ("AT-EPSRv2-MIB", "atEpsrv2SecondaryIfIndex"), ("AT-EPSRv2-MIB", "atEpsrv2SecondaryIfState"))
-if mibBuilder.loadTexts: atEpsrv2NodeTrap.setStatus('deprecated')
-atEpsrv2VariablesTable = MibTable((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 2), )
-if mibBuilder.loadTexts: atEpsrv2VariablesTable.setStatus('current')
-atEpsrv2VariablesEntry = MibTableRow((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 2, 1), ).setIndexNames((0, "AT-EPSRv2-MIB", "atEpsrv2DomainID"))
-if mibBuilder.loadTexts: atEpsrv2VariablesEntry.setStatus('current')
-atEpsrv2NodeType = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("masterNode", 1), ("transitNode", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atEpsrv2NodeType.setStatus('current')
-atEpsrv2DomainName = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 2, 1, 2), DisplayStringUnsized().subtype(subtypeSpec=ValueSizeConstraint(1, 16))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atEpsrv2DomainName.setStatus('current')
-atEpsrv2DomainID = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atEpsrv2DomainID.setStatus('current')
-atEpsrv2FromState = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 2, 1, 4), AtEpsrv2NodeState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atEpsrv2FromState.setStatus('current')
-atEpsrv2CurrentState = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 2, 1, 5), AtEpsrv2NodeState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atEpsrv2CurrentState.setStatus('current')
-atEpsrv2ControlVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 2, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atEpsrv2ControlVlanId.setStatus('current')
-atEpsrv2PrimaryIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 2, 1, 7), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atEpsrv2PrimaryIfIndex.setStatus('current')
-atEpsrv2PrimaryIfState = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 2, 1, 8), AtEpsrv2InterfaceState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atEpsrv2PrimaryIfState.setStatus('current')
-atEpsrv2SecondaryIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 2, 1, 9), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atEpsrv2SecondaryIfIndex.setStatus('current')
-atEpsrv2SecondaryIfState = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 2, 1, 10), AtEpsrv2InterfaceState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atEpsrv2SecondaryIfState.setStatus('current')
-atEpsrv2DomainPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 2, 1, 11), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atEpsrv2DomainPriority.setStatus('current')
-atEpsrv2PrimaryIfIsOnCommonSeg = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 2, 1, 12), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atEpsrv2PrimaryIfIsOnCommonSeg.setStatus('current')
-atEpsrv2SecondaryIfIsOnCommonSeg = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 2, 1, 13), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atEpsrv2SecondaryIfIsOnCommonSeg.setStatus('current')
-atEpsrv2HasControlOfPrimaryIf = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 2, 1, 14), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atEpsrv2HasControlOfPrimaryIf.setStatus('current')
-atEpsrv2HasControlOfSecondaryIf = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 2, 1, 15), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atEpsrv2HasControlOfSecondaryIf.setStatus('current')
-mibBuilder.exportSymbols("AT-EPSRv2-MIB", atEpsrv2PrimaryIfIsOnCommonSeg=atEpsrv2PrimaryIfIsOnCommonSeg, atEpsrv2ControlVlanId=atEpsrv2ControlVlanId, atEpsrv2NodeType=atEpsrv2NodeType, atEpsrv2SecondaryIfState=atEpsrv2SecondaryIfState, atEpsrv2Notify=atEpsrv2Notify, AtEpsrv2NodeState=AtEpsrv2NodeState, atEpsrv2PrimaryIfIndex=atEpsrv2PrimaryIfIndex, atEpsrv2SecondaryIfIsOnCommonSeg=atEpsrv2SecondaryIfIsOnCommonSeg, atEpsrv2HasControlOfPrimaryIf=atEpsrv2HasControlOfPrimaryIf, atEpsrv2VariablesEntry=atEpsrv2VariablesEntry, atEpsrv2SecondaryIfIndex=atEpsrv2SecondaryIfIndex, atEpsrv2=atEpsrv2, atEpsrv2CurrentState=atEpsrv2CurrentState, atEpsrv2DomainPriority=atEpsrv2DomainPriority, atEpsrv2FromState=atEpsrv2FromState, atEpsrv2DomainName=atEpsrv2DomainName, atEpsrv2PrimaryIfState=atEpsrv2PrimaryIfState, AtEpsrv2InterfaceState=AtEpsrv2InterfaceState, atEpsrv2DomainID=atEpsrv2DomainID, PYSNMP_MODULE_ID=atEpsrv2, atEpsrv2Notifications=atEpsrv2Notifications, atEpsrv2NodeTrap=atEpsrv2NodeTrap, atEpsrv2HasControlOfSecondaryIf=atEpsrv2HasControlOfSecondaryIf, atEpsrv2VariablesTable=atEpsrv2VariablesTable, atEpsrv2Events=atEpsrv2Events)
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(DisplayStringUnsized,
+ modules) = mibBuilder.importSymbols(
+    "AT-SMI-MIB",
+    "DisplayStringUnsized",
+    "modules")
+
+(InterfaceIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+atEpsrv2 = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536)
+)
+atEpsrv2.setRevisions(
+        ("2011-07-07 00:00",
+         "2010-09-07 00:00",
+         "2010-06-14 04:55",
+         "2010-05-24 01:19",
+         "2010-01-15 00:39",
+         "2008-12-23 01:30")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class AtEpsrv2NodeState(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("complete", 1),
+          ("failed", 2),
+          ("idle", 0),
+          ("linksDown", 4),
+          ("linksUp", 3),
+          ("preForward", 5),
+          ("unknown", 6))
+    )
+
+
+
+class AtEpsrv2InterfaceState(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("blocked", 3),
+          ("down", 2),
+          ("forward", 4),
+          ("unknown", 1))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AtEpsrv2Notifications_ObjectIdentity = ObjectIdentity
+atEpsrv2Notifications = _AtEpsrv2Notifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 0)
+)
+_AtEpsrv2Events_ObjectIdentity = ObjectIdentity
+atEpsrv2Events = _AtEpsrv2Events_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 1)
+)
+_AtEpsrv2VariablesTable_Object = MibTable
+atEpsrv2VariablesTable = _AtEpsrv2VariablesTable_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 2)
+)
+if mibBuilder.loadTexts:
+    atEpsrv2VariablesTable.setStatus("current")
+_AtEpsrv2VariablesEntry_Object = MibTableRow
+atEpsrv2VariablesEntry = _AtEpsrv2VariablesEntry_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 2, 1)
+)
+atEpsrv2VariablesEntry.setIndexNames(
+    (0, "AT-EPSRv2-MIB", "atEpsrv2DomainID"),
+)
+if mibBuilder.loadTexts:
+    atEpsrv2VariablesEntry.setStatus("current")
+
+
+class _AtEpsrv2NodeType_Type(Integer32):
+    """Custom type atEpsrv2NodeType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("masterNode", 1),
+          ("transitNode", 2))
+    )
+
+
+_AtEpsrv2NodeType_Type.__name__ = "Integer32"
+_AtEpsrv2NodeType_Object = MibTableColumn
+atEpsrv2NodeType = _AtEpsrv2NodeType_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 2, 1, 1),
+    _AtEpsrv2NodeType_Type()
+)
+atEpsrv2NodeType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atEpsrv2NodeType.setStatus("current")
+
+
+class _AtEpsrv2DomainName_Type(DisplayStringUnsized):
+    """Custom type atEpsrv2DomainName based on DisplayStringUnsized"""
+    subtypeSpec = DisplayStringUnsized.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 16),
+    )
+
+
+_AtEpsrv2DomainName_Type.__name__ = "DisplayStringUnsized"
+_AtEpsrv2DomainName_Object = MibTableColumn
+atEpsrv2DomainName = _AtEpsrv2DomainName_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 2, 1, 2),
+    _AtEpsrv2DomainName_Type()
+)
+atEpsrv2DomainName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atEpsrv2DomainName.setStatus("current")
+
+
+class _AtEpsrv2DomainID_Type(Integer32):
+    """Custom type atEpsrv2DomainID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_AtEpsrv2DomainID_Type.__name__ = "Integer32"
+_AtEpsrv2DomainID_Object = MibTableColumn
+atEpsrv2DomainID = _AtEpsrv2DomainID_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 2, 1, 3),
+    _AtEpsrv2DomainID_Type()
+)
+atEpsrv2DomainID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atEpsrv2DomainID.setStatus("current")
+_AtEpsrv2FromState_Type = AtEpsrv2NodeState
+_AtEpsrv2FromState_Object = MibTableColumn
+atEpsrv2FromState = _AtEpsrv2FromState_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 2, 1, 4),
+    _AtEpsrv2FromState_Type()
+)
+atEpsrv2FromState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atEpsrv2FromState.setStatus("current")
+_AtEpsrv2CurrentState_Type = AtEpsrv2NodeState
+_AtEpsrv2CurrentState_Object = MibTableColumn
+atEpsrv2CurrentState = _AtEpsrv2CurrentState_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 2, 1, 5),
+    _AtEpsrv2CurrentState_Type()
+)
+atEpsrv2CurrentState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atEpsrv2CurrentState.setStatus("current")
+_AtEpsrv2ControlVlanId_Type = Integer32
+_AtEpsrv2ControlVlanId_Object = MibTableColumn
+atEpsrv2ControlVlanId = _AtEpsrv2ControlVlanId_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 2, 1, 6),
+    _AtEpsrv2ControlVlanId_Type()
+)
+atEpsrv2ControlVlanId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atEpsrv2ControlVlanId.setStatus("current")
+_AtEpsrv2PrimaryIfIndex_Type = InterfaceIndex
+_AtEpsrv2PrimaryIfIndex_Object = MibTableColumn
+atEpsrv2PrimaryIfIndex = _AtEpsrv2PrimaryIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 2, 1, 7),
+    _AtEpsrv2PrimaryIfIndex_Type()
+)
+atEpsrv2PrimaryIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atEpsrv2PrimaryIfIndex.setStatus("current")
+_AtEpsrv2PrimaryIfState_Type = AtEpsrv2InterfaceState
+_AtEpsrv2PrimaryIfState_Object = MibTableColumn
+atEpsrv2PrimaryIfState = _AtEpsrv2PrimaryIfState_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 2, 1, 8),
+    _AtEpsrv2PrimaryIfState_Type()
+)
+atEpsrv2PrimaryIfState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atEpsrv2PrimaryIfState.setStatus("current")
+_AtEpsrv2SecondaryIfIndex_Type = InterfaceIndex
+_AtEpsrv2SecondaryIfIndex_Object = MibTableColumn
+atEpsrv2SecondaryIfIndex = _AtEpsrv2SecondaryIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 2, 1, 9),
+    _AtEpsrv2SecondaryIfIndex_Type()
+)
+atEpsrv2SecondaryIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atEpsrv2SecondaryIfIndex.setStatus("current")
+_AtEpsrv2SecondaryIfState_Type = AtEpsrv2InterfaceState
+_AtEpsrv2SecondaryIfState_Object = MibTableColumn
+atEpsrv2SecondaryIfState = _AtEpsrv2SecondaryIfState_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 2, 1, 10),
+    _AtEpsrv2SecondaryIfState_Type()
+)
+atEpsrv2SecondaryIfState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atEpsrv2SecondaryIfState.setStatus("current")
+_AtEpsrv2DomainPriority_Type = Integer32
+_AtEpsrv2DomainPriority_Object = MibTableColumn
+atEpsrv2DomainPriority = _AtEpsrv2DomainPriority_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 2, 1, 11),
+    _AtEpsrv2DomainPriority_Type()
+)
+atEpsrv2DomainPriority.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atEpsrv2DomainPriority.setStatus("current")
+_AtEpsrv2PrimaryIfIsOnCommonSeg_Type = TruthValue
+_AtEpsrv2PrimaryIfIsOnCommonSeg_Object = MibTableColumn
+atEpsrv2PrimaryIfIsOnCommonSeg = _AtEpsrv2PrimaryIfIsOnCommonSeg_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 2, 1, 12),
+    _AtEpsrv2PrimaryIfIsOnCommonSeg_Type()
+)
+atEpsrv2PrimaryIfIsOnCommonSeg.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atEpsrv2PrimaryIfIsOnCommonSeg.setStatus("current")
+_AtEpsrv2SecondaryIfIsOnCommonSeg_Type = TruthValue
+_AtEpsrv2SecondaryIfIsOnCommonSeg_Object = MibTableColumn
+atEpsrv2SecondaryIfIsOnCommonSeg = _AtEpsrv2SecondaryIfIsOnCommonSeg_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 2, 1, 13),
+    _AtEpsrv2SecondaryIfIsOnCommonSeg_Type()
+)
+atEpsrv2SecondaryIfIsOnCommonSeg.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atEpsrv2SecondaryIfIsOnCommonSeg.setStatus("current")
+_AtEpsrv2HasControlOfPrimaryIf_Type = TruthValue
+_AtEpsrv2HasControlOfPrimaryIf_Object = MibTableColumn
+atEpsrv2HasControlOfPrimaryIf = _AtEpsrv2HasControlOfPrimaryIf_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 2, 1, 14),
+    _AtEpsrv2HasControlOfPrimaryIf_Type()
+)
+atEpsrv2HasControlOfPrimaryIf.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atEpsrv2HasControlOfPrimaryIf.setStatus("current")
+_AtEpsrv2HasControlOfSecondaryIf_Type = TruthValue
+_AtEpsrv2HasControlOfSecondaryIf_Object = MibTableColumn
+atEpsrv2HasControlOfSecondaryIf = _AtEpsrv2HasControlOfSecondaryIf_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 2, 1, 15),
+    _AtEpsrv2HasControlOfSecondaryIf_Type()
+)
+atEpsrv2HasControlOfSecondaryIf.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atEpsrv2HasControlOfSecondaryIf.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+atEpsrv2Notify = NotificationType(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 0, 1)
+)
+atEpsrv2Notify.setObjects(
+      *(("AT-EPSRv2-MIB", "atEpsrv2NodeType"),
+        ("AT-EPSRv2-MIB", "atEpsrv2DomainName"),
+        ("AT-EPSRv2-MIB", "atEpsrv2DomainID"),
+        ("AT-EPSRv2-MIB", "atEpsrv2FromState"),
+        ("AT-EPSRv2-MIB", "atEpsrv2CurrentState"),
+        ("AT-EPSRv2-MIB", "atEpsrv2ControlVlanId"),
+        ("AT-EPSRv2-MIB", "atEpsrv2PrimaryIfIndex"),
+        ("AT-EPSRv2-MIB", "atEpsrv2PrimaryIfState"),
+        ("AT-EPSRv2-MIB", "atEpsrv2SecondaryIfIndex"),
+        ("AT-EPSRv2-MIB", "atEpsrv2SecondaryIfState"),
+        ("AT-EPSRv2-MIB", "atEpsrv2DomainPriority"),
+        ("AT-EPSRv2-MIB", "atEpsrv2PrimaryIfIsOnCommonSeg"),
+        ("AT-EPSRv2-MIB", "atEpsrv2SecondaryIfIsOnCommonSeg"),
+        ("AT-EPSRv2-MIB", "atEpsrv2HasControlOfPrimaryIf"),
+        ("AT-EPSRv2-MIB", "atEpsrv2HasControlOfSecondaryIf"))
+)
+if mibBuilder.loadTexts:
+    atEpsrv2Notify.setStatus(
+        "current"
+    )
+
+atEpsrv2NodeTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 1, 1)
+)
+atEpsrv2NodeTrap.setObjects(
+      *(("AT-EPSRv2-MIB", "atEpsrv2NodeType"),
+        ("AT-EPSRv2-MIB", "atEpsrv2DomainName"),
+        ("AT-EPSRv2-MIB", "atEpsrv2DomainID"),
+        ("AT-EPSRv2-MIB", "atEpsrv2FromState"),
+        ("AT-EPSRv2-MIB", "atEpsrv2CurrentState"),
+        ("AT-EPSRv2-MIB", "atEpsrv2ControlVlanId"),
+        ("AT-EPSRv2-MIB", "atEpsrv2PrimaryIfIndex"),
+        ("AT-EPSRv2-MIB", "atEpsrv2PrimaryIfState"),
+        ("AT-EPSRv2-MIB", "atEpsrv2SecondaryIfIndex"),
+        ("AT-EPSRv2-MIB", "atEpsrv2SecondaryIfState"))
+)
+if mibBuilder.loadTexts:
+    atEpsrv2NodeTrap.setStatus(
+        "deprecated"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "AT-EPSRv2-MIB",
+    **{"AtEpsrv2NodeState": AtEpsrv2NodeState,
+       "AtEpsrv2InterfaceState": AtEpsrv2InterfaceState,
+       "atEpsrv2": atEpsrv2,
+       "atEpsrv2Notifications": atEpsrv2Notifications,
+       "atEpsrv2Notify": atEpsrv2Notify,
+       "atEpsrv2Events": atEpsrv2Events,
+       "atEpsrv2NodeTrap": atEpsrv2NodeTrap,
+       "atEpsrv2VariablesTable": atEpsrv2VariablesTable,
+       "atEpsrv2VariablesEntry": atEpsrv2VariablesEntry,
+       "atEpsrv2NodeType": atEpsrv2NodeType,
+       "atEpsrv2DomainName": atEpsrv2DomainName,
+       "atEpsrv2DomainID": atEpsrv2DomainID,
+       "atEpsrv2FromState": atEpsrv2FromState,
+       "atEpsrv2CurrentState": atEpsrv2CurrentState,
+       "atEpsrv2ControlVlanId": atEpsrv2ControlVlanId,
+       "atEpsrv2PrimaryIfIndex": atEpsrv2PrimaryIfIndex,
+       "atEpsrv2PrimaryIfState": atEpsrv2PrimaryIfState,
+       "atEpsrv2SecondaryIfIndex": atEpsrv2SecondaryIfIndex,
+       "atEpsrv2SecondaryIfState": atEpsrv2SecondaryIfState,
+       "atEpsrv2DomainPriority": atEpsrv2DomainPriority,
+       "atEpsrv2PrimaryIfIsOnCommonSeg": atEpsrv2PrimaryIfIsOnCommonSeg,
+       "atEpsrv2SecondaryIfIsOnCommonSeg": atEpsrv2SecondaryIfIsOnCommonSeg,
+       "atEpsrv2HasControlOfPrimaryIf": atEpsrv2HasControlOfPrimaryIf,
+       "atEpsrv2HasControlOfSecondaryIf": atEpsrv2HasControlOfSecondaryIf}
+)

@@ -1,811 +1,4806 @@
+# SNMP MIB module (CISCO-SLB-EXT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-SLB-EXT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/CISCO-SLB-EXT-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:39:25 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
-SlbServerString, slbServerFarmName, SlbPasswordString, SlbRealServerState, slbServerFarmTableEntry, slbEntity, slbStatsTableEntry, SlbConnectionState, slbVirtualServerTableEntry = mibBuilder.importSymbols("CISCO-SLB-MIB", "SlbServerString", "slbServerFarmName", "SlbPasswordString", "SlbRealServerState", "slbServerFarmTableEntry", "slbEntity", "slbStatsTableEntry", "SlbConnectionState", "slbVirtualServerTableEntry")
-ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-CiscoHTTPResponseStatusCode, CiscoIpProtocol, CiscoPort = mibBuilder.importSymbols("CISCO-TC", "CiscoHTTPResponseStatusCode", "CiscoIpProtocol", "CiscoPort")
-InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-TimeTicks, iso, Gauge32, MibIdentifier, IpAddress, NotificationType, Counter64, ObjectIdentity, ModuleIdentity, Bits, Unsigned32, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "iso", "Gauge32", "MibIdentifier", "IpAddress", "NotificationType", "Counter64", "ObjectIdentity", "ModuleIdentity", "Bits", "Unsigned32", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32")
-StorageType, TruthValue, RowStatus, DisplayString, TimeInterval, DateAndTime, TimeStamp, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "StorageType", "TruthValue", "RowStatus", "DisplayString", "TimeInterval", "DateAndTime", "TimeStamp", "TextualConvention")
-ciscoSlbExtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 254))
-ciscoSlbExtMIB.setRevisions(('2008-03-13 00:00', '2006-01-20 00:00', '2005-02-24 10:00', '2002-08-19 00:00',))
-if mibBuilder.loadTexts: ciscoSlbExtMIB.setLastUpdated('200803130000Z')
-if mibBuilder.loadTexts: ciscoSlbExtMIB.setOrganization('Cisco Systems, Inc.')
-ciscoSlbExtMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 254, 0))
-ciscoSlbExtMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 254, 1))
-cslbxStats = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1))
-cslbxServerFarms = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2))
-cslbxClientNatPools = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 3))
-cslbxStickyObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4))
-cslbxMaps = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5))
-cslbxServerProbes = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 6))
-cslbxPolicies = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 7))
-cslbxVirtualServers = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8))
-cslbxVlans = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9))
-cslbxFaultTolerance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10))
-cslbxXmlConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 11))
-cslbxConnections = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 12))
-cslbxNotifObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 13))
-cslbxOwnerObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 14))
-cslbxScriptObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 15))
-ciscoSlbExtMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 254, 2))
-class SlbObjectNameString(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 15)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CISCO-SLB-EXT-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 20:59:26 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class SlbFunctionNameString(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 255)
+if 'mibBuilder' not in globals():
+    import sys
 
-class SlbUrlString(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '255a'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 255)
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-class SlbRegularExpression(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '255a'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 255)
+# Import base ASN.1 objects even if this MIB does not use it
 
-class SlbFailAction(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("noAction", 1), ("purgeConns", 2), ("reassignConns", 3), ("undefined", 4))
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
 
-class SlbIpAdvertise(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
-    namedValues = NamedValues(("alwaysAdvertise", 1), ("activeAdvertise", 2), ("undefined", 3))
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
 
-class SlbStickyType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))
-    namedValues = NamedValues(("srcIpSticky", 1), ("httpCookieSticky", 2), ("sslSticky", 3), ("undefined", 4), ("destIpSticky", 5), ("srcDestSticky", 6), ("httpHeaderSticky", 7))
+# Import SMI symbols from the MIBs this MIB depends on
 
-class SlbMapType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))
-    namedValues = NamedValues(("notCfgMap", 1), ("urlMap", 2), ("cookieMap", 3), ("headerMap", 4), ("returnCodeMap", 5), ("undefined", 6))
+(SlbConnectionState,
+ SlbPasswordString,
+ SlbRealServerState,
+ SlbServerString,
+ slbEntity,
+ slbServerFarmName,
+ slbServerFarmTableEntry,
+ slbStatsTableEntry,
+ slbVirtualServerTableEntry) = mibBuilder.importSymbols(
+    "CISCO-SLB-MIB",
+    "SlbConnectionState",
+    "SlbPasswordString",
+    "SlbRealServerState",
+    "SlbServerString",
+    "slbEntity",
+    "slbServerFarmName",
+    "slbServerFarmTableEntry",
+    "slbStatsTableEntry",
+    "slbVirtualServerTableEntry")
 
-class SlbReplicationMode(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("replNone", 1), ("replAll", 2), ("replConnection", 3), ("replStickyData", 4))
+(ciscoMgmt,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoMgmt")
 
-class SlbProbeAction(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))
-    namedValues = NamedValues(("noAction", 1), ("logAction", 2), ("removeAction", 3), ("countAction", 4), ("undefined", 5))
+(CiscoHTTPResponseStatusCode,
+ CiscoIpProtocol,
+ CiscoPort) = mibBuilder.importSymbols(
+    "CISCO-TC",
+    "CiscoHTTPResponseStatusCode",
+    "CiscoIpProtocol",
+    "CiscoPort")
 
-class SlbVlanType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
-    namedValues = NamedValues(("clientVlan", 1), ("serverVlan", 2), ("ftVlan", 3))
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
 
-class SlbFtState(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("notConfigFT", 1), ("initializingFT", 2), ("activeFT", 3), ("standbyFT", 4))
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
 
-class SlbDirectionalMode(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
-    namedValues = NamedValues(("unidirectional", 1), ("bidirectional", 2), ("defdirectional", 3))
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
 
-cslbxStatsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1), )
-if mibBuilder.loadTexts: cslbxStatsTable.setStatus('current')
-cslbxStatsTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1), )
-slbStatsTableEntry.registerAugmentions(("CISCO-SLB-EXT-MIB", "cslbxStatsTableEntry"))
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ RowStatus,
+ StorageType,
+ TextualConvention,
+ TimeInterval,
+ TimeStamp,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "RowStatus",
+    "StorageType",
+    "TextualConvention",
+    "TimeInterval",
+    "TimeStamp",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+ciscoSlbExtMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254)
+)
+ciscoSlbExtMIB.setRevisions(
+        ("2008-03-13 00:00",
+         "2006-01-20 00:00",
+         "2005-02-24 10:00",
+         "2002-08-19 00:00")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class SlbObjectNameString(OctetString, TextualConvention):
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 15),
+    )
+
+
+
+class SlbFunctionNameString(OctetString, TextualConvention):
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+
+class SlbUrlString(OctetString, TextualConvention):
+    status = "current"
+    displayHint = "255a"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+
+class SlbRegularExpression(OctetString, TextualConvention):
+    status = "current"
+    displayHint = "255a"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+
+class SlbFailAction(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("noAction", 1),
+          ("purgeConns", 2),
+          ("reassignConns", 3),
+          ("undefined", 4))
+    )
+
+
+
+class SlbIpAdvertise(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("activeAdvertise", 2),
+          ("alwaysAdvertise", 1),
+          ("undefined", 3))
+    )
+
+
+
+class SlbStickyType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("destIpSticky", 5),
+          ("httpCookieSticky", 2),
+          ("httpHeaderSticky", 7),
+          ("srcDestSticky", 6),
+          ("srcIpSticky", 1),
+          ("sslSticky", 3),
+          ("undefined", 4))
+    )
+
+
+
+class SlbMapType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("cookieMap", 3),
+          ("headerMap", 4),
+          ("notCfgMap", 1),
+          ("returnCodeMap", 5),
+          ("undefined", 6),
+          ("urlMap", 2))
+    )
+
+
+
+class SlbReplicationMode(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("replAll", 2),
+          ("replConnection", 3),
+          ("replNone", 1),
+          ("replStickyData", 4))
+    )
+
+
+
+class SlbProbeAction(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("countAction", 4),
+          ("logAction", 2),
+          ("noAction", 1),
+          ("removeAction", 3),
+          ("undefined", 5))
+    )
+
+
+
+class SlbVlanType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("clientVlan", 1),
+          ("ftVlan", 3),
+          ("serverVlan", 2))
+    )
+
+
+
+class SlbFtState(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("activeFT", 3),
+          ("initializingFT", 2),
+          ("notConfigFT", 1),
+          ("standbyFT", 4))
+    )
+
+
+
+class SlbDirectionalMode(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("bidirectional", 2),
+          ("defdirectional", 3),
+          ("unidirectional", 1))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CiscoSlbExtMIBNotifs_ObjectIdentity = ObjectIdentity
+ciscoSlbExtMIBNotifs = _CiscoSlbExtMIBNotifs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 0)
+)
+_CiscoSlbExtMIBObjects_ObjectIdentity = ObjectIdentity
+ciscoSlbExtMIBObjects = _CiscoSlbExtMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1)
+)
+_CslbxStats_ObjectIdentity = ObjectIdentity
+cslbxStats = _CslbxStats_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1)
+)
+_CslbxStatsTable_Object = MibTable
+cslbxStatsTable = _CslbxStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    cslbxStatsTable.setStatus("current")
+_CslbxStatsTableEntry_Object = MibTableRow
+cslbxStatsTableEntry = _CslbxStatsTableEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    cslbxStatsTableEntry.setStatus("current")
+_CslbxStatsServerInitConns_Type = Counter32
+_CslbxStatsServerInitConns_Object = MibTableColumn
+cslbxStatsServerInitConns = _CslbxStatsServerInitConns_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 1),
+    _CslbxStatsServerInitConns_Type()
+)
+cslbxStatsServerInitConns.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStatsServerInitConns.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxStatsServerInitConns.setUnits("connections")
+_CslbxStatsServerInitHCConns_Type = Counter64
+_CslbxStatsServerInitHCConns_Object = MibTableColumn
+cslbxStatsServerInitHCConns = _CslbxStatsServerInitHCConns_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 2),
+    _CslbxStatsServerInitHCConns_Type()
+)
+cslbxStatsServerInitHCConns.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStatsServerInitHCConns.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxStatsServerInitHCConns.setUnits("connections")
+_CslbxStatsCurrConnections_Type = Gauge32
+_CslbxStatsCurrConnections_Object = MibTableColumn
+cslbxStatsCurrConnections = _CslbxStatsCurrConnections_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 3),
+    _CslbxStatsCurrConnections_Type()
+)
+cslbxStatsCurrConnections.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStatsCurrConnections.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxStatsCurrConnections.setUnits("connections")
+_CslbxStatsCurrServerInitConns_Type = Gauge32
+_CslbxStatsCurrServerInitConns_Object = MibTableColumn
+cslbxStatsCurrServerInitConns = _CslbxStatsCurrServerInitConns_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 4),
+    _CslbxStatsCurrServerInitConns_Type()
+)
+cslbxStatsCurrServerInitConns.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStatsCurrServerInitConns.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxStatsCurrServerInitConns.setUnits("connections")
+_CslbxStatsFailedConns_Type = Counter32
+_CslbxStatsFailedConns_Object = MibTableColumn
+cslbxStatsFailedConns = _CslbxStatsFailedConns_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 5),
+    _CslbxStatsFailedConns_Type()
+)
+cslbxStatsFailedConns.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStatsFailedConns.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxStatsFailedConns.setUnits("connections")
+_CslbxStatsFailedServerInitConns_Type = Counter32
+_CslbxStatsFailedServerInitConns_Object = MibTableColumn
+cslbxStatsFailedServerInitConns = _CslbxStatsFailedServerInitConns_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 6),
+    _CslbxStatsFailedServerInitConns_Type()
+)
+cslbxStatsFailedServerInitConns.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStatsFailedServerInitConns.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxStatsFailedServerInitConns.setUnits("connections")
+_CslbxStatsL4PolicyConns_Type = Counter32
+_CslbxStatsL4PolicyConns_Object = MibTableColumn
+cslbxStatsL4PolicyConns = _CslbxStatsL4PolicyConns_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 7),
+    _CslbxStatsL4PolicyConns_Type()
+)
+cslbxStatsL4PolicyConns.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStatsL4PolicyConns.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxStatsL4PolicyConns.setUnits("connections")
+_CslbxStatsL7PolicyConns_Type = Counter32
+_CslbxStatsL7PolicyConns_Object = MibTableColumn
+cslbxStatsL7PolicyConns = _CslbxStatsL7PolicyConns_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 8),
+    _CslbxStatsL7PolicyConns_Type()
+)
+cslbxStatsL7PolicyConns.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStatsL7PolicyConns.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxStatsL7PolicyConns.setUnits("connections")
+_CslbxStatsDroppedL4PolicyConns_Type = Counter32
+_CslbxStatsDroppedL4PolicyConns_Object = MibTableColumn
+cslbxStatsDroppedL4PolicyConns = _CslbxStatsDroppedL4PolicyConns_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 9),
+    _CslbxStatsDroppedL4PolicyConns_Type()
+)
+cslbxStatsDroppedL4PolicyConns.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStatsDroppedL4PolicyConns.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxStatsDroppedL4PolicyConns.setUnits("connections")
+_CslbxStatsDroppedL7PolicyConns_Type = Counter32
+_CslbxStatsDroppedL7PolicyConns_Object = MibTableColumn
+cslbxStatsDroppedL7PolicyConns = _CslbxStatsDroppedL7PolicyConns_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 10),
+    _CslbxStatsDroppedL7PolicyConns_Type()
+)
+cslbxStatsDroppedL7PolicyConns.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStatsDroppedL7PolicyConns.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxStatsDroppedL7PolicyConns.setUnits("connections")
+_CslbxStatsFtpConns_Type = Counter32
+_CslbxStatsFtpConns_Object = MibTableColumn
+cslbxStatsFtpConns = _CslbxStatsFtpConns_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 11),
+    _CslbxStatsFtpConns_Type()
+)
+cslbxStatsFtpConns.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStatsFtpConns.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxStatsFtpConns.setUnits("connections")
+_CslbxStatsHttpRedirectConns_Type = Counter32
+_CslbxStatsHttpRedirectConns_Object = MibTableColumn
+cslbxStatsHttpRedirectConns = _CslbxStatsHttpRedirectConns_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 12),
+    _CslbxStatsHttpRedirectConns_Type()
+)
+cslbxStatsHttpRedirectConns.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStatsHttpRedirectConns.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxStatsHttpRedirectConns.setUnits("connections")
+_CslbxStatsDroppedRedirectConns_Type = Counter32
+_CslbxStatsDroppedRedirectConns_Object = MibTableColumn
+cslbxStatsDroppedRedirectConns = _CslbxStatsDroppedRedirectConns_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 13),
+    _CslbxStatsDroppedRedirectConns_Type()
+)
+cslbxStatsDroppedRedirectConns.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStatsDroppedRedirectConns.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxStatsDroppedRedirectConns.setUnits("connections")
+_CslbxStatsNoMatchPolicyRejects_Type = Counter32
+_CslbxStatsNoMatchPolicyRejects_Object = MibTableColumn
+cslbxStatsNoMatchPolicyRejects = _CslbxStatsNoMatchPolicyRejects_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 14),
+    _CslbxStatsNoMatchPolicyRejects_Type()
+)
+cslbxStatsNoMatchPolicyRejects.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStatsNoMatchPolicyRejects.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxStatsNoMatchPolicyRejects.setUnits("connections")
+_CslbxStatsNoCfgPolicyRejects_Type = Counter32
+_CslbxStatsNoCfgPolicyRejects_Object = MibTableColumn
+cslbxStatsNoCfgPolicyRejects = _CslbxStatsNoCfgPolicyRejects_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 15),
+    _CslbxStatsNoCfgPolicyRejects_Type()
+)
+cslbxStatsNoCfgPolicyRejects.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStatsNoCfgPolicyRejects.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxStatsNoCfgPolicyRejects.setUnits("connections")
+_CslbxStatsNoActiveServerRejects_Type = Counter32
+_CslbxStatsNoActiveServerRejects_Object = MibTableColumn
+cslbxStatsNoActiveServerRejects = _CslbxStatsNoActiveServerRejects_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 16),
+    _CslbxStatsNoActiveServerRejects_Type()
+)
+cslbxStatsNoActiveServerRejects.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStatsNoActiveServerRejects.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxStatsNoActiveServerRejects.setUnits("connections")
+_CslbxStatsAclDenyRejects_Type = Counter32
+_CslbxStatsAclDenyRejects_Object = MibTableColumn
+cslbxStatsAclDenyRejects = _CslbxStatsAclDenyRejects_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 17),
+    _CslbxStatsAclDenyRejects_Type()
+)
+cslbxStatsAclDenyRejects.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStatsAclDenyRejects.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxStatsAclDenyRejects.setUnits("connections")
+_CslbxStatsMaxParseLenRejects_Type = Counter32
+_CslbxStatsMaxParseLenRejects_Object = MibTableColumn
+cslbxStatsMaxParseLenRejects = _CslbxStatsMaxParseLenRejects_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 18),
+    _CslbxStatsMaxParseLenRejects_Type()
+)
+cslbxStatsMaxParseLenRejects.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStatsMaxParseLenRejects.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxStatsMaxParseLenRejects.setUnits("connections")
+_CslbxStatsBadSslFormatRejects_Type = Counter32
+_CslbxStatsBadSslFormatRejects_Object = MibTableColumn
+cslbxStatsBadSslFormatRejects = _CslbxStatsBadSslFormatRejects_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 19),
+    _CslbxStatsBadSslFormatRejects_Type()
+)
+cslbxStatsBadSslFormatRejects.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStatsBadSslFormatRejects.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxStatsBadSslFormatRejects.setUnits("connections")
+_CslbxStatsL7ParserErrorRejects_Type = Counter32
+_CslbxStatsL7ParserErrorRejects_Object = MibTableColumn
+cslbxStatsL7ParserErrorRejects = _CslbxStatsL7ParserErrorRejects_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 20),
+    _CslbxStatsL7ParserErrorRejects_Type()
+)
+cslbxStatsL7ParserErrorRejects.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStatsL7ParserErrorRejects.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxStatsL7ParserErrorRejects.setUnits("connections")
+_CslbxStatsVerMismatchRejects_Type = Counter32
+_CslbxStatsVerMismatchRejects_Object = MibTableColumn
+cslbxStatsVerMismatchRejects = _CslbxStatsVerMismatchRejects_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 21),
+    _CslbxStatsVerMismatchRejects_Type()
+)
+cslbxStatsVerMismatchRejects.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStatsVerMismatchRejects.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxStatsVerMismatchRejects.setUnits("connections")
+_CslbxStatsOutOfMemoryRejects_Type = Counter32
+_CslbxStatsOutOfMemoryRejects_Object = MibTableColumn
+cslbxStatsOutOfMemoryRejects = _CslbxStatsOutOfMemoryRejects_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 22),
+    _CslbxStatsOutOfMemoryRejects_Type()
+)
+cslbxStatsOutOfMemoryRejects.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStatsOutOfMemoryRejects.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxStatsOutOfMemoryRejects.setUnits("connections")
+_CslbxStatsTimedOutConnections_Type = Counter32
+_CslbxStatsTimedOutConnections_Object = MibTableColumn
+cslbxStatsTimedOutConnections = _CslbxStatsTimedOutConnections_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 23),
+    _CslbxStatsTimedOutConnections_Type()
+)
+cslbxStatsTimedOutConnections.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStatsTimedOutConnections.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxStatsTimedOutConnections.setUnits("connections")
+_CslbxStatsTcpChecksumErrorPkts_Type = Counter32
+_CslbxStatsTcpChecksumErrorPkts_Object = MibTableColumn
+cslbxStatsTcpChecksumErrorPkts = _CslbxStatsTcpChecksumErrorPkts_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 24),
+    _CslbxStatsTcpChecksumErrorPkts_Type()
+)
+cslbxStatsTcpChecksumErrorPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStatsTcpChecksumErrorPkts.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxStatsTcpChecksumErrorPkts.setUnits("packets")
+_CslbxStatsIpChecksumErrorPkts_Type = Counter32
+_CslbxStatsIpChecksumErrorPkts_Object = MibTableColumn
+cslbxStatsIpChecksumErrorPkts = _CslbxStatsIpChecksumErrorPkts_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 25),
+    _CslbxStatsIpChecksumErrorPkts_Type()
+)
+cslbxStatsIpChecksumErrorPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStatsIpChecksumErrorPkts.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxStatsIpChecksumErrorPkts.setUnits("packets")
+_CslbxStatsL4PolicyHCConns_Type = Counter64
+_CslbxStatsL4PolicyHCConns_Object = MibTableColumn
+cslbxStatsL4PolicyHCConns = _CslbxStatsL4PolicyHCConns_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 26),
+    _CslbxStatsL4PolicyHCConns_Type()
+)
+cslbxStatsL4PolicyHCConns.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStatsL4PolicyHCConns.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxStatsL4PolicyHCConns.setUnits("connections")
+_CslbxStatsL7PolicyHCConns_Type = Counter64
+_CslbxStatsL7PolicyHCConns_Object = MibTableColumn
+cslbxStatsL7PolicyHCConns = _CslbxStatsL7PolicyHCConns_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 27),
+    _CslbxStatsL7PolicyHCConns_Type()
+)
+cslbxStatsL7PolicyHCConns.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStatsL7PolicyHCConns.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxStatsL7PolicyHCConns.setUnits("connections")
+_CslbxStatsDroppedL4PolicyHCConns_Type = Counter64
+_CslbxStatsDroppedL4PolicyHCConns_Object = MibTableColumn
+cslbxStatsDroppedL4PolicyHCConns = _CslbxStatsDroppedL4PolicyHCConns_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 28),
+    _CslbxStatsDroppedL4PolicyHCConns_Type()
+)
+cslbxStatsDroppedL4PolicyHCConns.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStatsDroppedL4PolicyHCConns.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxStatsDroppedL4PolicyHCConns.setUnits("connections")
+_CslbxStatsDroppedL7PolicyHCConns_Type = Counter64
+_CslbxStatsDroppedL7PolicyHCConns_Object = MibTableColumn
+cslbxStatsDroppedL7PolicyHCConns = _CslbxStatsDroppedL7PolicyHCConns_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 29),
+    _CslbxStatsDroppedL7PolicyHCConns_Type()
+)
+cslbxStatsDroppedL7PolicyHCConns.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStatsDroppedL7PolicyHCConns.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxStatsDroppedL7PolicyHCConns.setUnits("connections")
+_CslbxStatsNoMatchPolicyHCRejects_Type = Counter64
+_CslbxStatsNoMatchPolicyHCRejects_Object = MibTableColumn
+cslbxStatsNoMatchPolicyHCRejects = _CslbxStatsNoMatchPolicyHCRejects_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 30),
+    _CslbxStatsNoMatchPolicyHCRejects_Type()
+)
+cslbxStatsNoMatchPolicyHCRejects.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStatsNoMatchPolicyHCRejects.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxStatsNoMatchPolicyHCRejects.setUnits("connections")
+_CslbxStatsNoCfgPolicyHCRejects_Type = Counter64
+_CslbxStatsNoCfgPolicyHCRejects_Object = MibTableColumn
+cslbxStatsNoCfgPolicyHCRejects = _CslbxStatsNoCfgPolicyHCRejects_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 31),
+    _CslbxStatsNoCfgPolicyHCRejects_Type()
+)
+cslbxStatsNoCfgPolicyHCRejects.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStatsNoCfgPolicyHCRejects.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxStatsNoCfgPolicyHCRejects.setUnits("connections")
+_CslbxStatsAclDenyHCRejects_Type = Counter64
+_CslbxStatsAclDenyHCRejects_Object = MibTableColumn
+cslbxStatsAclDenyHCRejects = _CslbxStatsAclDenyHCRejects_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 32),
+    _CslbxStatsAclDenyHCRejects_Type()
+)
+cslbxStatsAclDenyHCRejects.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStatsAclDenyHCRejects.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxStatsAclDenyHCRejects.setUnits("connections")
+_CslbxStatsVerMismatchHCRejects_Type = Counter64
+_CslbxStatsVerMismatchHCRejects_Object = MibTableColumn
+cslbxStatsVerMismatchHCRejects = _CslbxStatsVerMismatchHCRejects_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 33),
+    _CslbxStatsVerMismatchHCRejects_Type()
+)
+cslbxStatsVerMismatchHCRejects.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStatsVerMismatchHCRejects.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxStatsVerMismatchHCRejects.setUnits("connections")
+_CslbxServerFarms_ObjectIdentity = ObjectIdentity
+cslbxServerFarms = _CslbxServerFarms_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2)
+)
+_CslbxServerFarmTable_Object = MibTable
+cslbxServerFarmTable = _CslbxServerFarmTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    cslbxServerFarmTable.setStatus("current")
+_CslbxServerFarmTableEntry_Object = MibTableRow
+cslbxServerFarmTableEntry = _CslbxServerFarmTableEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 1, 1)
+)
+if mibBuilder.loadTexts:
+    cslbxServerFarmTableEntry.setStatus("current")
+
+
+class _CslbxServerFarmHashMaskAddrType_Type(InetAddressType):
+    """Custom type cslbxServerFarmHashMaskAddrType based on InetAddressType"""
+
+
+_CslbxServerFarmHashMaskAddrType_Object = MibTableColumn
+cslbxServerFarmHashMaskAddrType = _CslbxServerFarmHashMaskAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 1, 1, 1),
+    _CslbxServerFarmHashMaskAddrType_Type()
+)
+cslbxServerFarmHashMaskAddrType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxServerFarmHashMaskAddrType.setStatus("current")
+
+
+class _CslbxServerFarmHashMaskAddr_Type(InetAddress):
+    """Custom type cslbxServerFarmHashMaskAddr based on InetAddress"""
+    defaultHexValue = "FFFFFFFF"
+
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 20),
+    )
+
+
+_CslbxServerFarmHashMaskAddr_Type.__name__ = "InetAddress"
+_CslbxServerFarmHashMaskAddr_Object = MibTableColumn
+cslbxServerFarmHashMaskAddr = _CslbxServerFarmHashMaskAddr_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 1, 1, 2),
+    _CslbxServerFarmHashMaskAddr_Type()
+)
+cslbxServerFarmHashMaskAddr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxServerFarmHashMaskAddr.setStatus("current")
+_CslbxServerFarmClientNatPool_Type = SlbObjectNameString
+_CslbxServerFarmClientNatPool_Object = MibTableColumn
+cslbxServerFarmClientNatPool = _CslbxServerFarmClientNatPool_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 1, 1, 3),
+    _CslbxServerFarmClientNatPool_Type()
+)
+cslbxServerFarmClientNatPool.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxServerFarmClientNatPool.setStatus("current")
+
+
+class _CslbxServerFarmFailAction_Type(SlbFailAction):
+    """Custom type cslbxServerFarmFailAction based on SlbFailAction"""
+
+
+_CslbxServerFarmFailAction_Object = MibTableColumn
+cslbxServerFarmFailAction = _CslbxServerFarmFailAction_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 1, 1, 4),
+    _CslbxServerFarmFailAction_Type()
+)
+cslbxServerFarmFailAction.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxServerFarmFailAction.setStatus("current")
+_CslbxServerFarmHttpReturnCodeMap_Type = SlbObjectNameString
+_CslbxServerFarmHttpReturnCodeMap_Object = MibTableColumn
+cslbxServerFarmHttpReturnCodeMap = _CslbxServerFarmHttpReturnCodeMap_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 1, 1, 5),
+    _CslbxServerFarmHttpReturnCodeMap_Type()
+)
+cslbxServerFarmHttpReturnCodeMap.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxServerFarmHttpReturnCodeMap.setStatus("current")
+
+
+class _CslbxServerFarmInFailedThreshold_Type(Unsigned32):
+    """Custom type cslbxServerFarmInFailedThreshold based on Unsigned32"""
+    defaultValue = 4294967295
+
+
+_CslbxServerFarmInFailedThreshold_Object = MibTableColumn
+cslbxServerFarmInFailedThreshold = _CslbxServerFarmInFailedThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 1, 1, 6),
+    _CslbxServerFarmInFailedThreshold_Type()
+)
+cslbxServerFarmInFailedThreshold.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxServerFarmInFailedThreshold.setStatus("current")
+
+
+class _CslbxServerFarmInbandResetTimer_Type(TimeInterval):
+    """Custom type cslbxServerFarmInbandResetTimer based on TimeInterval"""
+    defaultValue = 0
+
+
+_CslbxServerFarmInbandResetTimer_Object = MibTableColumn
+cslbxServerFarmInbandResetTimer = _CslbxServerFarmInbandResetTimer_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 1, 1, 7),
+    _CslbxServerFarmInbandResetTimer_Type()
+)
+cslbxServerFarmInbandResetTimer.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxServerFarmInbandResetTimer.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxServerFarmInbandResetTimer.setUnits("seconds")
+
+
+class _CslbxServerFarmTransparent_Type(TruthValue):
+    """Custom type cslbxServerFarmTransparent based on TruthValue"""
+
+
+_CslbxServerFarmTransparent_Object = MibTableColumn
+cslbxServerFarmTransparent = _CslbxServerFarmTransparent_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 1, 1, 8),
+    _CslbxServerFarmTransparent_Type()
+)
+cslbxServerFarmTransparent.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxServerFarmTransparent.setStatus("current")
+
+
+class _CslbxServerFarmSlowStart_Type(Unsigned32):
+    """Custom type cslbxServerFarmSlowStart based on Unsigned32"""
+    defaultValue = 0
+
+
+_CslbxServerFarmSlowStart_Object = MibTableColumn
+cslbxServerFarmSlowStart = _CslbxServerFarmSlowStart_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 1, 1, 9),
+    _CslbxServerFarmSlowStart_Type()
+)
+cslbxServerFarmSlowStart.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxServerFarmSlowStart.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxServerFarmSlowStart.setUnits("seconds")
+
+
+class _CslbxServerFarmHashHeaderName_Type(SnmpAdminString):
+    """Custom type cslbxServerFarmHashHeaderName based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_CslbxServerFarmHashHeaderName_Type.__name__ = "SnmpAdminString"
+_CslbxServerFarmHashHeaderName_Object = MibTableColumn
+cslbxServerFarmHashHeaderName = _CslbxServerFarmHashHeaderName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 1, 1, 10),
+    _CslbxServerFarmHashHeaderName_Type()
+)
+cslbxServerFarmHashHeaderName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxServerFarmHashHeaderName.setStatus("current")
+
+
+class _CslbxServerFarmHashCookieName_Type(SnmpAdminString):
+    """Custom type cslbxServerFarmHashCookieName based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_CslbxServerFarmHashCookieName_Type.__name__ = "SnmpAdminString"
+_CslbxServerFarmHashCookieName_Object = MibTableColumn
+cslbxServerFarmHashCookieName = _CslbxServerFarmHashCookieName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 1, 1, 11),
+    _CslbxServerFarmHashCookieName_Type()
+)
+cslbxServerFarmHashCookieName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxServerFarmHashCookieName.setStatus("current")
+
+
+class _CslbxServerFarmUrlPatternBegin_Type(SnmpAdminString):
+    """Custom type cslbxServerFarmUrlPatternBegin based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_CslbxServerFarmUrlPatternBegin_Type.__name__ = "SnmpAdminString"
+_CslbxServerFarmUrlPatternBegin_Object = MibTableColumn
+cslbxServerFarmUrlPatternBegin = _CslbxServerFarmUrlPatternBegin_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 1, 1, 12),
+    _CslbxServerFarmUrlPatternBegin_Type()
+)
+cslbxServerFarmUrlPatternBegin.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxServerFarmUrlPatternBegin.setStatus("current")
+
+
+class _CslbxServerFarmUrlPatternEnd_Type(SnmpAdminString):
+    """Custom type cslbxServerFarmUrlPatternEnd based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_CslbxServerFarmUrlPatternEnd_Type.__name__ = "SnmpAdminString"
+_CslbxServerFarmUrlPatternEnd_Object = MibTableColumn
+cslbxServerFarmUrlPatternEnd = _CslbxServerFarmUrlPatternEnd_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 1, 1, 13),
+    _CslbxServerFarmUrlPatternEnd_Type()
+)
+cslbxServerFarmUrlPatternEnd.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxServerFarmUrlPatternEnd.setStatus("current")
+
+
+class _CslbxServerFarmDescription_Type(SnmpAdminString):
+    """Custom type cslbxServerFarmDescription based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_CslbxServerFarmDescription_Type.__name__ = "SnmpAdminString"
+_CslbxServerFarmDescription_Object = MibTableColumn
+cslbxServerFarmDescription = _CslbxServerFarmDescription_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 1, 1, 14),
+    _CslbxServerFarmDescription_Type()
+)
+cslbxServerFarmDescription.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxServerFarmDescription.setStatus("current")
+
+
+class _CslbxServerFarmType_Type(Integer32):
+    """Custom type cslbxServerFarmType based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("host", 2),
+          ("redirect", 1))
+    )
+
+
+_CslbxServerFarmType_Type.__name__ = "Integer32"
+_CslbxServerFarmType_Object = MibTableColumn
+cslbxServerFarmType = _CslbxServerFarmType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 1, 1, 15),
+    _CslbxServerFarmType_Type()
+)
+cslbxServerFarmType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxServerFarmType.setStatus("current")
+
+
+class _CslbxServerFarmState_Type(Integer32):
+    """Custom type cslbxServerFarmState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 1),
+          ("inactive", 2))
+    )
+
+
+_CslbxServerFarmState_Type.__name__ = "Integer32"
+_CslbxServerFarmState_Object = MibTableColumn
+cslbxServerFarmState = _CslbxServerFarmState_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 1, 1, 16),
+    _CslbxServerFarmState_Type()
+)
+cslbxServerFarmState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxServerFarmState.setStatus("current")
+_CslbxRedirectSvrTable_Object = MibTable
+cslbxRedirectSvrTable = _CslbxRedirectSvrTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 2)
+)
+if mibBuilder.loadTexts:
+    cslbxRedirectSvrTable.setStatus("current")
+_CslbxRedirectSvrTableEntry_Object = MibTableRow
+cslbxRedirectSvrTableEntry = _CslbxRedirectSvrTableEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 2, 1)
+)
+cslbxRedirectSvrTableEntry.setIndexNames(
+    (0, "CISCO-SLB-MIB", "slbEntity"),
+    (0, "CISCO-SLB-EXT-MIB", "cslbxRedirectSvrFarmName"),
+    (0, "CISCO-SLB-EXT-MIB", "cslbxRedirectSvrName"),
+)
+if mibBuilder.loadTexts:
+    cslbxRedirectSvrTableEntry.setStatus("current")
+_CslbxRedirectSvrFarmName_Type = SlbServerString
+_CslbxRedirectSvrFarmName_Object = MibTableColumn
+cslbxRedirectSvrFarmName = _CslbxRedirectSvrFarmName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 2, 1, 1),
+    _CslbxRedirectSvrFarmName_Type()
+)
+cslbxRedirectSvrFarmName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cslbxRedirectSvrFarmName.setStatus("current")
+_CslbxRedirectSvrName_Type = SlbServerString
+_CslbxRedirectSvrName_Object = MibTableColumn
+cslbxRedirectSvrName = _CslbxRedirectSvrName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 2, 1, 2),
+    _CslbxRedirectSvrName_Type()
+)
+cslbxRedirectSvrName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cslbxRedirectSvrName.setStatus("current")
+_CslbxRedirectSvrRelocationStr_Type = SlbUrlString
+_CslbxRedirectSvrRelocationStr_Object = MibTableColumn
+cslbxRedirectSvrRelocationStr = _CslbxRedirectSvrRelocationStr_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 2, 1, 3),
+    _CslbxRedirectSvrRelocationStr_Type()
+)
+cslbxRedirectSvrRelocationStr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxRedirectSvrRelocationStr.setStatus("current")
+_CslbxRedirectSvrBackupString_Type = SlbUrlString
+_CslbxRedirectSvrBackupString_Object = MibTableColumn
+cslbxRedirectSvrBackupString = _CslbxRedirectSvrBackupString_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 2, 1, 4),
+    _CslbxRedirectSvrBackupString_Type()
+)
+cslbxRedirectSvrBackupString.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxRedirectSvrBackupString.setStatus("current")
+
+
+class _CslbxRedirectSvrRedirectCode_Type(Unsigned32):
+    """Custom type cslbxRedirectSvrRedirectCode based on Unsigned32"""
+    defaultValue = 302
+
+
+_CslbxRedirectSvrRedirectCode_Object = MibTableColumn
+cslbxRedirectSvrRedirectCode = _CslbxRedirectSvrRedirectCode_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 2, 1, 5),
+    _CslbxRedirectSvrRedirectCode_Type()
+)
+cslbxRedirectSvrRedirectCode.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxRedirectSvrRedirectCode.setStatus("current")
+
+
+class _CslbxRedirectSvrRedirectPort_Type(CiscoPort):
+    """Custom type cslbxRedirectSvrRedirectPort based on CiscoPort"""
+    defaultValue = 80
+
+
+_CslbxRedirectSvrRedirectPort_Object = MibTableColumn
+cslbxRedirectSvrRedirectPort = _CslbxRedirectSvrRedirectPort_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 2, 1, 6),
+    _CslbxRedirectSvrRedirectPort_Type()
+)
+cslbxRedirectSvrRedirectPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxRedirectSvrRedirectPort.setStatus("current")
+
+
+class _CslbxRedirectSvrState_Type(SlbRealServerState):
+    """Custom type cslbxRedirectSvrState based on SlbRealServerState"""
+
+
+_CslbxRedirectSvrState_Object = MibTableColumn
+cslbxRedirectSvrState = _CslbxRedirectSvrState_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 2, 1, 7),
+    _CslbxRedirectSvrState_Type()
+)
+cslbxRedirectSvrState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxRedirectSvrState.setStatus("current")
+_CslbxRedirectSvrNumberOfConns_Type = Gauge32
+_CslbxRedirectSvrNumberOfConns_Object = MibTableColumn
+cslbxRedirectSvrNumberOfConns = _CslbxRedirectSvrNumberOfConns_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 2, 1, 8),
+    _CslbxRedirectSvrNumberOfConns_Type()
+)
+cslbxRedirectSvrNumberOfConns.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxRedirectSvrNumberOfConns.setStatus("current")
+
+
+class _CslbxRedirectSvrMaxConns_Type(Unsigned32):
+    """Custom type cslbxRedirectSvrMaxConns based on Unsigned32"""
+    defaultValue = 4294967295
+
+
+_CslbxRedirectSvrMaxConns_Object = MibTableColumn
+cslbxRedirectSvrMaxConns = _CslbxRedirectSvrMaxConns_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 2, 1, 9),
+    _CslbxRedirectSvrMaxConns_Type()
+)
+cslbxRedirectSvrMaxConns.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxRedirectSvrMaxConns.setStatus("current")
+
+
+class _CslbxRedirectSvrAdminWeight_Type(Unsigned32):
+    """Custom type cslbxRedirectSvrAdminWeight based on Unsigned32"""
+    defaultValue = 8
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_CslbxRedirectSvrAdminWeight_Type.__name__ = "Unsigned32"
+_CslbxRedirectSvrAdminWeight_Object = MibTableColumn
+cslbxRedirectSvrAdminWeight = _CslbxRedirectSvrAdminWeight_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 2, 1, 10),
+    _CslbxRedirectSvrAdminWeight_Type()
+)
+cslbxRedirectSvrAdminWeight.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxRedirectSvrAdminWeight.setStatus("current")
+_CslbxRedirectSvrOperWeight_Type = Gauge32
+_CslbxRedirectSvrOperWeight_Object = MibTableColumn
+cslbxRedirectSvrOperWeight = _CslbxRedirectSvrOperWeight_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 2, 1, 11),
+    _CslbxRedirectSvrOperWeight_Type()
+)
+cslbxRedirectSvrOperWeight.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxRedirectSvrOperWeight.setStatus("current")
+_CslbxRedirectSvrMetric_Type = Unsigned32
+_CslbxRedirectSvrMetric_Object = MibTableColumn
+cslbxRedirectSvrMetric = _CslbxRedirectSvrMetric_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 2, 1, 12),
+    _CslbxRedirectSvrMetric_Type()
+)
+cslbxRedirectSvrMetric.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxRedirectSvrMetric.setStatus("current")
+_CslbxRedirectSvrTotalConns_Type = Counter32
+_CslbxRedirectSvrTotalConns_Object = MibTableColumn
+cslbxRedirectSvrTotalConns = _CslbxRedirectSvrTotalConns_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 2, 1, 13),
+    _CslbxRedirectSvrTotalConns_Type()
+)
+cslbxRedirectSvrTotalConns.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxRedirectSvrTotalConns.setStatus("current")
+_CslbxRedirectSvrHCTotalConns_Type = Counter64
+_CslbxRedirectSvrHCTotalConns_Object = MibTableColumn
+cslbxRedirectSvrHCTotalConns = _CslbxRedirectSvrHCTotalConns_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 2, 1, 14),
+    _CslbxRedirectSvrHCTotalConns_Type()
+)
+cslbxRedirectSvrHCTotalConns.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxRedirectSvrHCTotalConns.setStatus("current")
+_CslbxRedirectSvrRowStatus_Type = RowStatus
+_CslbxRedirectSvrRowStatus_Object = MibTableColumn
+cslbxRedirectSvrRowStatus = _CslbxRedirectSvrRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 2, 1, 15),
+    _CslbxRedirectSvrRowStatus_Type()
+)
+cslbxRedirectSvrRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxRedirectSvrRowStatus.setStatus("current")
+_CslbxServerFarmProbeTable_Object = MibTable
+cslbxServerFarmProbeTable = _CslbxServerFarmProbeTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 3)
+)
+if mibBuilder.loadTexts:
+    cslbxServerFarmProbeTable.setStatus("current")
+_CslbxServerFarmProbeTableEntry_Object = MibTableRow
+cslbxServerFarmProbeTableEntry = _CslbxServerFarmProbeTableEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 3, 1)
+)
+cslbxServerFarmProbeTableEntry.setIndexNames(
+    (0, "CISCO-SLB-MIB", "slbEntity"),
+    (0, "CISCO-SLB-EXT-MIB", "cslbxServerFarmProbeFarmName"),
+    (0, "CISCO-SLB-EXT-MIB", "cslbxServerFarmProbeProbeName"),
+)
+if mibBuilder.loadTexts:
+    cslbxServerFarmProbeTableEntry.setStatus("current")
+_CslbxServerFarmProbeFarmName_Type = SlbServerString
+_CslbxServerFarmProbeFarmName_Object = MibTableColumn
+cslbxServerFarmProbeFarmName = _CslbxServerFarmProbeFarmName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 3, 1, 1),
+    _CslbxServerFarmProbeFarmName_Type()
+)
+cslbxServerFarmProbeFarmName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cslbxServerFarmProbeFarmName.setStatus("current")
+_CslbxServerFarmProbeProbeName_Type = SlbServerString
+_CslbxServerFarmProbeProbeName_Object = MibTableColumn
+cslbxServerFarmProbeProbeName = _CslbxServerFarmProbeProbeName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 3, 1, 2),
+    _CslbxServerFarmProbeProbeName_Type()
+)
+cslbxServerFarmProbeProbeName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cslbxServerFarmProbeProbeName.setStatus("current")
+_CslbxServerFarmProbeRowStatus_Type = RowStatus
+_CslbxServerFarmProbeRowStatus_Object = MibTableColumn
+cslbxServerFarmProbeRowStatus = _CslbxServerFarmProbeRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 3, 1, 3),
+    _CslbxServerFarmProbeRowStatus_Type()
+)
+cslbxServerFarmProbeRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxServerFarmProbeRowStatus.setStatus("current")
+_CslbxSfarmHttpReturnCodeTable_Object = MibTable
+cslbxSfarmHttpReturnCodeTable = _CslbxSfarmHttpReturnCodeTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 4)
+)
+if mibBuilder.loadTexts:
+    cslbxSfarmHttpReturnCodeTable.setStatus("current")
+_CslbxSfarmHttpReturnCodeEntry_Object = MibTableRow
+cslbxSfarmHttpReturnCodeEntry = _CslbxSfarmHttpReturnCodeEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 4, 1)
+)
+cslbxSfarmHttpReturnCodeEntry.setIndexNames(
+    (0, "CISCO-SLB-MIB", "slbEntity"),
+    (0, "CISCO-SLB-MIB", "slbServerFarmName"),
+    (0, "CISCO-SLB-EXT-MIB", "cslbxSfarmHttpRetCodeMinValue"),
+)
+if mibBuilder.loadTexts:
+    cslbxSfarmHttpReturnCodeEntry.setStatus("current")
+_CslbxSfarmHttpRetCodeMinValue_Type = CiscoHTTPResponseStatusCode
+_CslbxSfarmHttpRetCodeMinValue_Object = MibTableColumn
+cslbxSfarmHttpRetCodeMinValue = _CslbxSfarmHttpRetCodeMinValue_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 4, 1, 1),
+    _CslbxSfarmHttpRetCodeMinValue_Type()
+)
+cslbxSfarmHttpRetCodeMinValue.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cslbxSfarmHttpRetCodeMinValue.setStatus("current")
+
+
+class _CslbxSfarmHttpRetCodeMaxValue_Type(CiscoHTTPResponseStatusCode):
+    """Custom type cslbxSfarmHttpRetCodeMaxValue based on CiscoHTTPResponseStatusCode"""
+    defaultValue = 100
+
+
+_CslbxSfarmHttpRetCodeMaxValue_Object = MibTableColumn
+cslbxSfarmHttpRetCodeMaxValue = _CslbxSfarmHttpRetCodeMaxValue_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 4, 1, 2),
+    _CslbxSfarmHttpRetCodeMaxValue_Type()
+)
+cslbxSfarmHttpRetCodeMaxValue.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxSfarmHttpRetCodeMaxValue.setStatus("current")
+_CslbxSfarmHttpRetCodeActionType_Type = SlbProbeAction
+_CslbxSfarmHttpRetCodeActionType_Object = MibTableColumn
+cslbxSfarmHttpRetCodeActionType = _CslbxSfarmHttpRetCodeActionType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 4, 1, 3),
+    _CslbxSfarmHttpRetCodeActionType_Type()
+)
+cslbxSfarmHttpRetCodeActionType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxSfarmHttpRetCodeActionType.setStatus("current")
+
+
+class _CslbxSfarmHttpRetCodeThreshold_Type(Unsigned32):
+    """Custom type cslbxSfarmHttpRetCodeThreshold based on Unsigned32"""
+    defaultValue = 0
+
+
+_CslbxSfarmHttpRetCodeThreshold_Object = MibTableColumn
+cslbxSfarmHttpRetCodeThreshold = _CslbxSfarmHttpRetCodeThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 4, 1, 4),
+    _CslbxSfarmHttpRetCodeThreshold_Type()
+)
+cslbxSfarmHttpRetCodeThreshold.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxSfarmHttpRetCodeThreshold.setStatus("current")
+_CslbxSfarmHttpRetCodeResetTimer_Type = TimeInterval
+_CslbxSfarmHttpRetCodeResetTimer_Object = MibTableColumn
+cslbxSfarmHttpRetCodeResetTimer = _CslbxSfarmHttpRetCodeResetTimer_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 4, 1, 5),
+    _CslbxSfarmHttpRetCodeResetTimer_Type()
+)
+cslbxSfarmHttpRetCodeResetTimer.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxSfarmHttpRetCodeResetTimer.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxSfarmHttpRetCodeResetTimer.setUnits("seconds")
+
+
+class _CslbxSfarmHttpRetCodeStorageType_Type(StorageType):
+    """Custom type cslbxSfarmHttpRetCodeStorageType based on StorageType"""
+
+
+_CslbxSfarmHttpRetCodeStorageType_Object = MibTableColumn
+cslbxSfarmHttpRetCodeStorageType = _CslbxSfarmHttpRetCodeStorageType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 4, 1, 6),
+    _CslbxSfarmHttpRetCodeStorageType_Type()
+)
+cslbxSfarmHttpRetCodeStorageType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxSfarmHttpRetCodeStorageType.setStatus("current")
+_CslbxSfarmHttpRetCodeRowStatus_Type = RowStatus
+_CslbxSfarmHttpRetCodeRowStatus_Object = MibTableColumn
+cslbxSfarmHttpRetCodeRowStatus = _CslbxSfarmHttpRetCodeRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 4, 1, 7),
+    _CslbxSfarmHttpRetCodeRowStatus_Type()
+)
+cslbxSfarmHttpRetCodeRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxSfarmHttpRetCodeRowStatus.setStatus("current")
+_CslbxServerFarmStatsTable_Object = MibTable
+cslbxServerFarmStatsTable = _CslbxServerFarmStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 5)
+)
+if mibBuilder.loadTexts:
+    cslbxServerFarmStatsTable.setStatus("current")
+_CslbxServerFarmStatsEntry_Object = MibTableRow
+cslbxServerFarmStatsEntry = _CslbxServerFarmStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 5, 1)
+)
+if mibBuilder.loadTexts:
+    cslbxServerFarmStatsEntry.setStatus("current")
+_CslbxServerFarmTotalConns_Type = Counter64
+_CslbxServerFarmTotalConns_Object = MibTableColumn
+cslbxServerFarmTotalConns = _CslbxServerFarmTotalConns_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 5, 1, 1),
+    _CslbxServerFarmTotalConns_Type()
+)
+cslbxServerFarmTotalConns.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxServerFarmTotalConns.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxServerFarmTotalConns.setUnits("connections")
+_CslbxServerFarmCurrConns_Type = Counter64
+_CslbxServerFarmCurrConns_Object = MibTableColumn
+cslbxServerFarmCurrConns = _CslbxServerFarmCurrConns_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 5, 1, 2),
+    _CslbxServerFarmCurrConns_Type()
+)
+cslbxServerFarmCurrConns.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxServerFarmCurrConns.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxServerFarmCurrConns.setUnits("connections")
+_CslbxServerFarmFailedConns_Type = Counter64
+_CslbxServerFarmFailedConns_Object = MibTableColumn
+cslbxServerFarmFailedConns = _CslbxServerFarmFailedConns_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 5, 1, 3),
+    _CslbxServerFarmFailedConns_Type()
+)
+cslbxServerFarmFailedConns.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxServerFarmFailedConns.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxServerFarmFailedConns.setUnits("connections")
+_CslbxServerFarmNumOfTimeFailOvers_Type = Counter32
+_CslbxServerFarmNumOfTimeFailOvers_Object = MibTableColumn
+cslbxServerFarmNumOfTimeFailOvers = _CslbxServerFarmNumOfTimeFailOvers_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 5, 1, 4),
+    _CslbxServerFarmNumOfTimeFailOvers_Type()
+)
+cslbxServerFarmNumOfTimeFailOvers.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxServerFarmNumOfTimeFailOvers.setStatus("current")
+_CslbxServerFarmNumOfTimeBkInServs_Type = Counter32
+_CslbxServerFarmNumOfTimeBkInServs_Object = MibTableColumn
+cslbxServerFarmNumOfTimeBkInServs = _CslbxServerFarmNumOfTimeBkInServs_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 5, 1, 5),
+    _CslbxServerFarmNumOfTimeBkInServs_Type()
+)
+cslbxServerFarmNumOfTimeBkInServs.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxServerFarmNumOfTimeBkInServs.setStatus("current")
+_CslbxClientNatPools_ObjectIdentity = ObjectIdentity
+cslbxClientNatPools = _CslbxClientNatPools_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 3)
+)
+_CslbxNatPoolTable_Object = MibTable
+cslbxNatPoolTable = _CslbxNatPoolTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 3, 1)
+)
+if mibBuilder.loadTexts:
+    cslbxNatPoolTable.setStatus("current")
+_CslbxNatPoolEntry_Object = MibTableRow
+cslbxNatPoolEntry = _CslbxNatPoolEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 3, 1, 1)
+)
+cslbxNatPoolEntry.setIndexNames(
+    (0, "CISCO-SLB-MIB", "slbEntity"),
+    (0, "CISCO-SLB-EXT-MIB", "cslbxNatPoolName"),
+)
+if mibBuilder.loadTexts:
+    cslbxNatPoolEntry.setStatus("current")
+_CslbxNatPoolName_Type = SlbServerString
+_CslbxNatPoolName_Object = MibTableColumn
+cslbxNatPoolName = _CslbxNatPoolName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 3, 1, 1, 1),
+    _CslbxNatPoolName_Type()
+)
+cslbxNatPoolName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cslbxNatPoolName.setStatus("current")
+
+
+class _CslbxNatPoolStartAddressType_Type(InetAddressType):
+    """Custom type cslbxNatPoolStartAddressType based on InetAddressType"""
+
+
+_CslbxNatPoolStartAddressType_Object = MibTableColumn
+cslbxNatPoolStartAddressType = _CslbxNatPoolStartAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 3, 1, 1, 2),
+    _CslbxNatPoolStartAddressType_Type()
+)
+cslbxNatPoolStartAddressType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxNatPoolStartAddressType.setStatus("current")
+
+
+class _CslbxNatPoolStartAddress_Type(InetAddress):
+    """Custom type cslbxNatPoolStartAddress based on InetAddress"""
+    defaultHexValue = "00000000"
+
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 20),
+    )
+
+
+_CslbxNatPoolStartAddress_Type.__name__ = "InetAddress"
+_CslbxNatPoolStartAddress_Object = MibTableColumn
+cslbxNatPoolStartAddress = _CslbxNatPoolStartAddress_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 3, 1, 1, 3),
+    _CslbxNatPoolStartAddress_Type()
+)
+cslbxNatPoolStartAddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxNatPoolStartAddress.setStatus("current")
+
+
+class _CslbxNatPoolEndAddressType_Type(InetAddressType):
+    """Custom type cslbxNatPoolEndAddressType based on InetAddressType"""
+
+
+_CslbxNatPoolEndAddressType_Object = MibTableColumn
+cslbxNatPoolEndAddressType = _CslbxNatPoolEndAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 3, 1, 1, 4),
+    _CslbxNatPoolEndAddressType_Type()
+)
+cslbxNatPoolEndAddressType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxNatPoolEndAddressType.setStatus("current")
+
+
+class _CslbxNatPoolEndAddress_Type(InetAddress):
+    """Custom type cslbxNatPoolEndAddress based on InetAddress"""
+    defaultHexValue = "00000000"
+
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 20),
+    )
+
+
+_CslbxNatPoolEndAddress_Type.__name__ = "InetAddress"
+_CslbxNatPoolEndAddress_Object = MibTableColumn
+cslbxNatPoolEndAddress = _CslbxNatPoolEndAddress_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 3, 1, 1, 5),
+    _CslbxNatPoolEndAddress_Type()
+)
+cslbxNatPoolEndAddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxNatPoolEndAddress.setStatus("current")
+_CslbxNatPoolRowStatus_Type = RowStatus
+_CslbxNatPoolRowStatus_Object = MibTableColumn
+cslbxNatPoolRowStatus = _CslbxNatPoolRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 3, 1, 1, 6),
+    _CslbxNatPoolRowStatus_Type()
+)
+cslbxNatPoolRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxNatPoolRowStatus.setStatus("current")
+_CslbxStickyObjects_ObjectIdentity = ObjectIdentity
+cslbxStickyObjects = _CslbxStickyObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4)
+)
+_CslbxStickyGroupTable_Object = MibTable
+cslbxStickyGroupTable = _CslbxStickyGroupTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 1)
+)
+if mibBuilder.loadTexts:
+    cslbxStickyGroupTable.setStatus("current")
+_CslbxStickyGroupEntry_Object = MibTableRow
+cslbxStickyGroupEntry = _CslbxStickyGroupEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 1, 1)
+)
+cslbxStickyGroupEntry.setIndexNames(
+    (0, "CISCO-SLB-MIB", "slbEntity"),
+    (0, "CISCO-SLB-EXT-MIB", "cslbxStickyGroupId"),
+)
+if mibBuilder.loadTexts:
+    cslbxStickyGroupEntry.setStatus("current")
+_CslbxStickyGroupId_Type = Unsigned32
+_CslbxStickyGroupId_Object = MibTableColumn
+cslbxStickyGroupId = _CslbxStickyGroupId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 1, 1, 1),
+    _CslbxStickyGroupId_Type()
+)
+cslbxStickyGroupId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cslbxStickyGroupId.setStatus("current")
+_CslbxStickyGroupType_Type = SlbStickyType
+_CslbxStickyGroupType_Object = MibTableColumn
+cslbxStickyGroupType = _CslbxStickyGroupType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 1, 1, 2),
+    _CslbxStickyGroupType_Type()
+)
+cslbxStickyGroupType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxStickyGroupType.setStatus("current")
+
+
+class _CslbxStickyGroupMaskAddressType_Type(InetAddressType):
+    """Custom type cslbxStickyGroupMaskAddressType based on InetAddressType"""
+
+
+_CslbxStickyGroupMaskAddressType_Object = MibTableColumn
+cslbxStickyGroupMaskAddressType = _CslbxStickyGroupMaskAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 1, 1, 3),
+    _CslbxStickyGroupMaskAddressType_Type()
+)
+cslbxStickyGroupMaskAddressType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxStickyGroupMaskAddressType.setStatus("current")
+
+
+class _CslbxStickyGroupMaskAddress_Type(InetAddress):
+    """Custom type cslbxStickyGroupMaskAddress based on InetAddress"""
+    defaultHexValue = "FFFFFFFF"
+
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 20),
+    )
+
+
+_CslbxStickyGroupMaskAddress_Type.__name__ = "InetAddress"
+_CslbxStickyGroupMaskAddress_Object = MibTableColumn
+cslbxStickyGroupMaskAddress = _CslbxStickyGroupMaskAddress_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 1, 1, 4),
+    _CslbxStickyGroupMaskAddress_Type()
+)
+cslbxStickyGroupMaskAddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxStickyGroupMaskAddress.setStatus("current")
+
+
+class _CslbxStickyGroupCookieName_Type(SnmpAdminString):
+    """Custom type cslbxStickyGroupCookieName based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_CslbxStickyGroupCookieName_Type.__name__ = "SnmpAdminString"
+_CslbxStickyGroupCookieName_Object = MibTableColumn
+cslbxStickyGroupCookieName = _CslbxStickyGroupCookieName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 1, 1, 5),
+    _CslbxStickyGroupCookieName_Type()
+)
+cslbxStickyGroupCookieName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxStickyGroupCookieName.setStatus("current")
+_CslbxStickyGroupStickyTimer_Type = Unsigned32
+_CslbxStickyGroupStickyTimer_Object = MibTableColumn
+cslbxStickyGroupStickyTimer = _CslbxStickyGroupStickyTimer_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 1, 1, 6),
+    _CslbxStickyGroupStickyTimer_Type()
+)
+cslbxStickyGroupStickyTimer.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxStickyGroupStickyTimer.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxStickyGroupStickyTimer.setUnits("minutes")
+_CslbxStickyGroupRowStatus_Type = RowStatus
+_CslbxStickyGroupRowStatus_Object = MibTableColumn
+cslbxStickyGroupRowStatus = _CslbxStickyGroupRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 1, 1, 7),
+    _CslbxStickyGroupRowStatus_Type()
+)
+cslbxStickyGroupRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxStickyGroupRowStatus.setStatus("current")
+
+
+class _CslbxStickyGroupHeaderName_Type(SnmpAdminString):
+    """Custom type cslbxStickyGroupHeaderName based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_CslbxStickyGroupHeaderName_Type.__name__ = "SnmpAdminString"
+_CslbxStickyGroupHeaderName_Object = MibTableColumn
+cslbxStickyGroupHeaderName = _CslbxStickyGroupHeaderName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 1, 1, 8),
+    _CslbxStickyGroupHeaderName_Type()
+)
+cslbxStickyGroupHeaderName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxStickyGroupHeaderName.setStatus("current")
+_CslbxStickyGroupTimeoutActiveConn_Type = TruthValue
+_CslbxStickyGroupTimeoutActiveConn_Object = MibTableColumn
+cslbxStickyGroupTimeoutActiveConn = _CslbxStickyGroupTimeoutActiveConn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 1, 1, 9),
+    _CslbxStickyGroupTimeoutActiveConn_Type()
+)
+cslbxStickyGroupTimeoutActiveConn.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxStickyGroupTimeoutActiveConn.setStatus("current")
+_CslbxStickyGroupReplicate_Type = TruthValue
+_CslbxStickyGroupReplicate_Object = MibTableColumn
+cslbxStickyGroupReplicate = _CslbxStickyGroupReplicate_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 1, 1, 10),
+    _CslbxStickyGroupReplicate_Type()
+)
+cslbxStickyGroupReplicate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxStickyGroupReplicate.setStatus("current")
+_CslbxStickyObjectTable_Object = MibTable
+cslbxStickyObjectTable = _CslbxStickyObjectTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 2)
+)
+if mibBuilder.loadTexts:
+    cslbxStickyObjectTable.setStatus("current")
+_CslbxStickyObjectTableEntry_Object = MibTableRow
+cslbxStickyObjectTableEntry = _CslbxStickyObjectTableEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 2, 1)
+)
+cslbxStickyObjectTableEntry.setIndexNames(
+    (0, "CISCO-SLB-MIB", "slbEntity"),
+    (0, "CISCO-SLB-EXT-MIB", "cslbxStickyObjectIndex"),
+)
+if mibBuilder.loadTexts:
+    cslbxStickyObjectTableEntry.setStatus("current")
+_CslbxStickyObjectIndex_Type = Unsigned32
+_CslbxStickyObjectIndex_Object = MibTableColumn
+cslbxStickyObjectIndex = _CslbxStickyObjectIndex_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 2, 1, 1),
+    _CslbxStickyObjectIndex_Type()
+)
+cslbxStickyObjectIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cslbxStickyObjectIndex.setStatus("current")
+_CslbxStickyObjectGroupId_Type = Unsigned32
+_CslbxStickyObjectGroupId_Object = MibTableColumn
+cslbxStickyObjectGroupId = _CslbxStickyObjectGroupId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 2, 1, 2),
+    _CslbxStickyObjectGroupId_Type()
+)
+cslbxStickyObjectGroupId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStickyObjectGroupId.setStatus("current")
+_CslbxStickyObjectType_Type = SlbStickyType
+_CslbxStickyObjectType_Object = MibTableColumn
+cslbxStickyObjectType = _CslbxStickyObjectType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 2, 1, 3),
+    _CslbxStickyObjectType_Type()
+)
+cslbxStickyObjectType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStickyObjectType.setStatus("current")
+_CslbxStickyObjectSourceInfo_Type = Unsigned32
+_CslbxStickyObjectSourceInfo_Object = MibTableColumn
+cslbxStickyObjectSourceInfo = _CslbxStickyObjectSourceInfo_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 2, 1, 4),
+    _CslbxStickyObjectSourceInfo_Type()
+)
+cslbxStickyObjectSourceInfo.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStickyObjectSourceInfo.setStatus("current")
+_CslbxStickyObjectRealAddressType_Type = InetAddressType
+_CslbxStickyObjectRealAddressType_Object = MibTableColumn
+cslbxStickyObjectRealAddressType = _CslbxStickyObjectRealAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 2, 1, 5),
+    _CslbxStickyObjectRealAddressType_Type()
+)
+cslbxStickyObjectRealAddressType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStickyObjectRealAddressType.setStatus("current")
+
+
+class _CslbxStickyObjectRealAddress_Type(InetAddress):
+    """Custom type cslbxStickyObjectRealAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 20),
+    )
+
+
+_CslbxStickyObjectRealAddress_Type.__name__ = "InetAddress"
+_CslbxStickyObjectRealAddress_Object = MibTableColumn
+cslbxStickyObjectRealAddress = _CslbxStickyObjectRealAddress_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 2, 1, 6),
+    _CslbxStickyObjectRealAddress_Type()
+)
+cslbxStickyObjectRealAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStickyObjectRealAddress.setStatus("current")
+_CslbxStickyObjectRealPort_Type = CiscoPort
+_CslbxStickyObjectRealPort_Object = MibTableColumn
+cslbxStickyObjectRealPort = _CslbxStickyObjectRealPort_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 2, 1, 7),
+    _CslbxStickyObjectRealPort_Type()
+)
+cslbxStickyObjectRealPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxStickyObjectRealPort.setStatus("current")
+_CslbxStickyGroupExtTable_Object = MibTable
+cslbxStickyGroupExtTable = _CslbxStickyGroupExtTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 3)
+)
+if mibBuilder.loadTexts:
+    cslbxStickyGroupExtTable.setStatus("current")
+_CslbxStickyGroupExtEntry_Object = MibTableRow
+cslbxStickyGroupExtEntry = _CslbxStickyGroupExtEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 3, 1)
+)
+if mibBuilder.loadTexts:
+    cslbxStickyGroupExtEntry.setStatus("current")
+_CslbxStickyOffset_Type = Unsigned32
+_CslbxStickyOffset_Object = MibTableColumn
+cslbxStickyOffset = _CslbxStickyOffset_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 3, 1, 1),
+    _CslbxStickyOffset_Type()
+)
+cslbxStickyOffset.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxStickyOffset.setStatus("current")
+_CslbxStickyLength_Type = Unsigned32
+_CslbxStickyLength_Object = MibTableColumn
+cslbxStickyLength = _CslbxStickyLength_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 3, 1, 2),
+    _CslbxStickyLength_Type()
+)
+cslbxStickyLength.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxStickyLength.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxStickyLength.setUnits("Bytes")
+_CslbxStickyCookieSecondary_Type = SnmpAdminString
+_CslbxStickyCookieSecondary_Object = MibTableColumn
+cslbxStickyCookieSecondary = _CslbxStickyCookieSecondary_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 3, 1, 3),
+    _CslbxStickyCookieSecondary_Type()
+)
+cslbxStickyCookieSecondary.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxStickyCookieSecondary.setStatus("current")
+_CslbxStickyCookieInsertEnable_Type = TruthValue
+_CslbxStickyCookieInsertEnable_Object = MibTableColumn
+cslbxStickyCookieInsertEnable = _CslbxStickyCookieInsertEnable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 3, 1, 4),
+    _CslbxStickyCookieInsertEnable_Type()
+)
+cslbxStickyCookieInsertEnable.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxStickyCookieInsertEnable.setStatus("current")
+_CslbxStickyCookieExpiryDate_Type = DateAndTime
+_CslbxStickyCookieExpiryDate_Object = MibTableColumn
+cslbxStickyCookieExpiryDate = _CslbxStickyCookieExpiryDate_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 3, 1, 5),
+    _CslbxStickyCookieExpiryDate_Type()
+)
+cslbxStickyCookieExpiryDate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxStickyCookieExpiryDate.setStatus("current")
+_CslbxMaps_ObjectIdentity = ObjectIdentity
+cslbxMaps = _CslbxMaps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5)
+)
+_CslbxMapTable_Object = MibTable
+cslbxMapTable = _CslbxMapTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 1)
+)
+if mibBuilder.loadTexts:
+    cslbxMapTable.setStatus("current")
+_CslbxMapTableEntry_Object = MibTableRow
+cslbxMapTableEntry = _CslbxMapTableEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 1, 1)
+)
+cslbxMapTableEntry.setIndexNames(
+    (0, "CISCO-SLB-MIB", "slbEntity"),
+    (0, "CISCO-SLB-EXT-MIB", "cslbxMapName"),
+)
+if mibBuilder.loadTexts:
+    cslbxMapTableEntry.setStatus("current")
+_CslbxMapName_Type = SlbServerString
+_CslbxMapName_Object = MibTableColumn
+cslbxMapName = _CslbxMapName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 1, 1, 1),
+    _CslbxMapName_Type()
+)
+cslbxMapName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cslbxMapName.setStatus("current")
+
+
+class _CslbxMapType_Type(SlbMapType):
+    """Custom type cslbxMapType based on SlbMapType"""
+
+
+_CslbxMapType_Object = MibTableColumn
+cslbxMapType = _CslbxMapType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 1, 1, 2),
+    _CslbxMapType_Type()
+)
+cslbxMapType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxMapType.setStatus("current")
+_CslbxMapRowStatus_Type = RowStatus
+_CslbxMapRowStatus_Object = MibTableColumn
+cslbxMapRowStatus = _CslbxMapRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 1, 1, 3),
+    _CslbxMapRowStatus_Type()
+)
+cslbxMapRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxMapRowStatus.setStatus("current")
+_CslbxHttpExpressionTable_Object = MibTable
+cslbxHttpExpressionTable = _CslbxHttpExpressionTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 2)
+)
+if mibBuilder.loadTexts:
+    cslbxHttpExpressionTable.setStatus("current")
+_CslbxHttpExpressionTableEntry_Object = MibTableRow
+cslbxHttpExpressionTableEntry = _CslbxHttpExpressionTableEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 2, 1)
+)
+cslbxHttpExpressionTableEntry.setIndexNames(
+    (0, "CISCO-SLB-MIB", "slbEntity"),
+    (0, "CISCO-SLB-EXT-MIB", "cslbxHttpExpressionMapName"),
+    (0, "CISCO-SLB-EXT-MIB", "cslbxHttpExpressionIndex"),
+)
+if mibBuilder.loadTexts:
+    cslbxHttpExpressionTableEntry.setStatus("current")
+_CslbxHttpExpressionMapName_Type = SlbServerString
+_CslbxHttpExpressionMapName_Object = MibTableColumn
+cslbxHttpExpressionMapName = _CslbxHttpExpressionMapName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 2, 1, 1),
+    _CslbxHttpExpressionMapName_Type()
+)
+cslbxHttpExpressionMapName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cslbxHttpExpressionMapName.setStatus("current")
+_CslbxHttpExpressionIndex_Type = Unsigned32
+_CslbxHttpExpressionIndex_Object = MibTableColumn
+cslbxHttpExpressionIndex = _CslbxHttpExpressionIndex_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 2, 1, 2),
+    _CslbxHttpExpressionIndex_Type()
+)
+cslbxHttpExpressionIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cslbxHttpExpressionIndex.setStatus("current")
+_CslbxHttpExpressionFieldName_Type = SlbRegularExpression
+_CslbxHttpExpressionFieldName_Object = MibTableColumn
+cslbxHttpExpressionFieldName = _CslbxHttpExpressionFieldName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 2, 1, 3),
+    _CslbxHttpExpressionFieldName_Type()
+)
+cslbxHttpExpressionFieldName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxHttpExpressionFieldName.setStatus("current")
+_CslbxHttpExpressionValue_Type = SlbRegularExpression
+_CslbxHttpExpressionValue_Object = MibTableColumn
+cslbxHttpExpressionValue = _CslbxHttpExpressionValue_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 2, 1, 4),
+    _CslbxHttpExpressionValue_Type()
+)
+cslbxHttpExpressionValue.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxHttpExpressionValue.setStatus("current")
+_CslbxHttpExpressionRowStatus_Type = RowStatus
+_CslbxHttpExpressionRowStatus_Object = MibTableColumn
+cslbxHttpExpressionRowStatus = _CslbxHttpExpressionRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 2, 1, 5),
+    _CslbxHttpExpressionRowStatus_Type()
+)
+cslbxHttpExpressionRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxHttpExpressionRowStatus.setStatus("current")
+
+
+class _CslbxHttpExpressionRequestMethod_Type(SnmpAdminString):
+    """Custom type cslbxHttpExpressionRequestMethod based on SnmpAdminString"""
+    defaultHexValue = ""
+
+
+_CslbxHttpExpressionRequestMethod_Object = MibTableColumn
+cslbxHttpExpressionRequestMethod = _CslbxHttpExpressionRequestMethod_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 2, 1, 6),
+    _CslbxHttpExpressionRequestMethod_Type()
+)
+cslbxHttpExpressionRequestMethod.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxHttpExpressionRequestMethod.setStatus("current")
+_CslbxHttpReturnCodeTable_Object = MibTable
+cslbxHttpReturnCodeTable = _CslbxHttpReturnCodeTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 3)
+)
+if mibBuilder.loadTexts:
+    cslbxHttpReturnCodeTable.setStatus("current")
+_CslbxHttpReturnCodeEntry_Object = MibTableRow
+cslbxHttpReturnCodeEntry = _CslbxHttpReturnCodeEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 3, 1)
+)
+cslbxHttpReturnCodeEntry.setIndexNames(
+    (0, "CISCO-SLB-MIB", "slbEntity"),
+    (0, "CISCO-SLB-EXT-MIB", "cslbxHttpReturnCodeMapName"),
+    (0, "CISCO-SLB-EXT-MIB", "cslbxHttpReturnCodeMinValue"),
+)
+if mibBuilder.loadTexts:
+    cslbxHttpReturnCodeEntry.setStatus("current")
+_CslbxHttpReturnCodeMapName_Type = SlbServerString
+_CslbxHttpReturnCodeMapName_Object = MibTableColumn
+cslbxHttpReturnCodeMapName = _CslbxHttpReturnCodeMapName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 3, 1, 1),
+    _CslbxHttpReturnCodeMapName_Type()
+)
+cslbxHttpReturnCodeMapName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cslbxHttpReturnCodeMapName.setStatus("current")
+_CslbxHttpReturnCodeMinValue_Type = Unsigned32
+_CslbxHttpReturnCodeMinValue_Object = MibTableColumn
+cslbxHttpReturnCodeMinValue = _CslbxHttpReturnCodeMinValue_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 3, 1, 2),
+    _CslbxHttpReturnCodeMinValue_Type()
+)
+cslbxHttpReturnCodeMinValue.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cslbxHttpReturnCodeMinValue.setStatus("current")
+
+
+class _CslbxHttpReturnCodeMaxValue_Type(Unsigned32):
+    """Custom type cslbxHttpReturnCodeMaxValue based on Unsigned32"""
+    defaultValue = 0
+
+
+_CslbxHttpReturnCodeMaxValue_Object = MibTableColumn
+cslbxHttpReturnCodeMaxValue = _CslbxHttpReturnCodeMaxValue_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 3, 1, 3),
+    _CslbxHttpReturnCodeMaxValue_Type()
+)
+cslbxHttpReturnCodeMaxValue.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxHttpReturnCodeMaxValue.setStatus("current")
+
+
+class _CslbxHttpReturnCodeThreshold_Type(Unsigned32):
+    """Custom type cslbxHttpReturnCodeThreshold based on Unsigned32"""
+    defaultValue = 0
+
+
+_CslbxHttpReturnCodeThreshold_Object = MibTableColumn
+cslbxHttpReturnCodeThreshold = _CslbxHttpReturnCodeThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 3, 1, 4),
+    _CslbxHttpReturnCodeThreshold_Type()
+)
+cslbxHttpReturnCodeThreshold.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxHttpReturnCodeThreshold.setStatus("current")
+
+
+class _CslbxHttpReturnCodeResetTimer_Type(TimeInterval):
+    """Custom type cslbxHttpReturnCodeResetTimer based on TimeInterval"""
+    defaultValue = 0
+
+
+_CslbxHttpReturnCodeResetTimer_Object = MibTableColumn
+cslbxHttpReturnCodeResetTimer = _CslbxHttpReturnCodeResetTimer_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 3, 1, 5),
+    _CslbxHttpReturnCodeResetTimer_Type()
+)
+cslbxHttpReturnCodeResetTimer.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxHttpReturnCodeResetTimer.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxHttpReturnCodeResetTimer.setUnits("seconds")
+
+
+class _CslbxHttpReturnCodeType_Type(SlbProbeAction):
+    """Custom type cslbxHttpReturnCodeType based on SlbProbeAction"""
+
+
+_CslbxHttpReturnCodeType_Object = MibTableColumn
+cslbxHttpReturnCodeType = _CslbxHttpReturnCodeType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 3, 1, 6),
+    _CslbxHttpReturnCodeType_Type()
+)
+cslbxHttpReturnCodeType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxHttpReturnCodeType.setStatus("current")
+_CslbxHttpReturnCodeRowStatus_Type = RowStatus
+_CslbxHttpReturnCodeRowStatus_Object = MibTableColumn
+cslbxHttpReturnCodeRowStatus = _CslbxHttpReturnCodeRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 3, 1, 7),
+    _CslbxHttpReturnCodeRowStatus_Type()
+)
+cslbxHttpReturnCodeRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxHttpReturnCodeRowStatus.setStatus("current")
+_CslbxServerProbes_ObjectIdentity = ObjectIdentity
+cslbxServerProbes = _CslbxServerProbes_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 6)
+)
+_CslbxPolicies_ObjectIdentity = ObjectIdentity
+cslbxPolicies = _CslbxPolicies_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 7)
+)
+_CslbxPolicyTable_Object = MibTable
+cslbxPolicyTable = _CslbxPolicyTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 7, 1)
+)
+if mibBuilder.loadTexts:
+    cslbxPolicyTable.setStatus("current")
+_CslbxPolicyTableEntry_Object = MibTableRow
+cslbxPolicyTableEntry = _CslbxPolicyTableEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 7, 1, 1)
+)
+cslbxPolicyTableEntry.setIndexNames(
+    (0, "CISCO-SLB-MIB", "slbEntity"),
+    (0, "CISCO-SLB-EXT-MIB", "cslbxPolicyName"),
+)
+if mibBuilder.loadTexts:
+    cslbxPolicyTableEntry.setStatus("current")
+_CslbxPolicyName_Type = SlbServerString
+_CslbxPolicyName_Object = MibTableColumn
+cslbxPolicyName = _CslbxPolicyName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 7, 1, 1, 1),
+    _CslbxPolicyName_Type()
+)
+cslbxPolicyName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cslbxPolicyName.setStatus("current")
+_CslbxPolicyClientGroupNumber_Type = Unsigned32
+_CslbxPolicyClientGroupNumber_Object = MibTableColumn
+cslbxPolicyClientGroupNumber = _CslbxPolicyClientGroupNumber_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 7, 1, 1, 2),
+    _CslbxPolicyClientGroupNumber_Type()
+)
+cslbxPolicyClientGroupNumber.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxPolicyClientGroupNumber.setStatus("current")
+_CslbxPolicyClientGroupName_Type = SlbObjectNameString
+_CslbxPolicyClientGroupName_Object = MibTableColumn
+cslbxPolicyClientGroupName = _CslbxPolicyClientGroupName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 7, 1, 1, 3),
+    _CslbxPolicyClientGroupName_Type()
+)
+cslbxPolicyClientGroupName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxPolicyClientGroupName.setStatus("current")
+_CslbxPolicyUrlMap_Type = SlbObjectNameString
+_CslbxPolicyUrlMap_Object = MibTableColumn
+cslbxPolicyUrlMap = _CslbxPolicyUrlMap_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 7, 1, 1, 4),
+    _CslbxPolicyUrlMap_Type()
+)
+cslbxPolicyUrlMap.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxPolicyUrlMap.setStatus("current")
+_CslbxPolicyCookieMap_Type = SlbObjectNameString
+_CslbxPolicyCookieMap_Object = MibTableColumn
+cslbxPolicyCookieMap = _CslbxPolicyCookieMap_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 7, 1, 1, 5),
+    _CslbxPolicyCookieMap_Type()
+)
+cslbxPolicyCookieMap.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxPolicyCookieMap.setStatus("current")
+_CslbxPolicyGenericHeaderMap_Type = SlbObjectNameString
+_CslbxPolicyGenericHeaderMap_Object = MibTableColumn
+cslbxPolicyGenericHeaderMap = _CslbxPolicyGenericHeaderMap_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 7, 1, 1, 6),
+    _CslbxPolicyGenericHeaderMap_Type()
+)
+cslbxPolicyGenericHeaderMap.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxPolicyGenericHeaderMap.setStatus("current")
+
+
+class _CslbxPolicyStickyGroup_Type(Unsigned32):
+    """Custom type cslbxPolicyStickyGroup based on Unsigned32"""
+    defaultValue = 0
+
+
+_CslbxPolicyStickyGroup_Object = MibTableColumn
+cslbxPolicyStickyGroup = _CslbxPolicyStickyGroup_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 7, 1, 1, 7),
+    _CslbxPolicyStickyGroup_Type()
+)
+cslbxPolicyStickyGroup.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxPolicyStickyGroup.setStatus("current")
+
+
+class _CslbxPolicyDscpEnabled_Type(TruthValue):
+    """Custom type cslbxPolicyDscpEnabled based on TruthValue"""
+
+
+_CslbxPolicyDscpEnabled_Object = MibTableColumn
+cslbxPolicyDscpEnabled = _CslbxPolicyDscpEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 7, 1, 1, 8),
+    _CslbxPolicyDscpEnabled_Type()
+)
+cslbxPolicyDscpEnabled.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxPolicyDscpEnabled.setStatus("current")
+
+
+class _CslbxPolicyDscpStamping_Type(Unsigned32):
+    """Custom type cslbxPolicyDscpStamping based on Unsigned32"""
+    defaultValue = 0
+
+
+_CslbxPolicyDscpStamping_Object = MibTableColumn
+cslbxPolicyDscpStamping = _CslbxPolicyDscpStamping_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 7, 1, 1, 9),
+    _CslbxPolicyDscpStamping_Type()
+)
+cslbxPolicyDscpStamping.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxPolicyDscpStamping.setStatus("current")
+_CslbxPolicyFarmName_Type = SlbObjectNameString
+_CslbxPolicyFarmName_Object = MibTableColumn
+cslbxPolicyFarmName = _CslbxPolicyFarmName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 7, 1, 1, 10),
+    _CslbxPolicyFarmName_Type()
+)
+cslbxPolicyFarmName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxPolicyFarmName.setStatus("current")
+_CslbxPolicyRowStatus_Type = RowStatus
+_CslbxPolicyRowStatus_Object = MibTableColumn
+cslbxPolicyRowStatus = _CslbxPolicyRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 7, 1, 1, 11),
+    _CslbxPolicyRowStatus_Type()
+)
+cslbxPolicyRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxPolicyRowStatus.setStatus("current")
+
+
+class _CslbxPolicyBackupFarmName_Type(SlbObjectNameString):
+    """Custom type cslbxPolicyBackupFarmName based on SlbObjectNameString"""
+    defaultHexValue = ""
+
+
+_CslbxPolicyBackupFarmName_Object = MibTableColumn
+cslbxPolicyBackupFarmName = _CslbxPolicyBackupFarmName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 7, 1, 1, 12),
+    _CslbxPolicyBackupFarmName_Type()
+)
+cslbxPolicyBackupFarmName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxPolicyBackupFarmName.setStatus("current")
+
+
+class _CslbxPolicyBkFarmStickyEnabled_Type(TruthValue):
+    """Custom type cslbxPolicyBkFarmStickyEnabled based on TruthValue"""
+
+
+_CslbxPolicyBkFarmStickyEnabled_Object = MibTableColumn
+cslbxPolicyBkFarmStickyEnabled = _CslbxPolicyBkFarmStickyEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 7, 1, 1, 13),
+    _CslbxPolicyBkFarmStickyEnabled_Type()
+)
+cslbxPolicyBkFarmStickyEnabled.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxPolicyBkFarmStickyEnabled.setStatus("current")
+
+
+class _CslbxPolicyReverseStickyGroup_Type(Unsigned32):
+    """Custom type cslbxPolicyReverseStickyGroup based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_CslbxPolicyReverseStickyGroup_Type.__name__ = "Unsigned32"
+_CslbxPolicyReverseStickyGroup_Object = MibTableColumn
+cslbxPolicyReverseStickyGroup = _CslbxPolicyReverseStickyGroup_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 7, 1, 1, 14),
+    _CslbxPolicyReverseStickyGroup_Type()
+)
+cslbxPolicyReverseStickyGroup.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxPolicyReverseStickyGroup.setStatus("current")
+_CslbxVirtualServers_ObjectIdentity = ObjectIdentity
+cslbxVirtualServers = _CslbxVirtualServers_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8)
+)
+_CslbxVirtualServerTable_Object = MibTable
+cslbxVirtualServerTable = _CslbxVirtualServerTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 1)
+)
+if mibBuilder.loadTexts:
+    cslbxVirtualServerTable.setStatus("current")
+_CslbxVirtualServerTableEntry_Object = MibTableRow
+cslbxVirtualServerTableEntry = _CslbxVirtualServerTableEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 1, 1)
+)
+if mibBuilder.loadTexts:
+    cslbxVirtualServerTableEntry.setStatus("current")
+
+
+class _CslbxVirtualAdvertiseOption_Type(SlbIpAdvertise):
+    """Custom type cslbxVirtualAdvertiseOption based on SlbIpAdvertise"""
+
+
+_CslbxVirtualAdvertiseOption_Object = MibTableColumn
+cslbxVirtualAdvertiseOption = _CslbxVirtualAdvertiseOption_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 1, 1, 1),
+    _CslbxVirtualAdvertiseOption_Type()
+)
+cslbxVirtualAdvertiseOption.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxVirtualAdvertiseOption.setStatus("current")
+
+
+class _CslbxVirtualVlanId_Type(Unsigned32):
+    """Custom type cslbxVirtualVlanId based on Unsigned32"""
+    defaultValue = 0
+
+
+_CslbxVirtualVlanId_Object = MibTableColumn
+cslbxVirtualVlanId = _CslbxVirtualVlanId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 1, 1, 2),
+    _CslbxVirtualVlanId_Type()
+)
+cslbxVirtualVlanId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxVirtualVlanId.setStatus("current")
+
+
+class _CslbxVirtualReplicationMode_Type(SlbReplicationMode):
+    """Custom type cslbxVirtualReplicationMode based on SlbReplicationMode"""
+
+
+_CslbxVirtualReplicationMode_Object = MibTableColumn
+cslbxVirtualReplicationMode = _CslbxVirtualReplicationMode_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 1, 1, 3),
+    _CslbxVirtualReplicationMode_Type()
+)
+cslbxVirtualReplicationMode.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxVirtualReplicationMode.setStatus("current")
+
+
+class _CslbxVirtualPendingTimer_Type(TimeInterval):
+    """Custom type cslbxVirtualPendingTimer based on TimeInterval"""
+    defaultValue = 3000
+
+
+_CslbxVirtualPendingTimer_Object = MibTableColumn
+cslbxVirtualPendingTimer = _CslbxVirtualPendingTimer_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 1, 1, 4),
+    _CslbxVirtualPendingTimer_Type()
+)
+cslbxVirtualPendingTimer.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxVirtualPendingTimer.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxVirtualPendingTimer.setUnits("seconds")
+
+
+class _CslbxVirtualL7MaxParseLength_Type(Unsigned32):
+    """Custom type cslbxVirtualL7MaxParseLength based on Unsigned32"""
+    defaultValue = 600
+
+
+_CslbxVirtualL7MaxParseLength_Object = MibTableColumn
+cslbxVirtualL7MaxParseLength = _CslbxVirtualL7MaxParseLength_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 1, 1, 5),
+    _CslbxVirtualL7MaxParseLength_Type()
+)
+cslbxVirtualL7MaxParseLength.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxVirtualL7MaxParseLength.setStatus("current")
+
+
+class _CslbxVirtualHttpPersistenceSlb_Type(TruthValue):
+    """Custom type cslbxVirtualHttpPersistenceSlb based on TruthValue"""
+
+
+_CslbxVirtualHttpPersistenceSlb_Object = MibTableColumn
+cslbxVirtualHttpPersistenceSlb = _CslbxVirtualHttpPersistenceSlb_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 1, 1, 6),
+    _CslbxVirtualHttpPersistenceSlb_Type()
+)
+cslbxVirtualHttpPersistenceSlb.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxVirtualHttpPersistenceSlb.setStatus("current")
+_CslbxVirtualURLHashBeginString_Type = SlbRegularExpression
+_CslbxVirtualURLHashBeginString_Object = MibTableColumn
+cslbxVirtualURLHashBeginString = _CslbxVirtualURLHashBeginString_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 1, 1, 7),
+    _CslbxVirtualURLHashBeginString_Type()
+)
+cslbxVirtualURLHashBeginString.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxVirtualURLHashBeginString.setStatus("current")
+_CslbxVirtualURLHashEndString_Type = SlbRegularExpression
+_CslbxVirtualURLHashEndString_Object = MibTableColumn
+cslbxVirtualURLHashEndString = _CslbxVirtualURLHashEndString_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 1, 1, 8),
+    _CslbxVirtualURLHashEndString_Type()
+)
+cslbxVirtualURLHashEndString.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxVirtualURLHashEndString.setStatus("current")
+
+
+class _CslbxVirtualMaxConns_Type(Unsigned32):
+    """Custom type cslbxVirtualMaxConns based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4294967295),
+    )
+
+
+_CslbxVirtualMaxConns_Type.__name__ = "Unsigned32"
+_CslbxVirtualMaxConns_Object = MibTableColumn
+cslbxVirtualMaxConns = _CslbxVirtualMaxConns_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 1, 1, 9),
+    _CslbxVirtualMaxConns_Type()
+)
+cslbxVirtualMaxConns.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxVirtualMaxConns.setStatus("current")
+
+
+class _CslbxVirtualOwnerName_Type(SlbObjectNameString):
+    """Custom type cslbxVirtualOwnerName based on SlbObjectNameString"""
+    defaultHexValue = ""
+
+
+_CslbxVirtualOwnerName_Object = MibTableColumn
+cslbxVirtualOwnerName = _CslbxVirtualOwnerName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 1, 1, 10),
+    _CslbxVirtualOwnerName_Type()
+)
+cslbxVirtualOwnerName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxVirtualOwnerName.setStatus("current")
+
+
+class _CslbxVirtualFlowMode_Type(SlbDirectionalMode):
+    """Custom type cslbxVirtualFlowMode based on SlbDirectionalMode"""
+
+
+_CslbxVirtualFlowMode_Object = MibTableColumn
+cslbxVirtualFlowMode = _CslbxVirtualFlowMode_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 1, 1, 11),
+    _CslbxVirtualFlowMode_Type()
+)
+cslbxVirtualFlowMode.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxVirtualFlowMode.setStatus("current")
+
+
+class _CslbxVirtualSSLStickyOffset_Type(Unsigned32):
+    """Custom type cslbxVirtualSSLStickyOffset based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 127),
+    )
+
+
+_CslbxVirtualSSLStickyOffset_Type.__name__ = "Unsigned32"
+_CslbxVirtualSSLStickyOffset_Object = MibTableColumn
+cslbxVirtualSSLStickyOffset = _CslbxVirtualSSLStickyOffset_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 1, 1, 12),
+    _CslbxVirtualSSLStickyOffset_Type()
+)
+cslbxVirtualSSLStickyOffset.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxVirtualSSLStickyOffset.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxVirtualSSLStickyOffset.setUnits("bytes")
+
+
+class _CslbxVirtualSSLStickyLength_Type(Unsigned32):
+    """Custom type cslbxVirtualSSLStickyLength based on Unsigned32"""
+    defaultValue = 32
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 128),
+    )
+
+
+_CslbxVirtualSSLStickyLength_Type.__name__ = "Unsigned32"
+_CslbxVirtualSSLStickyLength_Object = MibTableColumn
+cslbxVirtualSSLStickyLength = _CslbxVirtualSSLStickyLength_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 1, 1, 13),
+    _CslbxVirtualSSLStickyLength_Type()
+)
+cslbxVirtualSSLStickyLength.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxVirtualSSLStickyLength.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxVirtualSSLStickyLength.setUnits("bytes")
+
+
+class _CslbxVirtualReverseStickyGroup_Type(Unsigned32):
+    """Custom type cslbxVirtualReverseStickyGroup based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_CslbxVirtualReverseStickyGroup_Type.__name__ = "Unsigned32"
+_CslbxVirtualReverseStickyGroup_Object = MibTableColumn
+cslbxVirtualReverseStickyGroup = _CslbxVirtualReverseStickyGroup_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 1, 1, 14),
+    _CslbxVirtualReverseStickyGroup_Type()
+)
+cslbxVirtualReverseStickyGroup.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxVirtualReverseStickyGroup.setStatus("current")
+
+
+class _CslbxVirtualBackupFarmName_Type(SlbObjectNameString):
+    """Custom type cslbxVirtualBackupFarmName based on SlbObjectNameString"""
+    defaultHexValue = ""
+
+
+_CslbxVirtualBackupFarmName_Object = MibTableColumn
+cslbxVirtualBackupFarmName = _CslbxVirtualBackupFarmName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 1, 1, 15),
+    _CslbxVirtualBackupFarmName_Type()
+)
+cslbxVirtualBackupFarmName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxVirtualBackupFarmName.setStatus("current")
+
+
+class _CslbxVirtualBkFarmStickyEnabled_Type(TruthValue):
+    """Custom type cslbxVirtualBkFarmStickyEnabled based on TruthValue"""
+
+
+_CslbxVirtualBkFarmStickyEnabled_Object = MibTableColumn
+cslbxVirtualBkFarmStickyEnabled = _CslbxVirtualBkFarmStickyEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 1, 1, 16),
+    _CslbxVirtualBkFarmStickyEnabled_Type()
+)
+cslbxVirtualBkFarmStickyEnabled.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxVirtualBkFarmStickyEnabled.setStatus("current")
+_CslbxRuleTable_Object = MibTable
+cslbxRuleTable = _CslbxRuleTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 2)
+)
+if mibBuilder.loadTexts:
+    cslbxRuleTable.setStatus("current")
+_CslbxRuleEntry_Object = MibTableRow
+cslbxRuleEntry = _CslbxRuleEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 2, 1)
+)
+cslbxRuleEntry.setIndexNames(
+    (0, "CISCO-SLB-MIB", "slbEntity"),
+    (0, "CISCO-SLB-EXT-MIB", "cslbxRuleVirtualServerName"),
+    (0, "CISCO-SLB-EXT-MIB", "cslbxRulePolicyName"),
+)
+if mibBuilder.loadTexts:
+    cslbxRuleEntry.setStatus("current")
+_CslbxRuleVirtualServerName_Type = SlbServerString
+_CslbxRuleVirtualServerName_Object = MibTableColumn
+cslbxRuleVirtualServerName = _CslbxRuleVirtualServerName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 2, 1, 1),
+    _CslbxRuleVirtualServerName_Type()
+)
+cslbxRuleVirtualServerName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cslbxRuleVirtualServerName.setStatus("current")
+_CslbxRulePolicyName_Type = SlbServerString
+_CslbxRulePolicyName_Object = MibTableColumn
+cslbxRulePolicyName = _CslbxRulePolicyName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 2, 1, 2),
+    _CslbxRulePolicyName_Type()
+)
+cslbxRulePolicyName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cslbxRulePolicyName.setStatus("current")
+_CslbxRuleCurrentConnections_Type = Gauge32
+_CslbxRuleCurrentConnections_Object = MibTableColumn
+cslbxRuleCurrentConnections = _CslbxRuleCurrentConnections_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 2, 1, 3),
+    _CslbxRuleCurrentConnections_Type()
+)
+cslbxRuleCurrentConnections.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxRuleCurrentConnections.setStatus("current")
+_CslbxRuleTotalConnections_Type = Counter32
+_CslbxRuleTotalConnections_Object = MibTableColumn
+cslbxRuleTotalConnections = _CslbxRuleTotalConnections_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 2, 1, 4),
+    _CslbxRuleTotalConnections_Type()
+)
+cslbxRuleTotalConnections.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxRuleTotalConnections.setStatus("current")
+_CslbxRuleHCTotalConnections_Type = Counter64
+_CslbxRuleHCTotalConnections_Object = MibTableColumn
+cslbxRuleHCTotalConnections = _CslbxRuleHCTotalConnections_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 2, 1, 5),
+    _CslbxRuleHCTotalConnections_Type()
+)
+cslbxRuleHCTotalConnections.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxRuleHCTotalConnections.setStatus("current")
+_CslbxRuleTotalClientPackets_Type = Counter32
+_CslbxRuleTotalClientPackets_Object = MibTableColumn
+cslbxRuleTotalClientPackets = _CslbxRuleTotalClientPackets_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 2, 1, 6),
+    _CslbxRuleTotalClientPackets_Type()
+)
+cslbxRuleTotalClientPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxRuleTotalClientPackets.setStatus("current")
+_CslbxRuleHCTotalClientPackets_Type = Counter64
+_CslbxRuleHCTotalClientPackets_Object = MibTableColumn
+cslbxRuleHCTotalClientPackets = _CslbxRuleHCTotalClientPackets_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 2, 1, 7),
+    _CslbxRuleHCTotalClientPackets_Type()
+)
+cslbxRuleHCTotalClientPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxRuleHCTotalClientPackets.setStatus("current")
+_CslbxRuleTotalServerPackets_Type = Counter32
+_CslbxRuleTotalServerPackets_Object = MibTableColumn
+cslbxRuleTotalServerPackets = _CslbxRuleTotalServerPackets_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 2, 1, 8),
+    _CslbxRuleTotalServerPackets_Type()
+)
+cslbxRuleTotalServerPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxRuleTotalServerPackets.setStatus("current")
+_CslbxRuleHCTotalServerPackets_Type = Counter64
+_CslbxRuleHCTotalServerPackets_Object = MibTableColumn
+cslbxRuleHCTotalServerPackets = _CslbxRuleHCTotalServerPackets_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 2, 1, 9),
+    _CslbxRuleHCTotalServerPackets_Type()
+)
+cslbxRuleHCTotalServerPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxRuleHCTotalServerPackets.setStatus("current")
+_CslbxRuleRowStatus_Type = RowStatus
+_CslbxRuleRowStatus_Object = MibTableColumn
+cslbxRuleRowStatus = _CslbxRuleRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 2, 1, 10),
+    _CslbxRuleRowStatus_Type()
+)
+cslbxRuleRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxRuleRowStatus.setStatus("current")
+_CslbxRuleTotalClientOctets_Type = Counter32
+_CslbxRuleTotalClientOctets_Object = MibTableColumn
+cslbxRuleTotalClientOctets = _CslbxRuleTotalClientOctets_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 2, 1, 11),
+    _CslbxRuleTotalClientOctets_Type()
+)
+cslbxRuleTotalClientOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxRuleTotalClientOctets.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxRuleTotalClientOctets.setUnits("octets")
+_CslbxRuleHCTotalClientOctets_Type = Counter64
+_CslbxRuleHCTotalClientOctets_Object = MibTableColumn
+cslbxRuleHCTotalClientOctets = _CslbxRuleHCTotalClientOctets_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 2, 1, 12),
+    _CslbxRuleHCTotalClientOctets_Type()
+)
+cslbxRuleHCTotalClientOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxRuleHCTotalClientOctets.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxRuleHCTotalClientOctets.setUnits("octets")
+_CslbxRuleTotalServerOctets_Type = Counter32
+_CslbxRuleTotalServerOctets_Object = MibTableColumn
+cslbxRuleTotalServerOctets = _CslbxRuleTotalServerOctets_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 2, 1, 13),
+    _CslbxRuleTotalServerOctets_Type()
+)
+cslbxRuleTotalServerOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxRuleTotalServerOctets.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxRuleTotalServerOctets.setUnits("octets")
+_CslbxRuleHCTotalServerOctets_Type = Counter64
+_CslbxRuleHCTotalServerOctets_Object = MibTableColumn
+cslbxRuleHCTotalServerOctets = _CslbxRuleHCTotalServerOctets_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 2, 1, 14),
+    _CslbxRuleHCTotalServerOctets_Type()
+)
+cslbxRuleHCTotalServerOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxRuleHCTotalServerOctets.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxRuleHCTotalServerOctets.setUnits("octets")
+_CslbxVlans_ObjectIdentity = ObjectIdentity
+cslbxVlans = _CslbxVlans_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9)
+)
+_CslbxVlanTable_Object = MibTable
+cslbxVlanTable = _CslbxVlanTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 1)
+)
+if mibBuilder.loadTexts:
+    cslbxVlanTable.setStatus("current")
+_CslbxVlanEntry_Object = MibTableRow
+cslbxVlanEntry = _CslbxVlanEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 1, 1)
+)
+cslbxVlanEntry.setIndexNames(
+    (0, "CISCO-SLB-MIB", "slbEntity"),
+    (0, "CISCO-SLB-EXT-MIB", "cslbxVlanId"),
+)
+if mibBuilder.loadTexts:
+    cslbxVlanEntry.setStatus("current")
+_CslbxVlanId_Type = Unsigned32
+_CslbxVlanId_Object = MibTableColumn
+cslbxVlanId = _CslbxVlanId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 1, 1, 1),
+    _CslbxVlanId_Type()
+)
+cslbxVlanId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cslbxVlanId.setStatus("current")
+_CslbxVlanType_Type = SlbVlanType
+_CslbxVlanType_Object = MibTableColumn
+cslbxVlanType = _CslbxVlanType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 1, 1, 2),
+    _CslbxVlanType_Type()
+)
+cslbxVlanType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxVlanType.setStatus("current")
+
+
+class _CslbxVlanAddressType_Type(InetAddressType):
+    """Custom type cslbxVlanAddressType based on InetAddressType"""
+
+
+_CslbxVlanAddressType_Object = MibTableColumn
+cslbxVlanAddressType = _CslbxVlanAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 1, 1, 3),
+    _CslbxVlanAddressType_Type()
+)
+cslbxVlanAddressType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxVlanAddressType.setStatus("current")
+
+
+class _CslbxVlanAddress_Type(InetAddress):
+    """Custom type cslbxVlanAddress based on InetAddress"""
+    defaultHexValue = "00000000"
+
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 20),
+    )
+
+
+_CslbxVlanAddress_Type.__name__ = "InetAddress"
+_CslbxVlanAddress_Object = MibTableColumn
+cslbxVlanAddress = _CslbxVlanAddress_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 1, 1, 4),
+    _CslbxVlanAddress_Type()
+)
+cslbxVlanAddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxVlanAddress.setStatus("current")
+
+
+class _CslbxVlanMaskAddressType_Type(InetAddressType):
+    """Custom type cslbxVlanMaskAddressType based on InetAddressType"""
+
+
+_CslbxVlanMaskAddressType_Object = MibTableColumn
+cslbxVlanMaskAddressType = _CslbxVlanMaskAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 1, 1, 5),
+    _CslbxVlanMaskAddressType_Type()
+)
+cslbxVlanMaskAddressType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxVlanMaskAddressType.setStatus("current")
+
+
+class _CslbxVlanMaskAddress_Type(InetAddress):
+    """Custom type cslbxVlanMaskAddress based on InetAddress"""
+    defaultHexValue = "00000000"
+
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 20),
+    )
+
+
+_CslbxVlanMaskAddress_Type.__name__ = "InetAddress"
+_CslbxVlanMaskAddress_Object = MibTableColumn
+cslbxVlanMaskAddress = _CslbxVlanMaskAddress_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 1, 1, 6),
+    _CslbxVlanMaskAddress_Type()
+)
+cslbxVlanMaskAddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxVlanMaskAddress.setStatus("current")
+_CslbxVlanRowStatus_Type = RowStatus
+_CslbxVlanRowStatus_Object = MibTableColumn
+cslbxVlanRowStatus = _CslbxVlanRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 1, 1, 7),
+    _CslbxVlanRowStatus_Type()
+)
+cslbxVlanRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxVlanRowStatus.setStatus("current")
+_CslbxAliasAddrTable_Object = MibTable
+cslbxAliasAddrTable = _CslbxAliasAddrTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 2)
+)
+if mibBuilder.loadTexts:
+    cslbxAliasAddrTable.setStatus("current")
+_CslbxAliasAddrEntry_Object = MibTableRow
+cslbxAliasAddrEntry = _CslbxAliasAddrEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 2, 1)
+)
+cslbxAliasAddrEntry.setIndexNames(
+    (0, "CISCO-SLB-MIB", "slbEntity"),
+    (0, "CISCO-SLB-EXT-MIB", "cslbxAliasAddrVlanId"),
+    (0, "CISCO-SLB-EXT-MIB", "cslbxAliasAddrAddressType"),
+    (0, "CISCO-SLB-EXT-MIB", "cslbxAliasAddrAddress"),
+)
+if mibBuilder.loadTexts:
+    cslbxAliasAddrEntry.setStatus("current")
+_CslbxAliasAddrVlanId_Type = Unsigned32
+_CslbxAliasAddrVlanId_Object = MibTableColumn
+cslbxAliasAddrVlanId = _CslbxAliasAddrVlanId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 2, 1, 1),
+    _CslbxAliasAddrVlanId_Type()
+)
+cslbxAliasAddrVlanId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cslbxAliasAddrVlanId.setStatus("current")
+_CslbxAliasAddrAddressType_Type = InetAddressType
+_CslbxAliasAddrAddressType_Object = MibTableColumn
+cslbxAliasAddrAddressType = _CslbxAliasAddrAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 2, 1, 2),
+    _CslbxAliasAddrAddressType_Type()
+)
+cslbxAliasAddrAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cslbxAliasAddrAddressType.setStatus("current")
+
+
+class _CslbxAliasAddrAddress_Type(InetAddress):
+    """Custom type cslbxAliasAddrAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 20),
+    )
+
+
+_CslbxAliasAddrAddress_Type.__name__ = "InetAddress"
+_CslbxAliasAddrAddress_Object = MibTableColumn
+cslbxAliasAddrAddress = _CslbxAliasAddrAddress_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 2, 1, 3),
+    _CslbxAliasAddrAddress_Type()
+)
+cslbxAliasAddrAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cslbxAliasAddrAddress.setStatus("current")
+_CslbxAliasAddrRowStatus_Type = RowStatus
+_CslbxAliasAddrRowStatus_Object = MibTableColumn
+cslbxAliasAddrRowStatus = _CslbxAliasAddrRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 2, 1, 4),
+    _CslbxAliasAddrRowStatus_Type()
+)
+cslbxAliasAddrRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxAliasAddrRowStatus.setStatus("current")
+_CslbxStaticRouteTable_Object = MibTable
+cslbxStaticRouteTable = _CslbxStaticRouteTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 3)
+)
+if mibBuilder.loadTexts:
+    cslbxStaticRouteTable.setStatus("current")
+_CslbxStaticRouteEntry_Object = MibTableRow
+cslbxStaticRouteEntry = _CslbxStaticRouteEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 3, 1)
+)
+cslbxStaticRouteEntry.setIndexNames(
+    (0, "CISCO-SLB-MIB", "slbEntity"),
+    (0, "CISCO-SLB-EXT-MIB", "cslbxStaticRouteVlanId"),
+    (0, "CISCO-SLB-EXT-MIB", "cslbxStaticRouteSubnetAddrType"),
+    (0, "CISCO-SLB-EXT-MIB", "cslbxStaticRouteSubnetAddr"),
+    (0, "CISCO-SLB-EXT-MIB", "cslbxStaticRouteMaskAddrType"),
+    (0, "CISCO-SLB-EXT-MIB", "cslbxStaticRouteMaskAddr"),
+    (0, "CISCO-SLB-EXT-MIB", "cslbxStaticRouteGatewayAddrType"),
+    (0, "CISCO-SLB-EXT-MIB", "cslbxStaticRouteGatewayAddr"),
+)
+if mibBuilder.loadTexts:
+    cslbxStaticRouteEntry.setStatus("current")
+_CslbxStaticRouteVlanId_Type = Unsigned32
+_CslbxStaticRouteVlanId_Object = MibTableColumn
+cslbxStaticRouteVlanId = _CslbxStaticRouteVlanId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 3, 1, 1),
+    _CslbxStaticRouteVlanId_Type()
+)
+cslbxStaticRouteVlanId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cslbxStaticRouteVlanId.setStatus("current")
+_CslbxStaticRouteSubnetAddrType_Type = InetAddressType
+_CslbxStaticRouteSubnetAddrType_Object = MibTableColumn
+cslbxStaticRouteSubnetAddrType = _CslbxStaticRouteSubnetAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 3, 1, 2),
+    _CslbxStaticRouteSubnetAddrType_Type()
+)
+cslbxStaticRouteSubnetAddrType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cslbxStaticRouteSubnetAddrType.setStatus("current")
+
+
+class _CslbxStaticRouteSubnetAddr_Type(InetAddress):
+    """Custom type cslbxStaticRouteSubnetAddr based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 20),
+    )
+
+
+_CslbxStaticRouteSubnetAddr_Type.__name__ = "InetAddress"
+_CslbxStaticRouteSubnetAddr_Object = MibTableColumn
+cslbxStaticRouteSubnetAddr = _CslbxStaticRouteSubnetAddr_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 3, 1, 3),
+    _CslbxStaticRouteSubnetAddr_Type()
+)
+cslbxStaticRouteSubnetAddr.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cslbxStaticRouteSubnetAddr.setStatus("current")
+_CslbxStaticRouteMaskAddrType_Type = InetAddressType
+_CslbxStaticRouteMaskAddrType_Object = MibTableColumn
+cslbxStaticRouteMaskAddrType = _CslbxStaticRouteMaskAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 3, 1, 4),
+    _CslbxStaticRouteMaskAddrType_Type()
+)
+cslbxStaticRouteMaskAddrType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cslbxStaticRouteMaskAddrType.setStatus("current")
+
+
+class _CslbxStaticRouteMaskAddr_Type(InetAddress):
+    """Custom type cslbxStaticRouteMaskAddr based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 20),
+    )
+
+
+_CslbxStaticRouteMaskAddr_Type.__name__ = "InetAddress"
+_CslbxStaticRouteMaskAddr_Object = MibTableColumn
+cslbxStaticRouteMaskAddr = _CslbxStaticRouteMaskAddr_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 3, 1, 5),
+    _CslbxStaticRouteMaskAddr_Type()
+)
+cslbxStaticRouteMaskAddr.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cslbxStaticRouteMaskAddr.setStatus("current")
+_CslbxStaticRouteGatewayAddrType_Type = InetAddressType
+_CslbxStaticRouteGatewayAddrType_Object = MibTableColumn
+cslbxStaticRouteGatewayAddrType = _CslbxStaticRouteGatewayAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 3, 1, 6),
+    _CslbxStaticRouteGatewayAddrType_Type()
+)
+cslbxStaticRouteGatewayAddrType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cslbxStaticRouteGatewayAddrType.setStatus("current")
+
+
+class _CslbxStaticRouteGatewayAddr_Type(InetAddress):
+    """Custom type cslbxStaticRouteGatewayAddr based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 20),
+    )
+
+
+_CslbxStaticRouteGatewayAddr_Type.__name__ = "InetAddress"
+_CslbxStaticRouteGatewayAddr_Object = MibTableColumn
+cslbxStaticRouteGatewayAddr = _CslbxStaticRouteGatewayAddr_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 3, 1, 7),
+    _CslbxStaticRouteGatewayAddr_Type()
+)
+cslbxStaticRouteGatewayAddr.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cslbxStaticRouteGatewayAddr.setStatus("current")
+_CslbxStaticRouteRowStatus_Type = RowStatus
+_CslbxStaticRouteRowStatus_Object = MibTableColumn
+cslbxStaticRouteRowStatus = _CslbxStaticRouteRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 3, 1, 8),
+    _CslbxStaticRouteRowStatus_Type()
+)
+cslbxStaticRouteRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxStaticRouteRowStatus.setStatus("current")
+_CslbxFaultTolerance_ObjectIdentity = ObjectIdentity
+cslbxFaultTolerance = _CslbxFaultTolerance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10)
+)
+_CslbxFtTable_Object = MibTable
+cslbxFtTable = _CslbxFtTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1)
+)
+if mibBuilder.loadTexts:
+    cslbxFtTable.setStatus("current")
+_CslbxFtTableEntry_Object = MibTableRow
+cslbxFtTableEntry = _CslbxFtTableEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1)
+)
+cslbxFtTableEntry.setIndexNames(
+    (0, "CISCO-SLB-MIB", "slbEntity"),
+)
+if mibBuilder.loadTexts:
+    cslbxFtTableEntry.setStatus("current")
+
+
+class _CslbxFtGroupId_Type(Unsigned32):
+    """Custom type cslbxFtGroupId based on Unsigned32"""
+    defaultValue = 0
+
+
+_CslbxFtGroupId_Object = MibTableColumn
+cslbxFtGroupId = _CslbxFtGroupId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 1),
+    _CslbxFtGroupId_Type()
+)
+cslbxFtGroupId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxFtGroupId.setStatus("current")
+
+
+class _CslbxFtVlanId_Type(Unsigned32):
+    """Custom type cslbxFtVlanId based on Unsigned32"""
+    defaultValue = 0
+
+
+_CslbxFtVlanId_Object = MibTableColumn
+cslbxFtVlanId = _CslbxFtVlanId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 2),
+    _CslbxFtVlanId_Type()
+)
+cslbxFtVlanId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxFtVlanId.setStatus("current")
+
+
+class _CslbxFtPreempt_Type(TruthValue):
+    """Custom type cslbxFtPreempt based on TruthValue"""
+
+
+_CslbxFtPreempt_Object = MibTableColumn
+cslbxFtPreempt = _CslbxFtPreempt_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 3),
+    _CslbxFtPreempt_Type()
+)
+cslbxFtPreempt.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxFtPreempt.setStatus("current")
+
+
+class _CslbxFtPriority_Type(Unsigned32):
+    """Custom type cslbxFtPriority based on Unsigned32"""
+    defaultValue = 10
+
+
+_CslbxFtPriority_Object = MibTableColumn
+cslbxFtPriority = _CslbxFtPriority_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 4),
+    _CslbxFtPriority_Type()
+)
+cslbxFtPriority.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxFtPriority.setStatus("current")
+
+
+class _CslbxFtHeartBeatTimer_Type(TimeInterval):
+    """Custom type cslbxFtHeartBeatTimer based on TimeInterval"""
+    defaultValue = 100
+
+
+_CslbxFtHeartBeatTimer_Object = MibTableColumn
+cslbxFtHeartBeatTimer = _CslbxFtHeartBeatTimer_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 5),
+    _CslbxFtHeartBeatTimer_Type()
+)
+cslbxFtHeartBeatTimer.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxFtHeartBeatTimer.setStatus("current")
+if mibBuilder.loadTexts:
+    cslbxFtHeartBeatTimer.setUnits("seconds")
+
+
+class _CslbxFtFailThreshold_Type(Unsigned32):
+    """Custom type cslbxFtFailThreshold based on Unsigned32"""
+    defaultValue = 3
+
+
+_CslbxFtFailThreshold_Object = MibTableColumn
+cslbxFtFailThreshold = _CslbxFtFailThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 6),
+    _CslbxFtFailThreshold_Type()
+)
+cslbxFtFailThreshold.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxFtFailThreshold.setStatus("current")
+_CslbxFtState_Type = SlbFtState
+_CslbxFtState_Object = MibTableColumn
+cslbxFtState = _CslbxFtState_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 7),
+    _CslbxFtState_Type()
+)
+cslbxFtState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxFtState.setStatus("current")
+_CslbxFtStateChangeTime_Type = TimeStamp
+_CslbxFtStateChangeTime_Object = MibTableColumn
+cslbxFtStateChangeTime = _CslbxFtStateChangeTime_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 8),
+    _CslbxFtStateChangeTime_Type()
+)
+cslbxFtStateChangeTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxFtStateChangeTime.setStatus("current")
+_CslbxFtRxHeartBeatMsgs_Type = Counter32
+_CslbxFtRxHeartBeatMsgs_Object = MibTableColumn
+cslbxFtRxHeartBeatMsgs = _CslbxFtRxHeartBeatMsgs_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 9),
+    _CslbxFtRxHeartBeatMsgs_Type()
+)
+cslbxFtRxHeartBeatMsgs.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxFtRxHeartBeatMsgs.setStatus("current")
+_CslbxFtTxHeartBeatMsgs_Type = Counter32
+_CslbxFtTxHeartBeatMsgs_Object = MibTableColumn
+cslbxFtTxHeartBeatMsgs = _CslbxFtTxHeartBeatMsgs_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 10),
+    _CslbxFtTxHeartBeatMsgs_Type()
+)
+cslbxFtTxHeartBeatMsgs.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxFtTxHeartBeatMsgs.setStatus("current")
+_CslbxFtRxUpdateMsgs_Type = Counter32
+_CslbxFtRxUpdateMsgs_Object = MibTableColumn
+cslbxFtRxUpdateMsgs = _CslbxFtRxUpdateMsgs_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 11),
+    _CslbxFtRxUpdateMsgs_Type()
+)
+cslbxFtRxUpdateMsgs.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxFtRxUpdateMsgs.setStatus("current")
+_CslbxFtTxUpdateMsgs_Type = Counter32
+_CslbxFtTxUpdateMsgs_Object = MibTableColumn
+cslbxFtTxUpdateMsgs = _CslbxFtTxUpdateMsgs_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 12),
+    _CslbxFtTxUpdateMsgs_Type()
+)
+cslbxFtTxUpdateMsgs.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxFtTxUpdateMsgs.setStatus("current")
+_CslbxFtRxCoupMsgs_Type = Counter32
+_CslbxFtRxCoupMsgs_Object = MibTableColumn
+cslbxFtRxCoupMsgs = _CslbxFtRxCoupMsgs_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 13),
+    _CslbxFtRxCoupMsgs_Type()
+)
+cslbxFtRxCoupMsgs.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxFtRxCoupMsgs.setStatus("current")
+_CslbxFtTxCoupMsgs_Type = Counter32
+_CslbxFtTxCoupMsgs_Object = MibTableColumn
+cslbxFtTxCoupMsgs = _CslbxFtTxCoupMsgs_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 14),
+    _CslbxFtTxCoupMsgs_Type()
+)
+cslbxFtTxCoupMsgs.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxFtTxCoupMsgs.setStatus("current")
+_CslbxFtRxElectMsgs_Type = Counter32
+_CslbxFtRxElectMsgs_Object = MibTableColumn
+cslbxFtRxElectMsgs = _CslbxFtRxElectMsgs_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 15),
+    _CslbxFtRxElectMsgs_Type()
+)
+cslbxFtRxElectMsgs.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxFtRxElectMsgs.setStatus("current")
+_CslbxFtTxElectMsgs_Type = Counter32
+_CslbxFtTxElectMsgs_Object = MibTableColumn
+cslbxFtTxElectMsgs = _CslbxFtTxElectMsgs_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 16),
+    _CslbxFtTxElectMsgs_Type()
+)
+cslbxFtTxElectMsgs.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxFtTxElectMsgs.setStatus("current")
+_CslbxFtRxConnReplMsgs_Type = Counter32
+_CslbxFtRxConnReplMsgs_Object = MibTableColumn
+cslbxFtRxConnReplMsgs = _CslbxFtRxConnReplMsgs_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 17),
+    _CslbxFtRxConnReplMsgs_Type()
+)
+cslbxFtRxConnReplMsgs.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxFtRxConnReplMsgs.setStatus("current")
+_CslbxFtTxConnReplMsgs_Type = Counter32
+_CslbxFtTxConnReplMsgs_Object = MibTableColumn
+cslbxFtTxConnReplMsgs = _CslbxFtTxConnReplMsgs_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 18),
+    _CslbxFtTxConnReplMsgs_Type()
+)
+cslbxFtTxConnReplMsgs.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxFtTxConnReplMsgs.setStatus("current")
+_CslbxFtRxPackets_Type = Counter32
+_CslbxFtRxPackets_Object = MibTableColumn
+cslbxFtRxPackets = _CslbxFtRxPackets_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 19),
+    _CslbxFtRxPackets_Type()
+)
+cslbxFtRxPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxFtRxPackets.setStatus("current")
+_CslbxFtDropPackets_Type = Counter32
+_CslbxFtDropPackets_Object = MibTableColumn
+cslbxFtDropPackets = _CslbxFtDropPackets_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 20),
+    _CslbxFtDropPackets_Type()
+)
+cslbxFtDropPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxFtDropPackets.setStatus("current")
+_CslbxFtDuplPackets_Type = Counter32
+_CslbxFtDuplPackets_Object = MibTableColumn
+cslbxFtDuplPackets = _CslbxFtDuplPackets_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 21),
+    _CslbxFtDuplPackets_Type()
+)
+cslbxFtDuplPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxFtDuplPackets.setStatus("current")
+_CslbxFtXsumErrPackets_Type = Counter32
+_CslbxFtXsumErrPackets_Object = MibTableColumn
+cslbxFtXsumErrPackets = _CslbxFtXsumErrPackets_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 22),
+    _CslbxFtXsumErrPackets_Type()
+)
+cslbxFtXsumErrPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxFtXsumErrPackets.setStatus("current")
+_CslbxFtBuffErrPackets_Type = Counter32
+_CslbxFtBuffErrPackets_Object = MibTableColumn
+cslbxFtBuffErrPackets = _CslbxFtBuffErrPackets_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 23),
+    _CslbxFtBuffErrPackets_Type()
+)
+cslbxFtBuffErrPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxFtBuffErrPackets.setStatus("current")
+_CslbxFtRowStatus_Type = RowStatus
+_CslbxFtRowStatus_Object = MibTableColumn
+cslbxFtRowStatus = _CslbxFtRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 24),
+    _CslbxFtRowStatus_Type()
+)
+cslbxFtRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxFtRowStatus.setStatus("current")
+_CslbxXmlConfig_ObjectIdentity = ObjectIdentity
+cslbxXmlConfig = _CslbxXmlConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 11)
+)
+_CslbxXmlConfigTable_Object = MibTable
+cslbxXmlConfigTable = _CslbxXmlConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 11, 1)
+)
+if mibBuilder.loadTexts:
+    cslbxXmlConfigTable.setStatus("current")
+_CslbxXmlConfigTableEntry_Object = MibTableRow
+cslbxXmlConfigTableEntry = _CslbxXmlConfigTableEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 11, 1, 1)
+)
+cslbxXmlConfigTableEntry.setIndexNames(
+    (0, "CISCO-SLB-MIB", "slbEntity"),
+)
+if mibBuilder.loadTexts:
+    cslbxXmlConfigTableEntry.setStatus("current")
+
+
+class _CslbxXmlConfigEnabled_Type(TruthValue):
+    """Custom type cslbxXmlConfigEnabled based on TruthValue"""
+
+
+_CslbxXmlConfigEnabled_Object = MibTableColumn
+cslbxXmlConfigEnabled = _CslbxXmlConfigEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 11, 1, 1, 1),
+    _CslbxXmlConfigEnabled_Type()
+)
+cslbxXmlConfigEnabled.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxXmlConfigEnabled.setStatus("current")
+
+
+class _CslbxXmlConfigVlanId_Type(Unsigned32):
+    """Custom type cslbxXmlConfigVlanId based on Unsigned32"""
+    defaultValue = 0
+
+
+_CslbxXmlConfigVlanId_Object = MibTableColumn
+cslbxXmlConfigVlanId = _CslbxXmlConfigVlanId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 11, 1, 1, 2),
+    _CslbxXmlConfigVlanId_Type()
+)
+cslbxXmlConfigVlanId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxXmlConfigVlanId.setStatus("current")
+
+
+class _CslbxXmlConfigListeningPort_Type(CiscoPort):
+    """Custom type cslbxXmlConfigListeningPort based on CiscoPort"""
+    defaultValue = 80
+
+
+_CslbxXmlConfigListeningPort_Object = MibTableColumn
+cslbxXmlConfigListeningPort = _CslbxXmlConfigListeningPort_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 11, 1, 1, 3),
+    _CslbxXmlConfigListeningPort_Type()
+)
+cslbxXmlConfigListeningPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxXmlConfigListeningPort.setStatus("current")
+_CslbxXmlConfigRowStatus_Type = RowStatus
+_CslbxXmlConfigRowStatus_Object = MibTableColumn
+cslbxXmlConfigRowStatus = _CslbxXmlConfigRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 11, 1, 1, 4),
+    _CslbxXmlConfigRowStatus_Type()
+)
+cslbxXmlConfigRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxXmlConfigRowStatus.setStatus("current")
+
+
+class _CslbxXmlConfigUserName_Type(SlbObjectNameString):
+    """Custom type cslbxXmlConfigUserName based on SlbObjectNameString"""
+    defaultHexValue = ""
+
+
+_CslbxXmlConfigUserName_Object = MibTableColumn
+cslbxXmlConfigUserName = _CslbxXmlConfigUserName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 11, 1, 1, 5),
+    _CslbxXmlConfigUserName_Type()
+)
+cslbxXmlConfigUserName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxXmlConfigUserName.setStatus("current")
+
+
+class _CslbxXmlConfigPassword_Type(SlbPasswordString):
+    """Custom type cslbxXmlConfigPassword based on SlbPasswordString"""
+    defaultHexValue = ""
+
+
+_CslbxXmlConfigPassword_Object = MibTableColumn
+cslbxXmlConfigPassword = _CslbxXmlConfigPassword_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 11, 1, 1, 6),
+    _CslbxXmlConfigPassword_Type()
+)
+cslbxXmlConfigPassword.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxXmlConfigPassword.setStatus("current")
+
+
+class _CslbxXmlConfigClientGroupNumber_Type(Unsigned32):
+    """Custom type cslbxXmlConfigClientGroupNumber based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_CslbxXmlConfigClientGroupNumber_Type.__name__ = "Unsigned32"
+_CslbxXmlConfigClientGroupNumber_Object = MibTableColumn
+cslbxXmlConfigClientGroupNumber = _CslbxXmlConfigClientGroupNumber_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 11, 1, 1, 7),
+    _CslbxXmlConfigClientGroupNumber_Type()
+)
+cslbxXmlConfigClientGroupNumber.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxXmlConfigClientGroupNumber.setStatus("current")
+
+
+class _CslbxXmlConfigClientGroupName_Type(SlbObjectNameString):
+    """Custom type cslbxXmlConfigClientGroupName based on SlbObjectNameString"""
+    defaultHexValue = ""
+
+
+_CslbxXmlConfigClientGroupName_Object = MibTableColumn
+cslbxXmlConfigClientGroupName = _CslbxXmlConfigClientGroupName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 11, 1, 1, 8),
+    _CslbxXmlConfigClientGroupName_Type()
+)
+cslbxXmlConfigClientGroupName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxXmlConfigClientGroupName.setStatus("current")
+_CslbxConnections_ObjectIdentity = ObjectIdentity
+cslbxConnections = _CslbxConnections_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 12)
+)
+_CslbxConnTable_Object = MibTable
+cslbxConnTable = _CslbxConnTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 12, 1)
+)
+if mibBuilder.loadTexts:
+    cslbxConnTable.setStatus("current")
+_CslbxConnTableEntry_Object = MibTableRow
+cslbxConnTableEntry = _CslbxConnTableEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 12, 1, 1)
+)
+cslbxConnTableEntry.setIndexNames(
+    (0, "CISCO-SLB-MIB", "slbEntity"),
+    (0, "CISCO-SLB-EXT-MIB", "cslbxConnIndex"),
+)
+if mibBuilder.loadTexts:
+    cslbxConnTableEntry.setStatus("current")
+_CslbxConnIndex_Type = Unsigned32
+_CslbxConnIndex_Object = MibTableColumn
+cslbxConnIndex = _CslbxConnIndex_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 12, 1, 1, 1),
+    _CslbxConnIndex_Type()
+)
+cslbxConnIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cslbxConnIndex.setStatus("current")
+_CslbxConnInDestAddrType_Type = InetAddressType
+_CslbxConnInDestAddrType_Object = MibTableColumn
+cslbxConnInDestAddrType = _CslbxConnInDestAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 12, 1, 1, 2),
+    _CslbxConnInDestAddrType_Type()
+)
+cslbxConnInDestAddrType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxConnInDestAddrType.setStatus("current")
+
+
+class _CslbxConnInDestAddr_Type(InetAddress):
+    """Custom type cslbxConnInDestAddr based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 20),
+    )
+
+
+_CslbxConnInDestAddr_Type.__name__ = "InetAddress"
+_CslbxConnInDestAddr_Object = MibTableColumn
+cslbxConnInDestAddr = _CslbxConnInDestAddr_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 12, 1, 1, 3),
+    _CslbxConnInDestAddr_Type()
+)
+cslbxConnInDestAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxConnInDestAddr.setStatus("current")
+_CslbxConnInDestPort_Type = CiscoPort
+_CslbxConnInDestPort_Object = MibTableColumn
+cslbxConnInDestPort = _CslbxConnInDestPort_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 12, 1, 1, 4),
+    _CslbxConnInDestPort_Type()
+)
+cslbxConnInDestPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxConnInDestPort.setStatus("current")
+_CslbxConnInSourceAddrType_Type = InetAddressType
+_CslbxConnInSourceAddrType_Object = MibTableColumn
+cslbxConnInSourceAddrType = _CslbxConnInSourceAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 12, 1, 1, 5),
+    _CslbxConnInSourceAddrType_Type()
+)
+cslbxConnInSourceAddrType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxConnInSourceAddrType.setStatus("current")
+
+
+class _CslbxConnInSourceAddr_Type(InetAddress):
+    """Custom type cslbxConnInSourceAddr based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 20),
+    )
+
+
+_CslbxConnInSourceAddr_Type.__name__ = "InetAddress"
+_CslbxConnInSourceAddr_Object = MibTableColumn
+cslbxConnInSourceAddr = _CslbxConnInSourceAddr_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 12, 1, 1, 6),
+    _CslbxConnInSourceAddr_Type()
+)
+cslbxConnInSourceAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxConnInSourceAddr.setStatus("current")
+_CslbxConnInSourcePort_Type = CiscoPort
+_CslbxConnInSourcePort_Object = MibTableColumn
+cslbxConnInSourcePort = _CslbxConnInSourcePort_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 12, 1, 1, 7),
+    _CslbxConnInSourcePort_Type()
+)
+cslbxConnInSourcePort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxConnInSourcePort.setStatus("current")
+_CslbxConnProtocol_Type = CiscoIpProtocol
+_CslbxConnProtocol_Object = MibTableColumn
+cslbxConnProtocol = _CslbxConnProtocol_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 12, 1, 1, 8),
+    _CslbxConnProtocol_Type()
+)
+cslbxConnProtocol.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxConnProtocol.setStatus("current")
+_CslbxConnOutDestAddrType_Type = InetAddressType
+_CslbxConnOutDestAddrType_Object = MibTableColumn
+cslbxConnOutDestAddrType = _CslbxConnOutDestAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 12, 1, 1, 9),
+    _CslbxConnOutDestAddrType_Type()
+)
+cslbxConnOutDestAddrType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxConnOutDestAddrType.setStatus("current")
+
+
+class _CslbxConnOutDestAddr_Type(InetAddress):
+    """Custom type cslbxConnOutDestAddr based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 20),
+    )
+
+
+_CslbxConnOutDestAddr_Type.__name__ = "InetAddress"
+_CslbxConnOutDestAddr_Object = MibTableColumn
+cslbxConnOutDestAddr = _CslbxConnOutDestAddr_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 12, 1, 1, 10),
+    _CslbxConnOutDestAddr_Type()
+)
+cslbxConnOutDestAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxConnOutDestAddr.setStatus("current")
+_CslbxConnOutDestPort_Type = CiscoPort
+_CslbxConnOutDestPort_Object = MibTableColumn
+cslbxConnOutDestPort = _CslbxConnOutDestPort_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 12, 1, 1, 11),
+    _CslbxConnOutDestPort_Type()
+)
+cslbxConnOutDestPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxConnOutDestPort.setStatus("current")
+_CslbxConnOutSourceAddrType_Type = InetAddressType
+_CslbxConnOutSourceAddrType_Object = MibTableColumn
+cslbxConnOutSourceAddrType = _CslbxConnOutSourceAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 12, 1, 1, 12),
+    _CslbxConnOutSourceAddrType_Type()
+)
+cslbxConnOutSourceAddrType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxConnOutSourceAddrType.setStatus("current")
+
+
+class _CslbxConnOutSourceAddr_Type(InetAddress):
+    """Custom type cslbxConnOutSourceAddr based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 20),
+    )
+
+
+_CslbxConnOutSourceAddr_Type.__name__ = "InetAddress"
+_CslbxConnOutSourceAddr_Object = MibTableColumn
+cslbxConnOutSourceAddr = _CslbxConnOutSourceAddr_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 12, 1, 1, 13),
+    _CslbxConnOutSourceAddr_Type()
+)
+cslbxConnOutSourceAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxConnOutSourceAddr.setStatus("current")
+_CslbxConnOutSourcePort_Type = CiscoPort
+_CslbxConnOutSourcePort_Object = MibTableColumn
+cslbxConnOutSourcePort = _CslbxConnOutSourcePort_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 12, 1, 1, 14),
+    _CslbxConnOutSourcePort_Type()
+)
+cslbxConnOutSourcePort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxConnOutSourcePort.setStatus("current")
+_CslbxConnState_Type = SlbConnectionState
+_CslbxConnState_Object = MibTableColumn
+cslbxConnState = _CslbxConnState_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 12, 1, 1, 15),
+    _CslbxConnState_Type()
+)
+cslbxConnState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cslbxConnState.setStatus("current")
+_CslbxNotifObjects_ObjectIdentity = ObjectIdentity
+cslbxNotifObjects = _CslbxNotifObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 13)
+)
+
+
+class _CslbxFtStateChangeNotifEnabled_Type(TruthValue):
+    """Custom type cslbxFtStateChangeNotifEnabled based on TruthValue"""
+
+
+_CslbxFtStateChangeNotifEnabled_Object = MibScalar
+cslbxFtStateChangeNotifEnabled = _CslbxFtStateChangeNotifEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 13, 1),
+    _CslbxFtStateChangeNotifEnabled_Type()
+)
+cslbxFtStateChangeNotifEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cslbxFtStateChangeNotifEnabled.setStatus("current")
+_CslbxOwnerObjects_ObjectIdentity = ObjectIdentity
+cslbxOwnerObjects = _CslbxOwnerObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 14)
+)
+_CslbxOwnerTable_Object = MibTable
+cslbxOwnerTable = _CslbxOwnerTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 14, 1)
+)
+if mibBuilder.loadTexts:
+    cslbxOwnerTable.setStatus("current")
+_CslbxOwnerTableEntry_Object = MibTableRow
+cslbxOwnerTableEntry = _CslbxOwnerTableEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 14, 1, 1)
+)
+cslbxOwnerTableEntry.setIndexNames(
+    (0, "CISCO-SLB-MIB", "slbEntity"),
+    (0, "CISCO-SLB-EXT-MIB", "cslbxOwnerName"),
+)
+if mibBuilder.loadTexts:
+    cslbxOwnerTableEntry.setStatus("current")
+_CslbxOwnerName_Type = SlbObjectNameString
+_CslbxOwnerName_Object = MibTableColumn
+cslbxOwnerName = _CslbxOwnerName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 14, 1, 1, 1),
+    _CslbxOwnerName_Type()
+)
+cslbxOwnerName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cslbxOwnerName.setStatus("current")
+
+
+class _CslbxOwnerContactInfo_Type(SnmpAdminString):
+    """Custom type cslbxOwnerContactInfo based on SnmpAdminString"""
+    defaultHexValue = ""
+
+
+_CslbxOwnerContactInfo_Object = MibTableColumn
+cslbxOwnerContactInfo = _CslbxOwnerContactInfo_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 14, 1, 1, 2),
+    _CslbxOwnerContactInfo_Type()
+)
+cslbxOwnerContactInfo.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxOwnerContactInfo.setStatus("current")
+
+
+class _CslbxOwnerBillingInfo_Type(SnmpAdminString):
+    """Custom type cslbxOwnerBillingInfo based on SnmpAdminString"""
+    defaultHexValue = ""
+
+
+_CslbxOwnerBillingInfo_Object = MibTableColumn
+cslbxOwnerBillingInfo = _CslbxOwnerBillingInfo_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 14, 1, 1, 3),
+    _CslbxOwnerBillingInfo_Type()
+)
+cslbxOwnerBillingInfo.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxOwnerBillingInfo.setStatus("current")
+
+
+class _CslbxOwnerMaxConns_Type(Unsigned32):
+    """Custom type cslbxOwnerMaxConns based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4294967295),
+    )
+
+
+_CslbxOwnerMaxConns_Type.__name__ = "Unsigned32"
+_CslbxOwnerMaxConns_Object = MibTableColumn
+cslbxOwnerMaxConns = _CslbxOwnerMaxConns_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 14, 1, 1, 4),
+    _CslbxOwnerMaxConns_Type()
+)
+cslbxOwnerMaxConns.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxOwnerMaxConns.setStatus("current")
+_CslbxOwnerRowStatus_Type = RowStatus
+_CslbxOwnerRowStatus_Object = MibTableColumn
+cslbxOwnerRowStatus = _CslbxOwnerRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 14, 1, 1, 5),
+    _CslbxOwnerRowStatus_Type()
+)
+cslbxOwnerRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxOwnerRowStatus.setStatus("current")
+_CslbxScriptObjects_ObjectIdentity = ObjectIdentity
+cslbxScriptObjects = _CslbxScriptObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 15)
+)
+_CslbxScriptFileTable_Object = MibTable
+cslbxScriptFileTable = _CslbxScriptFileTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 15, 1)
+)
+if mibBuilder.loadTexts:
+    cslbxScriptFileTable.setStatus("current")
+_CslbxScriptFileTableEntry_Object = MibTableRow
+cslbxScriptFileTableEntry = _CslbxScriptFileTableEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 15, 1, 1)
+)
+cslbxScriptFileTableEntry.setIndexNames(
+    (0, "CISCO-SLB-MIB", "slbEntity"),
+    (0, "CISCO-SLB-EXT-MIB", "cslbxScriptFileIndex"),
+)
+if mibBuilder.loadTexts:
+    cslbxScriptFileTableEntry.setStatus("current")
+
+
+class _CslbxScriptFileIndex_Type(Unsigned32):
+    """Custom type cslbxScriptFileIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_CslbxScriptFileIndex_Type.__name__ = "Unsigned32"
+_CslbxScriptFileIndex_Object = MibTableColumn
+cslbxScriptFileIndex = _CslbxScriptFileIndex_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 15, 1, 1, 1),
+    _CslbxScriptFileIndex_Type()
+)
+cslbxScriptFileIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cslbxScriptFileIndex.setStatus("current")
+
+
+class _CslbxScriptFileUrl_Type(SnmpAdminString):
+    """Custom type cslbxScriptFileUrl based on SnmpAdminString"""
+    defaultHexValue = ""
+
+
+_CslbxScriptFileUrl_Object = MibTableColumn
+cslbxScriptFileUrl = _CslbxScriptFileUrl_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 15, 1, 1, 2),
+    _CslbxScriptFileUrl_Type()
+)
+cslbxScriptFileUrl.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxScriptFileUrl.setStatus("current")
+_CslbxScriptFileRowStatus_Type = RowStatus
+_CslbxScriptFileRowStatus_Object = MibTableColumn
+cslbxScriptFileRowStatus = _CslbxScriptFileRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 15, 1, 1, 3),
+    _CslbxScriptFileRowStatus_Type()
+)
+cslbxScriptFileRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxScriptFileRowStatus.setStatus("current")
+_CslbxScriptTaskTable_Object = MibTable
+cslbxScriptTaskTable = _CslbxScriptTaskTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 15, 2)
+)
+if mibBuilder.loadTexts:
+    cslbxScriptTaskTable.setStatus("current")
+_CslbxScriptTaskTableEntry_Object = MibTableRow
+cslbxScriptTaskTableEntry = _CslbxScriptTaskTableEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 15, 2, 1)
+)
+cslbxScriptTaskTableEntry.setIndexNames(
+    (0, "CISCO-SLB-MIB", "slbEntity"),
+    (0, "CISCO-SLB-EXT-MIB", "cslbxScriptTaskIndex"),
+)
+if mibBuilder.loadTexts:
+    cslbxScriptTaskTableEntry.setStatus("current")
+
+
+class _CslbxScriptTaskIndex_Type(Unsigned32):
+    """Custom type cslbxScriptTaskIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_CslbxScriptTaskIndex_Type.__name__ = "Unsigned32"
+_CslbxScriptTaskIndex_Object = MibTableColumn
+cslbxScriptTaskIndex = _CslbxScriptTaskIndex_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 15, 2, 1, 1),
+    _CslbxScriptTaskIndex_Type()
+)
+cslbxScriptTaskIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cslbxScriptTaskIndex.setStatus("current")
+
+
+class _CslbxScriptTaskScriptName_Type(SlbFunctionNameString):
+    """Custom type cslbxScriptTaskScriptName based on SlbFunctionNameString"""
+    defaultHexValue = ""
+
+
+_CslbxScriptTaskScriptName_Object = MibTableColumn
+cslbxScriptTaskScriptName = _CslbxScriptTaskScriptName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 15, 2, 1, 2),
+    _CslbxScriptTaskScriptName_Type()
+)
+cslbxScriptTaskScriptName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxScriptTaskScriptName.setStatus("current")
+
+
+class _CslbxScriptTaskScriptArguments_Type(SnmpAdminString):
+    """Custom type cslbxScriptTaskScriptArguments based on SnmpAdminString"""
+    defaultHexValue = ""
+
+
+_CslbxScriptTaskScriptArguments_Object = MibTableColumn
+cslbxScriptTaskScriptArguments = _CslbxScriptTaskScriptArguments_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 15, 2, 1, 3),
+    _CslbxScriptTaskScriptArguments_Type()
+)
+cslbxScriptTaskScriptArguments.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxScriptTaskScriptArguments.setStatus("current")
+_CslbxScriptTaskRowStatus_Type = RowStatus
+_CslbxScriptTaskRowStatus_Object = MibTableColumn
+cslbxScriptTaskRowStatus = _CslbxScriptTaskRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 15, 2, 1, 4),
+    _CslbxScriptTaskRowStatus_Type()
+)
+cslbxScriptTaskRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cslbxScriptTaskRowStatus.setStatus("current")
+_CiscoSlbExtMIBConform_ObjectIdentity = ObjectIdentity
+ciscoSlbExtMIBConform = _CiscoSlbExtMIBConform_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 2)
+)
+_CslbxMIBCompliances_ObjectIdentity = ObjectIdentity
+cslbxMIBCompliances = _CslbxMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 1)
+)
+_CslbxMIBGroups_ObjectIdentity = ObjectIdentity
+cslbxMIBGroups = _CslbxMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2)
+)
+slbStatsTableEntry.registerAugmentions(
+    ("CISCO-SLB-EXT-MIB",
+     "cslbxStatsTableEntry")
+)
 cslbxStatsTableEntry.setIndexNames(*slbStatsTableEntry.getIndexNames())
-if mibBuilder.loadTexts: cslbxStatsTableEntry.setStatus('current')
-cslbxStatsServerInitConns = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 1), Counter32()).setUnits('connections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStatsServerInitConns.setStatus('current')
-cslbxStatsServerInitHCConns = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 2), Counter64()).setUnits('connections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStatsServerInitHCConns.setStatus('current')
-cslbxStatsCurrConnections = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 3), Gauge32()).setUnits('connections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStatsCurrConnections.setStatus('current')
-cslbxStatsCurrServerInitConns = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 4), Gauge32()).setUnits('connections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStatsCurrServerInitConns.setStatus('current')
-cslbxStatsFailedConns = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 5), Counter32()).setUnits('connections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStatsFailedConns.setStatus('current')
-cslbxStatsFailedServerInitConns = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 6), Counter32()).setUnits('connections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStatsFailedServerInitConns.setStatus('current')
-cslbxStatsL4PolicyConns = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 7), Counter32()).setUnits('connections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStatsL4PolicyConns.setStatus('current')
-cslbxStatsL7PolicyConns = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 8), Counter32()).setUnits('connections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStatsL7PolicyConns.setStatus('current')
-cslbxStatsDroppedL4PolicyConns = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 9), Counter32()).setUnits('connections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStatsDroppedL4PolicyConns.setStatus('current')
-cslbxStatsDroppedL7PolicyConns = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 10), Counter32()).setUnits('connections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStatsDroppedL7PolicyConns.setStatus('current')
-cslbxStatsFtpConns = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 11), Counter32()).setUnits('connections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStatsFtpConns.setStatus('current')
-cslbxStatsHttpRedirectConns = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 12), Counter32()).setUnits('connections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStatsHttpRedirectConns.setStatus('current')
-cslbxStatsDroppedRedirectConns = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 13), Counter32()).setUnits('connections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStatsDroppedRedirectConns.setStatus('current')
-cslbxStatsNoMatchPolicyRejects = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 14), Counter32()).setUnits('connections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStatsNoMatchPolicyRejects.setStatus('current')
-cslbxStatsNoCfgPolicyRejects = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 15), Counter32()).setUnits('connections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStatsNoCfgPolicyRejects.setStatus('current')
-cslbxStatsNoActiveServerRejects = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 16), Counter32()).setUnits('connections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStatsNoActiveServerRejects.setStatus('current')
-cslbxStatsAclDenyRejects = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 17), Counter32()).setUnits('connections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStatsAclDenyRejects.setStatus('current')
-cslbxStatsMaxParseLenRejects = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 18), Counter32()).setUnits('connections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStatsMaxParseLenRejects.setStatus('current')
-cslbxStatsBadSslFormatRejects = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 19), Counter32()).setUnits('connections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStatsBadSslFormatRejects.setStatus('current')
-cslbxStatsL7ParserErrorRejects = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 20), Counter32()).setUnits('connections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStatsL7ParserErrorRejects.setStatus('current')
-cslbxStatsVerMismatchRejects = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 21), Counter32()).setUnits('connections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStatsVerMismatchRejects.setStatus('current')
-cslbxStatsOutOfMemoryRejects = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 22), Counter32()).setUnits('connections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStatsOutOfMemoryRejects.setStatus('current')
-cslbxStatsTimedOutConnections = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 23), Counter32()).setUnits('connections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStatsTimedOutConnections.setStatus('current')
-cslbxStatsTcpChecksumErrorPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 24), Counter32()).setUnits('packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStatsTcpChecksumErrorPkts.setStatus('current')
-cslbxStatsIpChecksumErrorPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 25), Counter32()).setUnits('packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStatsIpChecksumErrorPkts.setStatus('current')
-cslbxStatsL4PolicyHCConns = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 26), Counter64()).setUnits('connections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStatsL4PolicyHCConns.setStatus('current')
-cslbxStatsL7PolicyHCConns = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 27), Counter64()).setUnits('connections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStatsL7PolicyHCConns.setStatus('current')
-cslbxStatsDroppedL4PolicyHCConns = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 28), Counter64()).setUnits('connections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStatsDroppedL4PolicyHCConns.setStatus('current')
-cslbxStatsDroppedL7PolicyHCConns = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 29), Counter64()).setUnits('connections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStatsDroppedL7PolicyHCConns.setStatus('current')
-cslbxStatsNoMatchPolicyHCRejects = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 30), Counter64()).setUnits('connections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStatsNoMatchPolicyHCRejects.setStatus('current')
-cslbxStatsNoCfgPolicyHCRejects = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 31), Counter64()).setUnits('connections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStatsNoCfgPolicyHCRejects.setStatus('current')
-cslbxStatsAclDenyHCRejects = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 32), Counter64()).setUnits('connections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStatsAclDenyHCRejects.setStatus('current')
-cslbxStatsVerMismatchHCRejects = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 1, 1, 1, 33), Counter64()).setUnits('connections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStatsVerMismatchHCRejects.setStatus('current')
-cslbxServerFarmTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 1), )
-if mibBuilder.loadTexts: cslbxServerFarmTable.setStatus('current')
-cslbxServerFarmTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 1, 1), )
-slbServerFarmTableEntry.registerAugmentions(("CISCO-SLB-EXT-MIB", "cslbxServerFarmTableEntry"))
+slbServerFarmTableEntry.registerAugmentions(
+    ("CISCO-SLB-EXT-MIB",
+     "cslbxServerFarmTableEntry")
+)
 cslbxServerFarmTableEntry.setIndexNames(*slbServerFarmTableEntry.getIndexNames())
-if mibBuilder.loadTexts: cslbxServerFarmTableEntry.setStatus('current')
-cslbxServerFarmHashMaskAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 1, 1, 1), InetAddressType().clone('ipv4')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxServerFarmHashMaskAddrType.setStatus('current')
-cslbxServerFarmHashMaskAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 1, 1, 2), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(0, 20)).clone(hexValue="FFFFFFFF")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxServerFarmHashMaskAddr.setStatus('current')
-cslbxServerFarmClientNatPool = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 1, 1, 3), SlbObjectNameString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxServerFarmClientNatPool.setStatus('current')
-cslbxServerFarmFailAction = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 1, 1, 4), SlbFailAction().clone('noAction')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxServerFarmFailAction.setStatus('current')
-cslbxServerFarmHttpReturnCodeMap = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 1, 1, 5), SlbObjectNameString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxServerFarmHttpReturnCodeMap.setStatus('current')
-cslbxServerFarmInFailedThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 1, 1, 6), Unsigned32().clone(4294967295)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxServerFarmInFailedThreshold.setStatus('current')
-cslbxServerFarmInbandResetTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 1, 1, 7), TimeInterval()).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxServerFarmInbandResetTimer.setStatus('current')
-cslbxServerFarmTransparent = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 1, 1, 8), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxServerFarmTransparent.setStatus('current')
-cslbxServerFarmSlowStart = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 1, 1, 9), Unsigned32()).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxServerFarmSlowStart.setStatus('current')
-cslbxServerFarmHashHeaderName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 1, 1, 10), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxServerFarmHashHeaderName.setStatus('current')
-cslbxServerFarmHashCookieName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 1, 1, 11), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxServerFarmHashCookieName.setStatus('current')
-cslbxServerFarmUrlPatternBegin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 1, 1, 12), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxServerFarmUrlPatternBegin.setStatus('current')
-cslbxServerFarmUrlPatternEnd = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 1, 1, 13), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxServerFarmUrlPatternEnd.setStatus('current')
-cslbxServerFarmDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 1, 1, 14), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxServerFarmDescription.setStatus('current')
-cslbxServerFarmType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 1, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("redirect", 1), ("host", 2))).clone('host')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxServerFarmType.setStatus('current')
-cslbxServerFarmState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 1, 1, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("active", 1), ("inactive", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxServerFarmState.setStatus('current')
-cslbxRedirectSvrTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 2), )
-if mibBuilder.loadTexts: cslbxRedirectSvrTable.setStatus('current')
-cslbxRedirectSvrTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 2, 1), ).setIndexNames((0, "CISCO-SLB-MIB", "slbEntity"), (0, "CISCO-SLB-EXT-MIB", "cslbxRedirectSvrFarmName"), (0, "CISCO-SLB-EXT-MIB", "cslbxRedirectSvrName"))
-if mibBuilder.loadTexts: cslbxRedirectSvrTableEntry.setStatus('current')
-cslbxRedirectSvrFarmName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 2, 1, 1), SlbServerString())
-if mibBuilder.loadTexts: cslbxRedirectSvrFarmName.setStatus('current')
-cslbxRedirectSvrName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 2, 1, 2), SlbServerString())
-if mibBuilder.loadTexts: cslbxRedirectSvrName.setStatus('current')
-cslbxRedirectSvrRelocationStr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 2, 1, 3), SlbUrlString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxRedirectSvrRelocationStr.setStatus('current')
-cslbxRedirectSvrBackupString = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 2, 1, 4), SlbUrlString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxRedirectSvrBackupString.setStatus('current')
-cslbxRedirectSvrRedirectCode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 2, 1, 5), Unsigned32().clone(302)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxRedirectSvrRedirectCode.setStatus('current')
-cslbxRedirectSvrRedirectPort = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 2, 1, 6), CiscoPort().clone(80)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxRedirectSvrRedirectPort.setStatus('current')
-cslbxRedirectSvrState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 2, 1, 7), SlbRealServerState().clone('outOfService')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxRedirectSvrState.setStatus('current')
-cslbxRedirectSvrNumberOfConns = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 2, 1, 8), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxRedirectSvrNumberOfConns.setStatus('current')
-cslbxRedirectSvrMaxConns = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 2, 1, 9), Unsigned32().clone(4294967295)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxRedirectSvrMaxConns.setStatus('current')
-cslbxRedirectSvrAdminWeight = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 2, 1, 10), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)).clone(8)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxRedirectSvrAdminWeight.setStatus('current')
-cslbxRedirectSvrOperWeight = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 2, 1, 11), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxRedirectSvrOperWeight.setStatus('current')
-cslbxRedirectSvrMetric = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 2, 1, 12), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxRedirectSvrMetric.setStatus('current')
-cslbxRedirectSvrTotalConns = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 2, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxRedirectSvrTotalConns.setStatus('current')
-cslbxRedirectSvrHCTotalConns = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 2, 1, 14), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxRedirectSvrHCTotalConns.setStatus('current')
-cslbxRedirectSvrRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 2, 1, 15), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxRedirectSvrRowStatus.setStatus('current')
-cslbxServerFarmProbeTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 3), )
-if mibBuilder.loadTexts: cslbxServerFarmProbeTable.setStatus('current')
-cslbxServerFarmProbeTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 3, 1), ).setIndexNames((0, "CISCO-SLB-MIB", "slbEntity"), (0, "CISCO-SLB-EXT-MIB", "cslbxServerFarmProbeFarmName"), (0, "CISCO-SLB-EXT-MIB", "cslbxServerFarmProbeProbeName"))
-if mibBuilder.loadTexts: cslbxServerFarmProbeTableEntry.setStatus('current')
-cslbxServerFarmProbeFarmName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 3, 1, 1), SlbServerString())
-if mibBuilder.loadTexts: cslbxServerFarmProbeFarmName.setStatus('current')
-cslbxServerFarmProbeProbeName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 3, 1, 2), SlbServerString())
-if mibBuilder.loadTexts: cslbxServerFarmProbeProbeName.setStatus('current')
-cslbxServerFarmProbeRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 3, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxServerFarmProbeRowStatus.setStatus('current')
-cslbxSfarmHttpReturnCodeTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 4), )
-if mibBuilder.loadTexts: cslbxSfarmHttpReturnCodeTable.setStatus('current')
-cslbxSfarmHttpReturnCodeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 4, 1), ).setIndexNames((0, "CISCO-SLB-MIB", "slbEntity"), (0, "CISCO-SLB-MIB", "slbServerFarmName"), (0, "CISCO-SLB-EXT-MIB", "cslbxSfarmHttpRetCodeMinValue"))
-if mibBuilder.loadTexts: cslbxSfarmHttpReturnCodeEntry.setStatus('current')
-cslbxSfarmHttpRetCodeMinValue = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 4, 1, 1), CiscoHTTPResponseStatusCode())
-if mibBuilder.loadTexts: cslbxSfarmHttpRetCodeMinValue.setStatus('current')
-cslbxSfarmHttpRetCodeMaxValue = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 4, 1, 2), CiscoHTTPResponseStatusCode().clone(100)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxSfarmHttpRetCodeMaxValue.setStatus('current')
-cslbxSfarmHttpRetCodeActionType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 4, 1, 3), SlbProbeAction()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxSfarmHttpRetCodeActionType.setStatus('current')
-cslbxSfarmHttpRetCodeThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 4, 1, 4), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxSfarmHttpRetCodeThreshold.setStatus('current')
-cslbxSfarmHttpRetCodeResetTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 4, 1, 5), TimeInterval()).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxSfarmHttpRetCodeResetTimer.setStatus('current')
-cslbxSfarmHttpRetCodeStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 4, 1, 6), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxSfarmHttpRetCodeStorageType.setStatus('current')
-cslbxSfarmHttpRetCodeRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 4, 1, 7), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxSfarmHttpRetCodeRowStatus.setStatus('current')
-cslbxServerFarmStatsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 5), )
-if mibBuilder.loadTexts: cslbxServerFarmStatsTable.setStatus('current')
-cslbxServerFarmStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 5, 1), )
-slbServerFarmTableEntry.registerAugmentions(("CISCO-SLB-EXT-MIB", "cslbxServerFarmStatsEntry"))
+slbServerFarmTableEntry.registerAugmentions(
+    ("CISCO-SLB-EXT-MIB",
+     "cslbxServerFarmStatsEntry")
+)
 cslbxServerFarmStatsEntry.setIndexNames(*slbServerFarmTableEntry.getIndexNames())
-if mibBuilder.loadTexts: cslbxServerFarmStatsEntry.setStatus('current')
-cslbxServerFarmTotalConns = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 5, 1, 1), Counter64()).setUnits('connections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxServerFarmTotalConns.setStatus('current')
-cslbxServerFarmCurrConns = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 5, 1, 2), Counter64()).setUnits('connections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxServerFarmCurrConns.setStatus('current')
-cslbxServerFarmFailedConns = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 5, 1, 3), Counter64()).setUnits('connections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxServerFarmFailedConns.setStatus('current')
-cslbxServerFarmNumOfTimeFailOvers = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 5, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxServerFarmNumOfTimeFailOvers.setStatus('current')
-cslbxServerFarmNumOfTimeBkInServs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 2, 5, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxServerFarmNumOfTimeBkInServs.setStatus('current')
-cslbxNatPoolTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 3, 1), )
-if mibBuilder.loadTexts: cslbxNatPoolTable.setStatus('current')
-cslbxNatPoolEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 3, 1, 1), ).setIndexNames((0, "CISCO-SLB-MIB", "slbEntity"), (0, "CISCO-SLB-EXT-MIB", "cslbxNatPoolName"))
-if mibBuilder.loadTexts: cslbxNatPoolEntry.setStatus('current')
-cslbxNatPoolName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 3, 1, 1, 1), SlbServerString())
-if mibBuilder.loadTexts: cslbxNatPoolName.setStatus('current')
-cslbxNatPoolStartAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 3, 1, 1, 2), InetAddressType().clone('ipv4')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxNatPoolStartAddressType.setStatus('current')
-cslbxNatPoolStartAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 3, 1, 1, 3), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(0, 20)).clone(hexValue="00000000")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxNatPoolStartAddress.setStatus('current')
-cslbxNatPoolEndAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 3, 1, 1, 4), InetAddressType().clone('ipv4')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxNatPoolEndAddressType.setStatus('current')
-cslbxNatPoolEndAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 3, 1, 1, 5), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(0, 20)).clone(hexValue="00000000")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxNatPoolEndAddress.setStatus('current')
-cslbxNatPoolRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 3, 1, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxNatPoolRowStatus.setStatus('current')
-cslbxStickyGroupTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 1), )
-if mibBuilder.loadTexts: cslbxStickyGroupTable.setStatus('current')
-cslbxStickyGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 1, 1), ).setIndexNames((0, "CISCO-SLB-MIB", "slbEntity"), (0, "CISCO-SLB-EXT-MIB", "cslbxStickyGroupId"))
-if mibBuilder.loadTexts: cslbxStickyGroupEntry.setStatus('current')
-cslbxStickyGroupId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 1, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: cslbxStickyGroupId.setStatus('current')
-cslbxStickyGroupType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 1, 1, 2), SlbStickyType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxStickyGroupType.setStatus('current')
-cslbxStickyGroupMaskAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 1, 1, 3), InetAddressType().clone('ipv4')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxStickyGroupMaskAddressType.setStatus('current')
-cslbxStickyGroupMaskAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 1, 1, 4), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(0, 20)).clone(hexValue="FFFFFFFF")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxStickyGroupMaskAddress.setStatus('current')
-cslbxStickyGroupCookieName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 1, 1, 5), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxStickyGroupCookieName.setStatus('current')
-cslbxStickyGroupStickyTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 1, 1, 6), Unsigned32()).setUnits('minutes').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxStickyGroupStickyTimer.setStatus('current')
-cslbxStickyGroupRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 1, 1, 7), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxStickyGroupRowStatus.setStatus('current')
-cslbxStickyGroupHeaderName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 1, 1, 8), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxStickyGroupHeaderName.setStatus('current')
-cslbxStickyGroupTimeoutActiveConn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 1, 1, 9), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxStickyGroupTimeoutActiveConn.setStatus('current')
-cslbxStickyGroupReplicate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 1, 1, 10), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxStickyGroupReplicate.setStatus('current')
-cslbxStickyObjectTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 2), )
-if mibBuilder.loadTexts: cslbxStickyObjectTable.setStatus('current')
-cslbxStickyObjectTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 2, 1), ).setIndexNames((0, "CISCO-SLB-MIB", "slbEntity"), (0, "CISCO-SLB-EXT-MIB", "cslbxStickyObjectIndex"))
-if mibBuilder.loadTexts: cslbxStickyObjectTableEntry.setStatus('current')
-cslbxStickyObjectIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 2, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: cslbxStickyObjectIndex.setStatus('current')
-cslbxStickyObjectGroupId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 2, 1, 2), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStickyObjectGroupId.setStatus('current')
-cslbxStickyObjectType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 2, 1, 3), SlbStickyType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStickyObjectType.setStatus('current')
-cslbxStickyObjectSourceInfo = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 2, 1, 4), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStickyObjectSourceInfo.setStatus('current')
-cslbxStickyObjectRealAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 2, 1, 5), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStickyObjectRealAddressType.setStatus('current')
-cslbxStickyObjectRealAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 2, 1, 6), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStickyObjectRealAddress.setStatus('current')
-cslbxStickyObjectRealPort = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 2, 1, 7), CiscoPort()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxStickyObjectRealPort.setStatus('current')
-cslbxStickyGroupExtTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 3), )
-if mibBuilder.loadTexts: cslbxStickyGroupExtTable.setStatus('current')
-cslbxStickyGroupExtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 3, 1), )
-cslbxStickyGroupEntry.registerAugmentions(("CISCO-SLB-EXT-MIB", "cslbxStickyGroupExtEntry"))
+cslbxStickyGroupEntry.registerAugmentions(
+    ("CISCO-SLB-EXT-MIB",
+     "cslbxStickyGroupExtEntry")
+)
 cslbxStickyGroupExtEntry.setIndexNames(*cslbxStickyGroupEntry.getIndexNames())
-if mibBuilder.loadTexts: cslbxStickyGroupExtEntry.setStatus('current')
-cslbxStickyOffset = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 3, 1, 1), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxStickyOffset.setStatus('current')
-cslbxStickyLength = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 3, 1, 2), Unsigned32()).setUnits('Bytes').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxStickyLength.setStatus('current')
-cslbxStickyCookieSecondary = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 3, 1, 3), SnmpAdminString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxStickyCookieSecondary.setStatus('current')
-cslbxStickyCookieInsertEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 3, 1, 4), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxStickyCookieInsertEnable.setStatus('current')
-cslbxStickyCookieExpiryDate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 4, 3, 1, 5), DateAndTime()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxStickyCookieExpiryDate.setStatus('current')
-cslbxMapTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 1), )
-if mibBuilder.loadTexts: cslbxMapTable.setStatus('current')
-cslbxMapTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 1, 1), ).setIndexNames((0, "CISCO-SLB-MIB", "slbEntity"), (0, "CISCO-SLB-EXT-MIB", "cslbxMapName"))
-if mibBuilder.loadTexts: cslbxMapTableEntry.setStatus('current')
-cslbxMapName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 1, 1, 1), SlbServerString())
-if mibBuilder.loadTexts: cslbxMapName.setStatus('current')
-cslbxMapType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 1, 1, 2), SlbMapType().clone('notCfgMap')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxMapType.setStatus('current')
-cslbxMapRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 1, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxMapRowStatus.setStatus('current')
-cslbxHttpExpressionTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 2), )
-if mibBuilder.loadTexts: cslbxHttpExpressionTable.setStatus('current')
-cslbxHttpExpressionTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 2, 1), ).setIndexNames((0, "CISCO-SLB-MIB", "slbEntity"), (0, "CISCO-SLB-EXT-MIB", "cslbxHttpExpressionMapName"), (0, "CISCO-SLB-EXT-MIB", "cslbxHttpExpressionIndex"))
-if mibBuilder.loadTexts: cslbxHttpExpressionTableEntry.setStatus('current')
-cslbxHttpExpressionMapName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 2, 1, 1), SlbServerString())
-if mibBuilder.loadTexts: cslbxHttpExpressionMapName.setStatus('current')
-cslbxHttpExpressionIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 2, 1, 2), Unsigned32())
-if mibBuilder.loadTexts: cslbxHttpExpressionIndex.setStatus('current')
-cslbxHttpExpressionFieldName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 2, 1, 3), SlbRegularExpression()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxHttpExpressionFieldName.setStatus('current')
-cslbxHttpExpressionValue = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 2, 1, 4), SlbRegularExpression()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxHttpExpressionValue.setStatus('current')
-cslbxHttpExpressionRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 2, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxHttpExpressionRowStatus.setStatus('current')
-cslbxHttpExpressionRequestMethod = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 2, 1, 6), SnmpAdminString().clone(hexValue="")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxHttpExpressionRequestMethod.setStatus('current')
-cslbxHttpReturnCodeTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 3), )
-if mibBuilder.loadTexts: cslbxHttpReturnCodeTable.setStatus('current')
-cslbxHttpReturnCodeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 3, 1), ).setIndexNames((0, "CISCO-SLB-MIB", "slbEntity"), (0, "CISCO-SLB-EXT-MIB", "cslbxHttpReturnCodeMapName"), (0, "CISCO-SLB-EXT-MIB", "cslbxHttpReturnCodeMinValue"))
-if mibBuilder.loadTexts: cslbxHttpReturnCodeEntry.setStatus('current')
-cslbxHttpReturnCodeMapName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 3, 1, 1), SlbServerString())
-if mibBuilder.loadTexts: cslbxHttpReturnCodeMapName.setStatus('current')
-cslbxHttpReturnCodeMinValue = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 3, 1, 2), Unsigned32())
-if mibBuilder.loadTexts: cslbxHttpReturnCodeMinValue.setStatus('current')
-cslbxHttpReturnCodeMaxValue = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 3, 1, 3), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxHttpReturnCodeMaxValue.setStatus('current')
-cslbxHttpReturnCodeThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 3, 1, 4), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxHttpReturnCodeThreshold.setStatus('current')
-cslbxHttpReturnCodeResetTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 3, 1, 5), TimeInterval()).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxHttpReturnCodeResetTimer.setStatus('current')
-cslbxHttpReturnCodeType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 3, 1, 6), SlbProbeAction().clone('noAction')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxHttpReturnCodeType.setStatus('current')
-cslbxHttpReturnCodeRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 5, 3, 1, 7), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxHttpReturnCodeRowStatus.setStatus('current')
-cslbxPolicyTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 7, 1), )
-if mibBuilder.loadTexts: cslbxPolicyTable.setStatus('current')
-cslbxPolicyTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 7, 1, 1), ).setIndexNames((0, "CISCO-SLB-MIB", "slbEntity"), (0, "CISCO-SLB-EXT-MIB", "cslbxPolicyName"))
-if mibBuilder.loadTexts: cslbxPolicyTableEntry.setStatus('current')
-cslbxPolicyName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 7, 1, 1, 1), SlbServerString())
-if mibBuilder.loadTexts: cslbxPolicyName.setStatus('current')
-cslbxPolicyClientGroupNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 7, 1, 1, 2), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxPolicyClientGroupNumber.setStatus('current')
-cslbxPolicyClientGroupName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 7, 1, 1, 3), SlbObjectNameString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxPolicyClientGroupName.setStatus('current')
-cslbxPolicyUrlMap = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 7, 1, 1, 4), SlbObjectNameString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxPolicyUrlMap.setStatus('current')
-cslbxPolicyCookieMap = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 7, 1, 1, 5), SlbObjectNameString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxPolicyCookieMap.setStatus('current')
-cslbxPolicyGenericHeaderMap = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 7, 1, 1, 6), SlbObjectNameString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxPolicyGenericHeaderMap.setStatus('current')
-cslbxPolicyStickyGroup = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 7, 1, 1, 7), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxPolicyStickyGroup.setStatus('current')
-cslbxPolicyDscpEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 7, 1, 1, 8), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxPolicyDscpEnabled.setStatus('current')
-cslbxPolicyDscpStamping = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 7, 1, 1, 9), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxPolicyDscpStamping.setStatus('current')
-cslbxPolicyFarmName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 7, 1, 1, 10), SlbObjectNameString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxPolicyFarmName.setStatus('current')
-cslbxPolicyRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 7, 1, 1, 11), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxPolicyRowStatus.setStatus('current')
-cslbxPolicyBackupFarmName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 7, 1, 1, 12), SlbObjectNameString().clone(hexValue="")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxPolicyBackupFarmName.setStatus('current')
-cslbxPolicyBkFarmStickyEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 7, 1, 1, 13), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxPolicyBkFarmStickyEnabled.setStatus('current')
-cslbxPolicyReverseStickyGroup = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 7, 1, 1, 14), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxPolicyReverseStickyGroup.setStatus('current')
-cslbxVirtualServerTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 1), )
-if mibBuilder.loadTexts: cslbxVirtualServerTable.setStatus('current')
-cslbxVirtualServerTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 1, 1), )
-slbVirtualServerTableEntry.registerAugmentions(("CISCO-SLB-EXT-MIB", "cslbxVirtualServerTableEntry"))
+slbVirtualServerTableEntry.registerAugmentions(
+    ("CISCO-SLB-EXT-MIB",
+     "cslbxVirtualServerTableEntry")
+)
 cslbxVirtualServerTableEntry.setIndexNames(*slbVirtualServerTableEntry.getIndexNames())
-if mibBuilder.loadTexts: cslbxVirtualServerTableEntry.setStatus('current')
-cslbxVirtualAdvertiseOption = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 1, 1, 1), SlbIpAdvertise().clone('alwaysAdvertise')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxVirtualAdvertiseOption.setStatus('current')
-cslbxVirtualVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 1, 1, 2), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxVirtualVlanId.setStatus('current')
-cslbxVirtualReplicationMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 1, 1, 3), SlbReplicationMode().clone('replNone')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxVirtualReplicationMode.setStatus('current')
-cslbxVirtualPendingTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 1, 1, 4), TimeInterval().clone(3000)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxVirtualPendingTimer.setStatus('current')
-cslbxVirtualL7MaxParseLength = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 1, 1, 5), Unsigned32().clone(600)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxVirtualL7MaxParseLength.setStatus('current')
-cslbxVirtualHttpPersistenceSlb = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 1, 1, 6), TruthValue().clone('true')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxVirtualHttpPersistenceSlb.setStatus('current')
-cslbxVirtualURLHashBeginString = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 1, 1, 7), SlbRegularExpression()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxVirtualURLHashBeginString.setStatus('current')
-cslbxVirtualURLHashEndString = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 1, 1, 8), SlbRegularExpression()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxVirtualURLHashEndString.setStatus('current')
-cslbxVirtualMaxConns = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 1, 1, 9), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxVirtualMaxConns.setStatus('current')
-cslbxVirtualOwnerName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 1, 1, 10), SlbObjectNameString().clone(hexValue="")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxVirtualOwnerName.setStatus('current')
-cslbxVirtualFlowMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 1, 1, 11), SlbDirectionalMode().clone('defdirectional')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxVirtualFlowMode.setStatus('current')
-cslbxVirtualSSLStickyOffset = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 1, 1, 12), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 127))).setUnits('bytes').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxVirtualSSLStickyOffset.setStatus('current')
-cslbxVirtualSSLStickyLength = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 1, 1, 13), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 128)).clone(32)).setUnits('bytes').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxVirtualSSLStickyLength.setStatus('current')
-cslbxVirtualReverseStickyGroup = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 1, 1, 14), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxVirtualReverseStickyGroup.setStatus('current')
-cslbxVirtualBackupFarmName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 1, 1, 15), SlbObjectNameString().clone(hexValue="")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxVirtualBackupFarmName.setStatus('current')
-cslbxVirtualBkFarmStickyEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 1, 1, 16), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxVirtualBkFarmStickyEnabled.setStatus('current')
-cslbxRuleTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 2), )
-if mibBuilder.loadTexts: cslbxRuleTable.setStatus('current')
-cslbxRuleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 2, 1), ).setIndexNames((0, "CISCO-SLB-MIB", "slbEntity"), (0, "CISCO-SLB-EXT-MIB", "cslbxRuleVirtualServerName"), (0, "CISCO-SLB-EXT-MIB", "cslbxRulePolicyName"))
-if mibBuilder.loadTexts: cslbxRuleEntry.setStatus('current')
-cslbxRuleVirtualServerName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 2, 1, 1), SlbServerString())
-if mibBuilder.loadTexts: cslbxRuleVirtualServerName.setStatus('current')
-cslbxRulePolicyName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 2, 1, 2), SlbServerString())
-if mibBuilder.loadTexts: cslbxRulePolicyName.setStatus('current')
-cslbxRuleCurrentConnections = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 2, 1, 3), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxRuleCurrentConnections.setStatus('current')
-cslbxRuleTotalConnections = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 2, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxRuleTotalConnections.setStatus('current')
-cslbxRuleHCTotalConnections = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 2, 1, 5), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxRuleHCTotalConnections.setStatus('current')
-cslbxRuleTotalClientPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 2, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxRuleTotalClientPackets.setStatus('current')
-cslbxRuleHCTotalClientPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 2, 1, 7), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxRuleHCTotalClientPackets.setStatus('current')
-cslbxRuleTotalServerPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 2, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxRuleTotalServerPackets.setStatus('current')
-cslbxRuleHCTotalServerPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 2, 1, 9), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxRuleHCTotalServerPackets.setStatus('current')
-cslbxRuleRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 2, 1, 10), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxRuleRowStatus.setStatus('current')
-cslbxRuleTotalClientOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 2, 1, 11), Counter32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxRuleTotalClientOctets.setStatus('current')
-cslbxRuleHCTotalClientOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 2, 1, 12), Counter64()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxRuleHCTotalClientOctets.setStatus('current')
-cslbxRuleTotalServerOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 2, 1, 13), Counter32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxRuleTotalServerOctets.setStatus('current')
-cslbxRuleHCTotalServerOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 8, 2, 1, 14), Counter64()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxRuleHCTotalServerOctets.setStatus('current')
-cslbxVlanTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 1), )
-if mibBuilder.loadTexts: cslbxVlanTable.setStatus('current')
-cslbxVlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 1, 1), ).setIndexNames((0, "CISCO-SLB-MIB", "slbEntity"), (0, "CISCO-SLB-EXT-MIB", "cslbxVlanId"))
-if mibBuilder.loadTexts: cslbxVlanEntry.setStatus('current')
-cslbxVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 1, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: cslbxVlanId.setStatus('current')
-cslbxVlanType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 1, 1, 2), SlbVlanType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxVlanType.setStatus('current')
-cslbxVlanAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 1, 1, 3), InetAddressType().clone('ipv4')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxVlanAddressType.setStatus('current')
-cslbxVlanAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 1, 1, 4), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(0, 20)).clone(hexValue="00000000")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxVlanAddress.setStatus('current')
-cslbxVlanMaskAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 1, 1, 5), InetAddressType().clone('ipv4')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxVlanMaskAddressType.setStatus('current')
-cslbxVlanMaskAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 1, 1, 6), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(0, 20)).clone(hexValue="00000000")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxVlanMaskAddress.setStatus('current')
-cslbxVlanRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 1, 1, 7), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxVlanRowStatus.setStatus('current')
-cslbxAliasAddrTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 2), )
-if mibBuilder.loadTexts: cslbxAliasAddrTable.setStatus('current')
-cslbxAliasAddrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 2, 1), ).setIndexNames((0, "CISCO-SLB-MIB", "slbEntity"), (0, "CISCO-SLB-EXT-MIB", "cslbxAliasAddrVlanId"), (0, "CISCO-SLB-EXT-MIB", "cslbxAliasAddrAddressType"), (0, "CISCO-SLB-EXT-MIB", "cslbxAliasAddrAddress"))
-if mibBuilder.loadTexts: cslbxAliasAddrEntry.setStatus('current')
-cslbxAliasAddrVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 2, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: cslbxAliasAddrVlanId.setStatus('current')
-cslbxAliasAddrAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 2, 1, 2), InetAddressType())
-if mibBuilder.loadTexts: cslbxAliasAddrAddressType.setStatus('current')
-cslbxAliasAddrAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 2, 1, 3), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(1, 20)))
-if mibBuilder.loadTexts: cslbxAliasAddrAddress.setStatus('current')
-cslbxAliasAddrRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxAliasAddrRowStatus.setStatus('current')
-cslbxStaticRouteTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 3), )
-if mibBuilder.loadTexts: cslbxStaticRouteTable.setStatus('current')
-cslbxStaticRouteEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 3, 1), ).setIndexNames((0, "CISCO-SLB-MIB", "slbEntity"), (0, "CISCO-SLB-EXT-MIB", "cslbxStaticRouteVlanId"), (0, "CISCO-SLB-EXT-MIB", "cslbxStaticRouteSubnetAddrType"), (0, "CISCO-SLB-EXT-MIB", "cslbxStaticRouteSubnetAddr"), (0, "CISCO-SLB-EXT-MIB", "cslbxStaticRouteMaskAddrType"), (0, "CISCO-SLB-EXT-MIB", "cslbxStaticRouteMaskAddr"), (0, "CISCO-SLB-EXT-MIB", "cslbxStaticRouteGatewayAddrType"), (0, "CISCO-SLB-EXT-MIB", "cslbxStaticRouteGatewayAddr"))
-if mibBuilder.loadTexts: cslbxStaticRouteEntry.setStatus('current')
-cslbxStaticRouteVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 3, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: cslbxStaticRouteVlanId.setStatus('current')
-cslbxStaticRouteSubnetAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 3, 1, 2), InetAddressType())
-if mibBuilder.loadTexts: cslbxStaticRouteSubnetAddrType.setStatus('current')
-cslbxStaticRouteSubnetAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 3, 1, 3), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(1, 20)))
-if mibBuilder.loadTexts: cslbxStaticRouteSubnetAddr.setStatus('current')
-cslbxStaticRouteMaskAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 3, 1, 4), InetAddressType())
-if mibBuilder.loadTexts: cslbxStaticRouteMaskAddrType.setStatus('current')
-cslbxStaticRouteMaskAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 3, 1, 5), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(1, 20)))
-if mibBuilder.loadTexts: cslbxStaticRouteMaskAddr.setStatus('current')
-cslbxStaticRouteGatewayAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 3, 1, 6), InetAddressType())
-if mibBuilder.loadTexts: cslbxStaticRouteGatewayAddrType.setStatus('current')
-cslbxStaticRouteGatewayAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 3, 1, 7), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(1, 20)))
-if mibBuilder.loadTexts: cslbxStaticRouteGatewayAddr.setStatus('current')
-cslbxStaticRouteRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 9, 3, 1, 8), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxStaticRouteRowStatus.setStatus('current')
-cslbxFtTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1), )
-if mibBuilder.loadTexts: cslbxFtTable.setStatus('current')
-cslbxFtTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1), ).setIndexNames((0, "CISCO-SLB-MIB", "slbEntity"))
-if mibBuilder.loadTexts: cslbxFtTableEntry.setStatus('current')
-cslbxFtGroupId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 1), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxFtGroupId.setStatus('current')
-cslbxFtVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 2), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxFtVlanId.setStatus('current')
-cslbxFtPreempt = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 3), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxFtPreempt.setStatus('current')
-cslbxFtPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 4), Unsigned32().clone(10)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxFtPriority.setStatus('current')
-cslbxFtHeartBeatTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 5), TimeInterval().clone(100)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxFtHeartBeatTimer.setStatus('current')
-cslbxFtFailThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 6), Unsigned32().clone(3)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxFtFailThreshold.setStatus('current')
-cslbxFtState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 7), SlbFtState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxFtState.setStatus('current')
-cslbxFtStateChangeTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 8), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxFtStateChangeTime.setStatus('current')
-cslbxFtRxHeartBeatMsgs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxFtRxHeartBeatMsgs.setStatus('current')
-cslbxFtTxHeartBeatMsgs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxFtTxHeartBeatMsgs.setStatus('current')
-cslbxFtRxUpdateMsgs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxFtRxUpdateMsgs.setStatus('current')
-cslbxFtTxUpdateMsgs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxFtTxUpdateMsgs.setStatus('current')
-cslbxFtRxCoupMsgs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxFtRxCoupMsgs.setStatus('current')
-cslbxFtTxCoupMsgs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxFtTxCoupMsgs.setStatus('current')
-cslbxFtRxElectMsgs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxFtRxElectMsgs.setStatus('current')
-cslbxFtTxElectMsgs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 16), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxFtTxElectMsgs.setStatus('current')
-cslbxFtRxConnReplMsgs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 17), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxFtRxConnReplMsgs.setStatus('current')
-cslbxFtTxConnReplMsgs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 18), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxFtTxConnReplMsgs.setStatus('current')
-cslbxFtRxPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 19), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxFtRxPackets.setStatus('current')
-cslbxFtDropPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 20), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxFtDropPackets.setStatus('current')
-cslbxFtDuplPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 21), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxFtDuplPackets.setStatus('current')
-cslbxFtXsumErrPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 22), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxFtXsumErrPackets.setStatus('current')
-cslbxFtBuffErrPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 23), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxFtBuffErrPackets.setStatus('current')
-cslbxFtRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 10, 1, 1, 24), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxFtRowStatus.setStatus('current')
-cslbxXmlConfigTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 11, 1), )
-if mibBuilder.loadTexts: cslbxXmlConfigTable.setStatus('current')
-cslbxXmlConfigTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 11, 1, 1), ).setIndexNames((0, "CISCO-SLB-MIB", "slbEntity"))
-if mibBuilder.loadTexts: cslbxXmlConfigTableEntry.setStatus('current')
-cslbxXmlConfigEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 11, 1, 1, 1), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxXmlConfigEnabled.setStatus('current')
-cslbxXmlConfigVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 11, 1, 1, 2), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxXmlConfigVlanId.setStatus('current')
-cslbxXmlConfigListeningPort = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 11, 1, 1, 3), CiscoPort().clone(80)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxXmlConfigListeningPort.setStatus('current')
-cslbxXmlConfigRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 11, 1, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxXmlConfigRowStatus.setStatus('current')
-cslbxXmlConfigUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 11, 1, 1, 5), SlbObjectNameString().clone(hexValue="")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxXmlConfigUserName.setStatus('current')
-cslbxXmlConfigPassword = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 11, 1, 1, 6), SlbPasswordString().clone(hexValue="")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxXmlConfigPassword.setStatus('current')
-cslbxXmlConfigClientGroupNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 11, 1, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxXmlConfigClientGroupNumber.setStatus('current')
-cslbxXmlConfigClientGroupName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 11, 1, 1, 8), SlbObjectNameString().clone(hexValue="")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxXmlConfigClientGroupName.setStatus('current')
-cslbxConnTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 12, 1), )
-if mibBuilder.loadTexts: cslbxConnTable.setStatus('current')
-cslbxConnTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 12, 1, 1), ).setIndexNames((0, "CISCO-SLB-MIB", "slbEntity"), (0, "CISCO-SLB-EXT-MIB", "cslbxConnIndex"))
-if mibBuilder.loadTexts: cslbxConnTableEntry.setStatus('current')
-cslbxConnIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 12, 1, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: cslbxConnIndex.setStatus('current')
-cslbxConnInDestAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 12, 1, 1, 2), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxConnInDestAddrType.setStatus('current')
-cslbxConnInDestAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 12, 1, 1, 3), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxConnInDestAddr.setStatus('current')
-cslbxConnInDestPort = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 12, 1, 1, 4), CiscoPort()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxConnInDestPort.setStatus('current')
-cslbxConnInSourceAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 12, 1, 1, 5), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxConnInSourceAddrType.setStatus('current')
-cslbxConnInSourceAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 12, 1, 1, 6), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxConnInSourceAddr.setStatus('current')
-cslbxConnInSourcePort = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 12, 1, 1, 7), CiscoPort()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxConnInSourcePort.setStatus('current')
-cslbxConnProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 12, 1, 1, 8), CiscoIpProtocol()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxConnProtocol.setStatus('current')
-cslbxConnOutDestAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 12, 1, 1, 9), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxConnOutDestAddrType.setStatus('current')
-cslbxConnOutDestAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 12, 1, 1, 10), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxConnOutDestAddr.setStatus('current')
-cslbxConnOutDestPort = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 12, 1, 1, 11), CiscoPort()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxConnOutDestPort.setStatus('current')
-cslbxConnOutSourceAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 12, 1, 1, 12), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxConnOutSourceAddrType.setStatus('current')
-cslbxConnOutSourceAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 12, 1, 1, 13), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxConnOutSourceAddr.setStatus('current')
-cslbxConnOutSourcePort = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 12, 1, 1, 14), CiscoPort()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxConnOutSourcePort.setStatus('current')
-cslbxConnState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 12, 1, 1, 15), SlbConnectionState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cslbxConnState.setStatus('current')
-cslbxOwnerTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 14, 1), )
-if mibBuilder.loadTexts: cslbxOwnerTable.setStatus('current')
-cslbxOwnerTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 14, 1, 1), ).setIndexNames((0, "CISCO-SLB-MIB", "slbEntity"), (0, "CISCO-SLB-EXT-MIB", "cslbxOwnerName"))
-if mibBuilder.loadTexts: cslbxOwnerTableEntry.setStatus('current')
-cslbxOwnerName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 14, 1, 1, 1), SlbObjectNameString())
-if mibBuilder.loadTexts: cslbxOwnerName.setStatus('current')
-cslbxOwnerContactInfo = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 14, 1, 1, 2), SnmpAdminString().clone(hexValue="")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxOwnerContactInfo.setStatus('current')
-cslbxOwnerBillingInfo = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 14, 1, 1, 3), SnmpAdminString().clone(hexValue="")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxOwnerBillingInfo.setStatus('current')
-cslbxOwnerMaxConns = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 14, 1, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxOwnerMaxConns.setStatus('current')
-cslbxOwnerRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 14, 1, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxOwnerRowStatus.setStatus('current')
-cslbxScriptFileTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 15, 1), )
-if mibBuilder.loadTexts: cslbxScriptFileTable.setStatus('current')
-cslbxScriptFileTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 15, 1, 1), ).setIndexNames((0, "CISCO-SLB-MIB", "slbEntity"), (0, "CISCO-SLB-EXT-MIB", "cslbxScriptFileIndex"))
-if mibBuilder.loadTexts: cslbxScriptFileTableEntry.setStatus('current')
-cslbxScriptFileIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 15, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
-if mibBuilder.loadTexts: cslbxScriptFileIndex.setStatus('current')
-cslbxScriptFileUrl = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 15, 1, 1, 2), SnmpAdminString().clone(hexValue="")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxScriptFileUrl.setStatus('current')
-cslbxScriptFileRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 15, 1, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxScriptFileRowStatus.setStatus('current')
-cslbxScriptTaskTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 15, 2), )
-if mibBuilder.loadTexts: cslbxScriptTaskTable.setStatus('current')
-cslbxScriptTaskTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 15, 2, 1), ).setIndexNames((0, "CISCO-SLB-MIB", "slbEntity"), (0, "CISCO-SLB-EXT-MIB", "cslbxScriptTaskIndex"))
-if mibBuilder.loadTexts: cslbxScriptTaskTableEntry.setStatus('current')
-cslbxScriptTaskIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 15, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
-if mibBuilder.loadTexts: cslbxScriptTaskIndex.setStatus('current')
-cslbxScriptTaskScriptName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 15, 2, 1, 2), SlbFunctionNameString().clone(hexValue="")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxScriptTaskScriptName.setStatus('current')
-cslbxScriptTaskScriptArguments = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 15, 2, 1, 3), SnmpAdminString().clone(hexValue="")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxScriptTaskScriptArguments.setStatus('current')
-cslbxScriptTaskRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 15, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cslbxScriptTaskRowStatus.setStatus('current')
-cslbxFtStateChangeNotifEnabled = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 254, 1, 13, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cslbxFtStateChangeNotifEnabled.setStatus('current')
-cslbxFtStateChange = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 254, 0, 1)).setObjects(("CISCO-SLB-EXT-MIB", "cslbxFtState"))
-if mibBuilder.loadTexts: cslbxFtStateChange.setStatus('current')
-cslbxMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 1))
-cslbxMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2))
-cslbxMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 1, 1)).setObjects(("CISCO-SLB-EXT-MIB", "cslbxStickyGroupsGroup"), ("CISCO-SLB-EXT-MIB", "cslbxMapsGroup"), ("CISCO-SLB-EXT-MIB", "cslbxPoliciesGroup"), ("CISCO-SLB-EXT-MIB", "cslbxVirtualServersGroup"), ("CISCO-SLB-EXT-MIB", "cslbxStatsGroup"), ("CISCO-SLB-EXT-MIB", "cslbxServerFarmsGroup"), ("CISCO-SLB-EXT-MIB", "cslbxClientNatPoolsGroup"), ("CISCO-SLB-EXT-MIB", "cslbxVlansGroup"), ("CISCO-SLB-EXT-MIB", "cslbxFaultToleranceGroup"), ("CISCO-SLB-EXT-MIB", "cslbxNotifControlGroup"), ("CISCO-SLB-EXT-MIB", "cslbxNotifGroup"), ("CISCO-SLB-EXT-MIB", "cslbxConnsGroup"), ("CISCO-SLB-EXT-MIB", "cslbxStickyObjectsGroup"), ("CISCO-SLB-EXT-MIB", "cslbxXmlConfigGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cslbxMIBCompliance = cslbxMIBCompliance.setStatus('deprecated')
-cslbxMIBComplianceRev1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 1, 2)).setObjects(("CISCO-SLB-EXT-MIB", "cslbxStickyGroupsGroupRev2"), ("CISCO-SLB-EXT-MIB", "cslbxMapsGroup"), ("CISCO-SLB-EXT-MIB", "cslbxPoliciesGroup"), ("CISCO-SLB-EXT-MIB", "cslbxVirtualServersGroup"), ("CISCO-SLB-EXT-MIB", "cslbxStatsGroup"), ("CISCO-SLB-EXT-MIB", "cslbxServerFarmsGroup"), ("CISCO-SLB-EXT-MIB", "cslbxClientNatPoolsGroup"), ("CISCO-SLB-EXT-MIB", "cslbxVlansGroup"), ("CISCO-SLB-EXT-MIB", "cslbxFaultToleranceGroup"), ("CISCO-SLB-EXT-MIB", "cslbxNotifControlGroup"), ("CISCO-SLB-EXT-MIB", "cslbxNotifGroup"), ("CISCO-SLB-EXT-MIB", "cslbxConnsGroup"), ("CISCO-SLB-EXT-MIB", "cslbxStickyObjectsGroup"), ("CISCO-SLB-EXT-MIB", "cslbxXmlConfigGroup"), ("CISCO-SLB-EXT-MIB", "cslbxXmlUserAccessGroup"), ("CISCO-SLB-EXT-MIB", "cslbxOwnerGroup"), ("CISCO-SLB-EXT-MIB", "cslbxBackupServerGroup"), ("CISCO-SLB-EXT-MIB", "cslbxScriptedProbeGroup"), ("CISCO-SLB-EXT-MIB", "cslbxReverseStickyGroup"), ("CISCO-SLB-EXT-MIB", "cslbxVirtualServersExtGroup"), ("CISCO-SLB-EXT-MIB", "cslbxMapsRev2Group"), ("CISCO-SLB-EXT-MIB", "cslbxServerFarmsExtGroup"), ("CISCO-SLB-EXT-MIB", "cslbxCookieStickyGroup"), ("CISCO-SLB-EXT-MIB", "cslbxServerFarmsHttpRetCodeGroup"), ("CISCO-SLB-EXT-MIB", "cslbxStatsHCGroup"))
+# Managed Objects groups
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cslbxMIBComplianceRev1 = cslbxMIBComplianceRev1.setStatus('deprecated')
-cslbxMIBComplianceRev2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 1, 3)).setObjects(("CISCO-SLB-EXT-MIB", "cslbxStatsGroup"), ("CISCO-SLB-EXT-MIB", "cslbxServerFarmsGroup"), ("CISCO-SLB-EXT-MIB", "cslbxStickyGroupsGroupRev2"), ("CISCO-SLB-EXT-MIB", "cslbxMapsGroup"), ("CISCO-SLB-EXT-MIB", "cslbxPoliciesGroup"), ("CISCO-SLB-EXT-MIB", "cslbxVirtualServersGroup"), ("CISCO-SLB-EXT-MIB", "cslbxClientNatPoolsGroup"), ("CISCO-SLB-EXT-MIB", "cslbxVlansGroup"), ("CISCO-SLB-EXT-MIB", "cslbxFaultToleranceGroup"), ("CISCO-SLB-EXT-MIB", "cslbxNotifControlGroup"), ("CISCO-SLB-EXT-MIB", "cslbxNotifGroup"), ("CISCO-SLB-EXT-MIB", "cslbxConnsGroup"), ("CISCO-SLB-EXT-MIB", "cslbxStickyObjectsGroup"), ("CISCO-SLB-EXT-MIB", "cslbxXmlConfigGroup"), ("CISCO-SLB-EXT-MIB", "cslbxXmlUserAccessGroup"), ("CISCO-SLB-EXT-MIB", "cslbxOwnerGroup"), ("CISCO-SLB-EXT-MIB", "cslbxBackupServerGroup"), ("CISCO-SLB-EXT-MIB", "cslbxScriptedProbeGroup"), ("CISCO-SLB-EXT-MIB", "cslbxReverseStickyGroup"), ("CISCO-SLB-EXT-MIB", "cslbxVirtualServersExtGroup"), ("CISCO-SLB-EXT-MIB", "cslbxMapsRev2Group"), ("CISCO-SLB-EXT-MIB", "cslbxServerFarmsExtGroup"), ("CISCO-SLB-EXT-MIB", "cslbxCookieStickyGroup"), ("CISCO-SLB-EXT-MIB", "cslbxServerFarmsHttpRetCodeGroup"), ("CISCO-SLB-EXT-MIB", "cslbxStatsHCGroup"))
+cslbxStatsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 1)
+)
+cslbxStatsGroup.setObjects(
+      *(("CISCO-SLB-EXT-MIB", "cslbxStatsServerInitConns"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStatsServerInitHCConns"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStatsCurrConnections"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStatsCurrServerInitConns"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStatsFailedConns"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStatsFailedServerInitConns"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStatsL4PolicyConns"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStatsL7PolicyConns"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStatsDroppedL4PolicyConns"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStatsDroppedL7PolicyConns"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStatsFtpConns"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStatsHttpRedirectConns"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStatsDroppedRedirectConns"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStatsNoMatchPolicyRejects"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStatsNoCfgPolicyRejects"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStatsNoActiveServerRejects"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStatsAclDenyRejects"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStatsMaxParseLenRejects"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStatsBadSslFormatRejects"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStatsL7ParserErrorRejects"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStatsVerMismatchRejects"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStatsOutOfMemoryRejects"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStatsTimedOutConnections"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStatsTcpChecksumErrorPkts"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStatsIpChecksumErrorPkts"))
+)
+if mibBuilder.loadTexts:
+    cslbxStatsGroup.setStatus("current")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cslbxMIBComplianceRev2 = cslbxMIBComplianceRev2.setStatus('deprecated')
-cslbxMIBComplianceRev3 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 1, 4)).setObjects(("CISCO-SLB-EXT-MIB", "cslbxStatsGroup"), ("CISCO-SLB-EXT-MIB", "cslbxServerFarmsGroup"), ("CISCO-SLB-EXT-MIB", "cslbxStickyGroupsGroupRev2"), ("CISCO-SLB-EXT-MIB", "cslbxMapsGroup"), ("CISCO-SLB-EXT-MIB", "cslbxPoliciesGroup"), ("CISCO-SLB-EXT-MIB", "cslbxVirtualServersGroup"), ("CISCO-SLB-EXT-MIB", "cslbxServerFarmStatsGroup"), ("CISCO-SLB-EXT-MIB", "cslbxClientNatPoolsGroup"), ("CISCO-SLB-EXT-MIB", "cslbxVlansGroup"), ("CISCO-SLB-EXT-MIB", "cslbxFaultToleranceGroup"), ("CISCO-SLB-EXT-MIB", "cslbxNotifControlGroup"), ("CISCO-SLB-EXT-MIB", "cslbxNotifGroup"), ("CISCO-SLB-EXT-MIB", "cslbxConnsGroup"), ("CISCO-SLB-EXT-MIB", "cslbxStickyObjectsGroup"), ("CISCO-SLB-EXT-MIB", "cslbxXmlConfigGroup"), ("CISCO-SLB-EXT-MIB", "cslbxXmlUserAccessGroup"), ("CISCO-SLB-EXT-MIB", "cslbxOwnerGroup"), ("CISCO-SLB-EXT-MIB", "cslbxBackupServerGroup"), ("CISCO-SLB-EXT-MIB", "cslbxScriptedProbeGroup"), ("CISCO-SLB-EXT-MIB", "cslbxReverseStickyGroup"), ("CISCO-SLB-EXT-MIB", "cslbxVirtualServersExtGroup"), ("CISCO-SLB-EXT-MIB", "cslbxMapsRev2Group"), ("CISCO-SLB-EXT-MIB", "cslbxServerFarmsExtGroup"), ("CISCO-SLB-EXT-MIB", "cslbxServerFarmsExtGroupRev1"), ("CISCO-SLB-EXT-MIB", "cslbxCookieStickyGroup"), ("CISCO-SLB-EXT-MIB", "cslbxServerFarmsHttpRetCodeGroup"), ("CISCO-SLB-EXT-MIB", "cslbxStatsHCGroup"))
+cslbxServerFarmsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 2)
+)
+cslbxServerFarmsGroup.setObjects(
+      *(("CISCO-SLB-EXT-MIB", "cslbxServerFarmHashMaskAddrType"),
+        ("CISCO-SLB-EXT-MIB", "cslbxServerFarmHashMaskAddr"),
+        ("CISCO-SLB-EXT-MIB", "cslbxServerFarmClientNatPool"),
+        ("CISCO-SLB-EXT-MIB", "cslbxServerFarmFailAction"),
+        ("CISCO-SLB-EXT-MIB", "cslbxServerFarmHttpReturnCodeMap"),
+        ("CISCO-SLB-EXT-MIB", "cslbxServerFarmInFailedThreshold"),
+        ("CISCO-SLB-EXT-MIB", "cslbxServerFarmInbandResetTimer"),
+        ("CISCO-SLB-EXT-MIB", "cslbxRedirectSvrRelocationStr"),
+        ("CISCO-SLB-EXT-MIB", "cslbxRedirectSvrBackupString"),
+        ("CISCO-SLB-EXT-MIB", "cslbxRedirectSvrRedirectCode"),
+        ("CISCO-SLB-EXT-MIB", "cslbxRedirectSvrRedirectPort"),
+        ("CISCO-SLB-EXT-MIB", "cslbxRedirectSvrState"),
+        ("CISCO-SLB-EXT-MIB", "cslbxRedirectSvrNumberOfConns"),
+        ("CISCO-SLB-EXT-MIB", "cslbxRedirectSvrMaxConns"),
+        ("CISCO-SLB-EXT-MIB", "cslbxRedirectSvrAdminWeight"),
+        ("CISCO-SLB-EXT-MIB", "cslbxRedirectSvrOperWeight"),
+        ("CISCO-SLB-EXT-MIB", "cslbxRedirectSvrMetric"),
+        ("CISCO-SLB-EXT-MIB", "cslbxRedirectSvrTotalConns"),
+        ("CISCO-SLB-EXT-MIB", "cslbxRedirectSvrHCTotalConns"),
+        ("CISCO-SLB-EXT-MIB", "cslbxRedirectSvrRowStatus"),
+        ("CISCO-SLB-EXT-MIB", "cslbxServerFarmProbeRowStatus"))
+)
+if mibBuilder.loadTexts:
+    cslbxServerFarmsGroup.setStatus("current")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cslbxMIBComplianceRev3 = cslbxMIBComplianceRev3.setStatus('current')
-cslbxStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 1)).setObjects(("CISCO-SLB-EXT-MIB", "cslbxStatsServerInitConns"), ("CISCO-SLB-EXT-MIB", "cslbxStatsServerInitHCConns"), ("CISCO-SLB-EXT-MIB", "cslbxStatsCurrConnections"), ("CISCO-SLB-EXT-MIB", "cslbxStatsCurrServerInitConns"), ("CISCO-SLB-EXT-MIB", "cslbxStatsFailedConns"), ("CISCO-SLB-EXT-MIB", "cslbxStatsFailedServerInitConns"), ("CISCO-SLB-EXT-MIB", "cslbxStatsL4PolicyConns"), ("CISCO-SLB-EXT-MIB", "cslbxStatsL7PolicyConns"), ("CISCO-SLB-EXT-MIB", "cslbxStatsDroppedL4PolicyConns"), ("CISCO-SLB-EXT-MIB", "cslbxStatsDroppedL7PolicyConns"), ("CISCO-SLB-EXT-MIB", "cslbxStatsFtpConns"), ("CISCO-SLB-EXT-MIB", "cslbxStatsHttpRedirectConns"), ("CISCO-SLB-EXT-MIB", "cslbxStatsDroppedRedirectConns"), ("CISCO-SLB-EXT-MIB", "cslbxStatsNoMatchPolicyRejects"), ("CISCO-SLB-EXT-MIB", "cslbxStatsNoCfgPolicyRejects"), ("CISCO-SLB-EXT-MIB", "cslbxStatsNoActiveServerRejects"), ("CISCO-SLB-EXT-MIB", "cslbxStatsAclDenyRejects"), ("CISCO-SLB-EXT-MIB", "cslbxStatsMaxParseLenRejects"), ("CISCO-SLB-EXT-MIB", "cslbxStatsBadSslFormatRejects"), ("CISCO-SLB-EXT-MIB", "cslbxStatsL7ParserErrorRejects"), ("CISCO-SLB-EXT-MIB", "cslbxStatsVerMismatchRejects"), ("CISCO-SLB-EXT-MIB", "cslbxStatsOutOfMemoryRejects"), ("CISCO-SLB-EXT-MIB", "cslbxStatsTimedOutConnections"), ("CISCO-SLB-EXT-MIB", "cslbxStatsTcpChecksumErrorPkts"), ("CISCO-SLB-EXT-MIB", "cslbxStatsIpChecksumErrorPkts"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cslbxStatsGroup = cslbxStatsGroup.setStatus('current')
-cslbxServerFarmsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 2)).setObjects(("CISCO-SLB-EXT-MIB", "cslbxServerFarmHashMaskAddrType"), ("CISCO-SLB-EXT-MIB", "cslbxServerFarmHashMaskAddr"), ("CISCO-SLB-EXT-MIB", "cslbxServerFarmClientNatPool"), ("CISCO-SLB-EXT-MIB", "cslbxServerFarmFailAction"), ("CISCO-SLB-EXT-MIB", "cslbxServerFarmHttpReturnCodeMap"), ("CISCO-SLB-EXT-MIB", "cslbxServerFarmInFailedThreshold"), ("CISCO-SLB-EXT-MIB", "cslbxServerFarmInbandResetTimer"), ("CISCO-SLB-EXT-MIB", "cslbxRedirectSvrRelocationStr"), ("CISCO-SLB-EXT-MIB", "cslbxRedirectSvrBackupString"), ("CISCO-SLB-EXT-MIB", "cslbxRedirectSvrRedirectCode"), ("CISCO-SLB-EXT-MIB", "cslbxRedirectSvrRedirectPort"), ("CISCO-SLB-EXT-MIB", "cslbxRedirectSvrState"), ("CISCO-SLB-EXT-MIB", "cslbxRedirectSvrNumberOfConns"), ("CISCO-SLB-EXT-MIB", "cslbxRedirectSvrMaxConns"), ("CISCO-SLB-EXT-MIB", "cslbxRedirectSvrAdminWeight"), ("CISCO-SLB-EXT-MIB", "cslbxRedirectSvrOperWeight"), ("CISCO-SLB-EXT-MIB", "cslbxRedirectSvrMetric"), ("CISCO-SLB-EXT-MIB", "cslbxRedirectSvrTotalConns"), ("CISCO-SLB-EXT-MIB", "cslbxRedirectSvrHCTotalConns"), ("CISCO-SLB-EXT-MIB", "cslbxRedirectSvrRowStatus"), ("CISCO-SLB-EXT-MIB", "cslbxServerFarmProbeRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cslbxServerFarmsGroup = cslbxServerFarmsGroup.setStatus('current')
-cslbxClientNatPoolsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 3)).setObjects(("CISCO-SLB-EXT-MIB", "cslbxNatPoolStartAddressType"), ("CISCO-SLB-EXT-MIB", "cslbxNatPoolStartAddress"), ("CISCO-SLB-EXT-MIB", "cslbxNatPoolEndAddressType"), ("CISCO-SLB-EXT-MIB", "cslbxNatPoolEndAddress"), ("CISCO-SLB-EXT-MIB", "cslbxNatPoolRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cslbxClientNatPoolsGroup = cslbxClientNatPoolsGroup.setStatus('current')
-cslbxStickyGroupsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 4)).setObjects(("CISCO-SLB-EXT-MIB", "cslbxStickyGroupType"), ("CISCO-SLB-EXT-MIB", "cslbxStickyGroupMaskAddressType"), ("CISCO-SLB-EXT-MIB", "cslbxStickyGroupMaskAddress"), ("CISCO-SLB-EXT-MIB", "cslbxStickyGroupCookieName"), ("CISCO-SLB-EXT-MIB", "cslbxStickyGroupStickyTimer"), ("CISCO-SLB-EXT-MIB", "cslbxStickyGroupRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cslbxStickyGroupsGroup = cslbxStickyGroupsGroup.setStatus('deprecated')
-cslbxStickyObjectsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 5)).setObjects(("CISCO-SLB-EXT-MIB", "cslbxStickyObjectGroupId"), ("CISCO-SLB-EXT-MIB", "cslbxStickyObjectType"), ("CISCO-SLB-EXT-MIB", "cslbxStickyObjectSourceInfo"), ("CISCO-SLB-EXT-MIB", "cslbxStickyObjectRealAddressType"), ("CISCO-SLB-EXT-MIB", "cslbxStickyObjectRealAddress"), ("CISCO-SLB-EXT-MIB", "cslbxStickyObjectRealPort"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cslbxStickyObjectsGroup = cslbxStickyObjectsGroup.setStatus('current')
-cslbxMapsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 6)).setObjects(("CISCO-SLB-EXT-MIB", "cslbxMapType"), ("CISCO-SLB-EXT-MIB", "cslbxMapRowStatus"), ("CISCO-SLB-EXT-MIB", "cslbxHttpExpressionFieldName"), ("CISCO-SLB-EXT-MIB", "cslbxHttpExpressionValue"), ("CISCO-SLB-EXT-MIB", "cslbxHttpExpressionRowStatus"), ("CISCO-SLB-EXT-MIB", "cslbxHttpReturnCodeMaxValue"), ("CISCO-SLB-EXT-MIB", "cslbxHttpReturnCodeThreshold"), ("CISCO-SLB-EXT-MIB", "cslbxHttpReturnCodeResetTimer"), ("CISCO-SLB-EXT-MIB", "cslbxHttpReturnCodeType"), ("CISCO-SLB-EXT-MIB", "cslbxHttpReturnCodeRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cslbxMapsGroup = cslbxMapsGroup.setStatus('current')
-cslbxPoliciesGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 8)).setObjects(("CISCO-SLB-EXT-MIB", "cslbxPolicyClientGroupNumber"), ("CISCO-SLB-EXT-MIB", "cslbxPolicyClientGroupName"), ("CISCO-SLB-EXT-MIB", "cslbxPolicyUrlMap"), ("CISCO-SLB-EXT-MIB", "cslbxPolicyCookieMap"), ("CISCO-SLB-EXT-MIB", "cslbxPolicyGenericHeaderMap"), ("CISCO-SLB-EXT-MIB", "cslbxPolicyStickyGroup"), ("CISCO-SLB-EXT-MIB", "cslbxPolicyDscpEnabled"), ("CISCO-SLB-EXT-MIB", "cslbxPolicyDscpStamping"), ("CISCO-SLB-EXT-MIB", "cslbxPolicyFarmName"), ("CISCO-SLB-EXT-MIB", "cslbxPolicyRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cslbxPoliciesGroup = cslbxPoliciesGroup.setStatus('current')
-cslbxVirtualServersGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 9)).setObjects(("CISCO-SLB-EXT-MIB", "cslbxVirtualAdvertiseOption"), ("CISCO-SLB-EXT-MIB", "cslbxVirtualVlanId"), ("CISCO-SLB-EXT-MIB", "cslbxVirtualReplicationMode"), ("CISCO-SLB-EXT-MIB", "cslbxVirtualPendingTimer"), ("CISCO-SLB-EXT-MIB", "cslbxVirtualL7MaxParseLength"), ("CISCO-SLB-EXT-MIB", "cslbxVirtualHttpPersistenceSlb"), ("CISCO-SLB-EXT-MIB", "cslbxVirtualURLHashBeginString"), ("CISCO-SLB-EXT-MIB", "cslbxVirtualURLHashEndString"), ("CISCO-SLB-EXT-MIB", "cslbxRuleCurrentConnections"), ("CISCO-SLB-EXT-MIB", "cslbxRuleTotalConnections"), ("CISCO-SLB-EXT-MIB", "cslbxRuleHCTotalConnections"), ("CISCO-SLB-EXT-MIB", "cslbxRuleTotalClientPackets"), ("CISCO-SLB-EXT-MIB", "cslbxRuleHCTotalClientPackets"), ("CISCO-SLB-EXT-MIB", "cslbxRuleTotalServerPackets"), ("CISCO-SLB-EXT-MIB", "cslbxRuleHCTotalServerPackets"), ("CISCO-SLB-EXT-MIB", "cslbxRuleRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cslbxVirtualServersGroup = cslbxVirtualServersGroup.setStatus('current')
-cslbxVlansGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 10)).setObjects(("CISCO-SLB-EXT-MIB", "cslbxVlanType"), ("CISCO-SLB-EXT-MIB", "cslbxVlanAddressType"), ("CISCO-SLB-EXT-MIB", "cslbxVlanAddress"), ("CISCO-SLB-EXT-MIB", "cslbxVlanMaskAddressType"), ("CISCO-SLB-EXT-MIB", "cslbxVlanMaskAddress"), ("CISCO-SLB-EXT-MIB", "cslbxVlanRowStatus"), ("CISCO-SLB-EXT-MIB", "cslbxAliasAddrRowStatus"), ("CISCO-SLB-EXT-MIB", "cslbxStaticRouteRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cslbxVlansGroup = cslbxVlansGroup.setStatus('current')
-cslbxFaultToleranceGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 11)).setObjects(("CISCO-SLB-EXT-MIB", "cslbxFtGroupId"), ("CISCO-SLB-EXT-MIB", "cslbxFtVlanId"), ("CISCO-SLB-EXT-MIB", "cslbxFtPreempt"), ("CISCO-SLB-EXT-MIB", "cslbxFtPriority"), ("CISCO-SLB-EXT-MIB", "cslbxFtHeartBeatTimer"), ("CISCO-SLB-EXT-MIB", "cslbxFtFailThreshold"), ("CISCO-SLB-EXT-MIB", "cslbxFtState"), ("CISCO-SLB-EXT-MIB", "cslbxFtStateChangeTime"), ("CISCO-SLB-EXT-MIB", "cslbxFtRxHeartBeatMsgs"), ("CISCO-SLB-EXT-MIB", "cslbxFtTxHeartBeatMsgs"), ("CISCO-SLB-EXT-MIB", "cslbxFtRxUpdateMsgs"), ("CISCO-SLB-EXT-MIB", "cslbxFtTxUpdateMsgs"), ("CISCO-SLB-EXT-MIB", "cslbxFtRxCoupMsgs"), ("CISCO-SLB-EXT-MIB", "cslbxFtTxCoupMsgs"), ("CISCO-SLB-EXT-MIB", "cslbxFtRxElectMsgs"), ("CISCO-SLB-EXT-MIB", "cslbxFtTxElectMsgs"), ("CISCO-SLB-EXT-MIB", "cslbxFtRxConnReplMsgs"), ("CISCO-SLB-EXT-MIB", "cslbxFtTxConnReplMsgs"), ("CISCO-SLB-EXT-MIB", "cslbxFtRxPackets"), ("CISCO-SLB-EXT-MIB", "cslbxFtDropPackets"), ("CISCO-SLB-EXT-MIB", "cslbxFtDuplPackets"), ("CISCO-SLB-EXT-MIB", "cslbxFtXsumErrPackets"), ("CISCO-SLB-EXT-MIB", "cslbxFtBuffErrPackets"), ("CISCO-SLB-EXT-MIB", "cslbxFtRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cslbxFaultToleranceGroup = cslbxFaultToleranceGroup.setStatus('current')
-cslbxConnsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 12)).setObjects(("CISCO-SLB-EXT-MIB", "cslbxConnInDestAddrType"), ("CISCO-SLB-EXT-MIB", "cslbxConnInDestAddr"), ("CISCO-SLB-EXT-MIB", "cslbxConnInDestPort"), ("CISCO-SLB-EXT-MIB", "cslbxConnInSourceAddrType"), ("CISCO-SLB-EXT-MIB", "cslbxConnInSourceAddr"), ("CISCO-SLB-EXT-MIB", "cslbxConnInSourcePort"), ("CISCO-SLB-EXT-MIB", "cslbxConnProtocol"), ("CISCO-SLB-EXT-MIB", "cslbxConnOutDestAddrType"), ("CISCO-SLB-EXT-MIB", "cslbxConnOutDestAddr"), ("CISCO-SLB-EXT-MIB", "cslbxConnOutDestPort"), ("CISCO-SLB-EXT-MIB", "cslbxConnOutSourceAddrType"), ("CISCO-SLB-EXT-MIB", "cslbxConnOutSourceAddr"), ("CISCO-SLB-EXT-MIB", "cslbxConnOutSourcePort"), ("CISCO-SLB-EXT-MIB", "cslbxConnState"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cslbxConnsGroup = cslbxConnsGroup.setStatus('current')
-cslbxXmlConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 13)).setObjects(("CISCO-SLB-EXT-MIB", "cslbxXmlConfigEnabled"), ("CISCO-SLB-EXT-MIB", "cslbxXmlConfigVlanId"), ("CISCO-SLB-EXT-MIB", "cslbxXmlConfigListeningPort"), ("CISCO-SLB-EXT-MIB", "cslbxXmlConfigRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cslbxXmlConfigGroup = cslbxXmlConfigGroup.setStatus('current')
-cslbxNotifControlGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 14)).setObjects(("CISCO-SLB-EXT-MIB", "cslbxFtStateChangeNotifEnabled"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cslbxNotifControlGroup = cslbxNotifControlGroup.setStatus('current')
-cslbxNotifGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 15)).setObjects(("CISCO-SLB-EXT-MIB", "cslbxFtStateChange"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cslbxNotifGroup = cslbxNotifGroup.setStatus('current')
-cslbxXmlUserAccessGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 16)).setObjects(("CISCO-SLB-EXT-MIB", "cslbxXmlConfigUserName"), ("CISCO-SLB-EXT-MIB", "cslbxXmlConfigPassword"), ("CISCO-SLB-EXT-MIB", "cslbxXmlConfigClientGroupNumber"), ("CISCO-SLB-EXT-MIB", "cslbxXmlConfigClientGroupName"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cslbxXmlUserAccessGroup = cslbxXmlUserAccessGroup.setStatus('current')
-cslbxOwnerGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 17)).setObjects(("CISCO-SLB-EXT-MIB", "cslbxVirtualOwnerName"), ("CISCO-SLB-EXT-MIB", "cslbxOwnerContactInfo"), ("CISCO-SLB-EXT-MIB", "cslbxOwnerBillingInfo"), ("CISCO-SLB-EXT-MIB", "cslbxOwnerMaxConns"), ("CISCO-SLB-EXT-MIB", "cslbxOwnerRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cslbxOwnerGroup = cslbxOwnerGroup.setStatus('current')
-cslbxBackupServerGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 18)).setObjects(("CISCO-SLB-EXT-MIB", "cslbxPolicyBackupFarmName"), ("CISCO-SLB-EXT-MIB", "cslbxPolicyBkFarmStickyEnabled"), ("CISCO-SLB-EXT-MIB", "cslbxVirtualBackupFarmName"), ("CISCO-SLB-EXT-MIB", "cslbxVirtualBkFarmStickyEnabled"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cslbxBackupServerGroup = cslbxBackupServerGroup.setStatus('current')
-cslbxScriptedProbeGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 19)).setObjects(("CISCO-SLB-EXT-MIB", "cslbxScriptFileUrl"), ("CISCO-SLB-EXT-MIB", "cslbxScriptFileRowStatus"), ("CISCO-SLB-EXT-MIB", "cslbxScriptTaskScriptName"), ("CISCO-SLB-EXT-MIB", "cslbxScriptTaskScriptArguments"), ("CISCO-SLB-EXT-MIB", "cslbxScriptTaskRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cslbxScriptedProbeGroup = cslbxScriptedProbeGroup.setStatus('current')
-cslbxReverseStickyGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 20)).setObjects(("CISCO-SLB-EXT-MIB", "cslbxPolicyReverseStickyGroup"), ("CISCO-SLB-EXT-MIB", "cslbxVirtualReverseStickyGroup"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cslbxReverseStickyGroup = cslbxReverseStickyGroup.setStatus('current')
-cslbxVirtualServersExtGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 22)).setObjects(("CISCO-SLB-EXT-MIB", "cslbxVirtualMaxConns"), ("CISCO-SLB-EXT-MIB", "cslbxVirtualFlowMode"), ("CISCO-SLB-EXT-MIB", "cslbxVirtualSSLStickyOffset"), ("CISCO-SLB-EXT-MIB", "cslbxVirtualSSLStickyLength"), ("CISCO-SLB-EXT-MIB", "cslbxRuleTotalClientOctets"), ("CISCO-SLB-EXT-MIB", "cslbxRuleHCTotalClientOctets"), ("CISCO-SLB-EXT-MIB", "cslbxRuleTotalServerOctets"), ("CISCO-SLB-EXT-MIB", "cslbxRuleHCTotalServerOctets"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cslbxVirtualServersExtGroup = cslbxVirtualServersExtGroup.setStatus('current')
-cslbxMapsRev2Group = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 23)).setObjects(("CISCO-SLB-EXT-MIB", "cslbxMapType"), ("CISCO-SLB-EXT-MIB", "cslbxMapRowStatus"), ("CISCO-SLB-EXT-MIB", "cslbxHttpExpressionFieldName"), ("CISCO-SLB-EXT-MIB", "cslbxHttpExpressionValue"), ("CISCO-SLB-EXT-MIB", "cslbxHttpExpressionRowStatus"), ("CISCO-SLB-EXT-MIB", "cslbxHttpExpressionRequestMethod"), ("CISCO-SLB-EXT-MIB", "cslbxHttpReturnCodeMaxValue"), ("CISCO-SLB-EXT-MIB", "cslbxHttpReturnCodeThreshold"), ("CISCO-SLB-EXT-MIB", "cslbxHttpReturnCodeResetTimer"), ("CISCO-SLB-EXT-MIB", "cslbxHttpReturnCodeType"), ("CISCO-SLB-EXT-MIB", "cslbxHttpReturnCodeRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cslbxMapsRev2Group = cslbxMapsRev2Group.setStatus('current')
-cslbxServerFarmsExtGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 24)).setObjects(("CISCO-SLB-EXT-MIB", "cslbxServerFarmTransparent"), ("CISCO-SLB-EXT-MIB", "cslbxServerFarmSlowStart"), ("CISCO-SLB-EXT-MIB", "cslbxServerFarmHashHeaderName"), ("CISCO-SLB-EXT-MIB", "cslbxServerFarmHashCookieName"), ("CISCO-SLB-EXT-MIB", "cslbxServerFarmUrlPatternBegin"), ("CISCO-SLB-EXT-MIB", "cslbxServerFarmUrlPatternEnd"), ("CISCO-SLB-EXT-MIB", "cslbxServerFarmDescription"), ("CISCO-SLB-EXT-MIB", "cslbxServerFarmType"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cslbxServerFarmsExtGroup = cslbxServerFarmsExtGroup.setStatus('deprecated')
-cslbxServerFarmsHttpRetCodeGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 25)).setObjects(("CISCO-SLB-EXT-MIB", "cslbxSfarmHttpRetCodeMaxValue"), ("CISCO-SLB-EXT-MIB", "cslbxSfarmHttpRetCodeActionType"), ("CISCO-SLB-EXT-MIB", "cslbxSfarmHttpRetCodeThreshold"), ("CISCO-SLB-EXT-MIB", "cslbxSfarmHttpRetCodeResetTimer"), ("CISCO-SLB-EXT-MIB", "cslbxSfarmHttpRetCodeStorageType"), ("CISCO-SLB-EXT-MIB", "cslbxSfarmHttpRetCodeRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cslbxServerFarmsHttpRetCodeGroup = cslbxServerFarmsHttpRetCodeGroup.setStatus('current')
-cslbxStickyGroupsGroupRev2 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 26)).setObjects(("CISCO-SLB-EXT-MIB", "cslbxStickyGroupType"), ("CISCO-SLB-EXT-MIB", "cslbxStickyGroupMaskAddressType"), ("CISCO-SLB-EXT-MIB", "cslbxStickyGroupMaskAddress"), ("CISCO-SLB-EXT-MIB", "cslbxStickyGroupCookieName"), ("CISCO-SLB-EXT-MIB", "cslbxStickyGroupStickyTimer"), ("CISCO-SLB-EXT-MIB", "cslbxStickyGroupRowStatus"), ("CISCO-SLB-EXT-MIB", "cslbxStickyGroupHeaderName"), ("CISCO-SLB-EXT-MIB", "cslbxStickyGroupTimeoutActiveConn"), ("CISCO-SLB-EXT-MIB", "cslbxStickyGroupReplicate"), ("CISCO-SLB-EXT-MIB", "cslbxStickyOffset"), ("CISCO-SLB-EXT-MIB", "cslbxStickyLength"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cslbxStickyGroupsGroupRev2 = cslbxStickyGroupsGroupRev2.setStatus('current')
-cslbxCookieStickyGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 27)).setObjects(("CISCO-SLB-EXT-MIB", "cslbxStickyCookieInsertEnable"), ("CISCO-SLB-EXT-MIB", "cslbxStickyCookieSecondary"), ("CISCO-SLB-EXT-MIB", "cslbxStickyCookieExpiryDate"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cslbxCookieStickyGroup = cslbxCookieStickyGroup.setStatus('current')
-cslbxStatsHCGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 35)).setObjects(("CISCO-SLB-EXT-MIB", "cslbxStatsL4PolicyHCConns"), ("CISCO-SLB-EXT-MIB", "cslbxStatsL7PolicyHCConns"), ("CISCO-SLB-EXT-MIB", "cslbxStatsDroppedL4PolicyHCConns"), ("CISCO-SLB-EXT-MIB", "cslbxStatsDroppedL7PolicyHCConns"), ("CISCO-SLB-EXT-MIB", "cslbxStatsNoMatchPolicyHCRejects"), ("CISCO-SLB-EXT-MIB", "cslbxStatsNoCfgPolicyHCRejects"), ("CISCO-SLB-EXT-MIB", "cslbxStatsAclDenyHCRejects"), ("CISCO-SLB-EXT-MIB", "cslbxStatsVerMismatchHCRejects"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cslbxStatsHCGroup = cslbxStatsHCGroup.setStatus('current')
-cslbxServerFarmStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 36)).setObjects(("CISCO-SLB-EXT-MIB", "cslbxServerFarmTotalConns"), ("CISCO-SLB-EXT-MIB", "cslbxServerFarmCurrConns"), ("CISCO-SLB-EXT-MIB", "cslbxServerFarmFailedConns"), ("CISCO-SLB-EXT-MIB", "cslbxServerFarmNumOfTimeFailOvers"), ("CISCO-SLB-EXT-MIB", "cslbxServerFarmNumOfTimeBkInServs"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cslbxServerFarmStatsGroup = cslbxServerFarmStatsGroup.setStatus('current')
-cslbxServerFarmsExtGroupRev1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 37)).setObjects(("CISCO-SLB-EXT-MIB", "cslbxServerFarmTransparent"), ("CISCO-SLB-EXT-MIB", "cslbxServerFarmSlowStart"), ("CISCO-SLB-EXT-MIB", "cslbxServerFarmHashHeaderName"), ("CISCO-SLB-EXT-MIB", "cslbxServerFarmHashCookieName"), ("CISCO-SLB-EXT-MIB", "cslbxServerFarmUrlPatternBegin"), ("CISCO-SLB-EXT-MIB", "cslbxServerFarmUrlPatternEnd"), ("CISCO-SLB-EXT-MIB", "cslbxServerFarmDescription"), ("CISCO-SLB-EXT-MIB", "cslbxServerFarmType"), ("CISCO-SLB-EXT-MIB", "cslbxServerFarmState"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cslbxServerFarmsExtGroupRev1 = cslbxServerFarmsExtGroupRev1.setStatus('current')
-mibBuilder.exportSymbols("CISCO-SLB-EXT-MIB", cslbxNatPoolStartAddress=cslbxNatPoolStartAddress, cslbxXmlConfig=cslbxXmlConfig, cslbxConnOutSourceAddrType=cslbxConnOutSourceAddrType, cslbxRuleTotalConnections=cslbxRuleTotalConnections, cslbxServerFarmCurrConns=cslbxServerFarmCurrConns, cslbxFtState=cslbxFtState, cslbxStickyGroupExtEntry=cslbxStickyGroupExtEntry, cslbxScriptFileTableEntry=cslbxScriptFileTableEntry, cslbxStickyGroupTable=cslbxStickyGroupTable, SlbRegularExpression=SlbRegularExpression, cslbxMapsGroup=cslbxMapsGroup, cslbxMapRowStatus=cslbxMapRowStatus, cslbxStatsServerInitHCConns=cslbxStatsServerInitHCConns, cslbxRuleEntry=cslbxRuleEntry, cslbxCookieStickyGroup=cslbxCookieStickyGroup, cslbxStatsL7PolicyConns=cslbxStatsL7PolicyConns, cslbxRedirectSvrTableEntry=cslbxRedirectSvrTableEntry, cslbxVirtualOwnerName=cslbxVirtualOwnerName, SlbDirectionalMode=SlbDirectionalMode, cslbxSfarmHttpRetCodeThreshold=cslbxSfarmHttpRetCodeThreshold, cslbxServerFarmClientNatPool=cslbxServerFarmClientNatPool, cslbxServerFarmHashCookieName=cslbxServerFarmHashCookieName, cslbxRuleTotalServerOctets=cslbxRuleTotalServerOctets, cslbxNotifControlGroup=cslbxNotifControlGroup, cslbxAliasAddrRowStatus=cslbxAliasAddrRowStatus, cslbxRedirectSvrRedirectPort=cslbxRedirectSvrRedirectPort, cslbxFtRowStatus=cslbxFtRowStatus, cslbxStickyGroupExtTable=cslbxStickyGroupExtTable, cslbxRulePolicyName=cslbxRulePolicyName, cslbxScriptFileTable=cslbxScriptFileTable, cslbxStatsNoMatchPolicyRejects=cslbxStatsNoMatchPolicyRejects, cslbxMapsRev2Group=cslbxMapsRev2Group, cslbxStatsL7PolicyHCConns=cslbxStatsL7PolicyHCConns, cslbxVirtualServersGroup=cslbxVirtualServersGroup, cslbxServerProbes=cslbxServerProbes, cslbxRuleHCTotalConnections=cslbxRuleHCTotalConnections, cslbxPolicyClientGroupNumber=cslbxPolicyClientGroupNumber, cslbxVlanEntry=cslbxVlanEntry, cslbxVlanAddress=cslbxVlanAddress, cslbxStatsHttpRedirectConns=cslbxStatsHttpRedirectConns, cslbxVirtualBackupFarmName=cslbxVirtualBackupFarmName, cslbxStatsL4PolicyHCConns=cslbxStatsL4PolicyHCConns, cslbxScriptObjects=cslbxScriptObjects, cslbxHttpReturnCodeMaxValue=cslbxHttpReturnCodeMaxValue, cslbxStatsVerMismatchRejects=cslbxStatsVerMismatchRejects, cslbxStickyObjectGroupId=cslbxStickyObjectGroupId, cslbxFtBuffErrPackets=cslbxFtBuffErrPackets, cslbxVlanAddressType=cslbxVlanAddressType, cslbxFtRxCoupMsgs=cslbxFtRxCoupMsgs, cslbxConnInDestPort=cslbxConnInDestPort, cslbxConnsGroup=cslbxConnsGroup, cslbxStickyCookieExpiryDate=cslbxStickyCookieExpiryDate, cslbxServerFarmTable=cslbxServerFarmTable, cslbxSfarmHttpRetCodeRowStatus=cslbxSfarmHttpRetCodeRowStatus, cslbxRuleHCTotalServerPackets=cslbxRuleHCTotalServerPackets, cslbxHttpReturnCodeEntry=cslbxHttpReturnCodeEntry, cslbxRedirectSvrFarmName=cslbxRedirectSvrFarmName, cslbxServerFarmsHttpRetCodeGroup=cslbxServerFarmsHttpRetCodeGroup, cslbxStatsMaxParseLenRejects=cslbxStatsMaxParseLenRejects, cslbxHttpExpressionTable=cslbxHttpExpressionTable, cslbxStickyObjectsGroup=cslbxStickyObjectsGroup, cslbxServerFarmUrlPatternBegin=cslbxServerFarmUrlPatternBegin, cslbxFtRxElectMsgs=cslbxFtRxElectMsgs, cslbxServerFarmNumOfTimeFailOvers=cslbxServerFarmNumOfTimeFailOvers, cslbxServerFarmSlowStart=cslbxServerFarmSlowStart, cslbxStickyObjectSourceInfo=cslbxStickyObjectSourceInfo, cslbxRuleVirtualServerName=cslbxRuleVirtualServerName, cslbxFtGroupId=cslbxFtGroupId, cslbxStickyCookieSecondary=cslbxStickyCookieSecondary, cslbxPolicyFarmName=cslbxPolicyFarmName, cslbxVirtualURLHashEndString=cslbxVirtualURLHashEndString, cslbxVirtualMaxConns=cslbxVirtualMaxConns, cslbxStatsDroppedL4PolicyHCConns=cslbxStatsDroppedL4PolicyHCConns, cslbxStatsAclDenyHCRejects=cslbxStatsAclDenyHCRejects, cslbxRuleCurrentConnections=cslbxRuleCurrentConnections, cslbxRedirectSvrRedirectCode=cslbxRedirectSvrRedirectCode, cslbxPolicyDscpStamping=cslbxPolicyDscpStamping, cslbxRuleTotalClientOctets=cslbxRuleTotalClientOctets, cslbxStickyGroupRowStatus=cslbxStickyGroupRowStatus, cslbxServerFarmFailedConns=cslbxServerFarmFailedConns, cslbxPolicyTable=cslbxPolicyTable, cslbxHttpReturnCodeThreshold=cslbxHttpReturnCodeThreshold, cslbxStaticRouteMaskAddr=cslbxStaticRouteMaskAddr, cslbxSfarmHttpReturnCodeTable=cslbxSfarmHttpReturnCodeTable, cslbxOwnerName=cslbxOwnerName, cslbxStatsOutOfMemoryRejects=cslbxStatsOutOfMemoryRejects, cslbxServerFarmStatsGroup=cslbxServerFarmStatsGroup, cslbxHttpExpressionRequestMethod=cslbxHttpExpressionRequestMethod, cslbxScriptTaskTable=cslbxScriptTaskTable, cslbxVlanMaskAddress=cslbxVlanMaskAddress, cslbxPolicyGenericHeaderMap=cslbxPolicyGenericHeaderMap, cslbxServerFarmHashMaskAddr=cslbxServerFarmHashMaskAddr, cslbxVirtualPendingTimer=cslbxVirtualPendingTimer, cslbxScriptFileRowStatus=cslbxScriptFileRowStatus, cslbxMIBGroups=cslbxMIBGroups, cslbxStickyObjects=cslbxStickyObjects, cslbxStatsGroup=cslbxStatsGroup, cslbxConnOutSourceAddr=cslbxConnOutSourceAddr, SlbMapType=SlbMapType, cslbxConnProtocol=cslbxConnProtocol, cslbxServerFarmsGroup=cslbxServerFarmsGroup, cslbxNotifObjects=cslbxNotifObjects, cslbxStatsNoActiveServerRejects=cslbxStatsNoActiveServerRejects, cslbxVlansGroup=cslbxVlansGroup, cslbxXmlConfigGroup=cslbxXmlConfigGroup, cslbxServerFarmProbeTableEntry=cslbxServerFarmProbeTableEntry, cslbxStickyObjectType=cslbxStickyObjectType, cslbxOwnerRowStatus=cslbxOwnerRowStatus, SlbReplicationMode=SlbReplicationMode, cslbxStickyGroupsGroup=cslbxStickyGroupsGroup, cslbxStickyGroupMaskAddress=cslbxStickyGroupMaskAddress, cslbxVirtualBkFarmStickyEnabled=cslbxVirtualBkFarmStickyEnabled, SlbFunctionNameString=SlbFunctionNameString, cslbxRuleHCTotalServerOctets=cslbxRuleHCTotalServerOctets, SlbUrlString=SlbUrlString, cslbxStickyGroupEntry=cslbxStickyGroupEntry, cslbxStatsDroppedL7PolicyHCConns=cslbxStatsDroppedL7PolicyHCConns, cslbxScriptTaskIndex=cslbxScriptTaskIndex, cslbxFtTxHeartBeatMsgs=cslbxFtTxHeartBeatMsgs, cslbxRedirectSvrName=cslbxRedirectSvrName, cslbxPolicyBackupFarmName=cslbxPolicyBackupFarmName, cslbxStickyGroupCookieName=cslbxStickyGroupCookieName, cslbxVirtualVlanId=cslbxVirtualVlanId, cslbxServerFarmUrlPatternEnd=cslbxServerFarmUrlPatternEnd, cslbxHttpExpressionTableEntry=cslbxHttpExpressionTableEntry, cslbxStickyGroupHeaderName=cslbxStickyGroupHeaderName, SlbFailAction=SlbFailAction, cslbxStaticRouteMaskAddrType=cslbxStaticRouteMaskAddrType, cslbxStickyObjectIndex=cslbxStickyObjectIndex, cslbxConnState=cslbxConnState, cslbxFtDuplPackets=cslbxFtDuplPackets, cslbxRuleRowStatus=cslbxRuleRowStatus, cslbxRedirectSvrTotalConns=cslbxRedirectSvrTotalConns, cslbxStatsL4PolicyConns=cslbxStatsL4PolicyConns, cslbxFtTxUpdateMsgs=cslbxFtTxUpdateMsgs, cslbxVirtualServerTable=cslbxVirtualServerTable, cslbxXmlUserAccessGroup=cslbxXmlUserAccessGroup, cslbxVirtualHttpPersistenceSlb=cslbxVirtualHttpPersistenceSlb, cslbxVlanType=cslbxVlanType, cslbxRedirectSvrRowStatus=cslbxRedirectSvrRowStatus, cslbxHttpExpressionMapName=cslbxHttpExpressionMapName, cslbxFtVlanId=cslbxFtVlanId, cslbxRedirectSvrMaxConns=cslbxRedirectSvrMaxConns, cslbxStickyObjectRealAddressType=cslbxStickyObjectRealAddressType, cslbxFtTxConnReplMsgs=cslbxFtTxConnReplMsgs, cslbxXmlConfigTable=cslbxXmlConfigTable, cslbxFaultToleranceGroup=cslbxFaultToleranceGroup, cslbxScriptTaskScriptName=cslbxScriptTaskScriptName, cslbxHttpReturnCodeType=cslbxHttpReturnCodeType, cslbxServerFarmsExtGroup=cslbxServerFarmsExtGroup, cslbxConnInSourceAddrType=cslbxConnInSourceAddrType, cslbxMapTableEntry=cslbxMapTableEntry, cslbxXmlConfigRowStatus=cslbxXmlConfigRowStatus, cslbxPoliciesGroup=cslbxPoliciesGroup, cslbxConnInDestAddrType=cslbxConnInDestAddrType, cslbxHttpExpressionIndex=cslbxHttpExpressionIndex, ciscoSlbExtMIBNotifs=ciscoSlbExtMIBNotifs, cslbxPolicyBkFarmStickyEnabled=cslbxPolicyBkFarmStickyEnabled, PYSNMP_MODULE_ID=ciscoSlbExtMIB, cslbxFtStateChangeTime=cslbxFtStateChangeTime, cslbxXmlConfigVlanId=cslbxXmlConfigVlanId, cslbxServerFarmHashHeaderName=cslbxServerFarmHashHeaderName, cslbxHttpExpressionRowStatus=cslbxHttpExpressionRowStatus, cslbxFtPriority=cslbxFtPriority, cslbxMapType=cslbxMapType, cslbxRuleHCTotalClientPackets=cslbxRuleHCTotalClientPackets, ciscoSlbExtMIBConform=ciscoSlbExtMIBConform, cslbxServerFarmStatsTable=cslbxServerFarmStatsTable, cslbxServerFarmsExtGroupRev1=cslbxServerFarmsExtGroupRev1, cslbxStickyLength=cslbxStickyLength, cslbxStatsTableEntry=cslbxStatsTableEntry, cslbxAliasAddrAddressType=cslbxAliasAddrAddressType, cslbxStatsDroppedL7PolicyConns=cslbxStatsDroppedL7PolicyConns, cslbxFtRxUpdateMsgs=cslbxFtRxUpdateMsgs, cslbxMIBComplianceRev2=cslbxMIBComplianceRev2, cslbxMIBCompliances=cslbxMIBCompliances, cslbxStatsBadSslFormatRejects=cslbxStatsBadSslFormatRejects, cslbxRedirectSvrState=cslbxRedirectSvrState, SlbIpAdvertise=SlbIpAdvertise, cslbxStickyOffset=cslbxStickyOffset, cslbxStatsDroppedL4PolicyConns=cslbxStatsDroppedL4PolicyConns, cslbxRedirectSvrBackupString=cslbxRedirectSvrBackupString, cslbxHttpReturnCodeRowStatus=cslbxHttpReturnCodeRowStatus, cslbxVirtualSSLStickyOffset=cslbxVirtualSSLStickyOffset, cslbxScriptTaskRowStatus=cslbxScriptTaskRowStatus, cslbxVirtualServers=cslbxVirtualServers, cslbxMIBCompliance=cslbxMIBCompliance, cslbxServerFarmState=cslbxServerFarmState, cslbxStatsAclDenyRejects=cslbxStatsAclDenyRejects, cslbxRedirectSvrRelocationStr=cslbxRedirectSvrRelocationStr, cslbxXmlConfigEnabled=cslbxXmlConfigEnabled, cslbxReverseStickyGroup=cslbxReverseStickyGroup, cslbxOwnerContactInfo=cslbxOwnerContactInfo, cslbxNatPoolEndAddressType=cslbxNatPoolEndAddressType, cslbxXmlConfigUserName=cslbxXmlConfigUserName, cslbxFtStateChangeNotifEnabled=cslbxFtStateChangeNotifEnabled, cslbxScriptTaskTableEntry=cslbxScriptTaskTableEntry, cslbxStatsCurrConnections=cslbxStatsCurrConnections, cslbxPolicies=cslbxPolicies, cslbxVirtualL7MaxParseLength=cslbxVirtualL7MaxParseLength, cslbxVirtualURLHashBeginString=cslbxVirtualURLHashBeginString, cslbxVlans=cslbxVlans, cslbxFtRxHeartBeatMsgs=cslbxFtRxHeartBeatMsgs, cslbxFtTable=cslbxFtTable, cslbxXmlConfigClientGroupNumber=cslbxXmlConfigClientGroupNumber, cslbxOwnerGroup=cslbxOwnerGroup, cslbxStickyGroupTimeoutActiveConn=cslbxStickyGroupTimeoutActiveConn, cslbxOwnerTable=cslbxOwnerTable, cslbxVlanTable=cslbxVlanTable, cslbxStatsFtpConns=cslbxStatsFtpConns, cslbxRuleTable=cslbxRuleTable, cslbxFtHeartBeatTimer=cslbxFtHeartBeatTimer, cslbxStaticRouteSubnetAddrType=cslbxStaticRouteSubnetAddrType, cslbxFaultTolerance=cslbxFaultTolerance, cslbxHttpReturnCodeResetTimer=cslbxHttpReturnCodeResetTimer, cslbxStatsNoCfgPolicyHCRejects=cslbxStatsNoCfgPolicyHCRejects, SlbStickyType=SlbStickyType, cslbxServerFarmHttpReturnCodeMap=cslbxServerFarmHttpReturnCodeMap, cslbxStaticRouteGatewayAddr=cslbxStaticRouteGatewayAddr, cslbxPolicyReverseStickyGroup=cslbxPolicyReverseStickyGroup, cslbxPolicyUrlMap=cslbxPolicyUrlMap, cslbxConnOutSourcePort=cslbxConnOutSourcePort, cslbxStickyObjectRealPort=cslbxStickyObjectRealPort, cslbxPolicyCookieMap=cslbxPolicyCookieMap, cslbxXmlConfigPassword=cslbxXmlConfigPassword, cslbxSfarmHttpRetCodeActionType=cslbxSfarmHttpRetCodeActionType, cslbxStickyGroupReplicate=cslbxStickyGroupReplicate, cslbxPolicyStickyGroup=cslbxPolicyStickyGroup, cslbxServerFarmProbeTable=cslbxServerFarmProbeTable, cslbxMapTable=cslbxMapTable, cslbxOwnerBillingInfo=cslbxOwnerBillingInfo, SlbProbeAction=SlbProbeAction, cslbxAliasAddrEntry=cslbxAliasAddrEntry, cslbxStickyObjectRealAddress=cslbxStickyObjectRealAddress, cslbxStaticRouteTable=cslbxStaticRouteTable, cslbxRuleHCTotalClientOctets=cslbxRuleHCTotalClientOctets, cslbxSfarmHttpReturnCodeEntry=cslbxSfarmHttpReturnCodeEntry, SlbVlanType=SlbVlanType, cslbxHttpReturnCodeMapName=cslbxHttpReturnCodeMapName, cslbxRedirectSvrTable=cslbxRedirectSvrTable, cslbxStatsCurrServerInitConns=cslbxStatsCurrServerInitConns, cslbxFtDropPackets=cslbxFtDropPackets, cslbxClientNatPools=cslbxClientNatPools, cslbxNatPoolRowStatus=cslbxNatPoolRowStatus, cslbxConnTable=cslbxConnTable, cslbxScriptedProbeGroup=cslbxScriptedProbeGroup, cslbxConnIndex=cslbxConnIndex, cslbxStatsServerInitConns=cslbxStatsServerInitConns, cslbxVirtualFlowMode=cslbxVirtualFlowMode, cslbxConnections=cslbxConnections, cslbxHttpReturnCodeTable=cslbxHttpReturnCodeTable, cslbxHttpReturnCodeMinValue=cslbxHttpReturnCodeMinValue, cslbxStaticRouteRowStatus=cslbxStaticRouteRowStatus, cslbxAliasAddrVlanId=cslbxAliasAddrVlanId)
-mibBuilder.exportSymbols("CISCO-SLB-EXT-MIB", cslbxSfarmHttpRetCodeMinValue=cslbxSfarmHttpRetCodeMinValue, cslbxHttpExpressionFieldName=cslbxHttpExpressionFieldName, cslbxFtTxCoupMsgs=cslbxFtTxCoupMsgs, cslbxStaticRouteGatewayAddrType=cslbxStaticRouteGatewayAddrType, cslbxFtRxPackets=cslbxFtRxPackets, cslbxScriptTaskScriptArguments=cslbxScriptTaskScriptArguments, cslbxXmlConfigTableEntry=cslbxXmlConfigTableEntry, cslbxNatPoolEndAddress=cslbxNatPoolEndAddress, cslbxNatPoolTable=cslbxNatPoolTable, cslbxStatsVerMismatchHCRejects=cslbxStatsVerMismatchHCRejects, cslbxRedirectSvrMetric=cslbxRedirectSvrMetric, cslbxVirtualReverseStickyGroup=cslbxVirtualReverseStickyGroup, cslbxStatsFailedConns=cslbxStatsFailedConns, cslbxFtFailThreshold=cslbxFtFailThreshold, cslbxMIBComplianceRev1=cslbxMIBComplianceRev1, cslbxStatsNoMatchPolicyHCRejects=cslbxStatsNoMatchPolicyHCRejects, cslbxPolicyTableEntry=cslbxPolicyTableEntry, cslbxStaticRouteSubnetAddr=cslbxStaticRouteSubnetAddr, cslbxRuleTotalServerPackets=cslbxRuleTotalServerPackets, cslbxClientNatPoolsGroup=cslbxClientNatPoolsGroup, cslbxServerFarmInFailedThreshold=cslbxServerFarmInFailedThreshold, cslbxScriptFileUrl=cslbxScriptFileUrl, cslbxVlanId=cslbxVlanId, cslbxServerFarmTotalConns=cslbxServerFarmTotalConns, cslbxOwnerObjects=cslbxOwnerObjects, cslbxRedirectSvrOperWeight=cslbxRedirectSvrOperWeight, cslbxPolicyClientGroupName=cslbxPolicyClientGroupName, cslbxVirtualSSLStickyLength=cslbxVirtualSSLStickyLength, cslbxStatsHCGroup=cslbxStatsHCGroup, cslbxConnInDestAddr=cslbxConnInDestAddr, cslbxConnOutDestPort=cslbxConnOutDestPort, cslbxServerFarmDescription=cslbxServerFarmDescription, cslbxStickyGroupType=cslbxStickyGroupType, cslbxStatsIpChecksumErrorPkts=cslbxStatsIpChecksumErrorPkts, cslbxStatsDroppedRedirectConns=cslbxStatsDroppedRedirectConns, cslbxFtTableEntry=cslbxFtTableEntry, cslbxStatsTimedOutConnections=cslbxStatsTimedOutConnections, cslbxAliasAddrTable=cslbxAliasAddrTable, cslbxConnInSourceAddr=cslbxConnInSourceAddr, cslbxMaps=cslbxMaps, cslbxNatPoolStartAddressType=cslbxNatPoolStartAddressType, cslbxStickyGroupStickyTimer=cslbxStickyGroupStickyTimer, cslbxVirtualServersExtGroup=cslbxVirtualServersExtGroup, cslbxSfarmHttpRetCodeStorageType=cslbxSfarmHttpRetCodeStorageType, cslbxMapName=cslbxMapName, cslbxServerFarmProbeProbeName=cslbxServerFarmProbeProbeName, cslbxSfarmHttpRetCodeResetTimer=cslbxSfarmHttpRetCodeResetTimer, cslbxXmlConfigClientGroupName=cslbxXmlConfigClientGroupName, cslbxStatsTable=cslbxStatsTable, cslbxConnInSourcePort=cslbxConnInSourcePort, cslbxStickyGroupsGroupRev2=cslbxStickyGroupsGroupRev2, cslbxStickyCookieInsertEnable=cslbxStickyCookieInsertEnable, cslbxFtRxConnReplMsgs=cslbxFtRxConnReplMsgs, cslbxServerFarms=cslbxServerFarms, cslbxRedirectSvrHCTotalConns=cslbxRedirectSvrHCTotalConns, cslbxStatsNoCfgPolicyRejects=cslbxStatsNoCfgPolicyRejects, cslbxRedirectSvrAdminWeight=cslbxRedirectSvrAdminWeight, cslbxFtStateChange=cslbxFtStateChange, cslbxStickyGroupId=cslbxStickyGroupId, cslbxServerFarmInbandResetTimer=cslbxServerFarmInbandResetTimer, cslbxStatsFailedServerInitConns=cslbxStatsFailedServerInitConns, cslbxOwnerTableEntry=cslbxOwnerTableEntry, ciscoSlbExtMIB=ciscoSlbExtMIB, cslbxRedirectSvrNumberOfConns=cslbxRedirectSvrNumberOfConns, cslbxXmlConfigListeningPort=cslbxXmlConfigListeningPort, cslbxConnOutDestAddr=cslbxConnOutDestAddr, cslbxPolicyName=cslbxPolicyName, cslbxServerFarmTransparent=cslbxServerFarmTransparent, cslbxStaticRouteEntry=cslbxStaticRouteEntry, cslbxServerFarmNumOfTimeBkInServs=cslbxServerFarmNumOfTimeBkInServs, cslbxVlanRowStatus=cslbxVlanRowStatus, cslbxStaticRouteVlanId=cslbxStaticRouteVlanId, cslbxHttpExpressionValue=cslbxHttpExpressionValue, cslbxServerFarmStatsEntry=cslbxServerFarmStatsEntry, cslbxVirtualServerTableEntry=cslbxVirtualServerTableEntry, cslbxStickyObjectTable=cslbxStickyObjectTable, cslbxMIBComplianceRev3=cslbxMIBComplianceRev3, cslbxServerFarmFailAction=cslbxServerFarmFailAction, SlbFtState=SlbFtState, cslbxVlanMaskAddressType=cslbxVlanMaskAddressType, ciscoSlbExtMIBObjects=ciscoSlbExtMIBObjects, cslbxFtPreempt=cslbxFtPreempt, cslbxServerFarmType=cslbxServerFarmType, cslbxAliasAddrAddress=cslbxAliasAddrAddress, cslbxConnOutDestAddrType=cslbxConnOutDestAddrType, cslbxServerFarmTableEntry=cslbxServerFarmTableEntry, cslbxNatPoolEntry=cslbxNatPoolEntry, cslbxScriptFileIndex=cslbxScriptFileIndex, cslbxFtXsumErrPackets=cslbxFtXsumErrPackets, cslbxStickyObjectTableEntry=cslbxStickyObjectTableEntry, cslbxPolicyRowStatus=cslbxPolicyRowStatus, cslbxOwnerMaxConns=cslbxOwnerMaxConns, cslbxPolicyDscpEnabled=cslbxPolicyDscpEnabled, cslbxConnTableEntry=cslbxConnTableEntry, SlbObjectNameString=SlbObjectNameString, cslbxStatsL7ParserErrorRejects=cslbxStatsL7ParserErrorRejects, cslbxNatPoolName=cslbxNatPoolName, cslbxVirtualAdvertiseOption=cslbxVirtualAdvertiseOption, cslbxNotifGroup=cslbxNotifGroup, cslbxStatsTcpChecksumErrorPkts=cslbxStatsTcpChecksumErrorPkts, cslbxSfarmHttpRetCodeMaxValue=cslbxSfarmHttpRetCodeMaxValue, cslbxStats=cslbxStats, cslbxStickyGroupMaskAddressType=cslbxStickyGroupMaskAddressType, cslbxRuleTotalClientPackets=cslbxRuleTotalClientPackets, cslbxVirtualReplicationMode=cslbxVirtualReplicationMode, cslbxFtTxElectMsgs=cslbxFtTxElectMsgs, cslbxServerFarmProbeRowStatus=cslbxServerFarmProbeRowStatus, cslbxServerFarmHashMaskAddrType=cslbxServerFarmHashMaskAddrType, cslbxServerFarmProbeFarmName=cslbxServerFarmProbeFarmName, cslbxBackupServerGroup=cslbxBackupServerGroup)
+cslbxClientNatPoolsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 3)
+)
+cslbxClientNatPoolsGroup.setObjects(
+      *(("CISCO-SLB-EXT-MIB", "cslbxNatPoolStartAddressType"),
+        ("CISCO-SLB-EXT-MIB", "cslbxNatPoolStartAddress"),
+        ("CISCO-SLB-EXT-MIB", "cslbxNatPoolEndAddressType"),
+        ("CISCO-SLB-EXT-MIB", "cslbxNatPoolEndAddress"),
+        ("CISCO-SLB-EXT-MIB", "cslbxNatPoolRowStatus"))
+)
+if mibBuilder.loadTexts:
+    cslbxClientNatPoolsGroup.setStatus("current")
+
+cslbxStickyGroupsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 4)
+)
+cslbxStickyGroupsGroup.setObjects(
+      *(("CISCO-SLB-EXT-MIB", "cslbxStickyGroupType"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStickyGroupMaskAddressType"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStickyGroupMaskAddress"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStickyGroupCookieName"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStickyGroupStickyTimer"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStickyGroupRowStatus"))
+)
+if mibBuilder.loadTexts:
+    cslbxStickyGroupsGroup.setStatus("deprecated")
+
+cslbxStickyObjectsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 5)
+)
+cslbxStickyObjectsGroup.setObjects(
+      *(("CISCO-SLB-EXT-MIB", "cslbxStickyObjectGroupId"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStickyObjectType"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStickyObjectSourceInfo"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStickyObjectRealAddressType"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStickyObjectRealAddress"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStickyObjectRealPort"))
+)
+if mibBuilder.loadTexts:
+    cslbxStickyObjectsGroup.setStatus("current")
+
+cslbxMapsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 6)
+)
+cslbxMapsGroup.setObjects(
+      *(("CISCO-SLB-EXT-MIB", "cslbxMapType"),
+        ("CISCO-SLB-EXT-MIB", "cslbxMapRowStatus"),
+        ("CISCO-SLB-EXT-MIB", "cslbxHttpExpressionFieldName"),
+        ("CISCO-SLB-EXT-MIB", "cslbxHttpExpressionValue"),
+        ("CISCO-SLB-EXT-MIB", "cslbxHttpExpressionRowStatus"),
+        ("CISCO-SLB-EXT-MIB", "cslbxHttpReturnCodeMaxValue"),
+        ("CISCO-SLB-EXT-MIB", "cslbxHttpReturnCodeThreshold"),
+        ("CISCO-SLB-EXT-MIB", "cslbxHttpReturnCodeResetTimer"),
+        ("CISCO-SLB-EXT-MIB", "cslbxHttpReturnCodeType"),
+        ("CISCO-SLB-EXT-MIB", "cslbxHttpReturnCodeRowStatus"))
+)
+if mibBuilder.loadTexts:
+    cslbxMapsGroup.setStatus("current")
+
+cslbxPoliciesGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 8)
+)
+cslbxPoliciesGroup.setObjects(
+      *(("CISCO-SLB-EXT-MIB", "cslbxPolicyClientGroupNumber"),
+        ("CISCO-SLB-EXT-MIB", "cslbxPolicyClientGroupName"),
+        ("CISCO-SLB-EXT-MIB", "cslbxPolicyUrlMap"),
+        ("CISCO-SLB-EXT-MIB", "cslbxPolicyCookieMap"),
+        ("CISCO-SLB-EXT-MIB", "cslbxPolicyGenericHeaderMap"),
+        ("CISCO-SLB-EXT-MIB", "cslbxPolicyStickyGroup"),
+        ("CISCO-SLB-EXT-MIB", "cslbxPolicyDscpEnabled"),
+        ("CISCO-SLB-EXT-MIB", "cslbxPolicyDscpStamping"),
+        ("CISCO-SLB-EXT-MIB", "cslbxPolicyFarmName"),
+        ("CISCO-SLB-EXT-MIB", "cslbxPolicyRowStatus"))
+)
+if mibBuilder.loadTexts:
+    cslbxPoliciesGroup.setStatus("current")
+
+cslbxVirtualServersGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 9)
+)
+cslbxVirtualServersGroup.setObjects(
+      *(("CISCO-SLB-EXT-MIB", "cslbxVirtualAdvertiseOption"),
+        ("CISCO-SLB-EXT-MIB", "cslbxVirtualVlanId"),
+        ("CISCO-SLB-EXT-MIB", "cslbxVirtualReplicationMode"),
+        ("CISCO-SLB-EXT-MIB", "cslbxVirtualPendingTimer"),
+        ("CISCO-SLB-EXT-MIB", "cslbxVirtualL7MaxParseLength"),
+        ("CISCO-SLB-EXT-MIB", "cslbxVirtualHttpPersistenceSlb"),
+        ("CISCO-SLB-EXT-MIB", "cslbxVirtualURLHashBeginString"),
+        ("CISCO-SLB-EXT-MIB", "cslbxVirtualURLHashEndString"),
+        ("CISCO-SLB-EXT-MIB", "cslbxRuleCurrentConnections"),
+        ("CISCO-SLB-EXT-MIB", "cslbxRuleTotalConnections"),
+        ("CISCO-SLB-EXT-MIB", "cslbxRuleHCTotalConnections"),
+        ("CISCO-SLB-EXT-MIB", "cslbxRuleTotalClientPackets"),
+        ("CISCO-SLB-EXT-MIB", "cslbxRuleHCTotalClientPackets"),
+        ("CISCO-SLB-EXT-MIB", "cslbxRuleTotalServerPackets"),
+        ("CISCO-SLB-EXT-MIB", "cslbxRuleHCTotalServerPackets"),
+        ("CISCO-SLB-EXT-MIB", "cslbxRuleRowStatus"))
+)
+if mibBuilder.loadTexts:
+    cslbxVirtualServersGroup.setStatus("current")
+
+cslbxVlansGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 10)
+)
+cslbxVlansGroup.setObjects(
+      *(("CISCO-SLB-EXT-MIB", "cslbxVlanType"),
+        ("CISCO-SLB-EXT-MIB", "cslbxVlanAddressType"),
+        ("CISCO-SLB-EXT-MIB", "cslbxVlanAddress"),
+        ("CISCO-SLB-EXT-MIB", "cslbxVlanMaskAddressType"),
+        ("CISCO-SLB-EXT-MIB", "cslbxVlanMaskAddress"),
+        ("CISCO-SLB-EXT-MIB", "cslbxVlanRowStatus"),
+        ("CISCO-SLB-EXT-MIB", "cslbxAliasAddrRowStatus"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStaticRouteRowStatus"))
+)
+if mibBuilder.loadTexts:
+    cslbxVlansGroup.setStatus("current")
+
+cslbxFaultToleranceGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 11)
+)
+cslbxFaultToleranceGroup.setObjects(
+      *(("CISCO-SLB-EXT-MIB", "cslbxFtGroupId"),
+        ("CISCO-SLB-EXT-MIB", "cslbxFtVlanId"),
+        ("CISCO-SLB-EXT-MIB", "cslbxFtPreempt"),
+        ("CISCO-SLB-EXT-MIB", "cslbxFtPriority"),
+        ("CISCO-SLB-EXT-MIB", "cslbxFtHeartBeatTimer"),
+        ("CISCO-SLB-EXT-MIB", "cslbxFtFailThreshold"),
+        ("CISCO-SLB-EXT-MIB", "cslbxFtState"),
+        ("CISCO-SLB-EXT-MIB", "cslbxFtStateChangeTime"),
+        ("CISCO-SLB-EXT-MIB", "cslbxFtRxHeartBeatMsgs"),
+        ("CISCO-SLB-EXT-MIB", "cslbxFtTxHeartBeatMsgs"),
+        ("CISCO-SLB-EXT-MIB", "cslbxFtRxUpdateMsgs"),
+        ("CISCO-SLB-EXT-MIB", "cslbxFtTxUpdateMsgs"),
+        ("CISCO-SLB-EXT-MIB", "cslbxFtRxCoupMsgs"),
+        ("CISCO-SLB-EXT-MIB", "cslbxFtTxCoupMsgs"),
+        ("CISCO-SLB-EXT-MIB", "cslbxFtRxElectMsgs"),
+        ("CISCO-SLB-EXT-MIB", "cslbxFtTxElectMsgs"),
+        ("CISCO-SLB-EXT-MIB", "cslbxFtRxConnReplMsgs"),
+        ("CISCO-SLB-EXT-MIB", "cslbxFtTxConnReplMsgs"),
+        ("CISCO-SLB-EXT-MIB", "cslbxFtRxPackets"),
+        ("CISCO-SLB-EXT-MIB", "cslbxFtDropPackets"),
+        ("CISCO-SLB-EXT-MIB", "cslbxFtDuplPackets"),
+        ("CISCO-SLB-EXT-MIB", "cslbxFtXsumErrPackets"),
+        ("CISCO-SLB-EXT-MIB", "cslbxFtBuffErrPackets"),
+        ("CISCO-SLB-EXT-MIB", "cslbxFtRowStatus"))
+)
+if mibBuilder.loadTexts:
+    cslbxFaultToleranceGroup.setStatus("current")
+
+cslbxConnsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 12)
+)
+cslbxConnsGroup.setObjects(
+      *(("CISCO-SLB-EXT-MIB", "cslbxConnInDestAddrType"),
+        ("CISCO-SLB-EXT-MIB", "cslbxConnInDestAddr"),
+        ("CISCO-SLB-EXT-MIB", "cslbxConnInDestPort"),
+        ("CISCO-SLB-EXT-MIB", "cslbxConnInSourceAddrType"),
+        ("CISCO-SLB-EXT-MIB", "cslbxConnInSourceAddr"),
+        ("CISCO-SLB-EXT-MIB", "cslbxConnInSourcePort"),
+        ("CISCO-SLB-EXT-MIB", "cslbxConnProtocol"),
+        ("CISCO-SLB-EXT-MIB", "cslbxConnOutDestAddrType"),
+        ("CISCO-SLB-EXT-MIB", "cslbxConnOutDestAddr"),
+        ("CISCO-SLB-EXT-MIB", "cslbxConnOutDestPort"),
+        ("CISCO-SLB-EXT-MIB", "cslbxConnOutSourceAddrType"),
+        ("CISCO-SLB-EXT-MIB", "cslbxConnOutSourceAddr"),
+        ("CISCO-SLB-EXT-MIB", "cslbxConnOutSourcePort"),
+        ("CISCO-SLB-EXT-MIB", "cslbxConnState"))
+)
+if mibBuilder.loadTexts:
+    cslbxConnsGroup.setStatus("current")
+
+cslbxXmlConfigGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 13)
+)
+cslbxXmlConfigGroup.setObjects(
+      *(("CISCO-SLB-EXT-MIB", "cslbxXmlConfigEnabled"),
+        ("CISCO-SLB-EXT-MIB", "cslbxXmlConfigVlanId"),
+        ("CISCO-SLB-EXT-MIB", "cslbxXmlConfigListeningPort"),
+        ("CISCO-SLB-EXT-MIB", "cslbxXmlConfigRowStatus"))
+)
+if mibBuilder.loadTexts:
+    cslbxXmlConfigGroup.setStatus("current")
+
+cslbxNotifControlGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 14)
+)
+cslbxNotifControlGroup.setObjects(
+    ("CISCO-SLB-EXT-MIB", "cslbxFtStateChangeNotifEnabled")
+)
+if mibBuilder.loadTexts:
+    cslbxNotifControlGroup.setStatus("current")
+
+cslbxXmlUserAccessGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 16)
+)
+cslbxXmlUserAccessGroup.setObjects(
+      *(("CISCO-SLB-EXT-MIB", "cslbxXmlConfigUserName"),
+        ("CISCO-SLB-EXT-MIB", "cslbxXmlConfigPassword"),
+        ("CISCO-SLB-EXT-MIB", "cslbxXmlConfigClientGroupNumber"),
+        ("CISCO-SLB-EXT-MIB", "cslbxXmlConfigClientGroupName"))
+)
+if mibBuilder.loadTexts:
+    cslbxXmlUserAccessGroup.setStatus("current")
+
+cslbxOwnerGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 17)
+)
+cslbxOwnerGroup.setObjects(
+      *(("CISCO-SLB-EXT-MIB", "cslbxVirtualOwnerName"),
+        ("CISCO-SLB-EXT-MIB", "cslbxOwnerContactInfo"),
+        ("CISCO-SLB-EXT-MIB", "cslbxOwnerBillingInfo"),
+        ("CISCO-SLB-EXT-MIB", "cslbxOwnerMaxConns"),
+        ("CISCO-SLB-EXT-MIB", "cslbxOwnerRowStatus"))
+)
+if mibBuilder.loadTexts:
+    cslbxOwnerGroup.setStatus("current")
+
+cslbxBackupServerGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 18)
+)
+cslbxBackupServerGroup.setObjects(
+      *(("CISCO-SLB-EXT-MIB", "cslbxPolicyBackupFarmName"),
+        ("CISCO-SLB-EXT-MIB", "cslbxPolicyBkFarmStickyEnabled"),
+        ("CISCO-SLB-EXT-MIB", "cslbxVirtualBackupFarmName"),
+        ("CISCO-SLB-EXT-MIB", "cslbxVirtualBkFarmStickyEnabled"))
+)
+if mibBuilder.loadTexts:
+    cslbxBackupServerGroup.setStatus("current")
+
+cslbxScriptedProbeGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 19)
+)
+cslbxScriptedProbeGroup.setObjects(
+      *(("CISCO-SLB-EXT-MIB", "cslbxScriptFileUrl"),
+        ("CISCO-SLB-EXT-MIB", "cslbxScriptFileRowStatus"),
+        ("CISCO-SLB-EXT-MIB", "cslbxScriptTaskScriptName"),
+        ("CISCO-SLB-EXT-MIB", "cslbxScriptTaskScriptArguments"),
+        ("CISCO-SLB-EXT-MIB", "cslbxScriptTaskRowStatus"))
+)
+if mibBuilder.loadTexts:
+    cslbxScriptedProbeGroup.setStatus("current")
+
+cslbxReverseStickyGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 20)
+)
+cslbxReverseStickyGroup.setObjects(
+      *(("CISCO-SLB-EXT-MIB", "cslbxPolicyReverseStickyGroup"),
+        ("CISCO-SLB-EXT-MIB", "cslbxVirtualReverseStickyGroup"))
+)
+if mibBuilder.loadTexts:
+    cslbxReverseStickyGroup.setStatus("current")
+
+cslbxVirtualServersExtGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 22)
+)
+cslbxVirtualServersExtGroup.setObjects(
+      *(("CISCO-SLB-EXT-MIB", "cslbxVirtualMaxConns"),
+        ("CISCO-SLB-EXT-MIB", "cslbxVirtualFlowMode"),
+        ("CISCO-SLB-EXT-MIB", "cslbxVirtualSSLStickyOffset"),
+        ("CISCO-SLB-EXT-MIB", "cslbxVirtualSSLStickyLength"),
+        ("CISCO-SLB-EXT-MIB", "cslbxRuleTotalClientOctets"),
+        ("CISCO-SLB-EXT-MIB", "cslbxRuleHCTotalClientOctets"),
+        ("CISCO-SLB-EXT-MIB", "cslbxRuleTotalServerOctets"),
+        ("CISCO-SLB-EXT-MIB", "cslbxRuleHCTotalServerOctets"))
+)
+if mibBuilder.loadTexts:
+    cslbxVirtualServersExtGroup.setStatus("current")
+
+cslbxMapsRev2Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 23)
+)
+cslbxMapsRev2Group.setObjects(
+      *(("CISCO-SLB-EXT-MIB", "cslbxMapType"),
+        ("CISCO-SLB-EXT-MIB", "cslbxMapRowStatus"),
+        ("CISCO-SLB-EXT-MIB", "cslbxHttpExpressionFieldName"),
+        ("CISCO-SLB-EXT-MIB", "cslbxHttpExpressionValue"),
+        ("CISCO-SLB-EXT-MIB", "cslbxHttpExpressionRowStatus"),
+        ("CISCO-SLB-EXT-MIB", "cslbxHttpExpressionRequestMethod"),
+        ("CISCO-SLB-EXT-MIB", "cslbxHttpReturnCodeMaxValue"),
+        ("CISCO-SLB-EXT-MIB", "cslbxHttpReturnCodeThreshold"),
+        ("CISCO-SLB-EXT-MIB", "cslbxHttpReturnCodeResetTimer"),
+        ("CISCO-SLB-EXT-MIB", "cslbxHttpReturnCodeType"),
+        ("CISCO-SLB-EXT-MIB", "cslbxHttpReturnCodeRowStatus"))
+)
+if mibBuilder.loadTexts:
+    cslbxMapsRev2Group.setStatus("current")
+
+cslbxServerFarmsExtGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 24)
+)
+cslbxServerFarmsExtGroup.setObjects(
+      *(("CISCO-SLB-EXT-MIB", "cslbxServerFarmTransparent"),
+        ("CISCO-SLB-EXT-MIB", "cslbxServerFarmSlowStart"),
+        ("CISCO-SLB-EXT-MIB", "cslbxServerFarmHashHeaderName"),
+        ("CISCO-SLB-EXT-MIB", "cslbxServerFarmHashCookieName"),
+        ("CISCO-SLB-EXT-MIB", "cslbxServerFarmUrlPatternBegin"),
+        ("CISCO-SLB-EXT-MIB", "cslbxServerFarmUrlPatternEnd"),
+        ("CISCO-SLB-EXT-MIB", "cslbxServerFarmDescription"),
+        ("CISCO-SLB-EXT-MIB", "cslbxServerFarmType"))
+)
+if mibBuilder.loadTexts:
+    cslbxServerFarmsExtGroup.setStatus("deprecated")
+
+cslbxServerFarmsHttpRetCodeGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 25)
+)
+cslbxServerFarmsHttpRetCodeGroup.setObjects(
+      *(("CISCO-SLB-EXT-MIB", "cslbxSfarmHttpRetCodeMaxValue"),
+        ("CISCO-SLB-EXT-MIB", "cslbxSfarmHttpRetCodeActionType"),
+        ("CISCO-SLB-EXT-MIB", "cslbxSfarmHttpRetCodeThreshold"),
+        ("CISCO-SLB-EXT-MIB", "cslbxSfarmHttpRetCodeResetTimer"),
+        ("CISCO-SLB-EXT-MIB", "cslbxSfarmHttpRetCodeStorageType"),
+        ("CISCO-SLB-EXT-MIB", "cslbxSfarmHttpRetCodeRowStatus"))
+)
+if mibBuilder.loadTexts:
+    cslbxServerFarmsHttpRetCodeGroup.setStatus("current")
+
+cslbxStickyGroupsGroupRev2 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 26)
+)
+cslbxStickyGroupsGroupRev2.setObjects(
+      *(("CISCO-SLB-EXT-MIB", "cslbxStickyGroupType"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStickyGroupMaskAddressType"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStickyGroupMaskAddress"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStickyGroupCookieName"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStickyGroupStickyTimer"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStickyGroupRowStatus"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStickyGroupHeaderName"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStickyGroupTimeoutActiveConn"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStickyGroupReplicate"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStickyOffset"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStickyLength"))
+)
+if mibBuilder.loadTexts:
+    cslbxStickyGroupsGroupRev2.setStatus("current")
+
+cslbxCookieStickyGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 27)
+)
+cslbxCookieStickyGroup.setObjects(
+      *(("CISCO-SLB-EXT-MIB", "cslbxStickyCookieInsertEnable"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStickyCookieSecondary"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStickyCookieExpiryDate"))
+)
+if mibBuilder.loadTexts:
+    cslbxCookieStickyGroup.setStatus("current")
+
+cslbxStatsHCGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 35)
+)
+cslbxStatsHCGroup.setObjects(
+      *(("CISCO-SLB-EXT-MIB", "cslbxStatsL4PolicyHCConns"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStatsL7PolicyHCConns"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStatsDroppedL4PolicyHCConns"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStatsDroppedL7PolicyHCConns"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStatsNoMatchPolicyHCRejects"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStatsNoCfgPolicyHCRejects"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStatsAclDenyHCRejects"),
+        ("CISCO-SLB-EXT-MIB", "cslbxStatsVerMismatchHCRejects"))
+)
+if mibBuilder.loadTexts:
+    cslbxStatsHCGroup.setStatus("current")
+
+cslbxServerFarmStatsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 36)
+)
+cslbxServerFarmStatsGroup.setObjects(
+      *(("CISCO-SLB-EXT-MIB", "cslbxServerFarmTotalConns"),
+        ("CISCO-SLB-EXT-MIB", "cslbxServerFarmCurrConns"),
+        ("CISCO-SLB-EXT-MIB", "cslbxServerFarmFailedConns"),
+        ("CISCO-SLB-EXT-MIB", "cslbxServerFarmNumOfTimeFailOvers"),
+        ("CISCO-SLB-EXT-MIB", "cslbxServerFarmNumOfTimeBkInServs"))
+)
+if mibBuilder.loadTexts:
+    cslbxServerFarmStatsGroup.setStatus("current")
+
+cslbxServerFarmsExtGroupRev1 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 37)
+)
+cslbxServerFarmsExtGroupRev1.setObjects(
+      *(("CISCO-SLB-EXT-MIB", "cslbxServerFarmTransparent"),
+        ("CISCO-SLB-EXT-MIB", "cslbxServerFarmSlowStart"),
+        ("CISCO-SLB-EXT-MIB", "cslbxServerFarmHashHeaderName"),
+        ("CISCO-SLB-EXT-MIB", "cslbxServerFarmHashCookieName"),
+        ("CISCO-SLB-EXT-MIB", "cslbxServerFarmUrlPatternBegin"),
+        ("CISCO-SLB-EXT-MIB", "cslbxServerFarmUrlPatternEnd"),
+        ("CISCO-SLB-EXT-MIB", "cslbxServerFarmDescription"),
+        ("CISCO-SLB-EXT-MIB", "cslbxServerFarmType"),
+        ("CISCO-SLB-EXT-MIB", "cslbxServerFarmState"))
+)
+if mibBuilder.loadTexts:
+    cslbxServerFarmsExtGroupRev1.setStatus("current")
+
+
+# Notification objects
+
+cslbxFtStateChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 0, 1)
+)
+cslbxFtStateChange.setObjects(
+    ("CISCO-SLB-EXT-MIB", "cslbxFtState")
+)
+if mibBuilder.loadTexts:
+    cslbxFtStateChange.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+cslbxNotifGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 2, 15)
+)
+cslbxNotifGroup.setObjects(
+    ("CISCO-SLB-EXT-MIB", "cslbxFtStateChange")
+)
+if mibBuilder.loadTexts:
+    cslbxNotifGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+cslbxMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 1, 1)
+)
+if mibBuilder.loadTexts:
+    cslbxMIBCompliance.setStatus(
+        "deprecated"
+    )
+
+cslbxMIBComplianceRev1 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 1, 2)
+)
+if mibBuilder.loadTexts:
+    cslbxMIBComplianceRev1.setStatus(
+        "deprecated"
+    )
+
+cslbxMIBComplianceRev2 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 1, 3)
+)
+if mibBuilder.loadTexts:
+    cslbxMIBComplianceRev2.setStatus(
+        "deprecated"
+    )
+
+cslbxMIBComplianceRev3 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 254, 2, 1, 4)
+)
+if mibBuilder.loadTexts:
+    cslbxMIBComplianceRev3.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-SLB-EXT-MIB",
+    **{"SlbObjectNameString": SlbObjectNameString,
+       "SlbFunctionNameString": SlbFunctionNameString,
+       "SlbUrlString": SlbUrlString,
+       "SlbRegularExpression": SlbRegularExpression,
+       "SlbFailAction": SlbFailAction,
+       "SlbIpAdvertise": SlbIpAdvertise,
+       "SlbStickyType": SlbStickyType,
+       "SlbMapType": SlbMapType,
+       "SlbReplicationMode": SlbReplicationMode,
+       "SlbProbeAction": SlbProbeAction,
+       "SlbVlanType": SlbVlanType,
+       "SlbFtState": SlbFtState,
+       "SlbDirectionalMode": SlbDirectionalMode,
+       "ciscoSlbExtMIB": ciscoSlbExtMIB,
+       "ciscoSlbExtMIBNotifs": ciscoSlbExtMIBNotifs,
+       "cslbxFtStateChange": cslbxFtStateChange,
+       "ciscoSlbExtMIBObjects": ciscoSlbExtMIBObjects,
+       "cslbxStats": cslbxStats,
+       "cslbxStatsTable": cslbxStatsTable,
+       "cslbxStatsTableEntry": cslbxStatsTableEntry,
+       "cslbxStatsServerInitConns": cslbxStatsServerInitConns,
+       "cslbxStatsServerInitHCConns": cslbxStatsServerInitHCConns,
+       "cslbxStatsCurrConnections": cslbxStatsCurrConnections,
+       "cslbxStatsCurrServerInitConns": cslbxStatsCurrServerInitConns,
+       "cslbxStatsFailedConns": cslbxStatsFailedConns,
+       "cslbxStatsFailedServerInitConns": cslbxStatsFailedServerInitConns,
+       "cslbxStatsL4PolicyConns": cslbxStatsL4PolicyConns,
+       "cslbxStatsL7PolicyConns": cslbxStatsL7PolicyConns,
+       "cslbxStatsDroppedL4PolicyConns": cslbxStatsDroppedL4PolicyConns,
+       "cslbxStatsDroppedL7PolicyConns": cslbxStatsDroppedL7PolicyConns,
+       "cslbxStatsFtpConns": cslbxStatsFtpConns,
+       "cslbxStatsHttpRedirectConns": cslbxStatsHttpRedirectConns,
+       "cslbxStatsDroppedRedirectConns": cslbxStatsDroppedRedirectConns,
+       "cslbxStatsNoMatchPolicyRejects": cslbxStatsNoMatchPolicyRejects,
+       "cslbxStatsNoCfgPolicyRejects": cslbxStatsNoCfgPolicyRejects,
+       "cslbxStatsNoActiveServerRejects": cslbxStatsNoActiveServerRejects,
+       "cslbxStatsAclDenyRejects": cslbxStatsAclDenyRejects,
+       "cslbxStatsMaxParseLenRejects": cslbxStatsMaxParseLenRejects,
+       "cslbxStatsBadSslFormatRejects": cslbxStatsBadSslFormatRejects,
+       "cslbxStatsL7ParserErrorRejects": cslbxStatsL7ParserErrorRejects,
+       "cslbxStatsVerMismatchRejects": cslbxStatsVerMismatchRejects,
+       "cslbxStatsOutOfMemoryRejects": cslbxStatsOutOfMemoryRejects,
+       "cslbxStatsTimedOutConnections": cslbxStatsTimedOutConnections,
+       "cslbxStatsTcpChecksumErrorPkts": cslbxStatsTcpChecksumErrorPkts,
+       "cslbxStatsIpChecksumErrorPkts": cslbxStatsIpChecksumErrorPkts,
+       "cslbxStatsL4PolicyHCConns": cslbxStatsL4PolicyHCConns,
+       "cslbxStatsL7PolicyHCConns": cslbxStatsL7PolicyHCConns,
+       "cslbxStatsDroppedL4PolicyHCConns": cslbxStatsDroppedL4PolicyHCConns,
+       "cslbxStatsDroppedL7PolicyHCConns": cslbxStatsDroppedL7PolicyHCConns,
+       "cslbxStatsNoMatchPolicyHCRejects": cslbxStatsNoMatchPolicyHCRejects,
+       "cslbxStatsNoCfgPolicyHCRejects": cslbxStatsNoCfgPolicyHCRejects,
+       "cslbxStatsAclDenyHCRejects": cslbxStatsAclDenyHCRejects,
+       "cslbxStatsVerMismatchHCRejects": cslbxStatsVerMismatchHCRejects,
+       "cslbxServerFarms": cslbxServerFarms,
+       "cslbxServerFarmTable": cslbxServerFarmTable,
+       "cslbxServerFarmTableEntry": cslbxServerFarmTableEntry,
+       "cslbxServerFarmHashMaskAddrType": cslbxServerFarmHashMaskAddrType,
+       "cslbxServerFarmHashMaskAddr": cslbxServerFarmHashMaskAddr,
+       "cslbxServerFarmClientNatPool": cslbxServerFarmClientNatPool,
+       "cslbxServerFarmFailAction": cslbxServerFarmFailAction,
+       "cslbxServerFarmHttpReturnCodeMap": cslbxServerFarmHttpReturnCodeMap,
+       "cslbxServerFarmInFailedThreshold": cslbxServerFarmInFailedThreshold,
+       "cslbxServerFarmInbandResetTimer": cslbxServerFarmInbandResetTimer,
+       "cslbxServerFarmTransparent": cslbxServerFarmTransparent,
+       "cslbxServerFarmSlowStart": cslbxServerFarmSlowStart,
+       "cslbxServerFarmHashHeaderName": cslbxServerFarmHashHeaderName,
+       "cslbxServerFarmHashCookieName": cslbxServerFarmHashCookieName,
+       "cslbxServerFarmUrlPatternBegin": cslbxServerFarmUrlPatternBegin,
+       "cslbxServerFarmUrlPatternEnd": cslbxServerFarmUrlPatternEnd,
+       "cslbxServerFarmDescription": cslbxServerFarmDescription,
+       "cslbxServerFarmType": cslbxServerFarmType,
+       "cslbxServerFarmState": cslbxServerFarmState,
+       "cslbxRedirectSvrTable": cslbxRedirectSvrTable,
+       "cslbxRedirectSvrTableEntry": cslbxRedirectSvrTableEntry,
+       "cslbxRedirectSvrFarmName": cslbxRedirectSvrFarmName,
+       "cslbxRedirectSvrName": cslbxRedirectSvrName,
+       "cslbxRedirectSvrRelocationStr": cslbxRedirectSvrRelocationStr,
+       "cslbxRedirectSvrBackupString": cslbxRedirectSvrBackupString,
+       "cslbxRedirectSvrRedirectCode": cslbxRedirectSvrRedirectCode,
+       "cslbxRedirectSvrRedirectPort": cslbxRedirectSvrRedirectPort,
+       "cslbxRedirectSvrState": cslbxRedirectSvrState,
+       "cslbxRedirectSvrNumberOfConns": cslbxRedirectSvrNumberOfConns,
+       "cslbxRedirectSvrMaxConns": cslbxRedirectSvrMaxConns,
+       "cslbxRedirectSvrAdminWeight": cslbxRedirectSvrAdminWeight,
+       "cslbxRedirectSvrOperWeight": cslbxRedirectSvrOperWeight,
+       "cslbxRedirectSvrMetric": cslbxRedirectSvrMetric,
+       "cslbxRedirectSvrTotalConns": cslbxRedirectSvrTotalConns,
+       "cslbxRedirectSvrHCTotalConns": cslbxRedirectSvrHCTotalConns,
+       "cslbxRedirectSvrRowStatus": cslbxRedirectSvrRowStatus,
+       "cslbxServerFarmProbeTable": cslbxServerFarmProbeTable,
+       "cslbxServerFarmProbeTableEntry": cslbxServerFarmProbeTableEntry,
+       "cslbxServerFarmProbeFarmName": cslbxServerFarmProbeFarmName,
+       "cslbxServerFarmProbeProbeName": cslbxServerFarmProbeProbeName,
+       "cslbxServerFarmProbeRowStatus": cslbxServerFarmProbeRowStatus,
+       "cslbxSfarmHttpReturnCodeTable": cslbxSfarmHttpReturnCodeTable,
+       "cslbxSfarmHttpReturnCodeEntry": cslbxSfarmHttpReturnCodeEntry,
+       "cslbxSfarmHttpRetCodeMinValue": cslbxSfarmHttpRetCodeMinValue,
+       "cslbxSfarmHttpRetCodeMaxValue": cslbxSfarmHttpRetCodeMaxValue,
+       "cslbxSfarmHttpRetCodeActionType": cslbxSfarmHttpRetCodeActionType,
+       "cslbxSfarmHttpRetCodeThreshold": cslbxSfarmHttpRetCodeThreshold,
+       "cslbxSfarmHttpRetCodeResetTimer": cslbxSfarmHttpRetCodeResetTimer,
+       "cslbxSfarmHttpRetCodeStorageType": cslbxSfarmHttpRetCodeStorageType,
+       "cslbxSfarmHttpRetCodeRowStatus": cslbxSfarmHttpRetCodeRowStatus,
+       "cslbxServerFarmStatsTable": cslbxServerFarmStatsTable,
+       "cslbxServerFarmStatsEntry": cslbxServerFarmStatsEntry,
+       "cslbxServerFarmTotalConns": cslbxServerFarmTotalConns,
+       "cslbxServerFarmCurrConns": cslbxServerFarmCurrConns,
+       "cslbxServerFarmFailedConns": cslbxServerFarmFailedConns,
+       "cslbxServerFarmNumOfTimeFailOvers": cslbxServerFarmNumOfTimeFailOvers,
+       "cslbxServerFarmNumOfTimeBkInServs": cslbxServerFarmNumOfTimeBkInServs,
+       "cslbxClientNatPools": cslbxClientNatPools,
+       "cslbxNatPoolTable": cslbxNatPoolTable,
+       "cslbxNatPoolEntry": cslbxNatPoolEntry,
+       "cslbxNatPoolName": cslbxNatPoolName,
+       "cslbxNatPoolStartAddressType": cslbxNatPoolStartAddressType,
+       "cslbxNatPoolStartAddress": cslbxNatPoolStartAddress,
+       "cslbxNatPoolEndAddressType": cslbxNatPoolEndAddressType,
+       "cslbxNatPoolEndAddress": cslbxNatPoolEndAddress,
+       "cslbxNatPoolRowStatus": cslbxNatPoolRowStatus,
+       "cslbxStickyObjects": cslbxStickyObjects,
+       "cslbxStickyGroupTable": cslbxStickyGroupTable,
+       "cslbxStickyGroupEntry": cslbxStickyGroupEntry,
+       "cslbxStickyGroupId": cslbxStickyGroupId,
+       "cslbxStickyGroupType": cslbxStickyGroupType,
+       "cslbxStickyGroupMaskAddressType": cslbxStickyGroupMaskAddressType,
+       "cslbxStickyGroupMaskAddress": cslbxStickyGroupMaskAddress,
+       "cslbxStickyGroupCookieName": cslbxStickyGroupCookieName,
+       "cslbxStickyGroupStickyTimer": cslbxStickyGroupStickyTimer,
+       "cslbxStickyGroupRowStatus": cslbxStickyGroupRowStatus,
+       "cslbxStickyGroupHeaderName": cslbxStickyGroupHeaderName,
+       "cslbxStickyGroupTimeoutActiveConn": cslbxStickyGroupTimeoutActiveConn,
+       "cslbxStickyGroupReplicate": cslbxStickyGroupReplicate,
+       "cslbxStickyObjectTable": cslbxStickyObjectTable,
+       "cslbxStickyObjectTableEntry": cslbxStickyObjectTableEntry,
+       "cslbxStickyObjectIndex": cslbxStickyObjectIndex,
+       "cslbxStickyObjectGroupId": cslbxStickyObjectGroupId,
+       "cslbxStickyObjectType": cslbxStickyObjectType,
+       "cslbxStickyObjectSourceInfo": cslbxStickyObjectSourceInfo,
+       "cslbxStickyObjectRealAddressType": cslbxStickyObjectRealAddressType,
+       "cslbxStickyObjectRealAddress": cslbxStickyObjectRealAddress,
+       "cslbxStickyObjectRealPort": cslbxStickyObjectRealPort,
+       "cslbxStickyGroupExtTable": cslbxStickyGroupExtTable,
+       "cslbxStickyGroupExtEntry": cslbxStickyGroupExtEntry,
+       "cslbxStickyOffset": cslbxStickyOffset,
+       "cslbxStickyLength": cslbxStickyLength,
+       "cslbxStickyCookieSecondary": cslbxStickyCookieSecondary,
+       "cslbxStickyCookieInsertEnable": cslbxStickyCookieInsertEnable,
+       "cslbxStickyCookieExpiryDate": cslbxStickyCookieExpiryDate,
+       "cslbxMaps": cslbxMaps,
+       "cslbxMapTable": cslbxMapTable,
+       "cslbxMapTableEntry": cslbxMapTableEntry,
+       "cslbxMapName": cslbxMapName,
+       "cslbxMapType": cslbxMapType,
+       "cslbxMapRowStatus": cslbxMapRowStatus,
+       "cslbxHttpExpressionTable": cslbxHttpExpressionTable,
+       "cslbxHttpExpressionTableEntry": cslbxHttpExpressionTableEntry,
+       "cslbxHttpExpressionMapName": cslbxHttpExpressionMapName,
+       "cslbxHttpExpressionIndex": cslbxHttpExpressionIndex,
+       "cslbxHttpExpressionFieldName": cslbxHttpExpressionFieldName,
+       "cslbxHttpExpressionValue": cslbxHttpExpressionValue,
+       "cslbxHttpExpressionRowStatus": cslbxHttpExpressionRowStatus,
+       "cslbxHttpExpressionRequestMethod": cslbxHttpExpressionRequestMethod,
+       "cslbxHttpReturnCodeTable": cslbxHttpReturnCodeTable,
+       "cslbxHttpReturnCodeEntry": cslbxHttpReturnCodeEntry,
+       "cslbxHttpReturnCodeMapName": cslbxHttpReturnCodeMapName,
+       "cslbxHttpReturnCodeMinValue": cslbxHttpReturnCodeMinValue,
+       "cslbxHttpReturnCodeMaxValue": cslbxHttpReturnCodeMaxValue,
+       "cslbxHttpReturnCodeThreshold": cslbxHttpReturnCodeThreshold,
+       "cslbxHttpReturnCodeResetTimer": cslbxHttpReturnCodeResetTimer,
+       "cslbxHttpReturnCodeType": cslbxHttpReturnCodeType,
+       "cslbxHttpReturnCodeRowStatus": cslbxHttpReturnCodeRowStatus,
+       "cslbxServerProbes": cslbxServerProbes,
+       "cslbxPolicies": cslbxPolicies,
+       "cslbxPolicyTable": cslbxPolicyTable,
+       "cslbxPolicyTableEntry": cslbxPolicyTableEntry,
+       "cslbxPolicyName": cslbxPolicyName,
+       "cslbxPolicyClientGroupNumber": cslbxPolicyClientGroupNumber,
+       "cslbxPolicyClientGroupName": cslbxPolicyClientGroupName,
+       "cslbxPolicyUrlMap": cslbxPolicyUrlMap,
+       "cslbxPolicyCookieMap": cslbxPolicyCookieMap,
+       "cslbxPolicyGenericHeaderMap": cslbxPolicyGenericHeaderMap,
+       "cslbxPolicyStickyGroup": cslbxPolicyStickyGroup,
+       "cslbxPolicyDscpEnabled": cslbxPolicyDscpEnabled,
+       "cslbxPolicyDscpStamping": cslbxPolicyDscpStamping,
+       "cslbxPolicyFarmName": cslbxPolicyFarmName,
+       "cslbxPolicyRowStatus": cslbxPolicyRowStatus,
+       "cslbxPolicyBackupFarmName": cslbxPolicyBackupFarmName,
+       "cslbxPolicyBkFarmStickyEnabled": cslbxPolicyBkFarmStickyEnabled,
+       "cslbxPolicyReverseStickyGroup": cslbxPolicyReverseStickyGroup,
+       "cslbxVirtualServers": cslbxVirtualServers,
+       "cslbxVirtualServerTable": cslbxVirtualServerTable,
+       "cslbxVirtualServerTableEntry": cslbxVirtualServerTableEntry,
+       "cslbxVirtualAdvertiseOption": cslbxVirtualAdvertiseOption,
+       "cslbxVirtualVlanId": cslbxVirtualVlanId,
+       "cslbxVirtualReplicationMode": cslbxVirtualReplicationMode,
+       "cslbxVirtualPendingTimer": cslbxVirtualPendingTimer,
+       "cslbxVirtualL7MaxParseLength": cslbxVirtualL7MaxParseLength,
+       "cslbxVirtualHttpPersistenceSlb": cslbxVirtualHttpPersistenceSlb,
+       "cslbxVirtualURLHashBeginString": cslbxVirtualURLHashBeginString,
+       "cslbxVirtualURLHashEndString": cslbxVirtualURLHashEndString,
+       "cslbxVirtualMaxConns": cslbxVirtualMaxConns,
+       "cslbxVirtualOwnerName": cslbxVirtualOwnerName,
+       "cslbxVirtualFlowMode": cslbxVirtualFlowMode,
+       "cslbxVirtualSSLStickyOffset": cslbxVirtualSSLStickyOffset,
+       "cslbxVirtualSSLStickyLength": cslbxVirtualSSLStickyLength,
+       "cslbxVirtualReverseStickyGroup": cslbxVirtualReverseStickyGroup,
+       "cslbxVirtualBackupFarmName": cslbxVirtualBackupFarmName,
+       "cslbxVirtualBkFarmStickyEnabled": cslbxVirtualBkFarmStickyEnabled,
+       "cslbxRuleTable": cslbxRuleTable,
+       "cslbxRuleEntry": cslbxRuleEntry,
+       "cslbxRuleVirtualServerName": cslbxRuleVirtualServerName,
+       "cslbxRulePolicyName": cslbxRulePolicyName,
+       "cslbxRuleCurrentConnections": cslbxRuleCurrentConnections,
+       "cslbxRuleTotalConnections": cslbxRuleTotalConnections,
+       "cslbxRuleHCTotalConnections": cslbxRuleHCTotalConnections,
+       "cslbxRuleTotalClientPackets": cslbxRuleTotalClientPackets,
+       "cslbxRuleHCTotalClientPackets": cslbxRuleHCTotalClientPackets,
+       "cslbxRuleTotalServerPackets": cslbxRuleTotalServerPackets,
+       "cslbxRuleHCTotalServerPackets": cslbxRuleHCTotalServerPackets,
+       "cslbxRuleRowStatus": cslbxRuleRowStatus,
+       "cslbxRuleTotalClientOctets": cslbxRuleTotalClientOctets,
+       "cslbxRuleHCTotalClientOctets": cslbxRuleHCTotalClientOctets,
+       "cslbxRuleTotalServerOctets": cslbxRuleTotalServerOctets,
+       "cslbxRuleHCTotalServerOctets": cslbxRuleHCTotalServerOctets,
+       "cslbxVlans": cslbxVlans,
+       "cslbxVlanTable": cslbxVlanTable,
+       "cslbxVlanEntry": cslbxVlanEntry,
+       "cslbxVlanId": cslbxVlanId,
+       "cslbxVlanType": cslbxVlanType,
+       "cslbxVlanAddressType": cslbxVlanAddressType,
+       "cslbxVlanAddress": cslbxVlanAddress,
+       "cslbxVlanMaskAddressType": cslbxVlanMaskAddressType,
+       "cslbxVlanMaskAddress": cslbxVlanMaskAddress,
+       "cslbxVlanRowStatus": cslbxVlanRowStatus,
+       "cslbxAliasAddrTable": cslbxAliasAddrTable,
+       "cslbxAliasAddrEntry": cslbxAliasAddrEntry,
+       "cslbxAliasAddrVlanId": cslbxAliasAddrVlanId,
+       "cslbxAliasAddrAddressType": cslbxAliasAddrAddressType,
+       "cslbxAliasAddrAddress": cslbxAliasAddrAddress,
+       "cslbxAliasAddrRowStatus": cslbxAliasAddrRowStatus,
+       "cslbxStaticRouteTable": cslbxStaticRouteTable,
+       "cslbxStaticRouteEntry": cslbxStaticRouteEntry,
+       "cslbxStaticRouteVlanId": cslbxStaticRouteVlanId,
+       "cslbxStaticRouteSubnetAddrType": cslbxStaticRouteSubnetAddrType,
+       "cslbxStaticRouteSubnetAddr": cslbxStaticRouteSubnetAddr,
+       "cslbxStaticRouteMaskAddrType": cslbxStaticRouteMaskAddrType,
+       "cslbxStaticRouteMaskAddr": cslbxStaticRouteMaskAddr,
+       "cslbxStaticRouteGatewayAddrType": cslbxStaticRouteGatewayAddrType,
+       "cslbxStaticRouteGatewayAddr": cslbxStaticRouteGatewayAddr,
+       "cslbxStaticRouteRowStatus": cslbxStaticRouteRowStatus,
+       "cslbxFaultTolerance": cslbxFaultTolerance,
+       "cslbxFtTable": cslbxFtTable,
+       "cslbxFtTableEntry": cslbxFtTableEntry,
+       "cslbxFtGroupId": cslbxFtGroupId,
+       "cslbxFtVlanId": cslbxFtVlanId,
+       "cslbxFtPreempt": cslbxFtPreempt,
+       "cslbxFtPriority": cslbxFtPriority,
+       "cslbxFtHeartBeatTimer": cslbxFtHeartBeatTimer,
+       "cslbxFtFailThreshold": cslbxFtFailThreshold,
+       "cslbxFtState": cslbxFtState,
+       "cslbxFtStateChangeTime": cslbxFtStateChangeTime,
+       "cslbxFtRxHeartBeatMsgs": cslbxFtRxHeartBeatMsgs,
+       "cslbxFtTxHeartBeatMsgs": cslbxFtTxHeartBeatMsgs,
+       "cslbxFtRxUpdateMsgs": cslbxFtRxUpdateMsgs,
+       "cslbxFtTxUpdateMsgs": cslbxFtTxUpdateMsgs,
+       "cslbxFtRxCoupMsgs": cslbxFtRxCoupMsgs,
+       "cslbxFtTxCoupMsgs": cslbxFtTxCoupMsgs,
+       "cslbxFtRxElectMsgs": cslbxFtRxElectMsgs,
+       "cslbxFtTxElectMsgs": cslbxFtTxElectMsgs,
+       "cslbxFtRxConnReplMsgs": cslbxFtRxConnReplMsgs,
+       "cslbxFtTxConnReplMsgs": cslbxFtTxConnReplMsgs,
+       "cslbxFtRxPackets": cslbxFtRxPackets,
+       "cslbxFtDropPackets": cslbxFtDropPackets,
+       "cslbxFtDuplPackets": cslbxFtDuplPackets,
+       "cslbxFtXsumErrPackets": cslbxFtXsumErrPackets,
+       "cslbxFtBuffErrPackets": cslbxFtBuffErrPackets,
+       "cslbxFtRowStatus": cslbxFtRowStatus,
+       "cslbxXmlConfig": cslbxXmlConfig,
+       "cslbxXmlConfigTable": cslbxXmlConfigTable,
+       "cslbxXmlConfigTableEntry": cslbxXmlConfigTableEntry,
+       "cslbxXmlConfigEnabled": cslbxXmlConfigEnabled,
+       "cslbxXmlConfigVlanId": cslbxXmlConfigVlanId,
+       "cslbxXmlConfigListeningPort": cslbxXmlConfigListeningPort,
+       "cslbxXmlConfigRowStatus": cslbxXmlConfigRowStatus,
+       "cslbxXmlConfigUserName": cslbxXmlConfigUserName,
+       "cslbxXmlConfigPassword": cslbxXmlConfigPassword,
+       "cslbxXmlConfigClientGroupNumber": cslbxXmlConfigClientGroupNumber,
+       "cslbxXmlConfigClientGroupName": cslbxXmlConfigClientGroupName,
+       "cslbxConnections": cslbxConnections,
+       "cslbxConnTable": cslbxConnTable,
+       "cslbxConnTableEntry": cslbxConnTableEntry,
+       "cslbxConnIndex": cslbxConnIndex,
+       "cslbxConnInDestAddrType": cslbxConnInDestAddrType,
+       "cslbxConnInDestAddr": cslbxConnInDestAddr,
+       "cslbxConnInDestPort": cslbxConnInDestPort,
+       "cslbxConnInSourceAddrType": cslbxConnInSourceAddrType,
+       "cslbxConnInSourceAddr": cslbxConnInSourceAddr,
+       "cslbxConnInSourcePort": cslbxConnInSourcePort,
+       "cslbxConnProtocol": cslbxConnProtocol,
+       "cslbxConnOutDestAddrType": cslbxConnOutDestAddrType,
+       "cslbxConnOutDestAddr": cslbxConnOutDestAddr,
+       "cslbxConnOutDestPort": cslbxConnOutDestPort,
+       "cslbxConnOutSourceAddrType": cslbxConnOutSourceAddrType,
+       "cslbxConnOutSourceAddr": cslbxConnOutSourceAddr,
+       "cslbxConnOutSourcePort": cslbxConnOutSourcePort,
+       "cslbxConnState": cslbxConnState,
+       "cslbxNotifObjects": cslbxNotifObjects,
+       "cslbxFtStateChangeNotifEnabled": cslbxFtStateChangeNotifEnabled,
+       "cslbxOwnerObjects": cslbxOwnerObjects,
+       "cslbxOwnerTable": cslbxOwnerTable,
+       "cslbxOwnerTableEntry": cslbxOwnerTableEntry,
+       "cslbxOwnerName": cslbxOwnerName,
+       "cslbxOwnerContactInfo": cslbxOwnerContactInfo,
+       "cslbxOwnerBillingInfo": cslbxOwnerBillingInfo,
+       "cslbxOwnerMaxConns": cslbxOwnerMaxConns,
+       "cslbxOwnerRowStatus": cslbxOwnerRowStatus,
+       "cslbxScriptObjects": cslbxScriptObjects,
+       "cslbxScriptFileTable": cslbxScriptFileTable,
+       "cslbxScriptFileTableEntry": cslbxScriptFileTableEntry,
+       "cslbxScriptFileIndex": cslbxScriptFileIndex,
+       "cslbxScriptFileUrl": cslbxScriptFileUrl,
+       "cslbxScriptFileRowStatus": cslbxScriptFileRowStatus,
+       "cslbxScriptTaskTable": cslbxScriptTaskTable,
+       "cslbxScriptTaskTableEntry": cslbxScriptTaskTableEntry,
+       "cslbxScriptTaskIndex": cslbxScriptTaskIndex,
+       "cslbxScriptTaskScriptName": cslbxScriptTaskScriptName,
+       "cslbxScriptTaskScriptArguments": cslbxScriptTaskScriptArguments,
+       "cslbxScriptTaskRowStatus": cslbxScriptTaskRowStatus,
+       "ciscoSlbExtMIBConform": ciscoSlbExtMIBConform,
+       "cslbxMIBCompliances": cslbxMIBCompliances,
+       "cslbxMIBCompliance": cslbxMIBCompliance,
+       "cslbxMIBComplianceRev1": cslbxMIBComplianceRev1,
+       "cslbxMIBComplianceRev2": cslbxMIBComplianceRev2,
+       "cslbxMIBComplianceRev3": cslbxMIBComplianceRev3,
+       "cslbxMIBGroups": cslbxMIBGroups,
+       "cslbxStatsGroup": cslbxStatsGroup,
+       "cslbxServerFarmsGroup": cslbxServerFarmsGroup,
+       "cslbxClientNatPoolsGroup": cslbxClientNatPoolsGroup,
+       "cslbxStickyGroupsGroup": cslbxStickyGroupsGroup,
+       "cslbxStickyObjectsGroup": cslbxStickyObjectsGroup,
+       "cslbxMapsGroup": cslbxMapsGroup,
+       "cslbxPoliciesGroup": cslbxPoliciesGroup,
+       "cslbxVirtualServersGroup": cslbxVirtualServersGroup,
+       "cslbxVlansGroup": cslbxVlansGroup,
+       "cslbxFaultToleranceGroup": cslbxFaultToleranceGroup,
+       "cslbxConnsGroup": cslbxConnsGroup,
+       "cslbxXmlConfigGroup": cslbxXmlConfigGroup,
+       "cslbxNotifControlGroup": cslbxNotifControlGroup,
+       "cslbxNotifGroup": cslbxNotifGroup,
+       "cslbxXmlUserAccessGroup": cslbxXmlUserAccessGroup,
+       "cslbxOwnerGroup": cslbxOwnerGroup,
+       "cslbxBackupServerGroup": cslbxBackupServerGroup,
+       "cslbxScriptedProbeGroup": cslbxScriptedProbeGroup,
+       "cslbxReverseStickyGroup": cslbxReverseStickyGroup,
+       "cslbxVirtualServersExtGroup": cslbxVirtualServersExtGroup,
+       "cslbxMapsRev2Group": cslbxMapsRev2Group,
+       "cslbxServerFarmsExtGroup": cslbxServerFarmsExtGroup,
+       "cslbxServerFarmsHttpRetCodeGroup": cslbxServerFarmsHttpRetCodeGroup,
+       "cslbxStickyGroupsGroupRev2": cslbxStickyGroupsGroupRev2,
+       "cslbxCookieStickyGroup": cslbxCookieStickyGroup,
+       "cslbxStatsHCGroup": cslbxStatsHCGroup,
+       "cslbxServerFarmStatsGroup": cslbxServerFarmStatsGroup,
+       "cslbxServerFarmsExtGroupRev1": cslbxServerFarmsExtGroupRev1}
+)

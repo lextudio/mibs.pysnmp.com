@@ -1,106 +1,707 @@
+# SNMP MIB module (CISCO-VOICE-CONNECTIVITY-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-VOICE-CONNECTIVITY-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/CISCO-VOICE-CONNECTIVITY-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:02:59 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint")
-ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-IANAifType, = mibBuilder.importSymbols("IANAifType-MIB", "IANAifType")
-InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-NotificationType, iso, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Counter64, MibIdentifier, IpAddress, Integer32, ObjectIdentity, Counter32, Gauge32, ModuleIdentity, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "iso", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Counter64", "MibIdentifier", "IpAddress", "Integer32", "ObjectIdentity", "Counter32", "Gauge32", "ModuleIdentity", "Unsigned32")
-AutonomousType, DateAndTime, DisplayString, TruthValue, RowPointer, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "AutonomousType", "DateAndTime", "DisplayString", "TruthValue", "RowPointer", "MacAddress", "TextualConvention")
-ciscoVoiceConnectivityMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 393))
-ciscoVoiceConnectivityMIB.setRevisions(('2005-09-13 00:00',))
-if mibBuilder.loadTexts: ciscoVoiceConnectivityMIB.setLastUpdated('200509130000Z')
-if mibBuilder.loadTexts: ciscoVoiceConnectivityMIB.setOrganization('Cisco Systems, Inc.')
-ciscoVoiceConnectivityMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 393, 0))
-ciscoVoiceConnectivityMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 393, 1))
-ciscoVoiceConnectivityMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 393, 2))
-cvcCallAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 1))
-cvcPort = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 2))
-cvcCallAgentConnection = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 3))
-cvcNotif = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 4))
-cvcCallAgentTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 1, 1), )
-if mibBuilder.loadTexts: cvcCallAgentTable.setStatus('current')
-cvcCallAgentEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 1, 1, 1), ).setIndexNames((0, "CISCO-VOICE-CONNECTIVITY-MIB", "cvcCallAgentIndex"))
-if mibBuilder.loadTexts: cvcCallAgentEntry.setStatus('current')
-cvcCallAgentIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 1, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
-if mibBuilder.loadTexts: cvcCallAgentIndex.setStatus('current')
-cvcCallAgentName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 1, 1, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cvcCallAgentName.setStatus('current')
-cvcCallAgentInetAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 1, 1, 1, 3), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cvcCallAgentInetAddressType.setStatus('current')
-cvcCallAgentInetAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 1, 1, 1, 4), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cvcCallAgentInetAddress.setStatus('current')
-cvcCallAgentType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 1, 1, 1, 5), AutonomousType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cvcCallAgentType.setStatus('current')
-cvcPortTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 2, 1), )
-if mibBuilder.loadTexts: cvcPortTable.setStatus('current')
-cvcPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 2, 1, 1), ).setIndexNames((0, "CISCO-VOICE-CONNECTIVITY-MIB", "cvcPortIndex"))
-if mibBuilder.loadTexts: cvcPortEntry.setStatus('current')
-cvcPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 2, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
-if mibBuilder.loadTexts: cvcPortIndex.setStatus('current')
-cvcPortAssociation = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 2, 1, 1, 2), RowPointer()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cvcPortAssociation.setStatus('current')
-cvcPortDeviceName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 2, 1, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cvcPortDeviceName.setStatus('current')
-cvcPortInetAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 2, 1, 1, 4), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cvcPortInetAddressType.setStatus('current')
-cvcPortInetAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 2, 1, 1, 5), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cvcPortInetAddress.setStatus('current')
-cvcPortMACAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 2, 1, 1, 6), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cvcPortMACAddress.setStatus('current')
-cvcPortType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 2, 1, 1, 7), IANAifType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cvcPortType.setStatus('current')
-cvcProductCategory = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 2, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("phone", 1), ("gateway", 2), ("h323Device", 3), ("ctiDevice", 4), ("voiceMailDevice", 5), ("mediaResourceDevice", 6), ("huntListDevice", 7), ("sipDevice", 8)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cvcProductCategory.setStatus('current')
-cvcProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 2, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("sccp", 1), ("sgcp", 2), ("mgcp", 3), ("h323", 4), ("sip", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cvcProtocol.setStatus('current')
-cvcVirtualInterfaceDN = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 2, 1, 1, 10), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cvcVirtualInterfaceDN.setStatus('current')
-cvcCallAgentConnectionTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 3, 1), )
-if mibBuilder.loadTexts: cvcCallAgentConnectionTable.setStatus('current')
-cvcCallAgentConnectionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 3, 1, 1), ).setIndexNames((0, "CISCO-VOICE-CONNECTIVITY-MIB", "cvcPortIndex"), (0, "CISCO-VOICE-CONNECTIVITY-MIB", "cvcCallAgentIndex"))
-if mibBuilder.loadTexts: cvcCallAgentConnectionEntry.setStatus('current')
-cvcCallAgentPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 3, 1, 1, 1), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cvcCallAgentPriority.setStatus('current')
-cvcRegistrationStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 3, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("unknown", 1), ("notapplicable", 2), ("registered", 3), ("unregistered", 4), ("rejected", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cvcRegistrationStatus.setStatus('current')
-cvcStatusReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 3, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("noError", 1), ("unknown", 2), ("configurationError", 3), ("deviceNameUnresolveable", 4), ("maxDevRegReached", 5), ("connectivityError", 6), ("initializationError", 7), ("deviceReset", 8)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cvcStatusReason.setStatus('current')
-cvcLastStatusChangeTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 3, 1, 1, 4), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cvcLastStatusChangeTime.setStatus('current')
-cvcLastRegisteredTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 3, 1, 1, 5), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cvcLastRegisteredTime.setStatus('current')
-cvcNotifEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 4, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cvcNotifEnable.setStatus('current')
-cvcPortRegistrationStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 393, 0, 1)).setObjects(("CISCO-VOICE-CONNECTIVITY-MIB", "cvcPortDeviceName"), ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcCallAgentInetAddress"), ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcCallAgentPriority"), ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcRegistrationStatus"), ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcStatusReason"), ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcLastStatusChangeTime"), ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcLastRegisteredTime"))
-if mibBuilder.loadTexts: cvcPortRegistrationStatusChange.setStatus('current')
-cvcMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 393, 2, 1))
-cvcMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 393, 2, 2))
-cvcMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 393, 2, 1, 1)).setObjects(("CISCO-VOICE-CONNECTIVITY-MIB", "cvcCallAgentGroup"), ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcPortGroup"), ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcCallAgentConnectionGroup"), ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcNotifGroup"), ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcNotificationsGroup"))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CISCO-VOICE-CONNECTIVITY-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:12:21 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cvcMIBCompliance = cvcMIBCompliance.setStatus('current')
-cvcCallAgentGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 393, 2, 2, 1)).setObjects(("CISCO-VOICE-CONNECTIVITY-MIB", "cvcCallAgentName"), ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcCallAgentInetAddressType"), ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcCallAgentInetAddress"), ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcCallAgentType"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cvcCallAgentGroup = cvcCallAgentGroup.setStatus('current')
-cvcPortGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 393, 2, 2, 2)).setObjects(("CISCO-VOICE-CONNECTIVITY-MIB", "cvcPortAssociation"), ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcPortDeviceName"), ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcPortInetAddressType"), ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcPortInetAddress"), ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcPortMACAddress"), ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcPortType"), ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcProductCategory"), ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcProtocol"), ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcVirtualInterfaceDN"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cvcPortGroup = cvcPortGroup.setStatus('current')
-cvcCallAgentConnectionGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 393, 2, 2, 3)).setObjects(("CISCO-VOICE-CONNECTIVITY-MIB", "cvcCallAgentPriority"), ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcRegistrationStatus"), ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcStatusReason"), ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcLastStatusChangeTime"), ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcLastRegisteredTime"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cvcCallAgentConnectionGroup = cvcCallAgentConnectionGroup.setStatus('current')
-cvcNotifGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 393, 2, 2, 4)).setObjects(("CISCO-VOICE-CONNECTIVITY-MIB", "cvcNotifEnable"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cvcNotifGroup = cvcNotifGroup.setStatus('current')
-cvcNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 393, 2, 2, 5)).setObjects(("CISCO-VOICE-CONNECTIVITY-MIB", "cvcPortRegistrationStatusChange"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cvcNotificationsGroup = cvcNotificationsGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-VOICE-CONNECTIVITY-MIB", cvcPortRegistrationStatusChange=cvcPortRegistrationStatusChange, cvcPortTable=cvcPortTable, PYSNMP_MODULE_ID=ciscoVoiceConnectivityMIB, cvcNotifEnable=cvcNotifEnable, ciscoVoiceConnectivityMIBNotifs=ciscoVoiceConnectivityMIBNotifs, cvcCallAgent=cvcCallAgent, cvcStatusReason=cvcStatusReason, cvcPortMACAddress=cvcPortMACAddress, cvcNotifGroup=cvcNotifGroup, cvcCallAgentConnection=cvcCallAgentConnection, cvcNotificationsGroup=cvcNotificationsGroup, cvcCallAgentConnectionGroup=cvcCallAgentConnectionGroup, cvcCallAgentConnectionEntry=cvcCallAgentConnectionEntry, cvcCallAgentConnectionTable=cvcCallAgentConnectionTable, cvcPort=cvcPort, cvcPortInetAddressType=cvcPortInetAddressType, cvcCallAgentType=cvcCallAgentType, cvcPortEntry=cvcPortEntry, cvcPortIndex=cvcPortIndex, cvcProductCategory=cvcProductCategory, cvcCallAgentName=cvcCallAgentName, cvcNotif=cvcNotif, cvcPortGroup=cvcPortGroup, ciscoVoiceConnectivityMIBObjects=ciscoVoiceConnectivityMIBObjects, cvcProtocol=cvcProtocol, cvcLastStatusChangeTime=cvcLastStatusChangeTime, cvcCallAgentIndex=cvcCallAgentIndex, cvcCallAgentInetAddress=cvcCallAgentInetAddress, ciscoVoiceConnectivityMIB=ciscoVoiceConnectivityMIB, cvcRegistrationStatus=cvcRegistrationStatus, cvcLastRegisteredTime=cvcLastRegisteredTime, cvcPortType=cvcPortType, cvcVirtualInterfaceDN=cvcVirtualInterfaceDN, cvcCallAgentEntry=cvcCallAgentEntry, cvcPortDeviceName=cvcPortDeviceName, ciscoVoiceConnectivityMIBConform=ciscoVoiceConnectivityMIBConform, cvcCallAgentTable=cvcCallAgentTable, cvcCallAgentPriority=cvcCallAgentPriority, cvcPortInetAddress=cvcPortInetAddress, cvcMIBCompliance=cvcMIBCompliance, cvcCallAgentGroup=cvcCallAgentGroup, cvcMIBGroups=cvcMIBGroups, cvcMIBCompliances=cvcMIBCompliances, cvcCallAgentInetAddressType=cvcCallAgentInetAddressType, cvcPortAssociation=cvcPortAssociation)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ciscoMgmt,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoMgmt")
+
+(IANAifType,) = mibBuilder.importSymbols(
+    "IANAifType-MIB",
+    "IANAifType")
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(AutonomousType,
+ DateAndTime,
+ DisplayString,
+ MacAddress,
+ RowPointer,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "AutonomousType",
+    "DateAndTime",
+    "DisplayString",
+    "MacAddress",
+    "RowPointer",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+ciscoVoiceConnectivityMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393)
+)
+ciscoVoiceConnectivityMIB.setRevisions(
+        ("2005-09-13 00:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CiscoVoiceConnectivityMIBNotifs_ObjectIdentity = ObjectIdentity
+ciscoVoiceConnectivityMIBNotifs = _CiscoVoiceConnectivityMIBNotifs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 0)
+)
+_CiscoVoiceConnectivityMIBObjects_ObjectIdentity = ObjectIdentity
+ciscoVoiceConnectivityMIBObjects = _CiscoVoiceConnectivityMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 1)
+)
+_CvcCallAgent_ObjectIdentity = ObjectIdentity
+cvcCallAgent = _CvcCallAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 1)
+)
+_CvcCallAgentTable_Object = MibTable
+cvcCallAgentTable = _CvcCallAgentTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    cvcCallAgentTable.setStatus("current")
+_CvcCallAgentEntry_Object = MibTableRow
+cvcCallAgentEntry = _CvcCallAgentEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 1, 1, 1)
+)
+cvcCallAgentEntry.setIndexNames(
+    (0, "CISCO-VOICE-CONNECTIVITY-MIB", "cvcCallAgentIndex"),
+)
+if mibBuilder.loadTexts:
+    cvcCallAgentEntry.setStatus("current")
+
+
+class _CvcCallAgentIndex_Type(Unsigned32):
+    """Custom type cvcCallAgentIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4294967295),
+    )
+
+
+_CvcCallAgentIndex_Type.__name__ = "Unsigned32"
+_CvcCallAgentIndex_Object = MibTableColumn
+cvcCallAgentIndex = _CvcCallAgentIndex_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 1, 1, 1, 1),
+    _CvcCallAgentIndex_Type()
+)
+cvcCallAgentIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cvcCallAgentIndex.setStatus("current")
+
+
+class _CvcCallAgentName_Type(SnmpAdminString):
+    """Custom type cvcCallAgentName based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 128),
+    )
+
+
+_CvcCallAgentName_Type.__name__ = "SnmpAdminString"
+_CvcCallAgentName_Object = MibTableColumn
+cvcCallAgentName = _CvcCallAgentName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 1, 1, 1, 2),
+    _CvcCallAgentName_Type()
+)
+cvcCallAgentName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cvcCallAgentName.setStatus("current")
+_CvcCallAgentInetAddressType_Type = InetAddressType
+_CvcCallAgentInetAddressType_Object = MibTableColumn
+cvcCallAgentInetAddressType = _CvcCallAgentInetAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 1, 1, 1, 3),
+    _CvcCallAgentInetAddressType_Type()
+)
+cvcCallAgentInetAddressType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cvcCallAgentInetAddressType.setStatus("current")
+_CvcCallAgentInetAddress_Type = InetAddress
+_CvcCallAgentInetAddress_Object = MibTableColumn
+cvcCallAgentInetAddress = _CvcCallAgentInetAddress_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 1, 1, 1, 4),
+    _CvcCallAgentInetAddress_Type()
+)
+cvcCallAgentInetAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cvcCallAgentInetAddress.setStatus("current")
+_CvcCallAgentType_Type = AutonomousType
+_CvcCallAgentType_Object = MibTableColumn
+cvcCallAgentType = _CvcCallAgentType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 1, 1, 1, 5),
+    _CvcCallAgentType_Type()
+)
+cvcCallAgentType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cvcCallAgentType.setStatus("current")
+_CvcPort_ObjectIdentity = ObjectIdentity
+cvcPort = _CvcPort_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 2)
+)
+_CvcPortTable_Object = MibTable
+cvcPortTable = _CvcPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    cvcPortTable.setStatus("current")
+_CvcPortEntry_Object = MibTableRow
+cvcPortEntry = _CvcPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 2, 1, 1)
+)
+cvcPortEntry.setIndexNames(
+    (0, "CISCO-VOICE-CONNECTIVITY-MIB", "cvcPortIndex"),
+)
+if mibBuilder.loadTexts:
+    cvcPortEntry.setStatus("current")
+
+
+class _CvcPortIndex_Type(Unsigned32):
+    """Custom type cvcPortIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4294967295),
+    )
+
+
+_CvcPortIndex_Type.__name__ = "Unsigned32"
+_CvcPortIndex_Object = MibTableColumn
+cvcPortIndex = _CvcPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 2, 1, 1, 1),
+    _CvcPortIndex_Type()
+)
+cvcPortIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cvcPortIndex.setStatus("current")
+_CvcPortAssociation_Type = RowPointer
+_CvcPortAssociation_Object = MibTableColumn
+cvcPortAssociation = _CvcPortAssociation_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 2, 1, 1, 2),
+    _CvcPortAssociation_Type()
+)
+cvcPortAssociation.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cvcPortAssociation.setStatus("current")
+_CvcPortDeviceName_Type = SnmpAdminString
+_CvcPortDeviceName_Object = MibTableColumn
+cvcPortDeviceName = _CvcPortDeviceName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 2, 1, 1, 3),
+    _CvcPortDeviceName_Type()
+)
+cvcPortDeviceName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cvcPortDeviceName.setStatus("current")
+_CvcPortInetAddressType_Type = InetAddressType
+_CvcPortInetAddressType_Object = MibTableColumn
+cvcPortInetAddressType = _CvcPortInetAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 2, 1, 1, 4),
+    _CvcPortInetAddressType_Type()
+)
+cvcPortInetAddressType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cvcPortInetAddressType.setStatus("current")
+_CvcPortInetAddress_Type = InetAddress
+_CvcPortInetAddress_Object = MibTableColumn
+cvcPortInetAddress = _CvcPortInetAddress_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 2, 1, 1, 5),
+    _CvcPortInetAddress_Type()
+)
+cvcPortInetAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cvcPortInetAddress.setStatus("current")
+_CvcPortMACAddress_Type = MacAddress
+_CvcPortMACAddress_Object = MibTableColumn
+cvcPortMACAddress = _CvcPortMACAddress_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 2, 1, 1, 6),
+    _CvcPortMACAddress_Type()
+)
+cvcPortMACAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cvcPortMACAddress.setStatus("current")
+_CvcPortType_Type = IANAifType
+_CvcPortType_Object = MibTableColumn
+cvcPortType = _CvcPortType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 2, 1, 1, 7),
+    _CvcPortType_Type()
+)
+cvcPortType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cvcPortType.setStatus("current")
+
+
+class _CvcProductCategory_Type(Integer32):
+    """Custom type cvcProductCategory based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ctiDevice", 4),
+          ("gateway", 2),
+          ("h323Device", 3),
+          ("huntListDevice", 7),
+          ("mediaResourceDevice", 6),
+          ("phone", 1),
+          ("sipDevice", 8),
+          ("voiceMailDevice", 5))
+    )
+
+
+_CvcProductCategory_Type.__name__ = "Integer32"
+_CvcProductCategory_Object = MibTableColumn
+cvcProductCategory = _CvcProductCategory_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 2, 1, 1, 8),
+    _CvcProductCategory_Type()
+)
+cvcProductCategory.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cvcProductCategory.setStatus("current")
+
+
+class _CvcProtocol_Type(Integer32):
+    """Custom type cvcProtocol based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("h323", 4),
+          ("mgcp", 3),
+          ("sccp", 1),
+          ("sgcp", 2),
+          ("sip", 5))
+    )
+
+
+_CvcProtocol_Type.__name__ = "Integer32"
+_CvcProtocol_Object = MibTableColumn
+cvcProtocol = _CvcProtocol_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 2, 1, 1, 9),
+    _CvcProtocol_Type()
+)
+cvcProtocol.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cvcProtocol.setStatus("current")
+_CvcVirtualInterfaceDN_Type = SnmpAdminString
+_CvcVirtualInterfaceDN_Object = MibTableColumn
+cvcVirtualInterfaceDN = _CvcVirtualInterfaceDN_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 2, 1, 1, 10),
+    _CvcVirtualInterfaceDN_Type()
+)
+cvcVirtualInterfaceDN.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cvcVirtualInterfaceDN.setStatus("current")
+_CvcCallAgentConnection_ObjectIdentity = ObjectIdentity
+cvcCallAgentConnection = _CvcCallAgentConnection_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 3)
+)
+_CvcCallAgentConnectionTable_Object = MibTable
+cvcCallAgentConnectionTable = _CvcCallAgentConnectionTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 3, 1)
+)
+if mibBuilder.loadTexts:
+    cvcCallAgentConnectionTable.setStatus("current")
+_CvcCallAgentConnectionEntry_Object = MibTableRow
+cvcCallAgentConnectionEntry = _CvcCallAgentConnectionEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 3, 1, 1)
+)
+cvcCallAgentConnectionEntry.setIndexNames(
+    (0, "CISCO-VOICE-CONNECTIVITY-MIB", "cvcPortIndex"),
+    (0, "CISCO-VOICE-CONNECTIVITY-MIB", "cvcCallAgentIndex"),
+)
+if mibBuilder.loadTexts:
+    cvcCallAgentConnectionEntry.setStatus("current")
+_CvcCallAgentPriority_Type = Unsigned32
+_CvcCallAgentPriority_Object = MibTableColumn
+cvcCallAgentPriority = _CvcCallAgentPriority_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 3, 1, 1, 1),
+    _CvcCallAgentPriority_Type()
+)
+cvcCallAgentPriority.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cvcCallAgentPriority.setStatus("current")
+
+
+class _CvcRegistrationStatus_Type(Integer32):
+    """Custom type cvcRegistrationStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notapplicable", 2),
+          ("registered", 3),
+          ("rejected", 5),
+          ("unknown", 1),
+          ("unregistered", 4))
+    )
+
+
+_CvcRegistrationStatus_Type.__name__ = "Integer32"
+_CvcRegistrationStatus_Object = MibTableColumn
+cvcRegistrationStatus = _CvcRegistrationStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 3, 1, 1, 2),
+    _CvcRegistrationStatus_Type()
+)
+cvcRegistrationStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cvcRegistrationStatus.setStatus("current")
+
+
+class _CvcStatusReason_Type(Integer32):
+    """Custom type cvcStatusReason based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("configurationError", 3),
+          ("connectivityError", 6),
+          ("deviceNameUnresolveable", 4),
+          ("deviceReset", 8),
+          ("initializationError", 7),
+          ("maxDevRegReached", 5),
+          ("noError", 1),
+          ("unknown", 2))
+    )
+
+
+_CvcStatusReason_Type.__name__ = "Integer32"
+_CvcStatusReason_Object = MibTableColumn
+cvcStatusReason = _CvcStatusReason_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 3, 1, 1, 3),
+    _CvcStatusReason_Type()
+)
+cvcStatusReason.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cvcStatusReason.setStatus("current")
+_CvcLastStatusChangeTime_Type = DateAndTime
+_CvcLastStatusChangeTime_Object = MibTableColumn
+cvcLastStatusChangeTime = _CvcLastStatusChangeTime_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 3, 1, 1, 4),
+    _CvcLastStatusChangeTime_Type()
+)
+cvcLastStatusChangeTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cvcLastStatusChangeTime.setStatus("current")
+_CvcLastRegisteredTime_Type = DateAndTime
+_CvcLastRegisteredTime_Object = MibTableColumn
+cvcLastRegisteredTime = _CvcLastRegisteredTime_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 3, 1, 1, 5),
+    _CvcLastRegisteredTime_Type()
+)
+cvcLastRegisteredTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cvcLastRegisteredTime.setStatus("current")
+_CvcNotif_ObjectIdentity = ObjectIdentity
+cvcNotif = _CvcNotif_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 4)
+)
+
+
+class _CvcNotifEnable_Type(TruthValue):
+    """Custom type cvcNotifEnable based on TruthValue"""
+
+
+_CvcNotifEnable_Object = MibScalar
+cvcNotifEnable = _CvcNotifEnable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 1, 4, 1),
+    _CvcNotifEnable_Type()
+)
+cvcNotifEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cvcNotifEnable.setStatus("current")
+_CiscoVoiceConnectivityMIBConform_ObjectIdentity = ObjectIdentity
+ciscoVoiceConnectivityMIBConform = _CiscoVoiceConnectivityMIBConform_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 2)
+)
+_CvcMIBCompliances_ObjectIdentity = ObjectIdentity
+cvcMIBCompliances = _CvcMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 2, 1)
+)
+_CvcMIBGroups_ObjectIdentity = ObjectIdentity
+cvcMIBGroups = _CvcMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 2, 2)
+)
+
+# Managed Objects groups
+
+cvcCallAgentGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 2, 2, 1)
+)
+cvcCallAgentGroup.setObjects(
+      *(("CISCO-VOICE-CONNECTIVITY-MIB", "cvcCallAgentName"),
+        ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcCallAgentInetAddressType"),
+        ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcCallAgentInetAddress"),
+        ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcCallAgentType"))
+)
+if mibBuilder.loadTexts:
+    cvcCallAgentGroup.setStatus("current")
+
+cvcPortGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 2, 2, 2)
+)
+cvcPortGroup.setObjects(
+      *(("CISCO-VOICE-CONNECTIVITY-MIB", "cvcPortAssociation"),
+        ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcPortDeviceName"),
+        ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcPortInetAddressType"),
+        ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcPortInetAddress"),
+        ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcPortMACAddress"),
+        ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcPortType"),
+        ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcProductCategory"),
+        ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcProtocol"),
+        ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcVirtualInterfaceDN"))
+)
+if mibBuilder.loadTexts:
+    cvcPortGroup.setStatus("current")
+
+cvcCallAgentConnectionGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 2, 2, 3)
+)
+cvcCallAgentConnectionGroup.setObjects(
+      *(("CISCO-VOICE-CONNECTIVITY-MIB", "cvcCallAgentPriority"),
+        ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcRegistrationStatus"),
+        ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcStatusReason"),
+        ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcLastStatusChangeTime"),
+        ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcLastRegisteredTime"))
+)
+if mibBuilder.loadTexts:
+    cvcCallAgentConnectionGroup.setStatus("current")
+
+cvcNotifGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 2, 2, 4)
+)
+cvcNotifGroup.setObjects(
+    ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcNotifEnable")
+)
+if mibBuilder.loadTexts:
+    cvcNotifGroup.setStatus("current")
+
+
+# Notification objects
+
+cvcPortRegistrationStatusChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 0, 1)
+)
+cvcPortRegistrationStatusChange.setObjects(
+      *(("CISCO-VOICE-CONNECTIVITY-MIB", "cvcPortDeviceName"),
+        ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcCallAgentInetAddress"),
+        ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcCallAgentPriority"),
+        ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcRegistrationStatus"),
+        ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcStatusReason"),
+        ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcLastStatusChangeTime"),
+        ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcLastRegisteredTime"))
+)
+if mibBuilder.loadTexts:
+    cvcPortRegistrationStatusChange.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+cvcNotificationsGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 2, 2, 5)
+)
+cvcNotificationsGroup.setObjects(
+    ("CISCO-VOICE-CONNECTIVITY-MIB", "cvcPortRegistrationStatusChange")
+)
+if mibBuilder.loadTexts:
+    cvcNotificationsGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+cvcMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 393, 2, 1, 1)
+)
+if mibBuilder.loadTexts:
+    cvcMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-VOICE-CONNECTIVITY-MIB",
+    **{"ciscoVoiceConnectivityMIB": ciscoVoiceConnectivityMIB,
+       "ciscoVoiceConnectivityMIBNotifs": ciscoVoiceConnectivityMIBNotifs,
+       "cvcPortRegistrationStatusChange": cvcPortRegistrationStatusChange,
+       "ciscoVoiceConnectivityMIBObjects": ciscoVoiceConnectivityMIBObjects,
+       "cvcCallAgent": cvcCallAgent,
+       "cvcCallAgentTable": cvcCallAgentTable,
+       "cvcCallAgentEntry": cvcCallAgentEntry,
+       "cvcCallAgentIndex": cvcCallAgentIndex,
+       "cvcCallAgentName": cvcCallAgentName,
+       "cvcCallAgentInetAddressType": cvcCallAgentInetAddressType,
+       "cvcCallAgentInetAddress": cvcCallAgentInetAddress,
+       "cvcCallAgentType": cvcCallAgentType,
+       "cvcPort": cvcPort,
+       "cvcPortTable": cvcPortTable,
+       "cvcPortEntry": cvcPortEntry,
+       "cvcPortIndex": cvcPortIndex,
+       "cvcPortAssociation": cvcPortAssociation,
+       "cvcPortDeviceName": cvcPortDeviceName,
+       "cvcPortInetAddressType": cvcPortInetAddressType,
+       "cvcPortInetAddress": cvcPortInetAddress,
+       "cvcPortMACAddress": cvcPortMACAddress,
+       "cvcPortType": cvcPortType,
+       "cvcProductCategory": cvcProductCategory,
+       "cvcProtocol": cvcProtocol,
+       "cvcVirtualInterfaceDN": cvcVirtualInterfaceDN,
+       "cvcCallAgentConnection": cvcCallAgentConnection,
+       "cvcCallAgentConnectionTable": cvcCallAgentConnectionTable,
+       "cvcCallAgentConnectionEntry": cvcCallAgentConnectionEntry,
+       "cvcCallAgentPriority": cvcCallAgentPriority,
+       "cvcRegistrationStatus": cvcRegistrationStatus,
+       "cvcStatusReason": cvcStatusReason,
+       "cvcLastStatusChangeTime": cvcLastStatusChangeTime,
+       "cvcLastRegisteredTime": cvcLastRegisteredTime,
+       "cvcNotif": cvcNotif,
+       "cvcNotifEnable": cvcNotifEnable,
+       "ciscoVoiceConnectivityMIBConform": ciscoVoiceConnectivityMIBConform,
+       "cvcMIBCompliances": cvcMIBCompliances,
+       "cvcMIBCompliance": cvcMIBCompliance,
+       "cvcMIBGroups": cvcMIBGroups,
+       "cvcCallAgentGroup": cvcCallAgentGroup,
+       "cvcPortGroup": cvcPortGroup,
+       "cvcCallAgentConnectionGroup": cvcCallAgentConnectionGroup,
+       "cvcNotifGroup": cvcNotifGroup,
+       "cvcNotificationsGroup": cvcNotificationsGroup}
+)

@@ -1,17 +1,17 @@
-"""SNMP MIB module (QB-ATM-MIB) expressed in pysnmp data model.
+# SNMP MIB module (QB-ATM-MIB) expressed in pysnmp data model.
+#
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/QB-ATM-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:40:37 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-This Python module is designed to be imported and executed by the
-pysnmp library.
-
-See https://www.pysnmp.com/pysnmp for further information.
-
-Notes
------
-ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/QB-ATM-MIB
-Produced by pysmi-1.3.3 at Sun Mar 10 05:35:09 2024
-On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm
-Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
-"""
 if 'mibBuilder' not in globals():
     import sys
 
@@ -45,50 +45,50 @@ if 'mibBuilder' not in globals():
 
 # Import SMI symbols from the MIBs this MIB depends on
 
-(atmVpCrossConnectEntry,
- atmInterfaceConfEntry,
- atmVclEntry,
- atmVplEntry,
+(atmInterfaceConfEntry,
+ atmTrafficDescrParamEntry,
  atmVcCrossConnectEntry,
- atmTrafficDescrParamEntry) = mibBuilder.importSymbols(
+ atmVclEntry,
+ atmVpCrossConnectEntry,
+ atmVplEntry) = mibBuilder.importSymbols(
     "ATM-MIB",
-    "atmVpCrossConnectEntry",
     "atmInterfaceConfEntry",
-    "atmVclEntry",
-    "atmVplEntry",
+    "atmTrafficDescrParamEntry",
     "atmVcCrossConnectEntry",
-    "atmTrafficDescrParamEntry")
+    "atmVclEntry",
+    "atmVpCrossConnectEntry",
+    "atmVplEntry")
 
-(AtmTrafficDescrParamIndex,
- AtmConnKind,
- AtmVpIdentifier,
- AtmVorXLastChange,
- AtmVorXOperStatus,
+(AtmAddr,
  AtmConnCastType,
- atmNoClpNoScr,
- AtmAddr,
+ AtmConnKind,
+ AtmServiceCategory,
+ AtmTrafficDescrParamIndex,
  AtmVcIdentifier,
  AtmVorXAdminStatus,
- AtmServiceCategory) = mibBuilder.importSymbols(
+ AtmVorXLastChange,
+ AtmVorXOperStatus,
+ AtmVpIdentifier,
+ atmNoClpNoScr) = mibBuilder.importSymbols(
     "ATM-TC-MIB",
-    "AtmTrafficDescrParamIndex",
-    "AtmConnKind",
-    "AtmVpIdentifier",
-    "AtmVorXLastChange",
-    "AtmVorXOperStatus",
-    "AtmConnCastType",
-    "atmNoClpNoScr",
     "AtmAddr",
+    "AtmConnCastType",
+    "AtmConnKind",
+    "AtmServiceCategory",
+    "AtmTrafficDescrParamIndex",
     "AtmVcIdentifier",
     "AtmVorXAdminStatus",
-    "AtmServiceCategory")
+    "AtmVorXLastChange",
+    "AtmVorXOperStatus",
+    "AtmVpIdentifier",
+    "atmNoClpNoScr")
 
-(InterfaceIndexOrZero,
- InterfaceIndex,
+(InterfaceIndex,
+ InterfaceIndexOrZero,
  ifIndex) = mibBuilder.importSymbols(
     "IF-MIB",
-    "InterfaceIndexOrZero",
     "InterfaceIndex",
+    "InterfaceIndexOrZero",
     "ifIndex")
 
 (QbEnableStatus,
@@ -105,57 +105,57 @@ if 'mibBuilder' not in globals():
     "QUANTUMBRIDGE-REG",
     "qbMibs")
 
-(ObjectGroup,
- ModuleCompliance,
- NotificationGroup) = mibBuilder.importSymbols(
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
     "SNMPv2-CONF",
-    "ObjectGroup",
     "ModuleCompliance",
-    "NotificationGroup")
+    "NotificationGroup",
+    "ObjectGroup")
 
-(MibIdentifier,
- NotificationType,
+(Bits,
  Counter32,
- Bits,
- ModuleIdentity,
  Counter64,
- IpAddress,
- iso,
- ObjectIdentity,
- TimeTicks,
  Gauge32,
  Integer32,
- Unsigned32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
  MibScalar,
  MibTable,
  MibTableRow,
- MibTableColumn) = mibBuilder.importSymbols(
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
     "SNMPv2-SMI",
-    "MibIdentifier",
-    "NotificationType",
-    "Counter32",
     "Bits",
-    "ModuleIdentity",
+    "Counter32",
     "Counter64",
-    "IpAddress",
-    "iso",
-    "ObjectIdentity",
-    "TimeTicks",
     "Gauge32",
     "Integer32",
-    "Unsigned32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
     "MibScalar",
     "MibTable",
     "MibTableRow",
-    "MibTableColumn")
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
 
-(RowStatus,
- DisplayString,
+(DisplayString,
+ RowStatus,
  TextualConvention,
  TruthValue) = mibBuilder.importSymbols(
     "SNMPv2-TC",
-    "RowStatus",
     "DisplayString",
+    "RowStatus",
     "TextualConvention",
     "TruthValue")
 
@@ -192,7 +192,7 @@ class Boolean(Integer32):
 
 
 
-class QbAtmPnniWeight(TextualConvention, Integer32):
+class QbAtmPnniWeight(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -201,7 +201,7 @@ class QbAtmPnniWeight(TextualConvention, Integer32):
 
 
 
-class QbAtmPnniNodeId(TextualConvention, OctetString):
+class QbAtmPnniNodeId(OctetString, TextualConvention):
     status = "current"
     subtypeSpec = OctetString.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -210,7 +210,7 @@ class QbAtmPnniNodeId(TextualConvention, OctetString):
 
 
 
-class QbAtmSigSpec(TextualConvention, Integer32):
+class QbAtmSigSpec(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -238,7 +238,7 @@ class QbAtmSigSpec(TextualConvention, Integer32):
 
 
 
-class QbAtmPnniHelloState(TextualConvention, Integer32):
+class QbAtmPnniHelloState(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -266,7 +266,7 @@ class QbAtmPnniHelloState(TextualConvention, Integer32):
 
 
 
-class QbAtmPnniAtmAddr(TextualConvention, OctetString):
+class QbAtmPnniAtmAddr(OctetString, TextualConvention):
     status = "current"
     subtypeSpec = OctetString.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -276,7 +276,7 @@ class QbAtmPnniAtmAddr(TextualConvention, OctetString):
 
 
 
-class QbAtmPnniNodeIndex(TextualConvention, Integer32):
+class QbAtmPnniNodeIndex(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -285,7 +285,7 @@ class QbAtmPnniNodeIndex(TextualConvention, Integer32):
 
 
 
-class QbAtmPnniPeerGroupId(TextualConvention, OctetString):
+class QbAtmPnniPeerGroupId(OctetString, TextualConvention):
     status = "current"
     subtypeSpec = OctetString.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -294,7 +294,7 @@ class QbAtmPnniPeerGroupId(TextualConvention, OctetString):
 
 
 
-class QbF4F5LoopbackStatus(TextualConvention, Integer32):
+class QbF4F5LoopbackStatus(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -312,7 +312,7 @@ class QbF4F5LoopbackStatus(TextualConvention, Integer32):
 
 
 
-class QbF4F5Status(TextualConvention, Bits):
+class QbF4F5Status(Bits, TextualConvention):
     status = "current"
 
 
@@ -332,11 +332,6 @@ _QbAtmInterfaceConfEntry_Object = MibTableRow
 qbAtmInterfaceConfEntry = _QbAtmInterfaceConfEntry_Object(
     (1, 3, 6, 1, 4, 1, 4323, 2, 7, 1, 1, 1)
 )
-atmInterfaceConfEntry.registerAugmentions(
-    ("QB-ATM-MIB",
-     "qbAtmInterfaceConfEntry")
-)
-qbAtmInterfaceConfEntry.setIndexNames(*atmInterfaceConfEntry.getIndexNames())
 if mibBuilder.loadTexts:
     qbAtmInterfaceConfEntry.setStatus("current")
 
@@ -431,11 +426,6 @@ _QbAtmTrafficDescrParamEntry_Object = MibTableRow
 qbAtmTrafficDescrParamEntry = _QbAtmTrafficDescrParamEntry_Object(
     (1, 3, 6, 1, 4, 1, 4323, 2, 7, 1, 2, 1)
 )
-atmTrafficDescrParamEntry.registerAugmentions(
-    ("QB-ATM-MIB",
-     "qbAtmTrafficDescrParamEntry")
-)
-qbAtmTrafficDescrParamEntry.setIndexNames(*atmTrafficDescrParamEntry.getIndexNames())
 if mibBuilder.loadTexts:
     qbAtmTrafficDescrParamEntry.setStatus("current")
 
@@ -481,11 +471,6 @@ _QbAtmVclEntry_Object = MibTableRow
 qbAtmVclEntry = _QbAtmVclEntry_Object(
     (1, 3, 6, 1, 4, 1, 4323, 2, 7, 1, 3, 1)
 )
-atmVclEntry.registerAugmentions(
-    ("QB-ATM-MIB",
-     "qbAtmVclEntry")
-)
-qbAtmVclEntry.setIndexNames(*atmVclEntry.getIndexNames())
 if mibBuilder.loadTexts:
     qbAtmVclEntry.setStatus("current")
 
@@ -621,11 +606,6 @@ _QbAtmVplEntry_Object = MibTableRow
 qbAtmVplEntry = _QbAtmVplEntry_Object(
     (1, 3, 6, 1, 4, 1, 4323, 2, 7, 1, 4, 1)
 )
-atmVplEntry.registerAugmentions(
-    ("QB-ATM-MIB",
-     "qbAtmVplEntry")
-)
-qbAtmVplEntry.setIndexNames(*atmVplEntry.getIndexNames())
 if mibBuilder.loadTexts:
     qbAtmVplEntry.setStatus("current")
 
@@ -725,11 +705,6 @@ _QbAtmVcCrossConnectEntry_Object = MibTableRow
 qbAtmVcCrossConnectEntry = _QbAtmVcCrossConnectEntry_Object(
     (1, 3, 6, 1, 4, 1, 4323, 2, 7, 1, 5, 1)
 )
-atmVcCrossConnectEntry.registerAugmentions(
-    ("QB-ATM-MIB",
-     "qbAtmVcCrossConnectEntry")
-)
-qbAtmVcCrossConnectEntry.setIndexNames(*atmVcCrossConnectEntry.getIndexNames())
 if mibBuilder.loadTexts:
     qbAtmVcCrossConnectEntry.setStatus("current")
 
@@ -751,7 +726,13 @@ qbAtmVcCrossConnectName = _QbAtmVcCrossConnectName_Object(
 qbAtmVcCrossConnectName.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     qbAtmVcCrossConnectName.setStatus("current")
-_QbAtmVcCrossConnectRxTrafficDescrIndex_Type = AtmTrafficDescrParamIndex
+
+
+class _QbAtmVcCrossConnectRxTrafficDescrIndex_Type(AtmTrafficDescrParamIndex):
+    """Custom type qbAtmVcCrossConnectRxTrafficDescrIndex based on AtmTrafficDescrParamIndex"""
+    defaultValue = 0
+
+
 _QbAtmVcCrossConnectRxTrafficDescrIndex_Object = MibTableColumn
 qbAtmVcCrossConnectRxTrafficDescrIndex = _QbAtmVcCrossConnectRxTrafficDescrIndex_Object(
     (1, 3, 6, 1, 4, 1, 4323, 2, 7, 1, 5, 1, 2),
@@ -760,7 +741,13 @@ qbAtmVcCrossConnectRxTrafficDescrIndex = _QbAtmVcCrossConnectRxTrafficDescrIndex
 qbAtmVcCrossConnectRxTrafficDescrIndex.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     qbAtmVcCrossConnectRxTrafficDescrIndex.setStatus("current")
-_QbAtmVcCrossConnectTxTrafficDescrIndex_Type = AtmTrafficDescrParamIndex
+
+
+class _QbAtmVcCrossConnectTxTrafficDescrIndex_Type(AtmTrafficDescrParamIndex):
+    """Custom type qbAtmVcCrossConnectTxTrafficDescrIndex based on AtmTrafficDescrParamIndex"""
+    defaultValue = 0
+
+
 _QbAtmVcCrossConnectTxTrafficDescrIndex_Object = MibTableColumn
 qbAtmVcCrossConnectTxTrafficDescrIndex = _QbAtmVcCrossConnectTxTrafficDescrIndex_Object(
     (1, 3, 6, 1, 4, 1, 4323, 2, 7, 1, 5, 1, 3),
@@ -779,11 +766,6 @@ _QbAtmVpCrossConnectEntry_Object = MibTableRow
 qbAtmVpCrossConnectEntry = _QbAtmVpCrossConnectEntry_Object(
     (1, 3, 6, 1, 4, 1, 4323, 2, 7, 1, 6, 1)
 )
-atmVpCrossConnectEntry.registerAugmentions(
-    ("QB-ATM-MIB",
-     "qbAtmVpCrossConnectEntry")
-)
-qbAtmVpCrossConnectEntry.setIndexNames(*atmVpCrossConnectEntry.getIndexNames())
 if mibBuilder.loadTexts:
     qbAtmVpCrossConnectEntry.setStatus("current")
 
@@ -805,7 +787,13 @@ qbAtmVpCrossConnectName = _QbAtmVpCrossConnectName_Object(
 qbAtmVpCrossConnectName.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     qbAtmVpCrossConnectName.setStatus("current")
-_QbAtmVpCrossConnectRxTrafficDescrIndex_Type = AtmTrafficDescrParamIndex
+
+
+class _QbAtmVpCrossConnectRxTrafficDescrIndex_Type(AtmTrafficDescrParamIndex):
+    """Custom type qbAtmVpCrossConnectRxTrafficDescrIndex based on AtmTrafficDescrParamIndex"""
+    defaultValue = 0
+
+
 _QbAtmVpCrossConnectRxTrafficDescrIndex_Object = MibTableColumn
 qbAtmVpCrossConnectRxTrafficDescrIndex = _QbAtmVpCrossConnectRxTrafficDescrIndex_Object(
     (1, 3, 6, 1, 4, 1, 4323, 2, 7, 1, 6, 1, 2),
@@ -814,7 +802,13 @@ qbAtmVpCrossConnectRxTrafficDescrIndex = _QbAtmVpCrossConnectRxTrafficDescrIndex
 qbAtmVpCrossConnectRxTrafficDescrIndex.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     qbAtmVpCrossConnectRxTrafficDescrIndex.setStatus("current")
-_QbAtmVpCrossConnectTxTrafficDescrIndex_Type = AtmTrafficDescrParamIndex
+
+
+class _QbAtmVpCrossConnectTxTrafficDescrIndex_Type(AtmTrafficDescrParamIndex):
+    """Custom type qbAtmVpCrossConnectTxTrafficDescrIndex based on AtmTrafficDescrParamIndex"""
+    defaultValue = 0
+
+
 _QbAtmVpCrossConnectTxTrafficDescrIndex_Object = MibTableColumn
 qbAtmVpCrossConnectTxTrafficDescrIndex = _QbAtmVpCrossConnectTxTrafficDescrIndex_Object(
     (1, 3, 6, 1, 4, 1, 4323, 2, 7, 1, 6, 1, 3),
@@ -1259,11 +1253,6 @@ _QbAtmInterfaceConfSigEntry_Object = MibTableRow
 qbAtmInterfaceConfSigEntry = _QbAtmInterfaceConfSigEntry_Object(
     (1, 3, 6, 1, 4, 1, 4323, 2, 7, 1, 7, 4, 1)
 )
-atmInterfaceConfEntry.registerAugmentions(
-    ("QB-ATM-MIB",
-     "qbAtmInterfaceConfSigEntry")
-)
-qbAtmInterfaceConfSigEntry.setIndexNames(*atmInterfaceConfEntry.getIndexNames())
 if mibBuilder.loadTexts:
     qbAtmInterfaceConfSigEntry.setStatus("current")
 
@@ -1655,17 +1644,14 @@ _QbAtmPnniNodePglEntry_Object = MibTableRow
 qbAtmPnniNodePglEntry = _QbAtmPnniNodePglEntry_Object(
     (1, 3, 6, 1, 4, 1, 4323, 2, 7, 1, 7, 6, 1)
 )
-qbAtmPnniNodeEntry.registerAugmentions(
-    ("QB-ATM-MIB",
-     "qbAtmPnniNodePglEntry")
-)
-qbAtmPnniNodePglEntry.setIndexNames(*qbAtmPnniNodeEntry.getIndexNames())
 if mibBuilder.loadTexts:
     qbAtmPnniNodePglEntry.setStatus("current")
 
 
 class _QbAtmPnniNodePglLeadershipPriority_Type(Integer32):
     """Custom type qbAtmPnniNodePglLeadershipPriority based on Integer32"""
+    defaultValue = 0
+
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
         ValueRangeConstraint(0, 205),
@@ -1681,7 +1667,13 @@ qbAtmPnniNodePglLeadershipPriority = _QbAtmPnniNodePglLeadershipPriority_Object(
 qbAtmPnniNodePglLeadershipPriority.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     qbAtmPnniNodePglLeadershipPriority.setStatus("current")
-_QbAtmPnniNodeCfgParentNodeIndex_Type = Integer32
+
+
+class _QbAtmPnniNodeCfgParentNodeIndex_Type(Integer32):
+    """Custom type qbAtmPnniNodeCfgParentNodeIndex based on Integer32"""
+    defaultValue = 0
+
+
 _QbAtmPnniNodeCfgParentNodeIndex_Object = MibTableColumn
 qbAtmPnniNodeCfgParentNodeIndex = _QbAtmPnniNodeCfgParentNodeIndex_Object(
     (1, 3, 6, 1, 4, 1, 4323, 2, 7, 1, 7, 6, 1, 2),
@@ -1831,11 +1823,6 @@ _QbAtmPnniNodeTimerEntry_Object = MibTableRow
 qbAtmPnniNodeTimerEntry = _QbAtmPnniNodeTimerEntry_Object(
     (1, 3, 6, 1, 4, 1, 4323, 2, 7, 1, 7, 7, 1)
 )
-qbAtmPnniNodeEntry.registerAugmentions(
-    ("QB-ATM-MIB",
-     "qbAtmPnniNodeTimerEntry")
-)
-qbAtmPnniNodeTimerEntry.setIndexNames(*qbAtmPnniNodeEntry.getIndexNames())
 if mibBuilder.loadTexts:
     qbAtmPnniNodeTimerEntry.setStatus("current")
 
@@ -2165,11 +2152,6 @@ _QbAtmHiddenVclEntry_Object = MibTableRow
 qbAtmHiddenVclEntry = _QbAtmHiddenVclEntry_Object(
     (1, 3, 6, 1, 4, 1, 4323, 2, 7, 1, 8, 1)
 )
-atmVclEntry.registerAugmentions(
-    ("QB-ATM-MIB",
-     "qbAtmHiddenVclEntry")
-)
-qbAtmHiddenVclEntry.setIndexNames(*atmVclEntry.getIndexNames())
 if mibBuilder.loadTexts:
     qbAtmHiddenVclEntry.setStatus("current")
 
@@ -2486,6 +2468,56 @@ qbAtmDefaultPCBE = _QbAtmDefaultPCBE_Object(
 qbAtmDefaultPCBE.setMaxAccess("read-write")
 if mibBuilder.loadTexts:
     qbAtmDefaultPCBE.setStatus("current")
+atmInterfaceConfEntry.registerAugmentions(
+    ("QB-ATM-MIB",
+     "qbAtmInterfaceConfEntry")
+)
+qbAtmInterfaceConfEntry.setIndexNames(*atmInterfaceConfEntry.getIndexNames())
+atmTrafficDescrParamEntry.registerAugmentions(
+    ("QB-ATM-MIB",
+     "qbAtmTrafficDescrParamEntry")
+)
+qbAtmTrafficDescrParamEntry.setIndexNames(*atmTrafficDescrParamEntry.getIndexNames())
+atmVclEntry.registerAugmentions(
+    ("QB-ATM-MIB",
+     "qbAtmVclEntry")
+)
+qbAtmVclEntry.setIndexNames(*atmVclEntry.getIndexNames())
+atmVplEntry.registerAugmentions(
+    ("QB-ATM-MIB",
+     "qbAtmVplEntry")
+)
+qbAtmVplEntry.setIndexNames(*atmVplEntry.getIndexNames())
+atmVcCrossConnectEntry.registerAugmentions(
+    ("QB-ATM-MIB",
+     "qbAtmVcCrossConnectEntry")
+)
+qbAtmVcCrossConnectEntry.setIndexNames(*atmVcCrossConnectEntry.getIndexNames())
+atmVpCrossConnectEntry.registerAugmentions(
+    ("QB-ATM-MIB",
+     "qbAtmVpCrossConnectEntry")
+)
+qbAtmVpCrossConnectEntry.setIndexNames(*atmVpCrossConnectEntry.getIndexNames())
+atmInterfaceConfEntry.registerAugmentions(
+    ("QB-ATM-MIB",
+     "qbAtmInterfaceConfSigEntry")
+)
+qbAtmInterfaceConfSigEntry.setIndexNames(*atmInterfaceConfEntry.getIndexNames())
+qbAtmPnniNodeEntry.registerAugmentions(
+    ("QB-ATM-MIB",
+     "qbAtmPnniNodePglEntry")
+)
+qbAtmPnniNodePglEntry.setIndexNames(*qbAtmPnniNodeEntry.getIndexNames())
+qbAtmPnniNodeEntry.registerAugmentions(
+    ("QB-ATM-MIB",
+     "qbAtmPnniNodeTimerEntry")
+)
+qbAtmPnniNodeTimerEntry.setIndexNames(*qbAtmPnniNodeEntry.getIndexNames())
+atmVclEntry.registerAugmentions(
+    ("QB-ATM-MIB",
+     "qbAtmHiddenVclEntry")
+)
+qbAtmHiddenVclEntry.setIndexNames(*atmVclEntry.getIndexNames())
 
 # Managed Objects groups
 
@@ -2737,7 +2769,8 @@ if mibBuilder.loadTexts:
 
 mibBuilder.exportSymbols(
     "QB-ATM-MIB",
-    **{"QbAtmPnniWeight": QbAtmPnniWeight,
+    **{"Boolean": Boolean,
+       "QbAtmPnniWeight": QbAtmPnniWeight,
        "QbAtmPnniNodeId": QbAtmPnniNodeId,
        "QbAtmSigSpec": QbAtmSigSpec,
        "QbAtmPnniHelloState": QbAtmPnniHelloState,

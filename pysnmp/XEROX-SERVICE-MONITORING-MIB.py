@@ -1,17 +1,17 @@
-"""SNMP MIB module (XEROX-SERVICE-MONITORING-MIB) expressed in pysnmp data model.
+# SNMP MIB module (XEROX-SERVICE-MONITORING-MIB) expressed in pysnmp data model.
+#
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/XEROX-SERVICE-MONITORING-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:18:35 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-This Python module is designed to be imported and executed by the
-pysnmp library.
-
-See https://www.pysnmp.com/pysnmp for further information.
-
-Notes
------
-ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/XEROX-SERVICE-MONITORING-MIB
-Produced by pysmi-1.3.3 at Sun Mar 10 06:00:43 2024
-On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm
-Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
-"""
 if 'mibBuilder' not in globals():
     import sys
 
@@ -45,114 +45,114 @@ if 'mibBuilder' not in globals():
 
 # Import SMI symbols from the MIBs this MIB depends on
 
-(hrDeviceIndex,
- ProductID) = mibBuilder.importSymbols(
+(ProductID,
+ hrDeviceIndex) = mibBuilder.importSymbols(
     "HOST-RESOURCES-MIB",
-    "hrDeviceIndex",
-    "ProductID")
+    "ProductID",
+    "hrDeviceIndex")
 
-(NotificationGroup,
- ModuleCompliance,
+(ModuleCompliance,
+ NotificationGroup,
  ObjectGroup) = mibBuilder.importSymbols(
     "SNMPv2-CONF",
-    "NotificationGroup",
     "ModuleCompliance",
+    "NotificationGroup",
     "ObjectGroup")
 
-(TimeTicks,
+(Bits,
+ Counter32,
+ Counter64,
  Gauge32,
  Integer32,
  IpAddress,
- Bits,
- Counter32,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
  MibScalar,
  MibTable,
  MibTableRow,
  MibTableColumn,
- NotificationType,
- ModuleIdentity,
- Counter64,
- MibIdentifier,
+ TimeTicks,
  Unsigned32,
- iso,
- ObjectIdentity) = mibBuilder.importSymbols(
+ iso) = mibBuilder.importSymbols(
     "SNMPv2-SMI",
-    "TimeTicks",
+    "Bits",
+    "Counter32",
+    "Counter64",
     "Gauge32",
     "Integer32",
     "IpAddress",
-    "Bits",
-    "Counter32",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
     "MibScalar",
     "MibTable",
     "MibTableRow",
     "MibTableColumn",
-    "NotificationType",
-    "ModuleIdentity",
-    "Counter64",
-    "MibIdentifier",
+    "TimeTicks",
     "Unsigned32",
-    "iso",
-    "ObjectIdentity")
+    "iso")
 
-(RowStatus,
+(DateAndTime,
  DisplayString,
- DateAndTime,
- TruthValue,
- TextualConvention) = mibBuilder.importSymbols(
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
     "SNMPv2-TC",
-    "RowStatus",
-    "DisplayString",
     "DateAndTime",
-    "TruthValue",
-    "TextualConvention")
+    "DisplayString",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
 
 (xeroxCommonMIB,) = mibBuilder.importSymbols(
     "XEROX-COMMON-MIB",
     "xeroxCommonMIB")
 
-(XcmCommsMgmtState,
- XcmCommsMgmtConditions,
+(XcmCommsMgmtConditions,
+ XcmCommsMgmtState,
  XcmCommsStackExtProtocol) = mibBuilder.importSymbols(
     "XEROX-COMMS-ENGINE-TC",
-    "XcmCommsMgmtState",
     "XcmCommsMgmtConditions",
+    "XcmCommsMgmtState",
     "XcmCommsStackExtProtocol")
 
-(Ordinal32,
- XcmGenSNMPv2ErrorStatus,
- zeroDotZero,
+(Cardinal32,
+ Ordinal32,
  XcmFixedLocaleDisplayString,
- Cardinal32) = mibBuilder.importSymbols(
+ XcmGenSNMPv2ErrorStatus,
+ zeroDotZero) = mibBuilder.importSymbols(
     "XEROX-GENERAL-TC",
+    "Cardinal32",
     "Ordinal32",
-    "XcmGenSNMPv2ErrorStatus",
-    "zeroDotZero",
     "XcmFixedLocaleDisplayString",
-    "Cardinal32")
+    "XcmGenSNMPv2ErrorStatus",
+    "zeroDotZero")
 
-(XcmHrDpaConditions,
+(XcmHrDevDetailUnitClass,
  XcmHrDpaAvailability,
- XcmHrDpaState,
- XcmHrDevDetailUnitClass) = mibBuilder.importSymbols(
+ XcmHrDpaConditions,
+ XcmHrDpaState) = mibBuilder.importSymbols(
     "XEROX-HOST-RESOURCES-EXT-TC",
-    "XcmHrDpaConditions",
+    "XcmHrDevDetailUnitClass",
     "XcmHrDpaAvailability",
-    "XcmHrDpaState",
-    "XcmHrDevDetailUnitClass")
+    "XcmHrDpaConditions",
+    "XcmHrDpaState")
 
-(XcmSvcMonServiceMgmtOperation,
- XcmSvcMonGroupSupport,
+(XcmSvcMonGroupSupport,
  XcmSvcMonServiceDetailClass,
- XcmSvcMonServiceMgmtData,
  XcmSvcMonServiceDetailType,
+ XcmSvcMonServiceMgmtData,
+ XcmSvcMonServiceMgmtOperation,
  XcmSvcMonServiceType) = mibBuilder.importSymbols(
     "XEROX-SERVICE-MONITORING-TC",
-    "XcmSvcMonServiceMgmtOperation",
     "XcmSvcMonGroupSupport",
     "XcmSvcMonServiceDetailClass",
-    "XcmSvcMonServiceMgmtData",
     "XcmSvcMonServiceDetailType",
+    "XcmSvcMonServiceMgmtData",
+    "XcmSvcMonServiceMgmtOperation",
     "XcmSvcMonServiceType")
 
 
@@ -217,7 +217,7 @@ if mibBuilder.loadTexts:
 
 class _XcmSvcMonGeneralVersionID_Type(ProductID):
     """Custom type xcmSvcMonGeneralVersionID based on ProductID"""
-    defaultValue = "(0, 0)"
+    defaultValue = (0, 0)
 
 
 _XcmSvcMonGeneralVersionID_Object = MibTableColumn
@@ -258,7 +258,13 @@ xcmSvcMonGeneralGroupSupport = _XcmSvcMonGeneralGroupSupport_Object(
 xcmSvcMonGeneralGroupSupport.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmSvcMonGeneralGroupSupport.setStatus("current")
-_XcmSvcMonGeneralCreateSupport_Type = XcmSvcMonGroupSupport
+
+
+class _XcmSvcMonGeneralCreateSupport_Type(XcmSvcMonGroupSupport):
+    """Custom type xcmSvcMonGeneralCreateSupport based on XcmSvcMonGroupSupport"""
+    defaultValue = 0
+
+
 _XcmSvcMonGeneralCreateSupport_Object = MibTableColumn
 xcmSvcMonGeneralCreateSupport = _XcmSvcMonGeneralCreateSupport_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 74, 1, 2, 1, 6),
@@ -267,7 +273,13 @@ xcmSvcMonGeneralCreateSupport = _XcmSvcMonGeneralCreateSupport_Object(
 xcmSvcMonGeneralCreateSupport.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmSvcMonGeneralCreateSupport.setStatus("current")
-_XcmSvcMonGeneralUpdateSupport_Type = XcmSvcMonGroupSupport
+
+
+class _XcmSvcMonGeneralUpdateSupport_Type(XcmSvcMonGroupSupport):
+    """Custom type xcmSvcMonGeneralUpdateSupport based on XcmSvcMonGroupSupport"""
+    defaultValue = 0
+
+
 _XcmSvcMonGeneralUpdateSupport_Object = MibTableColumn
 xcmSvcMonGeneralUpdateSupport = _XcmSvcMonGeneralUpdateSupport_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 74, 1, 2, 1, 7),
@@ -416,14 +428,15 @@ _XcmSvcMonQueueExtEntry_Object = MibTableRow
 xcmSvcMonQueueExtEntry = _XcmSvcMonQueueExtEntry_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 74, 4, 2, 1)
 )
-xcmSvcMonQueueEntry.registerAugmentions(
-    ("XEROX-SERVICE-MONITORING-MIB",
-     "xcmSvcMonQueueExtEntry")
-)
-xcmSvcMonQueueExtEntry.setIndexNames(*xcmSvcMonQueueEntry.getIndexNames())
 if mibBuilder.loadTexts:
     xcmSvcMonQueueExtEntry.setStatus("current")
-_XcmSvcMonQueueRoutingIndex_Type = Cardinal32
+
+
+class _XcmSvcMonQueueRoutingIndex_Type(Cardinal32):
+    """Custom type xcmSvcMonQueueRoutingIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmSvcMonQueueRoutingIndex_Object = MibTableColumn
 xcmSvcMonQueueRoutingIndex = _XcmSvcMonQueueRoutingIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 74, 4, 2, 1, 1),
@@ -446,7 +459,13 @@ xcmSvcMonQueueState = _XcmSvcMonQueueState_Object(
 xcmSvcMonQueueState.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmSvcMonQueueState.setStatus("current")
-_XcmSvcMonQueueConditions_Type = XcmCommsMgmtConditions
+
+
+class _XcmSvcMonQueueConditions_Type(XcmCommsMgmtConditions):
+    """Custom type xcmSvcMonQueueConditions based on XcmCommsMgmtConditions"""
+    defaultValue = 0
+
+
 _XcmSvcMonQueueConditions_Object = MibTableColumn
 xcmSvcMonQueueConditions = _XcmSvcMonQueueConditions_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 74, 4, 2, 1, 3),
@@ -464,7 +483,13 @@ xcmSvcMonQueueFaultCount = _XcmSvcMonQueueFaultCount_Object(
 xcmSvcMonQueueFaultCount.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmSvcMonQueueFaultCount.setStatus("current")
-_XcmSvcMonQueueFaultCode_Type = Integer32
+
+
+class _XcmSvcMonQueueFaultCode_Type(Integer32):
+    """Custom type xcmSvcMonQueueFaultCode based on Integer32"""
+    defaultValue = 0
+
+
 _XcmSvcMonQueueFaultCode_Object = MibTableColumn
 xcmSvcMonQueueFaultCode = _XcmSvcMonQueueFaultCode_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 74, 4, 2, 1, 5),
@@ -638,7 +663,13 @@ xcmSvcMonServicePreviousState = _XcmSvcMonServicePreviousState_Object(
 xcmSvcMonServicePreviousState.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmSvcMonServicePreviousState.setStatus("current")
-_XcmSvcMonServiceConditions_Type = XcmHrDpaConditions
+
+
+class _XcmSvcMonServiceConditions_Type(XcmHrDpaConditions):
+    """Custom type xcmSvcMonServiceConditions based on XcmHrDpaConditions"""
+    defaultValue = 0
+
+
 _XcmSvcMonServiceConditions_Object = MibTableColumn
 xcmSvcMonServiceConditions = _XcmSvcMonServiceConditions_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 74, 5, 2, 1, 6),
@@ -661,7 +692,13 @@ xcmSvcMonServiceAvailability = _XcmSvcMonServiceAvailability_Object(
 xcmSvcMonServiceAvailability.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmSvcMonServiceAvailability.setStatus("current")
-_XcmSvcMonServicePhysicalDevice_Type = Cardinal32
+
+
+class _XcmSvcMonServicePhysicalDevice_Type(Cardinal32):
+    """Custom type xcmSvcMonServicePhysicalDevice based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmSvcMonServicePhysicalDevice_Object = MibTableColumn
 xcmSvcMonServicePhysicalDevice = _XcmSvcMonServicePhysicalDevice_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 74, 5, 2, 1, 8),
@@ -670,7 +707,13 @@ xcmSvcMonServicePhysicalDevice = _XcmSvcMonServicePhysicalDevice_Object(
 xcmSvcMonServicePhysicalDevice.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmSvcMonServicePhysicalDevice.setStatus("current")
-_XcmSvcMonServiceLogicalDevice_Type = Cardinal32
+
+
+class _XcmSvcMonServiceLogicalDevice_Type(Cardinal32):
+    """Custom type xcmSvcMonServiceLogicalDevice based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmSvcMonServiceLogicalDevice_Object = MibTableColumn
 xcmSvcMonServiceLogicalDevice = _XcmSvcMonServiceLogicalDevice_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 74, 5, 2, 1, 9),
@@ -679,7 +722,13 @@ xcmSvcMonServiceLogicalDevice = _XcmSvcMonServiceLogicalDevice_Object(
 xcmSvcMonServiceLogicalDevice.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmSvcMonServiceLogicalDevice.setStatus("current")
-_XcmSvcMonServiceExternalDevice_Type = Cardinal32
+
+
+class _XcmSvcMonServiceExternalDevice_Type(Cardinal32):
+    """Custom type xcmSvcMonServiceExternalDevice based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmSvcMonServiceExternalDevice_Object = MibTableColumn
 xcmSvcMonServiceExternalDevice = _XcmSvcMonServiceExternalDevice_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 74, 5, 2, 1, 10),
@@ -688,7 +737,13 @@ xcmSvcMonServiceExternalDevice = _XcmSvcMonServiceExternalDevice_Object(
 xcmSvcMonServiceExternalDevice.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmSvcMonServiceExternalDevice.setStatus("current")
-_XcmSvcMonServiceSWRun_Type = Cardinal32
+
+
+class _XcmSvcMonServiceSWRun_Type(Cardinal32):
+    """Custom type xcmSvcMonServiceSWRun based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmSvcMonServiceSWRun_Object = MibTableColumn
 xcmSvcMonServiceSWRun = _XcmSvcMonServiceSWRun_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 74, 5, 2, 1, 11),
@@ -697,7 +752,13 @@ xcmSvcMonServiceSWRun = _XcmSvcMonServiceSWRun_Object(
 xcmSvcMonServiceSWRun.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmSvcMonServiceSWRun.setStatus("current")
-_XcmSvcMonServiceSWInstalled_Type = Cardinal32
+
+
+class _XcmSvcMonServiceSWInstalled_Type(Cardinal32):
+    """Custom type xcmSvcMonServiceSWInstalled based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmSvcMonServiceSWInstalled_Object = MibTableColumn
 xcmSvcMonServiceSWInstalled = _XcmSvcMonServiceSWInstalled_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 74, 5, 2, 1, 12),
@@ -706,7 +767,13 @@ xcmSvcMonServiceSWInstalled = _XcmSvcMonServiceSWInstalled_Object(
 xcmSvcMonServiceSWInstalled.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmSvcMonServiceSWInstalled.setStatus("current")
-_XcmSvcMonServiceStorage_Type = Cardinal32
+
+
+class _XcmSvcMonServiceStorage_Type(Cardinal32):
+    """Custom type xcmSvcMonServiceStorage based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmSvcMonServiceStorage_Object = MibTableColumn
 xcmSvcMonServiceStorage = _XcmSvcMonServiceStorage_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 74, 5, 2, 1, 13),
@@ -719,6 +786,8 @@ if mibBuilder.loadTexts:
 
 class _XcmSvcMonServicePriority_Type(Integer32):
     """Custom type xcmSvcMonServicePriority based on Integer32"""
+    defaultValue = 0
+
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
         ValueRangeConstraint(0, 100),
@@ -841,7 +910,13 @@ xcmSvcMonServiceDetailUnitClass = _XcmSvcMonServiceDetailUnitClass_Object(
 xcmSvcMonServiceDetailUnitClass.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmSvcMonServiceDetailUnitClass.setStatus("current")
-_XcmSvcMonServiceDetailUnit_Type = Cardinal32
+
+
+class _XcmSvcMonServiceDetailUnit_Type(Cardinal32):
+    """Custom type xcmSvcMonServiceDetailUnit based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmSvcMonServiceDetailUnit_Object = MibTableColumn
 xcmSvcMonServiceDetailUnit = _XcmSvcMonServiceDetailUnit_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 74, 6, 2, 1, 6),
@@ -850,7 +925,13 @@ xcmSvcMonServiceDetailUnit = _XcmSvcMonServiceDetailUnit_Object(
 xcmSvcMonServiceDetailUnit.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmSvcMonServiceDetailUnit.setStatus("current")
-_XcmSvcMonServiceDetailInteger_Type = Integer32
+
+
+class _XcmSvcMonServiceDetailInteger_Type(Integer32):
+    """Custom type xcmSvcMonServiceDetailInteger based on Integer32"""
+    defaultValue = 0
+
+
 _XcmSvcMonServiceDetailInteger_Object = MibTableColumn
 xcmSvcMonServiceDetailInteger = _XcmSvcMonServiceDetailInteger_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 74, 6, 2, 1, 7),
@@ -863,7 +944,7 @@ if mibBuilder.loadTexts:
 
 class _XcmSvcMonServiceDetailOID_Type(ObjectIdentifier):
     """Custom type xcmSvcMonServiceDetailOID based on ObjectIdentifier"""
-    defaultValue = "(0, 0)"
+    defaultValue = (0, 0)
 
 
 _XcmSvcMonServiceDetailOID_Object = MibTableColumn
@@ -919,11 +1000,6 @@ _XcmSvcMonServiceMgmtEntry_Object = MibTableRow
 xcmSvcMonServiceMgmtEntry = _XcmSvcMonServiceMgmtEntry_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 74, 7, 2, 1)
 )
-xcmSvcMonServiceEntry.registerAugmentions(
-    ("XEROX-SERVICE-MONITORING-MIB",
-     "xcmSvcMonServiceMgmtEntry")
-)
-xcmSvcMonServiceMgmtEntry.setIndexNames(*xcmSvcMonServiceEntry.getIndexNames())
 if mibBuilder.loadTexts:
     xcmSvcMonServiceMgmtEntry.setStatus("current")
 _XcmSvcMonServiceMgmtOperation_Type = XcmSvcMonServiceMgmtOperation
@@ -1051,6 +1127,16 @@ xcmSvcMonServiceMgmtAdminPassword = _XcmSvcMonServiceMgmtAdminPassword_Object(
 xcmSvcMonServiceMgmtAdminPassword.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmSvcMonServiceMgmtAdminPassword.setStatus("current")
+xcmSvcMonQueueEntry.registerAugmentions(
+    ("XEROX-SERVICE-MONITORING-MIB",
+     "xcmSvcMonQueueExtEntry")
+)
+xcmSvcMonQueueExtEntry.setIndexNames(*xcmSvcMonQueueEntry.getIndexNames())
+xcmSvcMonServiceEntry.registerAugmentions(
+    ("XEROX-SERVICE-MONITORING-MIB",
+     "xcmSvcMonServiceMgmtEntry")
+)
+xcmSvcMonServiceMgmtEntry.setIndexNames(*xcmSvcMonServiceEntry.getIndexNames())
 
 # Managed Objects groups
 

@@ -1,22 +1,184 @@
+# SNMP MIB module (RDN-SMSTraps-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module RDN-SMSTraps-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/RDN-SMSTraps-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:46:35 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint")
-docsIfCmtsCmStatusMacAddress, docsIfCmtsCmStatusValue = mibBuilder.importSymbols("DOCS-IF-MIB", "docsIfCmtsCmStatusMacAddress", "docsIfCmtsCmStatusValue")
-riverdelta, = mibBuilder.importSymbols("RDN-MIB", "riverdelta")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-enterprises, iso, Counter64, Bits, TimeTicks, NotificationType, Unsigned32, NotificationType, ObjectIdentity, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, ModuleIdentity, IpAddress, Gauge32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "enterprises", "iso", "Counter64", "Bits", "TimeTicks", "NotificationType", "Unsigned32", "NotificationType", "ObjectIdentity", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "ModuleIdentity", "IpAddress", "Gauge32", "MibIdentifier")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-rdnSubscriberTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 4981, 5))
-rdnCableModemV1Traps = MibIdentifier((1, 3, 6, 1, 4, 1, 4981, 5, 1))
-rdnCableModemStatusV1 = NotificationType((1, 3, 6, 1, 4, 1, 4981) + (0,1)).setObjects(("DOCS-IF-MIB", "docsIfCmtsCmStatusMacAddress"), ("DOCS-IF-MIB", "docsIfCmtsCmStatusValue"))
-rdnCableModemV2Traps = MibIdentifier((1, 3, 6, 1, 4, 1, 4981, 5, 2))
-rdnCableModemStatusV2 = NotificationType((1, 3, 6, 1, 4, 1, 4981, 5, 2, 1)).setObjects(("DOCS-IF-MIB", "docsIfCmtsCmStatusMacAddress"), ("DOCS-IF-MIB", "docsIfCmtsCmStatusValue"))
-if mibBuilder.loadTexts: rdnCableModemStatusV2.setStatus('current')
-mibBuilder.exportSymbols("RDN-SMSTraps-MIB", rdnCableModemV2Traps=rdnCableModemV2Traps, rdnCableModemStatusV2=rdnCableModemStatusV2, rdnCableModemStatusV1=rdnCableModemStatusV1, rdnCableModemV1Traps=rdnCableModemV1Traps, rdnSubscriberTraps=rdnSubscriberTraps)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/RDN-SMSTraps-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:46:15 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(docsIfCmtsCmStatusMacAddress,
+ docsIfCmtsCmStatusValue) = mibBuilder.importSymbols(
+    "DOCS-IF-MIB",
+    "docsIfCmtsCmStatusMacAddress",
+    "docsIfCmtsCmStatusValue")
+
+(riverdelta,) = mibBuilder.importSymbols(
+    "RDN-MIB",
+    "riverdelta")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ NotificationType,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "NotificationType",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_RdnSubscriberTraps_ObjectIdentity = ObjectIdentity
+rdnSubscriberTraps = _RdnSubscriberTraps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4981, 5)
+)
+_RdnCableModemV1Traps_ObjectIdentity = ObjectIdentity
+rdnCableModemV1Traps = _RdnCableModemV1Traps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4981, 5, 1)
+)
+_RdnCableModemV2Traps_ObjectIdentity = ObjectIdentity
+rdnCableModemV2Traps = _RdnCableModemV2Traps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4981, 5, 2)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+rdnCableModemStatusV1 = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4981, 0, 1)
+)
+rdnCableModemStatusV1.setObjects(
+      *(("DOCS-IF-MIB", "docsIfCmtsCmStatusMacAddress"),
+        ("DOCS-IF-MIB", "docsIfCmtsCmStatusValue"))
+)
+if mibBuilder.loadTexts:
+    rdnCableModemStatusV1.setStatus(
+        ""
+    )
+
+rdnCableModemStatusV2 = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4981, 5, 2, 1)
+)
+rdnCableModemStatusV2.setObjects(
+      *(("DOCS-IF-MIB", "docsIfCmtsCmStatusMacAddress"),
+        ("DOCS-IF-MIB", "docsIfCmtsCmStatusValue"))
+)
+if mibBuilder.loadTexts:
+    rdnCableModemStatusV2.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "RDN-SMSTraps-MIB",
+    **{"rdnCableModemStatusV1": rdnCableModemStatusV1,
+       "rdnSubscriberTraps": rdnSubscriberTraps,
+       "rdnCableModemV1Traps": rdnCableModemV1Traps,
+       "rdnCableModemV2Traps": rdnCableModemV2Traps,
+       "rdnCableModemStatusV2": rdnCableModemStatusV2}
+)

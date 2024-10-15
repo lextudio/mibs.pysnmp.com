@@ -1,235 +1,1273 @@
+# SNMP MIB module (NNC-NOTIFICATION-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module NNC-NOTIFICATION-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/NNC-NOTIFICATION-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:12:59 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint")
-nncExtensions, = mibBuilder.importSymbols("NNCGNI00X1-SMI", "nncExtensions")
-NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, iso, Counter32, Counter64, TimeTicks, MibIdentifier, NotificationType, ObjectIdentity, ModuleIdentity, Integer32, Gauge32, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "iso", "Counter32", "Counter64", "TimeTicks", "MibIdentifier", "NotificationType", "ObjectIdentity", "ModuleIdentity", "Integer32", "Gauge32", "Unsigned32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-nncExtNotif = ModuleIdentity((1, 3, 6, 1, 4, 1, 123, 3, 44))
-if mibBuilder.loadTexts: nncExtNotif.setLastUpdated('9704220000Z')
-if mibBuilder.loadTexts: nncExtNotif.setOrganization('Newbridge Networks Corporation')
-nncExtNotifObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 123, 3, 44, 1))
-nncExtNotifType = MibIdentifier((1, 3, 6, 1, 4, 1, 123, 3, 44, 2))
-nncExtNotifGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 123, 3, 44, 3))
-nncExtNotifCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 123, 3, 44, 4))
-nncExtNotifAlarmType = MibIdentifier((1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 1))
-nncExtNotifAlarmType_v1Trap = MibIdentifier((1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 1, 0)).setLabel("nncExtNotifAlarmType-v1Trap")
-nncExtNotifTroubleTicketType = MibIdentifier((1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 2))
-nncExtNotifTroubleTicketType_v1Trap = MibIdentifier((1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 2, 0)).setLabel("nncExtNotifTroubleTicketType-v1Trap")
-nncExtNotifHeartBeatType = MibIdentifier((1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 3))
-nncExtNotifHeartBeatType_v1Trap = MibIdentifier((1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 3, 0)).setLabel("nncExtNotifHeartBeatType-v1Trap")
-class CpssAddress(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 15)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/NNC-NOTIFICATION-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:28:13 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class StringType(DisplayString):
-    status = 'current'
-    subtypeSpec = DisplayString.subtypeSpec + ValueSizeConstraint(0, 30)
+if 'mibBuilder' not in globals():
+    import sys
 
-class ParameterStringType(DisplayString):
-    status = 'current'
-    subtypeSpec = DisplayString.subtypeSpec + ValueSizeConstraint(0, 40)
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-class NBNodeType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 42, 43, 44, 45, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76))
-    namedValues = NamedValues(("nd4601", 2), ("nd46020", 3), ("ndTAP", 4), ("nd3600", 5), ("nd3612", 6), ("nd3624", 7), ("nd3630", 8), ("nd5601", 9), ("nd5602", 10), ("nd5610", 11), ("nd4601A", 12), ("nd3645SU", 13), ("nd3645PU", 14), ("ndGeneric", 15), ("ndDEXCS1S", 16), ("nd3645DS3", 17), ("ndA3606V", 19), ("ndA3606D", 20), ("ndConnectExec", 21), ("nd36120", 22), ("nd3645E3", 23), ("nd36150", 24), ("nd3664", 25), ("ndTDAX100", 26), ("ndDACSII", 27), ("ndDEXCS1L", 28), ("ndDACSIIProxyAgent", 29), ("ndGenericDCS", 30), ("nd46020DN", 31), ("nd46020CN", 32), ("nd46020RT", 33), ("nd3620", 34), ("nd36170", 35), ("nd48020", 42), ("ndDCS31", 43), ("ndDCS33", 44), ("ndFRATM", 45), ("nd3620Rtr", 54), ("ndStatsCollector", 55), ("ndMVNMatm", 56), ("nd3600PLUS", 57), ("ndISDNAccess", 58), ("ndEmMgr", 59), ("ndEmGeneric", 60), ("nd2902", 61), ("nd3606IDSU", 62), ("nd36130", 63), ("nd1630SX", 64), ("nd36125", 65), ("nd36160", 66), ("nd36110-8", 67), ("nd36110-20", 68), ("nd36111-24", 69), ("nd36111-80", 70), ("ndIAG", 71), ("ndLAG", 72), ("ndMNSC", 73), ("ndMNSC-DN", 74), ("ndMNSC-CN", 75), ("nd36177", 76))
+# Import base ASN.1 objects even if this MIB does not use it
 
-class SysDescrType(DisplayString):
-    status = 'current'
-    subtypeSpec = DisplayString.subtypeSpec + ValueSizeConstraint(0, 50)
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
 
-class AlmPriorityType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("diagn", 1), ("minor", 2), ("major", 3), ("critical", 4))
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
 
-class AlmInfoType(StringType):
-    status = 'current'
+# Import SMI symbols from the MIBs this MIB depends on
 
-class TTFaultLocationType(DisplayString):
-    status = 'current'
-    subtypeSpec = DisplayString.subtypeSpec + ValueSizeConstraint(0, 50)
+(nncExtensions,) = mibBuilder.importSymbols(
+    "NNCGNI00X1-SMI",
+    "nncExtensions")
 
-class TTPriorityType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("warning", 1), ("minor", 2), ("major", 3), ("critical", 4))
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
 
-class TTFaultStatusType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
-    namedValues = NamedValues(("recovery", 1), ("isolate", 2), ("maintenanc", 3), ("verify", 4), ("cleared", 5), ("user", 6), ("custom", 7), ("tdaxNode", 8), ("dcsNode", 9), ("administrative", 10))
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
 
-class TThardwareFaultType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18))
-    namedValues = NamedValues(("psFailure", 1), ("wrongCdInSlot", 2), ("wrongModOnCd", 3), ("devFailure", 4), ("cdFailure", 5), ("tailEndCircGone", 6), ("cableFailure", 7), ("ringGenFailure", 8), ("modemIsBusted", 9), ("slotIsEmpty", 10), ("nvmIntegrityError", 11), ("ramIntegrityError", 12), ("romIntegrityError", 13), ("activitySwitch", 14), ("nodeProblem", 15), ("reconcileProblem", 16), ("devProblem", 17), ("cableProblem", 18))
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
 
-class TTsoftwareFaultType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9))
-    namedValues = NamedValues(("alarmQOverflow", 1), ("unsupportedCd", 2), ("unsupportedMod", 3), ("notConfigLocally", 4), ("unsupportedStatus", 5), ("alarmProblem", 6), ("busiedOut", 7), ("maximumHops", 8), ("swDownloadProblem", 9))
 
-class TTcommFaultType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1))
-    namedValues = NamedValues(("cannotTalkToNode", 1))
+# MODULE-IDENTITY
 
-class TTuserFaultType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("createdByUser", 1), ("createdBySystem", 2))
+nncExtNotif = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44)
+)
 
-class TTcustomNodeFaultType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("gfcAlarm", 1), ("customNodeLog", 2))
 
-class TTlanNodeFaultType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))
-    namedValues = NamedValues(("systemTable", 1), ("interfaceRow", 2), ("lanTrap", 3), ("circuitGroup", 4), ("lanPath", 5))
+# Types definitions
 
-class TTconnectExecFaultType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))
-    namedValues = NamedValues(("mibOutOfSync", 1), ("noReload", 2), ("reloadMIB", 3), ("pathProblem", 4), ("chgsrvQOverflow", 5), ("abnormalShutdown", 6), ("updateStarted", 7), ("reloadAbort", 8))
 
-class TTtDaxNodeFaultType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("nodeAlarm", 1), ("shelfAlarm", 2), ("cardAlarm", 3), ("portAlarm", 4))
+# TEXTUAL-CONVENTIONS
 
-class TTdcsNodeFaultType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("nodeAlarm", 1), ("shelfAlarm", 2), ("cardAlarm", 3), ("portAlarm", 4))
 
-class TTadminFaultType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
-    namedValues = NamedValues(("passwdViolation", 1), ("licenseViolation", 2), ("invalidLicenseKey", 3))
 
-class TTssdhRingFaultType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1))
-    namedValues = NamedValues(("upsrProblem", 1))
+class CpssAddress(OctetString, TextualConvention):
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 15),
+    )
 
-class TTextNodeFaultType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))
-    namedValues = NamedValues(("nodeAlarm", 1), ("shelfAlarm", 2), ("cardAlarm", 3), ("deviceAlarm", 4), ("fanAlarm", 5))
 
-class TTcongestionFaultType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
-    namedValues = NamedValues(("none", 1), ("mild", 2), ("severe", 3))
 
-nncNodeInfo = MibTable((1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 1), )
-if mibBuilder.loadTexts: nncNodeInfo.setStatus('current')
-nncNodeIPAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 1, 1), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nncNodeIPAddr.setStatus('current')
-nncNodeCPSSAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 1, 2), CpssAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nncNodeCPSSAddr.setStatus('current')
-nncNodeType = MibTableColumn((1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 1, 3), NBNodeType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nncNodeType.setStatus('current')
-nncNodeFullName = MibTableColumn((1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 1, 4), StringType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nncNodeFullName.setStatus('current')
-nncAlmInfo = MibTable((1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 2), )
-if mibBuilder.loadTexts: nncAlmInfo.setStatus('current')
-nncAlmDateAndTime = MibTableColumn((1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 2, 1), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nncAlmDateAndTime.setStatus('current')
-nncAlmPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 2, 2), AlmPriorityType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nncAlmPriority.setStatus('current')
-nncAlmText = MibTableColumn((1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 2, 3), StringType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nncAlmText.setStatus('current')
-nncTTInfo = MibTable((1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 3), )
-if mibBuilder.loadTexts: nncTTInfo.setStatus('current')
-nncTTFaultType = MibTable((1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 4), )
-if mibBuilder.loadTexts: nncTTFaultType.setStatus('current')
-nncTTDateAndTime = MibTableColumn((1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 3, 1), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nncTTDateAndTime.setStatus('current')
-nncTTPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 3, 2), TTPriorityType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nncTTPriority.setStatus('current')
-nncTTFaultLocation = MibTableColumn((1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 3, 3), TTFaultLocationType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nncTTFaultLocation.setStatus('current')
-nncTTFaultStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 3, 4), TTFaultStatusType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nncTTFaultStatus.setStatus('current')
-nncTTOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 3, 5), StringType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nncTTOwner.setStatus('current')
-nncExtNotifAlarm = NotificationType((1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 1, 0, 1)).setObjects(("NNC-NOTIFICATION-MIB", "nncNodeInfo"), ("NNC-NOTIFICATION-MIB", "nncAlmInfo"))
-if mibBuilder.loadTexts: nncExtNotifAlarm.setStatus('current')
-nncExtNotifHardwareTT = NotificationType((1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 2, 0, 2)).setObjects(("NNC-NOTIFICATION-MIB", "nncNodeInfo"), ("NNC-NOTIFICATION-MIB", "nncTThardwareFaultType"), ("NNC-NOTIFICATION-MIB", "nncTTInfo"))
-if mibBuilder.loadTexts: nncExtNotifHardwareTT.setStatus('current')
-nncExtNotifSoftwareTT = NotificationType((1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 2, 0, 3)).setObjects(("NNC-NOTIFICATION-MIB", "nncNodeInfo"), ("NNC-NOTIFICATION-MIB", "nncTTsoftwareFaultType"), ("NNC-NOTIFICATION-MIB", "nncTTInfo"))
-if mibBuilder.loadTexts: nncExtNotifSoftwareTT.setStatus('current')
-nncExtNotifCommTT = NotificationType((1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 2, 0, 4)).setObjects(("NNC-NOTIFICATION-MIB", "nncNodeInfo"), ("NNC-NOTIFICATION-MIB", "nncTTcommFaultType"), ("NNC-NOTIFICATION-MIB", "nncTTInfo"))
-if mibBuilder.loadTexts: nncExtNotifCommTT.setStatus('current')
-nncExtNotifUserTT = NotificationType((1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 2, 0, 5)).setObjects(("NNC-NOTIFICATION-MIB", "nncNodeInfo"), ("NNC-NOTIFICATION-MIB", "nncTTuserFaultType"), ("NNC-NOTIFICATION-MIB", "nncTTInfo"))
-if mibBuilder.loadTexts: nncExtNotifUserTT.setStatus('current')
-nncExtNotifCustomNodeTT = NotificationType((1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 2, 0, 6)).setObjects(("NNC-NOTIFICATION-MIB", "nncNodeInfo"), ("NNC-NOTIFICATION-MIB", "nncTTcustomNodeFaultType"), ("NNC-NOTIFICATION-MIB", "nncTTInfo"))
-if mibBuilder.loadTexts: nncExtNotifCustomNodeTT.setStatus('current')
-nncExtNotifLanNodeTT = NotificationType((1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 2, 0, 7)).setObjects(("NNC-NOTIFICATION-MIB", "nncNodeInfo"), ("NNC-NOTIFICATION-MIB", "nncTTlanNodeFaultType"), ("NNC-NOTIFICATION-MIB", "nncTTInfo"))
-if mibBuilder.loadTexts: nncExtNotifLanNodeTT.setStatus('current')
-nncExtNotifConnectExecTT = NotificationType((1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 2, 0, 8)).setObjects(("NNC-NOTIFICATION-MIB", "nncNodeInfo"), ("NNC-NOTIFICATION-MIB", "nncTTconnectExecFaultType"), ("NNC-NOTIFICATION-MIB", "nncTTInfo"))
-if mibBuilder.loadTexts: nncExtNotifConnectExecTT.setStatus('current')
-nncExtNotifTDaxNodeTT = NotificationType((1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 2, 0, 9)).setObjects(("NNC-NOTIFICATION-MIB", "nncNodeInfo"), ("NNC-NOTIFICATION-MIB", "nncTTtDaxNodeFaultType"), ("NNC-NOTIFICATION-MIB", "nncTTInfo"))
-if mibBuilder.loadTexts: nncExtNotifTDaxNodeTT.setStatus('current')
-nncExtNotifAdminTT = NotificationType((1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 2, 0, 10)).setObjects(("NNC-NOTIFICATION-MIB", "nncNodeInfo"), ("NNC-NOTIFICATION-MIB", "nncTTadminFaultType"), ("NNC-NOTIFICATION-MIB", "nncTTInfo"))
-if mibBuilder.loadTexts: nncExtNotifAdminTT.setStatus('current')
-nncExtNotifSsdhRingTT = NotificationType((1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 2, 0, 11)).setObjects(("NNC-NOTIFICATION-MIB", "nncNodeInfo"), ("NNC-NOTIFICATION-MIB", "nncTTssdhRingFaultType"), ("NNC-NOTIFICATION-MIB", "nncTTInfo"))
-if mibBuilder.loadTexts: nncExtNotifSsdhRingTT.setStatus('current')
-nncExtNotifExternalNodeTT = NotificationType((1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 2, 0, 12)).setObjects(("NNC-NOTIFICATION-MIB", "nncNodeInfo"), ("NNC-NOTIFICATION-MIB", "nncTTextNodeFaultType"), ("NNC-NOTIFICATION-MIB", "nncTTInfo"))
-if mibBuilder.loadTexts: nncExtNotifExternalNodeTT.setStatus('current')
-nncExtNotifCongestionTT = NotificationType((1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 2, 0, 13)).setObjects(("NNC-NOTIFICATION-MIB", "nncNodeInfo"), ("NNC-NOTIFICATION-MIB", "nncTTcongestionFaultType"), ("NNC-NOTIFICATION-MIB", "nncTTInfo"))
-if mibBuilder.loadTexts: nncExtNotifCongestionTT.setStatus('current')
-nncExtNotifHeartBeat = NotificationType((1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 3, 0, 1)).setObjects(("NNC-NOTIFICATION-MIB", "nncSysDescr"), ("NNC-NOTIFICATION-MIB", "nncSysUpTime"))
-if mibBuilder.loadTexts: nncExtNotifHeartBeat.setStatus('current')
-nncHeartBeatInfo = MibTable((1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 5), )
-if mibBuilder.loadTexts: nncHeartBeatInfo.setStatus('current')
-nncSysDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 5, 1), SysDescrType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nncSysDescr.setStatus('current')
-nncSysUpTime = MibTableColumn((1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 5, 2), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nncSysUpTime.setStatus('current')
-nncTThardwareFaultType = MibTableColumn((1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 4, 1), TThardwareFaultType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nncTThardwareFaultType.setStatus('current')
-nncTTsoftwareFaultType = MibTableColumn((1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 4, 2), TTsoftwareFaultType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nncTTsoftwareFaultType.setStatus('current')
-nncTTcommFaultType = MibTableColumn((1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 4, 3), TTcommFaultType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nncTTcommFaultType.setStatus('current')
-nncTTuserFaultType = MibTableColumn((1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 4, 4), TTuserFaultType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nncTTuserFaultType.setStatus('current')
-nncTTcustomNodeFaultType = MibTableColumn((1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 4, 5), TTcustomNodeFaultType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nncTTcustomNodeFaultType.setStatus('current')
-nncTTlanNodeFaultType = MibTableColumn((1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 4, 6), TTlanNodeFaultType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nncTTlanNodeFaultType.setStatus('current')
-nncTTconnectExecFaultType = MibTableColumn((1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 4, 7), TTconnectExecFaultType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nncTTconnectExecFaultType.setStatus('current')
-nncTTtDaxNodeFaultType = MibTableColumn((1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 4, 8), TTtDaxNodeFaultType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nncTTtDaxNodeFaultType.setStatus('current')
-nncTTdcsNodeFaultType = MibTableColumn((1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 4, 9), TTdcsNodeFaultType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nncTTdcsNodeFaultType.setStatus('current')
-nncTTadminFaultType = MibTableColumn((1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 4, 10), TTadminFaultType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nncTTadminFaultType.setStatus('current')
-nncTTssdhRingFaultType = MibTableColumn((1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 4, 11), TTssdhRingFaultType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nncTTssdhRingFaultType.setStatus('current')
-nncTTextNodeFaultType = MibTableColumn((1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 4, 12), TTextNodeFaultType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nncTTextNodeFaultType.setStatus('current')
-nncTTcongestionFaultType = MibTableColumn((1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 4, 13), TTcongestionFaultType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nncTTcongestionFaultType.setStatus('current')
-nncExtNotifGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 123, 3, 44, 3, 1)).setObjects(("NNC-NOTIFICATION-MIB", "nncNodeInfo"), ("NNC-NOTIFICATION-MIB", "nncAlmInfo"), ("NNC-NOTIFICATION-MIB", "nncTTInfo"), ("NNC-NOTIFICATION-MIB", "nncTTFaultType"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    nncExtNotifGroup = nncExtNotifGroup.setStatus('current')
-nncExtNotifCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 123, 3, 44, 4, 1)).setObjects()
+class StringType(DisplayString, TextualConvention):
+    status = "current"
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 30),
+    )
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    nncExtNotifCompliance = nncExtNotifCompliance.setStatus('current')
-mibBuilder.exportSymbols("NNC-NOTIFICATION-MIB", nncExtNotifCongestionTT=nncExtNotifCongestionTT, TTdcsNodeFaultType=TTdcsNodeFaultType, nncSysUpTime=nncSysUpTime, nncExtNotifConnectExecTT=nncExtNotifConnectExecTT, nncAlmText=nncAlmText, nncTTssdhRingFaultType=nncTTssdhRingFaultType, nncExtNotifTroubleTicketType=nncExtNotifTroubleTicketType, nncExtNotifObjects=nncExtNotifObjects, nncExtNotifCompliances=nncExtNotifCompliances, nncExtNotifCommTT=nncExtNotifCommTT, nncExtNotifAdminTT=nncExtNotifAdminTT, AlmPriorityType=AlmPriorityType, StringType=StringType, ParameterStringType=ParameterStringType, nncTTdcsNodeFaultType=nncTTdcsNodeFaultType, nncTTconnectExecFaultType=nncTTconnectExecFaultType, nncExtNotifAlarm=nncExtNotifAlarm, nncNodeType=nncNodeType, nncExtNotifAlarmType_v1Trap=nncExtNotifAlarmType_v1Trap, nncTTInfo=nncTTInfo, TTconnectExecFaultType=TTconnectExecFaultType, PYSNMP_MODULE_ID=nncExtNotif, nncExtNotifHeartBeatType_v1Trap=nncExtNotifHeartBeatType_v1Trap, nncNodeIPAddr=nncNodeIPAddr, nncExtNotif=nncExtNotif, nncTTDateAndTime=nncTTDateAndTime, TTlanNodeFaultType=TTlanNodeFaultType, CpssAddress=CpssAddress, nncExtNotifGroups=nncExtNotifGroups, nncExtNotifHeartBeat=nncExtNotifHeartBeat, nncTTOwner=nncTTOwner, nncAlmDateAndTime=nncAlmDateAndTime, nncAlmPriority=nncAlmPriority, nncSysDescr=nncSysDescr, TTuserFaultType=TTuserFaultType, nncExtNotifAlarmType=nncExtNotifAlarmType, nncTTuserFaultType=nncTTuserFaultType, nncExtNotifTroubleTicketType_v1Trap=nncExtNotifTroubleTicketType_v1Trap, TTFaultLocationType=TTFaultLocationType, nncExtNotifGroup=nncExtNotifGroup, nncTTadminFaultType=nncTTadminFaultType, nncExtNotifSsdhRingTT=nncExtNotifSsdhRingTT, nncTTextNodeFaultType=nncTTextNodeFaultType, nncAlmInfo=nncAlmInfo, TTcustomNodeFaultType=TTcustomNodeFaultType, nncTTFaultLocation=nncTTFaultLocation, nncExtNotifUserTT=nncExtNotifUserTT, TTPriorityType=TTPriorityType, nncNodeFullName=nncNodeFullName, nncNodeInfo=nncNodeInfo, TTssdhRingFaultType=TTssdhRingFaultType, nncExtNotifHeartBeatType=nncExtNotifHeartBeatType, nncExtNotifCompliance=nncExtNotifCompliance, nncNodeCPSSAddr=nncNodeCPSSAddr, nncHeartBeatInfo=nncHeartBeatInfo, nncExtNotifType=nncExtNotifType, nncTTPriority=nncTTPriority, TThardwareFaultType=TThardwareFaultType, TTsoftwareFaultType=TTsoftwareFaultType, TTcommFaultType=TTcommFaultType, nncTTFaultStatus=nncTTFaultStatus, nncTTcommFaultType=nncTTcommFaultType, AlmInfoType=AlmInfoType, nncTTlanNodeFaultType=nncTTlanNodeFaultType, nncTThardwareFaultType=nncTThardwareFaultType, nncTTtDaxNodeFaultType=nncTTtDaxNodeFaultType, TTadminFaultType=TTadminFaultType, nncExtNotifLanNodeTT=nncExtNotifLanNodeTT, TTFaultStatusType=TTFaultStatusType, nncTTsoftwareFaultType=nncTTsoftwareFaultType, TTcongestionFaultType=TTcongestionFaultType, NBNodeType=NBNodeType, nncExtNotifSoftwareTT=nncExtNotifSoftwareTT, nncExtNotifCustomNodeTT=nncExtNotifCustomNodeTT, nncExtNotifExternalNodeTT=nncExtNotifExternalNodeTT, nncTTcongestionFaultType=nncTTcongestionFaultType, nncExtNotifTDaxNodeTT=nncExtNotifTDaxNodeTT, nncTTcustomNodeFaultType=nncTTcustomNodeFaultType, TTextNodeFaultType=TTextNodeFaultType, nncTTFaultType=nncTTFaultType, SysDescrType=SysDescrType, nncExtNotifHardwareTT=nncExtNotifHardwareTT, TTtDaxNodeFaultType=TTtDaxNodeFaultType)
+
+
+class ParameterStringType(DisplayString, TextualConvention):
+    status = "current"
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 40),
+    )
+
+
+
+class NBNodeType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              42,
+              43,
+              44,
+              45,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60,
+              61,
+              62,
+              63,
+              64,
+              65,
+              66,
+              67,
+              68,
+              69,
+              70,
+              71,
+              72,
+              73,
+              74,
+              75,
+              76)
+        )
+    )
+    namedValues = NamedValues(
+        *(("nd1630SX", 64),
+          ("nd2902", 61),
+          ("nd3600", 5),
+          ("nd3600PLUS", 57),
+          ("nd3606IDSU", 62),
+          ("nd36110-20", 68),
+          ("nd36110-8", 67),
+          ("nd36111-24", 69),
+          ("nd36111-80", 70),
+          ("nd3612", 6),
+          ("nd36120", 22),
+          ("nd36125", 65),
+          ("nd36130", 63),
+          ("nd36150", 24),
+          ("nd36160", 66),
+          ("nd36170", 35),
+          ("nd36177", 76),
+          ("nd3620", 34),
+          ("nd3620Rtr", 54),
+          ("nd3624", 7),
+          ("nd3630", 8),
+          ("nd3645DS3", 17),
+          ("nd3645E3", 23),
+          ("nd3645PU", 14),
+          ("nd3645SU", 13),
+          ("nd3664", 25),
+          ("nd4601", 2),
+          ("nd4601A", 12),
+          ("nd46020", 3),
+          ("nd46020CN", 32),
+          ("nd46020DN", 31),
+          ("nd46020RT", 33),
+          ("nd48020", 42),
+          ("nd5601", 9),
+          ("nd5602", 10),
+          ("nd5610", 11),
+          ("ndA3606D", 20),
+          ("ndA3606V", 19),
+          ("ndConnectExec", 21),
+          ("ndDACSII", 27),
+          ("ndDACSIIProxyAgent", 29),
+          ("ndDCS31", 43),
+          ("ndDCS33", 44),
+          ("ndDEXCS1L", 28),
+          ("ndDEXCS1S", 16),
+          ("ndEmGeneric", 60),
+          ("ndEmMgr", 59),
+          ("ndFRATM", 45),
+          ("ndGeneric", 15),
+          ("ndGenericDCS", 30),
+          ("ndIAG", 71),
+          ("ndISDNAccess", 58),
+          ("ndLAG", 72),
+          ("ndMNSC", 73),
+          ("ndMNSC-CN", 75),
+          ("ndMNSC-DN", 74),
+          ("ndMVNMatm", 56),
+          ("ndStatsCollector", 55),
+          ("ndTAP", 4),
+          ("ndTDAX100", 26))
+    )
+
+
+
+class SysDescrType(DisplayString, TextualConvention):
+    status = "current"
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 50),
+    )
+
+
+
+class AlmPriorityType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("critical", 4),
+          ("diagn", 1),
+          ("major", 3),
+          ("minor", 2))
+    )
+
+
+
+class AlmInfoType(StringType, TextualConvention):
+    status = "current"
+
+
+class TTFaultLocationType(DisplayString, TextualConvention):
+    status = "current"
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 50),
+    )
+
+
+
+class TTPriorityType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("critical", 4),
+          ("major", 3),
+          ("minor", 2),
+          ("warning", 1))
+    )
+
+
+
+class TTFaultStatusType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10)
+        )
+    )
+    namedValues = NamedValues(
+        *(("administrative", 10),
+          ("cleared", 5),
+          ("custom", 7),
+          ("dcsNode", 9),
+          ("isolate", 2),
+          ("maintenanc", 3),
+          ("recovery", 1),
+          ("tdaxNode", 8),
+          ("user", 6),
+          ("verify", 4))
+    )
+
+
+
+class TThardwareFaultType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18)
+        )
+    )
+    namedValues = NamedValues(
+        *(("activitySwitch", 14),
+          ("cableFailure", 7),
+          ("cableProblem", 18),
+          ("cdFailure", 5),
+          ("devFailure", 4),
+          ("devProblem", 17),
+          ("modemIsBusted", 9),
+          ("nodeProblem", 15),
+          ("nvmIntegrityError", 11),
+          ("psFailure", 1),
+          ("ramIntegrityError", 12),
+          ("reconcileProblem", 16),
+          ("ringGenFailure", 8),
+          ("romIntegrityError", 13),
+          ("slotIsEmpty", 10),
+          ("tailEndCircGone", 6),
+          ("wrongCdInSlot", 2),
+          ("wrongModOnCd", 3))
+    )
+
+
+
+class TTsoftwareFaultType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9)
+        )
+    )
+    namedValues = NamedValues(
+        *(("alarmProblem", 6),
+          ("alarmQOverflow", 1),
+          ("busiedOut", 7),
+          ("maximumHops", 8),
+          ("notConfigLocally", 4),
+          ("swDownloadProblem", 9),
+          ("unsupportedCd", 2),
+          ("unsupportedMod", 3),
+          ("unsupportedStatus", 5))
+    )
+
+
+
+class TTcommFaultType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            1
+        )
+    )
+    namedValues = NamedValues(
+        ("cannotTalkToNode", 1)
+    )
+
+
+
+class TTuserFaultType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("createdBySystem", 2),
+          ("createdByUser", 1))
+    )
+
+
+
+class TTcustomNodeFaultType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("customNodeLog", 2),
+          ("gfcAlarm", 1))
+    )
+
+
+
+class TTlanNodeFaultType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("circuitGroup", 4),
+          ("interfaceRow", 2),
+          ("lanPath", 5),
+          ("lanTrap", 3),
+          ("systemTable", 1))
+    )
+
+
+
+class TTconnectExecFaultType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("abnormalShutdown", 6),
+          ("chgsrvQOverflow", 5),
+          ("mibOutOfSync", 1),
+          ("noReload", 2),
+          ("pathProblem", 4),
+          ("reloadAbort", 8),
+          ("reloadMIB", 3),
+          ("updateStarted", 7))
+    )
+
+
+
+class TTtDaxNodeFaultType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("cardAlarm", 3),
+          ("nodeAlarm", 1),
+          ("portAlarm", 4),
+          ("shelfAlarm", 2))
+    )
+
+
+
+class TTdcsNodeFaultType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("cardAlarm", 3),
+          ("nodeAlarm", 1),
+          ("portAlarm", 4),
+          ("shelfAlarm", 2))
+    )
+
+
+
+class TTadminFaultType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("invalidLicenseKey", 3),
+          ("licenseViolation", 2),
+          ("passwdViolation", 1))
+    )
+
+
+
+class TTssdhRingFaultType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            1
+        )
+    )
+    namedValues = NamedValues(
+        ("upsrProblem", 1)
+    )
+
+
+
+class TTextNodeFaultType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("cardAlarm", 3),
+          ("deviceAlarm", 4),
+          ("fanAlarm", 5),
+          ("nodeAlarm", 1),
+          ("shelfAlarm", 2))
+    )
+
+
+
+class TTcongestionFaultType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("mild", 2),
+          ("none", 1),
+          ("severe", 3))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_NncExtNotifObjects_ObjectIdentity = ObjectIdentity
+nncExtNotifObjects = _NncExtNotifObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 1)
+)
+_NncNodeInfo_Object = MibTable
+nncNodeInfo = _NncNodeInfo_Object(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 1)
+)
+if mibBuilder.loadTexts:
+    nncNodeInfo.setStatus("current")
+_NncNodeIPAddr_Type = IpAddress
+_NncNodeIPAddr_Object = MibTableColumn
+nncNodeIPAddr = _NncNodeIPAddr_Object(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 1, 1),
+    _NncNodeIPAddr_Type()
+)
+nncNodeIPAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nncNodeIPAddr.setStatus("current")
+_NncNodeCPSSAddr_Type = CpssAddress
+_NncNodeCPSSAddr_Object = MibTableColumn
+nncNodeCPSSAddr = _NncNodeCPSSAddr_Object(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 1, 2),
+    _NncNodeCPSSAddr_Type()
+)
+nncNodeCPSSAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nncNodeCPSSAddr.setStatus("current")
+_NncNodeType_Type = NBNodeType
+_NncNodeType_Object = MibTableColumn
+nncNodeType = _NncNodeType_Object(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 1, 3),
+    _NncNodeType_Type()
+)
+nncNodeType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nncNodeType.setStatus("current")
+_NncNodeFullName_Type = StringType
+_NncNodeFullName_Object = MibTableColumn
+nncNodeFullName = _NncNodeFullName_Object(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 1, 4),
+    _NncNodeFullName_Type()
+)
+nncNodeFullName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nncNodeFullName.setStatus("current")
+_NncAlmInfo_Object = MibTable
+nncAlmInfo = _NncAlmInfo_Object(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 2)
+)
+if mibBuilder.loadTexts:
+    nncAlmInfo.setStatus("current")
+_NncAlmDateAndTime_Type = TimeTicks
+_NncAlmDateAndTime_Object = MibTableColumn
+nncAlmDateAndTime = _NncAlmDateAndTime_Object(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 2, 1),
+    _NncAlmDateAndTime_Type()
+)
+nncAlmDateAndTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nncAlmDateAndTime.setStatus("current")
+_NncAlmPriority_Type = AlmPriorityType
+_NncAlmPriority_Object = MibTableColumn
+nncAlmPriority = _NncAlmPriority_Object(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 2, 2),
+    _NncAlmPriority_Type()
+)
+nncAlmPriority.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nncAlmPriority.setStatus("current")
+_NncAlmText_Type = StringType
+_NncAlmText_Object = MibTableColumn
+nncAlmText = _NncAlmText_Object(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 2, 3),
+    _NncAlmText_Type()
+)
+nncAlmText.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nncAlmText.setStatus("current")
+_NncTTInfo_Object = MibTable
+nncTTInfo = _NncTTInfo_Object(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 3)
+)
+if mibBuilder.loadTexts:
+    nncTTInfo.setStatus("current")
+_NncTTDateAndTime_Type = TimeTicks
+_NncTTDateAndTime_Object = MibTableColumn
+nncTTDateAndTime = _NncTTDateAndTime_Object(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 3, 1),
+    _NncTTDateAndTime_Type()
+)
+nncTTDateAndTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nncTTDateAndTime.setStatus("current")
+_NncTTPriority_Type = TTPriorityType
+_NncTTPriority_Object = MibTableColumn
+nncTTPriority = _NncTTPriority_Object(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 3, 2),
+    _NncTTPriority_Type()
+)
+nncTTPriority.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nncTTPriority.setStatus("current")
+_NncTTFaultLocation_Type = TTFaultLocationType
+_NncTTFaultLocation_Object = MibTableColumn
+nncTTFaultLocation = _NncTTFaultLocation_Object(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 3, 3),
+    _NncTTFaultLocation_Type()
+)
+nncTTFaultLocation.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nncTTFaultLocation.setStatus("current")
+_NncTTFaultStatus_Type = TTFaultStatusType
+_NncTTFaultStatus_Object = MibTableColumn
+nncTTFaultStatus = _NncTTFaultStatus_Object(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 3, 4),
+    _NncTTFaultStatus_Type()
+)
+nncTTFaultStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nncTTFaultStatus.setStatus("current")
+_NncTTOwner_Type = StringType
+_NncTTOwner_Object = MibTableColumn
+nncTTOwner = _NncTTOwner_Object(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 3, 5),
+    _NncTTOwner_Type()
+)
+nncTTOwner.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nncTTOwner.setStatus("current")
+_NncTTFaultType_Object = MibTable
+nncTTFaultType = _NncTTFaultType_Object(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 4)
+)
+if mibBuilder.loadTexts:
+    nncTTFaultType.setStatus("current")
+_NncTThardwareFaultType_Type = TThardwareFaultType
+_NncTThardwareFaultType_Object = MibTableColumn
+nncTThardwareFaultType = _NncTThardwareFaultType_Object(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 4, 1),
+    _NncTThardwareFaultType_Type()
+)
+nncTThardwareFaultType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nncTThardwareFaultType.setStatus("current")
+_NncTTsoftwareFaultType_Type = TTsoftwareFaultType
+_NncTTsoftwareFaultType_Object = MibTableColumn
+nncTTsoftwareFaultType = _NncTTsoftwareFaultType_Object(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 4, 2),
+    _NncTTsoftwareFaultType_Type()
+)
+nncTTsoftwareFaultType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nncTTsoftwareFaultType.setStatus("current")
+_NncTTcommFaultType_Type = TTcommFaultType
+_NncTTcommFaultType_Object = MibTableColumn
+nncTTcommFaultType = _NncTTcommFaultType_Object(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 4, 3),
+    _NncTTcommFaultType_Type()
+)
+nncTTcommFaultType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nncTTcommFaultType.setStatus("current")
+_NncTTuserFaultType_Type = TTuserFaultType
+_NncTTuserFaultType_Object = MibTableColumn
+nncTTuserFaultType = _NncTTuserFaultType_Object(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 4, 4),
+    _NncTTuserFaultType_Type()
+)
+nncTTuserFaultType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nncTTuserFaultType.setStatus("current")
+_NncTTcustomNodeFaultType_Type = TTcustomNodeFaultType
+_NncTTcustomNodeFaultType_Object = MibTableColumn
+nncTTcustomNodeFaultType = _NncTTcustomNodeFaultType_Object(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 4, 5),
+    _NncTTcustomNodeFaultType_Type()
+)
+nncTTcustomNodeFaultType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nncTTcustomNodeFaultType.setStatus("current")
+_NncTTlanNodeFaultType_Type = TTlanNodeFaultType
+_NncTTlanNodeFaultType_Object = MibTableColumn
+nncTTlanNodeFaultType = _NncTTlanNodeFaultType_Object(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 4, 6),
+    _NncTTlanNodeFaultType_Type()
+)
+nncTTlanNodeFaultType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nncTTlanNodeFaultType.setStatus("current")
+_NncTTconnectExecFaultType_Type = TTconnectExecFaultType
+_NncTTconnectExecFaultType_Object = MibTableColumn
+nncTTconnectExecFaultType = _NncTTconnectExecFaultType_Object(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 4, 7),
+    _NncTTconnectExecFaultType_Type()
+)
+nncTTconnectExecFaultType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nncTTconnectExecFaultType.setStatus("current")
+_NncTTtDaxNodeFaultType_Type = TTtDaxNodeFaultType
+_NncTTtDaxNodeFaultType_Object = MibTableColumn
+nncTTtDaxNodeFaultType = _NncTTtDaxNodeFaultType_Object(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 4, 8),
+    _NncTTtDaxNodeFaultType_Type()
+)
+nncTTtDaxNodeFaultType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nncTTtDaxNodeFaultType.setStatus("current")
+_NncTTdcsNodeFaultType_Type = TTdcsNodeFaultType
+_NncTTdcsNodeFaultType_Object = MibTableColumn
+nncTTdcsNodeFaultType = _NncTTdcsNodeFaultType_Object(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 4, 9),
+    _NncTTdcsNodeFaultType_Type()
+)
+nncTTdcsNodeFaultType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nncTTdcsNodeFaultType.setStatus("current")
+_NncTTadminFaultType_Type = TTadminFaultType
+_NncTTadminFaultType_Object = MibTableColumn
+nncTTadminFaultType = _NncTTadminFaultType_Object(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 4, 10),
+    _NncTTadminFaultType_Type()
+)
+nncTTadminFaultType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nncTTadminFaultType.setStatus("current")
+_NncTTssdhRingFaultType_Type = TTssdhRingFaultType
+_NncTTssdhRingFaultType_Object = MibTableColumn
+nncTTssdhRingFaultType = _NncTTssdhRingFaultType_Object(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 4, 11),
+    _NncTTssdhRingFaultType_Type()
+)
+nncTTssdhRingFaultType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nncTTssdhRingFaultType.setStatus("current")
+_NncTTextNodeFaultType_Type = TTextNodeFaultType
+_NncTTextNodeFaultType_Object = MibTableColumn
+nncTTextNodeFaultType = _NncTTextNodeFaultType_Object(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 4, 12),
+    _NncTTextNodeFaultType_Type()
+)
+nncTTextNodeFaultType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nncTTextNodeFaultType.setStatus("current")
+_NncTTcongestionFaultType_Type = TTcongestionFaultType
+_NncTTcongestionFaultType_Object = MibTableColumn
+nncTTcongestionFaultType = _NncTTcongestionFaultType_Object(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 4, 13),
+    _NncTTcongestionFaultType_Type()
+)
+nncTTcongestionFaultType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nncTTcongestionFaultType.setStatus("current")
+_NncHeartBeatInfo_Object = MibTable
+nncHeartBeatInfo = _NncHeartBeatInfo_Object(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 5)
+)
+if mibBuilder.loadTexts:
+    nncHeartBeatInfo.setStatus("current")
+_NncSysDescr_Type = SysDescrType
+_NncSysDescr_Object = MibTableColumn
+nncSysDescr = _NncSysDescr_Object(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 5, 1),
+    _NncSysDescr_Type()
+)
+nncSysDescr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nncSysDescr.setStatus("current")
+_NncSysUpTime_Type = TimeTicks
+_NncSysUpTime_Object = MibTableColumn
+nncSysUpTime = _NncSysUpTime_Object(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 1, 5, 2),
+    _NncSysUpTime_Type()
+)
+nncSysUpTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nncSysUpTime.setStatus("current")
+_NncExtNotifType_ObjectIdentity = ObjectIdentity
+nncExtNotifType = _NncExtNotifType_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 2)
+)
+_NncExtNotifAlarmType_ObjectIdentity = ObjectIdentity
+nncExtNotifAlarmType = _NncExtNotifAlarmType_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 1)
+)
+_NncExtNotifAlarmType_v1Trap_ObjectIdentity = ObjectIdentity
+nncExtNotifAlarmType_v1Trap = _NncExtNotifAlarmType_v1Trap_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 1, 0)
+)
+_NncExtNotifTroubleTicketType_ObjectIdentity = ObjectIdentity
+nncExtNotifTroubleTicketType = _NncExtNotifTroubleTicketType_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 2)
+)
+_NncExtNotifTroubleTicketType_v1Trap_ObjectIdentity = ObjectIdentity
+nncExtNotifTroubleTicketType_v1Trap = _NncExtNotifTroubleTicketType_v1Trap_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 2, 0)
+)
+_NncExtNotifHeartBeatType_ObjectIdentity = ObjectIdentity
+nncExtNotifHeartBeatType = _NncExtNotifHeartBeatType_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 3)
+)
+_NncExtNotifHeartBeatType_v1Trap_ObjectIdentity = ObjectIdentity
+nncExtNotifHeartBeatType_v1Trap = _NncExtNotifHeartBeatType_v1Trap_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 3, 0)
+)
+_NncExtNotifGroups_ObjectIdentity = ObjectIdentity
+nncExtNotifGroups = _NncExtNotifGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 3)
+)
+_NncExtNotifCompliances_ObjectIdentity = ObjectIdentity
+nncExtNotifCompliances = _NncExtNotifCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 4)
+)
+
+# Managed Objects groups
+
+nncExtNotifGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 3, 1)
+)
+nncExtNotifGroup.setObjects(
+      *(("NNC-NOTIFICATION-MIB", "nncNodeInfo"),
+        ("NNC-NOTIFICATION-MIB", "nncAlmInfo"),
+        ("NNC-NOTIFICATION-MIB", "nncTTInfo"),
+        ("NNC-NOTIFICATION-MIB", "nncTTFaultType"))
+)
+if mibBuilder.loadTexts:
+    nncExtNotifGroup.setStatus("current")
+
+
+# Notification objects
+
+nncExtNotifAlarm = NotificationType(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 1, 0, 1)
+)
+nncExtNotifAlarm.setObjects(
+      *(("NNC-NOTIFICATION-MIB", "nncNodeInfo"),
+        ("NNC-NOTIFICATION-MIB", "nncAlmInfo"))
+)
+if mibBuilder.loadTexts:
+    nncExtNotifAlarm.setStatus(
+        "current"
+    )
+
+nncExtNotifHardwareTT = NotificationType(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 2, 0, 2)
+)
+nncExtNotifHardwareTT.setObjects(
+      *(("NNC-NOTIFICATION-MIB", "nncNodeInfo"),
+        ("NNC-NOTIFICATION-MIB", "nncTThardwareFaultType"),
+        ("NNC-NOTIFICATION-MIB", "nncTTInfo"))
+)
+if mibBuilder.loadTexts:
+    nncExtNotifHardwareTT.setStatus(
+        "current"
+    )
+
+nncExtNotifSoftwareTT = NotificationType(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 2, 0, 3)
+)
+nncExtNotifSoftwareTT.setObjects(
+      *(("NNC-NOTIFICATION-MIB", "nncNodeInfo"),
+        ("NNC-NOTIFICATION-MIB", "nncTTsoftwareFaultType"),
+        ("NNC-NOTIFICATION-MIB", "nncTTInfo"))
+)
+if mibBuilder.loadTexts:
+    nncExtNotifSoftwareTT.setStatus(
+        "current"
+    )
+
+nncExtNotifCommTT = NotificationType(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 2, 0, 4)
+)
+nncExtNotifCommTT.setObjects(
+      *(("NNC-NOTIFICATION-MIB", "nncNodeInfo"),
+        ("NNC-NOTIFICATION-MIB", "nncTTcommFaultType"),
+        ("NNC-NOTIFICATION-MIB", "nncTTInfo"))
+)
+if mibBuilder.loadTexts:
+    nncExtNotifCommTT.setStatus(
+        "current"
+    )
+
+nncExtNotifUserTT = NotificationType(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 2, 0, 5)
+)
+nncExtNotifUserTT.setObjects(
+      *(("NNC-NOTIFICATION-MIB", "nncNodeInfo"),
+        ("NNC-NOTIFICATION-MIB", "nncTTuserFaultType"),
+        ("NNC-NOTIFICATION-MIB", "nncTTInfo"))
+)
+if mibBuilder.loadTexts:
+    nncExtNotifUserTT.setStatus(
+        "current"
+    )
+
+nncExtNotifCustomNodeTT = NotificationType(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 2, 0, 6)
+)
+nncExtNotifCustomNodeTT.setObjects(
+      *(("NNC-NOTIFICATION-MIB", "nncNodeInfo"),
+        ("NNC-NOTIFICATION-MIB", "nncTTcustomNodeFaultType"),
+        ("NNC-NOTIFICATION-MIB", "nncTTInfo"))
+)
+if mibBuilder.loadTexts:
+    nncExtNotifCustomNodeTT.setStatus(
+        "current"
+    )
+
+nncExtNotifLanNodeTT = NotificationType(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 2, 0, 7)
+)
+nncExtNotifLanNodeTT.setObjects(
+      *(("NNC-NOTIFICATION-MIB", "nncNodeInfo"),
+        ("NNC-NOTIFICATION-MIB", "nncTTlanNodeFaultType"),
+        ("NNC-NOTIFICATION-MIB", "nncTTInfo"))
+)
+if mibBuilder.loadTexts:
+    nncExtNotifLanNodeTT.setStatus(
+        "current"
+    )
+
+nncExtNotifConnectExecTT = NotificationType(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 2, 0, 8)
+)
+nncExtNotifConnectExecTT.setObjects(
+      *(("NNC-NOTIFICATION-MIB", "nncNodeInfo"),
+        ("NNC-NOTIFICATION-MIB", "nncTTconnectExecFaultType"),
+        ("NNC-NOTIFICATION-MIB", "nncTTInfo"))
+)
+if mibBuilder.loadTexts:
+    nncExtNotifConnectExecTT.setStatus(
+        "current"
+    )
+
+nncExtNotifTDaxNodeTT = NotificationType(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 2, 0, 9)
+)
+nncExtNotifTDaxNodeTT.setObjects(
+      *(("NNC-NOTIFICATION-MIB", "nncNodeInfo"),
+        ("NNC-NOTIFICATION-MIB", "nncTTtDaxNodeFaultType"),
+        ("NNC-NOTIFICATION-MIB", "nncTTInfo"))
+)
+if mibBuilder.loadTexts:
+    nncExtNotifTDaxNodeTT.setStatus(
+        "current"
+    )
+
+nncExtNotifAdminTT = NotificationType(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 2, 0, 10)
+)
+nncExtNotifAdminTT.setObjects(
+      *(("NNC-NOTIFICATION-MIB", "nncNodeInfo"),
+        ("NNC-NOTIFICATION-MIB", "nncTTadminFaultType"),
+        ("NNC-NOTIFICATION-MIB", "nncTTInfo"))
+)
+if mibBuilder.loadTexts:
+    nncExtNotifAdminTT.setStatus(
+        "current"
+    )
+
+nncExtNotifSsdhRingTT = NotificationType(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 2, 0, 11)
+)
+nncExtNotifSsdhRingTT.setObjects(
+      *(("NNC-NOTIFICATION-MIB", "nncNodeInfo"),
+        ("NNC-NOTIFICATION-MIB", "nncTTssdhRingFaultType"),
+        ("NNC-NOTIFICATION-MIB", "nncTTInfo"))
+)
+if mibBuilder.loadTexts:
+    nncExtNotifSsdhRingTT.setStatus(
+        "current"
+    )
+
+nncExtNotifExternalNodeTT = NotificationType(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 2, 0, 12)
+)
+nncExtNotifExternalNodeTT.setObjects(
+      *(("NNC-NOTIFICATION-MIB", "nncNodeInfo"),
+        ("NNC-NOTIFICATION-MIB", "nncTTextNodeFaultType"),
+        ("NNC-NOTIFICATION-MIB", "nncTTInfo"))
+)
+if mibBuilder.loadTexts:
+    nncExtNotifExternalNodeTT.setStatus(
+        "current"
+    )
+
+nncExtNotifCongestionTT = NotificationType(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 2, 0, 13)
+)
+nncExtNotifCongestionTT.setObjects(
+      *(("NNC-NOTIFICATION-MIB", "nncNodeInfo"),
+        ("NNC-NOTIFICATION-MIB", "nncTTcongestionFaultType"),
+        ("NNC-NOTIFICATION-MIB", "nncTTInfo"))
+)
+if mibBuilder.loadTexts:
+    nncExtNotifCongestionTT.setStatus(
+        "current"
+    )
+
+nncExtNotifHeartBeat = NotificationType(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 2, 3, 0, 1)
+)
+nncExtNotifHeartBeat.setObjects(
+      *(("NNC-NOTIFICATION-MIB", "nncSysDescr"),
+        ("NNC-NOTIFICATION-MIB", "nncSysUpTime"))
+)
+if mibBuilder.loadTexts:
+    nncExtNotifHeartBeat.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+nncExtNotifCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 123, 3, 44, 4, 1)
+)
+if mibBuilder.loadTexts:
+    nncExtNotifCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "NNC-NOTIFICATION-MIB",
+    **{"CpssAddress": CpssAddress,
+       "StringType": StringType,
+       "ParameterStringType": ParameterStringType,
+       "NBNodeType": NBNodeType,
+       "SysDescrType": SysDescrType,
+       "AlmPriorityType": AlmPriorityType,
+       "AlmInfoType": AlmInfoType,
+       "TTFaultLocationType": TTFaultLocationType,
+       "TTPriorityType": TTPriorityType,
+       "TTFaultStatusType": TTFaultStatusType,
+       "TThardwareFaultType": TThardwareFaultType,
+       "TTsoftwareFaultType": TTsoftwareFaultType,
+       "TTcommFaultType": TTcommFaultType,
+       "TTuserFaultType": TTuserFaultType,
+       "TTcustomNodeFaultType": TTcustomNodeFaultType,
+       "TTlanNodeFaultType": TTlanNodeFaultType,
+       "TTconnectExecFaultType": TTconnectExecFaultType,
+       "TTtDaxNodeFaultType": TTtDaxNodeFaultType,
+       "TTdcsNodeFaultType": TTdcsNodeFaultType,
+       "TTadminFaultType": TTadminFaultType,
+       "TTssdhRingFaultType": TTssdhRingFaultType,
+       "TTextNodeFaultType": TTextNodeFaultType,
+       "TTcongestionFaultType": TTcongestionFaultType,
+       "nncExtNotif": nncExtNotif,
+       "nncExtNotifObjects": nncExtNotifObjects,
+       "nncNodeInfo": nncNodeInfo,
+       "nncNodeIPAddr": nncNodeIPAddr,
+       "nncNodeCPSSAddr": nncNodeCPSSAddr,
+       "nncNodeType": nncNodeType,
+       "nncNodeFullName": nncNodeFullName,
+       "nncAlmInfo": nncAlmInfo,
+       "nncAlmDateAndTime": nncAlmDateAndTime,
+       "nncAlmPriority": nncAlmPriority,
+       "nncAlmText": nncAlmText,
+       "nncTTInfo": nncTTInfo,
+       "nncTTDateAndTime": nncTTDateAndTime,
+       "nncTTPriority": nncTTPriority,
+       "nncTTFaultLocation": nncTTFaultLocation,
+       "nncTTFaultStatus": nncTTFaultStatus,
+       "nncTTOwner": nncTTOwner,
+       "nncTTFaultType": nncTTFaultType,
+       "nncTThardwareFaultType": nncTThardwareFaultType,
+       "nncTTsoftwareFaultType": nncTTsoftwareFaultType,
+       "nncTTcommFaultType": nncTTcommFaultType,
+       "nncTTuserFaultType": nncTTuserFaultType,
+       "nncTTcustomNodeFaultType": nncTTcustomNodeFaultType,
+       "nncTTlanNodeFaultType": nncTTlanNodeFaultType,
+       "nncTTconnectExecFaultType": nncTTconnectExecFaultType,
+       "nncTTtDaxNodeFaultType": nncTTtDaxNodeFaultType,
+       "nncTTdcsNodeFaultType": nncTTdcsNodeFaultType,
+       "nncTTadminFaultType": nncTTadminFaultType,
+       "nncTTssdhRingFaultType": nncTTssdhRingFaultType,
+       "nncTTextNodeFaultType": nncTTextNodeFaultType,
+       "nncTTcongestionFaultType": nncTTcongestionFaultType,
+       "nncHeartBeatInfo": nncHeartBeatInfo,
+       "nncSysDescr": nncSysDescr,
+       "nncSysUpTime": nncSysUpTime,
+       "nncExtNotifType": nncExtNotifType,
+       "nncExtNotifAlarmType": nncExtNotifAlarmType,
+       "nncExtNotifAlarmType-v1Trap": nncExtNotifAlarmType_v1Trap,
+       "nncExtNotifAlarm": nncExtNotifAlarm,
+       "nncExtNotifTroubleTicketType": nncExtNotifTroubleTicketType,
+       "nncExtNotifTroubleTicketType-v1Trap": nncExtNotifTroubleTicketType_v1Trap,
+       "nncExtNotifHardwareTT": nncExtNotifHardwareTT,
+       "nncExtNotifSoftwareTT": nncExtNotifSoftwareTT,
+       "nncExtNotifCommTT": nncExtNotifCommTT,
+       "nncExtNotifUserTT": nncExtNotifUserTT,
+       "nncExtNotifCustomNodeTT": nncExtNotifCustomNodeTT,
+       "nncExtNotifLanNodeTT": nncExtNotifLanNodeTT,
+       "nncExtNotifConnectExecTT": nncExtNotifConnectExecTT,
+       "nncExtNotifTDaxNodeTT": nncExtNotifTDaxNodeTT,
+       "nncExtNotifAdminTT": nncExtNotifAdminTT,
+       "nncExtNotifSsdhRingTT": nncExtNotifSsdhRingTT,
+       "nncExtNotifExternalNodeTT": nncExtNotifExternalNodeTT,
+       "nncExtNotifCongestionTT": nncExtNotifCongestionTT,
+       "nncExtNotifHeartBeatType": nncExtNotifHeartBeatType,
+       "nncExtNotifHeartBeatType-v1Trap": nncExtNotifHeartBeatType_v1Trap,
+       "nncExtNotifHeartBeat": nncExtNotifHeartBeat,
+       "nncExtNotifGroups": nncExtNotifGroups,
+       "nncExtNotifGroup": nncExtNotifGroup,
+       "nncExtNotifCompliances": nncExtNotifCompliances,
+       "nncExtNotifCompliance": nncExtNotifCompliance}
+)

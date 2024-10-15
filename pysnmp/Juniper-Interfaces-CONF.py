@@ -1,34 +1,188 @@
+# SNMP MIB module (Juniper-Interfaces-CONF) expressed in pysnmp data model.
 #
-# PySNMP MIB module Juniper-Interfaces-CONF (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/Juniper-Interfaces-CONF
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:52:30 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
-juniAgents, = mibBuilder.importSymbols("Juniper-Agents", "juniAgents")
-ModuleCompliance, AgentCapabilities, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "AgentCapabilities", "NotificationGroup")
-ModuleIdentity, TimeTicks, Integer32, Gauge32, MibIdentifier, Unsigned32, iso, NotificationType, Counter64, Bits, Counter32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "TimeTicks", "Integer32", "Gauge32", "MibIdentifier", "Unsigned32", "iso", "NotificationType", "Counter64", "Bits", "Counter32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-juniInterfacesAgent = ModuleIdentity((1, 3, 6, 1, 4, 1, 4874, 5, 2, 20))
-juniInterfacesAgent.setRevisions(('2004-02-04 21:38', '2003-07-16 21:38', '2002-12-16 14:43', '2001-04-27 14:24',))
-if mibBuilder.loadTexts: juniInterfacesAgent.setLastUpdated('200307162138Z')
-if mibBuilder.loadTexts: juniInterfacesAgent.setOrganization('Juniper Networks, Inc.')
-juniInterfacesAgentV1 = AgentCapabilities((1, 3, 6, 1, 4, 1, 4874, 5, 2, 20, 1))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    juniInterfacesAgentV1 = juniInterfacesAgentV1.setProductRelease('Version 1 of the Interfaces component of the JUNOSe SNMP agent.  This\n        version of the Interfaces component was supported in JUNOSe 1.0 thru 5.0\n        system releases.')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    juniInterfacesAgentV1 = juniInterfacesAgentV1.setStatus('current')
-juniInterfacesAgentV2 = AgentCapabilities((1, 3, 6, 1, 4, 1, 4874, 5, 2, 20, 2))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    juniInterfacesAgentV2 = juniInterfacesAgentV2.setProductRelease('Version 2 of the Interfaces component of the JUNOSe SNMP agent.  This\n        version of the Interfaces component is supported in JUNOSe 1.0 and\n        subsequent 2.0, 3.x, 4.x and 5.x system releases.')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    juniInterfacesAgentV2 = juniInterfacesAgentV2.setStatus('obsolete')
-juniInterfacesAgentV3 = AgentCapabilities((1, 3, 6, 1, 4, 1, 4874, 5, 2, 20, 3))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    juniInterfacesAgentV3 = juniInterfacesAgentV3.setProductRelease('Version 3 of the Interfaces component of the JUNOSe SNMP agent.  This\n        version of the Interfaces component is supported in JUNOSe 1.0 and\n        subsequent system releases.')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    juniInterfacesAgentV3 = juniInterfacesAgentV3.setStatus('current')
-mibBuilder.exportSymbols("Juniper-Interfaces-CONF", juniInterfacesAgentV3=juniInterfacesAgentV3, juniInterfacesAgentV2=juniInterfacesAgentV2, PYSNMP_MODULE_ID=juniInterfacesAgent, juniInterfacesAgent=juniInterfacesAgent, juniInterfacesAgentV1=juniInterfacesAgentV1)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/Juniper-Interfaces-CONF
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:15:39 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(juniAgents,) = mibBuilder.importSymbols(
+    "Juniper-Agents",
+    "juniAgents")
+
+(AgentCapabilities,
+ ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "AgentCapabilities",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+juniInterfacesAgent = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 20)
+)
+juniInterfacesAgent.setRevisions(
+        ("2004-02-04 21:38",
+         "2003-07-16 21:38",
+         "2002-12-16 14:43",
+         "2001-04-27 14:24")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+juniInterfacesAgentV1 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 20, 1)
+)
+if mibBuilder.loadTexts:
+    juniInterfacesAgentV1.setProductRelease("""\
+Version 1 of the Interfaces component of the JUNOSe SNMP agent.  This
+        version of the Interfaces component was supported in JUNOSe 1.0 thru 5.0
+        system releases.""")
+if mibBuilder.loadTexts:
+    juniInterfacesAgentV1.setStatus(
+        "current"
+    )
+
+juniInterfacesAgentV2 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 20, 2)
+)
+if mibBuilder.loadTexts:
+    juniInterfacesAgentV2.setProductRelease("""\
+Version 2 of the Interfaces component of the JUNOSe SNMP agent.  This
+        version of the Interfaces component is supported in JUNOSe 1.0 and
+        subsequent 2.0, 3.x, 4.x and 5.x system releases.""")
+if mibBuilder.loadTexts:
+    juniInterfacesAgentV2.setStatus(
+        "obsolete"
+    )
+
+juniInterfacesAgentV3 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 20, 3)
+)
+if mibBuilder.loadTexts:
+    juniInterfacesAgentV3.setProductRelease("""\
+Version 3 of the Interfaces component of the JUNOSe SNMP agent.  This
+        version of the Interfaces component is supported in JUNOSe 1.0 and
+        subsequent system releases.""")
+if mibBuilder.loadTexts:
+    juniInterfacesAgentV3.setStatus(
+        "current"
+    )
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "Juniper-Interfaces-CONF",
+    **{"juniInterfacesAgent": juniInterfacesAgent,
+       "juniInterfacesAgentV1": juniInterfacesAgentV1,
+       "juniInterfacesAgentV2": juniInterfacesAgentV2,
+       "juniInterfacesAgentV3": juniInterfacesAgentV3}
+)

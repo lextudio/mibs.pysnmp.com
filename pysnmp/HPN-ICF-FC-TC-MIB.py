@@ -1,86 +1,331 @@
+# SNMP MIB module (HPN-ICF-FC-TC-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HPN-ICF-FC-TC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/HPN-ICF-FC-TC-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:26:28 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-iso, MibIdentifier, NotificationType, ObjectIdentity, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, Bits, ModuleIdentity, Integer32, Counter64, Gauge32, Counter32, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "MibIdentifier", "NotificationType", "ObjectIdentity", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "Bits", "ModuleIdentity", "Integer32", "Counter64", "Gauge32", "Counter32", "IpAddress")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-class HpnicfFcAddressType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("wwn", 1), ("fcid", 2))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HPN-ICF-FC-TC-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:00:15 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class HpnicfFcAddress(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ConstraintsUnion(ValueSizeConstraint(3, 3), ValueSizeConstraint(8, 8), )
-class HpnicfFcAddressId(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(3, 3)
-    fixedLength = 3
+if 'mibBuilder' not in globals():
+    import sys
 
-class HpnicfFcAddressIdOrZero(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(3, 3), )
-class HpnicfFcNameId(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(8, 8)
-    fixedLength = 8
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-class HpnicfFcNameIdOrZero(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(8, 8), ValueSizeConstraint(16, 16), )
-class HpnicfFcClassOfServices(TextualConvention, Bits):
-    status = 'current'
-    namedValues = NamedValues(("classF", 0), ("class1", 1), ("class2", 2), ("class3", 3), ("class4", 4), ("class5", 5), ("class6", 6))
+# Import base ASN.1 objects even if this MIB does not use it
 
-class HpnicfFcBbCredit(TextualConvention, Integer32):
-    status = 'current'
-    displayHint = 'd'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 32767)
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
 
-class HpnicfFcRxMTU(TextualConvention, Integer32):
-    status = 'current'
-    displayHint = 'd'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(128, 2112)
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
 
-class HpnicfFcVsanIndex(TextualConvention, Unsigned32):
-    status = 'current'
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 4095)
+# Import SMI symbols from the MIBs this MIB depends on
 
-class HpnicfFcStartOper(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("enable", 1), ("disable", 2))
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
 
-class HpnicfFcDomainId(TextualConvention, Integer32):
-    status = 'current'
-    displayHint = 'd'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 239)
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
 
-class HpnicfFcDomainIdOrZero(TextualConvention, Integer32):
-    status = 'current'
-    displayHint = 'd'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 239)
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
 
-class HpnicfFcDomainPriority(TextualConvention, Unsigned32):
-    status = 'current'
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 254)
 
-class HpnicfFcDmState(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
-    namedValues = NamedValues(("disabledWithNoDomain", 1), ("disabledWithDomainCfg", 2), ("stableWithNoEports", 3), ("stableWithDomainCfg", 4), ("stableWithNoDomain", 5), ("principalSwitchInSelect", 6), ("domainIdRequesting", 7), ("buildFabricPhase", 8), ("reconfigureFabricPhase", 9), ("unknown", 10))
+# MODULE-IDENTITY
 
-class HpnicfFcDomainIdList(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 32)
 
-mibBuilder.exportSymbols("HPN-ICF-FC-TC-MIB", HpnicfFcAddressType=HpnicfFcAddressType, HpnicfFcDomainPriority=HpnicfFcDomainPriority, HpnicfFcAddressIdOrZero=HpnicfFcAddressIdOrZero, HpnicfFcAddressId=HpnicfFcAddressId, HpnicfFcBbCredit=HpnicfFcBbCredit, HpnicfFcStartOper=HpnicfFcStartOper, HpnicfFcDomainId=HpnicfFcDomainId, HpnicfFcDmState=HpnicfFcDmState, HpnicfFcNameId=HpnicfFcNameId, HpnicfFcNameIdOrZero=HpnicfFcNameIdOrZero, HpnicfFcClassOfServices=HpnicfFcClassOfServices, HpnicfFcRxMTU=HpnicfFcRxMTU, HpnicfFcDomainIdOrZero=HpnicfFcDomainIdOrZero, HpnicfFcVsanIndex=HpnicfFcVsanIndex, HpnicfFcDomainIdList=HpnicfFcDomainIdList, HpnicfFcAddress=HpnicfFcAddress)
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class HpnicfFcAddressType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("fcid", 2),
+          ("wwn", 1))
+    )
+
+
+
+class HpnicfFcAddress(OctetString, TextualConvention):
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(3, 3),
+        ValueSizeConstraint(8, 8),
+    )
+
+
+
+class HpnicfFcAddressId(OctetString, TextualConvention):
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(3, 3),
+    )
+
+
+
+class HpnicfFcAddressIdOrZero(OctetString, TextualConvention):
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 0),
+        ValueSizeConstraint(3, 3),
+    )
+
+
+
+class HpnicfFcNameId(OctetString, TextualConvention):
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(8, 8),
+    )
+
+
+
+class HpnicfFcNameIdOrZero(OctetString, TextualConvention):
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 0),
+        ValueSizeConstraint(8, 8),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+
+class HpnicfFcClassOfServices(Bits, TextualConvention):
+    status = "current"
+
+
+class HpnicfFcBbCredit(Integer32, TextualConvention):
+    status = "current"
+    displayHint = "d"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 32767),
+    )
+
+
+
+class HpnicfFcRxMTU(Integer32, TextualConvention):
+    status = "current"
+    displayHint = "d"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(128, 2112),
+    )
+
+
+
+class HpnicfFcVsanIndex(Unsigned32, TextualConvention):
+    status = "current"
+    displayHint = "d"
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+
+class HpnicfFcStartOper(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 2),
+          ("enable", 1))
+    )
+
+
+
+class HpnicfFcDomainId(Integer32, TextualConvention):
+    status = "current"
+    displayHint = "d"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 239),
+    )
+
+
+
+class HpnicfFcDomainIdOrZero(Integer32, TextualConvention):
+    status = "current"
+    displayHint = "d"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 239),
+    )
+
+
+
+class HpnicfFcDomainPriority(Unsigned32, TextualConvention):
+    status = "current"
+    displayHint = "d"
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 254),
+    )
+
+
+
+class HpnicfFcDmState(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10)
+        )
+    )
+    namedValues = NamedValues(
+        *(("buildFabricPhase", 8),
+          ("disabledWithDomainCfg", 2),
+          ("disabledWithNoDomain", 1),
+          ("domainIdRequesting", 7),
+          ("principalSwitchInSelect", 6),
+          ("reconfigureFabricPhase", 9),
+          ("stableWithDomainCfg", 4),
+          ("stableWithNoDomain", 5),
+          ("stableWithNoEports", 3),
+          ("unknown", 10))
+    )
+
+
+
+class HpnicfFcDomainIdList(OctetString, TextualConvention):
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HPN-ICF-FC-TC-MIB",
+    **{"HpnicfFcAddressType": HpnicfFcAddressType,
+       "HpnicfFcAddress": HpnicfFcAddress,
+       "HpnicfFcAddressId": HpnicfFcAddressId,
+       "HpnicfFcAddressIdOrZero": HpnicfFcAddressIdOrZero,
+       "HpnicfFcNameId": HpnicfFcNameId,
+       "HpnicfFcNameIdOrZero": HpnicfFcNameIdOrZero,
+       "HpnicfFcClassOfServices": HpnicfFcClassOfServices,
+       "HpnicfFcBbCredit": HpnicfFcBbCredit,
+       "HpnicfFcRxMTU": HpnicfFcRxMTU,
+       "HpnicfFcVsanIndex": HpnicfFcVsanIndex,
+       "HpnicfFcStartOper": HpnicfFcStartOper,
+       "HpnicfFcDomainId": HpnicfFcDomainId,
+       "HpnicfFcDomainIdOrZero": HpnicfFcDomainIdOrZero,
+       "HpnicfFcDomainPriority": HpnicfFcDomainPriority,
+       "HpnicfFcDmState": HpnicfFcDmState,
+       "HpnicfFcDomainIdList": HpnicfFcDomainIdList}
+)

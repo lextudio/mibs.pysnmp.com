@@ -1,35 +1,370 @@
+# SNMP MIB module (PRESLEY-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module PRESLEY-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/PRESLEY-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:33:08 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-sysName, sysContact, sysLocation = mibBuilder.importSymbols("SNMPv2-MIB", "sysName", "sysContact", "sysLocation")
-enterprises, Counter32, Unsigned32, NotificationType, NotificationType, ModuleIdentity, TimeTicks, Integer32, IpAddress, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Gauge32, iso, ObjectIdentity, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "enterprises", "Counter32", "Unsigned32", "NotificationType", "NotificationType", "ModuleIdentity", "TimeTicks", "Integer32", "IpAddress", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Gauge32", "iso", "ObjectIdentity", "Bits")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-a3Com = MibIdentifier((1, 3, 6, 1, 4, 1, 43))
-generic = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 10))
-alertLed = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 10, 23))
-alertLedState = MibScalar((1, 3, 6, 1, 4, 1, 43, 10, 23, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("active", 1), ("inactive", 2))).clone('inactive')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alertLedState.setStatus('mandatory')
-alertLedTrap = NotificationType((1, 3, 6, 1, 4, 1, 43) + (0,73)).setObjects(("PRESLEY-MIB", "alertLedState"), ("PRESLEY-MIB", "alertDescription"), ("SNMPv2-MIB", "sysContact"), ("SNMPv2-MIB", "sysName"), ("SNMPv2-MIB", "sysLocation"))
-alertTable = MibTable((1, 3, 6, 1, 4, 1, 43, 10, 23, 3), )
-if mibBuilder.loadTexts: alertTable.setStatus('mandatory')
-alertTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 10, 23, 3, 1), ).setIndexNames((0, "PRESLEY-MIB", "alertIdentifier"))
-if mibBuilder.loadTexts: alertTableEntry.setStatus('mandatory')
-alertIdentifier = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 10, 23, 3, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9))).clone(namedValues=NamedValues(("networkUtilization", 1), ("networkErrorRate", 2), ("utpPortPartitioned", 3), ("coaxPortPartitioned", 4), ("loginSecurityViolation", 5), ("snmpSecurityViolation", 6), ("portSecurityViolation", 7), ("stationConnectivity", 8), ("alertLedTest", 9)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alertIdentifier.setStatus('mandatory')
-alertDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 10, 23, 3, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alertDescription.setStatus('mandatory')
-alertStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 10, 23, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("active", 1), ("inactive", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alertStatus.setStatus('mandatory')
-alertType = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 10, 23, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("threshold", 1), ("state", 2), ("latched", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alertType.setStatus('mandatory')
-alertConfiguration = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 10, 23, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2), ("high", 3), ("medium", 4), ("low", 5), ("acknowledge", 6)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alertConfiguration.setStatus('mandatory')
-mibBuilder.exportSymbols("PRESLEY-MIB", alertStatus=alertStatus, alertIdentifier=alertIdentifier, alertType=alertType, alertDescription=alertDescription, a3Com=a3Com, alertLedState=alertLedState, alertConfiguration=alertConfiguration, alertLed=alertLed, alertTableEntry=alertTableEntry, alertLedTrap=alertLedTrap, alertTable=alertTable, generic=generic)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/PRESLEY-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:39:37 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(sysContact,
+ sysLocation,
+ sysName) = mibBuilder.importSymbols(
+    "SNMPv2-MIB",
+    "sysContact",
+    "sysLocation",
+    "sysName")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ NotificationType,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "NotificationType",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_A3Com_ObjectIdentity = ObjectIdentity
+a3Com = _A3Com_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 43)
+)
+_Generic_ObjectIdentity = ObjectIdentity
+generic = _Generic_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 43, 10)
+)
+_AlertLed_ObjectIdentity = ObjectIdentity
+alertLed = _AlertLed_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 43, 10, 23)
+)
+
+
+class _AlertLedState_Type(Integer32):
+    """Custom type alertLedState based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 1),
+          ("inactive", 2))
+    )
+
+
+_AlertLedState_Type.__name__ = "Integer32"
+_AlertLedState_Object = MibScalar
+alertLedState = _AlertLedState_Object(
+    (1, 3, 6, 1, 4, 1, 43, 10, 23, 1),
+    _AlertLedState_Type()
+)
+alertLedState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alertLedState.setStatus("mandatory")
+_AlertTable_Object = MibTable
+alertTable = _AlertTable_Object(
+    (1, 3, 6, 1, 4, 1, 43, 10, 23, 3)
+)
+if mibBuilder.loadTexts:
+    alertTable.setStatus("mandatory")
+_AlertTableEntry_Object = MibTableRow
+alertTableEntry = _AlertTableEntry_Object(
+    (1, 3, 6, 1, 4, 1, 43, 10, 23, 3, 1)
+)
+alertTableEntry.setIndexNames(
+    (0, "PRESLEY-MIB", "alertIdentifier"),
+)
+if mibBuilder.loadTexts:
+    alertTableEntry.setStatus("mandatory")
+
+
+class _AlertIdentifier_Type(Integer32):
+    """Custom type alertIdentifier based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9)
+        )
+    )
+    namedValues = NamedValues(
+        *(("alertLedTest", 9),
+          ("coaxPortPartitioned", 4),
+          ("loginSecurityViolation", 5),
+          ("networkErrorRate", 2),
+          ("networkUtilization", 1),
+          ("portSecurityViolation", 7),
+          ("snmpSecurityViolation", 6),
+          ("stationConnectivity", 8),
+          ("utpPortPartitioned", 3))
+    )
+
+
+_AlertIdentifier_Type.__name__ = "Integer32"
+_AlertIdentifier_Object = MibTableColumn
+alertIdentifier = _AlertIdentifier_Object(
+    (1, 3, 6, 1, 4, 1, 43, 10, 23, 3, 1, 1),
+    _AlertIdentifier_Type()
+)
+alertIdentifier.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alertIdentifier.setStatus("mandatory")
+
+
+class _AlertDescription_Type(DisplayString):
+    """Custom type alertDescription based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_AlertDescription_Type.__name__ = "DisplayString"
+_AlertDescription_Object = MibTableColumn
+alertDescription = _AlertDescription_Object(
+    (1, 3, 6, 1, 4, 1, 43, 10, 23, 3, 1, 2),
+    _AlertDescription_Type()
+)
+alertDescription.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alertDescription.setStatus("mandatory")
+
+
+class _AlertStatus_Type(Integer32):
+    """Custom type alertStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 1),
+          ("inactive", 2))
+    )
+
+
+_AlertStatus_Type.__name__ = "Integer32"
+_AlertStatus_Object = MibTableColumn
+alertStatus = _AlertStatus_Object(
+    (1, 3, 6, 1, 4, 1, 43, 10, 23, 3, 1, 3),
+    _AlertStatus_Type()
+)
+alertStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alertStatus.setStatus("mandatory")
+
+
+class _AlertType_Type(Integer32):
+    """Custom type alertType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("latched", 3),
+          ("state", 2),
+          ("threshold", 1))
+    )
+
+
+_AlertType_Type.__name__ = "Integer32"
+_AlertType_Object = MibTableColumn
+alertType = _AlertType_Object(
+    (1, 3, 6, 1, 4, 1, 43, 10, 23, 3, 1, 4),
+    _AlertType_Type()
+)
+alertType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alertType.setStatus("mandatory")
+
+
+class _AlertConfiguration_Type(Integer32):
+    """Custom type alertConfiguration based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("acknowledge", 6),
+          ("disabled", 2),
+          ("enabled", 1),
+          ("high", 3),
+          ("low", 5),
+          ("medium", 4))
+    )
+
+
+_AlertConfiguration_Type.__name__ = "Integer32"
+_AlertConfiguration_Object = MibTableColumn
+alertConfiguration = _AlertConfiguration_Object(
+    (1, 3, 6, 1, 4, 1, 43, 10, 23, 3, 1, 5),
+    _AlertConfiguration_Type()
+)
+alertConfiguration.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alertConfiguration.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+alertLedTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 43, 0, 73)
+)
+alertLedTrap.setObjects(
+      *(("PRESLEY-MIB", "alertLedState"),
+        ("PRESLEY-MIB", "alertDescription"),
+        ("SNMPv2-MIB", "sysContact"),
+        ("SNMPv2-MIB", "sysName"),
+        ("SNMPv2-MIB", "sysLocation"))
+)
+if mibBuilder.loadTexts:
+    alertLedTrap.setStatus(
+        ""
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "PRESLEY-MIB",
+    **{"a3Com": a3Com,
+       "alertLedTrap": alertLedTrap,
+       "generic": generic,
+       "alertLed": alertLed,
+       "alertLedState": alertLedState,
+       "alertTable": alertTable,
+       "alertTableEntry": alertTableEntry,
+       "alertIdentifier": alertIdentifier,
+       "alertDescription": alertDescription,
+       "alertStatus": alertStatus,
+       "alertType": alertType,
+       "alertConfiguration": alertConfiguration}
+)

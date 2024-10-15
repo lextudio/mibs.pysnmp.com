@@ -1,42 +1,271 @@
+# SNMP MIB module (COMPAQ-ID-REC-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module COMPAQ-ID-REC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/COMPAQ-ID-REC-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:10:44 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, enterprises, Counter32, ModuleIdentity, Gauge32, ObjectIdentity, Unsigned32, TimeTicks, NotificationType, Integer32, Bits, iso, Counter64, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "enterprises", "Counter32", "ModuleIdentity", "Gauge32", "ObjectIdentity", "Unsigned32", "TimeTicks", "NotificationType", "Integer32", "Bits", "iso", "Counter64", "MibIdentifier")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-compaq = MibIdentifier((1, 3, 6, 1, 4, 1, 232))
-compaq_proLiantBLeClassCG_proLiantBLpClassGbE = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 161)).setLabel("compaq-proLiantBLeClassCG-proLiantBLpClassGbE")
-compaq_products = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 161, 1)).setLabel("compaq-products")
-compaq_mgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 161, 2)).setLabel("compaq-mgmt")
-compaq_common_mgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 161, 3)).setLabel("compaq-common-mgmt")
-compaq_ProLiantBLeClassCGSeriesProd = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 161, 1, 36)).setLabel("compaq-ProLiantBLeClassCGSeriesProd")
-compaq_ProLiantBLeClassCGProd = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 161, 1, 36, 1)).setLabel("compaq-ProLiantBLeClassCGProd")
-proLiantBLeClassCGDevRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 161, 1, 36, 1, 2))
-proLiantBLeClassCGDevice = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 161, 1, 36, 1, 2, 1))
-proLiantBLeClassCGUnitRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 161, 1, 36, 1, 3))
-proLiantBLeClassCGUnit = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 161, 1, 36, 1, 3, 1))
-proLiantBLeClassCGModuleRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 161, 1, 36, 1, 4))
-proLiantBLeClassCG_Module_Mainboard_26Port = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 161, 1, 36, 1, 4, 1)).setLabel("proLiantBLeClassCG-Module-Mainboard-26Port")
-proLiantBLeClassCGPortRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 161, 1, 36, 1, 5))
-proLiantBLeClassCG_Port_10_100_TX = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 161, 1, 36, 1, 5, 1)).setLabel("proLiantBLeClassCG-Port-10-100-TX")
-proLiantBLeClassCG_Port_1000_TX = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 161, 1, 36, 1, 5, 2)).setLabel("proLiantBLeClassCG-Port-1000-TX")
-compaq_ProLiantBLpClassGbESeriesProd = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 161, 1, 37)).setLabel("compaq-ProLiantBLpClassGbESeriesProd")
-compaq_ProLiantBLpClassGbEProd = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 161, 1, 37, 1)).setLabel("compaq-ProLiantBLpClassGbEProd")
-proLiantBLpClassGbEDevRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 161, 1, 37, 1, 2))
-proLiantBLpClassGbEDevice = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 161, 1, 37, 1, 2, 1))
-proLiantBLpClassGbEUnitRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 161, 1, 37, 1, 3))
-proLiantBLpClassGbEUnit = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 161, 1, 37, 1, 3, 1))
-proLiantBLpClassGbEModuleRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 161, 1, 37, 1, 4))
-proLiantBLpClassGbE_Module_Mainboard_24Port = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 161, 1, 37, 1, 4, 1)).setLabel("proLiantBLpClassGbE-Module-Mainboard-24Port")
-proLiantBLpClassGbEPortRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 161, 1, 37, 1, 5))
-proLiantBLpClassGbE_Port_10_100_TX = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 161, 1, 37, 1, 5, 1)).setLabel("proLiantBLpClassGbE-Port-10-100-TX")
-proLiantBLpClassGbE_Port_1000_TX = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 161, 1, 37, 1, 5, 2)).setLabel("proLiantBLpClassGbE-Port-1000-TX")
-proLiantBLpClassGbE_Port_1000_SX = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 161, 1, 37, 1, 5, 3)).setLabel("proLiantBLpClassGbE-Port-1000-SX")
-mibBuilder.exportSymbols("COMPAQ-ID-REC-MIB", proLiantBLeClassCG_Module_Mainboard_26Port=proLiantBLeClassCG_Module_Mainboard_26Port, proLiantBLpClassGbE_Module_Mainboard_24Port=proLiantBLpClassGbE_Module_Mainboard_24Port, compaq=compaq, proLiantBLpClassGbEDevice=proLiantBLpClassGbEDevice, proLiantBLeClassCG_Port_1000_TX=proLiantBLeClassCG_Port_1000_TX, proLiantBLpClassGbEUnitRegistration=proLiantBLpClassGbEUnitRegistration, proLiantBLpClassGbEDevRegistration=proLiantBLpClassGbEDevRegistration, compaq_proLiantBLeClassCG_proLiantBLpClassGbE=compaq_proLiantBLeClassCG_proLiantBLpClassGbE, proLiantBLeClassCGUnitRegistration=proLiantBLeClassCGUnitRegistration, compaq_products=compaq_products, proLiantBLpClassGbE_Port_1000_SX=proLiantBLpClassGbE_Port_1000_SX, compaq_ProLiantBLeClassCGProd=compaq_ProLiantBLeClassCGProd, compaq_mgmt=compaq_mgmt, proLiantBLeClassCGUnit=proLiantBLeClassCGUnit, proLiantBLpClassGbE_Port_1000_TX=proLiantBLpClassGbE_Port_1000_TX, compaq_ProLiantBLpClassGbESeriesProd=compaq_ProLiantBLpClassGbESeriesProd, proLiantBLpClassGbEModuleRegistration=proLiantBLpClassGbEModuleRegistration, proLiantBLeClassCGModuleRegistration=proLiantBLeClassCGModuleRegistration, proLiantBLeClassCGDevice=proLiantBLeClassCGDevice, proLiantBLpClassGbEPortRegistration=proLiantBLpClassGbEPortRegistration, proLiantBLeClassCG_Port_10_100_TX=proLiantBLeClassCG_Port_10_100_TX, proLiantBLeClassCGDevRegistration=proLiantBLeClassCGDevRegistration, compaq_common_mgmt=compaq_common_mgmt, proLiantBLeClassCGPortRegistration=proLiantBLeClassCGPortRegistration, proLiantBLpClassGbEUnit=proLiantBLpClassGbEUnit, compaq_ProLiantBLeClassCGSeriesProd=compaq_ProLiantBLeClassCGSeriesProd, proLiantBLpClassGbE_Port_10_100_TX=proLiantBLpClassGbE_Port_10_100_TX, compaq_ProLiantBLpClassGbEProd=compaq_ProLiantBLpClassGbEProd)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/COMPAQ-ID-REC-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:16:47 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Compaq_ObjectIdentity = ObjectIdentity
+compaq = _Compaq_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 232)
+)
+_Compaq_proLiantBLeClassCG_proLiantBLpClassGbE_ObjectIdentity = ObjectIdentity
+compaq_proLiantBLeClassCG_proLiantBLpClassGbE = _Compaq_proLiantBLeClassCG_proLiantBLpClassGbE_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 232, 161)
+)
+_Compaq_products_ObjectIdentity = ObjectIdentity
+compaq_products = _Compaq_products_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 232, 161, 1)
+)
+_Compaq_ProLiantBLeClassCGSeriesProd_ObjectIdentity = ObjectIdentity
+compaq_ProLiantBLeClassCGSeriesProd = _Compaq_ProLiantBLeClassCGSeriesProd_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 232, 161, 1, 36)
+)
+_Compaq_ProLiantBLeClassCGProd_ObjectIdentity = ObjectIdentity
+compaq_ProLiantBLeClassCGProd = _Compaq_ProLiantBLeClassCGProd_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 232, 161, 1, 36, 1)
+)
+_ProLiantBLeClassCGDevRegistration_ObjectIdentity = ObjectIdentity
+proLiantBLeClassCGDevRegistration = _ProLiantBLeClassCGDevRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 232, 161, 1, 36, 1, 2)
+)
+_ProLiantBLeClassCGDevice_ObjectIdentity = ObjectIdentity
+proLiantBLeClassCGDevice = _ProLiantBLeClassCGDevice_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 232, 161, 1, 36, 1, 2, 1)
+)
+_ProLiantBLeClassCGUnitRegistration_ObjectIdentity = ObjectIdentity
+proLiantBLeClassCGUnitRegistration = _ProLiantBLeClassCGUnitRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 232, 161, 1, 36, 1, 3)
+)
+_ProLiantBLeClassCGUnit_ObjectIdentity = ObjectIdentity
+proLiantBLeClassCGUnit = _ProLiantBLeClassCGUnit_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 232, 161, 1, 36, 1, 3, 1)
+)
+_ProLiantBLeClassCGModuleRegistration_ObjectIdentity = ObjectIdentity
+proLiantBLeClassCGModuleRegistration = _ProLiantBLeClassCGModuleRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 232, 161, 1, 36, 1, 4)
+)
+_ProLiantBLeClassCG_Module_Mainboard_26Port_ObjectIdentity = ObjectIdentity
+proLiantBLeClassCG_Module_Mainboard_26Port = _ProLiantBLeClassCG_Module_Mainboard_26Port_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 232, 161, 1, 36, 1, 4, 1)
+)
+_ProLiantBLeClassCGPortRegistration_ObjectIdentity = ObjectIdentity
+proLiantBLeClassCGPortRegistration = _ProLiantBLeClassCGPortRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 232, 161, 1, 36, 1, 5)
+)
+_ProLiantBLeClassCG_Port_10_100_TX_ObjectIdentity = ObjectIdentity
+proLiantBLeClassCG_Port_10_100_TX = _ProLiantBLeClassCG_Port_10_100_TX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 232, 161, 1, 36, 1, 5, 1)
+)
+_ProLiantBLeClassCG_Port_1000_TX_ObjectIdentity = ObjectIdentity
+proLiantBLeClassCG_Port_1000_TX = _ProLiantBLeClassCG_Port_1000_TX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 232, 161, 1, 36, 1, 5, 2)
+)
+_Compaq_ProLiantBLpClassGbESeriesProd_ObjectIdentity = ObjectIdentity
+compaq_ProLiantBLpClassGbESeriesProd = _Compaq_ProLiantBLpClassGbESeriesProd_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 232, 161, 1, 37)
+)
+_Compaq_ProLiantBLpClassGbEProd_ObjectIdentity = ObjectIdentity
+compaq_ProLiantBLpClassGbEProd = _Compaq_ProLiantBLpClassGbEProd_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 232, 161, 1, 37, 1)
+)
+_ProLiantBLpClassGbEDevRegistration_ObjectIdentity = ObjectIdentity
+proLiantBLpClassGbEDevRegistration = _ProLiantBLpClassGbEDevRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 232, 161, 1, 37, 1, 2)
+)
+_ProLiantBLpClassGbEDevice_ObjectIdentity = ObjectIdentity
+proLiantBLpClassGbEDevice = _ProLiantBLpClassGbEDevice_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 232, 161, 1, 37, 1, 2, 1)
+)
+_ProLiantBLpClassGbEUnitRegistration_ObjectIdentity = ObjectIdentity
+proLiantBLpClassGbEUnitRegistration = _ProLiantBLpClassGbEUnitRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 232, 161, 1, 37, 1, 3)
+)
+_ProLiantBLpClassGbEUnit_ObjectIdentity = ObjectIdentity
+proLiantBLpClassGbEUnit = _ProLiantBLpClassGbEUnit_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 232, 161, 1, 37, 1, 3, 1)
+)
+_ProLiantBLpClassGbEModuleRegistration_ObjectIdentity = ObjectIdentity
+proLiantBLpClassGbEModuleRegistration = _ProLiantBLpClassGbEModuleRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 232, 161, 1, 37, 1, 4)
+)
+_ProLiantBLpClassGbE_Module_Mainboard_24Port_ObjectIdentity = ObjectIdentity
+proLiantBLpClassGbE_Module_Mainboard_24Port = _ProLiantBLpClassGbE_Module_Mainboard_24Port_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 232, 161, 1, 37, 1, 4, 1)
+)
+_ProLiantBLpClassGbEPortRegistration_ObjectIdentity = ObjectIdentity
+proLiantBLpClassGbEPortRegistration = _ProLiantBLpClassGbEPortRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 232, 161, 1, 37, 1, 5)
+)
+_ProLiantBLpClassGbE_Port_10_100_TX_ObjectIdentity = ObjectIdentity
+proLiantBLpClassGbE_Port_10_100_TX = _ProLiantBLpClassGbE_Port_10_100_TX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 232, 161, 1, 37, 1, 5, 1)
+)
+_ProLiantBLpClassGbE_Port_1000_TX_ObjectIdentity = ObjectIdentity
+proLiantBLpClassGbE_Port_1000_TX = _ProLiantBLpClassGbE_Port_1000_TX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 232, 161, 1, 37, 1, 5, 2)
+)
+_ProLiantBLpClassGbE_Port_1000_SX_ObjectIdentity = ObjectIdentity
+proLiantBLpClassGbE_Port_1000_SX = _ProLiantBLpClassGbE_Port_1000_SX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 232, 161, 1, 37, 1, 5, 3)
+)
+_Compaq_mgmt_ObjectIdentity = ObjectIdentity
+compaq_mgmt = _Compaq_mgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 232, 161, 2)
+)
+_Compaq_common_mgmt_ObjectIdentity = ObjectIdentity
+compaq_common_mgmt = _Compaq_common_mgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 232, 161, 3)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "COMPAQ-ID-REC-MIB",
+    **{"compaq": compaq,
+       "compaq-proLiantBLeClassCG-proLiantBLpClassGbE": compaq_proLiantBLeClassCG_proLiantBLpClassGbE,
+       "compaq-products": compaq_products,
+       "compaq-ProLiantBLeClassCGSeriesProd": compaq_ProLiantBLeClassCGSeriesProd,
+       "compaq-ProLiantBLeClassCGProd": compaq_ProLiantBLeClassCGProd,
+       "proLiantBLeClassCGDevRegistration": proLiantBLeClassCGDevRegistration,
+       "proLiantBLeClassCGDevice": proLiantBLeClassCGDevice,
+       "proLiantBLeClassCGUnitRegistration": proLiantBLeClassCGUnitRegistration,
+       "proLiantBLeClassCGUnit": proLiantBLeClassCGUnit,
+       "proLiantBLeClassCGModuleRegistration": proLiantBLeClassCGModuleRegistration,
+       "proLiantBLeClassCG-Module-Mainboard-26Port": proLiantBLeClassCG_Module_Mainboard_26Port,
+       "proLiantBLeClassCGPortRegistration": proLiantBLeClassCGPortRegistration,
+       "proLiantBLeClassCG-Port-10-100-TX": proLiantBLeClassCG_Port_10_100_TX,
+       "proLiantBLeClassCG-Port-1000-TX": proLiantBLeClassCG_Port_1000_TX,
+       "compaq-ProLiantBLpClassGbESeriesProd": compaq_ProLiantBLpClassGbESeriesProd,
+       "compaq-ProLiantBLpClassGbEProd": compaq_ProLiantBLpClassGbEProd,
+       "proLiantBLpClassGbEDevRegistration": proLiantBLpClassGbEDevRegistration,
+       "proLiantBLpClassGbEDevice": proLiantBLpClassGbEDevice,
+       "proLiantBLpClassGbEUnitRegistration": proLiantBLpClassGbEUnitRegistration,
+       "proLiantBLpClassGbEUnit": proLiantBLpClassGbEUnit,
+       "proLiantBLpClassGbEModuleRegistration": proLiantBLpClassGbEModuleRegistration,
+       "proLiantBLpClassGbE-Module-Mainboard-24Port": proLiantBLpClassGbE_Module_Mainboard_24Port,
+       "proLiantBLpClassGbEPortRegistration": proLiantBLpClassGbEPortRegistration,
+       "proLiantBLpClassGbE-Port-10-100-TX": proLiantBLpClassGbE_Port_10_100_TX,
+       "proLiantBLpClassGbE-Port-1000-TX": proLiantBLpClassGbE_Port_1000_TX,
+       "proLiantBLpClassGbE-Port-1000-SX": proLiantBLpClassGbE_Port_1000_SX,
+       "compaq-mgmt": compaq_mgmt,
+       "compaq-common-mgmt": compaq_common_mgmt}
+)

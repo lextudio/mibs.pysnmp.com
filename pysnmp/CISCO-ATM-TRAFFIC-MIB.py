@@ -1,63 +1,356 @@
+# SNMP MIB module (CISCO-ATM-TRAFFIC-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-ATM-TRAFFIC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/CISCO-ATM-TRAFFIC-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:33:36 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint")
-atmTrafficDescrParamEntry, = mibBuilder.importSymbols("ATM-MIB", "atmTrafficDescrParamEntry")
-ciscoExperiment, = mibBuilder.importSymbols("CISCO-SMI", "ciscoExperiment")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-Counter64, ObjectIdentity, Integer32, ModuleIdentity, NotificationType, IpAddress, Counter32, Gauge32, TimeTicks, iso, Unsigned32, MibIdentifier, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "ObjectIdentity", "Integer32", "ModuleIdentity", "NotificationType", "IpAddress", "Counter32", "Gauge32", "TimeTicks", "iso", "Unsigned32", "MibIdentifier", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-ciscoAtmTrafficExtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 10, 11))
-ciscoAtmTrafficExtMIB.setRevisions(('2002-08-26 00:00', '2001-11-01 00:00', '1997-05-29 00:00',))
-if mibBuilder.loadTexts: ciscoAtmTrafficExtMIB.setLastUpdated('200208260000Z')
-if mibBuilder.loadTexts: ciscoAtmTrafficExtMIB.setOrganization('Cisco System Inc.')
-ciscoAtmTrafficExtMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 11, 1))
-ciscoAtmTrafficTypeExt = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 11, 1, 1))
-ciscoAtmTrafficTableExt = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 11, 1, 2))
-atmNoClpNoScrCdvt = ObjectIdentity((1, 3, 6, 1, 4, 1, 9, 10, 11, 1, 1, 1))
-if mibBuilder.loadTexts: atmNoClpNoScrCdvt.setStatus('deprecated')
-atmClpScrMbsCdvt = ObjectIdentity((1, 3, 6, 1, 4, 1, 9, 10, 11, 1, 1, 2))
-if mibBuilder.loadTexts: atmClpScrMbsCdvt.setStatus('current')
-atmNoClpScrMbsCdvt = ObjectIdentity((1, 3, 6, 1, 4, 1, 9, 10, 11, 1, 1, 3))
-if mibBuilder.loadTexts: atmNoClpScrMbsCdvt.setStatus('current')
-atmNoClpMcr = ObjectIdentity((1, 3, 6, 1, 4, 1, 9, 10, 11, 1, 1, 4))
-if mibBuilder.loadTexts: atmNoClpMcr.setStatus('current')
-atmNoClpMcrCdvt = ObjectIdentity((1, 3, 6, 1, 4, 1, 9, 10, 11, 1, 1, 5))
-if mibBuilder.loadTexts: atmNoClpMcrCdvt.setStatus('current')
-atmTrafficDescrParamExtTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 11, 1, 2, 1), )
-if mibBuilder.loadTexts: atmTrafficDescrParamExtTable.setStatus('current')
-atmTrafficDescrParamExtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 11, 1, 2, 1, 1), )
-atmTrafficDescrParamEntry.registerAugmentions(("CISCO-ATM-TRAFFIC-MIB", "atmTrafficDescrParamExtEntry"))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CISCO-ATM-TRAFFIC-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 20:56:04 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(atmTrafficDescrParamEntry,) = mibBuilder.importSymbols(
+    "ATM-MIB",
+    "atmTrafficDescrParamEntry")
+
+(ciscoExperiment,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoExperiment")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+ciscoAtmTrafficExtMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 11)
+)
+ciscoAtmTrafficExtMIB.setRevisions(
+        ("2002-08-26 00:00",
+         "2001-11-01 00:00",
+         "1997-05-29 00:00")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CiscoAtmTrafficExtMIBObjects_ObjectIdentity = ObjectIdentity
+ciscoAtmTrafficExtMIBObjects = _CiscoAtmTrafficExtMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 11, 1)
+)
+_CiscoAtmTrafficTypeExt_ObjectIdentity = ObjectIdentity
+ciscoAtmTrafficTypeExt = _CiscoAtmTrafficTypeExt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 11, 1, 1)
+)
+_AtmNoClpNoScrCdvt_ObjectIdentity = ObjectIdentity
+atmNoClpNoScrCdvt = _AtmNoClpNoScrCdvt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 11, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    atmNoClpNoScrCdvt.setStatus("deprecated")
+_AtmClpScrMbsCdvt_ObjectIdentity = ObjectIdentity
+atmClpScrMbsCdvt = _AtmClpScrMbsCdvt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 11, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    atmClpScrMbsCdvt.setStatus("current")
+_AtmNoClpScrMbsCdvt_ObjectIdentity = ObjectIdentity
+atmNoClpScrMbsCdvt = _AtmNoClpScrMbsCdvt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 11, 1, 1, 3)
+)
+if mibBuilder.loadTexts:
+    atmNoClpScrMbsCdvt.setStatus("current")
+_AtmNoClpMcr_ObjectIdentity = ObjectIdentity
+atmNoClpMcr = _AtmNoClpMcr_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 11, 1, 1, 4)
+)
+if mibBuilder.loadTexts:
+    atmNoClpMcr.setStatus("current")
+_AtmNoClpMcrCdvt_ObjectIdentity = ObjectIdentity
+atmNoClpMcrCdvt = _AtmNoClpMcrCdvt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 11, 1, 1, 5)
+)
+if mibBuilder.loadTexts:
+    atmNoClpMcrCdvt.setStatus("current")
+_CiscoAtmTrafficTableExt_ObjectIdentity = ObjectIdentity
+ciscoAtmTrafficTableExt = _CiscoAtmTrafficTableExt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 11, 1, 2)
+)
+_AtmTrafficDescrParamExtTable_Object = MibTable
+atmTrafficDescrParamExtTable = _AtmTrafficDescrParamExtTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 11, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    atmTrafficDescrParamExtTable.setStatus("current")
+_AtmTrafficDescrParamExtEntry_Object = MibTableRow
+atmTrafficDescrParamExtEntry = _AtmTrafficDescrParamExtEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 11, 1, 2, 1, 1)
+)
+if mibBuilder.loadTexts:
+    atmTrafficDescrParamExtEntry.setStatus("current")
+
+
+class _AtmTrafficExplicitServCategory_Type(Integer32):
+    """Custom type atmTrafficExplicitServCategory based on Integer32"""
+    defaultValue = 6
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("abr", 4),
+          ("cbr", 1),
+          ("notDef", 6),
+          ("ubr", 5),
+          ("vbrNrt", 3),
+          ("vbrRt", 2))
+    )
+
+
+_AtmTrafficExplicitServCategory_Type.__name__ = "Integer32"
+_AtmTrafficExplicitServCategory_Object = MibTableColumn
+atmTrafficExplicitServCategory = _AtmTrafficExplicitServCategory_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 11, 1, 2, 1, 1, 1),
+    _AtmTrafficExplicitServCategory_Type()
+)
+atmTrafficExplicitServCategory.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    atmTrafficExplicitServCategory.setStatus("current")
+
+
+class _AtmTrafficDerivedServCategory_Type(Integer32):
+    """Custom type atmTrafficDerivedServCategory based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("abr", 4),
+          ("cbr", 1),
+          ("ubr", 5),
+          ("vbrNrt", 3),
+          ("vbrRt", 2))
+    )
+
+
+_AtmTrafficDerivedServCategory_Type.__name__ = "Integer32"
+_AtmTrafficDerivedServCategory_Object = MibTableColumn
+atmTrafficDerivedServCategory = _AtmTrafficDerivedServCategory_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 11, 1, 2, 1, 1, 2),
+    _AtmTrafficDerivedServCategory_Type()
+)
+atmTrafficDerivedServCategory.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atmTrafficDerivedServCategory.setStatus("current")
+_AtmTrafficDescriptorName_Type = SnmpAdminString
+_AtmTrafficDescriptorName_Object = MibTableColumn
+atmTrafficDescriptorName = _AtmTrafficDescriptorName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 11, 1, 2, 1, 1, 3),
+    _AtmTrafficDescriptorName_Type()
+)
+atmTrafficDescriptorName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    atmTrafficDescriptorName.setStatus("current")
+_CiscoAtmTrafficExtMIBConformance_ObjectIdentity = ObjectIdentity
+ciscoAtmTrafficExtMIBConformance = _CiscoAtmTrafficExtMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 11, 3)
+)
+_CiscoAtmTrafficExtMIBCompliances_ObjectIdentity = ObjectIdentity
+ciscoAtmTrafficExtMIBCompliances = _CiscoAtmTrafficExtMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 11, 3, 1)
+)
+_CiscoAtmTrafficExtMIBGroups_ObjectIdentity = ObjectIdentity
+ciscoAtmTrafficExtMIBGroups = _CiscoAtmTrafficExtMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 11, 3, 2)
+)
+atmTrafficDescrParamEntry.registerAugmentions(
+    ("CISCO-ATM-TRAFFIC-MIB",
+     "atmTrafficDescrParamExtEntry")
+)
 atmTrafficDescrParamExtEntry.setIndexNames(*atmTrafficDescrParamEntry.getIndexNames())
-if mibBuilder.loadTexts: atmTrafficDescrParamExtEntry.setStatus('current')
-atmTrafficExplicitServCategory = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 11, 1, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("cbr", 1), ("vbrRt", 2), ("vbrNrt", 3), ("abr", 4), ("ubr", 5), ("notDef", 6))).clone('notDef')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmTrafficExplicitServCategory.setStatus('current')
-atmTrafficDerivedServCategory = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 11, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("cbr", 1), ("vbrRt", 2), ("vbrNrt", 3), ("abr", 4), ("ubr", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmTrafficDerivedServCategory.setStatus('current')
-atmTrafficDescriptorName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 11, 1, 2, 1, 1, 3), SnmpAdminString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmTrafficDescriptorName.setStatus('current')
-ciscoAtmTrafficExtMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 11, 3))
-ciscoAtmTrafficExtMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 11, 3, 1))
-ciscoAtmTrafficExtMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 11, 3, 2))
-ciscoAtmTrafficExtMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 10, 11, 3, 1, 1)).setObjects(("CISCO-ATM-TRAFFIC-MIB", "ciscoAtmTrafficTableExtMIBGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoAtmTrafficExtMIBCompliance = ciscoAtmTrafficExtMIBCompliance.setStatus('deprecated')
-ciscoAtmTrafficExtMIBComplianceRev1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 10, 11, 3, 1, 2)).setObjects(("CISCO-ATM-TRAFFIC-MIB", "ciscoAtmTrafficTableExtMIBGroup"), ("CISCO-ATM-TRAFFIC-MIB", "ciscoAtmTrafficNmsGroup"))
+# Managed Objects groups
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoAtmTrafficExtMIBComplianceRev1 = ciscoAtmTrafficExtMIBComplianceRev1.setStatus('current')
-ciscoAtmTrafficTableExtMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 11, 3, 2, 1)).setObjects(("CISCO-ATM-TRAFFIC-MIB", "atmTrafficExplicitServCategory"), ("CISCO-ATM-TRAFFIC-MIB", "atmTrafficDerivedServCategory"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoAtmTrafficTableExtMIBGroup = ciscoAtmTrafficTableExtMIBGroup.setStatus('current')
-ciscoAtmTrafficNmsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 11, 3, 2, 2)).setObjects(("CISCO-ATM-TRAFFIC-MIB", "atmTrafficDescriptorName"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoAtmTrafficNmsGroup = ciscoAtmTrafficNmsGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-ATM-TRAFFIC-MIB", ciscoAtmTrafficNmsGroup=ciscoAtmTrafficNmsGroup, ciscoAtmTrafficTableExt=ciscoAtmTrafficTableExt, atmNoClpScrMbsCdvt=atmNoClpScrMbsCdvt, atmNoClpMcr=atmNoClpMcr, atmNoClpNoScrCdvt=atmNoClpNoScrCdvt, ciscoAtmTrafficTableExtMIBGroup=ciscoAtmTrafficTableExtMIBGroup, ciscoAtmTrafficExtMIBComplianceRev1=ciscoAtmTrafficExtMIBComplianceRev1, ciscoAtmTrafficExtMIBConformance=ciscoAtmTrafficExtMIBConformance, ciscoAtmTrafficExtMIBGroups=ciscoAtmTrafficExtMIBGroups, ciscoAtmTrafficTypeExt=ciscoAtmTrafficTypeExt, atmClpScrMbsCdvt=atmClpScrMbsCdvt, atmTrafficDescrParamExtTable=atmTrafficDescrParamExtTable, atmTrafficDerivedServCategory=atmTrafficDerivedServCategory, ciscoAtmTrafficExtMIBObjects=ciscoAtmTrafficExtMIBObjects, PYSNMP_MODULE_ID=ciscoAtmTrafficExtMIB, atmTrafficExplicitServCategory=atmTrafficExplicitServCategory, atmTrafficDescriptorName=atmTrafficDescriptorName, atmTrafficDescrParamExtEntry=atmTrafficDescrParamExtEntry, ciscoAtmTrafficExtMIB=ciscoAtmTrafficExtMIB, ciscoAtmTrafficExtMIBCompliance=ciscoAtmTrafficExtMIBCompliance, ciscoAtmTrafficExtMIBCompliances=ciscoAtmTrafficExtMIBCompliances, atmNoClpMcrCdvt=atmNoClpMcrCdvt)
+ciscoAtmTrafficTableExtMIBGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 10, 11, 3, 2, 1)
+)
+ciscoAtmTrafficTableExtMIBGroup.setObjects(
+      *(("CISCO-ATM-TRAFFIC-MIB", "atmTrafficExplicitServCategory"),
+        ("CISCO-ATM-TRAFFIC-MIB", "atmTrafficDerivedServCategory"))
+)
+if mibBuilder.loadTexts:
+    ciscoAtmTrafficTableExtMIBGroup.setStatus("current")
+
+ciscoAtmTrafficNmsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 10, 11, 3, 2, 2)
+)
+ciscoAtmTrafficNmsGroup.setObjects(
+    ("CISCO-ATM-TRAFFIC-MIB", "atmTrafficDescriptorName")
+)
+if mibBuilder.loadTexts:
+    ciscoAtmTrafficNmsGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+ciscoAtmTrafficExtMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 10, 11, 3, 1, 1)
+)
+if mibBuilder.loadTexts:
+    ciscoAtmTrafficExtMIBCompliance.setStatus(
+        "deprecated"
+    )
+
+ciscoAtmTrafficExtMIBComplianceRev1 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 10, 11, 3, 1, 2)
+)
+if mibBuilder.loadTexts:
+    ciscoAtmTrafficExtMIBComplianceRev1.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-ATM-TRAFFIC-MIB",
+    **{"ciscoAtmTrafficExtMIB": ciscoAtmTrafficExtMIB,
+       "ciscoAtmTrafficExtMIBObjects": ciscoAtmTrafficExtMIBObjects,
+       "ciscoAtmTrafficTypeExt": ciscoAtmTrafficTypeExt,
+       "atmNoClpNoScrCdvt": atmNoClpNoScrCdvt,
+       "atmClpScrMbsCdvt": atmClpScrMbsCdvt,
+       "atmNoClpScrMbsCdvt": atmNoClpScrMbsCdvt,
+       "atmNoClpMcr": atmNoClpMcr,
+       "atmNoClpMcrCdvt": atmNoClpMcrCdvt,
+       "ciscoAtmTrafficTableExt": ciscoAtmTrafficTableExt,
+       "atmTrafficDescrParamExtTable": atmTrafficDescrParamExtTable,
+       "atmTrafficDescrParamExtEntry": atmTrafficDescrParamExtEntry,
+       "atmTrafficExplicitServCategory": atmTrafficExplicitServCategory,
+       "atmTrafficDerivedServCategory": atmTrafficDerivedServCategory,
+       "atmTrafficDescriptorName": atmTrafficDescriptorName,
+       "ciscoAtmTrafficExtMIBConformance": ciscoAtmTrafficExtMIBConformance,
+       "ciscoAtmTrafficExtMIBCompliances": ciscoAtmTrafficExtMIBCompliances,
+       "ciscoAtmTrafficExtMIBCompliance": ciscoAtmTrafficExtMIBCompliance,
+       "ciscoAtmTrafficExtMIBComplianceRev1": ciscoAtmTrafficExtMIBComplianceRev1,
+       "ciscoAtmTrafficExtMIBGroups": ciscoAtmTrafficExtMIBGroups,
+       "ciscoAtmTrafficTableExtMIBGroup": ciscoAtmTrafficTableExtMIBGroup,
+       "ciscoAtmTrafficNmsGroup": ciscoAtmTrafficNmsGroup}
+)

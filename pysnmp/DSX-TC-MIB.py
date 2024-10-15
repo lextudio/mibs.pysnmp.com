@@ -1,32 +1,204 @@
+# SNMP MIB module (DSX-TC-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module DSX-TC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/DSX-TC-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:39:53 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint")
-ntEnterpriseDataTasmanModules, ntEnterpriseDataTasmanMgmt, ntEnterpriseDataTasmanInterfaces = mibBuilder.importSymbols("NT-ENTERPRISE-DATA-MIB", "ntEnterpriseDataTasmanModules", "ntEnterpriseDataTasmanMgmt", "ntEnterpriseDataTasmanInterfaces")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-IpAddress, Counter32, Counter64, Integer32, ObjectIdentity, Unsigned32, MibIdentifier, Gauge32, iso, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, ModuleIdentity, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Counter32", "Counter64", "Integer32", "ObjectIdentity", "Unsigned32", "MibIdentifier", "Gauge32", "iso", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "ModuleIdentity", "TimeTicks")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-nndsxTC = ModuleIdentity((1, 3, 6, 1, 4, 1, 562, 73, 1, 1, 3, 2))
-nndsxTC.setRevisions(('1999-04-23 00:00',))
-if mibBuilder.loadTexts: nndsxTC.setLastUpdated('9904230000Z')
-if mibBuilder.loadTexts: nndsxTC.setOrganization('Nortel Networks')
-class AlarmStatus(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
-    namedValues = NamedValues(("off", 0), ("on", 1))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/DSX-TC-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:33:42 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class LEDState(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))
-    namedValues = NamedValues(("led-off", 1), ("led-green", 2), ("led-red", 3), ("led-yellow", 4), ("led-blinking-green", 5), ("led-blinking-red", 6), ("led-blinking-yellow", 7))
+if 'mibBuilder' not in globals():
+    import sys
 
-nndsxMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 1, 1, 2, 1))
-nndsxT1E1IfGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 1, 1, 2, 1, 2))
-nndsxT3E3IfGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 1, 1, 2, 1, 3))
-mibBuilder.exportSymbols("DSX-TC-MIB", nndsxTC=nndsxTC, LEDState=LEDState, AlarmStatus=AlarmStatus, nndsxT3E3IfGroup=nndsxT3E3IfGroup, nndsxT1E1IfGroup=nndsxT1E1IfGroup, PYSNMP_MODULE_ID=nndsxTC, nndsxMIB=nndsxMIB)
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ntEnterpriseDataTasmanInterfaces,
+ ntEnterpriseDataTasmanMgmt,
+ ntEnterpriseDataTasmanModules) = mibBuilder.importSymbols(
+    "NT-ENTERPRISE-DATA-MIB",
+    "ntEnterpriseDataTasmanInterfaces",
+    "ntEnterpriseDataTasmanMgmt",
+    "ntEnterpriseDataTasmanModules")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+nndsxTC = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 73, 1, 1, 3, 2)
+)
+nndsxTC.setRevisions(
+        ("1999-04-23 00:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class AlarmStatus(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 0),
+          ("on", 1))
+    )
+
+
+
+class LEDState(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("led-blinking-green", 5),
+          ("led-blinking-red", 6),
+          ("led-blinking-yellow", 7),
+          ("led-green", 2),
+          ("led-off", 1),
+          ("led-red", 3),
+          ("led-yellow", 4))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_NndsxMIB_ObjectIdentity = ObjectIdentity
+nndsxMIB = _NndsxMIB_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 73, 1, 1, 2, 1)
+)
+_NndsxT1E1IfGroup_ObjectIdentity = ObjectIdentity
+nndsxT1E1IfGroup = _NndsxT1E1IfGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 73, 1, 1, 2, 1, 2)
+)
+_NndsxT3E3IfGroup_ObjectIdentity = ObjectIdentity
+nndsxT3E3IfGroup = _NndsxT3E3IfGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 73, 1, 1, 2, 1, 3)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "DSX-TC-MIB",
+    **{"AlarmStatus": AlarmStatus,
+       "LEDState": LEDState,
+       "nndsxMIB": nndsxMIB,
+       "nndsxT1E1IfGroup": nndsxT1E1IfGroup,
+       "nndsxT3E3IfGroup": nndsxT3E3IfGroup,
+       "nndsxTC": nndsxTC}
+)

@@ -1,69 +1,312 @@
+# SNMP MIB module (PW-TC-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module PW-TC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/PW-TC-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:34:13 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-experimental, Bits, iso, MibIdentifier, ModuleIdentity, Integer32, NotificationType, Counter64, Unsigned32, IpAddress, ObjectIdentity, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "experimental", "Bits", "iso", "MibIdentifier", "ModuleIdentity", "Integer32", "NotificationType", "Counter64", "Unsigned32", "IpAddress", "ObjectIdentity", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "Counter32")
-TextualConvention, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TruthValue", "DisplayString")
-pwTCMIB = ModuleIdentity((1, 3, 6, 1, 3, 8888, 1))
-pwTCMIB.setRevisions(('2003-07-28 12:00', '2003-05-01 12:00', '1902-05-28 12:00', '1902-01-30 12:00', '2001-12-20 12:00', '2001-07-12 12:00',))
-if mibBuilder.loadTexts: pwTCMIB.setLastUpdated('200307281200Z')
-if mibBuilder.loadTexts: pwTCMIB.setOrganization('Pseudo Wire Edge to Edge Emulation (PWE3) Working Group')
-pwMIB = MibIdentifier((1, 3, 6, 1, 3, 8888))
-class PwGroupID(TextualConvention, Unsigned32):
-    status = 'current'
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/PW-TC-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:40:22 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class PwVcIDType(TextualConvention, Unsigned32):
-    status = 'current'
+if 'mibBuilder' not in globals():
+    import sys
 
-class PwVcIndexType(TextualConvention, Unsigned32):
-    status = 'current'
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-class PwVcVlanCfg(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 4097)
+# Import base ASN.1 objects even if this MIB does not use it
 
-class PwOperStatus(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))
-    namedValues = NamedValues(("up", 1), ("down", 2), ("testing", 3), ("unknown", 4), ("dormant", 5), ("notPresent", 6), ("lowerLayerDown", 7))
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
 
-class PwVcType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16))
-    namedValues = NamedValues(("other", 0), ("frameRelayDlci", 1), ("atmAal5SduVcc", 2), ("atmTransparent", 3), ("ethernetTagged", 4), ("ethernet", 5), ("hdlc", 6), ("ppp", 7), ("cem", 8), ("atmCellNto1Vcc", 9), ("atmCellNto1Vpc", 10), ("ipLayer2Transport", 11), ("atmCell1to1Vcc", 12), ("atmCell1to1Vpc", 13), ("atmAal5PduVcc", 14), ("frameRelayPortMode", 15), ("cep", 16))
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
 
-class PwVcAttachmentIdentifierType(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 255)
+# Import SMI symbols from the MIBs this MIB depends on
 
-class PwVcCw(TruthValue):
-    status = 'current'
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
 
-class PwVcRemoteCwStatus(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))
-    namedValues = NamedValues(("notApplicable", 0), ("waitingForNextMsg", 1), ("sentWrongBitErrorCode", 2), ("rxWithdrawWithWrongBitErrorCode", 3), ("illegalRecievedBit", 4), ("sameAsSent", 5), ("notYetKnown", 6))
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ experimental,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "experimental",
+    "iso")
 
-class PwVcCapabilities(TextualConvention, Bits):
-    status = 'current'
-    namedValues = NamedValues(("pwStatusIndication", 0))
+(DisplayString,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention",
+    "TruthValue")
 
-class PwVcStatus(TextualConvention, Bits):
-    status = 'current'
-    namedValues = NamedValues(("pwNotForwarding", 0), ("customerFacingPwRxFault", 1), ("customerFacingPwTxFault", 2), ("psnFacingPwRxFault", 3), ("psnFacingPwTxFault", 4))
 
-class PwVcFragSize(TextualConvention, Unsigned32):
-    status = 'current'
+# MODULE-IDENTITY
 
-class PwVcFragStatus(TextualConvention, Bits):
-    status = 'current'
-    namedValues = NamedValues(("noFragmantation", 0), ("cfgFragGreaterThanPsnMtu", 1), ("cfgFragButRemoteIncapable", 2), ("remoteFragCapable", 3), ("fragmantationEnabled", 4))
+pwTCMIB = ModuleIdentity(
+    (1, 3, 6, 1, 3, 8888, 1)
+)
+pwTCMIB.setRevisions(
+        ("2003-07-28 12:00",
+         "2003-05-01 12:00",
+         "1902-05-28 12:00",
+         "1902-01-30 12:00",
+         "2001-12-20 12:00",
+         "2001-07-12 12:00")
+)
 
-mibBuilder.exportSymbols("PW-TC-MIB", pwTCMIB=pwTCMIB, PYSNMP_MODULE_ID=pwTCMIB, PwVcVlanCfg=PwVcVlanCfg, PwVcAttachmentIdentifierType=PwVcAttachmentIdentifierType, PwVcCw=PwVcCw, PwVcIDType=PwVcIDType, PwVcStatus=PwVcStatus, PwVcFragStatus=PwVcFragStatus, pwMIB=pwMIB, PwVcRemoteCwStatus=PwVcRemoteCwStatus, PwOperStatus=PwOperStatus, PwVcFragSize=PwVcFragSize, PwVcType=PwVcType, PwVcIndexType=PwVcIndexType, PwVcCapabilities=PwVcCapabilities, PwGroupID=PwGroupID)
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class PwGroupID(Unsigned32, TextualConvention):
+    status = "current"
+
+
+class PwVcIDType(Unsigned32, TextualConvention):
+    status = "current"
+
+
+class PwVcIndexType(Unsigned32, TextualConvention):
+    status = "current"
+
+
+class PwVcVlanCfg(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4097),
+    )
+
+
+
+class PwOperStatus(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dormant", 5),
+          ("down", 2),
+          ("lowerLayerDown", 7),
+          ("notPresent", 6),
+          ("testing", 3),
+          ("unknown", 4),
+          ("up", 1))
+    )
+
+
+
+class PwVcType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16)
+        )
+    )
+    namedValues = NamedValues(
+        *(("atmAal5PduVcc", 14),
+          ("atmAal5SduVcc", 2),
+          ("atmCell1to1Vcc", 12),
+          ("atmCell1to1Vpc", 13),
+          ("atmCellNto1Vcc", 9),
+          ("atmCellNto1Vpc", 10),
+          ("atmTransparent", 3),
+          ("cem", 8),
+          ("cep", 16),
+          ("ethernet", 5),
+          ("ethernetTagged", 4),
+          ("frameRelayDlci", 1),
+          ("frameRelayPortMode", 15),
+          ("hdlc", 6),
+          ("ipLayer2Transport", 11),
+          ("other", 0),
+          ("ppp", 7))
+    )
+
+
+
+class PwVcAttachmentIdentifierType(OctetString, TextualConvention):
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+
+class PwVcCw(TruthValue, TextualConvention):
+    status = "current"
+
+
+class PwVcRemoteCwStatus(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("illegalRecievedBit", 4),
+          ("notApplicable", 0),
+          ("notYetKnown", 6),
+          ("rxWithdrawWithWrongBitErrorCode", 3),
+          ("sameAsSent", 5),
+          ("sentWrongBitErrorCode", 2),
+          ("waitingForNextMsg", 1))
+    )
+
+
+
+class PwVcCapabilities(Bits, TextualConvention):
+    status = "current"
+
+
+class PwVcStatus(Bits, TextualConvention):
+    status = "current"
+
+
+class PwVcFragSize(Unsigned32, TextualConvention):
+    status = "current"
+
+
+class PwVcFragStatus(Bits, TextualConvention):
+    status = "current"
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_PwMIB_ObjectIdentity = ObjectIdentity
+pwMIB = _PwMIB_ObjectIdentity(
+    (1, 3, 6, 1, 3, 8888)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "PW-TC-MIB",
+    **{"PwGroupID": PwGroupID,
+       "PwVcIDType": PwVcIDType,
+       "PwVcIndexType": PwVcIndexType,
+       "PwVcVlanCfg": PwVcVlanCfg,
+       "PwOperStatus": PwOperStatus,
+       "PwVcType": PwVcType,
+       "PwVcAttachmentIdentifierType": PwVcAttachmentIdentifierType,
+       "PwVcCw": PwVcCw,
+       "PwVcRemoteCwStatus": PwVcRemoteCwStatus,
+       "PwVcCapabilities": PwVcCapabilities,
+       "PwVcStatus": PwVcStatus,
+       "PwVcFragSize": PwVcFragSize,
+       "PwVcFragStatus": PwVcFragStatus,
+       "pwMIB": pwMIB,
+       "pwTCMIB": pwTCMIB}
+)

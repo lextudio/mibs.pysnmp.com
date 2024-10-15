@@ -1,28 +1,200 @@
+# SNMP MIB module (DEVBASE-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module DEVBASE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/DEVBASE-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:26:33 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-device, = mibBuilder.importSymbols("ANIROOT-MIB", "device")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-IpAddress, MibIdentifier, Gauge32, ObjectIdentity, Integer32, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Unsigned32, iso, Counter32, Bits, Counter64, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "MibIdentifier", "Gauge32", "ObjectIdentity", "Integer32", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Unsigned32", "iso", "Counter32", "Bits", "Counter64", "ModuleIdentity")
-DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention")
-aniDevBase = ModuleIdentity((1, 3, 6, 1, 4, 1, 4325, 2, 1))
-if mibBuilder.loadTexts: aniDevBase.setLastUpdated('0105091130Z')
-if mibBuilder.loadTexts: aniDevBase.setOrganization('Aperto Networks')
-aniDevProductName = MibScalar((1, 3, 6, 1, 4, 1, 4325, 2, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aniDevProductName.setStatus('current')
-aniDevLanIpAddr = MibScalar((1, 3, 6, 1, 4, 1, 4325, 2, 1, 2), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aniDevLanIpAddr.setStatus('current')
-aniDevLanSubnetMask = MibScalar((1, 3, 6, 1, 4, 1, 4325, 2, 1, 3), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aniDevLanSubnetMask.setStatus('current')
-aniDevDefaultGateway = MibScalar((1, 3, 6, 1, 4, 1, 4325, 2, 1, 4), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aniDevDefaultGateway.setStatus('current')
-aniDevMacAddr = MibScalar((1, 3, 6, 1, 4, 1, 4325, 2, 1, 5), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aniDevMacAddr.setStatus('current')
-mibBuilder.exportSymbols("DEVBASE-MIB", aniDevDefaultGateway=aniDevDefaultGateway, aniDevBase=aniDevBase, aniDevLanIpAddr=aniDevLanIpAddr, aniDevProductName=aniDevProductName, aniDevLanSubnetMask=aniDevLanSubnetMask, PYSNMP_MODULE_ID=aniDevBase, aniDevMacAddr=aniDevMacAddr)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/DEVBASE-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:26:05 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(device,) = mibBuilder.importSymbols(
+    "ANIROOT-MIB",
+    "device")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+aniDevBase = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 1)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+
+class _AniDevProductName_Type(DisplayString):
+    """Custom type aniDevProductName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_AniDevProductName_Type.__name__ = "DisplayString"
+_AniDevProductName_Object = MibScalar
+aniDevProductName = _AniDevProductName_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 1, 1),
+    _AniDevProductName_Type()
+)
+aniDevProductName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aniDevProductName.setStatus("current")
+_AniDevLanIpAddr_Type = IpAddress
+_AniDevLanIpAddr_Object = MibScalar
+aniDevLanIpAddr = _AniDevLanIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 1, 2),
+    _AniDevLanIpAddr_Type()
+)
+aniDevLanIpAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aniDevLanIpAddr.setStatus("current")
+_AniDevLanSubnetMask_Type = IpAddress
+_AniDevLanSubnetMask_Object = MibScalar
+aniDevLanSubnetMask = _AniDevLanSubnetMask_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 1, 3),
+    _AniDevLanSubnetMask_Type()
+)
+aniDevLanSubnetMask.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aniDevLanSubnetMask.setStatus("current")
+_AniDevDefaultGateway_Type = IpAddress
+_AniDevDefaultGateway_Object = MibScalar
+aniDevDefaultGateway = _AniDevDefaultGateway_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 1, 4),
+    _AniDevDefaultGateway_Type()
+)
+aniDevDefaultGateway.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aniDevDefaultGateway.setStatus("current")
+_AniDevMacAddr_Type = MacAddress
+_AniDevMacAddr_Object = MibScalar
+aniDevMacAddr = _AniDevMacAddr_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 1, 5),
+    _AniDevMacAddr_Type()
+)
+aniDevMacAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aniDevMacAddr.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "DEVBASE-MIB",
+    **{"aniDevBase": aniDevBase,
+       "aniDevProductName": aniDevProductName,
+       "aniDevLanIpAddr": aniDevLanIpAddr,
+       "aniDevLanSubnetMask": aniDevLanSubnetMask,
+       "aniDevDefaultGateway": aniDevDefaultGateway,
+       "aniDevMacAddr": aniDevMacAddr}
+)

@@ -1,17 +1,17 @@
-"""SNMP MIB module (QB-VT15-MIB) expressed in pysnmp data model.
+# SNMP MIB module (QB-VT15-MIB) expressed in pysnmp data model.
+#
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/QB-VT15-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:40:39 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-This Python module is designed to be imported and executed by the
-pysnmp library.
-
-See https://www.pysnmp.com/pysnmp for further information.
-
-Notes
------
-ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/QB-VT15-MIB
-Produced by pysmi-1.3.3 at Sun Mar 10 05:35:11 2024
-On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm
-Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
-"""
 if 'mibBuilder' not in globals():
     import sys
 
@@ -45,29 +45,29 @@ if 'mibBuilder' not in globals():
 
 # Import SMI symbols from the MIBs this MIB depends on
 
-(AtmServiceCategory,
- atmNoClpNoScr,
+(AtmAddr,
+ AtmConnCastType,
+ AtmConnKind,
+ AtmServiceCategory,
  AtmTrafficDescrParamIndex,
+ AtmVcIdentifier,
  AtmVorXAdminStatus,
  AtmVorXLastChange,
- AtmAddr,
  AtmVorXOperStatus,
- AtmConnCastType,
- AtmVcIdentifier,
  AtmVpIdentifier,
- AtmConnKind) = mibBuilder.importSymbols(
+ atmNoClpNoScr) = mibBuilder.importSymbols(
     "ATM-TC-MIB",
+    "AtmAddr",
+    "AtmConnCastType",
+    "AtmConnKind",
     "AtmServiceCategory",
-    "atmNoClpNoScr",
     "AtmTrafficDescrParamIndex",
+    "AtmVcIdentifier",
     "AtmVorXAdminStatus",
     "AtmVorXLastChange",
-    "AtmAddr",
     "AtmVorXOperStatus",
-    "AtmConnCastType",
-    "AtmVcIdentifier",
     "AtmVpIdentifier",
-    "AtmConnKind")
+    "atmNoClpNoScr")
 
 (InterfaceIndex,
  InterfaceIndexOrZero,
@@ -77,11 +77,11 @@ if 'mibBuilder' not in globals():
     "InterfaceIndexOrZero",
     "ifIndex")
 
-(QbPvcConnKind,
- QbEnableStatus) = mibBuilder.importSymbols(
+(QbEnableStatus,
+ QbPvcConnKind) = mibBuilder.importSymbols(
     "QB-DWS-MIB",
-    "QbPvcConnKind",
-    "QbEnableStatus")
+    "QbEnableStatus",
+    "QbPvcConnKind")
 
 (qbMibs,) = mibBuilder.importSymbols(
     "QUANTUMBRIDGE-REG",
@@ -95,53 +95,53 @@ if 'mibBuilder' not in globals():
     "NotificationGroup",
     "ObjectGroup")
 
-(Unsigned32,
+(Bits,
  Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
  NotificationType,
+ ObjectIdentity,
  MibScalar,
  MibTable,
  MibTableRow,
  MibTableColumn,
- ObjectIdentity,
- Bits,
- MibIdentifier,
- ModuleIdentity,
  TimeTicks,
- IpAddress,
- Gauge32,
- Counter64,
- Integer32,
+ Unsigned32,
  iso) = mibBuilder.importSymbols(
     "SNMPv2-SMI",
-    "Unsigned32",
+    "Bits",
     "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
     "NotificationType",
+    "ObjectIdentity",
     "MibScalar",
     "MibTable",
     "MibTableRow",
     "MibTableColumn",
-    "ObjectIdentity",
-    "Bits",
-    "MibIdentifier",
-    "ModuleIdentity",
     "TimeTicks",
-    "IpAddress",
-    "Gauge32",
-    "Counter64",
-    "Integer32",
+    "Unsigned32",
     "iso")
 
 (DisplayString,
- TruthValue,
- TextualConvention,
  RowStatus,
- TimeStamp) = mibBuilder.importSymbols(
+ TextualConvention,
+ TimeStamp,
+ TruthValue) = mibBuilder.importSymbols(
     "SNMPv2-TC",
     "DisplayString",
-    "TruthValue",
-    "TextualConvention",
     "RowStatus",
-    "TimeStamp")
+    "TextualConvention",
+    "TimeStamp",
+    "TruthValue")
 
 
 # MODULE-IDENTITY
@@ -158,7 +158,7 @@ qbVTVCMIB = ModuleIdentity(
 
 
 
-class QbVT15Sts1(TextualConvention, Unsigned32):
+class QbVT15Sts1(Unsigned32, TextualConvention):
     status = "current"
     subtypeSpec = Unsigned32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -167,7 +167,7 @@ class QbVT15Sts1(TextualConvention, Unsigned32):
 
 
 
-class QbVT15VTGroup(TextualConvention, Unsigned32):
+class QbVT15VTGroup(Unsigned32, TextualConvention):
     status = "current"
     subtypeSpec = Unsigned32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -176,7 +176,7 @@ class QbVT15VTGroup(TextualConvention, Unsigned32):
 
 
 
-class QbVT15VTGroupId(TextualConvention, Unsigned32):
+class QbVT15VTGroupId(Unsigned32, TextualConvention):
     status = "current"
     subtypeSpec = Unsigned32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -185,7 +185,7 @@ class QbVT15VTGroupId(TextualConvention, Unsigned32):
 
 
 
-class QbVT15VTId(TextualConvention, Unsigned32):
+class QbVT15VTId(Unsigned32, TextualConvention):
     status = "current"
     subtypeSpec = Unsigned32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -194,7 +194,7 @@ class QbVT15VTId(TextualConvention, Unsigned32):
 
 
 
-class QbVC12Id(TextualConvention, Unsigned32):
+class QbVC12Id(Unsigned32, TextualConvention):
     status = "current"
     subtypeSpec = Unsigned32.subtypeSpec
     subtypeSpec += ConstraintsUnion(

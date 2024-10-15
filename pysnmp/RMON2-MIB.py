@@ -1,41 +1,242 @@
+# SNMP MIB module (RMON2-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module RMON2-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/RMON2-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 16:50:13 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-channelEntry, hosts, filter, etherStatsEntry, historyControlEntry, matrixControlEntry, statistics, OwnerString, history, matrix, filterEntry, hostControlEntry = mibBuilder.importSymbols("RMON-MIB", "channelEntry", "hosts", "filter", "etherStatsEntry", "historyControlEntry", "matrixControlEntry", "statistics", "OwnerString", "history", "matrix", "filterEntry", "hostControlEntry")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-mib_2, Counter32, TimeTicks, ObjectIdentity, ModuleIdentity, MibIdentifier, iso, Counter64, Bits, Integer32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, NotificationType, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "mib-2", "Counter32", "TimeTicks", "ObjectIdentity", "ModuleIdentity", "MibIdentifier", "iso", "Counter64", "Bits", "Integer32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "NotificationType", "Gauge32")
-TimeStamp, TextualConvention, RowStatus, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "TextualConvention", "RowStatus", "DisplayString")
-rmon = ModuleIdentity((1, 3, 6, 1, 2, 1, 16))
-if mibBuilder.loadTexts: rmon.setLastUpdated('9605270000Z')
-if mibBuilder.loadTexts: rmon.setOrganization('IETF RMON MIB Working Group')
-protocolDir = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 11))
-protocolDist = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 12))
-addressMap = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 13))
-nlHost = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 14))
-nlMatrix = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 15))
-alHost = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 16))
-alMatrix = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 17))
-usrHistory = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 18))
-probeConfig = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 19))
-rmonConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 20))
-class ZeroBasedCounter32(TextualConvention, Gauge32):
-    status = 'current'
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/RMON2-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 20:27:58 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class LastCreateTime(TimeStamp):
-    status = 'current'
+if 'mibBuilder' not in globals():
+    import sys
 
-class TimeFilter(TextualConvention, TimeTicks):
-    status = 'current'
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-class DataSource(TextualConvention, ObjectIdentifier):
-    status = 'current'
+# Import base ASN.1 objects even if this MIB does not use it
 
-mibBuilder.exportSymbols("RMON2-MIB", LastCreateTime=LastCreateTime, addressMap=addressMap, PYSNMP_MODULE_ID=rmon, rmon=rmon, alHost=alHost, protocolDir=protocolDir, probeConfig=probeConfig, alMatrix=alMatrix, usrHistory=usrHistory, ZeroBasedCounter32=ZeroBasedCounter32, TimeFilter=TimeFilter, rmonConformance=rmonConformance, nlHost=nlHost, nlMatrix=nlMatrix, DataSource=DataSource, protocolDist=protocolDist)
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(OwnerString,
+ channelEntry,
+ etherStatsEntry,
+ filter,
+ filterEntry,
+ history,
+ historyControlEntry,
+ hostControlEntry,
+ hosts,
+ matrix,
+ matrixControlEntry,
+ statistics) = mibBuilder.importSymbols(
+    "RMON-MIB",
+    "OwnerString",
+    "channelEntry",
+    "etherStatsEntry",
+    "filter",
+    "filterEntry",
+    "history",
+    "historyControlEntry",
+    "hostControlEntry",
+    "hosts",
+    "matrix",
+    "matrixControlEntry",
+    "statistics")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso,
+ mib_2) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso",
+    "mib-2")
+
+(DisplayString,
+ RowStatus,
+ TextualConvention,
+ TimeStamp) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "RowStatus",
+    "TextualConvention",
+    "TimeStamp")
+
+
+# MODULE-IDENTITY
+
+rmon = ModuleIdentity(
+    (1, 3, 6, 1, 2, 1, 16)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class ZeroBasedCounter32(Gauge32, TextualConvention):
+    status = "current"
+
+
+class LastCreateTime(TimeStamp, TextualConvention):
+    status = "current"
+
+
+class TimeFilter(TimeTicks, TextualConvention):
+    status = "current"
+
+
+class DataSource(ObjectIdentifier, TextualConvention):
+    status = "current"
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_ProtocolDir_ObjectIdentity = ObjectIdentity
+protocolDir = _ProtocolDir_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 16, 11)
+)
+_ProtocolDist_ObjectIdentity = ObjectIdentity
+protocolDist = _ProtocolDist_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 16, 12)
+)
+_AddressMap_ObjectIdentity = ObjectIdentity
+addressMap = _AddressMap_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 16, 13)
+)
+_NlHost_ObjectIdentity = ObjectIdentity
+nlHost = _NlHost_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 16, 14)
+)
+_NlMatrix_ObjectIdentity = ObjectIdentity
+nlMatrix = _NlMatrix_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 16, 15)
+)
+_AlHost_ObjectIdentity = ObjectIdentity
+alHost = _AlHost_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 16, 16)
+)
+_AlMatrix_ObjectIdentity = ObjectIdentity
+alMatrix = _AlMatrix_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 16, 17)
+)
+_UsrHistory_ObjectIdentity = ObjectIdentity
+usrHistory = _UsrHistory_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 16, 18)
+)
+_ProbeConfig_ObjectIdentity = ObjectIdentity
+probeConfig = _ProbeConfig_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 16, 19)
+)
+_RmonConformance_ObjectIdentity = ObjectIdentity
+rmonConformance = _RmonConformance_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 16, 20)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "RMON2-MIB",
+    **{"ZeroBasedCounter32": ZeroBasedCounter32,
+       "LastCreateTime": LastCreateTime,
+       "TimeFilter": TimeFilter,
+       "DataSource": DataSource,
+       "rmon": rmon,
+       "protocolDir": protocolDir,
+       "protocolDist": protocolDist,
+       "addressMap": addressMap,
+       "nlHost": nlHost,
+       "nlMatrix": nlMatrix,
+       "alHost": alHost,
+       "alMatrix": alMatrix,
+       "usrHistory": usrHistory,
+       "probeConfig": probeConfig,
+       "rmonConformance": rmonConformance}
+)

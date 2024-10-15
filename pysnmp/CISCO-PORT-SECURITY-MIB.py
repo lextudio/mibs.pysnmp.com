@@ -1,211 +1,1244 @@
+# SNMP MIB module (CISCO-PORT-SECURITY-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-PORT-SECURITY-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/CISCO-PORT-SECURITY-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:52:59 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint")
-ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-vtpVlanName, = mibBuilder.importSymbols("CISCO-VTP-MIB", "vtpVlanName")
-ifName, ifIndex = mibBuilder.importSymbols("IF-MIB", "ifName", "ifIndex")
-VlanIndex, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "VlanIndex")
-NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-ObjectIdentity, Counter32, Counter64, MibIdentifier, ModuleIdentity, Gauge32, IpAddress, Integer32, TimeTicks, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Unsigned32, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Counter32", "Counter64", "MibIdentifier", "ModuleIdentity", "Gauge32", "IpAddress", "Integer32", "TimeTicks", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Unsigned32", "NotificationType")
-DisplayString, MacAddress, RowStatus, TextualConvention, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TextualConvention", "TruthValue")
-ciscoPortSecurityMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 315))
-ciscoPortSecurityMIB.setRevisions(('2009-05-08 00:00', '2005-05-04 00:00', '2005-03-12 00:00', '2004-08-07 00:00', '2004-03-08 00:00', '2004-02-10 00:00', '2003-07-01 00:00', '2003-02-24 00:00',))
-if mibBuilder.loadTexts: ciscoPortSecurityMIB.setLastUpdated('200905080000Z')
-if mibBuilder.loadTexts: ciscoPortSecurityMIB.setOrganization('Cisco Systems, Inc.')
-ciscoPortSecurityMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 315, 0))
-ciscoPortSecurityMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 315, 1))
-ciscoPortSecurityMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 315, 2))
-cpsGlobalObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 1))
-cpsInterfaceObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2))
-class ClearSecureMacAddrType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))
-    namedValues = NamedValues(("done", 0), ("dynamic", 1), ("static", 2), ("sticky", 3), ("all", 4))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CISCO-PORT-SECURITY-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:06:58 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-cpsGlobalMaxSecureAddress = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cpsGlobalMaxSecureAddress.setStatus('current')
-cpsGlobalTotalSecureAddress = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cpsGlobalTotalSecureAddress.setStatus('current')
-cpsGlobalPortSecurityEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 1, 3), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cpsGlobalPortSecurityEnable.setStatus('current')
-cpsGlobalSNMPNotifRate = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1000))).setUnits('notifs per second').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cpsGlobalSNMPNotifRate.setStatus('current')
-cpsGlobalSNMPNotifControl = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 1, 5), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cpsGlobalSNMPNotifControl.setStatus('current')
-cpsGlobalClearSecureMacAddresses = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 1, 6), ClearSecureMacAddrType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cpsGlobalClearSecureMacAddresses.setStatus('current')
-cpsIfConfigTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1), )
-if mibBuilder.loadTexts: cpsIfConfigTable.setStatus('current')
-cpsIfConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: cpsIfConfigEntry.setStatus('current')
-cpsIfPortSecurityEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1, 1, 1), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cpsIfPortSecurityEnable.setStatus('current')
-cpsIfPortSecurityStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("secureup", 1), ("securedown", 2), ("shutdown", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cpsIfPortSecurityStatus.setStatus('current')
-cpsIfMaxSecureMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cpsIfMaxSecureMacAddr.setStatus('current')
-cpsIfCurrentSecureMacAddrCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cpsIfCurrentSecureMacAddrCount.setStatus('current')
-cpsIfSecureMacAddrAgingTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1440))).setUnits('minutes').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cpsIfSecureMacAddrAgingTime.setStatus('current')
-cpsIfSecureMacAddrAgingType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("absolute", 1), ("inactivity", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cpsIfSecureMacAddrAgingType.setStatus('current')
-cpsIfStaticMacAddrAgingEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1, 1, 7), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cpsIfStaticMacAddrAgingEnable.setStatus('current')
-cpsIfViolationAction = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("shutdown", 1), ("dropNotify", 2), ("drop", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cpsIfViolationAction.setStatus('current')
-cpsIfViolationCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cpsIfViolationCount.setStatus('current')
-cpsIfSecureLastMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1, 1, 10), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cpsIfSecureLastMacAddress.setStatus('current')
-cpsIfClearSecureAddresses = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1, 1, 11), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cpsIfClearSecureAddresses.setStatus('deprecated')
-cpsIfUnicastFloodingEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1, 1, 12), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cpsIfUnicastFloodingEnable.setStatus('current')
-cpsIfShutdownTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1, 1, 13), Unsigned32()).setUnits('minutes').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cpsIfShutdownTimeout.setStatus('current')
-cpsIfClearSecureMacAddresses = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1, 1, 14), ClearSecureMacAddrType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cpsIfClearSecureMacAddresses.setStatus('current')
-cpsIfStickyEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1, 1, 15), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cpsIfStickyEnable.setStatus('current')
-cpsIfInvalidSrcRateLimitEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1, 1, 16), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cpsIfInvalidSrcRateLimitEnable.setStatus('current')
-cpsIfInvalidSrcRateLimitValue = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1, 1, 17), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 1000))).setUnits('Packets per second').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cpsIfInvalidSrcRateLimitValue.setStatus('current')
-cpsIfSecureLastMacAddrVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1, 1, 18), VlanIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cpsIfSecureLastMacAddrVlanId.setStatus('current')
-cpsSecureMacAddressTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 2), )
-if mibBuilder.loadTexts: cpsSecureMacAddressTable.setStatus('deprecated')
-cpsSecureMacAddressEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "CISCO-PORT-SECURITY-MIB", "cpsSecureMacAddress"))
-if mibBuilder.loadTexts: cpsSecureMacAddressEntry.setStatus('deprecated')
-cpsSecureMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 2, 1, 1), MacAddress())
-if mibBuilder.loadTexts: cpsSecureMacAddress.setStatus('deprecated')
-cpsSecureMacAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("static", 1), ("dynamic", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cpsSecureMacAddrType.setStatus('deprecated')
-cpsSecureMacAddrRemainingAge = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1440))).setUnits('minutes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cpsSecureMacAddrRemainingAge.setStatus('deprecated')
-cpsSecureMacAddrRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cpsSecureMacAddrRowStatus.setStatus('deprecated')
-cpsIfVlanSecureMacAddrTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 3), )
-if mibBuilder.loadTexts: cpsIfVlanSecureMacAddrTable.setStatus('current')
-cpsIfVlanSecureMacAddrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "CISCO-PORT-SECURITY-MIB", "cpsIfVlanSecureMacAddress"), (0, "CISCO-PORT-SECURITY-MIB", "cpsIfVlanSecureVlanIndex"))
-if mibBuilder.loadTexts: cpsIfVlanSecureMacAddrEntry.setStatus('current')
-cpsIfVlanSecureMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 3, 1, 1), MacAddress())
-if mibBuilder.loadTexts: cpsIfVlanSecureMacAddress.setStatus('current')
-cpsIfVlanSecureVlanIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 3, 1, 2), VlanIndex())
-if mibBuilder.loadTexts: cpsIfVlanSecureVlanIndex.setStatus('current')
-cpsIfVlanSecureMacAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("static", 1), ("dynamic", 2), ("sticky", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cpsIfVlanSecureMacAddrType.setStatus('current')
-cpsIfVlanSecureMacAddrRemainAge = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 3, 1, 4), Unsigned32()).setUnits('minutes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cpsIfVlanSecureMacAddrRemainAge.setStatus('current')
-cpsIfVlanSecureMacAddrRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 3, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cpsIfVlanSecureMacAddrRowStatus.setStatus('current')
-cpsIfVlanTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 4), )
-if mibBuilder.loadTexts: cpsIfVlanTable.setStatus('obsolete')
-cpsIfVlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 4, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "CISCO-PORT-SECURITY-MIB", "cpsIfVlanIndex"))
-if mibBuilder.loadTexts: cpsIfVlanEntry.setStatus('obsolete')
-cpsIfVlanIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 4, 1, 1), VlanIndex())
-if mibBuilder.loadTexts: cpsIfVlanIndex.setStatus('obsolete')
-cpsIfVlanMaxSecureMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 4, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cpsIfVlanMaxSecureMacAddr.setStatus('obsolete')
-cpsIfVlanCurSecureMacAddrCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 4, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cpsIfVlanCurSecureMacAddrCount.setStatus('obsolete')
-cpsIfMultiVlanTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 5), )
-if mibBuilder.loadTexts: cpsIfMultiVlanTable.setStatus('current')
-cpsIfMultiVlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 5, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "CISCO-PORT-SECURITY-MIB", "cpsIfMultiVlanIndex"))
-if mibBuilder.loadTexts: cpsIfMultiVlanEntry.setStatus('current')
-cpsIfMultiVlanIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 5, 1, 1), VlanIndex())
-if mibBuilder.loadTexts: cpsIfMultiVlanIndex.setStatus('current')
-cpsIfMultiVlanMaxSecureMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 5, 1, 2), Unsigned32().clone(1)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cpsIfMultiVlanMaxSecureMacAddr.setStatus('current')
-cpsIfMultiVlanSecureMacAddrCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 5, 1, 3), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cpsIfMultiVlanSecureMacAddrCount.setStatus('current')
-cpsIfMultiVlanClearSecureMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 5, 1, 4), ClearSecureMacAddrType().clone('done')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cpsIfMultiVlanClearSecureMacAddr.setStatus('current')
-cpsIfMultiVlanRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 5, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cpsIfMultiVlanRowStatus.setStatus('current')
-cpsInterfaceNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 315, 0, 0))
-cpsSecureMacAddrViolation = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 315, 0, 0, 1)).setObjects(("IF-MIB", "ifIndex"), ("IF-MIB", "ifName"), ("CISCO-PORT-SECURITY-MIB", "cpsIfSecureLastMacAddress"))
-if mibBuilder.loadTexts: cpsSecureMacAddrViolation.setStatus('current')
-cpsTrunkSecureMacAddrViolation = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 315, 0, 0, 2)).setObjects(("IF-MIB", "ifName"), ("CISCO-VTP-MIB", "vtpVlanName"), ("CISCO-PORT-SECURITY-MIB", "cpsIfSecureLastMacAddress"))
-if mibBuilder.loadTexts: cpsTrunkSecureMacAddrViolation.setStatus('deprecated')
-cpsIfVlanSecureMacAddrViolation = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 315, 0, 0, 3)).setObjects(("IF-MIB", "ifName"), ("CISCO-PORT-SECURITY-MIB", "cpsIfSecureLastMacAddrVlanId"), ("CISCO-PORT-SECURITY-MIB", "cpsIfSecureLastMacAddress"))
-if mibBuilder.loadTexts: cpsIfVlanSecureMacAddrViolation.setStatus('current')
-ciscoPortSecurityMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 1))
-ciscoPortSecurityMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 2))
-ciscoPortSecurityMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 1, 1)).setObjects(("CISCO-PORT-SECURITY-MIB", "cpsGlobalGroup"), ("CISCO-PORT-SECURITY-MIB", "cpsInterfaceGroup"), ("CISCO-PORT-SECURITY-MIB", "cpsExtInterfaceGroup"), ("CISCO-PORT-SECURITY-MIB", "cpsNotificationGroup"), ("CISCO-PORT-SECURITY-MIB", "cpsExtConfigInterfaceGroup"))
+if 'mibBuilder' not in globals():
+    import sys
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoPortSecurityMIBCompliance = ciscoPortSecurityMIBCompliance.setStatus('deprecated')
-ciscoPortSecurityMIBCompliance1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 1, 2)).setObjects(("CISCO-PORT-SECURITY-MIB", "cpsGlobalGroup"), ("CISCO-PORT-SECURITY-MIB", "cpsInterfaceGroup1"), ("CISCO-PORT-SECURITY-MIB", "cpsIfVlanSecureMacAddrGroup"), ("CISCO-PORT-SECURITY-MIB", "cpsExtInterfaceGroup"), ("CISCO-PORT-SECURITY-MIB", "cpsNotificationGroup"), ("CISCO-PORT-SECURITY-MIB", "cpsUnicastFloodingInterfaceGroup"), ("CISCO-PORT-SECURITY-MIB", "cpsShutdownTimeoutInterfaceGroup"))
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoPortSecurityMIBCompliance1 = ciscoPortSecurityMIBCompliance1.setStatus('deprecated')
-ciscoPortSecurityMIBCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 1, 3)).setObjects(("CISCO-PORT-SECURITY-MIB", "cpsGlobalGroup"), ("CISCO-PORT-SECURITY-MIB", "cpsInterfaceGroup2"), ("CISCO-PORT-SECURITY-MIB", "cpsIfVlanSecureMacAddrGroup"), ("CISCO-PORT-SECURITY-MIB", "cpsExtInterfaceGroup"), ("CISCO-PORT-SECURITY-MIB", "cpsNotificationGroup"), ("CISCO-PORT-SECURITY-MIB", "cpsUnicastFloodingInterfaceGroup"), ("CISCO-PORT-SECURITY-MIB", "cpsShutdownTimeoutInterfaceGroup"), ("CISCO-PORT-SECURITY-MIB", "cpsIfVlanGroup"), ("CISCO-PORT-SECURITY-MIB", "cpsGlobalClearAddressGroup"))
+# Import base ASN.1 objects even if this MIB does not use it
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoPortSecurityMIBCompliance2 = ciscoPortSecurityMIBCompliance2.setStatus('obsolete')
-ciscoPortSecurityMIBCompliance3 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 1, 4)).setObjects(("CISCO-PORT-SECURITY-MIB", "cpsGlobalGroup"), ("CISCO-PORT-SECURITY-MIB", "cpsInterfaceGroup2"), ("CISCO-PORT-SECURITY-MIB", "cpsIfVlanSecureMacAddrGroup"), ("CISCO-PORT-SECURITY-MIB", "cpsExtInterfaceGroup"), ("CISCO-PORT-SECURITY-MIB", "cpsNotificationGroup"), ("CISCO-PORT-SECURITY-MIB", "cpsUnicastFloodingInterfaceGroup"), ("CISCO-PORT-SECURITY-MIB", "cpsShutdownTimeoutInterfaceGroup"), ("CISCO-PORT-SECURITY-MIB", "cpsIfVlanGroup"), ("CISCO-PORT-SECURITY-MIB", "cpsGlobalClearAddressGroup"), ("CISCO-PORT-SECURITY-MIB", "cpsTrunkSecureNotificationGroup"))
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoPortSecurityMIBCompliance3 = ciscoPortSecurityMIBCompliance3.setStatus('obsolete')
-ciscoPortSecurityMIBCompliance4 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 1, 5)).setObjects(("CISCO-PORT-SECURITY-MIB", "cpsGlobalGroup"), ("CISCO-PORT-SECURITY-MIB", "cpsInterfaceGroup2"), ("CISCO-PORT-SECURITY-MIB", "cpsIfVlanSecureMacAddrGroup"), ("CISCO-PORT-SECURITY-MIB", "cpsExtInterfaceGroup"), ("CISCO-PORT-SECURITY-MIB", "cpsNotificationGroup"), ("CISCO-PORT-SECURITY-MIB", "cpsUnicastFloodingInterfaceGroup"), ("CISCO-PORT-SECURITY-MIB", "cpsShutdownTimeoutInterfaceGroup"), ("CISCO-PORT-SECURITY-MIB", "cpsIfMultiVlanGroup"), ("CISCO-PORT-SECURITY-MIB", "cpsGlobalClearAddressGroup"), ("CISCO-PORT-SECURITY-MIB", "cpsIfVlanSecureNotificationGroup"), ("CISCO-PORT-SECURITY-MIB", "cpsExtInterfaceGroup1"))
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoPortSecurityMIBCompliance4 = ciscoPortSecurityMIBCompliance4.setStatus('current')
-cpsGlobalGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 2, 1)).setObjects(("CISCO-PORT-SECURITY-MIB", "cpsGlobalMaxSecureAddress"), ("CISCO-PORT-SECURITY-MIB", "cpsGlobalTotalSecureAddress"), ("CISCO-PORT-SECURITY-MIB", "cpsGlobalPortSecurityEnable"), ("CISCO-PORT-SECURITY-MIB", "cpsGlobalSNMPNotifRate"), ("CISCO-PORT-SECURITY-MIB", "cpsGlobalSNMPNotifControl"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cpsGlobalGroup = cpsGlobalGroup.setStatus('current')
-cpsInterfaceGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 2, 2)).setObjects(("CISCO-PORT-SECURITY-MIB", "cpsIfPortSecurityEnable"), ("CISCO-PORT-SECURITY-MIB", "cpsIfPortSecurityStatus"), ("CISCO-PORT-SECURITY-MIB", "cpsIfMaxSecureMacAddr"), ("CISCO-PORT-SECURITY-MIB", "cpsIfCurrentSecureMacAddrCount"), ("CISCO-PORT-SECURITY-MIB", "cpsIfSecureMacAddrAgingType"), ("CISCO-PORT-SECURITY-MIB", "cpsIfSecureMacAddrAgingTime"), ("CISCO-PORT-SECURITY-MIB", "cpsIfStaticMacAddrAgingEnable"), ("CISCO-PORT-SECURITY-MIB", "cpsIfViolationAction"), ("CISCO-PORT-SECURITY-MIB", "cpsIfViolationCount"), ("CISCO-PORT-SECURITY-MIB", "cpsIfClearSecureAddresses"), ("CISCO-PORT-SECURITY-MIB", "cpsSecureMacAddrType"), ("CISCO-PORT-SECURITY-MIB", "cpsSecureMacAddrRemainingAge"), ("CISCO-PORT-SECURITY-MIB", "cpsSecureMacAddrRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cpsInterfaceGroup = cpsInterfaceGroup.setStatus('deprecated')
-cpsExtInterfaceGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 2, 3)).setObjects(("CISCO-PORT-SECURITY-MIB", "cpsIfSecureLastMacAddress"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cpsExtInterfaceGroup = cpsExtInterfaceGroup.setStatus('current')
-cpsNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 2, 4)).setObjects(("CISCO-PORT-SECURITY-MIB", "cpsSecureMacAddrViolation"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cpsNotificationGroup = cpsNotificationGroup.setStatus('current')
-cpsUnicastFloodingInterfaceGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 2, 5)).setObjects(("CISCO-PORT-SECURITY-MIB", "cpsIfUnicastFloodingEnable"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cpsUnicastFloodingInterfaceGroup = cpsUnicastFloodingInterfaceGroup.setStatus('current')
-cpsShutdownTimeoutInterfaceGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 2, 6)).setObjects(("CISCO-PORT-SECURITY-MIB", "cpsIfShutdownTimeout"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cpsShutdownTimeoutInterfaceGroup = cpsShutdownTimeoutInterfaceGroup.setStatus('current')
-cpsIfVlanSecureMacAddrGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 2, 8)).setObjects(("CISCO-PORT-SECURITY-MIB", "cpsIfVlanSecureMacAddrType"), ("CISCO-PORT-SECURITY-MIB", "cpsIfVlanSecureMacAddrRemainAge"), ("CISCO-PORT-SECURITY-MIB", "cpsIfVlanSecureMacAddrRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cpsIfVlanSecureMacAddrGroup = cpsIfVlanSecureMacAddrGroup.setStatus('current')
-cpsInterfaceGroup1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 2, 9)).setObjects(("CISCO-PORT-SECURITY-MIB", "cpsIfPortSecurityEnable"), ("CISCO-PORT-SECURITY-MIB", "cpsIfPortSecurityStatus"), ("CISCO-PORT-SECURITY-MIB", "cpsIfMaxSecureMacAddr"), ("CISCO-PORT-SECURITY-MIB", "cpsIfCurrentSecureMacAddrCount"), ("CISCO-PORT-SECURITY-MIB", "cpsIfSecureMacAddrAgingType"), ("CISCO-PORT-SECURITY-MIB", "cpsIfSecureMacAddrAgingTime"), ("CISCO-PORT-SECURITY-MIB", "cpsIfStaticMacAddrAgingEnable"), ("CISCO-PORT-SECURITY-MIB", "cpsIfViolationAction"), ("CISCO-PORT-SECURITY-MIB", "cpsIfViolationCount"), ("CISCO-PORT-SECURITY-MIB", "cpsIfClearSecureAddresses"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cpsInterfaceGroup1 = cpsInterfaceGroup1.setStatus('deprecated')
-cpsExtConfigInterfaceGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 2, 10)).setObjects(("CISCO-PORT-SECURITY-MIB", "cpsIfShutdownTimeout"), ("CISCO-PORT-SECURITY-MIB", "cpsIfUnicastFloodingEnable"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cpsExtConfigInterfaceGroup = cpsExtConfigInterfaceGroup.setStatus('deprecated')
-cpsIfVlanGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 2, 11)).setObjects(("CISCO-PORT-SECURITY-MIB", "cpsIfVlanMaxSecureMacAddr"), ("CISCO-PORT-SECURITY-MIB", "cpsIfVlanCurSecureMacAddrCount"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cpsIfVlanGroup = cpsIfVlanGroup.setStatus('obsolete')
-cpsGlobalClearAddressGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 2, 12)).setObjects(("CISCO-PORT-SECURITY-MIB", "cpsGlobalClearSecureMacAddresses"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cpsGlobalClearAddressGroup = cpsGlobalClearAddressGroup.setStatus('current')
-cpsInterfaceGroup2 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 2, 13)).setObjects(("CISCO-PORT-SECURITY-MIB", "cpsIfPortSecurityEnable"), ("CISCO-PORT-SECURITY-MIB", "cpsIfPortSecurityStatus"), ("CISCO-PORT-SECURITY-MIB", "cpsIfMaxSecureMacAddr"), ("CISCO-PORT-SECURITY-MIB", "cpsIfCurrentSecureMacAddrCount"), ("CISCO-PORT-SECURITY-MIB", "cpsIfSecureMacAddrAgingType"), ("CISCO-PORT-SECURITY-MIB", "cpsIfSecureMacAddrAgingTime"), ("CISCO-PORT-SECURITY-MIB", "cpsIfStaticMacAddrAgingEnable"), ("CISCO-PORT-SECURITY-MIB", "cpsIfViolationAction"), ("CISCO-PORT-SECURITY-MIB", "cpsIfViolationCount"), ("CISCO-PORT-SECURITY-MIB", "cpsIfClearSecureMacAddresses"), ("CISCO-PORT-SECURITY-MIB", "cpsIfInvalidSrcRateLimitEnable"), ("CISCO-PORT-SECURITY-MIB", "cpsIfInvalidSrcRateLimitValue"), ("CISCO-PORT-SECURITY-MIB", "cpsIfStickyEnable"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cpsInterfaceGroup2 = cpsInterfaceGroup2.setStatus('current')
-cpsTrunkSecureNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 2, 14)).setObjects(("CISCO-PORT-SECURITY-MIB", "cpsTrunkSecureMacAddrViolation"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cpsTrunkSecureNotificationGroup = cpsTrunkSecureNotificationGroup.setStatus('deprecated')
-cpsIfMultiVlanGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 2, 15)).setObjects(("CISCO-PORT-SECURITY-MIB", "cpsIfMultiVlanMaxSecureMacAddr"), ("CISCO-PORT-SECURITY-MIB", "cpsIfMultiVlanSecureMacAddrCount"), ("CISCO-PORT-SECURITY-MIB", "cpsIfMultiVlanClearSecureMacAddr"), ("CISCO-PORT-SECURITY-MIB", "cpsIfMultiVlanRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cpsIfMultiVlanGroup = cpsIfMultiVlanGroup.setStatus('current')
-cpsIfVlanSecureNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 2, 16)).setObjects(("CISCO-PORT-SECURITY-MIB", "cpsIfVlanSecureMacAddrViolation"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cpsIfVlanSecureNotificationGroup = cpsIfVlanSecureNotificationGroup.setStatus('current')
-cpsExtInterfaceGroup1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 2, 17)).setObjects(("CISCO-PORT-SECURITY-MIB", "cpsIfSecureLastMacAddrVlanId"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cpsExtInterfaceGroup1 = cpsExtInterfaceGroup1.setStatus('current')
-mibBuilder.exportSymbols("CISCO-PORT-SECURITY-MIB", cpsIfPortSecurityStatus=cpsIfPortSecurityStatus, cpsGlobalSNMPNotifRate=cpsGlobalSNMPNotifRate, cpsSecureMacAddrRemainingAge=cpsSecureMacAddrRemainingAge, cpsIfMultiVlanRowStatus=cpsIfMultiVlanRowStatus, cpsSecureMacAddrRowStatus=cpsSecureMacAddrRowStatus, ciscoPortSecurityMIBObjects=ciscoPortSecurityMIBObjects, cpsTrunkSecureMacAddrViolation=cpsTrunkSecureMacAddrViolation, cpsGlobalGroup=cpsGlobalGroup, cpsIfVlanSecureMacAddrType=cpsIfVlanSecureMacAddrType, cpsIfVlanSecureMacAddrRemainAge=cpsIfVlanSecureMacAddrRemainAge, cpsTrunkSecureNotificationGroup=cpsTrunkSecureNotificationGroup, cpsIfVlanGroup=cpsIfVlanGroup, cpsGlobalPortSecurityEnable=cpsGlobalPortSecurityEnable, cpsIfSecureLastMacAddress=cpsIfSecureLastMacAddress, ClearSecureMacAddrType=ClearSecureMacAddrType, cpsIfMultiVlanIndex=cpsIfMultiVlanIndex, cpsIfInvalidSrcRateLimitValue=cpsIfInvalidSrcRateLimitValue, cpsIfCurrentSecureMacAddrCount=cpsIfCurrentSecureMacAddrCount, ciscoPortSecurityMIBNotifs=ciscoPortSecurityMIBNotifs, cpsInterfaceGroup1=cpsInterfaceGroup1, cpsIfUnicastFloodingEnable=cpsIfUnicastFloodingEnable, cpsSecureMacAddressEntry=cpsSecureMacAddressEntry, cpsSecureMacAddrType=cpsSecureMacAddrType, cpsIfVlanIndex=cpsIfVlanIndex, cpsIfMultiVlanMaxSecureMacAddr=cpsIfMultiVlanMaxSecureMacAddr, ciscoPortSecurityMIBCompliance2=ciscoPortSecurityMIBCompliance2, cpsIfVlanSecureMacAddrTable=cpsIfVlanSecureMacAddrTable, cpsSecureMacAddrViolation=cpsSecureMacAddrViolation, cpsIfVlanSecureMacAddress=cpsIfVlanSecureMacAddress, cpsIfVlanCurSecureMacAddrCount=cpsIfVlanCurSecureMacAddrCount, cpsIfVlanEntry=cpsIfVlanEntry, cpsIfMultiVlanClearSecureMacAddr=cpsIfMultiVlanClearSecureMacAddr, cpsGlobalClearAddressGroup=cpsGlobalClearAddressGroup, cpsInterfaceNotifs=cpsInterfaceNotifs, cpsExtInterfaceGroup1=cpsExtInterfaceGroup1, cpsIfClearSecureAddresses=cpsIfClearSecureAddresses, cpsIfMultiVlanSecureMacAddrCount=cpsIfMultiVlanSecureMacAddrCount, cpsIfMultiVlanTable=cpsIfMultiVlanTable, cpsIfVlanSecureVlanIndex=cpsIfVlanSecureVlanIndex, cpsIfVlanTable=cpsIfVlanTable, cpsIfConfigTable=cpsIfConfigTable, cpsExtConfigInterfaceGroup=cpsExtConfigInterfaceGroup, cpsIfMaxSecureMacAddr=cpsIfMaxSecureMacAddr, cpsExtInterfaceGroup=cpsExtInterfaceGroup, cpsIfViolationCount=cpsIfViolationCount, ciscoPortSecurityMIBCompliance1=ciscoPortSecurityMIBCompliance1, cpsIfVlanSecureMacAddrGroup=cpsIfVlanSecureMacAddrGroup, cpsIfVlanMaxSecureMacAddr=cpsIfVlanMaxSecureMacAddr, cpsIfConfigEntry=cpsIfConfigEntry, cpsIfVlanSecureMacAddrRowStatus=cpsIfVlanSecureMacAddrRowStatus, cpsNotificationGroup=cpsNotificationGroup, cpsIfSecureMacAddrAgingTime=cpsIfSecureMacAddrAgingTime, cpsGlobalMaxSecureAddress=cpsGlobalMaxSecureAddress, cpsIfInvalidSrcRateLimitEnable=cpsIfInvalidSrcRateLimitEnable, cpsIfVlanSecureNotificationGroup=cpsIfVlanSecureNotificationGroup, ciscoPortSecurityMIBCompliance3=ciscoPortSecurityMIBCompliance3, cpsIfVlanSecureMacAddrEntry=cpsIfVlanSecureMacAddrEntry, cpsInterfaceObjects=cpsInterfaceObjects, cpsIfVlanSecureMacAddrViolation=cpsIfVlanSecureMacAddrViolation, cpsIfMultiVlanEntry=cpsIfMultiVlanEntry, cpsUnicastFloodingInterfaceGroup=cpsUnicastFloodingInterfaceGroup, ciscoPortSecurityMIBCompliances=ciscoPortSecurityMIBCompliances, cpsInterfaceGroup2=cpsInterfaceGroup2, cpsGlobalObjects=cpsGlobalObjects, cpsSecureMacAddressTable=cpsSecureMacAddressTable, cpsIfShutdownTimeout=cpsIfShutdownTimeout, ciscoPortSecurityMIBConform=ciscoPortSecurityMIBConform, PYSNMP_MODULE_ID=ciscoPortSecurityMIB, cpsGlobalClearSecureMacAddresses=cpsGlobalClearSecureMacAddresses, cpsIfPortSecurityEnable=cpsIfPortSecurityEnable, cpsIfSecureMacAddrAgingType=cpsIfSecureMacAddrAgingType, ciscoPortSecurityMIBCompliance4=ciscoPortSecurityMIBCompliance4, cpsIfStaticMacAddrAgingEnable=cpsIfStaticMacAddrAgingEnable, cpsIfClearSecureMacAddresses=cpsIfClearSecureMacAddresses, ciscoPortSecurityMIB=ciscoPortSecurityMIB, cpsIfViolationAction=cpsIfViolationAction, cpsIfSecureLastMacAddrVlanId=cpsIfSecureLastMacAddrVlanId, cpsGlobalSNMPNotifControl=cpsGlobalSNMPNotifControl, cpsShutdownTimeoutInterfaceGroup=cpsShutdownTimeoutInterfaceGroup, cpsIfMultiVlanGroup=cpsIfMultiVlanGroup, ciscoPortSecurityMIBGroups=ciscoPortSecurityMIBGroups, cpsInterfaceGroup=cpsInterfaceGroup, ciscoPortSecurityMIBCompliance=ciscoPortSecurityMIBCompliance, cpsGlobalTotalSecureAddress=cpsGlobalTotalSecureAddress, cpsIfStickyEnable=cpsIfStickyEnable, cpsSecureMacAddress=cpsSecureMacAddress)
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ciscoMgmt,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoMgmt")
+
+(vtpVlanName,) = mibBuilder.importSymbols(
+    "CISCO-VTP-MIB",
+    "vtpVlanName")
+
+(ifIndex,
+ ifName) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex",
+    "ifName")
+
+(VlanIndex,) = mibBuilder.importSymbols(
+    "Q-BRIDGE-MIB",
+    "VlanIndex")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+ciscoPortSecurityMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315)
+)
+ciscoPortSecurityMIB.setRevisions(
+        ("2009-05-08 00:00",
+         "2005-05-04 00:00",
+         "2005-03-12 00:00",
+         "2004-08-07 00:00",
+         "2004-03-08 00:00",
+         "2004-02-10 00:00",
+         "2003-07-01 00:00",
+         "2003-02-24 00:00")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class ClearSecureMacAddrType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("all", 4),
+          ("done", 0),
+          ("dynamic", 1),
+          ("static", 2),
+          ("sticky", 3))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CiscoPortSecurityMIBNotifs_ObjectIdentity = ObjectIdentity
+ciscoPortSecurityMIBNotifs = _CiscoPortSecurityMIBNotifs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 0)
+)
+_CpsInterfaceNotifs_ObjectIdentity = ObjectIdentity
+cpsInterfaceNotifs = _CpsInterfaceNotifs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 0, 0)
+)
+_CiscoPortSecurityMIBObjects_ObjectIdentity = ObjectIdentity
+ciscoPortSecurityMIBObjects = _CiscoPortSecurityMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1)
+)
+_CpsGlobalObjects_ObjectIdentity = ObjectIdentity
+cpsGlobalObjects = _CpsGlobalObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 1)
+)
+
+
+class _CpsGlobalMaxSecureAddress_Type(Integer32):
+    """Custom type cpsGlobalMaxSecureAddress based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_CpsGlobalMaxSecureAddress_Type.__name__ = "Integer32"
+_CpsGlobalMaxSecureAddress_Object = MibScalar
+cpsGlobalMaxSecureAddress = _CpsGlobalMaxSecureAddress_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 1, 1),
+    _CpsGlobalMaxSecureAddress_Type()
+)
+cpsGlobalMaxSecureAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cpsGlobalMaxSecureAddress.setStatus("current")
+
+
+class _CpsGlobalTotalSecureAddress_Type(Integer32):
+    """Custom type cpsGlobalTotalSecureAddress based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_CpsGlobalTotalSecureAddress_Type.__name__ = "Integer32"
+_CpsGlobalTotalSecureAddress_Object = MibScalar
+cpsGlobalTotalSecureAddress = _CpsGlobalTotalSecureAddress_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 1, 2),
+    _CpsGlobalTotalSecureAddress_Type()
+)
+cpsGlobalTotalSecureAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cpsGlobalTotalSecureAddress.setStatus("current")
+_CpsGlobalPortSecurityEnable_Type = TruthValue
+_CpsGlobalPortSecurityEnable_Object = MibScalar
+cpsGlobalPortSecurityEnable = _CpsGlobalPortSecurityEnable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 1, 3),
+    _CpsGlobalPortSecurityEnable_Type()
+)
+cpsGlobalPortSecurityEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cpsGlobalPortSecurityEnable.setStatus("current")
+
+
+class _CpsGlobalSNMPNotifRate_Type(Integer32):
+    """Custom type cpsGlobalSNMPNotifRate based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1000),
+    )
+
+
+_CpsGlobalSNMPNotifRate_Type.__name__ = "Integer32"
+_CpsGlobalSNMPNotifRate_Object = MibScalar
+cpsGlobalSNMPNotifRate = _CpsGlobalSNMPNotifRate_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 1, 4),
+    _CpsGlobalSNMPNotifRate_Type()
+)
+cpsGlobalSNMPNotifRate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cpsGlobalSNMPNotifRate.setStatus("current")
+if mibBuilder.loadTexts:
+    cpsGlobalSNMPNotifRate.setUnits("notifs per second")
+_CpsGlobalSNMPNotifControl_Type = TruthValue
+_CpsGlobalSNMPNotifControl_Object = MibScalar
+cpsGlobalSNMPNotifControl = _CpsGlobalSNMPNotifControl_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 1, 5),
+    _CpsGlobalSNMPNotifControl_Type()
+)
+cpsGlobalSNMPNotifControl.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cpsGlobalSNMPNotifControl.setStatus("current")
+_CpsGlobalClearSecureMacAddresses_Type = ClearSecureMacAddrType
+_CpsGlobalClearSecureMacAddresses_Object = MibScalar
+cpsGlobalClearSecureMacAddresses = _CpsGlobalClearSecureMacAddresses_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 1, 6),
+    _CpsGlobalClearSecureMacAddresses_Type()
+)
+cpsGlobalClearSecureMacAddresses.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cpsGlobalClearSecureMacAddresses.setStatus("current")
+_CpsInterfaceObjects_ObjectIdentity = ObjectIdentity
+cpsInterfaceObjects = _CpsInterfaceObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2)
+)
+_CpsIfConfigTable_Object = MibTable
+cpsIfConfigTable = _CpsIfConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    cpsIfConfigTable.setStatus("current")
+_CpsIfConfigEntry_Object = MibTableRow
+cpsIfConfigEntry = _CpsIfConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1, 1)
+)
+cpsIfConfigEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    cpsIfConfigEntry.setStatus("current")
+_CpsIfPortSecurityEnable_Type = TruthValue
+_CpsIfPortSecurityEnable_Object = MibTableColumn
+cpsIfPortSecurityEnable = _CpsIfPortSecurityEnable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1, 1, 1),
+    _CpsIfPortSecurityEnable_Type()
+)
+cpsIfPortSecurityEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cpsIfPortSecurityEnable.setStatus("current")
+
+
+class _CpsIfPortSecurityStatus_Type(Integer32):
+    """Custom type cpsIfPortSecurityStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("securedown", 2),
+          ("secureup", 1),
+          ("shutdown", 3))
+    )
+
+
+_CpsIfPortSecurityStatus_Type.__name__ = "Integer32"
+_CpsIfPortSecurityStatus_Object = MibTableColumn
+cpsIfPortSecurityStatus = _CpsIfPortSecurityStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1, 1, 2),
+    _CpsIfPortSecurityStatus_Type()
+)
+cpsIfPortSecurityStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cpsIfPortSecurityStatus.setStatus("current")
+
+
+class _CpsIfMaxSecureMacAddr_Type(Integer32):
+    """Custom type cpsIfMaxSecureMacAddr based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_CpsIfMaxSecureMacAddr_Type.__name__ = "Integer32"
+_CpsIfMaxSecureMacAddr_Object = MibTableColumn
+cpsIfMaxSecureMacAddr = _CpsIfMaxSecureMacAddr_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1, 1, 3),
+    _CpsIfMaxSecureMacAddr_Type()
+)
+cpsIfMaxSecureMacAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cpsIfMaxSecureMacAddr.setStatus("current")
+
+
+class _CpsIfCurrentSecureMacAddrCount_Type(Integer32):
+    """Custom type cpsIfCurrentSecureMacAddrCount based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_CpsIfCurrentSecureMacAddrCount_Type.__name__ = "Integer32"
+_CpsIfCurrentSecureMacAddrCount_Object = MibTableColumn
+cpsIfCurrentSecureMacAddrCount = _CpsIfCurrentSecureMacAddrCount_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1, 1, 4),
+    _CpsIfCurrentSecureMacAddrCount_Type()
+)
+cpsIfCurrentSecureMacAddrCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cpsIfCurrentSecureMacAddrCount.setStatus("current")
+
+
+class _CpsIfSecureMacAddrAgingTime_Type(Integer32):
+    """Custom type cpsIfSecureMacAddrAgingTime based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1440),
+    )
+
+
+_CpsIfSecureMacAddrAgingTime_Type.__name__ = "Integer32"
+_CpsIfSecureMacAddrAgingTime_Object = MibTableColumn
+cpsIfSecureMacAddrAgingTime = _CpsIfSecureMacAddrAgingTime_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1, 1, 5),
+    _CpsIfSecureMacAddrAgingTime_Type()
+)
+cpsIfSecureMacAddrAgingTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cpsIfSecureMacAddrAgingTime.setStatus("current")
+if mibBuilder.loadTexts:
+    cpsIfSecureMacAddrAgingTime.setUnits("minutes")
+
+
+class _CpsIfSecureMacAddrAgingType_Type(Integer32):
+    """Custom type cpsIfSecureMacAddrAgingType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("absolute", 1),
+          ("inactivity", 2))
+    )
+
+
+_CpsIfSecureMacAddrAgingType_Type.__name__ = "Integer32"
+_CpsIfSecureMacAddrAgingType_Object = MibTableColumn
+cpsIfSecureMacAddrAgingType = _CpsIfSecureMacAddrAgingType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1, 1, 6),
+    _CpsIfSecureMacAddrAgingType_Type()
+)
+cpsIfSecureMacAddrAgingType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cpsIfSecureMacAddrAgingType.setStatus("current")
+_CpsIfStaticMacAddrAgingEnable_Type = TruthValue
+_CpsIfStaticMacAddrAgingEnable_Object = MibTableColumn
+cpsIfStaticMacAddrAgingEnable = _CpsIfStaticMacAddrAgingEnable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1, 1, 7),
+    _CpsIfStaticMacAddrAgingEnable_Type()
+)
+cpsIfStaticMacAddrAgingEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cpsIfStaticMacAddrAgingEnable.setStatus("current")
+
+
+class _CpsIfViolationAction_Type(Integer32):
+    """Custom type cpsIfViolationAction based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("drop", 3),
+          ("dropNotify", 2),
+          ("shutdown", 1))
+    )
+
+
+_CpsIfViolationAction_Type.__name__ = "Integer32"
+_CpsIfViolationAction_Object = MibTableColumn
+cpsIfViolationAction = _CpsIfViolationAction_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1, 1, 8),
+    _CpsIfViolationAction_Type()
+)
+cpsIfViolationAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cpsIfViolationAction.setStatus("current")
+_CpsIfViolationCount_Type = Counter32
+_CpsIfViolationCount_Object = MibTableColumn
+cpsIfViolationCount = _CpsIfViolationCount_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1, 1, 9),
+    _CpsIfViolationCount_Type()
+)
+cpsIfViolationCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cpsIfViolationCount.setStatus("current")
+_CpsIfSecureLastMacAddress_Type = MacAddress
+_CpsIfSecureLastMacAddress_Object = MibTableColumn
+cpsIfSecureLastMacAddress = _CpsIfSecureLastMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1, 1, 10),
+    _CpsIfSecureLastMacAddress_Type()
+)
+cpsIfSecureLastMacAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cpsIfSecureLastMacAddress.setStatus("current")
+_CpsIfClearSecureAddresses_Type = TruthValue
+_CpsIfClearSecureAddresses_Object = MibTableColumn
+cpsIfClearSecureAddresses = _CpsIfClearSecureAddresses_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1, 1, 11),
+    _CpsIfClearSecureAddresses_Type()
+)
+cpsIfClearSecureAddresses.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cpsIfClearSecureAddresses.setStatus("deprecated")
+_CpsIfUnicastFloodingEnable_Type = TruthValue
+_CpsIfUnicastFloodingEnable_Object = MibTableColumn
+cpsIfUnicastFloodingEnable = _CpsIfUnicastFloodingEnable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1, 1, 12),
+    _CpsIfUnicastFloodingEnable_Type()
+)
+cpsIfUnicastFloodingEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cpsIfUnicastFloodingEnable.setStatus("current")
+_CpsIfShutdownTimeout_Type = Unsigned32
+_CpsIfShutdownTimeout_Object = MibTableColumn
+cpsIfShutdownTimeout = _CpsIfShutdownTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1, 1, 13),
+    _CpsIfShutdownTimeout_Type()
+)
+cpsIfShutdownTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cpsIfShutdownTimeout.setStatus("current")
+if mibBuilder.loadTexts:
+    cpsIfShutdownTimeout.setUnits("minutes")
+_CpsIfClearSecureMacAddresses_Type = ClearSecureMacAddrType
+_CpsIfClearSecureMacAddresses_Object = MibTableColumn
+cpsIfClearSecureMacAddresses = _CpsIfClearSecureMacAddresses_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1, 1, 14),
+    _CpsIfClearSecureMacAddresses_Type()
+)
+cpsIfClearSecureMacAddresses.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cpsIfClearSecureMacAddresses.setStatus("current")
+_CpsIfStickyEnable_Type = TruthValue
+_CpsIfStickyEnable_Object = MibTableColumn
+cpsIfStickyEnable = _CpsIfStickyEnable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1, 1, 15),
+    _CpsIfStickyEnable_Type()
+)
+cpsIfStickyEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cpsIfStickyEnable.setStatus("current")
+_CpsIfInvalidSrcRateLimitEnable_Type = TruthValue
+_CpsIfInvalidSrcRateLimitEnable_Object = MibTableColumn
+cpsIfInvalidSrcRateLimitEnable = _CpsIfInvalidSrcRateLimitEnable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1, 1, 16),
+    _CpsIfInvalidSrcRateLimitEnable_Type()
+)
+cpsIfInvalidSrcRateLimitEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cpsIfInvalidSrcRateLimitEnable.setStatus("current")
+
+
+class _CpsIfInvalidSrcRateLimitValue_Type(Integer32):
+    """Custom type cpsIfInvalidSrcRateLimitValue based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-1, 1000),
+    )
+
+
+_CpsIfInvalidSrcRateLimitValue_Type.__name__ = "Integer32"
+_CpsIfInvalidSrcRateLimitValue_Object = MibTableColumn
+cpsIfInvalidSrcRateLimitValue = _CpsIfInvalidSrcRateLimitValue_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1, 1, 17),
+    _CpsIfInvalidSrcRateLimitValue_Type()
+)
+cpsIfInvalidSrcRateLimitValue.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cpsIfInvalidSrcRateLimitValue.setStatus("current")
+if mibBuilder.loadTexts:
+    cpsIfInvalidSrcRateLimitValue.setUnits("Packets per second")
+_CpsIfSecureLastMacAddrVlanId_Type = VlanIndex
+_CpsIfSecureLastMacAddrVlanId_Object = MibTableColumn
+cpsIfSecureLastMacAddrVlanId = _CpsIfSecureLastMacAddrVlanId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 1, 1, 18),
+    _CpsIfSecureLastMacAddrVlanId_Type()
+)
+cpsIfSecureLastMacAddrVlanId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cpsIfSecureLastMacAddrVlanId.setStatus("current")
+_CpsSecureMacAddressTable_Object = MibTable
+cpsSecureMacAddressTable = _CpsSecureMacAddressTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 2)
+)
+if mibBuilder.loadTexts:
+    cpsSecureMacAddressTable.setStatus("deprecated")
+_CpsSecureMacAddressEntry_Object = MibTableRow
+cpsSecureMacAddressEntry = _CpsSecureMacAddressEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 2, 1)
+)
+cpsSecureMacAddressEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+    (0, "CISCO-PORT-SECURITY-MIB", "cpsSecureMacAddress"),
+)
+if mibBuilder.loadTexts:
+    cpsSecureMacAddressEntry.setStatus("deprecated")
+_CpsSecureMacAddress_Type = MacAddress
+_CpsSecureMacAddress_Object = MibTableColumn
+cpsSecureMacAddress = _CpsSecureMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 2, 1, 1),
+    _CpsSecureMacAddress_Type()
+)
+cpsSecureMacAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cpsSecureMacAddress.setStatus("deprecated")
+
+
+class _CpsSecureMacAddrType_Type(Integer32):
+    """Custom type cpsSecureMacAddrType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dynamic", 2),
+          ("static", 1))
+    )
+
+
+_CpsSecureMacAddrType_Type.__name__ = "Integer32"
+_CpsSecureMacAddrType_Object = MibTableColumn
+cpsSecureMacAddrType = _CpsSecureMacAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 2, 1, 2),
+    _CpsSecureMacAddrType_Type()
+)
+cpsSecureMacAddrType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cpsSecureMacAddrType.setStatus("deprecated")
+
+
+class _CpsSecureMacAddrRemainingAge_Type(Integer32):
+    """Custom type cpsSecureMacAddrRemainingAge based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1440),
+    )
+
+
+_CpsSecureMacAddrRemainingAge_Type.__name__ = "Integer32"
+_CpsSecureMacAddrRemainingAge_Object = MibTableColumn
+cpsSecureMacAddrRemainingAge = _CpsSecureMacAddrRemainingAge_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 2, 1, 3),
+    _CpsSecureMacAddrRemainingAge_Type()
+)
+cpsSecureMacAddrRemainingAge.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cpsSecureMacAddrRemainingAge.setStatus("deprecated")
+if mibBuilder.loadTexts:
+    cpsSecureMacAddrRemainingAge.setUnits("minutes")
+_CpsSecureMacAddrRowStatus_Type = RowStatus
+_CpsSecureMacAddrRowStatus_Object = MibTableColumn
+cpsSecureMacAddrRowStatus = _CpsSecureMacAddrRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 2, 1, 4),
+    _CpsSecureMacAddrRowStatus_Type()
+)
+cpsSecureMacAddrRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cpsSecureMacAddrRowStatus.setStatus("deprecated")
+_CpsIfVlanSecureMacAddrTable_Object = MibTable
+cpsIfVlanSecureMacAddrTable = _CpsIfVlanSecureMacAddrTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 3)
+)
+if mibBuilder.loadTexts:
+    cpsIfVlanSecureMacAddrTable.setStatus("current")
+_CpsIfVlanSecureMacAddrEntry_Object = MibTableRow
+cpsIfVlanSecureMacAddrEntry = _CpsIfVlanSecureMacAddrEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 3, 1)
+)
+cpsIfVlanSecureMacAddrEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+    (0, "CISCO-PORT-SECURITY-MIB", "cpsIfVlanSecureMacAddress"),
+    (0, "CISCO-PORT-SECURITY-MIB", "cpsIfVlanSecureVlanIndex"),
+)
+if mibBuilder.loadTexts:
+    cpsIfVlanSecureMacAddrEntry.setStatus("current")
+_CpsIfVlanSecureMacAddress_Type = MacAddress
+_CpsIfVlanSecureMacAddress_Object = MibTableColumn
+cpsIfVlanSecureMacAddress = _CpsIfVlanSecureMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 3, 1, 1),
+    _CpsIfVlanSecureMacAddress_Type()
+)
+cpsIfVlanSecureMacAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cpsIfVlanSecureMacAddress.setStatus("current")
+_CpsIfVlanSecureVlanIndex_Type = VlanIndex
+_CpsIfVlanSecureVlanIndex_Object = MibTableColumn
+cpsIfVlanSecureVlanIndex = _CpsIfVlanSecureVlanIndex_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 3, 1, 2),
+    _CpsIfVlanSecureVlanIndex_Type()
+)
+cpsIfVlanSecureVlanIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cpsIfVlanSecureVlanIndex.setStatus("current")
+
+
+class _CpsIfVlanSecureMacAddrType_Type(Integer32):
+    """Custom type cpsIfVlanSecureMacAddrType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dynamic", 2),
+          ("static", 1),
+          ("sticky", 3))
+    )
+
+
+_CpsIfVlanSecureMacAddrType_Type.__name__ = "Integer32"
+_CpsIfVlanSecureMacAddrType_Object = MibTableColumn
+cpsIfVlanSecureMacAddrType = _CpsIfVlanSecureMacAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 3, 1, 3),
+    _CpsIfVlanSecureMacAddrType_Type()
+)
+cpsIfVlanSecureMacAddrType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cpsIfVlanSecureMacAddrType.setStatus("current")
+_CpsIfVlanSecureMacAddrRemainAge_Type = Unsigned32
+_CpsIfVlanSecureMacAddrRemainAge_Object = MibTableColumn
+cpsIfVlanSecureMacAddrRemainAge = _CpsIfVlanSecureMacAddrRemainAge_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 3, 1, 4),
+    _CpsIfVlanSecureMacAddrRemainAge_Type()
+)
+cpsIfVlanSecureMacAddrRemainAge.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cpsIfVlanSecureMacAddrRemainAge.setStatus("current")
+if mibBuilder.loadTexts:
+    cpsIfVlanSecureMacAddrRemainAge.setUnits("minutes")
+_CpsIfVlanSecureMacAddrRowStatus_Type = RowStatus
+_CpsIfVlanSecureMacAddrRowStatus_Object = MibTableColumn
+cpsIfVlanSecureMacAddrRowStatus = _CpsIfVlanSecureMacAddrRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 3, 1, 5),
+    _CpsIfVlanSecureMacAddrRowStatus_Type()
+)
+cpsIfVlanSecureMacAddrRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cpsIfVlanSecureMacAddrRowStatus.setStatus("current")
+_CpsIfVlanTable_Object = MibTable
+cpsIfVlanTable = _CpsIfVlanTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 4)
+)
+if mibBuilder.loadTexts:
+    cpsIfVlanTable.setStatus("obsolete")
+_CpsIfVlanEntry_Object = MibTableRow
+cpsIfVlanEntry = _CpsIfVlanEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 4, 1)
+)
+cpsIfVlanEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+    (0, "CISCO-PORT-SECURITY-MIB", "cpsIfVlanIndex"),
+)
+if mibBuilder.loadTexts:
+    cpsIfVlanEntry.setStatus("obsolete")
+_CpsIfVlanIndex_Type = VlanIndex
+_CpsIfVlanIndex_Object = MibTableColumn
+cpsIfVlanIndex = _CpsIfVlanIndex_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 4, 1, 1),
+    _CpsIfVlanIndex_Type()
+)
+cpsIfVlanIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cpsIfVlanIndex.setStatus("obsolete")
+
+
+class _CpsIfVlanMaxSecureMacAddr_Type(Unsigned32):
+    """Custom type cpsIfVlanMaxSecureMacAddr based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_CpsIfVlanMaxSecureMacAddr_Type.__name__ = "Unsigned32"
+_CpsIfVlanMaxSecureMacAddr_Object = MibTableColumn
+cpsIfVlanMaxSecureMacAddr = _CpsIfVlanMaxSecureMacAddr_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 4, 1, 2),
+    _CpsIfVlanMaxSecureMacAddr_Type()
+)
+cpsIfVlanMaxSecureMacAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cpsIfVlanMaxSecureMacAddr.setStatus("obsolete")
+
+
+class _CpsIfVlanCurSecureMacAddrCount_Type(Unsigned32):
+    """Custom type cpsIfVlanCurSecureMacAddrCount based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_CpsIfVlanCurSecureMacAddrCount_Type.__name__ = "Unsigned32"
+_CpsIfVlanCurSecureMacAddrCount_Object = MibTableColumn
+cpsIfVlanCurSecureMacAddrCount = _CpsIfVlanCurSecureMacAddrCount_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 4, 1, 3),
+    _CpsIfVlanCurSecureMacAddrCount_Type()
+)
+cpsIfVlanCurSecureMacAddrCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cpsIfVlanCurSecureMacAddrCount.setStatus("obsolete")
+_CpsIfMultiVlanTable_Object = MibTable
+cpsIfMultiVlanTable = _CpsIfMultiVlanTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 5)
+)
+if mibBuilder.loadTexts:
+    cpsIfMultiVlanTable.setStatus("current")
+_CpsIfMultiVlanEntry_Object = MibTableRow
+cpsIfMultiVlanEntry = _CpsIfMultiVlanEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 5, 1)
+)
+cpsIfMultiVlanEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+    (0, "CISCO-PORT-SECURITY-MIB", "cpsIfMultiVlanIndex"),
+)
+if mibBuilder.loadTexts:
+    cpsIfMultiVlanEntry.setStatus("current")
+_CpsIfMultiVlanIndex_Type = VlanIndex
+_CpsIfMultiVlanIndex_Object = MibTableColumn
+cpsIfMultiVlanIndex = _CpsIfMultiVlanIndex_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 5, 1, 1),
+    _CpsIfMultiVlanIndex_Type()
+)
+cpsIfMultiVlanIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cpsIfMultiVlanIndex.setStatus("current")
+
+
+class _CpsIfMultiVlanMaxSecureMacAddr_Type(Unsigned32):
+    """Custom type cpsIfMultiVlanMaxSecureMacAddr based on Unsigned32"""
+    defaultValue = 1
+
+
+_CpsIfMultiVlanMaxSecureMacAddr_Object = MibTableColumn
+cpsIfMultiVlanMaxSecureMacAddr = _CpsIfMultiVlanMaxSecureMacAddr_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 5, 1, 2),
+    _CpsIfMultiVlanMaxSecureMacAddr_Type()
+)
+cpsIfMultiVlanMaxSecureMacAddr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cpsIfMultiVlanMaxSecureMacAddr.setStatus("current")
+_CpsIfMultiVlanSecureMacAddrCount_Type = Unsigned32
+_CpsIfMultiVlanSecureMacAddrCount_Object = MibTableColumn
+cpsIfMultiVlanSecureMacAddrCount = _CpsIfMultiVlanSecureMacAddrCount_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 5, 1, 3),
+    _CpsIfMultiVlanSecureMacAddrCount_Type()
+)
+cpsIfMultiVlanSecureMacAddrCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cpsIfMultiVlanSecureMacAddrCount.setStatus("current")
+
+
+class _CpsIfMultiVlanClearSecureMacAddr_Type(ClearSecureMacAddrType):
+    """Custom type cpsIfMultiVlanClearSecureMacAddr based on ClearSecureMacAddrType"""
+
+
+_CpsIfMultiVlanClearSecureMacAddr_Object = MibTableColumn
+cpsIfMultiVlanClearSecureMacAddr = _CpsIfMultiVlanClearSecureMacAddr_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 5, 1, 4),
+    _CpsIfMultiVlanClearSecureMacAddr_Type()
+)
+cpsIfMultiVlanClearSecureMacAddr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cpsIfMultiVlanClearSecureMacAddr.setStatus("current")
+_CpsIfMultiVlanRowStatus_Type = RowStatus
+_CpsIfMultiVlanRowStatus_Object = MibTableColumn
+cpsIfMultiVlanRowStatus = _CpsIfMultiVlanRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 1, 2, 5, 1, 5),
+    _CpsIfMultiVlanRowStatus_Type()
+)
+cpsIfMultiVlanRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cpsIfMultiVlanRowStatus.setStatus("current")
+_CiscoPortSecurityMIBConform_ObjectIdentity = ObjectIdentity
+ciscoPortSecurityMIBConform = _CiscoPortSecurityMIBConform_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 2)
+)
+_CiscoPortSecurityMIBCompliances_ObjectIdentity = ObjectIdentity
+ciscoPortSecurityMIBCompliances = _CiscoPortSecurityMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 1)
+)
+_CiscoPortSecurityMIBGroups_ObjectIdentity = ObjectIdentity
+ciscoPortSecurityMIBGroups = _CiscoPortSecurityMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 2)
+)
+
+# Managed Objects groups
+
+cpsGlobalGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 2, 1)
+)
+cpsGlobalGroup.setObjects(
+      *(("CISCO-PORT-SECURITY-MIB", "cpsGlobalMaxSecureAddress"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsGlobalTotalSecureAddress"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsGlobalPortSecurityEnable"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsGlobalSNMPNotifRate"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsGlobalSNMPNotifControl"))
+)
+if mibBuilder.loadTexts:
+    cpsGlobalGroup.setStatus("current")
+
+cpsInterfaceGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 2, 2)
+)
+cpsInterfaceGroup.setObjects(
+      *(("CISCO-PORT-SECURITY-MIB", "cpsIfPortSecurityEnable"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfPortSecurityStatus"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfMaxSecureMacAddr"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfCurrentSecureMacAddrCount"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfSecureMacAddrAgingType"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfSecureMacAddrAgingTime"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfStaticMacAddrAgingEnable"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfViolationAction"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfViolationCount"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfClearSecureAddresses"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsSecureMacAddrType"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsSecureMacAddrRemainingAge"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsSecureMacAddrRowStatus"))
+)
+if mibBuilder.loadTexts:
+    cpsInterfaceGroup.setStatus("deprecated")
+
+cpsExtInterfaceGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 2, 3)
+)
+cpsExtInterfaceGroup.setObjects(
+    ("CISCO-PORT-SECURITY-MIB", "cpsIfSecureLastMacAddress")
+)
+if mibBuilder.loadTexts:
+    cpsExtInterfaceGroup.setStatus("current")
+
+cpsUnicastFloodingInterfaceGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 2, 5)
+)
+cpsUnicastFloodingInterfaceGroup.setObjects(
+    ("CISCO-PORT-SECURITY-MIB", "cpsIfUnicastFloodingEnable")
+)
+if mibBuilder.loadTexts:
+    cpsUnicastFloodingInterfaceGroup.setStatus("current")
+
+cpsShutdownTimeoutInterfaceGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 2, 6)
+)
+cpsShutdownTimeoutInterfaceGroup.setObjects(
+    ("CISCO-PORT-SECURITY-MIB", "cpsIfShutdownTimeout")
+)
+if mibBuilder.loadTexts:
+    cpsShutdownTimeoutInterfaceGroup.setStatus("current")
+
+cpsIfVlanSecureMacAddrGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 2, 8)
+)
+cpsIfVlanSecureMacAddrGroup.setObjects(
+      *(("CISCO-PORT-SECURITY-MIB", "cpsIfVlanSecureMacAddrType"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfVlanSecureMacAddrRemainAge"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfVlanSecureMacAddrRowStatus"))
+)
+if mibBuilder.loadTexts:
+    cpsIfVlanSecureMacAddrGroup.setStatus("current")
+
+cpsInterfaceGroup1 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 2, 9)
+)
+cpsInterfaceGroup1.setObjects(
+      *(("CISCO-PORT-SECURITY-MIB", "cpsIfPortSecurityEnable"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfPortSecurityStatus"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfMaxSecureMacAddr"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfCurrentSecureMacAddrCount"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfSecureMacAddrAgingType"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfSecureMacAddrAgingTime"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfStaticMacAddrAgingEnable"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfViolationAction"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfViolationCount"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfClearSecureAddresses"))
+)
+if mibBuilder.loadTexts:
+    cpsInterfaceGroup1.setStatus("deprecated")
+
+cpsExtConfigInterfaceGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 2, 10)
+)
+cpsExtConfigInterfaceGroup.setObjects(
+      *(("CISCO-PORT-SECURITY-MIB", "cpsIfShutdownTimeout"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfUnicastFloodingEnable"))
+)
+if mibBuilder.loadTexts:
+    cpsExtConfigInterfaceGroup.setStatus("deprecated")
+
+cpsIfVlanGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 2, 11)
+)
+cpsIfVlanGroup.setObjects(
+      *(("CISCO-PORT-SECURITY-MIB", "cpsIfVlanMaxSecureMacAddr"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfVlanCurSecureMacAddrCount"))
+)
+if mibBuilder.loadTexts:
+    cpsIfVlanGroup.setStatus("obsolete")
+
+cpsGlobalClearAddressGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 2, 12)
+)
+cpsGlobalClearAddressGroup.setObjects(
+    ("CISCO-PORT-SECURITY-MIB", "cpsGlobalClearSecureMacAddresses")
+)
+if mibBuilder.loadTexts:
+    cpsGlobalClearAddressGroup.setStatus("current")
+
+cpsInterfaceGroup2 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 2, 13)
+)
+cpsInterfaceGroup2.setObjects(
+      *(("CISCO-PORT-SECURITY-MIB", "cpsIfPortSecurityEnable"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfPortSecurityStatus"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfMaxSecureMacAddr"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfCurrentSecureMacAddrCount"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfSecureMacAddrAgingType"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfSecureMacAddrAgingTime"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfStaticMacAddrAgingEnable"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfViolationAction"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfViolationCount"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfClearSecureMacAddresses"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfInvalidSrcRateLimitEnable"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfInvalidSrcRateLimitValue"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfStickyEnable"))
+)
+if mibBuilder.loadTexts:
+    cpsInterfaceGroup2.setStatus("current")
+
+cpsIfMultiVlanGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 2, 15)
+)
+cpsIfMultiVlanGroup.setObjects(
+      *(("CISCO-PORT-SECURITY-MIB", "cpsIfMultiVlanMaxSecureMacAddr"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfMultiVlanSecureMacAddrCount"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfMultiVlanClearSecureMacAddr"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfMultiVlanRowStatus"))
+)
+if mibBuilder.loadTexts:
+    cpsIfMultiVlanGroup.setStatus("current")
+
+cpsExtInterfaceGroup1 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 2, 17)
+)
+cpsExtInterfaceGroup1.setObjects(
+    ("CISCO-PORT-SECURITY-MIB", "cpsIfSecureLastMacAddrVlanId")
+)
+if mibBuilder.loadTexts:
+    cpsExtInterfaceGroup1.setStatus("current")
+
+
+# Notification objects
+
+cpsSecureMacAddrViolation = NotificationType(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 0, 0, 1)
+)
+cpsSecureMacAddrViolation.setObjects(
+      *(("IF-MIB", "ifIndex"),
+        ("IF-MIB", "ifName"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfSecureLastMacAddress"))
+)
+if mibBuilder.loadTexts:
+    cpsSecureMacAddrViolation.setStatus(
+        "current"
+    )
+
+cpsTrunkSecureMacAddrViolation = NotificationType(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 0, 0, 2)
+)
+cpsTrunkSecureMacAddrViolation.setObjects(
+      *(("IF-MIB", "ifName"),
+        ("CISCO-VTP-MIB", "vtpVlanName"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfSecureLastMacAddress"))
+)
+if mibBuilder.loadTexts:
+    cpsTrunkSecureMacAddrViolation.setStatus(
+        "deprecated"
+    )
+
+cpsIfVlanSecureMacAddrViolation = NotificationType(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 0, 0, 3)
+)
+cpsIfVlanSecureMacAddrViolation.setObjects(
+      *(("IF-MIB", "ifName"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfSecureLastMacAddrVlanId"),
+        ("CISCO-PORT-SECURITY-MIB", "cpsIfSecureLastMacAddress"))
+)
+if mibBuilder.loadTexts:
+    cpsIfVlanSecureMacAddrViolation.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+cpsNotificationGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 2, 4)
+)
+cpsNotificationGroup.setObjects(
+    ("CISCO-PORT-SECURITY-MIB", "cpsSecureMacAddrViolation")
+)
+if mibBuilder.loadTexts:
+    cpsNotificationGroup.setStatus(
+        "current"
+    )
+
+cpsTrunkSecureNotificationGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 2, 14)
+)
+cpsTrunkSecureNotificationGroup.setObjects(
+    ("CISCO-PORT-SECURITY-MIB", "cpsTrunkSecureMacAddrViolation")
+)
+if mibBuilder.loadTexts:
+    cpsTrunkSecureNotificationGroup.setStatus(
+        "deprecated"
+    )
+
+cpsIfVlanSecureNotificationGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 2, 16)
+)
+cpsIfVlanSecureNotificationGroup.setObjects(
+    ("CISCO-PORT-SECURITY-MIB", "cpsIfVlanSecureMacAddrViolation")
+)
+if mibBuilder.loadTexts:
+    cpsIfVlanSecureNotificationGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+ciscoPortSecurityMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 1, 1)
+)
+if mibBuilder.loadTexts:
+    ciscoPortSecurityMIBCompliance.setStatus(
+        "deprecated"
+    )
+
+ciscoPortSecurityMIBCompliance1 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 1, 2)
+)
+if mibBuilder.loadTexts:
+    ciscoPortSecurityMIBCompliance1.setStatus(
+        "deprecated"
+    )
+
+ciscoPortSecurityMIBCompliance2 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 1, 3)
+)
+if mibBuilder.loadTexts:
+    ciscoPortSecurityMIBCompliance2.setStatus(
+        "obsolete"
+    )
+
+ciscoPortSecurityMIBCompliance3 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 1, 4)
+)
+if mibBuilder.loadTexts:
+    ciscoPortSecurityMIBCompliance3.setStatus(
+        "obsolete"
+    )
+
+ciscoPortSecurityMIBCompliance4 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 315, 2, 1, 5)
+)
+if mibBuilder.loadTexts:
+    ciscoPortSecurityMIBCompliance4.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-PORT-SECURITY-MIB",
+    **{"ClearSecureMacAddrType": ClearSecureMacAddrType,
+       "ciscoPortSecurityMIB": ciscoPortSecurityMIB,
+       "ciscoPortSecurityMIBNotifs": ciscoPortSecurityMIBNotifs,
+       "cpsInterfaceNotifs": cpsInterfaceNotifs,
+       "cpsSecureMacAddrViolation": cpsSecureMacAddrViolation,
+       "cpsTrunkSecureMacAddrViolation": cpsTrunkSecureMacAddrViolation,
+       "cpsIfVlanSecureMacAddrViolation": cpsIfVlanSecureMacAddrViolation,
+       "ciscoPortSecurityMIBObjects": ciscoPortSecurityMIBObjects,
+       "cpsGlobalObjects": cpsGlobalObjects,
+       "cpsGlobalMaxSecureAddress": cpsGlobalMaxSecureAddress,
+       "cpsGlobalTotalSecureAddress": cpsGlobalTotalSecureAddress,
+       "cpsGlobalPortSecurityEnable": cpsGlobalPortSecurityEnable,
+       "cpsGlobalSNMPNotifRate": cpsGlobalSNMPNotifRate,
+       "cpsGlobalSNMPNotifControl": cpsGlobalSNMPNotifControl,
+       "cpsGlobalClearSecureMacAddresses": cpsGlobalClearSecureMacAddresses,
+       "cpsInterfaceObjects": cpsInterfaceObjects,
+       "cpsIfConfigTable": cpsIfConfigTable,
+       "cpsIfConfigEntry": cpsIfConfigEntry,
+       "cpsIfPortSecurityEnable": cpsIfPortSecurityEnable,
+       "cpsIfPortSecurityStatus": cpsIfPortSecurityStatus,
+       "cpsIfMaxSecureMacAddr": cpsIfMaxSecureMacAddr,
+       "cpsIfCurrentSecureMacAddrCount": cpsIfCurrentSecureMacAddrCount,
+       "cpsIfSecureMacAddrAgingTime": cpsIfSecureMacAddrAgingTime,
+       "cpsIfSecureMacAddrAgingType": cpsIfSecureMacAddrAgingType,
+       "cpsIfStaticMacAddrAgingEnable": cpsIfStaticMacAddrAgingEnable,
+       "cpsIfViolationAction": cpsIfViolationAction,
+       "cpsIfViolationCount": cpsIfViolationCount,
+       "cpsIfSecureLastMacAddress": cpsIfSecureLastMacAddress,
+       "cpsIfClearSecureAddresses": cpsIfClearSecureAddresses,
+       "cpsIfUnicastFloodingEnable": cpsIfUnicastFloodingEnable,
+       "cpsIfShutdownTimeout": cpsIfShutdownTimeout,
+       "cpsIfClearSecureMacAddresses": cpsIfClearSecureMacAddresses,
+       "cpsIfStickyEnable": cpsIfStickyEnable,
+       "cpsIfInvalidSrcRateLimitEnable": cpsIfInvalidSrcRateLimitEnable,
+       "cpsIfInvalidSrcRateLimitValue": cpsIfInvalidSrcRateLimitValue,
+       "cpsIfSecureLastMacAddrVlanId": cpsIfSecureLastMacAddrVlanId,
+       "cpsSecureMacAddressTable": cpsSecureMacAddressTable,
+       "cpsSecureMacAddressEntry": cpsSecureMacAddressEntry,
+       "cpsSecureMacAddress": cpsSecureMacAddress,
+       "cpsSecureMacAddrType": cpsSecureMacAddrType,
+       "cpsSecureMacAddrRemainingAge": cpsSecureMacAddrRemainingAge,
+       "cpsSecureMacAddrRowStatus": cpsSecureMacAddrRowStatus,
+       "cpsIfVlanSecureMacAddrTable": cpsIfVlanSecureMacAddrTable,
+       "cpsIfVlanSecureMacAddrEntry": cpsIfVlanSecureMacAddrEntry,
+       "cpsIfVlanSecureMacAddress": cpsIfVlanSecureMacAddress,
+       "cpsIfVlanSecureVlanIndex": cpsIfVlanSecureVlanIndex,
+       "cpsIfVlanSecureMacAddrType": cpsIfVlanSecureMacAddrType,
+       "cpsIfVlanSecureMacAddrRemainAge": cpsIfVlanSecureMacAddrRemainAge,
+       "cpsIfVlanSecureMacAddrRowStatus": cpsIfVlanSecureMacAddrRowStatus,
+       "cpsIfVlanTable": cpsIfVlanTable,
+       "cpsIfVlanEntry": cpsIfVlanEntry,
+       "cpsIfVlanIndex": cpsIfVlanIndex,
+       "cpsIfVlanMaxSecureMacAddr": cpsIfVlanMaxSecureMacAddr,
+       "cpsIfVlanCurSecureMacAddrCount": cpsIfVlanCurSecureMacAddrCount,
+       "cpsIfMultiVlanTable": cpsIfMultiVlanTable,
+       "cpsIfMultiVlanEntry": cpsIfMultiVlanEntry,
+       "cpsIfMultiVlanIndex": cpsIfMultiVlanIndex,
+       "cpsIfMultiVlanMaxSecureMacAddr": cpsIfMultiVlanMaxSecureMacAddr,
+       "cpsIfMultiVlanSecureMacAddrCount": cpsIfMultiVlanSecureMacAddrCount,
+       "cpsIfMultiVlanClearSecureMacAddr": cpsIfMultiVlanClearSecureMacAddr,
+       "cpsIfMultiVlanRowStatus": cpsIfMultiVlanRowStatus,
+       "ciscoPortSecurityMIBConform": ciscoPortSecurityMIBConform,
+       "ciscoPortSecurityMIBCompliances": ciscoPortSecurityMIBCompliances,
+       "ciscoPortSecurityMIBCompliance": ciscoPortSecurityMIBCompliance,
+       "ciscoPortSecurityMIBCompliance1": ciscoPortSecurityMIBCompliance1,
+       "ciscoPortSecurityMIBCompliance2": ciscoPortSecurityMIBCompliance2,
+       "ciscoPortSecurityMIBCompliance3": ciscoPortSecurityMIBCompliance3,
+       "ciscoPortSecurityMIBCompliance4": ciscoPortSecurityMIBCompliance4,
+       "ciscoPortSecurityMIBGroups": ciscoPortSecurityMIBGroups,
+       "cpsGlobalGroup": cpsGlobalGroup,
+       "cpsInterfaceGroup": cpsInterfaceGroup,
+       "cpsExtInterfaceGroup": cpsExtInterfaceGroup,
+       "cpsNotificationGroup": cpsNotificationGroup,
+       "cpsUnicastFloodingInterfaceGroup": cpsUnicastFloodingInterfaceGroup,
+       "cpsShutdownTimeoutInterfaceGroup": cpsShutdownTimeoutInterfaceGroup,
+       "cpsIfVlanSecureMacAddrGroup": cpsIfVlanSecureMacAddrGroup,
+       "cpsInterfaceGroup1": cpsInterfaceGroup1,
+       "cpsExtConfigInterfaceGroup": cpsExtConfigInterfaceGroup,
+       "cpsIfVlanGroup": cpsIfVlanGroup,
+       "cpsGlobalClearAddressGroup": cpsGlobalClearAddressGroup,
+       "cpsInterfaceGroup2": cpsInterfaceGroup2,
+       "cpsTrunkSecureNotificationGroup": cpsTrunkSecureNotificationGroup,
+       "cpsIfMultiVlanGroup": cpsIfMultiVlanGroup,
+       "cpsIfVlanSecureNotificationGroup": cpsIfVlanSecureNotificationGroup,
+       "cpsExtInterfaceGroup1": cpsExtInterfaceGroup1}
+)

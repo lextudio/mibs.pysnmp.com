@@ -1,137 +1,941 @@
+# SNMP MIB module (Unisphere-Data-DS3-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module Unisphere-Data-DS3-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/Unisphere-Data-DS3-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 21:23:40 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint")
-ifIndex, InterfaceIndexOrZero = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndexOrZero")
-PerfIntervalCount, PerfTotalCount, PerfCurrentCount = mibBuilder.importSymbols("PerfHist-TC-MIB", "PerfIntervalCount", "PerfTotalCount", "PerfCurrentCount")
-dsx3FarEndIntervalEntry, dsx3FarEndTotalEntry, dsx3FarEndCurrentEntry = mibBuilder.importSymbols("RFC1407-MIB", "dsx3FarEndIntervalEntry", "dsx3FarEndTotalEntry", "dsx3FarEndCurrentEntry")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-iso, ObjectIdentity, Gauge32, Counter32, Unsigned32, IpAddress, Bits, Integer32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, MibIdentifier, TimeTicks, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "ObjectIdentity", "Gauge32", "Counter32", "Unsigned32", "IpAddress", "Bits", "Integer32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "MibIdentifier", "TimeTicks", "NotificationType")
-DisplayString, TextualConvention, TruthValue, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "TruthValue", "RowStatus")
-usDataMibs, = mibBuilder.importSymbols("Unisphere-Data-MIBs", "usDataMibs")
-UsdNextIfIndex, = mibBuilder.importSymbols("Unisphere-Data-TC", "UsdNextIfIndex")
-usdDs3MIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4))
-usdDs3MIB.setRevisions(('2002-04-04 14:07', '2002-02-22 21:21', '2001-04-27 19:49', '2001-02-05 00:00', '1999-07-27 00:00', '1998-11-13 00:00',))
-if mibBuilder.loadTexts: usdDs3MIB.setLastUpdated('200204041407Z')
-if mibBuilder.loadTexts: usdDs3MIB.setOrganization('Unisphere Networks, Inc.')
-usdDs3Objects = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1))
-usdDsx3ConfigTable = MibTable((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1), )
-if mibBuilder.loadTexts: usdDsx3ConfigTable.setStatus('current')
-usdDsx3ConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: usdDsx3ConfigEntry.setStatus('current')
-usdDsx3LineLength = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 64000))).setUnits('meters').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: usdDsx3LineLength.setStatus('current')
-usdDsx3LineType = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 18, 20))).clone(namedValues=NamedValues(("usdDsx3other", 1), ("usdDsx3M23", 2), ("usdDsx3SYNTRAN", 3), ("usdDsx3CbitParity", 4), ("usdDsx3ClearChannel", 5), ("usdE3G832", 6), ("usdE3Framed", 7), ("usdE3Plcp", 8), ("usdDsx3M23Plcp", 18), ("usdDsx3CbitParityPlcp", 20)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: usdDsx3LineType.setStatus('current')
-usdDsx3CellScramblerConfig = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("scramblerOn", 1), ("scramblerOff", 2), ("notSupported", 3)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: usdDsx3CellScramblerConfig.setStatus('current')
-usdDsx3Channelization = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 4), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: usdDsx3Channelization.setStatus('current')
-usdDsx3InterfaceType = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("ds3T3", 0), ("ds3E3", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: usdDsx3InterfaceType.setStatus('current')
-usdDsx3Application = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("ds3FrameOverDs3", 0), ("ds3AtmOverDs3", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: usdDsx3Application.setStatus('current')
-usdDsx3Ds3Channel = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 28))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: usdDsx3Ds3Channel.setStatus('current')
-usdDsx3LowerIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 8), InterfaceIndexOrZero()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: usdDsx3LowerIfIndex.setStatus('current')
-usdDsx3RowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 9), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: usdDsx3RowStatus.setStatus('current')
-usdDsx3Ds3DsuMode = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 2, 4))).clone(namedValues=NamedValues(("ds3DsuModeNone", 0), ("ds3DsuLarsCom", 2), ("ds3DsuDigitalLink", 4))).clone('ds3DsuModeNone')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: usdDsx3Ds3DsuMode.setStatus('current')
-usdDsx3Ds3BandwidthLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 44210))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: usdDsx3Ds3BandwidthLimit.setStatus('current')
-usdDsx3Ds3DsuScrambleMode = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("ds3DsuScrambleDisabled", 0), ("ds3DsuScrambleEnable", 1))).clone('ds3DsuScrambleDisabled')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: usdDsx3Ds3DsuScrambleMode.setStatus('current')
-usdDsx3MdlCarrier = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1))).clone('disabled')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: usdDsx3MdlCarrier.setStatus('current')
-usdDsx3MdlTransmit = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 4, 8))).clone(namedValues=NamedValues(("path", 1), ("idlesignal", 2), ("testsignal", 4), ("none", 8))).clone('none')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: usdDsx3MdlTransmit.setStatus('current')
-usdDsx3MdlEic = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 15), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 10))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: usdDsx3MdlEic.setStatus('current')
-usdDsx3MdlLic = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 16), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 11))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: usdDsx3MdlLic.setStatus('current')
-usdDsx3MdlFic = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 17), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 10))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: usdDsx3MdlFic.setStatus('current')
-usdDsx3MdlUnit = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 18), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 6))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: usdDsx3MdlUnit.setStatus('current')
-usdDsx3MdlPfi = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 19), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 38))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: usdDsx3MdlPfi.setStatus('current')
-usdDsx3MdlPort = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 20), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 38))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: usdDsx3MdlPort.setStatus('current')
-usdDsx3MdlGenerator = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 21), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 38))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: usdDsx3MdlGenerator.setStatus('current')
-usdDs3NextIfIndex = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 2), UsdNextIfIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: usdDs3NextIfIndex.setStatus('current')
-usdDsx3FarEndCurrentTable = MibTable((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 3), )
-if mibBuilder.loadTexts: usdDsx3FarEndCurrentTable.setStatus('current')
-usdDsx3FarEndCurrentEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 3, 1), )
-dsx3FarEndCurrentEntry.registerAugmentions(("Unisphere-Data-DS3-MIB", "usdDsx3FarEndCurrentEntry"))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/Unisphere-Data-DS3-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:10:34 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InterfaceIndexOrZero,
+ ifIndex) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndexOrZero",
+    "ifIndex")
+
+(PerfCurrentCount,
+ PerfIntervalCount,
+ PerfTotalCount) = mibBuilder.importSymbols(
+    "PerfHist-TC-MIB",
+    "PerfCurrentCount",
+    "PerfIntervalCount",
+    "PerfTotalCount")
+
+(dsx3FarEndCurrentEntry,
+ dsx3FarEndIntervalEntry,
+ dsx3FarEndTotalEntry) = mibBuilder.importSymbols(
+    "RFC1407-MIB",
+    "dsx3FarEndCurrentEntry",
+    "dsx3FarEndIntervalEntry",
+    "dsx3FarEndTotalEntry")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+(usDataMibs,) = mibBuilder.importSymbols(
+    "Unisphere-Data-MIBs",
+    "usDataMibs")
+
+(UsdNextIfIndex,) = mibBuilder.importSymbols(
+    "Unisphere-Data-TC",
+    "UsdNextIfIndex")
+
+
+# MODULE-IDENTITY
+
+usdDs3MIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4)
+)
+usdDs3MIB.setRevisions(
+        ("2002-04-04 14:07",
+         "2002-02-22 21:21",
+         "2001-04-27 19:49",
+         "2001-02-05 00:00",
+         "1999-07-27 00:00",
+         "1998-11-13 00:00")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_UsdDs3Objects_ObjectIdentity = ObjectIdentity
+usdDs3Objects = _UsdDs3Objects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1)
+)
+_UsdDsx3ConfigTable_Object = MibTable
+usdDsx3ConfigTable = _UsdDsx3ConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1)
+)
+if mibBuilder.loadTexts:
+    usdDsx3ConfigTable.setStatus("current")
+_UsdDsx3ConfigEntry_Object = MibTableRow
+usdDsx3ConfigEntry = _UsdDsx3ConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1)
+)
+usdDsx3ConfigEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    usdDsx3ConfigEntry.setStatus("current")
+
+
+class _UsdDsx3LineLength_Type(Integer32):
+    """Custom type usdDsx3LineLength based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 64000),
+    )
+
+
+_UsdDsx3LineLength_Type.__name__ = "Integer32"
+_UsdDsx3LineLength_Object = MibTableColumn
+usdDsx3LineLength = _UsdDsx3LineLength_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 1),
+    _UsdDsx3LineLength_Type()
+)
+usdDsx3LineLength.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    usdDsx3LineLength.setStatus("current")
+if mibBuilder.loadTexts:
+    usdDsx3LineLength.setUnits("meters")
+
+
+class _UsdDsx3LineType_Type(Integer32):
+    """Custom type usdDsx3LineType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              18,
+              20)
+        )
+    )
+    namedValues = NamedValues(
+        *(("usdDsx3CbitParity", 4),
+          ("usdDsx3CbitParityPlcp", 20),
+          ("usdDsx3ClearChannel", 5),
+          ("usdDsx3M23", 2),
+          ("usdDsx3M23Plcp", 18),
+          ("usdDsx3SYNTRAN", 3),
+          ("usdDsx3other", 1),
+          ("usdE3Framed", 7),
+          ("usdE3G832", 6),
+          ("usdE3Plcp", 8))
+    )
+
+
+_UsdDsx3LineType_Type.__name__ = "Integer32"
+_UsdDsx3LineType_Object = MibTableColumn
+usdDsx3LineType = _UsdDsx3LineType_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 2),
+    _UsdDsx3LineType_Type()
+)
+usdDsx3LineType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    usdDsx3LineType.setStatus("current")
+
+
+class _UsdDsx3CellScramblerConfig_Type(Integer32):
+    """Custom type usdDsx3CellScramblerConfig based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notSupported", 3),
+          ("scramblerOff", 2),
+          ("scramblerOn", 1))
+    )
+
+
+_UsdDsx3CellScramblerConfig_Type.__name__ = "Integer32"
+_UsdDsx3CellScramblerConfig_Object = MibTableColumn
+usdDsx3CellScramblerConfig = _UsdDsx3CellScramblerConfig_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 3),
+    _UsdDsx3CellScramblerConfig_Type()
+)
+usdDsx3CellScramblerConfig.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    usdDsx3CellScramblerConfig.setStatus("current")
+_UsdDsx3Channelization_Type = TruthValue
+_UsdDsx3Channelization_Object = MibTableColumn
+usdDsx3Channelization = _UsdDsx3Channelization_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 4),
+    _UsdDsx3Channelization_Type()
+)
+usdDsx3Channelization.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    usdDsx3Channelization.setStatus("current")
+
+
+class _UsdDsx3InterfaceType_Type(Integer32):
+    """Custom type usdDsx3InterfaceType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ds3E3", 1),
+          ("ds3T3", 0))
+    )
+
+
+_UsdDsx3InterfaceType_Type.__name__ = "Integer32"
+_UsdDsx3InterfaceType_Object = MibTableColumn
+usdDsx3InterfaceType = _UsdDsx3InterfaceType_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 5),
+    _UsdDsx3InterfaceType_Type()
+)
+usdDsx3InterfaceType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    usdDsx3InterfaceType.setStatus("current")
+
+
+class _UsdDsx3Application_Type(Integer32):
+    """Custom type usdDsx3Application based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ds3AtmOverDs3", 1),
+          ("ds3FrameOverDs3", 0))
+    )
+
+
+_UsdDsx3Application_Type.__name__ = "Integer32"
+_UsdDsx3Application_Object = MibTableColumn
+usdDsx3Application = _UsdDsx3Application_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 6),
+    _UsdDsx3Application_Type()
+)
+usdDsx3Application.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    usdDsx3Application.setStatus("current")
+
+
+class _UsdDsx3Ds3Channel_Type(Integer32):
+    """Custom type usdDsx3Ds3Channel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 28),
+    )
+
+
+_UsdDsx3Ds3Channel_Type.__name__ = "Integer32"
+_UsdDsx3Ds3Channel_Object = MibTableColumn
+usdDsx3Ds3Channel = _UsdDsx3Ds3Channel_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 7),
+    _UsdDsx3Ds3Channel_Type()
+)
+usdDsx3Ds3Channel.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    usdDsx3Ds3Channel.setStatus("current")
+_UsdDsx3LowerIfIndex_Type = InterfaceIndexOrZero
+_UsdDsx3LowerIfIndex_Object = MibTableColumn
+usdDsx3LowerIfIndex = _UsdDsx3LowerIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 8),
+    _UsdDsx3LowerIfIndex_Type()
+)
+usdDsx3LowerIfIndex.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    usdDsx3LowerIfIndex.setStatus("current")
+_UsdDsx3RowStatus_Type = RowStatus
+_UsdDsx3RowStatus_Object = MibTableColumn
+usdDsx3RowStatus = _UsdDsx3RowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 9),
+    _UsdDsx3RowStatus_Type()
+)
+usdDsx3RowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    usdDsx3RowStatus.setStatus("current")
+
+
+class _UsdDsx3Ds3DsuMode_Type(Integer32):
+    """Custom type usdDsx3Ds3DsuMode based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              2,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ds3DsuDigitalLink", 4),
+          ("ds3DsuLarsCom", 2),
+          ("ds3DsuModeNone", 0))
+    )
+
+
+_UsdDsx3Ds3DsuMode_Type.__name__ = "Integer32"
+_UsdDsx3Ds3DsuMode_Object = MibTableColumn
+usdDsx3Ds3DsuMode = _UsdDsx3Ds3DsuMode_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 10),
+    _UsdDsx3Ds3DsuMode_Type()
+)
+usdDsx3Ds3DsuMode.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    usdDsx3Ds3DsuMode.setStatus("current")
+
+
+class _UsdDsx3Ds3BandwidthLimit_Type(Integer32):
+    """Custom type usdDsx3Ds3BandwidthLimit based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 44210),
+    )
+
+
+_UsdDsx3Ds3BandwidthLimit_Type.__name__ = "Integer32"
+_UsdDsx3Ds3BandwidthLimit_Object = MibTableColumn
+usdDsx3Ds3BandwidthLimit = _UsdDsx3Ds3BandwidthLimit_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 11),
+    _UsdDsx3Ds3BandwidthLimit_Type()
+)
+usdDsx3Ds3BandwidthLimit.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    usdDsx3Ds3BandwidthLimit.setStatus("current")
+
+
+class _UsdDsx3Ds3DsuScrambleMode_Type(Integer32):
+    """Custom type usdDsx3Ds3DsuScrambleMode based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ds3DsuScrambleDisabled", 0),
+          ("ds3DsuScrambleEnable", 1))
+    )
+
+
+_UsdDsx3Ds3DsuScrambleMode_Type.__name__ = "Integer32"
+_UsdDsx3Ds3DsuScrambleMode_Object = MibTableColumn
+usdDsx3Ds3DsuScrambleMode = _UsdDsx3Ds3DsuScrambleMode_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 12),
+    _UsdDsx3Ds3DsuScrambleMode_Type()
+)
+usdDsx3Ds3DsuScrambleMode.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    usdDsx3Ds3DsuScrambleMode.setStatus("current")
+
+
+class _UsdDsx3MdlCarrier_Type(Integer32):
+    """Custom type usdDsx3MdlCarrier based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 0),
+          ("enabled", 1))
+    )
+
+
+_UsdDsx3MdlCarrier_Type.__name__ = "Integer32"
+_UsdDsx3MdlCarrier_Object = MibTableColumn
+usdDsx3MdlCarrier = _UsdDsx3MdlCarrier_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 13),
+    _UsdDsx3MdlCarrier_Type()
+)
+usdDsx3MdlCarrier.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    usdDsx3MdlCarrier.setStatus("current")
+
+
+class _UsdDsx3MdlTransmit_Type(Integer32):
+    """Custom type usdDsx3MdlTransmit based on Integer32"""
+    defaultValue = 8
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              4,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("idlesignal", 2),
+          ("none", 8),
+          ("path", 1),
+          ("testsignal", 4))
+    )
+
+
+_UsdDsx3MdlTransmit_Type.__name__ = "Integer32"
+_UsdDsx3MdlTransmit_Object = MibTableColumn
+usdDsx3MdlTransmit = _UsdDsx3MdlTransmit_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 14),
+    _UsdDsx3MdlTransmit_Type()
+)
+usdDsx3MdlTransmit.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    usdDsx3MdlTransmit.setStatus("current")
+
+
+class _UsdDsx3MdlEic_Type(DisplayString):
+    """Custom type usdDsx3MdlEic based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 10),
+    )
+
+
+_UsdDsx3MdlEic_Type.__name__ = "DisplayString"
+_UsdDsx3MdlEic_Object = MibTableColumn
+usdDsx3MdlEic = _UsdDsx3MdlEic_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 15),
+    _UsdDsx3MdlEic_Type()
+)
+usdDsx3MdlEic.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    usdDsx3MdlEic.setStatus("current")
+
+
+class _UsdDsx3MdlLic_Type(DisplayString):
+    """Custom type usdDsx3MdlLic based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 11),
+    )
+
+
+_UsdDsx3MdlLic_Type.__name__ = "DisplayString"
+_UsdDsx3MdlLic_Object = MibTableColumn
+usdDsx3MdlLic = _UsdDsx3MdlLic_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 16),
+    _UsdDsx3MdlLic_Type()
+)
+usdDsx3MdlLic.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    usdDsx3MdlLic.setStatus("current")
+
+
+class _UsdDsx3MdlFic_Type(DisplayString):
+    """Custom type usdDsx3MdlFic based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 10),
+    )
+
+
+_UsdDsx3MdlFic_Type.__name__ = "DisplayString"
+_UsdDsx3MdlFic_Object = MibTableColumn
+usdDsx3MdlFic = _UsdDsx3MdlFic_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 17),
+    _UsdDsx3MdlFic_Type()
+)
+usdDsx3MdlFic.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    usdDsx3MdlFic.setStatus("current")
+
+
+class _UsdDsx3MdlUnit_Type(DisplayString):
+    """Custom type usdDsx3MdlUnit based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 6),
+    )
+
+
+_UsdDsx3MdlUnit_Type.__name__ = "DisplayString"
+_UsdDsx3MdlUnit_Object = MibTableColumn
+usdDsx3MdlUnit = _UsdDsx3MdlUnit_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 18),
+    _UsdDsx3MdlUnit_Type()
+)
+usdDsx3MdlUnit.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    usdDsx3MdlUnit.setStatus("current")
+
+
+class _UsdDsx3MdlPfi_Type(DisplayString):
+    """Custom type usdDsx3MdlPfi based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 38),
+    )
+
+
+_UsdDsx3MdlPfi_Type.__name__ = "DisplayString"
+_UsdDsx3MdlPfi_Object = MibTableColumn
+usdDsx3MdlPfi = _UsdDsx3MdlPfi_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 19),
+    _UsdDsx3MdlPfi_Type()
+)
+usdDsx3MdlPfi.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    usdDsx3MdlPfi.setStatus("current")
+
+
+class _UsdDsx3MdlPort_Type(DisplayString):
+    """Custom type usdDsx3MdlPort based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 38),
+    )
+
+
+_UsdDsx3MdlPort_Type.__name__ = "DisplayString"
+_UsdDsx3MdlPort_Object = MibTableColumn
+usdDsx3MdlPort = _UsdDsx3MdlPort_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 20),
+    _UsdDsx3MdlPort_Type()
+)
+usdDsx3MdlPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    usdDsx3MdlPort.setStatus("current")
+
+
+class _UsdDsx3MdlGenerator_Type(DisplayString):
+    """Custom type usdDsx3MdlGenerator based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 38),
+    )
+
+
+_UsdDsx3MdlGenerator_Type.__name__ = "DisplayString"
+_UsdDsx3MdlGenerator_Object = MibTableColumn
+usdDsx3MdlGenerator = _UsdDsx3MdlGenerator_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 1, 1, 21),
+    _UsdDsx3MdlGenerator_Type()
+)
+usdDsx3MdlGenerator.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    usdDsx3MdlGenerator.setStatus("current")
+_UsdDs3NextIfIndex_Type = UsdNextIfIndex
+_UsdDs3NextIfIndex_Object = MibScalar
+usdDs3NextIfIndex = _UsdDs3NextIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 2),
+    _UsdDs3NextIfIndex_Type()
+)
+usdDs3NextIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    usdDs3NextIfIndex.setStatus("current")
+_UsdDsx3FarEndCurrentTable_Object = MibTable
+usdDsx3FarEndCurrentTable = _UsdDsx3FarEndCurrentTable_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 3)
+)
+if mibBuilder.loadTexts:
+    usdDsx3FarEndCurrentTable.setStatus("current")
+_UsdDsx3FarEndCurrentEntry_Object = MibTableRow
+usdDsx3FarEndCurrentEntry = _UsdDsx3FarEndCurrentEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 3, 1)
+)
+if mibBuilder.loadTexts:
+    usdDsx3FarEndCurrentEntry.setStatus("current")
+_UsdDsx3FarEndCurrentInvalidSeconds_Type = PerfCurrentCount
+_UsdDsx3FarEndCurrentInvalidSeconds_Object = MibTableColumn
+usdDsx3FarEndCurrentInvalidSeconds = _UsdDsx3FarEndCurrentInvalidSeconds_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 3, 1, 1),
+    _UsdDsx3FarEndCurrentInvalidSeconds_Type()
+)
+usdDsx3FarEndCurrentInvalidSeconds.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    usdDsx3FarEndCurrentInvalidSeconds.setStatus("current")
+_UsdDsx3FarEndIntervalTable_Object = MibTable
+usdDsx3FarEndIntervalTable = _UsdDsx3FarEndIntervalTable_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 4)
+)
+if mibBuilder.loadTexts:
+    usdDsx3FarEndIntervalTable.setStatus("current")
+_UsdDsx3FarEndIntervalEntry_Object = MibTableRow
+usdDsx3FarEndIntervalEntry = _UsdDsx3FarEndIntervalEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 4, 1)
+)
+if mibBuilder.loadTexts:
+    usdDsx3FarEndIntervalEntry.setStatus("current")
+_UsdDsx3FarEndIntervalInvalidSeconds_Type = PerfIntervalCount
+_UsdDsx3FarEndIntervalInvalidSeconds_Object = MibTableColumn
+usdDsx3FarEndIntervalInvalidSeconds = _UsdDsx3FarEndIntervalInvalidSeconds_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 4, 1, 1),
+    _UsdDsx3FarEndIntervalInvalidSeconds_Type()
+)
+usdDsx3FarEndIntervalInvalidSeconds.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    usdDsx3FarEndIntervalInvalidSeconds.setStatus("current")
+_UsdDsx3FarEndTotalTable_Object = MibTable
+usdDsx3FarEndTotalTable = _UsdDsx3FarEndTotalTable_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 5)
+)
+if mibBuilder.loadTexts:
+    usdDsx3FarEndTotalTable.setStatus("current")
+_UsdDsx3FarEndTotalEntry_Object = MibTableRow
+usdDsx3FarEndTotalEntry = _UsdDsx3FarEndTotalEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 5, 1)
+)
+if mibBuilder.loadTexts:
+    usdDsx3FarEndTotalEntry.setStatus("current")
+_UsdDsx3FarEndTotalInvalidSeconds_Type = PerfTotalCount
+_UsdDsx3FarEndTotalInvalidSeconds_Object = MibTableColumn
+usdDsx3FarEndTotalInvalidSeconds = _UsdDsx3FarEndTotalInvalidSeconds_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 5, 1, 1),
+    _UsdDsx3FarEndTotalInvalidSeconds_Type()
+)
+usdDsx3FarEndTotalInvalidSeconds.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    usdDsx3FarEndTotalInvalidSeconds.setStatus("current")
+_UsdDs3Conformance_ObjectIdentity = ObjectIdentity
+usdDs3Conformance = _UsdDs3Conformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 4)
+)
+_UsdDs3Compliances_ObjectIdentity = ObjectIdentity
+usdDs3Compliances = _UsdDs3Compliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 4, 1)
+)
+_UsdDs3Groups_ObjectIdentity = ObjectIdentity
+usdDs3Groups = _UsdDs3Groups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 4, 2)
+)
+dsx3FarEndCurrentEntry.registerAugmentions(
+    ("Unisphere-Data-DS3-MIB",
+     "usdDsx3FarEndCurrentEntry")
+)
 usdDsx3FarEndCurrentEntry.setIndexNames(*dsx3FarEndCurrentEntry.getIndexNames())
-if mibBuilder.loadTexts: usdDsx3FarEndCurrentEntry.setStatus('current')
-usdDsx3FarEndCurrentInvalidSeconds = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 3, 1, 1), PerfCurrentCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: usdDsx3FarEndCurrentInvalidSeconds.setStatus('current')
-usdDsx3FarEndIntervalTable = MibTable((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 4), )
-if mibBuilder.loadTexts: usdDsx3FarEndIntervalTable.setStatus('current')
-usdDsx3FarEndIntervalEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 4, 1), )
-dsx3FarEndIntervalEntry.registerAugmentions(("Unisphere-Data-DS3-MIB", "usdDsx3FarEndIntervalEntry"))
+dsx3FarEndIntervalEntry.registerAugmentions(
+    ("Unisphere-Data-DS3-MIB",
+     "usdDsx3FarEndIntervalEntry")
+)
 usdDsx3FarEndIntervalEntry.setIndexNames(*dsx3FarEndIntervalEntry.getIndexNames())
-if mibBuilder.loadTexts: usdDsx3FarEndIntervalEntry.setStatus('current')
-usdDsx3FarEndIntervalInvalidSeconds = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 4, 1, 1), PerfIntervalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: usdDsx3FarEndIntervalInvalidSeconds.setStatus('current')
-usdDsx3FarEndTotalTable = MibTable((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 5), )
-if mibBuilder.loadTexts: usdDsx3FarEndTotalTable.setStatus('current')
-usdDsx3FarEndTotalEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 5, 1), )
-dsx3FarEndTotalEntry.registerAugmentions(("Unisphere-Data-DS3-MIB", "usdDsx3FarEndTotalEntry"))
+dsx3FarEndTotalEntry.registerAugmentions(
+    ("Unisphere-Data-DS3-MIB",
+     "usdDsx3FarEndTotalEntry")
+)
 usdDsx3FarEndTotalEntry.setIndexNames(*dsx3FarEndTotalEntry.getIndexNames())
-if mibBuilder.loadTexts: usdDsx3FarEndTotalEntry.setStatus('current')
-usdDsx3FarEndTotalInvalidSeconds = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 1, 5, 1, 1), PerfTotalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: usdDsx3FarEndTotalInvalidSeconds.setStatus('current')
-usdDs3Conformance = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 4))
-usdDs3Compliances = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 4, 1))
-usdDs3Groups = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 4, 2))
-usdDs3Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 4, 1, 1)).setObjects(("Unisphere-Data-DS3-MIB", "usdDs3Group"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    usdDs3Compliance = usdDs3Compliance.setStatus('obsolete')
-usdDs3Compliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 4, 1, 2)).setObjects(("Unisphere-Data-DS3-MIB", "usdDs3Group2"))
+# Managed Objects groups
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    usdDs3Compliance2 = usdDs3Compliance2.setStatus('obsolete')
-usdDs3Compliance3 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 4, 1, 3)).setObjects(("Unisphere-Data-DS3-MIB", "usdDs3Group3"))
+usdDs3Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 4, 2, 1)
+)
+usdDs3Group.setObjects(
+    ("Unisphere-Data-DS3-MIB", "usdDsx3LineLength")
+)
+if mibBuilder.loadTexts:
+    usdDs3Group.setStatus("obsolete")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    usdDs3Compliance3 = usdDs3Compliance3.setStatus('obsolete')
-usdDs3Compliance4 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 4, 1, 4)).setObjects(("Unisphere-Data-DS3-MIB", "usdDs3Group4"))
+usdDs3Group2 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 4, 2, 2)
+)
+usdDs3Group2.setObjects(
+      *(("Unisphere-Data-DS3-MIB", "usdDsx3LineLength"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3LineType"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3CellScramblerConfig"))
+)
+if mibBuilder.loadTexts:
+    usdDs3Group2.setStatus("obsolete")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    usdDs3Compliance4 = usdDs3Compliance4.setStatus('obsolete')
-usdDs3Compliance5 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 4, 1, 5)).setObjects(("Unisphere-Data-DS3-MIB", "usdDs3Group5"), ("Unisphere-Data-DS3-MIB", "usdDs3FarEndGroup"))
+usdDs3Group3 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 4, 2, 3)
+)
+usdDs3Group3.setObjects(
+      *(("Unisphere-Data-DS3-MIB", "usdDsx3LineLength"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3LineType"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3CellScramblerConfig"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3Ds3DsuMode"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3Ds3BandwidthLimit"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3Ds3DsuScrambleMode"))
+)
+if mibBuilder.loadTexts:
+    usdDs3Group3.setStatus("obsolete")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    usdDs3Compliance5 = usdDs3Compliance5.setStatus('current')
-usdDs3Group = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 4, 2, 1)).setObjects(("Unisphere-Data-DS3-MIB", "usdDsx3LineLength"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    usdDs3Group = usdDs3Group.setStatus('obsolete')
-usdDs3Group2 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 4, 2, 2)).setObjects(("Unisphere-Data-DS3-MIB", "usdDsx3LineLength"), ("Unisphere-Data-DS3-MIB", "usdDsx3LineType"), ("Unisphere-Data-DS3-MIB", "usdDsx3CellScramblerConfig"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    usdDs3Group2 = usdDs3Group2.setStatus('obsolete')
-usdDs3Group3 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 4, 2, 3)).setObjects(("Unisphere-Data-DS3-MIB", "usdDsx3LineLength"), ("Unisphere-Data-DS3-MIB", "usdDsx3LineType"), ("Unisphere-Data-DS3-MIB", "usdDsx3CellScramblerConfig"), ("Unisphere-Data-DS3-MIB", "usdDsx3Ds3DsuMode"), ("Unisphere-Data-DS3-MIB", "usdDsx3Ds3BandwidthLimit"), ("Unisphere-Data-DS3-MIB", "usdDsx3Ds3DsuScrambleMode"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    usdDs3Group3 = usdDs3Group3.setStatus('obsolete')
-usdDs3Group4 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 4, 2, 4)).setObjects(("Unisphere-Data-DS3-MIB", "usdDsx3LineLength"), ("Unisphere-Data-DS3-MIB", "usdDsx3LineType"), ("Unisphere-Data-DS3-MIB", "usdDsx3CellScramblerConfig"), ("Unisphere-Data-DS3-MIB", "usdDsx3Channelization"), ("Unisphere-Data-DS3-MIB", "usdDsx3InterfaceType"), ("Unisphere-Data-DS3-MIB", "usdDsx3Application"), ("Unisphere-Data-DS3-MIB", "usdDsx3Ds3Channel"), ("Unisphere-Data-DS3-MIB", "usdDsx3LowerIfIndex"), ("Unisphere-Data-DS3-MIB", "usdDsx3RowStatus"), ("Unisphere-Data-DS3-MIB", "usdDsx3Ds3DsuMode"), ("Unisphere-Data-DS3-MIB", "usdDsx3Ds3BandwidthLimit"), ("Unisphere-Data-DS3-MIB", "usdDsx3Ds3DsuScrambleMode"), ("Unisphere-Data-DS3-MIB", "usdDs3NextIfIndex"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    usdDs3Group4 = usdDs3Group4.setStatus('obsolete')
-usdDs3Group5 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 4, 2, 5)).setObjects(("Unisphere-Data-DS3-MIB", "usdDsx3LineLength"), ("Unisphere-Data-DS3-MIB", "usdDsx3LineType"), ("Unisphere-Data-DS3-MIB", "usdDsx3CellScramblerConfig"), ("Unisphere-Data-DS3-MIB", "usdDsx3Channelization"), ("Unisphere-Data-DS3-MIB", "usdDsx3InterfaceType"), ("Unisphere-Data-DS3-MIB", "usdDsx3Application"), ("Unisphere-Data-DS3-MIB", "usdDsx3Ds3Channel"), ("Unisphere-Data-DS3-MIB", "usdDsx3LowerIfIndex"), ("Unisphere-Data-DS3-MIB", "usdDsx3RowStatus"), ("Unisphere-Data-DS3-MIB", "usdDsx3Ds3DsuMode"), ("Unisphere-Data-DS3-MIB", "usdDsx3Ds3BandwidthLimit"), ("Unisphere-Data-DS3-MIB", "usdDsx3Ds3DsuScrambleMode"), ("Unisphere-Data-DS3-MIB", "usdDsx3MdlCarrier"), ("Unisphere-Data-DS3-MIB", "usdDsx3MdlTransmit"), ("Unisphere-Data-DS3-MIB", "usdDsx3MdlEic"), ("Unisphere-Data-DS3-MIB", "usdDsx3MdlLic"), ("Unisphere-Data-DS3-MIB", "usdDsx3MdlFic"), ("Unisphere-Data-DS3-MIB", "usdDsx3MdlUnit"), ("Unisphere-Data-DS3-MIB", "usdDsx3MdlPfi"), ("Unisphere-Data-DS3-MIB", "usdDsx3MdlPort"), ("Unisphere-Data-DS3-MIB", "usdDsx3MdlGenerator"), ("Unisphere-Data-DS3-MIB", "usdDs3NextIfIndex"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    usdDs3Group5 = usdDs3Group5.setStatus('current')
-usdDs3FarEndGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 4, 2, 6)).setObjects(("Unisphere-Data-DS3-MIB", "usdDsx3FarEndCurrentInvalidSeconds"), ("Unisphere-Data-DS3-MIB", "usdDsx3FarEndIntervalInvalidSeconds"), ("Unisphere-Data-DS3-MIB", "usdDsx3FarEndTotalInvalidSeconds"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    usdDs3FarEndGroup = usdDs3FarEndGroup.setStatus('current')
-mibBuilder.exportSymbols("Unisphere-Data-DS3-MIB", usdDsx3LineType=usdDsx3LineType, usdDs3Group4=usdDs3Group4, usdDs3Compliance4=usdDs3Compliance4, usdDsx3FarEndCurrentEntry=usdDsx3FarEndCurrentEntry, usdDs3Conformance=usdDs3Conformance, usdDsx3Application=usdDsx3Application, usdDsx3FarEndTotalTable=usdDsx3FarEndTotalTable, usdDs3Group2=usdDs3Group2, usdDsx3MdlTransmit=usdDsx3MdlTransmit, usdDs3Compliance=usdDs3Compliance, usdDsx3ConfigEntry=usdDsx3ConfigEntry, usdDsx3MdlPort=usdDsx3MdlPort, usdDsx3FarEndCurrentInvalidSeconds=usdDsx3FarEndCurrentInvalidSeconds, usdDsx3MdlUnit=usdDsx3MdlUnit, usdDsx3MdlEic=usdDsx3MdlEic, usdDsx3FarEndIntervalTable=usdDsx3FarEndIntervalTable, usdDsx3FarEndCurrentTable=usdDsx3FarEndCurrentTable, usdDsx3LowerIfIndex=usdDsx3LowerIfIndex, usdDs3MIB=usdDs3MIB, usdDs3Compliances=usdDs3Compliances, usdDsx3Ds3BandwidthLimit=usdDsx3Ds3BandwidthLimit, usdDs3Compliance2=usdDs3Compliance2, usdDsx3FarEndIntervalInvalidSeconds=usdDsx3FarEndIntervalInvalidSeconds, usdDs3Objects=usdDs3Objects, usdDs3FarEndGroup=usdDs3FarEndGroup, PYSNMP_MODULE_ID=usdDs3MIB, usdDs3Groups=usdDs3Groups, usdDsx3Ds3DsuMode=usdDsx3Ds3DsuMode, usdDsx3RowStatus=usdDsx3RowStatus, usdDsx3Ds3DsuScrambleMode=usdDsx3Ds3DsuScrambleMode, usdDsx3MdlFic=usdDsx3MdlFic, usdDs3Group=usdDs3Group, usdDs3Compliance3=usdDs3Compliance3, usdDsx3InterfaceType=usdDsx3InterfaceType, usdDs3Group5=usdDs3Group5, usdDs3NextIfIndex=usdDs3NextIfIndex, usdDs3Compliance5=usdDs3Compliance5, usdDsx3CellScramblerConfig=usdDsx3CellScramblerConfig, usdDsx3Ds3Channel=usdDsx3Ds3Channel, usdDsx3FarEndIntervalEntry=usdDsx3FarEndIntervalEntry, usdDsx3FarEndTotalInvalidSeconds=usdDsx3FarEndTotalInvalidSeconds, usdDs3Group3=usdDs3Group3, usdDsx3ConfigTable=usdDsx3ConfigTable, usdDsx3MdlCarrier=usdDsx3MdlCarrier, usdDsx3FarEndTotalEntry=usdDsx3FarEndTotalEntry, usdDsx3MdlLic=usdDsx3MdlLic, usdDsx3MdlPfi=usdDsx3MdlPfi, usdDsx3LineLength=usdDsx3LineLength, usdDsx3MdlGenerator=usdDsx3MdlGenerator, usdDsx3Channelization=usdDsx3Channelization)
+usdDs3Group4 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 4, 2, 4)
+)
+usdDs3Group4.setObjects(
+      *(("Unisphere-Data-DS3-MIB", "usdDsx3LineLength"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3LineType"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3CellScramblerConfig"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3Channelization"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3InterfaceType"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3Application"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3Ds3Channel"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3LowerIfIndex"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3RowStatus"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3Ds3DsuMode"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3Ds3BandwidthLimit"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3Ds3DsuScrambleMode"),
+        ("Unisphere-Data-DS3-MIB", "usdDs3NextIfIndex"))
+)
+if mibBuilder.loadTexts:
+    usdDs3Group4.setStatus("obsolete")
+
+usdDs3Group5 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 4, 2, 5)
+)
+usdDs3Group5.setObjects(
+      *(("Unisphere-Data-DS3-MIB", "usdDsx3LineLength"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3LineType"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3CellScramblerConfig"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3Channelization"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3InterfaceType"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3Application"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3Ds3Channel"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3LowerIfIndex"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3RowStatus"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3Ds3DsuMode"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3Ds3BandwidthLimit"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3Ds3DsuScrambleMode"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3MdlCarrier"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3MdlTransmit"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3MdlEic"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3MdlLic"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3MdlFic"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3MdlUnit"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3MdlPfi"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3MdlPort"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3MdlGenerator"),
+        ("Unisphere-Data-DS3-MIB", "usdDs3NextIfIndex"))
+)
+if mibBuilder.loadTexts:
+    usdDs3Group5.setStatus("current")
+
+usdDs3FarEndGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 4, 2, 6)
+)
+usdDs3FarEndGroup.setObjects(
+      *(("Unisphere-Data-DS3-MIB", "usdDsx3FarEndCurrentInvalidSeconds"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3FarEndIntervalInvalidSeconds"),
+        ("Unisphere-Data-DS3-MIB", "usdDsx3FarEndTotalInvalidSeconds"))
+)
+if mibBuilder.loadTexts:
+    usdDs3FarEndGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+usdDs3Compliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 4, 1, 1)
+)
+if mibBuilder.loadTexts:
+    usdDs3Compliance.setStatus(
+        "obsolete"
+    )
+
+usdDs3Compliance2 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 4, 1, 2)
+)
+if mibBuilder.loadTexts:
+    usdDs3Compliance2.setStatus(
+        "obsolete"
+    )
+
+usdDs3Compliance3 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 4, 1, 3)
+)
+if mibBuilder.loadTexts:
+    usdDs3Compliance3.setStatus(
+        "obsolete"
+    )
+
+usdDs3Compliance4 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 4, 1, 4)
+)
+if mibBuilder.loadTexts:
+    usdDs3Compliance4.setStatus(
+        "obsolete"
+    )
+
+usdDs3Compliance5 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 4, 4, 1, 5)
+)
+if mibBuilder.loadTexts:
+    usdDs3Compliance5.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "Unisphere-Data-DS3-MIB",
+    **{"usdDs3MIB": usdDs3MIB,
+       "usdDs3Objects": usdDs3Objects,
+       "usdDsx3ConfigTable": usdDsx3ConfigTable,
+       "usdDsx3ConfigEntry": usdDsx3ConfigEntry,
+       "usdDsx3LineLength": usdDsx3LineLength,
+       "usdDsx3LineType": usdDsx3LineType,
+       "usdDsx3CellScramblerConfig": usdDsx3CellScramblerConfig,
+       "usdDsx3Channelization": usdDsx3Channelization,
+       "usdDsx3InterfaceType": usdDsx3InterfaceType,
+       "usdDsx3Application": usdDsx3Application,
+       "usdDsx3Ds3Channel": usdDsx3Ds3Channel,
+       "usdDsx3LowerIfIndex": usdDsx3LowerIfIndex,
+       "usdDsx3RowStatus": usdDsx3RowStatus,
+       "usdDsx3Ds3DsuMode": usdDsx3Ds3DsuMode,
+       "usdDsx3Ds3BandwidthLimit": usdDsx3Ds3BandwidthLimit,
+       "usdDsx3Ds3DsuScrambleMode": usdDsx3Ds3DsuScrambleMode,
+       "usdDsx3MdlCarrier": usdDsx3MdlCarrier,
+       "usdDsx3MdlTransmit": usdDsx3MdlTransmit,
+       "usdDsx3MdlEic": usdDsx3MdlEic,
+       "usdDsx3MdlLic": usdDsx3MdlLic,
+       "usdDsx3MdlFic": usdDsx3MdlFic,
+       "usdDsx3MdlUnit": usdDsx3MdlUnit,
+       "usdDsx3MdlPfi": usdDsx3MdlPfi,
+       "usdDsx3MdlPort": usdDsx3MdlPort,
+       "usdDsx3MdlGenerator": usdDsx3MdlGenerator,
+       "usdDs3NextIfIndex": usdDs3NextIfIndex,
+       "usdDsx3FarEndCurrentTable": usdDsx3FarEndCurrentTable,
+       "usdDsx3FarEndCurrentEntry": usdDsx3FarEndCurrentEntry,
+       "usdDsx3FarEndCurrentInvalidSeconds": usdDsx3FarEndCurrentInvalidSeconds,
+       "usdDsx3FarEndIntervalTable": usdDsx3FarEndIntervalTable,
+       "usdDsx3FarEndIntervalEntry": usdDsx3FarEndIntervalEntry,
+       "usdDsx3FarEndIntervalInvalidSeconds": usdDsx3FarEndIntervalInvalidSeconds,
+       "usdDsx3FarEndTotalTable": usdDsx3FarEndTotalTable,
+       "usdDsx3FarEndTotalEntry": usdDsx3FarEndTotalEntry,
+       "usdDsx3FarEndTotalInvalidSeconds": usdDsx3FarEndTotalInvalidSeconds,
+       "usdDs3Conformance": usdDs3Conformance,
+       "usdDs3Compliances": usdDs3Compliances,
+       "usdDs3Compliance": usdDs3Compliance,
+       "usdDs3Compliance2": usdDs3Compliance2,
+       "usdDs3Compliance3": usdDs3Compliance3,
+       "usdDs3Compliance4": usdDs3Compliance4,
+       "usdDs3Compliance5": usdDs3Compliance5,
+       "usdDs3Groups": usdDs3Groups,
+       "usdDs3Group": usdDs3Group,
+       "usdDs3Group2": usdDs3Group2,
+       "usdDs3Group3": usdDs3Group3,
+       "usdDs3Group4": usdDs3Group4,
+       "usdDs3Group5": usdDs3Group5,
+       "usdDs3FarEndGroup": usdDs3FarEndGroup}
+)

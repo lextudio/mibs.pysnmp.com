@@ -1,22 +1,168 @@
+# SNMP MIB module (NMS-EPON-OLT-MAT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module NMS-EPON-OLT-MAT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/NMS-EPON-OLT-MAT-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:11:56 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
-nmsEPONGroup, = mibBuilder.importSymbols("NMS-SMI", "nmsEPONGroup")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-MibScalar, MibTable, MibTableRow, MibTableColumn, iso, MibIdentifier, Bits, Integer32, Counter32, TimeTicks, Gauge32, Counter64, Unsigned32, IpAddress, ObjectIdentity, ModuleIdentity, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "MibIdentifier", "Bits", "Integer32", "Counter32", "TimeTicks", "Gauge32", "Counter64", "Unsigned32", "IpAddress", "ObjectIdentity", "ModuleIdentity", "NotificationType")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-nmsEponOltMat = MibIdentifier((1, 3, 6, 1, 4, 1, 11606, 10, 101, 200))
-oltFtpServerIpAddr = MibScalar((1, 3, 6, 1, 4, 1, 11606, 10, 101, 200, 1), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: oltFtpServerIpAddr.setStatus('mandatory')
-oltFtpServerPort = MibScalar((1, 3, 6, 1, 4, 1, 11606, 10, 101, 200, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: oltFtpServerPort.setStatus('mandatory')
-oltMatInsideIpAddr = MibScalar((1, 3, 6, 1, 4, 1, 11606, 10, 101, 200, 3), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: oltMatInsideIpAddr.setStatus('mandatory')
-mibBuilder.exportSymbols("NMS-EPON-OLT-MAT-MIB", oltFtpServerPort=oltFtpServerPort, oltMatInsideIpAddr=oltMatInsideIpAddr, oltFtpServerIpAddr=oltFtpServerIpAddr, nmsEponOltMat=nmsEponOltMat)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/NMS-EPON-OLT-MAT-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:27:43 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(nmsEPONGroup,) = mibBuilder.importSymbols(
+    "NMS-SMI",
+    "nmsEPONGroup")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_NmsEponOltMat_ObjectIdentity = ObjectIdentity
+nmsEponOltMat = _NmsEponOltMat_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11606, 10, 101, 200)
+)
+_OltFtpServerIpAddr_Type = IpAddress
+_OltFtpServerIpAddr_Object = MibScalar
+oltFtpServerIpAddr = _OltFtpServerIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 11606, 10, 101, 200, 1),
+    _OltFtpServerIpAddr_Type()
+)
+oltFtpServerIpAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    oltFtpServerIpAddr.setStatus("mandatory")
+_OltFtpServerPort_Type = Integer32
+_OltFtpServerPort_Object = MibScalar
+oltFtpServerPort = _OltFtpServerPort_Object(
+    (1, 3, 6, 1, 4, 1, 11606, 10, 101, 200, 2),
+    _OltFtpServerPort_Type()
+)
+oltFtpServerPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    oltFtpServerPort.setStatus("mandatory")
+_OltMatInsideIpAddr_Type = IpAddress
+_OltMatInsideIpAddr_Object = MibScalar
+oltMatInsideIpAddr = _OltMatInsideIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 11606, 10, 101, 200, 3),
+    _OltMatInsideIpAddr_Type()
+)
+oltMatInsideIpAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    oltMatInsideIpAddr.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "NMS-EPON-OLT-MAT-MIB",
+    **{"nmsEponOltMat": nmsEponOltMat,
+       "oltFtpServerIpAddr": oltFtpServerIpAddr,
+       "oltFtpServerPort": oltFtpServerPort,
+       "oltMatInsideIpAddr": oltMatInsideIpAddr}
+)

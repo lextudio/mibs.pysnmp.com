@@ -1,59 +1,423 @@
+# SNMP MIB module (ENTERASYS-VRRP-EXT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ENTERASYS-VRRP-EXT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/ENTERASYS-VRRP-EXT-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:50:36 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
-etsysModules, = mibBuilder.importSymbols("ENTERASYS-MIB-NAMES", "etsysModules")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-InetAddress, InetAddressType = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress", "InetAddressType")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-ObjectIdentity, IpAddress, Counter64, ModuleIdentity, Unsigned32, Bits, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, MibIdentifier, Integer32, iso, NotificationType, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "IpAddress", "Counter64", "ModuleIdentity", "Unsigned32", "Bits", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "MibIdentifier", "Integer32", "iso", "NotificationType", "Gauge32")
-TextualConvention, DisplayString, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "RowStatus")
-VrId, vrrpOperationsInetAddrType = mibBuilder.importSymbols("VRRP-MIB", "VrId", "vrrpOperationsInetAddrType")
-etsysVrrpExtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 5624, 1, 2, 64))
-etsysVrrpExtMIB.setRevisions(('2009-08-10 19:43',))
-if mibBuilder.loadTexts: etsysVrrpExtMIB.setLastUpdated('200908101943Z')
-if mibBuilder.loadTexts: etsysVrrpExtMIB.setOrganization('Enterasys Networks, Inc')
-etsysVrrpExtOperations = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 64, 1))
-etsysVrrpExtConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 64, 2))
-etsysVrrpExtOperTable = MibTable((1, 3, 6, 1, 4, 1, 5624, 1, 2, 64, 1, 1), )
-if mibBuilder.loadTexts: etsysVrrpExtOperTable.setStatus('current')
-etsysVrrpExtOperEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5624, 1, 2, 64, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "ENTERASYS-VRRP-EXT-MIB", "etsysVrrpExtOperVrId"))
-if mibBuilder.loadTexts: etsysVrrpExtOperEntry.setStatus('current')
-etsysVrrpExtOperVrId = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 64, 1, 1, 1, 1), VrId())
-if mibBuilder.loadTexts: etsysVrrpExtOperVrId.setStatus('current')
-etsysVrrpExtOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 64, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("initialize", 1), ("backup", 2), ("master", 3), ("ifDown", 4), ("preemptDelay", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: etsysVrrpExtOperState.setStatus('current')
-etsysVrrpExtOperAcceptMode = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 64, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone(2)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: etsysVrrpExtOperAcceptMode.setStatus('current')
-etsysVrrpExtOperPreemptModeDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 64, 1, 1, 1, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: etsysVrrpExtOperPreemptModeDelay.setStatus('current')
-etsysVrrpExtOperCriticalIpAddrCount = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 64, 1, 1, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: etsysVrrpExtOperCriticalIpAddrCount.setStatus('current')
-etsysVrrpExtCriticalIpAddrTable = MibTable((1, 3, 6, 1, 4, 1, 5624, 1, 2, 64, 1, 2), )
-if mibBuilder.loadTexts: etsysVrrpExtCriticalIpAddrTable.setStatus('current')
-etsysVrrpExtCriticalIpAddrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5624, 1, 2, 64, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "ENTERASYS-VRRP-EXT-MIB", "etsysVrrpExtOperVrId"), (0, "VRRP-MIB", "vrrpOperationsInetAddrType"), (0, "ENTERASYS-VRRP-EXT-MIB", "etsysVrrpExtCriticalIpAddr"))
-if mibBuilder.loadTexts: etsysVrrpExtCriticalIpAddrEntry.setStatus('current')
-etsysVrrpExtCriticalIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 64, 1, 2, 1, 1), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: etsysVrrpExtCriticalIpAddr.setStatus('current')
-etsysVrrpExtCriticalIpAddrPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 64, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 254)).clone(10)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: etsysVrrpExtCriticalIpAddrPriority.setStatus('current')
-etsysVrrpExtCriticalIpAddrState = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 64, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: etsysVrrpExtCriticalIpAddrState.setStatus('current')
-etsysVrrpExtCriticalIpAddrRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 64, 1, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: etsysVrrpExtCriticalIpAddrRowStatus.setStatus('current')
-etsysVrrpExtMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 64, 2, 1))
-etsysVrrpExtMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 64, 2, 2))
-etsysVrrpExtMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 64, 2, 2, 1)).setObjects(("ENTERASYS-VRRP-EXT-MIB", "etsysVrrpExtOperState"), ("ENTERASYS-VRRP-EXT-MIB", "etsysVrrpExtOperAcceptMode"), ("ENTERASYS-VRRP-EXT-MIB", "etsysVrrpExtOperPreemptModeDelay"), ("ENTERASYS-VRRP-EXT-MIB", "etsysVrrpExtOperCriticalIpAddrCount"), ("ENTERASYS-VRRP-EXT-MIB", "etsysVrrpExtCriticalIpAddrPriority"), ("ENTERASYS-VRRP-EXT-MIB", "etsysVrrpExtCriticalIpAddrState"), ("ENTERASYS-VRRP-EXT-MIB", "etsysVrrpExtCriticalIpAddrRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    etsysVrrpExtMIBGroup = etsysVrrpExtMIBGroup.setStatus('current')
-etsysVrrpExtMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 5624, 1, 2, 64, 2, 1, 1)).setObjects(("ENTERASYS-VRRP-EXT-MIB", "etsysVrrpExtMIBGroup"))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/ENTERASYS-VRRP-EXT-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:39:44 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    etsysVrrpExtMIBCompliance = etsysVrrpExtMIBCompliance.setStatus('current')
-mibBuilder.exportSymbols("ENTERASYS-VRRP-EXT-MIB", etsysVrrpExtMIBGroup=etsysVrrpExtMIBGroup, etsysVrrpExtOperPreemptModeDelay=etsysVrrpExtOperPreemptModeDelay, etsysVrrpExtCriticalIpAddrTable=etsysVrrpExtCriticalIpAddrTable, etsysVrrpExtConformance=etsysVrrpExtConformance, etsysVrrpExtOperations=etsysVrrpExtOperations, etsysVrrpExtCriticalIpAddrRowStatus=etsysVrrpExtCriticalIpAddrRowStatus, etsysVrrpExtMIBCompliances=etsysVrrpExtMIBCompliances, etsysVrrpExtOperEntry=etsysVrrpExtOperEntry, etsysVrrpExtOperCriticalIpAddrCount=etsysVrrpExtOperCriticalIpAddrCount, etsysVrrpExtCriticalIpAddrState=etsysVrrpExtCriticalIpAddrState, etsysVrrpExtCriticalIpAddr=etsysVrrpExtCriticalIpAddr, etsysVrrpExtOperState=etsysVrrpExtOperState, etsysVrrpExtCriticalIpAddrPriority=etsysVrrpExtCriticalIpAddrPriority, etsysVrrpExtMIBCompliance=etsysVrrpExtMIBCompliance, PYSNMP_MODULE_ID=etsysVrrpExtMIB, etsysVrrpExtOperVrId=etsysVrrpExtOperVrId, etsysVrrpExtOperTable=etsysVrrpExtOperTable, etsysVrrpExtMIB=etsysVrrpExtMIB, etsysVrrpExtOperAcceptMode=etsysVrrpExtOperAcceptMode, etsysVrrpExtMIBGroups=etsysVrrpExtMIBGroups, etsysVrrpExtCriticalIpAddrEntry=etsysVrrpExtCriticalIpAddrEntry)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(etsysModules,) = mibBuilder.importSymbols(
+    "ENTERASYS-MIB-NAMES",
+    "etsysModules")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "RowStatus",
+    "TextualConvention")
+
+(VrId,
+ vrrpOperationsInetAddrType) = mibBuilder.importSymbols(
+    "VRRP-MIB",
+    "VrId",
+    "vrrpOperationsInetAddrType")
+
+
+# MODULE-IDENTITY
+
+etsysVrrpExtMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 64)
+)
+etsysVrrpExtMIB.setRevisions(
+        ("2009-08-10 19:43",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_EtsysVrrpExtOperations_ObjectIdentity = ObjectIdentity
+etsysVrrpExtOperations = _EtsysVrrpExtOperations_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 64, 1)
+)
+_EtsysVrrpExtOperTable_Object = MibTable
+etsysVrrpExtOperTable = _EtsysVrrpExtOperTable_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 64, 1, 1)
+)
+if mibBuilder.loadTexts:
+    etsysVrrpExtOperTable.setStatus("current")
+_EtsysVrrpExtOperEntry_Object = MibTableRow
+etsysVrrpExtOperEntry = _EtsysVrrpExtOperEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 64, 1, 1, 1)
+)
+etsysVrrpExtOperEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+    (0, "ENTERASYS-VRRP-EXT-MIB", "etsysVrrpExtOperVrId"),
+)
+if mibBuilder.loadTexts:
+    etsysVrrpExtOperEntry.setStatus("current")
+_EtsysVrrpExtOperVrId_Type = VrId
+_EtsysVrrpExtOperVrId_Object = MibTableColumn
+etsysVrrpExtOperVrId = _EtsysVrrpExtOperVrId_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 64, 1, 1, 1, 1),
+    _EtsysVrrpExtOperVrId_Type()
+)
+etsysVrrpExtOperVrId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    etsysVrrpExtOperVrId.setStatus("current")
+
+
+class _EtsysVrrpExtOperState_Type(Integer32):
+    """Custom type etsysVrrpExtOperState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("backup", 2),
+          ("ifDown", 4),
+          ("initialize", 1),
+          ("master", 3),
+          ("preemptDelay", 5))
+    )
+
+
+_EtsysVrrpExtOperState_Type.__name__ = "Integer32"
+_EtsysVrrpExtOperState_Object = MibTableColumn
+etsysVrrpExtOperState = _EtsysVrrpExtOperState_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 64, 1, 1, 1, 2),
+    _EtsysVrrpExtOperState_Type()
+)
+etsysVrrpExtOperState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    etsysVrrpExtOperState.setStatus("current")
+
+
+class _EtsysVrrpExtOperAcceptMode_Type(Integer32):
+    """Custom type etsysVrrpExtOperAcceptMode based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 2),
+          ("enable", 1))
+    )
+
+
+_EtsysVrrpExtOperAcceptMode_Type.__name__ = "Integer32"
+_EtsysVrrpExtOperAcceptMode_Object = MibTableColumn
+etsysVrrpExtOperAcceptMode = _EtsysVrrpExtOperAcceptMode_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 64, 1, 1, 1, 3),
+    _EtsysVrrpExtOperAcceptMode_Type()
+)
+etsysVrrpExtOperAcceptMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    etsysVrrpExtOperAcceptMode.setStatus("current")
+
+
+class _EtsysVrrpExtOperPreemptModeDelay_Type(Integer32):
+    """Custom type etsysVrrpExtOperPreemptModeDelay based on Integer32"""
+    defaultValue = 0
+
+
+_EtsysVrrpExtOperPreemptModeDelay_Object = MibTableColumn
+etsysVrrpExtOperPreemptModeDelay = _EtsysVrrpExtOperPreemptModeDelay_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 64, 1, 1, 1, 4),
+    _EtsysVrrpExtOperPreemptModeDelay_Type()
+)
+etsysVrrpExtOperPreemptModeDelay.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    etsysVrrpExtOperPreemptModeDelay.setStatus("current")
+_EtsysVrrpExtOperCriticalIpAddrCount_Type = Integer32
+_EtsysVrrpExtOperCriticalIpAddrCount_Object = MibTableColumn
+etsysVrrpExtOperCriticalIpAddrCount = _EtsysVrrpExtOperCriticalIpAddrCount_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 64, 1, 1, 1, 5),
+    _EtsysVrrpExtOperCriticalIpAddrCount_Type()
+)
+etsysVrrpExtOperCriticalIpAddrCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    etsysVrrpExtOperCriticalIpAddrCount.setStatus("current")
+_EtsysVrrpExtCriticalIpAddrTable_Object = MibTable
+etsysVrrpExtCriticalIpAddrTable = _EtsysVrrpExtCriticalIpAddrTable_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 64, 1, 2)
+)
+if mibBuilder.loadTexts:
+    etsysVrrpExtCriticalIpAddrTable.setStatus("current")
+_EtsysVrrpExtCriticalIpAddrEntry_Object = MibTableRow
+etsysVrrpExtCriticalIpAddrEntry = _EtsysVrrpExtCriticalIpAddrEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 64, 1, 2, 1)
+)
+etsysVrrpExtCriticalIpAddrEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+    (0, "ENTERASYS-VRRP-EXT-MIB", "etsysVrrpExtOperVrId"),
+    (0, "VRRP-MIB", "vrrpOperationsInetAddrType"),
+    (0, "ENTERASYS-VRRP-EXT-MIB", "etsysVrrpExtCriticalIpAddr"),
+)
+if mibBuilder.loadTexts:
+    etsysVrrpExtCriticalIpAddrEntry.setStatus("current")
+
+
+class _EtsysVrrpExtCriticalIpAddr_Type(InetAddress):
+    """Custom type etsysVrrpExtCriticalIpAddr based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 0),
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_EtsysVrrpExtCriticalIpAddr_Type.__name__ = "InetAddress"
+_EtsysVrrpExtCriticalIpAddr_Object = MibTableColumn
+etsysVrrpExtCriticalIpAddr = _EtsysVrrpExtCriticalIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 64, 1, 2, 1, 1),
+    _EtsysVrrpExtCriticalIpAddr_Type()
+)
+etsysVrrpExtCriticalIpAddr.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    etsysVrrpExtCriticalIpAddr.setStatus("current")
+
+
+class _EtsysVrrpExtCriticalIpAddrPriority_Type(Integer32):
+    """Custom type etsysVrrpExtCriticalIpAddrPriority based on Integer32"""
+    defaultValue = 10
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 254),
+    )
+
+
+_EtsysVrrpExtCriticalIpAddrPriority_Type.__name__ = "Integer32"
+_EtsysVrrpExtCriticalIpAddrPriority_Object = MibTableColumn
+etsysVrrpExtCriticalIpAddrPriority = _EtsysVrrpExtCriticalIpAddrPriority_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 64, 1, 2, 1, 2),
+    _EtsysVrrpExtCriticalIpAddrPriority_Type()
+)
+etsysVrrpExtCriticalIpAddrPriority.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    etsysVrrpExtCriticalIpAddrPriority.setStatus("current")
+
+
+class _EtsysVrrpExtCriticalIpAddrState_Type(Integer32):
+    """Custom type etsysVrrpExtCriticalIpAddrState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 2),
+          ("up", 1))
+    )
+
+
+_EtsysVrrpExtCriticalIpAddrState_Type.__name__ = "Integer32"
+_EtsysVrrpExtCriticalIpAddrState_Object = MibTableColumn
+etsysVrrpExtCriticalIpAddrState = _EtsysVrrpExtCriticalIpAddrState_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 64, 1, 2, 1, 3),
+    _EtsysVrrpExtCriticalIpAddrState_Type()
+)
+etsysVrrpExtCriticalIpAddrState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    etsysVrrpExtCriticalIpAddrState.setStatus("current")
+_EtsysVrrpExtCriticalIpAddrRowStatus_Type = RowStatus
+_EtsysVrrpExtCriticalIpAddrRowStatus_Object = MibTableColumn
+etsysVrrpExtCriticalIpAddrRowStatus = _EtsysVrrpExtCriticalIpAddrRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 64, 1, 2, 1, 4),
+    _EtsysVrrpExtCriticalIpAddrRowStatus_Type()
+)
+etsysVrrpExtCriticalIpAddrRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    etsysVrrpExtCriticalIpAddrRowStatus.setStatus("current")
+_EtsysVrrpExtConformance_ObjectIdentity = ObjectIdentity
+etsysVrrpExtConformance = _EtsysVrrpExtConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 64, 2)
+)
+_EtsysVrrpExtMIBCompliances_ObjectIdentity = ObjectIdentity
+etsysVrrpExtMIBCompliances = _EtsysVrrpExtMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 64, 2, 1)
+)
+_EtsysVrrpExtMIBGroups_ObjectIdentity = ObjectIdentity
+etsysVrrpExtMIBGroups = _EtsysVrrpExtMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 64, 2, 2)
+)
+
+# Managed Objects groups
+
+etsysVrrpExtMIBGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 64, 2, 2, 1)
+)
+etsysVrrpExtMIBGroup.setObjects(
+      *(("ENTERASYS-VRRP-EXT-MIB", "etsysVrrpExtOperState"),
+        ("ENTERASYS-VRRP-EXT-MIB", "etsysVrrpExtOperAcceptMode"),
+        ("ENTERASYS-VRRP-EXT-MIB", "etsysVrrpExtOperPreemptModeDelay"),
+        ("ENTERASYS-VRRP-EXT-MIB", "etsysVrrpExtOperCriticalIpAddrCount"),
+        ("ENTERASYS-VRRP-EXT-MIB", "etsysVrrpExtCriticalIpAddrPriority"),
+        ("ENTERASYS-VRRP-EXT-MIB", "etsysVrrpExtCriticalIpAddrState"),
+        ("ENTERASYS-VRRP-EXT-MIB", "etsysVrrpExtCriticalIpAddrRowStatus"))
+)
+if mibBuilder.loadTexts:
+    etsysVrrpExtMIBGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+etsysVrrpExtMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 64, 2, 1, 1)
+)
+if mibBuilder.loadTexts:
+    etsysVrrpExtMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ENTERASYS-VRRP-EXT-MIB",
+    **{"etsysVrrpExtMIB": etsysVrrpExtMIB,
+       "etsysVrrpExtOperations": etsysVrrpExtOperations,
+       "etsysVrrpExtOperTable": etsysVrrpExtOperTable,
+       "etsysVrrpExtOperEntry": etsysVrrpExtOperEntry,
+       "etsysVrrpExtOperVrId": etsysVrrpExtOperVrId,
+       "etsysVrrpExtOperState": etsysVrrpExtOperState,
+       "etsysVrrpExtOperAcceptMode": etsysVrrpExtOperAcceptMode,
+       "etsysVrrpExtOperPreemptModeDelay": etsysVrrpExtOperPreemptModeDelay,
+       "etsysVrrpExtOperCriticalIpAddrCount": etsysVrrpExtOperCriticalIpAddrCount,
+       "etsysVrrpExtCriticalIpAddrTable": etsysVrrpExtCriticalIpAddrTable,
+       "etsysVrrpExtCriticalIpAddrEntry": etsysVrrpExtCriticalIpAddrEntry,
+       "etsysVrrpExtCriticalIpAddr": etsysVrrpExtCriticalIpAddr,
+       "etsysVrrpExtCriticalIpAddrPriority": etsysVrrpExtCriticalIpAddrPriority,
+       "etsysVrrpExtCriticalIpAddrState": etsysVrrpExtCriticalIpAddrState,
+       "etsysVrrpExtCriticalIpAddrRowStatus": etsysVrrpExtCriticalIpAddrRowStatus,
+       "etsysVrrpExtConformance": etsysVrrpExtConformance,
+       "etsysVrrpExtMIBCompliances": etsysVrrpExtMIBCompliances,
+       "etsysVrrpExtMIBCompliance": etsysVrrpExtMIBCompliance,
+       "etsysVrrpExtMIBGroups": etsysVrrpExtMIBGroups,
+       "etsysVrrpExtMIBGroup": etsysVrrpExtMIBGroup}
+)

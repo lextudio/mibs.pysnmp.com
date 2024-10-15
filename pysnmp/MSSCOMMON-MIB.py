@@ -1,31 +1,234 @@
+# SNMP MIB module (MSSCOMMON-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module MSSCOMMON-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/MSSCOMMON-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:05:51 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, ObjectIdentity, iso, NotificationType, TimeTicks, Counter64, Counter32, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, enterprises, Gauge32, IpAddress, Unsigned32, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "ObjectIdentity", "iso", "NotificationType", "TimeTicks", "Counter64", "Counter32", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "enterprises", "Gauge32", "IpAddress", "Unsigned32", "ModuleIdentity")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-ibm = MibIdentifier((1, 3, 6, 1, 4, 1, 2))
-ibmProd = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6))
-nwaysMSS = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6, 118))
-mssCommon = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6, 118, 1))
-mssCommonHWVPD = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6, 118, 1, 1))
-mssHardwareVPDTable = MibTable((1, 3, 6, 1, 4, 1, 2, 6, 118, 1, 1, 1), )
-if mibBuilder.loadTexts: mssHardwareVPDTable.setStatus('mandatory')
-mssHardwareVPDEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2, 6, 118, 1, 1, 1, 1), ).setIndexNames((0, "MSSCOMMON-MIB", "vpdHwComponentIndex"), (0, "MSSCOMMON-MIB", "vpdIndex"))
-if mibBuilder.loadTexts: mssHardwareVPDEntry.setStatus('mandatory')
-vpdHwComponentIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 118, 1, 1, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vpdHwComponentIndex.setStatus('mandatory')
-vpdIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 118, 1, 1, 1, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vpdIndex.setStatus('mandatory')
-vpdKeyword = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 118, 1, 1, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vpdKeyword.setStatus('mandatory')
-vpdData = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 118, 1, 1, 1, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 256))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vpdData.setStatus('mandatory')
-mibBuilder.exportSymbols("MSSCOMMON-MIB", vpdData=vpdData, mssHardwareVPDTable=mssHardwareVPDTable, ibm=ibm, vpdIndex=vpdIndex, vpdKeyword=vpdKeyword, mssCommon=mssCommon, nwaysMSS=nwaysMSS, ibmProd=ibmProd, vpdHwComponentIndex=vpdHwComponentIndex, mssCommonHWVPD=mssCommonHWVPD, mssHardwareVPDEntry=mssHardwareVPDEntry)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/MSSCOMMON-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:24:00 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Ibm_ObjectIdentity = ObjectIdentity
+ibm = _Ibm_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2)
+)
+_IbmProd_ObjectIdentity = ObjectIdentity
+ibmProd = _IbmProd_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2, 6)
+)
+_NwaysMSS_ObjectIdentity = ObjectIdentity
+nwaysMSS = _NwaysMSS_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2, 6, 118)
+)
+_MssCommon_ObjectIdentity = ObjectIdentity
+mssCommon = _MssCommon_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2, 6, 118, 1)
+)
+_MssCommonHWVPD_ObjectIdentity = ObjectIdentity
+mssCommonHWVPD = _MssCommonHWVPD_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2, 6, 118, 1, 1)
+)
+_MssHardwareVPDTable_Object = MibTable
+mssHardwareVPDTable = _MssHardwareVPDTable_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 118, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    mssHardwareVPDTable.setStatus("mandatory")
+_MssHardwareVPDEntry_Object = MibTableRow
+mssHardwareVPDEntry = _MssHardwareVPDEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 118, 1, 1, 1, 1)
+)
+mssHardwareVPDEntry.setIndexNames(
+    (0, "MSSCOMMON-MIB", "vpdHwComponentIndex"),
+    (0, "MSSCOMMON-MIB", "vpdIndex"),
+)
+if mibBuilder.loadTexts:
+    mssHardwareVPDEntry.setStatus("mandatory")
+_VpdHwComponentIndex_Type = Integer32
+_VpdHwComponentIndex_Object = MibTableColumn
+vpdHwComponentIndex = _VpdHwComponentIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 118, 1, 1, 1, 1, 1),
+    _VpdHwComponentIndex_Type()
+)
+vpdHwComponentIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vpdHwComponentIndex.setStatus("mandatory")
+_VpdIndex_Type = Integer32
+_VpdIndex_Object = MibTableColumn
+vpdIndex = _VpdIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 118, 1, 1, 1, 1, 2),
+    _VpdIndex_Type()
+)
+vpdIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vpdIndex.setStatus("mandatory")
+
+
+class _VpdKeyword_Type(DisplayString):
+    """Custom type vpdKeyword based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 2),
+    )
+
+
+_VpdKeyword_Type.__name__ = "DisplayString"
+_VpdKeyword_Object = MibTableColumn
+vpdKeyword = _VpdKeyword_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 118, 1, 1, 1, 1, 3),
+    _VpdKeyword_Type()
+)
+vpdKeyword.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vpdKeyword.setStatus("mandatory")
+
+
+class _VpdData_Type(OctetString):
+    """Custom type vpdData based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 256),
+    )
+
+
+_VpdData_Type.__name__ = "OctetString"
+_VpdData_Object = MibTableColumn
+vpdData = _VpdData_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 118, 1, 1, 1, 1, 4),
+    _VpdData_Type()
+)
+vpdData.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vpdData.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "MSSCOMMON-MIB",
+    **{"ibm": ibm,
+       "ibmProd": ibmProd,
+       "nwaysMSS": nwaysMSS,
+       "mssCommon": mssCommon,
+       "mssCommonHWVPD": mssCommonHWVPD,
+       "mssHardwareVPDTable": mssHardwareVPDTable,
+       "mssHardwareVPDEntry": mssHardwareVPDEntry,
+       "vpdHwComponentIndex": vpdHwComponentIndex,
+       "vpdIndex": vpdIndex,
+       "vpdKeyword": vpdKeyword,
+       "vpdData": vpdData}
+)

@@ -1,92 +1,322 @@
+# SNMP MIB module (MPLS-TC-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module MPLS-TC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/MPLS-TC-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:04:04 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Unsigned32, Bits, TimeTicks, NotificationType, ModuleIdentity, Integer32, IpAddress, Counter32, Counter64, iso, MibIdentifier, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, transmission = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Bits", "TimeTicks", "NotificationType", "ModuleIdentity", "Integer32", "IpAddress", "Counter32", "Counter64", "iso", "MibIdentifier", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "transmission")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-mplsTCMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 10, 9999, 1))
-mplsTCMIB.setRevisions(('2001-01-04 12:00',))
-if mibBuilder.loadTexts: mplsTCMIB.setLastUpdated('200101040000Z')
-if mibBuilder.loadTexts: mplsTCMIB.setOrganization('Multiprotocol Label Switching (MPLS) Working Group')
-mplsMIB = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 9999))
-class MplsAtmVcIdentifier(TextualConvention, Integer32):
-    reference = 'Definitions of Textual Conventions and OBJECT- IDENTITIES for ATM Management, RFC 2514, Feb. 1999.'
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(32, 65535)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/MPLS-TC-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:23:00 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class MplsBitRate(TextualConvention, Integer32):
-    status = 'current'
-    displayHint = 'd'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 2147483647)
+if 'mibBuilder' not in globals():
+    import sys
 
-class MplsBurstSize(TextualConvention, Unsigned32):
-    status = 'current'
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 4294967295)
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-class MplsExtendedTunnelId(TextualConvention, Unsigned32):
-    reference = '1. Awduche, D., et al., RSVP-TE: Extensions to RSVP for LSP Tunnels, RFC 3209, December 2001. 2. Constraint-Based LSP Setup using LDP, Jamoussi, B., et al., draft-ietf-mpls-cr-ldp-06.txt, November 2001.'
-    status = 'current'
+# Import base ASN.1 objects even if this MIB does not use it
 
-class MplsInitialCreationSource(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))
-    namedValues = NamedValues(("other", 1), ("snmp", 2), ("ldp", 3), ("rsvp", 4), ("crldp", 5), ("policyAgent", 6), ("unknown", 7))
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
 
-class MplsLSPID(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 31)
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
 
-class MplsLabel(TextualConvention, Unsigned32):
-    reference = '1. Multiprotocol Label Switching Architecture, Rosen et al, RFC 3031, August 1999. 2. MPLS Label Stack Encoding, Rosen et al, RFC 3032, January 2001. 3. Use of Label Switching on Frame Relay Networks, Conta et al, RFC 3034, January 2001. 4. MPLS using LDP and ATM VC switching, Davie et al, RFC 3035, January 2001.'
-    status = 'current'
-    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 4294967295)
+# Import SMI symbols from the MIBs this MIB depends on
 
-class MplsLdpGenAddr(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 64)
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
 
-class MplsLdpIdentifier(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(6, 6)
-    fixedLength = 6
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso,
+ transmission) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso",
+    "transmission")
 
-class MplsLdpLabelTypes(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
-    namedValues = NamedValues(("generic", 1), ("atm", 2), ("frameRelay", 3))
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
 
-class MplsLsrIdentifier(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(4, 4)
-    fixedLength = 4
 
-class MplsPathIndex(TextualConvention, Unsigned32):
-    status = 'current'
+# MODULE-IDENTITY
 
-class MplsPathIndexOrZero(TextualConvention, Unsigned32):
-    status = 'current'
+mplsTCMIB = ModuleIdentity(
+    (1, 3, 6, 1, 2, 1, 10, 9999, 1)
+)
+mplsTCMIB.setRevisions(
+        ("2001-01-04 12:00",)
+)
 
-class MplsPortNumber(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 65535)
 
-class MplsTunnelAffinity(TextualConvention, Unsigned32):
-    status = 'current'
+# Types definitions
 
-class MplsTunnelIndex(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 65535)
 
-class MplsTunnelInstanceIndex(TextualConvention, Unsigned32):
-    status = 'current'
-    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 65535)
+# TEXTUAL-CONVENTIONS
 
-mibBuilder.exportSymbols("MPLS-TC-MIB", MplsLdpIdentifier=MplsLdpIdentifier, MplsBitRate=MplsBitRate, MplsTunnelInstanceIndex=MplsTunnelInstanceIndex, MplsLdpLabelTypes=MplsLdpLabelTypes, PYSNMP_MODULE_ID=mplsTCMIB, MplsAtmVcIdentifier=MplsAtmVcIdentifier, MplsExtendedTunnelId=MplsExtendedTunnelId, MplsPortNumber=MplsPortNumber, MplsInitialCreationSource=MplsInitialCreationSource, MplsLabel=MplsLabel, MplsPathIndex=MplsPathIndex, MplsTunnelIndex=MplsTunnelIndex, mplsMIB=mplsMIB, MplsLsrIdentifier=MplsLsrIdentifier, MplsTunnelAffinity=MplsTunnelAffinity, MplsLSPID=MplsLSPID, MplsPathIndexOrZero=MplsPathIndexOrZero, MplsBurstSize=MplsBurstSize, MplsLdpGenAddr=MplsLdpGenAddr, mplsTCMIB=mplsTCMIB)
+
+
+class MplsAtmVcIdentifier(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(32, 65535),
+    )
+
+
+
+class MplsBitRate(Integer32, TextualConvention):
+    status = "current"
+    displayHint = "d"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+
+class MplsBurstSize(Unsigned32, TextualConvention):
+    status = "current"
+    displayHint = "d"
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4294967295),
+    )
+
+
+
+class MplsExtendedTunnelId(Unsigned32, TextualConvention):
+    status = "current"
+
+
+class MplsInitialCreationSource(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("crldp", 5),
+          ("ldp", 3),
+          ("other", 1),
+          ("policyAgent", 6),
+          ("rsvp", 4),
+          ("snmp", 2),
+          ("unknown", 7))
+    )
+
+
+
+class MplsLSPID(OctetString, TextualConvention):
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 31),
+    )
+
+
+
+class MplsLabel(Unsigned32, TextualConvention):
+    status = "current"
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4294967295),
+    )
+
+
+
+class MplsLdpGenAddr(OctetString, TextualConvention):
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+
+class MplsLdpIdentifier(OctetString, TextualConvention):
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(6, 6),
+    )
+
+
+
+class MplsLdpLabelTypes(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("atm", 2),
+          ("frameRelay", 3),
+          ("generic", 1))
+    )
+
+
+
+class MplsLsrIdentifier(OctetString, TextualConvention):
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+    )
+
+
+
+class MplsPathIndex(Unsigned32, TextualConvention):
+    status = "current"
+
+
+class MplsPathIndexOrZero(Unsigned32, TextualConvention):
+    status = "current"
+
+
+class MplsPortNumber(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+
+class MplsTunnelAffinity(Unsigned32, TextualConvention):
+    status = "current"
+
+
+class MplsTunnelIndex(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+
+class MplsTunnelInstanceIndex(Unsigned32, TextualConvention):
+    status = "current"
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_MplsMIB_ObjectIdentity = ObjectIdentity
+mplsMIB = _MplsMIB_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 10, 9999)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "MPLS-TC-MIB",
+    **{"MplsAtmVcIdentifier": MplsAtmVcIdentifier,
+       "MplsBitRate": MplsBitRate,
+       "MplsBurstSize": MplsBurstSize,
+       "MplsExtendedTunnelId": MplsExtendedTunnelId,
+       "MplsInitialCreationSource": MplsInitialCreationSource,
+       "MplsLSPID": MplsLSPID,
+       "MplsLabel": MplsLabel,
+       "MplsLdpGenAddr": MplsLdpGenAddr,
+       "MplsLdpIdentifier": MplsLdpIdentifier,
+       "MplsLdpLabelTypes": MplsLdpLabelTypes,
+       "MplsLsrIdentifier": MplsLsrIdentifier,
+       "MplsPathIndex": MplsPathIndex,
+       "MplsPathIndexOrZero": MplsPathIndexOrZero,
+       "MplsPortNumber": MplsPortNumber,
+       "MplsTunnelAffinity": MplsTunnelAffinity,
+       "MplsTunnelIndex": MplsTunnelIndex,
+       "MplsTunnelInstanceIndex": MplsTunnelInstanceIndex,
+       "mplsMIB": mplsMIB,
+       "mplsTCMIB": mplsTCMIB}
+)

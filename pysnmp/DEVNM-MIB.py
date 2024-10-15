@@ -1,34 +1,284 @@
+# SNMP MIB module (DEVNM-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module DEVNM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/DEVNM-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:26:41 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-device, = mibBuilder.importSymbols("ANIROOT-MIB", "device")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ObjectIdentity, Unsigned32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Integer32, IpAddress, Bits, Gauge32, NotificationType, Counter64, Counter32, MibIdentifier, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Unsigned32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Integer32", "IpAddress", "Bits", "Gauge32", "NotificationType", "Counter64", "Counter32", "MibIdentifier", "TimeTicks")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-aniDevNetworkManager = ModuleIdentity((1, 3, 6, 1, 4, 1, 4325, 2, 7))
-if mibBuilder.loadTexts: aniDevNetworkManager.setLastUpdated('0105091130Z')
-if mibBuilder.loadTexts: aniDevNetworkManager.setOrganization('Aperto Networks')
-aniDevNumManagingHosts = MibScalar((1, 3, 6, 1, 4, 1, 4325, 2, 7, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aniDevNumManagingHosts.setStatus('current')
-aniDevNetworkMgrAccessTable = MibTable((1, 3, 6, 1, 4, 1, 4325, 2, 7, 2), )
-if mibBuilder.loadTexts: aniDevNetworkMgrAccessTable.setStatus('current')
-aniDevNetworkMgrAccessEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4325, 2, 7, 2, 1), ).setIndexNames((0, "DEVNM-MIB", "aniDevNMAccessIndex"))
-if mibBuilder.loadTexts: aniDevNetworkMgrAccessEntry.setStatus('current')
-aniDevNMAccessIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4325, 2, 7, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2)))
-if mibBuilder.loadTexts: aniDevNMAccessIndex.setStatus('current')
-aniDevNMAccessIp = MibTableColumn((1, 3, 6, 1, 4, 1, 4325, 2, 7, 2, 1, 2), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: aniDevNMAccessIp.setStatus('current')
-aniDevNMReadAccessCommunity = MibTableColumn((1, 3, 6, 1, 4, 1, 4325, 2, 7, 2, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 31)).clone('public')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: aniDevNMReadAccessCommunity.setStatus('current')
-aniDevNMWriteAccessCommunity = MibTableColumn((1, 3, 6, 1, 4, 1, 4325, 2, 7, 2, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 31)).clone('private')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: aniDevNMWriteAccessCommunity.setStatus('current')
-aniDevNMAccessControl = MibTableColumn((1, 3, 6, 1, 4, 1, 4325, 2, 7, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("read", 1), ("readWrite", 2), ("roWithTraps", 3), ("rwWithTraps", 4), ("trapsOnly", 5))).clone('readWrite')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: aniDevNMAccessControl.setStatus('current')
-mibBuilder.exportSymbols("DEVNM-MIB", aniDevNumManagingHosts=aniDevNumManagingHosts, aniDevNMAccessIp=aniDevNMAccessIp, aniDevNMReadAccessCommunity=aniDevNMReadAccessCommunity, aniDevNetworkMgrAccessEntry=aniDevNetworkMgrAccessEntry, aniDevNetworkMgrAccessTable=aniDevNetworkMgrAccessTable, aniDevNMAccessControl=aniDevNMAccessControl, aniDevNMAccessIndex=aniDevNMAccessIndex, aniDevNetworkManager=aniDevNetworkManager, aniDevNMWriteAccessCommunity=aniDevNMWriteAccessCommunity, PYSNMP_MODULE_ID=aniDevNetworkManager)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/DEVNM-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:26:10 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(device,) = mibBuilder.importSymbols(
+    "ANIROOT-MIB",
+    "device")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+aniDevNetworkManager = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 7)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+
+class _AniDevNumManagingHosts_Type(Integer32):
+    """Custom type aniDevNumManagingHosts based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2),
+    )
+
+
+_AniDevNumManagingHosts_Type.__name__ = "Integer32"
+_AniDevNumManagingHosts_Object = MibScalar
+aniDevNumManagingHosts = _AniDevNumManagingHosts_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 7, 1),
+    _AniDevNumManagingHosts_Type()
+)
+aniDevNumManagingHosts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aniDevNumManagingHosts.setStatus("current")
+_AniDevNetworkMgrAccessTable_Object = MibTable
+aniDevNetworkMgrAccessTable = _AniDevNetworkMgrAccessTable_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 7, 2)
+)
+if mibBuilder.loadTexts:
+    aniDevNetworkMgrAccessTable.setStatus("current")
+_AniDevNetworkMgrAccessEntry_Object = MibTableRow
+aniDevNetworkMgrAccessEntry = _AniDevNetworkMgrAccessEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 7, 2, 1)
+)
+aniDevNetworkMgrAccessEntry.setIndexNames(
+    (0, "DEVNM-MIB", "aniDevNMAccessIndex"),
+)
+if mibBuilder.loadTexts:
+    aniDevNetworkMgrAccessEntry.setStatus("current")
+
+
+class _AniDevNMAccessIndex_Type(Integer32):
+    """Custom type aniDevNMAccessIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2),
+    )
+
+
+_AniDevNMAccessIndex_Type.__name__ = "Integer32"
+_AniDevNMAccessIndex_Object = MibTableColumn
+aniDevNMAccessIndex = _AniDevNMAccessIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 7, 2, 1, 1),
+    _AniDevNMAccessIndex_Type()
+)
+aniDevNMAccessIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    aniDevNMAccessIndex.setStatus("current")
+_AniDevNMAccessIp_Type = IpAddress
+_AniDevNMAccessIp_Object = MibTableColumn
+aniDevNMAccessIp = _AniDevNMAccessIp_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 7, 2, 1, 2),
+    _AniDevNMAccessIp_Type()
+)
+aniDevNMAccessIp.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    aniDevNMAccessIp.setStatus("current")
+
+
+class _AniDevNMReadAccessCommunity_Type(DisplayString):
+    """Custom type aniDevNMReadAccessCommunity based on DisplayString"""
+    defaultValue = OctetString("public")
+
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 31),
+    )
+
+
+_AniDevNMReadAccessCommunity_Type.__name__ = "DisplayString"
+_AniDevNMReadAccessCommunity_Object = MibTableColumn
+aniDevNMReadAccessCommunity = _AniDevNMReadAccessCommunity_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 7, 2, 1, 3),
+    _AniDevNMReadAccessCommunity_Type()
+)
+aniDevNMReadAccessCommunity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    aniDevNMReadAccessCommunity.setStatus("current")
+
+
+class _AniDevNMWriteAccessCommunity_Type(DisplayString):
+    """Custom type aniDevNMWriteAccessCommunity based on DisplayString"""
+    defaultValue = OctetString("private")
+
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 31),
+    )
+
+
+_AniDevNMWriteAccessCommunity_Type.__name__ = "DisplayString"
+_AniDevNMWriteAccessCommunity_Object = MibTableColumn
+aniDevNMWriteAccessCommunity = _AniDevNMWriteAccessCommunity_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 7, 2, 1, 4),
+    _AniDevNMWriteAccessCommunity_Type()
+)
+aniDevNMWriteAccessCommunity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    aniDevNMWriteAccessCommunity.setStatus("current")
+
+
+class _AniDevNMAccessControl_Type(Integer32):
+    """Custom type aniDevNMAccessControl based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("read", 1),
+          ("readWrite", 2),
+          ("roWithTraps", 3),
+          ("rwWithTraps", 4),
+          ("trapsOnly", 5))
+    )
+
+
+_AniDevNMAccessControl_Type.__name__ = "Integer32"
+_AniDevNMAccessControl_Object = MibTableColumn
+aniDevNMAccessControl = _AniDevNMAccessControl_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 7, 2, 1, 5),
+    _AniDevNMAccessControl_Type()
+)
+aniDevNMAccessControl.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    aniDevNMAccessControl.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "DEVNM-MIB",
+    **{"aniDevNetworkManager": aniDevNetworkManager,
+       "aniDevNumManagingHosts": aniDevNumManagingHosts,
+       "aniDevNetworkMgrAccessTable": aniDevNetworkMgrAccessTable,
+       "aniDevNetworkMgrAccessEntry": aniDevNetworkMgrAccessEntry,
+       "aniDevNMAccessIndex": aniDevNMAccessIndex,
+       "aniDevNMAccessIp": aniDevNMAccessIp,
+       "aniDevNMReadAccessCommunity": aniDevNMReadAccessCommunity,
+       "aniDevNMWriteAccessCommunity": aniDevNMWriteAccessCommunity,
+       "aniDevNMAccessControl": aniDevNMAccessControl}
+)

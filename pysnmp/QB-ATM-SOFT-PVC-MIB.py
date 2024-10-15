@@ -1,17 +1,17 @@
-"""SNMP MIB module (QB-ATM-SOFT-PVC-MIB) expressed in pysnmp data model.
+# SNMP MIB module (QB-ATM-SOFT-PVC-MIB) expressed in pysnmp data model.
+#
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/QB-ATM-SOFT-PVC-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:40:39 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-This Python module is designed to be imported and executed by the
-pysnmp library.
-
-See https://www.pysnmp.com/pysnmp for further information.
-
-Notes
------
-ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/QB-ATM-SOFT-PVC-MIB
-Produced by pysmi-1.3.3 at Sun Mar 10 05:35:11 2024
-On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm
-Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
-"""
 if 'mibBuilder' not in globals():
     import sys
 
@@ -45,43 +45,43 @@ if 'mibBuilder' not in globals():
 
 # Import SMI symbols from the MIBs this MIB depends on
 
-(atmVplVpi,
+(atmVclVci,
  atmVclVpi,
- atmVclVci) = mibBuilder.importSymbols(
+ atmVplVpi) = mibBuilder.importSymbols(
     "ATM-MIB",
-    "atmVplVpi",
+    "atmVclVci",
     "atmVclVpi",
-    "atmVclVci")
+    "atmVplVpi")
 
-(atmSoftPVpcEntry,
- atmSoftPVccEntry) = mibBuilder.importSymbols(
+(atmSoftPVccEntry,
+ atmSoftPVpcEntry) = mibBuilder.importSymbols(
     "ATM-SOFT-PVC-MIB",
-    "atmSoftPVpcEntry",
-    "atmSoftPVccEntry")
+    "atmSoftPVccEntry",
+    "atmSoftPVpcEntry")
 
-(atmNoClpNoScr,
+(AtmAddr,
+ AtmConnCastType,
+ AtmConnKind,
  AtmServiceCategory,
  AtmTrafficDescrParamIndex,
+ AtmVcIdentifier,
  AtmVorXAdminStatus,
  AtmVorXLastChange,
  AtmVorXOperStatus,
- AtmAddr,
- AtmConnCastType,
- AtmVcIdentifier,
  AtmVpIdentifier,
- AtmConnKind) = mibBuilder.importSymbols(
+ atmNoClpNoScr) = mibBuilder.importSymbols(
     "ATM-TC-MIB",
-    "atmNoClpNoScr",
+    "AtmAddr",
+    "AtmConnCastType",
+    "AtmConnKind",
     "AtmServiceCategory",
     "AtmTrafficDescrParamIndex",
+    "AtmVcIdentifier",
     "AtmVorXAdminStatus",
     "AtmVorXLastChange",
     "AtmVorXOperStatus",
-    "AtmAddr",
-    "AtmConnCastType",
-    "AtmVcIdentifier",
     "AtmVpIdentifier",
-    "AtmConnKind")
+    "atmNoClpNoScr")
 
 (InterfaceIndex,
  ifIndex) = mibBuilder.importSymbols(
@@ -109,55 +109,55 @@ if 'mibBuilder' not in globals():
     "NotificationGroup",
     "ObjectGroup")
 
-(enterprises,
- Unsigned32,
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
  NotificationType,
+ ObjectIdentity,
  MibScalar,
  MibTable,
  MibTableRow,
  MibTableColumn,
- Counter32,
- ObjectIdentity,
- Bits,
- MibIdentifier,
- ModuleIdentity,
  TimeTicks,
- IpAddress,
- Gauge32,
- Counter64,
- Integer32,
+ Unsigned32,
+ enterprises,
  iso) = mibBuilder.importSymbols(
     "SNMPv2-SMI",
-    "enterprises",
-    "Unsigned32",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
     "NotificationType",
+    "ObjectIdentity",
     "MibScalar",
     "MibTable",
     "MibTableRow",
     "MibTableColumn",
-    "Counter32",
-    "ObjectIdentity",
-    "Bits",
-    "MibIdentifier",
-    "ModuleIdentity",
     "TimeTicks",
-    "IpAddress",
-    "Gauge32",
-    "Counter64",
-    "Integer32",
+    "Unsigned32",
+    "enterprises",
     "iso")
 
 (DisplayString,
- TruthValue,
- TextualConvention,
  RowStatus,
- TimeStamp) = mibBuilder.importSymbols(
+ TextualConvention,
+ TimeStamp,
+ TruthValue) = mibBuilder.importSymbols(
     "SNMPv2-TC",
     "DisplayString",
-    "TruthValue",
-    "TextualConvention",
     "RowStatus",
-    "TimeStamp")
+    "TextualConvention",
+    "TimeStamp",
+    "TruthValue")
 
 
 # MODULE-IDENTITY
@@ -233,11 +233,6 @@ _QbAtmSoftPVccEntry_Object = MibTableRow
 qbAtmSoftPVccEntry = _QbAtmSoftPVccEntry_Object(
     (1, 3, 6, 1, 4, 1, 4323, 2, 12, 1, 2, 1)
 )
-atmSoftPVccEntry.registerAugmentions(
-    ("QB-ATM-SOFT-PVC-MIB",
-     "qbAtmSoftPVccEntry")
-)
-qbAtmSoftPVccEntry.setIndexNames(*atmSoftPVccEntry.getIndexNames())
 if mibBuilder.loadTexts:
     qbAtmSoftPVccEntry.setStatus("current")
 
@@ -323,11 +318,6 @@ _QbAtmSoftPVpcEntry_Object = MibTableRow
 qbAtmSoftPVpcEntry = _QbAtmSoftPVpcEntry_Object(
     (1, 3, 6, 1, 4, 1, 4323, 2, 12, 1, 3, 1)
 )
-atmSoftPVpcEntry.registerAugmentions(
-    ("QB-ATM-SOFT-PVC-MIB",
-     "qbAtmSoftPVpcEntry")
-)
-qbAtmSoftPVpcEntry.setIndexNames(*atmSoftPVpcEntry.getIndexNames())
 if mibBuilder.loadTexts:
     qbAtmSoftPVpcEntry.setStatus("current")
 
@@ -365,6 +355,16 @@ _QbAtmSoftPvcBaseGroup_ObjectIdentity = ObjectIdentity
 qbAtmSoftPvcBaseGroup = _QbAtmSoftPvcBaseGroup_ObjectIdentity(
     (1, 3, 6, 1, 4, 1, 4323, 2, 12, 3)
 )
+atmSoftPVccEntry.registerAugmentions(
+    ("QB-ATM-SOFT-PVC-MIB",
+     "qbAtmSoftPVccEntry")
+)
+qbAtmSoftPVccEntry.setIndexNames(*atmSoftPVccEntry.getIndexNames())
+atmSoftPVpcEntry.registerAugmentions(
+    ("QB-ATM-SOFT-PVC-MIB",
+     "qbAtmSoftPVpcEntry")
+)
+qbAtmSoftPVpcEntry.setIndexNames(*atmSoftPVpcEntry.getIndexNames())
 
 # Managed Objects groups
 

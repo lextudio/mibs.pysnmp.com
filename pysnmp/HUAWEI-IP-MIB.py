@@ -1,44 +1,282 @@
+# SNMP MIB module (HUAWEI-IP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HUAWEI-IP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/HUAWEI-IP-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:33:15 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint")
-hwLocal, hwInternetProtocol, huawei = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "hwLocal", "hwInternetProtocol", "huawei")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Bits, MibIdentifier, Counter64, Integer32, TimeTicks, Gauge32, iso, Counter32, NotificationType, Unsigned32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "MibIdentifier", "Counter64", "Integer32", "TimeTicks", "Gauge32", "iso", "Counter32", "NotificationType", "Unsigned32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "IpAddress")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-rIp = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 1, 3, 1))
-ipTooShorts = MibScalar((1, 3, 6, 1, 4, 1, 2011, 1, 3, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ipTooShorts.setStatus('mandatory')
-ipTooSmalls = MibScalar((1, 3, 6, 1, 4, 1, 2011, 1, 3, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ipTooSmalls.setStatus('mandatory')
-ipBadVersions = MibScalar((1, 3, 6, 1, 4, 1, 2011, 1, 3, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ipBadVersions.setStatus('mandatory')
-ipBadChecksums = MibScalar((1, 3, 6, 1, 4, 1, 2011, 1, 3, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ipBadChecksums.setStatus('mandatory')
-ipBadLens = MibScalar((1, 3, 6, 1, 4, 1, 2011, 1, 3, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ipBadLens.setStatus('mandatory')
-ipBadHeadLens = MibScalar((1, 3, 6, 1, 4, 1, 2011, 1, 3, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ipBadHeadLens.setStatus('mandatory')
-ipBadOptions = MibScalar((1, 3, 6, 1, 4, 1, 2011, 1, 3, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ipBadOptions.setStatus('mandatory')
-ipFragDroppeds = MibScalar((1, 3, 6, 1, 4, 1, 2011, 1, 3, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ipFragDroppeds.setStatus('mandatory')
-ipRawOuts = MibScalar((1, 3, 6, 1, 4, 1, 2011, 1, 3, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ipRawOuts.setStatus('mandatory')
-ipRouteBadRedirects = MibScalar((1, 3, 6, 1, 4, 1, 2011, 1, 3, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ipRouteBadRedirects.setStatus('mandatory')
-ipRouteDynamics = MibScalar((1, 3, 6, 1, 4, 1, 2011, 1, 3, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ipRouteDynamics.setStatus('mandatory')
-ipRouteNewGateways = MibScalar((1, 3, 6, 1, 4, 1, 2011, 1, 3, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ipRouteNewGateways.setStatus('mandatory')
-ipRouteUnreachs = MibScalar((1, 3, 6, 1, 4, 1, 2011, 1, 3, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ipRouteUnreachs.setStatus('mandatory')
-ipRouteWilds = MibScalar((1, 3, 6, 1, 4, 1, 2011, 1, 3, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ipRouteWilds.setStatus('mandatory')
-mibBuilder.exportSymbols("HUAWEI-IP-MIB", ipRouteDynamics=ipRouteDynamics, ipFragDroppeds=ipFragDroppeds, rIp=rIp, ipRouteWilds=ipRouteWilds, ipBadOptions=ipBadOptions, ipRouteNewGateways=ipRouteNewGateways, ipBadHeadLens=ipBadHeadLens, ipRouteBadRedirects=ipRouteBadRedirects, ipTooSmalls=ipTooSmalls, ipBadLens=ipBadLens, ipBadChecksums=ipBadChecksums, ipTooShorts=ipTooShorts, ipRouteUnreachs=ipRouteUnreachs, ipRawOuts=ipRawOuts, ipBadVersions=ipBadVersions)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-IP-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:04:04 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(huawei,
+ hwInternetProtocol,
+ hwLocal) = mibBuilder.importSymbols(
+    "HUAWEI-3COM-OID-MIB",
+    "huawei",
+    "hwInternetProtocol",
+    "hwLocal")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_RIp_ObjectIdentity = ObjectIdentity
+rIp = _RIp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 1, 3, 1)
+)
+_IpTooShorts_Type = Counter32
+_IpTooShorts_Object = MibScalar
+ipTooShorts = _IpTooShorts_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 1, 3, 1, 1),
+    _IpTooShorts_Type()
+)
+ipTooShorts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ipTooShorts.setStatus("mandatory")
+_IpTooSmalls_Type = Counter32
+_IpTooSmalls_Object = MibScalar
+ipTooSmalls = _IpTooSmalls_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 1, 3, 1, 2),
+    _IpTooSmalls_Type()
+)
+ipTooSmalls.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ipTooSmalls.setStatus("mandatory")
+_IpBadVersions_Type = Counter32
+_IpBadVersions_Object = MibScalar
+ipBadVersions = _IpBadVersions_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 1, 3, 1, 3),
+    _IpBadVersions_Type()
+)
+ipBadVersions.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ipBadVersions.setStatus("mandatory")
+_IpBadChecksums_Type = Counter32
+_IpBadChecksums_Object = MibScalar
+ipBadChecksums = _IpBadChecksums_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 1, 3, 1, 4),
+    _IpBadChecksums_Type()
+)
+ipBadChecksums.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ipBadChecksums.setStatus("mandatory")
+_IpBadLens_Type = Counter32
+_IpBadLens_Object = MibScalar
+ipBadLens = _IpBadLens_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 1, 3, 1, 5),
+    _IpBadLens_Type()
+)
+ipBadLens.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ipBadLens.setStatus("mandatory")
+_IpBadHeadLens_Type = Counter32
+_IpBadHeadLens_Object = MibScalar
+ipBadHeadLens = _IpBadHeadLens_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 1, 3, 1, 6),
+    _IpBadHeadLens_Type()
+)
+ipBadHeadLens.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ipBadHeadLens.setStatus("mandatory")
+_IpBadOptions_Type = Counter32
+_IpBadOptions_Object = MibScalar
+ipBadOptions = _IpBadOptions_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 1, 3, 1, 7),
+    _IpBadOptions_Type()
+)
+ipBadOptions.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ipBadOptions.setStatus("mandatory")
+_IpFragDroppeds_Type = Counter32
+_IpFragDroppeds_Object = MibScalar
+ipFragDroppeds = _IpFragDroppeds_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 1, 3, 1, 8),
+    _IpFragDroppeds_Type()
+)
+ipFragDroppeds.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ipFragDroppeds.setStatus("mandatory")
+_IpRawOuts_Type = Counter32
+_IpRawOuts_Object = MibScalar
+ipRawOuts = _IpRawOuts_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 1, 3, 1, 9),
+    _IpRawOuts_Type()
+)
+ipRawOuts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ipRawOuts.setStatus("mandatory")
+_IpRouteBadRedirects_Type = Counter32
+_IpRouteBadRedirects_Object = MibScalar
+ipRouteBadRedirects = _IpRouteBadRedirects_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 1, 3, 1, 10),
+    _IpRouteBadRedirects_Type()
+)
+ipRouteBadRedirects.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ipRouteBadRedirects.setStatus("mandatory")
+_IpRouteDynamics_Type = Counter32
+_IpRouteDynamics_Object = MibScalar
+ipRouteDynamics = _IpRouteDynamics_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 1, 3, 1, 11),
+    _IpRouteDynamics_Type()
+)
+ipRouteDynamics.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ipRouteDynamics.setStatus("mandatory")
+_IpRouteNewGateways_Type = Counter32
+_IpRouteNewGateways_Object = MibScalar
+ipRouteNewGateways = _IpRouteNewGateways_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 1, 3, 1, 12),
+    _IpRouteNewGateways_Type()
+)
+ipRouteNewGateways.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ipRouteNewGateways.setStatus("mandatory")
+_IpRouteUnreachs_Type = Counter32
+_IpRouteUnreachs_Object = MibScalar
+ipRouteUnreachs = _IpRouteUnreachs_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 1, 3, 1, 13),
+    _IpRouteUnreachs_Type()
+)
+ipRouteUnreachs.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ipRouteUnreachs.setStatus("mandatory")
+_IpRouteWilds_Type = Counter32
+_IpRouteWilds_Object = MibScalar
+ipRouteWilds = _IpRouteWilds_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 1, 3, 1, 14),
+    _IpRouteWilds_Type()
+)
+ipRouteWilds.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ipRouteWilds.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HUAWEI-IP-MIB",
+    **{"rIp": rIp,
+       "ipTooShorts": ipTooShorts,
+       "ipTooSmalls": ipTooSmalls,
+       "ipBadVersions": ipBadVersions,
+       "ipBadChecksums": ipBadChecksums,
+       "ipBadLens": ipBadLens,
+       "ipBadHeadLens": ipBadHeadLens,
+       "ipBadOptions": ipBadOptions,
+       "ipFragDroppeds": ipFragDroppeds,
+       "ipRawOuts": ipRawOuts,
+       "ipRouteBadRedirects": ipRouteBadRedirects,
+       "ipRouteDynamics": ipRouteDynamics,
+       "ipRouteNewGateways": ipRouteNewGateways,
+       "ipRouteUnreachs": ipRouteUnreachs,
+       "ipRouteWilds": ipRouteWilds}
+)

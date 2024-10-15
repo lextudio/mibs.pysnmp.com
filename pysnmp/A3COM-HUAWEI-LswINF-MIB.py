@@ -1,250 +1,1681 @@
+# SNMP MIB module (A3COM-HUAWEI-LswINF-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module A3COM-HUAWEI-LswINF-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/A3COM-HUAWEI-LswINF-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 16:49:26 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-lswCommon, = mibBuilder.importSymbols("A3COM-HUAWEI-OID-MIB", "lswCommon")
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
-ifIndex, ifEntry = mibBuilder.importSymbols("IF-MIB", "ifIndex", "ifEntry")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ObjectIdentity, ModuleIdentity, Counter64, Bits, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Gauge32, IpAddress, Integer32, iso, TimeTicks, MibIdentifier, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "ModuleIdentity", "Counter64", "Bits", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Gauge32", "IpAddress", "Integer32", "iso", "TimeTicks", "MibIdentifier", "Unsigned32")
-TextualConvention, DisplayString, RowStatus, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "RowStatus", "TruthValue")
-hwLswL2InfMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5))
-hwLswL2InfMib.setRevisions(('2001-06-29 00:00',))
-if mibBuilder.loadTexts: hwLswL2InfMib.setLastUpdated('200106290000Z')
-if mibBuilder.loadTexts: hwLswL2InfMib.setOrganization('')
-class PortList(TextualConvention, OctetString):
-    status = 'current'
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/A3COM-HUAWEI-LswINF-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 20:27:32 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class VlanIndex(TextualConvention, Unsigned32):
-    status = 'current'
-    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 4294967295)
+if 'mibBuilder' not in globals():
+    import sys
 
-class InterfaceIndex(TextualConvention, Integer32):
-    status = 'current'
-    displayHint = 'd'
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-class DropDirection(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("disable", 1), ("enableInbound", 2), ("enableOutbound", 3), ("enableBoth", 4))
+# Import base ASN.1 objects even if this MIB does not use it
 
-class SpeedModeFlag(TextualConvention, Bits):
-    status = 'current'
-    namedValues = NamedValues(("s10M", 0), ("s100M", 1), ("s1000M", 2), ("s10000M", 3), ("s24000M", 4), ("s40000M", 5), ("s100000M", 6))
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
 
-hwLswExtInterface = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1))
-hwifXXTable = MibTable((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1), )
-if mibBuilder.loadTexts: hwifXXTable.setStatus('current')
-hwifXXEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1), )
-ifEntry.registerAugmentions(("A3COM-HUAWEI-LswINF-MIB", "hwifXXEntry"))
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(lswCommon,) = mibBuilder.importSymbols(
+    "A3COM-HUAWEI-OID-MIB",
+    "lswCommon")
+
+(ifEntry,
+ ifIndex) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifEntry",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+hwLswL2InfMib = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5)
+)
+hwLswL2InfMib.setRevisions(
+        ("2001-06-29 00:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class PortList(OctetString, TextualConvention):
+    status = "current"
+
+
+class VlanIndex(Unsigned32, TextualConvention):
+    status = "current"
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4294967295),
+    )
+
+
+
+class InterfaceIndex(Integer32, TextualConvention):
+    status = "current"
+    displayHint = "d"
+
+
+class DropDirection(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 1),
+          ("enableBoth", 4),
+          ("enableInbound", 2),
+          ("enableOutbound", 3))
+    )
+
+
+
+class SpeedModeFlag(Bits, TextualConvention):
+    status = "current"
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_HwLswExtInterface_ObjectIdentity = ObjectIdentity
+hwLswExtInterface = _HwLswExtInterface_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1)
+)
+_HwifXXTable_Object = MibTable
+hwifXXTable = _HwifXXTable_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    hwifXXTable.setStatus("current")
+_HwifXXEntry_Object = MibTableRow
+hwifXXEntry = _HwifXXEntry_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    hwifXXEntry.setStatus("current")
+_HwifUnBoundPort_Type = TruthValue
+_HwifUnBoundPort_Object = MibTableColumn
+hwifUnBoundPort = _HwifUnBoundPort_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 1),
+    _HwifUnBoundPort_Type()
+)
+hwifUnBoundPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwifUnBoundPort.setStatus("current")
+_HwifISPhyPort_Type = TruthValue
+_HwifISPhyPort_Object = MibTableColumn
+hwifISPhyPort = _HwifISPhyPort_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 2),
+    _HwifISPhyPort_Type()
+)
+hwifISPhyPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwifISPhyPort.setStatus("current")
+_HwifAggregatePort_Type = TruthValue
+_HwifAggregatePort_Object = MibTableColumn
+hwifAggregatePort = _HwifAggregatePort_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 3),
+    _HwifAggregatePort_Type()
+)
+hwifAggregatePort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwifAggregatePort.setStatus("current")
+_HwifMirrorPort_Type = TruthValue
+_HwifMirrorPort_Object = MibTableColumn
+hwifMirrorPort = _HwifMirrorPort_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 4),
+    _HwifMirrorPort_Type()
+)
+hwifMirrorPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifMirrorPort.setStatus("current")
+
+
+class _HwifVLANType_Type(Integer32):
+    """Custom type hwifVLANType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("access", 2),
+          ("fabric", 4),
+          ("hybrid", 3),
+          ("vLANTrunk", 1))
+    )
+
+
+_HwifVLANType_Type.__name__ = "Integer32"
+_HwifVLANType_Object = MibTableColumn
+hwifVLANType = _HwifVLANType_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 5),
+    _HwifVLANType_Type()
+)
+hwifVLANType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifVLANType.setStatus("current")
+
+
+class _HwifMcastControl_Type(Integer32):
+    """Custom type hwifMcastControl based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 100),
+    )
+
+
+_HwifMcastControl_Type.__name__ = "Integer32"
+_HwifMcastControl_Object = MibTableColumn
+hwifMcastControl = _HwifMcastControl_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 6),
+    _HwifMcastControl_Type()
+)
+hwifMcastControl.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifMcastControl.setStatus("current")
+_HwifFlowControl_Type = TruthValue
+_HwifFlowControl_Object = MibTableColumn
+hwifFlowControl = _HwifFlowControl_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 7),
+    _HwifFlowControl_Type()
+)
+hwifFlowControl.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifFlowControl.setStatus("current")
+_HwifSrcMacControl_Type = TruthValue
+_HwifSrcMacControl_Object = MibTableColumn
+hwifSrcMacControl = _HwifSrcMacControl_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 8),
+    _HwifSrcMacControl_Type()
+)
+hwifSrcMacControl.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwifSrcMacControl.setStatus("current")
+
+
+class _HwifClearStat_Type(Integer32):
+    """Custom type hwifClearStat based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            1
+        )
+    )
+    namedValues = NamedValues(
+        ("clear", 1)
+    )
+
+
+_HwifClearStat_Type.__name__ = "Integer32"
+_HwifClearStat_Object = MibTableColumn
+hwifClearStat = _HwifClearStat_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 9),
+    _HwifClearStat_Type()
+)
+hwifClearStat.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifClearStat.setStatus("current")
+_HwifXXBasePortIndex_Type = Integer32
+_HwifXXBasePortIndex_Object = MibTableColumn
+hwifXXBasePortIndex = _HwifXXBasePortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 10),
+    _HwifXXBasePortIndex_Type()
+)
+hwifXXBasePortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwifXXBasePortIndex.setStatus("current")
+_HwifXXDevPortIndex_Type = Integer32
+_HwifXXDevPortIndex_Object = MibTableColumn
+hwifXXDevPortIndex = _HwifXXDevPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 11),
+    _HwifXXDevPortIndex_Type()
+)
+hwifXXDevPortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwifXXDevPortIndex.setStatus("current")
+_HwifPpsMcastControl_Type = Integer32
+_HwifPpsMcastControl_Object = MibTableColumn
+hwifPpsMcastControl = _HwifPpsMcastControl_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 12),
+    _HwifPpsMcastControl_Type()
+)
+hwifPpsMcastControl.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifPpsMcastControl.setStatus("current")
+
+
+class _HwifPpsBcastDisValControl_Type(Integer32):
+    """Custom type hwifPpsBcastDisValControl based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 2),
+          ("enable", 1))
+    )
+
+
+_HwifPpsBcastDisValControl_Type.__name__ = "Integer32"
+_HwifPpsBcastDisValControl_Object = MibTableColumn
+hwifPpsBcastDisValControl = _HwifPpsBcastDisValControl_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 13),
+    _HwifPpsBcastDisValControl_Type()
+)
+hwifPpsBcastDisValControl.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifPpsBcastDisValControl.setStatus("current")
+_HwifUniSuppressionStep_Type = Integer32
+_HwifUniSuppressionStep_Object = MibTableColumn
+hwifUniSuppressionStep = _HwifUniSuppressionStep_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 14),
+    _HwifUniSuppressionStep_Type()
+)
+hwifUniSuppressionStep.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwifUniSuppressionStep.setStatus("current")
+_HwifPpsUniSuppressionMax_Type = Integer32
+_HwifPpsUniSuppressionMax_Object = MibTableColumn
+hwifPpsUniSuppressionMax = _HwifPpsUniSuppressionMax_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 15),
+    _HwifPpsUniSuppressionMax_Type()
+)
+hwifPpsUniSuppressionMax.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwifPpsUniSuppressionMax.setStatus("current")
+_HwifMulSuppressionStep_Type = Integer32
+_HwifMulSuppressionStep_Object = MibTableColumn
+hwifMulSuppressionStep = _HwifMulSuppressionStep_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 16),
+    _HwifMulSuppressionStep_Type()
+)
+hwifMulSuppressionStep.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwifMulSuppressionStep.setStatus("current")
+_HwifPpsMulSuppressionMax_Type = Integer32
+_HwifPpsMulSuppressionMax_Object = MibTableColumn
+hwifPpsMulSuppressionMax = _HwifPpsMulSuppressionMax_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 17),
+    _HwifPpsMulSuppressionMax_Type()
+)
+hwifPpsMulSuppressionMax.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwifPpsMulSuppressionMax.setStatus("current")
+_HwifUniSuppression_Type = Integer32
+_HwifUniSuppression_Object = MibTableColumn
+hwifUniSuppression = _HwifUniSuppression_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 18),
+    _HwifUniSuppression_Type()
+)
+hwifUniSuppression.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifUniSuppression.setStatus("current")
+_HwifPpsUniSuppression_Type = Integer32
+_HwifPpsUniSuppression_Object = MibTableColumn
+hwifPpsUniSuppression = _HwifPpsUniSuppression_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 19),
+    _HwifPpsUniSuppression_Type()
+)
+hwifPpsUniSuppression.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifPpsUniSuppression.setStatus("current")
+_HwifMulSuppression_Type = Integer32
+_HwifMulSuppression_Object = MibTableColumn
+hwifMulSuppression = _HwifMulSuppression_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 20),
+    _HwifMulSuppression_Type()
+)
+hwifMulSuppression.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifMulSuppression.setStatus("current")
+_HwifPpsMulSuppression_Type = Integer32
+_HwifPpsMulSuppression_Object = MibTableColumn
+hwifPpsMulSuppression = _HwifPpsMulSuppression_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 21),
+    _HwifPpsMulSuppression_Type()
+)
+hwifPpsMulSuppression.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifPpsMulSuppression.setStatus("current")
+
+
+class _HwifComboActivePort_Type(Integer32):
+    """Custom type hwifComboActivePort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("copper", 2),
+          ("fiber", 1),
+          ("na", 3))
+    )
+
+
+_HwifComboActivePort_Type.__name__ = "Integer32"
+_HwifComboActivePort_Object = MibTableColumn
+hwifComboActivePort = _HwifComboActivePort_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 22),
+    _HwifComboActivePort_Type()
+)
+hwifComboActivePort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifComboActivePort.setStatus("obsolete")
+_HwifBMbpsMulSuppressionMax_Type = Integer32
+_HwifBMbpsMulSuppressionMax_Object = MibTableColumn
+hwifBMbpsMulSuppressionMax = _HwifBMbpsMulSuppressionMax_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 23),
+    _HwifBMbpsMulSuppressionMax_Type()
+)
+hwifBMbpsMulSuppressionMax.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwifBMbpsMulSuppressionMax.setStatus("current")
+_HwifBMbpsMulSuppression_Type = Integer32
+_HwifBMbpsMulSuppression_Object = MibTableColumn
+hwifBMbpsMulSuppression = _HwifBMbpsMulSuppression_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 24),
+    _HwifBMbpsMulSuppression_Type()
+)
+hwifBMbpsMulSuppression.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifBMbpsMulSuppression.setStatus("current")
+_HwifBKbpsMulSuppressionMax_Type = Integer32
+_HwifBKbpsMulSuppressionMax_Object = MibTableColumn
+hwifBKbpsMulSuppressionMax = _HwifBKbpsMulSuppressionMax_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 25),
+    _HwifBKbpsMulSuppressionMax_Type()
+)
+hwifBKbpsMulSuppressionMax.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwifBKbpsMulSuppressionMax.setStatus("current")
+_HwifBKbpsMulSuppressionStep_Type = Integer32
+_HwifBKbpsMulSuppressionStep_Object = MibTableColumn
+hwifBKbpsMulSuppressionStep = _HwifBKbpsMulSuppressionStep_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 26),
+    _HwifBKbpsMulSuppressionStep_Type()
+)
+hwifBKbpsMulSuppressionStep.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwifBKbpsMulSuppressionStep.setStatus("current")
+_HwifBKbpsMulSuppression_Type = Integer32
+_HwifBKbpsMulSuppression_Object = MibTableColumn
+hwifBKbpsMulSuppression = _HwifBKbpsMulSuppression_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 27),
+    _HwifBKbpsMulSuppression_Type()
+)
+hwifBKbpsMulSuppression.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifBKbpsMulSuppression.setStatus("current")
+
+
+class _HwifUnknownPacketDropMul_Type(DropDirection):
+    """Custom type hwifUnknownPacketDropMul based on DropDirection"""
+
+
+_HwifUnknownPacketDropMul_Object = MibTableColumn
+hwifUnknownPacketDropMul = _HwifUnknownPacketDropMul_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 28),
+    _HwifUnknownPacketDropMul_Type()
+)
+hwifUnknownPacketDropMul.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifUnknownPacketDropMul.setStatus("current")
+
+
+class _HwifUnknownPacketDropUni_Type(DropDirection):
+    """Custom type hwifUnknownPacketDropUni based on DropDirection"""
+
+
+_HwifUnknownPacketDropUni_Object = MibTableColumn
+hwifUnknownPacketDropUni = _HwifUnknownPacketDropUni_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 29),
+    _HwifUnknownPacketDropUni_Type()
+)
+hwifUnknownPacketDropUni.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifUnknownPacketDropUni.setStatus("current")
+_HwifBMbpsUniSuppressionMax_Type = Integer32
+_HwifBMbpsUniSuppressionMax_Object = MibTableColumn
+hwifBMbpsUniSuppressionMax = _HwifBMbpsUniSuppressionMax_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 30),
+    _HwifBMbpsUniSuppressionMax_Type()
+)
+hwifBMbpsUniSuppressionMax.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwifBMbpsUniSuppressionMax.setStatus("current")
+_HwifBMbpsUniSuppression_Type = Integer32
+_HwifBMbpsUniSuppression_Object = MibTableColumn
+hwifBMbpsUniSuppression = _HwifBMbpsUniSuppression_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 31),
+    _HwifBMbpsUniSuppression_Type()
+)
+hwifBMbpsUniSuppression.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifBMbpsUniSuppression.setStatus("current")
+_HwifBKbpsUniSuppressionMax_Type = Integer32
+_HwifBKbpsUniSuppressionMax_Object = MibTableColumn
+hwifBKbpsUniSuppressionMax = _HwifBKbpsUniSuppressionMax_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 32),
+    _HwifBKbpsUniSuppressionMax_Type()
+)
+hwifBKbpsUniSuppressionMax.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwifBKbpsUniSuppressionMax.setStatus("current")
+_HwifBKbpsUniSuppressionStep_Type = Integer32
+_HwifBKbpsUniSuppressionStep_Object = MibTableColumn
+hwifBKbpsUniSuppressionStep = _HwifBKbpsUniSuppressionStep_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 33),
+    _HwifBKbpsUniSuppressionStep_Type()
+)
+hwifBKbpsUniSuppressionStep.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwifBKbpsUniSuppressionStep.setStatus("current")
+_HwifBKbpsUniSuppression_Type = Integer32
+_HwifBKbpsUniSuppression_Object = MibTableColumn
+hwifBKbpsUniSuppression = _HwifBKbpsUniSuppression_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 34),
+    _HwifBKbpsUniSuppression_Type()
+)
+hwifBKbpsUniSuppression.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifBKbpsUniSuppression.setStatus("current")
+_HwifOutPayloadOctets_Type = Counter64
+_HwifOutPayloadOctets_Object = MibTableColumn
+hwifOutPayloadOctets = _HwifOutPayloadOctets_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 35),
+    _HwifOutPayloadOctets_Type()
+)
+hwifOutPayloadOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwifOutPayloadOctets.setStatus("current")
+_HwifInPayloadOctets_Type = Counter64
+_HwifInPayloadOctets_Object = MibTableColumn
+hwifInPayloadOctets = _HwifInPayloadOctets_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 36),
+    _HwifInPayloadOctets_Type()
+)
+hwifInPayloadOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwifInPayloadOctets.setStatus("current")
+_HwifInErrorPktsRate_Type = Integer32
+_HwifInErrorPktsRate_Object = MibTableColumn
+hwifInErrorPktsRate = _HwifInErrorPktsRate_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 37),
+    _HwifInErrorPktsRate_Type()
+)
+hwifInErrorPktsRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwifInErrorPktsRate.setStatus("current")
+_HwifInPkts_Type = Counter64
+_HwifInPkts_Object = MibTableColumn
+hwifInPkts = _HwifInPkts_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 38),
+    _HwifInPkts_Type()
+)
+hwifInPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwifInPkts.setStatus("current")
+_HwifInNormalPkts_Type = Counter64
+_HwifInNormalPkts_Object = MibTableColumn
+hwifInNormalPkts = _HwifInNormalPkts_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 39),
+    _HwifInNormalPkts_Type()
+)
+hwifInNormalPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwifInNormalPkts.setStatus("current")
+_HwifOutPkts_Type = Counter64
+_HwifOutPkts_Object = MibTableColumn
+hwifOutPkts = _HwifOutPkts_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 40),
+    _HwifOutPkts_Type()
+)
+hwifOutPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwifOutPkts.setStatus("current")
+_HwifAggregateTable_Object = MibTable
+hwifAggregateTable = _HwifAggregateTable_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    hwifAggregateTable.setStatus("current")
+_HwifAggregateEntry_Object = MibTableRow
+hwifAggregateEntry = _HwifAggregateEntry_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 2, 1)
+)
+hwifAggregateEntry.setIndexNames(
+    (0, "A3COM-HUAWEI-LswINF-MIB", "hwifAggregatePortIndex"),
+)
+if mibBuilder.loadTexts:
+    hwifAggregateEntry.setStatus("current")
+_HwifAggregatePortIndex_Type = InterfaceIndex
+_HwifAggregatePortIndex_Object = MibTableColumn
+hwifAggregatePortIndex = _HwifAggregatePortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 2, 1, 1),
+    _HwifAggregatePortIndex_Type()
+)
+hwifAggregatePortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwifAggregatePortIndex.setStatus("current")
+
+
+class _HwifAggregatePortName_Type(OctetString):
+    """Custom type hwifAggregatePortName based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 40),
+    )
+
+
+_HwifAggregatePortName_Type.__name__ = "OctetString"
+_HwifAggregatePortName_Object = MibTableColumn
+hwifAggregatePortName = _HwifAggregatePortName_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 2, 1, 2),
+    _HwifAggregatePortName_Type()
+)
+hwifAggregatePortName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifAggregatePortName.setStatus("current")
+_HwifAggregatePortListPorts_Type = PortList
+_HwifAggregatePortListPorts_Object = MibTableColumn
+hwifAggregatePortListPorts = _HwifAggregatePortListPorts_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 2, 1, 3),
+    _HwifAggregatePortListPorts_Type()
+)
+hwifAggregatePortListPorts.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifAggregatePortListPorts.setStatus("current")
+
+
+class _HwifAggregateModel_Type(Integer32):
+    """Custom type hwifAggregateModel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("both", 2),
+          ("ingress", 1),
+          ("round-robin", 3))
+    )
+
+
+_HwifAggregateModel_Type.__name__ = "Integer32"
+_HwifAggregateModel_Object = MibTableColumn
+hwifAggregateModel = _HwifAggregateModel_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 2, 1, 4),
+    _HwifAggregateModel_Type()
+)
+hwifAggregateModel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifAggregateModel.setStatus("current")
+_HwifAggregateOperStatus_Type = RowStatus
+_HwifAggregateOperStatus_Object = MibTableColumn
+hwifAggregateOperStatus = _HwifAggregateOperStatus_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 2, 1, 5),
+    _HwifAggregateOperStatus_Type()
+)
+hwifAggregateOperStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hwifAggregateOperStatus.setStatus("current")
+_HwifHybridPortTable_Object = MibTable
+hwifHybridPortTable = _HwifHybridPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 3)
+)
+if mibBuilder.loadTexts:
+    hwifHybridPortTable.setStatus("current")
+_HwifHybridPortEntry_Object = MibTableRow
+hwifHybridPortEntry = _HwifHybridPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 3, 1)
+)
+hwifHybridPortEntry.setIndexNames(
+    (0, "A3COM-HUAWEI-LswINF-MIB", "hwifHybridPortIndex"),
+)
+if mibBuilder.loadTexts:
+    hwifHybridPortEntry.setStatus("current")
+_HwifHybridPortIndex_Type = Integer32
+_HwifHybridPortIndex_Object = MibTableColumn
+hwifHybridPortIndex = _HwifHybridPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 3, 1, 1),
+    _HwifHybridPortIndex_Type()
+)
+hwifHybridPortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwifHybridPortIndex.setStatus("current")
+
+
+class _HwifHybridTaggedVlanListLow_Type(OctetString):
+    """Custom type hwifHybridTaggedVlanListLow based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 256),
+    )
+
+
+_HwifHybridTaggedVlanListLow_Type.__name__ = "OctetString"
+_HwifHybridTaggedVlanListLow_Object = MibTableColumn
+hwifHybridTaggedVlanListLow = _HwifHybridTaggedVlanListLow_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 3, 1, 2),
+    _HwifHybridTaggedVlanListLow_Type()
+)
+hwifHybridTaggedVlanListLow.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifHybridTaggedVlanListLow.setStatus("current")
+
+
+class _HwifHybridTaggedVlanListHigh_Type(OctetString):
+    """Custom type hwifHybridTaggedVlanListHigh based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 256),
+    )
+
+
+_HwifHybridTaggedVlanListHigh_Type.__name__ = "OctetString"
+_HwifHybridTaggedVlanListHigh_Object = MibTableColumn
+hwifHybridTaggedVlanListHigh = _HwifHybridTaggedVlanListHigh_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 3, 1, 3),
+    _HwifHybridTaggedVlanListHigh_Type()
+)
+hwifHybridTaggedVlanListHigh.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifHybridTaggedVlanListHigh.setStatus("current")
+
+
+class _HwifHybridUnTaggedVlanListLow_Type(OctetString):
+    """Custom type hwifHybridUnTaggedVlanListLow based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 256),
+    )
+
+
+_HwifHybridUnTaggedVlanListLow_Type.__name__ = "OctetString"
+_HwifHybridUnTaggedVlanListLow_Object = MibTableColumn
+hwifHybridUnTaggedVlanListLow = _HwifHybridUnTaggedVlanListLow_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 3, 1, 4),
+    _HwifHybridUnTaggedVlanListLow_Type()
+)
+hwifHybridUnTaggedVlanListLow.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifHybridUnTaggedVlanListLow.setStatus("current")
+
+
+class _HwifHybridUnTaggedVlanListHigh_Type(OctetString):
+    """Custom type hwifHybridUnTaggedVlanListHigh based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 256),
+    )
+
+
+_HwifHybridUnTaggedVlanListHigh_Type.__name__ = "OctetString"
+_HwifHybridUnTaggedVlanListHigh_Object = MibTableColumn
+hwifHybridUnTaggedVlanListHigh = _HwifHybridUnTaggedVlanListHigh_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 3, 1, 5),
+    _HwifHybridUnTaggedVlanListHigh_Type()
+)
+hwifHybridUnTaggedVlanListHigh.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifHybridUnTaggedVlanListHigh.setStatus("current")
+_HwifComboPortTable_Object = MibTable
+hwifComboPortTable = _HwifComboPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 4)
+)
+if mibBuilder.loadTexts:
+    hwifComboPortTable.setStatus("current")
+_HwifComboPortEntry_Object = MibTableRow
+hwifComboPortEntry = _HwifComboPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 4, 1)
+)
+hwifComboPortEntry.setIndexNames(
+    (0, "A3COM-HUAWEI-LswINF-MIB", "hwifComboPortIndex"),
+)
+if mibBuilder.loadTexts:
+    hwifComboPortEntry.setStatus("current")
+_HwifComboPortIndex_Type = InterfaceIndex
+_HwifComboPortIndex_Object = MibTableColumn
+hwifComboPortIndex = _HwifComboPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 4, 1, 1),
+    _HwifComboPortIndex_Type()
+)
+hwifComboPortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwifComboPortIndex.setStatus("current")
+
+
+class _HwifComboPortCurActive_Type(Integer32):
+    """Custom type hwifComboPortCurActive based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("copper", 2),
+          ("fiber", 1),
+          ("na", 3))
+    )
+
+
+_HwifComboPortCurActive_Type.__name__ = "Integer32"
+_HwifComboPortCurActive_Object = MibTableColumn
+hwifComboPortCurActive = _HwifComboPortCurActive_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 4, 1, 2),
+    _HwifComboPortCurActive_Type()
+)
+hwifComboPortCurActive.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifComboPortCurActive.setStatus("current")
+_HwLswL2InfMibObject_ObjectIdentity = ObjectIdentity
+hwLswL2InfMibObject = _HwLswL2InfMibObject_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1)
+)
+_HwSlotPortMax_Type = Integer32
+_HwSlotPortMax_Object = MibScalar
+hwSlotPortMax = _HwSlotPortMax_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 1),
+    _HwSlotPortMax_Type()
+)
+hwSlotPortMax.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwSlotPortMax.setStatus("current")
+_HwSwitchPortMax_Type = Integer32
+_HwSwitchPortMax_Object = MibScalar
+hwSwitchPortMax = _HwSwitchPortMax_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 2),
+    _HwSwitchPortMax_Type()
+)
+hwSwitchPortMax.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwSwitchPortMax.setStatus("current")
+_HwifVLANTrunkStatusTable_Object = MibTable
+hwifVLANTrunkStatusTable = _HwifVLANTrunkStatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 3)
+)
+if mibBuilder.loadTexts:
+    hwifVLANTrunkStatusTable.setStatus("current")
+_HwifVLANTrunkStatusEntry_Object = MibTableRow
+hwifVLANTrunkStatusEntry = _HwifVLANTrunkStatusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 3, 1)
+)
+hwifVLANTrunkStatusEntry.setIndexNames(
+    (0, "A3COM-HUAWEI-LswINF-MIB", "hwifVLANTrunkIndex"),
+)
+if mibBuilder.loadTexts:
+    hwifVLANTrunkStatusEntry.setStatus("current")
+_HwifVLANTrunkIndex_Type = InterfaceIndex
+_HwifVLANTrunkIndex_Object = MibTableColumn
+hwifVLANTrunkIndex = _HwifVLANTrunkIndex_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 3, 1, 1),
+    _HwifVLANTrunkIndex_Type()
+)
+hwifVLANTrunkIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwifVLANTrunkIndex.setStatus("current")
+
+
+class _HwifVLANTrunkGvrpRegistration_Type(Integer32):
+    """Custom type hwifVLANTrunkGvrpRegistration based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("fixed", 2),
+          ("forbidden", 3),
+          ("normal", 1))
+    )
+
+
+_HwifVLANTrunkGvrpRegistration_Type.__name__ = "Integer32"
+_HwifVLANTrunkGvrpRegistration_Object = MibTableColumn
+hwifVLANTrunkGvrpRegistration = _HwifVLANTrunkGvrpRegistration_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 3, 1, 2),
+    _HwifVLANTrunkGvrpRegistration_Type()
+)
+hwifVLANTrunkGvrpRegistration.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifVLANTrunkGvrpRegistration.setStatus("current")
+_HwifVLANTrunkPassListLow_Type = OctetString
+_HwifVLANTrunkPassListLow_Object = MibTableColumn
+hwifVLANTrunkPassListLow = _HwifVLANTrunkPassListLow_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 3, 1, 4),
+    _HwifVLANTrunkPassListLow_Type()
+)
+hwifVLANTrunkPassListLow.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwifVLANTrunkPassListLow.setStatus("current")
+_HwifVLANTrunkPassListHigh_Type = OctetString
+_HwifVLANTrunkPassListHigh_Object = MibTableColumn
+hwifVLANTrunkPassListHigh = _HwifVLANTrunkPassListHigh_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 3, 1, 5),
+    _HwifVLANTrunkPassListHigh_Type()
+)
+hwifVLANTrunkPassListHigh.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwifVLANTrunkPassListHigh.setStatus("current")
+_HwifVLANTrunkAllowListLow_Type = OctetString
+_HwifVLANTrunkAllowListLow_Object = MibTableColumn
+hwifVLANTrunkAllowListLow = _HwifVLANTrunkAllowListLow_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 3, 1, 6),
+    _HwifVLANTrunkAllowListLow_Type()
+)
+hwifVLANTrunkAllowListLow.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifVLANTrunkAllowListLow.setStatus("current")
+_HwifVLANTrunkAllowListHigh_Type = OctetString
+_HwifVLANTrunkAllowListHigh_Object = MibTableColumn
+hwifVLANTrunkAllowListHigh = _HwifVLANTrunkAllowListHigh_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 3, 1, 7),
+    _HwifVLANTrunkAllowListHigh_Type()
+)
+hwifVLANTrunkAllowListHigh.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifVLANTrunkAllowListHigh.setStatus("current")
+_HwethernetTable_Object = MibTable
+hwethernetTable = _HwethernetTable_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 4)
+)
+if mibBuilder.loadTexts:
+    hwethernetTable.setStatus("current")
+_HwethernetEntry_Object = MibTableRow
+hwethernetEntry = _HwethernetEntry_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 4, 1)
+)
+if mibBuilder.loadTexts:
+    hwethernetEntry.setStatus("current")
+
+
+class _HwifEthernetDuplex_Type(Integer32):
+    """Custom type hwifEthernetDuplex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("auto", 3),
+          ("full", 1),
+          ("half", 2))
+    )
+
+
+_HwifEthernetDuplex_Type.__name__ = "Integer32"
+_HwifEthernetDuplex_Object = MibTableColumn
+hwifEthernetDuplex = _HwifEthernetDuplex_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 4, 1, 3),
+    _HwifEthernetDuplex_Type()
+)
+hwifEthernetDuplex.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifEthernetDuplex.setStatus("current")
+_HwifEthernetMTU_Type = Integer32
+_HwifEthernetMTU_Object = MibTableColumn
+hwifEthernetMTU = _HwifEthernetMTU_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 4, 1, 4),
+    _HwifEthernetMTU_Type()
+)
+hwifEthernetMTU.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifEthernetMTU.setStatus("current")
+
+
+class _HwifEthernetSpeed_Type(Integer32):
+    """Custom type hwifEthernetSpeed based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              10,
+              100,
+              1000,
+              10000,
+              24000,
+              40000,
+              100000)
+        )
+    )
+    namedValues = NamedValues(
+        *(("auto", 0),
+          ("s100000M", 100000),
+          ("s10000M", 10000),
+          ("s1000M", 1000),
+          ("s100M", 100),
+          ("s10M", 10),
+          ("s24000M", 24000),
+          ("s40000M", 40000))
+    )
+
+
+_HwifEthernetSpeed_Type.__name__ = "Integer32"
+_HwifEthernetSpeed_Object = MibTableColumn
+hwifEthernetSpeed = _HwifEthernetSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 4, 1, 5),
+    _HwifEthernetSpeed_Type()
+)
+hwifEthernetSpeed.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifEthernetSpeed.setStatus("current")
+
+
+class _HwifEthernetMdi_Type(Integer32):
+    """Custom type hwifEthernetMdi based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("mdi-auto", 3),
+          ("mdi-ii", 1),
+          ("mdi-x", 2))
+    )
+
+
+_HwifEthernetMdi_Type.__name__ = "Integer32"
+_HwifEthernetMdi_Object = MibTableColumn
+hwifEthernetMdi = _HwifEthernetMdi_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 4, 1, 7),
+    _HwifEthernetMdi_Type()
+)
+hwifEthernetMdi.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifEthernetMdi.setStatus("current")
+
+
+class _HwMaxMacLearn_Type(Integer32):
+    """Custom type hwMaxMacLearn based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-1, 2147483647),
+    )
+
+
+_HwMaxMacLearn_Type.__name__ = "Integer32"
+_HwMaxMacLearn_Object = MibTableColumn
+hwMaxMacLearn = _HwMaxMacLearn_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 4, 1, 8),
+    _HwMaxMacLearn_Type()
+)
+hwMaxMacLearn.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwMaxMacLearn.setStatus("current")
+
+
+class _HwifMacAddressLearn_Type(Integer32):
+    """Custom type hwifMacAddressLearn based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_HwifMacAddressLearn_Type.__name__ = "Integer32"
+_HwifMacAddressLearn_Object = MibTableColumn
+hwifMacAddressLearn = _HwifMacAddressLearn_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 4, 1, 9),
+    _HwifMacAddressLearn_Type()
+)
+hwifMacAddressLearn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwifMacAddressLearn.setStatus("current")
+
+
+class _HwifEthernetTest_Type(Integer32):
+    """Custom type hwifEthernetTest based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            1
+        )
+    )
+    namedValues = NamedValues(
+        ("test", 1)
+    )
+
+
+_HwifEthernetTest_Type.__name__ = "Integer32"
+_HwifEthernetTest_Object = MibTableColumn
+hwifEthernetTest = _HwifEthernetTest_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 4, 1, 10),
+    _HwifEthernetTest_Type()
+)
+hwifEthernetTest.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifEthernetTest.setStatus("current")
+
+
+class _HwifMacAddrLearnMode_Type(Integer32):
+    """Custom type hwifMacAddrLearnMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("iVL", 1),
+          ("sVL", 2))
+    )
+
+
+_HwifMacAddrLearnMode_Type.__name__ = "Integer32"
+_HwifMacAddrLearnMode_Object = MibTableColumn
+hwifMacAddrLearnMode = _HwifMacAddrLearnMode_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 4, 1, 11),
+    _HwifMacAddrLearnMode_Type()
+)
+hwifMacAddrLearnMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwifMacAddrLearnMode.setStatus("current")
+
+
+class _HwifEthernetFlowInterval_Type(Integer32):
+    """Custom type hwifEthernetFlowInterval based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(5, 300),
+    )
+
+
+_HwifEthernetFlowInterval_Type.__name__ = "Integer32"
+_HwifEthernetFlowInterval_Object = MibTableColumn
+hwifEthernetFlowInterval = _HwifEthernetFlowInterval_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 4, 1, 12),
+    _HwifEthernetFlowInterval_Type()
+)
+hwifEthernetFlowInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifEthernetFlowInterval.setStatus("current")
+_HwifEthernetIsolate_Type = OctetString
+_HwifEthernetIsolate_Object = MibTableColumn
+hwifEthernetIsolate = _HwifEthernetIsolate_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 4, 1, 13),
+    _HwifEthernetIsolate_Type()
+)
+hwifEthernetIsolate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifEthernetIsolate.setStatus("current")
+
+
+class _HwifVlanVPNStatus_Type(Integer32):
+    """Custom type hwifVlanVPNStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_HwifVlanVPNStatus_Type.__name__ = "Integer32"
+_HwifVlanVPNStatus_Object = MibTableColumn
+hwifVlanVPNStatus = _HwifVlanVPNStatus_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 4, 1, 14),
+    _HwifVlanVPNStatus_Type()
+)
+hwifVlanVPNStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifVlanVPNStatus.setStatus("current")
+
+
+class _HwifVlanVPNUplinkStatus_Type(Integer32):
+    """Custom type hwifVlanVPNUplinkStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_HwifVlanVPNUplinkStatus_Type.__name__ = "Integer32"
+_HwifVlanVPNUplinkStatus_Object = MibTableColumn
+hwifVlanVPNUplinkStatus = _HwifVlanVPNUplinkStatus_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 4, 1, 15),
+    _HwifVlanVPNUplinkStatus_Type()
+)
+hwifVlanVPNUplinkStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifVlanVPNUplinkStatus.setStatus("current")
+
+
+class _HwifVlanVPNTPID_Type(Integer32):
+    """Custom type hwifVlanVPNTPID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_HwifVlanVPNTPID_Type.__name__ = "Integer32"
+_HwifVlanVPNTPID_Object = MibTableColumn
+hwifVlanVPNTPID = _HwifVlanVPNTPID_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 4, 1, 16),
+    _HwifVlanVPNTPID_Type()
+)
+hwifVlanVPNTPID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifVlanVPNTPID.setStatus("current")
+_HwifIsolateGroupID_Type = Integer32
+_HwifIsolateGroupID_Object = MibTableColumn
+hwifIsolateGroupID = _HwifIsolateGroupID_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 4, 1, 17),
+    _HwifIsolateGroupID_Type()
+)
+hwifIsolateGroupID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifIsolateGroupID.setStatus("current")
+
+
+class _HwifisUplinkPort_Type(Integer32):
+    """Custom type hwifisUplinkPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 2),
+          ("yes", 1))
+    )
+
+
+_HwifisUplinkPort_Type.__name__ = "Integer32"
+_HwifisUplinkPort_Object = MibTableColumn
+hwifisUplinkPort = _HwifisUplinkPort_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 4, 1, 18),
+    _HwifisUplinkPort_Type()
+)
+hwifisUplinkPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwifisUplinkPort.setStatus("current")
+_HwifEthernetAutoSpeedMask_Type = SpeedModeFlag
+_HwifEthernetAutoSpeedMask_Object = MibTableColumn
+hwifEthernetAutoSpeedMask = _HwifEthernetAutoSpeedMask_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 4, 1, 19),
+    _HwifEthernetAutoSpeedMask_Type()
+)
+hwifEthernetAutoSpeedMask.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwifEthernetAutoSpeedMask.setStatus("current")
+_HwifEthernetAutoSpeed_Type = SpeedModeFlag
+_HwifEthernetAutoSpeed_Object = MibTableColumn
+hwifEthernetAutoSpeed = _HwifEthernetAutoSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 4, 1, 20),
+    _HwifEthernetAutoSpeed_Type()
+)
+hwifEthernetAutoSpeed.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwifEthernetAutoSpeed.setStatus("current")
+_HwIsolateGroupMax_Type = Integer32
+_HwIsolateGroupMax_Object = MibScalar
+hwIsolateGroupMax = _HwIsolateGroupMax_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 5),
+    _HwIsolateGroupMax_Type()
+)
+hwIsolateGroupMax.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwIsolateGroupMax.setStatus("current")
+
+
+class _HwGlobalBroadcastMaxPps_Type(Integer32):
+    """Custom type hwGlobalBroadcastMaxPps based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 14881000),
+    )
+
+
+_HwGlobalBroadcastMaxPps_Type.__name__ = "Integer32"
+_HwGlobalBroadcastMaxPps_Object = MibScalar
+hwGlobalBroadcastMaxPps = _HwGlobalBroadcastMaxPps_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 6),
+    _HwGlobalBroadcastMaxPps_Type()
+)
+hwGlobalBroadcastMaxPps.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwGlobalBroadcastMaxPps.setStatus("current")
+
+
+class _HwGlobalBroadcastMaxRatio_Type(Integer32):
+    """Custom type hwGlobalBroadcastMaxRatio based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+_HwGlobalBroadcastMaxRatio_Type.__name__ = "Integer32"
+_HwGlobalBroadcastMaxRatio_Object = MibScalar
+hwGlobalBroadcastMaxRatio = _HwGlobalBroadcastMaxRatio_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 7),
+    _HwGlobalBroadcastMaxRatio_Type()
+)
+hwGlobalBroadcastMaxRatio.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwGlobalBroadcastMaxRatio.setStatus("current")
+
+
+class _HwBpduTunnelStatus_Type(Integer32):
+    """Custom type hwBpduTunnelStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_HwBpduTunnelStatus_Type.__name__ = "Integer32"
+_HwBpduTunnelStatus_Object = MibScalar
+hwBpduTunnelStatus = _HwBpduTunnelStatus_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 8),
+    _HwBpduTunnelStatus_Type()
+)
+hwBpduTunnelStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwBpduTunnelStatus.setStatus("current")
+
+
+class _HwVlanVPNTPIDMode_Type(Integer32):
+    """Custom type hwVlanVPNTPIDMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("global", 2),
+          ("port-based", 1))
+    )
+
+
+_HwVlanVPNTPIDMode_Type.__name__ = "Integer32"
+_HwVlanVPNTPIDMode_Object = MibScalar
+hwVlanVPNTPIDMode = _HwVlanVPNTPIDMode_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 9),
+    _HwVlanVPNTPIDMode_Type()
+)
+hwVlanVPNTPIDMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVlanVPNTPIDMode.setStatus("current")
+
+
+class _HwVlanVPNTPID_Type(Integer32):
+    """Custom type hwVlanVPNTPID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_HwVlanVPNTPID_Type.__name__ = "Integer32"
+_HwVlanVPNTPID_Object = MibScalar
+hwVlanVPNTPID = _HwVlanVPNTPID_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 10),
+    _HwVlanVPNTPID_Type()
+)
+hwVlanVPNTPID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwVlanVPNTPID.setStatus("current")
+_HwPortIsolateGroupTable_Object = MibTable
+hwPortIsolateGroupTable = _HwPortIsolateGroupTable_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 11)
+)
+if mibBuilder.loadTexts:
+    hwPortIsolateGroupTable.setStatus("current")
+_HwPortIsolateGroupEntry_Object = MibTableRow
+hwPortIsolateGroupEntry = _HwPortIsolateGroupEntry_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 11, 1)
+)
+hwPortIsolateGroupEntry.setIndexNames(
+    (0, "A3COM-HUAWEI-LswINF-MIB", "hwPortIsolateGroupIndex"),
+)
+if mibBuilder.loadTexts:
+    hwPortIsolateGroupEntry.setStatus("current")
+_HwPortIsolateGroupIndex_Type = Integer32
+_HwPortIsolateGroupIndex_Object = MibTableColumn
+hwPortIsolateGroupIndex = _HwPortIsolateGroupIndex_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 11, 1, 1),
+    _HwPortIsolateGroupIndex_Type()
+)
+hwPortIsolateGroupIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hwPortIsolateGroupIndex.setStatus("current")
+_HwPortIsolateUplinkIfIndex_Type = InterfaceIndex
+_HwPortIsolateUplinkIfIndex_Object = MibTableColumn
+hwPortIsolateUplinkIfIndex = _HwPortIsolateUplinkIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 11, 1, 2),
+    _HwPortIsolateUplinkIfIndex_Type()
+)
+hwPortIsolateUplinkIfIndex.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hwPortIsolateUplinkIfIndex.setStatus("current")
+_HwPortIsolateGroupRowStatus_Type = RowStatus
+_HwPortIsolateGroupRowStatus_Object = MibTableColumn
+hwPortIsolateGroupRowStatus = _HwPortIsolateGroupRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 11, 1, 3),
+    _HwPortIsolateGroupRowStatus_Type()
+)
+hwPortIsolateGroupRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hwPortIsolateGroupRowStatus.setStatus("current")
+
+
+class _HwPortIsolateGroupDescription_Type(DisplayString):
+    """Custom type hwPortIsolateGroupDescription based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 80),
+    )
+
+
+_HwPortIsolateGroupDescription_Type.__name__ = "DisplayString"
+_HwPortIsolateGroupDescription_Object = MibTableColumn
+hwPortIsolateGroupDescription = _HwPortIsolateGroupDescription_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 11, 1, 4),
+    _HwPortIsolateGroupDescription_Type()
+)
+hwPortIsolateGroupDescription.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hwPortIsolateGroupDescription.setStatus("current")
+_HwMaxMacLearnRange_Type = Integer32
+_HwMaxMacLearnRange_Object = MibScalar
+hwMaxMacLearnRange = _HwMaxMacLearnRange_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 12),
+    _HwMaxMacLearnRange_Type()
+)
+hwMaxMacLearnRange.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwMaxMacLearnRange.setStatus("current")
+ifEntry.registerAugmentions(
+    ("A3COM-HUAWEI-LswINF-MIB",
+     "hwifXXEntry")
+)
 hwifXXEntry.setIndexNames(*ifEntry.getIndexNames())
-if mibBuilder.loadTexts: hwifXXEntry.setStatus('current')
-hwifUnBoundPort = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwifUnBoundPort.setStatus('current')
-hwifISPhyPort = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 2), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwifISPhyPort.setStatus('current')
-hwifAggregatePort = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 3), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwifAggregatePort.setStatus('current')
-hwifMirrorPort = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 4), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifMirrorPort.setStatus('current')
-hwifVLANType = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("vLANTrunk", 1), ("access", 2), ("hybrid", 3), ("fabric", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifVLANType.setStatus('current')
-hwifMcastControl = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 100))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifMcastControl.setStatus('current')
-hwifFlowControl = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 7), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifFlowControl.setStatus('current')
-hwifSrcMacControl = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 8), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwifSrcMacControl.setStatus('current')
-hwifClearStat = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("clear", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifClearStat.setStatus('current')
-hwifXXBasePortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 10), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwifXXBasePortIndex.setStatus('current')
-hwifXXDevPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 11), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwifXXDevPortIndex.setStatus('current')
-hwifPpsMcastControl = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 12), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifPpsMcastControl.setStatus('current')
-hwifPpsBcastDisValControl = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifPpsBcastDisValControl.setStatus('current')
-hwifUniSuppressionStep = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 14), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwifUniSuppressionStep.setStatus('current')
-hwifPpsUniSuppressionMax = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 15), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwifPpsUniSuppressionMax.setStatus('current')
-hwifMulSuppressionStep = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 16), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwifMulSuppressionStep.setStatus('current')
-hwifPpsMulSuppressionMax = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 17), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwifPpsMulSuppressionMax.setStatus('current')
-hwifUniSuppression = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 18), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifUniSuppression.setStatus('current')
-hwifPpsUniSuppression = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 19), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifPpsUniSuppression.setStatus('current')
-hwifMulSuppression = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 20), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifMulSuppression.setStatus('current')
-hwifPpsMulSuppression = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 21), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifPpsMulSuppression.setStatus('current')
-hwifComboActivePort = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 22), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("fiber", 1), ("copper", 2), ("na", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifComboActivePort.setStatus('obsolete')
-hwifBMbpsMulSuppressionMax = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 23), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwifBMbpsMulSuppressionMax.setStatus('current')
-hwifBMbpsMulSuppression = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 24), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifBMbpsMulSuppression.setStatus('current')
-hwifBKbpsMulSuppressionMax = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 25), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwifBKbpsMulSuppressionMax.setStatus('current')
-hwifBKbpsMulSuppressionStep = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 26), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwifBKbpsMulSuppressionStep.setStatus('current')
-hwifBKbpsMulSuppression = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 27), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifBKbpsMulSuppression.setStatus('current')
-hwifUnknownPacketDropMul = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 28), DropDirection().clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifUnknownPacketDropMul.setStatus('current')
-hwifUnknownPacketDropUni = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 29), DropDirection().clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifUnknownPacketDropUni.setStatus('current')
-hwifBMbpsUniSuppressionMax = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 30), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwifBMbpsUniSuppressionMax.setStatus('current')
-hwifBMbpsUniSuppression = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 31), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifBMbpsUniSuppression.setStatus('current')
-hwifBKbpsUniSuppressionMax = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 32), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwifBKbpsUniSuppressionMax.setStatus('current')
-hwifBKbpsUniSuppressionStep = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 33), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwifBKbpsUniSuppressionStep.setStatus('current')
-hwifBKbpsUniSuppression = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 34), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifBKbpsUniSuppression.setStatus('current')
-hwifOutPayloadOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 35), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwifOutPayloadOctets.setStatus('current')
-hwifInPayloadOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 36), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwifInPayloadOctets.setStatus('current')
-hwifInErrorPktsRate = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 37), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwifInErrorPktsRate.setStatus('current')
-hwifInPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 38), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwifInPkts.setStatus('current')
-hwifInNormalPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 39), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwifInNormalPkts.setStatus('current')
-hwifOutPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 1, 1, 40), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwifOutPkts.setStatus('current')
-hwifAggregateTable = MibTable((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 2), )
-if mibBuilder.loadTexts: hwifAggregateTable.setStatus('current')
-hwifAggregateEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 2, 1), ).setIndexNames((0, "A3COM-HUAWEI-LswINF-MIB", "hwifAggregatePortIndex"))
-if mibBuilder.loadTexts: hwifAggregateEntry.setStatus('current')
-hwifAggregatePortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 2, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwifAggregatePortIndex.setStatus('current')
-hwifAggregatePortName = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 2, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 40))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifAggregatePortName.setStatus('current')
-hwifAggregatePortListPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 2, 1, 3), PortList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifAggregatePortListPorts.setStatus('current')
-hwifAggregateModel = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("ingress", 1), ("both", 2), ("round-robin", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifAggregateModel.setStatus('current')
-hwifAggregateOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 2, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hwifAggregateOperStatus.setStatus('current')
-hwifHybridPortTable = MibTable((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 3), )
-if mibBuilder.loadTexts: hwifHybridPortTable.setStatus('current')
-hwifHybridPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 3, 1), ).setIndexNames((0, "A3COM-HUAWEI-LswINF-MIB", "hwifHybridPortIndex"))
-if mibBuilder.loadTexts: hwifHybridPortEntry.setStatus('current')
-hwifHybridPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 3, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwifHybridPortIndex.setStatus('current')
-hwifHybridTaggedVlanListLow = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 3, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 256))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifHybridTaggedVlanListLow.setStatus('current')
-hwifHybridTaggedVlanListHigh = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 3, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 256))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifHybridTaggedVlanListHigh.setStatus('current')
-hwifHybridUnTaggedVlanListLow = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 3, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 256))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifHybridUnTaggedVlanListLow.setStatus('current')
-hwifHybridUnTaggedVlanListHigh = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 3, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 256))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifHybridUnTaggedVlanListHigh.setStatus('current')
-hwifComboPortTable = MibTable((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 4), )
-if mibBuilder.loadTexts: hwifComboPortTable.setStatus('current')
-hwifComboPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 4, 1), ).setIndexNames((0, "A3COM-HUAWEI-LswINF-MIB", "hwifComboPortIndex"))
-if mibBuilder.loadTexts: hwifComboPortEntry.setStatus('current')
-hwifComboPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 4, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwifComboPortIndex.setStatus('current')
-hwifComboPortCurActive = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 1, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("fiber", 1), ("copper", 2), ("na", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifComboPortCurActive.setStatus('current')
-hwLswL2InfMibObject = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1))
-hwSlotPortMax = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwSlotPortMax.setStatus('current')
-hwSwitchPortMax = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwSwitchPortMax.setStatus('current')
-hwifVLANTrunkStatusTable = MibTable((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 3), )
-if mibBuilder.loadTexts: hwifVLANTrunkStatusTable.setStatus('current')
-hwifVLANTrunkStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 3, 1), ).setIndexNames((0, "A3COM-HUAWEI-LswINF-MIB", "hwifVLANTrunkIndex"))
-if mibBuilder.loadTexts: hwifVLANTrunkStatusEntry.setStatus('current')
-hwifVLANTrunkIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 3, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwifVLANTrunkIndex.setStatus('current')
-hwifVLANTrunkGvrpRegistration = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("normal", 1), ("fixed", 2), ("forbidden", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifVLANTrunkGvrpRegistration.setStatus('current')
-hwifVLANTrunkPassListLow = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 3, 1, 4), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwifVLANTrunkPassListLow.setStatus('current')
-hwifVLANTrunkPassListHigh = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 3, 1, 5), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwifVLANTrunkPassListHigh.setStatus('current')
-hwifVLANTrunkAllowListLow = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 3, 1, 6), OctetString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifVLANTrunkAllowListLow.setStatus('current')
-hwifVLANTrunkAllowListHigh = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 3, 1, 7), OctetString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifVLANTrunkAllowListHigh.setStatus('current')
-hwethernetTable = MibTable((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 4), )
-if mibBuilder.loadTexts: hwethernetTable.setStatus('current')
-hwethernetEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 4, 1), )
-ifEntry.registerAugmentions(("A3COM-HUAWEI-LswINF-MIB", "hwethernetEntry"))
+ifEntry.registerAugmentions(
+    ("A3COM-HUAWEI-LswINF-MIB",
+     "hwethernetEntry")
+)
 hwethernetEntry.setIndexNames(*ifEntry.getIndexNames())
-if mibBuilder.loadTexts: hwethernetEntry.setStatus('current')
-hwifEthernetDuplex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("full", 1), ("half", 2), ("auto", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifEthernetDuplex.setStatus('current')
-hwifEthernetMTU = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 4, 1, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifEthernetMTU.setStatus('current')
-hwifEthernetSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 4, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 10, 100, 1000, 10000, 24000, 40000, 100000))).clone(namedValues=NamedValues(("auto", 0), ("s10M", 10), ("s100M", 100), ("s1000M", 1000), ("s10000M", 10000), ("s24000M", 24000), ("s40000M", 40000), ("s100000M", 100000)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifEthernetSpeed.setStatus('current')
-hwifEthernetMdi = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 4, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("mdi-ii", 1), ("mdi-x", 2), ("mdi-auto", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifEthernetMdi.setStatus('current')
-hwMaxMacLearn = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 4, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 2147483647))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwMaxMacLearn.setStatus('current')
-hwifMacAddressLearn = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 4, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwifMacAddressLearn.setStatus('current')
-hwifEthernetTest = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 4, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("test", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifEthernetTest.setStatus('current')
-hwifMacAddrLearnMode = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 4, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("iVL", 1), ("sVL", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwifMacAddrLearnMode.setStatus('current')
-hwifEthernetFlowInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 4, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(5, 300))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifEthernetFlowInterval.setStatus('current')
-hwifEthernetIsolate = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 4, 1, 13), OctetString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifEthernetIsolate.setStatus('current')
-hwifVlanVPNStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 4, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifVlanVPNStatus.setStatus('current')
-hwifVlanVPNUplinkStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 4, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifVlanVPNUplinkStatus.setStatus('current')
-hwifVlanVPNTPID = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 4, 1, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifVlanVPNTPID.setStatus('current')
-hwifIsolateGroupID = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 4, 1, 17), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifIsolateGroupID.setStatus('current')
-hwifisUplinkPort = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 4, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("yes", 1), ("no", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwifisUplinkPort.setStatus('current')
-hwifEthernetAutoSpeedMask = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 4, 1, 19), SpeedModeFlag()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwifEthernetAutoSpeedMask.setStatus('current')
-hwifEthernetAutoSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 4, 1, 20), SpeedModeFlag()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwifEthernetAutoSpeed.setStatus('current')
-hwIsolateGroupMax = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwIsolateGroupMax.setStatus('current')
-hwGlobalBroadcastMaxPps = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 14881000))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwGlobalBroadcastMaxPps.setStatus('current')
-hwGlobalBroadcastMaxRatio = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwGlobalBroadcastMaxRatio.setStatus('current')
-hwBpduTunnelStatus = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwBpduTunnelStatus.setStatus('current')
-hwVlanVPNTPIDMode = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("port-based", 1), ("global", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVlanVPNTPIDMode.setStatus('current')
-hwVlanVPNTPID = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwVlanVPNTPID.setStatus('current')
-hwPortIsolateGroupTable = MibTable((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 11), )
-if mibBuilder.loadTexts: hwPortIsolateGroupTable.setStatus('current')
-hwPortIsolateGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 11, 1), ).setIndexNames((0, "A3COM-HUAWEI-LswINF-MIB", "hwPortIsolateGroupIndex"))
-if mibBuilder.loadTexts: hwPortIsolateGroupEntry.setStatus('current')
-hwPortIsolateGroupIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 11, 1, 1), Integer32())
-if mibBuilder.loadTexts: hwPortIsolateGroupIndex.setStatus('current')
-hwPortIsolateUplinkIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 11, 1, 2), InterfaceIndex()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hwPortIsolateUplinkIfIndex.setStatus('current')
-hwPortIsolateGroupRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 11, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hwPortIsolateGroupRowStatus.setStatus('current')
-hwPortIsolateGroupDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 11, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hwPortIsolateGroupDescription.setStatus('current')
-hwMaxMacLearnRange = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 5, 1, 12), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwMaxMacLearnRange.setStatus('current')
-mibBuilder.exportSymbols("A3COM-HUAWEI-LswINF-MIB", hwifVLANTrunkStatusTable=hwifVLANTrunkStatusTable, hwifBMbpsUniSuppression=hwifBMbpsUniSuppression, hwifEthernetAutoSpeedMask=hwifEthernetAutoSpeedMask, hwifUniSuppressionStep=hwifUniSuppressionStep, hwLswExtInterface=hwLswExtInterface, hwifBMbpsMulSuppression=hwifBMbpsMulSuppression, hwifPpsUniSuppressionMax=hwifPpsUniSuppressionMax, hwifInPkts=hwifInPkts, hwifPpsMulSuppressionMax=hwifPpsMulSuppressionMax, hwifBKbpsMulSuppressionMax=hwifBKbpsMulSuppressionMax, hwVlanVPNTPID=hwVlanVPNTPID, hwifComboPortCurActive=hwifComboPortCurActive, hwPortIsolateUplinkIfIndex=hwPortIsolateUplinkIfIndex, hwifHybridUnTaggedVlanListHigh=hwifHybridUnTaggedVlanListHigh, hwPortIsolateGroupEntry=hwPortIsolateGroupEntry, hwifMirrorPort=hwifMirrorPort, VlanIndex=VlanIndex, hwifEthernetDuplex=hwifEthernetDuplex, hwifBKbpsUniSuppressionStep=hwifBKbpsUniSuppressionStep, hwethernetTable=hwethernetTable, hwifFlowControl=hwifFlowControl, hwifPpsMcastControl=hwifPpsMcastControl, hwifHybridPortEntry=hwifHybridPortEntry, hwifVlanVPNTPID=hwifVlanVPNTPID, hwifAggregatePort=hwifAggregatePort, PortList=PortList, hwethernetEntry=hwethernetEntry, hwifHybridTaggedVlanListHigh=hwifHybridTaggedVlanListHigh, hwifMcastControl=hwifMcastControl, hwifAggregatePortListPorts=hwifAggregatePortListPorts, hwifAggregateEntry=hwifAggregateEntry, hwVlanVPNTPIDMode=hwVlanVPNTPIDMode, hwifEthernetTest=hwifEthernetTest, hwifEthernetMdi=hwifEthernetMdi, hwifInErrorPktsRate=hwifInErrorPktsRate, hwifVLANTrunkStatusEntry=hwifVLANTrunkStatusEntry, hwifisUplinkPort=hwifisUplinkPort, hwifHybridPortTable=hwifHybridPortTable, hwIsolateGroupMax=hwIsolateGroupMax, hwLswL2InfMib=hwLswL2InfMib, hwifBKbpsMulSuppressionStep=hwifBKbpsMulSuppressionStep, hwifInPayloadOctets=hwifInPayloadOctets, hwifUnknownPacketDropUni=hwifUnknownPacketDropUni, hwifBKbpsUniSuppressionMax=hwifBKbpsUniSuppressionMax, hwifHybridPortIndex=hwifHybridPortIndex, hwifXXDevPortIndex=hwifXXDevPortIndex, hwifBMbpsMulSuppressionMax=hwifBMbpsMulSuppressionMax, hwifAggregatePortName=hwifAggregatePortName, hwifClearStat=hwifClearStat, hwifInNormalPkts=hwifInNormalPkts, hwifOutPayloadOctets=hwifOutPayloadOctets, hwifEthernetAutoSpeed=hwifEthernetAutoSpeed, hwifComboPortIndex=hwifComboPortIndex, hwifVLANTrunkAllowListHigh=hwifVLANTrunkAllowListHigh, hwifOutPkts=hwifOutPkts, hwifVLANTrunkPassListHigh=hwifVLANTrunkPassListHigh, hwifMulSuppressionStep=hwifMulSuppressionStep, hwPortIsolateGroupDescription=hwPortIsolateGroupDescription, hwifIsolateGroupID=hwifIsolateGroupID, hwBpduTunnelStatus=hwBpduTunnelStatus, hwifVLANTrunkPassListLow=hwifVLANTrunkPassListLow, hwifEthernetMTU=hwifEthernetMTU, hwifBMbpsUniSuppressionMax=hwifBMbpsUniSuppressionMax, hwifMulSuppression=hwifMulSuppression, hwifBKbpsMulSuppression=hwifBKbpsMulSuppression, hwifAggregateModel=hwifAggregateModel, hwifComboPortEntry=hwifComboPortEntry, hwifPpsBcastDisValControl=hwifPpsBcastDisValControl, hwGlobalBroadcastMaxPps=hwGlobalBroadcastMaxPps, DropDirection=DropDirection, hwifXXBasePortIndex=hwifXXBasePortIndex, hwGlobalBroadcastMaxRatio=hwGlobalBroadcastMaxRatio, hwifComboActivePort=hwifComboActivePort, hwifSrcMacControl=hwifSrcMacControl, hwMaxMacLearn=hwMaxMacLearn, hwifEthernetFlowInterval=hwifEthernetFlowInterval, hwifBKbpsUniSuppression=hwifBKbpsUniSuppression, hwifXXTable=hwifXXTable, hwLswL2InfMibObject=hwLswL2InfMibObject, hwifUnknownPacketDropMul=hwifUnknownPacketDropMul, hwifAggregatePortIndex=hwifAggregatePortIndex, hwifUnBoundPort=hwifUnBoundPort, hwifVLANTrunkIndex=hwifVLANTrunkIndex, hwifEthernetSpeed=hwifEthernetSpeed, hwifVlanVPNUplinkStatus=hwifVlanVPNUplinkStatus, hwifHybridTaggedVlanListLow=hwifHybridTaggedVlanListLow, hwifHybridUnTaggedVlanListLow=hwifHybridUnTaggedVlanListLow, hwifVlanVPNStatus=hwifVlanVPNStatus, hwifUniSuppression=hwifUniSuppression, hwSwitchPortMax=hwSwitchPortMax, hwPortIsolateGroupTable=hwPortIsolateGroupTable, hwifVLANTrunkGvrpRegistration=hwifVLANTrunkGvrpRegistration, hwSlotPortMax=hwSlotPortMax, InterfaceIndex=InterfaceIndex, hwifComboPortTable=hwifComboPortTable, hwifMacAddressLearn=hwifMacAddressLearn, hwifMacAddrLearnMode=hwifMacAddrLearnMode, hwPortIsolateGroupRowStatus=hwPortIsolateGroupRowStatus, hwMaxMacLearnRange=hwMaxMacLearnRange, hwifVLANType=hwifVLANType, hwifXXEntry=hwifXXEntry, SpeedModeFlag=SpeedModeFlag, hwifISPhyPort=hwifISPhyPort, hwifPpsUniSuppression=hwifPpsUniSuppression, PYSNMP_MODULE_ID=hwLswL2InfMib, hwifVLANTrunkAllowListLow=hwifVLANTrunkAllowListLow, hwifAggregateTable=hwifAggregateTable, hwifAggregateOperStatus=hwifAggregateOperStatus, hwifPpsMulSuppression=hwifPpsMulSuppression, hwPortIsolateGroupIndex=hwPortIsolateGroupIndex, hwifEthernetIsolate=hwifEthernetIsolate)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "A3COM-HUAWEI-LswINF-MIB",
+    **{"PortList": PortList,
+       "VlanIndex": VlanIndex,
+       "InterfaceIndex": InterfaceIndex,
+       "DropDirection": DropDirection,
+       "SpeedModeFlag": SpeedModeFlag,
+       "hwLswExtInterface": hwLswExtInterface,
+       "hwifXXTable": hwifXXTable,
+       "hwifXXEntry": hwifXXEntry,
+       "hwifUnBoundPort": hwifUnBoundPort,
+       "hwifISPhyPort": hwifISPhyPort,
+       "hwifAggregatePort": hwifAggregatePort,
+       "hwifMirrorPort": hwifMirrorPort,
+       "hwifVLANType": hwifVLANType,
+       "hwifMcastControl": hwifMcastControl,
+       "hwifFlowControl": hwifFlowControl,
+       "hwifSrcMacControl": hwifSrcMacControl,
+       "hwifClearStat": hwifClearStat,
+       "hwifXXBasePortIndex": hwifXXBasePortIndex,
+       "hwifXXDevPortIndex": hwifXXDevPortIndex,
+       "hwifPpsMcastControl": hwifPpsMcastControl,
+       "hwifPpsBcastDisValControl": hwifPpsBcastDisValControl,
+       "hwifUniSuppressionStep": hwifUniSuppressionStep,
+       "hwifPpsUniSuppressionMax": hwifPpsUniSuppressionMax,
+       "hwifMulSuppressionStep": hwifMulSuppressionStep,
+       "hwifPpsMulSuppressionMax": hwifPpsMulSuppressionMax,
+       "hwifUniSuppression": hwifUniSuppression,
+       "hwifPpsUniSuppression": hwifPpsUniSuppression,
+       "hwifMulSuppression": hwifMulSuppression,
+       "hwifPpsMulSuppression": hwifPpsMulSuppression,
+       "hwifComboActivePort": hwifComboActivePort,
+       "hwifBMbpsMulSuppressionMax": hwifBMbpsMulSuppressionMax,
+       "hwifBMbpsMulSuppression": hwifBMbpsMulSuppression,
+       "hwifBKbpsMulSuppressionMax": hwifBKbpsMulSuppressionMax,
+       "hwifBKbpsMulSuppressionStep": hwifBKbpsMulSuppressionStep,
+       "hwifBKbpsMulSuppression": hwifBKbpsMulSuppression,
+       "hwifUnknownPacketDropMul": hwifUnknownPacketDropMul,
+       "hwifUnknownPacketDropUni": hwifUnknownPacketDropUni,
+       "hwifBMbpsUniSuppressionMax": hwifBMbpsUniSuppressionMax,
+       "hwifBMbpsUniSuppression": hwifBMbpsUniSuppression,
+       "hwifBKbpsUniSuppressionMax": hwifBKbpsUniSuppressionMax,
+       "hwifBKbpsUniSuppressionStep": hwifBKbpsUniSuppressionStep,
+       "hwifBKbpsUniSuppression": hwifBKbpsUniSuppression,
+       "hwifOutPayloadOctets": hwifOutPayloadOctets,
+       "hwifInPayloadOctets": hwifInPayloadOctets,
+       "hwifInErrorPktsRate": hwifInErrorPktsRate,
+       "hwifInPkts": hwifInPkts,
+       "hwifInNormalPkts": hwifInNormalPkts,
+       "hwifOutPkts": hwifOutPkts,
+       "hwifAggregateTable": hwifAggregateTable,
+       "hwifAggregateEntry": hwifAggregateEntry,
+       "hwifAggregatePortIndex": hwifAggregatePortIndex,
+       "hwifAggregatePortName": hwifAggregatePortName,
+       "hwifAggregatePortListPorts": hwifAggregatePortListPorts,
+       "hwifAggregateModel": hwifAggregateModel,
+       "hwifAggregateOperStatus": hwifAggregateOperStatus,
+       "hwifHybridPortTable": hwifHybridPortTable,
+       "hwifHybridPortEntry": hwifHybridPortEntry,
+       "hwifHybridPortIndex": hwifHybridPortIndex,
+       "hwifHybridTaggedVlanListLow": hwifHybridTaggedVlanListLow,
+       "hwifHybridTaggedVlanListHigh": hwifHybridTaggedVlanListHigh,
+       "hwifHybridUnTaggedVlanListLow": hwifHybridUnTaggedVlanListLow,
+       "hwifHybridUnTaggedVlanListHigh": hwifHybridUnTaggedVlanListHigh,
+       "hwifComboPortTable": hwifComboPortTable,
+       "hwifComboPortEntry": hwifComboPortEntry,
+       "hwifComboPortIndex": hwifComboPortIndex,
+       "hwifComboPortCurActive": hwifComboPortCurActive,
+       "hwLswL2InfMib": hwLswL2InfMib,
+       "hwLswL2InfMibObject": hwLswL2InfMibObject,
+       "hwSlotPortMax": hwSlotPortMax,
+       "hwSwitchPortMax": hwSwitchPortMax,
+       "hwifVLANTrunkStatusTable": hwifVLANTrunkStatusTable,
+       "hwifVLANTrunkStatusEntry": hwifVLANTrunkStatusEntry,
+       "hwifVLANTrunkIndex": hwifVLANTrunkIndex,
+       "hwifVLANTrunkGvrpRegistration": hwifVLANTrunkGvrpRegistration,
+       "hwifVLANTrunkPassListLow": hwifVLANTrunkPassListLow,
+       "hwifVLANTrunkPassListHigh": hwifVLANTrunkPassListHigh,
+       "hwifVLANTrunkAllowListLow": hwifVLANTrunkAllowListLow,
+       "hwifVLANTrunkAllowListHigh": hwifVLANTrunkAllowListHigh,
+       "hwethernetTable": hwethernetTable,
+       "hwethernetEntry": hwethernetEntry,
+       "hwifEthernetDuplex": hwifEthernetDuplex,
+       "hwifEthernetMTU": hwifEthernetMTU,
+       "hwifEthernetSpeed": hwifEthernetSpeed,
+       "hwifEthernetMdi": hwifEthernetMdi,
+       "hwMaxMacLearn": hwMaxMacLearn,
+       "hwifMacAddressLearn": hwifMacAddressLearn,
+       "hwifEthernetTest": hwifEthernetTest,
+       "hwifMacAddrLearnMode": hwifMacAddrLearnMode,
+       "hwifEthernetFlowInterval": hwifEthernetFlowInterval,
+       "hwifEthernetIsolate": hwifEthernetIsolate,
+       "hwifVlanVPNStatus": hwifVlanVPNStatus,
+       "hwifVlanVPNUplinkStatus": hwifVlanVPNUplinkStatus,
+       "hwifVlanVPNTPID": hwifVlanVPNTPID,
+       "hwifIsolateGroupID": hwifIsolateGroupID,
+       "hwifisUplinkPort": hwifisUplinkPort,
+       "hwifEthernetAutoSpeedMask": hwifEthernetAutoSpeedMask,
+       "hwifEthernetAutoSpeed": hwifEthernetAutoSpeed,
+       "hwIsolateGroupMax": hwIsolateGroupMax,
+       "hwGlobalBroadcastMaxPps": hwGlobalBroadcastMaxPps,
+       "hwGlobalBroadcastMaxRatio": hwGlobalBroadcastMaxRatio,
+       "hwBpduTunnelStatus": hwBpduTunnelStatus,
+       "hwVlanVPNTPIDMode": hwVlanVPNTPIDMode,
+       "hwVlanVPNTPID": hwVlanVPNTPID,
+       "hwPortIsolateGroupTable": hwPortIsolateGroupTable,
+       "hwPortIsolateGroupEntry": hwPortIsolateGroupEntry,
+       "hwPortIsolateGroupIndex": hwPortIsolateGroupIndex,
+       "hwPortIsolateUplinkIfIndex": hwPortIsolateUplinkIfIndex,
+       "hwPortIsolateGroupRowStatus": hwPortIsolateGroupRowStatus,
+       "hwPortIsolateGroupDescription": hwPortIsolateGroupDescription,
+       "hwMaxMacLearnRange": hwMaxMacLearnRange}
+)

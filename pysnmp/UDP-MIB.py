@@ -1,83 +1,459 @@
+# SNMP MIB module (UDP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module UDP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/UDP-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:40:13 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint")
-InetPortNumber, InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetPortNumber", "InetAddressType", "InetAddress")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, mib_2, Bits, Gauge32, MibIdentifier, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, ObjectIdentity, iso, NotificationType, Integer32, Counter32, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "mib-2", "Bits", "Gauge32", "MibIdentifier", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "ObjectIdentity", "iso", "NotificationType", "Integer32", "Counter32", "Counter64")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-udpMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 50))
-udpMIB.setRevisions(('2005-05-20 00:00', '1994-11-01 00:00', '1991-03-31 00:00',))
-if mibBuilder.loadTexts: udpMIB.setLastUpdated('200505200000Z')
-if mibBuilder.loadTexts: udpMIB.setOrganization('IETF IPv6 Working Group http://www.ietf.org/html.charters/ipv6-charter.html')
-udp = MibIdentifier((1, 3, 6, 1, 2, 1, 7))
-udpInDatagrams = MibScalar((1, 3, 6, 1, 2, 1, 7, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: udpInDatagrams.setStatus('current')
-udpNoPorts = MibScalar((1, 3, 6, 1, 2, 1, 7, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: udpNoPorts.setStatus('current')
-udpInErrors = MibScalar((1, 3, 6, 1, 2, 1, 7, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: udpInErrors.setStatus('current')
-udpOutDatagrams = MibScalar((1, 3, 6, 1, 2, 1, 7, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: udpOutDatagrams.setStatus('current')
-udpHCInDatagrams = MibScalar((1, 3, 6, 1, 2, 1, 7, 8), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: udpHCInDatagrams.setStatus('current')
-udpHCOutDatagrams = MibScalar((1, 3, 6, 1, 2, 1, 7, 9), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: udpHCOutDatagrams.setStatus('current')
-udpEndpointTable = MibTable((1, 3, 6, 1, 2, 1, 7, 7), )
-if mibBuilder.loadTexts: udpEndpointTable.setStatus('current')
-udpEndpointEntry = MibTableRow((1, 3, 6, 1, 2, 1, 7, 7, 1), ).setIndexNames((0, "UDP-MIB", "udpEndpointLocalAddressType"), (0, "UDP-MIB", "udpEndpointLocalAddress"), (0, "UDP-MIB", "udpEndpointLocalPort"), (0, "UDP-MIB", "udpEndpointRemoteAddressType"), (0, "UDP-MIB", "udpEndpointRemoteAddress"), (0, "UDP-MIB", "udpEndpointRemotePort"), (0, "UDP-MIB", "udpEndpointInstance"))
-if mibBuilder.loadTexts: udpEndpointEntry.setStatus('current')
-udpEndpointLocalAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 7, 7, 1, 1), InetAddressType())
-if mibBuilder.loadTexts: udpEndpointLocalAddressType.setStatus('current')
-udpEndpointLocalAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 7, 7, 1, 2), InetAddress())
-if mibBuilder.loadTexts: udpEndpointLocalAddress.setStatus('current')
-udpEndpointLocalPort = MibTableColumn((1, 3, 6, 1, 2, 1, 7, 7, 1, 3), InetPortNumber())
-if mibBuilder.loadTexts: udpEndpointLocalPort.setStatus('current')
-udpEndpointRemoteAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 7, 7, 1, 4), InetAddressType())
-if mibBuilder.loadTexts: udpEndpointRemoteAddressType.setStatus('current')
-udpEndpointRemoteAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 7, 7, 1, 5), InetAddress())
-if mibBuilder.loadTexts: udpEndpointRemoteAddress.setStatus('current')
-udpEndpointRemotePort = MibTableColumn((1, 3, 6, 1, 2, 1, 7, 7, 1, 6), InetPortNumber())
-if mibBuilder.loadTexts: udpEndpointRemotePort.setStatus('current')
-udpEndpointInstance = MibTableColumn((1, 3, 6, 1, 2, 1, 7, 7, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
-if mibBuilder.loadTexts: udpEndpointInstance.setStatus('current')
-udpEndpointProcess = MibTableColumn((1, 3, 6, 1, 2, 1, 7, 7, 1, 8), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: udpEndpointProcess.setStatus('current')
-udpTable = MibTable((1, 3, 6, 1, 2, 1, 7, 5), )
-if mibBuilder.loadTexts: udpTable.setStatus('deprecated')
-udpEntry = MibTableRow((1, 3, 6, 1, 2, 1, 7, 5, 1), ).setIndexNames((0, "UDP-MIB", "udpLocalAddress"), (0, "UDP-MIB", "udpLocalPort"))
-if mibBuilder.loadTexts: udpEntry.setStatus('deprecated')
-udpLocalAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 7, 5, 1, 1), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: udpLocalAddress.setStatus('deprecated')
-udpLocalPort = MibTableColumn((1, 3, 6, 1, 2, 1, 7, 5, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: udpLocalPort.setStatus('deprecated')
-udpMIBConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 50, 2))
-udpMIBCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 50, 2, 1))
-udpMIBGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 50, 2, 2))
-udpMIBCompliance2 = ModuleCompliance((1, 3, 6, 1, 2, 1, 50, 2, 1, 2)).setObjects(("UDP-MIB", "udpBaseGroup"), ("UDP-MIB", "udpEndpointGroup"), ("UDP-MIB", "udpHCGroup"))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/UDP-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:07:59 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    udpMIBCompliance2 = udpMIBCompliance2.setStatus('current')
-udpMIBCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 50, 2, 1, 1)).setObjects(("UDP-MIB", "udpGroup"))
+if 'mibBuilder' not in globals():
+    import sys
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    udpMIBCompliance = udpMIBCompliance.setStatus('deprecated')
-udpGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 50, 2, 2, 1)).setObjects(("UDP-MIB", "udpInDatagrams"), ("UDP-MIB", "udpNoPorts"), ("UDP-MIB", "udpInErrors"), ("UDP-MIB", "udpOutDatagrams"), ("UDP-MIB", "udpLocalAddress"), ("UDP-MIB", "udpLocalPort"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    udpGroup = udpGroup.setStatus('deprecated')
-udpBaseGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 50, 2, 2, 2)).setObjects(("UDP-MIB", "udpInDatagrams"), ("UDP-MIB", "udpNoPorts"), ("UDP-MIB", "udpInErrors"), ("UDP-MIB", "udpOutDatagrams"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    udpBaseGroup = udpBaseGroup.setStatus('current')
-udpHCGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 50, 2, 2, 3)).setObjects(("UDP-MIB", "udpHCInDatagrams"), ("UDP-MIB", "udpHCOutDatagrams"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    udpHCGroup = udpHCGroup.setStatus('current')
-udpEndpointGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 50, 2, 2, 4)).setObjects(("UDP-MIB", "udpEndpointProcess"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    udpEndpointGroup = udpEndpointGroup.setStatus('current')
-mibBuilder.exportSymbols("UDP-MIB", udpMIBGroups=udpMIBGroups, udpNoPorts=udpNoPorts, udpEndpointLocalPort=udpEndpointLocalPort, udpInDatagrams=udpInDatagrams, udpEndpointGroup=udpEndpointGroup, udpMIBCompliance=udpMIBCompliance, udpEndpointRemoteAddress=udpEndpointRemoteAddress, udp=udp, udpLocalAddress=udpLocalAddress, udpEndpointLocalAddressType=udpEndpointLocalAddressType, udpTable=udpTable, udpEndpointRemoteAddressType=udpEndpointRemoteAddressType, udpHCInDatagrams=udpHCInDatagrams, udpLocalPort=udpLocalPort, PYSNMP_MODULE_ID=udpMIB, udpMIBCompliances=udpMIBCompliances, udpHCOutDatagrams=udpHCOutDatagrams, udpEndpointInstance=udpEndpointInstance, udpOutDatagrams=udpOutDatagrams, udpMIB=udpMIB, udpEndpointProcess=udpEndpointProcess, udpMIBCompliance2=udpMIBCompliance2, udpGroup=udpGroup, udpEntry=udpEntry, udpHCGroup=udpHCGroup, udpEndpointEntry=udpEndpointEntry, udpEndpointTable=udpEndpointTable, udpInErrors=udpInErrors, udpBaseGroup=udpBaseGroup, udpEndpointLocalAddress=udpEndpointLocalAddress, udpEndpointRemotePort=udpEndpointRemotePort, udpMIBConformance=udpMIBConformance)
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InetAddress,
+ InetAddressType,
+ InetPortNumber) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType",
+    "InetPortNumber")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso,
+ mib_2) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso",
+    "mib-2")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+udpMIB = ModuleIdentity(
+    (1, 3, 6, 1, 2, 1, 50)
+)
+udpMIB.setRevisions(
+        ("2005-05-20 00:00",
+         "1994-11-01 00:00",
+         "1991-03-31 00:00")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Udp_ObjectIdentity = ObjectIdentity
+udp = _Udp_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 7)
+)
+_UdpInDatagrams_Type = Counter32
+_UdpInDatagrams_Object = MibScalar
+udpInDatagrams = _UdpInDatagrams_Object(
+    (1, 3, 6, 1, 2, 1, 7, 1),
+    _UdpInDatagrams_Type()
+)
+udpInDatagrams.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    udpInDatagrams.setStatus("current")
+_UdpNoPorts_Type = Counter32
+_UdpNoPorts_Object = MibScalar
+udpNoPorts = _UdpNoPorts_Object(
+    (1, 3, 6, 1, 2, 1, 7, 2),
+    _UdpNoPorts_Type()
+)
+udpNoPorts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    udpNoPorts.setStatus("current")
+_UdpInErrors_Type = Counter32
+_UdpInErrors_Object = MibScalar
+udpInErrors = _UdpInErrors_Object(
+    (1, 3, 6, 1, 2, 1, 7, 3),
+    _UdpInErrors_Type()
+)
+udpInErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    udpInErrors.setStatus("current")
+_UdpOutDatagrams_Type = Counter32
+_UdpOutDatagrams_Object = MibScalar
+udpOutDatagrams = _UdpOutDatagrams_Object(
+    (1, 3, 6, 1, 2, 1, 7, 4),
+    _UdpOutDatagrams_Type()
+)
+udpOutDatagrams.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    udpOutDatagrams.setStatus("current")
+_UdpTable_Object = MibTable
+udpTable = _UdpTable_Object(
+    (1, 3, 6, 1, 2, 1, 7, 5)
+)
+if mibBuilder.loadTexts:
+    udpTable.setStatus("deprecated")
+_UdpEntry_Object = MibTableRow
+udpEntry = _UdpEntry_Object(
+    (1, 3, 6, 1, 2, 1, 7, 5, 1)
+)
+udpEntry.setIndexNames(
+    (0, "UDP-MIB", "udpLocalAddress"),
+    (0, "UDP-MIB", "udpLocalPort"),
+)
+if mibBuilder.loadTexts:
+    udpEntry.setStatus("deprecated")
+_UdpLocalAddress_Type = IpAddress
+_UdpLocalAddress_Object = MibTableColumn
+udpLocalAddress = _UdpLocalAddress_Object(
+    (1, 3, 6, 1, 2, 1, 7, 5, 1, 1),
+    _UdpLocalAddress_Type()
+)
+udpLocalAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    udpLocalAddress.setStatus("deprecated")
+
+
+class _UdpLocalPort_Type(Integer32):
+    """Custom type udpLocalPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_UdpLocalPort_Type.__name__ = "Integer32"
+_UdpLocalPort_Object = MibTableColumn
+udpLocalPort = _UdpLocalPort_Object(
+    (1, 3, 6, 1, 2, 1, 7, 5, 1, 2),
+    _UdpLocalPort_Type()
+)
+udpLocalPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    udpLocalPort.setStatus("deprecated")
+_UdpEndpointTable_Object = MibTable
+udpEndpointTable = _UdpEndpointTable_Object(
+    (1, 3, 6, 1, 2, 1, 7, 7)
+)
+if mibBuilder.loadTexts:
+    udpEndpointTable.setStatus("current")
+_UdpEndpointEntry_Object = MibTableRow
+udpEndpointEntry = _UdpEndpointEntry_Object(
+    (1, 3, 6, 1, 2, 1, 7, 7, 1)
+)
+udpEndpointEntry.setIndexNames(
+    (0, "UDP-MIB", "udpEndpointLocalAddressType"),
+    (0, "UDP-MIB", "udpEndpointLocalAddress"),
+    (0, "UDP-MIB", "udpEndpointLocalPort"),
+    (0, "UDP-MIB", "udpEndpointRemoteAddressType"),
+    (0, "UDP-MIB", "udpEndpointRemoteAddress"),
+    (0, "UDP-MIB", "udpEndpointRemotePort"),
+    (0, "UDP-MIB", "udpEndpointInstance"),
+)
+if mibBuilder.loadTexts:
+    udpEndpointEntry.setStatus("current")
+_UdpEndpointLocalAddressType_Type = InetAddressType
+_UdpEndpointLocalAddressType_Object = MibTableColumn
+udpEndpointLocalAddressType = _UdpEndpointLocalAddressType_Object(
+    (1, 3, 6, 1, 2, 1, 7, 7, 1, 1),
+    _UdpEndpointLocalAddressType_Type()
+)
+udpEndpointLocalAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    udpEndpointLocalAddressType.setStatus("current")
+_UdpEndpointLocalAddress_Type = InetAddress
+_UdpEndpointLocalAddress_Object = MibTableColumn
+udpEndpointLocalAddress = _UdpEndpointLocalAddress_Object(
+    (1, 3, 6, 1, 2, 1, 7, 7, 1, 2),
+    _UdpEndpointLocalAddress_Type()
+)
+udpEndpointLocalAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    udpEndpointLocalAddress.setStatus("current")
+_UdpEndpointLocalPort_Type = InetPortNumber
+_UdpEndpointLocalPort_Object = MibTableColumn
+udpEndpointLocalPort = _UdpEndpointLocalPort_Object(
+    (1, 3, 6, 1, 2, 1, 7, 7, 1, 3),
+    _UdpEndpointLocalPort_Type()
+)
+udpEndpointLocalPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    udpEndpointLocalPort.setStatus("current")
+_UdpEndpointRemoteAddressType_Type = InetAddressType
+_UdpEndpointRemoteAddressType_Object = MibTableColumn
+udpEndpointRemoteAddressType = _UdpEndpointRemoteAddressType_Object(
+    (1, 3, 6, 1, 2, 1, 7, 7, 1, 4),
+    _UdpEndpointRemoteAddressType_Type()
+)
+udpEndpointRemoteAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    udpEndpointRemoteAddressType.setStatus("current")
+_UdpEndpointRemoteAddress_Type = InetAddress
+_UdpEndpointRemoteAddress_Object = MibTableColumn
+udpEndpointRemoteAddress = _UdpEndpointRemoteAddress_Object(
+    (1, 3, 6, 1, 2, 1, 7, 7, 1, 5),
+    _UdpEndpointRemoteAddress_Type()
+)
+udpEndpointRemoteAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    udpEndpointRemoteAddress.setStatus("current")
+_UdpEndpointRemotePort_Type = InetPortNumber
+_UdpEndpointRemotePort_Object = MibTableColumn
+udpEndpointRemotePort = _UdpEndpointRemotePort_Object(
+    (1, 3, 6, 1, 2, 1, 7, 7, 1, 6),
+    _UdpEndpointRemotePort_Type()
+)
+udpEndpointRemotePort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    udpEndpointRemotePort.setStatus("current")
+
+
+class _UdpEndpointInstance_Type(Unsigned32):
+    """Custom type udpEndpointInstance based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4294967295),
+    )
+
+
+_UdpEndpointInstance_Type.__name__ = "Unsigned32"
+_UdpEndpointInstance_Object = MibTableColumn
+udpEndpointInstance = _UdpEndpointInstance_Object(
+    (1, 3, 6, 1, 2, 1, 7, 7, 1, 7),
+    _UdpEndpointInstance_Type()
+)
+udpEndpointInstance.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    udpEndpointInstance.setStatus("current")
+_UdpEndpointProcess_Type = Unsigned32
+_UdpEndpointProcess_Object = MibTableColumn
+udpEndpointProcess = _UdpEndpointProcess_Object(
+    (1, 3, 6, 1, 2, 1, 7, 7, 1, 8),
+    _UdpEndpointProcess_Type()
+)
+udpEndpointProcess.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    udpEndpointProcess.setStatus("current")
+_UdpHCInDatagrams_Type = Counter64
+_UdpHCInDatagrams_Object = MibScalar
+udpHCInDatagrams = _UdpHCInDatagrams_Object(
+    (1, 3, 6, 1, 2, 1, 7, 8),
+    _UdpHCInDatagrams_Type()
+)
+udpHCInDatagrams.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    udpHCInDatagrams.setStatus("current")
+_UdpHCOutDatagrams_Type = Counter64
+_UdpHCOutDatagrams_Object = MibScalar
+udpHCOutDatagrams = _UdpHCOutDatagrams_Object(
+    (1, 3, 6, 1, 2, 1, 7, 9),
+    _UdpHCOutDatagrams_Type()
+)
+udpHCOutDatagrams.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    udpHCOutDatagrams.setStatus("current")
+_UdpMIBConformance_ObjectIdentity = ObjectIdentity
+udpMIBConformance = _UdpMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 50, 2)
+)
+_UdpMIBCompliances_ObjectIdentity = ObjectIdentity
+udpMIBCompliances = _UdpMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 50, 2, 1)
+)
+_UdpMIBGroups_ObjectIdentity = ObjectIdentity
+udpMIBGroups = _UdpMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 50, 2, 2)
+)
+
+# Managed Objects groups
+
+udpGroup = ObjectGroup(
+    (1, 3, 6, 1, 2, 1, 50, 2, 2, 1)
+)
+udpGroup.setObjects(
+      *(("UDP-MIB", "udpInDatagrams"),
+        ("UDP-MIB", "udpNoPorts"),
+        ("UDP-MIB", "udpInErrors"),
+        ("UDP-MIB", "udpOutDatagrams"),
+        ("UDP-MIB", "udpLocalAddress"),
+        ("UDP-MIB", "udpLocalPort"))
+)
+if mibBuilder.loadTexts:
+    udpGroup.setStatus("deprecated")
+
+udpBaseGroup = ObjectGroup(
+    (1, 3, 6, 1, 2, 1, 50, 2, 2, 2)
+)
+udpBaseGroup.setObjects(
+      *(("UDP-MIB", "udpInDatagrams"),
+        ("UDP-MIB", "udpNoPorts"),
+        ("UDP-MIB", "udpInErrors"),
+        ("UDP-MIB", "udpOutDatagrams"))
+)
+if mibBuilder.loadTexts:
+    udpBaseGroup.setStatus("current")
+
+udpHCGroup = ObjectGroup(
+    (1, 3, 6, 1, 2, 1, 50, 2, 2, 3)
+)
+udpHCGroup.setObjects(
+      *(("UDP-MIB", "udpHCInDatagrams"),
+        ("UDP-MIB", "udpHCOutDatagrams"))
+)
+if mibBuilder.loadTexts:
+    udpHCGroup.setStatus("current")
+
+udpEndpointGroup = ObjectGroup(
+    (1, 3, 6, 1, 2, 1, 50, 2, 2, 4)
+)
+udpEndpointGroup.setObjects(
+    ("UDP-MIB", "udpEndpointProcess")
+)
+if mibBuilder.loadTexts:
+    udpEndpointGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+udpMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 2, 1, 50, 2, 1, 1)
+)
+if mibBuilder.loadTexts:
+    udpMIBCompliance.setStatus(
+        "deprecated"
+    )
+
+udpMIBCompliance2 = ModuleCompliance(
+    (1, 3, 6, 1, 2, 1, 50, 2, 1, 2)
+)
+if mibBuilder.loadTexts:
+    udpMIBCompliance2.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "UDP-MIB",
+    **{"udp": udp,
+       "udpInDatagrams": udpInDatagrams,
+       "udpNoPorts": udpNoPorts,
+       "udpInErrors": udpInErrors,
+       "udpOutDatagrams": udpOutDatagrams,
+       "udpTable": udpTable,
+       "udpEntry": udpEntry,
+       "udpLocalAddress": udpLocalAddress,
+       "udpLocalPort": udpLocalPort,
+       "udpEndpointTable": udpEndpointTable,
+       "udpEndpointEntry": udpEndpointEntry,
+       "udpEndpointLocalAddressType": udpEndpointLocalAddressType,
+       "udpEndpointLocalAddress": udpEndpointLocalAddress,
+       "udpEndpointLocalPort": udpEndpointLocalPort,
+       "udpEndpointRemoteAddressType": udpEndpointRemoteAddressType,
+       "udpEndpointRemoteAddress": udpEndpointRemoteAddress,
+       "udpEndpointRemotePort": udpEndpointRemotePort,
+       "udpEndpointInstance": udpEndpointInstance,
+       "udpEndpointProcess": udpEndpointProcess,
+       "udpHCInDatagrams": udpHCInDatagrams,
+       "udpHCOutDatagrams": udpHCOutDatagrams,
+       "udpMIB": udpMIB,
+       "udpMIBConformance": udpMIBConformance,
+       "udpMIBCompliances": udpMIBCompliances,
+       "udpMIBCompliance": udpMIBCompliance,
+       "udpMIBCompliance2": udpMIBCompliance2,
+       "udpMIBGroups": udpMIBGroups,
+       "udpGroup": udpGroup,
+       "udpBaseGroup": udpBaseGroup,
+       "udpHCGroup": udpHCGroup,
+       "udpEndpointGroup": udpEndpointGroup}
+)

@@ -1,43 +1,257 @@
+# SNMP MIB module (ELTEX-MES-SYSLOG-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ELTEX-MES-SYSLOG-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/ELTEX-MES-SYSLOG-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:47:35 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
-eltMes, = mibBuilder.importSymbols("ELTEX-MES", "eltMes")
-EltCPURateLimiterTrafficType, = mibBuilder.importSymbols("ELTEX-MES-SWITCH-RATE-LIMITER-MIB", "EltCPURateLimiterTrafficType")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter64, Counter32, Gauge32, MibIdentifier, ObjectIdentity, Unsigned32, ModuleIdentity, iso, NotificationType, Integer32, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Counter32", "Gauge32", "MibIdentifier", "ObjectIdentity", "Unsigned32", "ModuleIdentity", "iso", "NotificationType", "Integer32", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Bits")
-RowStatus, TextualConvention, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "TruthValue", "DisplayString")
-eltMesSyslog = ModuleIdentity((1, 3, 6, 1, 4, 1, 35265, 1, 23, 10))
-if mibBuilder.loadTexts: eltMesSyslog.setLastUpdated('201605110000Z')
-if mibBuilder.loadTexts: eltMesSyslog.setOrganization('Eltex Ltd.')
-eltSyslogCPURateLimiterTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 23, 10, 1), )
-if mibBuilder.loadTexts: eltSyslogCPURateLimiterTable.setStatus('current')
-eltSyslogCPURateLimiterEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 23, 10, 1, 1), ).setIndexNames((0, "ELTEX-MES-SYSLOG-MIB", "eltSyslogCPURateLimiterIndex"))
-if mibBuilder.loadTexts: eltSyslogCPURateLimiterEntry.setStatus('current')
-eltSyslogCPURateLimiterIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 10, 1, 1, 1), EltCPURateLimiterTrafficType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltSyslogCPURateLimiterIndex.setStatus('current')
-eltSyslogCPURateLimiterEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 10, 1, 1, 2), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: eltSyslogCPURateLimiterEnabled.setStatus('current')
-eltMesSyslogEvents = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 23, 10, 2))
-eltSyslogEventsVrrpTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 23, 10, 2, 1), ).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: eltSyslogEventsVrrpTable.setStatus('current')
-class EltSyslogEventsVRRPEventType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("eltSyslogEventsVRRPEventProtocolError", 1), ("eltSyslogEventsVRRPEventNewMaster", 2))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/ELTEX-MES-SYSLOG-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:38:02 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-eltSyslogEventsVrrpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 23, 10, 2, 1, 1), ).setMaxAccess("readwrite").setIndexNames((0, "ELTEX-MES-SYSLOG-MIB", "eltSyslogEventsVRRPEventIndex"))
-if mibBuilder.loadTexts: eltSyslogEventsVrrpEntry.setStatus('current')
-eltSyslogEventsVRRPEventIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 10, 2, 1, 1, 1), EltSyslogEventsVRRPEventType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: eltSyslogEventsVRRPEventIndex.setStatus('current')
-eltSyslogEventsVRRPEventEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 10, 2, 1, 1, 2), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: eltSyslogEventsVRRPEventEnabled.setStatus('current')
-eltSyslogUserCmdEnable = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 23, 10, 3), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: eltSyslogUserCmdEnable.setStatus('current')
-mibBuilder.exportSymbols("ELTEX-MES-SYSLOG-MIB", eltSyslogEventsVRRPEventIndex=eltSyslogEventsVRRPEventIndex, eltSyslogCPURateLimiterEnabled=eltSyslogCPURateLimiterEnabled, eltSyslogCPURateLimiterTable=eltSyslogCPURateLimiterTable, eltSyslogCPURateLimiterEntry=eltSyslogCPURateLimiterEntry, eltSyslogUserCmdEnable=eltSyslogUserCmdEnable, eltSyslogEventsVRRPEventEnabled=eltSyslogEventsVRRPEventEnabled, eltSyslogEventsVrrpTable=eltSyslogEventsVrrpTable, eltMesSyslogEvents=eltMesSyslogEvents, eltSyslogCPURateLimiterIndex=eltSyslogCPURateLimiterIndex, EltSyslogEventsVRRPEventType=EltSyslogEventsVRRPEventType, PYSNMP_MODULE_ID=eltMesSyslog, eltMesSyslog=eltMesSyslog, eltSyslogEventsVrrpEntry=eltSyslogEventsVrrpEntry)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(eltMes,) = mibBuilder.importSymbols(
+    "ELTEX-MES",
+    "eltMes")
+
+(EltCPURateLimiterTrafficType,) = mibBuilder.importSymbols(
+    "ELTEX-MES-SWITCH-RATE-LIMITER-MIB",
+    "EltCPURateLimiterTrafficType")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+eltMesSyslog = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 10)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class EltSyslogEventsVRRPEventType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eltSyslogEventsVRRPEventNewMaster", 2),
+          ("eltSyslogEventsVRRPEventProtocolError", 1))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_EltSyslogCPURateLimiterTable_Object = MibTable
+eltSyslogCPURateLimiterTable = _EltSyslogCPURateLimiterTable_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 10, 1)
+)
+if mibBuilder.loadTexts:
+    eltSyslogCPURateLimiterTable.setStatus("current")
+_EltSyslogCPURateLimiterEntry_Object = MibTableRow
+eltSyslogCPURateLimiterEntry = _EltSyslogCPURateLimiterEntry_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 10, 1, 1)
+)
+eltSyslogCPURateLimiterEntry.setIndexNames(
+    (0, "ELTEX-MES-SYSLOG-MIB", "eltSyslogCPURateLimiterIndex"),
+)
+if mibBuilder.loadTexts:
+    eltSyslogCPURateLimiterEntry.setStatus("current")
+_EltSyslogCPURateLimiterIndex_Type = EltCPURateLimiterTrafficType
+_EltSyslogCPURateLimiterIndex_Object = MibTableColumn
+eltSyslogCPURateLimiterIndex = _EltSyslogCPURateLimiterIndex_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 10, 1, 1, 1),
+    _EltSyslogCPURateLimiterIndex_Type()
+)
+eltSyslogCPURateLimiterIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltSyslogCPURateLimiterIndex.setStatus("current")
+_EltSyslogCPURateLimiterEnabled_Type = TruthValue
+_EltSyslogCPURateLimiterEnabled_Object = MibTableColumn
+eltSyslogCPURateLimiterEnabled = _EltSyslogCPURateLimiterEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 10, 1, 1, 2),
+    _EltSyslogCPURateLimiterEnabled_Type()
+)
+eltSyslogCPURateLimiterEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    eltSyslogCPURateLimiterEnabled.setStatus("current")
+_EltMesSyslogEvents_ObjectIdentity = ObjectIdentity
+eltMesSyslogEvents = _EltMesSyslogEvents_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 10, 2)
+)
+_EltSyslogEventsVrrpTable_Object = MibTable
+eltSyslogEventsVrrpTable = _EltSyslogEventsVrrpTable_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 10, 2, 1)
+)
+if mibBuilder.loadTexts:
+    eltSyslogEventsVrrpTable.setStatus("current")
+_EltSyslogEventsVrrpEntry_Object = MibTableRow
+eltSyslogEventsVrrpEntry = _EltSyslogEventsVrrpEntry_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 10, 2, 1, 1)
+)
+eltSyslogEventsVrrpEntry.setIndexNames(
+    (0, "ELTEX-MES-SYSLOG-MIB", "eltSyslogEventsVRRPEventIndex"),
+)
+if mibBuilder.loadTexts:
+    eltSyslogEventsVrrpEntry.setStatus("current")
+_EltSyslogEventsVRRPEventIndex_Type = EltSyslogEventsVRRPEventType
+_EltSyslogEventsVRRPEventIndex_Object = MibTableColumn
+eltSyslogEventsVRRPEventIndex = _EltSyslogEventsVRRPEventIndex_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 10, 2, 1, 1, 1),
+    _EltSyslogEventsVRRPEventIndex_Type()
+)
+eltSyslogEventsVRRPEventIndex.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    eltSyslogEventsVRRPEventIndex.setStatus("current")
+_EltSyslogEventsVRRPEventEnabled_Type = TruthValue
+_EltSyslogEventsVRRPEventEnabled_Object = MibTableColumn
+eltSyslogEventsVRRPEventEnabled = _EltSyslogEventsVRRPEventEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 10, 2, 1, 1, 2),
+    _EltSyslogEventsVRRPEventEnabled_Type()
+)
+eltSyslogEventsVRRPEventEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    eltSyslogEventsVRRPEventEnabled.setStatus("current")
+
+
+class _EltSyslogUserCmdEnable_Type(TruthValue):
+    """Custom type eltSyslogUserCmdEnable based on TruthValue"""
+
+
+_EltSyslogUserCmdEnable_Object = MibScalar
+eltSyslogUserCmdEnable = _EltSyslogUserCmdEnable_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 10, 3),
+    _EltSyslogUserCmdEnable_Type()
+)
+eltSyslogUserCmdEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    eltSyslogUserCmdEnable.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ELTEX-MES-SYSLOG-MIB",
+    **{"EltSyslogEventsVRRPEventType": EltSyslogEventsVRRPEventType,
+       "eltMesSyslog": eltMesSyslog,
+       "eltSyslogCPURateLimiterTable": eltSyslogCPURateLimiterTable,
+       "eltSyslogCPURateLimiterEntry": eltSyslogCPURateLimiterEntry,
+       "eltSyslogCPURateLimiterIndex": eltSyslogCPURateLimiterIndex,
+       "eltSyslogCPURateLimiterEnabled": eltSyslogCPURateLimiterEnabled,
+       "eltMesSyslogEvents": eltMesSyslogEvents,
+       "eltSyslogEventsVrrpTable": eltSyslogEventsVrrpTable,
+       "eltSyslogEventsVrrpEntry": eltSyslogEventsVrrpEntry,
+       "eltSyslogEventsVRRPEventIndex": eltSyslogEventsVRRPEventIndex,
+       "eltSyslogEventsVRRPEventEnabled": eltSyslogEventsVRRPEventEnabled,
+       "eltSyslogUserCmdEnable": eltSyslogUserCmdEnable}
+)

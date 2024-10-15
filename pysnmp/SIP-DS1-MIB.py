@@ -1,38 +1,333 @@
+# SNMP MIB module (SIP-DS1-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module SIP-DS1-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/SIP-DS1-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:56:19 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-IpAddress, Integer32, MibIdentifier, ModuleIdentity, NotificationType, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectName, Unsigned32, Counter32, ObjectIdentity, Bits, TimeTicks, snmpModules, iso, Gauge32, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Integer32", "MibIdentifier", "ModuleIdentity", "NotificationType", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectName", "Unsigned32", "Counter32", "ObjectIdentity", "Bits", "TimeTicks", "snmpModules", "iso", "Gauge32", "enterprises")
-DisplayString, TextualConvention, TruthValue, TestAndIncr, TimeStamp, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "TruthValue", "TestAndIncr", "TimeStamp", "RowStatus")
-lucent = MibIdentifier((1, 3, 6, 1, 4, 1, 1751))
-products = MibIdentifier((1, 3, 6, 1, 4, 1, 1751, 1))
-softSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 1751, 1, 1198))
-sipDeviceServer = MibIdentifier((1, 3, 6, 1, 4, 1, 1751, 1, 1198, 5))
-sipDS1 = ModuleIdentity((1, 3, 6, 1, 4, 1, 1751, 1, 1198, 5, 1))
-if mibBuilder.loadTexts: sipDS1.setLastUpdated('240701')
-if mibBuilder.loadTexts: sipDS1.setOrganization('Lucent Technologies')
-sipSystem = MibIdentifier((1, 3, 6, 1, 4, 1, 1751, 1, 1198, 5, 1, 1))
-dsInfo = MibScalar((1, 3, 6, 1, 4, 1, 1751, 1, 1198, 5, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 256))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsInfo.setStatus('current')
-dsProtocolInfo = MibScalar((1, 3, 6, 1, 4, 1, 1751, 1, 1198, 5, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 256))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsProtocolInfo.setStatus('current')
-logLevel = MibScalar((1, 3, 6, 1, 4, 1, 1751, 1, 1198, 5, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 3))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: logLevel.setStatus('current')
-succeededCalls = MibScalar((1, 3, 6, 1, 4, 1, 1751, 1, 1198, 5, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: succeededCalls.setStatus('current')
-activeCalls = MibScalar((1, 3, 6, 1, 4, 1, 1751, 1, 1198, 5, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: activeCalls.setStatus('current')
-failedCalls = MibScalar((1, 3, 6, 1, 4, 1, 1751, 1, 1198, 5, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: failedCalls.setStatus('current')
-reloadConfig = MibScalar((1, 3, 6, 1, 4, 1, 1751, 1, 1198, 5, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: reloadConfig.setStatus('current')
-resetLog = MibScalar((1, 3, 6, 1, 4, 1, 1751, 1, 1198, 5, 1, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: resetLog.setStatus('current')
-mibBuilder.exportSymbols("SIP-DS1-MIB", dsInfo=dsInfo, sipSystem=sipSystem, sipDeviceServer=sipDeviceServer, softSwitch=softSwitch, activeCalls=activeCalls, dsProtocolInfo=dsProtocolInfo, reloadConfig=reloadConfig, sipDS1=sipDS1, PYSNMP_MODULE_ID=sipDS1, logLevel=logLevel, succeededCalls=succeededCalls, failedCalls=failedCalls, lucent=lucent, products=products, resetLog=resetLog)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/SIP-DS1-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:52:21 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ ObjectName,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso,
+ snmpModules) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "ObjectName",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso",
+    "snmpModules")
+
+(DisplayString,
+ RowStatus,
+ TextualConvention,
+ TestAndIncr,
+ TimeStamp,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "RowStatus",
+    "TextualConvention",
+    "TestAndIncr",
+    "TimeStamp",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+sipDS1 = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198, 5, 1)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Lucent_ObjectIdentity = ObjectIdentity
+lucent = _Lucent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751)
+)
+_Products_ObjectIdentity = ObjectIdentity
+products = _Products_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 1)
+)
+_SoftSwitch_ObjectIdentity = ObjectIdentity
+softSwitch = _SoftSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198)
+)
+_SipDeviceServer_ObjectIdentity = ObjectIdentity
+sipDeviceServer = _SipDeviceServer_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198, 5)
+)
+_SipSystem_ObjectIdentity = ObjectIdentity
+sipSystem = _SipSystem_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198, 5, 1, 1)
+)
+
+
+class _DsInfo_Type(DisplayString):
+    """Custom type dsInfo based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 256),
+    )
+
+
+_DsInfo_Type.__name__ = "DisplayString"
+_DsInfo_Object = MibScalar
+dsInfo = _DsInfo_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198, 5, 1, 1, 1),
+    _DsInfo_Type()
+)
+dsInfo.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dsInfo.setStatus("current")
+
+
+class _DsProtocolInfo_Type(DisplayString):
+    """Custom type dsProtocolInfo based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 256),
+    )
+
+
+_DsProtocolInfo_Type.__name__ = "DisplayString"
+_DsProtocolInfo_Object = MibScalar
+dsProtocolInfo = _DsProtocolInfo_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198, 5, 1, 1, 2),
+    _DsProtocolInfo_Type()
+)
+dsProtocolInfo.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dsProtocolInfo.setStatus("current")
+
+
+class _LogLevel_Type(Integer32):
+    """Custom type logLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 3),
+    )
+
+
+_LogLevel_Type.__name__ = "Integer32"
+_LogLevel_Object = MibScalar
+logLevel = _LogLevel_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198, 5, 1, 1, 3),
+    _LogLevel_Type()
+)
+logLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    logLevel.setStatus("current")
+
+
+class _SucceededCalls_Type(Integer32):
+    """Custom type succeededCalls based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SucceededCalls_Type.__name__ = "Integer32"
+_SucceededCalls_Object = MibScalar
+succeededCalls = _SucceededCalls_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198, 5, 1, 1, 4),
+    _SucceededCalls_Type()
+)
+succeededCalls.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    succeededCalls.setStatus("current")
+
+
+class _ActiveCalls_Type(Integer32):
+    """Custom type activeCalls based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_ActiveCalls_Type.__name__ = "Integer32"
+_ActiveCalls_Object = MibScalar
+activeCalls = _ActiveCalls_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198, 5, 1, 1, 5),
+    _ActiveCalls_Type()
+)
+activeCalls.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    activeCalls.setStatus("current")
+
+
+class _FailedCalls_Type(Integer32):
+    """Custom type failedCalls based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_FailedCalls_Type.__name__ = "Integer32"
+_FailedCalls_Object = MibScalar
+failedCalls = _FailedCalls_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198, 5, 1, 1, 6),
+    _FailedCalls_Type()
+)
+failedCalls.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    failedCalls.setStatus("current")
+
+
+class _ReloadConfig_Type(Integer32):
+    """Custom type reloadConfig based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_ReloadConfig_Type.__name__ = "Integer32"
+_ReloadConfig_Object = MibScalar
+reloadConfig = _ReloadConfig_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198, 5, 1, 1, 7),
+    _ReloadConfig_Type()
+)
+reloadConfig.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    reloadConfig.setStatus("current")
+
+
+class _ResetLog_Type(Integer32):
+    """Custom type resetLog based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_ResetLog_Type.__name__ = "Integer32"
+_ResetLog_Object = MibScalar
+resetLog = _ResetLog_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198, 5, 1, 1, 8),
+    _ResetLog_Type()
+)
+resetLog.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    resetLog.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "SIP-DS1-MIB",
+    **{"lucent": lucent,
+       "products": products,
+       "softSwitch": softSwitch,
+       "sipDeviceServer": sipDeviceServer,
+       "sipDS1": sipDS1,
+       "sipSystem": sipSystem,
+       "dsInfo": dsInfo,
+       "dsProtocolInfo": dsProtocolInfo,
+       "logLevel": logLevel,
+       "succeededCalls": succeededCalls,
+       "activeCalls": activeCalls,
+       "failedCalls": failedCalls,
+       "reloadConfig": reloadConfig,
+       "resetLog": resetLog}
+)

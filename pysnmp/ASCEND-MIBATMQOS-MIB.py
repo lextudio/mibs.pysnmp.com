@@ -1,59 +1,523 @@
+# SNMP MIB module (ASCEND-MIBATMQOS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ASCEND-MIBATMQOS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/ASCEND-MIBATMQOS-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:10:34 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-configuration, = mibBuilder.importSymbols("ASCEND-MIB", "configuration")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-NotificationType, Integer32, ModuleIdentity, TimeTicks, Unsigned32, IpAddress, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, iso, ObjectIdentity, Counter32, Bits, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Integer32", "ModuleIdentity", "TimeTicks", "Unsigned32", "IpAddress", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "iso", "ObjectIdentity", "Counter32", "Bits", "Counter64")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-class DisplayString(OctetString):
-    pass
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/ASCEND-MIBATMQOS-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 20:41:12 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-mibatmQosProfile = MibIdentifier((1, 3, 6, 1, 4, 1, 529, 23, 21))
-mibatmQosProfileTable = MibTable((1, 3, 6, 1, 4, 1, 529, 23, 21, 1), )
-if mibBuilder.loadTexts: mibatmQosProfileTable.setStatus('mandatory')
-mibatmQosProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 529, 23, 21, 1, 1), ).setIndexNames((0, "ASCEND-MIBATMQOS-MIB", "atmQosProfile-ContractName"))
-if mibBuilder.loadTexts: mibatmQosProfileEntry.setStatus('mandatory')
-atmQosProfile_ContractName = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 21, 1, 1, 1), DisplayString()).setLabel("atmQosProfile-ContractName").setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmQosProfile_ContractName.setStatus('mandatory')
-atmQosProfile_TrafficDescriptorIndex = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 21, 1, 1, 2), Integer32()).setLabel("atmQosProfile-TrafficDescriptorIndex").setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmQosProfile_TrafficDescriptorIndex.setStatus('mandatory')
-atmQosProfile_TrafficDescriptorType = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 21, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(17, 3, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16))).clone(namedValues=NamedValues(("unknownTrafficDescr", 17), ("noclpNoscr", 3), ("noclpScr", 6), ("clpNotaggingScr", 7), ("clpTaggingScr", 8), ("clpTransparentNoscr", 10), ("clpTransparentScr", 11), ("noclpTaggingNoscr", 12), ("noclpNoscrCdvt", 13), ("noclpScrCdvt", 14), ("clpNotaggingScrCdvt", 15), ("clpTaggingScrCdvt", 16)))).setLabel("atmQosProfile-TrafficDescriptorType").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmQosProfile_TrafficDescriptorType.setStatus('mandatory')
-atmQosProfile_AtmServiceCategory = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 21, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("cbr", 1), ("realTimeVbr", 2), ("nonRealTimeVbr", 3), ("ubr", 4)))).setLabel("atmQosProfile-AtmServiceCategory").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmQosProfile_AtmServiceCategory.setStatus('mandatory')
-atmQosProfile_PeakRateKbitsPerSec = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 21, 1, 1, 6), Integer32()).setLabel("atmQosProfile-PeakRateKbitsPerSec").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmQosProfile_PeakRateKbitsPerSec.setStatus('mandatory')
-atmQosProfile_PeakCellRateCellsPerSec = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 21, 1, 1, 7), Integer32()).setLabel("atmQosProfile-PeakCellRateCellsPerSec").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmQosProfile_PeakCellRateCellsPerSec.setStatus('mandatory')
-atmQosProfile_SustainableRateKbitsPerSec = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 21, 1, 1, 9), Integer32()).setLabel("atmQosProfile-SustainableRateKbitsPerSec").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmQosProfile_SustainableRateKbitsPerSec.setStatus('mandatory')
-atmQosProfile_SustainableCellRateCellsPerSec = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 21, 1, 1, 10), Integer32()).setLabel("atmQosProfile-SustainableCellRateCellsPerSec").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmQosProfile_SustainableCellRateCellsPerSec.setStatus('mandatory')
-atmQosProfile_IgnoreCellDelayVariationTolerance = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 21, 1, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("no", 1), ("yes", 2)))).setLabel("atmQosProfile-IgnoreCellDelayVariationTolerance").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmQosProfile_IgnoreCellDelayVariationTolerance.setStatus('mandatory')
-atmQosProfile_CellDelayVariationTolerance = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 21, 1, 1, 12), Integer32()).setLabel("atmQosProfile-CellDelayVariationTolerance").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmQosProfile_CellDelayVariationTolerance.setStatus('mandatory')
-atmQosProfile_IgnoreMaxBurstSize = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 21, 1, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("no", 1), ("yes", 2)))).setLabel("atmQosProfile-IgnoreMaxBurstSize").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmQosProfile_IgnoreMaxBurstSize.setStatus('mandatory')
-atmQosProfile_MaxBurstSize = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 21, 1, 1, 14), Integer32()).setLabel("atmQosProfile-MaxBurstSize").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmQosProfile_MaxBurstSize.setStatus('mandatory')
-atmQosProfile_AalType = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 21, 1, 1, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("aal0", 1), ("aal5", 2), ("unspecified", 3)))).setLabel("atmQosProfile-AalType").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmQosProfile_AalType.setStatus('mandatory')
-atmQosProfile_EarlyPacketDiscard = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 21, 1, 1, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("no", 1), ("yes", 2)))).setLabel("atmQosProfile-EarlyPacketDiscard").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmQosProfile_EarlyPacketDiscard.setStatus('mandatory')
-atmQosProfile_PartialPacketDiscard = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 21, 1, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("no", 1), ("yes", 2)))).setLabel("atmQosProfile-PartialPacketDiscard").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmQosProfile_PartialPacketDiscard.setStatus('mandatory')
-atmQosProfile_TagOrDiscard = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 21, 1, 1, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("tag", 1), ("discard", 2)))).setLabel("atmQosProfile-TagOrDiscard").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmQosProfile_TagOrDiscard.setStatus('mandatory')
-atmQosProfile_SubChannel = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 21, 1, 1, 21), Integer32()).setLabel("atmQosProfile-SubChannel").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmQosProfile_SubChannel.setStatus('mandatory')
-atmQosProfile_Action_o = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 21, 1, 1, 20), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("noAction", 1), ("createProfile", 2), ("deleteProfile", 3)))).setLabel("atmQosProfile-Action-o").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmQosProfile_Action_o.setStatus('mandatory')
-mibBuilder.exportSymbols("ASCEND-MIBATMQOS-MIB", atmQosProfile_TagOrDiscard=atmQosProfile_TagOrDiscard, atmQosProfile_PeakRateKbitsPerSec=atmQosProfile_PeakRateKbitsPerSec, mibatmQosProfileEntry=mibatmQosProfileEntry, atmQosProfile_Action_o=atmQosProfile_Action_o, mibatmQosProfile=mibatmQosProfile, atmQosProfile_SubChannel=atmQosProfile_SubChannel, atmQosProfile_PartialPacketDiscard=atmQosProfile_PartialPacketDiscard, mibatmQosProfileTable=mibatmQosProfileTable, atmQosProfile_AtmServiceCategory=atmQosProfile_AtmServiceCategory, DisplayString=DisplayString, atmQosProfile_ContractName=atmQosProfile_ContractName, atmQosProfile_IgnoreCellDelayVariationTolerance=atmQosProfile_IgnoreCellDelayVariationTolerance, atmQosProfile_SustainableRateKbitsPerSec=atmQosProfile_SustainableRateKbitsPerSec, atmQosProfile_MaxBurstSize=atmQosProfile_MaxBurstSize, atmQosProfile_IgnoreMaxBurstSize=atmQosProfile_IgnoreMaxBurstSize, atmQosProfile_EarlyPacketDiscard=atmQosProfile_EarlyPacketDiscard, atmQosProfile_CellDelayVariationTolerance=atmQosProfile_CellDelayVariationTolerance, atmQosProfile_PeakCellRateCellsPerSec=atmQosProfile_PeakCellRateCellsPerSec, atmQosProfile_TrafficDescriptorIndex=atmQosProfile_TrafficDescriptorIndex, atmQosProfile_AalType=atmQosProfile_AalType, atmQosProfile_TrafficDescriptorType=atmQosProfile_TrafficDescriptorType, atmQosProfile_SustainableCellRateCellsPerSec=atmQosProfile_SustainableCellRateCellsPerSec)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(configuration,) = mibBuilder.importSymbols(
+    "ASCEND-MIB",
+    "configuration")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+
+class DisplayString(OctetString):
+    """Custom type DisplayString based on OctetString"""
+
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_MibatmQosProfile_ObjectIdentity = ObjectIdentity
+mibatmQosProfile = _MibatmQosProfile_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 529, 23, 21)
+)
+_MibatmQosProfileTable_Object = MibTable
+mibatmQosProfileTable = _MibatmQosProfileTable_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 21, 1)
+)
+if mibBuilder.loadTexts:
+    mibatmQosProfileTable.setStatus("mandatory")
+_MibatmQosProfileEntry_Object = MibTableRow
+mibatmQosProfileEntry = _MibatmQosProfileEntry_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 21, 1, 1)
+)
+mibatmQosProfileEntry.setIndexNames(
+    (0, "ASCEND-MIBATMQOS-MIB", "atmQosProfile-ContractName"),
+)
+if mibBuilder.loadTexts:
+    mibatmQosProfileEntry.setStatus("mandatory")
+_AtmQosProfile_ContractName_Type = DisplayString
+_AtmQosProfile_ContractName_Object = MibScalar
+atmQosProfile_ContractName = _AtmQosProfile_ContractName_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 21, 1, 1, 1),
+    _AtmQosProfile_ContractName_Type()
+)
+atmQosProfile_ContractName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atmQosProfile_ContractName.setStatus("mandatory")
+_AtmQosProfile_TrafficDescriptorIndex_Type = Integer32
+_AtmQosProfile_TrafficDescriptorIndex_Object = MibScalar
+atmQosProfile_TrafficDescriptorIndex = _AtmQosProfile_TrafficDescriptorIndex_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 21, 1, 1, 2),
+    _AtmQosProfile_TrafficDescriptorIndex_Type()
+)
+atmQosProfile_TrafficDescriptorIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atmQosProfile_TrafficDescriptorIndex.setStatus("mandatory")
+
+
+class _AtmQosProfile_TrafficDescriptorType_Type(Integer32):
+    """Custom type atmQosProfile_TrafficDescriptorType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(3,
+              6,
+              7,
+              8,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17)
+        )
+    )
+    namedValues = NamedValues(
+        *(("clpNotaggingScr", 7),
+          ("clpNotaggingScrCdvt", 15),
+          ("clpTaggingScr", 8),
+          ("clpTaggingScrCdvt", 16),
+          ("clpTransparentNoscr", 10),
+          ("clpTransparentScr", 11),
+          ("noclpNoscr", 3),
+          ("noclpNoscrCdvt", 13),
+          ("noclpScr", 6),
+          ("noclpScrCdvt", 14),
+          ("noclpTaggingNoscr", 12),
+          ("unknownTrafficDescr", 17))
+    )
+
+
+_AtmQosProfile_TrafficDescriptorType_Type.__name__ = "Integer32"
+_AtmQosProfile_TrafficDescriptorType_Object = MibScalar
+atmQosProfile_TrafficDescriptorType = _AtmQosProfile_TrafficDescriptorType_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 21, 1, 1, 3),
+    _AtmQosProfile_TrafficDescriptorType_Type()
+)
+atmQosProfile_TrafficDescriptorType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    atmQosProfile_TrafficDescriptorType.setStatus("mandatory")
+
+
+class _AtmQosProfile_AtmServiceCategory_Type(Integer32):
+    """Custom type atmQosProfile_AtmServiceCategory based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("cbr", 1),
+          ("nonRealTimeVbr", 3),
+          ("realTimeVbr", 2),
+          ("ubr", 4))
+    )
+
+
+_AtmQosProfile_AtmServiceCategory_Type.__name__ = "Integer32"
+_AtmQosProfile_AtmServiceCategory_Object = MibScalar
+atmQosProfile_AtmServiceCategory = _AtmQosProfile_AtmServiceCategory_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 21, 1, 1, 4),
+    _AtmQosProfile_AtmServiceCategory_Type()
+)
+atmQosProfile_AtmServiceCategory.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    atmQosProfile_AtmServiceCategory.setStatus("mandatory")
+_AtmQosProfile_PeakRateKbitsPerSec_Type = Integer32
+_AtmQosProfile_PeakRateKbitsPerSec_Object = MibScalar
+atmQosProfile_PeakRateKbitsPerSec = _AtmQosProfile_PeakRateKbitsPerSec_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 21, 1, 1, 6),
+    _AtmQosProfile_PeakRateKbitsPerSec_Type()
+)
+atmQosProfile_PeakRateKbitsPerSec.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    atmQosProfile_PeakRateKbitsPerSec.setStatus("mandatory")
+_AtmQosProfile_PeakCellRateCellsPerSec_Type = Integer32
+_AtmQosProfile_PeakCellRateCellsPerSec_Object = MibScalar
+atmQosProfile_PeakCellRateCellsPerSec = _AtmQosProfile_PeakCellRateCellsPerSec_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 21, 1, 1, 7),
+    _AtmQosProfile_PeakCellRateCellsPerSec_Type()
+)
+atmQosProfile_PeakCellRateCellsPerSec.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    atmQosProfile_PeakCellRateCellsPerSec.setStatus("mandatory")
+_AtmQosProfile_SustainableRateKbitsPerSec_Type = Integer32
+_AtmQosProfile_SustainableRateKbitsPerSec_Object = MibScalar
+atmQosProfile_SustainableRateKbitsPerSec = _AtmQosProfile_SustainableRateKbitsPerSec_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 21, 1, 1, 9),
+    _AtmQosProfile_SustainableRateKbitsPerSec_Type()
+)
+atmQosProfile_SustainableRateKbitsPerSec.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    atmQosProfile_SustainableRateKbitsPerSec.setStatus("mandatory")
+_AtmQosProfile_SustainableCellRateCellsPerSec_Type = Integer32
+_AtmQosProfile_SustainableCellRateCellsPerSec_Object = MibScalar
+atmQosProfile_SustainableCellRateCellsPerSec = _AtmQosProfile_SustainableCellRateCellsPerSec_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 21, 1, 1, 10),
+    _AtmQosProfile_SustainableCellRateCellsPerSec_Type()
+)
+atmQosProfile_SustainableCellRateCellsPerSec.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    atmQosProfile_SustainableCellRateCellsPerSec.setStatus("mandatory")
+
+
+class _AtmQosProfile_IgnoreCellDelayVariationTolerance_Type(Integer32):
+    """Custom type atmQosProfile_IgnoreCellDelayVariationTolerance based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 1),
+          ("yes", 2))
+    )
+
+
+_AtmQosProfile_IgnoreCellDelayVariationTolerance_Type.__name__ = "Integer32"
+_AtmQosProfile_IgnoreCellDelayVariationTolerance_Object = MibScalar
+atmQosProfile_IgnoreCellDelayVariationTolerance = _AtmQosProfile_IgnoreCellDelayVariationTolerance_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 21, 1, 1, 11),
+    _AtmQosProfile_IgnoreCellDelayVariationTolerance_Type()
+)
+atmQosProfile_IgnoreCellDelayVariationTolerance.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    atmQosProfile_IgnoreCellDelayVariationTolerance.setStatus("mandatory")
+_AtmQosProfile_CellDelayVariationTolerance_Type = Integer32
+_AtmQosProfile_CellDelayVariationTolerance_Object = MibScalar
+atmQosProfile_CellDelayVariationTolerance = _AtmQosProfile_CellDelayVariationTolerance_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 21, 1, 1, 12),
+    _AtmQosProfile_CellDelayVariationTolerance_Type()
+)
+atmQosProfile_CellDelayVariationTolerance.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    atmQosProfile_CellDelayVariationTolerance.setStatus("mandatory")
+
+
+class _AtmQosProfile_IgnoreMaxBurstSize_Type(Integer32):
+    """Custom type atmQosProfile_IgnoreMaxBurstSize based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 1),
+          ("yes", 2))
+    )
+
+
+_AtmQosProfile_IgnoreMaxBurstSize_Type.__name__ = "Integer32"
+_AtmQosProfile_IgnoreMaxBurstSize_Object = MibScalar
+atmQosProfile_IgnoreMaxBurstSize = _AtmQosProfile_IgnoreMaxBurstSize_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 21, 1, 1, 13),
+    _AtmQosProfile_IgnoreMaxBurstSize_Type()
+)
+atmQosProfile_IgnoreMaxBurstSize.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    atmQosProfile_IgnoreMaxBurstSize.setStatus("mandatory")
+_AtmQosProfile_MaxBurstSize_Type = Integer32
+_AtmQosProfile_MaxBurstSize_Object = MibScalar
+atmQosProfile_MaxBurstSize = _AtmQosProfile_MaxBurstSize_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 21, 1, 1, 14),
+    _AtmQosProfile_MaxBurstSize_Type()
+)
+atmQosProfile_MaxBurstSize.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    atmQosProfile_MaxBurstSize.setStatus("mandatory")
+
+
+class _AtmQosProfile_AalType_Type(Integer32):
+    """Custom type atmQosProfile_AalType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("aal0", 1),
+          ("aal5", 2),
+          ("unspecified", 3))
+    )
+
+
+_AtmQosProfile_AalType_Type.__name__ = "Integer32"
+_AtmQosProfile_AalType_Object = MibScalar
+atmQosProfile_AalType = _AtmQosProfile_AalType_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 21, 1, 1, 16),
+    _AtmQosProfile_AalType_Type()
+)
+atmQosProfile_AalType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    atmQosProfile_AalType.setStatus("mandatory")
+
+
+class _AtmQosProfile_EarlyPacketDiscard_Type(Integer32):
+    """Custom type atmQosProfile_EarlyPacketDiscard based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 1),
+          ("yes", 2))
+    )
+
+
+_AtmQosProfile_EarlyPacketDiscard_Type.__name__ = "Integer32"
+_AtmQosProfile_EarlyPacketDiscard_Object = MibScalar
+atmQosProfile_EarlyPacketDiscard = _AtmQosProfile_EarlyPacketDiscard_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 21, 1, 1, 17),
+    _AtmQosProfile_EarlyPacketDiscard_Type()
+)
+atmQosProfile_EarlyPacketDiscard.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    atmQosProfile_EarlyPacketDiscard.setStatus("mandatory")
+
+
+class _AtmQosProfile_PartialPacketDiscard_Type(Integer32):
+    """Custom type atmQosProfile_PartialPacketDiscard based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 1),
+          ("yes", 2))
+    )
+
+
+_AtmQosProfile_PartialPacketDiscard_Type.__name__ = "Integer32"
+_AtmQosProfile_PartialPacketDiscard_Object = MibScalar
+atmQosProfile_PartialPacketDiscard = _AtmQosProfile_PartialPacketDiscard_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 21, 1, 1, 18),
+    _AtmQosProfile_PartialPacketDiscard_Type()
+)
+atmQosProfile_PartialPacketDiscard.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    atmQosProfile_PartialPacketDiscard.setStatus("mandatory")
+
+
+class _AtmQosProfile_TagOrDiscard_Type(Integer32):
+    """Custom type atmQosProfile_TagOrDiscard based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("discard", 2),
+          ("tag", 1))
+    )
+
+
+_AtmQosProfile_TagOrDiscard_Type.__name__ = "Integer32"
+_AtmQosProfile_TagOrDiscard_Object = MibScalar
+atmQosProfile_TagOrDiscard = _AtmQosProfile_TagOrDiscard_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 21, 1, 1, 19),
+    _AtmQosProfile_TagOrDiscard_Type()
+)
+atmQosProfile_TagOrDiscard.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    atmQosProfile_TagOrDiscard.setStatus("mandatory")
+
+
+class _AtmQosProfile_Action_o_Type(Integer32):
+    """Custom type atmQosProfile_Action_o based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("createProfile", 2),
+          ("deleteProfile", 3),
+          ("noAction", 1))
+    )
+
+
+_AtmQosProfile_Action_o_Type.__name__ = "Integer32"
+_AtmQosProfile_Action_o_Object = MibScalar
+atmQosProfile_Action_o = _AtmQosProfile_Action_o_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 21, 1, 1, 20),
+    _AtmQosProfile_Action_o_Type()
+)
+atmQosProfile_Action_o.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    atmQosProfile_Action_o.setStatus("mandatory")
+_AtmQosProfile_SubChannel_Type = Integer32
+_AtmQosProfile_SubChannel_Object = MibScalar
+atmQosProfile_SubChannel = _AtmQosProfile_SubChannel_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 21, 1, 1, 21),
+    _AtmQosProfile_SubChannel_Type()
+)
+atmQosProfile_SubChannel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    atmQosProfile_SubChannel.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ASCEND-MIBATMQOS-MIB",
+    **{"DisplayString": DisplayString,
+       "mibatmQosProfile": mibatmQosProfile,
+       "mibatmQosProfileTable": mibatmQosProfileTable,
+       "mibatmQosProfileEntry": mibatmQosProfileEntry,
+       "atmQosProfile-ContractName": atmQosProfile_ContractName,
+       "atmQosProfile-TrafficDescriptorIndex": atmQosProfile_TrafficDescriptorIndex,
+       "atmQosProfile-TrafficDescriptorType": atmQosProfile_TrafficDescriptorType,
+       "atmQosProfile-AtmServiceCategory": atmQosProfile_AtmServiceCategory,
+       "atmQosProfile-PeakRateKbitsPerSec": atmQosProfile_PeakRateKbitsPerSec,
+       "atmQosProfile-PeakCellRateCellsPerSec": atmQosProfile_PeakCellRateCellsPerSec,
+       "atmQosProfile-SustainableRateKbitsPerSec": atmQosProfile_SustainableRateKbitsPerSec,
+       "atmQosProfile-SustainableCellRateCellsPerSec": atmQosProfile_SustainableCellRateCellsPerSec,
+       "atmQosProfile-IgnoreCellDelayVariationTolerance": atmQosProfile_IgnoreCellDelayVariationTolerance,
+       "atmQosProfile-CellDelayVariationTolerance": atmQosProfile_CellDelayVariationTolerance,
+       "atmQosProfile-IgnoreMaxBurstSize": atmQosProfile_IgnoreMaxBurstSize,
+       "atmQosProfile-MaxBurstSize": atmQosProfile_MaxBurstSize,
+       "atmQosProfile-AalType": atmQosProfile_AalType,
+       "atmQosProfile-EarlyPacketDiscard": atmQosProfile_EarlyPacketDiscard,
+       "atmQosProfile-PartialPacketDiscard": atmQosProfile_PartialPacketDiscard,
+       "atmQosProfile-TagOrDiscard": atmQosProfile_TagOrDiscard,
+       "atmQosProfile-Action-o": atmQosProfile_Action_o,
+       "atmQosProfile-SubChannel": atmQosProfile_SubChannel}
+)

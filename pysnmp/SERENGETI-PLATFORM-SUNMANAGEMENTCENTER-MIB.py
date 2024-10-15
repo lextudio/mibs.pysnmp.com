@@ -1,35 +1,236 @@
+# SNMP MIB module (SERENGETI-PLATFORM-SUNMANAGEMENTCENTER-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module SERENGETI-PLATFORM-SUNMANAGEMENTCENTER-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/SERENGETI-PLATFORM-SUNMANAGEMENTCENTER-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:53:45 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ObjectIdentity, iso, Integer32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, ModuleIdentity, enterprises, TimeTicks, NotificationType, Bits, Counter64, Unsigned32, IpAddress, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "iso", "Integer32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "ModuleIdentity", "enterprises", "TimeTicks", "NotificationType", "Bits", "Counter64", "Unsigned32", "IpAddress", "Counter32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-sun = MibIdentifier((1, 3, 6, 1, 4, 1, 42))
-prod = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 2))
-sunsymon = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 2, 12))
-agent = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 2, 12, 2))
-base = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 1))
-modules = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 2))
-hardware = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 2, 1))
-config = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 2, 1, 1))
-reader4u = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 2, 1, 1, 1))
-reader4udt = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 2, 1, 1, 2))
-reader4uwg = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 2, 1, 1, 3))
-reader4u1P = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 2, 1, 1, 4))
-reader4u1D = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 2, 1, 1, 5))
-reader4unt = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 2, 1, 1, 6))
-readerSerengeti = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 2, 1, 1, 7))
-reader4uvh = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 2, 1, 1, 8))
-readerECP = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 2, 1, 1, 9))
-readerELP = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 2, 1, 1, 10))
-dr_serengeti = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 2, 51)).setLabel("dr-serengeti")
-serengeti_platadmin = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 2, 100)).setLabel("serengeti-platadmin")
-serengeti_rules = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 2, 101)).setLabel("serengeti-rules")
-mibBuilder.exportSymbols("SERENGETI-PLATFORM-SUNMANAGEMENTCENTER-MIB", dr_serengeti=dr_serengeti, config=config, readerSerengeti=readerSerengeti, reader4u1D=reader4u1D, reader4udt=reader4udt, agent=agent, modules=modules, reader4unt=reader4unt, prod=prod, reader4uvh=reader4uvh, sunsymon=sunsymon, hardware=hardware, serengeti_rules=serengeti_rules, readerECP=readerECP, sun=sun, base=base, serengeti_platadmin=serengeti_platadmin, reader4uwg=reader4uwg, readerELP=readerELP, reader4u1P=reader4u1P, reader4u=reader4u)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/SERENGETI-PLATFORM-SUNMANAGEMENTCENTER-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:50:22 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Sun_ObjectIdentity = ObjectIdentity
+sun = _Sun_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42)
+)
+_Prod_ObjectIdentity = ObjectIdentity
+prod = _Prod_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 2)
+)
+_Sunsymon_ObjectIdentity = ObjectIdentity
+sunsymon = _Sunsymon_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 2, 12)
+)
+_Agent_ObjectIdentity = ObjectIdentity
+agent = _Agent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 2, 12, 2)
+)
+_Base_ObjectIdentity = ObjectIdentity
+base = _Base_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 1)
+)
+_Modules_ObjectIdentity = ObjectIdentity
+modules = _Modules_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 2)
+)
+_Hardware_ObjectIdentity = ObjectIdentity
+hardware = _Hardware_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 2, 1)
+)
+_Config_ObjectIdentity = ObjectIdentity
+config = _Config_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 2, 1, 1)
+)
+_Reader4u_ObjectIdentity = ObjectIdentity
+reader4u = _Reader4u_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 2, 1, 1, 1)
+)
+_Reader4udt_ObjectIdentity = ObjectIdentity
+reader4udt = _Reader4udt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 2, 1, 1, 2)
+)
+_Reader4uwg_ObjectIdentity = ObjectIdentity
+reader4uwg = _Reader4uwg_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 2, 1, 1, 3)
+)
+_Reader4u1P_ObjectIdentity = ObjectIdentity
+reader4u1P = _Reader4u1P_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 2, 1, 1, 4)
+)
+_Reader4u1D_ObjectIdentity = ObjectIdentity
+reader4u1D = _Reader4u1D_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 2, 1, 1, 5)
+)
+_Reader4unt_ObjectIdentity = ObjectIdentity
+reader4unt = _Reader4unt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 2, 1, 1, 6)
+)
+_ReaderSerengeti_ObjectIdentity = ObjectIdentity
+readerSerengeti = _ReaderSerengeti_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 2, 1, 1, 7)
+)
+_Reader4uvh_ObjectIdentity = ObjectIdentity
+reader4uvh = _Reader4uvh_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 2, 1, 1, 8)
+)
+_ReaderECP_ObjectIdentity = ObjectIdentity
+readerECP = _ReaderECP_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 2, 1, 1, 9)
+)
+_ReaderELP_ObjectIdentity = ObjectIdentity
+readerELP = _ReaderELP_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 2, 1, 1, 10)
+)
+_Dr_serengeti_ObjectIdentity = ObjectIdentity
+dr_serengeti = _Dr_serengeti_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 2, 51)
+)
+_Serengeti_platadmin_ObjectIdentity = ObjectIdentity
+serengeti_platadmin = _Serengeti_platadmin_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 2, 100)
+)
+_Serengeti_rules_ObjectIdentity = ObjectIdentity
+serengeti_rules = _Serengeti_rules_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 2, 101)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "SERENGETI-PLATFORM-SUNMANAGEMENTCENTER-MIB",
+    **{"sun": sun,
+       "prod": prod,
+       "sunsymon": sunsymon,
+       "agent": agent,
+       "base": base,
+       "modules": modules,
+       "hardware": hardware,
+       "config": config,
+       "reader4u": reader4u,
+       "reader4udt": reader4udt,
+       "reader4uwg": reader4uwg,
+       "reader4u1P": reader4u1P,
+       "reader4u1D": reader4u1D,
+       "reader4unt": reader4unt,
+       "readerSerengeti": readerSerengeti,
+       "reader4uvh": reader4uvh,
+       "readerECP": readerECP,
+       "readerELP": readerELP,
+       "dr-serengeti": dr_serengeti,
+       "serengeti-platadmin": serengeti_platadmin,
+       "serengeti-rules": serengeti_rules}
+)

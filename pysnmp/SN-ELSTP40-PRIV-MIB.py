@@ -1,78 +1,632 @@
+# SNMP MIB module (SN-ELSTP40-PRIV-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module SN-ELSTP40-PRIV-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/SN-ELSTP40-PRIV-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:59:51 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Gauge32, Counter64, ModuleIdentity, Counter32, MibIdentifier, IpAddress, Integer32, ObjectIdentity, Unsigned32, enterprises, iso, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, TimeTicks, internet = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Counter64", "ModuleIdentity", "Counter32", "MibIdentifier", "IpAddress", "Integer32", "ObjectIdentity", "Unsigned32", "enterprises", "iso", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "TimeTicks", "internet")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-ad = MibIdentifier((1, 3, 6, 1, 4, 1, 4196))
-adProductMibs = MibIdentifier((1, 3, 6, 1, 4, 1, 4196, 1))
-simaticNet = MibIdentifier((1, 3, 6, 1, 4, 1, 4196, 1, 1))
-iHub = MibIdentifier((1, 3, 6, 1, 4, 1, 4196, 1, 1, 1))
-iSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 4196, 1, 1, 2))
-iLeanSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 4196, 1, 1, 3))
-elsTP40M = MibIdentifier((1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1))
-elsInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 1))
-elsStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 2))
-elsMail = MibIdentifier((1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 3))
-elsTrap = MibIdentifier((1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 4))
-elsEvents = MibIdentifier((1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 5))
-elsIPInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 6))
-version = MibScalar((1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 62)).clone('V1.0.0.0')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: version.setStatus('mandatory')
-hardware = MibScalar((1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 62)).clone('01')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hardware.setStatus('mandatory')
-ownIP = MibScalar((1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 6, 1), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ownIP.setStatus('mandatory')
-netMask = MibScalar((1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 6, 2), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: netMask.setStatus('mandatory')
-gateway = MibScalar((1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 6, 3), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: gateway.setStatus('mandatory')
-fromDHCP = MibScalar((1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 6, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fromDHCP.setStatus('mandatory')
-emailFrom = MibScalar((1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 3, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 62)).clone('owner@anywhere.com')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: emailFrom.setStatus('mandatory')
-emailTo = MibScalar((1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 3, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 62)).clone('test@els.com')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: emailTo.setStatus('mandatory')
-emailSubject = MibScalar((1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 3, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 62)).clone('test@els.com')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: emailSubject.setStatus('mandatory')
-smtpdIP = MibScalar((1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 3, 4), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: smtpdIP.setStatus('mandatory')
-trapIP1 = MibScalar((1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 4, 1), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: trapIP1.setStatus('mandatory')
-trapIP2 = MibScalar((1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 4, 2), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: trapIP2.setStatus('mandatory')
-emailMask = MibScalar((1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 5, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: emailMask.setStatus('mandatory')
-trapMask = MibScalar((1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 5, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: trapMask.setStatus('mandatory')
-otherMask = MibScalar((1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 5, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: otherMask.setStatus('mandatory')
-receiveError1 = MibScalar((1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 2, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: receiveError1.setStatus('mandatory')
-receiveError2 = MibScalar((1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 2, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: receiveError2.setStatus('mandatory')
-receiveError3 = MibScalar((1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 2, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: receiveError3.setStatus('mandatory')
-receiveError4 = MibScalar((1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 2, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: receiveError4.setStatus('mandatory')
-collisionCount1 = MibScalar((1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 2, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: collisionCount1.setStatus('mandatory')
-collisionCount2 = MibScalar((1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 2, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: collisionCount2.setStatus('mandatory')
-collisionCount3 = MibScalar((1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 2, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: collisionCount3.setStatus('mandatory')
-collisionCount4 = MibScalar((1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 2, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: collisionCount4.setStatus('mandatory')
-ledStatus = MibScalar((1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 2, 9), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ledStatus.setStatus('mandatory')
-startBank = MibScalar((1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 2, 10), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: startBank.setStatus('mandatory')
-mibBuilder.exportSymbols("SN-ELSTP40-PRIV-MIB", collisionCount3=collisionCount3, smtpdIP=smtpdIP, elsInfo=elsInfo, netMask=netMask, emailTo=emailTo, trapMask=trapMask, collisionCount1=collisionCount1, iSwitch=iSwitch, startBank=startBank, trapIP2=trapIP2, receiveError4=receiveError4, receiveError3=receiveError3, simaticNet=simaticNet, hardware=hardware, otherMask=otherMask, emailMask=emailMask, gateway=gateway, elsMail=elsMail, receiveError2=receiveError2, ledStatus=ledStatus, iHub=iHub, elsTP40M=elsTP40M, elsStatus=elsStatus, ad=ad, ownIP=ownIP, iLeanSwitch=iLeanSwitch, elsTrap=elsTrap, fromDHCP=fromDHCP, collisionCount2=collisionCount2, emailSubject=emailSubject, elsIPInfo=elsIPInfo, trapIP1=trapIP1, version=version, receiveError1=receiveError1, collisionCount4=collisionCount4, elsEvents=elsEvents, emailFrom=emailFrom, adProductMibs=adProductMibs)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/SN-ELSTP40-PRIV-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:55:42 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ internet,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "internet",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Ad_ObjectIdentity = ObjectIdentity
+ad = _Ad_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4196)
+)
+_AdProductMibs_ObjectIdentity = ObjectIdentity
+adProductMibs = _AdProductMibs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4196, 1)
+)
+_SimaticNet_ObjectIdentity = ObjectIdentity
+simaticNet = _SimaticNet_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4196, 1, 1)
+)
+_IHub_ObjectIdentity = ObjectIdentity
+iHub = _IHub_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4196, 1, 1, 1)
+)
+_ISwitch_ObjectIdentity = ObjectIdentity
+iSwitch = _ISwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4196, 1, 1, 2)
+)
+_ILeanSwitch_ObjectIdentity = ObjectIdentity
+iLeanSwitch = _ILeanSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4196, 1, 1, 3)
+)
+_ElsTP40M_ObjectIdentity = ObjectIdentity
+elsTP40M = _ElsTP40M_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1)
+)
+_ElsInfo_ObjectIdentity = ObjectIdentity
+elsInfo = _ElsInfo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 1)
+)
+
+
+class _Version_Type(DisplayString):
+    """Custom type version based on DisplayString"""
+    defaultValue = OctetString("V1.0.0.0")
+
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 62),
+    )
+
+
+_Version_Type.__name__ = "DisplayString"
+_Version_Object = MibScalar
+version = _Version_Object(
+    (1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 1, 1),
+    _Version_Type()
+)
+version.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    version.setStatus("mandatory")
+
+
+class _Hardware_Type(DisplayString):
+    """Custom type hardware based on DisplayString"""
+    defaultValue = OctetString("01")
+
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 62),
+    )
+
+
+_Hardware_Type.__name__ = "DisplayString"
+_Hardware_Object = MibScalar
+hardware = _Hardware_Object(
+    (1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 1, 2),
+    _Hardware_Type()
+)
+hardware.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hardware.setStatus("mandatory")
+_ElsStatus_ObjectIdentity = ObjectIdentity
+elsStatus = _ElsStatus_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 2)
+)
+
+
+class _ReceiveError1_Type(Integer32):
+    """Custom type receiveError1 based on Integer32"""
+    defaultValue = 0
+
+
+_ReceiveError1_Object = MibScalar
+receiveError1 = _ReceiveError1_Object(
+    (1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 2, 1),
+    _ReceiveError1_Type()
+)
+receiveError1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    receiveError1.setStatus("mandatory")
+
+
+class _ReceiveError2_Type(Integer32):
+    """Custom type receiveError2 based on Integer32"""
+    defaultValue = 0
+
+
+_ReceiveError2_Object = MibScalar
+receiveError2 = _ReceiveError2_Object(
+    (1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 2, 2),
+    _ReceiveError2_Type()
+)
+receiveError2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    receiveError2.setStatus("mandatory")
+
+
+class _ReceiveError3_Type(Integer32):
+    """Custom type receiveError3 based on Integer32"""
+    defaultValue = 0
+
+
+_ReceiveError3_Object = MibScalar
+receiveError3 = _ReceiveError3_Object(
+    (1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 2, 3),
+    _ReceiveError3_Type()
+)
+receiveError3.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    receiveError3.setStatus("mandatory")
+
+
+class _ReceiveError4_Type(Integer32):
+    """Custom type receiveError4 based on Integer32"""
+    defaultValue = 0
+
+
+_ReceiveError4_Object = MibScalar
+receiveError4 = _ReceiveError4_Object(
+    (1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 2, 4),
+    _ReceiveError4_Type()
+)
+receiveError4.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    receiveError4.setStatus("mandatory")
+
+
+class _CollisionCount1_Type(Integer32):
+    """Custom type collisionCount1 based on Integer32"""
+    defaultValue = 0
+
+
+_CollisionCount1_Object = MibScalar
+collisionCount1 = _CollisionCount1_Object(
+    (1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 2, 5),
+    _CollisionCount1_Type()
+)
+collisionCount1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    collisionCount1.setStatus("mandatory")
+
+
+class _CollisionCount2_Type(Integer32):
+    """Custom type collisionCount2 based on Integer32"""
+    defaultValue = 0
+
+
+_CollisionCount2_Object = MibScalar
+collisionCount2 = _CollisionCount2_Object(
+    (1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 2, 6),
+    _CollisionCount2_Type()
+)
+collisionCount2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    collisionCount2.setStatus("mandatory")
+
+
+class _CollisionCount3_Type(Integer32):
+    """Custom type collisionCount3 based on Integer32"""
+    defaultValue = 0
+
+
+_CollisionCount3_Object = MibScalar
+collisionCount3 = _CollisionCount3_Object(
+    (1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 2, 7),
+    _CollisionCount3_Type()
+)
+collisionCount3.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    collisionCount3.setStatus("mandatory")
+
+
+class _CollisionCount4_Type(Integer32):
+    """Custom type collisionCount4 based on Integer32"""
+    defaultValue = 0
+
+
+_CollisionCount4_Object = MibScalar
+collisionCount4 = _CollisionCount4_Object(
+    (1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 2, 8),
+    _CollisionCount4_Type()
+)
+collisionCount4.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    collisionCount4.setStatus("mandatory")
+
+
+class _LedStatus_Type(Integer32):
+    """Custom type ledStatus based on Integer32"""
+    defaultValue = 0
+
+
+_LedStatus_Object = MibScalar
+ledStatus = _LedStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 2, 9),
+    _LedStatus_Type()
+)
+ledStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ledStatus.setStatus("mandatory")
+
+
+class _StartBank_Type(Integer32):
+    """Custom type startBank based on Integer32"""
+    defaultValue = 0
+
+
+_StartBank_Object = MibScalar
+startBank = _StartBank_Object(
+    (1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 2, 10),
+    _StartBank_Type()
+)
+startBank.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    startBank.setStatus("mandatory")
+_ElsMail_ObjectIdentity = ObjectIdentity
+elsMail = _ElsMail_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 3)
+)
+
+
+class _EmailFrom_Type(DisplayString):
+    """Custom type emailFrom based on DisplayString"""
+    defaultValue = OctetString("owner@anywhere.com")
+
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 62),
+    )
+
+
+_EmailFrom_Type.__name__ = "DisplayString"
+_EmailFrom_Object = MibScalar
+emailFrom = _EmailFrom_Object(
+    (1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 3, 1),
+    _EmailFrom_Type()
+)
+emailFrom.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    emailFrom.setStatus("mandatory")
+
+
+class _EmailTo_Type(DisplayString):
+    """Custom type emailTo based on DisplayString"""
+    defaultValue = OctetString("test@els.com")
+
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 62),
+    )
+
+
+_EmailTo_Type.__name__ = "DisplayString"
+_EmailTo_Object = MibScalar
+emailTo = _EmailTo_Object(
+    (1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 3, 2),
+    _EmailTo_Type()
+)
+emailTo.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    emailTo.setStatus("mandatory")
+
+
+class _EmailSubject_Type(DisplayString):
+    """Custom type emailSubject based on DisplayString"""
+    defaultValue = OctetString("test@els.com")
+
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 62),
+    )
+
+
+_EmailSubject_Type.__name__ = "DisplayString"
+_EmailSubject_Object = MibScalar
+emailSubject = _EmailSubject_Object(
+    (1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 3, 3),
+    _EmailSubject_Type()
+)
+emailSubject.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    emailSubject.setStatus("mandatory")
+
+
+class _SmtpdIP_Type(IpAddress):
+    """Custom type smtpdIP based on IpAddress"""
+    defaultValue = 0
+
+
+_SmtpdIP_Object = MibScalar
+smtpdIP = _SmtpdIP_Object(
+    (1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 3, 4),
+    _SmtpdIP_Type()
+)
+smtpdIP.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    smtpdIP.setStatus("mandatory")
+_ElsTrap_ObjectIdentity = ObjectIdentity
+elsTrap = _ElsTrap_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 4)
+)
+
+
+class _TrapIP1_Type(IpAddress):
+    """Custom type trapIP1 based on IpAddress"""
+    defaultValue = 0
+
+
+_TrapIP1_Object = MibScalar
+trapIP1 = _TrapIP1_Object(
+    (1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 4, 1),
+    _TrapIP1_Type()
+)
+trapIP1.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    trapIP1.setStatus("mandatory")
+
+
+class _TrapIP2_Type(IpAddress):
+    """Custom type trapIP2 based on IpAddress"""
+    defaultValue = 0
+
+
+_TrapIP2_Object = MibScalar
+trapIP2 = _TrapIP2_Object(
+    (1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 4, 2),
+    _TrapIP2_Type()
+)
+trapIP2.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    trapIP2.setStatus("mandatory")
+_ElsEvents_ObjectIdentity = ObjectIdentity
+elsEvents = _ElsEvents_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 5)
+)
+
+
+class _EmailMask_Type(Integer32):
+    """Custom type emailMask based on Integer32"""
+    defaultValue = 0
+
+
+_EmailMask_Object = MibScalar
+emailMask = _EmailMask_Object(
+    (1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 5, 1),
+    _EmailMask_Type()
+)
+emailMask.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    emailMask.setStatus("mandatory")
+
+
+class _TrapMask_Type(Integer32):
+    """Custom type trapMask based on Integer32"""
+    defaultValue = 0
+
+
+_TrapMask_Object = MibScalar
+trapMask = _TrapMask_Object(
+    (1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 5, 2),
+    _TrapMask_Type()
+)
+trapMask.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    trapMask.setStatus("mandatory")
+
+
+class _OtherMask_Type(Integer32):
+    """Custom type otherMask based on Integer32"""
+    defaultValue = 0
+
+
+_OtherMask_Object = MibScalar
+otherMask = _OtherMask_Object(
+    (1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 5, 3),
+    _OtherMask_Type()
+)
+otherMask.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    otherMask.setStatus("mandatory")
+_ElsIPInfo_ObjectIdentity = ObjectIdentity
+elsIPInfo = _ElsIPInfo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 6)
+)
+
+
+class _OwnIP_Type(IpAddress):
+    """Custom type ownIP based on IpAddress"""
+    defaultValue = 0
+
+
+_OwnIP_Object = MibScalar
+ownIP = _OwnIP_Object(
+    (1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 6, 1),
+    _OwnIP_Type()
+)
+ownIP.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ownIP.setStatus("mandatory")
+
+
+class _NetMask_Type(IpAddress):
+    """Custom type netMask based on IpAddress"""
+    defaultValue = 0
+
+
+_NetMask_Object = MibScalar
+netMask = _NetMask_Object(
+    (1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 6, 2),
+    _NetMask_Type()
+)
+netMask.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    netMask.setStatus("mandatory")
+
+
+class _Gateway_Type(IpAddress):
+    """Custom type gateway based on IpAddress"""
+    defaultValue = 0
+
+
+_Gateway_Object = MibScalar
+gateway = _Gateway_Object(
+    (1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 6, 3),
+    _Gateway_Type()
+)
+gateway.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    gateway.setStatus("mandatory")
+
+
+class _FromDHCP_Type(Integer32):
+    """Custom type fromDHCP based on Integer32"""
+    defaultValue = 0
+
+
+_FromDHCP_Object = MibScalar
+fromDHCP = _FromDHCP_Object(
+    (1, 3, 6, 1, 4, 1, 4196, 1, 1, 3, 1, 6, 4),
+    _FromDHCP_Type()
+)
+fromDHCP.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    fromDHCP.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "SN-ELSTP40-PRIV-MIB",
+    **{"ad": ad,
+       "adProductMibs": adProductMibs,
+       "simaticNet": simaticNet,
+       "iHub": iHub,
+       "iSwitch": iSwitch,
+       "iLeanSwitch": iLeanSwitch,
+       "elsTP40M": elsTP40M,
+       "elsInfo": elsInfo,
+       "version": version,
+       "hardware": hardware,
+       "elsStatus": elsStatus,
+       "receiveError1": receiveError1,
+       "receiveError2": receiveError2,
+       "receiveError3": receiveError3,
+       "receiveError4": receiveError4,
+       "collisionCount1": collisionCount1,
+       "collisionCount2": collisionCount2,
+       "collisionCount3": collisionCount3,
+       "collisionCount4": collisionCount4,
+       "ledStatus": ledStatus,
+       "startBank": startBank,
+       "elsMail": elsMail,
+       "emailFrom": emailFrom,
+       "emailTo": emailTo,
+       "emailSubject": emailSubject,
+       "smtpdIP": smtpdIP,
+       "elsTrap": elsTrap,
+       "trapIP1": trapIP1,
+       "trapIP2": trapIP2,
+       "elsEvents": elsEvents,
+       "emailMask": emailMask,
+       "trapMask": trapMask,
+       "otherMask": otherMask,
+       "elsIPInfo": elsIPInfo,
+       "ownIP": ownIP,
+       "netMask": netMask,
+       "gateway": gateway,
+       "fromDHCP": fromDHCP}
+)

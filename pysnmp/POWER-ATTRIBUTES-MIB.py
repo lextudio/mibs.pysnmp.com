@@ -1,100 +1,698 @@
+# SNMP MIB module (POWER-ATTRIBUTES-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module POWER-ATTRIBUTES-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/POWER-ATTRIBUTES-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:32:38 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
-UnitMultiplier, = mibBuilder.importSymbols("ENERGY-OBJECT-MIB", "UnitMultiplier")
-entPhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalIndex")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-Bits, ModuleIdentity, Counter64, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Integer32, MibIdentifier, NotificationType, Gauge32, Unsigned32, mib_2, IpAddress, Counter32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "ModuleIdentity", "Counter64", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Integer32", "MibIdentifier", "NotificationType", "Gauge32", "Unsigned32", "mib-2", "IpAddress", "Counter32", "iso")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-powerAttributesMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 230))
-powerAttributesMIB.setRevisions(('2015-02-09 00:00',))
-if mibBuilder.loadTexts: powerAttributesMIB.setLastUpdated('201502090000Z')
-if mibBuilder.loadTexts: powerAttributesMIB.setOrganization('IETF EMAN Working Group')
-powerAttributesMIBConform = MibIdentifier((1, 3, 6, 1, 2, 1, 230, 0))
-powerAttributesMIBObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 230, 1))
-eoACPwrAttributesTable = MibTable((1, 3, 6, 1, 2, 1, 230, 1, 1), )
-if mibBuilder.loadTexts: eoACPwrAttributesTable.setStatus('current')
-eoACPwrAttributesEntry = MibTableRow((1, 3, 6, 1, 2, 1, 230, 1, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
-if mibBuilder.loadTexts: eoACPwrAttributesEntry.setStatus('current')
-eoACPwrAttributesConfiguration = MibTableColumn((1, 3, 6, 1, 2, 1, 230, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("sngl", 1), ("del", 2), ("wye", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eoACPwrAttributesConfiguration.setStatus('current')
-eoACPwrAttributesAvgVoltage = MibTableColumn((1, 3, 6, 1, 2, 1, 230, 1, 1, 1, 2), Integer32()).setUnits('0.1 Volt AC').setMaxAccess("readonly")
-if mibBuilder.loadTexts: eoACPwrAttributesAvgVoltage.setStatus('current')
-eoACPwrAttributesAvgCurrent = MibTableColumn((1, 3, 6, 1, 2, 1, 230, 1, 1, 1, 3), Unsigned32()).setUnits('amperes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: eoACPwrAttributesAvgCurrent.setStatus('current')
-eoACPwrAttributesFrequency = MibTableColumn((1, 3, 6, 1, 2, 1, 230, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(4500, 6500))).setUnits('0.01 hertz').setMaxAccess("readonly")
-if mibBuilder.loadTexts: eoACPwrAttributesFrequency.setStatus('current')
-eoACPwrAttributesPowerUnitMultiplier = MibTableColumn((1, 3, 6, 1, 2, 1, 230, 1, 1, 1, 5), UnitMultiplier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eoACPwrAttributesPowerUnitMultiplier.setStatus('current')
-eoACPwrAttributesPowerAccuracy = MibTableColumn((1, 3, 6, 1, 2, 1, 230, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10000))).setUnits('hundredths of percent').setMaxAccess("readonly")
-if mibBuilder.loadTexts: eoACPwrAttributesPowerAccuracy.setStatus('current')
-eoACPwrAttributesTotalActivePower = MibTableColumn((1, 3, 6, 1, 2, 1, 230, 1, 1, 1, 7), Integer32()).setUnits('watts').setMaxAccess("readonly")
-if mibBuilder.loadTexts: eoACPwrAttributesTotalActivePower.setStatus('current')
-eoACPwrAttributesTotalReactivePower = MibTableColumn((1, 3, 6, 1, 2, 1, 230, 1, 1, 1, 8), Integer32()).setUnits('volt-amperes reactive').setMaxAccess("readonly")
-if mibBuilder.loadTexts: eoACPwrAttributesTotalReactivePower.setStatus('current')
-eoACPwrAttributesTotalApparentPower = MibTableColumn((1, 3, 6, 1, 2, 1, 230, 1, 1, 1, 9), Integer32()).setUnits('volt-amperes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: eoACPwrAttributesTotalApparentPower.setStatus('current')
-eoACPwrAttributesTotalPowerFactor = MibTableColumn((1, 3, 6, 1, 2, 1, 230, 1, 1, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-10000, 10000))).setUnits('hundredths').setMaxAccess("readonly")
-if mibBuilder.loadTexts: eoACPwrAttributesTotalPowerFactor.setStatus('current')
-eoACPwrAttributesThdCurrent = MibTableColumn((1, 3, 6, 1, 2, 1, 230, 1, 1, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10000))).setUnits('hundredths of percent').setMaxAccess("readonly")
-if mibBuilder.loadTexts: eoACPwrAttributesThdCurrent.setStatus('current')
-eoACPwrAttributesThdVoltage = MibTableColumn((1, 3, 6, 1, 2, 1, 230, 1, 1, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10000))).setUnits('hundredths of percent').setMaxAccess("readonly")
-if mibBuilder.loadTexts: eoACPwrAttributesThdVoltage.setStatus('current')
-eoACPwrAttributesDelPhaseTable = MibTable((1, 3, 6, 1, 2, 1, 230, 1, 2), )
-if mibBuilder.loadTexts: eoACPwrAttributesDelPhaseTable.setStatus('current')
-eoACPwrAttributesDelPhaseEntry = MibTableRow((1, 3, 6, 1, 2, 1, 230, 1, 2, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "POWER-ATTRIBUTES-MIB", "eoACPwrAttributesDelPhaseIndex"))
-if mibBuilder.loadTexts: eoACPwrAttributesDelPhaseEntry.setStatus('current')
-eoACPwrAttributesDelPhaseIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 230, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 359)))
-if mibBuilder.loadTexts: eoACPwrAttributesDelPhaseIndex.setStatus('current')
-eoACPwrAttributesDelPhaseToNextPhaseVoltage = MibTableColumn((1, 3, 6, 1, 2, 1, 230, 1, 2, 1, 2), Integer32()).setUnits('0.1 Volt AC').setMaxAccess("readonly")
-if mibBuilder.loadTexts: eoACPwrAttributesDelPhaseToNextPhaseVoltage.setStatus('current')
-eoACPwrAttributesDelThdPhaseToNextPhaseVoltage = MibTableColumn((1, 3, 6, 1, 2, 1, 230, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10000))).setUnits('hundredths of percent').setMaxAccess("readonly")
-if mibBuilder.loadTexts: eoACPwrAttributesDelThdPhaseToNextPhaseVoltage.setStatus('current')
-eoACPwrAttributesWyePhaseTable = MibTable((1, 3, 6, 1, 2, 1, 230, 1, 3), )
-if mibBuilder.loadTexts: eoACPwrAttributesWyePhaseTable.setStatus('current')
-eoACPwrAttributesWyePhaseEntry = MibTableRow((1, 3, 6, 1, 2, 1, 230, 1, 3, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "POWER-ATTRIBUTES-MIB", "eoACPwrAttributesWyePhaseIndex"))
-if mibBuilder.loadTexts: eoACPwrAttributesWyePhaseEntry.setStatus('current')
-eoACPwrAttributesWyePhaseIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 230, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 359)))
-if mibBuilder.loadTexts: eoACPwrAttributesWyePhaseIndex.setStatus('current')
-eoACPwrAttributesWyePhaseToNeutralVoltage = MibTableColumn((1, 3, 6, 1, 2, 1, 230, 1, 3, 1, 2), Integer32()).setUnits('0.1 Volt AC').setMaxAccess("readonly")
-if mibBuilder.loadTexts: eoACPwrAttributesWyePhaseToNeutralVoltage.setStatus('current')
-eoACPwrAttributesWyeCurrent = MibTableColumn((1, 3, 6, 1, 2, 1, 230, 1, 3, 1, 3), Integer32()).setUnits('0.1 amperes AC').setMaxAccess("readonly")
-if mibBuilder.loadTexts: eoACPwrAttributesWyeCurrent.setStatus('current')
-eoACPwrAttributesWyeActivePower = MibTableColumn((1, 3, 6, 1, 2, 1, 230, 1, 3, 1, 4), Integer32()).setUnits('watts').setMaxAccess("readonly")
-if mibBuilder.loadTexts: eoACPwrAttributesWyeActivePower.setStatus('current')
-eoACPwrAttributesWyeReactivePower = MibTableColumn((1, 3, 6, 1, 2, 1, 230, 1, 3, 1, 5), Integer32()).setUnits('volt-amperes reactive').setMaxAccess("readonly")
-if mibBuilder.loadTexts: eoACPwrAttributesWyeReactivePower.setStatus('current')
-eoACPwrAttributesWyeApparentPower = MibTableColumn((1, 3, 6, 1, 2, 1, 230, 1, 3, 1, 6), Integer32()).setUnits('volt-amperes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: eoACPwrAttributesWyeApparentPower.setStatus('current')
-eoACPwrAttributesWyePowerFactor = MibTableColumn((1, 3, 6, 1, 2, 1, 230, 1, 3, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-10000, 10000))).setUnits('hundredths').setMaxAccess("readonly")
-if mibBuilder.loadTexts: eoACPwrAttributesWyePowerFactor.setStatus('current')
-eoACPwrAttributesWyeThdCurrent = MibTableColumn((1, 3, 6, 1, 2, 1, 230, 1, 3, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10000))).setUnits('hundredths of percent').setMaxAccess("readonly")
-if mibBuilder.loadTexts: eoACPwrAttributesWyeThdCurrent.setStatus('current')
-eoACPwrAttributesWyeThdPhaseToNeutralVoltage = MibTableColumn((1, 3, 6, 1, 2, 1, 230, 1, 3, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10000))).setUnits('hundredths of percent').setMaxAccess("readonly")
-if mibBuilder.loadTexts: eoACPwrAttributesWyeThdPhaseToNeutralVoltage.setStatus('current')
-powerAttributesMIBCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 230, 2))
-powerAttributesMIBGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 230, 3))
-powerAttributesMIBFullCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 230, 2, 1)).setObjects(("POWER-ATTRIBUTES-MIB", "powerACPwrAttributesMIBTableGroup"), ("POWER-ATTRIBUTES-MIB", "powerACPwrAttributesOptionalMIBTableGroup"), ("POWER-ATTRIBUTES-MIB", "powerACPwrAttributesDelPhaseMIBTableGroup"), ("POWER-ATTRIBUTES-MIB", "powerACPwrAttributesWyePhaseMIBTableGroup"))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/POWER-ATTRIBUTES-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:39:20 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    powerAttributesMIBFullCompliance = powerAttributesMIBFullCompliance.setStatus('current')
-powerACPwrAttributesMIBTableGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 230, 3, 1)).setObjects(("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesAvgVoltage"), ("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesAvgCurrent"), ("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesFrequency"), ("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesPowerUnitMultiplier"), ("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesPowerAccuracy"), ("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesTotalActivePower"), ("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesTotalReactivePower"), ("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesTotalApparentPower"), ("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesTotalPowerFactor"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    powerACPwrAttributesMIBTableGroup = powerACPwrAttributesMIBTableGroup.setStatus('current')
-powerACPwrAttributesOptionalMIBTableGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 230, 3, 2)).setObjects(("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesConfiguration"), ("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesThdCurrent"), ("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesThdVoltage"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    powerACPwrAttributesOptionalMIBTableGroup = powerACPwrAttributesOptionalMIBTableGroup.setStatus('current')
-powerACPwrAttributesDelPhaseMIBTableGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 230, 3, 3)).setObjects(("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesDelPhaseToNextPhaseVoltage"), ("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesDelThdPhaseToNextPhaseVoltage"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    powerACPwrAttributesDelPhaseMIBTableGroup = powerACPwrAttributesDelPhaseMIBTableGroup.setStatus('current')
-powerACPwrAttributesWyePhaseMIBTableGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 230, 3, 4)).setObjects(("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesWyePhaseToNeutralVoltage"), ("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesWyeCurrent"), ("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesWyeActivePower"), ("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesWyeReactivePower"), ("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesWyeApparentPower"), ("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesWyePowerFactor"), ("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesWyeThdPhaseToNeutralVoltage"), ("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesWyeThdCurrent"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    powerACPwrAttributesWyePhaseMIBTableGroup = powerACPwrAttributesWyePhaseMIBTableGroup.setStatus('current')
-mibBuilder.exportSymbols("POWER-ATTRIBUTES-MIB", PYSNMP_MODULE_ID=powerAttributesMIB, eoACPwrAttributesTotalActivePower=eoACPwrAttributesTotalActivePower, eoACPwrAttributesDelPhaseIndex=eoACPwrAttributesDelPhaseIndex, eoACPwrAttributesWyePhaseTable=eoACPwrAttributesWyePhaseTable, eoACPwrAttributesDelPhaseTable=eoACPwrAttributesDelPhaseTable, eoACPwrAttributesPowerUnitMultiplier=eoACPwrAttributesPowerUnitMultiplier, powerACPwrAttributesWyePhaseMIBTableGroup=powerACPwrAttributesWyePhaseMIBTableGroup, eoACPwrAttributesThdVoltage=eoACPwrAttributesThdVoltage, eoACPwrAttributesWyeCurrent=eoACPwrAttributesWyeCurrent, eoACPwrAttributesWyePhaseEntry=eoACPwrAttributesWyePhaseEntry, powerAttributesMIBObjects=powerAttributesMIBObjects, powerACPwrAttributesOptionalMIBTableGroup=powerACPwrAttributesOptionalMIBTableGroup, eoACPwrAttributesTable=eoACPwrAttributesTable, eoACPwrAttributesWyeApparentPower=eoACPwrAttributesWyeApparentPower, powerACPwrAttributesDelPhaseMIBTableGroup=powerACPwrAttributesDelPhaseMIBTableGroup, eoACPwrAttributesPowerAccuracy=eoACPwrAttributesPowerAccuracy, eoACPwrAttributesAvgCurrent=eoACPwrAttributesAvgCurrent, powerAttributesMIBConform=powerAttributesMIBConform, eoACPwrAttributesDelPhaseEntry=eoACPwrAttributesDelPhaseEntry, eoACPwrAttributesWyePhaseToNeutralVoltage=eoACPwrAttributesWyePhaseToNeutralVoltage, eoACPwrAttributesWyePhaseIndex=eoACPwrAttributesWyePhaseIndex, eoACPwrAttributesTotalReactivePower=eoACPwrAttributesTotalReactivePower, powerAttributesMIBGroups=powerAttributesMIBGroups, eoACPwrAttributesThdCurrent=eoACPwrAttributesThdCurrent, eoACPwrAttributesWyePowerFactor=eoACPwrAttributesWyePowerFactor, eoACPwrAttributesEntry=eoACPwrAttributesEntry, powerACPwrAttributesMIBTableGroup=powerACPwrAttributesMIBTableGroup, eoACPwrAttributesConfiguration=eoACPwrAttributesConfiguration, powerAttributesMIBFullCompliance=powerAttributesMIBFullCompliance, powerAttributesMIB=powerAttributesMIB, eoACPwrAttributesWyeThdPhaseToNeutralVoltage=eoACPwrAttributesWyeThdPhaseToNeutralVoltage, eoACPwrAttributesFrequency=eoACPwrAttributesFrequency, eoACPwrAttributesTotalApparentPower=eoACPwrAttributesTotalApparentPower, powerAttributesMIBCompliances=powerAttributesMIBCompliances, eoACPwrAttributesDelPhaseToNextPhaseVoltage=eoACPwrAttributesDelPhaseToNextPhaseVoltage, eoACPwrAttributesTotalPowerFactor=eoACPwrAttributesTotalPowerFactor, eoACPwrAttributesWyeActivePower=eoACPwrAttributesWyeActivePower, eoACPwrAttributesDelThdPhaseToNextPhaseVoltage=eoACPwrAttributesDelThdPhaseToNextPhaseVoltage, eoACPwrAttributesWyeReactivePower=eoACPwrAttributesWyeReactivePower, eoACPwrAttributesAvgVoltage=eoACPwrAttributesAvgVoltage, eoACPwrAttributesWyeThdCurrent=eoACPwrAttributesWyeThdCurrent)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(UnitMultiplier,) = mibBuilder.importSymbols(
+    "ENERGY-OBJECT-MIB",
+    "UnitMultiplier")
+
+(entPhysicalIndex,) = mibBuilder.importSymbols(
+    "ENTITY-MIB",
+    "entPhysicalIndex")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso,
+ mib_2) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso",
+    "mib-2")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+powerAttributesMIB = ModuleIdentity(
+    (1, 3, 6, 1, 2, 1, 230)
+)
+powerAttributesMIB.setRevisions(
+        ("2015-02-09 00:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_PowerAttributesMIBConform_ObjectIdentity = ObjectIdentity
+powerAttributesMIBConform = _PowerAttributesMIBConform_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 230, 0)
+)
+_PowerAttributesMIBObjects_ObjectIdentity = ObjectIdentity
+powerAttributesMIBObjects = _PowerAttributesMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 230, 1)
+)
+_EoACPwrAttributesTable_Object = MibTable
+eoACPwrAttributesTable = _EoACPwrAttributesTable_Object(
+    (1, 3, 6, 1, 2, 1, 230, 1, 1)
+)
+if mibBuilder.loadTexts:
+    eoACPwrAttributesTable.setStatus("current")
+_EoACPwrAttributesEntry_Object = MibTableRow
+eoACPwrAttributesEntry = _EoACPwrAttributesEntry_Object(
+    (1, 3, 6, 1, 2, 1, 230, 1, 1, 1)
+)
+eoACPwrAttributesEntry.setIndexNames(
+    (0, "ENTITY-MIB", "entPhysicalIndex"),
+)
+if mibBuilder.loadTexts:
+    eoACPwrAttributesEntry.setStatus("current")
+
+
+class _EoACPwrAttributesConfiguration_Type(Integer32):
+    """Custom type eoACPwrAttributesConfiguration based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("del", 2),
+          ("sngl", 1),
+          ("wye", 3))
+    )
+
+
+_EoACPwrAttributesConfiguration_Type.__name__ = "Integer32"
+_EoACPwrAttributesConfiguration_Object = MibTableColumn
+eoACPwrAttributesConfiguration = _EoACPwrAttributesConfiguration_Object(
+    (1, 3, 6, 1, 2, 1, 230, 1, 1, 1, 1),
+    _EoACPwrAttributesConfiguration_Type()
+)
+eoACPwrAttributesConfiguration.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesConfiguration.setStatus("current")
+_EoACPwrAttributesAvgVoltage_Type = Integer32
+_EoACPwrAttributesAvgVoltage_Object = MibTableColumn
+eoACPwrAttributesAvgVoltage = _EoACPwrAttributesAvgVoltage_Object(
+    (1, 3, 6, 1, 2, 1, 230, 1, 1, 1, 2),
+    _EoACPwrAttributesAvgVoltage_Type()
+)
+eoACPwrAttributesAvgVoltage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesAvgVoltage.setStatus("current")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesAvgVoltage.setUnits("0.1 Volt AC")
+_EoACPwrAttributesAvgCurrent_Type = Unsigned32
+_EoACPwrAttributesAvgCurrent_Object = MibTableColumn
+eoACPwrAttributesAvgCurrent = _EoACPwrAttributesAvgCurrent_Object(
+    (1, 3, 6, 1, 2, 1, 230, 1, 1, 1, 3),
+    _EoACPwrAttributesAvgCurrent_Type()
+)
+eoACPwrAttributesAvgCurrent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesAvgCurrent.setStatus("current")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesAvgCurrent.setUnits("amperes")
+
+
+class _EoACPwrAttributesFrequency_Type(Integer32):
+    """Custom type eoACPwrAttributesFrequency based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(4500, 6500),
+    )
+
+
+_EoACPwrAttributesFrequency_Type.__name__ = "Integer32"
+_EoACPwrAttributesFrequency_Object = MibTableColumn
+eoACPwrAttributesFrequency = _EoACPwrAttributesFrequency_Object(
+    (1, 3, 6, 1, 2, 1, 230, 1, 1, 1, 4),
+    _EoACPwrAttributesFrequency_Type()
+)
+eoACPwrAttributesFrequency.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesFrequency.setStatus("current")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesFrequency.setUnits("0.01 hertz")
+_EoACPwrAttributesPowerUnitMultiplier_Type = UnitMultiplier
+_EoACPwrAttributesPowerUnitMultiplier_Object = MibTableColumn
+eoACPwrAttributesPowerUnitMultiplier = _EoACPwrAttributesPowerUnitMultiplier_Object(
+    (1, 3, 6, 1, 2, 1, 230, 1, 1, 1, 5),
+    _EoACPwrAttributesPowerUnitMultiplier_Type()
+)
+eoACPwrAttributesPowerUnitMultiplier.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesPowerUnitMultiplier.setStatus("current")
+
+
+class _EoACPwrAttributesPowerAccuracy_Type(Integer32):
+    """Custom type eoACPwrAttributesPowerAccuracy based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 10000),
+    )
+
+
+_EoACPwrAttributesPowerAccuracy_Type.__name__ = "Integer32"
+_EoACPwrAttributesPowerAccuracy_Object = MibTableColumn
+eoACPwrAttributesPowerAccuracy = _EoACPwrAttributesPowerAccuracy_Object(
+    (1, 3, 6, 1, 2, 1, 230, 1, 1, 1, 6),
+    _EoACPwrAttributesPowerAccuracy_Type()
+)
+eoACPwrAttributesPowerAccuracy.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesPowerAccuracy.setStatus("current")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesPowerAccuracy.setUnits("hundredths of percent")
+_EoACPwrAttributesTotalActivePower_Type = Integer32
+_EoACPwrAttributesTotalActivePower_Object = MibTableColumn
+eoACPwrAttributesTotalActivePower = _EoACPwrAttributesTotalActivePower_Object(
+    (1, 3, 6, 1, 2, 1, 230, 1, 1, 1, 7),
+    _EoACPwrAttributesTotalActivePower_Type()
+)
+eoACPwrAttributesTotalActivePower.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesTotalActivePower.setStatus("current")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesTotalActivePower.setUnits("watts")
+_EoACPwrAttributesTotalReactivePower_Type = Integer32
+_EoACPwrAttributesTotalReactivePower_Object = MibTableColumn
+eoACPwrAttributesTotalReactivePower = _EoACPwrAttributesTotalReactivePower_Object(
+    (1, 3, 6, 1, 2, 1, 230, 1, 1, 1, 8),
+    _EoACPwrAttributesTotalReactivePower_Type()
+)
+eoACPwrAttributesTotalReactivePower.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesTotalReactivePower.setStatus("current")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesTotalReactivePower.setUnits("volt-amperes reactive")
+_EoACPwrAttributesTotalApparentPower_Type = Integer32
+_EoACPwrAttributesTotalApparentPower_Object = MibTableColumn
+eoACPwrAttributesTotalApparentPower = _EoACPwrAttributesTotalApparentPower_Object(
+    (1, 3, 6, 1, 2, 1, 230, 1, 1, 1, 9),
+    _EoACPwrAttributesTotalApparentPower_Type()
+)
+eoACPwrAttributesTotalApparentPower.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesTotalApparentPower.setStatus("current")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesTotalApparentPower.setUnits("volt-amperes")
+
+
+class _EoACPwrAttributesTotalPowerFactor_Type(Integer32):
+    """Custom type eoACPwrAttributesTotalPowerFactor based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-10000, 10000),
+    )
+
+
+_EoACPwrAttributesTotalPowerFactor_Type.__name__ = "Integer32"
+_EoACPwrAttributesTotalPowerFactor_Object = MibTableColumn
+eoACPwrAttributesTotalPowerFactor = _EoACPwrAttributesTotalPowerFactor_Object(
+    (1, 3, 6, 1, 2, 1, 230, 1, 1, 1, 10),
+    _EoACPwrAttributesTotalPowerFactor_Type()
+)
+eoACPwrAttributesTotalPowerFactor.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesTotalPowerFactor.setStatus("current")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesTotalPowerFactor.setUnits("hundredths")
+
+
+class _EoACPwrAttributesThdCurrent_Type(Integer32):
+    """Custom type eoACPwrAttributesThdCurrent based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 10000),
+    )
+
+
+_EoACPwrAttributesThdCurrent_Type.__name__ = "Integer32"
+_EoACPwrAttributesThdCurrent_Object = MibTableColumn
+eoACPwrAttributesThdCurrent = _EoACPwrAttributesThdCurrent_Object(
+    (1, 3, 6, 1, 2, 1, 230, 1, 1, 1, 11),
+    _EoACPwrAttributesThdCurrent_Type()
+)
+eoACPwrAttributesThdCurrent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesThdCurrent.setStatus("current")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesThdCurrent.setUnits("hundredths of percent")
+
+
+class _EoACPwrAttributesThdVoltage_Type(Integer32):
+    """Custom type eoACPwrAttributesThdVoltage based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 10000),
+    )
+
+
+_EoACPwrAttributesThdVoltage_Type.__name__ = "Integer32"
+_EoACPwrAttributesThdVoltage_Object = MibTableColumn
+eoACPwrAttributesThdVoltage = _EoACPwrAttributesThdVoltage_Object(
+    (1, 3, 6, 1, 2, 1, 230, 1, 1, 1, 12),
+    _EoACPwrAttributesThdVoltage_Type()
+)
+eoACPwrAttributesThdVoltage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesThdVoltage.setStatus("current")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesThdVoltage.setUnits("hundredths of percent")
+_EoACPwrAttributesDelPhaseTable_Object = MibTable
+eoACPwrAttributesDelPhaseTable = _EoACPwrAttributesDelPhaseTable_Object(
+    (1, 3, 6, 1, 2, 1, 230, 1, 2)
+)
+if mibBuilder.loadTexts:
+    eoACPwrAttributesDelPhaseTable.setStatus("current")
+_EoACPwrAttributesDelPhaseEntry_Object = MibTableRow
+eoACPwrAttributesDelPhaseEntry = _EoACPwrAttributesDelPhaseEntry_Object(
+    (1, 3, 6, 1, 2, 1, 230, 1, 2, 1)
+)
+eoACPwrAttributesDelPhaseEntry.setIndexNames(
+    (0, "ENTITY-MIB", "entPhysicalIndex"),
+    (0, "POWER-ATTRIBUTES-MIB", "eoACPwrAttributesDelPhaseIndex"),
+)
+if mibBuilder.loadTexts:
+    eoACPwrAttributesDelPhaseEntry.setStatus("current")
+
+
+class _EoACPwrAttributesDelPhaseIndex_Type(Integer32):
+    """Custom type eoACPwrAttributesDelPhaseIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 359),
+    )
+
+
+_EoACPwrAttributesDelPhaseIndex_Type.__name__ = "Integer32"
+_EoACPwrAttributesDelPhaseIndex_Object = MibTableColumn
+eoACPwrAttributesDelPhaseIndex = _EoACPwrAttributesDelPhaseIndex_Object(
+    (1, 3, 6, 1, 2, 1, 230, 1, 2, 1, 1),
+    _EoACPwrAttributesDelPhaseIndex_Type()
+)
+eoACPwrAttributesDelPhaseIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesDelPhaseIndex.setStatus("current")
+_EoACPwrAttributesDelPhaseToNextPhaseVoltage_Type = Integer32
+_EoACPwrAttributesDelPhaseToNextPhaseVoltage_Object = MibTableColumn
+eoACPwrAttributesDelPhaseToNextPhaseVoltage = _EoACPwrAttributesDelPhaseToNextPhaseVoltage_Object(
+    (1, 3, 6, 1, 2, 1, 230, 1, 2, 1, 2),
+    _EoACPwrAttributesDelPhaseToNextPhaseVoltage_Type()
+)
+eoACPwrAttributesDelPhaseToNextPhaseVoltage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesDelPhaseToNextPhaseVoltage.setStatus("current")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesDelPhaseToNextPhaseVoltage.setUnits("0.1 Volt AC")
+
+
+class _EoACPwrAttributesDelThdPhaseToNextPhaseVoltage_Type(Integer32):
+    """Custom type eoACPwrAttributesDelThdPhaseToNextPhaseVoltage based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 10000),
+    )
+
+
+_EoACPwrAttributesDelThdPhaseToNextPhaseVoltage_Type.__name__ = "Integer32"
+_EoACPwrAttributesDelThdPhaseToNextPhaseVoltage_Object = MibTableColumn
+eoACPwrAttributesDelThdPhaseToNextPhaseVoltage = _EoACPwrAttributesDelThdPhaseToNextPhaseVoltage_Object(
+    (1, 3, 6, 1, 2, 1, 230, 1, 2, 1, 3),
+    _EoACPwrAttributesDelThdPhaseToNextPhaseVoltage_Type()
+)
+eoACPwrAttributesDelThdPhaseToNextPhaseVoltage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesDelThdPhaseToNextPhaseVoltage.setStatus("current")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesDelThdPhaseToNextPhaseVoltage.setUnits("hundredths of percent")
+_EoACPwrAttributesWyePhaseTable_Object = MibTable
+eoACPwrAttributesWyePhaseTable = _EoACPwrAttributesWyePhaseTable_Object(
+    (1, 3, 6, 1, 2, 1, 230, 1, 3)
+)
+if mibBuilder.loadTexts:
+    eoACPwrAttributesWyePhaseTable.setStatus("current")
+_EoACPwrAttributesWyePhaseEntry_Object = MibTableRow
+eoACPwrAttributesWyePhaseEntry = _EoACPwrAttributesWyePhaseEntry_Object(
+    (1, 3, 6, 1, 2, 1, 230, 1, 3, 1)
+)
+eoACPwrAttributesWyePhaseEntry.setIndexNames(
+    (0, "ENTITY-MIB", "entPhysicalIndex"),
+    (0, "POWER-ATTRIBUTES-MIB", "eoACPwrAttributesWyePhaseIndex"),
+)
+if mibBuilder.loadTexts:
+    eoACPwrAttributesWyePhaseEntry.setStatus("current")
+
+
+class _EoACPwrAttributesWyePhaseIndex_Type(Integer32):
+    """Custom type eoACPwrAttributesWyePhaseIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 359),
+    )
+
+
+_EoACPwrAttributesWyePhaseIndex_Type.__name__ = "Integer32"
+_EoACPwrAttributesWyePhaseIndex_Object = MibTableColumn
+eoACPwrAttributesWyePhaseIndex = _EoACPwrAttributesWyePhaseIndex_Object(
+    (1, 3, 6, 1, 2, 1, 230, 1, 3, 1, 1),
+    _EoACPwrAttributesWyePhaseIndex_Type()
+)
+eoACPwrAttributesWyePhaseIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesWyePhaseIndex.setStatus("current")
+_EoACPwrAttributesWyePhaseToNeutralVoltage_Type = Integer32
+_EoACPwrAttributesWyePhaseToNeutralVoltage_Object = MibTableColumn
+eoACPwrAttributesWyePhaseToNeutralVoltage = _EoACPwrAttributesWyePhaseToNeutralVoltage_Object(
+    (1, 3, 6, 1, 2, 1, 230, 1, 3, 1, 2),
+    _EoACPwrAttributesWyePhaseToNeutralVoltage_Type()
+)
+eoACPwrAttributesWyePhaseToNeutralVoltage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesWyePhaseToNeutralVoltage.setStatus("current")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesWyePhaseToNeutralVoltage.setUnits("0.1 Volt AC")
+_EoACPwrAttributesWyeCurrent_Type = Integer32
+_EoACPwrAttributesWyeCurrent_Object = MibTableColumn
+eoACPwrAttributesWyeCurrent = _EoACPwrAttributesWyeCurrent_Object(
+    (1, 3, 6, 1, 2, 1, 230, 1, 3, 1, 3),
+    _EoACPwrAttributesWyeCurrent_Type()
+)
+eoACPwrAttributesWyeCurrent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesWyeCurrent.setStatus("current")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesWyeCurrent.setUnits("0.1 amperes AC")
+_EoACPwrAttributesWyeActivePower_Type = Integer32
+_EoACPwrAttributesWyeActivePower_Object = MibTableColumn
+eoACPwrAttributesWyeActivePower = _EoACPwrAttributesWyeActivePower_Object(
+    (1, 3, 6, 1, 2, 1, 230, 1, 3, 1, 4),
+    _EoACPwrAttributesWyeActivePower_Type()
+)
+eoACPwrAttributesWyeActivePower.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesWyeActivePower.setStatus("current")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesWyeActivePower.setUnits("watts")
+_EoACPwrAttributesWyeReactivePower_Type = Integer32
+_EoACPwrAttributesWyeReactivePower_Object = MibTableColumn
+eoACPwrAttributesWyeReactivePower = _EoACPwrAttributesWyeReactivePower_Object(
+    (1, 3, 6, 1, 2, 1, 230, 1, 3, 1, 5),
+    _EoACPwrAttributesWyeReactivePower_Type()
+)
+eoACPwrAttributesWyeReactivePower.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesWyeReactivePower.setStatus("current")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesWyeReactivePower.setUnits("volt-amperes reactive")
+_EoACPwrAttributesWyeApparentPower_Type = Integer32
+_EoACPwrAttributesWyeApparentPower_Object = MibTableColumn
+eoACPwrAttributesWyeApparentPower = _EoACPwrAttributesWyeApparentPower_Object(
+    (1, 3, 6, 1, 2, 1, 230, 1, 3, 1, 6),
+    _EoACPwrAttributesWyeApparentPower_Type()
+)
+eoACPwrAttributesWyeApparentPower.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesWyeApparentPower.setStatus("current")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesWyeApparentPower.setUnits("volt-amperes")
+
+
+class _EoACPwrAttributesWyePowerFactor_Type(Integer32):
+    """Custom type eoACPwrAttributesWyePowerFactor based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-10000, 10000),
+    )
+
+
+_EoACPwrAttributesWyePowerFactor_Type.__name__ = "Integer32"
+_EoACPwrAttributesWyePowerFactor_Object = MibTableColumn
+eoACPwrAttributesWyePowerFactor = _EoACPwrAttributesWyePowerFactor_Object(
+    (1, 3, 6, 1, 2, 1, 230, 1, 3, 1, 7),
+    _EoACPwrAttributesWyePowerFactor_Type()
+)
+eoACPwrAttributesWyePowerFactor.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesWyePowerFactor.setStatus("current")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesWyePowerFactor.setUnits("hundredths")
+
+
+class _EoACPwrAttributesWyeThdCurrent_Type(Integer32):
+    """Custom type eoACPwrAttributesWyeThdCurrent based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 10000),
+    )
+
+
+_EoACPwrAttributesWyeThdCurrent_Type.__name__ = "Integer32"
+_EoACPwrAttributesWyeThdCurrent_Object = MibTableColumn
+eoACPwrAttributesWyeThdCurrent = _EoACPwrAttributesWyeThdCurrent_Object(
+    (1, 3, 6, 1, 2, 1, 230, 1, 3, 1, 8),
+    _EoACPwrAttributesWyeThdCurrent_Type()
+)
+eoACPwrAttributesWyeThdCurrent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesWyeThdCurrent.setStatus("current")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesWyeThdCurrent.setUnits("hundredths of percent")
+
+
+class _EoACPwrAttributesWyeThdPhaseToNeutralVoltage_Type(Integer32):
+    """Custom type eoACPwrAttributesWyeThdPhaseToNeutralVoltage based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 10000),
+    )
+
+
+_EoACPwrAttributesWyeThdPhaseToNeutralVoltage_Type.__name__ = "Integer32"
+_EoACPwrAttributesWyeThdPhaseToNeutralVoltage_Object = MibTableColumn
+eoACPwrAttributesWyeThdPhaseToNeutralVoltage = _EoACPwrAttributesWyeThdPhaseToNeutralVoltage_Object(
+    (1, 3, 6, 1, 2, 1, 230, 1, 3, 1, 9),
+    _EoACPwrAttributesWyeThdPhaseToNeutralVoltage_Type()
+)
+eoACPwrAttributesWyeThdPhaseToNeutralVoltage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesWyeThdPhaseToNeutralVoltage.setStatus("current")
+if mibBuilder.loadTexts:
+    eoACPwrAttributesWyeThdPhaseToNeutralVoltage.setUnits("hundredths of percent")
+_PowerAttributesMIBCompliances_ObjectIdentity = ObjectIdentity
+powerAttributesMIBCompliances = _PowerAttributesMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 230, 2)
+)
+_PowerAttributesMIBGroups_ObjectIdentity = ObjectIdentity
+powerAttributesMIBGroups = _PowerAttributesMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 230, 3)
+)
+
+# Managed Objects groups
+
+powerACPwrAttributesMIBTableGroup = ObjectGroup(
+    (1, 3, 6, 1, 2, 1, 230, 3, 1)
+)
+powerACPwrAttributesMIBTableGroup.setObjects(
+      *(("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesAvgVoltage"),
+        ("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesAvgCurrent"),
+        ("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesFrequency"),
+        ("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesPowerUnitMultiplier"),
+        ("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesPowerAccuracy"),
+        ("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesTotalActivePower"),
+        ("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesTotalReactivePower"),
+        ("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesTotalApparentPower"),
+        ("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesTotalPowerFactor"))
+)
+if mibBuilder.loadTexts:
+    powerACPwrAttributesMIBTableGroup.setStatus("current")
+
+powerACPwrAttributesOptionalMIBTableGroup = ObjectGroup(
+    (1, 3, 6, 1, 2, 1, 230, 3, 2)
+)
+powerACPwrAttributesOptionalMIBTableGroup.setObjects(
+      *(("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesConfiguration"),
+        ("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesThdCurrent"),
+        ("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesThdVoltage"))
+)
+if mibBuilder.loadTexts:
+    powerACPwrAttributesOptionalMIBTableGroup.setStatus("current")
+
+powerACPwrAttributesDelPhaseMIBTableGroup = ObjectGroup(
+    (1, 3, 6, 1, 2, 1, 230, 3, 3)
+)
+powerACPwrAttributesDelPhaseMIBTableGroup.setObjects(
+      *(("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesDelPhaseToNextPhaseVoltage"),
+        ("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesDelThdPhaseToNextPhaseVoltage"))
+)
+if mibBuilder.loadTexts:
+    powerACPwrAttributesDelPhaseMIBTableGroup.setStatus("current")
+
+powerACPwrAttributesWyePhaseMIBTableGroup = ObjectGroup(
+    (1, 3, 6, 1, 2, 1, 230, 3, 4)
+)
+powerACPwrAttributesWyePhaseMIBTableGroup.setObjects(
+      *(("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesWyePhaseToNeutralVoltage"),
+        ("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesWyeCurrent"),
+        ("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesWyeActivePower"),
+        ("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesWyeReactivePower"),
+        ("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesWyeApparentPower"),
+        ("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesWyePowerFactor"),
+        ("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesWyeThdPhaseToNeutralVoltage"),
+        ("POWER-ATTRIBUTES-MIB", "eoACPwrAttributesWyeThdCurrent"))
+)
+if mibBuilder.loadTexts:
+    powerACPwrAttributesWyePhaseMIBTableGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+powerAttributesMIBFullCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 2, 1, 230, 2, 1)
+)
+if mibBuilder.loadTexts:
+    powerAttributesMIBFullCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "POWER-ATTRIBUTES-MIB",
+    **{"powerAttributesMIB": powerAttributesMIB,
+       "powerAttributesMIBConform": powerAttributesMIBConform,
+       "powerAttributesMIBObjects": powerAttributesMIBObjects,
+       "eoACPwrAttributesTable": eoACPwrAttributesTable,
+       "eoACPwrAttributesEntry": eoACPwrAttributesEntry,
+       "eoACPwrAttributesConfiguration": eoACPwrAttributesConfiguration,
+       "eoACPwrAttributesAvgVoltage": eoACPwrAttributesAvgVoltage,
+       "eoACPwrAttributesAvgCurrent": eoACPwrAttributesAvgCurrent,
+       "eoACPwrAttributesFrequency": eoACPwrAttributesFrequency,
+       "eoACPwrAttributesPowerUnitMultiplier": eoACPwrAttributesPowerUnitMultiplier,
+       "eoACPwrAttributesPowerAccuracy": eoACPwrAttributesPowerAccuracy,
+       "eoACPwrAttributesTotalActivePower": eoACPwrAttributesTotalActivePower,
+       "eoACPwrAttributesTotalReactivePower": eoACPwrAttributesTotalReactivePower,
+       "eoACPwrAttributesTotalApparentPower": eoACPwrAttributesTotalApparentPower,
+       "eoACPwrAttributesTotalPowerFactor": eoACPwrAttributesTotalPowerFactor,
+       "eoACPwrAttributesThdCurrent": eoACPwrAttributesThdCurrent,
+       "eoACPwrAttributesThdVoltage": eoACPwrAttributesThdVoltage,
+       "eoACPwrAttributesDelPhaseTable": eoACPwrAttributesDelPhaseTable,
+       "eoACPwrAttributesDelPhaseEntry": eoACPwrAttributesDelPhaseEntry,
+       "eoACPwrAttributesDelPhaseIndex": eoACPwrAttributesDelPhaseIndex,
+       "eoACPwrAttributesDelPhaseToNextPhaseVoltage": eoACPwrAttributesDelPhaseToNextPhaseVoltage,
+       "eoACPwrAttributesDelThdPhaseToNextPhaseVoltage": eoACPwrAttributesDelThdPhaseToNextPhaseVoltage,
+       "eoACPwrAttributesWyePhaseTable": eoACPwrAttributesWyePhaseTable,
+       "eoACPwrAttributesWyePhaseEntry": eoACPwrAttributesWyePhaseEntry,
+       "eoACPwrAttributesWyePhaseIndex": eoACPwrAttributesWyePhaseIndex,
+       "eoACPwrAttributesWyePhaseToNeutralVoltage": eoACPwrAttributesWyePhaseToNeutralVoltage,
+       "eoACPwrAttributesWyeCurrent": eoACPwrAttributesWyeCurrent,
+       "eoACPwrAttributesWyeActivePower": eoACPwrAttributesWyeActivePower,
+       "eoACPwrAttributesWyeReactivePower": eoACPwrAttributesWyeReactivePower,
+       "eoACPwrAttributesWyeApparentPower": eoACPwrAttributesWyeApparentPower,
+       "eoACPwrAttributesWyePowerFactor": eoACPwrAttributesWyePowerFactor,
+       "eoACPwrAttributesWyeThdCurrent": eoACPwrAttributesWyeThdCurrent,
+       "eoACPwrAttributesWyeThdPhaseToNeutralVoltage": eoACPwrAttributesWyeThdPhaseToNeutralVoltage,
+       "powerAttributesMIBCompliances": powerAttributesMIBCompliances,
+       "powerAttributesMIBFullCompliance": powerAttributesMIBFullCompliance,
+       "powerAttributesMIBGroups": powerAttributesMIBGroups,
+       "powerACPwrAttributesMIBTableGroup": powerACPwrAttributesMIBTableGroup,
+       "powerACPwrAttributesOptionalMIBTableGroup": powerACPwrAttributesOptionalMIBTableGroup,
+       "powerACPwrAttributesDelPhaseMIBTableGroup": powerACPwrAttributesDelPhaseMIBTableGroup,
+       "powerACPwrAttributesWyePhaseMIBTableGroup": powerACPwrAttributesWyePhaseMIBTableGroup}
+)

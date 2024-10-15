@@ -1,65 +1,425 @@
+# SNMP MIB module (HP-ICF-CONNECTION-RATE-FILTER) expressed in pysnmp data model.
 #
-# PySNMP MIB module HP-ICF-CONNECTION-RATE-FILTER (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/HP-ICF-CONNECTION-RATE-FILTER
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:20:58 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint")
-hpSwitch, = mibBuilder.importSymbols("HP-ICF-OID", "hpSwitch")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-ObjectIdentity, ModuleIdentity, iso, IpAddress, Integer32, Bits, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Unsigned32, Gauge32, Counter64, NotificationType, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "ModuleIdentity", "iso", "IpAddress", "Integer32", "Bits", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Unsigned32", "Gauge32", "Counter64", "NotificationType", "MibIdentifier")
-TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
-hpicfConnectionRateFilter = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24))
-hpicfConnectionRateFilter.setRevisions(('2009-05-12 01:08', '2004-09-07 01:08',))
-if mibBuilder.loadTexts: hpicfConnectionRateFilter.setLastUpdated('200905120108Z')
-if mibBuilder.loadTexts: hpicfConnectionRateFilter.setOrganization('HP Networking')
-hpicfConnectionRateFilterNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 0))
-hpicfConnectionRateFilterNotificationControl = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 1))
-hpicfConnectionRateFilterObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 2))
-hpicfConnectionRateFilterConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 3))
-hpicfConnectionRateFilterIfModeConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 4))
-hpicfConnectionRateFilterNotification = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 0, 1)).setObjects(("HP-ICF-CONNECTION-RATE-FILTER", "hpicifConnectionRateFilterVlanId"), ("HP-ICF-CONNECTION-RATE-FILTER", "hpicifConnectionRateFilterInetAddress"), ("HP-ICF-CONNECTION-RATE-FILTER", "hpicifConnectionRateFilterInetAddressType"), ("HP-ICF-CONNECTION-RATE-FILTER", "hpicifConnectionRateFilterMode"))
-if mibBuilder.loadTexts: hpicfConnectionRateFilterNotification.setStatus('current')
-hpicifConnectionRateFilterVlanId = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 2, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: hpicifConnectionRateFilterVlanId.setStatus('current')
-hpicifConnectionRateFilterInetAddress = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 2, 2), InetAddress()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: hpicifConnectionRateFilterInetAddress.setStatus('current')
-hpicifConnectionRateFilterInetAddressType = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 2, 3), InetAddressType()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: hpicifConnectionRateFilterInetAddressType.setStatus('current')
-hpicifConnectionRateFilterMode = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 2, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("inform", 0), ("throttle", 1), ("block", 2)))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: hpicifConnectionRateFilterMode.setStatus('current')
-hpicfConnectionRateFilterIfModeConfigTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 4, 1), )
-if mibBuilder.loadTexts: hpicfConnectionRateFilterIfModeConfigTable.setStatus('current')
-hpicfConnectionRateFilterIfModeConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 4, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: hpicfConnectionRateFilterIfModeConfigEntry.setStatus('current')
-hpicfConnectionRateFilterIfModeValue = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 4, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("none", 0), ("inform", 1), ("throttle", 2), ("block", 3))).clone('none')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpicfConnectionRateFilterIfModeValue.setStatus('current')
-hpicfConnectionRateFilterNotificationControlEnable = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 1, 1), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpicfConnectionRateFilterNotificationControlEnable.setStatus('current')
-hpicfConnectionRateFilterSensitivity = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("none", 0), ("low", 1), ("medium", 2), ("high", 3), ("aggressive", 4))).clone('none')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpicfConnectionRateFilterSensitivity.setStatus('current')
-hpicfConnectionRateFilterCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 3, 1))
-hpicfConnectionRateFilterGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 3, 2))
-hpicfConnectionRateFilterCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 3, 1, 1)).setObjects(("HP-ICF-CONNECTION-RATE-FILTER", "hpicfConnectionRateFilterNotifyGroup"), ("HP-ICF-CONNECTION-RATE-FILTER", "hpicfConnectionRateFilterObjectGroup"), ("HP-ICF-CONNECTION-RATE-FILTER", "hpicfConnectionRateFilterNotifyGroup"), ("HP-ICF-CONNECTION-RATE-FILTER", "hpicfConnectionRateFilterObjectGroup"))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HP-ICF-CONNECTION-RATE-FILTER
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:57:12 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hpicfConnectionRateFilterCompliance = hpicfConnectionRateFilterCompliance.setStatus('current')
-hpicfConnectionRateFilterCompliance1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 3, 1, 2)).setObjects(("HP-ICF-CONNECTION-RATE-FILTER", "hpicfConnectionRateFilterObjectGroup1"))
+if 'mibBuilder' not in globals():
+    import sys
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hpicfConnectionRateFilterCompliance1 = hpicfConnectionRateFilterCompliance1.setStatus('current')
-hpicfConnectionRateFilterNotifyGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 3, 2, 1)).setObjects(("HP-ICF-CONNECTION-RATE-FILTER", "hpicfConnectionRateFilterNotification"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hpicfConnectionRateFilterNotifyGroup = hpicfConnectionRateFilterNotifyGroup.setStatus('current')
-hpicfConnectionRateFilterObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 3, 2, 2)).setObjects(("HP-ICF-CONNECTION-RATE-FILTER", "hpicfConnectionRateFilterNotificationControlEnable"), ("HP-ICF-CONNECTION-RATE-FILTER", "hpicfConnectionRateFilterIfModeValue"), ("HP-ICF-CONNECTION-RATE-FILTER", "hpicfConnectionRateFilterSensitivity"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hpicfConnectionRateFilterObjectGroup = hpicfConnectionRateFilterObjectGroup.setStatus('current')
-hpicfConnectionRateFilterObjectGroup1 = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 3, 2, 3)).setObjects(("HP-ICF-CONNECTION-RATE-FILTER", "hpicifConnectionRateFilterVlanId"), ("HP-ICF-CONNECTION-RATE-FILTER", "hpicifConnectionRateFilterInetAddress"), ("HP-ICF-CONNECTION-RATE-FILTER", "hpicifConnectionRateFilterInetAddressType"), ("HP-ICF-CONNECTION-RATE-FILTER", "hpicifConnectionRateFilterMode"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hpicfConnectionRateFilterObjectGroup1 = hpicfConnectionRateFilterObjectGroup1.setStatus('current')
-mibBuilder.exportSymbols("HP-ICF-CONNECTION-RATE-FILTER", hpicifConnectionRateFilterInetAddressType=hpicifConnectionRateFilterInetAddressType, hpicfConnectionRateFilterNotification=hpicfConnectionRateFilterNotification, hpicfConnectionRateFilterNotifications=hpicfConnectionRateFilterNotifications, hpicfConnectionRateFilterIfModeConfig=hpicfConnectionRateFilterIfModeConfig, hpicifConnectionRateFilterMode=hpicifConnectionRateFilterMode, hpicfConnectionRateFilterObjects=hpicfConnectionRateFilterObjects, PYSNMP_MODULE_ID=hpicfConnectionRateFilter, hpicifConnectionRateFilterInetAddress=hpicifConnectionRateFilterInetAddress, hpicfConnectionRateFilterNotificationControlEnable=hpicfConnectionRateFilterNotificationControlEnable, hpicfConnectionRateFilterObjectGroup1=hpicfConnectionRateFilterObjectGroup1, hpicifConnectionRateFilterVlanId=hpicifConnectionRateFilterVlanId, hpicfConnectionRateFilterSensitivity=hpicfConnectionRateFilterSensitivity, hpicfConnectionRateFilterNotifyGroup=hpicfConnectionRateFilterNotifyGroup, hpicfConnectionRateFilter=hpicfConnectionRateFilter, hpicfConnectionRateFilterCompliance1=hpicfConnectionRateFilterCompliance1, hpicfConnectionRateFilterIfModeConfigTable=hpicfConnectionRateFilterIfModeConfigTable, hpicfConnectionRateFilterObjectGroup=hpicfConnectionRateFilterObjectGroup, hpicfConnectionRateFilterCompliance=hpicfConnectionRateFilterCompliance, hpicfConnectionRateFilterIfModeValue=hpicfConnectionRateFilterIfModeValue, hpicfConnectionRateFilterNotificationControl=hpicfConnectionRateFilterNotificationControl, hpicfConnectionRateFilterCompliances=hpicfConnectionRateFilterCompliances, hpicfConnectionRateFilterIfModeConfigEntry=hpicfConnectionRateFilterIfModeConfigEntry, hpicfConnectionRateFilterGroups=hpicfConnectionRateFilterGroups, hpicfConnectionRateFilterConformance=hpicfConnectionRateFilterConformance)
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(hpSwitch,) = mibBuilder.importSymbols(
+    "HP-ICF-OID",
+    "hpSwitch")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+hpicfConnectionRateFilter = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24)
+)
+hpicfConnectionRateFilter.setRevisions(
+        ("2009-05-12 01:08",
+         "2004-09-07 01:08")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_HpicfConnectionRateFilterNotifications_ObjectIdentity = ObjectIdentity
+hpicfConnectionRateFilterNotifications = _HpicfConnectionRateFilterNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 0)
+)
+_HpicfConnectionRateFilterNotificationControl_ObjectIdentity = ObjectIdentity
+hpicfConnectionRateFilterNotificationControl = _HpicfConnectionRateFilterNotificationControl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 1)
+)
+_HpicfConnectionRateFilterNotificationControlEnable_Type = TruthValue
+_HpicfConnectionRateFilterNotificationControlEnable_Object = MibScalar
+hpicfConnectionRateFilterNotificationControlEnable = _HpicfConnectionRateFilterNotificationControlEnable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 1, 1),
+    _HpicfConnectionRateFilterNotificationControlEnable_Type()
+)
+hpicfConnectionRateFilterNotificationControlEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpicfConnectionRateFilterNotificationControlEnable.setStatus("current")
+
+
+class _HpicfConnectionRateFilterSensitivity_Type(Integer32):
+    """Custom type hpicfConnectionRateFilterSensitivity based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("aggressive", 4),
+          ("high", 3),
+          ("low", 1),
+          ("medium", 2),
+          ("none", 0))
+    )
+
+
+_HpicfConnectionRateFilterSensitivity_Type.__name__ = "Integer32"
+_HpicfConnectionRateFilterSensitivity_Object = MibScalar
+hpicfConnectionRateFilterSensitivity = _HpicfConnectionRateFilterSensitivity_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 1, 2),
+    _HpicfConnectionRateFilterSensitivity_Type()
+)
+hpicfConnectionRateFilterSensitivity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpicfConnectionRateFilterSensitivity.setStatus("current")
+_HpicfConnectionRateFilterObjects_ObjectIdentity = ObjectIdentity
+hpicfConnectionRateFilterObjects = _HpicfConnectionRateFilterObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 2)
+)
+
+
+class _HpicifConnectionRateFilterVlanId_Type(Integer32):
+    """Custom type hpicifConnectionRateFilterVlanId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_HpicifConnectionRateFilterVlanId_Type.__name__ = "Integer32"
+_HpicifConnectionRateFilterVlanId_Object = MibScalar
+hpicifConnectionRateFilterVlanId = _HpicifConnectionRateFilterVlanId_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 2, 1),
+    _HpicifConnectionRateFilterVlanId_Type()
+)
+hpicifConnectionRateFilterVlanId.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    hpicifConnectionRateFilterVlanId.setStatus("current")
+_HpicifConnectionRateFilterInetAddress_Type = InetAddress
+_HpicifConnectionRateFilterInetAddress_Object = MibScalar
+hpicifConnectionRateFilterInetAddress = _HpicifConnectionRateFilterInetAddress_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 2, 2),
+    _HpicifConnectionRateFilterInetAddress_Type()
+)
+hpicifConnectionRateFilterInetAddress.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    hpicifConnectionRateFilterInetAddress.setStatus("current")
+_HpicifConnectionRateFilterInetAddressType_Type = InetAddressType
+_HpicifConnectionRateFilterInetAddressType_Object = MibScalar
+hpicifConnectionRateFilterInetAddressType = _HpicifConnectionRateFilterInetAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 2, 3),
+    _HpicifConnectionRateFilterInetAddressType_Type()
+)
+hpicifConnectionRateFilterInetAddressType.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    hpicifConnectionRateFilterInetAddressType.setStatus("current")
+
+
+class _HpicifConnectionRateFilterMode_Type(Integer32):
+    """Custom type hpicifConnectionRateFilterMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("block", 2),
+          ("inform", 0),
+          ("throttle", 1))
+    )
+
+
+_HpicifConnectionRateFilterMode_Type.__name__ = "Integer32"
+_HpicifConnectionRateFilterMode_Object = MibScalar
+hpicifConnectionRateFilterMode = _HpicifConnectionRateFilterMode_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 2, 4),
+    _HpicifConnectionRateFilterMode_Type()
+)
+hpicifConnectionRateFilterMode.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    hpicifConnectionRateFilterMode.setStatus("current")
+_HpicfConnectionRateFilterConformance_ObjectIdentity = ObjectIdentity
+hpicfConnectionRateFilterConformance = _HpicfConnectionRateFilterConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 3)
+)
+_HpicfConnectionRateFilterCompliances_ObjectIdentity = ObjectIdentity
+hpicfConnectionRateFilterCompliances = _HpicfConnectionRateFilterCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 3, 1)
+)
+_HpicfConnectionRateFilterGroups_ObjectIdentity = ObjectIdentity
+hpicfConnectionRateFilterGroups = _HpicfConnectionRateFilterGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 3, 2)
+)
+_HpicfConnectionRateFilterIfModeConfig_ObjectIdentity = ObjectIdentity
+hpicfConnectionRateFilterIfModeConfig = _HpicfConnectionRateFilterIfModeConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 4)
+)
+_HpicfConnectionRateFilterIfModeConfigTable_Object = MibTable
+hpicfConnectionRateFilterIfModeConfigTable = _HpicfConnectionRateFilterIfModeConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 4, 1)
+)
+if mibBuilder.loadTexts:
+    hpicfConnectionRateFilterIfModeConfigTable.setStatus("current")
+_HpicfConnectionRateFilterIfModeConfigEntry_Object = MibTableRow
+hpicfConnectionRateFilterIfModeConfigEntry = _HpicfConnectionRateFilterIfModeConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 4, 1, 1)
+)
+hpicfConnectionRateFilterIfModeConfigEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    hpicfConnectionRateFilterIfModeConfigEntry.setStatus("current")
+
+
+class _HpicfConnectionRateFilterIfModeValue_Type(Integer32):
+    """Custom type hpicfConnectionRateFilterIfModeValue based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("block", 3),
+          ("inform", 1),
+          ("none", 0),
+          ("throttle", 2))
+    )
+
+
+_HpicfConnectionRateFilterIfModeValue_Type.__name__ = "Integer32"
+_HpicfConnectionRateFilterIfModeValue_Object = MibTableColumn
+hpicfConnectionRateFilterIfModeValue = _HpicfConnectionRateFilterIfModeValue_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 4, 1, 1, 1),
+    _HpicfConnectionRateFilterIfModeValue_Type()
+)
+hpicfConnectionRateFilterIfModeValue.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpicfConnectionRateFilterIfModeValue.setStatus("current")
+
+# Managed Objects groups
+
+hpicfConnectionRateFilterObjectGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 3, 2, 2)
+)
+hpicfConnectionRateFilterObjectGroup.setObjects(
+      *(("HP-ICF-CONNECTION-RATE-FILTER", "hpicfConnectionRateFilterNotificationControlEnable"),
+        ("HP-ICF-CONNECTION-RATE-FILTER", "hpicfConnectionRateFilterIfModeValue"),
+        ("HP-ICF-CONNECTION-RATE-FILTER", "hpicfConnectionRateFilterSensitivity"))
+)
+if mibBuilder.loadTexts:
+    hpicfConnectionRateFilterObjectGroup.setStatus("current")
+
+hpicfConnectionRateFilterObjectGroup1 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 3, 2, 3)
+)
+hpicfConnectionRateFilterObjectGroup1.setObjects(
+      *(("HP-ICF-CONNECTION-RATE-FILTER", "hpicifConnectionRateFilterVlanId"),
+        ("HP-ICF-CONNECTION-RATE-FILTER", "hpicifConnectionRateFilterInetAddress"),
+        ("HP-ICF-CONNECTION-RATE-FILTER", "hpicifConnectionRateFilterInetAddressType"),
+        ("HP-ICF-CONNECTION-RATE-FILTER", "hpicifConnectionRateFilterMode"))
+)
+if mibBuilder.loadTexts:
+    hpicfConnectionRateFilterObjectGroup1.setStatus("current")
+
+
+# Notification objects
+
+hpicfConnectionRateFilterNotification = NotificationType(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 0, 1)
+)
+hpicfConnectionRateFilterNotification.setObjects(
+      *(("HP-ICF-CONNECTION-RATE-FILTER", "hpicifConnectionRateFilterVlanId"),
+        ("HP-ICF-CONNECTION-RATE-FILTER", "hpicifConnectionRateFilterInetAddress"),
+        ("HP-ICF-CONNECTION-RATE-FILTER", "hpicifConnectionRateFilterInetAddressType"),
+        ("HP-ICF-CONNECTION-RATE-FILTER", "hpicifConnectionRateFilterMode"))
+)
+if mibBuilder.loadTexts:
+    hpicfConnectionRateFilterNotification.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+hpicfConnectionRateFilterNotifyGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 3, 2, 1)
+)
+hpicfConnectionRateFilterNotifyGroup.setObjects(
+    ("HP-ICF-CONNECTION-RATE-FILTER", "hpicfConnectionRateFilterNotification")
+)
+if mibBuilder.loadTexts:
+    hpicfConnectionRateFilterNotifyGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+hpicfConnectionRateFilterCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 3, 1, 1)
+)
+if mibBuilder.loadTexts:
+    hpicfConnectionRateFilterCompliance.setStatus(
+        "current"
+    )
+
+hpicfConnectionRateFilterCompliance1 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 24, 3, 1, 2)
+)
+if mibBuilder.loadTexts:
+    hpicfConnectionRateFilterCompliance1.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HP-ICF-CONNECTION-RATE-FILTER",
+    **{"hpicfConnectionRateFilter": hpicfConnectionRateFilter,
+       "hpicfConnectionRateFilterNotifications": hpicfConnectionRateFilterNotifications,
+       "hpicfConnectionRateFilterNotification": hpicfConnectionRateFilterNotification,
+       "hpicfConnectionRateFilterNotificationControl": hpicfConnectionRateFilterNotificationControl,
+       "hpicfConnectionRateFilterNotificationControlEnable": hpicfConnectionRateFilterNotificationControlEnable,
+       "hpicfConnectionRateFilterSensitivity": hpicfConnectionRateFilterSensitivity,
+       "hpicfConnectionRateFilterObjects": hpicfConnectionRateFilterObjects,
+       "hpicifConnectionRateFilterVlanId": hpicifConnectionRateFilterVlanId,
+       "hpicifConnectionRateFilterInetAddress": hpicifConnectionRateFilterInetAddress,
+       "hpicifConnectionRateFilterInetAddressType": hpicifConnectionRateFilterInetAddressType,
+       "hpicifConnectionRateFilterMode": hpicifConnectionRateFilterMode,
+       "hpicfConnectionRateFilterConformance": hpicfConnectionRateFilterConformance,
+       "hpicfConnectionRateFilterCompliances": hpicfConnectionRateFilterCompliances,
+       "hpicfConnectionRateFilterCompliance": hpicfConnectionRateFilterCompliance,
+       "hpicfConnectionRateFilterCompliance1": hpicfConnectionRateFilterCompliance1,
+       "hpicfConnectionRateFilterGroups": hpicfConnectionRateFilterGroups,
+       "hpicfConnectionRateFilterNotifyGroup": hpicfConnectionRateFilterNotifyGroup,
+       "hpicfConnectionRateFilterObjectGroup": hpicfConnectionRateFilterObjectGroup,
+       "hpicfConnectionRateFilterObjectGroup1": hpicfConnectionRateFilterObjectGroup1,
+       "hpicfConnectionRateFilterIfModeConfig": hpicfConnectionRateFilterIfModeConfig,
+       "hpicfConnectionRateFilterIfModeConfigTable": hpicfConnectionRateFilterIfModeConfigTable,
+       "hpicfConnectionRateFilterIfModeConfigEntry": hpicfConnectionRateFilterIfModeConfigEntry,
+       "hpicfConnectionRateFilterIfModeValue": hpicfConnectionRateFilterIfModeValue}
+)

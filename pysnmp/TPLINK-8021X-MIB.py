@@ -1,80 +1,671 @@
+# SNMP MIB module (TPLINK-8021X-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module TPLINK-8021X-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/TPLINK-8021X-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 21:16:41 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Gauge32, NotificationType, TimeTicks, iso, ObjectIdentity, MibIdentifier, IpAddress, Counter32, Integer32, Bits, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Gauge32", "NotificationType", "TimeTicks", "iso", "ObjectIdentity", "MibIdentifier", "IpAddress", "Counter32", "Integer32", "Bits", "Unsigned32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-tplinkMgmt, = mibBuilder.importSymbols("TPLINK-MIB", "tplinkMgmt")
-tplink8021xMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11863, 6, 31))
-tplink8021xMIB.setRevisions(('2012-12-17 10:50',))
-if mibBuilder.loadTexts: tplink8021xMIB.setLastUpdated('201212171050Z')
-if mibBuilder.loadTexts: tplink8021xMIB.setOrganization('TPLINK')
-tplink8021xMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 31, 1))
-tplink8021xNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 31, 2))
-tp8021xGlobalConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1))
-tp8021xGlobalEnable = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tp8021xGlobalEnable.setStatus('current')
-tp8021xAuthMode = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("pap", 0), ("eap", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tp8021xAuthMode.setStatus('current')
-tp8021xHandshake = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tp8021xHandshake.setStatus('current')
-tp8021xGuestVlanEnable = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tp8021xGuestVlanEnable.setStatus('current')
-tp8021xGuestVlanID = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tp8021xGuestVlanID.setStatus('current')
-tp8021xQuietEnable = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tp8021xQuietEnable.setStatus('current')
-tp8021xQuietPeriod = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1, 7), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tp8021xQuietPeriod.setStatus('current')
-tp8021xRetryTimes = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1, 8), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tp8021xRetryTimes.setStatus('current')
-tp8021xSupplicantTimeOut = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1, 9), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tp8021xSupplicantTimeOut.setStatus('current')
-tp8021xServerTimeOut = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1, 10), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tp8021xServerTimeOut.setStatus('current')
-tp8021xAuthPrimaryIP = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1, 11), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tp8021xAuthPrimaryIP.setStatus('current')
-tp8021xAuthSecondaryIP = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1, 12), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tp8021xAuthSecondaryIP.setStatus('current')
-tp8021xServerAuthPort = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1, 13), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tp8021xServerAuthPort.setStatus('current')
-tp8021xServerAuthKey = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1, 14), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tp8021xServerAuthKey.setStatus('current')
-tp8021xAcctEnable = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tp8021xAcctEnable.setStatus('current')
-tp8021xAcctPrimaryIP = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1, 16), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tp8021xAcctPrimaryIP.setStatus('current')
-tp8021xAcctSecondaryIP = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1, 17), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tp8021xAcctSecondaryIP.setStatus('current')
-tp8021xAcctPort = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1, 18), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tp8021xAcctPort.setStatus('current')
-tp8021xAcctKey = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1, 19), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tp8021xAcctKey.setStatus('current')
-tp8021xPortConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 2))
-tp8021xPortConfigTable = MibTable((1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 2, 1), )
-if mibBuilder.loadTexts: tp8021xPortConfigTable.setStatus('current')
-tp8021xPortConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: tp8021xPortConfigEntry.setStatus('current')
-tp8021xPortConfigPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 2, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tp8021xPortConfigPortIndex.setStatus('current')
-tp8021xPortConfigEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tp8021xPortConfigEnable.setStatus('current')
-tp8021xPortConfigGuestVlanEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tp8021xPortConfigGuestVlanEnable.setStatus('current')
-tp8021xPortConfigControlMode = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("forceAuth", 0), ("forceUnAuth", 1), ("autoAuth", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tp8021xPortConfigControlMode.setStatus('current')
-tp8021xPortConfigControlType = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("macBased", 0), ("portBased", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tp8021xPortConfigControlType.setStatus('current')
-tp8021xPortConfigAuthState = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 2, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("unAuthorized", 0), ("authorized", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tp8021xPortConfigAuthState.setStatus('current')
-tp8021xPortConfigPortLag = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 2, 1, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tp8021xPortConfigPortLag.setStatus('current')
-mibBuilder.exportSymbols("TPLINK-8021X-MIB", tp8021xGlobalConfig=tp8021xGlobalConfig, tp8021xServerAuthKey=tp8021xServerAuthKey, tp8021xAcctEnable=tp8021xAcctEnable, tp8021xQuietPeriod=tp8021xQuietPeriod, tplink8021xNotifications=tplink8021xNotifications, tp8021xPortConfig=tp8021xPortConfig, tp8021xPortConfigAuthState=tp8021xPortConfigAuthState, tp8021xServerAuthPort=tp8021xServerAuthPort, tp8021xGuestVlanEnable=tp8021xGuestVlanEnable, tp8021xAuthMode=tp8021xAuthMode, tp8021xPortConfigEntry=tp8021xPortConfigEntry, tp8021xPortConfigPortLag=tp8021xPortConfigPortLag, tp8021xSupplicantTimeOut=tp8021xSupplicantTimeOut, tp8021xPortConfigPortIndex=tp8021xPortConfigPortIndex, tp8021xQuietEnable=tp8021xQuietEnable, tp8021xPortConfigEnable=tp8021xPortConfigEnable, tp8021xAcctPort=tp8021xAcctPort, tp8021xAuthSecondaryIP=tp8021xAuthSecondaryIP, tp8021xGlobalEnable=tp8021xGlobalEnable, tplink8021xMIB=tplink8021xMIB, PYSNMP_MODULE_ID=tplink8021xMIB, tp8021xServerTimeOut=tp8021xServerTimeOut, tp8021xRetryTimes=tp8021xRetryTimes, tp8021xHandshake=tp8021xHandshake, tp8021xAuthPrimaryIP=tp8021xAuthPrimaryIP, tp8021xPortConfigControlType=tp8021xPortConfigControlType, tp8021xGuestVlanID=tp8021xGuestVlanID, tplink8021xMIBObjects=tplink8021xMIBObjects, tp8021xAcctKey=tp8021xAcctKey, tp8021xPortConfigGuestVlanEnable=tp8021xPortConfigGuestVlanEnable, tp8021xAcctSecondaryIP=tp8021xAcctSecondaryIP, tp8021xPortConfigControlMode=tp8021xPortConfigControlMode, tp8021xAcctPrimaryIP=tp8021xAcctPrimaryIP, tp8021xPortConfigTable=tp8021xPortConfigTable)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/TPLINK-8021X-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:05:44 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+(tplinkMgmt,) = mibBuilder.importSymbols(
+    "TPLINK-MIB",
+    "tplinkMgmt")
+
+
+# MODULE-IDENTITY
+
+tplink8021xMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 31)
+)
+tplink8021xMIB.setRevisions(
+        ("2012-12-17 10:50",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Tplink8021xMIBObjects_ObjectIdentity = ObjectIdentity
+tplink8021xMIBObjects = _Tplink8021xMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 31, 1)
+)
+_Tp8021xGlobalConfig_ObjectIdentity = ObjectIdentity
+tp8021xGlobalConfig = _Tp8021xGlobalConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1)
+)
+
+
+class _Tp8021xGlobalEnable_Type(Integer32):
+    """Custom type tp8021xGlobalEnable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Tp8021xGlobalEnable_Type.__name__ = "Integer32"
+_Tp8021xGlobalEnable_Object = MibScalar
+tp8021xGlobalEnable = _Tp8021xGlobalEnable_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1, 1),
+    _Tp8021xGlobalEnable_Type()
+)
+tp8021xGlobalEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tp8021xGlobalEnable.setStatus("current")
+
+
+class _Tp8021xAuthMode_Type(Integer32):
+    """Custom type tp8021xAuthMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eap", 1),
+          ("pap", 0))
+    )
+
+
+_Tp8021xAuthMode_Type.__name__ = "Integer32"
+_Tp8021xAuthMode_Object = MibScalar
+tp8021xAuthMode = _Tp8021xAuthMode_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1, 2),
+    _Tp8021xAuthMode_Type()
+)
+tp8021xAuthMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tp8021xAuthMode.setStatus("current")
+
+
+class _Tp8021xHandshake_Type(Integer32):
+    """Custom type tp8021xHandshake based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Tp8021xHandshake_Type.__name__ = "Integer32"
+_Tp8021xHandshake_Object = MibScalar
+tp8021xHandshake = _Tp8021xHandshake_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1, 3),
+    _Tp8021xHandshake_Type()
+)
+tp8021xHandshake.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tp8021xHandshake.setStatus("current")
+
+
+class _Tp8021xGuestVlanEnable_Type(Integer32):
+    """Custom type tp8021xGuestVlanEnable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Tp8021xGuestVlanEnable_Type.__name__ = "Integer32"
+_Tp8021xGuestVlanEnable_Object = MibScalar
+tp8021xGuestVlanEnable = _Tp8021xGuestVlanEnable_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1, 4),
+    _Tp8021xGuestVlanEnable_Type()
+)
+tp8021xGuestVlanEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tp8021xGuestVlanEnable.setStatus("current")
+_Tp8021xGuestVlanID_Type = Integer32
+_Tp8021xGuestVlanID_Object = MibScalar
+tp8021xGuestVlanID = _Tp8021xGuestVlanID_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1, 5),
+    _Tp8021xGuestVlanID_Type()
+)
+tp8021xGuestVlanID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tp8021xGuestVlanID.setStatus("current")
+
+
+class _Tp8021xQuietEnable_Type(Integer32):
+    """Custom type tp8021xQuietEnable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Tp8021xQuietEnable_Type.__name__ = "Integer32"
+_Tp8021xQuietEnable_Object = MibScalar
+tp8021xQuietEnable = _Tp8021xQuietEnable_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1, 6),
+    _Tp8021xQuietEnable_Type()
+)
+tp8021xQuietEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tp8021xQuietEnable.setStatus("current")
+_Tp8021xQuietPeriod_Type = Integer32
+_Tp8021xQuietPeriod_Object = MibScalar
+tp8021xQuietPeriod = _Tp8021xQuietPeriod_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1, 7),
+    _Tp8021xQuietPeriod_Type()
+)
+tp8021xQuietPeriod.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tp8021xQuietPeriod.setStatus("current")
+_Tp8021xRetryTimes_Type = Integer32
+_Tp8021xRetryTimes_Object = MibScalar
+tp8021xRetryTimes = _Tp8021xRetryTimes_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1, 8),
+    _Tp8021xRetryTimes_Type()
+)
+tp8021xRetryTimes.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tp8021xRetryTimes.setStatus("current")
+_Tp8021xSupplicantTimeOut_Type = Integer32
+_Tp8021xSupplicantTimeOut_Object = MibScalar
+tp8021xSupplicantTimeOut = _Tp8021xSupplicantTimeOut_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1, 9),
+    _Tp8021xSupplicantTimeOut_Type()
+)
+tp8021xSupplicantTimeOut.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tp8021xSupplicantTimeOut.setStatus("current")
+_Tp8021xServerTimeOut_Type = Integer32
+_Tp8021xServerTimeOut_Object = MibScalar
+tp8021xServerTimeOut = _Tp8021xServerTimeOut_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1, 10),
+    _Tp8021xServerTimeOut_Type()
+)
+tp8021xServerTimeOut.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tp8021xServerTimeOut.setStatus("current")
+_Tp8021xAuthPrimaryIP_Type = IpAddress
+_Tp8021xAuthPrimaryIP_Object = MibScalar
+tp8021xAuthPrimaryIP = _Tp8021xAuthPrimaryIP_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1, 11),
+    _Tp8021xAuthPrimaryIP_Type()
+)
+tp8021xAuthPrimaryIP.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tp8021xAuthPrimaryIP.setStatus("current")
+_Tp8021xAuthSecondaryIP_Type = IpAddress
+_Tp8021xAuthSecondaryIP_Object = MibScalar
+tp8021xAuthSecondaryIP = _Tp8021xAuthSecondaryIP_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1, 12),
+    _Tp8021xAuthSecondaryIP_Type()
+)
+tp8021xAuthSecondaryIP.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tp8021xAuthSecondaryIP.setStatus("current")
+_Tp8021xServerAuthPort_Type = Integer32
+_Tp8021xServerAuthPort_Object = MibScalar
+tp8021xServerAuthPort = _Tp8021xServerAuthPort_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1, 13),
+    _Tp8021xServerAuthPort_Type()
+)
+tp8021xServerAuthPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tp8021xServerAuthPort.setStatus("current")
+
+
+class _Tp8021xServerAuthKey_Type(OctetString):
+    """Custom type tp8021xServerAuthKey based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_Tp8021xServerAuthKey_Type.__name__ = "OctetString"
+_Tp8021xServerAuthKey_Object = MibScalar
+tp8021xServerAuthKey = _Tp8021xServerAuthKey_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1, 14),
+    _Tp8021xServerAuthKey_Type()
+)
+tp8021xServerAuthKey.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tp8021xServerAuthKey.setStatus("current")
+
+
+class _Tp8021xAcctEnable_Type(Integer32):
+    """Custom type tp8021xAcctEnable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Tp8021xAcctEnable_Type.__name__ = "Integer32"
+_Tp8021xAcctEnable_Object = MibScalar
+tp8021xAcctEnable = _Tp8021xAcctEnable_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1, 15),
+    _Tp8021xAcctEnable_Type()
+)
+tp8021xAcctEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tp8021xAcctEnable.setStatus("current")
+_Tp8021xAcctPrimaryIP_Type = IpAddress
+_Tp8021xAcctPrimaryIP_Object = MibScalar
+tp8021xAcctPrimaryIP = _Tp8021xAcctPrimaryIP_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1, 16),
+    _Tp8021xAcctPrimaryIP_Type()
+)
+tp8021xAcctPrimaryIP.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tp8021xAcctPrimaryIP.setStatus("current")
+_Tp8021xAcctSecondaryIP_Type = IpAddress
+_Tp8021xAcctSecondaryIP_Object = MibScalar
+tp8021xAcctSecondaryIP = _Tp8021xAcctSecondaryIP_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1, 17),
+    _Tp8021xAcctSecondaryIP_Type()
+)
+tp8021xAcctSecondaryIP.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tp8021xAcctSecondaryIP.setStatus("current")
+_Tp8021xAcctPort_Type = Integer32
+_Tp8021xAcctPort_Object = MibScalar
+tp8021xAcctPort = _Tp8021xAcctPort_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1, 18),
+    _Tp8021xAcctPort_Type()
+)
+tp8021xAcctPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tp8021xAcctPort.setStatus("current")
+
+
+class _Tp8021xAcctKey_Type(OctetString):
+    """Custom type tp8021xAcctKey based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_Tp8021xAcctKey_Type.__name__ = "OctetString"
+_Tp8021xAcctKey_Object = MibScalar
+tp8021xAcctKey = _Tp8021xAcctKey_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 1, 19),
+    _Tp8021xAcctKey_Type()
+)
+tp8021xAcctKey.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tp8021xAcctKey.setStatus("current")
+_Tp8021xPortConfig_ObjectIdentity = ObjectIdentity
+tp8021xPortConfig = _Tp8021xPortConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 2)
+)
+_Tp8021xPortConfigTable_Object = MibTable
+tp8021xPortConfigTable = _Tp8021xPortConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    tp8021xPortConfigTable.setStatus("current")
+_Tp8021xPortConfigEntry_Object = MibTableRow
+tp8021xPortConfigEntry = _Tp8021xPortConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 2, 1, 1)
+)
+tp8021xPortConfigEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    tp8021xPortConfigEntry.setStatus("current")
+
+
+class _Tp8021xPortConfigPortIndex_Type(DisplayString):
+    """Custom type tp8021xPortConfigPortIndex based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 16),
+    )
+
+
+_Tp8021xPortConfigPortIndex_Type.__name__ = "DisplayString"
+_Tp8021xPortConfigPortIndex_Object = MibTableColumn
+tp8021xPortConfigPortIndex = _Tp8021xPortConfigPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 2, 1, 1, 1),
+    _Tp8021xPortConfigPortIndex_Type()
+)
+tp8021xPortConfigPortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tp8021xPortConfigPortIndex.setStatus("current")
+
+
+class _Tp8021xPortConfigEnable_Type(Integer32):
+    """Custom type tp8021xPortConfigEnable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Tp8021xPortConfigEnable_Type.__name__ = "Integer32"
+_Tp8021xPortConfigEnable_Object = MibTableColumn
+tp8021xPortConfigEnable = _Tp8021xPortConfigEnable_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 2, 1, 1, 2),
+    _Tp8021xPortConfigEnable_Type()
+)
+tp8021xPortConfigEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tp8021xPortConfigEnable.setStatus("current")
+
+
+class _Tp8021xPortConfigGuestVlanEnable_Type(Integer32):
+    """Custom type tp8021xPortConfigGuestVlanEnable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Tp8021xPortConfigGuestVlanEnable_Type.__name__ = "Integer32"
+_Tp8021xPortConfigGuestVlanEnable_Object = MibTableColumn
+tp8021xPortConfigGuestVlanEnable = _Tp8021xPortConfigGuestVlanEnable_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 2, 1, 1, 3),
+    _Tp8021xPortConfigGuestVlanEnable_Type()
+)
+tp8021xPortConfigGuestVlanEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tp8021xPortConfigGuestVlanEnable.setStatus("current")
+
+
+class _Tp8021xPortConfigControlMode_Type(Integer32):
+    """Custom type tp8021xPortConfigControlMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("autoAuth", 2),
+          ("forceAuth", 0),
+          ("forceUnAuth", 1))
+    )
+
+
+_Tp8021xPortConfigControlMode_Type.__name__ = "Integer32"
+_Tp8021xPortConfigControlMode_Object = MibTableColumn
+tp8021xPortConfigControlMode = _Tp8021xPortConfigControlMode_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 2, 1, 1, 4),
+    _Tp8021xPortConfigControlMode_Type()
+)
+tp8021xPortConfigControlMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tp8021xPortConfigControlMode.setStatus("current")
+
+
+class _Tp8021xPortConfigControlType_Type(Integer32):
+    """Custom type tp8021xPortConfigControlType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("macBased", 0),
+          ("portBased", 1))
+    )
+
+
+_Tp8021xPortConfigControlType_Type.__name__ = "Integer32"
+_Tp8021xPortConfigControlType_Object = MibTableColumn
+tp8021xPortConfigControlType = _Tp8021xPortConfigControlType_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 2, 1, 1, 5),
+    _Tp8021xPortConfigControlType_Type()
+)
+tp8021xPortConfigControlType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tp8021xPortConfigControlType.setStatus("current")
+
+
+class _Tp8021xPortConfigAuthState_Type(Integer32):
+    """Custom type tp8021xPortConfigAuthState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("authorized", 1),
+          ("unAuthorized", 0))
+    )
+
+
+_Tp8021xPortConfigAuthState_Type.__name__ = "Integer32"
+_Tp8021xPortConfigAuthState_Object = MibTableColumn
+tp8021xPortConfigAuthState = _Tp8021xPortConfigAuthState_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 2, 1, 1, 6),
+    _Tp8021xPortConfigAuthState_Type()
+)
+tp8021xPortConfigAuthState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tp8021xPortConfigAuthState.setStatus("current")
+
+
+class _Tp8021xPortConfigPortLag_Type(OctetString):
+    """Custom type tp8021xPortConfigPortLag based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_Tp8021xPortConfigPortLag_Type.__name__ = "OctetString"
+_Tp8021xPortConfigPortLag_Object = MibTableColumn
+tp8021xPortConfigPortLag = _Tp8021xPortConfigPortLag_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 31, 1, 2, 1, 1, 7),
+    _Tp8021xPortConfigPortLag_Type()
+)
+tp8021xPortConfigPortLag.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tp8021xPortConfigPortLag.setStatus("current")
+_Tplink8021xNotifications_ObjectIdentity = ObjectIdentity
+tplink8021xNotifications = _Tplink8021xNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 31, 2)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "TPLINK-8021X-MIB",
+    **{"tplink8021xMIB": tplink8021xMIB,
+       "tplink8021xMIBObjects": tplink8021xMIBObjects,
+       "tp8021xGlobalConfig": tp8021xGlobalConfig,
+       "tp8021xGlobalEnable": tp8021xGlobalEnable,
+       "tp8021xAuthMode": tp8021xAuthMode,
+       "tp8021xHandshake": tp8021xHandshake,
+       "tp8021xGuestVlanEnable": tp8021xGuestVlanEnable,
+       "tp8021xGuestVlanID": tp8021xGuestVlanID,
+       "tp8021xQuietEnable": tp8021xQuietEnable,
+       "tp8021xQuietPeriod": tp8021xQuietPeriod,
+       "tp8021xRetryTimes": tp8021xRetryTimes,
+       "tp8021xSupplicantTimeOut": tp8021xSupplicantTimeOut,
+       "tp8021xServerTimeOut": tp8021xServerTimeOut,
+       "tp8021xAuthPrimaryIP": tp8021xAuthPrimaryIP,
+       "tp8021xAuthSecondaryIP": tp8021xAuthSecondaryIP,
+       "tp8021xServerAuthPort": tp8021xServerAuthPort,
+       "tp8021xServerAuthKey": tp8021xServerAuthKey,
+       "tp8021xAcctEnable": tp8021xAcctEnable,
+       "tp8021xAcctPrimaryIP": tp8021xAcctPrimaryIP,
+       "tp8021xAcctSecondaryIP": tp8021xAcctSecondaryIP,
+       "tp8021xAcctPort": tp8021xAcctPort,
+       "tp8021xAcctKey": tp8021xAcctKey,
+       "tp8021xPortConfig": tp8021xPortConfig,
+       "tp8021xPortConfigTable": tp8021xPortConfigTable,
+       "tp8021xPortConfigEntry": tp8021xPortConfigEntry,
+       "tp8021xPortConfigPortIndex": tp8021xPortConfigPortIndex,
+       "tp8021xPortConfigEnable": tp8021xPortConfigEnable,
+       "tp8021xPortConfigGuestVlanEnable": tp8021xPortConfigGuestVlanEnable,
+       "tp8021xPortConfigControlMode": tp8021xPortConfigControlMode,
+       "tp8021xPortConfigControlType": tp8021xPortConfigControlType,
+       "tp8021xPortConfigAuthState": tp8021xPortConfigAuthState,
+       "tp8021xPortConfigPortLag": tp8021xPortConfigPortLag,
+       "tplink8021xNotifications": tplink8021xNotifications}
+)

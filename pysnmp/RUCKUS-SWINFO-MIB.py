@@ -1,35 +1,273 @@
+# SNMP MIB module (RUCKUS-SWINFO-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module RUCKUS-SWINFO-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/RUCKUS-SWINFO-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:50:46 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint")
-ruckusCommonSwInfoModule, = mibBuilder.importSymbols("RUCKUS-ROOT-MIB", "ruckusCommonSwInfoModule")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-iso, Bits, ModuleIdentity, TimeTicks, IpAddress, MibIdentifier, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Integer32, Counter64, Gauge32, Unsigned32, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Bits", "ModuleIdentity", "TimeTicks", "IpAddress", "MibIdentifier", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Integer32", "Counter64", "Gauge32", "Unsigned32", "Counter32")
-DateAndTime, TextualConvention, DisplayString, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "DisplayString", "TruthValue")
-ruckusSwInfoMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 25053, 1, 1, 3, 1))
-if mibBuilder.loadTexts: ruckusSwInfoMIB.setLastUpdated('201010150800Z')
-if mibBuilder.loadTexts: ruckusSwInfoMIB.setOrganization('Ruckus Wireless Inc.')
-ruckusSwInfoObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 25053, 1, 1, 3, 1, 1))
-ruckusSwInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 25053, 1, 1, 3, 1, 1, 1))
-ruckusSwInfoEvents = MibIdentifier((1, 3, 6, 1, 4, 1, 25053, 1, 1, 3, 1, 2))
-ruckusSwRevTable = MibTable((1, 3, 6, 1, 4, 1, 25053, 1, 1, 3, 1, 1, 1, 1), )
-if mibBuilder.loadTexts: ruckusSwRevTable.setStatus('current')
-ruckusSwRevEntry = MibTableRow((1, 3, 6, 1, 4, 1, 25053, 1, 1, 3, 1, 1, 1, 1, 1), ).setIndexNames((0, "RUCKUS-SWINFO-MIB", "ruckusSwRevIndex"))
-if mibBuilder.loadTexts: ruckusSwRevEntry.setStatus('current')
-ruckusSwRevIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 1, 3, 1, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 10)))
-if mibBuilder.loadTexts: ruckusSwRevIndex.setStatus('current')
-ruckusSwRevName = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 1, 3, 1, 1, 1, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ruckusSwRevName.setStatus('current')
-ruckusSwRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 1, 3, 1, 1, 1, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ruckusSwRevision.setStatus('current')
-ruckusSwRevSize = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 1, 3, 1, 1, 1, 1, 1, 4), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ruckusSwRevSize.setStatus('current')
-ruckusSwRevStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 1, 3, 1, 1, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("inactive", 1), ("active", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ruckusSwRevStatus.setStatus('current')
-mibBuilder.exportSymbols("RUCKUS-SWINFO-MIB", ruckusSwRevTable=ruckusSwRevTable, ruckusSwInfoObjects=ruckusSwInfoObjects, ruckusSwRevEntry=ruckusSwRevEntry, ruckusSwRevStatus=ruckusSwRevStatus, ruckusSwInfoEvents=ruckusSwInfoEvents, ruckusSwInfoMIB=ruckusSwInfoMIB, ruckusSwRevision=ruckusSwRevision, PYSNMP_MODULE_ID=ruckusSwInfoMIB, ruckusSwRevIndex=ruckusSwRevIndex, ruckusSwRevSize=ruckusSwRevSize, ruckusSwRevName=ruckusSwRevName, ruckusSwInfo=ruckusSwInfo)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/RUCKUS-SWINFO-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:48:44 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ruckusCommonSwInfoModule,) = mibBuilder.importSymbols(
+    "RUCKUS-ROOT-MIB",
+    "ruckusCommonSwInfoModule")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+ruckusSwInfoMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 25053, 1, 1, 3, 1)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_RuckusSwInfoObjects_ObjectIdentity = ObjectIdentity
+ruckusSwInfoObjects = _RuckusSwInfoObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 25053, 1, 1, 3, 1, 1)
+)
+_RuckusSwInfo_ObjectIdentity = ObjectIdentity
+ruckusSwInfo = _RuckusSwInfo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 25053, 1, 1, 3, 1, 1, 1)
+)
+_RuckusSwRevTable_Object = MibTable
+ruckusSwRevTable = _RuckusSwRevTable_Object(
+    (1, 3, 6, 1, 4, 1, 25053, 1, 1, 3, 1, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    ruckusSwRevTable.setStatus("current")
+_RuckusSwRevEntry_Object = MibTableRow
+ruckusSwRevEntry = _RuckusSwRevEntry_Object(
+    (1, 3, 6, 1, 4, 1, 25053, 1, 1, 3, 1, 1, 1, 1, 1)
+)
+ruckusSwRevEntry.setIndexNames(
+    (0, "RUCKUS-SWINFO-MIB", "ruckusSwRevIndex"),
+)
+if mibBuilder.loadTexts:
+    ruckusSwRevEntry.setStatus("current")
+
+
+class _RuckusSwRevIndex_Type(Integer32):
+    """Custom type ruckusSwRevIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 10),
+    )
+
+
+_RuckusSwRevIndex_Type.__name__ = "Integer32"
+_RuckusSwRevIndex_Object = MibTableColumn
+ruckusSwRevIndex = _RuckusSwRevIndex_Object(
+    (1, 3, 6, 1, 4, 1, 25053, 1, 1, 3, 1, 1, 1, 1, 1, 1),
+    _RuckusSwRevIndex_Type()
+)
+ruckusSwRevIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    ruckusSwRevIndex.setStatus("current")
+
+
+class _RuckusSwRevName_Type(DisplayString):
+    """Custom type ruckusSwRevName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 64),
+    )
+
+
+_RuckusSwRevName_Type.__name__ = "DisplayString"
+_RuckusSwRevName_Object = MibTableColumn
+ruckusSwRevName = _RuckusSwRevName_Object(
+    (1, 3, 6, 1, 4, 1, 25053, 1, 1, 3, 1, 1, 1, 1, 1, 2),
+    _RuckusSwRevName_Type()
+)
+ruckusSwRevName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ruckusSwRevName.setStatus("current")
+
+
+class _RuckusSwRevision_Type(DisplayString):
+    """Custom type ruckusSwRevision based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_RuckusSwRevision_Type.__name__ = "DisplayString"
+_RuckusSwRevision_Object = MibTableColumn
+ruckusSwRevision = _RuckusSwRevision_Object(
+    (1, 3, 6, 1, 4, 1, 25053, 1, 1, 3, 1, 1, 1, 1, 1, 3),
+    _RuckusSwRevision_Type()
+)
+ruckusSwRevision.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ruckusSwRevision.setStatus("current")
+_RuckusSwRevSize_Type = Unsigned32
+_RuckusSwRevSize_Object = MibTableColumn
+ruckusSwRevSize = _RuckusSwRevSize_Object(
+    (1, 3, 6, 1, 4, 1, 25053, 1, 1, 3, 1, 1, 1, 1, 1, 4),
+    _RuckusSwRevSize_Type()
+)
+ruckusSwRevSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ruckusSwRevSize.setStatus("current")
+
+
+class _RuckusSwRevStatus_Type(Integer32):
+    """Custom type ruckusSwRevStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 2),
+          ("inactive", 1))
+    )
+
+
+_RuckusSwRevStatus_Type.__name__ = "Integer32"
+_RuckusSwRevStatus_Object = MibTableColumn
+ruckusSwRevStatus = _RuckusSwRevStatus_Object(
+    (1, 3, 6, 1, 4, 1, 25053, 1, 1, 3, 1, 1, 1, 1, 1, 5),
+    _RuckusSwRevStatus_Type()
+)
+ruckusSwRevStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ruckusSwRevStatus.setStatus("current")
+_RuckusSwInfoEvents_ObjectIdentity = ObjectIdentity
+ruckusSwInfoEvents = _RuckusSwInfoEvents_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 25053, 1, 1, 3, 1, 2)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "RUCKUS-SWINFO-MIB",
+    **{"ruckusSwInfoMIB": ruckusSwInfoMIB,
+       "ruckusSwInfoObjects": ruckusSwInfoObjects,
+       "ruckusSwInfo": ruckusSwInfo,
+       "ruckusSwRevTable": ruckusSwRevTable,
+       "ruckusSwRevEntry": ruckusSwRevEntry,
+       "ruckusSwRevIndex": ruckusSwRevIndex,
+       "ruckusSwRevName": ruckusSwRevName,
+       "ruckusSwRevision": ruckusSwRevision,
+       "ruckusSwRevSize": ruckusSwRevSize,
+       "ruckusSwRevStatus": ruckusSwRevStatus,
+       "ruckusSwInfoEvents": ruckusSwInfoEvents}
+)

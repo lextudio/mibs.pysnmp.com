@@ -1,49 +1,211 @@
+# SNMP MIB module (CISCO-QOS-TC-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-QOS-TC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/CISCO-QOS-TC-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:52:32 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
-ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Unsigned32, NotificationType, iso, Counter32, ObjectIdentity, ModuleIdentity, TimeTicks, Integer32, IpAddress, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Gauge32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "NotificationType", "iso", "Counter32", "ObjectIdentity", "ModuleIdentity", "TimeTicks", "Integer32", "IpAddress", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Gauge32", "MibIdentifier")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-ciscoQosTcMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 573))
-ciscoQosTcMIB.setRevisions(('2007-03-05 00:00', '2006-09-18 12:00',))
-if mibBuilder.loadTexts: ciscoQosTcMIB.setLastUpdated('200703050000Z')
-if mibBuilder.loadTexts: ciscoQosTcMIB.setOrganization('Cisco Systems, Inc.')
-class QosIpPrecedence(TextualConvention, Unsigned32):
-    reference = 'RFC791 INTERNET PROTOCOL, Chapter 3.1'
-    status = 'current'
-    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 7)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CISCO-QOS-TC-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:06:43 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class QosQueueNumber(TextualConvention, Unsigned32):
-    status = 'current'
+if 'mibBuilder' not in globals():
+    import sys
 
-class QosThresholdNumber(TextualConvention, Unsigned32):
-    status = 'current'
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-class QosMplsExpValue(TextualConvention, Unsigned32):
-    status = 'current'
-    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 7)
+# Import base ASN.1 objects even if this MIB does not use it
 
-class QosMutationMapName(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '99a'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(1, 99)
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
 
-class QosMutationMapNameOrEmpty(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '99a'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 99)
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
 
-class QosPolicerType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("microflow", 1), ("aggregate", 2))
+# Import SMI symbols from the MIBs this MIB depends on
 
-mibBuilder.exportSymbols("CISCO-QOS-TC-MIB", QosPolicerType=QosPolicerType, QosIpPrecedence=QosIpPrecedence, QosMplsExpValue=QosMplsExpValue, QosMutationMapNameOrEmpty=QosMutationMapNameOrEmpty, QosMutationMapName=QosMutationMapName, QosQueueNumber=QosQueueNumber, PYSNMP_MODULE_ID=ciscoQosTcMIB, ciscoQosTcMIB=ciscoQosTcMIB, QosThresholdNumber=QosThresholdNumber)
+(ciscoMgmt,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoMgmt")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+ciscoQosTcMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 573)
+)
+ciscoQosTcMIB.setRevisions(
+        ("2007-03-05 00:00",
+         "2006-09-18 12:00")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class QosIpPrecedence(Unsigned32, TextualConvention):
+    status = "current"
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+
+class QosQueueNumber(Unsigned32, TextualConvention):
+    status = "current"
+
+
+class QosThresholdNumber(Unsigned32, TextualConvention):
+    status = "current"
+
+
+class QosMplsExpValue(Unsigned32, TextualConvention):
+    status = "current"
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+
+class QosMutationMapName(OctetString, TextualConvention):
+    status = "current"
+    displayHint = "99a"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 99),
+    )
+
+
+
+class QosMutationMapNameOrEmpty(OctetString, TextualConvention):
+    status = "current"
+    displayHint = "99a"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 99),
+    )
+
+
+
+class QosPolicerType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("aggregate", 2),
+          ("microflow", 1))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-QOS-TC-MIB",
+    **{"QosIpPrecedence": QosIpPrecedence,
+       "QosQueueNumber": QosQueueNumber,
+       "QosThresholdNumber": QosThresholdNumber,
+       "QosMplsExpValue": QosMplsExpValue,
+       "QosMutationMapName": QosMutationMapName,
+       "QosMutationMapNameOrEmpty": QosMutationMapNameOrEmpty,
+       "QosPolicerType": QosPolicerType,
+       "ciscoQosTcMIB": ciscoQosTcMIB}
+)

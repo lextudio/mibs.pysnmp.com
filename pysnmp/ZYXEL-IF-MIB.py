@@ -1,33 +1,230 @@
+# SNMP MIB module (ZYXEL-IF-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ZYXEL-IF-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/ZYXEL-IF-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 21:44:07 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-iso, NotificationType, Counter32, IpAddress, Bits, ObjectIdentity, Integer32, ModuleIdentity, Unsigned32, MibIdentifier, Counter64, TimeTicks, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "NotificationType", "Counter32", "IpAddress", "Bits", "ObjectIdentity", "Integer32", "ModuleIdentity", "Unsigned32", "MibIdentifier", "Counter64", "TimeTicks", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TextualConvention")
-esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
-zyxelIf = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 27))
-if mibBuilder.loadTexts: zyxelIf.setLastUpdated('201207010000Z')
-if mibBuilder.loadTexts: zyxelIf.setOrganization('Enterprise Solution ZyXEL')
-zyxelIfSetup = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 27, 1))
-zyIfMaxNumberOfVlanIfs = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 27, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zyIfMaxNumberOfVlanIfs.setStatus('current')
-zyIfMaxNumberOfLoopbackIfs = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 27, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zyIfMaxNumberOfLoopbackIfs.setStatus('current')
-zyxelIfTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 27, 1, 3), )
-if mibBuilder.loadTexts: zyxelIfTable.setStatus('current')
-zyxelIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 27, 1, 3, 1), ).setIndexNames((0, "ZYXEL-IF-MIB", "zyIfType"), (0, "ZYXEL-IF-MIB", "zyIfId"))
-if mibBuilder.loadTexts: zyxelIfEntry.setStatus('current')
-zyIfType = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 27, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("vlan", 1), ("loopback", 2))))
-if mibBuilder.loadTexts: zyIfType.setStatus('current')
-zyIfId = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 27, 1, 3, 1, 2), Integer32())
-if mibBuilder.loadTexts: zyIfId.setStatus('current')
-zyIfRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 27, 1, 3, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: zyIfRowStatus.setStatus('current')
-mibBuilder.exportSymbols("ZYXEL-IF-MIB", PYSNMP_MODULE_ID=zyxelIf, zyxelIf=zyxelIf, zyxelIfEntry=zyxelIfEntry, zyIfType=zyIfType, zyIfMaxNumberOfVlanIfs=zyIfMaxNumberOfVlanIfs, zyxelIfSetup=zyxelIfSetup, zyIfId=zyIfId, zyxelIfTable=zyxelIfTable, zyIfRowStatus=zyIfRowStatus, zyIfMaxNumberOfLoopbackIfs=zyIfMaxNumberOfLoopbackIfs)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/ZYXEL-IF-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:21:59 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "RowStatus",
+    "TextualConvention")
+
+(esMgmt,) = mibBuilder.importSymbols(
+    "ZYXEL-ES-SMI",
+    "esMgmt")
+
+
+# MODULE-IDENTITY
+
+zyxelIf = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 27)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_ZyxelIfSetup_ObjectIdentity = ObjectIdentity
+zyxelIfSetup = _ZyxelIfSetup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 27, 1)
+)
+_ZyIfMaxNumberOfVlanIfs_Type = Integer32
+_ZyIfMaxNumberOfVlanIfs_Object = MibScalar
+zyIfMaxNumberOfVlanIfs = _ZyIfMaxNumberOfVlanIfs_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 27, 1, 1),
+    _ZyIfMaxNumberOfVlanIfs_Type()
+)
+zyIfMaxNumberOfVlanIfs.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zyIfMaxNumberOfVlanIfs.setStatus("current")
+_ZyIfMaxNumberOfLoopbackIfs_Type = Integer32
+_ZyIfMaxNumberOfLoopbackIfs_Object = MibScalar
+zyIfMaxNumberOfLoopbackIfs = _ZyIfMaxNumberOfLoopbackIfs_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 27, 1, 2),
+    _ZyIfMaxNumberOfLoopbackIfs_Type()
+)
+zyIfMaxNumberOfLoopbackIfs.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zyIfMaxNumberOfLoopbackIfs.setStatus("current")
+_ZyxelIfTable_Object = MibTable
+zyxelIfTable = _ZyxelIfTable_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 27, 1, 3)
+)
+if mibBuilder.loadTexts:
+    zyxelIfTable.setStatus("current")
+_ZyxelIfEntry_Object = MibTableRow
+zyxelIfEntry = _ZyxelIfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 27, 1, 3, 1)
+)
+zyxelIfEntry.setIndexNames(
+    (0, "ZYXEL-IF-MIB", "zyIfType"),
+    (0, "ZYXEL-IF-MIB", "zyIfId"),
+)
+if mibBuilder.loadTexts:
+    zyxelIfEntry.setStatus("current")
+
+
+class _ZyIfType_Type(Integer32):
+    """Custom type zyIfType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("loopback", 2),
+          ("vlan", 1))
+    )
+
+
+_ZyIfType_Type.__name__ = "Integer32"
+_ZyIfType_Object = MibTableColumn
+zyIfType = _ZyIfType_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 27, 1, 3, 1, 1),
+    _ZyIfType_Type()
+)
+zyIfType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    zyIfType.setStatus("current")
+_ZyIfId_Type = Integer32
+_ZyIfId_Object = MibTableColumn
+zyIfId = _ZyIfId_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 27, 1, 3, 1, 2),
+    _ZyIfId_Type()
+)
+zyIfId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    zyIfId.setStatus("current")
+_ZyIfRowStatus_Type = RowStatus
+_ZyIfRowStatus_Object = MibTableColumn
+zyIfRowStatus = _ZyIfRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 27, 1, 3, 1, 3),
+    _ZyIfRowStatus_Type()
+)
+zyIfRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    zyIfRowStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ZYXEL-IF-MIB",
+    **{"zyxelIf": zyxelIf,
+       "zyxelIfSetup": zyxelIfSetup,
+       "zyIfMaxNumberOfVlanIfs": zyIfMaxNumberOfVlanIfs,
+       "zyIfMaxNumberOfLoopbackIfs": zyIfMaxNumberOfLoopbackIfs,
+       "zyxelIfTable": zyxelIfTable,
+       "zyxelIfEntry": zyxelIfEntry,
+       "zyIfType": zyIfType,
+       "zyIfId": zyIfId,
+       "zyIfRowStatus": zyIfRowStatus}
+)

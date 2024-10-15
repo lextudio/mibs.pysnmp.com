@@ -1,48 +1,261 @@
+# SNMP MIB module (ARISTA-PFC-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ARISTA-PFC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/ARISTA-PFC-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:09:16 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-aristaMibs, = mibBuilder.importSymbols("ARISTA-SMI-MIB", "aristaMibs")
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint")
-InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-NotificationType, Integer32, Gauge32, Unsigned32, MibIdentifier, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Counter32, IpAddress, iso, TimeTicks, ObjectIdentity, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Integer32", "Gauge32", "Unsigned32", "MibIdentifier", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Counter32", "IpAddress", "iso", "TimeTicks", "ObjectIdentity", "Bits")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-aristaPfcMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 30065, 3, 11))
-aristaPfcMIB.setRevisions(('2014-08-15 00:00', '2013-02-28 00:00',))
-if mibBuilder.loadTexts: aristaPfcMIB.setLastUpdated('201408150000Z')
-if mibBuilder.loadTexts: aristaPfcMIB.setOrganization('Arista Networks, Inc.')
-aristaPfc = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 11, 1))
-aristaPfcConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 11, 2))
-class AristaPfcCOSIndex(TextualConvention, Integer32):
-    status = 'current'
-    displayHint = 'd'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 7)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/ARISTA-PFC-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 20:40:23 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-aristaPfcPriorityTable = MibTable((1, 3, 6, 1, 4, 1, 30065, 3, 11, 1, 1), )
-if mibBuilder.loadTexts: aristaPfcPriorityTable.setStatus('current')
-aristaPfcPriorityEntry = MibTableRow((1, 3, 6, 1, 4, 1, 30065, 3, 11, 1, 1, 1), ).setIndexNames((0, "ARISTA-PFC-MIB", "aristaPfcIfIndex"), (0, "ARISTA-PFC-MIB", "aristaPfcPriorityIndex"))
-if mibBuilder.loadTexts: aristaPfcPriorityEntry.setStatus('current')
-aristaPfcIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 11, 1, 1, 1, 1), InterfaceIndex())
-if mibBuilder.loadTexts: aristaPfcIfIndex.setStatus('current')
-aristaPfcPriorityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 11, 1, 1, 1, 2), AristaPfcCOSIndex())
-if mibBuilder.loadTexts: aristaPfcPriorityIndex.setStatus('current')
-aristaPfcPriorityRequests = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 11, 1, 1, 1, 3), Counter64()).setUnits('Requests').setMaxAccess("readonly")
-if mibBuilder.loadTexts: aristaPfcPriorityRequests.setStatus('current')
-aristaPfcPriorityIndications = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 11, 1, 1, 1, 4), Counter64()).setUnits('Indications').setMaxAccess("readonly")
-if mibBuilder.loadTexts: aristaPfcPriorityIndications.setStatus('current')
-aristaPfcCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 11, 2, 1))
-aristaPfcGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 11, 2, 2))
-aristaPfcCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 30065, 3, 11, 2, 1, 1)).setObjects(("ARISTA-PFC-MIB", "aristaPfcGroup"))
+if 'mibBuilder' not in globals():
+    import sys
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    aristaPfcCompliance = aristaPfcCompliance.setStatus('current')
-aristaPfcGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 30065, 3, 11, 2, 2, 1)).setObjects(("ARISTA-PFC-MIB", "aristaPfcPriorityRequests"), ("ARISTA-PFC-MIB", "aristaPfcPriorityIndications"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    aristaPfcGroup = aristaPfcGroup.setStatus('current')
-mibBuilder.exportSymbols("ARISTA-PFC-MIB", aristaPfcConformance=aristaPfcConformance, aristaPfcIfIndex=aristaPfcIfIndex, aristaPfcCompliance=aristaPfcCompliance, aristaPfcPriorityEntry=aristaPfcPriorityEntry, aristaPfcMIB=aristaPfcMIB, AristaPfcCOSIndex=AristaPfcCOSIndex, aristaPfcPriorityIndex=aristaPfcPriorityIndex, aristaPfcGroup=aristaPfcGroup, aristaPfcPriorityTable=aristaPfcPriorityTable, aristaPfcPriorityIndications=aristaPfcPriorityIndications, PYSNMP_MODULE_ID=aristaPfcMIB, aristaPfcGroups=aristaPfcGroups, aristaPfc=aristaPfc, aristaPfcPriorityRequests=aristaPfcPriorityRequests, aristaPfcCompliances=aristaPfcCompliances)
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(aristaMibs,) = mibBuilder.importSymbols(
+    "ARISTA-SMI-MIB",
+    "aristaMibs")
+
+(InterfaceIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+aristaPfcMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 11)
+)
+aristaPfcMIB.setRevisions(
+        ("2014-08-15 00:00",
+         "2013-02-28 00:00")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class AristaPfcCOSIndex(Integer32, TextualConvention):
+    status = "current"
+    displayHint = "d"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AristaPfc_ObjectIdentity = ObjectIdentity
+aristaPfc = _AristaPfc_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 11, 1)
+)
+_AristaPfcPriorityTable_Object = MibTable
+aristaPfcPriorityTable = _AristaPfcPriorityTable_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 11, 1, 1)
+)
+if mibBuilder.loadTexts:
+    aristaPfcPriorityTable.setStatus("current")
+_AristaPfcPriorityEntry_Object = MibTableRow
+aristaPfcPriorityEntry = _AristaPfcPriorityEntry_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 11, 1, 1, 1)
+)
+aristaPfcPriorityEntry.setIndexNames(
+    (0, "ARISTA-PFC-MIB", "aristaPfcIfIndex"),
+    (0, "ARISTA-PFC-MIB", "aristaPfcPriorityIndex"),
+)
+if mibBuilder.loadTexts:
+    aristaPfcPriorityEntry.setStatus("current")
+_AristaPfcIfIndex_Type = InterfaceIndex
+_AristaPfcIfIndex_Object = MibTableColumn
+aristaPfcIfIndex = _AristaPfcIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 11, 1, 1, 1, 1),
+    _AristaPfcIfIndex_Type()
+)
+aristaPfcIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    aristaPfcIfIndex.setStatus("current")
+_AristaPfcPriorityIndex_Type = AristaPfcCOSIndex
+_AristaPfcPriorityIndex_Object = MibTableColumn
+aristaPfcPriorityIndex = _AristaPfcPriorityIndex_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 11, 1, 1, 1, 2),
+    _AristaPfcPriorityIndex_Type()
+)
+aristaPfcPriorityIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    aristaPfcPriorityIndex.setStatus("current")
+_AristaPfcPriorityRequests_Type = Counter64
+_AristaPfcPriorityRequests_Object = MibTableColumn
+aristaPfcPriorityRequests = _AristaPfcPriorityRequests_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 11, 1, 1, 1, 3),
+    _AristaPfcPriorityRequests_Type()
+)
+aristaPfcPriorityRequests.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aristaPfcPriorityRequests.setStatus("current")
+if mibBuilder.loadTexts:
+    aristaPfcPriorityRequests.setUnits("Requests")
+_AristaPfcPriorityIndications_Type = Counter64
+_AristaPfcPriorityIndications_Object = MibTableColumn
+aristaPfcPriorityIndications = _AristaPfcPriorityIndications_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 11, 1, 1, 1, 4),
+    _AristaPfcPriorityIndications_Type()
+)
+aristaPfcPriorityIndications.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aristaPfcPriorityIndications.setStatus("current")
+if mibBuilder.loadTexts:
+    aristaPfcPriorityIndications.setUnits("Indications")
+_AristaPfcConformance_ObjectIdentity = ObjectIdentity
+aristaPfcConformance = _AristaPfcConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 11, 2)
+)
+_AristaPfcCompliances_ObjectIdentity = ObjectIdentity
+aristaPfcCompliances = _AristaPfcCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 11, 2, 1)
+)
+_AristaPfcGroups_ObjectIdentity = ObjectIdentity
+aristaPfcGroups = _AristaPfcGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 11, 2, 2)
+)
+
+# Managed Objects groups
+
+aristaPfcGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 11, 2, 2, 1)
+)
+aristaPfcGroup.setObjects(
+      *(("ARISTA-PFC-MIB", "aristaPfcPriorityRequests"),
+        ("ARISTA-PFC-MIB", "aristaPfcPriorityIndications"))
+)
+if mibBuilder.loadTexts:
+    aristaPfcGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+aristaPfcCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 11, 2, 1, 1)
+)
+if mibBuilder.loadTexts:
+    aristaPfcCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ARISTA-PFC-MIB",
+    **{"AristaPfcCOSIndex": AristaPfcCOSIndex,
+       "aristaPfcMIB": aristaPfcMIB,
+       "aristaPfc": aristaPfc,
+       "aristaPfcPriorityTable": aristaPfcPriorityTable,
+       "aristaPfcPriorityEntry": aristaPfcPriorityEntry,
+       "aristaPfcIfIndex": aristaPfcIfIndex,
+       "aristaPfcPriorityIndex": aristaPfcPriorityIndex,
+       "aristaPfcPriorityRequests": aristaPfcPriorityRequests,
+       "aristaPfcPriorityIndications": aristaPfcPriorityIndications,
+       "aristaPfcConformance": aristaPfcConformance,
+       "aristaPfcCompliances": aristaPfcCompliances,
+       "aristaPfcCompliance": aristaPfcCompliance,
+       "aristaPfcGroups": aristaPfcGroups,
+       "aristaPfcGroup": aristaPfcGroup}
+)

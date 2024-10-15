@@ -1,17 +1,17 @@
-"""SNMP MIB module (XEROX-COMMS-ENGINE-MIB) expressed in pysnmp data model.
+# SNMP MIB module (XEROX-COMMS-ENGINE-MIB) expressed in pysnmp data model.
+#
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/XEROX-COMMS-ENGINE-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:18:16 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-This Python module is designed to be imported and executed by the
-pysnmp library.
-
-See https://www.pysnmp.com/pysnmp for further information.
-
-Notes
------
-ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/XEROX-COMMS-ENGINE-MIB
-Produced by pysmi-1.3.3 at Sun Mar 10 06:00:26 2024
-On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm
-Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
-"""
 if 'mibBuilder' not in globals():
     import sys
 
@@ -51,109 +51,109 @@ if 'mibBuilder' not in globals():
     "ProductID",
     "hrDeviceIndex")
 
-(ObjectGroup,
+(ModuleCompliance,
  NotificationGroup,
- ModuleCompliance) = mibBuilder.importSymbols(
+ ObjectGroup) = mibBuilder.importSymbols(
     "SNMPv2-CONF",
-    "ObjectGroup",
+    "ModuleCompliance",
     "NotificationGroup",
-    "ModuleCompliance")
+    "ObjectGroup")
 
-(MibIdentifier,
+(Bits,
+ Counter32,
+ Counter64,
  Gauge32,
  Integer32,
  IpAddress,
- Bits,
- TimeTicks,
- iso,
- Unsigned32,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
  MibScalar,
  MibTable,
  MibTableRow,
  MibTableColumn,
- Counter64,
- NotificationType,
- ObjectIdentity,
- ModuleIdentity,
- Counter32) = mibBuilder.importSymbols(
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
     "SNMPv2-SMI",
-    "MibIdentifier",
+    "Bits",
+    "Counter32",
+    "Counter64",
     "Gauge32",
     "Integer32",
     "IpAddress",
-    "Bits",
-    "TimeTicks",
-    "iso",
-    "Unsigned32",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
     "MibScalar",
     "MibTable",
     "MibTableRow",
     "MibTableColumn",
-    "Counter64",
-    "NotificationType",
-    "ObjectIdentity",
-    "ModuleIdentity",
-    "Counter32")
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
 
-(DisplayString,
+(DateAndTime,
+ DisplayString,
  RowStatus,
- TruthValue,
- DateAndTime,
- TextualConvention) = mibBuilder.importSymbols(
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
     "SNMPv2-TC",
+    "DateAndTime",
     "DisplayString",
     "RowStatus",
-    "TruthValue",
-    "DateAndTime",
-    "TextualConvention")
+    "TextualConvention",
+    "TruthValue")
 
 (xeroxCommonMIB,) = mibBuilder.importSymbols(
     "XEROX-COMMON-MIB",
     "xeroxCommonMIB")
 
-(XcmCommsMgmtConditions,
- XcmCommsStackExtSuite,
- XcmCommsStackExtSuiteVersion,
+(XcmCommsAddressExtFanout,
+ XcmCommsAddressExtForm,
+ XcmCommsAddressExtScope,
+ XcmCommsEngineGroupSupport,
  XcmCommsMgmtCommandData,
+ XcmCommsMgmtCommandRequest,
+ XcmCommsMgmtConditions,
+ XcmCommsMgmtState,
+ XcmCommsStackExtLayer,
+ XcmCommsStackExtProtocol,
  XcmCommsStackExtPurpose,
  XcmCommsStackExtRole,
- XcmCommsAddressExtScope,
- XcmCommsMgmtCommandRequest,
- XcmCommsAddressExtFanout,
- XcmCommsEngineGroupSupport,
- XcmCommsAddressExtForm,
- XcmCommsStackExtProtocol,
- XcmCommsStackExtLayer,
- XcmCommsMgmtState,
+ XcmCommsStackExtSuite,
+ XcmCommsStackExtSuiteVersion,
  XcmCommsStackPosition) = mibBuilder.importSymbols(
     "XEROX-COMMS-ENGINE-TC",
-    "XcmCommsMgmtConditions",
-    "XcmCommsStackExtSuite",
-    "XcmCommsStackExtSuiteVersion",
+    "XcmCommsAddressExtFanout",
+    "XcmCommsAddressExtForm",
+    "XcmCommsAddressExtScope",
+    "XcmCommsEngineGroupSupport",
     "XcmCommsMgmtCommandData",
+    "XcmCommsMgmtCommandRequest",
+    "XcmCommsMgmtConditions",
+    "XcmCommsMgmtState",
+    "XcmCommsStackExtLayer",
+    "XcmCommsStackExtProtocol",
     "XcmCommsStackExtPurpose",
     "XcmCommsStackExtRole",
-    "XcmCommsAddressExtScope",
-    "XcmCommsMgmtCommandRequest",
-    "XcmCommsAddressExtFanout",
-    "XcmCommsEngineGroupSupport",
-    "XcmCommsAddressExtForm",
-    "XcmCommsStackExtProtocol",
-    "XcmCommsStackExtLayer",
-    "XcmCommsMgmtState",
+    "XcmCommsStackExtSuite",
+    "XcmCommsStackExtSuiteVersion",
     "XcmCommsStackPosition")
 
-(XcmGenSNMPv2ErrorStatus,
+(Cardinal32,
  Ordinal32,
  XcmFixedLocaleDisplayString,
- zeroDotZero,
- Cardinal32) = mibBuilder.importSymbols(
+ XcmGenSNMPv2ErrorStatus,
+ zeroDotZero) = mibBuilder.importSymbols(
     "XEROX-GENERAL-TC",
-    "XcmGenSNMPv2ErrorStatus",
+    "Cardinal32",
     "Ordinal32",
     "XcmFixedLocaleDisplayString",
-    "zeroDotZero",
-    "Cardinal32")
+    "XcmGenSNMPv2ErrorStatus",
+    "zeroDotZero")
 
 (XcmHrDevTrafficUnit,) = mibBuilder.importSymbols(
     "XEROX-HOST-RESOURCES-EXT-TC",
@@ -237,7 +237,13 @@ xcmCommsEngineName = _XcmCommsEngineName_Object(
 xcmCommsEngineName.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsEngineName.setStatus("current")
-_XcmCommsEngineStackLast_Type = Cardinal32
+
+
+class _XcmCommsEngineStackLast_Type(Cardinal32):
+    """Custom type xcmCommsEngineStackLast based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmCommsEngineStackLast_Object = MibTableColumn
 xcmCommsEngineStackLast = _XcmCommsEngineStackLast_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 61, 3, 2, 1, 3),
@@ -246,7 +252,13 @@ xcmCommsEngineStackLast = _XcmCommsEngineStackLast_Object(
 xcmCommsEngineStackLast.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsEngineStackLast.setStatus("current")
-_XcmCommsEngineMuxLast_Type = Cardinal32
+
+
+class _XcmCommsEngineMuxLast_Type(Cardinal32):
+    """Custom type xcmCommsEngineMuxLast based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmCommsEngineMuxLast_Object = MibTableColumn
 xcmCommsEngineMuxLast = _XcmCommsEngineMuxLast_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 61, 3, 2, 1, 4),
@@ -255,7 +267,13 @@ xcmCommsEngineMuxLast = _XcmCommsEngineMuxLast_Object(
 xcmCommsEngineMuxLast.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsEngineMuxLast.setStatus("current")
-_XcmCommsEngineAddressLast_Type = Cardinal32
+
+
+class _XcmCommsEngineAddressLast_Type(Cardinal32):
+    """Custom type xcmCommsEngineAddressLast based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmCommsEngineAddressLast_Object = MibTableColumn
 xcmCommsEngineAddressLast = _XcmCommsEngineAddressLast_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 61, 3, 2, 1, 6),
@@ -264,7 +282,13 @@ xcmCommsEngineAddressLast = _XcmCommsEngineAddressLast_Object(
 xcmCommsEngineAddressLast.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsEngineAddressLast.setStatus("current")
-_XcmCommsEngineMgmtLast_Type = Cardinal32
+
+
+class _XcmCommsEngineMgmtLast_Type(Cardinal32):
+    """Custom type xcmCommsEngineMgmtLast based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmCommsEngineMgmtLast_Object = MibTableColumn
 xcmCommsEngineMgmtLast = _XcmCommsEngineMgmtLast_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 61, 3, 2, 1, 7),
@@ -288,7 +312,13 @@ xcmCommsEngineGroupSupport = _XcmCommsEngineGroupSupport_Object(
 xcmCommsEngineGroupSupport.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsEngineGroupSupport.setStatus("current")
-_XcmCommsEngineCreateSupport_Type = XcmCommsEngineGroupSupport
+
+
+class _XcmCommsEngineCreateSupport_Type(XcmCommsEngineGroupSupport):
+    """Custom type xcmCommsEngineCreateSupport based on XcmCommsEngineGroupSupport"""
+    defaultValue = 0
+
+
 _XcmCommsEngineCreateSupport_Object = MibTableColumn
 xcmCommsEngineCreateSupport = _XcmCommsEngineCreateSupport_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 61, 3, 2, 1, 9),
@@ -297,7 +327,13 @@ xcmCommsEngineCreateSupport = _XcmCommsEngineCreateSupport_Object(
 xcmCommsEngineCreateSupport.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsEngineCreateSupport.setStatus("current")
-_XcmCommsEngineUpdateSupport_Type = XcmCommsEngineGroupSupport
+
+
+class _XcmCommsEngineUpdateSupport_Type(XcmCommsEngineGroupSupport):
+    """Custom type xcmCommsEngineUpdateSupport based on XcmCommsEngineGroupSupport"""
+    defaultValue = 0
+
+
 _XcmCommsEngineUpdateSupport_Object = MibTableColumn
 xcmCommsEngineUpdateSupport = _XcmCommsEngineUpdateSupport_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 61, 3, 2, 1, 10),
@@ -348,7 +384,13 @@ xcmCommsEngineExtState = _XcmCommsEngineExtState_Object(
 xcmCommsEngineExtState.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsEngineExtState.setStatus("current")
-_XcmCommsEngineExtConditions_Type = XcmCommsMgmtConditions
+
+
+class _XcmCommsEngineExtConditions_Type(XcmCommsMgmtConditions):
+    """Custom type xcmCommsEngineExtConditions based on XcmCommsMgmtConditions"""
+    defaultValue = 0
+
+
 _XcmCommsEngineExtConditions_Object = MibTableColumn
 xcmCommsEngineExtConditions = _XcmCommsEngineExtConditions_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 61, 4, 2, 1, 4),
@@ -361,7 +403,7 @@ if mibBuilder.loadTexts:
 
 class _XcmCommsEngineExtVersionID_Type(ProductID):
     """Custom type xcmCommsEngineExtVersionID based on ProductID"""
-    defaultValue = "(0, 0)"
+    defaultValue = (0, 0)
 
 
 _XcmCommsEngineExtVersionID_Object = MibTableColumn
@@ -387,7 +429,13 @@ xcmCommsEngineExtVersionDate = _XcmCommsEngineExtVersionDate_Object(
 xcmCommsEngineExtVersionDate.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsEngineExtVersionDate.setStatus("current")
-_XcmCommsEngineExtMgmtIndex_Type = Cardinal32
+
+
+class _XcmCommsEngineExtMgmtIndex_Type(Cardinal32):
+    """Custom type xcmCommsEngineExtMgmtIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmCommsEngineExtMgmtIndex_Object = MibTableColumn
 xcmCommsEngineExtMgmtIndex = _XcmCommsEngineExtMgmtIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 61, 4, 2, 1, 7),
@@ -400,7 +448,7 @@ if mibBuilder.loadTexts:
 
 class _XcmCommsEngineExtOwnerOID_Type(ObjectIdentifier):
     """Custom type xcmCommsEngineExtOwnerOID based on ObjectIdentifier"""
-    defaultValue = "(0, 0)"
+    defaultValue = (0, 0)
 
 
 _XcmCommsEngineExtOwnerOID_Object = MibTableColumn
@@ -453,7 +501,7 @@ if mibBuilder.loadTexts:
 
 class _XcmCommsStackTypeOID_Type(ObjectIdentifier):
     """Custom type xcmCommsStackTypeOID based on ObjectIdentifier"""
-    defaultValue = "(0, 0)"
+    defaultValue = (0, 0)
 
 
 _XcmCommsStackTypeOID_Object = MibTableColumn
@@ -499,7 +547,13 @@ xcmCommsStackPosition = _XcmCommsStackPosition_Object(
 xcmCommsStackPosition.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsStackPosition.setStatus("current")
-_XcmCommsStackLowerStackIndex_Type = Cardinal32
+
+
+class _XcmCommsStackLowerStackIndex_Type(Cardinal32):
+    """Custom type xcmCommsStackLowerStackIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmCommsStackLowerStackIndex_Object = MibTableColumn
 xcmCommsStackLowerStackIndex = _XcmCommsStackLowerStackIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 61, 5, 2, 1, 6),
@@ -508,7 +562,13 @@ xcmCommsStackLowerStackIndex = _XcmCommsStackLowerStackIndex_Object(
 xcmCommsStackLowerStackIndex.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsStackLowerStackIndex.setStatus("current")
-_XcmCommsStackUpperStackIndex_Type = Cardinal32
+
+
+class _XcmCommsStackUpperStackIndex_Type(Cardinal32):
+    """Custom type xcmCommsStackUpperStackIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmCommsStackUpperStackIndex_Object = MibTableColumn
 xcmCommsStackUpperStackIndex = _XcmCommsStackUpperStackIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 61, 5, 2, 1, 7),
@@ -517,7 +577,13 @@ xcmCommsStackUpperStackIndex = _XcmCommsStackUpperStackIndex_Object(
 xcmCommsStackUpperStackIndex.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsStackUpperStackIndex.setStatus("current")
-_XcmCommsStackAddressIndex_Type = Cardinal32
+
+
+class _XcmCommsStackAddressIndex_Type(Cardinal32):
+    """Custom type xcmCommsStackAddressIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmCommsStackAddressIndex_Object = MibTableColumn
 xcmCommsStackAddressIndex = _XcmCommsStackAddressIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 61, 5, 2, 1, 8),
@@ -526,7 +592,13 @@ xcmCommsStackAddressIndex = _XcmCommsStackAddressIndex_Object(
 xcmCommsStackAddressIndex.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsStackAddressIndex.setStatus("current")
-_XcmCommsStackOptionIndex_Type = Cardinal32
+
+
+class _XcmCommsStackOptionIndex_Type(Cardinal32):
+    """Custom type xcmCommsStackOptionIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmCommsStackOptionIndex_Object = MibTableColumn
 xcmCommsStackOptionIndex = _XcmCommsStackOptionIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 61, 5, 2, 1, 9),
@@ -535,7 +607,13 @@ xcmCommsStackOptionIndex = _XcmCommsStackOptionIndex_Object(
 xcmCommsStackOptionIndex.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsStackOptionIndex.setStatus("current")
-_XcmCommsStackLowerMuxIndex_Type = Cardinal32
+
+
+class _XcmCommsStackLowerMuxIndex_Type(Cardinal32):
+    """Custom type xcmCommsStackLowerMuxIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmCommsStackLowerMuxIndex_Object = MibTableColumn
 xcmCommsStackLowerMuxIndex = _XcmCommsStackLowerMuxIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 61, 5, 2, 1, 10),
@@ -544,7 +622,13 @@ xcmCommsStackLowerMuxIndex = _XcmCommsStackLowerMuxIndex_Object(
 xcmCommsStackLowerMuxIndex.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsStackLowerMuxIndex.setStatus("current")
-_XcmCommsStackUpperMuxIndex_Type = Cardinal32
+
+
+class _XcmCommsStackUpperMuxIndex_Type(Cardinal32):
+    """Custom type xcmCommsStackUpperMuxIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmCommsStackUpperMuxIndex_Object = MibTableColumn
 xcmCommsStackUpperMuxIndex = _XcmCommsStackUpperMuxIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 61, 5, 2, 1, 11),
@@ -596,7 +680,13 @@ xcmCommsStackExtState = _XcmCommsStackExtState_Object(
 xcmCommsStackExtState.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsStackExtState.setStatus("current")
-_XcmCommsStackExtConditions_Type = XcmCommsMgmtConditions
+
+
+class _XcmCommsStackExtConditions_Type(XcmCommsMgmtConditions):
+    """Custom type xcmCommsStackExtConditions based on XcmCommsMgmtConditions"""
+    defaultValue = 0
+
+
 _XcmCommsStackExtConditions_Object = MibTableColumn
 xcmCommsStackExtConditions = _XcmCommsStackExtConditions_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 61, 6, 2, 1, 3),
@@ -689,7 +779,13 @@ xcmCommsStackExtProtocol = _XcmCommsStackExtProtocol_Object(
 xcmCommsStackExtProtocol.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsStackExtProtocol.setStatus("current")
-_XcmCommsStackExtMgmtIndex_Type = Cardinal32
+
+
+class _XcmCommsStackExtMgmtIndex_Type(Cardinal32):
+    """Custom type xcmCommsStackExtMgmtIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmCommsStackExtMgmtIndex_Object = MibTableColumn
 xcmCommsStackExtMgmtIndex = _XcmCommsStackExtMgmtIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 61, 6, 2, 1, 10),
@@ -702,7 +798,7 @@ if mibBuilder.loadTexts:
 
 class _XcmCommsStackExtOwnerOID_Type(ObjectIdentifier):
     """Custom type xcmCommsStackExtOwnerOID based on ObjectIdentifier"""
-    defaultValue = "(0, 0)"
+    defaultValue = (0, 0)
 
 
 _XcmCommsStackExtOwnerOID_Object = MibTableColumn
@@ -742,7 +838,13 @@ xcmCommsStackXrefRowStatus = _XcmCommsStackXrefRowStatus_Object(
 xcmCommsStackXrefRowStatus.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsStackXrefRowStatus.setStatus("current")
-_XcmCommsStackXrefLayerMgmtIndex_Type = Cardinal32
+
+
+class _XcmCommsStackXrefLayerMgmtIndex_Type(Cardinal32):
+    """Custom type xcmCommsStackXrefLayerMgmtIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmCommsStackXrefLayerMgmtIndex_Object = MibTableColumn
 xcmCommsStackXrefLayerMgmtIndex = _XcmCommsStackXrefLayerMgmtIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 61, 7, 2, 1, 2),
@@ -751,7 +853,13 @@ xcmCommsStackXrefLayerMgmtIndex = _XcmCommsStackXrefLayerMgmtIndex_Object(
 xcmCommsStackXrefLayerMgmtIndex.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsStackXrefLayerMgmtIndex.setStatus("current")
-_XcmCommsStackXrefLayerSecIndex_Type = Cardinal32
+
+
+class _XcmCommsStackXrefLayerSecIndex_Type(Cardinal32):
+    """Custom type xcmCommsStackXrefLayerSecIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmCommsStackXrefLayerSecIndex_Object = MibTableColumn
 xcmCommsStackXrefLayerSecIndex = _XcmCommsStackXrefLayerSecIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 61, 7, 2, 1, 3),
@@ -760,7 +868,13 @@ xcmCommsStackXrefLayerSecIndex = _XcmCommsStackXrefLayerSecIndex_Object(
 xcmCommsStackXrefLayerSecIndex.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsStackXrefLayerSecIndex.setStatus("current")
-_XcmCommsStackXrefLayerIWUIndex_Type = Cardinal32
+
+
+class _XcmCommsStackXrefLayerIWUIndex_Type(Cardinal32):
+    """Custom type xcmCommsStackXrefLayerIWUIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmCommsStackXrefLayerIWUIndex_Object = MibTableColumn
 xcmCommsStackXrefLayerIWUIndex = _XcmCommsStackXrefLayerIWUIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 61, 7, 2, 1, 4),
@@ -769,7 +883,13 @@ xcmCommsStackXrefLayerIWUIndex = _XcmCommsStackXrefLayerIWUIndex_Object(
 xcmCommsStackXrefLayerIWUIndex.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsStackXrefLayerIWUIndex.setStatus("current")
-_XcmCommsStackXrefHrSWRunIndex_Type = Cardinal32
+
+
+class _XcmCommsStackXrefHrSWRunIndex_Type(Cardinal32):
+    """Custom type xcmCommsStackXrefHrSWRunIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmCommsStackXrefHrSWRunIndex_Object = MibTableColumn
 xcmCommsStackXrefHrSWRunIndex = _XcmCommsStackXrefHrSWRunIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 61, 7, 2, 1, 5),
@@ -778,7 +898,13 @@ xcmCommsStackXrefHrSWRunIndex = _XcmCommsStackXrefHrSWRunIndex_Object(
 xcmCommsStackXrefHrSWRunIndex.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsStackXrefHrSWRunIndex.setStatus("current")
-_XcmCommsStackXrefHrSWInsIndex_Type = Cardinal32
+
+
+class _XcmCommsStackXrefHrSWInsIndex_Type(Cardinal32):
+    """Custom type xcmCommsStackXrefHrSWInsIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmCommsStackXrefHrSWInsIndex_Object = MibTableColumn
 xcmCommsStackXrefHrSWInsIndex = _XcmCommsStackXrefHrSWInsIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 61, 7, 2, 1, 6),
@@ -787,7 +913,13 @@ xcmCommsStackXrefHrSWInsIndex = _XcmCommsStackXrefHrSWInsIndex_Object(
 xcmCommsStackXrefHrSWInsIndex.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsStackXrefHrSWInsIndex.setStatus("current")
-_XcmCommsStackXrefIfIndex_Type = Cardinal32
+
+
+class _XcmCommsStackXrefIfIndex_Type(Cardinal32):
+    """Custom type xcmCommsStackXrefIfIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmCommsStackXrefIfIndex_Object = MibTableColumn
 xcmCommsStackXrefIfIndex = _XcmCommsStackXrefIfIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 61, 7, 2, 1, 7),
@@ -796,7 +928,13 @@ xcmCommsStackXrefIfIndex = _XcmCommsStackXrefIfIndex_Object(
 xcmCommsStackXrefIfIndex.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsStackXrefIfIndex.setStatus("current")
-_XcmCommsStackXrefHrCommDevIndex_Type = Cardinal32
+
+
+class _XcmCommsStackXrefHrCommDevIndex_Type(Cardinal32):
+    """Custom type xcmCommsStackXrefHrCommDevIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmCommsStackXrefHrCommDevIndex_Object = MibTableColumn
 xcmCommsStackXrefHrCommDevIndex = _XcmCommsStackXrefHrCommDevIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 61, 7, 2, 1, 8),
@@ -843,7 +981,13 @@ xcmCommsMuxRowStatus = _XcmCommsMuxRowStatus_Object(
 xcmCommsMuxRowStatus.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsMuxRowStatus.setStatus("current")
-_XcmCommsMuxNextIndex_Type = Cardinal32
+
+
+class _XcmCommsMuxNextIndex_Type(Cardinal32):
+    """Custom type xcmCommsMuxNextIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmCommsMuxNextIndex_Object = MibTableColumn
 xcmCommsMuxNextIndex = _XcmCommsMuxNextIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 61, 8, 2, 1, 3),
@@ -852,7 +996,13 @@ xcmCommsMuxNextIndex = _XcmCommsMuxNextIndex_Object(
 xcmCommsMuxNextIndex.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsMuxNextIndex.setStatus("current")
-_XcmCommsMuxPreviousIndex_Type = Cardinal32
+
+
+class _XcmCommsMuxPreviousIndex_Type(Cardinal32):
+    """Custom type xcmCommsMuxPreviousIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmCommsMuxPreviousIndex_Object = MibTableColumn
 xcmCommsMuxPreviousIndex = _XcmCommsMuxPreviousIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 61, 8, 2, 1, 4),
@@ -861,7 +1011,13 @@ xcmCommsMuxPreviousIndex = _XcmCommsMuxPreviousIndex_Object(
 xcmCommsMuxPreviousIndex.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsMuxPreviousIndex.setStatus("current")
-_XcmCommsMuxOptionIndex_Type = Cardinal32
+
+
+class _XcmCommsMuxOptionIndex_Type(Cardinal32):
+    """Custom type xcmCommsMuxOptionIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmCommsMuxOptionIndex_Object = MibTableColumn
 xcmCommsMuxOptionIndex = _XcmCommsMuxOptionIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 61, 8, 2, 1, 5),
@@ -931,7 +1087,13 @@ xcmCommsMuxExtState = _XcmCommsMuxExtState_Object(
 xcmCommsMuxExtState.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsMuxExtState.setStatus("current")
-_XcmCommsMuxExtConditions_Type = XcmCommsMgmtConditions
+
+
+class _XcmCommsMuxExtConditions_Type(XcmCommsMgmtConditions):
+    """Custom type xcmCommsMuxExtConditions based on XcmCommsMgmtConditions"""
+    defaultValue = 0
+
+
 _XcmCommsMuxExtConditions_Object = MibTableColumn
 xcmCommsMuxExtConditions = _XcmCommsMuxExtConditions_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 61, 9, 2, 1, 3),
@@ -940,7 +1102,13 @@ xcmCommsMuxExtConditions = _XcmCommsMuxExtConditions_Object(
 xcmCommsMuxExtConditions.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsMuxExtConditions.setStatus("current")
-_XcmCommsMuxExtMgmtIndex_Type = Cardinal32
+
+
+class _XcmCommsMuxExtMgmtIndex_Type(Cardinal32):
+    """Custom type xcmCommsMuxExtMgmtIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmCommsMuxExtMgmtIndex_Object = MibTableColumn
 xcmCommsMuxExtMgmtIndex = _XcmCommsMuxExtMgmtIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 61, 9, 2, 1, 4),
@@ -968,7 +1136,7 @@ if mibBuilder.loadTexts:
 
 class _XcmCommsMuxExtOwnerOID_Type(ObjectIdentifier):
     """Custom type xcmCommsMuxExtOwnerOID based on ObjectIdentifier"""
-    defaultValue = "(0, 0)"
+    defaultValue = (0, 0)
 
 
 _XcmCommsMuxExtOwnerOID_Object = MibTableColumn
@@ -1021,7 +1189,7 @@ if mibBuilder.loadTexts:
 
 class _XcmCommsAddressTypeOID_Type(ObjectIdentifier):
     """Custom type xcmCommsAddressTypeOID based on ObjectIdentifier"""
-    defaultValue = "(0, 0)"
+    defaultValue = (0, 0)
 
 
 _XcmCommsAddressTypeOID_Object = MibTableColumn
@@ -1081,7 +1249,13 @@ xcmCommsAddressCanonical = _XcmCommsAddressCanonical_Object(
 xcmCommsAddressCanonical.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmCommsAddressCanonical.setStatus("current")
-_XcmCommsAddressNextIndex_Type = Cardinal32
+
+
+class _XcmCommsAddressNextIndex_Type(Cardinal32):
+    """Custom type xcmCommsAddressNextIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmCommsAddressNextIndex_Object = MibTableColumn
 xcmCommsAddressNextIndex = _XcmCommsAddressNextIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 61, 10, 2, 1, 7),
@@ -1090,7 +1264,13 @@ xcmCommsAddressNextIndex = _XcmCommsAddressNextIndex_Object(
 xcmCommsAddressNextIndex.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmCommsAddressNextIndex.setStatus("current")
-_XcmCommsAddressPreviousIndex_Type = Cardinal32
+
+
+class _XcmCommsAddressPreviousIndex_Type(Cardinal32):
+    """Custom type xcmCommsAddressPreviousIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmCommsAddressPreviousIndex_Object = MibTableColumn
 xcmCommsAddressPreviousIndex = _XcmCommsAddressPreviousIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 61, 10, 2, 1, 8),
@@ -1157,7 +1337,13 @@ xcmCommsAddressExtState = _XcmCommsAddressExtState_Object(
 xcmCommsAddressExtState.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsAddressExtState.setStatus("current")
-_XcmCommsAddressExtConditions_Type = XcmCommsMgmtConditions
+
+
+class _XcmCommsAddressExtConditions_Type(XcmCommsMgmtConditions):
+    """Custom type xcmCommsAddressExtConditions based on XcmCommsMgmtConditions"""
+    defaultValue = 0
+
+
 _XcmCommsAddressExtConditions_Object = MibTableColumn
 xcmCommsAddressExtConditions = _XcmCommsAddressExtConditions_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 61, 11, 2, 1, 3),
@@ -1227,7 +1413,7 @@ if mibBuilder.loadTexts:
 
 class _XcmCommsAddressExtOwnerOID_Type(ObjectIdentifier):
     """Custom type xcmCommsAddressExtOwnerOID based on ObjectIdentifier"""
-    defaultValue = "(0, 0)"
+    defaultValue = (0, 0)
 
 
 _XcmCommsAddressExtOwnerOID_Object = MibTableColumn
@@ -1360,7 +1546,13 @@ xcmCommsAccessRowStatus = _XcmCommsAccessRowStatus_Object(
 xcmCommsAccessRowStatus.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsAccessRowStatus.setStatus("current")
-_XcmCommsAccessConnectPorts_Type = Gauge32
+
+
+class _XcmCommsAccessConnectPorts_Type(Gauge32):
+    """Custom type xcmCommsAccessConnectPorts based on Gauge32"""
+    defaultValue = 0
+
+
 _XcmCommsAccessConnectPorts_Object = MibTableColumn
 xcmCommsAccessConnectPorts = _XcmCommsAccessConnectPorts_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 61, 13, 2, 1, 2),
@@ -1369,7 +1561,13 @@ xcmCommsAccessConnectPorts = _XcmCommsAccessConnectPorts_Object(
 xcmCommsAccessConnectPorts.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsAccessConnectPorts.setStatus("current")
-_XcmCommsAccessHighConnectPorts_Type = Gauge32
+
+
+class _XcmCommsAccessHighConnectPorts_Type(Gauge32):
+    """Custom type xcmCommsAccessHighConnectPorts based on Gauge32"""
+    defaultValue = 0
+
+
 _XcmCommsAccessHighConnectPorts_Object = MibTableColumn
 xcmCommsAccessHighConnectPorts = _XcmCommsAccessHighConnectPorts_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 61, 13, 2, 1, 3),
@@ -1378,7 +1576,13 @@ xcmCommsAccessHighConnectPorts = _XcmCommsAccessHighConnectPorts_Object(
 xcmCommsAccessHighConnectPorts.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsAccessHighConnectPorts.setStatus("current")
-_XcmCommsAccessMaxConnectPorts_Type = Cardinal32
+
+
+class _XcmCommsAccessMaxConnectPorts_Type(Cardinal32):
+    """Custom type xcmCommsAccessMaxConnectPorts based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmCommsAccessMaxConnectPorts_Object = MibTableColumn
 xcmCommsAccessMaxConnectPorts = _XcmCommsAccessMaxConnectPorts_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 61, 13, 2, 1, 4),
@@ -1387,7 +1591,13 @@ xcmCommsAccessMaxConnectPorts = _XcmCommsAccessMaxConnectPorts_Object(
 xcmCommsAccessMaxConnectPorts.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsAccessMaxConnectPorts.setStatus("current")
-_XcmCommsAccessDatagramPorts_Type = Gauge32
+
+
+class _XcmCommsAccessDatagramPorts_Type(Gauge32):
+    """Custom type xcmCommsAccessDatagramPorts based on Gauge32"""
+    defaultValue = 0
+
+
 _XcmCommsAccessDatagramPorts_Object = MibTableColumn
 xcmCommsAccessDatagramPorts = _XcmCommsAccessDatagramPorts_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 61, 13, 2, 1, 5),
@@ -1396,7 +1606,13 @@ xcmCommsAccessDatagramPorts = _XcmCommsAccessDatagramPorts_Object(
 xcmCommsAccessDatagramPorts.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsAccessDatagramPorts.setStatus("current")
-_XcmCommsAccessHighDatagramPorts_Type = Gauge32
+
+
+class _XcmCommsAccessHighDatagramPorts_Type(Gauge32):
+    """Custom type xcmCommsAccessHighDatagramPorts based on Gauge32"""
+    defaultValue = 0
+
+
 _XcmCommsAccessHighDatagramPorts_Object = MibTableColumn
 xcmCommsAccessHighDatagramPorts = _XcmCommsAccessHighDatagramPorts_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 61, 13, 2, 1, 6),
@@ -1405,7 +1621,13 @@ xcmCommsAccessHighDatagramPorts = _XcmCommsAccessHighDatagramPorts_Object(
 xcmCommsAccessHighDatagramPorts.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsAccessHighDatagramPorts.setStatus("current")
-_XcmCommsAccessMaxDatagramPorts_Type = Cardinal32
+
+
+class _XcmCommsAccessMaxDatagramPorts_Type(Cardinal32):
+    """Custom type xcmCommsAccessMaxDatagramPorts based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmCommsAccessMaxDatagramPorts_Object = MibTableColumn
 xcmCommsAccessMaxDatagramPorts = _XcmCommsAccessMaxDatagramPorts_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 61, 13, 2, 1, 7),

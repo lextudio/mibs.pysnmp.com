@@ -1,17 +1,17 @@
-"""SNMP MIB module (AIMIB) expressed in pysnmp data model.
+# SNMP MIB module (AIMIB) expressed in pysnmp data model.
+#
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/AIMIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 20:35:07 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-This Python module is designed to be imported and executed by the
-pysnmp library.
-
-See https://www.pysnmp.com/pysnmp for further information.
-
-Notes
------
-ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/AIMIB
-Produced by pysmi-1.3.3 at Sun Mar 10 01:53:40 2024
-On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm
-Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
-"""
 if 'mibBuilder' not in globals():
     import sys
 
@@ -45,51 +45,51 @@ if 'mibBuilder' not in globals():
 
 # Import SMI symbols from the MIBs this MIB depends on
 
-(ObjectGroup,
- ModuleCompliance,
- NotificationGroup) = mibBuilder.importSymbols(
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
     "SNMPv2-CONF",
-    "ObjectGroup",
     "ModuleCompliance",
-    "NotificationGroup")
+    "NotificationGroup",
+    "ObjectGroup")
 
-(IpAddress,
- ModuleIdentity,
- iso,
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
  Integer32,
+ IpAddress,
+ ModuleIdentity,
  MibIdentifier,
- enterprises,
+ NotificationType,
  ObjectIdentity,
  MibScalar,
  MibTable,
  MibTableRow,
  MibTableColumn,
- Bits,
- Counter64,
- Counter32,
- Gauge32,
- Unsigned32,
  TimeTicks,
- NotificationType) = mibBuilder.importSymbols(
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
     "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
     "IpAddress",
     "ModuleIdentity",
-    "iso",
-    "Integer32",
     "MibIdentifier",
-    "enterprises",
+    "NotificationType",
     "ObjectIdentity",
     "MibScalar",
     "MibTable",
     "MibTableRow",
     "MibTableColumn",
-    "Bits",
-    "Counter64",
-    "Counter32",
-    "Gauge32",
-    "Unsigned32",
     "TimeTicks",
-    "NotificationType")
+    "Unsigned32",
+    "enterprises",
+    "iso")
 
 (DisplayString,
  TextualConvention) = mibBuilder.importSymbols(

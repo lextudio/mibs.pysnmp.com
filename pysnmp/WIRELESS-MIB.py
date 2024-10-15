@@ -1,129 +1,726 @@
+# SNMP MIB module (WIRELESS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module WIRELESS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/WIRELESS-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 21:29:45 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint")
-Timeticks, = mibBuilder.importSymbols("RFC1155-SMI", "Timeticks")
-MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("RFC1212", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-enterprises, iso, Integer32, TimeTicks, Gauge32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Unsigned32, Counter64, MibIdentifier, IpAddress, Bits, NotificationType, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "enterprises", "iso", "Integer32", "TimeTicks", "Gauge32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Unsigned32", "Counter64", "MibIdentifier", "IpAddress", "Bits", "NotificationType", "Counter32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-class MacAddress(OctetString):
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(6, 6)
-    fixedLength = 6
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/WIRELESS-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:14:01 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-ibm = MibIdentifier((1, 3, 6, 1, 4, 1, 2))
-ibmProd = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6))
-ibmwlan = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6, 10))
-wrBase = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6, 10, 1))
-wrRemote = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6, 10, 2))
-baseName = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 1), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: baseName.setStatus('mandatory')
-baseNetworkName = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: baseNetworkName.setStatus('mandatory')
-baseAdminIPAddr = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 3), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: baseAdminIPAddr.setStatus('mandatory')
-wrBaseTable = MibTable((1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 4), )
-if mibBuilder.loadTexts: wrBaseTable.setStatus('mandatory')
-wrBaseEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 4, 1), ).setIndexNames((0, "WIRELESS-MIB", "baseIfIndex"))
-if mibBuilder.loadTexts: wrBaseEntry.setStatus('mandatory')
-baseIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 4, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: baseIfIndex.setStatus('mandatory')
-baseHDLCaddress = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 4, 1, 2), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: baseHDLCaddress.setStatus('mandatory')
-baseNbOFRemote = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 4, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: baseNbOFRemote.setStatus('mandatory')
-baseCellIdentifier = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 4, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: baseCellIdentifier.setStatus('mandatory')
-baseAdapterStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 4, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("operational", 1), ("not-operational", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: baseAdapterStatus.setStatus('mandatory')
-baseEmittedPower = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 4, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: baseEmittedPower.setStatus('mandatory')
-baseControllerCardDesc = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 4, 1, 7), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: baseControllerCardDesc.setStatus('mandatory')
-baseUnivAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 4, 1, 8), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: baseUnivAddress.setStatus('mandatory')
-baseModemDesc = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 4, 1, 9), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: baseModemDesc.setStatus('mandatory')
-baseTopologyTrapActive = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 4, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("active", 1), ("inactive", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: baseTopologyTrapActive.setStatus('mandatory')
-wrBaseStatsTable = MibTable((1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 5), )
-if mibBuilder.loadTexts: wrBaseStatsTable.setStatus('mandatory')
-wrBaseStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 5, 1), ).setIndexNames((0, "WIRELESS-MIB", "baseStatsIfIndex"))
-if mibBuilder.loadTexts: wrBaseStatsEntry.setStatus('mandatory')
-baseStatsIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 5, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: baseStatsIfIndex.setStatus('mandatory')
-baseStatsXmit = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 5, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: baseStatsXmit.setStatus('mandatory')
-baseStatsRxmit = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 5, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: baseStatsRxmit.setStatus('mandatory')
-baseStatsNegAckRcv = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 5, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: baseStatsNegAckRcv.setStatus('mandatory')
-baseStatsRcv = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 5, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: baseStatsRcv.setStatus('mandatory')
-baseStatsLineErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 5, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: baseStatsLineErrors.setStatus('mandatory')
-baseStatsNegAckXmit = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 5, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: baseStatsNegAckXmit.setStatus('mandatory')
-baseStatsFramePurged = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 5, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: baseStatsFramePurged.setStatus('mandatory')
-baseStatsFreqDelete = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 5, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: baseStatsFreqDelete.setStatus('mandatory')
-baseStatsHopAdvance = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 5, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: baseStatsHopAdvance.setStatus('mandatory')
-baseStatsCLineErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 5, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: baseStatsCLineErrors.setStatus('mandatory')
-baseStatsRcvICRFrame = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 5, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: baseStatsRcvICRFrame.setStatus('mandatory')
-baseStatsXmitICRFrame = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 5, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: baseStatsXmitICRFrame.setStatus('mandatory')
-baseStatsNoICRBufferAvail = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 5, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: baseStatsNoICRBufferAvail.setStatus('mandatory')
-baseStatsNotRoutedICRFrame = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 5, 1, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: baseStatsNotRoutedICRFrame.setStatus('mandatory')
-baseStatsNbCUserEst = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 5, 1, 16), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: baseStatsNbCUserEst.setStatus('mandatory')
-wrRemoteTable = MibTable((1, 3, 6, 1, 4, 1, 2, 6, 10, 2, 1), )
-if mibBuilder.loadTexts: wrRemoteTable.setStatus('mandatory')
-wrRemoteEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2, 6, 10, 2, 1, 1), ).setIndexNames((0, "WIRELESS-MIB", "remIfIndex"), (0, "WIRELESS-MIB", "remIndex"))
-if mibBuilder.loadTexts: wrRemoteEntry.setStatus('mandatory')
-remIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 2, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: remIfIndex.setStatus('mandatory')
-remIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 2, 1, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: remIndex.setStatus('mandatory')
-remMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 2, 1, 1, 3), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: remMacAddress.setStatus('mandatory')
-remName = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 2, 1, 1, 4), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: remName.setStatus('mandatory')
-remControllerCardDesc = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 2, 1, 1, 5), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: remControllerCardDesc.setStatus('mandatory')
-remUnivAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 2, 1, 1, 6), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: remUnivAddress.setStatus('mandatory')
-remModemDesc = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 2, 1, 1, 7), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: remModemDesc.setStatus('mandatory')
-wrRemoteStatsTable = MibTable((1, 3, 6, 1, 4, 1, 2, 6, 10, 2, 2), )
-if mibBuilder.loadTexts: wrRemoteStatsTable.setStatus('mandatory')
-wrRemStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2, 6, 10, 2, 2, 1), ).setIndexNames((0, "WIRELESS-MIB", "remStatsIfIndex"), (0, "WIRELESS-MIB", "remStatsIndex"))
-if mibBuilder.loadTexts: wrRemStatsEntry.setStatus('mandatory')
-remStatsIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 2, 2, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: remStatsIfIndex.setStatus('mandatory')
-remStatsIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 2, 2, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: remStatsIndex.setStatus('mandatory')
-remStatsXmit = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 2, 2, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: remStatsXmit.setStatus('mandatory')
-remStatsRxmit = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 2, 2, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: remStatsRxmit.setStatus('mandatory')
-remStatsNegAckRcv = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 2, 2, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: remStatsNegAckRcv.setStatus('mandatory')
-remStatsRcv = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 2, 2, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: remStatsRcv.setStatus('mandatory')
-remStatsLineErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 2, 2, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: remStatsLineErrors.setStatus('mandatory')
-remStatsNegAckXmit = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 10, 2, 2, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: remStatsNegAckXmit.setStatus('mandatory')
-mibBuilder.exportSymbols("WIRELESS-MIB", baseAdapterStatus=baseAdapterStatus, remIfIndex=remIfIndex, wrBaseStatsEntry=wrBaseStatsEntry, baseHDLCaddress=baseHDLCaddress, baseControllerCardDesc=baseControllerCardDesc, remStatsIfIndex=remStatsIfIndex, MacAddress=MacAddress, baseNbOFRemote=baseNbOFRemote, remStatsIndex=remStatsIndex, baseStatsFramePurged=baseStatsFramePurged, wrRemote=wrRemote, baseUnivAddress=baseUnivAddress, wrBaseEntry=wrBaseEntry, baseStatsNoICRBufferAvail=baseStatsNoICRBufferAvail, baseStatsNegAckRcv=baseStatsNegAckRcv, baseStatsHopAdvance=baseStatsHopAdvance, baseStatsNbCUserEst=baseStatsNbCUserEst, remUnivAddress=remUnivAddress, wrRemoteStatsTable=wrRemoteStatsTable, baseStatsXmit=baseStatsXmit, remStatsRxmit=remStatsRxmit, baseStatsCLineErrors=baseStatsCLineErrors, remStatsLineErrors=remStatsLineErrors, baseStatsRcvICRFrame=baseStatsRcvICRFrame, baseNetworkName=baseNetworkName, baseCellIdentifier=baseCellIdentifier, baseStatsRcv=baseStatsRcv, baseIfIndex=baseIfIndex, baseTopologyTrapActive=baseTopologyTrapActive, baseAdminIPAddr=baseAdminIPAddr, baseStatsNegAckXmit=baseStatsNegAckXmit, baseModemDesc=baseModemDesc, baseStatsLineErrors=baseStatsLineErrors, ibmwlan=ibmwlan, wrRemStatsEntry=wrRemStatsEntry, remControllerCardDesc=remControllerCardDesc, wrRemoteEntry=wrRemoteEntry, remIndex=remIndex, baseStatsFreqDelete=baseStatsFreqDelete, remMacAddress=remMacAddress, remName=remName, baseStatsXmitICRFrame=baseStatsXmitICRFrame, baseStatsIfIndex=baseStatsIfIndex, wrRemoteTable=wrRemoteTable, baseName=baseName, wrBaseTable=wrBaseTable, baseStatsNotRoutedICRFrame=baseStatsNotRoutedICRFrame, baseStatsRxmit=baseStatsRxmit, remModemDesc=remModemDesc, baseEmittedPower=baseEmittedPower, remStatsNegAckRcv=remStatsNegAckRcv, ibmProd=ibmProd, ibm=ibm, remStatsXmit=remStatsXmit, remStatsRcv=remStatsRcv, remStatsNegAckXmit=remStatsNegAckXmit, wrBase=wrBase, wrBaseStatsTable=wrBaseStatsTable)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(Timeticks,) = mibBuilder.importSymbols(
+    "RFC1155-SMI",
+    "Timeticks")
+
+(MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn) = mibBuilder.importSymbols(
+    "RFC1212",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+
+class MacAddress(OctetString):
+    """Custom type MacAddress based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(6, 6),
+    )
+
+
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Ibm_ObjectIdentity = ObjectIdentity
+ibm = _Ibm_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2)
+)
+_IbmProd_ObjectIdentity = ObjectIdentity
+ibmProd = _IbmProd_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2, 6)
+)
+_Ibmwlan_ObjectIdentity = ObjectIdentity
+ibmwlan = _Ibmwlan_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10)
+)
+_WrBase_ObjectIdentity = ObjectIdentity
+wrBase = _WrBase_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 1)
+)
+_BaseName_Type = DisplayString
+_BaseName_Object = MibScalar
+baseName = _BaseName_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 1),
+    _BaseName_Type()
+)
+baseName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    baseName.setStatus("mandatory")
+_BaseNetworkName_Type = DisplayString
+_BaseNetworkName_Object = MibScalar
+baseNetworkName = _BaseNetworkName_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 2),
+    _BaseNetworkName_Type()
+)
+baseNetworkName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    baseNetworkName.setStatus("mandatory")
+_BaseAdminIPAddr_Type = IpAddress
+_BaseAdminIPAddr_Object = MibScalar
+baseAdminIPAddr = _BaseAdminIPAddr_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 3),
+    _BaseAdminIPAddr_Type()
+)
+baseAdminIPAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    baseAdminIPAddr.setStatus("mandatory")
+_WrBaseTable_Object = MibTable
+wrBaseTable = _WrBaseTable_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 4)
+)
+if mibBuilder.loadTexts:
+    wrBaseTable.setStatus("mandatory")
+_WrBaseEntry_Object = MibTableRow
+wrBaseEntry = _WrBaseEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 4, 1)
+)
+wrBaseEntry.setIndexNames(
+    (0, "WIRELESS-MIB", "baseIfIndex"),
+)
+if mibBuilder.loadTexts:
+    wrBaseEntry.setStatus("mandatory")
+_BaseIfIndex_Type = Integer32
+_BaseIfIndex_Object = MibTableColumn
+baseIfIndex = _BaseIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 4, 1, 1),
+    _BaseIfIndex_Type()
+)
+baseIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    baseIfIndex.setStatus("mandatory")
+_BaseHDLCaddress_Type = OctetString
+_BaseHDLCaddress_Object = MibTableColumn
+baseHDLCaddress = _BaseHDLCaddress_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 4, 1, 2),
+    _BaseHDLCaddress_Type()
+)
+baseHDLCaddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    baseHDLCaddress.setStatus("mandatory")
+_BaseNbOFRemote_Type = Integer32
+_BaseNbOFRemote_Object = MibTableColumn
+baseNbOFRemote = _BaseNbOFRemote_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 4, 1, 3),
+    _BaseNbOFRemote_Type()
+)
+baseNbOFRemote.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    baseNbOFRemote.setStatus("mandatory")
+_BaseCellIdentifier_Type = Integer32
+_BaseCellIdentifier_Object = MibTableColumn
+baseCellIdentifier = _BaseCellIdentifier_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 4, 1, 4),
+    _BaseCellIdentifier_Type()
+)
+baseCellIdentifier.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    baseCellIdentifier.setStatus("mandatory")
+
+
+class _BaseAdapterStatus_Type(Integer32):
+    """Custom type baseAdapterStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("not-operational", 2),
+          ("operational", 1))
+    )
+
+
+_BaseAdapterStatus_Type.__name__ = "Integer32"
+_BaseAdapterStatus_Object = MibTableColumn
+baseAdapterStatus = _BaseAdapterStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 4, 1, 5),
+    _BaseAdapterStatus_Type()
+)
+baseAdapterStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    baseAdapterStatus.setStatus("mandatory")
+_BaseEmittedPower_Type = Integer32
+_BaseEmittedPower_Object = MibTableColumn
+baseEmittedPower = _BaseEmittedPower_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 4, 1, 6),
+    _BaseEmittedPower_Type()
+)
+baseEmittedPower.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    baseEmittedPower.setStatus("mandatory")
+_BaseControllerCardDesc_Type = DisplayString
+_BaseControllerCardDesc_Object = MibTableColumn
+baseControllerCardDesc = _BaseControllerCardDesc_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 4, 1, 7),
+    _BaseControllerCardDesc_Type()
+)
+baseControllerCardDesc.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    baseControllerCardDesc.setStatus("mandatory")
+_BaseUnivAddress_Type = MacAddress
+_BaseUnivAddress_Object = MibTableColumn
+baseUnivAddress = _BaseUnivAddress_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 4, 1, 8),
+    _BaseUnivAddress_Type()
+)
+baseUnivAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    baseUnivAddress.setStatus("mandatory")
+_BaseModemDesc_Type = DisplayString
+_BaseModemDesc_Object = MibTableColumn
+baseModemDesc = _BaseModemDesc_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 4, 1, 9),
+    _BaseModemDesc_Type()
+)
+baseModemDesc.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    baseModemDesc.setStatus("mandatory")
+
+
+class _BaseTopologyTrapActive_Type(Integer32):
+    """Custom type baseTopologyTrapActive based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 1),
+          ("inactive", 2))
+    )
+
+
+_BaseTopologyTrapActive_Type.__name__ = "Integer32"
+_BaseTopologyTrapActive_Object = MibTableColumn
+baseTopologyTrapActive = _BaseTopologyTrapActive_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 4, 1, 10),
+    _BaseTopologyTrapActive_Type()
+)
+baseTopologyTrapActive.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    baseTopologyTrapActive.setStatus("mandatory")
+_WrBaseStatsTable_Object = MibTable
+wrBaseStatsTable = _WrBaseStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 5)
+)
+if mibBuilder.loadTexts:
+    wrBaseStatsTable.setStatus("mandatory")
+_WrBaseStatsEntry_Object = MibTableRow
+wrBaseStatsEntry = _WrBaseStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 5, 1)
+)
+wrBaseStatsEntry.setIndexNames(
+    (0, "WIRELESS-MIB", "baseStatsIfIndex"),
+)
+if mibBuilder.loadTexts:
+    wrBaseStatsEntry.setStatus("mandatory")
+_BaseStatsIfIndex_Type = Integer32
+_BaseStatsIfIndex_Object = MibTableColumn
+baseStatsIfIndex = _BaseStatsIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 5, 1, 1),
+    _BaseStatsIfIndex_Type()
+)
+baseStatsIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    baseStatsIfIndex.setStatus("mandatory")
+_BaseStatsXmit_Type = Counter32
+_BaseStatsXmit_Object = MibTableColumn
+baseStatsXmit = _BaseStatsXmit_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 5, 1, 2),
+    _BaseStatsXmit_Type()
+)
+baseStatsXmit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    baseStatsXmit.setStatus("mandatory")
+_BaseStatsRxmit_Type = Counter32
+_BaseStatsRxmit_Object = MibTableColumn
+baseStatsRxmit = _BaseStatsRxmit_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 5, 1, 3),
+    _BaseStatsRxmit_Type()
+)
+baseStatsRxmit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    baseStatsRxmit.setStatus("mandatory")
+_BaseStatsNegAckRcv_Type = Counter32
+_BaseStatsNegAckRcv_Object = MibTableColumn
+baseStatsNegAckRcv = _BaseStatsNegAckRcv_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 5, 1, 4),
+    _BaseStatsNegAckRcv_Type()
+)
+baseStatsNegAckRcv.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    baseStatsNegAckRcv.setStatus("mandatory")
+_BaseStatsRcv_Type = Counter32
+_BaseStatsRcv_Object = MibTableColumn
+baseStatsRcv = _BaseStatsRcv_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 5, 1, 5),
+    _BaseStatsRcv_Type()
+)
+baseStatsRcv.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    baseStatsRcv.setStatus("mandatory")
+_BaseStatsLineErrors_Type = Counter32
+_BaseStatsLineErrors_Object = MibTableColumn
+baseStatsLineErrors = _BaseStatsLineErrors_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 5, 1, 6),
+    _BaseStatsLineErrors_Type()
+)
+baseStatsLineErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    baseStatsLineErrors.setStatus("mandatory")
+_BaseStatsNegAckXmit_Type = Counter32
+_BaseStatsNegAckXmit_Object = MibTableColumn
+baseStatsNegAckXmit = _BaseStatsNegAckXmit_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 5, 1, 7),
+    _BaseStatsNegAckXmit_Type()
+)
+baseStatsNegAckXmit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    baseStatsNegAckXmit.setStatus("mandatory")
+_BaseStatsFramePurged_Type = Counter32
+_BaseStatsFramePurged_Object = MibTableColumn
+baseStatsFramePurged = _BaseStatsFramePurged_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 5, 1, 8),
+    _BaseStatsFramePurged_Type()
+)
+baseStatsFramePurged.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    baseStatsFramePurged.setStatus("mandatory")
+_BaseStatsFreqDelete_Type = Counter32
+_BaseStatsFreqDelete_Object = MibTableColumn
+baseStatsFreqDelete = _BaseStatsFreqDelete_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 5, 1, 9),
+    _BaseStatsFreqDelete_Type()
+)
+baseStatsFreqDelete.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    baseStatsFreqDelete.setStatus("mandatory")
+_BaseStatsHopAdvance_Type = Counter32
+_BaseStatsHopAdvance_Object = MibTableColumn
+baseStatsHopAdvance = _BaseStatsHopAdvance_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 5, 1, 10),
+    _BaseStatsHopAdvance_Type()
+)
+baseStatsHopAdvance.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    baseStatsHopAdvance.setStatus("mandatory")
+_BaseStatsCLineErrors_Type = Counter32
+_BaseStatsCLineErrors_Object = MibTableColumn
+baseStatsCLineErrors = _BaseStatsCLineErrors_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 5, 1, 11),
+    _BaseStatsCLineErrors_Type()
+)
+baseStatsCLineErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    baseStatsCLineErrors.setStatus("mandatory")
+_BaseStatsRcvICRFrame_Type = Counter32
+_BaseStatsRcvICRFrame_Object = MibTableColumn
+baseStatsRcvICRFrame = _BaseStatsRcvICRFrame_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 5, 1, 12),
+    _BaseStatsRcvICRFrame_Type()
+)
+baseStatsRcvICRFrame.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    baseStatsRcvICRFrame.setStatus("mandatory")
+_BaseStatsXmitICRFrame_Type = Counter32
+_BaseStatsXmitICRFrame_Object = MibTableColumn
+baseStatsXmitICRFrame = _BaseStatsXmitICRFrame_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 5, 1, 13),
+    _BaseStatsXmitICRFrame_Type()
+)
+baseStatsXmitICRFrame.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    baseStatsXmitICRFrame.setStatus("mandatory")
+_BaseStatsNoICRBufferAvail_Type = Counter32
+_BaseStatsNoICRBufferAvail_Object = MibTableColumn
+baseStatsNoICRBufferAvail = _BaseStatsNoICRBufferAvail_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 5, 1, 14),
+    _BaseStatsNoICRBufferAvail_Type()
+)
+baseStatsNoICRBufferAvail.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    baseStatsNoICRBufferAvail.setStatus("mandatory")
+_BaseStatsNotRoutedICRFrame_Type = Counter32
+_BaseStatsNotRoutedICRFrame_Object = MibTableColumn
+baseStatsNotRoutedICRFrame = _BaseStatsNotRoutedICRFrame_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 5, 1, 15),
+    _BaseStatsNotRoutedICRFrame_Type()
+)
+baseStatsNotRoutedICRFrame.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    baseStatsNotRoutedICRFrame.setStatus("mandatory")
+_BaseStatsNbCUserEst_Type = Gauge32
+_BaseStatsNbCUserEst_Object = MibTableColumn
+baseStatsNbCUserEst = _BaseStatsNbCUserEst_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 1, 5, 1, 16),
+    _BaseStatsNbCUserEst_Type()
+)
+baseStatsNbCUserEst.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    baseStatsNbCUserEst.setStatus("mandatory")
+_WrRemote_ObjectIdentity = ObjectIdentity
+wrRemote = _WrRemote_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 2)
+)
+_WrRemoteTable_Object = MibTable
+wrRemoteTable = _WrRemoteTable_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 2, 1)
+)
+if mibBuilder.loadTexts:
+    wrRemoteTable.setStatus("mandatory")
+_WrRemoteEntry_Object = MibTableRow
+wrRemoteEntry = _WrRemoteEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 2, 1, 1)
+)
+wrRemoteEntry.setIndexNames(
+    (0, "WIRELESS-MIB", "remIfIndex"),
+    (0, "WIRELESS-MIB", "remIndex"),
+)
+if mibBuilder.loadTexts:
+    wrRemoteEntry.setStatus("mandatory")
+_RemIfIndex_Type = Integer32
+_RemIfIndex_Object = MibTableColumn
+remIfIndex = _RemIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 2, 1, 1, 1),
+    _RemIfIndex_Type()
+)
+remIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    remIfIndex.setStatus("mandatory")
+_RemIndex_Type = Integer32
+_RemIndex_Object = MibTableColumn
+remIndex = _RemIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 2, 1, 1, 2),
+    _RemIndex_Type()
+)
+remIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    remIndex.setStatus("mandatory")
+_RemMacAddress_Type = MacAddress
+_RemMacAddress_Object = MibTableColumn
+remMacAddress = _RemMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 2, 1, 1, 3),
+    _RemMacAddress_Type()
+)
+remMacAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    remMacAddress.setStatus("mandatory")
+_RemName_Type = DisplayString
+_RemName_Object = MibTableColumn
+remName = _RemName_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 2, 1, 1, 4),
+    _RemName_Type()
+)
+remName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    remName.setStatus("mandatory")
+_RemControllerCardDesc_Type = DisplayString
+_RemControllerCardDesc_Object = MibTableColumn
+remControllerCardDesc = _RemControllerCardDesc_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 2, 1, 1, 5),
+    _RemControllerCardDesc_Type()
+)
+remControllerCardDesc.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    remControllerCardDesc.setStatus("mandatory")
+_RemUnivAddress_Type = MacAddress
+_RemUnivAddress_Object = MibTableColumn
+remUnivAddress = _RemUnivAddress_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 2, 1, 1, 6),
+    _RemUnivAddress_Type()
+)
+remUnivAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    remUnivAddress.setStatus("mandatory")
+_RemModemDesc_Type = DisplayString
+_RemModemDesc_Object = MibTableColumn
+remModemDesc = _RemModemDesc_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 2, 1, 1, 7),
+    _RemModemDesc_Type()
+)
+remModemDesc.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    remModemDesc.setStatus("mandatory")
+_WrRemoteStatsTable_Object = MibTable
+wrRemoteStatsTable = _WrRemoteStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 2, 2)
+)
+if mibBuilder.loadTexts:
+    wrRemoteStatsTable.setStatus("mandatory")
+_WrRemStatsEntry_Object = MibTableRow
+wrRemStatsEntry = _WrRemStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 2, 2, 1)
+)
+wrRemStatsEntry.setIndexNames(
+    (0, "WIRELESS-MIB", "remStatsIfIndex"),
+    (0, "WIRELESS-MIB", "remStatsIndex"),
+)
+if mibBuilder.loadTexts:
+    wrRemStatsEntry.setStatus("mandatory")
+_RemStatsIfIndex_Type = Integer32
+_RemStatsIfIndex_Object = MibTableColumn
+remStatsIfIndex = _RemStatsIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 2, 2, 1, 1),
+    _RemStatsIfIndex_Type()
+)
+remStatsIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    remStatsIfIndex.setStatus("mandatory")
+_RemStatsIndex_Type = Integer32
+_RemStatsIndex_Object = MibTableColumn
+remStatsIndex = _RemStatsIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 2, 2, 1, 2),
+    _RemStatsIndex_Type()
+)
+remStatsIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    remStatsIndex.setStatus("mandatory")
+_RemStatsXmit_Type = Counter32
+_RemStatsXmit_Object = MibTableColumn
+remStatsXmit = _RemStatsXmit_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 2, 2, 1, 3),
+    _RemStatsXmit_Type()
+)
+remStatsXmit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    remStatsXmit.setStatus("mandatory")
+_RemStatsRxmit_Type = Counter32
+_RemStatsRxmit_Object = MibTableColumn
+remStatsRxmit = _RemStatsRxmit_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 2, 2, 1, 4),
+    _RemStatsRxmit_Type()
+)
+remStatsRxmit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    remStatsRxmit.setStatus("mandatory")
+_RemStatsNegAckRcv_Type = Counter32
+_RemStatsNegAckRcv_Object = MibTableColumn
+remStatsNegAckRcv = _RemStatsNegAckRcv_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 2, 2, 1, 5),
+    _RemStatsNegAckRcv_Type()
+)
+remStatsNegAckRcv.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    remStatsNegAckRcv.setStatus("mandatory")
+_RemStatsRcv_Type = Counter32
+_RemStatsRcv_Object = MibTableColumn
+remStatsRcv = _RemStatsRcv_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 2, 2, 1, 6),
+    _RemStatsRcv_Type()
+)
+remStatsRcv.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    remStatsRcv.setStatus("mandatory")
+_RemStatsLineErrors_Type = Counter32
+_RemStatsLineErrors_Object = MibTableColumn
+remStatsLineErrors = _RemStatsLineErrors_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 2, 2, 1, 7),
+    _RemStatsLineErrors_Type()
+)
+remStatsLineErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    remStatsLineErrors.setStatus("mandatory")
+_RemStatsNegAckXmit_Type = Counter32
+_RemStatsNegAckXmit_Object = MibTableColumn
+remStatsNegAckXmit = _RemStatsNegAckXmit_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 10, 2, 2, 1, 8),
+    _RemStatsNegAckXmit_Type()
+)
+remStatsNegAckXmit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    remStatsNegAckXmit.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "WIRELESS-MIB",
+    **{"MacAddress": MacAddress,
+       "ibm": ibm,
+       "ibmProd": ibmProd,
+       "ibmwlan": ibmwlan,
+       "wrBase": wrBase,
+       "baseName": baseName,
+       "baseNetworkName": baseNetworkName,
+       "baseAdminIPAddr": baseAdminIPAddr,
+       "wrBaseTable": wrBaseTable,
+       "wrBaseEntry": wrBaseEntry,
+       "baseIfIndex": baseIfIndex,
+       "baseHDLCaddress": baseHDLCaddress,
+       "baseNbOFRemote": baseNbOFRemote,
+       "baseCellIdentifier": baseCellIdentifier,
+       "baseAdapterStatus": baseAdapterStatus,
+       "baseEmittedPower": baseEmittedPower,
+       "baseControllerCardDesc": baseControllerCardDesc,
+       "baseUnivAddress": baseUnivAddress,
+       "baseModemDesc": baseModemDesc,
+       "baseTopologyTrapActive": baseTopologyTrapActive,
+       "wrBaseStatsTable": wrBaseStatsTable,
+       "wrBaseStatsEntry": wrBaseStatsEntry,
+       "baseStatsIfIndex": baseStatsIfIndex,
+       "baseStatsXmit": baseStatsXmit,
+       "baseStatsRxmit": baseStatsRxmit,
+       "baseStatsNegAckRcv": baseStatsNegAckRcv,
+       "baseStatsRcv": baseStatsRcv,
+       "baseStatsLineErrors": baseStatsLineErrors,
+       "baseStatsNegAckXmit": baseStatsNegAckXmit,
+       "baseStatsFramePurged": baseStatsFramePurged,
+       "baseStatsFreqDelete": baseStatsFreqDelete,
+       "baseStatsHopAdvance": baseStatsHopAdvance,
+       "baseStatsCLineErrors": baseStatsCLineErrors,
+       "baseStatsRcvICRFrame": baseStatsRcvICRFrame,
+       "baseStatsXmitICRFrame": baseStatsXmitICRFrame,
+       "baseStatsNoICRBufferAvail": baseStatsNoICRBufferAvail,
+       "baseStatsNotRoutedICRFrame": baseStatsNotRoutedICRFrame,
+       "baseStatsNbCUserEst": baseStatsNbCUserEst,
+       "wrRemote": wrRemote,
+       "wrRemoteTable": wrRemoteTable,
+       "wrRemoteEntry": wrRemoteEntry,
+       "remIfIndex": remIfIndex,
+       "remIndex": remIndex,
+       "remMacAddress": remMacAddress,
+       "remName": remName,
+       "remControllerCardDesc": remControllerCardDesc,
+       "remUnivAddress": remUnivAddress,
+       "remModemDesc": remModemDesc,
+       "wrRemoteStatsTable": wrRemoteStatsTable,
+       "wrRemStatsEntry": wrRemStatsEntry,
+       "remStatsIfIndex": remStatsIfIndex,
+       "remStatsIndex": remStatsIndex,
+       "remStatsXmit": remStatsXmit,
+       "remStatsRxmit": remStatsRxmit,
+       "remStatsNegAckRcv": remStatsNegAckRcv,
+       "remStatsRcv": remStatsRcv,
+       "remStatsLineErrors": remStatsLineErrors,
+       "remStatsNegAckXmit": remStatsNegAckXmit}
+)

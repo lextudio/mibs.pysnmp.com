@@ -1,24 +1,154 @@
+# SNMP MIB module (CISCO-IETF-PW-MPLS-CAPABILITY) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-IETF-PW-MPLS-CAPABILITY (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/CISCO-IETF-PW-MPLS-CAPABILITY
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:43:48 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint")
-ciscoAgentCapability, = mibBuilder.importSymbols("CISCO-SMI", "ciscoAgentCapability")
-AgentCapabilities, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "AgentCapabilities", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, IpAddress, Bits, MibIdentifier, iso, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, Counter64, Gauge32, Counter32, ObjectIdentity, NotificationType, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "IpAddress", "Bits", "MibIdentifier", "iso", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "Counter64", "Gauge32", "Counter32", "ObjectIdentity", "NotificationType", "TimeTicks")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-cpwVcMplsCapability = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 7, 429))
-cpwVcMplsCapability.setRevisions(('2004-10-06 12:00',))
-if mibBuilder.loadTexts: cpwVcMplsCapability.setLastUpdated('200410061200Z')
-if mibBuilder.loadTexts: cpwVcMplsCapability.setOrganization('Cisco Systems, Inc.')
-cpwVcMplsCapability1 = AgentCapabilities((1, 3, 6, 1, 4, 1, 9, 7, 429, 1))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cpwVcMplsCapability1 = cpwVcMplsCapability1.setProductRelease('Cisco IOS 12.0(29)S')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cpwVcMplsCapability1 = cpwVcMplsCapability1.setStatus('current')
-mibBuilder.exportSymbols("CISCO-IETF-PW-MPLS-CAPABILITY", cpwVcMplsCapability1=cpwVcMplsCapability1, PYSNMP_MODULE_ID=cpwVcMplsCapability, cpwVcMplsCapability=cpwVcMplsCapability)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CISCO-IETF-PW-MPLS-CAPABILITY
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:01:57 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ciscoAgentCapability,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoAgentCapability")
+
+(AgentCapabilities,
+ ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "AgentCapabilities",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+cpwVcMplsCapability = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 7, 429)
+)
+cpwVcMplsCapability.setRevisions(
+        ("2004-10-06 12:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+cpwVcMplsCapability1 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 9, 7, 429, 1)
+)
+if mibBuilder.loadTexts:
+    cpwVcMplsCapability1.setProductRelease("Cisco IOS 12.0(29)S")
+if mibBuilder.loadTexts:
+    cpwVcMplsCapability1.setStatus(
+        "current"
+    )
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-IETF-PW-MPLS-CAPABILITY",
+    **{"cpwVcMplsCapability": cpwVcMplsCapability,
+       "cpwVcMplsCapability1": cpwVcMplsCapability1}
+)

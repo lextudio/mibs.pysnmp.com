@@ -1,25 +1,188 @@
+# SNMP MIB module (Fore-Channel-Config-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module Fore-Channel-Config-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/Fore-Channel-Config-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:03:18 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint")
-asx, = mibBuilder.importSymbols("Fore-Common-MIB", "asx")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-TimeTicks, Bits, iso, Counter32, MibIdentifier, Counter64, IpAddress, NotificationType, ObjectIdentity, ModuleIdentity, Unsigned32, Integer32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Bits", "iso", "Counter32", "MibIdentifier", "Counter64", "IpAddress", "NotificationType", "ObjectIdentity", "ModuleIdentity", "Unsigned32", "Integer32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-channelControlGroup = ModuleIdentity((1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 11))
-if mibBuilder.loadTexts: channelControlGroup.setLastUpdated('9911050000Z')
-if mibBuilder.loadTexts: channelControlGroup.setOrganization('FORE')
-channelConfigTable = MibTable((1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 11, 1), )
-if mibBuilder.loadTexts: channelConfigTable.setStatus('current')
-channelConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 11, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: channelConfigEntry.setStatus('current')
-channelConfigMode = MibTableColumn((1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 11, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("sts12c", 0), ("sts3cX4", 1), ("ds3X12", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: channelConfigMode.setStatus('current')
-mibBuilder.exportSymbols("Fore-Channel-Config-MIB", channelConfigMode=channelConfigMode, channelConfigTable=channelConfigTable, PYSNMP_MODULE_ID=channelControlGroup, channelControlGroup=channelControlGroup, channelConfigEntry=channelConfigEntry)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/Fore-Channel-Config-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:46:53 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(asx,) = mibBuilder.importSymbols(
+    "Fore-Common-MIB",
+    "asx")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+channelControlGroup = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 11)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_ChannelConfigTable_Object = MibTable
+channelConfigTable = _ChannelConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 11, 1)
+)
+if mibBuilder.loadTexts:
+    channelConfigTable.setStatus("current")
+_ChannelConfigEntry_Object = MibTableRow
+channelConfigEntry = _ChannelConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 11, 1, 1)
+)
+channelConfigEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    channelConfigEntry.setStatus("current")
+
+
+class _ChannelConfigMode_Type(Integer32):
+    """Custom type channelConfigMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ds3X12", 2),
+          ("sts12c", 0),
+          ("sts3cX4", 1))
+    )
+
+
+_ChannelConfigMode_Type.__name__ = "Integer32"
+_ChannelConfigMode_Object = MibTableColumn
+channelConfigMode = _ChannelConfigMode_Object(
+    (1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 11, 1, 1, 1),
+    _ChannelConfigMode_Type()
+)
+channelConfigMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    channelConfigMode.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "Fore-Channel-Config-MIB",
+    **{"channelControlGroup": channelControlGroup,
+       "channelConfigTable": channelConfigTable,
+       "channelConfigEntry": channelConfigEntry,
+       "channelConfigMode": channelConfigMode}
+)

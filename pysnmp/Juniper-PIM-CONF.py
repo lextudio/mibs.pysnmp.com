@@ -1,24 +1,158 @@
+# SNMP MIB module (Juniper-PIM-CONF) expressed in pysnmp data model.
 #
-# PySNMP MIB module Juniper-PIM-CONF (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/Juniper-PIM-CONF
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:52:54 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint")
-juniAgents, = mibBuilder.importSymbols("Juniper-Agents", "juniAgents")
-NotificationGroup, ModuleCompliance, AgentCapabilities = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "AgentCapabilities")
-ObjectIdentity, ModuleIdentity, Counter64, Unsigned32, MibIdentifier, iso, Counter32, NotificationType, TimeTicks, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, IpAddress, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "ModuleIdentity", "Counter64", "Unsigned32", "MibIdentifier", "iso", "Counter32", "NotificationType", "TimeTicks", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "IpAddress", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-juniPimAgent = ModuleIdentity((1, 3, 6, 1, 4, 1, 4874, 5, 2, 29))
-juniPimAgent.setRevisions(('2002-09-06 16:54', '2001-11-15 22:38',))
-if mibBuilder.loadTexts: juniPimAgent.setLastUpdated('200209061654Z')
-if mibBuilder.loadTexts: juniPimAgent.setOrganization('Juniper Networks, Inc.')
-juniPimAgentV1 = AgentCapabilities((1, 3, 6, 1, 4, 1, 4874, 5, 2, 29, 1))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    juniPimAgentV1 = juniPimAgentV1.setProductRelease('Version 1 of the PIM component of the JUNOSe SNMP agent.  This version\n        of the PIM component is supported in JUNOSe 3.0 and subsequent system\n        releases.')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    juniPimAgentV1 = juniPimAgentV1.setStatus('current')
-mibBuilder.exportSymbols("Juniper-PIM-CONF", PYSNMP_MODULE_ID=juniPimAgent, juniPimAgentV1=juniPimAgentV1, juniPimAgent=juniPimAgent)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/Juniper-PIM-CONF
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:15:54 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(juniAgents,) = mibBuilder.importSymbols(
+    "Juniper-Agents",
+    "juniAgents")
+
+(AgentCapabilities,
+ ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "AgentCapabilities",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+juniPimAgent = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 29)
+)
+juniPimAgent.setRevisions(
+        ("2002-09-06 16:54",
+         "2001-11-15 22:38")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+juniPimAgentV1 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 29, 1)
+)
+if mibBuilder.loadTexts:
+    juniPimAgentV1.setProductRelease("""\
+Version 1 of the PIM component of the JUNOSe SNMP agent.  This version
+        of the PIM component is supported in JUNOSe 3.0 and subsequent system
+        releases.""")
+if mibBuilder.loadTexts:
+    juniPimAgentV1.setStatus(
+        "current"
+    )
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "Juniper-PIM-CONF",
+    **{"juniPimAgent": juniPimAgent,
+       "juniPimAgentV1": juniPimAgentV1}
+)

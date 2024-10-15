@@ -1,29 +1,172 @@
+# SNMP MIB module (Juniper-File-Transfer-CONF) expressed in pysnmp data model.
 #
-# PySNMP MIB module Juniper-File-Transfer-CONF (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/Juniper-File-Transfer-CONF
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:51:57 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion")
-juniAgents, = mibBuilder.importSymbols("Juniper-Agents", "juniAgents")
-ModuleCompliance, AgentCapabilities, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "AgentCapabilities", "NotificationGroup")
-Unsigned32, NotificationType, Gauge32, iso, MibIdentifier, IpAddress, TimeTicks, Integer32, Counter32, Bits, ModuleIdentity, ObjectIdentity, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "NotificationType", "Gauge32", "iso", "MibIdentifier", "IpAddress", "TimeTicks", "Integer32", "Counter32", "Bits", "ModuleIdentity", "ObjectIdentity", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-juniFileTransferAgent = ModuleIdentity((1, 3, 6, 1, 4, 1, 4874, 5, 2, 15))
-juniFileTransferAgent.setRevisions(('2002-09-06 16:54', '2001-03-28 13:22',))
-if mibBuilder.loadTexts: juniFileTransferAgent.setLastUpdated('200209061654Z')
-if mibBuilder.loadTexts: juniFileTransferAgent.setOrganization('Juniper Networks, Inc.')
-juniFileTransferAgentV1 = AgentCapabilities((1, 3, 6, 1, 4, 1, 4874, 5, 2, 15, 1))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    juniFileTransferAgentV1 = juniFileTransferAgentV1.setProductRelease('Version 1 of the File Transfer component of the JUNOSe\n        SNMP agent.  This version of the File Transfer component was supported\n        in JUNOSe 1.x system releases.')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    juniFileTransferAgentV1 = juniFileTransferAgentV1.setStatus('obsolete')
-juniFileTransferAgentV2 = AgentCapabilities((1, 3, 6, 1, 4, 1, 4874, 5, 2, 15, 2))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    juniFileTransferAgentV2 = juniFileTransferAgentV2.setProductRelease('Version 2 of the File Transfer component of the JUNOSe\n        SNMP agent.  This version of the File Transfer component is supported in\n        JUNOSe 2.0 and subsequent system releases.')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    juniFileTransferAgentV2 = juniFileTransferAgentV2.setStatus('current')
-mibBuilder.exportSymbols("Juniper-File-Transfer-CONF", juniFileTransferAgentV1=juniFileTransferAgentV1, juniFileTransferAgentV2=juniFileTransferAgentV2, juniFileTransferAgent=juniFileTransferAgent, PYSNMP_MODULE_ID=juniFileTransferAgent)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/Juniper-File-Transfer-CONF
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:15:19 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(juniAgents,) = mibBuilder.importSymbols(
+    "Juniper-Agents",
+    "juniAgents")
+
+(AgentCapabilities,
+ ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "AgentCapabilities",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+juniFileTransferAgent = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 15)
+)
+juniFileTransferAgent.setRevisions(
+        ("2002-09-06 16:54",
+         "2001-03-28 13:22")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+juniFileTransferAgentV1 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 15, 1)
+)
+if mibBuilder.loadTexts:
+    juniFileTransferAgentV1.setProductRelease("""\
+Version 1 of the File Transfer component of the JUNOSe
+        SNMP agent.  This version of the File Transfer component was supported
+        in JUNOSe 1.x system releases.""")
+if mibBuilder.loadTexts:
+    juniFileTransferAgentV1.setStatus(
+        "obsolete"
+    )
+
+juniFileTransferAgentV2 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 15, 2)
+)
+if mibBuilder.loadTexts:
+    juniFileTransferAgentV2.setProductRelease("""\
+Version 2 of the File Transfer component of the JUNOSe
+        SNMP agent.  This version of the File Transfer component is supported in
+        JUNOSe 2.0 and subsequent system releases.""")
+if mibBuilder.loadTexts:
+    juniFileTransferAgentV2.setStatus(
+        "current"
+    )
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "Juniper-File-Transfer-CONF",
+    **{"juniFileTransferAgent": juniFileTransferAgent,
+       "juniFileTransferAgentV1": juniFileTransferAgentV1,
+       "juniFileTransferAgentV2": juniFileTransferAgentV2}
+)

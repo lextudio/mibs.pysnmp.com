@@ -1,534 +1,4499 @@
+# SNMP MIB module (DES3528P-SWL3MGMT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module DES3528P-SWL3MGMT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/DES3528P-SWL3MGMT-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:25:51 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion")
-InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-PositiveInteger, Metric, HelloRange, RouterID, TOSType, UpToMaxAge, AreaID, DesignatedRouterPriority, Status = mibBuilder.importSymbols("OSPF-MIB", "PositiveInteger", "Metric", "HelloRange", "RouterID", "TOSType", "UpToMaxAge", "AreaID", "DesignatedRouterPriority", "Status")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter32, Counter64, NotificationType, Unsigned32, iso, ObjectIdentity, Gauge32, Integer32, MibIdentifier, IpAddress, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Counter64", "NotificationType", "Unsigned32", "iso", "ObjectIdentity", "Gauge32", "Integer32", "MibIdentifier", "IpAddress", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "TimeTicks")
-DisplayString, TruthValue, TextualConvention, RowStatus, PhysAddress, MacAddress, TimeStamp = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention", "RowStatus", "PhysAddress", "MacAddress", "TimeStamp")
-des3528p, = mibBuilder.importSymbols("SWDES3528-52PRIMGMT-MIB", "des3528p")
-swL3MgmtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3))
-if mibBuilder.loadTexts: swL3MgmtMIB.setLastUpdated('1203310000Z')
-if mibBuilder.loadTexts: swL3MgmtMIB.setOrganization(' ')
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/DES3528P-SWL3MGMT-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:25:42 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InterfaceIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex")
+
+(AreaID,
+ DesignatedRouterPriority,
+ HelloRange,
+ Metric,
+ PositiveInteger,
+ RouterID,
+ Status,
+ TOSType,
+ UpToMaxAge) = mibBuilder.importSymbols(
+    "OSPF-MIB",
+    "AreaID",
+    "DesignatedRouterPriority",
+    "HelloRange",
+    "Metric",
+    "PositiveInteger",
+    "RouterID",
+    "Status",
+    "TOSType",
+    "UpToMaxAge")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TimeStamp,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TimeStamp",
+    "TruthValue")
+
+(des3528p,) = mibBuilder.importSymbols(
+    "SWDES3528-52PRIMGMT-MIB",
+    "des3528p")
+
+
+# MODULE-IDENTITY
+
+swL3MgmtMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3)
+)
+
+
+# Types definitions
+
+
+
 class NodeAddress(OctetString):
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(6, 6)
-    fixedLength = 6
+    """Custom type NodeAddress based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(6, 6),
+    )
+
+
+
+
 
 class NetAddress(OctetString):
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(4, 4)
-    fixedLength = 4
+    """Custom type NetAddress based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+    )
 
-swL3DevMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 1))
-swL3IpMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2))
-swL3RelayMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3))
-swL3OspfLsdbMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13))
-swL3VrrpOperMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 14))
-swL3LocalRouteMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 16))
-swL3IpCtrlMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1))
-swL3IpFdbMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 2))
-swL3IpMcastMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 6))
-swL3RelayDhcpMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 1))
-swL3RelayDnsMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 2))
-swL3DHCPv6RelayMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 3))
-swL3OspfECMPMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 15))
-class Ipv6Address(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '2x:'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(16, 16)
-    fixedLength = 16
 
-class VrId(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 255)
 
-swL3DevCtrl = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 1, 1))
-swL3DevCtrlRIPState = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3DevCtrlRIPState.setStatus('current')
-swL3DevCtrlOSPFState = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3DevCtrlOSPFState.setStatus('current')
-swL3DevCtrlDVMRPState = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3DevCtrlDVMRPState.setStatus('current')
-swL3DevCtrlVRRPState = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3DevCtrlVRRPState.setStatus('current')
-swL3DevCtrlVrrpPingState = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3DevCtrlVrrpPingState.setStatus('current')
-swL3DevCtrlDHCPAutoConfigState = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("enabled", 2), ("disabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3DevCtrlDHCPAutoConfigState.setStatus('current')
-swL3IpCtrlTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3), )
-if mibBuilder.loadTexts: swL3IpCtrlTable.setStatus('current')
-swL3IpCtrlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1), ).setIndexNames((0, "DES3528P-SWL3MGMT-MIB", "swL3IpCtrlInterfaceName"))
-if mibBuilder.loadTexts: swL3IpCtrlEntry.setStatus('current')
-swL3IpCtrlInterfaceName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 12))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3IpCtrlInterfaceName.setStatus('current')
-swL3IpCtrlIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3IpCtrlIfIndex.setStatus('current')
-swL3IpCtrlIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 3), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3IpCtrlIpAddr.setStatus('current')
-swL3IpCtrlIpSubnetMask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 4), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3IpCtrlIpSubnetMask.setStatus('current')
-swL3IpCtrlVlanName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3IpCtrlVlanName.setStatus('current')
-swL3IpCtrlProxyArp = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3IpCtrlProxyArp.setStatus('current')
-swL3IpCtrlSecondary = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 7), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3IpCtrlSecondary.setStatus('current')
-swL3IpCtrlMode = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("bootp", 3), ("dhcp", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3IpCtrlMode.setStatus('current')
-swL3IpCtrlAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3IpCtrlAdminState.setStatus('current')
-swL3IpCtrlIpv4AdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3IpCtrlIpv4AdminState.setStatus('current')
-swL3IpCtrlIpv6AdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3IpCtrlIpv6AdminState.setStatus('current')
-swL3IpCtrlIpv6LinkLocalAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 14), Ipv6Address()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3IpCtrlIpv6LinkLocalAddress.setStatus('current')
-swL3IpCtrlIpv6LinkLocalPrefixLen = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 15), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3IpCtrlIpv6LinkLocalPrefixLen.setStatus('current')
-swL3IpCtrlState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 16), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3IpCtrlState.setStatus('current')
-swL3IpCtrlIpv6LinkLocalAutoState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("enabled", 2), ("disabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3IpCtrlIpv6LinkLocalAutoState.setStatus('current')
-swL3IpCtrlProxyArpLocalState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3IpCtrlProxyArpLocalState.setStatus('current')
-swL3IpCtrlIpMtu = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 19), Integer32().clone(1500)).setUnits('bytes').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3IpCtrlIpMtu.setStatus('current')
-swL3IpCtrlDhcpv6ClientState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 20), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("enabled", 2), ("disabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3IpCtrlDhcpv6ClientState.setStatus('current')
-swL3IpCtrlIpDhcpOption12State = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 22), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3IpCtrlIpDhcpOption12State.setStatus('current')
-swL3IpCtrlIpDhcpOption12HostName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 23), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 63))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3IpCtrlIpDhcpOption12HostName.setStatus('current')
-swL3Ipv6CtrlTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 4), )
-if mibBuilder.loadTexts: swL3Ipv6CtrlTable.setStatus('current')
-swL3Ipv6CtrlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 4, 1), ).setIndexNames((0, "DES3528P-SWL3MGMT-MIB", "swL3Ipv6CtrlInterfaceName"))
-if mibBuilder.loadTexts: swL3Ipv6CtrlEntry.setStatus('current')
-swL3Ipv6CtrlInterfaceName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 4, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 12))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3Ipv6CtrlInterfaceName.setStatus('current')
-swL3Ipv6CtrlMaxReassmblySize = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 4, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3Ipv6CtrlMaxReassmblySize.setStatus('current')
-swL3Ipv6CtrlNsRetransTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 4, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3Ipv6CtrlNsRetransTimer.setStatus('current')
-swL3Ipv6CtrlRaState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 4, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3Ipv6CtrlRaState.setStatus('current')
-swL3Ipv6CtrlRaMinRtrAdvInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 4, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(3, 1350))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3Ipv6CtrlRaMinRtrAdvInterval.setStatus('current')
-swL3Ipv6CtrlRaMaxRtrAdvInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 4, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(4, 1800)).clone(600)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3Ipv6CtrlRaMaxRtrAdvInterval.setStatus('current')
-swL3Ipv6CtrlRaLifeTime = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 4, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 9000))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3Ipv6CtrlRaLifeTime.setStatus('current')
-swL3Ipv6CtrlRaReachableTime = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 4, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 3600000))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3Ipv6CtrlRaReachableTime.setStatus('current')
-swL3Ipv6CtrlRaRetransTime = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 4, 1, 10), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3Ipv6CtrlRaRetransTime.setStatus('current')
-swL3Ipv6CtrlRaHopLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 4, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3Ipv6CtrlRaHopLimit.setStatus('current')
-swL3Ipv6CtrlRaManagedFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 4, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3Ipv6CtrlRaManagedFlag.setStatus('current')
-swL3Ipv6CtrlRaOtherConfigFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 4, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3Ipv6CtrlRaOtherConfigFlag.setStatus('current')
-swL3Ipv6AddressCtrlTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 5), )
-if mibBuilder.loadTexts: swL3Ipv6AddressCtrlTable.setStatus('current')
-swL3Ipv6AddressCtrlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 5, 1), ).setIndexNames((0, "DES3528P-SWL3MGMT-MIB", "swL3Ipv6AddressCtrlInterfaceName"), (0, "DES3528P-SWL3MGMT-MIB", "swL3Ipv6Address"), (0, "DES3528P-SWL3MGMT-MIB", "swL3Ipv6AddressCtrlPrefixLen"))
-if mibBuilder.loadTexts: swL3Ipv6AddressCtrlEntry.setStatus('current')
-swL3Ipv6AddressCtrlInterfaceName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 5, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 12))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3Ipv6AddressCtrlInterfaceName.setStatus('current')
-swL3Ipv6Address = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 5, 1, 2), Ipv6Address()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3Ipv6Address.setStatus('current')
-swL3Ipv6AddressCtrlPrefixLen = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 5, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3Ipv6AddressCtrlPrefixLen.setStatus('current')
-swL3Ipv6AddressCtrlPreferredLifeTime = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 5, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967294))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3Ipv6AddressCtrlPreferredLifeTime.setStatus('current')
-swL3Ipv6AddressCtrlValidLifeTime = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 5, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967294))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3Ipv6AddressCtrlValidLifeTime.setStatus('current')
-swL3Ipv6AddressCtrlOnLinkFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 5, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3Ipv6AddressCtrlOnLinkFlag.setStatus('current')
-swL3Ipv6AddressCtrlAutonomousFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 5, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3Ipv6AddressCtrlAutonomousFlag.setStatus('current')
-swL3Ipv6AddressCtrlState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 5, 1, 8), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3Ipv6AddressCtrlState.setStatus('current')
-swL3Ipv6AddressCtrlAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 5, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("manual", 1), ("dhcpv6", 2), ("stateless", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3Ipv6AddressCtrlAddressType.setStatus('current')
-swL3IpCtrlAllIpIfState = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("enabled", 2), ("disabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3IpCtrlAllIpIfState.setStatus('current')
-swL3IpFdbInfoTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 2, 1), )
-if mibBuilder.loadTexts: swL3IpFdbInfoTable.setStatus('current')
-swL3IpFdbInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 2, 1, 1), ).setIndexNames((0, "DES3528P-SWL3MGMT-MIB", "swL3IpFdbInfoIpAddr"))
-if mibBuilder.loadTexts: swL3IpFdbInfoEntry.setStatus('current')
-swL3IpFdbInfoIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 2, 1, 1, 1), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3IpFdbInfoIpAddr.setStatus('current')
-swL3IpFdbInfoIpSubnetMask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 2, 1, 1, 2), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3IpFdbInfoIpSubnetMask.setStatus('current')
-swL3IpFdbInfoPort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3IpFdbInfoPort.setStatus('current')
-swL3IpFdbInfoType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("static", 2), ("dynamic", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3IpFdbInfoType.setStatus('current')
-swL3IpArpAgingTime = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3IpArpAgingTime.setStatus('current')
-swL3IpStaticRouteTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 5), )
-if mibBuilder.loadTexts: swL3IpStaticRouteTable.setStatus('current')
-swL3IpStaticRouteEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 5, 1), ).setIndexNames((0, "DES3528P-SWL3MGMT-MIB", "swL3IpStaticRouteDest"), (0, "DES3528P-SWL3MGMT-MIB", "swL3IpStaticRouteMask"), (0, "DES3528P-SWL3MGMT-MIB", "swL3IpStaticRouteNextHop"))
-if mibBuilder.loadTexts: swL3IpStaticRouteEntry.setStatus('current')
-swL3IpStaticRouteDest = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 5, 1, 1), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3IpStaticRouteDest.setStatus('current')
-swL3IpStaticRouteMask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 5, 1, 2), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3IpStaticRouteMask.setStatus('current')
-swL3IpStaticRouteBkupState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 5, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("primary", 1), ("backup", 2), ("none", 3)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3IpStaticRouteBkupState.setStatus('current')
-swL3IpStaticRouteNextHop = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 5, 1, 4), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3IpStaticRouteNextHop.setStatus('current')
-swL3IpStaticRouteMetric = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 5, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3IpStaticRouteMetric.setStatus('current')
-swL3IpStaticRouteStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 5, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("other", 1), ("invalid", 2), ("valid", 3), ("active", 4), ("inActive", 5)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3IpStaticRouteStatus.setStatus('current')
-swL3IpStaticRouteWeight = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 5, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3IpStaticRouteWeight.setStatus('current')
-swL3IpStaticRouteInterfaceName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 5, 1, 8), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3IpStaticRouteInterfaceName.setStatus('current')
-swL3IpStaticRouteCost = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 5, 1, 9), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3IpStaticRouteCost.setStatus('current')
-swL3RelayDhcpState = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3RelayDhcpState.setStatus('current')
-swL3RelayDhcpHopCount = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3RelayDhcpHopCount.setStatus('current')
-swL3RelayDhcpTimeThreshold = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3RelayDhcpTimeThreshold.setStatus('current')
-swL3RelayDhcpCtrlTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 1, 4), )
-if mibBuilder.loadTexts: swL3RelayDhcpCtrlTable.setStatus('current')
-swL3RelayDhcpCtrlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 1, 4, 1), ).setIndexNames((0, "DES3528P-SWL3MGMT-MIB", "swL3RelayDhcpCtrlInterfaceName"), (0, "DES3528P-SWL3MGMT-MIB", "swL3RelayDhcpCtrlServer"))
-if mibBuilder.loadTexts: swL3RelayDhcpCtrlEntry.setStatus('current')
-swL3RelayDhcpCtrlInterfaceName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 1, 4, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 12))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3RelayDhcpCtrlInterfaceName.setStatus('current')
-swL3RelayDhcpCtrlServer = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 1, 4, 1, 2), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3RelayDhcpCtrlServer.setStatus('current')
-swL3RelayDhcpCtrlState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 1, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("invalid", 2), ("valid", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3RelayDhcpCtrlState.setStatus('current')
-swL3RelayDhcpOption82State = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3RelayDhcpOption82State.setStatus('current')
-swL3RelayDhcpOption82CheckState = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3RelayDhcpOption82CheckState.setStatus('current')
-swL3RelayDhcpOption82Policy = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("replace", 0), ("drop", 1), ("keep", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3RelayDhcpOption82Policy.setStatus('current')
-swL3RelayDnsState = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3RelayDnsState.setStatus('current')
-swL3RelayDnsPrimaryServer = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 2, 2), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3RelayDnsPrimaryServer.setStatus('current')
-swL3RelayDnsSecondaryServer = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 2, 3), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3RelayDnsSecondaryServer.setStatus('current')
-swL3RelayDnsCacheState = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 2, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3RelayDnsCacheState.setStatus('current')
-swL3RelayDnsStaticTableState = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 2, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3RelayDnsStaticTableState.setStatus('current')
-swL3RelayDnsCtrlTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 2, 6), )
-if mibBuilder.loadTexts: swL3RelayDnsCtrlTable.setStatus('current')
-swL3RelayDnsCtrlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 2, 6, 1), ).setIndexNames((0, "DES3528P-SWL3MGMT-MIB", "swL3RelayDnsCtrlDomainName"), (0, "DES3528P-SWL3MGMT-MIB", "swL3RelayDnsCtrlIpAddr"))
-if mibBuilder.loadTexts: swL3RelayDnsCtrlEntry.setStatus('current')
-swL3RelayDnsCtrlDomainName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 2, 6, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3RelayDnsCtrlDomainName.setStatus('current')
-swL3RelayDnsCtrlIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 2, 6, 1, 2), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3RelayDnsCtrlIpAddr.setStatus('current')
-swL3RelayDnsCtrlState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 2, 6, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("invalid", 2), ("valid", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3RelayDnsCtrlState.setStatus('current')
-swL3Dhcpv6RelayHopCount = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 3, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3Dhcpv6RelayHopCount.setStatus('current')
-swL3Dhcpv6RelayCtrlTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 3, 2), )
-if mibBuilder.loadTexts: swL3Dhcpv6RelayCtrlTable.setStatus('current')
-swL3Dhcpv6RelayCtrlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 3, 2, 1), ).setIndexNames((0, "DES3528P-SWL3MGMT-MIB", "swL3Dhcpv6RelayCtrlInterfaceName"))
-if mibBuilder.loadTexts: swL3Dhcpv6RelayCtrlEntry.setStatus('current')
-swL3Dhcpv6RelayCtrlInterfaceName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 3, 2, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3Dhcpv6RelayCtrlInterfaceName.setStatus('current')
-swL3Dhcpv6RelayCtrlState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 3, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3Dhcpv6RelayCtrlState.setStatus('current')
-swL3Dhcpv6RelayInfoTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 3, 3), )
-if mibBuilder.loadTexts: swL3Dhcpv6RelayInfoTable.setStatus('current')
-swL3Dhcpv6RelayInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 3, 3, 1), ).setIndexNames((0, "DES3528P-SWL3MGMT-MIB", "swL3Dhcpv6RelayInfoInterfaceName"), (0, "DES3528P-SWL3MGMT-MIB", "swL3Dhcpv6RelayInfoServerAddress"), (0, "DES3528P-SWL3MGMT-MIB", "swL3Dhcpv6RelayInfoServerInterfaceName"))
-if mibBuilder.loadTexts: swL3Dhcpv6RelayInfoEntry.setStatus('current')
-swL3Dhcpv6RelayInfoInterfaceName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 3, 3, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3Dhcpv6RelayInfoInterfaceName.setStatus('current')
-swL3Dhcpv6RelayInfoServerAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 3, 3, 1, 2), Ipv6Address()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3Dhcpv6RelayInfoServerAddress.setStatus('current')
-swL3Dhcpv6RelayInfoServerInterfaceName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 3, 3, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3Dhcpv6RelayInfoServerInterfaceName.setStatus('current')
-swL3Dhcpv6RelayInfoRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 3, 3, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3Dhcpv6RelayInfoRowStatus.setStatus('current')
-swL3Md5Table = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 4), )
-if mibBuilder.loadTexts: swL3Md5Table.setStatus('current')
-swL3Md5Entry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 4, 1), ).setIndexNames((0, "DES3528P-SWL3MGMT-MIB", "swL3Md5KeyId"))
-if mibBuilder.loadTexts: swL3Md5Entry.setStatus('current')
-swL3Md5KeyId = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3Md5KeyId.setStatus('current')
-swL3Md5Key = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 4, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 16))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3Md5Key.setStatus('current')
-swL3Md5RowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 4, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3Md5RowStatus.setStatus('current')
-swL3RouteRedistriTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 5), )
-if mibBuilder.loadTexts: swL3RouteRedistriTable.setStatus('current')
-swL3RouteRedistriEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 5, 1), ).setIndexNames((0, "DES3528P-SWL3MGMT-MIB", "swL3RouteRedistriSrcProtocol"), (0, "DES3528P-SWL3MGMT-MIB", "swL3RouteRedistriDstProtocol"))
-if mibBuilder.loadTexts: swL3RouteRedistriEntry.setStatus('current')
-swL3RouteRedistriSrcProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 5, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("other", 1), ("rip", 2), ("ospf", 3), ("static", 4), ("local", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3RouteRedistriSrcProtocol.setStatus('current')
-swL3RouteRedistriDstProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 5, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("rip", 2), ("ospf", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3RouteRedistriDstProtocol.setStatus('current')
-swL3RouteRedistriType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 5, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))).clone(namedValues=NamedValues(("other", 1), ("all", 2), ("type-1", 3), ("type-2", 4), ("internal", 5), ("external", 6), ("inter-E1", 7), ("inter-E2", 8), ("extType1", 9), ("extType2", 10)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3RouteRedistriType.setStatus('current')
-swL3RouteRedistriMetric = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 5, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 16777214))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3RouteRedistriMetric.setStatus('current')
-swL3RouteRedistriRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 5, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3RouteRedistriRowStatus.setStatus('current')
-swL3OspfHostTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 6), )
-if mibBuilder.loadTexts: swL3OspfHostTable.setStatus('current')
-swL3OspfHostEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 6, 1), ).setIndexNames((0, "DES3528P-SWL3MGMT-MIB", "swL3OspfHostIpAddress"), (0, "DES3528P-SWL3MGMT-MIB", "swL3OspfHostTOS"))
-if mibBuilder.loadTexts: swL3OspfHostEntry.setStatus('current')
-swL3OspfHostIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 6, 1, 1), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3OspfHostIpAddress.setStatus('current')
-swL3OspfHostTOS = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 6, 1, 2), TOSType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3OspfHostTOS.setStatus('current')
-swL3OspfHostMetric = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 6, 1, 3), Metric()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3OspfHostMetric.setStatus('current')
-swL3OspfHostAreaID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 6, 1, 4), AreaID()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3OspfHostAreaID.setStatus('current')
-swL3OspfHostStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 6, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3OspfHostStatus.setStatus('current')
-swL3ospfVirtIfTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 7), )
-if mibBuilder.loadTexts: swL3ospfVirtIfTable.setStatus('current')
-swL3ospfVirtIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 7, 1), ).setIndexNames((0, "DES3528P-SWL3MGMT-MIB", "swL3ospfVirtIfAreaId"), (0, "DES3528P-SWL3MGMT-MIB", "swL3ospfVirtIfNeighbor"))
-if mibBuilder.loadTexts: swL3ospfVirtIfEntry.setStatus('current')
-swL3ospfVirtIfAreaId = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 7, 1, 1), AreaID()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3ospfVirtIfAreaId.setStatus('current')
-swL3ospfVirtIfNeighbor = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 7, 1, 2), RouterID()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3ospfVirtIfNeighbor.setStatus('current')
-swL3ospfVirtIfTransitDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 7, 1, 3), UpToMaxAge().clone(1)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3ospfVirtIfTransitDelay.setStatus('current')
-swL3ospfVirtIfRetransInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 7, 1, 4), UpToMaxAge().clone(5)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3ospfVirtIfRetransInterval.setStatus('current')
-swL3ospfVirtIfHelloInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 7, 1, 5), HelloRange().clone(10)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3ospfVirtIfHelloInterval.setStatus('current')
-swL3ospfVirtIfRtrDeadInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 7, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(60)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3ospfVirtIfRtrDeadInterval.setStatus('current')
-swL3ospfVirtIfState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 7, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 4))).clone(namedValues=NamedValues(("down", 1), ("pointToPoint", 4))).clone('down')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3ospfVirtIfState.setStatus('current')
-swL3ospfVirtIfEvents = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 7, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3ospfVirtIfEvents.setStatus('current')
-swL3ospfVirtIfAuthType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 7, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3ospfVirtIfAuthType.setStatus('current')
-swL3ospfVirtIfAuthKey = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 7, 1, 10), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 256)).clone(hexValue="0000000000000000")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3ospfVirtIfAuthKey.setStatus('current')
-swL3ospfVirtIfAuthKeyID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 7, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3ospfVirtIfAuthKeyID.setStatus('current')
-swL3ospfVirtIfStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 7, 1, 12), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3ospfVirtIfStatus.setStatus('current')
-swL3ospfIfTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8), )
-if mibBuilder.loadTexts: swL3ospfIfTable.setStatus('current')
-swL3ospfIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1), ).setIndexNames((0, "DES3528P-SWL3MGMT-MIB", "swL3ospfIfIpAddress"), (0, "DES3528P-SWL3MGMT-MIB", "swL3ospfAddressLessIf"))
-if mibBuilder.loadTexts: swL3ospfIfEntry.setStatus('current')
-swL3ospfIfIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 1), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3ospfIfIpAddress.setStatus('current')
-swL3ospfAddressLessIf = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3ospfAddressLessIf.setStatus('current')
-swL3ospfIfAreaId = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 3), AreaID().clone(hexValue="00000000")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3ospfIfAreaId.setStatus('current')
-swL3ospfIfType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 5))).clone(namedValues=NamedValues(("broadcast", 1), ("nbma", 2), ("pointToPoint", 3), ("pointToMultipoint", 5)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3ospfIfType.setStatus('current')
-swL3ospfIfAdminStat = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 5), Status().clone('enabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3ospfIfAdminStat.setStatus('current')
-swL3ospfIfRtrPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 6), DesignatedRouterPriority().clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3ospfIfRtrPriority.setStatus('current')
-swL3ospfIfTransitDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 7), UpToMaxAge().clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3ospfIfTransitDelay.setStatus('current')
-swL3ospfIfRetransInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 8), UpToMaxAge().clone(5)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3ospfIfRetransInterval.setStatus('current')
-swL3ospfIfHelloInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 9), HelloRange().clone(10)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3ospfIfHelloInterval.setStatus('current')
-swL3ospfIfRtrDeadInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 10), PositiveInteger().clone(40)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3ospfIfRtrDeadInterval.setStatus('current')
-swL3ospfIfPollInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 11), PositiveInteger().clone(120)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3ospfIfPollInterval.setStatus('current')
-swL3ospfIfState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("down", 1), ("loopback", 2), ("waiting", 3), ("pointToPoint", 4), ("designatedRouter", 5), ("backupDesignatedRouter", 6), ("otherDesignatedRouter", 7))).clone('down')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3ospfIfState.setStatus('current')
-swL3ospfIfDesignatedRouter = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 13), IpAddress().clone(hexValue="00000000")).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3ospfIfDesignatedRouter.setStatus('current')
-swL3ospfIfBackupDesignatedRouter = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 14), IpAddress().clone(hexValue="00000000")).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3ospfIfBackupDesignatedRouter.setStatus('current')
-swL3ospfIfEvents = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3ospfIfEvents.setStatus('current')
-swL3ospfIfMulticastForwarding = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("blocked", 1), ("multicast", 2), ("unicast", 3))).clone('blocked')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3ospfIfMulticastForwarding.setStatus('current')
-swL3ospfIfDemand = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 17), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3ospfIfDemand.setStatus('current')
-swL3ospfIfAuthType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 18), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3ospfIfAuthType.setStatus('current')
-swL3ospfIfAuthKey = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 19), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 256)).clone(hexValue="0000000000000000")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3ospfIfAuthKey.setStatus('current')
-swL3ospfIfAuthKeyID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 20), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3ospfIfAuthKeyID.setStatus('current')
-swL3ospfIfPassiveMode = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 21), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3ospfIfPassiveMode.setStatus('current')
-swL3ospfIfMetric = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 23), Metric()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3ospfIfMetric.setStatus('current')
-swL3RoutePreference = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 9))
-swL3RoutePreferenceRIP = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 9, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 999))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3RoutePreferenceRIP.setStatus('current')
-swL3RoutePreferenceOSPFIntra = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 9, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 999))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3RoutePreferenceOSPFIntra.setStatus('current')
-swL3RoutePreferenceStatic = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 9, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 999))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3RoutePreferenceStatic.setStatus('current')
-swL3RoutePreferenceLocal = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 9, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 999))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3RoutePreferenceLocal.setStatus('current')
-swL3RoutePreferenceOSPFInter = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 9, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 999))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3RoutePreferenceOSPFInter.setStatus('current')
-swL3RoutePreferenceOSPFExtT1 = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 9, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 999))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3RoutePreferenceOSPFExtT1.setStatus('current')
-swL3RoutePreferenceOSPFExtT2 = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 9, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 999))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3RoutePreferenceOSPFExtT2.setStatus('current')
-swL3ospfAreaTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 10), )
-if mibBuilder.loadTexts: swL3ospfAreaTable.setStatus('current')
-swL3ospfAreaEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 10, 1), ).setIndexNames((0, "DES3528P-SWL3MGMT-MIB", "swL3ospfAreaId"))
-if mibBuilder.loadTexts: swL3ospfAreaEntry.setStatus('current')
-swL3ospfAreaId = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 10, 1, 1), AreaID()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3ospfAreaId.setStatus('current')
-swL3ospfAreaType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 10, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("normal", 1), ("stub", 2), ("nssa", 3)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3ospfAreaType.setStatus('obsolete')
-swL3ospfAreaSummaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 10, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("none", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3ospfAreaSummaryState.setStatus('current')
-swL3ospfAreaMetric = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 10, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3ospfAreaMetric.setStatus('current')
-swL3ospfAreaTranslateState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 10, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("none", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3ospfAreaTranslateState.setStatus('current')
-swL3ospfAreaStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 10, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3ospfAreaStatus.setStatus('current')
-swL3dvmrpInterfaceTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 12), )
-if mibBuilder.loadTexts: swL3dvmrpInterfaceTable.setStatus('current')
-swL3dvmrpInterfaceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 12, 1), ).setIndexNames((0, "DES3528P-SWL3MGMT-MIB", "swL3dvmrpInterfaceIfIndex"))
-if mibBuilder.loadTexts: swL3dvmrpInterfaceEntry.setStatus('current')
-swL3dvmrpInterfaceIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 12, 1, 1), Integer32())
-if mibBuilder.loadTexts: swL3dvmrpInterfaceIfIndex.setStatus('current')
-swL3dvmrpInterfaceLocalAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 12, 1, 2), IpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3dvmrpInterfaceLocalAddress.setStatus('current')
-swL3dvmrpInterfaceMetric = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 12, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 31)).clone(1)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3dvmrpInterfaceMetric.setStatus('current')
-swL3dvmrpInterfaceProbe = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 12, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(10)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3dvmrpInterfaceProbe.setStatus('current')
-swL3dvmrpInterfaceNbrTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 12, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(35)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3dvmrpInterfaceNbrTimeout.setStatus('current')
-swL3dvmrpInterfaceStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 12, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3dvmrpInterfaceStatus.setStatus('current')
-swL3dvmrpInterfaceRcvBadPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 12, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3dvmrpInterfaceRcvBadPkts.setStatus('current')
-swL3dvmrpInterfaceRcvBadRoutes = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 12, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3dvmrpInterfaceRcvBadRoutes.setStatus('current')
-swL3OspfInternalLsdbTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 1), )
-if mibBuilder.loadTexts: swL3OspfInternalLsdbTable.setStatus('current')
-swL3OspfInternalLsdbEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 1, 1), ).setIndexNames((0, "DES3528P-SWL3MGMT-MIB", "swL3OspfInternalLsdbAreaId"), (0, "DES3528P-SWL3MGMT-MIB", "swL3OspfInternalLsdbType"), (0, "DES3528P-SWL3MGMT-MIB", "swL3OspfInternalLsdbLsid"), (0, "DES3528P-SWL3MGMT-MIB", "swL3OspfInternalLsdbRouterId"))
-if mibBuilder.loadTexts: swL3OspfInternalLsdbEntry.setStatus('current')
-swL3OspfInternalLsdbAreaId = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 1, 1, 1), AreaID()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3OspfInternalLsdbAreaId.setStatus('current')
-swL3OspfInternalLsdbType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("routerLink", 1), ("networkLink", 2), ("summaryLink", 3), ("asSummaryLink", 4), ("asExternalLink", 5), ("multicastLink", 6), ("nssaExternalLink", 7)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3OspfInternalLsdbType.setStatus('current')
-swL3OspfInternalLsdbLsid = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 1, 1, 3), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3OspfInternalLsdbLsid.setStatus('current')
-swL3OspfInternalLsdbRouterId = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 1, 1, 4), RouterID()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3OspfInternalLsdbRouterId.setStatus('current')
-swL3OspfInternalLsdbMetric = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3OspfInternalLsdbMetric.setStatus('current')
-swL3OspfInternalLsdbSequenceNo = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 1, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(4, 4)).setFixedLength(4)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3OspfInternalLsdbSequenceNo.setStatus('current')
-swL3OspfInternalLsdbAge = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 1, 1, 7), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3OspfInternalLsdbAge.setStatus('current')
-swL3OspfInternalLsdbChecksum = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 1, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3OspfInternalLsdbChecksum.setStatus('current')
-swL3OspfExternalLsdbTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 2), )
-if mibBuilder.loadTexts: swL3OspfExternalLsdbTable.setStatus('current')
-swL3OspfExternalLsdbEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 2, 1), ).setIndexNames((0, "DES3528P-SWL3MGMT-MIB", "swL3OspfExternalLsdbType"), (0, "DES3528P-SWL3MGMT-MIB", "swL3OspfExternalLsdbLsid"), (0, "DES3528P-SWL3MGMT-MIB", "swL3OspfExternalLsdbRouterId"))
-if mibBuilder.loadTexts: swL3OspfExternalLsdbEntry.setStatus('current')
-swL3OspfExternalLsdbType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(5, 7))).clone(namedValues=NamedValues(("asExternalLink", 5), ("nssaExternalLink", 7)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3OspfExternalLsdbType.setStatus('current')
-swL3OspfExternalLsdbLsid = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 2, 1, 2), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3OspfExternalLsdbLsid.setStatus('current')
-swL3OspfExternalLsdbRouterId = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 2, 1, 3), RouterID()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3OspfExternalLsdbRouterId.setStatus('current')
-swL3OspfExternalLsdbMetric = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3OspfExternalLsdbMetric.setStatus('current')
-swL3OspfExternalLsdbMetricType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("unrecognized", 0), ("type-1", 1), ("type-2", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3OspfExternalLsdbMetricType.setStatus('current')
-swL3OspfExternalLsdbSequenceNo = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 2, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(4, 4)).setFixedLength(4)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3OspfExternalLsdbSequenceNo.setStatus('current')
-swL3OspfExternalLsdbAge = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 2, 1, 7), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3OspfExternalLsdbAge.setStatus('current')
-swL3OspfExternalLsdbChecksum = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 2, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3OspfExternalLsdbChecksum.setStatus('current')
-swL3OspfExternalLsdbForwardingAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 2, 1, 9), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3OspfExternalLsdbForwardingAddress.setStatus('current')
-swL3OspfExternalLsdbRouteTag = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 2, 1, 10), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3OspfExternalLsdbRouteTag.setStatus('current')
-swL3VrrpOperTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 14, 1), )
-if mibBuilder.loadTexts: swL3VrrpOperTable.setStatus('current')
-swL3VrrpOperEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 14, 1, 1), ).setIndexNames((0, "DES3528P-SWL3MGMT-MIB", "swL3VrrpOperIfIndex"), (0, "DES3528P-SWL3MGMT-MIB", "swL3VrrpOperVrId"))
-if mibBuilder.loadTexts: swL3VrrpOperEntry.setStatus('current')
-swL3VrrpOperIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 14, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3VrrpOperIfIndex.setStatus('current')
-swL3VrrpOperVrId = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 14, 1, 1, 2), VrId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3VrrpOperVrId.setStatus('current')
-swL3VrrpOperVirtualMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 14, 1, 1, 3), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3VrrpOperVirtualMacAddr.setStatus('current')
-swL3VrrpOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 14, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("initialize", 1), ("backup", 2), ("master", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3VrrpOperState.setStatus('current')
-swL3VrrpOperAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 14, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2))).clone('down')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3VrrpOperAdminState.setStatus('current')
-swL3VrrpOperPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 14, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255)).clone(100)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3VrrpOperPriority.setStatus('current')
-swL3VrrpOperMasterIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 14, 1, 1, 7), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3VrrpOperMasterIpAddr.setStatus('current')
-swL3VrrpOperCriticalIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 14, 1, 1, 8), IpAddress().clone(hexValue="00000000")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3VrrpOperCriticalIpAddr.setStatus('current')
-swL3VrrpOperCheckCriticalIpState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 14, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("other", 0), ("disabled", 1), ("enabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3VrrpOperCheckCriticalIpState.setStatus('current')
-swL3VrrpOperAuthType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 14, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("noAuthentication", 1), ("simpleTextPassword", 2), ("ipAuthenticationHeader", 3))).clone('noAuthentication')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3VrrpOperAuthType.setStatus('current')
-swL3VrrpOperAuthKey = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 14, 1, 1, 11), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3VrrpOperAuthKey.setStatus('current')
-swL3VrrpOperAdvertisementInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 14, 1, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255)).clone(1)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3VrrpOperAdvertisementInterval.setStatus('current')
-swL3VrrpOperPreemptMode = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 14, 1, 1, 13), TruthValue().clone('true')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3VrrpOperPreemptMode.setStatus('current')
-swL3VrrpOperVirtualRouterUpTime = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 14, 1, 1, 14), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3VrrpOperVirtualRouterUpTime.setStatus('current')
-swL3VrrpOperVirtualIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 14, 1, 1, 15), IpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3VrrpOperVirtualIpAddr.setStatus('current')
-swL3VrrpOperRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 14, 1, 1, 16), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3VrrpOperRowStatus.setStatus('current')
-swL3IpMcastStaticRouteTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 6, 1), )
-if mibBuilder.loadTexts: swL3IpMcastStaticRouteTable.setStatus('current')
-swL3IpMcastStaticRouteEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 6, 1, 1), ).setIndexNames((0, "DES3528P-SWL3MGMT-MIB", "swL3IpMcastStaticRouteIpmrouteAddr"), (0, "DES3528P-SWL3MGMT-MIB", "swL3IpMcastStaticRouteIpmrouteMask"))
-if mibBuilder.loadTexts: swL3IpMcastStaticRouteEntry.setStatus('current')
-swL3IpMcastStaticRouteIpmrouteAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 6, 1, 1, 1), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3IpMcastStaticRouteIpmrouteAddr.setStatus('current')
-swL3IpMcastStaticRouteIpmrouteMask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 6, 1, 1, 2), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL3IpMcastStaticRouteIpmrouteMask.setStatus('current')
-swL3IpMcastStaticRouteRpfAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 6, 1, 1, 3), IpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3IpMcastStaticRouteRpfAddr.setStatus('current')
-swL3IpMcastStaticRouteRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 6, 1, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL3IpMcastStaticRouteRowStatus.setStatus('current')
-swL3OspfECMPIpDestination = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 15, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('enabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3OspfECMPIpDestination.setStatus('current')
-swL3OspfECMPIpSource = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 15, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3OspfECMPIpSource.setStatus('current')
-swL3OspfECMPCrcLow = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 15, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('enabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3OspfECMPCrcLow.setStatus('current')
-swL3OspfECMPCrcHigh = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 15, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3OspfECMPCrcHigh.setStatus('current')
-swL3OspfECMPTCPorUDPport = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 15, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3OspfECMPTCPorUDPport.setStatus('current')
-swL3OspfECMPState = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 15, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3OspfECMPState.setStatus('current')
-swL3LocalRouteIPv4GlobalState = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 16, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('enabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3LocalRouteIPv4GlobalState.setStatus('current')
-swL3LocalRouteIPv6GlobalState = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 16, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL3LocalRouteIPv6GlobalState.setStatus('current')
-mibBuilder.exportSymbols("DES3528P-SWL3MGMT-MIB", swL3IpMcastStaticRouteTable=swL3IpMcastStaticRouteTable, swL3IpMcastStaticRouteIpmrouteMask=swL3IpMcastStaticRouteIpmrouteMask, swL3VrrpOperEntry=swL3VrrpOperEntry, swL3IpStaticRouteTable=swL3IpStaticRouteTable, swL3RoutePreference=swL3RoutePreference, swL3MgmtMIB=swL3MgmtMIB, swL3dvmrpInterfaceEntry=swL3dvmrpInterfaceEntry, swL3IpCtrlTable=swL3IpCtrlTable, swL3DevCtrlVrrpPingState=swL3DevCtrlVrrpPingState, swL3ospfIfPollInterval=swL3ospfIfPollInterval, swL3ospfIfAuthKeyID=swL3ospfIfAuthKeyID, swL3ospfIfPassiveMode=swL3ospfIfPassiveMode, swL3OspfInternalLsdbAge=swL3OspfInternalLsdbAge, swL3IpCtrlState=swL3IpCtrlState, swL3IpStaticRouteMask=swL3IpStaticRouteMask, swL3Ipv6AddressCtrlAutonomousFlag=swL3Ipv6AddressCtrlAutonomousFlag, swL3RelayDnsState=swL3RelayDnsState, swL3IpCtrlIpSubnetMask=swL3IpCtrlIpSubnetMask, swL3OspfHostAreaID=swL3OspfHostAreaID, swL3OspfInternalLsdbType=swL3OspfInternalLsdbType, swL3ospfAreaId=swL3ospfAreaId, swL3IpFdbInfoTable=swL3IpFdbInfoTable, swL3RelayMgmt=swL3RelayMgmt, swL3IpMcastStaticRouteRpfAddr=swL3IpMcastStaticRouteRpfAddr, swL3DevCtrlOSPFState=swL3DevCtrlOSPFState, swL3ospfVirtIfRtrDeadInterval=swL3ospfVirtIfRtrDeadInterval, swL3DevCtrlVRRPState=swL3DevCtrlVRRPState, swL3IpCtrlIfIndex=swL3IpCtrlIfIndex, swL3Md5Entry=swL3Md5Entry, swL3RelayDhcpMgmt=swL3RelayDhcpMgmt, swL3VrrpOperAuthType=swL3VrrpOperAuthType, swL3OspfInternalLsdbRouterId=swL3OspfInternalLsdbRouterId, swL3OspfECMPCrcLow=swL3OspfECMPCrcLow, swL3IpStaticRouteBkupState=swL3IpStaticRouteBkupState, swL3IpCtrlInterfaceName=swL3IpCtrlInterfaceName, swL3dvmrpInterfaceLocalAddress=swL3dvmrpInterfaceLocalAddress, swL3IpFdbInfoIpAddr=swL3IpFdbInfoIpAddr, swL3RelayDhcpTimeThreshold=swL3RelayDhcpTimeThreshold, swL3IpCtrlIpv6AdminState=swL3IpCtrlIpv6AdminState, swL3ospfIfAreaId=swL3ospfIfAreaId, swL3ospfIfAdminStat=swL3ospfIfAdminStat, swL3Ipv6AddressCtrlOnLinkFlag=swL3Ipv6AddressCtrlOnLinkFlag, swL3OspfECMPIpSource=swL3OspfECMPIpSource, swL3IpCtrlIpv6LinkLocalPrefixLen=swL3IpCtrlIpv6LinkLocalPrefixLen, swL3VrrpOperTable=swL3VrrpOperTable, swL3RouteRedistriSrcProtocol=swL3RouteRedistriSrcProtocol, swL3ospfIfBackupDesignatedRouter=swL3ospfIfBackupDesignatedRouter, swL3ospfIfDemand=swL3ospfIfDemand, swL3IpMcastStaticRouteIpmrouteAddr=swL3IpMcastStaticRouteIpmrouteAddr, swL3OspfECMPState=swL3OspfECMPState, swL3DevCtrlRIPState=swL3DevCtrlRIPState, swL3ospfIfDesignatedRouter=swL3ospfIfDesignatedRouter, swL3ospfIfAuthType=swL3ospfIfAuthType, swL3RoutePreferenceOSPFInter=swL3RoutePreferenceOSPFInter, swL3OspfHostIpAddress=swL3OspfHostIpAddress, swL3VrrpOperAdvertisementInterval=swL3VrrpOperAdvertisementInterval, swL3RelayDnsPrimaryServer=swL3RelayDnsPrimaryServer, swL3Ipv6CtrlNsRetransTimer=swL3Ipv6CtrlNsRetransTimer, swL3RelayDhcpCtrlState=swL3RelayDhcpCtrlState, swL3IpStaticRouteDest=swL3IpStaticRouteDest, swL3dvmrpInterfaceProbe=swL3dvmrpInterfaceProbe, swL3dvmrpInterfaceNbrTimeout=swL3dvmrpInterfaceNbrTimeout, swL3IpStaticRouteStatus=swL3IpStaticRouteStatus, swL3OspfExternalLsdbTable=swL3OspfExternalLsdbTable, swL3IpStaticRouteEntry=swL3IpStaticRouteEntry, swL3OspfExternalLsdbMetric=swL3OspfExternalLsdbMetric, swL3Ipv6AddressCtrlEntry=swL3Ipv6AddressCtrlEntry, swL3VrrpOperVirtualMacAddr=swL3VrrpOperVirtualMacAddr, swL3LocalRouteIPv6GlobalState=swL3LocalRouteIPv6GlobalState, swL3ospfAreaTable=swL3ospfAreaTable, swL3dvmrpInterfaceIfIndex=swL3dvmrpInterfaceIfIndex, swL3ospfVirtIfEvents=swL3ospfVirtIfEvents, swL3Dhcpv6RelayInfoEntry=swL3Dhcpv6RelayInfoEntry, swL3IpArpAgingTime=swL3IpArpAgingTime, swL3VrrpOperRowStatus=swL3VrrpOperRowStatus, swL3OspfInternalLsdbEntry=swL3OspfInternalLsdbEntry, swL3ospfVirtIfAuthKeyID=swL3ospfVirtIfAuthKeyID, swL3LocalRouteIPv4GlobalState=swL3LocalRouteIPv4GlobalState, swL3Ipv6CtrlMaxReassmblySize=swL3Ipv6CtrlMaxReassmblySize, swL3OspfExternalLsdbForwardingAddress=swL3OspfExternalLsdbForwardingAddress, swL3Dhcpv6RelayInfoRowStatus=swL3Dhcpv6RelayInfoRowStatus, swL3Dhcpv6RelayInfoServerInterfaceName=swL3Dhcpv6RelayInfoServerInterfaceName, NetAddress=NetAddress, swL3DevCtrlDHCPAutoConfigState=swL3DevCtrlDHCPAutoConfigState, swL3ospfVirtIfState=swL3ospfVirtIfState, swL3RelayDhcpOption82State=swL3RelayDhcpOption82State, swL3IpCtrlAllIpIfState=swL3IpCtrlAllIpIfState, swL3ospfIfMetric=swL3ospfIfMetric, swL3DevCtrl=swL3DevCtrl, swL3OspfHostMetric=swL3OspfHostMetric, swL3Ipv6CtrlInterfaceName=swL3Ipv6CtrlInterfaceName, swL3RelayDnsStaticTableState=swL3RelayDnsStaticTableState, swL3IpStaticRouteMetric=swL3IpStaticRouteMetric, swL3IpMcastStaticRouteEntry=swL3IpMcastStaticRouteEntry, swL3IpCtrlAdminState=swL3IpCtrlAdminState, swL3ospfIfTransitDelay=swL3ospfIfTransitDelay, swL3IpCtrlDhcpv6ClientState=swL3IpCtrlDhcpv6ClientState, swL3Md5RowStatus=swL3Md5RowStatus, swL3ospfIfRetransInterval=swL3ospfIfRetransInterval, swL3DevCtrlDVMRPState=swL3DevCtrlDVMRPState, swL3ospfAreaMetric=swL3ospfAreaMetric, swL3dvmrpInterfaceRcvBadRoutes=swL3dvmrpInterfaceRcvBadRoutes, swL3RouteRedistriDstProtocol=swL3RouteRedistriDstProtocol, swL3RelayDhcpCtrlEntry=swL3RelayDhcpCtrlEntry, swL3ospfIfAuthKey=swL3ospfIfAuthKey, swL3ospfAreaEntry=swL3ospfAreaEntry, swL3IpMcastMgmt=swL3IpMcastMgmt, swL3VrrpOperMgmt=swL3VrrpOperMgmt, swL3OspfInternalLsdbSequenceNo=swL3OspfInternalLsdbSequenceNo, VrId=VrId, swL3IpCtrlIpAddr=swL3IpCtrlIpAddr, swL3Dhcpv6RelayCtrlEntry=swL3Dhcpv6RelayCtrlEntry, swL3RouteRedistriMetric=swL3RouteRedistriMetric, swL3OspfInternalLsdbAreaId=swL3OspfInternalLsdbAreaId, swL3LocalRouteMgmt=swL3LocalRouteMgmt, swL3Ipv6CtrlRaReachableTime=swL3Ipv6CtrlRaReachableTime, swL3ospfIfEvents=swL3ospfIfEvents, swL3IpCtrlIpv4AdminState=swL3IpCtrlIpv4AdminState, swL3RelayDhcpHopCount=swL3RelayDhcpHopCount, swL3RelayDnsSecondaryServer=swL3RelayDnsSecondaryServer, swL3RelayDhcpOption82Policy=swL3RelayDhcpOption82Policy, swL3ospfAreaSummaryState=swL3ospfAreaSummaryState, swL3IpCtrlIpv6LinkLocalAddress=swL3IpCtrlIpv6LinkLocalAddress, swL3IpMcastStaticRouteRowStatus=swL3IpMcastStaticRouteRowStatus, swL3IpCtrlVlanName=swL3IpCtrlVlanName, swL3IpCtrlMode=swL3IpCtrlMode, swL3Ipv6CtrlRaMaxRtrAdvInterval=swL3Ipv6CtrlRaMaxRtrAdvInterval, swL3ospfAreaStatus=swL3ospfAreaStatus, swL3Ipv6AddressCtrlPreferredLifeTime=swL3Ipv6AddressCtrlPreferredLifeTime, swL3IpCtrlMgmt=swL3IpCtrlMgmt, swL3OspfHostStatus=swL3OspfHostStatus, swL3Ipv6AddressCtrlTable=swL3Ipv6AddressCtrlTable, swL3VrrpOperCheckCriticalIpState=swL3VrrpOperCheckCriticalIpState, swL3RoutePreferenceStatic=swL3RoutePreferenceStatic, swL3ospfIfState=swL3ospfIfState, swL3Md5KeyId=swL3Md5KeyId, swL3VrrpOperPriority=swL3VrrpOperPriority, swL3Md5Key=swL3Md5Key, swL3OspfExternalLsdbSequenceNo=swL3OspfExternalLsdbSequenceNo, swL3IpFdbInfoEntry=swL3IpFdbInfoEntry, swL3Ipv6AddressCtrlValidLifeTime=swL3Ipv6AddressCtrlValidLifeTime, swL3ospfIfEntry=swL3ospfIfEntry, swL3RelayDnsCtrlState=swL3RelayDnsCtrlState, swL3ospfIfRtrDeadInterval=swL3ospfIfRtrDeadInterval, swL3IpCtrlProxyArp=swL3IpCtrlProxyArp, swL3RoutePreferenceRIP=swL3RoutePreferenceRIP, swL3OspfLsdbMgmt=swL3OspfLsdbMgmt, swL3Dhcpv6RelayCtrlTable=swL3Dhcpv6RelayCtrlTable, swL3ospfAddressLessIf=swL3ospfAddressLessIf, swL3dvmrpInterfaceStatus=swL3dvmrpInterfaceStatus, swL3ospfVirtIfRetransInterval=swL3ospfVirtIfRetransInterval, swL3ospfIfRtrPriority=swL3ospfIfRtrPriority, swL3IpStaticRouteInterfaceName=swL3IpStaticRouteInterfaceName, swL3VrrpOperPreemptMode=swL3VrrpOperPreemptMode, swL3RelayDhcpState=swL3RelayDhcpState, swL3RelayDhcpCtrlInterfaceName=swL3RelayDhcpCtrlInterfaceName, swL3RelayDhcpCtrlTable=swL3RelayDhcpCtrlTable, swL3VrrpOperMasterIpAddr=swL3VrrpOperMasterIpAddr, swL3ospfVirtIfAreaId=swL3ospfVirtIfAreaId, swL3OspfExternalLsdbAge=swL3OspfExternalLsdbAge, swL3RouteRedistriTable=swL3RouteRedistriTable, swL3VrrpOperVirtualRouterUpTime=swL3VrrpOperVirtualRouterUpTime, swL3VrrpOperCriticalIpAddr=swL3VrrpOperCriticalIpAddr, swL3IpStaticRouteCost=swL3IpStaticRouteCost, swL3RouteRedistriType=swL3RouteRedistriType, swL3OspfHostTable=swL3OspfHostTable, swL3dvmrpInterfaceTable=swL3dvmrpInterfaceTable, swL3ospfAreaType=swL3ospfAreaType, swL3OspfInternalLsdbMetric=swL3OspfInternalLsdbMetric, swL3Ipv6CtrlTable=swL3Ipv6CtrlTable, swL3Ipv6AddressCtrlAddressType=swL3Ipv6AddressCtrlAddressType, swL3VrrpOperState=swL3VrrpOperState, swL3Ipv6CtrlRaManagedFlag=swL3Ipv6CtrlRaManagedFlag, swL3OspfECMPCrcHigh=swL3OspfECMPCrcHigh, swL3dvmrpInterfaceRcvBadPkts=swL3dvmrpInterfaceRcvBadPkts, swL3OspfInternalLsdbChecksum=swL3OspfInternalLsdbChecksum, swL3OspfExternalLsdbLsid=swL3OspfExternalLsdbLsid, swL3IpCtrlIpv6LinkLocalAutoState=swL3IpCtrlIpv6LinkLocalAutoState, swL3OspfExternalLsdbEntry=swL3OspfExternalLsdbEntry, swL3ospfIfHelloInterval=swL3ospfIfHelloInterval, swL3ospfAreaTranslateState=swL3ospfAreaTranslateState, swL3IpCtrlProxyArpLocalState=swL3IpCtrlProxyArpLocalState, swL3OspfExternalLsdbRouterId=swL3OspfExternalLsdbRouterId, swL3OspfHostEntry=swL3OspfHostEntry, swL3OspfExternalLsdbMetricType=swL3OspfExternalLsdbMetricType, swL3RelayDnsCtrlTable=swL3RelayDnsCtrlTable, swL3ospfVirtIfEntry=swL3ospfVirtIfEntry, swL3ospfIfIpAddress=swL3ospfIfIpAddress, swL3IpFdbInfoType=swL3IpFdbInfoType, swL3Ipv6CtrlEntry=swL3Ipv6CtrlEntry, swL3dvmrpInterfaceMetric=swL3dvmrpInterfaceMetric, swL3VrrpOperAdminState=swL3VrrpOperAdminState, swL3ospfVirtIfStatus=swL3ospfVirtIfStatus, swL3VrrpOperAuthKey=swL3VrrpOperAuthKey, swL3Ipv6Address=swL3Ipv6Address, PYSNMP_MODULE_ID=swL3MgmtMIB, swL3IpStaticRouteNextHop=swL3IpStaticRouteNextHop, swL3IpStaticRouteWeight=swL3IpStaticRouteWeight, swL3Dhcpv6RelayInfoTable=swL3Dhcpv6RelayInfoTable, swL3RelayDnsCacheState=swL3RelayDnsCacheState, swL3ospfIfType=swL3ospfIfType, swL3Ipv6AddressCtrlInterfaceName=swL3Ipv6AddressCtrlInterfaceName, swL3Ipv6CtrlRaRetransTime=swL3Ipv6CtrlRaRetransTime, swL3Ipv6AddressCtrlPrefixLen=swL3Ipv6AddressCtrlPrefixLen, swL3OspfExternalLsdbType=swL3OspfExternalLsdbType, swL3Ipv6CtrlRaMinRtrAdvInterval=swL3Ipv6CtrlRaMinRtrAdvInterval, swL3RoutePreferenceOSPFExtT2=swL3RoutePreferenceOSPFExtT2, swL3RouteRedistriEntry=swL3RouteRedistriEntry, swL3Dhcpv6RelayCtrlInterfaceName=swL3Dhcpv6RelayCtrlInterfaceName, swL3IpFdbInfoIpSubnetMask=swL3IpFdbInfoIpSubnetMask, swL3RelayDnsMgmt=swL3RelayDnsMgmt, swL3IpFdbMgmt=swL3IpFdbMgmt, swL3Md5Table=swL3Md5Table, swL3RouteRedistriRowStatus=swL3RouteRedistriRowStatus, swL3OspfInternalLsdbLsid=swL3OspfInternalLsdbLsid, swL3Ipv6CtrlRaOtherConfigFlag=swL3Ipv6CtrlRaOtherConfigFlag, swL3RelayDhcpCtrlServer=swL3RelayDhcpCtrlServer, swL3ospfVirtIfTransitDelay=swL3ospfVirtIfTransitDelay, swL3ospfVirtIfAuthType=swL3ospfVirtIfAuthType, swL3OspfExternalLsdbChecksum=swL3OspfExternalLsdbChecksum, swL3Ipv6AddressCtrlState=swL3Ipv6AddressCtrlState, swL3RelayDnsCtrlDomainName=swL3RelayDnsCtrlDomainName, swL3VrrpOperVirtualIpAddr=swL3VrrpOperVirtualIpAddr, swL3ospfVirtIfNeighbor=swL3ospfVirtIfNeighbor, swL3ospfVirtIfAuthKey=swL3ospfVirtIfAuthKey, swL3OspfExternalLsdbRouteTag=swL3OspfExternalLsdbRouteTag, swL3OspfECMPIpDestination=swL3OspfECMPIpDestination, swL3OspfECMPTCPorUDPport=swL3OspfECMPTCPorUDPport, swL3Dhcpv6RelayCtrlState=swL3Dhcpv6RelayCtrlState, swL3VrrpOperIfIndex=swL3VrrpOperIfIndex, swL3Dhcpv6RelayHopCount=swL3Dhcpv6RelayHopCount, swL3IpMgmt=swL3IpMgmt, swL3ospfIfTable=swL3ospfIfTable, NodeAddress=NodeAddress, swL3Ipv6CtrlRaHopLimit=swL3Ipv6CtrlRaHopLimit, swL3Dhcpv6RelayInfoInterfaceName=swL3Dhcpv6RelayInfoInterfaceName, swL3RoutePreferenceOSPFIntra=swL3RoutePreferenceOSPFIntra, swL3DevMgmt=swL3DevMgmt, swL3IpCtrlIpMtu=swL3IpCtrlIpMtu, swL3RoutePreferenceOSPFExtT1=swL3RoutePreferenceOSPFExtT1, swL3IpCtrlEntry=swL3IpCtrlEntry, swL3IpCtrlIpDhcpOption12HostName=swL3IpCtrlIpDhcpOption12HostName, swL3OspfInternalLsdbTable=swL3OspfInternalLsdbTable, swL3IpCtrlSecondary=swL3IpCtrlSecondary, swL3IpCtrlIpDhcpOption12State=swL3IpCtrlIpDhcpOption12State, swL3VrrpOperVrId=swL3VrrpOperVrId, swL3RelayDnsCtrlEntry=swL3RelayDnsCtrlEntry, swL3RoutePreferenceLocal=swL3RoutePreferenceLocal, swL3Ipv6CtrlRaLifeTime=swL3Ipv6CtrlRaLifeTime, swL3Ipv6CtrlRaState=swL3Ipv6CtrlRaState, swL3ospfIfMulticastForwarding=swL3ospfIfMulticastForwarding, swL3DHCPv6RelayMgmt=swL3DHCPv6RelayMgmt, swL3ospfVirtIfHelloInterval=swL3ospfVirtIfHelloInterval, swL3OspfHostTOS=swL3OspfHostTOS)
-mibBuilder.exportSymbols("DES3528P-SWL3MGMT-MIB", swL3Dhcpv6RelayInfoServerAddress=swL3Dhcpv6RelayInfoServerAddress, swL3RelayDhcpOption82CheckState=swL3RelayDhcpOption82CheckState, swL3OspfECMPMgmt=swL3OspfECMPMgmt, swL3ospfVirtIfTable=swL3ospfVirtIfTable, Ipv6Address=Ipv6Address, swL3IpFdbInfoPort=swL3IpFdbInfoPort, swL3RelayDnsCtrlIpAddr=swL3RelayDnsCtrlIpAddr)
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class Ipv6Address(OctetString, TextualConvention):
+    status = "current"
+    displayHint = "2x:"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(16, 16),
+    )
+
+
+
+class VrId(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_SwL3DevMgmt_ObjectIdentity = ObjectIdentity
+swL3DevMgmt = _SwL3DevMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 1)
+)
+_SwL3DevCtrl_ObjectIdentity = ObjectIdentity
+swL3DevCtrl = _SwL3DevCtrl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 1, 1)
+)
+
+
+class _SwL3DevCtrlRIPState_Type(Integer32):
+    """Custom type swL3DevCtrlRIPState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 3),
+          ("other", 1))
+    )
+
+
+_SwL3DevCtrlRIPState_Type.__name__ = "Integer32"
+_SwL3DevCtrlRIPState_Object = MibScalar
+swL3DevCtrlRIPState = _SwL3DevCtrlRIPState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 1, 1, 1),
+    _SwL3DevCtrlRIPState_Type()
+)
+swL3DevCtrlRIPState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3DevCtrlRIPState.setStatus("current")
+
+
+class _SwL3DevCtrlOSPFState_Type(Integer32):
+    """Custom type swL3DevCtrlOSPFState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 3),
+          ("other", 1))
+    )
+
+
+_SwL3DevCtrlOSPFState_Type.__name__ = "Integer32"
+_SwL3DevCtrlOSPFState_Object = MibScalar
+swL3DevCtrlOSPFState = _SwL3DevCtrlOSPFState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 1, 1, 2),
+    _SwL3DevCtrlOSPFState_Type()
+)
+swL3DevCtrlOSPFState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3DevCtrlOSPFState.setStatus("current")
+
+
+class _SwL3DevCtrlDVMRPState_Type(Integer32):
+    """Custom type swL3DevCtrlDVMRPState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 3),
+          ("other", 1))
+    )
+
+
+_SwL3DevCtrlDVMRPState_Type.__name__ = "Integer32"
+_SwL3DevCtrlDVMRPState_Object = MibScalar
+swL3DevCtrlDVMRPState = _SwL3DevCtrlDVMRPState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 1, 1, 3),
+    _SwL3DevCtrlDVMRPState_Type()
+)
+swL3DevCtrlDVMRPState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3DevCtrlDVMRPState.setStatus("current")
+
+
+class _SwL3DevCtrlVRRPState_Type(Integer32):
+    """Custom type swL3DevCtrlVRRPState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 3),
+          ("other", 1))
+    )
+
+
+_SwL3DevCtrlVRRPState_Type.__name__ = "Integer32"
+_SwL3DevCtrlVRRPState_Object = MibScalar
+swL3DevCtrlVRRPState = _SwL3DevCtrlVRRPState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 1, 1, 5),
+    _SwL3DevCtrlVRRPState_Type()
+)
+swL3DevCtrlVRRPState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3DevCtrlVRRPState.setStatus("current")
+
+
+class _SwL3DevCtrlVrrpPingState_Type(Integer32):
+    """Custom type swL3DevCtrlVrrpPingState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 3),
+          ("other", 1))
+    )
+
+
+_SwL3DevCtrlVrrpPingState_Type.__name__ = "Integer32"
+_SwL3DevCtrlVrrpPingState_Object = MibScalar
+swL3DevCtrlVrrpPingState = _SwL3DevCtrlVrrpPingState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 1, 1, 6),
+    _SwL3DevCtrlVrrpPingState_Type()
+)
+swL3DevCtrlVrrpPingState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3DevCtrlVrrpPingState.setStatus("current")
+
+
+class _SwL3DevCtrlDHCPAutoConfigState_Type(Integer32):
+    """Custom type swL3DevCtrlDHCPAutoConfigState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 3),
+          ("enabled", 2),
+          ("other", 1))
+    )
+
+
+_SwL3DevCtrlDHCPAutoConfigState_Type.__name__ = "Integer32"
+_SwL3DevCtrlDHCPAutoConfigState_Object = MibScalar
+swL3DevCtrlDHCPAutoConfigState = _SwL3DevCtrlDHCPAutoConfigState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 1, 1, 7),
+    _SwL3DevCtrlDHCPAutoConfigState_Type()
+)
+swL3DevCtrlDHCPAutoConfigState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3DevCtrlDHCPAutoConfigState.setStatus("current")
+_SwL3IpMgmt_ObjectIdentity = ObjectIdentity
+swL3IpMgmt = _SwL3IpMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2)
+)
+_SwL3IpCtrlMgmt_ObjectIdentity = ObjectIdentity
+swL3IpCtrlMgmt = _SwL3IpCtrlMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1)
+)
+_SwL3IpCtrlTable_Object = MibTable
+swL3IpCtrlTable = _SwL3IpCtrlTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3)
+)
+if mibBuilder.loadTexts:
+    swL3IpCtrlTable.setStatus("current")
+_SwL3IpCtrlEntry_Object = MibTableRow
+swL3IpCtrlEntry = _SwL3IpCtrlEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1)
+)
+swL3IpCtrlEntry.setIndexNames(
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3IpCtrlInterfaceName"),
+)
+if mibBuilder.loadTexts:
+    swL3IpCtrlEntry.setStatus("current")
+
+
+class _SwL3IpCtrlInterfaceName_Type(DisplayString):
+    """Custom type swL3IpCtrlInterfaceName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 12),
+    )
+
+
+_SwL3IpCtrlInterfaceName_Type.__name__ = "DisplayString"
+_SwL3IpCtrlInterfaceName_Object = MibTableColumn
+swL3IpCtrlInterfaceName = _SwL3IpCtrlInterfaceName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 1),
+    _SwL3IpCtrlInterfaceName_Type()
+)
+swL3IpCtrlInterfaceName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3IpCtrlInterfaceName.setStatus("current")
+
+
+class _SwL3IpCtrlIfIndex_Type(Integer32):
+    """Custom type swL3IpCtrlIfIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SwL3IpCtrlIfIndex_Type.__name__ = "Integer32"
+_SwL3IpCtrlIfIndex_Object = MibTableColumn
+swL3IpCtrlIfIndex = _SwL3IpCtrlIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 2),
+    _SwL3IpCtrlIfIndex_Type()
+)
+swL3IpCtrlIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3IpCtrlIfIndex.setStatus("current")
+_SwL3IpCtrlIpAddr_Type = IpAddress
+_SwL3IpCtrlIpAddr_Object = MibTableColumn
+swL3IpCtrlIpAddr = _SwL3IpCtrlIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 3),
+    _SwL3IpCtrlIpAddr_Type()
+)
+swL3IpCtrlIpAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3IpCtrlIpAddr.setStatus("current")
+_SwL3IpCtrlIpSubnetMask_Type = IpAddress
+_SwL3IpCtrlIpSubnetMask_Object = MibTableColumn
+swL3IpCtrlIpSubnetMask = _SwL3IpCtrlIpSubnetMask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 4),
+    _SwL3IpCtrlIpSubnetMask_Type()
+)
+swL3IpCtrlIpSubnetMask.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3IpCtrlIpSubnetMask.setStatus("current")
+
+
+class _SwL3IpCtrlVlanName_Type(DisplayString):
+    """Custom type swL3IpCtrlVlanName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_SwL3IpCtrlVlanName_Type.__name__ = "DisplayString"
+_SwL3IpCtrlVlanName_Object = MibTableColumn
+swL3IpCtrlVlanName = _SwL3IpCtrlVlanName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 5),
+    _SwL3IpCtrlVlanName_Type()
+)
+swL3IpCtrlVlanName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3IpCtrlVlanName.setStatus("current")
+
+
+class _SwL3IpCtrlProxyArp_Type(Integer32):
+    """Custom type swL3IpCtrlProxyArp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_SwL3IpCtrlProxyArp_Type.__name__ = "Integer32"
+_SwL3IpCtrlProxyArp_Object = MibTableColumn
+swL3IpCtrlProxyArp = _SwL3IpCtrlProxyArp_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 6),
+    _SwL3IpCtrlProxyArp_Type()
+)
+swL3IpCtrlProxyArp.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3IpCtrlProxyArp.setStatus("current")
+_SwL3IpCtrlSecondary_Type = TruthValue
+_SwL3IpCtrlSecondary_Object = MibTableColumn
+swL3IpCtrlSecondary = _SwL3IpCtrlSecondary_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 7),
+    _SwL3IpCtrlSecondary_Type()
+)
+swL3IpCtrlSecondary.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3IpCtrlSecondary.setStatus("current")
+
+
+class _SwL3IpCtrlMode_Type(Integer32):
+    """Custom type swL3IpCtrlMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("bootp", 3),
+          ("dhcp", 4),
+          ("other", 1))
+    )
+
+
+_SwL3IpCtrlMode_Type.__name__ = "Integer32"
+_SwL3IpCtrlMode_Object = MibTableColumn
+swL3IpCtrlMode = _SwL3IpCtrlMode_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 8),
+    _SwL3IpCtrlMode_Type()
+)
+swL3IpCtrlMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3IpCtrlMode.setStatus("current")
+
+
+class _SwL3IpCtrlAdminState_Type(Integer32):
+    """Custom type swL3IpCtrlAdminState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_SwL3IpCtrlAdminState_Type.__name__ = "Integer32"
+_SwL3IpCtrlAdminState_Object = MibTableColumn
+swL3IpCtrlAdminState = _SwL3IpCtrlAdminState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 9),
+    _SwL3IpCtrlAdminState_Type()
+)
+swL3IpCtrlAdminState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3IpCtrlAdminState.setStatus("current")
+
+
+class _SwL3IpCtrlIpv4AdminState_Type(Integer32):
+    """Custom type swL3IpCtrlIpv4AdminState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_SwL3IpCtrlIpv4AdminState_Type.__name__ = "Integer32"
+_SwL3IpCtrlIpv4AdminState_Object = MibTableColumn
+swL3IpCtrlIpv4AdminState = _SwL3IpCtrlIpv4AdminState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 10),
+    _SwL3IpCtrlIpv4AdminState_Type()
+)
+swL3IpCtrlIpv4AdminState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3IpCtrlIpv4AdminState.setStatus("current")
+
+
+class _SwL3IpCtrlIpv6AdminState_Type(Integer32):
+    """Custom type swL3IpCtrlIpv6AdminState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_SwL3IpCtrlIpv6AdminState_Type.__name__ = "Integer32"
+_SwL3IpCtrlIpv6AdminState_Object = MibTableColumn
+swL3IpCtrlIpv6AdminState = _SwL3IpCtrlIpv6AdminState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 12),
+    _SwL3IpCtrlIpv6AdminState_Type()
+)
+swL3IpCtrlIpv6AdminState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3IpCtrlIpv6AdminState.setStatus("current")
+_SwL3IpCtrlIpv6LinkLocalAddress_Type = Ipv6Address
+_SwL3IpCtrlIpv6LinkLocalAddress_Object = MibTableColumn
+swL3IpCtrlIpv6LinkLocalAddress = _SwL3IpCtrlIpv6LinkLocalAddress_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 14),
+    _SwL3IpCtrlIpv6LinkLocalAddress_Type()
+)
+swL3IpCtrlIpv6LinkLocalAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3IpCtrlIpv6LinkLocalAddress.setStatus("current")
+_SwL3IpCtrlIpv6LinkLocalPrefixLen_Type = Integer32
+_SwL3IpCtrlIpv6LinkLocalPrefixLen_Object = MibTableColumn
+swL3IpCtrlIpv6LinkLocalPrefixLen = _SwL3IpCtrlIpv6LinkLocalPrefixLen_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 15),
+    _SwL3IpCtrlIpv6LinkLocalPrefixLen_Type()
+)
+swL3IpCtrlIpv6LinkLocalPrefixLen.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3IpCtrlIpv6LinkLocalPrefixLen.setStatus("current")
+_SwL3IpCtrlState_Type = RowStatus
+_SwL3IpCtrlState_Object = MibTableColumn
+swL3IpCtrlState = _SwL3IpCtrlState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 16),
+    _SwL3IpCtrlState_Type()
+)
+swL3IpCtrlState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3IpCtrlState.setStatus("current")
+
+
+class _SwL3IpCtrlIpv6LinkLocalAutoState_Type(Integer32):
+    """Custom type swL3IpCtrlIpv6LinkLocalAutoState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 3),
+          ("enabled", 2),
+          ("other", 1))
+    )
+
+
+_SwL3IpCtrlIpv6LinkLocalAutoState_Type.__name__ = "Integer32"
+_SwL3IpCtrlIpv6LinkLocalAutoState_Object = MibTableColumn
+swL3IpCtrlIpv6LinkLocalAutoState = _SwL3IpCtrlIpv6LinkLocalAutoState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 17),
+    _SwL3IpCtrlIpv6LinkLocalAutoState_Type()
+)
+swL3IpCtrlIpv6LinkLocalAutoState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3IpCtrlIpv6LinkLocalAutoState.setStatus("current")
+
+
+class _SwL3IpCtrlProxyArpLocalState_Type(Integer32):
+    """Custom type swL3IpCtrlProxyArpLocalState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_SwL3IpCtrlProxyArpLocalState_Type.__name__ = "Integer32"
+_SwL3IpCtrlProxyArpLocalState_Object = MibTableColumn
+swL3IpCtrlProxyArpLocalState = _SwL3IpCtrlProxyArpLocalState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 18),
+    _SwL3IpCtrlProxyArpLocalState_Type()
+)
+swL3IpCtrlProxyArpLocalState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3IpCtrlProxyArpLocalState.setStatus("current")
+
+
+class _SwL3IpCtrlIpMtu_Type(Integer32):
+    """Custom type swL3IpCtrlIpMtu based on Integer32"""
+    defaultValue = 1500
+
+
+_SwL3IpCtrlIpMtu_Object = MibTableColumn
+swL3IpCtrlIpMtu = _SwL3IpCtrlIpMtu_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 19),
+    _SwL3IpCtrlIpMtu_Type()
+)
+swL3IpCtrlIpMtu.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3IpCtrlIpMtu.setStatus("current")
+if mibBuilder.loadTexts:
+    swL3IpCtrlIpMtu.setUnits("bytes")
+
+
+class _SwL3IpCtrlDhcpv6ClientState_Type(Integer32):
+    """Custom type swL3IpCtrlDhcpv6ClientState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 3),
+          ("enabled", 2),
+          ("other", 1))
+    )
+
+
+_SwL3IpCtrlDhcpv6ClientState_Type.__name__ = "Integer32"
+_SwL3IpCtrlDhcpv6ClientState_Object = MibTableColumn
+swL3IpCtrlDhcpv6ClientState = _SwL3IpCtrlDhcpv6ClientState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 20),
+    _SwL3IpCtrlDhcpv6ClientState_Type()
+)
+swL3IpCtrlDhcpv6ClientState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3IpCtrlDhcpv6ClientState.setStatus("current")
+
+
+class _SwL3IpCtrlIpDhcpOption12State_Type(Integer32):
+    """Custom type swL3IpCtrlIpDhcpOption12State based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_SwL3IpCtrlIpDhcpOption12State_Type.__name__ = "Integer32"
+_SwL3IpCtrlIpDhcpOption12State_Object = MibTableColumn
+swL3IpCtrlIpDhcpOption12State = _SwL3IpCtrlIpDhcpOption12State_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 22),
+    _SwL3IpCtrlIpDhcpOption12State_Type()
+)
+swL3IpCtrlIpDhcpOption12State.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3IpCtrlIpDhcpOption12State.setStatus("current")
+
+
+class _SwL3IpCtrlIpDhcpOption12HostName_Type(DisplayString):
+    """Custom type swL3IpCtrlIpDhcpOption12HostName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 63),
+    )
+
+
+_SwL3IpCtrlIpDhcpOption12HostName_Type.__name__ = "DisplayString"
+_SwL3IpCtrlIpDhcpOption12HostName_Object = MibTableColumn
+swL3IpCtrlIpDhcpOption12HostName = _SwL3IpCtrlIpDhcpOption12HostName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 3, 1, 23),
+    _SwL3IpCtrlIpDhcpOption12HostName_Type()
+)
+swL3IpCtrlIpDhcpOption12HostName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3IpCtrlIpDhcpOption12HostName.setStatus("current")
+_SwL3Ipv6CtrlTable_Object = MibTable
+swL3Ipv6CtrlTable = _SwL3Ipv6CtrlTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 4)
+)
+if mibBuilder.loadTexts:
+    swL3Ipv6CtrlTable.setStatus("current")
+_SwL3Ipv6CtrlEntry_Object = MibTableRow
+swL3Ipv6CtrlEntry = _SwL3Ipv6CtrlEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 4, 1)
+)
+swL3Ipv6CtrlEntry.setIndexNames(
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3Ipv6CtrlInterfaceName"),
+)
+if mibBuilder.loadTexts:
+    swL3Ipv6CtrlEntry.setStatus("current")
+
+
+class _SwL3Ipv6CtrlInterfaceName_Type(DisplayString):
+    """Custom type swL3Ipv6CtrlInterfaceName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 12),
+    )
+
+
+_SwL3Ipv6CtrlInterfaceName_Type.__name__ = "DisplayString"
+_SwL3Ipv6CtrlInterfaceName_Object = MibTableColumn
+swL3Ipv6CtrlInterfaceName = _SwL3Ipv6CtrlInterfaceName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 4, 1, 1),
+    _SwL3Ipv6CtrlInterfaceName_Type()
+)
+swL3Ipv6CtrlInterfaceName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3Ipv6CtrlInterfaceName.setStatus("current")
+_SwL3Ipv6CtrlMaxReassmblySize_Type = Integer32
+_SwL3Ipv6CtrlMaxReassmblySize_Object = MibTableColumn
+swL3Ipv6CtrlMaxReassmblySize = _SwL3Ipv6CtrlMaxReassmblySize_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 4, 1, 2),
+    _SwL3Ipv6CtrlMaxReassmblySize_Type()
+)
+swL3Ipv6CtrlMaxReassmblySize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3Ipv6CtrlMaxReassmblySize.setStatus("current")
+
+
+class _SwL3Ipv6CtrlNsRetransTimer_Type(Unsigned32):
+    """Custom type swL3Ipv6CtrlNsRetransTimer based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4294967295),
+    )
+
+
+_SwL3Ipv6CtrlNsRetransTimer_Type.__name__ = "Unsigned32"
+_SwL3Ipv6CtrlNsRetransTimer_Object = MibTableColumn
+swL3Ipv6CtrlNsRetransTimer = _SwL3Ipv6CtrlNsRetransTimer_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 4, 1, 3),
+    _SwL3Ipv6CtrlNsRetransTimer_Type()
+)
+swL3Ipv6CtrlNsRetransTimer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3Ipv6CtrlNsRetransTimer.setStatus("current")
+
+
+class _SwL3Ipv6CtrlRaState_Type(Integer32):
+    """Custom type swL3Ipv6CtrlRaState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_SwL3Ipv6CtrlRaState_Type.__name__ = "Integer32"
+_SwL3Ipv6CtrlRaState_Object = MibTableColumn
+swL3Ipv6CtrlRaState = _SwL3Ipv6CtrlRaState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 4, 1, 5),
+    _SwL3Ipv6CtrlRaState_Type()
+)
+swL3Ipv6CtrlRaState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3Ipv6CtrlRaState.setStatus("current")
+
+
+class _SwL3Ipv6CtrlRaMinRtrAdvInterval_Type(Integer32):
+    """Custom type swL3Ipv6CtrlRaMinRtrAdvInterval based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(3, 1350),
+    )
+
+
+_SwL3Ipv6CtrlRaMinRtrAdvInterval_Type.__name__ = "Integer32"
+_SwL3Ipv6CtrlRaMinRtrAdvInterval_Object = MibTableColumn
+swL3Ipv6CtrlRaMinRtrAdvInterval = _SwL3Ipv6CtrlRaMinRtrAdvInterval_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 4, 1, 6),
+    _SwL3Ipv6CtrlRaMinRtrAdvInterval_Type()
+)
+swL3Ipv6CtrlRaMinRtrAdvInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3Ipv6CtrlRaMinRtrAdvInterval.setStatus("current")
+
+
+class _SwL3Ipv6CtrlRaMaxRtrAdvInterval_Type(Integer32):
+    """Custom type swL3Ipv6CtrlRaMaxRtrAdvInterval based on Integer32"""
+    defaultValue = 600
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(4, 1800),
+    )
+
+
+_SwL3Ipv6CtrlRaMaxRtrAdvInterval_Type.__name__ = "Integer32"
+_SwL3Ipv6CtrlRaMaxRtrAdvInterval_Object = MibTableColumn
+swL3Ipv6CtrlRaMaxRtrAdvInterval = _SwL3Ipv6CtrlRaMaxRtrAdvInterval_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 4, 1, 7),
+    _SwL3Ipv6CtrlRaMaxRtrAdvInterval_Type()
+)
+swL3Ipv6CtrlRaMaxRtrAdvInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3Ipv6CtrlRaMaxRtrAdvInterval.setStatus("current")
+
+
+class _SwL3Ipv6CtrlRaLifeTime_Type(Integer32):
+    """Custom type swL3Ipv6CtrlRaLifeTime based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 9000),
+    )
+
+
+_SwL3Ipv6CtrlRaLifeTime_Type.__name__ = "Integer32"
+_SwL3Ipv6CtrlRaLifeTime_Object = MibTableColumn
+swL3Ipv6CtrlRaLifeTime = _SwL3Ipv6CtrlRaLifeTime_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 4, 1, 8),
+    _SwL3Ipv6CtrlRaLifeTime_Type()
+)
+swL3Ipv6CtrlRaLifeTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3Ipv6CtrlRaLifeTime.setStatus("current")
+
+
+class _SwL3Ipv6CtrlRaReachableTime_Type(Integer32):
+    """Custom type swL3Ipv6CtrlRaReachableTime based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 3600000),
+    )
+
+
+_SwL3Ipv6CtrlRaReachableTime_Type.__name__ = "Integer32"
+_SwL3Ipv6CtrlRaReachableTime_Object = MibTableColumn
+swL3Ipv6CtrlRaReachableTime = _SwL3Ipv6CtrlRaReachableTime_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 4, 1, 9),
+    _SwL3Ipv6CtrlRaReachableTime_Type()
+)
+swL3Ipv6CtrlRaReachableTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3Ipv6CtrlRaReachableTime.setStatus("current")
+
+
+class _SwL3Ipv6CtrlRaRetransTime_Type(Unsigned32):
+    """Custom type swL3Ipv6CtrlRaRetransTime based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4294967295),
+    )
+
+
+_SwL3Ipv6CtrlRaRetransTime_Type.__name__ = "Unsigned32"
+_SwL3Ipv6CtrlRaRetransTime_Object = MibTableColumn
+swL3Ipv6CtrlRaRetransTime = _SwL3Ipv6CtrlRaRetransTime_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 4, 1, 10),
+    _SwL3Ipv6CtrlRaRetransTime_Type()
+)
+swL3Ipv6CtrlRaRetransTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3Ipv6CtrlRaRetransTime.setStatus("current")
+
+
+class _SwL3Ipv6CtrlRaHopLimit_Type(Integer32):
+    """Custom type swL3Ipv6CtrlRaHopLimit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_SwL3Ipv6CtrlRaHopLimit_Type.__name__ = "Integer32"
+_SwL3Ipv6CtrlRaHopLimit_Object = MibTableColumn
+swL3Ipv6CtrlRaHopLimit = _SwL3Ipv6CtrlRaHopLimit_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 4, 1, 11),
+    _SwL3Ipv6CtrlRaHopLimit_Type()
+)
+swL3Ipv6CtrlRaHopLimit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3Ipv6CtrlRaHopLimit.setStatus("current")
+
+
+class _SwL3Ipv6CtrlRaManagedFlag_Type(Integer32):
+    """Custom type swL3Ipv6CtrlRaManagedFlag based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_SwL3Ipv6CtrlRaManagedFlag_Type.__name__ = "Integer32"
+_SwL3Ipv6CtrlRaManagedFlag_Object = MibTableColumn
+swL3Ipv6CtrlRaManagedFlag = _SwL3Ipv6CtrlRaManagedFlag_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 4, 1, 12),
+    _SwL3Ipv6CtrlRaManagedFlag_Type()
+)
+swL3Ipv6CtrlRaManagedFlag.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3Ipv6CtrlRaManagedFlag.setStatus("current")
+
+
+class _SwL3Ipv6CtrlRaOtherConfigFlag_Type(Integer32):
+    """Custom type swL3Ipv6CtrlRaOtherConfigFlag based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_SwL3Ipv6CtrlRaOtherConfigFlag_Type.__name__ = "Integer32"
+_SwL3Ipv6CtrlRaOtherConfigFlag_Object = MibTableColumn
+swL3Ipv6CtrlRaOtherConfigFlag = _SwL3Ipv6CtrlRaOtherConfigFlag_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 4, 1, 13),
+    _SwL3Ipv6CtrlRaOtherConfigFlag_Type()
+)
+swL3Ipv6CtrlRaOtherConfigFlag.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3Ipv6CtrlRaOtherConfigFlag.setStatus("current")
+_SwL3Ipv6AddressCtrlTable_Object = MibTable
+swL3Ipv6AddressCtrlTable = _SwL3Ipv6AddressCtrlTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 5)
+)
+if mibBuilder.loadTexts:
+    swL3Ipv6AddressCtrlTable.setStatus("current")
+_SwL3Ipv6AddressCtrlEntry_Object = MibTableRow
+swL3Ipv6AddressCtrlEntry = _SwL3Ipv6AddressCtrlEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 5, 1)
+)
+swL3Ipv6AddressCtrlEntry.setIndexNames(
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3Ipv6AddressCtrlInterfaceName"),
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3Ipv6Address"),
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3Ipv6AddressCtrlPrefixLen"),
+)
+if mibBuilder.loadTexts:
+    swL3Ipv6AddressCtrlEntry.setStatus("current")
+
+
+class _SwL3Ipv6AddressCtrlInterfaceName_Type(DisplayString):
+    """Custom type swL3Ipv6AddressCtrlInterfaceName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 12),
+    )
+
+
+_SwL3Ipv6AddressCtrlInterfaceName_Type.__name__ = "DisplayString"
+_SwL3Ipv6AddressCtrlInterfaceName_Object = MibTableColumn
+swL3Ipv6AddressCtrlInterfaceName = _SwL3Ipv6AddressCtrlInterfaceName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 5, 1, 1),
+    _SwL3Ipv6AddressCtrlInterfaceName_Type()
+)
+swL3Ipv6AddressCtrlInterfaceName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3Ipv6AddressCtrlInterfaceName.setStatus("current")
+_SwL3Ipv6Address_Type = Ipv6Address
+_SwL3Ipv6Address_Object = MibTableColumn
+swL3Ipv6Address = _SwL3Ipv6Address_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 5, 1, 2),
+    _SwL3Ipv6Address_Type()
+)
+swL3Ipv6Address.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3Ipv6Address.setStatus("current")
+_SwL3Ipv6AddressCtrlPrefixLen_Type = Integer32
+_SwL3Ipv6AddressCtrlPrefixLen_Object = MibTableColumn
+swL3Ipv6AddressCtrlPrefixLen = _SwL3Ipv6AddressCtrlPrefixLen_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 5, 1, 3),
+    _SwL3Ipv6AddressCtrlPrefixLen_Type()
+)
+swL3Ipv6AddressCtrlPrefixLen.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3Ipv6AddressCtrlPrefixLen.setStatus("current")
+
+
+class _SwL3Ipv6AddressCtrlPreferredLifeTime_Type(Unsigned32):
+    """Custom type swL3Ipv6AddressCtrlPreferredLifeTime based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4294967294),
+    )
+
+
+_SwL3Ipv6AddressCtrlPreferredLifeTime_Type.__name__ = "Unsigned32"
+_SwL3Ipv6AddressCtrlPreferredLifeTime_Object = MibTableColumn
+swL3Ipv6AddressCtrlPreferredLifeTime = _SwL3Ipv6AddressCtrlPreferredLifeTime_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 5, 1, 4),
+    _SwL3Ipv6AddressCtrlPreferredLifeTime_Type()
+)
+swL3Ipv6AddressCtrlPreferredLifeTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3Ipv6AddressCtrlPreferredLifeTime.setStatus("current")
+
+
+class _SwL3Ipv6AddressCtrlValidLifeTime_Type(Unsigned32):
+    """Custom type swL3Ipv6AddressCtrlValidLifeTime based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4294967294),
+    )
+
+
+_SwL3Ipv6AddressCtrlValidLifeTime_Type.__name__ = "Unsigned32"
+_SwL3Ipv6AddressCtrlValidLifeTime_Object = MibTableColumn
+swL3Ipv6AddressCtrlValidLifeTime = _SwL3Ipv6AddressCtrlValidLifeTime_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 5, 1, 5),
+    _SwL3Ipv6AddressCtrlValidLifeTime_Type()
+)
+swL3Ipv6AddressCtrlValidLifeTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3Ipv6AddressCtrlValidLifeTime.setStatus("current")
+
+
+class _SwL3Ipv6AddressCtrlOnLinkFlag_Type(Integer32):
+    """Custom type swL3Ipv6AddressCtrlOnLinkFlag based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_SwL3Ipv6AddressCtrlOnLinkFlag_Type.__name__ = "Integer32"
+_SwL3Ipv6AddressCtrlOnLinkFlag_Object = MibTableColumn
+swL3Ipv6AddressCtrlOnLinkFlag = _SwL3Ipv6AddressCtrlOnLinkFlag_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 5, 1, 6),
+    _SwL3Ipv6AddressCtrlOnLinkFlag_Type()
+)
+swL3Ipv6AddressCtrlOnLinkFlag.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3Ipv6AddressCtrlOnLinkFlag.setStatus("current")
+
+
+class _SwL3Ipv6AddressCtrlAutonomousFlag_Type(Integer32):
+    """Custom type swL3Ipv6AddressCtrlAutonomousFlag based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_SwL3Ipv6AddressCtrlAutonomousFlag_Type.__name__ = "Integer32"
+_SwL3Ipv6AddressCtrlAutonomousFlag_Object = MibTableColumn
+swL3Ipv6AddressCtrlAutonomousFlag = _SwL3Ipv6AddressCtrlAutonomousFlag_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 5, 1, 7),
+    _SwL3Ipv6AddressCtrlAutonomousFlag_Type()
+)
+swL3Ipv6AddressCtrlAutonomousFlag.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3Ipv6AddressCtrlAutonomousFlag.setStatus("current")
+_SwL3Ipv6AddressCtrlState_Type = RowStatus
+_SwL3Ipv6AddressCtrlState_Object = MibTableColumn
+swL3Ipv6AddressCtrlState = _SwL3Ipv6AddressCtrlState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 5, 1, 8),
+    _SwL3Ipv6AddressCtrlState_Type()
+)
+swL3Ipv6AddressCtrlState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3Ipv6AddressCtrlState.setStatus("current")
+
+
+class _SwL3Ipv6AddressCtrlAddressType_Type(Integer32):
+    """Custom type swL3Ipv6AddressCtrlAddressType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dhcpv6", 2),
+          ("manual", 1),
+          ("stateless", 3))
+    )
+
+
+_SwL3Ipv6AddressCtrlAddressType_Type.__name__ = "Integer32"
+_SwL3Ipv6AddressCtrlAddressType_Object = MibTableColumn
+swL3Ipv6AddressCtrlAddressType = _SwL3Ipv6AddressCtrlAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 5, 1, 9),
+    _SwL3Ipv6AddressCtrlAddressType_Type()
+)
+swL3Ipv6AddressCtrlAddressType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3Ipv6AddressCtrlAddressType.setStatus("current")
+
+
+class _SwL3IpCtrlAllIpIfState_Type(Integer32):
+    """Custom type swL3IpCtrlAllIpIfState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 3),
+          ("enabled", 2),
+          ("other", 1))
+    )
+
+
+_SwL3IpCtrlAllIpIfState_Type.__name__ = "Integer32"
+_SwL3IpCtrlAllIpIfState_Object = MibScalar
+swL3IpCtrlAllIpIfState = _SwL3IpCtrlAllIpIfState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 1, 7),
+    _SwL3IpCtrlAllIpIfState_Type()
+)
+swL3IpCtrlAllIpIfState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3IpCtrlAllIpIfState.setStatus("current")
+_SwL3IpFdbMgmt_ObjectIdentity = ObjectIdentity
+swL3IpFdbMgmt = _SwL3IpFdbMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 2)
+)
+_SwL3IpFdbInfoTable_Object = MibTable
+swL3IpFdbInfoTable = _SwL3IpFdbInfoTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 2, 1)
+)
+if mibBuilder.loadTexts:
+    swL3IpFdbInfoTable.setStatus("current")
+_SwL3IpFdbInfoEntry_Object = MibTableRow
+swL3IpFdbInfoEntry = _SwL3IpFdbInfoEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 2, 1, 1)
+)
+swL3IpFdbInfoEntry.setIndexNames(
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3IpFdbInfoIpAddr"),
+)
+if mibBuilder.loadTexts:
+    swL3IpFdbInfoEntry.setStatus("current")
+_SwL3IpFdbInfoIpAddr_Type = IpAddress
+_SwL3IpFdbInfoIpAddr_Object = MibTableColumn
+swL3IpFdbInfoIpAddr = _SwL3IpFdbInfoIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 2, 1, 1, 1),
+    _SwL3IpFdbInfoIpAddr_Type()
+)
+swL3IpFdbInfoIpAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3IpFdbInfoIpAddr.setStatus("current")
+_SwL3IpFdbInfoIpSubnetMask_Type = IpAddress
+_SwL3IpFdbInfoIpSubnetMask_Object = MibTableColumn
+swL3IpFdbInfoIpSubnetMask = _SwL3IpFdbInfoIpSubnetMask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 2, 1, 1, 2),
+    _SwL3IpFdbInfoIpSubnetMask_Type()
+)
+swL3IpFdbInfoIpSubnetMask.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3IpFdbInfoIpSubnetMask.setStatus("current")
+
+
+class _SwL3IpFdbInfoPort_Type(Integer32):
+    """Custom type swL3IpFdbInfoPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SwL3IpFdbInfoPort_Type.__name__ = "Integer32"
+_SwL3IpFdbInfoPort_Object = MibTableColumn
+swL3IpFdbInfoPort = _SwL3IpFdbInfoPort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 2, 1, 1, 3),
+    _SwL3IpFdbInfoPort_Type()
+)
+swL3IpFdbInfoPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3IpFdbInfoPort.setStatus("current")
+
+
+class _SwL3IpFdbInfoType_Type(Integer32):
+    """Custom type swL3IpFdbInfoType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dynamic", 3),
+          ("other", 1),
+          ("static", 2))
+    )
+
+
+_SwL3IpFdbInfoType_Type.__name__ = "Integer32"
+_SwL3IpFdbInfoType_Object = MibTableColumn
+swL3IpFdbInfoType = _SwL3IpFdbInfoType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 2, 1, 1, 4),
+    _SwL3IpFdbInfoType_Type()
+)
+swL3IpFdbInfoType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3IpFdbInfoType.setStatus("current")
+
+
+class _SwL3IpArpAgingTime_Type(Integer32):
+    """Custom type swL3IpArpAgingTime based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SwL3IpArpAgingTime_Type.__name__ = "Integer32"
+_SwL3IpArpAgingTime_Object = MibScalar
+swL3IpArpAgingTime = _SwL3IpArpAgingTime_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 4),
+    _SwL3IpArpAgingTime_Type()
+)
+swL3IpArpAgingTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3IpArpAgingTime.setStatus("current")
+_SwL3IpStaticRouteTable_Object = MibTable
+swL3IpStaticRouteTable = _SwL3IpStaticRouteTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 5)
+)
+if mibBuilder.loadTexts:
+    swL3IpStaticRouteTable.setStatus("current")
+_SwL3IpStaticRouteEntry_Object = MibTableRow
+swL3IpStaticRouteEntry = _SwL3IpStaticRouteEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 5, 1)
+)
+swL3IpStaticRouteEntry.setIndexNames(
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3IpStaticRouteDest"),
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3IpStaticRouteMask"),
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3IpStaticRouteNextHop"),
+)
+if mibBuilder.loadTexts:
+    swL3IpStaticRouteEntry.setStatus("current")
+_SwL3IpStaticRouteDest_Type = IpAddress
+_SwL3IpStaticRouteDest_Object = MibTableColumn
+swL3IpStaticRouteDest = _SwL3IpStaticRouteDest_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 5, 1, 1),
+    _SwL3IpStaticRouteDest_Type()
+)
+swL3IpStaticRouteDest.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3IpStaticRouteDest.setStatus("current")
+_SwL3IpStaticRouteMask_Type = IpAddress
+_SwL3IpStaticRouteMask_Object = MibTableColumn
+swL3IpStaticRouteMask = _SwL3IpStaticRouteMask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 5, 1, 2),
+    _SwL3IpStaticRouteMask_Type()
+)
+swL3IpStaticRouteMask.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3IpStaticRouteMask.setStatus("current")
+
+
+class _SwL3IpStaticRouteBkupState_Type(Integer32):
+    """Custom type swL3IpStaticRouteBkupState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("backup", 2),
+          ("none", 3),
+          ("primary", 1))
+    )
+
+
+_SwL3IpStaticRouteBkupState_Type.__name__ = "Integer32"
+_SwL3IpStaticRouteBkupState_Object = MibTableColumn
+swL3IpStaticRouteBkupState = _SwL3IpStaticRouteBkupState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 5, 1, 3),
+    _SwL3IpStaticRouteBkupState_Type()
+)
+swL3IpStaticRouteBkupState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3IpStaticRouteBkupState.setStatus("current")
+_SwL3IpStaticRouteNextHop_Type = IpAddress
+_SwL3IpStaticRouteNextHop_Object = MibTableColumn
+swL3IpStaticRouteNextHop = _SwL3IpStaticRouteNextHop_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 5, 1, 4),
+    _SwL3IpStaticRouteNextHop_Type()
+)
+swL3IpStaticRouteNextHop.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3IpStaticRouteNextHop.setStatus("current")
+
+
+class _SwL3IpStaticRouteMetric_Type(Integer32):
+    """Custom type swL3IpStaticRouteMetric based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_SwL3IpStaticRouteMetric_Type.__name__ = "Integer32"
+_SwL3IpStaticRouteMetric_Object = MibTableColumn
+swL3IpStaticRouteMetric = _SwL3IpStaticRouteMetric_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 5, 1, 5),
+    _SwL3IpStaticRouteMetric_Type()
+)
+swL3IpStaticRouteMetric.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3IpStaticRouteMetric.setStatus("current")
+
+
+class _SwL3IpStaticRouteStatus_Type(Integer32):
+    """Custom type swL3IpStaticRouteStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 4),
+          ("inActive", 5),
+          ("invalid", 2),
+          ("other", 1),
+          ("valid", 3))
+    )
+
+
+_SwL3IpStaticRouteStatus_Type.__name__ = "Integer32"
+_SwL3IpStaticRouteStatus_Object = MibTableColumn
+swL3IpStaticRouteStatus = _SwL3IpStaticRouteStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 5, 1, 6),
+    _SwL3IpStaticRouteStatus_Type()
+)
+swL3IpStaticRouteStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3IpStaticRouteStatus.setStatus("current")
+
+
+class _SwL3IpStaticRouteWeight_Type(Integer32):
+    """Custom type swL3IpStaticRouteWeight based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4),
+    )
+
+
+_SwL3IpStaticRouteWeight_Type.__name__ = "Integer32"
+_SwL3IpStaticRouteWeight_Object = MibTableColumn
+swL3IpStaticRouteWeight = _SwL3IpStaticRouteWeight_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 5, 1, 7),
+    _SwL3IpStaticRouteWeight_Type()
+)
+swL3IpStaticRouteWeight.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3IpStaticRouteWeight.setStatus("current")
+_SwL3IpStaticRouteInterfaceName_Type = DisplayString
+_SwL3IpStaticRouteInterfaceName_Object = MibTableColumn
+swL3IpStaticRouteInterfaceName = _SwL3IpStaticRouteInterfaceName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 5, 1, 8),
+    _SwL3IpStaticRouteInterfaceName_Type()
+)
+swL3IpStaticRouteInterfaceName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3IpStaticRouteInterfaceName.setStatus("current")
+_SwL3IpStaticRouteCost_Type = Integer32
+_SwL3IpStaticRouteCost_Object = MibTableColumn
+swL3IpStaticRouteCost = _SwL3IpStaticRouteCost_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 5, 1, 9),
+    _SwL3IpStaticRouteCost_Type()
+)
+swL3IpStaticRouteCost.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3IpStaticRouteCost.setStatus("current")
+_SwL3IpMcastMgmt_ObjectIdentity = ObjectIdentity
+swL3IpMcastMgmt = _SwL3IpMcastMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 6)
+)
+_SwL3IpMcastStaticRouteTable_Object = MibTable
+swL3IpMcastStaticRouteTable = _SwL3IpMcastStaticRouteTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 6, 1)
+)
+if mibBuilder.loadTexts:
+    swL3IpMcastStaticRouteTable.setStatus("current")
+_SwL3IpMcastStaticRouteEntry_Object = MibTableRow
+swL3IpMcastStaticRouteEntry = _SwL3IpMcastStaticRouteEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 6, 1, 1)
+)
+swL3IpMcastStaticRouteEntry.setIndexNames(
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3IpMcastStaticRouteIpmrouteAddr"),
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3IpMcastStaticRouteIpmrouteMask"),
+)
+if mibBuilder.loadTexts:
+    swL3IpMcastStaticRouteEntry.setStatus("current")
+_SwL3IpMcastStaticRouteIpmrouteAddr_Type = IpAddress
+_SwL3IpMcastStaticRouteIpmrouteAddr_Object = MibTableColumn
+swL3IpMcastStaticRouteIpmrouteAddr = _SwL3IpMcastStaticRouteIpmrouteAddr_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 6, 1, 1, 1),
+    _SwL3IpMcastStaticRouteIpmrouteAddr_Type()
+)
+swL3IpMcastStaticRouteIpmrouteAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3IpMcastStaticRouteIpmrouteAddr.setStatus("current")
+_SwL3IpMcastStaticRouteIpmrouteMask_Type = IpAddress
+_SwL3IpMcastStaticRouteIpmrouteMask_Object = MibTableColumn
+swL3IpMcastStaticRouteIpmrouteMask = _SwL3IpMcastStaticRouteIpmrouteMask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 6, 1, 1, 2),
+    _SwL3IpMcastStaticRouteIpmrouteMask_Type()
+)
+swL3IpMcastStaticRouteIpmrouteMask.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3IpMcastStaticRouteIpmrouteMask.setStatus("current")
+_SwL3IpMcastStaticRouteRpfAddr_Type = IpAddress
+_SwL3IpMcastStaticRouteRpfAddr_Object = MibTableColumn
+swL3IpMcastStaticRouteRpfAddr = _SwL3IpMcastStaticRouteRpfAddr_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 6, 1, 1, 3),
+    _SwL3IpMcastStaticRouteRpfAddr_Type()
+)
+swL3IpMcastStaticRouteRpfAddr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3IpMcastStaticRouteRpfAddr.setStatus("current")
+_SwL3IpMcastStaticRouteRowStatus_Type = RowStatus
+_SwL3IpMcastStaticRouteRowStatus_Object = MibTableColumn
+swL3IpMcastStaticRouteRowStatus = _SwL3IpMcastStaticRouteRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 2, 6, 1, 1, 4),
+    _SwL3IpMcastStaticRouteRowStatus_Type()
+)
+swL3IpMcastStaticRouteRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3IpMcastStaticRouteRowStatus.setStatus("current")
+_SwL3RelayMgmt_ObjectIdentity = ObjectIdentity
+swL3RelayMgmt = _SwL3RelayMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3)
+)
+_SwL3RelayDhcpMgmt_ObjectIdentity = ObjectIdentity
+swL3RelayDhcpMgmt = _SwL3RelayDhcpMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 1)
+)
+
+
+class _SwL3RelayDhcpState_Type(Integer32):
+    """Custom type swL3RelayDhcpState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 3),
+          ("other", 1))
+    )
+
+
+_SwL3RelayDhcpState_Type.__name__ = "Integer32"
+_SwL3RelayDhcpState_Object = MibScalar
+swL3RelayDhcpState = _SwL3RelayDhcpState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 1, 1),
+    _SwL3RelayDhcpState_Type()
+)
+swL3RelayDhcpState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3RelayDhcpState.setStatus("current")
+
+
+class _SwL3RelayDhcpHopCount_Type(Integer32):
+    """Custom type swL3RelayDhcpHopCount based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16),
+    )
+
+
+_SwL3RelayDhcpHopCount_Type.__name__ = "Integer32"
+_SwL3RelayDhcpHopCount_Object = MibScalar
+swL3RelayDhcpHopCount = _SwL3RelayDhcpHopCount_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 1, 2),
+    _SwL3RelayDhcpHopCount_Type()
+)
+swL3RelayDhcpHopCount.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3RelayDhcpHopCount.setStatus("current")
+
+
+class _SwL3RelayDhcpTimeThreshold_Type(Integer32):
+    """Custom type swL3RelayDhcpTimeThreshold based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SwL3RelayDhcpTimeThreshold_Type.__name__ = "Integer32"
+_SwL3RelayDhcpTimeThreshold_Object = MibScalar
+swL3RelayDhcpTimeThreshold = _SwL3RelayDhcpTimeThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 1, 3),
+    _SwL3RelayDhcpTimeThreshold_Type()
+)
+swL3RelayDhcpTimeThreshold.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3RelayDhcpTimeThreshold.setStatus("current")
+_SwL3RelayDhcpCtrlTable_Object = MibTable
+swL3RelayDhcpCtrlTable = _SwL3RelayDhcpCtrlTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 1, 4)
+)
+if mibBuilder.loadTexts:
+    swL3RelayDhcpCtrlTable.setStatus("current")
+_SwL3RelayDhcpCtrlEntry_Object = MibTableRow
+swL3RelayDhcpCtrlEntry = _SwL3RelayDhcpCtrlEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 1, 4, 1)
+)
+swL3RelayDhcpCtrlEntry.setIndexNames(
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3RelayDhcpCtrlInterfaceName"),
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3RelayDhcpCtrlServer"),
+)
+if mibBuilder.loadTexts:
+    swL3RelayDhcpCtrlEntry.setStatus("current")
+
+
+class _SwL3RelayDhcpCtrlInterfaceName_Type(DisplayString):
+    """Custom type swL3RelayDhcpCtrlInterfaceName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 12),
+    )
+
+
+_SwL3RelayDhcpCtrlInterfaceName_Type.__name__ = "DisplayString"
+_SwL3RelayDhcpCtrlInterfaceName_Object = MibTableColumn
+swL3RelayDhcpCtrlInterfaceName = _SwL3RelayDhcpCtrlInterfaceName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 1, 4, 1, 1),
+    _SwL3RelayDhcpCtrlInterfaceName_Type()
+)
+swL3RelayDhcpCtrlInterfaceName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3RelayDhcpCtrlInterfaceName.setStatus("current")
+_SwL3RelayDhcpCtrlServer_Type = IpAddress
+_SwL3RelayDhcpCtrlServer_Object = MibTableColumn
+swL3RelayDhcpCtrlServer = _SwL3RelayDhcpCtrlServer_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 1, 4, 1, 2),
+    _SwL3RelayDhcpCtrlServer_Type()
+)
+swL3RelayDhcpCtrlServer.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3RelayDhcpCtrlServer.setStatus("current")
+
+
+class _SwL3RelayDhcpCtrlState_Type(Integer32):
+    """Custom type swL3RelayDhcpCtrlState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("invalid", 2),
+          ("other", 1),
+          ("valid", 3))
+    )
+
+
+_SwL3RelayDhcpCtrlState_Type.__name__ = "Integer32"
+_SwL3RelayDhcpCtrlState_Object = MibTableColumn
+swL3RelayDhcpCtrlState = _SwL3RelayDhcpCtrlState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 1, 4, 1, 3),
+    _SwL3RelayDhcpCtrlState_Type()
+)
+swL3RelayDhcpCtrlState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3RelayDhcpCtrlState.setStatus("current")
+
+
+class _SwL3RelayDhcpOption82State_Type(Integer32):
+    """Custom type swL3RelayDhcpOption82State based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 0),
+          ("enabled", 1))
+    )
+
+
+_SwL3RelayDhcpOption82State_Type.__name__ = "Integer32"
+_SwL3RelayDhcpOption82State_Object = MibScalar
+swL3RelayDhcpOption82State = _SwL3RelayDhcpOption82State_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 1, 5),
+    _SwL3RelayDhcpOption82State_Type()
+)
+swL3RelayDhcpOption82State.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3RelayDhcpOption82State.setStatus("current")
+
+
+class _SwL3RelayDhcpOption82CheckState_Type(Integer32):
+    """Custom type swL3RelayDhcpOption82CheckState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 0),
+          ("enabled", 1))
+    )
+
+
+_SwL3RelayDhcpOption82CheckState_Type.__name__ = "Integer32"
+_SwL3RelayDhcpOption82CheckState_Object = MibScalar
+swL3RelayDhcpOption82CheckState = _SwL3RelayDhcpOption82CheckState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 1, 6),
+    _SwL3RelayDhcpOption82CheckState_Type()
+)
+swL3RelayDhcpOption82CheckState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3RelayDhcpOption82CheckState.setStatus("current")
+
+
+class _SwL3RelayDhcpOption82Policy_Type(Integer32):
+    """Custom type swL3RelayDhcpOption82Policy based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("drop", 1),
+          ("keep", 2),
+          ("replace", 0))
+    )
+
+
+_SwL3RelayDhcpOption82Policy_Type.__name__ = "Integer32"
+_SwL3RelayDhcpOption82Policy_Object = MibScalar
+swL3RelayDhcpOption82Policy = _SwL3RelayDhcpOption82Policy_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 1, 7),
+    _SwL3RelayDhcpOption82Policy_Type()
+)
+swL3RelayDhcpOption82Policy.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3RelayDhcpOption82Policy.setStatus("current")
+_SwL3RelayDnsMgmt_ObjectIdentity = ObjectIdentity
+swL3RelayDnsMgmt = _SwL3RelayDnsMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 2)
+)
+
+
+class _SwL3RelayDnsState_Type(Integer32):
+    """Custom type swL3RelayDnsState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 3),
+          ("other", 1))
+    )
+
+
+_SwL3RelayDnsState_Type.__name__ = "Integer32"
+_SwL3RelayDnsState_Object = MibScalar
+swL3RelayDnsState = _SwL3RelayDnsState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 2, 1),
+    _SwL3RelayDnsState_Type()
+)
+swL3RelayDnsState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3RelayDnsState.setStatus("current")
+_SwL3RelayDnsPrimaryServer_Type = IpAddress
+_SwL3RelayDnsPrimaryServer_Object = MibScalar
+swL3RelayDnsPrimaryServer = _SwL3RelayDnsPrimaryServer_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 2, 2),
+    _SwL3RelayDnsPrimaryServer_Type()
+)
+swL3RelayDnsPrimaryServer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3RelayDnsPrimaryServer.setStatus("current")
+_SwL3RelayDnsSecondaryServer_Type = IpAddress
+_SwL3RelayDnsSecondaryServer_Object = MibScalar
+swL3RelayDnsSecondaryServer = _SwL3RelayDnsSecondaryServer_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 2, 3),
+    _SwL3RelayDnsSecondaryServer_Type()
+)
+swL3RelayDnsSecondaryServer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3RelayDnsSecondaryServer.setStatus("current")
+
+
+class _SwL3RelayDnsCacheState_Type(Integer32):
+    """Custom type swL3RelayDnsCacheState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 3),
+          ("other", 1))
+    )
+
+
+_SwL3RelayDnsCacheState_Type.__name__ = "Integer32"
+_SwL3RelayDnsCacheState_Object = MibScalar
+swL3RelayDnsCacheState = _SwL3RelayDnsCacheState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 2, 4),
+    _SwL3RelayDnsCacheState_Type()
+)
+swL3RelayDnsCacheState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3RelayDnsCacheState.setStatus("current")
+
+
+class _SwL3RelayDnsStaticTableState_Type(Integer32):
+    """Custom type swL3RelayDnsStaticTableState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 3),
+          ("other", 1))
+    )
+
+
+_SwL3RelayDnsStaticTableState_Type.__name__ = "Integer32"
+_SwL3RelayDnsStaticTableState_Object = MibScalar
+swL3RelayDnsStaticTableState = _SwL3RelayDnsStaticTableState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 2, 5),
+    _SwL3RelayDnsStaticTableState_Type()
+)
+swL3RelayDnsStaticTableState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3RelayDnsStaticTableState.setStatus("current")
+_SwL3RelayDnsCtrlTable_Object = MibTable
+swL3RelayDnsCtrlTable = _SwL3RelayDnsCtrlTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 2, 6)
+)
+if mibBuilder.loadTexts:
+    swL3RelayDnsCtrlTable.setStatus("current")
+_SwL3RelayDnsCtrlEntry_Object = MibTableRow
+swL3RelayDnsCtrlEntry = _SwL3RelayDnsCtrlEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 2, 6, 1)
+)
+swL3RelayDnsCtrlEntry.setIndexNames(
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3RelayDnsCtrlDomainName"),
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3RelayDnsCtrlIpAddr"),
+)
+if mibBuilder.loadTexts:
+    swL3RelayDnsCtrlEntry.setStatus("current")
+
+
+class _SwL3RelayDnsCtrlDomainName_Type(DisplayString):
+    """Custom type swL3RelayDnsCtrlDomainName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_SwL3RelayDnsCtrlDomainName_Type.__name__ = "DisplayString"
+_SwL3RelayDnsCtrlDomainName_Object = MibTableColumn
+swL3RelayDnsCtrlDomainName = _SwL3RelayDnsCtrlDomainName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 2, 6, 1, 1),
+    _SwL3RelayDnsCtrlDomainName_Type()
+)
+swL3RelayDnsCtrlDomainName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3RelayDnsCtrlDomainName.setStatus("current")
+_SwL3RelayDnsCtrlIpAddr_Type = IpAddress
+_SwL3RelayDnsCtrlIpAddr_Object = MibTableColumn
+swL3RelayDnsCtrlIpAddr = _SwL3RelayDnsCtrlIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 2, 6, 1, 2),
+    _SwL3RelayDnsCtrlIpAddr_Type()
+)
+swL3RelayDnsCtrlIpAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3RelayDnsCtrlIpAddr.setStatus("current")
+
+
+class _SwL3RelayDnsCtrlState_Type(Integer32):
+    """Custom type swL3RelayDnsCtrlState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("invalid", 2),
+          ("other", 1),
+          ("valid", 3))
+    )
+
+
+_SwL3RelayDnsCtrlState_Type.__name__ = "Integer32"
+_SwL3RelayDnsCtrlState_Object = MibTableColumn
+swL3RelayDnsCtrlState = _SwL3RelayDnsCtrlState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 2, 6, 1, 3),
+    _SwL3RelayDnsCtrlState_Type()
+)
+swL3RelayDnsCtrlState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3RelayDnsCtrlState.setStatus("current")
+_SwL3DHCPv6RelayMgmt_ObjectIdentity = ObjectIdentity
+swL3DHCPv6RelayMgmt = _SwL3DHCPv6RelayMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 3)
+)
+
+
+class _SwL3Dhcpv6RelayHopCount_Type(Integer32):
+    """Custom type swL3Dhcpv6RelayHopCount based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 32),
+    )
+
+
+_SwL3Dhcpv6RelayHopCount_Type.__name__ = "Integer32"
+_SwL3Dhcpv6RelayHopCount_Object = MibScalar
+swL3Dhcpv6RelayHopCount = _SwL3Dhcpv6RelayHopCount_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 3, 1),
+    _SwL3Dhcpv6RelayHopCount_Type()
+)
+swL3Dhcpv6RelayHopCount.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3Dhcpv6RelayHopCount.setStatus("current")
+_SwL3Dhcpv6RelayCtrlTable_Object = MibTable
+swL3Dhcpv6RelayCtrlTable = _SwL3Dhcpv6RelayCtrlTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 3, 2)
+)
+if mibBuilder.loadTexts:
+    swL3Dhcpv6RelayCtrlTable.setStatus("current")
+_SwL3Dhcpv6RelayCtrlEntry_Object = MibTableRow
+swL3Dhcpv6RelayCtrlEntry = _SwL3Dhcpv6RelayCtrlEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 3, 2, 1)
+)
+swL3Dhcpv6RelayCtrlEntry.setIndexNames(
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3Dhcpv6RelayCtrlInterfaceName"),
+)
+if mibBuilder.loadTexts:
+    swL3Dhcpv6RelayCtrlEntry.setStatus("current")
+
+
+class _SwL3Dhcpv6RelayCtrlInterfaceName_Type(DisplayString):
+    """Custom type swL3Dhcpv6RelayCtrlInterfaceName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_SwL3Dhcpv6RelayCtrlInterfaceName_Type.__name__ = "DisplayString"
+_SwL3Dhcpv6RelayCtrlInterfaceName_Object = MibTableColumn
+swL3Dhcpv6RelayCtrlInterfaceName = _SwL3Dhcpv6RelayCtrlInterfaceName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 3, 2, 1, 1),
+    _SwL3Dhcpv6RelayCtrlInterfaceName_Type()
+)
+swL3Dhcpv6RelayCtrlInterfaceName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3Dhcpv6RelayCtrlInterfaceName.setStatus("current")
+
+
+class _SwL3Dhcpv6RelayCtrlState_Type(Integer32):
+    """Custom type swL3Dhcpv6RelayCtrlState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_SwL3Dhcpv6RelayCtrlState_Type.__name__ = "Integer32"
+_SwL3Dhcpv6RelayCtrlState_Object = MibTableColumn
+swL3Dhcpv6RelayCtrlState = _SwL3Dhcpv6RelayCtrlState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 3, 2, 1, 2),
+    _SwL3Dhcpv6RelayCtrlState_Type()
+)
+swL3Dhcpv6RelayCtrlState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3Dhcpv6RelayCtrlState.setStatus("current")
+_SwL3Dhcpv6RelayInfoTable_Object = MibTable
+swL3Dhcpv6RelayInfoTable = _SwL3Dhcpv6RelayInfoTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 3, 3)
+)
+if mibBuilder.loadTexts:
+    swL3Dhcpv6RelayInfoTable.setStatus("current")
+_SwL3Dhcpv6RelayInfoEntry_Object = MibTableRow
+swL3Dhcpv6RelayInfoEntry = _SwL3Dhcpv6RelayInfoEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 3, 3, 1)
+)
+swL3Dhcpv6RelayInfoEntry.setIndexNames(
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3Dhcpv6RelayInfoInterfaceName"),
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3Dhcpv6RelayInfoServerAddress"),
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3Dhcpv6RelayInfoServerInterfaceName"),
+)
+if mibBuilder.loadTexts:
+    swL3Dhcpv6RelayInfoEntry.setStatus("current")
+
+
+class _SwL3Dhcpv6RelayInfoInterfaceName_Type(DisplayString):
+    """Custom type swL3Dhcpv6RelayInfoInterfaceName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_SwL3Dhcpv6RelayInfoInterfaceName_Type.__name__ = "DisplayString"
+_SwL3Dhcpv6RelayInfoInterfaceName_Object = MibTableColumn
+swL3Dhcpv6RelayInfoInterfaceName = _SwL3Dhcpv6RelayInfoInterfaceName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 3, 3, 1, 1),
+    _SwL3Dhcpv6RelayInfoInterfaceName_Type()
+)
+swL3Dhcpv6RelayInfoInterfaceName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3Dhcpv6RelayInfoInterfaceName.setStatus("current")
+_SwL3Dhcpv6RelayInfoServerAddress_Type = Ipv6Address
+_SwL3Dhcpv6RelayInfoServerAddress_Object = MibTableColumn
+swL3Dhcpv6RelayInfoServerAddress = _SwL3Dhcpv6RelayInfoServerAddress_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 3, 3, 1, 2),
+    _SwL3Dhcpv6RelayInfoServerAddress_Type()
+)
+swL3Dhcpv6RelayInfoServerAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3Dhcpv6RelayInfoServerAddress.setStatus("current")
+
+
+class _SwL3Dhcpv6RelayInfoServerInterfaceName_Type(DisplayString):
+    """Custom type swL3Dhcpv6RelayInfoServerInterfaceName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_SwL3Dhcpv6RelayInfoServerInterfaceName_Type.__name__ = "DisplayString"
+_SwL3Dhcpv6RelayInfoServerInterfaceName_Object = MibTableColumn
+swL3Dhcpv6RelayInfoServerInterfaceName = _SwL3Dhcpv6RelayInfoServerInterfaceName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 3, 3, 1, 3),
+    _SwL3Dhcpv6RelayInfoServerInterfaceName_Type()
+)
+swL3Dhcpv6RelayInfoServerInterfaceName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3Dhcpv6RelayInfoServerInterfaceName.setStatus("current")
+_SwL3Dhcpv6RelayInfoRowStatus_Type = RowStatus
+_SwL3Dhcpv6RelayInfoRowStatus_Object = MibTableColumn
+swL3Dhcpv6RelayInfoRowStatus = _SwL3Dhcpv6RelayInfoRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 3, 3, 3, 1, 4),
+    _SwL3Dhcpv6RelayInfoRowStatus_Type()
+)
+swL3Dhcpv6RelayInfoRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3Dhcpv6RelayInfoRowStatus.setStatus("current")
+_SwL3Md5Table_Object = MibTable
+swL3Md5Table = _SwL3Md5Table_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 4)
+)
+if mibBuilder.loadTexts:
+    swL3Md5Table.setStatus("current")
+_SwL3Md5Entry_Object = MibTableRow
+swL3Md5Entry = _SwL3Md5Entry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 4, 1)
+)
+swL3Md5Entry.setIndexNames(
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3Md5KeyId"),
+)
+if mibBuilder.loadTexts:
+    swL3Md5Entry.setStatus("current")
+
+
+class _SwL3Md5KeyId_Type(Integer32):
+    """Custom type swL3Md5KeyId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_SwL3Md5KeyId_Type.__name__ = "Integer32"
+_SwL3Md5KeyId_Object = MibTableColumn
+swL3Md5KeyId = _SwL3Md5KeyId_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 4, 1, 1),
+    _SwL3Md5KeyId_Type()
+)
+swL3Md5KeyId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3Md5KeyId.setStatus("current")
+
+
+class _SwL3Md5Key_Type(DisplayString):
+    """Custom type swL3Md5Key based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 16),
+    )
+
+
+_SwL3Md5Key_Type.__name__ = "DisplayString"
+_SwL3Md5Key_Object = MibTableColumn
+swL3Md5Key = _SwL3Md5Key_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 4, 1, 2),
+    _SwL3Md5Key_Type()
+)
+swL3Md5Key.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3Md5Key.setStatus("current")
+_SwL3Md5RowStatus_Type = RowStatus
+_SwL3Md5RowStatus_Object = MibTableColumn
+swL3Md5RowStatus = _SwL3Md5RowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 4, 1, 3),
+    _SwL3Md5RowStatus_Type()
+)
+swL3Md5RowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3Md5RowStatus.setStatus("current")
+_SwL3RouteRedistriTable_Object = MibTable
+swL3RouteRedistriTable = _SwL3RouteRedistriTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 5)
+)
+if mibBuilder.loadTexts:
+    swL3RouteRedistriTable.setStatus("current")
+_SwL3RouteRedistriEntry_Object = MibTableRow
+swL3RouteRedistriEntry = _SwL3RouteRedistriEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 5, 1)
+)
+swL3RouteRedistriEntry.setIndexNames(
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3RouteRedistriSrcProtocol"),
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3RouteRedistriDstProtocol"),
+)
+if mibBuilder.loadTexts:
+    swL3RouteRedistriEntry.setStatus("current")
+
+
+class _SwL3RouteRedistriSrcProtocol_Type(Integer32):
+    """Custom type swL3RouteRedistriSrcProtocol based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("local", 5),
+          ("ospf", 3),
+          ("other", 1),
+          ("rip", 2),
+          ("static", 4))
+    )
+
+
+_SwL3RouteRedistriSrcProtocol_Type.__name__ = "Integer32"
+_SwL3RouteRedistriSrcProtocol_Object = MibTableColumn
+swL3RouteRedistriSrcProtocol = _SwL3RouteRedistriSrcProtocol_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 5, 1, 1),
+    _SwL3RouteRedistriSrcProtocol_Type()
+)
+swL3RouteRedistriSrcProtocol.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3RouteRedistriSrcProtocol.setStatus("current")
+
+
+class _SwL3RouteRedistriDstProtocol_Type(Integer32):
+    """Custom type swL3RouteRedistriDstProtocol based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ospf", 3),
+          ("other", 1),
+          ("rip", 2))
+    )
+
+
+_SwL3RouteRedistriDstProtocol_Type.__name__ = "Integer32"
+_SwL3RouteRedistriDstProtocol_Object = MibTableColumn
+swL3RouteRedistriDstProtocol = _SwL3RouteRedistriDstProtocol_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 5, 1, 2),
+    _SwL3RouteRedistriDstProtocol_Type()
+)
+swL3RouteRedistriDstProtocol.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3RouteRedistriDstProtocol.setStatus("current")
+
+
+class _SwL3RouteRedistriType_Type(Integer32):
+    """Custom type swL3RouteRedistriType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10)
+        )
+    )
+    namedValues = NamedValues(
+        *(("all", 2),
+          ("extType1", 9),
+          ("extType2", 10),
+          ("external", 6),
+          ("inter-E1", 7),
+          ("inter-E2", 8),
+          ("internal", 5),
+          ("other", 1),
+          ("type-1", 3),
+          ("type-2", 4))
+    )
+
+
+_SwL3RouteRedistriType_Type.__name__ = "Integer32"
+_SwL3RouteRedistriType_Object = MibTableColumn
+swL3RouteRedistriType = _SwL3RouteRedistriType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 5, 1, 3),
+    _SwL3RouteRedistriType_Type()
+)
+swL3RouteRedistriType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3RouteRedistriType.setStatus("current")
+
+
+class _SwL3RouteRedistriMetric_Type(Integer32):
+    """Custom type swL3RouteRedistriMetric based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 16777214),
+    )
+
+
+_SwL3RouteRedistriMetric_Type.__name__ = "Integer32"
+_SwL3RouteRedistriMetric_Object = MibTableColumn
+swL3RouteRedistriMetric = _SwL3RouteRedistriMetric_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 5, 1, 4),
+    _SwL3RouteRedistriMetric_Type()
+)
+swL3RouteRedistriMetric.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3RouteRedistriMetric.setStatus("current")
+_SwL3RouteRedistriRowStatus_Type = RowStatus
+_SwL3RouteRedistriRowStatus_Object = MibTableColumn
+swL3RouteRedistriRowStatus = _SwL3RouteRedistriRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 5, 1, 5),
+    _SwL3RouteRedistriRowStatus_Type()
+)
+swL3RouteRedistriRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3RouteRedistriRowStatus.setStatus("current")
+_SwL3OspfHostTable_Object = MibTable
+swL3OspfHostTable = _SwL3OspfHostTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 6)
+)
+if mibBuilder.loadTexts:
+    swL3OspfHostTable.setStatus("current")
+_SwL3OspfHostEntry_Object = MibTableRow
+swL3OspfHostEntry = _SwL3OspfHostEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 6, 1)
+)
+swL3OspfHostEntry.setIndexNames(
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3OspfHostIpAddress"),
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3OspfHostTOS"),
+)
+if mibBuilder.loadTexts:
+    swL3OspfHostEntry.setStatus("current")
+_SwL3OspfHostIpAddress_Type = IpAddress
+_SwL3OspfHostIpAddress_Object = MibTableColumn
+swL3OspfHostIpAddress = _SwL3OspfHostIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 6, 1, 1),
+    _SwL3OspfHostIpAddress_Type()
+)
+swL3OspfHostIpAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3OspfHostIpAddress.setStatus("current")
+_SwL3OspfHostTOS_Type = TOSType
+_SwL3OspfHostTOS_Object = MibTableColumn
+swL3OspfHostTOS = _SwL3OspfHostTOS_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 6, 1, 2),
+    _SwL3OspfHostTOS_Type()
+)
+swL3OspfHostTOS.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3OspfHostTOS.setStatus("current")
+_SwL3OspfHostMetric_Type = Metric
+_SwL3OspfHostMetric_Object = MibTableColumn
+swL3OspfHostMetric = _SwL3OspfHostMetric_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 6, 1, 3),
+    _SwL3OspfHostMetric_Type()
+)
+swL3OspfHostMetric.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3OspfHostMetric.setStatus("current")
+_SwL3OspfHostAreaID_Type = AreaID
+_SwL3OspfHostAreaID_Object = MibTableColumn
+swL3OspfHostAreaID = _SwL3OspfHostAreaID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 6, 1, 4),
+    _SwL3OspfHostAreaID_Type()
+)
+swL3OspfHostAreaID.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3OspfHostAreaID.setStatus("current")
+_SwL3OspfHostStatus_Type = RowStatus
+_SwL3OspfHostStatus_Object = MibTableColumn
+swL3OspfHostStatus = _SwL3OspfHostStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 6, 1, 5),
+    _SwL3OspfHostStatus_Type()
+)
+swL3OspfHostStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3OspfHostStatus.setStatus("current")
+_SwL3ospfVirtIfTable_Object = MibTable
+swL3ospfVirtIfTable = _SwL3ospfVirtIfTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 7)
+)
+if mibBuilder.loadTexts:
+    swL3ospfVirtIfTable.setStatus("current")
+_SwL3ospfVirtIfEntry_Object = MibTableRow
+swL3ospfVirtIfEntry = _SwL3ospfVirtIfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 7, 1)
+)
+swL3ospfVirtIfEntry.setIndexNames(
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3ospfVirtIfAreaId"),
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3ospfVirtIfNeighbor"),
+)
+if mibBuilder.loadTexts:
+    swL3ospfVirtIfEntry.setStatus("current")
+_SwL3ospfVirtIfAreaId_Type = AreaID
+_SwL3ospfVirtIfAreaId_Object = MibTableColumn
+swL3ospfVirtIfAreaId = _SwL3ospfVirtIfAreaId_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 7, 1, 1),
+    _SwL3ospfVirtIfAreaId_Type()
+)
+swL3ospfVirtIfAreaId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3ospfVirtIfAreaId.setStatus("current")
+_SwL3ospfVirtIfNeighbor_Type = RouterID
+_SwL3ospfVirtIfNeighbor_Object = MibTableColumn
+swL3ospfVirtIfNeighbor = _SwL3ospfVirtIfNeighbor_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 7, 1, 2),
+    _SwL3ospfVirtIfNeighbor_Type()
+)
+swL3ospfVirtIfNeighbor.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3ospfVirtIfNeighbor.setStatus("current")
+
+
+class _SwL3ospfVirtIfTransitDelay_Type(UpToMaxAge):
+    """Custom type swL3ospfVirtIfTransitDelay based on UpToMaxAge"""
+    defaultValue = 1
+
+
+_SwL3ospfVirtIfTransitDelay_Object = MibTableColumn
+swL3ospfVirtIfTransitDelay = _SwL3ospfVirtIfTransitDelay_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 7, 1, 3),
+    _SwL3ospfVirtIfTransitDelay_Type()
+)
+swL3ospfVirtIfTransitDelay.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3ospfVirtIfTransitDelay.setStatus("current")
+
+
+class _SwL3ospfVirtIfRetransInterval_Type(UpToMaxAge):
+    """Custom type swL3ospfVirtIfRetransInterval based on UpToMaxAge"""
+    defaultValue = 5
+
+
+_SwL3ospfVirtIfRetransInterval_Object = MibTableColumn
+swL3ospfVirtIfRetransInterval = _SwL3ospfVirtIfRetransInterval_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 7, 1, 4),
+    _SwL3ospfVirtIfRetransInterval_Type()
+)
+swL3ospfVirtIfRetransInterval.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3ospfVirtIfRetransInterval.setStatus("current")
+
+
+class _SwL3ospfVirtIfHelloInterval_Type(HelloRange):
+    """Custom type swL3ospfVirtIfHelloInterval based on HelloRange"""
+    defaultValue = 10
+
+
+_SwL3ospfVirtIfHelloInterval_Object = MibTableColumn
+swL3ospfVirtIfHelloInterval = _SwL3ospfVirtIfHelloInterval_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 7, 1, 5),
+    _SwL3ospfVirtIfHelloInterval_Type()
+)
+swL3ospfVirtIfHelloInterval.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3ospfVirtIfHelloInterval.setStatus("current")
+
+
+class _SwL3ospfVirtIfRtrDeadInterval_Type(Integer32):
+    """Custom type swL3ospfVirtIfRtrDeadInterval based on Integer32"""
+    defaultValue = 60
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_SwL3ospfVirtIfRtrDeadInterval_Type.__name__ = "Integer32"
+_SwL3ospfVirtIfRtrDeadInterval_Object = MibTableColumn
+swL3ospfVirtIfRtrDeadInterval = _SwL3ospfVirtIfRtrDeadInterval_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 7, 1, 6),
+    _SwL3ospfVirtIfRtrDeadInterval_Type()
+)
+swL3ospfVirtIfRtrDeadInterval.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3ospfVirtIfRtrDeadInterval.setStatus("current")
+
+
+class _SwL3ospfVirtIfState_Type(Integer32):
+    """Custom type swL3ospfVirtIfState based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 1),
+          ("pointToPoint", 4))
+    )
+
+
+_SwL3ospfVirtIfState_Type.__name__ = "Integer32"
+_SwL3ospfVirtIfState_Object = MibTableColumn
+swL3ospfVirtIfState = _SwL3ospfVirtIfState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 7, 1, 7),
+    _SwL3ospfVirtIfState_Type()
+)
+swL3ospfVirtIfState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3ospfVirtIfState.setStatus("current")
+_SwL3ospfVirtIfEvents_Type = Counter32
+_SwL3ospfVirtIfEvents_Object = MibTableColumn
+swL3ospfVirtIfEvents = _SwL3ospfVirtIfEvents_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 7, 1, 8),
+    _SwL3ospfVirtIfEvents_Type()
+)
+swL3ospfVirtIfEvents.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3ospfVirtIfEvents.setStatus("current")
+
+
+class _SwL3ospfVirtIfAuthType_Type(Integer32):
+    """Custom type swL3ospfVirtIfAuthType based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_SwL3ospfVirtIfAuthType_Type.__name__ = "Integer32"
+_SwL3ospfVirtIfAuthType_Object = MibTableColumn
+swL3ospfVirtIfAuthType = _SwL3ospfVirtIfAuthType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 7, 1, 9),
+    _SwL3ospfVirtIfAuthType_Type()
+)
+swL3ospfVirtIfAuthType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3ospfVirtIfAuthType.setStatus("current")
+
+
+class _SwL3ospfVirtIfAuthKey_Type(OctetString):
+    """Custom type swL3ospfVirtIfAuthKey based on OctetString"""
+    defaultHexValue = "0000000000000000"
+
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 256),
+    )
+
+
+_SwL3ospfVirtIfAuthKey_Type.__name__ = "OctetString"
+_SwL3ospfVirtIfAuthKey_Object = MibTableColumn
+swL3ospfVirtIfAuthKey = _SwL3ospfVirtIfAuthKey_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 7, 1, 10),
+    _SwL3ospfVirtIfAuthKey_Type()
+)
+swL3ospfVirtIfAuthKey.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3ospfVirtIfAuthKey.setStatus("current")
+
+
+class _SwL3ospfVirtIfAuthKeyID_Type(Integer32):
+    """Custom type swL3ospfVirtIfAuthKeyID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_SwL3ospfVirtIfAuthKeyID_Type.__name__ = "Integer32"
+_SwL3ospfVirtIfAuthKeyID_Object = MibTableColumn
+swL3ospfVirtIfAuthKeyID = _SwL3ospfVirtIfAuthKeyID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 7, 1, 11),
+    _SwL3ospfVirtIfAuthKeyID_Type()
+)
+swL3ospfVirtIfAuthKeyID.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3ospfVirtIfAuthKeyID.setStatus("current")
+_SwL3ospfVirtIfStatus_Type = RowStatus
+_SwL3ospfVirtIfStatus_Object = MibTableColumn
+swL3ospfVirtIfStatus = _SwL3ospfVirtIfStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 7, 1, 12),
+    _SwL3ospfVirtIfStatus_Type()
+)
+swL3ospfVirtIfStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3ospfVirtIfStatus.setStatus("current")
+_SwL3ospfIfTable_Object = MibTable
+swL3ospfIfTable = _SwL3ospfIfTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8)
+)
+if mibBuilder.loadTexts:
+    swL3ospfIfTable.setStatus("current")
+_SwL3ospfIfEntry_Object = MibTableRow
+swL3ospfIfEntry = _SwL3ospfIfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1)
+)
+swL3ospfIfEntry.setIndexNames(
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3ospfIfIpAddress"),
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3ospfAddressLessIf"),
+)
+if mibBuilder.loadTexts:
+    swL3ospfIfEntry.setStatus("current")
+_SwL3ospfIfIpAddress_Type = IpAddress
+_SwL3ospfIfIpAddress_Object = MibTableColumn
+swL3ospfIfIpAddress = _SwL3ospfIfIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 1),
+    _SwL3ospfIfIpAddress_Type()
+)
+swL3ospfIfIpAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3ospfIfIpAddress.setStatus("current")
+_SwL3ospfAddressLessIf_Type = Integer32
+_SwL3ospfAddressLessIf_Object = MibTableColumn
+swL3ospfAddressLessIf = _SwL3ospfAddressLessIf_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 2),
+    _SwL3ospfAddressLessIf_Type()
+)
+swL3ospfAddressLessIf.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3ospfAddressLessIf.setStatus("current")
+
+
+class _SwL3ospfIfAreaId_Type(AreaID):
+    """Custom type swL3ospfIfAreaId based on AreaID"""
+    defaultHexValue = "00000000"
+
+
+_SwL3ospfIfAreaId_Object = MibTableColumn
+swL3ospfIfAreaId = _SwL3ospfIfAreaId_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 3),
+    _SwL3ospfIfAreaId_Type()
+)
+swL3ospfIfAreaId.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3ospfIfAreaId.setStatus("current")
+
+
+class _SwL3ospfIfType_Type(Integer32):
+    """Custom type swL3ospfIfType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("broadcast", 1),
+          ("nbma", 2),
+          ("pointToMultipoint", 5),
+          ("pointToPoint", 3))
+    )
+
+
+_SwL3ospfIfType_Type.__name__ = "Integer32"
+_SwL3ospfIfType_Object = MibTableColumn
+swL3ospfIfType = _SwL3ospfIfType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 4),
+    _SwL3ospfIfType_Type()
+)
+swL3ospfIfType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3ospfIfType.setStatus("current")
+
+
+class _SwL3ospfIfAdminStat_Type(Status):
+    """Custom type swL3ospfIfAdminStat based on Status"""
+
+
+_SwL3ospfIfAdminStat_Object = MibTableColumn
+swL3ospfIfAdminStat = _SwL3ospfIfAdminStat_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 5),
+    _SwL3ospfIfAdminStat_Type()
+)
+swL3ospfIfAdminStat.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3ospfIfAdminStat.setStatus("current")
+
+
+class _SwL3ospfIfRtrPriority_Type(DesignatedRouterPriority):
+    """Custom type swL3ospfIfRtrPriority based on DesignatedRouterPriority"""
+    defaultValue = 1
+
+
+_SwL3ospfIfRtrPriority_Object = MibTableColumn
+swL3ospfIfRtrPriority = _SwL3ospfIfRtrPriority_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 6),
+    _SwL3ospfIfRtrPriority_Type()
+)
+swL3ospfIfRtrPriority.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3ospfIfRtrPriority.setStatus("current")
+
+
+class _SwL3ospfIfTransitDelay_Type(UpToMaxAge):
+    """Custom type swL3ospfIfTransitDelay based on UpToMaxAge"""
+    defaultValue = 1
+
+
+_SwL3ospfIfTransitDelay_Object = MibTableColumn
+swL3ospfIfTransitDelay = _SwL3ospfIfTransitDelay_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 7),
+    _SwL3ospfIfTransitDelay_Type()
+)
+swL3ospfIfTransitDelay.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3ospfIfTransitDelay.setStatus("current")
+
+
+class _SwL3ospfIfRetransInterval_Type(UpToMaxAge):
+    """Custom type swL3ospfIfRetransInterval based on UpToMaxAge"""
+    defaultValue = 5
+
+
+_SwL3ospfIfRetransInterval_Object = MibTableColumn
+swL3ospfIfRetransInterval = _SwL3ospfIfRetransInterval_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 8),
+    _SwL3ospfIfRetransInterval_Type()
+)
+swL3ospfIfRetransInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3ospfIfRetransInterval.setStatus("current")
+
+
+class _SwL3ospfIfHelloInterval_Type(HelloRange):
+    """Custom type swL3ospfIfHelloInterval based on HelloRange"""
+    defaultValue = 10
+
+
+_SwL3ospfIfHelloInterval_Object = MibTableColumn
+swL3ospfIfHelloInterval = _SwL3ospfIfHelloInterval_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 9),
+    _SwL3ospfIfHelloInterval_Type()
+)
+swL3ospfIfHelloInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3ospfIfHelloInterval.setStatus("current")
+
+
+class _SwL3ospfIfRtrDeadInterval_Type(PositiveInteger):
+    """Custom type swL3ospfIfRtrDeadInterval based on PositiveInteger"""
+    defaultValue = 40
+
+
+_SwL3ospfIfRtrDeadInterval_Object = MibTableColumn
+swL3ospfIfRtrDeadInterval = _SwL3ospfIfRtrDeadInterval_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 10),
+    _SwL3ospfIfRtrDeadInterval_Type()
+)
+swL3ospfIfRtrDeadInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3ospfIfRtrDeadInterval.setStatus("current")
+
+
+class _SwL3ospfIfPollInterval_Type(PositiveInteger):
+    """Custom type swL3ospfIfPollInterval based on PositiveInteger"""
+    defaultValue = 120
+
+
+_SwL3ospfIfPollInterval_Object = MibTableColumn
+swL3ospfIfPollInterval = _SwL3ospfIfPollInterval_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 11),
+    _SwL3ospfIfPollInterval_Type()
+)
+swL3ospfIfPollInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3ospfIfPollInterval.setStatus("current")
+
+
+class _SwL3ospfIfState_Type(Integer32):
+    """Custom type swL3ospfIfState based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("backupDesignatedRouter", 6),
+          ("designatedRouter", 5),
+          ("down", 1),
+          ("loopback", 2),
+          ("otherDesignatedRouter", 7),
+          ("pointToPoint", 4),
+          ("waiting", 3))
+    )
+
+
+_SwL3ospfIfState_Type.__name__ = "Integer32"
+_SwL3ospfIfState_Object = MibTableColumn
+swL3ospfIfState = _SwL3ospfIfState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 12),
+    _SwL3ospfIfState_Type()
+)
+swL3ospfIfState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3ospfIfState.setStatus("current")
+
+
+class _SwL3ospfIfDesignatedRouter_Type(IpAddress):
+    """Custom type swL3ospfIfDesignatedRouter based on IpAddress"""
+    defaultHexValue = "00000000"
+
+
+_SwL3ospfIfDesignatedRouter_Object = MibTableColumn
+swL3ospfIfDesignatedRouter = _SwL3ospfIfDesignatedRouter_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 13),
+    _SwL3ospfIfDesignatedRouter_Type()
+)
+swL3ospfIfDesignatedRouter.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3ospfIfDesignatedRouter.setStatus("current")
+
+
+class _SwL3ospfIfBackupDesignatedRouter_Type(IpAddress):
+    """Custom type swL3ospfIfBackupDesignatedRouter based on IpAddress"""
+    defaultHexValue = "00000000"
+
+
+_SwL3ospfIfBackupDesignatedRouter_Object = MibTableColumn
+swL3ospfIfBackupDesignatedRouter = _SwL3ospfIfBackupDesignatedRouter_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 14),
+    _SwL3ospfIfBackupDesignatedRouter_Type()
+)
+swL3ospfIfBackupDesignatedRouter.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3ospfIfBackupDesignatedRouter.setStatus("current")
+_SwL3ospfIfEvents_Type = Counter32
+_SwL3ospfIfEvents_Object = MibTableColumn
+swL3ospfIfEvents = _SwL3ospfIfEvents_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 15),
+    _SwL3ospfIfEvents_Type()
+)
+swL3ospfIfEvents.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3ospfIfEvents.setStatus("current")
+
+
+class _SwL3ospfIfMulticastForwarding_Type(Integer32):
+    """Custom type swL3ospfIfMulticastForwarding based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("blocked", 1),
+          ("multicast", 2),
+          ("unicast", 3))
+    )
+
+
+_SwL3ospfIfMulticastForwarding_Type.__name__ = "Integer32"
+_SwL3ospfIfMulticastForwarding_Object = MibTableColumn
+swL3ospfIfMulticastForwarding = _SwL3ospfIfMulticastForwarding_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 16),
+    _SwL3ospfIfMulticastForwarding_Type()
+)
+swL3ospfIfMulticastForwarding.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3ospfIfMulticastForwarding.setStatus("current")
+
+
+class _SwL3ospfIfDemand_Type(TruthValue):
+    """Custom type swL3ospfIfDemand based on TruthValue"""
+
+
+_SwL3ospfIfDemand_Object = MibTableColumn
+swL3ospfIfDemand = _SwL3ospfIfDemand_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 17),
+    _SwL3ospfIfDemand_Type()
+)
+swL3ospfIfDemand.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3ospfIfDemand.setStatus("current")
+
+
+class _SwL3ospfIfAuthType_Type(Integer32):
+    """Custom type swL3ospfIfAuthType based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_SwL3ospfIfAuthType_Type.__name__ = "Integer32"
+_SwL3ospfIfAuthType_Object = MibTableColumn
+swL3ospfIfAuthType = _SwL3ospfIfAuthType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 18),
+    _SwL3ospfIfAuthType_Type()
+)
+swL3ospfIfAuthType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3ospfIfAuthType.setStatus("current")
+
+
+class _SwL3ospfIfAuthKey_Type(OctetString):
+    """Custom type swL3ospfIfAuthKey based on OctetString"""
+    defaultHexValue = "0000000000000000"
+
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 256),
+    )
+
+
+_SwL3ospfIfAuthKey_Type.__name__ = "OctetString"
+_SwL3ospfIfAuthKey_Object = MibTableColumn
+swL3ospfIfAuthKey = _SwL3ospfIfAuthKey_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 19),
+    _SwL3ospfIfAuthKey_Type()
+)
+swL3ospfIfAuthKey.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3ospfIfAuthKey.setStatus("current")
+
+
+class _SwL3ospfIfAuthKeyID_Type(Integer32):
+    """Custom type swL3ospfIfAuthKeyID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_SwL3ospfIfAuthKeyID_Type.__name__ = "Integer32"
+_SwL3ospfIfAuthKeyID_Object = MibTableColumn
+swL3ospfIfAuthKeyID = _SwL3ospfIfAuthKeyID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 20),
+    _SwL3ospfIfAuthKeyID_Type()
+)
+swL3ospfIfAuthKeyID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3ospfIfAuthKeyID.setStatus("current")
+
+
+class _SwL3ospfIfPassiveMode_Type(Integer32):
+    """Custom type swL3ospfIfPassiveMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 3),
+          ("other", 1))
+    )
+
+
+_SwL3ospfIfPassiveMode_Type.__name__ = "Integer32"
+_SwL3ospfIfPassiveMode_Object = MibTableColumn
+swL3ospfIfPassiveMode = _SwL3ospfIfPassiveMode_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 21),
+    _SwL3ospfIfPassiveMode_Type()
+)
+swL3ospfIfPassiveMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3ospfIfPassiveMode.setStatus("current")
+_SwL3ospfIfMetric_Type = Metric
+_SwL3ospfIfMetric_Object = MibTableColumn
+swL3ospfIfMetric = _SwL3ospfIfMetric_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 8, 1, 23),
+    _SwL3ospfIfMetric_Type()
+)
+swL3ospfIfMetric.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3ospfIfMetric.setStatus("current")
+_SwL3RoutePreference_ObjectIdentity = ObjectIdentity
+swL3RoutePreference = _SwL3RoutePreference_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 9)
+)
+
+
+class _SwL3RoutePreferenceRIP_Type(Integer32):
+    """Custom type swL3RoutePreferenceRIP based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 999),
+    )
+
+
+_SwL3RoutePreferenceRIP_Type.__name__ = "Integer32"
+_SwL3RoutePreferenceRIP_Object = MibScalar
+swL3RoutePreferenceRIP = _SwL3RoutePreferenceRIP_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 9, 1),
+    _SwL3RoutePreferenceRIP_Type()
+)
+swL3RoutePreferenceRIP.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3RoutePreferenceRIP.setStatus("current")
+
+
+class _SwL3RoutePreferenceOSPFIntra_Type(Integer32):
+    """Custom type swL3RoutePreferenceOSPFIntra based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 999),
+    )
+
+
+_SwL3RoutePreferenceOSPFIntra_Type.__name__ = "Integer32"
+_SwL3RoutePreferenceOSPFIntra_Object = MibScalar
+swL3RoutePreferenceOSPFIntra = _SwL3RoutePreferenceOSPFIntra_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 9, 2),
+    _SwL3RoutePreferenceOSPFIntra_Type()
+)
+swL3RoutePreferenceOSPFIntra.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3RoutePreferenceOSPFIntra.setStatus("current")
+
+
+class _SwL3RoutePreferenceStatic_Type(Integer32):
+    """Custom type swL3RoutePreferenceStatic based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 999),
+    )
+
+
+_SwL3RoutePreferenceStatic_Type.__name__ = "Integer32"
+_SwL3RoutePreferenceStatic_Object = MibScalar
+swL3RoutePreferenceStatic = _SwL3RoutePreferenceStatic_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 9, 3),
+    _SwL3RoutePreferenceStatic_Type()
+)
+swL3RoutePreferenceStatic.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3RoutePreferenceStatic.setStatus("current")
+
+
+class _SwL3RoutePreferenceLocal_Type(Integer32):
+    """Custom type swL3RoutePreferenceLocal based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 999),
+    )
+
+
+_SwL3RoutePreferenceLocal_Type.__name__ = "Integer32"
+_SwL3RoutePreferenceLocal_Object = MibScalar
+swL3RoutePreferenceLocal = _SwL3RoutePreferenceLocal_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 9, 4),
+    _SwL3RoutePreferenceLocal_Type()
+)
+swL3RoutePreferenceLocal.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3RoutePreferenceLocal.setStatus("current")
+
+
+class _SwL3RoutePreferenceOSPFInter_Type(Integer32):
+    """Custom type swL3RoutePreferenceOSPFInter based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 999),
+    )
+
+
+_SwL3RoutePreferenceOSPFInter_Type.__name__ = "Integer32"
+_SwL3RoutePreferenceOSPFInter_Object = MibScalar
+swL3RoutePreferenceOSPFInter = _SwL3RoutePreferenceOSPFInter_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 9, 5),
+    _SwL3RoutePreferenceOSPFInter_Type()
+)
+swL3RoutePreferenceOSPFInter.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3RoutePreferenceOSPFInter.setStatus("current")
+
+
+class _SwL3RoutePreferenceOSPFExtT1_Type(Integer32):
+    """Custom type swL3RoutePreferenceOSPFExtT1 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 999),
+    )
+
+
+_SwL3RoutePreferenceOSPFExtT1_Type.__name__ = "Integer32"
+_SwL3RoutePreferenceOSPFExtT1_Object = MibScalar
+swL3RoutePreferenceOSPFExtT1 = _SwL3RoutePreferenceOSPFExtT1_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 9, 6),
+    _SwL3RoutePreferenceOSPFExtT1_Type()
+)
+swL3RoutePreferenceOSPFExtT1.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3RoutePreferenceOSPFExtT1.setStatus("current")
+
+
+class _SwL3RoutePreferenceOSPFExtT2_Type(Integer32):
+    """Custom type swL3RoutePreferenceOSPFExtT2 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 999),
+    )
+
+
+_SwL3RoutePreferenceOSPFExtT2_Type.__name__ = "Integer32"
+_SwL3RoutePreferenceOSPFExtT2_Object = MibScalar
+swL3RoutePreferenceOSPFExtT2 = _SwL3RoutePreferenceOSPFExtT2_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 9, 7),
+    _SwL3RoutePreferenceOSPFExtT2_Type()
+)
+swL3RoutePreferenceOSPFExtT2.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3RoutePreferenceOSPFExtT2.setStatus("current")
+_SwL3ospfAreaTable_Object = MibTable
+swL3ospfAreaTable = _SwL3ospfAreaTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 10)
+)
+if mibBuilder.loadTexts:
+    swL3ospfAreaTable.setStatus("current")
+_SwL3ospfAreaEntry_Object = MibTableRow
+swL3ospfAreaEntry = _SwL3ospfAreaEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 10, 1)
+)
+swL3ospfAreaEntry.setIndexNames(
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3ospfAreaId"),
+)
+if mibBuilder.loadTexts:
+    swL3ospfAreaEntry.setStatus("current")
+_SwL3ospfAreaId_Type = AreaID
+_SwL3ospfAreaId_Object = MibTableColumn
+swL3ospfAreaId = _SwL3ospfAreaId_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 10, 1, 1),
+    _SwL3ospfAreaId_Type()
+)
+swL3ospfAreaId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3ospfAreaId.setStatus("current")
+
+
+class _SwL3ospfAreaType_Type(Integer32):
+    """Custom type swL3ospfAreaType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("normal", 1),
+          ("nssa", 3),
+          ("stub", 2))
+    )
+
+
+_SwL3ospfAreaType_Type.__name__ = "Integer32"
+_SwL3ospfAreaType_Object = MibTableColumn
+swL3ospfAreaType = _SwL3ospfAreaType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 10, 1, 2),
+    _SwL3ospfAreaType_Type()
+)
+swL3ospfAreaType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3ospfAreaType.setStatus("obsolete")
+
+
+class _SwL3ospfAreaSummaryState_Type(Integer32):
+    """Custom type swL3ospfAreaSummaryState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 3),
+          ("none", 1))
+    )
+
+
+_SwL3ospfAreaSummaryState_Type.__name__ = "Integer32"
+_SwL3ospfAreaSummaryState_Object = MibTableColumn
+swL3ospfAreaSummaryState = _SwL3ospfAreaSummaryState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 10, 1, 3),
+    _SwL3ospfAreaSummaryState_Type()
+)
+swL3ospfAreaSummaryState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3ospfAreaSummaryState.setStatus("current")
+
+
+class _SwL3ospfAreaMetric_Type(Integer32):
+    """Custom type swL3ospfAreaMetric based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SwL3ospfAreaMetric_Type.__name__ = "Integer32"
+_SwL3ospfAreaMetric_Object = MibTableColumn
+swL3ospfAreaMetric = _SwL3ospfAreaMetric_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 10, 1, 4),
+    _SwL3ospfAreaMetric_Type()
+)
+swL3ospfAreaMetric.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3ospfAreaMetric.setStatus("current")
+
+
+class _SwL3ospfAreaTranslateState_Type(Integer32):
+    """Custom type swL3ospfAreaTranslateState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 3),
+          ("none", 1))
+    )
+
+
+_SwL3ospfAreaTranslateState_Type.__name__ = "Integer32"
+_SwL3ospfAreaTranslateState_Object = MibTableColumn
+swL3ospfAreaTranslateState = _SwL3ospfAreaTranslateState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 10, 1, 5),
+    _SwL3ospfAreaTranslateState_Type()
+)
+swL3ospfAreaTranslateState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3ospfAreaTranslateState.setStatus("current")
+_SwL3ospfAreaStatus_Type = RowStatus
+_SwL3ospfAreaStatus_Object = MibTableColumn
+swL3ospfAreaStatus = _SwL3ospfAreaStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 10, 1, 6),
+    _SwL3ospfAreaStatus_Type()
+)
+swL3ospfAreaStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3ospfAreaStatus.setStatus("current")
+_SwL3dvmrpInterfaceTable_Object = MibTable
+swL3dvmrpInterfaceTable = _SwL3dvmrpInterfaceTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 12)
+)
+if mibBuilder.loadTexts:
+    swL3dvmrpInterfaceTable.setStatus("current")
+_SwL3dvmrpInterfaceEntry_Object = MibTableRow
+swL3dvmrpInterfaceEntry = _SwL3dvmrpInterfaceEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 12, 1)
+)
+swL3dvmrpInterfaceEntry.setIndexNames(
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3dvmrpInterfaceIfIndex"),
+)
+if mibBuilder.loadTexts:
+    swL3dvmrpInterfaceEntry.setStatus("current")
+_SwL3dvmrpInterfaceIfIndex_Type = Integer32
+_SwL3dvmrpInterfaceIfIndex_Object = MibTableColumn
+swL3dvmrpInterfaceIfIndex = _SwL3dvmrpInterfaceIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 12, 1, 1),
+    _SwL3dvmrpInterfaceIfIndex_Type()
+)
+swL3dvmrpInterfaceIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    swL3dvmrpInterfaceIfIndex.setStatus("current")
+_SwL3dvmrpInterfaceLocalAddress_Type = IpAddress
+_SwL3dvmrpInterfaceLocalAddress_Object = MibTableColumn
+swL3dvmrpInterfaceLocalAddress = _SwL3dvmrpInterfaceLocalAddress_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 12, 1, 2),
+    _SwL3dvmrpInterfaceLocalAddress_Type()
+)
+swL3dvmrpInterfaceLocalAddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3dvmrpInterfaceLocalAddress.setStatus("current")
+
+
+class _SwL3dvmrpInterfaceMetric_Type(Integer32):
+    """Custom type swL3dvmrpInterfaceMetric based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 31),
+    )
+
+
+_SwL3dvmrpInterfaceMetric_Type.__name__ = "Integer32"
+_SwL3dvmrpInterfaceMetric_Object = MibTableColumn
+swL3dvmrpInterfaceMetric = _SwL3dvmrpInterfaceMetric_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 12, 1, 3),
+    _SwL3dvmrpInterfaceMetric_Type()
+)
+swL3dvmrpInterfaceMetric.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3dvmrpInterfaceMetric.setStatus("current")
+
+
+class _SwL3dvmrpInterfaceProbe_Type(Integer32):
+    """Custom type swL3dvmrpInterfaceProbe based on Integer32"""
+    defaultValue = 10
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_SwL3dvmrpInterfaceProbe_Type.__name__ = "Integer32"
+_SwL3dvmrpInterfaceProbe_Object = MibTableColumn
+swL3dvmrpInterfaceProbe = _SwL3dvmrpInterfaceProbe_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 12, 1, 4),
+    _SwL3dvmrpInterfaceProbe_Type()
+)
+swL3dvmrpInterfaceProbe.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3dvmrpInterfaceProbe.setStatus("current")
+
+
+class _SwL3dvmrpInterfaceNbrTimeout_Type(Integer32):
+    """Custom type swL3dvmrpInterfaceNbrTimeout based on Integer32"""
+    defaultValue = 35
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_SwL3dvmrpInterfaceNbrTimeout_Type.__name__ = "Integer32"
+_SwL3dvmrpInterfaceNbrTimeout_Object = MibTableColumn
+swL3dvmrpInterfaceNbrTimeout = _SwL3dvmrpInterfaceNbrTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 12, 1, 5),
+    _SwL3dvmrpInterfaceNbrTimeout_Type()
+)
+swL3dvmrpInterfaceNbrTimeout.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3dvmrpInterfaceNbrTimeout.setStatus("current")
+_SwL3dvmrpInterfaceStatus_Type = RowStatus
+_SwL3dvmrpInterfaceStatus_Object = MibTableColumn
+swL3dvmrpInterfaceStatus = _SwL3dvmrpInterfaceStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 12, 1, 6),
+    _SwL3dvmrpInterfaceStatus_Type()
+)
+swL3dvmrpInterfaceStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3dvmrpInterfaceStatus.setStatus("current")
+_SwL3dvmrpInterfaceRcvBadPkts_Type = Counter32
+_SwL3dvmrpInterfaceRcvBadPkts_Object = MibTableColumn
+swL3dvmrpInterfaceRcvBadPkts = _SwL3dvmrpInterfaceRcvBadPkts_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 12, 1, 7),
+    _SwL3dvmrpInterfaceRcvBadPkts_Type()
+)
+swL3dvmrpInterfaceRcvBadPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3dvmrpInterfaceRcvBadPkts.setStatus("current")
+_SwL3dvmrpInterfaceRcvBadRoutes_Type = Counter32
+_SwL3dvmrpInterfaceRcvBadRoutes_Object = MibTableColumn
+swL3dvmrpInterfaceRcvBadRoutes = _SwL3dvmrpInterfaceRcvBadRoutes_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 12, 1, 8),
+    _SwL3dvmrpInterfaceRcvBadRoutes_Type()
+)
+swL3dvmrpInterfaceRcvBadRoutes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3dvmrpInterfaceRcvBadRoutes.setStatus("current")
+_SwL3OspfLsdbMgmt_ObjectIdentity = ObjectIdentity
+swL3OspfLsdbMgmt = _SwL3OspfLsdbMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13)
+)
+_SwL3OspfInternalLsdbTable_Object = MibTable
+swL3OspfInternalLsdbTable = _SwL3OspfInternalLsdbTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 1)
+)
+if mibBuilder.loadTexts:
+    swL3OspfInternalLsdbTable.setStatus("current")
+_SwL3OspfInternalLsdbEntry_Object = MibTableRow
+swL3OspfInternalLsdbEntry = _SwL3OspfInternalLsdbEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 1, 1)
+)
+swL3OspfInternalLsdbEntry.setIndexNames(
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3OspfInternalLsdbAreaId"),
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3OspfInternalLsdbType"),
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3OspfInternalLsdbLsid"),
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3OspfInternalLsdbRouterId"),
+)
+if mibBuilder.loadTexts:
+    swL3OspfInternalLsdbEntry.setStatus("current")
+_SwL3OspfInternalLsdbAreaId_Type = AreaID
+_SwL3OspfInternalLsdbAreaId_Object = MibTableColumn
+swL3OspfInternalLsdbAreaId = _SwL3OspfInternalLsdbAreaId_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 1, 1, 1),
+    _SwL3OspfInternalLsdbAreaId_Type()
+)
+swL3OspfInternalLsdbAreaId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3OspfInternalLsdbAreaId.setStatus("current")
+
+
+class _SwL3OspfInternalLsdbType_Type(Integer32):
+    """Custom type swL3OspfInternalLsdbType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("asExternalLink", 5),
+          ("asSummaryLink", 4),
+          ("multicastLink", 6),
+          ("networkLink", 2),
+          ("nssaExternalLink", 7),
+          ("routerLink", 1),
+          ("summaryLink", 3))
+    )
+
+
+_SwL3OspfInternalLsdbType_Type.__name__ = "Integer32"
+_SwL3OspfInternalLsdbType_Object = MibTableColumn
+swL3OspfInternalLsdbType = _SwL3OspfInternalLsdbType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 1, 1, 2),
+    _SwL3OspfInternalLsdbType_Type()
+)
+swL3OspfInternalLsdbType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3OspfInternalLsdbType.setStatus("current")
+_SwL3OspfInternalLsdbLsid_Type = IpAddress
+_SwL3OspfInternalLsdbLsid_Object = MibTableColumn
+swL3OspfInternalLsdbLsid = _SwL3OspfInternalLsdbLsid_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 1, 1, 3),
+    _SwL3OspfInternalLsdbLsid_Type()
+)
+swL3OspfInternalLsdbLsid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3OspfInternalLsdbLsid.setStatus("current")
+_SwL3OspfInternalLsdbRouterId_Type = RouterID
+_SwL3OspfInternalLsdbRouterId_Object = MibTableColumn
+swL3OspfInternalLsdbRouterId = _SwL3OspfInternalLsdbRouterId_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 1, 1, 4),
+    _SwL3OspfInternalLsdbRouterId_Type()
+)
+swL3OspfInternalLsdbRouterId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3OspfInternalLsdbRouterId.setStatus("current")
+
+
+class _SwL3OspfInternalLsdbMetric_Type(Integer32):
+    """Custom type swL3OspfInternalLsdbMetric based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SwL3OspfInternalLsdbMetric_Type.__name__ = "Integer32"
+_SwL3OspfInternalLsdbMetric_Object = MibTableColumn
+swL3OspfInternalLsdbMetric = _SwL3OspfInternalLsdbMetric_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 1, 1, 5),
+    _SwL3OspfInternalLsdbMetric_Type()
+)
+swL3OspfInternalLsdbMetric.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3OspfInternalLsdbMetric.setStatus("current")
+
+
+class _SwL3OspfInternalLsdbSequenceNo_Type(OctetString):
+    """Custom type swL3OspfInternalLsdbSequenceNo based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+    )
+
+
+_SwL3OspfInternalLsdbSequenceNo_Type.__name__ = "OctetString"
+_SwL3OspfInternalLsdbSequenceNo_Object = MibTableColumn
+swL3OspfInternalLsdbSequenceNo = _SwL3OspfInternalLsdbSequenceNo_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 1, 1, 6),
+    _SwL3OspfInternalLsdbSequenceNo_Type()
+)
+swL3OspfInternalLsdbSequenceNo.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3OspfInternalLsdbSequenceNo.setStatus("current")
+_SwL3OspfInternalLsdbAge_Type = Unsigned32
+_SwL3OspfInternalLsdbAge_Object = MibTableColumn
+swL3OspfInternalLsdbAge = _SwL3OspfInternalLsdbAge_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 1, 1, 7),
+    _SwL3OspfInternalLsdbAge_Type()
+)
+swL3OspfInternalLsdbAge.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3OspfInternalLsdbAge.setStatus("current")
+_SwL3OspfInternalLsdbChecksum_Type = Integer32
+_SwL3OspfInternalLsdbChecksum_Object = MibTableColumn
+swL3OspfInternalLsdbChecksum = _SwL3OspfInternalLsdbChecksum_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 1, 1, 8),
+    _SwL3OspfInternalLsdbChecksum_Type()
+)
+swL3OspfInternalLsdbChecksum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3OspfInternalLsdbChecksum.setStatus("current")
+_SwL3OspfExternalLsdbTable_Object = MibTable
+swL3OspfExternalLsdbTable = _SwL3OspfExternalLsdbTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 2)
+)
+if mibBuilder.loadTexts:
+    swL3OspfExternalLsdbTable.setStatus("current")
+_SwL3OspfExternalLsdbEntry_Object = MibTableRow
+swL3OspfExternalLsdbEntry = _SwL3OspfExternalLsdbEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 2, 1)
+)
+swL3OspfExternalLsdbEntry.setIndexNames(
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3OspfExternalLsdbType"),
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3OspfExternalLsdbLsid"),
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3OspfExternalLsdbRouterId"),
+)
+if mibBuilder.loadTexts:
+    swL3OspfExternalLsdbEntry.setStatus("current")
+
+
+class _SwL3OspfExternalLsdbType_Type(Integer32):
+    """Custom type swL3OspfExternalLsdbType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(5,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("asExternalLink", 5),
+          ("nssaExternalLink", 7))
+    )
+
+
+_SwL3OspfExternalLsdbType_Type.__name__ = "Integer32"
+_SwL3OspfExternalLsdbType_Object = MibTableColumn
+swL3OspfExternalLsdbType = _SwL3OspfExternalLsdbType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 2, 1, 1),
+    _SwL3OspfExternalLsdbType_Type()
+)
+swL3OspfExternalLsdbType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3OspfExternalLsdbType.setStatus("current")
+_SwL3OspfExternalLsdbLsid_Type = IpAddress
+_SwL3OspfExternalLsdbLsid_Object = MibTableColumn
+swL3OspfExternalLsdbLsid = _SwL3OspfExternalLsdbLsid_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 2, 1, 2),
+    _SwL3OspfExternalLsdbLsid_Type()
+)
+swL3OspfExternalLsdbLsid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3OspfExternalLsdbLsid.setStatus("current")
+_SwL3OspfExternalLsdbRouterId_Type = RouterID
+_SwL3OspfExternalLsdbRouterId_Object = MibTableColumn
+swL3OspfExternalLsdbRouterId = _SwL3OspfExternalLsdbRouterId_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 2, 1, 3),
+    _SwL3OspfExternalLsdbRouterId_Type()
+)
+swL3OspfExternalLsdbRouterId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3OspfExternalLsdbRouterId.setStatus("current")
+
+
+class _SwL3OspfExternalLsdbMetric_Type(Integer32):
+    """Custom type swL3OspfExternalLsdbMetric based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SwL3OspfExternalLsdbMetric_Type.__name__ = "Integer32"
+_SwL3OspfExternalLsdbMetric_Object = MibTableColumn
+swL3OspfExternalLsdbMetric = _SwL3OspfExternalLsdbMetric_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 2, 1, 4),
+    _SwL3OspfExternalLsdbMetric_Type()
+)
+swL3OspfExternalLsdbMetric.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3OspfExternalLsdbMetric.setStatus("current")
+
+
+class _SwL3OspfExternalLsdbMetricType_Type(Integer32):
+    """Custom type swL3OspfExternalLsdbMetricType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("type-1", 1),
+          ("type-2", 2),
+          ("unrecognized", 0))
+    )
+
+
+_SwL3OspfExternalLsdbMetricType_Type.__name__ = "Integer32"
+_SwL3OspfExternalLsdbMetricType_Object = MibTableColumn
+swL3OspfExternalLsdbMetricType = _SwL3OspfExternalLsdbMetricType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 2, 1, 5),
+    _SwL3OspfExternalLsdbMetricType_Type()
+)
+swL3OspfExternalLsdbMetricType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3OspfExternalLsdbMetricType.setStatus("current")
+
+
+class _SwL3OspfExternalLsdbSequenceNo_Type(OctetString):
+    """Custom type swL3OspfExternalLsdbSequenceNo based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+    )
+
+
+_SwL3OspfExternalLsdbSequenceNo_Type.__name__ = "OctetString"
+_SwL3OspfExternalLsdbSequenceNo_Object = MibTableColumn
+swL3OspfExternalLsdbSequenceNo = _SwL3OspfExternalLsdbSequenceNo_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 2, 1, 6),
+    _SwL3OspfExternalLsdbSequenceNo_Type()
+)
+swL3OspfExternalLsdbSequenceNo.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3OspfExternalLsdbSequenceNo.setStatus("current")
+_SwL3OspfExternalLsdbAge_Type = Unsigned32
+_SwL3OspfExternalLsdbAge_Object = MibTableColumn
+swL3OspfExternalLsdbAge = _SwL3OspfExternalLsdbAge_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 2, 1, 7),
+    _SwL3OspfExternalLsdbAge_Type()
+)
+swL3OspfExternalLsdbAge.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3OspfExternalLsdbAge.setStatus("current")
+_SwL3OspfExternalLsdbChecksum_Type = Integer32
+_SwL3OspfExternalLsdbChecksum_Object = MibTableColumn
+swL3OspfExternalLsdbChecksum = _SwL3OspfExternalLsdbChecksum_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 2, 1, 8),
+    _SwL3OspfExternalLsdbChecksum_Type()
+)
+swL3OspfExternalLsdbChecksum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3OspfExternalLsdbChecksum.setStatus("current")
+_SwL3OspfExternalLsdbForwardingAddress_Type = IpAddress
+_SwL3OspfExternalLsdbForwardingAddress_Object = MibTableColumn
+swL3OspfExternalLsdbForwardingAddress = _SwL3OspfExternalLsdbForwardingAddress_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 2, 1, 9),
+    _SwL3OspfExternalLsdbForwardingAddress_Type()
+)
+swL3OspfExternalLsdbForwardingAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3OspfExternalLsdbForwardingAddress.setStatus("current")
+_SwL3OspfExternalLsdbRouteTag_Type = OctetString
+_SwL3OspfExternalLsdbRouteTag_Object = MibTableColumn
+swL3OspfExternalLsdbRouteTag = _SwL3OspfExternalLsdbRouteTag_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 13, 2, 1, 10),
+    _SwL3OspfExternalLsdbRouteTag_Type()
+)
+swL3OspfExternalLsdbRouteTag.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3OspfExternalLsdbRouteTag.setStatus("current")
+_SwL3VrrpOperMgmt_ObjectIdentity = ObjectIdentity
+swL3VrrpOperMgmt = _SwL3VrrpOperMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 14)
+)
+_SwL3VrrpOperTable_Object = MibTable
+swL3VrrpOperTable = _SwL3VrrpOperTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 14, 1)
+)
+if mibBuilder.loadTexts:
+    swL3VrrpOperTable.setStatus("current")
+_SwL3VrrpOperEntry_Object = MibTableRow
+swL3VrrpOperEntry = _SwL3VrrpOperEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 14, 1, 1)
+)
+swL3VrrpOperEntry.setIndexNames(
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3VrrpOperIfIndex"),
+    (0, "DES3528P-SWL3MGMT-MIB", "swL3VrrpOperVrId"),
+)
+if mibBuilder.loadTexts:
+    swL3VrrpOperEntry.setStatus("current")
+_SwL3VrrpOperIfIndex_Type = Integer32
+_SwL3VrrpOperIfIndex_Object = MibTableColumn
+swL3VrrpOperIfIndex = _SwL3VrrpOperIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 14, 1, 1, 1),
+    _SwL3VrrpOperIfIndex_Type()
+)
+swL3VrrpOperIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3VrrpOperIfIndex.setStatus("current")
+_SwL3VrrpOperVrId_Type = VrId
+_SwL3VrrpOperVrId_Object = MibTableColumn
+swL3VrrpOperVrId = _SwL3VrrpOperVrId_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 14, 1, 1, 2),
+    _SwL3VrrpOperVrId_Type()
+)
+swL3VrrpOperVrId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3VrrpOperVrId.setStatus("current")
+_SwL3VrrpOperVirtualMacAddr_Type = MacAddress
+_SwL3VrrpOperVirtualMacAddr_Object = MibTableColumn
+swL3VrrpOperVirtualMacAddr = _SwL3VrrpOperVirtualMacAddr_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 14, 1, 1, 3),
+    _SwL3VrrpOperVirtualMacAddr_Type()
+)
+swL3VrrpOperVirtualMacAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3VrrpOperVirtualMacAddr.setStatus("current")
+
+
+class _SwL3VrrpOperState_Type(Integer32):
+    """Custom type swL3VrrpOperState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("backup", 2),
+          ("initialize", 1),
+          ("master", 3))
+    )
+
+
+_SwL3VrrpOperState_Type.__name__ = "Integer32"
+_SwL3VrrpOperState_Object = MibTableColumn
+swL3VrrpOperState = _SwL3VrrpOperState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 14, 1, 1, 4),
+    _SwL3VrrpOperState_Type()
+)
+swL3VrrpOperState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3VrrpOperState.setStatus("current")
+
+
+class _SwL3VrrpOperAdminState_Type(Integer32):
+    """Custom type swL3VrrpOperAdminState based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 2),
+          ("up", 1))
+    )
+
+
+_SwL3VrrpOperAdminState_Type.__name__ = "Integer32"
+_SwL3VrrpOperAdminState_Object = MibTableColumn
+swL3VrrpOperAdminState = _SwL3VrrpOperAdminState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 14, 1, 1, 5),
+    _SwL3VrrpOperAdminState_Type()
+)
+swL3VrrpOperAdminState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3VrrpOperAdminState.setStatus("current")
+
+
+class _SwL3VrrpOperPriority_Type(Integer32):
+    """Custom type swL3VrrpOperPriority based on Integer32"""
+    defaultValue = 100
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_SwL3VrrpOperPriority_Type.__name__ = "Integer32"
+_SwL3VrrpOperPriority_Object = MibTableColumn
+swL3VrrpOperPriority = _SwL3VrrpOperPriority_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 14, 1, 1, 6),
+    _SwL3VrrpOperPriority_Type()
+)
+swL3VrrpOperPriority.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3VrrpOperPriority.setStatus("current")
+_SwL3VrrpOperMasterIpAddr_Type = IpAddress
+_SwL3VrrpOperMasterIpAddr_Object = MibTableColumn
+swL3VrrpOperMasterIpAddr = _SwL3VrrpOperMasterIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 14, 1, 1, 7),
+    _SwL3VrrpOperMasterIpAddr_Type()
+)
+swL3VrrpOperMasterIpAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3VrrpOperMasterIpAddr.setStatus("current")
+
+
+class _SwL3VrrpOperCriticalIpAddr_Type(IpAddress):
+    """Custom type swL3VrrpOperCriticalIpAddr based on IpAddress"""
+    defaultHexValue = "00000000"
+
+
+_SwL3VrrpOperCriticalIpAddr_Object = MibTableColumn
+swL3VrrpOperCriticalIpAddr = _SwL3VrrpOperCriticalIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 14, 1, 1, 8),
+    _SwL3VrrpOperCriticalIpAddr_Type()
+)
+swL3VrrpOperCriticalIpAddr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3VrrpOperCriticalIpAddr.setStatus("current")
+
+
+class _SwL3VrrpOperCheckCriticalIpState_Type(Integer32):
+    """Custom type swL3VrrpOperCheckCriticalIpState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 1),
+          ("enabled", 2),
+          ("other", 0))
+    )
+
+
+_SwL3VrrpOperCheckCriticalIpState_Type.__name__ = "Integer32"
+_SwL3VrrpOperCheckCriticalIpState_Object = MibTableColumn
+swL3VrrpOperCheckCriticalIpState = _SwL3VrrpOperCheckCriticalIpState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 14, 1, 1, 9),
+    _SwL3VrrpOperCheckCriticalIpState_Type()
+)
+swL3VrrpOperCheckCriticalIpState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3VrrpOperCheckCriticalIpState.setStatus("current")
+
+
+class _SwL3VrrpOperAuthType_Type(Integer32):
+    """Custom type swL3VrrpOperAuthType based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ipAuthenticationHeader", 3),
+          ("noAuthentication", 1),
+          ("simpleTextPassword", 2))
+    )
+
+
+_SwL3VrrpOperAuthType_Type.__name__ = "Integer32"
+_SwL3VrrpOperAuthType_Object = MibTableColumn
+swL3VrrpOperAuthType = _SwL3VrrpOperAuthType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 14, 1, 1, 10),
+    _SwL3VrrpOperAuthType_Type()
+)
+swL3VrrpOperAuthType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3VrrpOperAuthType.setStatus("current")
+
+
+class _SwL3VrrpOperAuthKey_Type(OctetString):
+    """Custom type swL3VrrpOperAuthKey based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 16),
+    )
+
+
+_SwL3VrrpOperAuthKey_Type.__name__ = "OctetString"
+_SwL3VrrpOperAuthKey_Object = MibTableColumn
+swL3VrrpOperAuthKey = _SwL3VrrpOperAuthKey_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 14, 1, 1, 11),
+    _SwL3VrrpOperAuthKey_Type()
+)
+swL3VrrpOperAuthKey.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3VrrpOperAuthKey.setStatus("current")
+
+
+class _SwL3VrrpOperAdvertisementInterval_Type(Integer32):
+    """Custom type swL3VrrpOperAdvertisementInterval based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_SwL3VrrpOperAdvertisementInterval_Type.__name__ = "Integer32"
+_SwL3VrrpOperAdvertisementInterval_Object = MibTableColumn
+swL3VrrpOperAdvertisementInterval = _SwL3VrrpOperAdvertisementInterval_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 14, 1, 1, 12),
+    _SwL3VrrpOperAdvertisementInterval_Type()
+)
+swL3VrrpOperAdvertisementInterval.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3VrrpOperAdvertisementInterval.setStatus("current")
+if mibBuilder.loadTexts:
+    swL3VrrpOperAdvertisementInterval.setUnits("seconds")
+
+
+class _SwL3VrrpOperPreemptMode_Type(TruthValue):
+    """Custom type swL3VrrpOperPreemptMode based on TruthValue"""
+
+
+_SwL3VrrpOperPreemptMode_Object = MibTableColumn
+swL3VrrpOperPreemptMode = _SwL3VrrpOperPreemptMode_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 14, 1, 1, 13),
+    _SwL3VrrpOperPreemptMode_Type()
+)
+swL3VrrpOperPreemptMode.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3VrrpOperPreemptMode.setStatus("current")
+_SwL3VrrpOperVirtualRouterUpTime_Type = TimeStamp
+_SwL3VrrpOperVirtualRouterUpTime_Object = MibTableColumn
+swL3VrrpOperVirtualRouterUpTime = _SwL3VrrpOperVirtualRouterUpTime_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 14, 1, 1, 14),
+    _SwL3VrrpOperVirtualRouterUpTime_Type()
+)
+swL3VrrpOperVirtualRouterUpTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL3VrrpOperVirtualRouterUpTime.setStatus("current")
+_SwL3VrrpOperVirtualIpAddr_Type = IpAddress
+_SwL3VrrpOperVirtualIpAddr_Object = MibTableColumn
+swL3VrrpOperVirtualIpAddr = _SwL3VrrpOperVirtualIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 14, 1, 1, 15),
+    _SwL3VrrpOperVirtualIpAddr_Type()
+)
+swL3VrrpOperVirtualIpAddr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3VrrpOperVirtualIpAddr.setStatus("current")
+_SwL3VrrpOperRowStatus_Type = RowStatus
+_SwL3VrrpOperRowStatus_Object = MibTableColumn
+swL3VrrpOperRowStatus = _SwL3VrrpOperRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 14, 1, 1, 16),
+    _SwL3VrrpOperRowStatus_Type()
+)
+swL3VrrpOperRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL3VrrpOperRowStatus.setStatus("current")
+_SwL3OspfECMPMgmt_ObjectIdentity = ObjectIdentity
+swL3OspfECMPMgmt = _SwL3OspfECMPMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 15)
+)
+
+
+class _SwL3OspfECMPIpDestination_Type(Integer32):
+    """Custom type swL3OspfECMPIpDestination based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_SwL3OspfECMPIpDestination_Type.__name__ = "Integer32"
+_SwL3OspfECMPIpDestination_Object = MibScalar
+swL3OspfECMPIpDestination = _SwL3OspfECMPIpDestination_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 15, 1),
+    _SwL3OspfECMPIpDestination_Type()
+)
+swL3OspfECMPIpDestination.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3OspfECMPIpDestination.setStatus("current")
+
+
+class _SwL3OspfECMPIpSource_Type(Integer32):
+    """Custom type swL3OspfECMPIpSource based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_SwL3OspfECMPIpSource_Type.__name__ = "Integer32"
+_SwL3OspfECMPIpSource_Object = MibScalar
+swL3OspfECMPIpSource = _SwL3OspfECMPIpSource_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 15, 2),
+    _SwL3OspfECMPIpSource_Type()
+)
+swL3OspfECMPIpSource.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3OspfECMPIpSource.setStatus("current")
+
+
+class _SwL3OspfECMPCrcLow_Type(Integer32):
+    """Custom type swL3OspfECMPCrcLow based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_SwL3OspfECMPCrcLow_Type.__name__ = "Integer32"
+_SwL3OspfECMPCrcLow_Object = MibScalar
+swL3OspfECMPCrcLow = _SwL3OspfECMPCrcLow_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 15, 3),
+    _SwL3OspfECMPCrcLow_Type()
+)
+swL3OspfECMPCrcLow.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3OspfECMPCrcLow.setStatus("current")
+
+
+class _SwL3OspfECMPCrcHigh_Type(Integer32):
+    """Custom type swL3OspfECMPCrcHigh based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_SwL3OspfECMPCrcHigh_Type.__name__ = "Integer32"
+_SwL3OspfECMPCrcHigh_Object = MibScalar
+swL3OspfECMPCrcHigh = _SwL3OspfECMPCrcHigh_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 15, 4),
+    _SwL3OspfECMPCrcHigh_Type()
+)
+swL3OspfECMPCrcHigh.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3OspfECMPCrcHigh.setStatus("current")
+
+
+class _SwL3OspfECMPTCPorUDPport_Type(Integer32):
+    """Custom type swL3OspfECMPTCPorUDPport based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_SwL3OspfECMPTCPorUDPport_Type.__name__ = "Integer32"
+_SwL3OspfECMPTCPorUDPport_Object = MibScalar
+swL3OspfECMPTCPorUDPport = _SwL3OspfECMPTCPorUDPport_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 15, 5),
+    _SwL3OspfECMPTCPorUDPport_Type()
+)
+swL3OspfECMPTCPorUDPport.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3OspfECMPTCPorUDPport.setStatus("current")
+
+
+class _SwL3OspfECMPState_Type(Integer32):
+    """Custom type swL3OspfECMPState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_SwL3OspfECMPState_Type.__name__ = "Integer32"
+_SwL3OspfECMPState_Object = MibScalar
+swL3OspfECMPState = _SwL3OspfECMPState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 15, 6),
+    _SwL3OspfECMPState_Type()
+)
+swL3OspfECMPState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3OspfECMPState.setStatus("current")
+_SwL3LocalRouteMgmt_ObjectIdentity = ObjectIdentity
+swL3LocalRouteMgmt = _SwL3LocalRouteMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 16)
+)
+
+
+class _SwL3LocalRouteIPv4GlobalState_Type(Integer32):
+    """Custom type swL3LocalRouteIPv4GlobalState based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_SwL3LocalRouteIPv4GlobalState_Type.__name__ = "Integer32"
+_SwL3LocalRouteIPv4GlobalState_Object = MibScalar
+swL3LocalRouteIPv4GlobalState = _SwL3LocalRouteIPv4GlobalState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 16, 1),
+    _SwL3LocalRouteIPv4GlobalState_Type()
+)
+swL3LocalRouteIPv4GlobalState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3LocalRouteIPv4GlobalState.setStatus("current")
+
+
+class _SwL3LocalRouteIPv6GlobalState_Type(Integer32):
+    """Custom type swL3LocalRouteIPv6GlobalState based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_SwL3LocalRouteIPv6GlobalState_Type.__name__ = "Integer32"
+_SwL3LocalRouteIPv6GlobalState_Object = MibScalar
+swL3LocalRouteIPv6GlobalState = _SwL3LocalRouteIPv6GlobalState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 105, 2, 3, 16, 2),
+    _SwL3LocalRouteIPv6GlobalState_Type()
+)
+swL3LocalRouteIPv6GlobalState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL3LocalRouteIPv6GlobalState.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "DES3528P-SWL3MGMT-MIB",
+    **{"NodeAddress": NodeAddress,
+       "NetAddress": NetAddress,
+       "Ipv6Address": Ipv6Address,
+       "VrId": VrId,
+       "swL3MgmtMIB": swL3MgmtMIB,
+       "swL3DevMgmt": swL3DevMgmt,
+       "swL3DevCtrl": swL3DevCtrl,
+       "swL3DevCtrlRIPState": swL3DevCtrlRIPState,
+       "swL3DevCtrlOSPFState": swL3DevCtrlOSPFState,
+       "swL3DevCtrlDVMRPState": swL3DevCtrlDVMRPState,
+       "swL3DevCtrlVRRPState": swL3DevCtrlVRRPState,
+       "swL3DevCtrlVrrpPingState": swL3DevCtrlVrrpPingState,
+       "swL3DevCtrlDHCPAutoConfigState": swL3DevCtrlDHCPAutoConfigState,
+       "swL3IpMgmt": swL3IpMgmt,
+       "swL3IpCtrlMgmt": swL3IpCtrlMgmt,
+       "swL3IpCtrlTable": swL3IpCtrlTable,
+       "swL3IpCtrlEntry": swL3IpCtrlEntry,
+       "swL3IpCtrlInterfaceName": swL3IpCtrlInterfaceName,
+       "swL3IpCtrlIfIndex": swL3IpCtrlIfIndex,
+       "swL3IpCtrlIpAddr": swL3IpCtrlIpAddr,
+       "swL3IpCtrlIpSubnetMask": swL3IpCtrlIpSubnetMask,
+       "swL3IpCtrlVlanName": swL3IpCtrlVlanName,
+       "swL3IpCtrlProxyArp": swL3IpCtrlProxyArp,
+       "swL3IpCtrlSecondary": swL3IpCtrlSecondary,
+       "swL3IpCtrlMode": swL3IpCtrlMode,
+       "swL3IpCtrlAdminState": swL3IpCtrlAdminState,
+       "swL3IpCtrlIpv4AdminState": swL3IpCtrlIpv4AdminState,
+       "swL3IpCtrlIpv6AdminState": swL3IpCtrlIpv6AdminState,
+       "swL3IpCtrlIpv6LinkLocalAddress": swL3IpCtrlIpv6LinkLocalAddress,
+       "swL3IpCtrlIpv6LinkLocalPrefixLen": swL3IpCtrlIpv6LinkLocalPrefixLen,
+       "swL3IpCtrlState": swL3IpCtrlState,
+       "swL3IpCtrlIpv6LinkLocalAutoState": swL3IpCtrlIpv6LinkLocalAutoState,
+       "swL3IpCtrlProxyArpLocalState": swL3IpCtrlProxyArpLocalState,
+       "swL3IpCtrlIpMtu": swL3IpCtrlIpMtu,
+       "swL3IpCtrlDhcpv6ClientState": swL3IpCtrlDhcpv6ClientState,
+       "swL3IpCtrlIpDhcpOption12State": swL3IpCtrlIpDhcpOption12State,
+       "swL3IpCtrlIpDhcpOption12HostName": swL3IpCtrlIpDhcpOption12HostName,
+       "swL3Ipv6CtrlTable": swL3Ipv6CtrlTable,
+       "swL3Ipv6CtrlEntry": swL3Ipv6CtrlEntry,
+       "swL3Ipv6CtrlInterfaceName": swL3Ipv6CtrlInterfaceName,
+       "swL3Ipv6CtrlMaxReassmblySize": swL3Ipv6CtrlMaxReassmblySize,
+       "swL3Ipv6CtrlNsRetransTimer": swL3Ipv6CtrlNsRetransTimer,
+       "swL3Ipv6CtrlRaState": swL3Ipv6CtrlRaState,
+       "swL3Ipv6CtrlRaMinRtrAdvInterval": swL3Ipv6CtrlRaMinRtrAdvInterval,
+       "swL3Ipv6CtrlRaMaxRtrAdvInterval": swL3Ipv6CtrlRaMaxRtrAdvInterval,
+       "swL3Ipv6CtrlRaLifeTime": swL3Ipv6CtrlRaLifeTime,
+       "swL3Ipv6CtrlRaReachableTime": swL3Ipv6CtrlRaReachableTime,
+       "swL3Ipv6CtrlRaRetransTime": swL3Ipv6CtrlRaRetransTime,
+       "swL3Ipv6CtrlRaHopLimit": swL3Ipv6CtrlRaHopLimit,
+       "swL3Ipv6CtrlRaManagedFlag": swL3Ipv6CtrlRaManagedFlag,
+       "swL3Ipv6CtrlRaOtherConfigFlag": swL3Ipv6CtrlRaOtherConfigFlag,
+       "swL3Ipv6AddressCtrlTable": swL3Ipv6AddressCtrlTable,
+       "swL3Ipv6AddressCtrlEntry": swL3Ipv6AddressCtrlEntry,
+       "swL3Ipv6AddressCtrlInterfaceName": swL3Ipv6AddressCtrlInterfaceName,
+       "swL3Ipv6Address": swL3Ipv6Address,
+       "swL3Ipv6AddressCtrlPrefixLen": swL3Ipv6AddressCtrlPrefixLen,
+       "swL3Ipv6AddressCtrlPreferredLifeTime": swL3Ipv6AddressCtrlPreferredLifeTime,
+       "swL3Ipv6AddressCtrlValidLifeTime": swL3Ipv6AddressCtrlValidLifeTime,
+       "swL3Ipv6AddressCtrlOnLinkFlag": swL3Ipv6AddressCtrlOnLinkFlag,
+       "swL3Ipv6AddressCtrlAutonomousFlag": swL3Ipv6AddressCtrlAutonomousFlag,
+       "swL3Ipv6AddressCtrlState": swL3Ipv6AddressCtrlState,
+       "swL3Ipv6AddressCtrlAddressType": swL3Ipv6AddressCtrlAddressType,
+       "swL3IpCtrlAllIpIfState": swL3IpCtrlAllIpIfState,
+       "swL3IpFdbMgmt": swL3IpFdbMgmt,
+       "swL3IpFdbInfoTable": swL3IpFdbInfoTable,
+       "swL3IpFdbInfoEntry": swL3IpFdbInfoEntry,
+       "swL3IpFdbInfoIpAddr": swL3IpFdbInfoIpAddr,
+       "swL3IpFdbInfoIpSubnetMask": swL3IpFdbInfoIpSubnetMask,
+       "swL3IpFdbInfoPort": swL3IpFdbInfoPort,
+       "swL3IpFdbInfoType": swL3IpFdbInfoType,
+       "swL3IpArpAgingTime": swL3IpArpAgingTime,
+       "swL3IpStaticRouteTable": swL3IpStaticRouteTable,
+       "swL3IpStaticRouteEntry": swL3IpStaticRouteEntry,
+       "swL3IpStaticRouteDest": swL3IpStaticRouteDest,
+       "swL3IpStaticRouteMask": swL3IpStaticRouteMask,
+       "swL3IpStaticRouteBkupState": swL3IpStaticRouteBkupState,
+       "swL3IpStaticRouteNextHop": swL3IpStaticRouteNextHop,
+       "swL3IpStaticRouteMetric": swL3IpStaticRouteMetric,
+       "swL3IpStaticRouteStatus": swL3IpStaticRouteStatus,
+       "swL3IpStaticRouteWeight": swL3IpStaticRouteWeight,
+       "swL3IpStaticRouteInterfaceName": swL3IpStaticRouteInterfaceName,
+       "swL3IpStaticRouteCost": swL3IpStaticRouteCost,
+       "swL3IpMcastMgmt": swL3IpMcastMgmt,
+       "swL3IpMcastStaticRouteTable": swL3IpMcastStaticRouteTable,
+       "swL3IpMcastStaticRouteEntry": swL3IpMcastStaticRouteEntry,
+       "swL3IpMcastStaticRouteIpmrouteAddr": swL3IpMcastStaticRouteIpmrouteAddr,
+       "swL3IpMcastStaticRouteIpmrouteMask": swL3IpMcastStaticRouteIpmrouteMask,
+       "swL3IpMcastStaticRouteRpfAddr": swL3IpMcastStaticRouteRpfAddr,
+       "swL3IpMcastStaticRouteRowStatus": swL3IpMcastStaticRouteRowStatus,
+       "swL3RelayMgmt": swL3RelayMgmt,
+       "swL3RelayDhcpMgmt": swL3RelayDhcpMgmt,
+       "swL3RelayDhcpState": swL3RelayDhcpState,
+       "swL3RelayDhcpHopCount": swL3RelayDhcpHopCount,
+       "swL3RelayDhcpTimeThreshold": swL3RelayDhcpTimeThreshold,
+       "swL3RelayDhcpCtrlTable": swL3RelayDhcpCtrlTable,
+       "swL3RelayDhcpCtrlEntry": swL3RelayDhcpCtrlEntry,
+       "swL3RelayDhcpCtrlInterfaceName": swL3RelayDhcpCtrlInterfaceName,
+       "swL3RelayDhcpCtrlServer": swL3RelayDhcpCtrlServer,
+       "swL3RelayDhcpCtrlState": swL3RelayDhcpCtrlState,
+       "swL3RelayDhcpOption82State": swL3RelayDhcpOption82State,
+       "swL3RelayDhcpOption82CheckState": swL3RelayDhcpOption82CheckState,
+       "swL3RelayDhcpOption82Policy": swL3RelayDhcpOption82Policy,
+       "swL3RelayDnsMgmt": swL3RelayDnsMgmt,
+       "swL3RelayDnsState": swL3RelayDnsState,
+       "swL3RelayDnsPrimaryServer": swL3RelayDnsPrimaryServer,
+       "swL3RelayDnsSecondaryServer": swL3RelayDnsSecondaryServer,
+       "swL3RelayDnsCacheState": swL3RelayDnsCacheState,
+       "swL3RelayDnsStaticTableState": swL3RelayDnsStaticTableState,
+       "swL3RelayDnsCtrlTable": swL3RelayDnsCtrlTable,
+       "swL3RelayDnsCtrlEntry": swL3RelayDnsCtrlEntry,
+       "swL3RelayDnsCtrlDomainName": swL3RelayDnsCtrlDomainName,
+       "swL3RelayDnsCtrlIpAddr": swL3RelayDnsCtrlIpAddr,
+       "swL3RelayDnsCtrlState": swL3RelayDnsCtrlState,
+       "swL3DHCPv6RelayMgmt": swL3DHCPv6RelayMgmt,
+       "swL3Dhcpv6RelayHopCount": swL3Dhcpv6RelayHopCount,
+       "swL3Dhcpv6RelayCtrlTable": swL3Dhcpv6RelayCtrlTable,
+       "swL3Dhcpv6RelayCtrlEntry": swL3Dhcpv6RelayCtrlEntry,
+       "swL3Dhcpv6RelayCtrlInterfaceName": swL3Dhcpv6RelayCtrlInterfaceName,
+       "swL3Dhcpv6RelayCtrlState": swL3Dhcpv6RelayCtrlState,
+       "swL3Dhcpv6RelayInfoTable": swL3Dhcpv6RelayInfoTable,
+       "swL3Dhcpv6RelayInfoEntry": swL3Dhcpv6RelayInfoEntry,
+       "swL3Dhcpv6RelayInfoInterfaceName": swL3Dhcpv6RelayInfoInterfaceName,
+       "swL3Dhcpv6RelayInfoServerAddress": swL3Dhcpv6RelayInfoServerAddress,
+       "swL3Dhcpv6RelayInfoServerInterfaceName": swL3Dhcpv6RelayInfoServerInterfaceName,
+       "swL3Dhcpv6RelayInfoRowStatus": swL3Dhcpv6RelayInfoRowStatus,
+       "swL3Md5Table": swL3Md5Table,
+       "swL3Md5Entry": swL3Md5Entry,
+       "swL3Md5KeyId": swL3Md5KeyId,
+       "swL3Md5Key": swL3Md5Key,
+       "swL3Md5RowStatus": swL3Md5RowStatus,
+       "swL3RouteRedistriTable": swL3RouteRedistriTable,
+       "swL3RouteRedistriEntry": swL3RouteRedistriEntry,
+       "swL3RouteRedistriSrcProtocol": swL3RouteRedistriSrcProtocol,
+       "swL3RouteRedistriDstProtocol": swL3RouteRedistriDstProtocol,
+       "swL3RouteRedistriType": swL3RouteRedistriType,
+       "swL3RouteRedistriMetric": swL3RouteRedistriMetric,
+       "swL3RouteRedistriRowStatus": swL3RouteRedistriRowStatus,
+       "swL3OspfHostTable": swL3OspfHostTable,
+       "swL3OspfHostEntry": swL3OspfHostEntry,
+       "swL3OspfHostIpAddress": swL3OspfHostIpAddress,
+       "swL3OspfHostTOS": swL3OspfHostTOS,
+       "swL3OspfHostMetric": swL3OspfHostMetric,
+       "swL3OspfHostAreaID": swL3OspfHostAreaID,
+       "swL3OspfHostStatus": swL3OspfHostStatus,
+       "swL3ospfVirtIfTable": swL3ospfVirtIfTable,
+       "swL3ospfVirtIfEntry": swL3ospfVirtIfEntry,
+       "swL3ospfVirtIfAreaId": swL3ospfVirtIfAreaId,
+       "swL3ospfVirtIfNeighbor": swL3ospfVirtIfNeighbor,
+       "swL3ospfVirtIfTransitDelay": swL3ospfVirtIfTransitDelay,
+       "swL3ospfVirtIfRetransInterval": swL3ospfVirtIfRetransInterval,
+       "swL3ospfVirtIfHelloInterval": swL3ospfVirtIfHelloInterval,
+       "swL3ospfVirtIfRtrDeadInterval": swL3ospfVirtIfRtrDeadInterval,
+       "swL3ospfVirtIfState": swL3ospfVirtIfState,
+       "swL3ospfVirtIfEvents": swL3ospfVirtIfEvents,
+       "swL3ospfVirtIfAuthType": swL3ospfVirtIfAuthType,
+       "swL3ospfVirtIfAuthKey": swL3ospfVirtIfAuthKey,
+       "swL3ospfVirtIfAuthKeyID": swL3ospfVirtIfAuthKeyID,
+       "swL3ospfVirtIfStatus": swL3ospfVirtIfStatus,
+       "swL3ospfIfTable": swL3ospfIfTable,
+       "swL3ospfIfEntry": swL3ospfIfEntry,
+       "swL3ospfIfIpAddress": swL3ospfIfIpAddress,
+       "swL3ospfAddressLessIf": swL3ospfAddressLessIf,
+       "swL3ospfIfAreaId": swL3ospfIfAreaId,
+       "swL3ospfIfType": swL3ospfIfType,
+       "swL3ospfIfAdminStat": swL3ospfIfAdminStat,
+       "swL3ospfIfRtrPriority": swL3ospfIfRtrPriority,
+       "swL3ospfIfTransitDelay": swL3ospfIfTransitDelay,
+       "swL3ospfIfRetransInterval": swL3ospfIfRetransInterval,
+       "swL3ospfIfHelloInterval": swL3ospfIfHelloInterval,
+       "swL3ospfIfRtrDeadInterval": swL3ospfIfRtrDeadInterval,
+       "swL3ospfIfPollInterval": swL3ospfIfPollInterval,
+       "swL3ospfIfState": swL3ospfIfState,
+       "swL3ospfIfDesignatedRouter": swL3ospfIfDesignatedRouter,
+       "swL3ospfIfBackupDesignatedRouter": swL3ospfIfBackupDesignatedRouter,
+       "swL3ospfIfEvents": swL3ospfIfEvents,
+       "swL3ospfIfMulticastForwarding": swL3ospfIfMulticastForwarding,
+       "swL3ospfIfDemand": swL3ospfIfDemand,
+       "swL3ospfIfAuthType": swL3ospfIfAuthType,
+       "swL3ospfIfAuthKey": swL3ospfIfAuthKey,
+       "swL3ospfIfAuthKeyID": swL3ospfIfAuthKeyID,
+       "swL3ospfIfPassiveMode": swL3ospfIfPassiveMode,
+       "swL3ospfIfMetric": swL3ospfIfMetric,
+       "swL3RoutePreference": swL3RoutePreference,
+       "swL3RoutePreferenceRIP": swL3RoutePreferenceRIP,
+       "swL3RoutePreferenceOSPFIntra": swL3RoutePreferenceOSPFIntra,
+       "swL3RoutePreferenceStatic": swL3RoutePreferenceStatic,
+       "swL3RoutePreferenceLocal": swL3RoutePreferenceLocal,
+       "swL3RoutePreferenceOSPFInter": swL3RoutePreferenceOSPFInter,
+       "swL3RoutePreferenceOSPFExtT1": swL3RoutePreferenceOSPFExtT1,
+       "swL3RoutePreferenceOSPFExtT2": swL3RoutePreferenceOSPFExtT2,
+       "swL3ospfAreaTable": swL3ospfAreaTable,
+       "swL3ospfAreaEntry": swL3ospfAreaEntry,
+       "swL3ospfAreaId": swL3ospfAreaId,
+       "swL3ospfAreaType": swL3ospfAreaType,
+       "swL3ospfAreaSummaryState": swL3ospfAreaSummaryState,
+       "swL3ospfAreaMetric": swL3ospfAreaMetric,
+       "swL3ospfAreaTranslateState": swL3ospfAreaTranslateState,
+       "swL3ospfAreaStatus": swL3ospfAreaStatus,
+       "swL3dvmrpInterfaceTable": swL3dvmrpInterfaceTable,
+       "swL3dvmrpInterfaceEntry": swL3dvmrpInterfaceEntry,
+       "swL3dvmrpInterfaceIfIndex": swL3dvmrpInterfaceIfIndex,
+       "swL3dvmrpInterfaceLocalAddress": swL3dvmrpInterfaceLocalAddress,
+       "swL3dvmrpInterfaceMetric": swL3dvmrpInterfaceMetric,
+       "swL3dvmrpInterfaceProbe": swL3dvmrpInterfaceProbe,
+       "swL3dvmrpInterfaceNbrTimeout": swL3dvmrpInterfaceNbrTimeout,
+       "swL3dvmrpInterfaceStatus": swL3dvmrpInterfaceStatus,
+       "swL3dvmrpInterfaceRcvBadPkts": swL3dvmrpInterfaceRcvBadPkts,
+       "swL3dvmrpInterfaceRcvBadRoutes": swL3dvmrpInterfaceRcvBadRoutes,
+       "swL3OspfLsdbMgmt": swL3OspfLsdbMgmt,
+       "swL3OspfInternalLsdbTable": swL3OspfInternalLsdbTable,
+       "swL3OspfInternalLsdbEntry": swL3OspfInternalLsdbEntry,
+       "swL3OspfInternalLsdbAreaId": swL3OspfInternalLsdbAreaId,
+       "swL3OspfInternalLsdbType": swL3OspfInternalLsdbType,
+       "swL3OspfInternalLsdbLsid": swL3OspfInternalLsdbLsid,
+       "swL3OspfInternalLsdbRouterId": swL3OspfInternalLsdbRouterId,
+       "swL3OspfInternalLsdbMetric": swL3OspfInternalLsdbMetric,
+       "swL3OspfInternalLsdbSequenceNo": swL3OspfInternalLsdbSequenceNo,
+       "swL3OspfInternalLsdbAge": swL3OspfInternalLsdbAge,
+       "swL3OspfInternalLsdbChecksum": swL3OspfInternalLsdbChecksum,
+       "swL3OspfExternalLsdbTable": swL3OspfExternalLsdbTable,
+       "swL3OspfExternalLsdbEntry": swL3OspfExternalLsdbEntry,
+       "swL3OspfExternalLsdbType": swL3OspfExternalLsdbType,
+       "swL3OspfExternalLsdbLsid": swL3OspfExternalLsdbLsid,
+       "swL3OspfExternalLsdbRouterId": swL3OspfExternalLsdbRouterId,
+       "swL3OspfExternalLsdbMetric": swL3OspfExternalLsdbMetric,
+       "swL3OspfExternalLsdbMetricType": swL3OspfExternalLsdbMetricType,
+       "swL3OspfExternalLsdbSequenceNo": swL3OspfExternalLsdbSequenceNo,
+       "swL3OspfExternalLsdbAge": swL3OspfExternalLsdbAge,
+       "swL3OspfExternalLsdbChecksum": swL3OspfExternalLsdbChecksum,
+       "swL3OspfExternalLsdbForwardingAddress": swL3OspfExternalLsdbForwardingAddress,
+       "swL3OspfExternalLsdbRouteTag": swL3OspfExternalLsdbRouteTag,
+       "swL3VrrpOperMgmt": swL3VrrpOperMgmt,
+       "swL3VrrpOperTable": swL3VrrpOperTable,
+       "swL3VrrpOperEntry": swL3VrrpOperEntry,
+       "swL3VrrpOperIfIndex": swL3VrrpOperIfIndex,
+       "swL3VrrpOperVrId": swL3VrrpOperVrId,
+       "swL3VrrpOperVirtualMacAddr": swL3VrrpOperVirtualMacAddr,
+       "swL3VrrpOperState": swL3VrrpOperState,
+       "swL3VrrpOperAdminState": swL3VrrpOperAdminState,
+       "swL3VrrpOperPriority": swL3VrrpOperPriority,
+       "swL3VrrpOperMasterIpAddr": swL3VrrpOperMasterIpAddr,
+       "swL3VrrpOperCriticalIpAddr": swL3VrrpOperCriticalIpAddr,
+       "swL3VrrpOperCheckCriticalIpState": swL3VrrpOperCheckCriticalIpState,
+       "swL3VrrpOperAuthType": swL3VrrpOperAuthType,
+       "swL3VrrpOperAuthKey": swL3VrrpOperAuthKey,
+       "swL3VrrpOperAdvertisementInterval": swL3VrrpOperAdvertisementInterval,
+       "swL3VrrpOperPreemptMode": swL3VrrpOperPreemptMode,
+       "swL3VrrpOperVirtualRouterUpTime": swL3VrrpOperVirtualRouterUpTime,
+       "swL3VrrpOperVirtualIpAddr": swL3VrrpOperVirtualIpAddr,
+       "swL3VrrpOperRowStatus": swL3VrrpOperRowStatus,
+       "swL3OspfECMPMgmt": swL3OspfECMPMgmt,
+       "swL3OspfECMPIpDestination": swL3OspfECMPIpDestination,
+       "swL3OspfECMPIpSource": swL3OspfECMPIpSource,
+       "swL3OspfECMPCrcLow": swL3OspfECMPCrcLow,
+       "swL3OspfECMPCrcHigh": swL3OspfECMPCrcHigh,
+       "swL3OspfECMPTCPorUDPport": swL3OspfECMPTCPorUDPport,
+       "swL3OspfECMPState": swL3OspfECMPState,
+       "swL3LocalRouteMgmt": swL3LocalRouteMgmt,
+       "swL3LocalRouteIPv4GlobalState": swL3LocalRouteIPv4GlobalState,
+       "swL3LocalRouteIPv6GlobalState": swL3LocalRouteIPv6GlobalState}
+)

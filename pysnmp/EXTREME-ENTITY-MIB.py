@@ -1,29 +1,206 @@
+# SNMP MIB module (EXTREME-ENTITY-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module EXTREME-ENTITY-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/EXTREME-BASE-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:53:04 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection")
-entPhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalIndex")
-extremeAgent, = mibBuilder.importSymbols("EXTREME-BASE-MIB", "extremeAgent")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Unsigned32, iso, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Bits, MibIdentifier, ModuleIdentity, Counter64, Counter32, NotificationType, Integer32, IpAddress, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "iso", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Bits", "MibIdentifier", "ModuleIdentity", "Counter64", "Counter32", "NotificationType", "Integer32", "IpAddress", "TimeTicks")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-extremeEntity = ModuleIdentity((1, 3, 6, 1, 4, 1, 1916, 1, 31))
-if mibBuilder.loadTexts: extremeEntity.setLastUpdated('0409170000Z')
-if mibBuilder.loadTexts: extremeEntity.setOrganization('Extreme Networks, Inc.')
-extremeEntityFRUTable = MibTable((1, 3, 6, 1, 4, 1, 1916, 1, 31, 1), )
-if mibBuilder.loadTexts: extremeEntityFRUTable.setStatus('current')
-extremeEntityFRUEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1916, 1, 31, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
-if mibBuilder.loadTexts: extremeEntityFRUEntry.setStatus('current')
-extremeEntityFRUStartTime = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 31, 1, 1, 1), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: extremeEntityFRUStartTime.setStatus('current')
-extremeEntityFRUOdometer = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 31, 1, 1, 2), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: extremeEntityFRUOdometer.setStatus('current')
-extremeEntityFRUOdometerUnit = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 31, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("days", 1), ("seconds", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: extremeEntityFRUOdometerUnit.setStatus('current')
-mibBuilder.exportSymbols("EXTREME-ENTITY-MIB", extremeEntityFRUStartTime=extremeEntityFRUStartTime, extremeEntityFRUOdometerUnit=extremeEntityFRUOdometerUnit, extremeEntityFRUTable=extremeEntityFRUTable, extremeEntity=extremeEntity, extremeEntityFRUOdometer=extremeEntityFRUOdometer, PYSNMP_MODULE_ID=extremeEntity, extremeEntityFRUEntry=extremeEntityFRUEntry)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/EXTREME-BASE-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:41:20 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(entPhysicalIndex,) = mibBuilder.importSymbols(
+    "ENTITY-MIB",
+    "entPhysicalIndex")
+
+(extremeAgent,) = mibBuilder.importSymbols(
+    "EXTREME-BASE-MIB",
+    "extremeAgent")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+extremeEntity = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 1916, 1, 31)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_ExtremeEntityFRUTable_Object = MibTable
+extremeEntityFRUTable = _ExtremeEntityFRUTable_Object(
+    (1, 3, 6, 1, 4, 1, 1916, 1, 31, 1)
+)
+if mibBuilder.loadTexts:
+    extremeEntityFRUTable.setStatus("current")
+_ExtremeEntityFRUEntry_Object = MibTableRow
+extremeEntityFRUEntry = _ExtremeEntityFRUEntry_Object(
+    (1, 3, 6, 1, 4, 1, 1916, 1, 31, 1, 1)
+)
+extremeEntityFRUEntry.setIndexNames(
+    (0, "ENTITY-MIB", "entPhysicalIndex"),
+)
+if mibBuilder.loadTexts:
+    extremeEntityFRUEntry.setStatus("current")
+_ExtremeEntityFRUStartTime_Type = Unsigned32
+_ExtremeEntityFRUStartTime_Object = MibTableColumn
+extremeEntityFRUStartTime = _ExtremeEntityFRUStartTime_Object(
+    (1, 3, 6, 1, 4, 1, 1916, 1, 31, 1, 1, 1),
+    _ExtremeEntityFRUStartTime_Type()
+)
+extremeEntityFRUStartTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    extremeEntityFRUStartTime.setStatus("current")
+_ExtremeEntityFRUOdometer_Type = Unsigned32
+_ExtremeEntityFRUOdometer_Object = MibTableColumn
+extremeEntityFRUOdometer = _ExtremeEntityFRUOdometer_Object(
+    (1, 3, 6, 1, 4, 1, 1916, 1, 31, 1, 1, 2),
+    _ExtremeEntityFRUOdometer_Type()
+)
+extremeEntityFRUOdometer.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    extremeEntityFRUOdometer.setStatus("current")
+
+
+class _ExtremeEntityFRUOdometerUnit_Type(Integer32):
+    """Custom type extremeEntityFRUOdometerUnit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("days", 1),
+          ("seconds", 2))
+    )
+
+
+_ExtremeEntityFRUOdometerUnit_Type.__name__ = "Integer32"
+_ExtremeEntityFRUOdometerUnit_Object = MibTableColumn
+extremeEntityFRUOdometerUnit = _ExtremeEntityFRUOdometerUnit_Object(
+    (1, 3, 6, 1, 4, 1, 1916, 1, 31, 1, 1, 3),
+    _ExtremeEntityFRUOdometerUnit_Type()
+)
+extremeEntityFRUOdometerUnit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    extremeEntityFRUOdometerUnit.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "EXTREME-ENTITY-MIB",
+    **{"extremeEntity": extremeEntity,
+       "extremeEntityFRUTable": extremeEntityFRUTable,
+       "extremeEntityFRUEntry": extremeEntityFRUEntry,
+       "extremeEntityFRUStartTime": extremeEntityFRUStartTime,
+       "extremeEntityFRUOdometer": extremeEntityFRUOdometer,
+       "extremeEntityFRUOdometerUnit": extremeEntityFRUOdometerUnit}
+)

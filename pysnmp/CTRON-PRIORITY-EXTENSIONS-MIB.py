@@ -1,81 +1,657 @@
+# SNMP MIB module (CTRON-PRIORITY-EXTENSIONS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CTRON-PRIORITY-EXTENSIONS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/CTRON-PRIORITY-EXTENSIONS-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:14:53 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
-ctPriorityExt, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctPriorityExt")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-iso, TimeTicks, IpAddress, Bits, Gauge32, ObjectIdentity, Unsigned32, ModuleIdentity, Counter64, Counter32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "TimeTicks", "IpAddress", "Bits", "Gauge32", "ObjectIdentity", "Unsigned32", "ModuleIdentity", "Counter64", "Counter32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "NotificationType")
-DisplayString, TextualConvention, PhysAddress = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "PhysAddress")
-ctPriorityExtTxQueue = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 1))
-ctPriorityExtTXQueueTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 1, 1), )
-if mibBuilder.loadTexts: ctPriorityExtTXQueueTable.setStatus('mandatory')
-ctPriorityExtTXQueueEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 1, 1, 1), ).setIndexNames((0, "CTRON-PRIORITY-EXTENSIONS-MIB", "ctPriorityExtSlotNum"), (0, "CTRON-PRIORITY-EXTENSIONS-MIB", "ctPriorityExtInterfaceNum"))
-if mibBuilder.loadTexts: ctPriorityExtTXQueueEntry.setStatus('mandatory')
-ctPriorityExtSlotNum = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 1, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ctPriorityExtSlotNum.setStatus('mandatory')
-ctPriorityExtInterfaceNum = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 1, 1, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ctPriorityExtInterfaceNum.setStatus('mandatory')
-ctPriorityExtNumTXQueues = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ctPriorityExtNumTXQueues.setStatus('mandatory')
-ctPriorityExtMACConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 2))
-ctPriorityExtMACStatus = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('enable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ctPriorityExtMACStatus.setStatus('mandatory')
-ctPriorityExtNumMACEntries = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 2, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ctPriorityExtNumMACEntries.setStatus('mandatory')
-ctPriorityExtMaxNumMACEntries = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 2, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ctPriorityExtMaxNumMACEntries.setStatus('mandatory')
-ctPriorityExtMaxNumPktTypesPerMACEntry = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 2, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ctPriorityExtMaxNumPktTypesPerMACEntry.setStatus('mandatory')
-ctPriorityExtMACTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 2, 5), )
-if mibBuilder.loadTexts: ctPriorityExtMACTable.setStatus('mandatory')
-ctPriorityExtMACEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 2, 5, 1), ).setIndexNames((0, "CTRON-PRIORITY-EXTENSIONS-MIB", "ctPriorityExtMACAddr"), (0, "CTRON-PRIORITY-EXTENSIONS-MIB", "ctPriorityExtAddrType"), (0, "CTRON-PRIORITY-EXTENSIONS-MIB", "ctPriorityExtMACPktType"), (0, "CTRON-PRIORITY-EXTENSIONS-MIB", "ctPriorityExtMACVlanId"))
-if mibBuilder.loadTexts: ctPriorityExtMACEntry.setStatus('mandatory')
-ctPriorityExtMACAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 2, 5, 1, 1), PhysAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ctPriorityExtMACAddr.setStatus('mandatory')
-ctPriorityExtAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 2, 5, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("destAddr", 1), ("srcAddr", 2), ("destOrSource", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ctPriorityExtAddrType.setStatus('mandatory')
-ctPriorityExtMACPktType = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 2, 5, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ctPriorityExtMACPktType.setStatus('mandatory')
-ctPriorityExtMACVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 2, 5, 1, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ctPriorityExtMACVlanId.setStatus('mandatory')
-ctPriorityExtMACPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 2, 5, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 100))).clone(namedValues=NamedValues(("priority0", 1), ("priority1", 2), ("priority2", 3), ("priority3", 4), ("priority4", 5), ("priority5", 6), ("priority6", 7), ("priority7", 8), ("delete", 100)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ctPriorityExtMACPriority.setStatus('mandatory')
-ctPriorityExtPktTypeConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 3))
-ctPriorityExtPktTypeStatus = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 3, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('enable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ctPriorityExtPktTypeStatus.setStatus('mandatory')
-ctPriorityExtNumPktTypeEntries = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 3, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ctPriorityExtNumPktTypeEntries.setStatus('mandatory')
-ctPriorityExtMaxNumPktTypeEntries = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 3, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ctPriorityExtMaxNumPktTypeEntries.setStatus('mandatory')
-ctPriorityExtPktTypeTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 3, 4), )
-if mibBuilder.loadTexts: ctPriorityExtPktTypeTable.setStatus('mandatory')
-ctPriorityExtPktTypeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 3, 4, 1), ).setIndexNames((0, "CTRON-PRIORITY-EXTENSIONS-MIB", "ctPriorityExtPktType"), (0, "CTRON-PRIORITY-EXTENSIONS-MIB", "ctPriorityExtPktTypeVlanId"))
-if mibBuilder.loadTexts: ctPriorityExtPktTypeEntry.setStatus('mandatory')
-ctPriorityExtPktType = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 3, 4, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ctPriorityExtPktType.setStatus('mandatory')
-ctPriorityExtPktTypeVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 3, 4, 1, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ctPriorityExtPktTypeVlanId.setStatus('mandatory')
-ctPriorityExtPktTypePriority = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 3, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 100))).clone(namedValues=NamedValues(("priority0", 1), ("priority1", 2), ("priority2", 3), ("priority3", 4), ("priority4", 5), ("priority5", 6), ("priority6", 7), ("priority7", 8), ("delete", 100)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ctPriorityExtPktTypePriority.setStatus('mandatory')
-ctPriorityExtPortConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 4))
-ctPriorityExtPortStatus = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 4, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('enable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ctPriorityExtPortStatus.setStatus('mandatory')
-ctPriorityExtPortTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 4, 2), )
-if mibBuilder.loadTexts: ctPriorityExtPortTable.setStatus('mandatory')
-ctPriorityExtPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 4, 2, 1), ).setIndexNames((0, "CTRON-PRIORITY-EXTENSIONS-MIB", "ctPriorityExtPortSlotNum"), (0, "CTRON-PRIORITY-EXTENSIONS-MIB", "ctPriorityExtPortInterfaceNum"))
-if mibBuilder.loadTexts: ctPriorityExtPortEntry.setStatus('mandatory')
-ctPriorityExtPortSlotNum = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 4, 2, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ctPriorityExtPortSlotNum.setStatus('mandatory')
-ctPriorityExtPortInterfaceNum = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 4, 2, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ctPriorityExtPortInterfaceNum.setStatus('mandatory')
-ctPriorityExtPortPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 4, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("priority0", 1), ("priority1", 2), ("priority2", 3), ("priority3", 4), ("priority4", 5), ("priority5", 6), ("priority6", 7), ("priority7", 8))).clone('priority0')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ctPriorityExtPortPriority.setStatus('mandatory')
-ctPriorityExtFwdInboundPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 4, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('enable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ctPriorityExtFwdInboundPriority.setStatus('mandatory')
-mibBuilder.exportSymbols("CTRON-PRIORITY-EXTENSIONS-MIB", ctPriorityExtMaxNumPktTypeEntries=ctPriorityExtMaxNumPktTypeEntries, ctPriorityExtMaxNumPktTypesPerMACEntry=ctPriorityExtMaxNumPktTypesPerMACEntry, ctPriorityExtPktType=ctPriorityExtPktType, ctPriorityExtPktTypeVlanId=ctPriorityExtPktTypeVlanId, ctPriorityExtPortEntry=ctPriorityExtPortEntry, ctPriorityExtPortPriority=ctPriorityExtPortPriority, ctPriorityExtPktTypeStatus=ctPriorityExtPktTypeStatus, ctPriorityExtPortConfig=ctPriorityExtPortConfig, ctPriorityExtPortStatus=ctPriorityExtPortStatus, ctPriorityExtTxQueue=ctPriorityExtTxQueue, ctPriorityExtTXQueueTable=ctPriorityExtTXQueueTable, ctPriorityExtMACVlanId=ctPriorityExtMACVlanId, ctPriorityExtMACConfig=ctPriorityExtMACConfig, ctPriorityExtMACStatus=ctPriorityExtMACStatus, ctPriorityExtMaxNumMACEntries=ctPriorityExtMaxNumMACEntries, ctPriorityExtFwdInboundPriority=ctPriorityExtFwdInboundPriority, ctPriorityExtNumPktTypeEntries=ctPriorityExtNumPktTypeEntries, ctPriorityExtNumTXQueues=ctPriorityExtNumTXQueues, ctPriorityExtMACTable=ctPriorityExtMACTable, ctPriorityExtMACPriority=ctPriorityExtMACPriority, ctPriorityExtPortSlotNum=ctPriorityExtPortSlotNum, ctPriorityExtPktTypePriority=ctPriorityExtPktTypePriority, ctPriorityExtPktTypeConfig=ctPriorityExtPktTypeConfig, ctPriorityExtPortTable=ctPriorityExtPortTable, ctPriorityExtAddrType=ctPriorityExtAddrType, ctPriorityExtInterfaceNum=ctPriorityExtInterfaceNum, ctPriorityExtTXQueueEntry=ctPriorityExtTXQueueEntry, ctPriorityExtSlotNum=ctPriorityExtSlotNum, ctPriorityExtPktTypeEntry=ctPriorityExtPktTypeEntry, ctPriorityExtMACAddr=ctPriorityExtMACAddr, ctPriorityExtMACPktType=ctPriorityExtMACPktType, ctPriorityExtPortInterfaceNum=ctPriorityExtPortInterfaceNum, ctPriorityExtMACEntry=ctPriorityExtMACEntry, ctPriorityExtPktTypeTable=ctPriorityExtPktTypeTable, ctPriorityExtNumMACEntries=ctPriorityExtNumMACEntries)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CTRON-PRIORITY-EXTENSIONS-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:19:08 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ctPriorityExt,) = mibBuilder.importSymbols(
+    "CTRON-MIB-NAMES",
+    "ctPriorityExt")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CtPriorityExtTxQueue_ObjectIdentity = ObjectIdentity
+ctPriorityExtTxQueue = _CtPriorityExtTxQueue_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 1)
+)
+_CtPriorityExtTXQueueTable_Object = MibTable
+ctPriorityExtTXQueueTable = _CtPriorityExtTXQueueTable_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 1, 1)
+)
+if mibBuilder.loadTexts:
+    ctPriorityExtTXQueueTable.setStatus("mandatory")
+_CtPriorityExtTXQueueEntry_Object = MibTableRow
+ctPriorityExtTXQueueEntry = _CtPriorityExtTXQueueEntry_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 1, 1, 1)
+)
+ctPriorityExtTXQueueEntry.setIndexNames(
+    (0, "CTRON-PRIORITY-EXTENSIONS-MIB", "ctPriorityExtSlotNum"),
+    (0, "CTRON-PRIORITY-EXTENSIONS-MIB", "ctPriorityExtInterfaceNum"),
+)
+if mibBuilder.loadTexts:
+    ctPriorityExtTXQueueEntry.setStatus("mandatory")
+_CtPriorityExtSlotNum_Type = Integer32
+_CtPriorityExtSlotNum_Object = MibTableColumn
+ctPriorityExtSlotNum = _CtPriorityExtSlotNum_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 1, 1, 1, 1),
+    _CtPriorityExtSlotNum_Type()
+)
+ctPriorityExtSlotNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ctPriorityExtSlotNum.setStatus("mandatory")
+_CtPriorityExtInterfaceNum_Type = Integer32
+_CtPriorityExtInterfaceNum_Object = MibTableColumn
+ctPriorityExtInterfaceNum = _CtPriorityExtInterfaceNum_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 1, 1, 1, 2),
+    _CtPriorityExtInterfaceNum_Type()
+)
+ctPriorityExtInterfaceNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ctPriorityExtInterfaceNum.setStatus("mandatory")
+
+
+class _CtPriorityExtNumTXQueues_Type(Integer32):
+    """Custom type ctPriorityExtNumTXQueues based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 8),
+    )
+
+
+_CtPriorityExtNumTXQueues_Type.__name__ = "Integer32"
+_CtPriorityExtNumTXQueues_Object = MibTableColumn
+ctPriorityExtNumTXQueues = _CtPriorityExtNumTXQueues_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 1, 1, 1, 3),
+    _CtPriorityExtNumTXQueues_Type()
+)
+ctPriorityExtNumTXQueues.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ctPriorityExtNumTXQueues.setStatus("mandatory")
+_CtPriorityExtMACConfig_ObjectIdentity = ObjectIdentity
+ctPriorityExtMACConfig = _CtPriorityExtMACConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 2)
+)
+
+
+class _CtPriorityExtMACStatus_Type(Integer32):
+    """Custom type ctPriorityExtMACStatus based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 2),
+          ("enable", 1))
+    )
+
+
+_CtPriorityExtMACStatus_Type.__name__ = "Integer32"
+_CtPriorityExtMACStatus_Object = MibScalar
+ctPriorityExtMACStatus = _CtPriorityExtMACStatus_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 2, 1),
+    _CtPriorityExtMACStatus_Type()
+)
+ctPriorityExtMACStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ctPriorityExtMACStatus.setStatus("mandatory")
+_CtPriorityExtNumMACEntries_Type = Integer32
+_CtPriorityExtNumMACEntries_Object = MibScalar
+ctPriorityExtNumMACEntries = _CtPriorityExtNumMACEntries_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 2, 2),
+    _CtPriorityExtNumMACEntries_Type()
+)
+ctPriorityExtNumMACEntries.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ctPriorityExtNumMACEntries.setStatus("mandatory")
+_CtPriorityExtMaxNumMACEntries_Type = Integer32
+_CtPriorityExtMaxNumMACEntries_Object = MibScalar
+ctPriorityExtMaxNumMACEntries = _CtPriorityExtMaxNumMACEntries_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 2, 3),
+    _CtPriorityExtMaxNumMACEntries_Type()
+)
+ctPriorityExtMaxNumMACEntries.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ctPriorityExtMaxNumMACEntries.setStatus("mandatory")
+_CtPriorityExtMaxNumPktTypesPerMACEntry_Type = Integer32
+_CtPriorityExtMaxNumPktTypesPerMACEntry_Object = MibScalar
+ctPriorityExtMaxNumPktTypesPerMACEntry = _CtPriorityExtMaxNumPktTypesPerMACEntry_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 2, 4),
+    _CtPriorityExtMaxNumPktTypesPerMACEntry_Type()
+)
+ctPriorityExtMaxNumPktTypesPerMACEntry.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ctPriorityExtMaxNumPktTypesPerMACEntry.setStatus("mandatory")
+_CtPriorityExtMACTable_Object = MibTable
+ctPriorityExtMACTable = _CtPriorityExtMACTable_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 2, 5)
+)
+if mibBuilder.loadTexts:
+    ctPriorityExtMACTable.setStatus("mandatory")
+_CtPriorityExtMACEntry_Object = MibTableRow
+ctPriorityExtMACEntry = _CtPriorityExtMACEntry_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 2, 5, 1)
+)
+ctPriorityExtMACEntry.setIndexNames(
+    (0, "CTRON-PRIORITY-EXTENSIONS-MIB", "ctPriorityExtMACAddr"),
+    (0, "CTRON-PRIORITY-EXTENSIONS-MIB", "ctPriorityExtAddrType"),
+    (0, "CTRON-PRIORITY-EXTENSIONS-MIB", "ctPriorityExtMACPktType"),
+    (0, "CTRON-PRIORITY-EXTENSIONS-MIB", "ctPriorityExtMACVlanId"),
+)
+if mibBuilder.loadTexts:
+    ctPriorityExtMACEntry.setStatus("mandatory")
+_CtPriorityExtMACAddr_Type = PhysAddress
+_CtPriorityExtMACAddr_Object = MibTableColumn
+ctPriorityExtMACAddr = _CtPriorityExtMACAddr_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 2, 5, 1, 1),
+    _CtPriorityExtMACAddr_Type()
+)
+ctPriorityExtMACAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ctPriorityExtMACAddr.setStatus("mandatory")
+
+
+class _CtPriorityExtAddrType_Type(Integer32):
+    """Custom type ctPriorityExtAddrType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("destAddr", 1),
+          ("destOrSource", 3),
+          ("srcAddr", 2))
+    )
+
+
+_CtPriorityExtAddrType_Type.__name__ = "Integer32"
+_CtPriorityExtAddrType_Object = MibTableColumn
+ctPriorityExtAddrType = _CtPriorityExtAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 2, 5, 1, 2),
+    _CtPriorityExtAddrType_Type()
+)
+ctPriorityExtAddrType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ctPriorityExtAddrType.setStatus("mandatory")
+_CtPriorityExtMACPktType_Type = Integer32
+_CtPriorityExtMACPktType_Object = MibTableColumn
+ctPriorityExtMACPktType = _CtPriorityExtMACPktType_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 2, 5, 1, 3),
+    _CtPriorityExtMACPktType_Type()
+)
+ctPriorityExtMACPktType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ctPriorityExtMACPktType.setStatus("mandatory")
+_CtPriorityExtMACVlanId_Type = Integer32
+_CtPriorityExtMACVlanId_Object = MibTableColumn
+ctPriorityExtMACVlanId = _CtPriorityExtMACVlanId_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 2, 5, 1, 4),
+    _CtPriorityExtMACVlanId_Type()
+)
+ctPriorityExtMACVlanId.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ctPriorityExtMACVlanId.setStatus("mandatory")
+
+
+class _CtPriorityExtMACPriority_Type(Integer32):
+    """Custom type ctPriorityExtMACPriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              100)
+        )
+    )
+    namedValues = NamedValues(
+        *(("delete", 100),
+          ("priority0", 1),
+          ("priority1", 2),
+          ("priority2", 3),
+          ("priority3", 4),
+          ("priority4", 5),
+          ("priority5", 6),
+          ("priority6", 7),
+          ("priority7", 8))
+    )
+
+
+_CtPriorityExtMACPriority_Type.__name__ = "Integer32"
+_CtPriorityExtMACPriority_Object = MibTableColumn
+ctPriorityExtMACPriority = _CtPriorityExtMACPriority_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 2, 5, 1, 5),
+    _CtPriorityExtMACPriority_Type()
+)
+ctPriorityExtMACPriority.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ctPriorityExtMACPriority.setStatus("mandatory")
+_CtPriorityExtPktTypeConfig_ObjectIdentity = ObjectIdentity
+ctPriorityExtPktTypeConfig = _CtPriorityExtPktTypeConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 3)
+)
+
+
+class _CtPriorityExtPktTypeStatus_Type(Integer32):
+    """Custom type ctPriorityExtPktTypeStatus based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 2),
+          ("enable", 1))
+    )
+
+
+_CtPriorityExtPktTypeStatus_Type.__name__ = "Integer32"
+_CtPriorityExtPktTypeStatus_Object = MibScalar
+ctPriorityExtPktTypeStatus = _CtPriorityExtPktTypeStatus_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 3, 1),
+    _CtPriorityExtPktTypeStatus_Type()
+)
+ctPriorityExtPktTypeStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ctPriorityExtPktTypeStatus.setStatus("mandatory")
+_CtPriorityExtNumPktTypeEntries_Type = Integer32
+_CtPriorityExtNumPktTypeEntries_Object = MibScalar
+ctPriorityExtNumPktTypeEntries = _CtPriorityExtNumPktTypeEntries_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 3, 2),
+    _CtPriorityExtNumPktTypeEntries_Type()
+)
+ctPriorityExtNumPktTypeEntries.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ctPriorityExtNumPktTypeEntries.setStatus("mandatory")
+_CtPriorityExtMaxNumPktTypeEntries_Type = Integer32
+_CtPriorityExtMaxNumPktTypeEntries_Object = MibScalar
+ctPriorityExtMaxNumPktTypeEntries = _CtPriorityExtMaxNumPktTypeEntries_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 3, 3),
+    _CtPriorityExtMaxNumPktTypeEntries_Type()
+)
+ctPriorityExtMaxNumPktTypeEntries.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ctPriorityExtMaxNumPktTypeEntries.setStatus("mandatory")
+_CtPriorityExtPktTypeTable_Object = MibTable
+ctPriorityExtPktTypeTable = _CtPriorityExtPktTypeTable_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 3, 4)
+)
+if mibBuilder.loadTexts:
+    ctPriorityExtPktTypeTable.setStatus("mandatory")
+_CtPriorityExtPktTypeEntry_Object = MibTableRow
+ctPriorityExtPktTypeEntry = _CtPriorityExtPktTypeEntry_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 3, 4, 1)
+)
+ctPriorityExtPktTypeEntry.setIndexNames(
+    (0, "CTRON-PRIORITY-EXTENSIONS-MIB", "ctPriorityExtPktType"),
+    (0, "CTRON-PRIORITY-EXTENSIONS-MIB", "ctPriorityExtPktTypeVlanId"),
+)
+if mibBuilder.loadTexts:
+    ctPriorityExtPktTypeEntry.setStatus("mandatory")
+_CtPriorityExtPktType_Type = Integer32
+_CtPriorityExtPktType_Object = MibTableColumn
+ctPriorityExtPktType = _CtPriorityExtPktType_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 3, 4, 1, 1),
+    _CtPriorityExtPktType_Type()
+)
+ctPriorityExtPktType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ctPriorityExtPktType.setStatus("mandatory")
+_CtPriorityExtPktTypeVlanId_Type = Integer32
+_CtPriorityExtPktTypeVlanId_Object = MibTableColumn
+ctPriorityExtPktTypeVlanId = _CtPriorityExtPktTypeVlanId_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 3, 4, 1, 2),
+    _CtPriorityExtPktTypeVlanId_Type()
+)
+ctPriorityExtPktTypeVlanId.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ctPriorityExtPktTypeVlanId.setStatus("mandatory")
+
+
+class _CtPriorityExtPktTypePriority_Type(Integer32):
+    """Custom type ctPriorityExtPktTypePriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              100)
+        )
+    )
+    namedValues = NamedValues(
+        *(("delete", 100),
+          ("priority0", 1),
+          ("priority1", 2),
+          ("priority2", 3),
+          ("priority3", 4),
+          ("priority4", 5),
+          ("priority5", 6),
+          ("priority6", 7),
+          ("priority7", 8))
+    )
+
+
+_CtPriorityExtPktTypePriority_Type.__name__ = "Integer32"
+_CtPriorityExtPktTypePriority_Object = MibTableColumn
+ctPriorityExtPktTypePriority = _CtPriorityExtPktTypePriority_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 3, 4, 1, 3),
+    _CtPriorityExtPktTypePriority_Type()
+)
+ctPriorityExtPktTypePriority.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ctPriorityExtPktTypePriority.setStatus("mandatory")
+_CtPriorityExtPortConfig_ObjectIdentity = ObjectIdentity
+ctPriorityExtPortConfig = _CtPriorityExtPortConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 4)
+)
+
+
+class _CtPriorityExtPortStatus_Type(Integer32):
+    """Custom type ctPriorityExtPortStatus based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 2),
+          ("enable", 1))
+    )
+
+
+_CtPriorityExtPortStatus_Type.__name__ = "Integer32"
+_CtPriorityExtPortStatus_Object = MibScalar
+ctPriorityExtPortStatus = _CtPriorityExtPortStatus_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 4, 1),
+    _CtPriorityExtPortStatus_Type()
+)
+ctPriorityExtPortStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ctPriorityExtPortStatus.setStatus("mandatory")
+_CtPriorityExtPortTable_Object = MibTable
+ctPriorityExtPortTable = _CtPriorityExtPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 4, 2)
+)
+if mibBuilder.loadTexts:
+    ctPriorityExtPortTable.setStatus("mandatory")
+_CtPriorityExtPortEntry_Object = MibTableRow
+ctPriorityExtPortEntry = _CtPriorityExtPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 4, 2, 1)
+)
+ctPriorityExtPortEntry.setIndexNames(
+    (0, "CTRON-PRIORITY-EXTENSIONS-MIB", "ctPriorityExtPortSlotNum"),
+    (0, "CTRON-PRIORITY-EXTENSIONS-MIB", "ctPriorityExtPortInterfaceNum"),
+)
+if mibBuilder.loadTexts:
+    ctPriorityExtPortEntry.setStatus("mandatory")
+_CtPriorityExtPortSlotNum_Type = Integer32
+_CtPriorityExtPortSlotNum_Object = MibTableColumn
+ctPriorityExtPortSlotNum = _CtPriorityExtPortSlotNum_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 4, 2, 1, 1),
+    _CtPriorityExtPortSlotNum_Type()
+)
+ctPriorityExtPortSlotNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ctPriorityExtPortSlotNum.setStatus("mandatory")
+_CtPriorityExtPortInterfaceNum_Type = Integer32
+_CtPriorityExtPortInterfaceNum_Object = MibTableColumn
+ctPriorityExtPortInterfaceNum = _CtPriorityExtPortInterfaceNum_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 4, 2, 1, 2),
+    _CtPriorityExtPortInterfaceNum_Type()
+)
+ctPriorityExtPortInterfaceNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ctPriorityExtPortInterfaceNum.setStatus("mandatory")
+
+
+class _CtPriorityExtPortPriority_Type(Integer32):
+    """Custom type ctPriorityExtPortPriority based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("priority0", 1),
+          ("priority1", 2),
+          ("priority2", 3),
+          ("priority3", 4),
+          ("priority4", 5),
+          ("priority5", 6),
+          ("priority6", 7),
+          ("priority7", 8))
+    )
+
+
+_CtPriorityExtPortPriority_Type.__name__ = "Integer32"
+_CtPriorityExtPortPriority_Object = MibTableColumn
+ctPriorityExtPortPriority = _CtPriorityExtPortPriority_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 4, 2, 1, 3),
+    _CtPriorityExtPortPriority_Type()
+)
+ctPriorityExtPortPriority.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ctPriorityExtPortPriority.setStatus("mandatory")
+
+
+class _CtPriorityExtFwdInboundPriority_Type(Integer32):
+    """Custom type ctPriorityExtFwdInboundPriority based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 2),
+          ("enable", 1))
+    )
+
+
+_CtPriorityExtFwdInboundPriority_Type.__name__ = "Integer32"
+_CtPriorityExtFwdInboundPriority_Object = MibTableColumn
+ctPriorityExtFwdInboundPriority = _CtPriorityExtFwdInboundPriority_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 4, 2, 1, 4),
+    _CtPriorityExtFwdInboundPriority_Type()
+)
+ctPriorityExtFwdInboundPriority.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ctPriorityExtFwdInboundPriority.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CTRON-PRIORITY-EXTENSIONS-MIB",
+    **{"ctPriorityExtTxQueue": ctPriorityExtTxQueue,
+       "ctPriorityExtTXQueueTable": ctPriorityExtTXQueueTable,
+       "ctPriorityExtTXQueueEntry": ctPriorityExtTXQueueEntry,
+       "ctPriorityExtSlotNum": ctPriorityExtSlotNum,
+       "ctPriorityExtInterfaceNum": ctPriorityExtInterfaceNum,
+       "ctPriorityExtNumTXQueues": ctPriorityExtNumTXQueues,
+       "ctPriorityExtMACConfig": ctPriorityExtMACConfig,
+       "ctPriorityExtMACStatus": ctPriorityExtMACStatus,
+       "ctPriorityExtNumMACEntries": ctPriorityExtNumMACEntries,
+       "ctPriorityExtMaxNumMACEntries": ctPriorityExtMaxNumMACEntries,
+       "ctPriorityExtMaxNumPktTypesPerMACEntry": ctPriorityExtMaxNumPktTypesPerMACEntry,
+       "ctPriorityExtMACTable": ctPriorityExtMACTable,
+       "ctPriorityExtMACEntry": ctPriorityExtMACEntry,
+       "ctPriorityExtMACAddr": ctPriorityExtMACAddr,
+       "ctPriorityExtAddrType": ctPriorityExtAddrType,
+       "ctPriorityExtMACPktType": ctPriorityExtMACPktType,
+       "ctPriorityExtMACVlanId": ctPriorityExtMACVlanId,
+       "ctPriorityExtMACPriority": ctPriorityExtMACPriority,
+       "ctPriorityExtPktTypeConfig": ctPriorityExtPktTypeConfig,
+       "ctPriorityExtPktTypeStatus": ctPriorityExtPktTypeStatus,
+       "ctPriorityExtNumPktTypeEntries": ctPriorityExtNumPktTypeEntries,
+       "ctPriorityExtMaxNumPktTypeEntries": ctPriorityExtMaxNumPktTypeEntries,
+       "ctPriorityExtPktTypeTable": ctPriorityExtPktTypeTable,
+       "ctPriorityExtPktTypeEntry": ctPriorityExtPktTypeEntry,
+       "ctPriorityExtPktType": ctPriorityExtPktType,
+       "ctPriorityExtPktTypeVlanId": ctPriorityExtPktTypeVlanId,
+       "ctPriorityExtPktTypePriority": ctPriorityExtPktTypePriority,
+       "ctPriorityExtPortConfig": ctPriorityExtPortConfig,
+       "ctPriorityExtPortStatus": ctPriorityExtPortStatus,
+       "ctPriorityExtPortTable": ctPriorityExtPortTable,
+       "ctPriorityExtPortEntry": ctPriorityExtPortEntry,
+       "ctPriorityExtPortSlotNum": ctPriorityExtPortSlotNum,
+       "ctPriorityExtPortInterfaceNum": ctPriorityExtPortInterfaceNum,
+       "ctPriorityExtPortPriority": ctPriorityExtPortPriority,
+       "ctPriorityExtFwdInboundPriority": ctPriorityExtFwdInboundPriority}
+)

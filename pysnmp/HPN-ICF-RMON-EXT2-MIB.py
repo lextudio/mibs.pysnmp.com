@@ -1,60 +1,484 @@
+# SNMP MIB module (HPN-ICF-RMON-EXT2-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HPN-ICF-RMON-EXT2-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/HPN-ICF-RMON-EXT2-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:29:02 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint")
-hpnicfCommon, = mibBuilder.importSymbols("HPN-ICF-OID-MIB", "hpnicfCommon")
-OwnerString, EntryStatus = mibBuilder.importSymbols("RMON-MIB", "OwnerString", "EntryStatus")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ModuleIdentity, Bits, Counter64, NotificationType, MibIdentifier, IpAddress, TimeTicks, Integer32, Unsigned32, ObjectIdentity, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Bits", "Counter64", "NotificationType", "MibIdentifier", "IpAddress", "TimeTicks", "Integer32", "Unsigned32", "ObjectIdentity", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Gauge32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-hpnicfRmonExt = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125))
-hpnicfRmonExt.setRevisions(('2012-06-19 00:00',))
-if mibBuilder.loadTexts: hpnicfRmonExt.setLastUpdated('201206190000Z')
-if mibBuilder.loadTexts: hpnicfRmonExt.setOrganization('')
-hpnicfRmonExtAlarmTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 1), )
-if mibBuilder.loadTexts: hpnicfRmonExtAlarmTable.setStatus('current')
-hpnicfRmonExtAlarmEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 1, 1), ).setIndexNames((0, "HPN-ICF-RMON-EXT2-MIB", "hpnicfRmonExtAlarmIndex"))
-if mibBuilder.loadTexts: hpnicfRmonExtAlarmEntry.setStatus('current')
-hpnicfRmonExtAlarmIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfRmonExtAlarmIndex.setStatus('current')
-hpnicfRmonExtAlarmInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(10, 65535)).clone(1800)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpnicfRmonExtAlarmInterval.setStatus('current')
-hpnicfRmonExtAlarmVariable = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 1, 1, 3), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpnicfRmonExtAlarmVariable.setStatus('current')
-hpnicfRmonExtAlarmSympol = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 1, 1, 4), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpnicfRmonExtAlarmSympol.setStatus('current')
-hpnicfRmonExtAlarmSampleType = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("absoluteValue", 1), ("deltaValue", 2), ("speedValue", 3))).clone('absoluteValue')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpnicfRmonExtAlarmSampleType.setStatus('current')
-hpnicfRmonExtAlarmValue = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 1, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfRmonExtAlarmValue.setStatus('current')
-hpnicfRmonExtAlarmStartupAlarm = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("risingAlarm", 1), ("fallingAlarm", 2), ("risingOrFallingAlarm", 3))).clone('risingOrFallingAlarm')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpnicfRmonExtAlarmStartupAlarm.setStatus('current')
-hpnicfRmonExtAlarmRisingThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 1, 1, 8), Integer32().clone(1)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpnicfRmonExtAlarmRisingThreshold.setStatus('current')
-hpnicfRmonExtAlarmFallingThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 1, 1, 9), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpnicfRmonExtAlarmFallingThreshold.setStatus('current')
-hpnicfRmonExtAlarmRisingEvtIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 1, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpnicfRmonExtAlarmRisingEvtIndex.setStatus('current')
-hpnicfRmonExtAlarmFallingEvtIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 1, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpnicfRmonExtAlarmFallingEvtIndex.setStatus('current')
-hpnicfRmonExtAlarmStatCycle = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 1, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpnicfRmonExtAlarmStatCycle.setStatus('current')
-hpnicfRmonExtAlarmStatType = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 1, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("forever", 1), ("during", 2))).clone('forever')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpnicfRmonExtAlarmStatType.setStatus('current')
-hpnicfRmonExtAlarmOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 1, 1, 14), OwnerString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpnicfRmonExtAlarmOwner.setStatus('current')
-hpnicfRmonExtAlarmStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 1, 1, 15), EntryStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpnicfRmonExtAlarmStatus.setStatus('current')
-hpnicfRmonExtEvent = ObjectIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 0))
-if mibBuilder.loadTexts: hpnicfRmonExtEvent.setStatus('current')
-hpnicfRmonExtRisingAlarm = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 0, 1)).setObjects(("HPN-ICF-RMON-EXT2-MIB", "hpnicfRmonExtAlarmIndex"), ("HPN-ICF-RMON-EXT2-MIB", "hpnicfRmonExtAlarmSympol"), ("HPN-ICF-RMON-EXT2-MIB", "hpnicfRmonExtAlarmSampleType"), ("HPN-ICF-RMON-EXT2-MIB", "hpnicfRmonExtAlarmValue"), ("HPN-ICF-RMON-EXT2-MIB", "hpnicfRmonExtAlarmRisingThreshold"))
-if mibBuilder.loadTexts: hpnicfRmonExtRisingAlarm.setStatus('current')
-hpnicfRmonExtFallingAlarm = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 0, 2)).setObjects(("HPN-ICF-RMON-EXT2-MIB", "hpnicfRmonExtAlarmIndex"), ("HPN-ICF-RMON-EXT2-MIB", "hpnicfRmonExtAlarmSympol"), ("HPN-ICF-RMON-EXT2-MIB", "hpnicfRmonExtAlarmSampleType"), ("HPN-ICF-RMON-EXT2-MIB", "hpnicfRmonExtAlarmValue"), ("HPN-ICF-RMON-EXT2-MIB", "hpnicfRmonExtAlarmFallingThreshold"))
-if mibBuilder.loadTexts: hpnicfRmonExtFallingAlarm.setStatus('current')
-mibBuilder.exportSymbols("HPN-ICF-RMON-EXT2-MIB", hpnicfRmonExtAlarmFallingThreshold=hpnicfRmonExtAlarmFallingThreshold, hpnicfRmonExtFallingAlarm=hpnicfRmonExtFallingAlarm, hpnicfRmonExtAlarmRisingEvtIndex=hpnicfRmonExtAlarmRisingEvtIndex, hpnicfRmonExtAlarmEntry=hpnicfRmonExtAlarmEntry, hpnicfRmonExtAlarmIndex=hpnicfRmonExtAlarmIndex, PYSNMP_MODULE_ID=hpnicfRmonExt, hpnicfRmonExtEvent=hpnicfRmonExtEvent, hpnicfRmonExtAlarmStatus=hpnicfRmonExtAlarmStatus, hpnicfRmonExtRisingAlarm=hpnicfRmonExtRisingAlarm, hpnicfRmonExtAlarmRisingThreshold=hpnicfRmonExtAlarmRisingThreshold, hpnicfRmonExtAlarmStatType=hpnicfRmonExtAlarmStatType, hpnicfRmonExtAlarmStartupAlarm=hpnicfRmonExtAlarmStartupAlarm, hpnicfRmonExtAlarmTable=hpnicfRmonExtAlarmTable, hpnicfRmonExtAlarmInterval=hpnicfRmonExtAlarmInterval, hpnicfRmonExtAlarmSampleType=hpnicfRmonExtAlarmSampleType, hpnicfRmonExtAlarmValue=hpnicfRmonExtAlarmValue, hpnicfRmonExtAlarmVariable=hpnicfRmonExtAlarmVariable, hpnicfRmonExt=hpnicfRmonExt, hpnicfRmonExtAlarmStatCycle=hpnicfRmonExtAlarmStatCycle, hpnicfRmonExtAlarmOwner=hpnicfRmonExtAlarmOwner, hpnicfRmonExtAlarmFallingEvtIndex=hpnicfRmonExtAlarmFallingEvtIndex, hpnicfRmonExtAlarmSympol=hpnicfRmonExtAlarmSympol)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HPN-ICF-RMON-EXT2-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:01:43 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(hpnicfCommon,) = mibBuilder.importSymbols(
+    "HPN-ICF-OID-MIB",
+    "hpnicfCommon")
+
+(EntryStatus,
+ OwnerString) = mibBuilder.importSymbols(
+    "RMON-MIB",
+    "EntryStatus",
+    "OwnerString")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+hpnicfRmonExt = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125)
+)
+hpnicfRmonExt.setRevisions(
+        ("2012-06-19 00:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_HpnicfRmonExtEvent_ObjectIdentity = ObjectIdentity
+hpnicfRmonExtEvent = _HpnicfRmonExtEvent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 0)
+)
+if mibBuilder.loadTexts:
+    hpnicfRmonExtEvent.setStatus("current")
+_HpnicfRmonExtAlarmTable_Object = MibTable
+hpnicfRmonExtAlarmTable = _HpnicfRmonExtAlarmTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 1)
+)
+if mibBuilder.loadTexts:
+    hpnicfRmonExtAlarmTable.setStatus("current")
+_HpnicfRmonExtAlarmEntry_Object = MibTableRow
+hpnicfRmonExtAlarmEntry = _HpnicfRmonExtAlarmEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 1, 1)
+)
+hpnicfRmonExtAlarmEntry.setIndexNames(
+    (0, "HPN-ICF-RMON-EXT2-MIB", "hpnicfRmonExtAlarmIndex"),
+)
+if mibBuilder.loadTexts:
+    hpnicfRmonExtAlarmEntry.setStatus("current")
+
+
+class _HpnicfRmonExtAlarmIndex_Type(Integer32):
+    """Custom type hpnicfRmonExtAlarmIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_HpnicfRmonExtAlarmIndex_Type.__name__ = "Integer32"
+_HpnicfRmonExtAlarmIndex_Object = MibTableColumn
+hpnicfRmonExtAlarmIndex = _HpnicfRmonExtAlarmIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 1, 1, 1),
+    _HpnicfRmonExtAlarmIndex_Type()
+)
+hpnicfRmonExtAlarmIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfRmonExtAlarmIndex.setStatus("current")
+
+
+class _HpnicfRmonExtAlarmInterval_Type(Integer32):
+    """Custom type hpnicfRmonExtAlarmInterval based on Integer32"""
+    defaultValue = 1800
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(10, 65535),
+    )
+
+
+_HpnicfRmonExtAlarmInterval_Type.__name__ = "Integer32"
+_HpnicfRmonExtAlarmInterval_Object = MibTableColumn
+hpnicfRmonExtAlarmInterval = _HpnicfRmonExtAlarmInterval_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 1, 1, 2),
+    _HpnicfRmonExtAlarmInterval_Type()
+)
+hpnicfRmonExtAlarmInterval.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpnicfRmonExtAlarmInterval.setStatus("current")
+_HpnicfRmonExtAlarmVariable_Type = DisplayString
+_HpnicfRmonExtAlarmVariable_Object = MibTableColumn
+hpnicfRmonExtAlarmVariable = _HpnicfRmonExtAlarmVariable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 1, 1, 3),
+    _HpnicfRmonExtAlarmVariable_Type()
+)
+hpnicfRmonExtAlarmVariable.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpnicfRmonExtAlarmVariable.setStatus("current")
+_HpnicfRmonExtAlarmSympol_Type = DisplayString
+_HpnicfRmonExtAlarmSympol_Object = MibTableColumn
+hpnicfRmonExtAlarmSympol = _HpnicfRmonExtAlarmSympol_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 1, 1, 4),
+    _HpnicfRmonExtAlarmSympol_Type()
+)
+hpnicfRmonExtAlarmSympol.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpnicfRmonExtAlarmSympol.setStatus("current")
+
+
+class _HpnicfRmonExtAlarmSampleType_Type(Integer32):
+    """Custom type hpnicfRmonExtAlarmSampleType based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("absoluteValue", 1),
+          ("deltaValue", 2),
+          ("speedValue", 3))
+    )
+
+
+_HpnicfRmonExtAlarmSampleType_Type.__name__ = "Integer32"
+_HpnicfRmonExtAlarmSampleType_Object = MibTableColumn
+hpnicfRmonExtAlarmSampleType = _HpnicfRmonExtAlarmSampleType_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 1, 1, 5),
+    _HpnicfRmonExtAlarmSampleType_Type()
+)
+hpnicfRmonExtAlarmSampleType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpnicfRmonExtAlarmSampleType.setStatus("current")
+_HpnicfRmonExtAlarmValue_Type = Integer32
+_HpnicfRmonExtAlarmValue_Object = MibTableColumn
+hpnicfRmonExtAlarmValue = _HpnicfRmonExtAlarmValue_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 1, 1, 6),
+    _HpnicfRmonExtAlarmValue_Type()
+)
+hpnicfRmonExtAlarmValue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfRmonExtAlarmValue.setStatus("current")
+
+
+class _HpnicfRmonExtAlarmStartupAlarm_Type(Integer32):
+    """Custom type hpnicfRmonExtAlarmStartupAlarm based on Integer32"""
+    defaultValue = 3
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("fallingAlarm", 2),
+          ("risingAlarm", 1),
+          ("risingOrFallingAlarm", 3))
+    )
+
+
+_HpnicfRmonExtAlarmStartupAlarm_Type.__name__ = "Integer32"
+_HpnicfRmonExtAlarmStartupAlarm_Object = MibTableColumn
+hpnicfRmonExtAlarmStartupAlarm = _HpnicfRmonExtAlarmStartupAlarm_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 1, 1, 7),
+    _HpnicfRmonExtAlarmStartupAlarm_Type()
+)
+hpnicfRmonExtAlarmStartupAlarm.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpnicfRmonExtAlarmStartupAlarm.setStatus("current")
+
+
+class _HpnicfRmonExtAlarmRisingThreshold_Type(Integer32):
+    """Custom type hpnicfRmonExtAlarmRisingThreshold based on Integer32"""
+    defaultValue = 1
+
+
+_HpnicfRmonExtAlarmRisingThreshold_Object = MibTableColumn
+hpnicfRmonExtAlarmRisingThreshold = _HpnicfRmonExtAlarmRisingThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 1, 1, 8),
+    _HpnicfRmonExtAlarmRisingThreshold_Type()
+)
+hpnicfRmonExtAlarmRisingThreshold.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpnicfRmonExtAlarmRisingThreshold.setStatus("current")
+
+
+class _HpnicfRmonExtAlarmFallingThreshold_Type(Integer32):
+    """Custom type hpnicfRmonExtAlarmFallingThreshold based on Integer32"""
+    defaultValue = 0
+
+
+_HpnicfRmonExtAlarmFallingThreshold_Object = MibTableColumn
+hpnicfRmonExtAlarmFallingThreshold = _HpnicfRmonExtAlarmFallingThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 1, 1, 9),
+    _HpnicfRmonExtAlarmFallingThreshold_Type()
+)
+hpnicfRmonExtAlarmFallingThreshold.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpnicfRmonExtAlarmFallingThreshold.setStatus("current")
+
+
+class _HpnicfRmonExtAlarmRisingEvtIndex_Type(Integer32):
+    """Custom type hpnicfRmonExtAlarmRisingEvtIndex based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_HpnicfRmonExtAlarmRisingEvtIndex_Type.__name__ = "Integer32"
+_HpnicfRmonExtAlarmRisingEvtIndex_Object = MibTableColumn
+hpnicfRmonExtAlarmRisingEvtIndex = _HpnicfRmonExtAlarmRisingEvtIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 1, 1, 10),
+    _HpnicfRmonExtAlarmRisingEvtIndex_Type()
+)
+hpnicfRmonExtAlarmRisingEvtIndex.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpnicfRmonExtAlarmRisingEvtIndex.setStatus("current")
+
+
+class _HpnicfRmonExtAlarmFallingEvtIndex_Type(Integer32):
+    """Custom type hpnicfRmonExtAlarmFallingEvtIndex based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_HpnicfRmonExtAlarmFallingEvtIndex_Type.__name__ = "Integer32"
+_HpnicfRmonExtAlarmFallingEvtIndex_Object = MibTableColumn
+hpnicfRmonExtAlarmFallingEvtIndex = _HpnicfRmonExtAlarmFallingEvtIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 1, 1, 11),
+    _HpnicfRmonExtAlarmFallingEvtIndex_Type()
+)
+hpnicfRmonExtAlarmFallingEvtIndex.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpnicfRmonExtAlarmFallingEvtIndex.setStatus("current")
+
+
+class _HpnicfRmonExtAlarmStatCycle_Type(Integer32):
+    """Custom type hpnicfRmonExtAlarmStatCycle based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4294967),
+    )
+
+
+_HpnicfRmonExtAlarmStatCycle_Type.__name__ = "Integer32"
+_HpnicfRmonExtAlarmStatCycle_Object = MibTableColumn
+hpnicfRmonExtAlarmStatCycle = _HpnicfRmonExtAlarmStatCycle_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 1, 1, 12),
+    _HpnicfRmonExtAlarmStatCycle_Type()
+)
+hpnicfRmonExtAlarmStatCycle.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpnicfRmonExtAlarmStatCycle.setStatus("current")
+
+
+class _HpnicfRmonExtAlarmStatType_Type(Integer32):
+    """Custom type hpnicfRmonExtAlarmStatType based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("during", 2),
+          ("forever", 1))
+    )
+
+
+_HpnicfRmonExtAlarmStatType_Type.__name__ = "Integer32"
+_HpnicfRmonExtAlarmStatType_Object = MibTableColumn
+hpnicfRmonExtAlarmStatType = _HpnicfRmonExtAlarmStatType_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 1, 1, 13),
+    _HpnicfRmonExtAlarmStatType_Type()
+)
+hpnicfRmonExtAlarmStatType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpnicfRmonExtAlarmStatType.setStatus("current")
+_HpnicfRmonExtAlarmOwner_Type = OwnerString
+_HpnicfRmonExtAlarmOwner_Object = MibTableColumn
+hpnicfRmonExtAlarmOwner = _HpnicfRmonExtAlarmOwner_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 1, 1, 14),
+    _HpnicfRmonExtAlarmOwner_Type()
+)
+hpnicfRmonExtAlarmOwner.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpnicfRmonExtAlarmOwner.setStatus("current")
+_HpnicfRmonExtAlarmStatus_Type = EntryStatus
+_HpnicfRmonExtAlarmStatus_Object = MibTableColumn
+hpnicfRmonExtAlarmStatus = _HpnicfRmonExtAlarmStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 1, 1, 15),
+    _HpnicfRmonExtAlarmStatus_Type()
+)
+hpnicfRmonExtAlarmStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpnicfRmonExtAlarmStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+hpnicfRmonExtRisingAlarm = NotificationType(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 0, 1)
+)
+hpnicfRmonExtRisingAlarm.setObjects(
+      *(("HPN-ICF-RMON-EXT2-MIB", "hpnicfRmonExtAlarmIndex"),
+        ("HPN-ICF-RMON-EXT2-MIB", "hpnicfRmonExtAlarmSympol"),
+        ("HPN-ICF-RMON-EXT2-MIB", "hpnicfRmonExtAlarmSampleType"),
+        ("HPN-ICF-RMON-EXT2-MIB", "hpnicfRmonExtAlarmValue"),
+        ("HPN-ICF-RMON-EXT2-MIB", "hpnicfRmonExtAlarmRisingThreshold"))
+)
+if mibBuilder.loadTexts:
+    hpnicfRmonExtRisingAlarm.setStatus(
+        "current"
+    )
+
+hpnicfRmonExtFallingAlarm = NotificationType(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 125, 0, 2)
+)
+hpnicfRmonExtFallingAlarm.setObjects(
+      *(("HPN-ICF-RMON-EXT2-MIB", "hpnicfRmonExtAlarmIndex"),
+        ("HPN-ICF-RMON-EXT2-MIB", "hpnicfRmonExtAlarmSympol"),
+        ("HPN-ICF-RMON-EXT2-MIB", "hpnicfRmonExtAlarmSampleType"),
+        ("HPN-ICF-RMON-EXT2-MIB", "hpnicfRmonExtAlarmValue"),
+        ("HPN-ICF-RMON-EXT2-MIB", "hpnicfRmonExtAlarmFallingThreshold"))
+)
+if mibBuilder.loadTexts:
+    hpnicfRmonExtFallingAlarm.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HPN-ICF-RMON-EXT2-MIB",
+    **{"hpnicfRmonExt": hpnicfRmonExt,
+       "hpnicfRmonExtEvent": hpnicfRmonExtEvent,
+       "hpnicfRmonExtRisingAlarm": hpnicfRmonExtRisingAlarm,
+       "hpnicfRmonExtFallingAlarm": hpnicfRmonExtFallingAlarm,
+       "hpnicfRmonExtAlarmTable": hpnicfRmonExtAlarmTable,
+       "hpnicfRmonExtAlarmEntry": hpnicfRmonExtAlarmEntry,
+       "hpnicfRmonExtAlarmIndex": hpnicfRmonExtAlarmIndex,
+       "hpnicfRmonExtAlarmInterval": hpnicfRmonExtAlarmInterval,
+       "hpnicfRmonExtAlarmVariable": hpnicfRmonExtAlarmVariable,
+       "hpnicfRmonExtAlarmSympol": hpnicfRmonExtAlarmSympol,
+       "hpnicfRmonExtAlarmSampleType": hpnicfRmonExtAlarmSampleType,
+       "hpnicfRmonExtAlarmValue": hpnicfRmonExtAlarmValue,
+       "hpnicfRmonExtAlarmStartupAlarm": hpnicfRmonExtAlarmStartupAlarm,
+       "hpnicfRmonExtAlarmRisingThreshold": hpnicfRmonExtAlarmRisingThreshold,
+       "hpnicfRmonExtAlarmFallingThreshold": hpnicfRmonExtAlarmFallingThreshold,
+       "hpnicfRmonExtAlarmRisingEvtIndex": hpnicfRmonExtAlarmRisingEvtIndex,
+       "hpnicfRmonExtAlarmFallingEvtIndex": hpnicfRmonExtAlarmFallingEvtIndex,
+       "hpnicfRmonExtAlarmStatCycle": hpnicfRmonExtAlarmStatCycle,
+       "hpnicfRmonExtAlarmStatType": hpnicfRmonExtAlarmStatType,
+       "hpnicfRmonExtAlarmOwner": hpnicfRmonExtAlarmOwner,
+       "hpnicfRmonExtAlarmStatus": hpnicfRmonExtAlarmStatus}
+)

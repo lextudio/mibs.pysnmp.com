@@ -1,112 +1,822 @@
+# SNMP MIB module (JUNIPER-ATM-COS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module JUNIPER-ATM-COS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/JUNIPER-ATM-COS-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:47:51 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
-atmVclVpi, atmVclVci = mibBuilder.importSymbols("ATM-MIB", "atmVclVpi", "atmVclVci")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-jnxCosFcId, = mibBuilder.importSymbols("JUNIPER-COS-MIB", "jnxCosFcId")
-jnxMibs, = mibBuilder.importSymbols("JUNIPER-SMI", "jnxMibs")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Bits, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Integer32, IpAddress, TimeTicks, ModuleIdentity, Unsigned32, Counter64, Gauge32, ObjectIdentity, Counter32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Integer32", "IpAddress", "TimeTicks", "ModuleIdentity", "Unsigned32", "Counter64", "Gauge32", "ObjectIdentity", "Counter32", "MibIdentifier")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-jnxAtmCos = ModuleIdentity((1, 3, 6, 1, 4, 1, 2636, 3, 21))
-jnxAtmCos.setRevisions(('2003-04-09 00:00', '2003-06-20 00:00', '2002-09-04 00:00',))
-if mibBuilder.loadTexts: jnxAtmCos.setLastUpdated('200304090000Z')
-if mibBuilder.loadTexts: jnxAtmCos.setOrganization('Juniper Networks, Inc.')
-jnxCosAtmVcTable = MibTable((1, 3, 6, 1, 4, 1, 2636, 3, 21, 1), )
-if mibBuilder.loadTexts: jnxCosAtmVcTable.setStatus('current')
-jnxCosAtmVcEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2636, 3, 21, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "ATM-MIB", "atmVclVpi"), (0, "ATM-MIB", "atmVclVci"))
-if mibBuilder.loadTexts: jnxCosAtmVcEntry.setStatus('current')
-jnxCosAtmVcCosMode = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 21, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("strict", 0), ("alternate", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCosAtmVcCosMode.setStatus('current')
-jnxCosAtmVcScTable = MibTable((1, 3, 6, 1, 4, 1, 2636, 3, 21, 2), )
-if mibBuilder.loadTexts: jnxCosAtmVcScTable.setStatus('current')
-jnxCosAtmVcScEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2636, 3, 21, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "ATM-MIB", "atmVclVpi"), (0, "ATM-MIB", "atmVclVci"), (0, "JUNIPER-COS-MIB", "jnxCosFcId"))
-if mibBuilder.loadTexts: jnxCosAtmVcScEntry.setStatus('current')
-jnxCosAtmVcScPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 21, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("low", 0), ("high", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCosAtmVcScPriority.setStatus('current')
-jnxCosAtmVcScTxWeightType = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 21, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("cells", 0), ("percent", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCosAtmVcScTxWeightType.setStatus('current')
-jnxCosAtmVcScTxWeight = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 21, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 32000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCosAtmVcScTxWeight.setStatus('current')
-jnxCosAtmVcScDpType = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 21, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("linearRed", 0), ("epd", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCosAtmVcScDpType.setStatus('current')
-jnxCosAtmVcScLrdpQueueDepth = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 21, 2, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 32000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCosAtmVcScLrdpQueueDepth.setStatus('current')
-jnxCosAtmVcScLrdpLowPlpThresh = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 21, 2, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 32000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCosAtmVcScLrdpLowPlpThresh.setStatus('current')
-jnxCosAtmVcScLrdpHighPlpThresh = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 21, 2, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 32000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCosAtmVcScLrdpHighPlpThresh.setStatus('current')
-jnxCosAtmVcEpdThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 21, 2, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 32000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCosAtmVcEpdThreshold.setStatus('current')
-jnxCosAtmVcQstatsTable = MibTable((1, 3, 6, 1, 4, 1, 2636, 3, 21, 3), )
-if mibBuilder.loadTexts: jnxCosAtmVcQstatsTable.setStatus('current')
-jnxCosAtmVcQstatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2636, 3, 21, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "ATM-MIB", "atmVclVpi"), (0, "ATM-MIB", "atmVclVci"), (0, "JUNIPER-COS-MIB", "jnxCosFcId"))
-if mibBuilder.loadTexts: jnxCosAtmVcQstatsEntry.setStatus('current')
-jnxCosAtmVcQstatsOutPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 21, 3, 1, 1), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCosAtmVcQstatsOutPackets.setStatus('current')
-jnxCosAtmVcQstatsOutBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 21, 3, 1, 2), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCosAtmVcQstatsOutBytes.setStatus('current')
-jnxCosAtmVcQstatsOutRedDropPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 21, 3, 1, 3), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCosAtmVcQstatsOutRedDropPkts.setStatus('current')
-jnxCosAtmVcQstatsOutNonRedDrops = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 21, 3, 1, 4), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCosAtmVcQstatsOutNonRedDrops.setStatus('current')
-jnxCosAtmVcQstatsOutLpBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 21, 3, 1, 5), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCosAtmVcQstatsOutLpBytes.setStatus('current')
-jnxCosAtmVcQstatsOutLpPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 21, 3, 1, 6), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCosAtmVcQstatsOutLpPkts.setStatus('current')
-jnxCosAtmVcQstatsOutLpDropBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 21, 3, 1, 7), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCosAtmVcQstatsOutLpDropBytes.setStatus('current')
-jnxCosAtmVcQstatsOutHpDropBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 21, 3, 1, 8), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCosAtmVcQstatsOutHpDropBytes.setStatus('current')
-jnxCosAtmVcQstatsOutLpDropPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 21, 3, 1, 9), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCosAtmVcQstatsOutLpDropPkts.setStatus('current')
-jnxCosAtmVcQstatsOutHpDropPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 21, 3, 1, 10), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCosAtmVcQstatsOutHpDropPkts.setStatus('current')
-jnxCosAtmTrunkTable = MibTable((1, 3, 6, 1, 4, 1, 2636, 3, 21, 4), )
-if mibBuilder.loadTexts: jnxCosAtmTrunkTable.setStatus('current')
-jnxCosAtmTrunkEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2636, 3, 21, 4, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "JUNIPER-COS-MIB", "jnxCosFcId"))
-if mibBuilder.loadTexts: jnxCosAtmTrunkEntry.setStatus('current')
-jnxCosAtmTrunkMode = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 21, 4, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("strict", 1), ("alternate", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCosAtmTrunkMode.setStatus('current')
-jnxCosAtmTrunkScPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 21, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("low", 1), ("high", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCosAtmTrunkScPriority.setStatus('current')
-jnxCosAtmTrunkScTxWeightType = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 21, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("cells", 1), ("percent", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCosAtmTrunkScTxWeightType.setStatus('current')
-jnxCosAtmTrunkScTxWeight = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 21, 4, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 32000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCosAtmTrunkScTxWeight.setStatus('current')
-jnxCosAtmTrunkQaType = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 21, 4, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("red", 1), ("singleEpd", 2), ("dualEpd", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCosAtmTrunkQaType.setStatus('current')
-jnxCosAtmTrunkEpdThresholdPlp0 = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 21, 4, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 32000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCosAtmTrunkEpdThresholdPlp0.setStatus('current')
-jnxCosAtmTrunkEpdThresholdPlp1 = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 21, 4, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 32000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCosAtmTrunkEpdThresholdPlp1.setStatus('current')
-jnxCosAtmTrunkQstatsOutPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 21, 4, 1, 8), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCosAtmTrunkQstatsOutPackets.setStatus('current')
-jnxCosAtmTrunkQstatsOutBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 21, 4, 1, 9), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCosAtmTrunkQstatsOutBytes.setStatus('current')
-jnxCosAtmTrunkQstatsOutDrops = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 21, 4, 1, 10), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCosAtmTrunkQstatsOutDrops.setStatus('current')
-jnxCosAtmTrunkQstatsOutLpBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 21, 4, 1, 11), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCosAtmTrunkQstatsOutLpBytes.setStatus('current')
-jnxCosAtmTrunkQstatsOutLpPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 21, 4, 1, 12), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCosAtmTrunkQstatsOutLpPkts.setStatus('current')
-jnxCosAtmTrunkQstatsOutLpDropBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 21, 4, 1, 13), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCosAtmTrunkQstatsOutLpDropBytes.setStatus('current')
-jnxCosAtmTrunkQstatsOutHpDropBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 21, 4, 1, 14), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCosAtmTrunkQstatsOutHpDropBytes.setStatus('current')
-jnxCosAtmTrunkQstatsOutLpDropPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 21, 4, 1, 15), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCosAtmTrunkQstatsOutLpDropPkts.setStatus('current')
-jnxCosAtmTrunkQstatsOutHpDropPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 21, 4, 1, 16), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCosAtmTrunkQstatsOutHpDropPkts.setStatus('current')
-jnxCosAtmTrunkQstatsOutHpBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 21, 4, 1, 17), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCosAtmTrunkQstatsOutHpBytes.setStatus('current')
-jnxCosAtmTrunkQstatsOutHpPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 21, 4, 1, 18), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCosAtmTrunkQstatsOutHpPkts.setStatus('current')
-mibBuilder.exportSymbols("JUNIPER-ATM-COS-MIB", jnxAtmCos=jnxAtmCos, jnxCosAtmTrunkQstatsOutLpBytes=jnxCosAtmTrunkQstatsOutLpBytes, jnxCosAtmVcScEntry=jnxCosAtmVcScEntry, jnxCosAtmTrunkMode=jnxCosAtmTrunkMode, jnxCosAtmTrunkScTxWeight=jnxCosAtmTrunkScTxWeight, jnxCosAtmTrunkEpdThresholdPlp0=jnxCosAtmTrunkEpdThresholdPlp0, jnxCosAtmTrunkQstatsOutHpPkts=jnxCosAtmTrunkQstatsOutHpPkts, jnxCosAtmVcQstatsEntry=jnxCosAtmVcQstatsEntry, jnxCosAtmVcScTxWeight=jnxCosAtmVcScTxWeight, jnxCosAtmVcQstatsOutPackets=jnxCosAtmVcQstatsOutPackets, jnxCosAtmTrunkScPriority=jnxCosAtmTrunkScPriority, jnxCosAtmVcTable=jnxCosAtmVcTable, jnxCosAtmVcScLrdpQueueDepth=jnxCosAtmVcScLrdpQueueDepth, jnxCosAtmTrunkQstatsOutBytes=jnxCosAtmTrunkQstatsOutBytes, jnxCosAtmVcQstatsOutBytes=jnxCosAtmVcQstatsOutBytes, jnxCosAtmVcQstatsTable=jnxCosAtmVcQstatsTable, jnxCosAtmTrunkQstatsOutDrops=jnxCosAtmTrunkQstatsOutDrops, jnxCosAtmVcScPriority=jnxCosAtmVcScPriority, jnxCosAtmTrunkQstatsOutLpDropPkts=jnxCosAtmTrunkQstatsOutLpDropPkts, jnxCosAtmVcCosMode=jnxCosAtmVcCosMode, jnxCosAtmTrunkScTxWeightType=jnxCosAtmTrunkScTxWeightType, jnxCosAtmTrunkQstatsOutHpBytes=jnxCosAtmTrunkQstatsOutHpBytes, jnxCosAtmVcQstatsOutHpDropPkts=jnxCosAtmVcQstatsOutHpDropPkts, jnxCosAtmTrunkQstatsOutLpPkts=jnxCosAtmTrunkQstatsOutLpPkts, jnxCosAtmTrunkQstatsOutLpDropBytes=jnxCosAtmTrunkQstatsOutLpDropBytes, jnxCosAtmTrunkQstatsOutHpDropBytes=jnxCosAtmTrunkQstatsOutHpDropBytes, jnxCosAtmVcQstatsOutLpPkts=jnxCosAtmVcQstatsOutLpPkts, PYSNMP_MODULE_ID=jnxAtmCos, jnxCosAtmVcQstatsOutLpBytes=jnxCosAtmVcQstatsOutLpBytes, jnxCosAtmTrunkEpdThresholdPlp1=jnxCosAtmTrunkEpdThresholdPlp1, jnxCosAtmVcScDpType=jnxCosAtmVcScDpType, jnxCosAtmVcQstatsOutRedDropPkts=jnxCosAtmVcQstatsOutRedDropPkts, jnxCosAtmVcEntry=jnxCosAtmVcEntry, jnxCosAtmVcEpdThreshold=jnxCosAtmVcEpdThreshold, jnxCosAtmTrunkTable=jnxCosAtmTrunkTable, jnxCosAtmTrunkQstatsOutPackets=jnxCosAtmTrunkQstatsOutPackets, jnxCosAtmVcScTable=jnxCosAtmVcScTable, jnxCosAtmTrunkEntry=jnxCosAtmTrunkEntry, jnxCosAtmVcQstatsOutLpDropBytes=jnxCosAtmVcQstatsOutLpDropBytes, jnxCosAtmVcQstatsOutHpDropBytes=jnxCosAtmVcQstatsOutHpDropBytes, jnxCosAtmVcScTxWeightType=jnxCosAtmVcScTxWeightType, jnxCosAtmVcQstatsOutNonRedDrops=jnxCosAtmVcQstatsOutNonRedDrops, jnxCosAtmTrunkQstatsOutHpDropPkts=jnxCosAtmTrunkQstatsOutHpDropPkts, jnxCosAtmVcScLrdpHighPlpThresh=jnxCosAtmVcScLrdpHighPlpThresh, jnxCosAtmTrunkQaType=jnxCosAtmTrunkQaType, jnxCosAtmVcScLrdpLowPlpThresh=jnxCosAtmVcScLrdpLowPlpThresh, jnxCosAtmVcQstatsOutLpDropPkts=jnxCosAtmVcQstatsOutLpDropPkts)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/JUNIPER-ATM-COS-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:12:48 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(atmVclVci,
+ atmVclVpi) = mibBuilder.importSymbols(
+    "ATM-MIB",
+    "atmVclVci",
+    "atmVclVpi")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(jnxCosFcId,) = mibBuilder.importSymbols(
+    "JUNIPER-COS-MIB",
+    "jnxCosFcId")
+
+(jnxMibs,) = mibBuilder.importSymbols(
+    "JUNIPER-SMI",
+    "jnxMibs")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+jnxAtmCos = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21)
+)
+jnxAtmCos.setRevisions(
+        ("2003-04-09 00:00",
+         "2003-06-20 00:00",
+         "2002-09-04 00:00")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_JnxCosAtmVcTable_Object = MibTable
+jnxCosAtmVcTable = _JnxCosAtmVcTable_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 1)
+)
+if mibBuilder.loadTexts:
+    jnxCosAtmVcTable.setStatus("current")
+_JnxCosAtmVcEntry_Object = MibTableRow
+jnxCosAtmVcEntry = _JnxCosAtmVcEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 1, 1)
+)
+jnxCosAtmVcEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+    (0, "ATM-MIB", "atmVclVpi"),
+    (0, "ATM-MIB", "atmVclVci"),
+)
+if mibBuilder.loadTexts:
+    jnxCosAtmVcEntry.setStatus("current")
+
+
+class _JnxCosAtmVcCosMode_Type(Integer32):
+    """Custom type jnxCosAtmVcCosMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("alternate", 1),
+          ("strict", 0))
+    )
+
+
+_JnxCosAtmVcCosMode_Type.__name__ = "Integer32"
+_JnxCosAtmVcCosMode_Object = MibTableColumn
+jnxCosAtmVcCosMode = _JnxCosAtmVcCosMode_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 1, 1, 1),
+    _JnxCosAtmVcCosMode_Type()
+)
+jnxCosAtmVcCosMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCosAtmVcCosMode.setStatus("current")
+_JnxCosAtmVcScTable_Object = MibTable
+jnxCosAtmVcScTable = _JnxCosAtmVcScTable_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 2)
+)
+if mibBuilder.loadTexts:
+    jnxCosAtmVcScTable.setStatus("current")
+_JnxCosAtmVcScEntry_Object = MibTableRow
+jnxCosAtmVcScEntry = _JnxCosAtmVcScEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 2, 1)
+)
+jnxCosAtmVcScEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+    (0, "ATM-MIB", "atmVclVpi"),
+    (0, "ATM-MIB", "atmVclVci"),
+    (0, "JUNIPER-COS-MIB", "jnxCosFcId"),
+)
+if mibBuilder.loadTexts:
+    jnxCosAtmVcScEntry.setStatus("current")
+
+
+class _JnxCosAtmVcScPriority_Type(Integer32):
+    """Custom type jnxCosAtmVcScPriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("high", 1),
+          ("low", 0))
+    )
+
+
+_JnxCosAtmVcScPriority_Type.__name__ = "Integer32"
+_JnxCosAtmVcScPriority_Object = MibTableColumn
+jnxCosAtmVcScPriority = _JnxCosAtmVcScPriority_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 2, 1, 1),
+    _JnxCosAtmVcScPriority_Type()
+)
+jnxCosAtmVcScPriority.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCosAtmVcScPriority.setStatus("current")
+
+
+class _JnxCosAtmVcScTxWeightType_Type(Integer32):
+    """Custom type jnxCosAtmVcScTxWeightType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("cells", 0),
+          ("percent", 1))
+    )
+
+
+_JnxCosAtmVcScTxWeightType_Type.__name__ = "Integer32"
+_JnxCosAtmVcScTxWeightType_Object = MibTableColumn
+jnxCosAtmVcScTxWeightType = _JnxCosAtmVcScTxWeightType_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 2, 1, 2),
+    _JnxCosAtmVcScTxWeightType_Type()
+)
+jnxCosAtmVcScTxWeightType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCosAtmVcScTxWeightType.setStatus("current")
+
+
+class _JnxCosAtmVcScTxWeight_Type(Integer32):
+    """Custom type jnxCosAtmVcScTxWeight based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 32000),
+    )
+
+
+_JnxCosAtmVcScTxWeight_Type.__name__ = "Integer32"
+_JnxCosAtmVcScTxWeight_Object = MibTableColumn
+jnxCosAtmVcScTxWeight = _JnxCosAtmVcScTxWeight_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 2, 1, 3),
+    _JnxCosAtmVcScTxWeight_Type()
+)
+jnxCosAtmVcScTxWeight.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCosAtmVcScTxWeight.setStatus("current")
+
+
+class _JnxCosAtmVcScDpType_Type(Integer32):
+    """Custom type jnxCosAtmVcScDpType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("epd", 1),
+          ("linearRed", 0))
+    )
+
+
+_JnxCosAtmVcScDpType_Type.__name__ = "Integer32"
+_JnxCosAtmVcScDpType_Object = MibTableColumn
+jnxCosAtmVcScDpType = _JnxCosAtmVcScDpType_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 2, 1, 4),
+    _JnxCosAtmVcScDpType_Type()
+)
+jnxCosAtmVcScDpType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCosAtmVcScDpType.setStatus("current")
+
+
+class _JnxCosAtmVcScLrdpQueueDepth_Type(Integer32):
+    """Custom type jnxCosAtmVcScLrdpQueueDepth based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 32000),
+    )
+
+
+_JnxCosAtmVcScLrdpQueueDepth_Type.__name__ = "Integer32"
+_JnxCosAtmVcScLrdpQueueDepth_Object = MibTableColumn
+jnxCosAtmVcScLrdpQueueDepth = _JnxCosAtmVcScLrdpQueueDepth_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 2, 1, 5),
+    _JnxCosAtmVcScLrdpQueueDepth_Type()
+)
+jnxCosAtmVcScLrdpQueueDepth.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCosAtmVcScLrdpQueueDepth.setStatus("current")
+
+
+class _JnxCosAtmVcScLrdpLowPlpThresh_Type(Integer32):
+    """Custom type jnxCosAtmVcScLrdpLowPlpThresh based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 32000),
+    )
+
+
+_JnxCosAtmVcScLrdpLowPlpThresh_Type.__name__ = "Integer32"
+_JnxCosAtmVcScLrdpLowPlpThresh_Object = MibTableColumn
+jnxCosAtmVcScLrdpLowPlpThresh = _JnxCosAtmVcScLrdpLowPlpThresh_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 2, 1, 6),
+    _JnxCosAtmVcScLrdpLowPlpThresh_Type()
+)
+jnxCosAtmVcScLrdpLowPlpThresh.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCosAtmVcScLrdpLowPlpThresh.setStatus("current")
+
+
+class _JnxCosAtmVcScLrdpHighPlpThresh_Type(Integer32):
+    """Custom type jnxCosAtmVcScLrdpHighPlpThresh based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 32000),
+    )
+
+
+_JnxCosAtmVcScLrdpHighPlpThresh_Type.__name__ = "Integer32"
+_JnxCosAtmVcScLrdpHighPlpThresh_Object = MibTableColumn
+jnxCosAtmVcScLrdpHighPlpThresh = _JnxCosAtmVcScLrdpHighPlpThresh_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 2, 1, 7),
+    _JnxCosAtmVcScLrdpHighPlpThresh_Type()
+)
+jnxCosAtmVcScLrdpHighPlpThresh.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCosAtmVcScLrdpHighPlpThresh.setStatus("current")
+
+
+class _JnxCosAtmVcEpdThreshold_Type(Integer32):
+    """Custom type jnxCosAtmVcEpdThreshold based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 32000),
+    )
+
+
+_JnxCosAtmVcEpdThreshold_Type.__name__ = "Integer32"
+_JnxCosAtmVcEpdThreshold_Object = MibTableColumn
+jnxCosAtmVcEpdThreshold = _JnxCosAtmVcEpdThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 2, 1, 8),
+    _JnxCosAtmVcEpdThreshold_Type()
+)
+jnxCosAtmVcEpdThreshold.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCosAtmVcEpdThreshold.setStatus("current")
+_JnxCosAtmVcQstatsTable_Object = MibTable
+jnxCosAtmVcQstatsTable = _JnxCosAtmVcQstatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 3)
+)
+if mibBuilder.loadTexts:
+    jnxCosAtmVcQstatsTable.setStatus("current")
+_JnxCosAtmVcQstatsEntry_Object = MibTableRow
+jnxCosAtmVcQstatsEntry = _JnxCosAtmVcQstatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 3, 1)
+)
+jnxCosAtmVcQstatsEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+    (0, "ATM-MIB", "atmVclVpi"),
+    (0, "ATM-MIB", "atmVclVci"),
+    (0, "JUNIPER-COS-MIB", "jnxCosFcId"),
+)
+if mibBuilder.loadTexts:
+    jnxCosAtmVcQstatsEntry.setStatus("current")
+_JnxCosAtmVcQstatsOutPackets_Type = Counter64
+_JnxCosAtmVcQstatsOutPackets_Object = MibTableColumn
+jnxCosAtmVcQstatsOutPackets = _JnxCosAtmVcQstatsOutPackets_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 3, 1, 1),
+    _JnxCosAtmVcQstatsOutPackets_Type()
+)
+jnxCosAtmVcQstatsOutPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCosAtmVcQstatsOutPackets.setStatus("current")
+_JnxCosAtmVcQstatsOutBytes_Type = Counter64
+_JnxCosAtmVcQstatsOutBytes_Object = MibTableColumn
+jnxCosAtmVcQstatsOutBytes = _JnxCosAtmVcQstatsOutBytes_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 3, 1, 2),
+    _JnxCosAtmVcQstatsOutBytes_Type()
+)
+jnxCosAtmVcQstatsOutBytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCosAtmVcQstatsOutBytes.setStatus("current")
+_JnxCosAtmVcQstatsOutRedDropPkts_Type = Counter64
+_JnxCosAtmVcQstatsOutRedDropPkts_Object = MibTableColumn
+jnxCosAtmVcQstatsOutRedDropPkts = _JnxCosAtmVcQstatsOutRedDropPkts_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 3, 1, 3),
+    _JnxCosAtmVcQstatsOutRedDropPkts_Type()
+)
+jnxCosAtmVcQstatsOutRedDropPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCosAtmVcQstatsOutRedDropPkts.setStatus("current")
+_JnxCosAtmVcQstatsOutNonRedDrops_Type = Counter64
+_JnxCosAtmVcQstatsOutNonRedDrops_Object = MibTableColumn
+jnxCosAtmVcQstatsOutNonRedDrops = _JnxCosAtmVcQstatsOutNonRedDrops_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 3, 1, 4),
+    _JnxCosAtmVcQstatsOutNonRedDrops_Type()
+)
+jnxCosAtmVcQstatsOutNonRedDrops.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCosAtmVcQstatsOutNonRedDrops.setStatus("current")
+_JnxCosAtmVcQstatsOutLpBytes_Type = Counter64
+_JnxCosAtmVcQstatsOutLpBytes_Object = MibTableColumn
+jnxCosAtmVcQstatsOutLpBytes = _JnxCosAtmVcQstatsOutLpBytes_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 3, 1, 5),
+    _JnxCosAtmVcQstatsOutLpBytes_Type()
+)
+jnxCosAtmVcQstatsOutLpBytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCosAtmVcQstatsOutLpBytes.setStatus("current")
+_JnxCosAtmVcQstatsOutLpPkts_Type = Counter64
+_JnxCosAtmVcQstatsOutLpPkts_Object = MibTableColumn
+jnxCosAtmVcQstatsOutLpPkts = _JnxCosAtmVcQstatsOutLpPkts_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 3, 1, 6),
+    _JnxCosAtmVcQstatsOutLpPkts_Type()
+)
+jnxCosAtmVcQstatsOutLpPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCosAtmVcQstatsOutLpPkts.setStatus("current")
+_JnxCosAtmVcQstatsOutLpDropBytes_Type = Counter64
+_JnxCosAtmVcQstatsOutLpDropBytes_Object = MibTableColumn
+jnxCosAtmVcQstatsOutLpDropBytes = _JnxCosAtmVcQstatsOutLpDropBytes_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 3, 1, 7),
+    _JnxCosAtmVcQstatsOutLpDropBytes_Type()
+)
+jnxCosAtmVcQstatsOutLpDropBytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCosAtmVcQstatsOutLpDropBytes.setStatus("current")
+_JnxCosAtmVcQstatsOutHpDropBytes_Type = Counter64
+_JnxCosAtmVcQstatsOutHpDropBytes_Object = MibTableColumn
+jnxCosAtmVcQstatsOutHpDropBytes = _JnxCosAtmVcQstatsOutHpDropBytes_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 3, 1, 8),
+    _JnxCosAtmVcQstatsOutHpDropBytes_Type()
+)
+jnxCosAtmVcQstatsOutHpDropBytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCosAtmVcQstatsOutHpDropBytes.setStatus("current")
+_JnxCosAtmVcQstatsOutLpDropPkts_Type = Counter64
+_JnxCosAtmVcQstatsOutLpDropPkts_Object = MibTableColumn
+jnxCosAtmVcQstatsOutLpDropPkts = _JnxCosAtmVcQstatsOutLpDropPkts_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 3, 1, 9),
+    _JnxCosAtmVcQstatsOutLpDropPkts_Type()
+)
+jnxCosAtmVcQstatsOutLpDropPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCosAtmVcQstatsOutLpDropPkts.setStatus("current")
+_JnxCosAtmVcQstatsOutHpDropPkts_Type = Counter64
+_JnxCosAtmVcQstatsOutHpDropPkts_Object = MibTableColumn
+jnxCosAtmVcQstatsOutHpDropPkts = _JnxCosAtmVcQstatsOutHpDropPkts_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 3, 1, 10),
+    _JnxCosAtmVcQstatsOutHpDropPkts_Type()
+)
+jnxCosAtmVcQstatsOutHpDropPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCosAtmVcQstatsOutHpDropPkts.setStatus("current")
+_JnxCosAtmTrunkTable_Object = MibTable
+jnxCosAtmTrunkTable = _JnxCosAtmTrunkTable_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 4)
+)
+if mibBuilder.loadTexts:
+    jnxCosAtmTrunkTable.setStatus("current")
+_JnxCosAtmTrunkEntry_Object = MibTableRow
+jnxCosAtmTrunkEntry = _JnxCosAtmTrunkEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 4, 1)
+)
+jnxCosAtmTrunkEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+    (0, "JUNIPER-COS-MIB", "jnxCosFcId"),
+)
+if mibBuilder.loadTexts:
+    jnxCosAtmTrunkEntry.setStatus("current")
+
+
+class _JnxCosAtmTrunkMode_Type(Integer32):
+    """Custom type jnxCosAtmTrunkMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("alternate", 2),
+          ("strict", 1))
+    )
+
+
+_JnxCosAtmTrunkMode_Type.__name__ = "Integer32"
+_JnxCosAtmTrunkMode_Object = MibTableColumn
+jnxCosAtmTrunkMode = _JnxCosAtmTrunkMode_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 4, 1, 1),
+    _JnxCosAtmTrunkMode_Type()
+)
+jnxCosAtmTrunkMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCosAtmTrunkMode.setStatus("current")
+
+
+class _JnxCosAtmTrunkScPriority_Type(Integer32):
+    """Custom type jnxCosAtmTrunkScPriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("high", 2),
+          ("low", 1))
+    )
+
+
+_JnxCosAtmTrunkScPriority_Type.__name__ = "Integer32"
+_JnxCosAtmTrunkScPriority_Object = MibTableColumn
+jnxCosAtmTrunkScPriority = _JnxCosAtmTrunkScPriority_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 4, 1, 2),
+    _JnxCosAtmTrunkScPriority_Type()
+)
+jnxCosAtmTrunkScPriority.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCosAtmTrunkScPriority.setStatus("current")
+
+
+class _JnxCosAtmTrunkScTxWeightType_Type(Integer32):
+    """Custom type jnxCosAtmTrunkScTxWeightType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("cells", 1),
+          ("percent", 2))
+    )
+
+
+_JnxCosAtmTrunkScTxWeightType_Type.__name__ = "Integer32"
+_JnxCosAtmTrunkScTxWeightType_Object = MibTableColumn
+jnxCosAtmTrunkScTxWeightType = _JnxCosAtmTrunkScTxWeightType_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 4, 1, 3),
+    _JnxCosAtmTrunkScTxWeightType_Type()
+)
+jnxCosAtmTrunkScTxWeightType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCosAtmTrunkScTxWeightType.setStatus("current")
+
+
+class _JnxCosAtmTrunkScTxWeight_Type(Integer32):
+    """Custom type jnxCosAtmTrunkScTxWeight based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 32000),
+    )
+
+
+_JnxCosAtmTrunkScTxWeight_Type.__name__ = "Integer32"
+_JnxCosAtmTrunkScTxWeight_Object = MibTableColumn
+jnxCosAtmTrunkScTxWeight = _JnxCosAtmTrunkScTxWeight_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 4, 1, 4),
+    _JnxCosAtmTrunkScTxWeight_Type()
+)
+jnxCosAtmTrunkScTxWeight.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCosAtmTrunkScTxWeight.setStatus("current")
+
+
+class _JnxCosAtmTrunkQaType_Type(Integer32):
+    """Custom type jnxCosAtmTrunkQaType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dualEpd", 3),
+          ("red", 1),
+          ("singleEpd", 2))
+    )
+
+
+_JnxCosAtmTrunkQaType_Type.__name__ = "Integer32"
+_JnxCosAtmTrunkQaType_Object = MibTableColumn
+jnxCosAtmTrunkQaType = _JnxCosAtmTrunkQaType_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 4, 1, 5),
+    _JnxCosAtmTrunkQaType_Type()
+)
+jnxCosAtmTrunkQaType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCosAtmTrunkQaType.setStatus("current")
+
+
+class _JnxCosAtmTrunkEpdThresholdPlp0_Type(Integer32):
+    """Custom type jnxCosAtmTrunkEpdThresholdPlp0 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 32000),
+    )
+
+
+_JnxCosAtmTrunkEpdThresholdPlp0_Type.__name__ = "Integer32"
+_JnxCosAtmTrunkEpdThresholdPlp0_Object = MibTableColumn
+jnxCosAtmTrunkEpdThresholdPlp0 = _JnxCosAtmTrunkEpdThresholdPlp0_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 4, 1, 6),
+    _JnxCosAtmTrunkEpdThresholdPlp0_Type()
+)
+jnxCosAtmTrunkEpdThresholdPlp0.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCosAtmTrunkEpdThresholdPlp0.setStatus("current")
+
+
+class _JnxCosAtmTrunkEpdThresholdPlp1_Type(Integer32):
+    """Custom type jnxCosAtmTrunkEpdThresholdPlp1 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 32000),
+    )
+
+
+_JnxCosAtmTrunkEpdThresholdPlp1_Type.__name__ = "Integer32"
+_JnxCosAtmTrunkEpdThresholdPlp1_Object = MibTableColumn
+jnxCosAtmTrunkEpdThresholdPlp1 = _JnxCosAtmTrunkEpdThresholdPlp1_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 4, 1, 7),
+    _JnxCosAtmTrunkEpdThresholdPlp1_Type()
+)
+jnxCosAtmTrunkEpdThresholdPlp1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCosAtmTrunkEpdThresholdPlp1.setStatus("current")
+_JnxCosAtmTrunkQstatsOutPackets_Type = Counter64
+_JnxCosAtmTrunkQstatsOutPackets_Object = MibTableColumn
+jnxCosAtmTrunkQstatsOutPackets = _JnxCosAtmTrunkQstatsOutPackets_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 4, 1, 8),
+    _JnxCosAtmTrunkQstatsOutPackets_Type()
+)
+jnxCosAtmTrunkQstatsOutPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCosAtmTrunkQstatsOutPackets.setStatus("current")
+_JnxCosAtmTrunkQstatsOutBytes_Type = Counter64
+_JnxCosAtmTrunkQstatsOutBytes_Object = MibTableColumn
+jnxCosAtmTrunkQstatsOutBytes = _JnxCosAtmTrunkQstatsOutBytes_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 4, 1, 9),
+    _JnxCosAtmTrunkQstatsOutBytes_Type()
+)
+jnxCosAtmTrunkQstatsOutBytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCosAtmTrunkQstatsOutBytes.setStatus("current")
+_JnxCosAtmTrunkQstatsOutDrops_Type = Counter64
+_JnxCosAtmTrunkQstatsOutDrops_Object = MibTableColumn
+jnxCosAtmTrunkQstatsOutDrops = _JnxCosAtmTrunkQstatsOutDrops_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 4, 1, 10),
+    _JnxCosAtmTrunkQstatsOutDrops_Type()
+)
+jnxCosAtmTrunkQstatsOutDrops.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCosAtmTrunkQstatsOutDrops.setStatus("current")
+_JnxCosAtmTrunkQstatsOutLpBytes_Type = Counter64
+_JnxCosAtmTrunkQstatsOutLpBytes_Object = MibTableColumn
+jnxCosAtmTrunkQstatsOutLpBytes = _JnxCosAtmTrunkQstatsOutLpBytes_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 4, 1, 11),
+    _JnxCosAtmTrunkQstatsOutLpBytes_Type()
+)
+jnxCosAtmTrunkQstatsOutLpBytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCosAtmTrunkQstatsOutLpBytes.setStatus("current")
+_JnxCosAtmTrunkQstatsOutLpPkts_Type = Counter64
+_JnxCosAtmTrunkQstatsOutLpPkts_Object = MibTableColumn
+jnxCosAtmTrunkQstatsOutLpPkts = _JnxCosAtmTrunkQstatsOutLpPkts_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 4, 1, 12),
+    _JnxCosAtmTrunkQstatsOutLpPkts_Type()
+)
+jnxCosAtmTrunkQstatsOutLpPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCosAtmTrunkQstatsOutLpPkts.setStatus("current")
+_JnxCosAtmTrunkQstatsOutLpDropBytes_Type = Counter64
+_JnxCosAtmTrunkQstatsOutLpDropBytes_Object = MibTableColumn
+jnxCosAtmTrunkQstatsOutLpDropBytes = _JnxCosAtmTrunkQstatsOutLpDropBytes_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 4, 1, 13),
+    _JnxCosAtmTrunkQstatsOutLpDropBytes_Type()
+)
+jnxCosAtmTrunkQstatsOutLpDropBytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCosAtmTrunkQstatsOutLpDropBytes.setStatus("current")
+_JnxCosAtmTrunkQstatsOutHpDropBytes_Type = Counter64
+_JnxCosAtmTrunkQstatsOutHpDropBytes_Object = MibTableColumn
+jnxCosAtmTrunkQstatsOutHpDropBytes = _JnxCosAtmTrunkQstatsOutHpDropBytes_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 4, 1, 14),
+    _JnxCosAtmTrunkQstatsOutHpDropBytes_Type()
+)
+jnxCosAtmTrunkQstatsOutHpDropBytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCosAtmTrunkQstatsOutHpDropBytes.setStatus("current")
+_JnxCosAtmTrunkQstatsOutLpDropPkts_Type = Counter64
+_JnxCosAtmTrunkQstatsOutLpDropPkts_Object = MibTableColumn
+jnxCosAtmTrunkQstatsOutLpDropPkts = _JnxCosAtmTrunkQstatsOutLpDropPkts_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 4, 1, 15),
+    _JnxCosAtmTrunkQstatsOutLpDropPkts_Type()
+)
+jnxCosAtmTrunkQstatsOutLpDropPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCosAtmTrunkQstatsOutLpDropPkts.setStatus("current")
+_JnxCosAtmTrunkQstatsOutHpDropPkts_Type = Counter64
+_JnxCosAtmTrunkQstatsOutHpDropPkts_Object = MibTableColumn
+jnxCosAtmTrunkQstatsOutHpDropPkts = _JnxCosAtmTrunkQstatsOutHpDropPkts_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 4, 1, 16),
+    _JnxCosAtmTrunkQstatsOutHpDropPkts_Type()
+)
+jnxCosAtmTrunkQstatsOutHpDropPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCosAtmTrunkQstatsOutHpDropPkts.setStatus("current")
+_JnxCosAtmTrunkQstatsOutHpBytes_Type = Counter64
+_JnxCosAtmTrunkQstatsOutHpBytes_Object = MibTableColumn
+jnxCosAtmTrunkQstatsOutHpBytes = _JnxCosAtmTrunkQstatsOutHpBytes_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 4, 1, 17),
+    _JnxCosAtmTrunkQstatsOutHpBytes_Type()
+)
+jnxCosAtmTrunkQstatsOutHpBytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCosAtmTrunkQstatsOutHpBytes.setStatus("current")
+_JnxCosAtmTrunkQstatsOutHpPkts_Type = Counter64
+_JnxCosAtmTrunkQstatsOutHpPkts_Object = MibTableColumn
+jnxCosAtmTrunkQstatsOutHpPkts = _JnxCosAtmTrunkQstatsOutHpPkts_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 21, 4, 1, 18),
+    _JnxCosAtmTrunkQstatsOutHpPkts_Type()
+)
+jnxCosAtmTrunkQstatsOutHpPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCosAtmTrunkQstatsOutHpPkts.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "JUNIPER-ATM-COS-MIB",
+    **{"jnxAtmCos": jnxAtmCos,
+       "jnxCosAtmVcTable": jnxCosAtmVcTable,
+       "jnxCosAtmVcEntry": jnxCosAtmVcEntry,
+       "jnxCosAtmVcCosMode": jnxCosAtmVcCosMode,
+       "jnxCosAtmVcScTable": jnxCosAtmVcScTable,
+       "jnxCosAtmVcScEntry": jnxCosAtmVcScEntry,
+       "jnxCosAtmVcScPriority": jnxCosAtmVcScPriority,
+       "jnxCosAtmVcScTxWeightType": jnxCosAtmVcScTxWeightType,
+       "jnxCosAtmVcScTxWeight": jnxCosAtmVcScTxWeight,
+       "jnxCosAtmVcScDpType": jnxCosAtmVcScDpType,
+       "jnxCosAtmVcScLrdpQueueDepth": jnxCosAtmVcScLrdpQueueDepth,
+       "jnxCosAtmVcScLrdpLowPlpThresh": jnxCosAtmVcScLrdpLowPlpThresh,
+       "jnxCosAtmVcScLrdpHighPlpThresh": jnxCosAtmVcScLrdpHighPlpThresh,
+       "jnxCosAtmVcEpdThreshold": jnxCosAtmVcEpdThreshold,
+       "jnxCosAtmVcQstatsTable": jnxCosAtmVcQstatsTable,
+       "jnxCosAtmVcQstatsEntry": jnxCosAtmVcQstatsEntry,
+       "jnxCosAtmVcQstatsOutPackets": jnxCosAtmVcQstatsOutPackets,
+       "jnxCosAtmVcQstatsOutBytes": jnxCosAtmVcQstatsOutBytes,
+       "jnxCosAtmVcQstatsOutRedDropPkts": jnxCosAtmVcQstatsOutRedDropPkts,
+       "jnxCosAtmVcQstatsOutNonRedDrops": jnxCosAtmVcQstatsOutNonRedDrops,
+       "jnxCosAtmVcQstatsOutLpBytes": jnxCosAtmVcQstatsOutLpBytes,
+       "jnxCosAtmVcQstatsOutLpPkts": jnxCosAtmVcQstatsOutLpPkts,
+       "jnxCosAtmVcQstatsOutLpDropBytes": jnxCosAtmVcQstatsOutLpDropBytes,
+       "jnxCosAtmVcQstatsOutHpDropBytes": jnxCosAtmVcQstatsOutHpDropBytes,
+       "jnxCosAtmVcQstatsOutLpDropPkts": jnxCosAtmVcQstatsOutLpDropPkts,
+       "jnxCosAtmVcQstatsOutHpDropPkts": jnxCosAtmVcQstatsOutHpDropPkts,
+       "jnxCosAtmTrunkTable": jnxCosAtmTrunkTable,
+       "jnxCosAtmTrunkEntry": jnxCosAtmTrunkEntry,
+       "jnxCosAtmTrunkMode": jnxCosAtmTrunkMode,
+       "jnxCosAtmTrunkScPriority": jnxCosAtmTrunkScPriority,
+       "jnxCosAtmTrunkScTxWeightType": jnxCosAtmTrunkScTxWeightType,
+       "jnxCosAtmTrunkScTxWeight": jnxCosAtmTrunkScTxWeight,
+       "jnxCosAtmTrunkQaType": jnxCosAtmTrunkQaType,
+       "jnxCosAtmTrunkEpdThresholdPlp0": jnxCosAtmTrunkEpdThresholdPlp0,
+       "jnxCosAtmTrunkEpdThresholdPlp1": jnxCosAtmTrunkEpdThresholdPlp1,
+       "jnxCosAtmTrunkQstatsOutPackets": jnxCosAtmTrunkQstatsOutPackets,
+       "jnxCosAtmTrunkQstatsOutBytes": jnxCosAtmTrunkQstatsOutBytes,
+       "jnxCosAtmTrunkQstatsOutDrops": jnxCosAtmTrunkQstatsOutDrops,
+       "jnxCosAtmTrunkQstatsOutLpBytes": jnxCosAtmTrunkQstatsOutLpBytes,
+       "jnxCosAtmTrunkQstatsOutLpPkts": jnxCosAtmTrunkQstatsOutLpPkts,
+       "jnxCosAtmTrunkQstatsOutLpDropBytes": jnxCosAtmTrunkQstatsOutLpDropBytes,
+       "jnxCosAtmTrunkQstatsOutHpDropBytes": jnxCosAtmTrunkQstatsOutHpDropBytes,
+       "jnxCosAtmTrunkQstatsOutLpDropPkts": jnxCosAtmTrunkQstatsOutLpDropPkts,
+       "jnxCosAtmTrunkQstatsOutHpDropPkts": jnxCosAtmTrunkQstatsOutHpDropPkts,
+       "jnxCosAtmTrunkQstatsOutHpBytes": jnxCosAtmTrunkQstatsOutHpBytes,
+       "jnxCosAtmTrunkQstatsOutHpPkts": jnxCosAtmTrunkQstatsOutHpPkts}
+)

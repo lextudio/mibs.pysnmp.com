@@ -1,28 +1,244 @@
+# SNMP MIB module (SIP-TRAP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module SIP-TRAP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/SIP-TRAP-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:56:28 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-reason, comment, percent, code, gwType, csID, port, timeOccurred, registrationStatus, csType, gwIP, gwID, moduleID = mibBuilder.importSymbols("AGGREGATED-EXT-MIB", "reason", "comment", "percent", "code", "gwType", "csID", "port", "timeOccurred", "registrationStatus", "csType", "gwIP", "gwID", "moduleID")
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, Counter64, IpAddress, ObjectName, ModuleIdentity, Unsigned32, snmpModules, enterprises, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, TimeTicks, Gauge32, ObjectIdentity, Bits, iso, Integer32, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Counter64", "IpAddress", "ObjectName", "ModuleIdentity", "Unsigned32", "snmpModules", "enterprises", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "TimeTicks", "Gauge32", "ObjectIdentity", "Bits", "iso", "Integer32", "NotificationType")
-TextualConvention, TimeStamp, TestAndIncr, DisplayString, RowStatus, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TimeStamp", "TestAndIncr", "DisplayString", "RowStatus", "TruthValue")
-lucent = MibIdentifier((1, 3, 6, 1, 4, 1, 1751))
-products = MibIdentifier((1, 3, 6, 1, 4, 1, 1751, 1))
-softSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 1751, 1, 1198))
-sipDeviceServer = MibIdentifier((1, 3, 6, 1, 4, 1, 1751, 1, 1198, 5))
-sipTraps = ModuleIdentity((1, 3, 6, 1, 4, 1, 1751, 1, 1198, 5, 0))
-if mibBuilder.loadTexts: sipTraps.setLastUpdated('240701')
-if mibBuilder.loadTexts: sipTraps.setOrganization('Lucent Technologies')
-sipCSConnectionStatus = NotificationType((1, 3, 6, 1, 4, 1, 1751, 1, 1198, 5, 0, 0)).setObjects(("AGGREGATED-EXT-MIB", "timeOccurred"), ("AGGREGATED-EXT-MIB", "code"), ("AGGREGATED-EXT-MIB", "csID"), ("AGGREGATED-EXT-MIB", "csType"), ("AGGREGATED-EXT-MIB", "registrationStatus"), ("AGGREGATED-EXT-MIB", "reason"), ("AGGREGATED-EXT-MIB", "comment"))
-if mibBuilder.loadTexts: sipCSConnectionStatus.setStatus('current')
-sipDSError = NotificationType((1, 3, 6, 1, 4, 1, 1751, 1, 1198, 5, 0, 1)).setObjects(("AGGREGATED-EXT-MIB", "timeOccurred"), ("AGGREGATED-EXT-MIB", "code"), ("AGGREGATED-EXT-MIB", "reason"), ("AGGREGATED-EXT-MIB", "comment"))
-if mibBuilder.loadTexts: sipDSError.setStatus('current')
-sipCommandFailed = NotificationType((1, 3, 6, 1, 4, 1, 1751, 1, 1198, 5, 0, 2)).setObjects(("AGGREGATED-EXT-MIB", "timeOccurred"), ("AGGREGATED-EXT-MIB", "code"), ("AGGREGATED-EXT-MIB", "reason"), ("AGGREGATED-EXT-MIB", "comment"))
-if mibBuilder.loadTexts: sipCommandFailed.setStatus('current')
-mibBuilder.exportSymbols("SIP-TRAP-MIB", lucent=lucent, sipTraps=sipTraps, sipDeviceServer=sipDeviceServer, sipCommandFailed=sipCommandFailed, sipCSConnectionStatus=sipCSConnectionStatus, sipDSError=sipDSError, softSwitch=softSwitch, PYSNMP_MODULE_ID=sipTraps, products=products)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/SIP-TRAP-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:52:26 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(code,
+ comment,
+ csID,
+ csType,
+ gwID,
+ gwIP,
+ gwType,
+ moduleID,
+ percent,
+ port,
+ reason,
+ registrationStatus,
+ timeOccurred) = mibBuilder.importSymbols(
+    "AGGREGATED-EXT-MIB",
+    "code",
+    "comment",
+    "csID",
+    "csType",
+    "gwID",
+    "gwIP",
+    "gwType",
+    "moduleID",
+    "percent",
+    "port",
+    "reason",
+    "registrationStatus",
+    "timeOccurred")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ ObjectName,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso,
+ snmpModules) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "ObjectName",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso",
+    "snmpModules")
+
+(DisplayString,
+ RowStatus,
+ TextualConvention,
+ TestAndIncr,
+ TimeStamp,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "RowStatus",
+    "TextualConvention",
+    "TestAndIncr",
+    "TimeStamp",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+sipTraps = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198, 5, 0)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Lucent_ObjectIdentity = ObjectIdentity
+lucent = _Lucent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751)
+)
+_Products_ObjectIdentity = ObjectIdentity
+products = _Products_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 1)
+)
+_SoftSwitch_ObjectIdentity = ObjectIdentity
+softSwitch = _SoftSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198)
+)
+_SipDeviceServer_ObjectIdentity = ObjectIdentity
+sipDeviceServer = _SipDeviceServer_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198, 5)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+sipCSConnectionStatus = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198, 5, 0, 0)
+)
+sipCSConnectionStatus.setObjects(
+      *(("AGGREGATED-EXT-MIB", "timeOccurred"),
+        ("AGGREGATED-EXT-MIB", "code"),
+        ("AGGREGATED-EXT-MIB", "csID"),
+        ("AGGREGATED-EXT-MIB", "csType"),
+        ("AGGREGATED-EXT-MIB", "registrationStatus"),
+        ("AGGREGATED-EXT-MIB", "reason"),
+        ("AGGREGATED-EXT-MIB", "comment"))
+)
+if mibBuilder.loadTexts:
+    sipCSConnectionStatus.setStatus(
+        "current"
+    )
+
+sipDSError = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198, 5, 0, 1)
+)
+sipDSError.setObjects(
+      *(("AGGREGATED-EXT-MIB", "timeOccurred"),
+        ("AGGREGATED-EXT-MIB", "code"),
+        ("AGGREGATED-EXT-MIB", "reason"),
+        ("AGGREGATED-EXT-MIB", "comment"))
+)
+if mibBuilder.loadTexts:
+    sipDSError.setStatus(
+        "current"
+    )
+
+sipCommandFailed = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198, 5, 0, 2)
+)
+sipCommandFailed.setObjects(
+      *(("AGGREGATED-EXT-MIB", "timeOccurred"),
+        ("AGGREGATED-EXT-MIB", "code"),
+        ("AGGREGATED-EXT-MIB", "reason"),
+        ("AGGREGATED-EXT-MIB", "comment"))
+)
+if mibBuilder.loadTexts:
+    sipCommandFailed.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "SIP-TRAP-MIB",
+    **{"lucent": lucent,
+       "products": products,
+       "softSwitch": softSwitch,
+       "sipDeviceServer": sipDeviceServer,
+       "sipTraps": sipTraps,
+       "sipCSConnectionStatus": sipCSConnectionStatus,
+       "sipDSError": sipDSError,
+       "sipCommandFailed": sipCommandFailed}
+)

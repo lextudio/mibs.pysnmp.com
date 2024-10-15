@@ -1,24 +1,154 @@
+# SNMP MIB module (CISCO-WAN-VISM-AAL2-PROFILES-CAPABILITY) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-WAN-VISM-AAL2-PROFILES-CAPABILITY (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/CISCO-WAN-VISM-AAL2-PROFILES-CAPABILITY
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:04:47 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint")
-ciscoWanAgentCapability, = mibBuilder.importSymbols("CISCOWAN-SMI", "ciscoWanAgentCapability")
-ModuleCompliance, NotificationGroup, AgentCapabilities = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "AgentCapabilities")
-MibIdentifier, Counter32, Counter64, ModuleIdentity, ObjectIdentity, IpAddress, Unsigned32, NotificationType, Gauge32, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, iso, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Counter32", "Counter64", "ModuleIdentity", "ObjectIdentity", "IpAddress", "Unsigned32", "NotificationType", "Gauge32", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "iso", "TimeTicks")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-ciscoWanVismAal2ProfilesCapability = ModuleIdentity((1, 3, 6, 1, 4, 1, 351, 160, 334))
-ciscoWanVismAal2ProfilesCapability.setRevisions(('2000-12-18 00:00',))
-if mibBuilder.loadTexts: ciscoWanVismAal2ProfilesCapability.setLastUpdated('200012180000Z')
-if mibBuilder.loadTexts: ciscoWanVismAal2ProfilesCapability.setOrganization('Cisco Systems, Inc.')
-ciscoWanVismAal2ProfilesCapabilityV2R00 = AgentCapabilities((1, 3, 6, 1, 4, 1, 351, 160, 334, 1))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoWanVismAal2ProfilesCapabilityV2R00 = ciscoWanVismAal2ProfilesCapabilityV2R00.setProductRelease('VISM Release2.1')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoWanVismAal2ProfilesCapabilityV2R00 = ciscoWanVismAal2ProfilesCapabilityV2R00.setStatus('current')
-mibBuilder.exportSymbols("CISCO-WAN-VISM-AAL2-PROFILES-CAPABILITY", ciscoWanVismAal2ProfilesCapability=ciscoWanVismAal2ProfilesCapability, ciscoWanVismAal2ProfilesCapabilityV2R00=ciscoWanVismAal2ProfilesCapabilityV2R00, PYSNMP_MODULE_ID=ciscoWanVismAal2ProfilesCapability)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CISCO-WAN-VISM-AAL2-PROFILES-CAPABILITY
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:13:24 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ciscoWanAgentCapability,) = mibBuilder.importSymbols(
+    "CISCOWAN-SMI",
+    "ciscoWanAgentCapability")
+
+(AgentCapabilities,
+ ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "AgentCapabilities",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+ciscoWanVismAal2ProfilesCapability = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 351, 160, 334)
+)
+ciscoWanVismAal2ProfilesCapability.setRevisions(
+        ("2000-12-18 00:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+ciscoWanVismAal2ProfilesCapabilityV2R00 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 351, 160, 334, 1)
+)
+if mibBuilder.loadTexts:
+    ciscoWanVismAal2ProfilesCapabilityV2R00.setProductRelease("VISM Release2.1")
+if mibBuilder.loadTexts:
+    ciscoWanVismAal2ProfilesCapabilityV2R00.setStatus(
+        "current"
+    )
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-WAN-VISM-AAL2-PROFILES-CAPABILITY",
+    **{"ciscoWanVismAal2ProfilesCapability": ciscoWanVismAal2ProfilesCapability,
+       "ciscoWanVismAal2ProfilesCapabilityV2R00": ciscoWanVismAal2ProfilesCapabilityV2R00}
+)

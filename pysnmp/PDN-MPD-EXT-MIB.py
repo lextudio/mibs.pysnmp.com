@@ -1,35 +1,194 @@
+# SNMP MIB module (PDN-MPD-EXT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module PDN-MPD-EXT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/PDN-MPD-EXT-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:30:13 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
-pdnMpdExt, = mibBuilder.importSymbols("PDN-HEADER-MIB", "pdnMpdExt")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-NotificationType, ObjectIdentity, Gauge32, Integer32, iso, Counter32, ModuleIdentity, MibIdentifier, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, Counter64, Bits, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "ObjectIdentity", "Gauge32", "Integer32", "iso", "Counter32", "ModuleIdentity", "MibIdentifier", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "Counter64", "Bits", "TimeTicks")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-pdnMpdExtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 44, 1))
-if mibBuilder.loadTexts: pdnMpdExtMIB.setLastUpdated('200304081900Z')
-if mibBuilder.loadTexts: pdnMpdExtMIB.setOrganization('Paradyne Corporation MIB Working Group')
-pdnMpdExtMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 44, 1, 1))
-pdnMpdExtMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 44, 1, 2))
-class PdnMpdExtSecurityMode(TextualConvention, Bits):
-    status = 'current'
-    namedValues = NamedValues(("none", 0), ("snmpv1NoAuthNoPriv", 1), ("snmpv2cNoAuthNoPriv", 2), ("snmpv3NoAuthNoPriv", 3), ("snmpv3AuthNoPriv", 4), ("snmpv3AuthPriv", 5))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/PDN-MPD-EXT-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:37:51 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-pdnMpdExtSecurityModeConfig = MibScalar((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 44, 1, 1, 1), PdnMpdExtSecurityMode()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pdnMpdExtSecurityModeConfig.setStatus('current')
-pdnMpdExtCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 44, 1, 2, 1))
-pdnMpdExtGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 44, 1, 2, 2))
-pdnMpdExtCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 44, 1, 2, 1, 1)).setObjects(("PDN-MPD-EXT-MIB", "pdnMpdExtGroup"))
+if 'mibBuilder' not in globals():
+    import sys
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    pdnMpdExtCompliance = pdnMpdExtCompliance.setStatus('current')
-pdnMpdExtGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 44, 1, 2, 2, 1)).setObjects(("PDN-MPD-EXT-MIB", "pdnMpdExtSecurityModeConfig"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    pdnMpdExtGroup = pdnMpdExtGroup.setStatus('current')
-mibBuilder.exportSymbols("PDN-MPD-EXT-MIB", pdnMpdExtGroup=pdnMpdExtGroup, pdnMpdExtMIBConformance=pdnMpdExtMIBConformance, pdnMpdExtSecurityModeConfig=pdnMpdExtSecurityModeConfig, pdnMpdExtCompliance=pdnMpdExtCompliance, pdnMpdExtCompliances=pdnMpdExtCompliances, pdnMpdExtGroups=pdnMpdExtGroups, PYSNMP_MODULE_ID=pdnMpdExtMIB, PdnMpdExtSecurityMode=PdnMpdExtSecurityMode, pdnMpdExtMIB=pdnMpdExtMIB, pdnMpdExtMIBObjects=pdnMpdExtMIBObjects)
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(pdnMpdExt,) = mibBuilder.importSymbols(
+    "PDN-HEADER-MIB",
+    "pdnMpdExt")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+pdnMpdExtMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 44, 1)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class PdnMpdExtSecurityMode(Bits, TextualConvention):
+    status = "current"
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_PdnMpdExtMIBObjects_ObjectIdentity = ObjectIdentity
+pdnMpdExtMIBObjects = _PdnMpdExtMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 44, 1, 1)
+)
+_PdnMpdExtSecurityModeConfig_Type = PdnMpdExtSecurityMode
+_PdnMpdExtSecurityModeConfig_Object = MibScalar
+pdnMpdExtSecurityModeConfig = _PdnMpdExtSecurityModeConfig_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 44, 1, 1, 1),
+    _PdnMpdExtSecurityModeConfig_Type()
+)
+pdnMpdExtSecurityModeConfig.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pdnMpdExtSecurityModeConfig.setStatus("current")
+_PdnMpdExtMIBConformance_ObjectIdentity = ObjectIdentity
+pdnMpdExtMIBConformance = _PdnMpdExtMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 44, 1, 2)
+)
+_PdnMpdExtCompliances_ObjectIdentity = ObjectIdentity
+pdnMpdExtCompliances = _PdnMpdExtCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 44, 1, 2, 1)
+)
+_PdnMpdExtGroups_ObjectIdentity = ObjectIdentity
+pdnMpdExtGroups = _PdnMpdExtGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 44, 1, 2, 2)
+)
+
+# Managed Objects groups
+
+pdnMpdExtGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 44, 1, 2, 2, 1)
+)
+pdnMpdExtGroup.setObjects(
+    ("PDN-MPD-EXT-MIB", "pdnMpdExtSecurityModeConfig")
+)
+if mibBuilder.loadTexts:
+    pdnMpdExtGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+pdnMpdExtCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 44, 1, 2, 1, 1)
+)
+if mibBuilder.loadTexts:
+    pdnMpdExtCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "PDN-MPD-EXT-MIB",
+    **{"PdnMpdExtSecurityMode": PdnMpdExtSecurityMode,
+       "pdnMpdExtMIB": pdnMpdExtMIB,
+       "pdnMpdExtMIBObjects": pdnMpdExtMIBObjects,
+       "pdnMpdExtSecurityModeConfig": pdnMpdExtSecurityModeConfig,
+       "pdnMpdExtMIBConformance": pdnMpdExtMIBConformance,
+       "pdnMpdExtCompliances": pdnMpdExtCompliances,
+       "pdnMpdExtCompliance": pdnMpdExtCompliance,
+       "pdnMpdExtGroups": pdnMpdExtGroups,
+       "pdnMpdExtGroup": pdnMpdExtGroup}
+)

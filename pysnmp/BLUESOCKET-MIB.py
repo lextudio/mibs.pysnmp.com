@@ -1,1050 +1,7525 @@
+# SNMP MIB module (BLUESOCKET-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module BLUESOCKET-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/BLUESOCKET-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:22:47 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint")
-blueSocket, = mibBuilder.importSymbols("BLUESOCKET-ROOT", "blueSocket")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-IpAddress, Bits, Counter64, NotificationType, enterprises, Integer32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, MibIdentifier, ModuleIdentity, TimeTicks, Unsigned32, Counter32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Bits", "Counter64", "NotificationType", "enterprises", "Integer32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "MibIdentifier", "ModuleIdentity", "TimeTicks", "Unsigned32", "Counter32", "iso")
-RowStatus, TextualConvention, DateAndTime, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DateAndTime", "DisplayString")
-blueServer = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1))
-users = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 1))
-destination = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 3))
-service = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 4))
-policy = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 5))
-vpn = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 6))
-configuration = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 7))
-interface = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 8))
-replication = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 9))
-connection = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 10))
-roles = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 11))
-serviceMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 12))
-statistics = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 13))
-vlan = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 14))
-schedule = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 15))
-nativeUsers = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 1, 1))
-adminUsers = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 1, 2))
-ipsec = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 6, 1))
-pptp = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 6, 2))
-subnetVpn = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 6, 3))
-certificate = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 6, 4))
-l2tp = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 6, 5))
-http = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 7, 1))
-misc = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 7, 2))
-autoBackup = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 7, 3))
-time = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 7, 4))
-mobility = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 7, 5))
-publicAccess = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 7, 6))
-confLog = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 7, 7))
-snmpConf = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 7, 8))
-systemTracker = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 7, 9))
-authentication = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10))
-failover = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 8, 3))
-managed = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 8, 4))
-protected = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 8, 5))
-userSummary = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 13, 1))
-systemStats = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 13, 2))
-confLogGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 7, 7, 1))
-snmpTrapConf = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 7, 8, 1))
-exAuthServer = MibIdentifier((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1))
-class BlueIpAddress(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '1d.1d.1d.1d'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(7, 15)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/BLUESOCKET-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 20:48:25 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class BlueMacAddress(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '1x:1x:1x:1x:1x:1x'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(17, 17)
-    fixedLength = 17
+if 'mibBuilder' not in globals():
+    import sys
 
-class LocalDateAndTime(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = ''
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(6, 6)
-    fixedLength = 6
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-nativeUserTable = MibTable((1, 3, 6, 1, 4, 1, 9967, 1, 1, 1, 1), )
-if mibBuilder.loadTexts: nativeUserTable.setStatus('current')
-nativeUserEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9967, 1, 1, 1, 1, 1), ).setIndexNames((0, "BLUESOCKET-MIB", "nativeUserId"))
-if mibBuilder.loadTexts: nativeUserEntry.setStatus('current')
-nativeUserId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: nativeUserId.setStatus('current')
-nativeUserAccess = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 1, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: nativeUserAccess.setStatus('current')
-nativeUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 1, 1, 1, 1, 3), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: nativeUserName.setStatus('current')
-nativeUserRoleId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 1, 1, 1, 1, 4), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: nativeUserRoleId.setStatus('current')
-nativeUserEmailId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 1, 1, 1, 1, 5), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: nativeUserEmailId.setStatus('current')
-nativeUserFixedIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 1, 1, 1, 1, 6), BlueIpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: nativeUserFixedIpAddr.setStatus('current')
-nativeUserPassword = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 1, 1, 1, 1, 7), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: nativeUserPassword.setStatus('current')
-nativeUserNotes = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 1, 1, 1, 1, 8), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: nativeUserNotes.setStatus('current')
-nativeUserRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 1, 1, 1, 1, 9), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: nativeUserRowStatus.setStatus('current')
-nativeUserRadAcctServId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 1, 1, 1, 1, 10), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: nativeUserRadAcctServId.setStatus('current')
-adminUserTable = MibTable((1, 3, 6, 1, 4, 1, 9967, 1, 1, 2, 1), )
-if mibBuilder.loadTexts: adminUserTable.setStatus('current')
-adminUserEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9967, 1, 1, 2, 1, 1), ).setIndexNames((0, "BLUESOCKET-MIB", "adminUserId"))
-if mibBuilder.loadTexts: adminUserEntry.setStatus('current')
-adminUserId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 1, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: adminUserId.setStatus('current')
-adminUserStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: adminUserStatus.setStatus('current')
-adminUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 1, 2, 1, 1, 3), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: adminUserName.setStatus('current')
-adminUserAccess = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 1, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("full", 1), ("intermediate", 2), ("readOnly", 3)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: adminUserAccess.setStatus('current')
-adminUserEmailId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 1, 2, 1, 1, 5), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: adminUserEmailId.setStatus('current')
-adminUserPassword = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 1, 2, 1, 1, 6), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: adminUserPassword.setStatus('current')
-adminUserNotes = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 1, 2, 1, 1, 7), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: adminUserNotes.setStatus('current')
-adminUserRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 1, 2, 1, 1, 9), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: adminUserRowStatus.setStatus('current')
-adUsrAccessTable = MibTable((1, 3, 6, 1, 4, 1, 9967, 1, 1, 3), )
-if mibBuilder.loadTexts: adUsrAccessTable.setStatus('current')
-adUsrAccessEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9967, 1, 1, 3, 1), ).setIndexNames((0, "BLUESOCKET-MIB", "adminUserId"))
-if mibBuilder.loadTexts: adUsrAccessEntry.setStatus('current')
-adUsrAccessAdminUser = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: adUsrAccessAdminUser.setStatus('current')
-adUsrAccessNativeUser = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: adUsrAccessNativeUser.setStatus('current')
-adUsrAccessExServer = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 1, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: adUsrAccessExServer.setStatus('current')
-adUsrAccessAccounting = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 1, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: adUsrAccessAccounting.setStatus('current')
-adUsrAccessRoles = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 1, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: adUsrAccessRoles.setStatus('current')
-adUsrAccessDestination = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 1, 3, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: adUsrAccessDestination.setStatus('current')
-adUsrAccessServices = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 1, 3, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: adUsrAccessServices.setStatus('current')
-adUsrAccessVpn = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 1, 3, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: adUsrAccessVpn.setStatus('current')
-adUsrAccessConfiguration = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 1, 3, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: adUsrAccessConfiguration.setStatus('current')
-adUsrAccessNetwork = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 1, 3, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: adUsrAccessNetwork.setStatus('current')
-adUsrAccessReplication = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 1, 3, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: adUsrAccessReplication.setStatus('current')
-adUsrAccessMaintance = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 1, 3, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: adUsrAccessMaintance.setStatus('current')
-adUsrAccessStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 1, 3, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: adUsrAccessStatus.setStatus('current')
-adUsrAccessVlans = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 1, 3, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: adUsrAccessVlans.setStatus('current')
-adUsrAccessSchedules = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 1, 3, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: adUsrAccessSchedules.setStatus('current')
-adUsrAccessMacDev = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 1, 3, 1, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: adUsrAccessMacDev.setStatus('current')
-exRdAuthServTable = MibTable((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 2), )
-if mibBuilder.loadTexts: exRdAuthServTable.setStatus('current')
-exRdAuthServEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 2, 1), ).setIndexNames((0, "BLUESOCKET-MIB", "exRdAuthServId"))
-if mibBuilder.loadTexts: exRdAuthServEntry.setStatus('current')
-exRdAuthServId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: exRdAuthServId.setStatus('current')
-exRdAuthServState = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exRdAuthServState.setStatus('current')
-exRdAuthServName = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 2, 1, 3), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exRdAuthServName.setStatus('current')
-exRdAuthServDefRoleId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 2, 1, 4), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exRdAuthServDefRoleId.setStatus('current')
-exRdAuthServRdAccId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 2, 1, 6), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exRdAuthServRdAccId.setStatus('current')
-exRdAuthServAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 2, 1, 7), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exRdAuthServAddr.setStatus('current')
-exRdAuthServPort = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 2, 1, 8), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exRdAuthServPort.setStatus('current')
-exRdAuthServSecret = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 2, 1, 9), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exRdAuthServSecret.setStatus('current')
-exRdAuthServPrecedence = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 2, 1, 10), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exRdAuthServPrecedence.setStatus('current')
-exRdAuthServNotes = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 2, 1, 11), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exRdAuthServNotes.setStatus('current')
-exRdAuthServRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 2, 1, 12), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exRdAuthServRowStatus.setStatus('current')
-exLdapServTable = MibTable((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3), )
-if mibBuilder.loadTexts: exLdapServTable.setStatus('current')
-exLdapServEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1), ).setIndexNames((0, "BLUESOCKET-MIB", "exLdapServId"))
-if mibBuilder.loadTexts: exLdapServEntry.setStatus('current')
-exLdapServId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: exLdapServId.setStatus('current')
-exLdapServState = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exLdapServState.setStatus('current')
-exLdapServName = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1, 3), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exLdapServName.setStatus('current')
-exLdapServDefRoleId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1, 4), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exLdapServDefRoleId.setStatus('current')
-exLdapServRdAccState = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exLdapServRdAccState.setStatus('current')
-exLdapServRdAccId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1, 6), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exLdapServRdAccId.setStatus('current')
-exLdapServAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1, 7), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exLdapServAddr.setStatus('current')
-exLdapServPort = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1, 8), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exLdapServPort.setStatus('current')
-exLdapServBase = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1, 9), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exLdapServBase.setStatus('current')
-exLdapServUniqueId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1, 10), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exLdapServUniqueId.setStatus('current')
-exLdapServAccount = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1, 11), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exLdapServAccount.setStatus('current')
-exLdapServFilters = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1, 12), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exLdapServFilters.setStatus('current')
-exLdapServSecret = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1, 13), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exLdapServSecret.setStatus('current')
-exLdapServPrecedence = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1, 14), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exLdapServPrecedence.setStatus('current')
-exLdapServNotes = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1, 15), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exLdapServNotes.setStatus('current')
-exLdapServSsl = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1, 17), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 1)).setFixedLength(1)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exLdapServSsl.setStatus('current')
-exLdapServSslServer = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1, 18), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exLdapServSslServer.setStatus('current')
-exLdapServSslClient = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1, 19), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exLdapServSslClient.setStatus('current')
-exLdapServRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1, 20), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exLdapServRowStatus.setStatus('current')
-exNtlmServTable = MibTable((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 4), )
-if mibBuilder.loadTexts: exNtlmServTable.setStatus('current')
-exNtlmServEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 4, 1), ).setIndexNames((0, "BLUESOCKET-MIB", "exNtlmServId"))
-if mibBuilder.loadTexts: exNtlmServEntry.setStatus('current')
-exNtlmServId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: exNtlmServId.setStatus('current')
-exNtlmServState = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exNtlmServState.setStatus('current')
-exNtlmServName = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 4, 1, 3), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exNtlmServName.setStatus('current')
-exNtlmServRdAccState = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 4, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exNtlmServRdAccState.setStatus('current')
-exNtlmServRdAccId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 4, 1, 5), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exNtlmServRdAccId.setStatus('current')
-exNtlmServDefRoleId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 4, 1, 6), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exNtlmServDefRoleId.setStatus('current')
-exNtlmServDomainName = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 4, 1, 7), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exNtlmServDomainName.setStatus('current')
-exNtlmServMsdc = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 4, 1, 8), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exNtlmServMsdc.setStatus('current')
-exNtlmServMsrpc = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 4, 1, 9), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exNtlmServMsrpc.setStatus('current')
-exNtlmServMsad = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 4, 1, 10), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exNtlmServMsad.setStatus('current')
-exNtlmServNotes = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 4, 1, 11), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exNtlmServNotes.setStatus('current')
-exNtlmServRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 4, 1, 12), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exNtlmServRowStatus.setStatus('current')
-exUserRuleTable = MibTable((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 5), )
-if mibBuilder.loadTexts: exUserRuleTable.setStatus('current')
-exUserRuleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 5, 1), ).setIndexNames((0, "BLUESOCKET-MIB", "exServId"), (0, "BLUESOCKET-MIB", "exUserRuleId"))
-if mibBuilder.loadTexts: exUserRuleEntry.setStatus('current')
-exServId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: exServId.setStatus('current')
-exUserRuleId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 5, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: exUserRuleId.setStatus('current')
-exUserRuleAttribute = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 5, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 50))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exUserRuleAttribute.setStatus('current')
-exUserRuleOperator = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 5, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 15))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exUserRuleOperator.setStatus('current')
-exUserRuleValue = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 5, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 50))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exUserRuleValue.setStatus('current')
-exUserRuleRoleId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 5, 1, 6), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exUserRuleRoleId.setStatus('current')
-exUserRuleSeqId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 5, 1, 7), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exUserRuleSeqId.setStatus('current')
-exUserRuleRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 5, 1, 8), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exUserRuleRowStatus.setStatus('current')
-exRdAccServTable = MibTable((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 6), )
-if mibBuilder.loadTexts: exRdAccServTable.setStatus('current')
-exRdAccServEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 6, 1), ).setIndexNames((0, "BLUESOCKET-MIB", "exRdAccServId"))
-if mibBuilder.loadTexts: exRdAccServEntry.setStatus('current')
-exRdAccServId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 6, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: exRdAccServId.setStatus('current')
-exRdAccServState = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 6, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exRdAccServState.setStatus('current')
-exRdAccServName = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 6, 1, 3), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exRdAccServName.setStatus('current')
-exRdAccServAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 6, 1, 4), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exRdAccServAddr.setStatus('current')
-exRdAccServPort = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 6, 1, 5), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exRdAccServPort.setStatus('current')
-exRdAccServSecret = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 6, 1, 6), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exRdAccServSecret.setStatus('current')
-exRdAccServNotes = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 6, 1, 7), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exRdAccServNotes.setStatus('current')
-exRdAccServRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 6, 1, 8), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: exRdAccServRowStatus.setStatus('current')
-ex802AuthServTable = MibTable((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 7), )
-if mibBuilder.loadTexts: ex802AuthServTable.setStatus('current')
-ex802AuthServEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 7, 1), ).setIndexNames((0, "BLUESOCKET-MIB", "ex802AuthServId"))
-if mibBuilder.loadTexts: ex802AuthServEntry.setStatus('current')
-ex802AuthServId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 7, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: ex802AuthServId.setStatus('current')
-ex802AuthServState = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 7, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: ex802AuthServState.setStatus('current')
-ex802AuthServName = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 7, 1, 3), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: ex802AuthServName.setStatus('current')
-ex802AuthServAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 7, 1, 4), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: ex802AuthServAddr.setStatus('current')
-ex802AuthServPort = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 7, 1, 5), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: ex802AuthServPort.setStatus('current')
-ex802AuthServDefaultRole = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 7, 1, 6), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: ex802AuthServDefaultRole.setStatus('current')
-ex802AuthServNotes = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 7, 1, 7), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: ex802AuthServNotes.setStatus('current')
-ex802AuthServRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 7, 1, 8), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: ex802AuthServRowStatus.setStatus('current')
-macDevAuthTable = MibTable((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 2), )
-if mibBuilder.loadTexts: macDevAuthTable.setStatus('current')
-macDevAuthEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 2, 1), ).setIndexNames((0, "BLUESOCKET-MIB", "macDevAuthId"))
-if mibBuilder.loadTexts: macDevAuthEntry.setStatus('current')
-macDevAuthId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: macDevAuthId.setStatus('current')
-macDevAuthState = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: macDevAuthState.setStatus('current')
-macDevAuthName = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 2, 1, 3), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: macDevAuthName.setStatus('current')
-macDevAuthMac = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 2, 1, 4), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: macDevAuthMac.setStatus('current')
-macDevAuthDefaultRole = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 2, 1, 5), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: macDevAuthDefaultRole.setStatus('current')
-macDevAuthNotes = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 2, 1, 6), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: macDevAuthNotes.setStatus('current')
-macDevAuthRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 2, 1, 7), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: macDevAuthRowStatus.setStatus('current')
-hostTable = MibTable((1, 3, 6, 1, 4, 1, 9967, 1, 3, 1), )
-if mibBuilder.loadTexts: hostTable.setStatus('current')
-hostEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9967, 1, 3, 1, 1), ).setIndexNames((0, "BLUESOCKET-MIB", "hostId"))
-if mibBuilder.loadTexts: hostEntry.setStatus('current')
-hostId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 3, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: hostId.setStatus('current')
-hostName = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 3, 1, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 50))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hostName.setStatus('current')
-hostAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 3, 1, 1, 3), BlueIpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hostAddress.setStatus('current')
-hostNetmask = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 3, 1, 1, 4), BlueIpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hostNetmask.setStatus('current')
-hostInvertDest = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 3, 1, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 1)).setFixedLength(1)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hostInvertDest.setStatus('current')
-hostType = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 3, 1, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 1)).setFixedLength(1)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hostType.setStatus('current')
-hostNotes = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 3, 1, 1, 7), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hostNotes.setStatus('current')
-hostRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 3, 1, 1, 8), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hostRowStatus.setStatus('current')
-hostGrpTable = MibTable((1, 3, 6, 1, 4, 1, 9967, 1, 3, 2), )
-if mibBuilder.loadTexts: hostGrpTable.setStatus('current')
-hostGrpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9967, 1, 3, 2, 1), ).setIndexNames((0, "BLUESOCKET-MIB", "hostGrpId"))
-if mibBuilder.loadTexts: hostGrpEntry.setStatus('current')
-hostGrpId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 3, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: hostGrpId.setStatus('current')
-hostGrpName = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 3, 2, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 50))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hostGrpName.setStatus('current')
-hostGrpRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 3, 2, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hostGrpRowStatus.setStatus('current')
-hostGrpMemTable = MibTable((1, 3, 6, 1, 4, 1, 9967, 1, 3, 3), )
-if mibBuilder.loadTexts: hostGrpMemTable.setStatus('current')
-hostGrpMemEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9967, 1, 3, 3, 1), ).setIndexNames((0, "BLUESOCKET-MIB", "hostGrpId"), (0, "BLUESOCKET-MIB", "hostGrpMemId"))
-if mibBuilder.loadTexts: hostGrpMemEntry.setStatus('current')
-hostGrpMemId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 3, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: hostGrpMemId.setStatus('current')
-hostGrpMemRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 3, 3, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hostGrpMemRowStatus.setStatus('current')
-serviceTable = MibTable((1, 3, 6, 1, 4, 1, 9967, 1, 4, 1), )
-if mibBuilder.loadTexts: serviceTable.setStatus('current')
-serviceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9967, 1, 4, 1, 1), ).setIndexNames((0, "BLUESOCKET-MIB", "serviceId"))
-if mibBuilder.loadTexts: serviceEntry.setStatus('current')
-serviceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 4, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: serviceId.setStatus('current')
-serviceName = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 4, 1, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 50))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: serviceName.setStatus('current')
-servicePort = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 4, 1, 1, 3), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: servicePort.setStatus('current')
-serviceProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 4, 1, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 10))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: serviceProtocol.setStatus('current')
-serviceCosPriorityIn = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 4, 1, 1, 7), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: serviceCosPriorityIn.setStatus('current')
-serviceCosPriorityOut = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 4, 1, 1, 8), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: serviceCosPriorityOut.setStatus('current')
-serviceCosDscpIn = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 4, 1, 1, 9), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: serviceCosDscpIn.setStatus('current')
-serviceCosDscpOut = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 4, 1, 1, 10), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: serviceCosDscpOut.setStatus('current')
-serviceNotes = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 4, 1, 1, 11), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: serviceNotes.setStatus('current')
-serviceRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 4, 1, 1, 12), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: serviceRowStatus.setStatus('current')
-serviceGrpTable = MibTable((1, 3, 6, 1, 4, 1, 9967, 1, 4, 2), )
-if mibBuilder.loadTexts: serviceGrpTable.setStatus('current')
-serviceGrpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9967, 1, 4, 2, 1), ).setIndexNames((0, "BLUESOCKET-MIB", "serviceGrpId"))
-if mibBuilder.loadTexts: serviceGrpEntry.setStatus('current')
-serviceGrpId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 4, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: serviceGrpId.setStatus('current')
-serviceGrpName = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 4, 2, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 50))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: serviceGrpName.setStatus('current')
-serviceGrpRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 4, 2, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: serviceGrpRowStatus.setStatus('current')
-serviceGrpMemTable = MibTable((1, 3, 6, 1, 4, 1, 9967, 1, 4, 3), )
-if mibBuilder.loadTexts: serviceGrpMemTable.setStatus('current')
-serviceGrpMemEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9967, 1, 4, 3, 1), ).setIndexNames((0, "BLUESOCKET-MIB", "serviceGrpId"), (0, "BLUESOCKET-MIB", "serviceGrpMemId"))
-if mibBuilder.loadTexts: serviceGrpMemEntry.setStatus('current')
-serviceGrpMemId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 4, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: serviceGrpMemId.setStatus('current')
-serviceGrpMemRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 4, 3, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: serviceGrpMemRowStatus.setStatus('current')
-policyTable = MibTable((1, 3, 6, 1, 4, 1, 9967, 1, 5, 1), )
-if mibBuilder.loadTexts: policyTable.setStatus('current')
-policyEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9967, 1, 5, 1, 1), ).setIndexNames((0, "BLUESOCKET-MIB", "roleId"), (0, "BLUESOCKET-MIB", "policyId"))
-if mibBuilder.loadTexts: policyEntry.setStatus('current')
-policyId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 5, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: policyId.setStatus('current')
-policyServiceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 5, 1, 1, 2), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: policyServiceId.setStatus('current')
-policyHostId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 5, 1, 1, 3), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: policyHostId.setStatus('current')
-policyAction = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 5, 1, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 1)).setFixedLength(1)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: policyAction.setStatus('current')
-policyDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 5, 1, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 1)).setFixedLength(1)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: policyDirection.setStatus('current')
-policySeqId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 5, 1, 1, 6), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: policySeqId.setStatus('current')
-policyVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 5, 1, 1, 8), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: policyVlanId.setStatus('current')
-policyScheduleId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 5, 1, 1, 9), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: policyScheduleId.setStatus('current')
-policyRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 5, 1, 1, 10), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: policyRowStatus.setStatus('current')
-exchangeMode = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("aggressive", 1), ("main", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: exchangeMode.setStatus('current')
-authenticationMethod = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("certificates", 1), ("sharedKeys", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: authenticationMethod.setStatus('current')
-idleTimeout = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: idleTimeout.setStatus('current')
-maxLifeTimeInSecs = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: maxLifeTimeInSecs.setStatus('current')
-maxLifeTimeInKbs = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: maxLifeTimeInKbs.setStatus('current')
-refreshThresholdInSecs = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 6), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: refreshThresholdInSecs.setStatus('current')
-refreshThresholdInKbs = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 7), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: refreshThresholdInKbs.setStatus('current')
-minLifeTimeInSecs = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 8), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: minLifeTimeInSecs.setStatus('current')
-minLifeTimeInKbs = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 9), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: minLifeTimeInKbs.setStatus('current')
-exModeAggressive = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: exModeAggressive.setStatus('current')
-exModeMain = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: exModeMain.setStatus('current')
-authMethodCertificates = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: authMethodCertificates.setStatus('current')
-authMethodPreSharedKeys = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: authMethodPreSharedKeys.setStatus('current')
-ipsecConfTable = MibTable((1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14), )
-if mibBuilder.loadTexts: ipsecConfTable.setStatus('current')
-ipsecConfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1), ).setIndexNames((0, "BLUESOCKET-MIB", "ipsecConfId"))
-if mibBuilder.loadTexts: ipsecConfEntry.setStatus('current')
-ipsecConfId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: ipsecConfId.setStatus('current')
-ipsecConfEnableConfiguration = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("no", 0), ("yes", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: ipsecConfEnableConfiguration.setStatus('current')
-ipsecConfName = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 3), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: ipsecConfName.setStatus('current')
-ipsecConfLocalAuth = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: ipsecConfLocalAuth.setStatus('current')
-ipsecConfEspTripleDESWithSHA1 = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: ipsecConfEspTripleDESWithSHA1.setStatus('current')
-ipsecConfEspTripleDESWithMD5 = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: ipsecConfEspTripleDESWithMD5.setStatus('current')
-ipsecConfEsp56BitDESWithMD5 = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: ipsecConfEsp56BitDESWithMD5.setStatus('current')
-ipsecConfEsp56BitDESWithSHA1 = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: ipsecConfEsp56BitDESWithSHA1.setStatus('current')
-ipsecConfEsp128BitAESWithMD5 = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: ipsecConfEsp128BitAESWithMD5.setStatus('current')
-ipsecConfEsp128BitAESWithSHA1 = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: ipsecConfEsp128BitAESWithSHA1.setStatus('current')
-ipsecConfEsp192BitAESWithMD5 = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: ipsecConfEsp192BitAESWithMD5.setStatus('current')
-ipsecConfEsp192BitAESWithSHA1 = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: ipsecConfEsp192BitAESWithSHA1.setStatus('current')
-ipsecConfEsp256BitAESWithMD5 = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: ipsecConfEsp256BitAESWithMD5.setStatus('current')
-ipsecConfEsp256BitAESWithSHA1 = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: ipsecConfEsp256BitAESWithSHA1.setStatus('current')
-ipsecConfDiffieHellmanGrp1 = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: ipsecConfDiffieHellmanGrp1.setStatus('current')
-ipsecConfDiffieHellmanGrp2 = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: ipsecConfDiffieHellmanGrp2.setStatus('current')
-ipsecConfDiffieHellmanGrp5 = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: ipsecConfDiffieHellmanGrp5.setStatus('current')
-ipsecConfPsfMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: ipsecConfPsfMode.setStatus('current')
-ipsecConfCompressionDeflate = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: ipsecConfCompressionDeflate.setStatus('current')
-ipsecConfCompressionLZS = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 20), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: ipsecConfCompressionLZS.setStatus('current')
-ipsecConfRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 21), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: ipsecConfRowStatus.setStatus('current')
-pptpEnable = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 6, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("no", 0), ("yes", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pptpEnable.setStatus('current')
-pptpRemoteIpStartAddr = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 6, 2, 2), BlueIpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pptpRemoteIpStartAddr.setStatus('current')
-pptpRemoteIpEndAddr = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 6, 2, 3), BlueIpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pptpRemoteIpEndAddr.setStatus('current')
-pptpLocalIpAddr = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 6, 2, 4), BlueIpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pptpLocalIpAddr.setStatus('current')
-pptpEncryption40Bit = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 6, 2, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pptpEncryption40Bit.setStatus('current')
-pptpEncryption128Bit = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 6, 2, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pptpEncryption128Bit.setStatus('current')
-pptpIdleTimeout = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 6, 2, 7), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pptpIdleTimeout.setStatus('current')
-pptpLdapPwdAttrName = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 6, 2, 8), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pptpLdapPwdAttrName.setStatus('current')
-pptpRoleId = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 6, 2, 9), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pptpRoleId.setStatus('current')
-l2tpEnable = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 6, 5, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("no", 0), ("yes", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: l2tpEnable.setStatus('current')
-l2tpRemoteIpStartAddr = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 6, 5, 2), BlueIpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: l2tpRemoteIpStartAddr.setStatus('current')
-l2tpRemoteIpEndAddr = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 6, 5, 3), BlueIpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: l2tpRemoteIpEndAddr.setStatus('current')
-l2tpLocalIpAddr = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 6, 5, 4), BlueIpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: l2tpLocalIpAddr.setStatus('current')
-l2tpIdleTimeout = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 6, 5, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: l2tpIdleTimeout.setStatus('current')
-l2tpLdapPwdAttrName = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 6, 5, 6), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: l2tpLdapPwdAttrName.setStatus('current')
-l2tpRoleId = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 6, 5, 7), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: l2tpRoleId.setStatus('current')
-subnetVpnMode = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 6, 3, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: subnetVpnMode.setStatus('current')
-subnetVpnRtFirstIp = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 6, 3, 2), BlueIpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: subnetVpnRtFirstIp.setStatus('current')
-subnetVpnRtLastIp = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 6, 3, 3), BlueIpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: subnetVpnRtLastIp.setStatus('current')
-subnetVpnSharedSec = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 6, 3, 4), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: subnetVpnSharedSec.setStatus('current')
-subnetIpConfIdInUse = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 6, 3, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: subnetIpConfIdInUse.setStatus('current')
-httpPort = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 1, 1), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: httpPort.setStatus('current')
-httpRedirect = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 1, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: httpRedirect.setStatus('current')
-httpAutoRedirectStatus = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: httpAutoRedirectStatus.setStatus('current')
-httpAutoPause = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 1, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: httpAutoPause.setStatus('current')
-httpDefaultUrl = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: httpDefaultUrl.setStatus('current')
-httpLogoutPopup = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: httpLogoutPopup.setStatus('current')
-httpRootCaUrl = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 1, 7), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: httpRootCaUrl.setStatus('current')
-httpExServerChoice = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: httpExServerChoice.setStatus('current')
-httpPasswdChangeChoice = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 0))).clone(namedValues=NamedValues(("enable", 1), ("disable", 0)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: httpPasswdChangeChoice.setStatus('current')
-httpLangChangeChoice = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: httpLangChangeChoice.setStatus('current')
-httpLoginHelpButton = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: httpLoginHelpButton.setStatus('current')
-httpAttemptWait = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 1, 12), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: httpAttemptWait.setStatus('current')
-httpMaxNumOfActiveSess = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 1, 13), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: httpMaxNumOfActiveSess.setStatus('current')
-httpAdminACL = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 1, 14), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: httpAdminACL.setStatus('current')
-httpRedirectToHostName = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: httpRedirectToHostName.setStatus('current')
-httpLoginAttempts = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 1, 16), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: httpLoginAttempts.setStatus('current')
-httpChainCertChangeChoice = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 1, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: httpChainCertChangeChoice.setStatus('current')
-statusUpTime = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 2, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: statusUpTime.setStatus('current')
-connectionCheckTime = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 2, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: connectionCheckTime.setStatus('current')
-apCheckTime = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 2, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: apCheckTime.setStatus('current')
-statusRefreshTime = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 2, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: statusRefreshTime.setStatus('current')
-apSnmpCommunity = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 2, 5), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: apSnmpCommunity.setStatus('current')
-autoBkupRate = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 3, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(5, 7))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: autoBkupRate.setStatus('current')
-autoBkupFtpServName = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 3, 2), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: autoBkupFtpServName.setStatus('current')
-autoBkupFtpDestDir = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 3, 3), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: autoBkupFtpDestDir.setStatus('current')
-autoBkupFtpServUser = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 3, 4), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: autoBkupFtpServUser.setStatus('current')
-autoBkupFtpServPasswd = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 3, 5), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: autoBkupFtpServPasswd.setStatus('current')
-tZone = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 4, 1), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tZone.setStatus('current')
-tMonth = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 4, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 12))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tMonth.setStatus('current')
-tDay = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 4, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 31))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tDay.setStatus('current')
-tYear = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 4, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 9999))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tYear.setStatus('current')
-tHours = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 4, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 24))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tHours.setStatus('current')
-tMinutes = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 4, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 59))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tMinutes.setStatus('current')
-tSeconds = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 4, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 59))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tSeconds.setStatus('current')
-tNtpSync = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 4, 8), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tNtpSync.setStatus('current')
-tNtpServers = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 4, 9), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tNtpServers.setStatus('current')
-paFixedIpClientAccess = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 6, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: paFixedIpClientAccess.setStatus('current')
-paSMTPServerIp = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 6, 2), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: paSMTPServerIp.setStatus('current')
-logMaxLogEntries = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 7, 1, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: logMaxLogEntries.setStatus('current')
-logNoOfDelLogEntries = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 7, 1, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: logNoOfDelLogEntries.setStatus('current')
-logStorage = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 7, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("local", 0), ("remote", 1), ("both", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: logStorage.setStatus('current')
-remoteLog = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 7, 1, 4), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: remoteLog.setStatus('current')
-sysLogFacility = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 7, 1, 5), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: sysLogFacility.setStatus('current')
-logMaxRemSysLogLevel = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 7, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: logMaxRemSysLogLevel.setStatus('current')
-appLogLevTable = MibTable((1, 3, 6, 1, 4, 1, 9967, 1, 7, 7, 3), )
-if mibBuilder.loadTexts: appLogLevTable.setStatus('current')
-appLogLevEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9967, 1, 7, 7, 3, 1), ).setIndexNames((0, "BLUESOCKET-MIB", "appLogLevId"))
-if mibBuilder.loadTexts: appLogLevEntry.setStatus('current')
-appLogLevId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 7, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: appLogLevId.setStatus('current')
-appLogLevName = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 7, 3, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appLogLevName.setStatus('current')
-appLogLevLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 7, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("emergency", 0), ("alert", 1), ("critical", 2), ("error", 3), ("warning", 4), ("notice", 5), ("info", 6), ("debug", 7)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: appLogLevLevel.setStatus('current')
-pIntTable = MibTable((1, 3, 6, 1, 4, 1, 9967, 1, 8, 5, 1), )
-if mibBuilder.loadTexts: pIntTable.setStatus('current')
-pIntEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9967, 1, 8, 5, 1, 1), ).setIndexNames((0, "BLUESOCKET-MIB", "pIntId"))
-if mibBuilder.loadTexts: pIntEntry.setStatus('current')
-pIntId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 5, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: pIntId.setStatus('current')
-pIntName = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 5, 1, 1, 2), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pIntName.setStatus('current')
-pIntGetIpFromDhcp = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 5, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("false", 0), ("true", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pIntGetIpFromDhcp.setStatus('current')
-pIntDhcpTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 5, 1, 1, 4), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pIntDhcpTimeout.setStatus('current')
-pIntIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 5, 1, 1, 5), BlueIpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pIntIpAddress.setStatus('current')
-pIntNetmask = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 5, 1, 1, 6), BlueIpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pIntNetmask.setStatus('current')
-pIntGateway = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 5, 1, 1, 7), BlueIpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pIntGateway.setStatus('current')
-pIntPrimaryDNS = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 5, 1, 1, 8), BlueIpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pIntPrimaryDNS.setStatus('current')
-pIntSecondaryDNS = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 5, 1, 1, 9), BlueIpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pIntSecondaryDNS.setStatus('current')
-pIntDefaultDomain = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 5, 1, 1, 10), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 50))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pIntDefaultDomain.setStatus('current')
-pIntHostName = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 5, 1, 1, 11), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pIntHostName.setStatus('current')
-pIntEnableMulticast = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 5, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("false", 0), ("true", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pIntEnableMulticast.setStatus('current')
-pIntVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 5, 1, 1, 13), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pIntVlanId.setStatus('current')
-pIntVlanInterface = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 5, 1, 1, 14), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pIntVlanInterface.setStatus('current')
-pIntProxyArpStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 5, 1, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pIntProxyArpStatus.setStatus('current')
-pIntRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 5, 1, 1, 16), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pIntRowStatus.setStatus('current')
-mIntTable = MibTable((1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1), )
-if mibBuilder.loadTexts: mIntTable.setStatus('current')
-mIntEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1), ).setIndexNames((0, "BLUESOCKET-MIB", "mIntId"))
-if mibBuilder.loadTexts: mIntEntry.setStatus('current')
-mIntId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: mIntId.setStatus('current')
-mIntName = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1, 2), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mIntName.setStatus('current')
-mIntEnableDhcpRelay = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("false", 0), ("true", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mIntEnableDhcpRelay.setStatus('current')
-mIntIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1, 4), BlueIpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mIntIpAddress.setStatus('current')
-mIntNetmask = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1, 5), BlueIpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mIntNetmask.setStatus('current')
-mIntDhcpServerOpt = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("stop", 0), ("start", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mIntDhcpServerOpt.setStatus('current')
-mIntNatAddresses = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mIntNatAddresses.setStatus('current')
-mIntMulticastOpt = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mIntMulticastOpt.setStatus('current')
-mIntDhcpStartIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1, 9), BlueIpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mIntDhcpStartIpAddr.setStatus('current')
-mIntDhcpEndIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1, 10), BlueIpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mIntDhcpEndIpAddr.setStatus('current')
-mIntNetbiosNameServ = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1, 11), BlueIpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mIntNetbiosNameServ.setStatus('current')
-mIntDnsDomainName = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1, 12), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 50))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mIntDnsDomainName.setStatus('current')
-mIntDefaultLease = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1, 13), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mIntDefaultLease.setStatus('current')
-mIntMaximumLease = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1, 14), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mIntMaximumLease.setStatus('current')
-mIntDynamicDNS = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("disabled", 1), ("adHoc", 2), ("interim", 3)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mIntDynamicDNS.setStatus('current')
-mIntVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1, 16), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mIntVlanId.setStatus('current')
-mIntVlanInterface = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1, 17), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mIntVlanInterface.setStatus('current')
-mIntProxyArpStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mIntProxyArpStatus.setStatus('current')
-mIntRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1, 19), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mIntRowStatus.setStatus('current')
-fixedIpAddrTable = MibTable((1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 2), )
-if mibBuilder.loadTexts: fixedIpAddrTable.setStatus('current')
-fixedIpAddrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 2, 1), ).setIndexNames((0, "BLUESOCKET-MIB", "mIntId"), (0, "BLUESOCKET-MIB", "fixedIpAddrId"))
-if mibBuilder.loadTexts: fixedIpAddrEntry.setStatus('current')
-fixedIpAddrId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: fixedIpAddrId.setStatus('current')
-fixedIpAddrMac = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 2, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(6, 17))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: fixedIpAddrMac.setStatus('current')
-fixedIpAddrAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 2, 1, 3), BlueIpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: fixedIpAddrAddress.setStatus('current')
-fixedIpAddrHost = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 2, 1, 4), BlueIpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: fixedIpAddrHost.setStatus('current')
-fixedIpAddrRoleId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 2, 1, 5), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: fixedIpAddrRoleId.setStatus('current')
-fixedIpAddrRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 2, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: fixedIpAddrRowStatus.setStatus('current')
-natTable = MibTable((1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 3), )
-if mibBuilder.loadTexts: natTable.setStatus('current')
-natEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 3, 1), ).setIndexNames((0, "BLUESOCKET-MIB", "mIntId"), (0, "BLUESOCKET-MIB", "natId"))
-if mibBuilder.loadTexts: natEntry.setStatus('current')
-natId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: natId.setStatus('current')
-natProtectedIp = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 3, 1, 2), BlueIpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: natProtectedIp.setStatus('current')
-natManagedIp = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 3, 1, 3), BlueIpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: natManagedIp.setStatus('current')
-natRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 3, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: natRowStatus.setStatus('current')
-heartBeatInterval = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 8, 3, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: heartBeatInterval.setStatus('current')
-noOfFailedBeats = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 8, 3, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: noOfFailedBeats.setStatus('current')
-machineRole = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 9, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("master", 1), ("slave", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: machineRole.setStatus('current')
-genSnapshot = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 9, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: genSnapshot.setStatus('current')
-mobilityMode = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 5, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mobilityMode.setStatus('current')
-mobilityMeshKey = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 7, 5, 2), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mobilityMeshKey.setStatus('current')
-slaveTable = MibTable((1, 3, 6, 1, 4, 1, 9967, 1, 9, 3), )
-if mibBuilder.loadTexts: slaveTable.setStatus('current')
-slaveEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9967, 1, 9, 3, 1), ).setIndexNames((0, "BLUESOCKET-MIB", "slaveId"))
-if mibBuilder.loadTexts: slaveEntry.setStatus('current')
-slaveId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 9, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: slaveId.setStatus('current')
-slaveEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 9, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("no", 0), ("yes", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: slaveEnabled.setStatus('current')
-slaveAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 9, 3, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 50))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: slaveAddress.setStatus('current')
-slaveNotes = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 9, 3, 1, 4), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: slaveNotes.setStatus('current')
-slaveRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 9, 3, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: slaveRowStatus.setStatus('current')
-slaveMobility = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 9, 3, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: slaveMobility.setStatus('current')
-connectionTable = MibTable((1, 3, 6, 1, 4, 1, 9967, 1, 10, 1), )
-if mibBuilder.loadTexts: connectionTable.setStatus('current')
-connectionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9967, 1, 10, 1, 1), ).setIndexNames((0, "BLUESOCKET-MIB", "connectionId"))
-if mibBuilder.loadTexts: connectionEntry.setStatus('current')
-connectionId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 10, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: connectionId.setStatus('current')
-connectionName = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 10, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: connectionName.setStatus('current')
-connectionIp = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 10, 1, 1, 3), BlueIpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: connectionIp.setStatus('current')
-connectionMac = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 10, 1, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(6, 17))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: connectionMac.setStatus('current')
-connectionRoleId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 10, 1, 1, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: connectionRoleId.setStatus('current')
-connectionUserId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 10, 1, 1, 6), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: connectionUserId.setStatus('current')
-connectionLoginTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 10, 1, 1, 7), DateAndTime()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: connectionLoginTime.setStatus('current')
-connectionChecked = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 10, 1, 1, 8), TimeTicks()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: connectionChecked.setStatus('current')
-connectionBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 10, 1, 1, 9), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: connectionBytes.setStatus('current')
-connectionCurRate = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 10, 1, 1, 10), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: connectionCurRate.setStatus('current')
-connectionExpiry = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 10, 1, 1, 11), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: connectionExpiry.setStatus('current')
-connectionDev = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 10, 1, 1, 12), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 11))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: connectionDev.setStatus('current')
-connectionHost = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 10, 1, 1, 13), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: connectionHost.setStatus('current')
-connectionUnReg = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 10, 1, 1, 14), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: connectionUnReg.setStatus('current')
-connectionAP = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 10, 1, 1, 15), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 20))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: connectionAP.setStatus('current')
-connectionLoginAttempt = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 10, 1, 1, 16), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: connectionLoginAttempt.setStatus('current')
-connectionLoginAttemptCnt = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 10, 1, 1, 17), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: connectionLoginAttemptCnt.setStatus('current')
-connectionRoamMac = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 10, 1, 1, 18), OctetString().subtype(subtypeSpec=ValueSizeConstraint(6, 17))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: connectionRoamMac.setStatus('current')
-roleTable = MibTable((1, 3, 6, 1, 4, 1, 9967, 1, 11, 1), )
-if mibBuilder.loadTexts: roleTable.setStatus('current')
-roleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1), ).setIndexNames((0, "BLUESOCKET-MIB", "roleId"))
-if mibBuilder.loadTexts: roleEntry.setStatus('current')
-roleId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: roleId.setStatus('current')
-roleName = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 50))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: roleName.setStatus('current')
-roleType = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 3))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: roleType.setStatus('current')
-roleQosRate = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 5))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: roleQosRate.setStatus('current')
-roleQosQnt = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 5), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: roleQosQnt.setStatus('current')
-roleVpn = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("none", 1), ("pptp", 2), ("modarate", 3)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: roleVpn.setStatus('current')
-roleInherit = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 7), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: roleInherit.setStatus('current')
-roleUnGuestLogin = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 8), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: roleUnGuestLogin.setStatus('current')
-roleUnUserLogin = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 9), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: roleUnUserLogin.setStatus('current')
-roleNotes = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 10), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: roleNotes.setStatus('current')
-roleQosUserIn = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 12), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: roleQosUserIn.setStatus('current')
-roleQosUserOut = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 13), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: roleQosUserOut.setStatus('current')
-roleQosPriorityIn = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 14), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: roleQosPriorityIn.setStatus('current')
-roleQosPriorityOut = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 15), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: roleQosPriorityOut.setStatus('current')
-roleQosPriInOverride = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 16), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 1)).setFixedLength(1)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: roleQosPriInOverride.setStatus('current')
-roleQosPriOutOverride = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 17), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 1)).setFixedLength(1)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: roleQosPriOutOverride.setStatus('current')
-roleQosDscpIn = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 18), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: roleQosDscpIn.setStatus('current')
-roleQosDscpOut = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 19), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: roleQosDscpOut.setStatus('current')
-roleQosDscpInOverride = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 20), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 1)).setFixedLength(1)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: roleQosDscpInOverride.setStatus('current')
-roleQosDscpOutOverride = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 21), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 1)).setFixedLength(1)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: roleQosDscpOutOverride.setStatus('current')
-roleQosRateOut = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 22), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: roleQosRateOut.setStatus('current')
-roleQosRateQntOut = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 23), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 5))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: roleQosRateQntOut.setStatus('current')
-roleVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 24), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: roleVlanId.setStatus('current')
-roleRedirect = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 25), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 5))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: roleRedirect.setStatus('current')
-roleRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 26), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: roleRowStatus.setStatus('current')
-serviceMgmtTable = MibTable((1, 3, 6, 1, 4, 1, 9967, 1, 12, 1), )
-if mibBuilder.loadTexts: serviceMgmtTable.setStatus('current')
-serviceMgmtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9967, 1, 12, 1, 1), ).setIndexNames((0, "BLUESOCKET-MIB", "serviceMgmtId"))
-if mibBuilder.loadTexts: serviceMgmtEntry.setStatus('current')
-serviceMgmtId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 12, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: serviceMgmtId.setStatus('current')
-serviceMgmtName = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 12, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: serviceMgmtName.setStatus('current')
-serviceMgmtOptStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 12, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("start", 1), ("stop", 2), ("restart", 3), ("noopt", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: serviceMgmtOptStatus.setStatus('current')
-serviceMgmtDesr = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 12, 1, 1, 4), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: serviceMgmtDesr.setStatus('current')
-userSumNoOfUsr = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 13, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: userSumNoOfUsr.setStatus('current')
-userSumNoOfLogdInUsr = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 13, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: userSumNoOfLogdInUsr.setStatus('current')
-userSumNoOfLogdVPNUsr = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 13, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: userSumNoOfLogdVPNUsr.setStatus('current')
-usmSumTtlBandWthInUse = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 13, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: usmSumTtlBandWthInUse.setStatus('current')
-sysStatCpuUtil = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 13, 2, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sysStatCpuUtil.setStatus('current')
-sysStatMemUtil = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 13, 2, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sysStatMemUtil.setStatus('current')
-sysStatTotalDiskSpace = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 13, 2, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sysStatTotalDiskSpace.setStatus('current')
-sysStatDiskSpaceUsed = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 13, 2, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sysStatDiskSpaceUsed.setStatus('current')
-sysStatDiskSpaceFree = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 13, 2, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sysStatDiskSpaceFree.setStatus('current')
-sysStatLOgSpaceUsed = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 13, 2, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sysStatLOgSpaceUsed.setStatus('current')
-sysStatNeedRestart = MibScalar((1, 3, 6, 1, 4, 1, 9967, 1, 13, 2, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("no", 0), ("yes", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sysStatNeedRestart.setStatus('current')
-certTable = MibTable((1, 3, 6, 1, 4, 1, 9967, 1, 6, 4, 1), )
-if mibBuilder.loadTexts: certTable.setStatus('current')
-certEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9967, 1, 6, 4, 1, 1), ).setIndexNames((0, "BLUESOCKET-MIB", "certId"))
-if mibBuilder.loadTexts: certEntry.setStatus('current')
-certId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 6, 4, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: certId.setStatus('current')
-certType = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 6, 4, 1, 1, 2), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: certType.setStatus('current')
-certSubject = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 6, 4, 1, 1, 3), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: certSubject.setStatus('current')
-certStartDate = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 6, 4, 1, 1, 4), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: certStartDate.setStatus('current')
-certEndDate = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 6, 4, 1, 1, 5), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: certEndDate.setStatus('current')
-certIssuer = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 6, 4, 1, 1, 6), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: certIssuer.setStatus('current')
-certName = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 6, 4, 1, 1, 7), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: certName.setStatus('current')
-certOrg = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 6, 4, 1, 1, 8), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: certOrg.setStatus('current')
-certContent = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 6, 4, 1, 1, 9), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 65535))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: certContent.setStatus('current')
-certPkey = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 6, 4, 1, 1, 10), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: certPkey.setStatus('current')
-certPkeyAlgo = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 6, 4, 1, 1, 11), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: certPkeyAlgo.setStatus('current')
-certPkeySize = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 6, 4, 1, 1, 12), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: certPkeySize.setStatus('current')
-certSerial = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 6, 4, 1, 1, 13), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: certSerial.setStatus('current')
-certSignAlgo = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 6, 4, 1, 1, 14), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: certSignAlgo.setStatus('current')
-certVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 6, 4, 1, 1, 15), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: certVersion.setStatus('current')
-certRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 6, 4, 1, 1, 16), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: certRowStatus.setStatus('current')
-vlanTable = MibTable((1, 3, 6, 1, 4, 1, 9967, 1, 14, 1), )
-if mibBuilder.loadTexts: vlanTable.setStatus('current')
-vlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9967, 1, 14, 1, 1), ).setIndexNames((0, "BLUESOCKET-MIB", "vlanRowId"))
-if mibBuilder.loadTexts: vlanEntry.setStatus('current')
-vlanRowId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 14, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: vlanRowId.setStatus('current')
-vlanName = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 14, 1, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 50))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vlanName.setStatus('current')
-vlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 14, 1, 1, 3), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vlanId.setStatus('current')
-vlanNotes = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 14, 1, 1, 4), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vlanNotes.setStatus('current')
-vlanRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 14, 1, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vlanRowStatus.setStatus('current')
-vlanGrpTable = MibTable((1, 3, 6, 1, 4, 1, 9967, 1, 14, 2), )
-if mibBuilder.loadTexts: vlanGrpTable.setStatus('current')
-vlanGrpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9967, 1, 14, 2, 1), ).setIndexNames((0, "BLUESOCKET-MIB", "vlanGrpId"))
-if mibBuilder.loadTexts: vlanGrpEntry.setStatus('current')
-vlanGrpId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 14, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: vlanGrpId.setStatus('current')
-vlanGrpName = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 14, 2, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 50))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vlanGrpName.setStatus('current')
-vlanGrpRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 14, 2, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vlanGrpRowStatus.setStatus('current')
-vlanGrpMemTable = MibTable((1, 3, 6, 1, 4, 1, 9967, 1, 14, 3), )
-if mibBuilder.loadTexts: vlanGrpMemTable.setStatus('current')
-vlanGrpMemEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9967, 1, 14, 3, 1), ).setIndexNames((0, "BLUESOCKET-MIB", "vlanGrpId"), (0, "BLUESOCKET-MIB", "vlanGrpMemId"))
-if mibBuilder.loadTexts: vlanGrpMemEntry.setStatus('current')
-vlanGrpMemId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 14, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: vlanGrpMemId.setStatus('current')
-vlanGrpMemRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 14, 3, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vlanGrpMemRowStatus.setStatus('current')
-schedTable = MibTable((1, 3, 6, 1, 4, 1, 9967, 1, 15, 1), )
-if mibBuilder.loadTexts: schedTable.setStatus('current')
-schedEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9967, 1, 15, 1, 1), ).setIndexNames((0, "BLUESOCKET-MIB", "schedRowId"))
-if mibBuilder.loadTexts: schedEntry.setStatus('current')
-schedRowId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 15, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: schedRowId.setStatus('current')
-schedName = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 15, 1, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 50))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: schedName.setStatus('current')
-schedAllDay = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 15, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: schedAllDay.setStatus('current')
-schedEveryDay = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 15, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: schedEveryDay.setStatus('current')
-schedStartDateAndTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 15, 1, 1, 5), LocalDateAndTime()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: schedStartDateAndTime.setStatus('current')
-schedEndDateAndTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 15, 1, 1, 6), LocalDateAndTime()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: schedEndDateAndTime.setStatus('current')
-schedMonth = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 15, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))).clone(namedValues=NamedValues(("january", 1), ("february", 2), ("march", 3), ("april", 4), ("may", 5), ("june", 6), ("july", 7), ("august", 8), ("september", 9), ("october", 10), ("november", 11), ("december", 12)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: schedMonth.setStatus('current')
-schedWeekDay = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 15, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("sunday", 1), ("monday", 2), ("tuesday", 3), ("wednesday", 4), ("thursday", 5), ("friday", 6), ("saturday", 7)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: schedWeekDay.setStatus('current')
-schedDayOfMonth = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 15, 1, 1, 9), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: schedDayOfMonth.setStatus('current')
-schedRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 15, 1, 1, 10), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: schedRowStatus.setStatus('current')
-schedGrpTable = MibTable((1, 3, 6, 1, 4, 1, 9967, 1, 15, 2), )
-if mibBuilder.loadTexts: schedGrpTable.setStatus('current')
-schedGrpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9967, 1, 15, 2, 1), ).setIndexNames((0, "BLUESOCKET-MIB", "schedGrpId"))
-if mibBuilder.loadTexts: schedGrpEntry.setStatus('current')
-schedGrpId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 15, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: schedGrpId.setStatus('current')
-schedGrpName = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 15, 2, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 50))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: schedGrpName.setStatus('current')
-schedGrpRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 15, 2, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: schedGrpRowStatus.setStatus('current')
-schedGrpMemTable = MibTable((1, 3, 6, 1, 4, 1, 9967, 1, 15, 3), )
-if mibBuilder.loadTexts: schedGrpMemTable.setStatus('current')
-schedGrpMemEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9967, 1, 15, 3, 1), ).setIndexNames((0, "BLUESOCKET-MIB", "schedGrpId"), (0, "BLUESOCKET-MIB", "schedGrpMemId"))
-if mibBuilder.loadTexts: schedGrpMemEntry.setStatus('current')
-schedGrpMemId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 15, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: schedGrpMemId.setStatus('current')
-schedGrpMemRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 15, 3, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: schedGrpMemRowStatus.setStatus('current')
-snmpTrapMgmtTable = MibTable((1, 3, 6, 1, 4, 1, 9967, 1, 7, 8, 1, 1), )
-if mibBuilder.loadTexts: snmpTrapMgmtTable.setStatus('current')
-snmpTrapMgmtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9967, 1, 7, 8, 1, 1, 1), ).setIndexNames((0, "BLUESOCKET-MIB", "snmpTrapMgmtId"))
-if mibBuilder.loadTexts: snmpTrapMgmtEntry.setStatus('current')
-snmpTrapMgmtId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 8, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: snmpTrapMgmtId.setStatus('current')
-snmpTrapMgmtIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 8, 1, 1, 1, 2), BlueIpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: snmpTrapMgmtIpAddress.setStatus('current')
-snmpTrapMgmtCommunity = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 8, 1, 1, 1, 3), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: snmpTrapMgmtCommunity.setStatus('current')
-snmpTrapMgmtRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 8, 1, 1, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: snmpTrapMgmtRowStatus.setStatus('current')
-blueEventTable = MibTable((1, 3, 6, 1, 4, 1, 9967, 1, 7, 8, 1, 2), )
-if mibBuilder.loadTexts: blueEventTable.setStatus('current')
-blueEventEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9967, 1, 7, 8, 1, 2, 1), ).setIndexNames((0, "BLUESOCKET-MIB", "btId"))
-if mibBuilder.loadTexts: blueEventEntry.setStatus('current')
-btId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 8, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: btId.setStatus('current')
-btName = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 8, 1, 2, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: btName.setStatus('current')
-btEventOptStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 8, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: btEventOptStatus.setStatus('current')
-stThresholdTable = MibTable((1, 3, 6, 1, 4, 1, 9967, 1, 7, 9, 1), )
-if mibBuilder.loadTexts: stThresholdTable.setStatus('current')
-stThresholdEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9967, 1, 7, 9, 1, 1), ).setIndexNames((0, "BLUESOCKET-MIB", "stThresholdId"))
-if mibBuilder.loadTexts: stThresholdEntry.setStatus('current')
-stThresholdId = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 9, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: stThresholdId.setStatus('current')
-stThresholdAttrName = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 9, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: stThresholdAttrName.setStatus('current')
-stThresholdToLogMessage = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 9, 1, 1, 3), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: stThresholdToLogMessage.setStatus('current')
-stThresholdToSendTrap = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 9, 1, 1, 4), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: stThresholdToSendTrap.setStatus('current')
-stThresholdToFailover = MibTableColumn((1, 3, 6, 1, 4, 1, 9967, 1, 7, 9, 1, 1, 5), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: stThresholdToFailover.setStatus('current')
-mibBuilder.exportSymbols("BLUESOCKET-MIB", nativeUserEntry=nativeUserEntry, exNtlmServEntry=exNtlmServEntry, schedDayOfMonth=schedDayOfMonth, ex802AuthServTable=ex802AuthServTable, policyEntry=policyEntry, serviceGrpMemTable=serviceGrpMemTable, serviceTable=serviceTable, ex802AuthServAddr=ex802AuthServAddr, snmpTrapMgmtRowStatus=snmpTrapMgmtRowStatus, machineRole=machineRole, snmpTrapMgmtTable=snmpTrapMgmtTable, httpRootCaUrl=httpRootCaUrl, connectionDev=connectionDev, certSerial=certSerial, schedGrpName=schedGrpName, pIntIpAddress=pIntIpAddress, certPkeyAlgo=certPkeyAlgo, failover=failover, publicAccess=publicAccess, serviceRowStatus=serviceRowStatus, exRdAuthServRowStatus=exRdAuthServRowStatus, exLdapServDefRoleId=exLdapServDefRoleId, roleName=roleName, roles=roles, schedAllDay=schedAllDay, exRdAccServSecret=exRdAccServSecret, schedStartDateAndTime=schedStartDateAndTime, roleQosDscpIn=roleQosDscpIn, vpn=vpn, serviceGrpRowStatus=serviceGrpRowStatus, adminUserAccess=adminUserAccess, serviceGrpMemEntry=serviceGrpMemEntry, tNtpServers=tNtpServers, policy=policy, ipsecConfEntry=ipsecConfEntry, stThresholdId=stThresholdId, pIntGetIpFromDhcp=pIntGetIpFromDhcp, adminUserStatus=adminUserStatus, exRdAuthServAddr=exRdAuthServAddr, mIntEntry=mIntEntry, ipsecConfEnableConfiguration=ipsecConfEnableConfiguration, exUserRuleTable=exUserRuleTable, exLdapServSecret=exLdapServSecret, ipsecConfEsp192BitAESWithMD5=ipsecConfEsp192BitAESWithMD5, exLdapServFilters=exLdapServFilters, nativeUserId=nativeUserId, hostInvertDest=hostInvertDest, roleQosPriOutOverride=roleQosPriOutOverride, tNtpSync=tNtpSync, serviceCosPriorityIn=serviceCosPriorityIn, adUsrAccessNativeUser=adUsrAccessNativeUser, macDevAuthId=macDevAuthId, sysStatNeedRestart=sysStatNeedRestart, certType=certType, ipsecConfEspTripleDESWithSHA1=ipsecConfEspTripleDESWithSHA1, ex802AuthServEntry=ex802AuthServEntry, refreshThresholdInKbs=refreshThresholdInKbs, pIntGateway=pIntGateway, pIntSecondaryDNS=pIntSecondaryDNS, httpAutoRedirectStatus=httpAutoRedirectStatus, vlanGrpName=vlanGrpName, ipsecConfId=ipsecConfId, snmpTrapMgmtCommunity=snmpTrapMgmtCommunity, users=users, httpRedirect=httpRedirect, httpAttemptWait=httpAttemptWait, mIntVlanId=mIntVlanId, pIntEnableMulticast=pIntEnableMulticast, adminUserName=adminUserName, userSumNoOfLogdVPNUsr=userSumNoOfLogdVPNUsr, exRdAccServName=exRdAccServName, macDevAuthEntry=macDevAuthEntry, ipsecConfLocalAuth=ipsecConfLocalAuth, exRdAccServNotes=exRdAccServNotes, genSnapshot=genSnapshot, roleType=roleType, hostTable=hostTable, serviceGrpName=serviceGrpName, autoBkupFtpServPasswd=autoBkupFtpServPasswd, exRdAuthServSecret=exRdAuthServSecret, pIntVlanId=pIntVlanId, exRdAccServTable=exRdAccServTable, userSummary=userSummary, exUserRuleValue=exUserRuleValue, policyHostId=policyHostId, hostName=hostName, replication=replication, exNtlmServRdAccId=exNtlmServRdAccId, mobility=mobility, roleEntry=roleEntry, serviceName=serviceName, exUserRuleOperator=exUserRuleOperator, certTable=certTable, serviceCosPriorityOut=serviceCosPriorityOut, l2tpRemoteIpStartAddr=l2tpRemoteIpStartAddr, mIntEnableDhcpRelay=mIntEnableDhcpRelay, heartBeatInterval=heartBeatInterval, ex802AuthServId=ex802AuthServId, exLdapServSslServer=exLdapServSslServer, exNtlmServMsrpc=exNtlmServMsrpc, serviceGrpId=serviceGrpId, authenticationMethod=authenticationMethod, subnetIpConfIdInUse=subnetIpConfIdInUse, macDevAuthRowStatus=macDevAuthRowStatus, policyVlanId=policyVlanId, statusUpTime=statusUpTime, serviceCosDscpIn=serviceCosDscpIn, vlanNotes=vlanNotes, httpChainCertChangeChoice=httpChainCertChangeChoice, usmSumTtlBandWthInUse=usmSumTtlBandWthInUse, pptpEncryption128Bit=pptpEncryption128Bit, exRdAuthServName=exRdAuthServName, connectionBytes=connectionBytes, policyRowStatus=policyRowStatus, authentication=authentication, certEntry=certEntry, adUsrAccessAccounting=adUsrAccessAccounting, stThresholdToLogMessage=stThresholdToLogMessage, policyTable=policyTable, exUserRuleRoleId=exUserRuleRoleId, roleVlanId=roleVlanId, nativeUserAccess=nativeUserAccess, vlanGrpMemId=vlanGrpMemId, connectionCheckTime=connectionCheckTime, vlanGrpMemEntry=vlanGrpMemEntry, exLdapServTable=exLdapServTable, sysStatCpuUtil=sysStatCpuUtil, pIntRowStatus=pIntRowStatus, adUsrAccessAdminUser=adUsrAccessAdminUser, idleTimeout=idleTimeout, adUsrAccessConfiguration=adUsrAccessConfiguration, fixedIpAddrAddress=fixedIpAddrAddress, schedName=schedName, exRdAccServState=exRdAccServState, blueServer=blueServer, mIntMaximumLease=mIntMaximumLease, roleNotes=roleNotes, schedMonth=schedMonth, vlan=vlan, fixedIpAddrRowStatus=fixedIpAddrRowStatus, exLdapServId=exLdapServId, vlanEntry=vlanEntry, sysStatTotalDiskSpace=sysStatTotalDiskSpace, appLogLevEntry=appLogLevEntry, schedWeekDay=schedWeekDay, connectionEntry=connectionEntry, hostId=hostId, certVersion=certVersion, configuration=configuration, userSumNoOfLogdInUsr=userSumNoOfLogdInUsr, exLdapServName=exLdapServName, mIntName=mIntName, stThresholdAttrName=stThresholdAttrName, exUserRuleId=exUserRuleId, schedRowId=schedRowId, fixedIpAddrMac=fixedIpAddrMac, ipsecConfEsp192BitAESWithSHA1=ipsecConfEsp192BitAESWithSHA1, exLdapServEntry=exLdapServEntry, ipsecConfEsp256BitAESWithSHA1=ipsecConfEsp256BitAESWithSHA1, nativeUserFixedIpAddr=nativeUserFixedIpAddr, adUsrAccessServices=adUsrAccessServices, appLogLevTable=appLogLevTable, mIntDhcpEndIpAddr=mIntDhcpEndIpAddr, natTable=natTable, certOrg=certOrg, exLdapServPrecedence=exLdapServPrecedence, certRowStatus=certRowStatus, exLdapServUniqueId=exLdapServUniqueId, serviceId=serviceId, connectionMac=connectionMac, vlanId=vlanId, exRdAuthServTable=exRdAuthServTable, hostGrpName=hostGrpName, exLdapServState=exLdapServState, connection=connection, serviceGrpMemId=serviceGrpMemId, mobilityMode=mobilityMode, exRdAuthServPrecedence=exRdAuthServPrecedence, mIntId=mIntId, fixedIpAddrRoleId=fixedIpAddrRoleId, exRdAccServPort=exRdAccServPort, exAuthServer=exAuthServer, roleTable=roleTable, roleRowStatus=roleRowStatus, exRdAccServAddr=exRdAccServAddr, policySeqId=policySeqId, exRdAuthServState=exRdAuthServState, exNtlmServDomainName=exNtlmServDomainName, ex802AuthServName=ex802AuthServName, roleQosDscpOut=roleQosDscpOut, httpLoginHelpButton=httpLoginHelpButton, adUsrAccessNetwork=adUsrAccessNetwork, connectionAP=connectionAP, slaveTable=slaveTable, exLdapServAddr=exLdapServAddr, servicePort=servicePort, systemStats=systemStats, blueEventTable=blueEventTable, serviceMgmtEntry=serviceMgmtEntry, slaveRowStatus=slaveRowStatus, connectionHost=connectionHost, slaveNotes=slaveNotes, pIntDhcpTimeout=pIntDhcpTimeout, slaveMobility=slaveMobility, authMethodPreSharedKeys=authMethodPreSharedKeys, exNtlmServTable=exNtlmServTable, fixedIpAddrHost=fixedIpAddrHost, pptpRemoteIpStartAddr=pptpRemoteIpStartAddr, pIntEntry=pIntEntry, pptp=pptp, exNtlmServMsdc=exNtlmServMsdc, slaveAddress=slaveAddress, stThresholdEntry=stThresholdEntry, connectionLoginTime=connectionLoginTime, pIntPrimaryDNS=pIntPrimaryDNS, httpLoginAttempts=httpLoginAttempts, roleQosUserOut=roleQosUserOut, roleUnUserLogin=roleUnUserLogin, serviceGrpTable=serviceGrpTable, serviceMgmtId=serviceMgmtId, vlanGrpMemRowStatus=vlanGrpMemRowStatus, exNtlmServId=exNtlmServId, adUsrAccessSchedules=adUsrAccessSchedules, connectionIp=connectionIp, ipsecConfRowStatus=ipsecConfRowStatus, exLdapServBase=exLdapServBase, l2tpLocalIpAddr=l2tpLocalIpAddr, connectionChecked=connectionChecked, vlanGrpTable=vlanGrpTable, policyServiceId=policyServiceId, httpPort=httpPort, serviceCosDscpOut=serviceCosDscpOut, adUsrAccessEntry=adUsrAccessEntry, fixedIpAddrTable=fixedIpAddrTable, tDay=tDay, nativeUserTable=nativeUserTable, connectionLoginAttemptCnt=connectionLoginAttemptCnt, tSeconds=tSeconds, sysLogFacility=sysLogFacility, connectionTable=connectionTable, vlanGrpId=vlanGrpId, pIntId=pIntId, stThresholdToFailover=stThresholdToFailover, exRdAuthServEntry=exRdAuthServEntry, exRdAuthServId=exRdAuthServId, policyAction=policyAction, sysStatLOgSpaceUsed=sysStatLOgSpaceUsed, schedEveryDay=schedEveryDay, connectionExpiry=connectionExpiry, exNtlmServRowStatus=exNtlmServRowStatus, logMaxRemSysLogLevel=logMaxRemSysLogLevel, schedule=schedule, roleQosUserIn=roleQosUserIn, connectionCurRate=connectionCurRate)
-mibBuilder.exportSymbols("BLUESOCKET-MIB", pIntDefaultDomain=pIntDefaultDomain, BlueIpAddress=BlueIpAddress, tZone=tZone, mIntDynamicDNS=mIntDynamicDNS, natEntry=natEntry, hostRowStatus=hostRowStatus, authMethodCertificates=authMethodCertificates, hostType=hostType, roleRedirect=roleRedirect, roleUnGuestLogin=roleUnGuestLogin, appLogLevLevel=appLogLevLevel, adminUserPassword=adminUserPassword, mIntIpAddress=mIntIpAddress, certContent=certContent, exNtlmServState=exNtlmServState, certPkeySize=certPkeySize, roleQosRateOut=roleQosRateOut, certSubject=certSubject, fixedIpAddrEntry=fixedIpAddrEntry, exUserRuleRowStatus=exUserRuleRowStatus, exRdAccServRowStatus=exRdAccServRowStatus, ipsecConfEsp128BitAESWithSHA1=ipsecConfEsp128BitAESWithSHA1, pptpLocalIpAddr=pptpLocalIpAddr, btEventOptStatus=btEventOptStatus, btName=btName, hostGrpMemTable=hostGrpMemTable, vlanRowId=vlanRowId, ipsecConfEsp56BitDESWithMD5=ipsecConfEsp56BitDESWithMD5, l2tpRoleId=l2tpRoleId, macDevAuthDefaultRole=macDevAuthDefaultRole, roleQosPriorityIn=roleQosPriorityIn, nativeUserRadAcctServId=nativeUserRadAcctServId, pptpLdapPwdAttrName=pptpLdapPwdAttrName, policyDirection=policyDirection, adUsrAccessDestination=adUsrAccessDestination, schedEntry=schedEntry, natManagedIp=natManagedIp, LocalDateAndTime=LocalDateAndTime, userSumNoOfUsr=userSumNoOfUsr, hostAddress=hostAddress, natId=natId, exLdapServRdAccState=exLdapServRdAccState, certName=certName, vlanGrpRowStatus=vlanGrpRowStatus, nativeUserEmailId=nativeUserEmailId, adUsrAccessVpn=adUsrAccessVpn, fixedIpAddrId=fixedIpAddrId, httpDefaultUrl=httpDefaultUrl, snmpTrapMgmtIpAddress=snmpTrapMgmtIpAddress, ipsec=ipsec, mIntDhcpServerOpt=mIntDhcpServerOpt, apCheckTime=apCheckTime, exNtlmServRdAccState=exNtlmServRdAccState, adminUserRowStatus=adminUserRowStatus, mIntTable=mIntTable, connectionLoginAttempt=connectionLoginAttempt, pIntTable=pIntTable, mIntDnsDomainName=mIntDnsDomainName, autoBkupFtpServName=autoBkupFtpServName, appLogLevName=appLogLevName, ex802AuthServDefaultRole=ex802AuthServDefaultRole, certificate=certificate, vlanGrpEntry=vlanGrpEntry, httpRedirectToHostName=httpRedirectToHostName, adminUserEmailId=adminUserEmailId, connectionRoamMac=connectionRoamMac, remoteLog=remoteLog, schedGrpId=schedGrpId, exNtlmServNotes=exNtlmServNotes, destination=destination, certId=certId, mobilityMeshKey=mobilityMeshKey, autoBkupFtpServUser=autoBkupFtpServUser, serviceMgmtTable=serviceMgmtTable, exRdAuthServPort=exRdAuthServPort, schedTable=schedTable, schedGrpMemTable=schedGrpMemTable, pIntVlanInterface=pIntVlanInterface, hostNetmask=hostNetmask, roleQosDscpOutOverride=roleQosDscpOutOverride, time=time, serviceNotes=serviceNotes, roleQosRate=roleQosRate, nativeUserNotes=nativeUserNotes, ex802AuthServPort=ex802AuthServPort, mIntVlanInterface=mIntVlanInterface, snmpConf=snmpConf, natProtectedIp=natProtectedIp, exServId=exServId, macDevAuthName=macDevAuthName, maxLifeTimeInKbs=maxLifeTimeInKbs, natRowStatus=natRowStatus, hostGrpId=hostGrpId, hostGrpRowStatus=hostGrpRowStatus, serviceMgmtOptStatus=serviceMgmtOptStatus, nativeUserPassword=nativeUserPassword, certStartDate=certStartDate, macDevAuthNotes=macDevAuthNotes, slaveEntry=slaveEntry, vlanRowStatus=vlanRowStatus, exLdapServPort=exLdapServPort, statusRefreshTime=statusRefreshTime, policyScheduleId=policyScheduleId, tHours=tHours, exNtlmServName=exNtlmServName, connectionName=connectionName, serviceMgmtDesr=serviceMgmtDesr, ex802AuthServNotes=ex802AuthServNotes, serviceGrpMemRowStatus=serviceGrpMemRowStatus, exRdAuthServRdAccId=exRdAuthServRdAccId, statistics=statistics, blueEventEntry=blueEventEntry, adUsrAccessRoles=adUsrAccessRoles, httpAutoPause=httpAutoPause, exRdAuthServNotes=exRdAuthServNotes, macDevAuthState=macDevAuthState, macDevAuthTable=macDevAuthTable, hostGrpMemId=hostGrpMemId, httpLangChangeChoice=httpLangChangeChoice, httpPasswdChangeChoice=httpPasswdChangeChoice, l2tpIdleTimeout=l2tpIdleTimeout, exLdapServAccount=exLdapServAccount, ipsecConfDiffieHellmanGrp2=ipsecConfDiffieHellmanGrp2, paSMTPServerIp=paSMTPServerIp, vlanName=vlanName, ipsecConfEspTripleDESWithMD5=ipsecConfEspTripleDESWithMD5, adminUserNotes=adminUserNotes, vlanGrpMemTable=vlanGrpMemTable, exModeAggressive=exModeAggressive, pIntHostName=pIntHostName, subnetVpn=subnetVpn, minLifeTimeInSecs=minLifeTimeInSecs, l2tpLdapPwdAttrName=l2tpLdapPwdAttrName, nativeUsers=nativeUsers, protected=protected, mIntProxyArpStatus=mIntProxyArpStatus, schedGrpMemEntry=schedGrpMemEntry, vlanTable=vlanTable, hostGrpMemEntry=hostGrpMemEntry, mIntNetbiosNameServ=mIntNetbiosNameServ, pIntNetmask=pIntNetmask, schedEndDateAndTime=schedEndDateAndTime, subnetVpnRtLastIp=subnetVpnRtLastIp, adminUserId=adminUserId, exRdAccServEntry=exRdAccServEntry, logNoOfDelLogEntries=logNoOfDelLogEntries, nativeUserRowStatus=nativeUserRowStatus, pptpIdleTimeout=pptpIdleTimeout, httpExServerChoice=httpExServerChoice, adUsrAccessVlans=adUsrAccessVlans, exNtlmServMsad=exNtlmServMsad, tMonth=tMonth, nativeUserRoleId=nativeUserRoleId, logMaxLogEntries=logMaxLogEntries, autoBkupRate=autoBkupRate, connectionRoleId=connectionRoleId, interface=interface, snmpTrapConf=snmpTrapConf, mIntRowStatus=mIntRowStatus, exLdapServSslClient=exLdapServSslClient, subnetVpnRtFirstIp=subnetVpnRtFirstIp, schedGrpMemRowStatus=schedGrpMemRowStatus, appLogLevId=appLogLevId, exLdapServRdAccId=exLdapServRdAccId, exchangeMode=exchangeMode, exRdAuthServDefRoleId=exRdAuthServDefRoleId, roleVpn=roleVpn, stThresholdTable=stThresholdTable, noOfFailedBeats=noOfFailedBeats, connectionUserId=connectionUserId, schedGrpTable=schedGrpTable, sysStatDiskSpaceUsed=sysStatDiskSpaceUsed, httpLogoutPopup=httpLogoutPopup, ipsecConfCompressionLZS=ipsecConfCompressionLZS, pptpEnable=pptpEnable, hostGrpMemRowStatus=hostGrpMemRowStatus, exUserRuleEntry=exUserRuleEntry, paFixedIpClientAccess=paFixedIpClientAccess, adUsrAccessMaintance=adUsrAccessMaintance, pIntName=pIntName, autoBkupFtpDestDir=autoBkupFtpDestDir, hostEntry=hostEntry, stThresholdToSendTrap=stThresholdToSendTrap, l2tp=l2tp, pptpRemoteIpEndAddr=pptpRemoteIpEndAddr, ex802AuthServRowStatus=ex802AuthServRowStatus, roleQosPriorityOut=roleQosPriorityOut, exNtlmServDefRoleId=exNtlmServDefRoleId, exRdAccServId=exRdAccServId, schedGrpRowStatus=schedGrpRowStatus, minLifeTimeInKbs=minLifeTimeInKbs, roleId=roleId, policyId=policyId, refreshThresholdInSecs=refreshThresholdInSecs, l2tpRemoteIpEndAddr=l2tpRemoteIpEndAddr, tYear=tYear, adUsrAccessExServer=adUsrAccessExServer, ipsecConfEsp128BitAESWithMD5=ipsecConfEsp128BitAESWithMD5, l2tpEnable=l2tpEnable, subnetVpnSharedSec=subnetVpnSharedSec, httpAdminACL=httpAdminACL, nativeUserName=nativeUserName, roleQosQnt=roleQosQnt, roleQosPriInOverride=roleQosPriInOverride, sysStatDiskSpaceFree=sysStatDiskSpaceFree, ipsecConfPsfMode=ipsecConfPsfMode, ipsecConfEsp56BitDESWithSHA1=ipsecConfEsp56BitDESWithSHA1, pIntProxyArpStatus=pIntProxyArpStatus, exModeMain=exModeMain, snmpTrapMgmtId=snmpTrapMgmtId, exUserRuleAttribute=exUserRuleAttribute, certEndDate=certEndDate, adUsrAccessTable=adUsrAccessTable, hostGrpTable=hostGrpTable, httpMaxNumOfActiveSess=httpMaxNumOfActiveSess, schedRowStatus=schedRowStatus, ipsecConfDiffieHellmanGrp5=ipsecConfDiffieHellmanGrp5, exLdapServSsl=exLdapServSsl, managed=managed, ipsecConfTable=ipsecConfTable, snmpTrapMgmtEntry=snmpTrapMgmtEntry, mIntDefaultLease=mIntDefaultLease, adUsrAccessMacDev=adUsrAccessMacDev, certIssuer=certIssuer, logStorage=logStorage, certPkey=certPkey, BlueMacAddress=BlueMacAddress, schedGrpEntry=schedGrpEntry, mIntNatAddresses=mIntNatAddresses, mIntDhcpStartIpAddr=mIntDhcpStartIpAddr, tMinutes=tMinutes, http=http, ipsecConfName=ipsecConfName, mIntNetmask=mIntNetmask, connectionUnReg=connectionUnReg, exUserRuleSeqId=exUserRuleSeqId, pptpRoleId=pptpRoleId, ipsecConfEsp256BitAESWithMD5=ipsecConfEsp256BitAESWithMD5, systemTracker=systemTracker, misc=misc, adminUserTable=adminUserTable, serviceMgmtName=serviceMgmtName, ipsecConfDiffieHellmanGrp1=ipsecConfDiffieHellmanGrp1, roleQosRateQntOut=roleQosRateQntOut, mIntMulticastOpt=mIntMulticastOpt, service=service, hostGrpEntry=hostGrpEntry, confLogGroup=confLogGroup, serviceProtocol=serviceProtocol, ex802AuthServState=ex802AuthServState, adminUsers=adminUsers, schedGrpMemId=schedGrpMemId, slaveId=slaveId, adUsrAccessStatus=adUsrAccessStatus)
-mibBuilder.exportSymbols("BLUESOCKET-MIB", roleQosDscpInOverride=roleQosDscpInOverride, connectionId=connectionId, macDevAuthMac=macDevAuthMac, exLdapServRowStatus=exLdapServRowStatus, pptpEncryption40Bit=pptpEncryption40Bit, serviceMgmt=serviceMgmt, serviceEntry=serviceEntry, apSnmpCommunity=apSnmpCommunity, certSignAlgo=certSignAlgo, serviceGrpEntry=serviceGrpEntry, autoBackup=autoBackup, exLdapServNotes=exLdapServNotes, hostNotes=hostNotes, roleInherit=roleInherit, confLog=confLog, adminUserEntry=adminUserEntry, btId=btId, maxLifeTimeInSecs=maxLifeTimeInSecs, sysStatMemUtil=sysStatMemUtil, adUsrAccessReplication=adUsrAccessReplication, slaveEnabled=slaveEnabled, ipsecConfCompressionDeflate=ipsecConfCompressionDeflate, subnetVpnMode=subnetVpnMode)
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(blueSocket,) = mibBuilder.importSymbols(
+    "BLUESOCKET-ROOT",
+    "blueSocket")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class BlueIpAddress(OctetString, TextualConvention):
+    status = "current"
+    displayHint = "1d.1d.1d.1d"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(7, 15),
+    )
+
+
+
+class BlueMacAddress(OctetString, TextualConvention):
+    status = "current"
+    displayHint = "1x:1x:1x:1x:1x:1x"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(17, 17),
+    )
+
+
+
+class LocalDateAndTime(OctetString, TextualConvention):
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(6, 6),
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_BlueServer_ObjectIdentity = ObjectIdentity
+blueServer = _BlueServer_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1)
+)
+_Users_ObjectIdentity = ObjectIdentity
+users = _Users_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1)
+)
+_NativeUsers_ObjectIdentity = ObjectIdentity
+nativeUsers = _NativeUsers_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 1)
+)
+_NativeUserTable_Object = MibTable
+nativeUserTable = _NativeUserTable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    nativeUserTable.setStatus("current")
+_NativeUserEntry_Object = MibTableRow
+nativeUserEntry = _NativeUserEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 1, 1, 1)
+)
+nativeUserEntry.setIndexNames(
+    (0, "BLUESOCKET-MIB", "nativeUserId"),
+)
+if mibBuilder.loadTexts:
+    nativeUserEntry.setStatus("current")
+
+
+class _NativeUserId_Type(Integer32):
+    """Custom type nativeUserId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_NativeUserId_Type.__name__ = "Integer32"
+_NativeUserId_Object = MibTableColumn
+nativeUserId = _NativeUserId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 1, 1, 1, 1),
+    _NativeUserId_Type()
+)
+nativeUserId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    nativeUserId.setStatus("current")
+
+
+class _NativeUserAccess_Type(Integer32):
+    """Custom type nativeUserAccess based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_NativeUserAccess_Type.__name__ = "Integer32"
+_NativeUserAccess_Object = MibTableColumn
+nativeUserAccess = _NativeUserAccess_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 1, 1, 1, 2),
+    _NativeUserAccess_Type()
+)
+nativeUserAccess.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    nativeUserAccess.setStatus("current")
+_NativeUserName_Type = DisplayString
+_NativeUserName_Object = MibTableColumn
+nativeUserName = _NativeUserName_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 1, 1, 1, 3),
+    _NativeUserName_Type()
+)
+nativeUserName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    nativeUserName.setStatus("current")
+_NativeUserRoleId_Type = Integer32
+_NativeUserRoleId_Object = MibTableColumn
+nativeUserRoleId = _NativeUserRoleId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 1, 1, 1, 4),
+    _NativeUserRoleId_Type()
+)
+nativeUserRoleId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    nativeUserRoleId.setStatus("current")
+_NativeUserEmailId_Type = DisplayString
+_NativeUserEmailId_Object = MibTableColumn
+nativeUserEmailId = _NativeUserEmailId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 1, 1, 1, 5),
+    _NativeUserEmailId_Type()
+)
+nativeUserEmailId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    nativeUserEmailId.setStatus("current")
+_NativeUserFixedIpAddr_Type = BlueIpAddress
+_NativeUserFixedIpAddr_Object = MibTableColumn
+nativeUserFixedIpAddr = _NativeUserFixedIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 1, 1, 1, 6),
+    _NativeUserFixedIpAddr_Type()
+)
+nativeUserFixedIpAddr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    nativeUserFixedIpAddr.setStatus("current")
+_NativeUserPassword_Type = DisplayString
+_NativeUserPassword_Object = MibTableColumn
+nativeUserPassword = _NativeUserPassword_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 1, 1, 1, 7),
+    _NativeUserPassword_Type()
+)
+nativeUserPassword.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    nativeUserPassword.setStatus("current")
+_NativeUserNotes_Type = DisplayString
+_NativeUserNotes_Object = MibTableColumn
+nativeUserNotes = _NativeUserNotes_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 1, 1, 1, 8),
+    _NativeUserNotes_Type()
+)
+nativeUserNotes.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    nativeUserNotes.setStatus("current")
+_NativeUserRowStatus_Type = RowStatus
+_NativeUserRowStatus_Object = MibTableColumn
+nativeUserRowStatus = _NativeUserRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 1, 1, 1, 9),
+    _NativeUserRowStatus_Type()
+)
+nativeUserRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    nativeUserRowStatus.setStatus("current")
+_NativeUserRadAcctServId_Type = Integer32
+_NativeUserRadAcctServId_Object = MibTableColumn
+nativeUserRadAcctServId = _NativeUserRadAcctServId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 1, 1, 1, 10),
+    _NativeUserRadAcctServId_Type()
+)
+nativeUserRadAcctServId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    nativeUserRadAcctServId.setStatus("current")
+_AdminUsers_ObjectIdentity = ObjectIdentity
+adminUsers = _AdminUsers_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 2)
+)
+_AdminUserTable_Object = MibTable
+adminUserTable = _AdminUserTable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    adminUserTable.setStatus("current")
+_AdminUserEntry_Object = MibTableRow
+adminUserEntry = _AdminUserEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 2, 1, 1)
+)
+adminUserEntry.setIndexNames(
+    (0, "BLUESOCKET-MIB", "adminUserId"),
+)
+if mibBuilder.loadTexts:
+    adminUserEntry.setStatus("current")
+
+
+class _AdminUserId_Type(Integer32):
+    """Custom type adminUserId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_AdminUserId_Type.__name__ = "Integer32"
+_AdminUserId_Object = MibTableColumn
+adminUserId = _AdminUserId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 2, 1, 1, 1),
+    _AdminUserId_Type()
+)
+adminUserId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    adminUserId.setStatus("current")
+
+
+class _AdminUserStatus_Type(Integer32):
+    """Custom type adminUserStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_AdminUserStatus_Type.__name__ = "Integer32"
+_AdminUserStatus_Object = MibTableColumn
+adminUserStatus = _AdminUserStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 2, 1, 1, 2),
+    _AdminUserStatus_Type()
+)
+adminUserStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    adminUserStatus.setStatus("current")
+_AdminUserName_Type = DisplayString
+_AdminUserName_Object = MibTableColumn
+adminUserName = _AdminUserName_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 2, 1, 1, 3),
+    _AdminUserName_Type()
+)
+adminUserName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    adminUserName.setStatus("current")
+
+
+class _AdminUserAccess_Type(Integer32):
+    """Custom type adminUserAccess based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("full", 1),
+          ("intermediate", 2),
+          ("readOnly", 3))
+    )
+
+
+_AdminUserAccess_Type.__name__ = "Integer32"
+_AdminUserAccess_Object = MibTableColumn
+adminUserAccess = _AdminUserAccess_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 2, 1, 1, 4),
+    _AdminUserAccess_Type()
+)
+adminUserAccess.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    adminUserAccess.setStatus("current")
+_AdminUserEmailId_Type = DisplayString
+_AdminUserEmailId_Object = MibTableColumn
+adminUserEmailId = _AdminUserEmailId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 2, 1, 1, 5),
+    _AdminUserEmailId_Type()
+)
+adminUserEmailId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    adminUserEmailId.setStatus("current")
+_AdminUserPassword_Type = DisplayString
+_AdminUserPassword_Object = MibTableColumn
+adminUserPassword = _AdminUserPassword_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 2, 1, 1, 6),
+    _AdminUserPassword_Type()
+)
+adminUserPassword.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    adminUserPassword.setStatus("current")
+_AdminUserNotes_Type = DisplayString
+_AdminUserNotes_Object = MibTableColumn
+adminUserNotes = _AdminUserNotes_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 2, 1, 1, 7),
+    _AdminUserNotes_Type()
+)
+adminUserNotes.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    adminUserNotes.setStatus("current")
+_AdminUserRowStatus_Type = RowStatus
+_AdminUserRowStatus_Object = MibTableColumn
+adminUserRowStatus = _AdminUserRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 2, 1, 1, 9),
+    _AdminUserRowStatus_Type()
+)
+adminUserRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    adminUserRowStatus.setStatus("current")
+_AdUsrAccessTable_Object = MibTable
+adUsrAccessTable = _AdUsrAccessTable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 3)
+)
+if mibBuilder.loadTexts:
+    adUsrAccessTable.setStatus("current")
+_AdUsrAccessEntry_Object = MibTableRow
+adUsrAccessEntry = _AdUsrAccessEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 3, 1)
+)
+adUsrAccessEntry.setIndexNames(
+    (0, "BLUESOCKET-MIB", "adminUserId"),
+)
+if mibBuilder.loadTexts:
+    adUsrAccessEntry.setStatus("current")
+
+
+class _AdUsrAccessAdminUser_Type(Integer32):
+    """Custom type adUsrAccessAdminUser based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_AdUsrAccessAdminUser_Type.__name__ = "Integer32"
+_AdUsrAccessAdminUser_Object = MibTableColumn
+adUsrAccessAdminUser = _AdUsrAccessAdminUser_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 3, 1, 1),
+    _AdUsrAccessAdminUser_Type()
+)
+adUsrAccessAdminUser.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    adUsrAccessAdminUser.setStatus("current")
+
+
+class _AdUsrAccessNativeUser_Type(Integer32):
+    """Custom type adUsrAccessNativeUser based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_AdUsrAccessNativeUser_Type.__name__ = "Integer32"
+_AdUsrAccessNativeUser_Object = MibTableColumn
+adUsrAccessNativeUser = _AdUsrAccessNativeUser_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 3, 1, 2),
+    _AdUsrAccessNativeUser_Type()
+)
+adUsrAccessNativeUser.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    adUsrAccessNativeUser.setStatus("current")
+
+
+class _AdUsrAccessExServer_Type(Integer32):
+    """Custom type adUsrAccessExServer based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_AdUsrAccessExServer_Type.__name__ = "Integer32"
+_AdUsrAccessExServer_Object = MibTableColumn
+adUsrAccessExServer = _AdUsrAccessExServer_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 3, 1, 3),
+    _AdUsrAccessExServer_Type()
+)
+adUsrAccessExServer.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    adUsrAccessExServer.setStatus("current")
+
+
+class _AdUsrAccessAccounting_Type(Integer32):
+    """Custom type adUsrAccessAccounting based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_AdUsrAccessAccounting_Type.__name__ = "Integer32"
+_AdUsrAccessAccounting_Object = MibTableColumn
+adUsrAccessAccounting = _AdUsrAccessAccounting_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 3, 1, 4),
+    _AdUsrAccessAccounting_Type()
+)
+adUsrAccessAccounting.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    adUsrAccessAccounting.setStatus("current")
+
+
+class _AdUsrAccessRoles_Type(Integer32):
+    """Custom type adUsrAccessRoles based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_AdUsrAccessRoles_Type.__name__ = "Integer32"
+_AdUsrAccessRoles_Object = MibTableColumn
+adUsrAccessRoles = _AdUsrAccessRoles_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 3, 1, 5),
+    _AdUsrAccessRoles_Type()
+)
+adUsrAccessRoles.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    adUsrAccessRoles.setStatus("current")
+
+
+class _AdUsrAccessDestination_Type(Integer32):
+    """Custom type adUsrAccessDestination based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_AdUsrAccessDestination_Type.__name__ = "Integer32"
+_AdUsrAccessDestination_Object = MibTableColumn
+adUsrAccessDestination = _AdUsrAccessDestination_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 3, 1, 6),
+    _AdUsrAccessDestination_Type()
+)
+adUsrAccessDestination.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    adUsrAccessDestination.setStatus("current")
+
+
+class _AdUsrAccessServices_Type(Integer32):
+    """Custom type adUsrAccessServices based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_AdUsrAccessServices_Type.__name__ = "Integer32"
+_AdUsrAccessServices_Object = MibTableColumn
+adUsrAccessServices = _AdUsrAccessServices_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 3, 1, 7),
+    _AdUsrAccessServices_Type()
+)
+adUsrAccessServices.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    adUsrAccessServices.setStatus("current")
+
+
+class _AdUsrAccessVpn_Type(Integer32):
+    """Custom type adUsrAccessVpn based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_AdUsrAccessVpn_Type.__name__ = "Integer32"
+_AdUsrAccessVpn_Object = MibTableColumn
+adUsrAccessVpn = _AdUsrAccessVpn_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 3, 1, 8),
+    _AdUsrAccessVpn_Type()
+)
+adUsrAccessVpn.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    adUsrAccessVpn.setStatus("current")
+
+
+class _AdUsrAccessConfiguration_Type(Integer32):
+    """Custom type adUsrAccessConfiguration based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_AdUsrAccessConfiguration_Type.__name__ = "Integer32"
+_AdUsrAccessConfiguration_Object = MibTableColumn
+adUsrAccessConfiguration = _AdUsrAccessConfiguration_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 3, 1, 9),
+    _AdUsrAccessConfiguration_Type()
+)
+adUsrAccessConfiguration.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    adUsrAccessConfiguration.setStatus("current")
+
+
+class _AdUsrAccessNetwork_Type(Integer32):
+    """Custom type adUsrAccessNetwork based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_AdUsrAccessNetwork_Type.__name__ = "Integer32"
+_AdUsrAccessNetwork_Object = MibTableColumn
+adUsrAccessNetwork = _AdUsrAccessNetwork_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 3, 1, 10),
+    _AdUsrAccessNetwork_Type()
+)
+adUsrAccessNetwork.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    adUsrAccessNetwork.setStatus("current")
+
+
+class _AdUsrAccessReplication_Type(Integer32):
+    """Custom type adUsrAccessReplication based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_AdUsrAccessReplication_Type.__name__ = "Integer32"
+_AdUsrAccessReplication_Object = MibTableColumn
+adUsrAccessReplication = _AdUsrAccessReplication_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 3, 1, 11),
+    _AdUsrAccessReplication_Type()
+)
+adUsrAccessReplication.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    adUsrAccessReplication.setStatus("current")
+
+
+class _AdUsrAccessMaintance_Type(Integer32):
+    """Custom type adUsrAccessMaintance based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_AdUsrAccessMaintance_Type.__name__ = "Integer32"
+_AdUsrAccessMaintance_Object = MibTableColumn
+adUsrAccessMaintance = _AdUsrAccessMaintance_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 3, 1, 12),
+    _AdUsrAccessMaintance_Type()
+)
+adUsrAccessMaintance.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    adUsrAccessMaintance.setStatus("current")
+
+
+class _AdUsrAccessStatus_Type(Integer32):
+    """Custom type adUsrAccessStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_AdUsrAccessStatus_Type.__name__ = "Integer32"
+_AdUsrAccessStatus_Object = MibTableColumn
+adUsrAccessStatus = _AdUsrAccessStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 3, 1, 13),
+    _AdUsrAccessStatus_Type()
+)
+adUsrAccessStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    adUsrAccessStatus.setStatus("current")
+
+
+class _AdUsrAccessVlans_Type(Integer32):
+    """Custom type adUsrAccessVlans based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_AdUsrAccessVlans_Type.__name__ = "Integer32"
+_AdUsrAccessVlans_Object = MibTableColumn
+adUsrAccessVlans = _AdUsrAccessVlans_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 3, 1, 14),
+    _AdUsrAccessVlans_Type()
+)
+adUsrAccessVlans.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    adUsrAccessVlans.setStatus("current")
+
+
+class _AdUsrAccessSchedules_Type(Integer32):
+    """Custom type adUsrAccessSchedules based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_AdUsrAccessSchedules_Type.__name__ = "Integer32"
+_AdUsrAccessSchedules_Object = MibTableColumn
+adUsrAccessSchedules = _AdUsrAccessSchedules_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 3, 1, 15),
+    _AdUsrAccessSchedules_Type()
+)
+adUsrAccessSchedules.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    adUsrAccessSchedules.setStatus("current")
+
+
+class _AdUsrAccessMacDev_Type(Integer32):
+    """Custom type adUsrAccessMacDev based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_AdUsrAccessMacDev_Type.__name__ = "Integer32"
+_AdUsrAccessMacDev_Object = MibTableColumn
+adUsrAccessMacDev = _AdUsrAccessMacDev_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 1, 3, 1, 16),
+    _AdUsrAccessMacDev_Type()
+)
+adUsrAccessMacDev.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    adUsrAccessMacDev.setStatus("current")
+_Destination_ObjectIdentity = ObjectIdentity
+destination = _Destination_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 3)
+)
+_HostTable_Object = MibTable
+hostTable = _HostTable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 3, 1)
+)
+if mibBuilder.loadTexts:
+    hostTable.setStatus("current")
+_HostEntry_Object = MibTableRow
+hostEntry = _HostEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 3, 1, 1)
+)
+hostEntry.setIndexNames(
+    (0, "BLUESOCKET-MIB", "hostId"),
+)
+if mibBuilder.loadTexts:
+    hostEntry.setStatus("current")
+
+
+class _HostId_Type(Integer32):
+    """Custom type hostId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_HostId_Type.__name__ = "Integer32"
+_HostId_Object = MibTableColumn
+hostId = _HostId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 3, 1, 1, 1),
+    _HostId_Type()
+)
+hostId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hostId.setStatus("current")
+
+
+class _HostName_Type(OctetString):
+    """Custom type hostName based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 50),
+    )
+
+
+_HostName_Type.__name__ = "OctetString"
+_HostName_Object = MibTableColumn
+hostName = _HostName_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 3, 1, 1, 2),
+    _HostName_Type()
+)
+hostName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hostName.setStatus("current")
+_HostAddress_Type = BlueIpAddress
+_HostAddress_Object = MibTableColumn
+hostAddress = _HostAddress_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 3, 1, 1, 3),
+    _HostAddress_Type()
+)
+hostAddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hostAddress.setStatus("current")
+_HostNetmask_Type = BlueIpAddress
+_HostNetmask_Object = MibTableColumn
+hostNetmask = _HostNetmask_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 3, 1, 1, 4),
+    _HostNetmask_Type()
+)
+hostNetmask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hostNetmask.setStatus("current")
+
+
+class _HostInvertDest_Type(OctetString):
+    """Custom type hostInvertDest based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 1),
+    )
+
+
+_HostInvertDest_Type.__name__ = "OctetString"
+_HostInvertDest_Object = MibTableColumn
+hostInvertDest = _HostInvertDest_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 3, 1, 1, 5),
+    _HostInvertDest_Type()
+)
+hostInvertDest.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hostInvertDest.setStatus("current")
+
+
+class _HostType_Type(OctetString):
+    """Custom type hostType based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 1),
+    )
+
+
+_HostType_Type.__name__ = "OctetString"
+_HostType_Object = MibTableColumn
+hostType = _HostType_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 3, 1, 1, 6),
+    _HostType_Type()
+)
+hostType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hostType.setStatus("current")
+_HostNotes_Type = DisplayString
+_HostNotes_Object = MibTableColumn
+hostNotes = _HostNotes_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 3, 1, 1, 7),
+    _HostNotes_Type()
+)
+hostNotes.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hostNotes.setStatus("current")
+_HostRowStatus_Type = RowStatus
+_HostRowStatus_Object = MibTableColumn
+hostRowStatus = _HostRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 3, 1, 1, 8),
+    _HostRowStatus_Type()
+)
+hostRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hostRowStatus.setStatus("current")
+_HostGrpTable_Object = MibTable
+hostGrpTable = _HostGrpTable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 3, 2)
+)
+if mibBuilder.loadTexts:
+    hostGrpTable.setStatus("current")
+_HostGrpEntry_Object = MibTableRow
+hostGrpEntry = _HostGrpEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 3, 2, 1)
+)
+hostGrpEntry.setIndexNames(
+    (0, "BLUESOCKET-MIB", "hostGrpId"),
+)
+if mibBuilder.loadTexts:
+    hostGrpEntry.setStatus("current")
+
+
+class _HostGrpId_Type(Integer32):
+    """Custom type hostGrpId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_HostGrpId_Type.__name__ = "Integer32"
+_HostGrpId_Object = MibTableColumn
+hostGrpId = _HostGrpId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 3, 2, 1, 1),
+    _HostGrpId_Type()
+)
+hostGrpId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hostGrpId.setStatus("current")
+
+
+class _HostGrpName_Type(OctetString):
+    """Custom type hostGrpName based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 50),
+    )
+
+
+_HostGrpName_Type.__name__ = "OctetString"
+_HostGrpName_Object = MibTableColumn
+hostGrpName = _HostGrpName_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 3, 2, 1, 2),
+    _HostGrpName_Type()
+)
+hostGrpName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hostGrpName.setStatus("current")
+_HostGrpRowStatus_Type = RowStatus
+_HostGrpRowStatus_Object = MibTableColumn
+hostGrpRowStatus = _HostGrpRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 3, 2, 1, 3),
+    _HostGrpRowStatus_Type()
+)
+hostGrpRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hostGrpRowStatus.setStatus("current")
+_HostGrpMemTable_Object = MibTable
+hostGrpMemTable = _HostGrpMemTable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 3, 3)
+)
+if mibBuilder.loadTexts:
+    hostGrpMemTable.setStatus("current")
+_HostGrpMemEntry_Object = MibTableRow
+hostGrpMemEntry = _HostGrpMemEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 3, 3, 1)
+)
+hostGrpMemEntry.setIndexNames(
+    (0, "BLUESOCKET-MIB", "hostGrpId"),
+    (0, "BLUESOCKET-MIB", "hostGrpMemId"),
+)
+if mibBuilder.loadTexts:
+    hostGrpMemEntry.setStatus("current")
+
+
+class _HostGrpMemId_Type(Integer32):
+    """Custom type hostGrpMemId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_HostGrpMemId_Type.__name__ = "Integer32"
+_HostGrpMemId_Object = MibTableColumn
+hostGrpMemId = _HostGrpMemId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 3, 3, 1, 1),
+    _HostGrpMemId_Type()
+)
+hostGrpMemId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hostGrpMemId.setStatus("current")
+_HostGrpMemRowStatus_Type = RowStatus
+_HostGrpMemRowStatus_Object = MibTableColumn
+hostGrpMemRowStatus = _HostGrpMemRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 3, 3, 1, 2),
+    _HostGrpMemRowStatus_Type()
+)
+hostGrpMemRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hostGrpMemRowStatus.setStatus("current")
+_Service_ObjectIdentity = ObjectIdentity
+service = _Service_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 4)
+)
+_ServiceTable_Object = MibTable
+serviceTable = _ServiceTable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 4, 1)
+)
+if mibBuilder.loadTexts:
+    serviceTable.setStatus("current")
+_ServiceEntry_Object = MibTableRow
+serviceEntry = _ServiceEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 4, 1, 1)
+)
+serviceEntry.setIndexNames(
+    (0, "BLUESOCKET-MIB", "serviceId"),
+)
+if mibBuilder.loadTexts:
+    serviceEntry.setStatus("current")
+
+
+class _ServiceId_Type(Integer32):
+    """Custom type serviceId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_ServiceId_Type.__name__ = "Integer32"
+_ServiceId_Object = MibTableColumn
+serviceId = _ServiceId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 4, 1, 1, 1),
+    _ServiceId_Type()
+)
+serviceId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    serviceId.setStatus("current")
+
+
+class _ServiceName_Type(OctetString):
+    """Custom type serviceName based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 50),
+    )
+
+
+_ServiceName_Type.__name__ = "OctetString"
+_ServiceName_Object = MibTableColumn
+serviceName = _ServiceName_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 4, 1, 1, 2),
+    _ServiceName_Type()
+)
+serviceName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    serviceName.setStatus("current")
+_ServicePort_Type = Integer32
+_ServicePort_Object = MibTableColumn
+servicePort = _ServicePort_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 4, 1, 1, 3),
+    _ServicePort_Type()
+)
+servicePort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    servicePort.setStatus("current")
+
+
+class _ServiceProtocol_Type(OctetString):
+    """Custom type serviceProtocol based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 10),
+    )
+
+
+_ServiceProtocol_Type.__name__ = "OctetString"
+_ServiceProtocol_Object = MibTableColumn
+serviceProtocol = _ServiceProtocol_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 4, 1, 1, 4),
+    _ServiceProtocol_Type()
+)
+serviceProtocol.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    serviceProtocol.setStatus("current")
+_ServiceCosPriorityIn_Type = Integer32
+_ServiceCosPriorityIn_Object = MibTableColumn
+serviceCosPriorityIn = _ServiceCosPriorityIn_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 4, 1, 1, 7),
+    _ServiceCosPriorityIn_Type()
+)
+serviceCosPriorityIn.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    serviceCosPriorityIn.setStatus("current")
+_ServiceCosPriorityOut_Type = Integer32
+_ServiceCosPriorityOut_Object = MibTableColumn
+serviceCosPriorityOut = _ServiceCosPriorityOut_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 4, 1, 1, 8),
+    _ServiceCosPriorityOut_Type()
+)
+serviceCosPriorityOut.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    serviceCosPriorityOut.setStatus("current")
+_ServiceCosDscpIn_Type = Integer32
+_ServiceCosDscpIn_Object = MibTableColumn
+serviceCosDscpIn = _ServiceCosDscpIn_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 4, 1, 1, 9),
+    _ServiceCosDscpIn_Type()
+)
+serviceCosDscpIn.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    serviceCosDscpIn.setStatus("current")
+_ServiceCosDscpOut_Type = Integer32
+_ServiceCosDscpOut_Object = MibTableColumn
+serviceCosDscpOut = _ServiceCosDscpOut_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 4, 1, 1, 10),
+    _ServiceCosDscpOut_Type()
+)
+serviceCosDscpOut.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    serviceCosDscpOut.setStatus("current")
+_ServiceNotes_Type = DisplayString
+_ServiceNotes_Object = MibTableColumn
+serviceNotes = _ServiceNotes_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 4, 1, 1, 11),
+    _ServiceNotes_Type()
+)
+serviceNotes.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    serviceNotes.setStatus("current")
+_ServiceRowStatus_Type = RowStatus
+_ServiceRowStatus_Object = MibTableColumn
+serviceRowStatus = _ServiceRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 4, 1, 1, 12),
+    _ServiceRowStatus_Type()
+)
+serviceRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    serviceRowStatus.setStatus("current")
+_ServiceGrpTable_Object = MibTable
+serviceGrpTable = _ServiceGrpTable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 4, 2)
+)
+if mibBuilder.loadTexts:
+    serviceGrpTable.setStatus("current")
+_ServiceGrpEntry_Object = MibTableRow
+serviceGrpEntry = _ServiceGrpEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 4, 2, 1)
+)
+serviceGrpEntry.setIndexNames(
+    (0, "BLUESOCKET-MIB", "serviceGrpId"),
+)
+if mibBuilder.loadTexts:
+    serviceGrpEntry.setStatus("current")
+
+
+class _ServiceGrpId_Type(Integer32):
+    """Custom type serviceGrpId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_ServiceGrpId_Type.__name__ = "Integer32"
+_ServiceGrpId_Object = MibTableColumn
+serviceGrpId = _ServiceGrpId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 4, 2, 1, 1),
+    _ServiceGrpId_Type()
+)
+serviceGrpId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    serviceGrpId.setStatus("current")
+
+
+class _ServiceGrpName_Type(OctetString):
+    """Custom type serviceGrpName based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 50),
+    )
+
+
+_ServiceGrpName_Type.__name__ = "OctetString"
+_ServiceGrpName_Object = MibTableColumn
+serviceGrpName = _ServiceGrpName_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 4, 2, 1, 2),
+    _ServiceGrpName_Type()
+)
+serviceGrpName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    serviceGrpName.setStatus("current")
+_ServiceGrpRowStatus_Type = RowStatus
+_ServiceGrpRowStatus_Object = MibTableColumn
+serviceGrpRowStatus = _ServiceGrpRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 4, 2, 1, 3),
+    _ServiceGrpRowStatus_Type()
+)
+serviceGrpRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    serviceGrpRowStatus.setStatus("current")
+_ServiceGrpMemTable_Object = MibTable
+serviceGrpMemTable = _ServiceGrpMemTable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 4, 3)
+)
+if mibBuilder.loadTexts:
+    serviceGrpMemTable.setStatus("current")
+_ServiceGrpMemEntry_Object = MibTableRow
+serviceGrpMemEntry = _ServiceGrpMemEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 4, 3, 1)
+)
+serviceGrpMemEntry.setIndexNames(
+    (0, "BLUESOCKET-MIB", "serviceGrpId"),
+    (0, "BLUESOCKET-MIB", "serviceGrpMemId"),
+)
+if mibBuilder.loadTexts:
+    serviceGrpMemEntry.setStatus("current")
+
+
+class _ServiceGrpMemId_Type(Integer32):
+    """Custom type serviceGrpMemId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_ServiceGrpMemId_Type.__name__ = "Integer32"
+_ServiceGrpMemId_Object = MibTableColumn
+serviceGrpMemId = _ServiceGrpMemId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 4, 3, 1, 1),
+    _ServiceGrpMemId_Type()
+)
+serviceGrpMemId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    serviceGrpMemId.setStatus("current")
+_ServiceGrpMemRowStatus_Type = RowStatus
+_ServiceGrpMemRowStatus_Object = MibTableColumn
+serviceGrpMemRowStatus = _ServiceGrpMemRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 4, 3, 1, 2),
+    _ServiceGrpMemRowStatus_Type()
+)
+serviceGrpMemRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    serviceGrpMemRowStatus.setStatus("current")
+_Policy_ObjectIdentity = ObjectIdentity
+policy = _Policy_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 5)
+)
+_PolicyTable_Object = MibTable
+policyTable = _PolicyTable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 5, 1)
+)
+if mibBuilder.loadTexts:
+    policyTable.setStatus("current")
+_PolicyEntry_Object = MibTableRow
+policyEntry = _PolicyEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 5, 1, 1)
+)
+policyEntry.setIndexNames(
+    (0, "BLUESOCKET-MIB", "roleId"),
+    (0, "BLUESOCKET-MIB", "policyId"),
+)
+if mibBuilder.loadTexts:
+    policyEntry.setStatus("current")
+
+
+class _PolicyId_Type(Integer32):
+    """Custom type policyId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_PolicyId_Type.__name__ = "Integer32"
+_PolicyId_Object = MibTableColumn
+policyId = _PolicyId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 5, 1, 1, 1),
+    _PolicyId_Type()
+)
+policyId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    policyId.setStatus("current")
+_PolicyServiceId_Type = Integer32
+_PolicyServiceId_Object = MibTableColumn
+policyServiceId = _PolicyServiceId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 5, 1, 1, 2),
+    _PolicyServiceId_Type()
+)
+policyServiceId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    policyServiceId.setStatus("current")
+_PolicyHostId_Type = Integer32
+_PolicyHostId_Object = MibTableColumn
+policyHostId = _PolicyHostId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 5, 1, 1, 3),
+    _PolicyHostId_Type()
+)
+policyHostId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    policyHostId.setStatus("current")
+
+
+class _PolicyAction_Type(OctetString):
+    """Custom type policyAction based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 1),
+    )
+
+
+_PolicyAction_Type.__name__ = "OctetString"
+_PolicyAction_Object = MibTableColumn
+policyAction = _PolicyAction_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 5, 1, 1, 4),
+    _PolicyAction_Type()
+)
+policyAction.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    policyAction.setStatus("current")
+
+
+class _PolicyDirection_Type(OctetString):
+    """Custom type policyDirection based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 1),
+    )
+
+
+_PolicyDirection_Type.__name__ = "OctetString"
+_PolicyDirection_Object = MibTableColumn
+policyDirection = _PolicyDirection_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 5, 1, 1, 5),
+    _PolicyDirection_Type()
+)
+policyDirection.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    policyDirection.setStatus("current")
+_PolicySeqId_Type = Integer32
+_PolicySeqId_Object = MibTableColumn
+policySeqId = _PolicySeqId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 5, 1, 1, 6),
+    _PolicySeqId_Type()
+)
+policySeqId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    policySeqId.setStatus("current")
+_PolicyVlanId_Type = Integer32
+_PolicyVlanId_Object = MibTableColumn
+policyVlanId = _PolicyVlanId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 5, 1, 1, 8),
+    _PolicyVlanId_Type()
+)
+policyVlanId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    policyVlanId.setStatus("current")
+_PolicyScheduleId_Type = Integer32
+_PolicyScheduleId_Object = MibTableColumn
+policyScheduleId = _PolicyScheduleId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 5, 1, 1, 9),
+    _PolicyScheduleId_Type()
+)
+policyScheduleId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    policyScheduleId.setStatus("current")
+_PolicyRowStatus_Type = RowStatus
+_PolicyRowStatus_Object = MibTableColumn
+policyRowStatus = _PolicyRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 5, 1, 1, 10),
+    _PolicyRowStatus_Type()
+)
+policyRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    policyRowStatus.setStatus("current")
+_Vpn_ObjectIdentity = ObjectIdentity
+vpn = _Vpn_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6)
+)
+_Ipsec_ObjectIdentity = ObjectIdentity
+ipsec = _Ipsec_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 1)
+)
+
+
+class _ExchangeMode_Type(Integer32):
+    """Custom type exchangeMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("aggressive", 1),
+          ("main", 2))
+    )
+
+
+_ExchangeMode_Type.__name__ = "Integer32"
+_ExchangeMode_Object = MibScalar
+exchangeMode = _ExchangeMode_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 1),
+    _ExchangeMode_Type()
+)
+exchangeMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    exchangeMode.setStatus("current")
+
+
+class _AuthenticationMethod_Type(Integer32):
+    """Custom type authenticationMethod based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("certificates", 1),
+          ("sharedKeys", 2))
+    )
+
+
+_AuthenticationMethod_Type.__name__ = "Integer32"
+_AuthenticationMethod_Object = MibScalar
+authenticationMethod = _AuthenticationMethod_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 2),
+    _AuthenticationMethod_Type()
+)
+authenticationMethod.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    authenticationMethod.setStatus("current")
+_IdleTimeout_Type = Integer32
+_IdleTimeout_Object = MibScalar
+idleTimeout = _IdleTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 3),
+    _IdleTimeout_Type()
+)
+idleTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    idleTimeout.setStatus("current")
+_MaxLifeTimeInSecs_Type = Integer32
+_MaxLifeTimeInSecs_Object = MibScalar
+maxLifeTimeInSecs = _MaxLifeTimeInSecs_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 4),
+    _MaxLifeTimeInSecs_Type()
+)
+maxLifeTimeInSecs.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    maxLifeTimeInSecs.setStatus("current")
+_MaxLifeTimeInKbs_Type = Integer32
+_MaxLifeTimeInKbs_Object = MibScalar
+maxLifeTimeInKbs = _MaxLifeTimeInKbs_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 5),
+    _MaxLifeTimeInKbs_Type()
+)
+maxLifeTimeInKbs.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    maxLifeTimeInKbs.setStatus("current")
+_RefreshThresholdInSecs_Type = Integer32
+_RefreshThresholdInSecs_Object = MibScalar
+refreshThresholdInSecs = _RefreshThresholdInSecs_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 6),
+    _RefreshThresholdInSecs_Type()
+)
+refreshThresholdInSecs.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    refreshThresholdInSecs.setStatus("current")
+_RefreshThresholdInKbs_Type = Integer32
+_RefreshThresholdInKbs_Object = MibScalar
+refreshThresholdInKbs = _RefreshThresholdInKbs_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 7),
+    _RefreshThresholdInKbs_Type()
+)
+refreshThresholdInKbs.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    refreshThresholdInKbs.setStatus("current")
+_MinLifeTimeInSecs_Type = Integer32
+_MinLifeTimeInSecs_Object = MibScalar
+minLifeTimeInSecs = _MinLifeTimeInSecs_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 8),
+    _MinLifeTimeInSecs_Type()
+)
+minLifeTimeInSecs.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    minLifeTimeInSecs.setStatus("current")
+_MinLifeTimeInKbs_Type = Integer32
+_MinLifeTimeInKbs_Object = MibScalar
+minLifeTimeInKbs = _MinLifeTimeInKbs_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 9),
+    _MinLifeTimeInKbs_Type()
+)
+minLifeTimeInKbs.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    minLifeTimeInKbs.setStatus("current")
+
+
+class _ExModeAggressive_Type(Integer32):
+    """Custom type exModeAggressive based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_ExModeAggressive_Type.__name__ = "Integer32"
+_ExModeAggressive_Object = MibScalar
+exModeAggressive = _ExModeAggressive_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 10),
+    _ExModeAggressive_Type()
+)
+exModeAggressive.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    exModeAggressive.setStatus("current")
+
+
+class _ExModeMain_Type(Integer32):
+    """Custom type exModeMain based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_ExModeMain_Type.__name__ = "Integer32"
+_ExModeMain_Object = MibScalar
+exModeMain = _ExModeMain_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 11),
+    _ExModeMain_Type()
+)
+exModeMain.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    exModeMain.setStatus("current")
+
+
+class _AuthMethodCertificates_Type(Integer32):
+    """Custom type authMethodCertificates based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_AuthMethodCertificates_Type.__name__ = "Integer32"
+_AuthMethodCertificates_Object = MibScalar
+authMethodCertificates = _AuthMethodCertificates_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 12),
+    _AuthMethodCertificates_Type()
+)
+authMethodCertificates.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    authMethodCertificates.setStatus("current")
+
+
+class _AuthMethodPreSharedKeys_Type(Integer32):
+    """Custom type authMethodPreSharedKeys based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_AuthMethodPreSharedKeys_Type.__name__ = "Integer32"
+_AuthMethodPreSharedKeys_Object = MibScalar
+authMethodPreSharedKeys = _AuthMethodPreSharedKeys_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 13),
+    _AuthMethodPreSharedKeys_Type()
+)
+authMethodPreSharedKeys.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    authMethodPreSharedKeys.setStatus("current")
+_IpsecConfTable_Object = MibTable
+ipsecConfTable = _IpsecConfTable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14)
+)
+if mibBuilder.loadTexts:
+    ipsecConfTable.setStatus("current")
+_IpsecConfEntry_Object = MibTableRow
+ipsecConfEntry = _IpsecConfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1)
+)
+ipsecConfEntry.setIndexNames(
+    (0, "BLUESOCKET-MIB", "ipsecConfId"),
+)
+if mibBuilder.loadTexts:
+    ipsecConfEntry.setStatus("current")
+
+
+class _IpsecConfId_Type(Integer32):
+    """Custom type ipsecConfId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_IpsecConfId_Type.__name__ = "Integer32"
+_IpsecConfId_Object = MibTableColumn
+ipsecConfId = _IpsecConfId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 1),
+    _IpsecConfId_Type()
+)
+ipsecConfId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    ipsecConfId.setStatus("current")
+
+
+class _IpsecConfEnableConfiguration_Type(Integer32):
+    """Custom type ipsecConfEnableConfiguration based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 0),
+          ("yes", 1))
+    )
+
+
+_IpsecConfEnableConfiguration_Type.__name__ = "Integer32"
+_IpsecConfEnableConfiguration_Object = MibTableColumn
+ipsecConfEnableConfiguration = _IpsecConfEnableConfiguration_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 2),
+    _IpsecConfEnableConfiguration_Type()
+)
+ipsecConfEnableConfiguration.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    ipsecConfEnableConfiguration.setStatus("current")
+_IpsecConfName_Type = DisplayString
+_IpsecConfName_Object = MibTableColumn
+ipsecConfName = _IpsecConfName_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 3),
+    _IpsecConfName_Type()
+)
+ipsecConfName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    ipsecConfName.setStatus("current")
+
+
+class _IpsecConfLocalAuth_Type(Integer32):
+    """Custom type ipsecConfLocalAuth based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_IpsecConfLocalAuth_Type.__name__ = "Integer32"
+_IpsecConfLocalAuth_Object = MibTableColumn
+ipsecConfLocalAuth = _IpsecConfLocalAuth_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 4),
+    _IpsecConfLocalAuth_Type()
+)
+ipsecConfLocalAuth.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    ipsecConfLocalAuth.setStatus("current")
+
+
+class _IpsecConfEspTripleDESWithSHA1_Type(Integer32):
+    """Custom type ipsecConfEspTripleDESWithSHA1 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_IpsecConfEspTripleDESWithSHA1_Type.__name__ = "Integer32"
+_IpsecConfEspTripleDESWithSHA1_Object = MibTableColumn
+ipsecConfEspTripleDESWithSHA1 = _IpsecConfEspTripleDESWithSHA1_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 5),
+    _IpsecConfEspTripleDESWithSHA1_Type()
+)
+ipsecConfEspTripleDESWithSHA1.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    ipsecConfEspTripleDESWithSHA1.setStatus("current")
+
+
+class _IpsecConfEspTripleDESWithMD5_Type(Integer32):
+    """Custom type ipsecConfEspTripleDESWithMD5 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_IpsecConfEspTripleDESWithMD5_Type.__name__ = "Integer32"
+_IpsecConfEspTripleDESWithMD5_Object = MibTableColumn
+ipsecConfEspTripleDESWithMD5 = _IpsecConfEspTripleDESWithMD5_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 6),
+    _IpsecConfEspTripleDESWithMD5_Type()
+)
+ipsecConfEspTripleDESWithMD5.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    ipsecConfEspTripleDESWithMD5.setStatus("current")
+
+
+class _IpsecConfEsp56BitDESWithMD5_Type(Integer32):
+    """Custom type ipsecConfEsp56BitDESWithMD5 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_IpsecConfEsp56BitDESWithMD5_Type.__name__ = "Integer32"
+_IpsecConfEsp56BitDESWithMD5_Object = MibTableColumn
+ipsecConfEsp56BitDESWithMD5 = _IpsecConfEsp56BitDESWithMD5_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 7),
+    _IpsecConfEsp56BitDESWithMD5_Type()
+)
+ipsecConfEsp56BitDESWithMD5.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    ipsecConfEsp56BitDESWithMD5.setStatus("current")
+
+
+class _IpsecConfEsp56BitDESWithSHA1_Type(Integer32):
+    """Custom type ipsecConfEsp56BitDESWithSHA1 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_IpsecConfEsp56BitDESWithSHA1_Type.__name__ = "Integer32"
+_IpsecConfEsp56BitDESWithSHA1_Object = MibTableColumn
+ipsecConfEsp56BitDESWithSHA1 = _IpsecConfEsp56BitDESWithSHA1_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 8),
+    _IpsecConfEsp56BitDESWithSHA1_Type()
+)
+ipsecConfEsp56BitDESWithSHA1.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    ipsecConfEsp56BitDESWithSHA1.setStatus("current")
+
+
+class _IpsecConfEsp128BitAESWithMD5_Type(Integer32):
+    """Custom type ipsecConfEsp128BitAESWithMD5 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_IpsecConfEsp128BitAESWithMD5_Type.__name__ = "Integer32"
+_IpsecConfEsp128BitAESWithMD5_Object = MibTableColumn
+ipsecConfEsp128BitAESWithMD5 = _IpsecConfEsp128BitAESWithMD5_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 9),
+    _IpsecConfEsp128BitAESWithMD5_Type()
+)
+ipsecConfEsp128BitAESWithMD5.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    ipsecConfEsp128BitAESWithMD5.setStatus("current")
+
+
+class _IpsecConfEsp128BitAESWithSHA1_Type(Integer32):
+    """Custom type ipsecConfEsp128BitAESWithSHA1 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_IpsecConfEsp128BitAESWithSHA1_Type.__name__ = "Integer32"
+_IpsecConfEsp128BitAESWithSHA1_Object = MibTableColumn
+ipsecConfEsp128BitAESWithSHA1 = _IpsecConfEsp128BitAESWithSHA1_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 10),
+    _IpsecConfEsp128BitAESWithSHA1_Type()
+)
+ipsecConfEsp128BitAESWithSHA1.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    ipsecConfEsp128BitAESWithSHA1.setStatus("current")
+
+
+class _IpsecConfEsp192BitAESWithMD5_Type(Integer32):
+    """Custom type ipsecConfEsp192BitAESWithMD5 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_IpsecConfEsp192BitAESWithMD5_Type.__name__ = "Integer32"
+_IpsecConfEsp192BitAESWithMD5_Object = MibTableColumn
+ipsecConfEsp192BitAESWithMD5 = _IpsecConfEsp192BitAESWithMD5_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 11),
+    _IpsecConfEsp192BitAESWithMD5_Type()
+)
+ipsecConfEsp192BitAESWithMD5.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    ipsecConfEsp192BitAESWithMD5.setStatus("current")
+
+
+class _IpsecConfEsp192BitAESWithSHA1_Type(Integer32):
+    """Custom type ipsecConfEsp192BitAESWithSHA1 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_IpsecConfEsp192BitAESWithSHA1_Type.__name__ = "Integer32"
+_IpsecConfEsp192BitAESWithSHA1_Object = MibTableColumn
+ipsecConfEsp192BitAESWithSHA1 = _IpsecConfEsp192BitAESWithSHA1_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 12),
+    _IpsecConfEsp192BitAESWithSHA1_Type()
+)
+ipsecConfEsp192BitAESWithSHA1.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    ipsecConfEsp192BitAESWithSHA1.setStatus("current")
+
+
+class _IpsecConfEsp256BitAESWithMD5_Type(Integer32):
+    """Custom type ipsecConfEsp256BitAESWithMD5 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_IpsecConfEsp256BitAESWithMD5_Type.__name__ = "Integer32"
+_IpsecConfEsp256BitAESWithMD5_Object = MibTableColumn
+ipsecConfEsp256BitAESWithMD5 = _IpsecConfEsp256BitAESWithMD5_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 13),
+    _IpsecConfEsp256BitAESWithMD5_Type()
+)
+ipsecConfEsp256BitAESWithMD5.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    ipsecConfEsp256BitAESWithMD5.setStatus("current")
+
+
+class _IpsecConfEsp256BitAESWithSHA1_Type(Integer32):
+    """Custom type ipsecConfEsp256BitAESWithSHA1 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_IpsecConfEsp256BitAESWithSHA1_Type.__name__ = "Integer32"
+_IpsecConfEsp256BitAESWithSHA1_Object = MibTableColumn
+ipsecConfEsp256BitAESWithSHA1 = _IpsecConfEsp256BitAESWithSHA1_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 14),
+    _IpsecConfEsp256BitAESWithSHA1_Type()
+)
+ipsecConfEsp256BitAESWithSHA1.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    ipsecConfEsp256BitAESWithSHA1.setStatus("current")
+
+
+class _IpsecConfDiffieHellmanGrp1_Type(Integer32):
+    """Custom type ipsecConfDiffieHellmanGrp1 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_IpsecConfDiffieHellmanGrp1_Type.__name__ = "Integer32"
+_IpsecConfDiffieHellmanGrp1_Object = MibTableColumn
+ipsecConfDiffieHellmanGrp1 = _IpsecConfDiffieHellmanGrp1_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 15),
+    _IpsecConfDiffieHellmanGrp1_Type()
+)
+ipsecConfDiffieHellmanGrp1.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    ipsecConfDiffieHellmanGrp1.setStatus("current")
+
+
+class _IpsecConfDiffieHellmanGrp2_Type(Integer32):
+    """Custom type ipsecConfDiffieHellmanGrp2 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_IpsecConfDiffieHellmanGrp2_Type.__name__ = "Integer32"
+_IpsecConfDiffieHellmanGrp2_Object = MibTableColumn
+ipsecConfDiffieHellmanGrp2 = _IpsecConfDiffieHellmanGrp2_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 16),
+    _IpsecConfDiffieHellmanGrp2_Type()
+)
+ipsecConfDiffieHellmanGrp2.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    ipsecConfDiffieHellmanGrp2.setStatus("current")
+
+
+class _IpsecConfDiffieHellmanGrp5_Type(Integer32):
+    """Custom type ipsecConfDiffieHellmanGrp5 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_IpsecConfDiffieHellmanGrp5_Type.__name__ = "Integer32"
+_IpsecConfDiffieHellmanGrp5_Object = MibTableColumn
+ipsecConfDiffieHellmanGrp5 = _IpsecConfDiffieHellmanGrp5_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 17),
+    _IpsecConfDiffieHellmanGrp5_Type()
+)
+ipsecConfDiffieHellmanGrp5.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    ipsecConfDiffieHellmanGrp5.setStatus("current")
+
+
+class _IpsecConfPsfMode_Type(Integer32):
+    """Custom type ipsecConfPsfMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_IpsecConfPsfMode_Type.__name__ = "Integer32"
+_IpsecConfPsfMode_Object = MibTableColumn
+ipsecConfPsfMode = _IpsecConfPsfMode_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 18),
+    _IpsecConfPsfMode_Type()
+)
+ipsecConfPsfMode.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    ipsecConfPsfMode.setStatus("current")
+
+
+class _IpsecConfCompressionDeflate_Type(Integer32):
+    """Custom type ipsecConfCompressionDeflate based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_IpsecConfCompressionDeflate_Type.__name__ = "Integer32"
+_IpsecConfCompressionDeflate_Object = MibTableColumn
+ipsecConfCompressionDeflate = _IpsecConfCompressionDeflate_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 19),
+    _IpsecConfCompressionDeflate_Type()
+)
+ipsecConfCompressionDeflate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    ipsecConfCompressionDeflate.setStatus("current")
+
+
+class _IpsecConfCompressionLZS_Type(Integer32):
+    """Custom type ipsecConfCompressionLZS based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_IpsecConfCompressionLZS_Type.__name__ = "Integer32"
+_IpsecConfCompressionLZS_Object = MibTableColumn
+ipsecConfCompressionLZS = _IpsecConfCompressionLZS_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 20),
+    _IpsecConfCompressionLZS_Type()
+)
+ipsecConfCompressionLZS.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    ipsecConfCompressionLZS.setStatus("current")
+_IpsecConfRowStatus_Type = RowStatus
+_IpsecConfRowStatus_Object = MibTableColumn
+ipsecConfRowStatus = _IpsecConfRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 1, 14, 1, 21),
+    _IpsecConfRowStatus_Type()
+)
+ipsecConfRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    ipsecConfRowStatus.setStatus("current")
+_Pptp_ObjectIdentity = ObjectIdentity
+pptp = _Pptp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 2)
+)
+
+
+class _PptpEnable_Type(Integer32):
+    """Custom type pptpEnable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 0),
+          ("yes", 1))
+    )
+
+
+_PptpEnable_Type.__name__ = "Integer32"
+_PptpEnable_Object = MibScalar
+pptpEnable = _PptpEnable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 2, 1),
+    _PptpEnable_Type()
+)
+pptpEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pptpEnable.setStatus("current")
+_PptpRemoteIpStartAddr_Type = BlueIpAddress
+_PptpRemoteIpStartAddr_Object = MibScalar
+pptpRemoteIpStartAddr = _PptpRemoteIpStartAddr_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 2, 2),
+    _PptpRemoteIpStartAddr_Type()
+)
+pptpRemoteIpStartAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pptpRemoteIpStartAddr.setStatus("current")
+_PptpRemoteIpEndAddr_Type = BlueIpAddress
+_PptpRemoteIpEndAddr_Object = MibScalar
+pptpRemoteIpEndAddr = _PptpRemoteIpEndAddr_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 2, 3),
+    _PptpRemoteIpEndAddr_Type()
+)
+pptpRemoteIpEndAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pptpRemoteIpEndAddr.setStatus("current")
+_PptpLocalIpAddr_Type = BlueIpAddress
+_PptpLocalIpAddr_Object = MibScalar
+pptpLocalIpAddr = _PptpLocalIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 2, 4),
+    _PptpLocalIpAddr_Type()
+)
+pptpLocalIpAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pptpLocalIpAddr.setStatus("current")
+
+
+class _PptpEncryption40Bit_Type(Integer32):
+    """Custom type pptpEncryption40Bit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_PptpEncryption40Bit_Type.__name__ = "Integer32"
+_PptpEncryption40Bit_Object = MibScalar
+pptpEncryption40Bit = _PptpEncryption40Bit_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 2, 5),
+    _PptpEncryption40Bit_Type()
+)
+pptpEncryption40Bit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pptpEncryption40Bit.setStatus("current")
+
+
+class _PptpEncryption128Bit_Type(Integer32):
+    """Custom type pptpEncryption128Bit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_PptpEncryption128Bit_Type.__name__ = "Integer32"
+_PptpEncryption128Bit_Object = MibScalar
+pptpEncryption128Bit = _PptpEncryption128Bit_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 2, 6),
+    _PptpEncryption128Bit_Type()
+)
+pptpEncryption128Bit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pptpEncryption128Bit.setStatus("current")
+_PptpIdleTimeout_Type = Integer32
+_PptpIdleTimeout_Object = MibScalar
+pptpIdleTimeout = _PptpIdleTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 2, 7),
+    _PptpIdleTimeout_Type()
+)
+pptpIdleTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pptpIdleTimeout.setStatus("current")
+_PptpLdapPwdAttrName_Type = DisplayString
+_PptpLdapPwdAttrName_Object = MibScalar
+pptpLdapPwdAttrName = _PptpLdapPwdAttrName_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 2, 8),
+    _PptpLdapPwdAttrName_Type()
+)
+pptpLdapPwdAttrName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pptpLdapPwdAttrName.setStatus("current")
+_PptpRoleId_Type = Integer32
+_PptpRoleId_Object = MibScalar
+pptpRoleId = _PptpRoleId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 2, 9),
+    _PptpRoleId_Type()
+)
+pptpRoleId.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pptpRoleId.setStatus("current")
+_SubnetVpn_ObjectIdentity = ObjectIdentity
+subnetVpn = _SubnetVpn_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 3)
+)
+
+
+class _SubnetVpnMode_Type(Integer32):
+    """Custom type subnetVpnMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_SubnetVpnMode_Type.__name__ = "Integer32"
+_SubnetVpnMode_Object = MibScalar
+subnetVpnMode = _SubnetVpnMode_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 3, 1),
+    _SubnetVpnMode_Type()
+)
+subnetVpnMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    subnetVpnMode.setStatus("current")
+_SubnetVpnRtFirstIp_Type = BlueIpAddress
+_SubnetVpnRtFirstIp_Object = MibScalar
+subnetVpnRtFirstIp = _SubnetVpnRtFirstIp_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 3, 2),
+    _SubnetVpnRtFirstIp_Type()
+)
+subnetVpnRtFirstIp.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    subnetVpnRtFirstIp.setStatus("current")
+_SubnetVpnRtLastIp_Type = BlueIpAddress
+_SubnetVpnRtLastIp_Object = MibScalar
+subnetVpnRtLastIp = _SubnetVpnRtLastIp_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 3, 3),
+    _SubnetVpnRtLastIp_Type()
+)
+subnetVpnRtLastIp.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    subnetVpnRtLastIp.setStatus("current")
+_SubnetVpnSharedSec_Type = DisplayString
+_SubnetVpnSharedSec_Object = MibScalar
+subnetVpnSharedSec = _SubnetVpnSharedSec_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 3, 4),
+    _SubnetVpnSharedSec_Type()
+)
+subnetVpnSharedSec.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    subnetVpnSharedSec.setStatus("current")
+_SubnetIpConfIdInUse_Type = Integer32
+_SubnetIpConfIdInUse_Object = MibScalar
+subnetIpConfIdInUse = _SubnetIpConfIdInUse_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 3, 5),
+    _SubnetIpConfIdInUse_Type()
+)
+subnetIpConfIdInUse.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    subnetIpConfIdInUse.setStatus("current")
+_Certificate_ObjectIdentity = ObjectIdentity
+certificate = _Certificate_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 4)
+)
+_CertTable_Object = MibTable
+certTable = _CertTable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 4, 1)
+)
+if mibBuilder.loadTexts:
+    certTable.setStatus("current")
+_CertEntry_Object = MibTableRow
+certEntry = _CertEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 4, 1, 1)
+)
+certEntry.setIndexNames(
+    (0, "BLUESOCKET-MIB", "certId"),
+)
+if mibBuilder.loadTexts:
+    certEntry.setStatus("current")
+
+
+class _CertId_Type(Integer32):
+    """Custom type certId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_CertId_Type.__name__ = "Integer32"
+_CertId_Object = MibTableColumn
+certId = _CertId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 4, 1, 1, 1),
+    _CertId_Type()
+)
+certId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    certId.setStatus("current")
+_CertType_Type = DisplayString
+_CertType_Object = MibTableColumn
+certType = _CertType_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 4, 1, 1, 2),
+    _CertType_Type()
+)
+certType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    certType.setStatus("current")
+_CertSubject_Type = DisplayString
+_CertSubject_Object = MibTableColumn
+certSubject = _CertSubject_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 4, 1, 1, 3),
+    _CertSubject_Type()
+)
+certSubject.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    certSubject.setStatus("current")
+_CertStartDate_Type = DisplayString
+_CertStartDate_Object = MibTableColumn
+certStartDate = _CertStartDate_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 4, 1, 1, 4),
+    _CertStartDate_Type()
+)
+certStartDate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    certStartDate.setStatus("current")
+_CertEndDate_Type = DisplayString
+_CertEndDate_Object = MibTableColumn
+certEndDate = _CertEndDate_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 4, 1, 1, 5),
+    _CertEndDate_Type()
+)
+certEndDate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    certEndDate.setStatus("current")
+_CertIssuer_Type = DisplayString
+_CertIssuer_Object = MibTableColumn
+certIssuer = _CertIssuer_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 4, 1, 1, 6),
+    _CertIssuer_Type()
+)
+certIssuer.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    certIssuer.setStatus("current")
+_CertName_Type = DisplayString
+_CertName_Object = MibTableColumn
+certName = _CertName_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 4, 1, 1, 7),
+    _CertName_Type()
+)
+certName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    certName.setStatus("current")
+_CertOrg_Type = DisplayString
+_CertOrg_Object = MibTableColumn
+certOrg = _CertOrg_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 4, 1, 1, 8),
+    _CertOrg_Type()
+)
+certOrg.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    certOrg.setStatus("current")
+
+
+class _CertContent_Type(OctetString):
+    """Custom type certContent based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 65535),
+    )
+
+
+_CertContent_Type.__name__ = "OctetString"
+_CertContent_Object = MibTableColumn
+certContent = _CertContent_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 4, 1, 1, 9),
+    _CertContent_Type()
+)
+certContent.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    certContent.setStatus("current")
+_CertPkey_Type = DisplayString
+_CertPkey_Object = MibTableColumn
+certPkey = _CertPkey_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 4, 1, 1, 10),
+    _CertPkey_Type()
+)
+certPkey.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    certPkey.setStatus("current")
+_CertPkeyAlgo_Type = DisplayString
+_CertPkeyAlgo_Object = MibTableColumn
+certPkeyAlgo = _CertPkeyAlgo_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 4, 1, 1, 11),
+    _CertPkeyAlgo_Type()
+)
+certPkeyAlgo.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    certPkeyAlgo.setStatus("current")
+_CertPkeySize_Type = Integer32
+_CertPkeySize_Object = MibTableColumn
+certPkeySize = _CertPkeySize_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 4, 1, 1, 12),
+    _CertPkeySize_Type()
+)
+certPkeySize.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    certPkeySize.setStatus("current")
+_CertSerial_Type = DisplayString
+_CertSerial_Object = MibTableColumn
+certSerial = _CertSerial_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 4, 1, 1, 13),
+    _CertSerial_Type()
+)
+certSerial.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    certSerial.setStatus("current")
+_CertSignAlgo_Type = DisplayString
+_CertSignAlgo_Object = MibTableColumn
+certSignAlgo = _CertSignAlgo_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 4, 1, 1, 14),
+    _CertSignAlgo_Type()
+)
+certSignAlgo.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    certSignAlgo.setStatus("current")
+_CertVersion_Type = Integer32
+_CertVersion_Object = MibTableColumn
+certVersion = _CertVersion_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 4, 1, 1, 15),
+    _CertVersion_Type()
+)
+certVersion.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    certVersion.setStatus("current")
+_CertRowStatus_Type = RowStatus
+_CertRowStatus_Object = MibTableColumn
+certRowStatus = _CertRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 4, 1, 1, 16),
+    _CertRowStatus_Type()
+)
+certRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    certRowStatus.setStatus("current")
+_L2tp_ObjectIdentity = ObjectIdentity
+l2tp = _L2tp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 5)
+)
+
+
+class _L2tpEnable_Type(Integer32):
+    """Custom type l2tpEnable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 0),
+          ("yes", 1))
+    )
+
+
+_L2tpEnable_Type.__name__ = "Integer32"
+_L2tpEnable_Object = MibScalar
+l2tpEnable = _L2tpEnable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 5, 1),
+    _L2tpEnable_Type()
+)
+l2tpEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    l2tpEnable.setStatus("current")
+_L2tpRemoteIpStartAddr_Type = BlueIpAddress
+_L2tpRemoteIpStartAddr_Object = MibScalar
+l2tpRemoteIpStartAddr = _L2tpRemoteIpStartAddr_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 5, 2),
+    _L2tpRemoteIpStartAddr_Type()
+)
+l2tpRemoteIpStartAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    l2tpRemoteIpStartAddr.setStatus("current")
+_L2tpRemoteIpEndAddr_Type = BlueIpAddress
+_L2tpRemoteIpEndAddr_Object = MibScalar
+l2tpRemoteIpEndAddr = _L2tpRemoteIpEndAddr_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 5, 3),
+    _L2tpRemoteIpEndAddr_Type()
+)
+l2tpRemoteIpEndAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    l2tpRemoteIpEndAddr.setStatus("current")
+_L2tpLocalIpAddr_Type = BlueIpAddress
+_L2tpLocalIpAddr_Object = MibScalar
+l2tpLocalIpAddr = _L2tpLocalIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 5, 4),
+    _L2tpLocalIpAddr_Type()
+)
+l2tpLocalIpAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    l2tpLocalIpAddr.setStatus("current")
+_L2tpIdleTimeout_Type = Integer32
+_L2tpIdleTimeout_Object = MibScalar
+l2tpIdleTimeout = _L2tpIdleTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 5, 5),
+    _L2tpIdleTimeout_Type()
+)
+l2tpIdleTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    l2tpIdleTimeout.setStatus("current")
+_L2tpLdapPwdAttrName_Type = DisplayString
+_L2tpLdapPwdAttrName_Object = MibScalar
+l2tpLdapPwdAttrName = _L2tpLdapPwdAttrName_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 5, 6),
+    _L2tpLdapPwdAttrName_Type()
+)
+l2tpLdapPwdAttrName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    l2tpLdapPwdAttrName.setStatus("current")
+_L2tpRoleId_Type = Integer32
+_L2tpRoleId_Object = MibScalar
+l2tpRoleId = _L2tpRoleId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 6, 5, 7),
+    _L2tpRoleId_Type()
+)
+l2tpRoleId.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    l2tpRoleId.setStatus("current")
+_Configuration_ObjectIdentity = ObjectIdentity
+configuration = _Configuration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7)
+)
+_Http_ObjectIdentity = ObjectIdentity
+http = _Http_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 1)
+)
+_HttpPort_Type = DisplayString
+_HttpPort_Object = MibScalar
+httpPort = _HttpPort_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 1, 1),
+    _HttpPort_Type()
+)
+httpPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    httpPort.setStatus("current")
+_HttpRedirect_Type = Integer32
+_HttpRedirect_Object = MibScalar
+httpRedirect = _HttpRedirect_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 1, 2),
+    _HttpRedirect_Type()
+)
+httpRedirect.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    httpRedirect.setStatus("current")
+
+
+class _HttpAutoRedirectStatus_Type(Integer32):
+    """Custom type httpAutoRedirectStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_HttpAutoRedirectStatus_Type.__name__ = "Integer32"
+_HttpAutoRedirectStatus_Object = MibScalar
+httpAutoRedirectStatus = _HttpAutoRedirectStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 1, 3),
+    _HttpAutoRedirectStatus_Type()
+)
+httpAutoRedirectStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    httpAutoRedirectStatus.setStatus("current")
+_HttpAutoPause_Type = Integer32
+_HttpAutoPause_Object = MibScalar
+httpAutoPause = _HttpAutoPause_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 1, 4),
+    _HttpAutoPause_Type()
+)
+httpAutoPause.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    httpAutoPause.setStatus("current")
+
+
+class _HttpDefaultUrl_Type(OctetString):
+    """Custom type httpDefaultUrl based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 255),
+    )
+
+
+_HttpDefaultUrl_Type.__name__ = "OctetString"
+_HttpDefaultUrl_Object = MibScalar
+httpDefaultUrl = _HttpDefaultUrl_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 1, 5),
+    _HttpDefaultUrl_Type()
+)
+httpDefaultUrl.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    httpDefaultUrl.setStatus("current")
+
+
+class _HttpLogoutPopup_Type(Integer32):
+    """Custom type httpLogoutPopup based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_HttpLogoutPopup_Type.__name__ = "Integer32"
+_HttpLogoutPopup_Object = MibScalar
+httpLogoutPopup = _HttpLogoutPopup_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 1, 6),
+    _HttpLogoutPopup_Type()
+)
+httpLogoutPopup.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    httpLogoutPopup.setStatus("current")
+_HttpRootCaUrl_Type = DisplayString
+_HttpRootCaUrl_Object = MibScalar
+httpRootCaUrl = _HttpRootCaUrl_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 1, 7),
+    _HttpRootCaUrl_Type()
+)
+httpRootCaUrl.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    httpRootCaUrl.setStatus("current")
+
+
+class _HttpExServerChoice_Type(Integer32):
+    """Custom type httpExServerChoice based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_HttpExServerChoice_Type.__name__ = "Integer32"
+_HttpExServerChoice_Object = MibScalar
+httpExServerChoice = _HttpExServerChoice_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 1, 8),
+    _HttpExServerChoice_Type()
+)
+httpExServerChoice.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    httpExServerChoice.setStatus("current")
+
+
+class _HttpPasswdChangeChoice_Type(Integer32):
+    """Custom type httpPasswdChangeChoice based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_HttpPasswdChangeChoice_Type.__name__ = "Integer32"
+_HttpPasswdChangeChoice_Object = MibScalar
+httpPasswdChangeChoice = _HttpPasswdChangeChoice_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 1, 9),
+    _HttpPasswdChangeChoice_Type()
+)
+httpPasswdChangeChoice.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    httpPasswdChangeChoice.setStatus("current")
+
+
+class _HttpLangChangeChoice_Type(Integer32):
+    """Custom type httpLangChangeChoice based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_HttpLangChangeChoice_Type.__name__ = "Integer32"
+_HttpLangChangeChoice_Object = MibScalar
+httpLangChangeChoice = _HttpLangChangeChoice_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 1, 10),
+    _HttpLangChangeChoice_Type()
+)
+httpLangChangeChoice.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    httpLangChangeChoice.setStatus("current")
+
+
+class _HttpLoginHelpButton_Type(Integer32):
+    """Custom type httpLoginHelpButton based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_HttpLoginHelpButton_Type.__name__ = "Integer32"
+_HttpLoginHelpButton_Object = MibScalar
+httpLoginHelpButton = _HttpLoginHelpButton_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 1, 11),
+    _HttpLoginHelpButton_Type()
+)
+httpLoginHelpButton.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    httpLoginHelpButton.setStatus("current")
+_HttpAttemptWait_Type = Integer32
+_HttpAttemptWait_Object = MibScalar
+httpAttemptWait = _HttpAttemptWait_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 1, 12),
+    _HttpAttemptWait_Type()
+)
+httpAttemptWait.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    httpAttemptWait.setStatus("current")
+_HttpMaxNumOfActiveSess_Type = Integer32
+_HttpMaxNumOfActiveSess_Object = MibScalar
+httpMaxNumOfActiveSess = _HttpMaxNumOfActiveSess_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 1, 13),
+    _HttpMaxNumOfActiveSess_Type()
+)
+httpMaxNumOfActiveSess.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    httpMaxNumOfActiveSess.setStatus("current")
+_HttpAdminACL_Type = DisplayString
+_HttpAdminACL_Object = MibScalar
+httpAdminACL = _HttpAdminACL_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 1, 14),
+    _HttpAdminACL_Type()
+)
+httpAdminACL.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    httpAdminACL.setStatus("current")
+
+
+class _HttpRedirectToHostName_Type(Integer32):
+    """Custom type httpRedirectToHostName based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_HttpRedirectToHostName_Type.__name__ = "Integer32"
+_HttpRedirectToHostName_Object = MibScalar
+httpRedirectToHostName = _HttpRedirectToHostName_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 1, 15),
+    _HttpRedirectToHostName_Type()
+)
+httpRedirectToHostName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    httpRedirectToHostName.setStatus("current")
+_HttpLoginAttempts_Type = Integer32
+_HttpLoginAttempts_Object = MibScalar
+httpLoginAttempts = _HttpLoginAttempts_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 1, 16),
+    _HttpLoginAttempts_Type()
+)
+httpLoginAttempts.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    httpLoginAttempts.setStatus("current")
+
+
+class _HttpChainCertChangeChoice_Type(Integer32):
+    """Custom type httpChainCertChangeChoice based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_HttpChainCertChangeChoice_Type.__name__ = "Integer32"
+_HttpChainCertChangeChoice_Object = MibScalar
+httpChainCertChangeChoice = _HttpChainCertChangeChoice_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 1, 17),
+    _HttpChainCertChangeChoice_Type()
+)
+httpChainCertChangeChoice.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    httpChainCertChangeChoice.setStatus("current")
+_Misc_ObjectIdentity = ObjectIdentity
+misc = _Misc_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 2)
+)
+_StatusUpTime_Type = Integer32
+_StatusUpTime_Object = MibScalar
+statusUpTime = _StatusUpTime_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 2, 1),
+    _StatusUpTime_Type()
+)
+statusUpTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    statusUpTime.setStatus("current")
+_ConnectionCheckTime_Type = Integer32
+_ConnectionCheckTime_Object = MibScalar
+connectionCheckTime = _ConnectionCheckTime_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 2, 2),
+    _ConnectionCheckTime_Type()
+)
+connectionCheckTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    connectionCheckTime.setStatus("current")
+_ApCheckTime_Type = Integer32
+_ApCheckTime_Object = MibScalar
+apCheckTime = _ApCheckTime_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 2, 3),
+    _ApCheckTime_Type()
+)
+apCheckTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    apCheckTime.setStatus("current")
+_StatusRefreshTime_Type = Integer32
+_StatusRefreshTime_Object = MibScalar
+statusRefreshTime = _StatusRefreshTime_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 2, 4),
+    _StatusRefreshTime_Type()
+)
+statusRefreshTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    statusRefreshTime.setStatus("current")
+_ApSnmpCommunity_Type = DisplayString
+_ApSnmpCommunity_Object = MibScalar
+apSnmpCommunity = _ApSnmpCommunity_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 2, 5),
+    _ApSnmpCommunity_Type()
+)
+apSnmpCommunity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    apSnmpCommunity.setStatus("current")
+_AutoBackup_ObjectIdentity = ObjectIdentity
+autoBackup = _AutoBackup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 3)
+)
+
+
+class _AutoBkupRate_Type(OctetString):
+    """Custom type autoBkupRate based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(5, 7),
+    )
+
+
+_AutoBkupRate_Type.__name__ = "OctetString"
+_AutoBkupRate_Object = MibScalar
+autoBkupRate = _AutoBkupRate_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 3, 1),
+    _AutoBkupRate_Type()
+)
+autoBkupRate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    autoBkupRate.setStatus("current")
+_AutoBkupFtpServName_Type = DisplayString
+_AutoBkupFtpServName_Object = MibScalar
+autoBkupFtpServName = _AutoBkupFtpServName_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 3, 2),
+    _AutoBkupFtpServName_Type()
+)
+autoBkupFtpServName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    autoBkupFtpServName.setStatus("current")
+_AutoBkupFtpDestDir_Type = DisplayString
+_AutoBkupFtpDestDir_Object = MibScalar
+autoBkupFtpDestDir = _AutoBkupFtpDestDir_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 3, 3),
+    _AutoBkupFtpDestDir_Type()
+)
+autoBkupFtpDestDir.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    autoBkupFtpDestDir.setStatus("current")
+_AutoBkupFtpServUser_Type = DisplayString
+_AutoBkupFtpServUser_Object = MibScalar
+autoBkupFtpServUser = _AutoBkupFtpServUser_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 3, 4),
+    _AutoBkupFtpServUser_Type()
+)
+autoBkupFtpServUser.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    autoBkupFtpServUser.setStatus("current")
+_AutoBkupFtpServPasswd_Type = DisplayString
+_AutoBkupFtpServPasswd_Object = MibScalar
+autoBkupFtpServPasswd = _AutoBkupFtpServPasswd_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 3, 5),
+    _AutoBkupFtpServPasswd_Type()
+)
+autoBkupFtpServPasswd.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    autoBkupFtpServPasswd.setStatus("current")
+_Time_ObjectIdentity = ObjectIdentity
+time = _Time_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 4)
+)
+_TZone_Type = DisplayString
+_TZone_Object = MibScalar
+tZone = _TZone_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 4, 1),
+    _TZone_Type()
+)
+tZone.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tZone.setStatus("current")
+
+
+class _TMonth_Type(Integer32):
+    """Custom type tMonth based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 12),
+    )
+
+
+_TMonth_Type.__name__ = "Integer32"
+_TMonth_Object = MibScalar
+tMonth = _TMonth_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 4, 2),
+    _TMonth_Type()
+)
+tMonth.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tMonth.setStatus("current")
+
+
+class _TDay_Type(Integer32):
+    """Custom type tDay based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 31),
+    )
+
+
+_TDay_Type.__name__ = "Integer32"
+_TDay_Object = MibScalar
+tDay = _TDay_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 4, 3),
+    _TDay_Type()
+)
+tDay.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tDay.setStatus("current")
+
+
+class _TYear_Type(Integer32):
+    """Custom type tYear based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 9999),
+    )
+
+
+_TYear_Type.__name__ = "Integer32"
+_TYear_Object = MibScalar
+tYear = _TYear_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 4, 4),
+    _TYear_Type()
+)
+tYear.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tYear.setStatus("current")
+
+
+class _THours_Type(Integer32):
+    """Custom type tHours based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 24),
+    )
+
+
+_THours_Type.__name__ = "Integer32"
+_THours_Object = MibScalar
+tHours = _THours_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 4, 5),
+    _THours_Type()
+)
+tHours.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tHours.setStatus("current")
+
+
+class _TMinutes_Type(Integer32):
+    """Custom type tMinutes based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 59),
+    )
+
+
+_TMinutes_Type.__name__ = "Integer32"
+_TMinutes_Object = MibScalar
+tMinutes = _TMinutes_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 4, 6),
+    _TMinutes_Type()
+)
+tMinutes.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tMinutes.setStatus("current")
+
+
+class _TSeconds_Type(Integer32):
+    """Custom type tSeconds based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 59),
+    )
+
+
+_TSeconds_Type.__name__ = "Integer32"
+_TSeconds_Object = MibScalar
+tSeconds = _TSeconds_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 4, 7),
+    _TSeconds_Type()
+)
+tSeconds.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tSeconds.setStatus("current")
+_TNtpSync_Type = DisplayString
+_TNtpSync_Object = MibScalar
+tNtpSync = _TNtpSync_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 4, 8),
+    _TNtpSync_Type()
+)
+tNtpSync.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tNtpSync.setStatus("current")
+_TNtpServers_Type = DisplayString
+_TNtpServers_Object = MibScalar
+tNtpServers = _TNtpServers_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 4, 9),
+    _TNtpServers_Type()
+)
+tNtpServers.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tNtpServers.setStatus("current")
+_Mobility_ObjectIdentity = ObjectIdentity
+mobility = _Mobility_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 5)
+)
+
+
+class _MobilityMode_Type(Integer32):
+    """Custom type mobilityMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_MobilityMode_Type.__name__ = "Integer32"
+_MobilityMode_Object = MibScalar
+mobilityMode = _MobilityMode_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 5, 1),
+    _MobilityMode_Type()
+)
+mobilityMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mobilityMode.setStatus("current")
+_MobilityMeshKey_Type = DisplayString
+_MobilityMeshKey_Object = MibScalar
+mobilityMeshKey = _MobilityMeshKey_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 5, 2),
+    _MobilityMeshKey_Type()
+)
+mobilityMeshKey.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mobilityMeshKey.setStatus("current")
+_PublicAccess_ObjectIdentity = ObjectIdentity
+publicAccess = _PublicAccess_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 6)
+)
+
+
+class _PaFixedIpClientAccess_Type(Integer32):
+    """Custom type paFixedIpClientAccess based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_PaFixedIpClientAccess_Type.__name__ = "Integer32"
+_PaFixedIpClientAccess_Object = MibScalar
+paFixedIpClientAccess = _PaFixedIpClientAccess_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 6, 1),
+    _PaFixedIpClientAccess_Type()
+)
+paFixedIpClientAccess.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    paFixedIpClientAccess.setStatus("current")
+_PaSMTPServerIp_Type = DisplayString
+_PaSMTPServerIp_Object = MibScalar
+paSMTPServerIp = _PaSMTPServerIp_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 6, 2),
+    _PaSMTPServerIp_Type()
+)
+paSMTPServerIp.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    paSMTPServerIp.setStatus("current")
+_ConfLog_ObjectIdentity = ObjectIdentity
+confLog = _ConfLog_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 7)
+)
+_ConfLogGroup_ObjectIdentity = ObjectIdentity
+confLogGroup = _ConfLogGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 7, 1)
+)
+_LogMaxLogEntries_Type = Integer32
+_LogMaxLogEntries_Object = MibScalar
+logMaxLogEntries = _LogMaxLogEntries_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 7, 1, 1),
+    _LogMaxLogEntries_Type()
+)
+logMaxLogEntries.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    logMaxLogEntries.setStatus("current")
+_LogNoOfDelLogEntries_Type = Integer32
+_LogNoOfDelLogEntries_Object = MibScalar
+logNoOfDelLogEntries = _LogNoOfDelLogEntries_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 7, 1, 2),
+    _LogNoOfDelLogEntries_Type()
+)
+logNoOfDelLogEntries.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    logNoOfDelLogEntries.setStatus("current")
+
+
+class _LogStorage_Type(Integer32):
+    """Custom type logStorage based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("both", 2),
+          ("local", 0),
+          ("remote", 1))
+    )
+
+
+_LogStorage_Type.__name__ = "Integer32"
+_LogStorage_Object = MibScalar
+logStorage = _LogStorage_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 7, 1, 3),
+    _LogStorage_Type()
+)
+logStorage.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    logStorage.setStatus("current")
+_RemoteLog_Type = DisplayString
+_RemoteLog_Object = MibScalar
+remoteLog = _RemoteLog_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 7, 1, 4),
+    _RemoteLog_Type()
+)
+remoteLog.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    remoteLog.setStatus("current")
+_SysLogFacility_Type = DisplayString
+_SysLogFacility_Object = MibScalar
+sysLogFacility = _SysLogFacility_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 7, 1, 5),
+    _SysLogFacility_Type()
+)
+sysLogFacility.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    sysLogFacility.setStatus("current")
+
+
+class _LogMaxRemSysLogLevel_Type(Integer32):
+    """Custom type logMaxRemSysLogLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_LogMaxRemSysLogLevel_Type.__name__ = "Integer32"
+_LogMaxRemSysLogLevel_Object = MibScalar
+logMaxRemSysLogLevel = _LogMaxRemSysLogLevel_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 7, 1, 6),
+    _LogMaxRemSysLogLevel_Type()
+)
+logMaxRemSysLogLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    logMaxRemSysLogLevel.setStatus("current")
+_AppLogLevTable_Object = MibTable
+appLogLevTable = _AppLogLevTable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 7, 3)
+)
+if mibBuilder.loadTexts:
+    appLogLevTable.setStatus("current")
+_AppLogLevEntry_Object = MibTableRow
+appLogLevEntry = _AppLogLevEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 7, 3, 1)
+)
+appLogLevEntry.setIndexNames(
+    (0, "BLUESOCKET-MIB", "appLogLevId"),
+)
+if mibBuilder.loadTexts:
+    appLogLevEntry.setStatus("current")
+
+
+class _AppLogLevId_Type(Integer32):
+    """Custom type appLogLevId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_AppLogLevId_Type.__name__ = "Integer32"
+_AppLogLevId_Object = MibTableColumn
+appLogLevId = _AppLogLevId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 7, 3, 1, 1),
+    _AppLogLevId_Type()
+)
+appLogLevId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    appLogLevId.setStatus("current")
+_AppLogLevName_Type = DisplayString
+_AppLogLevName_Object = MibTableColumn
+appLogLevName = _AppLogLevName_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 7, 3, 1, 2),
+    _AppLogLevName_Type()
+)
+appLogLevName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    appLogLevName.setStatus("current")
+
+
+class _AppLogLevLevel_Type(Integer32):
+    """Custom type appLogLevLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("alert", 1),
+          ("critical", 2),
+          ("debug", 7),
+          ("emergency", 0),
+          ("error", 3),
+          ("info", 6),
+          ("notice", 5),
+          ("warning", 4))
+    )
+
+
+_AppLogLevLevel_Type.__name__ = "Integer32"
+_AppLogLevLevel_Object = MibTableColumn
+appLogLevLevel = _AppLogLevLevel_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 7, 3, 1, 3),
+    _AppLogLevLevel_Type()
+)
+appLogLevLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    appLogLevLevel.setStatus("current")
+_SnmpConf_ObjectIdentity = ObjectIdentity
+snmpConf = _SnmpConf_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 8)
+)
+_SnmpTrapConf_ObjectIdentity = ObjectIdentity
+snmpTrapConf = _SnmpTrapConf_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 8, 1)
+)
+_SnmpTrapMgmtTable_Object = MibTable
+snmpTrapMgmtTable = _SnmpTrapMgmtTable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 8, 1, 1)
+)
+if mibBuilder.loadTexts:
+    snmpTrapMgmtTable.setStatus("current")
+_SnmpTrapMgmtEntry_Object = MibTableRow
+snmpTrapMgmtEntry = _SnmpTrapMgmtEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 8, 1, 1, 1)
+)
+snmpTrapMgmtEntry.setIndexNames(
+    (0, "BLUESOCKET-MIB", "snmpTrapMgmtId"),
+)
+if mibBuilder.loadTexts:
+    snmpTrapMgmtEntry.setStatus("current")
+
+
+class _SnmpTrapMgmtId_Type(Integer32):
+    """Custom type snmpTrapMgmtId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_SnmpTrapMgmtId_Type.__name__ = "Integer32"
+_SnmpTrapMgmtId_Object = MibTableColumn
+snmpTrapMgmtId = _SnmpTrapMgmtId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 8, 1, 1, 1, 1),
+    _SnmpTrapMgmtId_Type()
+)
+snmpTrapMgmtId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    snmpTrapMgmtId.setStatus("current")
+_SnmpTrapMgmtIpAddress_Type = BlueIpAddress
+_SnmpTrapMgmtIpAddress_Object = MibTableColumn
+snmpTrapMgmtIpAddress = _SnmpTrapMgmtIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 8, 1, 1, 1, 2),
+    _SnmpTrapMgmtIpAddress_Type()
+)
+snmpTrapMgmtIpAddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    snmpTrapMgmtIpAddress.setStatus("current")
+_SnmpTrapMgmtCommunity_Type = DisplayString
+_SnmpTrapMgmtCommunity_Object = MibTableColumn
+snmpTrapMgmtCommunity = _SnmpTrapMgmtCommunity_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 8, 1, 1, 1, 3),
+    _SnmpTrapMgmtCommunity_Type()
+)
+snmpTrapMgmtCommunity.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    snmpTrapMgmtCommunity.setStatus("current")
+_SnmpTrapMgmtRowStatus_Type = RowStatus
+_SnmpTrapMgmtRowStatus_Object = MibTableColumn
+snmpTrapMgmtRowStatus = _SnmpTrapMgmtRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 8, 1, 1, 1, 4),
+    _SnmpTrapMgmtRowStatus_Type()
+)
+snmpTrapMgmtRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    snmpTrapMgmtRowStatus.setStatus("current")
+_BlueEventTable_Object = MibTable
+blueEventTable = _BlueEventTable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 8, 1, 2)
+)
+if mibBuilder.loadTexts:
+    blueEventTable.setStatus("current")
+_BlueEventEntry_Object = MibTableRow
+blueEventEntry = _BlueEventEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 8, 1, 2, 1)
+)
+blueEventEntry.setIndexNames(
+    (0, "BLUESOCKET-MIB", "btId"),
+)
+if mibBuilder.loadTexts:
+    blueEventEntry.setStatus("current")
+
+
+class _BtId_Type(Integer32):
+    """Custom type btId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_BtId_Type.__name__ = "Integer32"
+_BtId_Object = MibTableColumn
+btId = _BtId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 8, 1, 2, 1, 1),
+    _BtId_Type()
+)
+btId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    btId.setStatus("current")
+_BtName_Type = DisplayString
+_BtName_Object = MibTableColumn
+btName = _BtName_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 8, 1, 2, 1, 2),
+    _BtName_Type()
+)
+btName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    btName.setStatus("current")
+
+
+class _BtEventOptStatus_Type(Integer32):
+    """Custom type btEventOptStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_BtEventOptStatus_Type.__name__ = "Integer32"
+_BtEventOptStatus_Object = MibTableColumn
+btEventOptStatus = _BtEventOptStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 8, 1, 2, 1, 3),
+    _BtEventOptStatus_Type()
+)
+btEventOptStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    btEventOptStatus.setStatus("current")
+_SystemTracker_ObjectIdentity = ObjectIdentity
+systemTracker = _SystemTracker_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 9)
+)
+_StThresholdTable_Object = MibTable
+stThresholdTable = _StThresholdTable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 9, 1)
+)
+if mibBuilder.loadTexts:
+    stThresholdTable.setStatus("current")
+_StThresholdEntry_Object = MibTableRow
+stThresholdEntry = _StThresholdEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 9, 1, 1)
+)
+stThresholdEntry.setIndexNames(
+    (0, "BLUESOCKET-MIB", "stThresholdId"),
+)
+if mibBuilder.loadTexts:
+    stThresholdEntry.setStatus("current")
+
+
+class _StThresholdId_Type(Integer32):
+    """Custom type stThresholdId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_StThresholdId_Type.__name__ = "Integer32"
+_StThresholdId_Object = MibTableColumn
+stThresholdId = _StThresholdId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 9, 1, 1, 1),
+    _StThresholdId_Type()
+)
+stThresholdId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    stThresholdId.setStatus("current")
+_StThresholdAttrName_Type = DisplayString
+_StThresholdAttrName_Object = MibTableColumn
+stThresholdAttrName = _StThresholdAttrName_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 9, 1, 1, 2),
+    _StThresholdAttrName_Type()
+)
+stThresholdAttrName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    stThresholdAttrName.setStatus("current")
+_StThresholdToLogMessage_Type = Integer32
+_StThresholdToLogMessage_Object = MibTableColumn
+stThresholdToLogMessage = _StThresholdToLogMessage_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 9, 1, 1, 3),
+    _StThresholdToLogMessage_Type()
+)
+stThresholdToLogMessage.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    stThresholdToLogMessage.setStatus("current")
+_StThresholdToSendTrap_Type = Integer32
+_StThresholdToSendTrap_Object = MibTableColumn
+stThresholdToSendTrap = _StThresholdToSendTrap_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 9, 1, 1, 4),
+    _StThresholdToSendTrap_Type()
+)
+stThresholdToSendTrap.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    stThresholdToSendTrap.setStatus("current")
+_StThresholdToFailover_Type = Integer32
+_StThresholdToFailover_Object = MibTableColumn
+stThresholdToFailover = _StThresholdToFailover_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 9, 1, 1, 5),
+    _StThresholdToFailover_Type()
+)
+stThresholdToFailover.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    stThresholdToFailover.setStatus("current")
+_Authentication_ObjectIdentity = ObjectIdentity
+authentication = _Authentication_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10)
+)
+_ExAuthServer_ObjectIdentity = ObjectIdentity
+exAuthServer = _ExAuthServer_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1)
+)
+_ExRdAuthServTable_Object = MibTable
+exRdAuthServTable = _ExRdAuthServTable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 2)
+)
+if mibBuilder.loadTexts:
+    exRdAuthServTable.setStatus("current")
+_ExRdAuthServEntry_Object = MibTableRow
+exRdAuthServEntry = _ExRdAuthServEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 2, 1)
+)
+exRdAuthServEntry.setIndexNames(
+    (0, "BLUESOCKET-MIB", "exRdAuthServId"),
+)
+if mibBuilder.loadTexts:
+    exRdAuthServEntry.setStatus("current")
+
+
+class _ExRdAuthServId_Type(Integer32):
+    """Custom type exRdAuthServId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_ExRdAuthServId_Type.__name__ = "Integer32"
+_ExRdAuthServId_Object = MibTableColumn
+exRdAuthServId = _ExRdAuthServId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 2, 1, 1),
+    _ExRdAuthServId_Type()
+)
+exRdAuthServId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    exRdAuthServId.setStatus("current")
+
+
+class _ExRdAuthServState_Type(Integer32):
+    """Custom type exRdAuthServState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_ExRdAuthServState_Type.__name__ = "Integer32"
+_ExRdAuthServState_Object = MibTableColumn
+exRdAuthServState = _ExRdAuthServState_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 2, 1, 2),
+    _ExRdAuthServState_Type()
+)
+exRdAuthServState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exRdAuthServState.setStatus("current")
+_ExRdAuthServName_Type = DisplayString
+_ExRdAuthServName_Object = MibTableColumn
+exRdAuthServName = _ExRdAuthServName_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 2, 1, 3),
+    _ExRdAuthServName_Type()
+)
+exRdAuthServName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exRdAuthServName.setStatus("current")
+_ExRdAuthServDefRoleId_Type = Integer32
+_ExRdAuthServDefRoleId_Object = MibTableColumn
+exRdAuthServDefRoleId = _ExRdAuthServDefRoleId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 2, 1, 4),
+    _ExRdAuthServDefRoleId_Type()
+)
+exRdAuthServDefRoleId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exRdAuthServDefRoleId.setStatus("current")
+_ExRdAuthServRdAccId_Type = Integer32
+_ExRdAuthServRdAccId_Object = MibTableColumn
+exRdAuthServRdAccId = _ExRdAuthServRdAccId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 2, 1, 6),
+    _ExRdAuthServRdAccId_Type()
+)
+exRdAuthServRdAccId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exRdAuthServRdAccId.setStatus("current")
+_ExRdAuthServAddr_Type = DisplayString
+_ExRdAuthServAddr_Object = MibTableColumn
+exRdAuthServAddr = _ExRdAuthServAddr_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 2, 1, 7),
+    _ExRdAuthServAddr_Type()
+)
+exRdAuthServAddr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exRdAuthServAddr.setStatus("current")
+_ExRdAuthServPort_Type = Integer32
+_ExRdAuthServPort_Object = MibTableColumn
+exRdAuthServPort = _ExRdAuthServPort_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 2, 1, 8),
+    _ExRdAuthServPort_Type()
+)
+exRdAuthServPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exRdAuthServPort.setStatus("current")
+_ExRdAuthServSecret_Type = DisplayString
+_ExRdAuthServSecret_Object = MibTableColumn
+exRdAuthServSecret = _ExRdAuthServSecret_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 2, 1, 9),
+    _ExRdAuthServSecret_Type()
+)
+exRdAuthServSecret.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exRdAuthServSecret.setStatus("current")
+_ExRdAuthServPrecedence_Type = Integer32
+_ExRdAuthServPrecedence_Object = MibTableColumn
+exRdAuthServPrecedence = _ExRdAuthServPrecedence_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 2, 1, 10),
+    _ExRdAuthServPrecedence_Type()
+)
+exRdAuthServPrecedence.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exRdAuthServPrecedence.setStatus("current")
+_ExRdAuthServNotes_Type = DisplayString
+_ExRdAuthServNotes_Object = MibTableColumn
+exRdAuthServNotes = _ExRdAuthServNotes_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 2, 1, 11),
+    _ExRdAuthServNotes_Type()
+)
+exRdAuthServNotes.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exRdAuthServNotes.setStatus("current")
+_ExRdAuthServRowStatus_Type = RowStatus
+_ExRdAuthServRowStatus_Object = MibTableColumn
+exRdAuthServRowStatus = _ExRdAuthServRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 2, 1, 12),
+    _ExRdAuthServRowStatus_Type()
+)
+exRdAuthServRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exRdAuthServRowStatus.setStatus("current")
+_ExLdapServTable_Object = MibTable
+exLdapServTable = _ExLdapServTable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3)
+)
+if mibBuilder.loadTexts:
+    exLdapServTable.setStatus("current")
+_ExLdapServEntry_Object = MibTableRow
+exLdapServEntry = _ExLdapServEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1)
+)
+exLdapServEntry.setIndexNames(
+    (0, "BLUESOCKET-MIB", "exLdapServId"),
+)
+if mibBuilder.loadTexts:
+    exLdapServEntry.setStatus("current")
+
+
+class _ExLdapServId_Type(Integer32):
+    """Custom type exLdapServId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_ExLdapServId_Type.__name__ = "Integer32"
+_ExLdapServId_Object = MibTableColumn
+exLdapServId = _ExLdapServId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1, 1),
+    _ExLdapServId_Type()
+)
+exLdapServId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    exLdapServId.setStatus("current")
+
+
+class _ExLdapServState_Type(Integer32):
+    """Custom type exLdapServState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_ExLdapServState_Type.__name__ = "Integer32"
+_ExLdapServState_Object = MibTableColumn
+exLdapServState = _ExLdapServState_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1, 2),
+    _ExLdapServState_Type()
+)
+exLdapServState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exLdapServState.setStatus("current")
+_ExLdapServName_Type = DisplayString
+_ExLdapServName_Object = MibTableColumn
+exLdapServName = _ExLdapServName_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1, 3),
+    _ExLdapServName_Type()
+)
+exLdapServName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exLdapServName.setStatus("current")
+_ExLdapServDefRoleId_Type = Integer32
+_ExLdapServDefRoleId_Object = MibTableColumn
+exLdapServDefRoleId = _ExLdapServDefRoleId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1, 4),
+    _ExLdapServDefRoleId_Type()
+)
+exLdapServDefRoleId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exLdapServDefRoleId.setStatus("current")
+
+
+class _ExLdapServRdAccState_Type(Integer32):
+    """Custom type exLdapServRdAccState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_ExLdapServRdAccState_Type.__name__ = "Integer32"
+_ExLdapServRdAccState_Object = MibTableColumn
+exLdapServRdAccState = _ExLdapServRdAccState_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1, 5),
+    _ExLdapServRdAccState_Type()
+)
+exLdapServRdAccState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exLdapServRdAccState.setStatus("current")
+_ExLdapServRdAccId_Type = Integer32
+_ExLdapServRdAccId_Object = MibTableColumn
+exLdapServRdAccId = _ExLdapServRdAccId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1, 6),
+    _ExLdapServRdAccId_Type()
+)
+exLdapServRdAccId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exLdapServRdAccId.setStatus("current")
+_ExLdapServAddr_Type = DisplayString
+_ExLdapServAddr_Object = MibTableColumn
+exLdapServAddr = _ExLdapServAddr_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1, 7),
+    _ExLdapServAddr_Type()
+)
+exLdapServAddr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exLdapServAddr.setStatus("current")
+_ExLdapServPort_Type = Integer32
+_ExLdapServPort_Object = MibTableColumn
+exLdapServPort = _ExLdapServPort_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1, 8),
+    _ExLdapServPort_Type()
+)
+exLdapServPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exLdapServPort.setStatus("current")
+_ExLdapServBase_Type = DisplayString
+_ExLdapServBase_Object = MibTableColumn
+exLdapServBase = _ExLdapServBase_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1, 9),
+    _ExLdapServBase_Type()
+)
+exLdapServBase.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exLdapServBase.setStatus("current")
+_ExLdapServUniqueId_Type = DisplayString
+_ExLdapServUniqueId_Object = MibTableColumn
+exLdapServUniqueId = _ExLdapServUniqueId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1, 10),
+    _ExLdapServUniqueId_Type()
+)
+exLdapServUniqueId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exLdapServUniqueId.setStatus("current")
+_ExLdapServAccount_Type = DisplayString
+_ExLdapServAccount_Object = MibTableColumn
+exLdapServAccount = _ExLdapServAccount_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1, 11),
+    _ExLdapServAccount_Type()
+)
+exLdapServAccount.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exLdapServAccount.setStatus("current")
+_ExLdapServFilters_Type = DisplayString
+_ExLdapServFilters_Object = MibTableColumn
+exLdapServFilters = _ExLdapServFilters_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1, 12),
+    _ExLdapServFilters_Type()
+)
+exLdapServFilters.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exLdapServFilters.setStatus("current")
+_ExLdapServSecret_Type = DisplayString
+_ExLdapServSecret_Object = MibTableColumn
+exLdapServSecret = _ExLdapServSecret_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1, 13),
+    _ExLdapServSecret_Type()
+)
+exLdapServSecret.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exLdapServSecret.setStatus("current")
+_ExLdapServPrecedence_Type = Integer32
+_ExLdapServPrecedence_Object = MibTableColumn
+exLdapServPrecedence = _ExLdapServPrecedence_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1, 14),
+    _ExLdapServPrecedence_Type()
+)
+exLdapServPrecedence.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exLdapServPrecedence.setStatus("current")
+_ExLdapServNotes_Type = DisplayString
+_ExLdapServNotes_Object = MibTableColumn
+exLdapServNotes = _ExLdapServNotes_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1, 15),
+    _ExLdapServNotes_Type()
+)
+exLdapServNotes.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exLdapServNotes.setStatus("current")
+
+
+class _ExLdapServSsl_Type(OctetString):
+    """Custom type exLdapServSsl based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 1),
+    )
+
+
+_ExLdapServSsl_Type.__name__ = "OctetString"
+_ExLdapServSsl_Object = MibTableColumn
+exLdapServSsl = _ExLdapServSsl_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1, 17),
+    _ExLdapServSsl_Type()
+)
+exLdapServSsl.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exLdapServSsl.setStatus("current")
+_ExLdapServSslServer_Type = Integer32
+_ExLdapServSslServer_Object = MibTableColumn
+exLdapServSslServer = _ExLdapServSslServer_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1, 18),
+    _ExLdapServSslServer_Type()
+)
+exLdapServSslServer.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exLdapServSslServer.setStatus("current")
+_ExLdapServSslClient_Type = Integer32
+_ExLdapServSslClient_Object = MibTableColumn
+exLdapServSslClient = _ExLdapServSslClient_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1, 19),
+    _ExLdapServSslClient_Type()
+)
+exLdapServSslClient.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exLdapServSslClient.setStatus("current")
+_ExLdapServRowStatus_Type = RowStatus
+_ExLdapServRowStatus_Object = MibTableColumn
+exLdapServRowStatus = _ExLdapServRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 3, 1, 20),
+    _ExLdapServRowStatus_Type()
+)
+exLdapServRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exLdapServRowStatus.setStatus("current")
+_ExNtlmServTable_Object = MibTable
+exNtlmServTable = _ExNtlmServTable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 4)
+)
+if mibBuilder.loadTexts:
+    exNtlmServTable.setStatus("current")
+_ExNtlmServEntry_Object = MibTableRow
+exNtlmServEntry = _ExNtlmServEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 4, 1)
+)
+exNtlmServEntry.setIndexNames(
+    (0, "BLUESOCKET-MIB", "exNtlmServId"),
+)
+if mibBuilder.loadTexts:
+    exNtlmServEntry.setStatus("current")
+
+
+class _ExNtlmServId_Type(Integer32):
+    """Custom type exNtlmServId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_ExNtlmServId_Type.__name__ = "Integer32"
+_ExNtlmServId_Object = MibTableColumn
+exNtlmServId = _ExNtlmServId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 4, 1, 1),
+    _ExNtlmServId_Type()
+)
+exNtlmServId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    exNtlmServId.setStatus("current")
+
+
+class _ExNtlmServState_Type(Integer32):
+    """Custom type exNtlmServState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_ExNtlmServState_Type.__name__ = "Integer32"
+_ExNtlmServState_Object = MibTableColumn
+exNtlmServState = _ExNtlmServState_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 4, 1, 2),
+    _ExNtlmServState_Type()
+)
+exNtlmServState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exNtlmServState.setStatus("current")
+_ExNtlmServName_Type = DisplayString
+_ExNtlmServName_Object = MibTableColumn
+exNtlmServName = _ExNtlmServName_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 4, 1, 3),
+    _ExNtlmServName_Type()
+)
+exNtlmServName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exNtlmServName.setStatus("current")
+
+
+class _ExNtlmServRdAccState_Type(Integer32):
+    """Custom type exNtlmServRdAccState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_ExNtlmServRdAccState_Type.__name__ = "Integer32"
+_ExNtlmServRdAccState_Object = MibTableColumn
+exNtlmServRdAccState = _ExNtlmServRdAccState_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 4, 1, 4),
+    _ExNtlmServRdAccState_Type()
+)
+exNtlmServRdAccState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exNtlmServRdAccState.setStatus("current")
+_ExNtlmServRdAccId_Type = Integer32
+_ExNtlmServRdAccId_Object = MibTableColumn
+exNtlmServRdAccId = _ExNtlmServRdAccId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 4, 1, 5),
+    _ExNtlmServRdAccId_Type()
+)
+exNtlmServRdAccId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exNtlmServRdAccId.setStatus("current")
+_ExNtlmServDefRoleId_Type = Integer32
+_ExNtlmServDefRoleId_Object = MibTableColumn
+exNtlmServDefRoleId = _ExNtlmServDefRoleId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 4, 1, 6),
+    _ExNtlmServDefRoleId_Type()
+)
+exNtlmServDefRoleId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exNtlmServDefRoleId.setStatus("current")
+_ExNtlmServDomainName_Type = DisplayString
+_ExNtlmServDomainName_Object = MibTableColumn
+exNtlmServDomainName = _ExNtlmServDomainName_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 4, 1, 7),
+    _ExNtlmServDomainName_Type()
+)
+exNtlmServDomainName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exNtlmServDomainName.setStatus("current")
+_ExNtlmServMsdc_Type = DisplayString
+_ExNtlmServMsdc_Object = MibTableColumn
+exNtlmServMsdc = _ExNtlmServMsdc_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 4, 1, 8),
+    _ExNtlmServMsdc_Type()
+)
+exNtlmServMsdc.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exNtlmServMsdc.setStatus("current")
+_ExNtlmServMsrpc_Type = DisplayString
+_ExNtlmServMsrpc_Object = MibTableColumn
+exNtlmServMsrpc = _ExNtlmServMsrpc_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 4, 1, 9),
+    _ExNtlmServMsrpc_Type()
+)
+exNtlmServMsrpc.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exNtlmServMsrpc.setStatus("current")
+_ExNtlmServMsad_Type = Integer32
+_ExNtlmServMsad_Object = MibTableColumn
+exNtlmServMsad = _ExNtlmServMsad_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 4, 1, 10),
+    _ExNtlmServMsad_Type()
+)
+exNtlmServMsad.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exNtlmServMsad.setStatus("current")
+_ExNtlmServNotes_Type = DisplayString
+_ExNtlmServNotes_Object = MibTableColumn
+exNtlmServNotes = _ExNtlmServNotes_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 4, 1, 11),
+    _ExNtlmServNotes_Type()
+)
+exNtlmServNotes.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exNtlmServNotes.setStatus("current")
+_ExNtlmServRowStatus_Type = RowStatus
+_ExNtlmServRowStatus_Object = MibTableColumn
+exNtlmServRowStatus = _ExNtlmServRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 4, 1, 12),
+    _ExNtlmServRowStatus_Type()
+)
+exNtlmServRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exNtlmServRowStatus.setStatus("current")
+_ExUserRuleTable_Object = MibTable
+exUserRuleTable = _ExUserRuleTable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 5)
+)
+if mibBuilder.loadTexts:
+    exUserRuleTable.setStatus("current")
+_ExUserRuleEntry_Object = MibTableRow
+exUserRuleEntry = _ExUserRuleEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 5, 1)
+)
+exUserRuleEntry.setIndexNames(
+    (0, "BLUESOCKET-MIB", "exServId"),
+    (0, "BLUESOCKET-MIB", "exUserRuleId"),
+)
+if mibBuilder.loadTexts:
+    exUserRuleEntry.setStatus("current")
+
+
+class _ExServId_Type(Integer32):
+    """Custom type exServId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_ExServId_Type.__name__ = "Integer32"
+_ExServId_Object = MibTableColumn
+exServId = _ExServId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 5, 1, 1),
+    _ExServId_Type()
+)
+exServId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    exServId.setStatus("current")
+
+
+class _ExUserRuleId_Type(Integer32):
+    """Custom type exUserRuleId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_ExUserRuleId_Type.__name__ = "Integer32"
+_ExUserRuleId_Object = MibTableColumn
+exUserRuleId = _ExUserRuleId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 5, 1, 2),
+    _ExUserRuleId_Type()
+)
+exUserRuleId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    exUserRuleId.setStatus("current")
+
+
+class _ExUserRuleAttribute_Type(OctetString):
+    """Custom type exUserRuleAttribute based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 50),
+    )
+
+
+_ExUserRuleAttribute_Type.__name__ = "OctetString"
+_ExUserRuleAttribute_Object = MibTableColumn
+exUserRuleAttribute = _ExUserRuleAttribute_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 5, 1, 3),
+    _ExUserRuleAttribute_Type()
+)
+exUserRuleAttribute.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exUserRuleAttribute.setStatus("current")
+
+
+class _ExUserRuleOperator_Type(OctetString):
+    """Custom type exUserRuleOperator based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 15),
+    )
+
+
+_ExUserRuleOperator_Type.__name__ = "OctetString"
+_ExUserRuleOperator_Object = MibTableColumn
+exUserRuleOperator = _ExUserRuleOperator_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 5, 1, 4),
+    _ExUserRuleOperator_Type()
+)
+exUserRuleOperator.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exUserRuleOperator.setStatus("current")
+
+
+class _ExUserRuleValue_Type(OctetString):
+    """Custom type exUserRuleValue based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 50),
+    )
+
+
+_ExUserRuleValue_Type.__name__ = "OctetString"
+_ExUserRuleValue_Object = MibTableColumn
+exUserRuleValue = _ExUserRuleValue_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 5, 1, 5),
+    _ExUserRuleValue_Type()
+)
+exUserRuleValue.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exUserRuleValue.setStatus("current")
+_ExUserRuleRoleId_Type = Integer32
+_ExUserRuleRoleId_Object = MibTableColumn
+exUserRuleRoleId = _ExUserRuleRoleId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 5, 1, 6),
+    _ExUserRuleRoleId_Type()
+)
+exUserRuleRoleId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exUserRuleRoleId.setStatus("current")
+_ExUserRuleSeqId_Type = Integer32
+_ExUserRuleSeqId_Object = MibTableColumn
+exUserRuleSeqId = _ExUserRuleSeqId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 5, 1, 7),
+    _ExUserRuleSeqId_Type()
+)
+exUserRuleSeqId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exUserRuleSeqId.setStatus("current")
+_ExUserRuleRowStatus_Type = RowStatus
+_ExUserRuleRowStatus_Object = MibTableColumn
+exUserRuleRowStatus = _ExUserRuleRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 5, 1, 8),
+    _ExUserRuleRowStatus_Type()
+)
+exUserRuleRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exUserRuleRowStatus.setStatus("current")
+_ExRdAccServTable_Object = MibTable
+exRdAccServTable = _ExRdAccServTable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 6)
+)
+if mibBuilder.loadTexts:
+    exRdAccServTable.setStatus("current")
+_ExRdAccServEntry_Object = MibTableRow
+exRdAccServEntry = _ExRdAccServEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 6, 1)
+)
+exRdAccServEntry.setIndexNames(
+    (0, "BLUESOCKET-MIB", "exRdAccServId"),
+)
+if mibBuilder.loadTexts:
+    exRdAccServEntry.setStatus("current")
+
+
+class _ExRdAccServId_Type(Integer32):
+    """Custom type exRdAccServId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_ExRdAccServId_Type.__name__ = "Integer32"
+_ExRdAccServId_Object = MibTableColumn
+exRdAccServId = _ExRdAccServId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 6, 1, 1),
+    _ExRdAccServId_Type()
+)
+exRdAccServId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    exRdAccServId.setStatus("current")
+
+
+class _ExRdAccServState_Type(Integer32):
+    """Custom type exRdAccServState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_ExRdAccServState_Type.__name__ = "Integer32"
+_ExRdAccServState_Object = MibTableColumn
+exRdAccServState = _ExRdAccServState_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 6, 1, 2),
+    _ExRdAccServState_Type()
+)
+exRdAccServState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exRdAccServState.setStatus("current")
+_ExRdAccServName_Type = DisplayString
+_ExRdAccServName_Object = MibTableColumn
+exRdAccServName = _ExRdAccServName_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 6, 1, 3),
+    _ExRdAccServName_Type()
+)
+exRdAccServName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exRdAccServName.setStatus("current")
+_ExRdAccServAddr_Type = DisplayString
+_ExRdAccServAddr_Object = MibTableColumn
+exRdAccServAddr = _ExRdAccServAddr_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 6, 1, 4),
+    _ExRdAccServAddr_Type()
+)
+exRdAccServAddr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exRdAccServAddr.setStatus("current")
+_ExRdAccServPort_Type = Integer32
+_ExRdAccServPort_Object = MibTableColumn
+exRdAccServPort = _ExRdAccServPort_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 6, 1, 5),
+    _ExRdAccServPort_Type()
+)
+exRdAccServPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exRdAccServPort.setStatus("current")
+_ExRdAccServSecret_Type = DisplayString
+_ExRdAccServSecret_Object = MibTableColumn
+exRdAccServSecret = _ExRdAccServSecret_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 6, 1, 6),
+    _ExRdAccServSecret_Type()
+)
+exRdAccServSecret.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exRdAccServSecret.setStatus("current")
+_ExRdAccServNotes_Type = DisplayString
+_ExRdAccServNotes_Object = MibTableColumn
+exRdAccServNotes = _ExRdAccServNotes_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 6, 1, 7),
+    _ExRdAccServNotes_Type()
+)
+exRdAccServNotes.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exRdAccServNotes.setStatus("current")
+_ExRdAccServRowStatus_Type = RowStatus
+_ExRdAccServRowStatus_Object = MibTableColumn
+exRdAccServRowStatus = _ExRdAccServRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 6, 1, 8),
+    _ExRdAccServRowStatus_Type()
+)
+exRdAccServRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    exRdAccServRowStatus.setStatus("current")
+_Ex802AuthServTable_Object = MibTable
+ex802AuthServTable = _Ex802AuthServTable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 7)
+)
+if mibBuilder.loadTexts:
+    ex802AuthServTable.setStatus("current")
+_Ex802AuthServEntry_Object = MibTableRow
+ex802AuthServEntry = _Ex802AuthServEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 7, 1)
+)
+ex802AuthServEntry.setIndexNames(
+    (0, "BLUESOCKET-MIB", "ex802AuthServId"),
+)
+if mibBuilder.loadTexts:
+    ex802AuthServEntry.setStatus("current")
+
+
+class _Ex802AuthServId_Type(Integer32):
+    """Custom type ex802AuthServId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_Ex802AuthServId_Type.__name__ = "Integer32"
+_Ex802AuthServId_Object = MibTableColumn
+ex802AuthServId = _Ex802AuthServId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 7, 1, 1),
+    _Ex802AuthServId_Type()
+)
+ex802AuthServId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    ex802AuthServId.setStatus("current")
+
+
+class _Ex802AuthServState_Type(Integer32):
+    """Custom type ex802AuthServState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Ex802AuthServState_Type.__name__ = "Integer32"
+_Ex802AuthServState_Object = MibTableColumn
+ex802AuthServState = _Ex802AuthServState_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 7, 1, 2),
+    _Ex802AuthServState_Type()
+)
+ex802AuthServState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    ex802AuthServState.setStatus("current")
+_Ex802AuthServName_Type = DisplayString
+_Ex802AuthServName_Object = MibTableColumn
+ex802AuthServName = _Ex802AuthServName_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 7, 1, 3),
+    _Ex802AuthServName_Type()
+)
+ex802AuthServName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    ex802AuthServName.setStatus("current")
+_Ex802AuthServAddr_Type = DisplayString
+_Ex802AuthServAddr_Object = MibTableColumn
+ex802AuthServAddr = _Ex802AuthServAddr_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 7, 1, 4),
+    _Ex802AuthServAddr_Type()
+)
+ex802AuthServAddr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    ex802AuthServAddr.setStatus("current")
+_Ex802AuthServPort_Type = Integer32
+_Ex802AuthServPort_Object = MibTableColumn
+ex802AuthServPort = _Ex802AuthServPort_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 7, 1, 5),
+    _Ex802AuthServPort_Type()
+)
+ex802AuthServPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    ex802AuthServPort.setStatus("current")
+_Ex802AuthServDefaultRole_Type = Integer32
+_Ex802AuthServDefaultRole_Object = MibTableColumn
+ex802AuthServDefaultRole = _Ex802AuthServDefaultRole_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 7, 1, 6),
+    _Ex802AuthServDefaultRole_Type()
+)
+ex802AuthServDefaultRole.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    ex802AuthServDefaultRole.setStatus("current")
+_Ex802AuthServNotes_Type = DisplayString
+_Ex802AuthServNotes_Object = MibTableColumn
+ex802AuthServNotes = _Ex802AuthServNotes_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 7, 1, 7),
+    _Ex802AuthServNotes_Type()
+)
+ex802AuthServNotes.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    ex802AuthServNotes.setStatus("current")
+_Ex802AuthServRowStatus_Type = RowStatus
+_Ex802AuthServRowStatus_Object = MibTableColumn
+ex802AuthServRowStatus = _Ex802AuthServRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 1, 7, 1, 8),
+    _Ex802AuthServRowStatus_Type()
+)
+ex802AuthServRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    ex802AuthServRowStatus.setStatus("current")
+_MacDevAuthTable_Object = MibTable
+macDevAuthTable = _MacDevAuthTable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 2)
+)
+if mibBuilder.loadTexts:
+    macDevAuthTable.setStatus("current")
+_MacDevAuthEntry_Object = MibTableRow
+macDevAuthEntry = _MacDevAuthEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 2, 1)
+)
+macDevAuthEntry.setIndexNames(
+    (0, "BLUESOCKET-MIB", "macDevAuthId"),
+)
+if mibBuilder.loadTexts:
+    macDevAuthEntry.setStatus("current")
+
+
+class _MacDevAuthId_Type(Integer32):
+    """Custom type macDevAuthId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_MacDevAuthId_Type.__name__ = "Integer32"
+_MacDevAuthId_Object = MibTableColumn
+macDevAuthId = _MacDevAuthId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 2, 1, 1),
+    _MacDevAuthId_Type()
+)
+macDevAuthId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    macDevAuthId.setStatus("current")
+
+
+class _MacDevAuthState_Type(Integer32):
+    """Custom type macDevAuthState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_MacDevAuthState_Type.__name__ = "Integer32"
+_MacDevAuthState_Object = MibTableColumn
+macDevAuthState = _MacDevAuthState_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 2, 1, 2),
+    _MacDevAuthState_Type()
+)
+macDevAuthState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    macDevAuthState.setStatus("current")
+_MacDevAuthName_Type = DisplayString
+_MacDevAuthName_Object = MibTableColumn
+macDevAuthName = _MacDevAuthName_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 2, 1, 3),
+    _MacDevAuthName_Type()
+)
+macDevAuthName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    macDevAuthName.setStatus("current")
+_MacDevAuthMac_Type = DisplayString
+_MacDevAuthMac_Object = MibTableColumn
+macDevAuthMac = _MacDevAuthMac_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 2, 1, 4),
+    _MacDevAuthMac_Type()
+)
+macDevAuthMac.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    macDevAuthMac.setStatus("current")
+_MacDevAuthDefaultRole_Type = Integer32
+_MacDevAuthDefaultRole_Object = MibTableColumn
+macDevAuthDefaultRole = _MacDevAuthDefaultRole_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 2, 1, 5),
+    _MacDevAuthDefaultRole_Type()
+)
+macDevAuthDefaultRole.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    macDevAuthDefaultRole.setStatus("current")
+_MacDevAuthNotes_Type = DisplayString
+_MacDevAuthNotes_Object = MibTableColumn
+macDevAuthNotes = _MacDevAuthNotes_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 2, 1, 6),
+    _MacDevAuthNotes_Type()
+)
+macDevAuthNotes.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    macDevAuthNotes.setStatus("current")
+_MacDevAuthRowStatus_Type = RowStatus
+_MacDevAuthRowStatus_Object = MibTableColumn
+macDevAuthRowStatus = _MacDevAuthRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 7, 10, 2, 1, 7),
+    _MacDevAuthRowStatus_Type()
+)
+macDevAuthRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    macDevAuthRowStatus.setStatus("current")
+_Interface_ObjectIdentity = ObjectIdentity
+interface = _Interface_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8)
+)
+_Failover_ObjectIdentity = ObjectIdentity
+failover = _Failover_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 3)
+)
+_HeartBeatInterval_Type = Integer32
+_HeartBeatInterval_Object = MibScalar
+heartBeatInterval = _HeartBeatInterval_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 3, 1),
+    _HeartBeatInterval_Type()
+)
+heartBeatInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    heartBeatInterval.setStatus("current")
+_NoOfFailedBeats_Type = Integer32
+_NoOfFailedBeats_Object = MibScalar
+noOfFailedBeats = _NoOfFailedBeats_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 3, 2),
+    _NoOfFailedBeats_Type()
+)
+noOfFailedBeats.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    noOfFailedBeats.setStatus("current")
+_Managed_ObjectIdentity = ObjectIdentity
+managed = _Managed_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 4)
+)
+_MIntTable_Object = MibTable
+mIntTable = _MIntTable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1)
+)
+if mibBuilder.loadTexts:
+    mIntTable.setStatus("current")
+_MIntEntry_Object = MibTableRow
+mIntEntry = _MIntEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1)
+)
+mIntEntry.setIndexNames(
+    (0, "BLUESOCKET-MIB", "mIntId"),
+)
+if mibBuilder.loadTexts:
+    mIntEntry.setStatus("current")
+
+
+class _MIntId_Type(Integer32):
+    """Custom type mIntId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_MIntId_Type.__name__ = "Integer32"
+_MIntId_Object = MibTableColumn
+mIntId = _MIntId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1, 1),
+    _MIntId_Type()
+)
+mIntId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    mIntId.setStatus("current")
+_MIntName_Type = DisplayString
+_MIntName_Object = MibTableColumn
+mIntName = _MIntName_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1, 2),
+    _MIntName_Type()
+)
+mIntName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mIntName.setStatus("current")
+
+
+class _MIntEnableDhcpRelay_Type(Integer32):
+    """Custom type mIntEnableDhcpRelay based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("false", 0),
+          ("true", 1))
+    )
+
+
+_MIntEnableDhcpRelay_Type.__name__ = "Integer32"
+_MIntEnableDhcpRelay_Object = MibTableColumn
+mIntEnableDhcpRelay = _MIntEnableDhcpRelay_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1, 3),
+    _MIntEnableDhcpRelay_Type()
+)
+mIntEnableDhcpRelay.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mIntEnableDhcpRelay.setStatus("current")
+_MIntIpAddress_Type = BlueIpAddress
+_MIntIpAddress_Object = MibTableColumn
+mIntIpAddress = _MIntIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1, 4),
+    _MIntIpAddress_Type()
+)
+mIntIpAddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mIntIpAddress.setStatus("current")
+_MIntNetmask_Type = BlueIpAddress
+_MIntNetmask_Object = MibTableColumn
+mIntNetmask = _MIntNetmask_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1, 5),
+    _MIntNetmask_Type()
+)
+mIntNetmask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mIntNetmask.setStatus("current")
+
+
+class _MIntDhcpServerOpt_Type(Integer32):
+    """Custom type mIntDhcpServerOpt based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("start", 1),
+          ("stop", 0))
+    )
+
+
+_MIntDhcpServerOpt_Type.__name__ = "Integer32"
+_MIntDhcpServerOpt_Object = MibTableColumn
+mIntDhcpServerOpt = _MIntDhcpServerOpt_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1, 6),
+    _MIntDhcpServerOpt_Type()
+)
+mIntDhcpServerOpt.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mIntDhcpServerOpt.setStatus("current")
+
+
+class _MIntNatAddresses_Type(Integer32):
+    """Custom type mIntNatAddresses based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_MIntNatAddresses_Type.__name__ = "Integer32"
+_MIntNatAddresses_Object = MibTableColumn
+mIntNatAddresses = _MIntNatAddresses_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1, 7),
+    _MIntNatAddresses_Type()
+)
+mIntNatAddresses.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mIntNatAddresses.setStatus("current")
+
+
+class _MIntMulticastOpt_Type(Integer32):
+    """Custom type mIntMulticastOpt based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_MIntMulticastOpt_Type.__name__ = "Integer32"
+_MIntMulticastOpt_Object = MibTableColumn
+mIntMulticastOpt = _MIntMulticastOpt_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1, 8),
+    _MIntMulticastOpt_Type()
+)
+mIntMulticastOpt.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mIntMulticastOpt.setStatus("current")
+_MIntDhcpStartIpAddr_Type = BlueIpAddress
+_MIntDhcpStartIpAddr_Object = MibTableColumn
+mIntDhcpStartIpAddr = _MIntDhcpStartIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1, 9),
+    _MIntDhcpStartIpAddr_Type()
+)
+mIntDhcpStartIpAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mIntDhcpStartIpAddr.setStatus("current")
+_MIntDhcpEndIpAddr_Type = BlueIpAddress
+_MIntDhcpEndIpAddr_Object = MibTableColumn
+mIntDhcpEndIpAddr = _MIntDhcpEndIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1, 10),
+    _MIntDhcpEndIpAddr_Type()
+)
+mIntDhcpEndIpAddr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mIntDhcpEndIpAddr.setStatus("current")
+_MIntNetbiosNameServ_Type = BlueIpAddress
+_MIntNetbiosNameServ_Object = MibTableColumn
+mIntNetbiosNameServ = _MIntNetbiosNameServ_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1, 11),
+    _MIntNetbiosNameServ_Type()
+)
+mIntNetbiosNameServ.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mIntNetbiosNameServ.setStatus("current")
+
+
+class _MIntDnsDomainName_Type(OctetString):
+    """Custom type mIntDnsDomainName based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 50),
+    )
+
+
+_MIntDnsDomainName_Type.__name__ = "OctetString"
+_MIntDnsDomainName_Object = MibTableColumn
+mIntDnsDomainName = _MIntDnsDomainName_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1, 12),
+    _MIntDnsDomainName_Type()
+)
+mIntDnsDomainName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mIntDnsDomainName.setStatus("current")
+_MIntDefaultLease_Type = Integer32
+_MIntDefaultLease_Object = MibTableColumn
+mIntDefaultLease = _MIntDefaultLease_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1, 13),
+    _MIntDefaultLease_Type()
+)
+mIntDefaultLease.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mIntDefaultLease.setStatus("current")
+_MIntMaximumLease_Type = Integer32
+_MIntMaximumLease_Object = MibTableColumn
+mIntMaximumLease = _MIntMaximumLease_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1, 14),
+    _MIntMaximumLease_Type()
+)
+mIntMaximumLease.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mIntMaximumLease.setStatus("current")
+
+
+class _MIntDynamicDNS_Type(Integer32):
+    """Custom type mIntDynamicDNS based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("adHoc", 2),
+          ("disabled", 1),
+          ("interim", 3))
+    )
+
+
+_MIntDynamicDNS_Type.__name__ = "Integer32"
+_MIntDynamicDNS_Object = MibTableColumn
+mIntDynamicDNS = _MIntDynamicDNS_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1, 15),
+    _MIntDynamicDNS_Type()
+)
+mIntDynamicDNS.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mIntDynamicDNS.setStatus("current")
+_MIntVlanId_Type = Integer32
+_MIntVlanId_Object = MibTableColumn
+mIntVlanId = _MIntVlanId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1, 16),
+    _MIntVlanId_Type()
+)
+mIntVlanId.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mIntVlanId.setStatus("current")
+_MIntVlanInterface_Type = Integer32
+_MIntVlanInterface_Object = MibTableColumn
+mIntVlanInterface = _MIntVlanInterface_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1, 17),
+    _MIntVlanInterface_Type()
+)
+mIntVlanInterface.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mIntVlanInterface.setStatus("current")
+
+
+class _MIntProxyArpStatus_Type(Integer32):
+    """Custom type mIntProxyArpStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_MIntProxyArpStatus_Type.__name__ = "Integer32"
+_MIntProxyArpStatus_Object = MibTableColumn
+mIntProxyArpStatus = _MIntProxyArpStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1, 18),
+    _MIntProxyArpStatus_Type()
+)
+mIntProxyArpStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mIntProxyArpStatus.setStatus("current")
+_MIntRowStatus_Type = RowStatus
+_MIntRowStatus_Object = MibTableColumn
+mIntRowStatus = _MIntRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 1, 1, 19),
+    _MIntRowStatus_Type()
+)
+mIntRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mIntRowStatus.setStatus("current")
+_FixedIpAddrTable_Object = MibTable
+fixedIpAddrTable = _FixedIpAddrTable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 2)
+)
+if mibBuilder.loadTexts:
+    fixedIpAddrTable.setStatus("current")
+_FixedIpAddrEntry_Object = MibTableRow
+fixedIpAddrEntry = _FixedIpAddrEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 2, 1)
+)
+fixedIpAddrEntry.setIndexNames(
+    (0, "BLUESOCKET-MIB", "mIntId"),
+    (0, "BLUESOCKET-MIB", "fixedIpAddrId"),
+)
+if mibBuilder.loadTexts:
+    fixedIpAddrEntry.setStatus("current")
+
+
+class _FixedIpAddrId_Type(Integer32):
+    """Custom type fixedIpAddrId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_FixedIpAddrId_Type.__name__ = "Integer32"
+_FixedIpAddrId_Object = MibTableColumn
+fixedIpAddrId = _FixedIpAddrId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 2, 1, 1),
+    _FixedIpAddrId_Type()
+)
+fixedIpAddrId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    fixedIpAddrId.setStatus("current")
+
+
+class _FixedIpAddrMac_Type(OctetString):
+    """Custom type fixedIpAddrMac based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(6, 17),
+    )
+
+
+_FixedIpAddrMac_Type.__name__ = "OctetString"
+_FixedIpAddrMac_Object = MibTableColumn
+fixedIpAddrMac = _FixedIpAddrMac_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 2, 1, 2),
+    _FixedIpAddrMac_Type()
+)
+fixedIpAddrMac.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    fixedIpAddrMac.setStatus("current")
+_FixedIpAddrAddress_Type = BlueIpAddress
+_FixedIpAddrAddress_Object = MibTableColumn
+fixedIpAddrAddress = _FixedIpAddrAddress_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 2, 1, 3),
+    _FixedIpAddrAddress_Type()
+)
+fixedIpAddrAddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    fixedIpAddrAddress.setStatus("current")
+_FixedIpAddrHost_Type = BlueIpAddress
+_FixedIpAddrHost_Object = MibTableColumn
+fixedIpAddrHost = _FixedIpAddrHost_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 2, 1, 4),
+    _FixedIpAddrHost_Type()
+)
+fixedIpAddrHost.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    fixedIpAddrHost.setStatus("current")
+_FixedIpAddrRoleId_Type = Integer32
+_FixedIpAddrRoleId_Object = MibTableColumn
+fixedIpAddrRoleId = _FixedIpAddrRoleId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 2, 1, 5),
+    _FixedIpAddrRoleId_Type()
+)
+fixedIpAddrRoleId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    fixedIpAddrRoleId.setStatus("current")
+_FixedIpAddrRowStatus_Type = RowStatus
+_FixedIpAddrRowStatus_Object = MibTableColumn
+fixedIpAddrRowStatus = _FixedIpAddrRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 2, 1, 6),
+    _FixedIpAddrRowStatus_Type()
+)
+fixedIpAddrRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    fixedIpAddrRowStatus.setStatus("current")
+_NatTable_Object = MibTable
+natTable = _NatTable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 3)
+)
+if mibBuilder.loadTexts:
+    natTable.setStatus("current")
+_NatEntry_Object = MibTableRow
+natEntry = _NatEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 3, 1)
+)
+natEntry.setIndexNames(
+    (0, "BLUESOCKET-MIB", "mIntId"),
+    (0, "BLUESOCKET-MIB", "natId"),
+)
+if mibBuilder.loadTexts:
+    natEntry.setStatus("current")
+
+
+class _NatId_Type(Integer32):
+    """Custom type natId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_NatId_Type.__name__ = "Integer32"
+_NatId_Object = MibTableColumn
+natId = _NatId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 3, 1, 1),
+    _NatId_Type()
+)
+natId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    natId.setStatus("current")
+_NatProtectedIp_Type = BlueIpAddress
+_NatProtectedIp_Object = MibTableColumn
+natProtectedIp = _NatProtectedIp_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 3, 1, 2),
+    _NatProtectedIp_Type()
+)
+natProtectedIp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    natProtectedIp.setStatus("current")
+_NatManagedIp_Type = BlueIpAddress
+_NatManagedIp_Object = MibTableColumn
+natManagedIp = _NatManagedIp_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 3, 1, 3),
+    _NatManagedIp_Type()
+)
+natManagedIp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    natManagedIp.setStatus("current")
+_NatRowStatus_Type = RowStatus
+_NatRowStatus_Object = MibTableColumn
+natRowStatus = _NatRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 4, 3, 1, 4),
+    _NatRowStatus_Type()
+)
+natRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    natRowStatus.setStatus("current")
+_Protected_ObjectIdentity = ObjectIdentity
+protected = _Protected_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 5)
+)
+_PIntTable_Object = MibTable
+pIntTable = _PIntTable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 5, 1)
+)
+if mibBuilder.loadTexts:
+    pIntTable.setStatus("current")
+_PIntEntry_Object = MibTableRow
+pIntEntry = _PIntEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 5, 1, 1)
+)
+pIntEntry.setIndexNames(
+    (0, "BLUESOCKET-MIB", "pIntId"),
+)
+if mibBuilder.loadTexts:
+    pIntEntry.setStatus("current")
+
+
+class _PIntId_Type(Integer32):
+    """Custom type pIntId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_PIntId_Type.__name__ = "Integer32"
+_PIntId_Object = MibTableColumn
+pIntId = _PIntId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 5, 1, 1, 1),
+    _PIntId_Type()
+)
+pIntId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    pIntId.setStatus("current")
+_PIntName_Type = DisplayString
+_PIntName_Object = MibTableColumn
+pIntName = _PIntName_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 5, 1, 1, 2),
+    _PIntName_Type()
+)
+pIntName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pIntName.setStatus("current")
+
+
+class _PIntGetIpFromDhcp_Type(Integer32):
+    """Custom type pIntGetIpFromDhcp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("false", 0),
+          ("true", 1))
+    )
+
+
+_PIntGetIpFromDhcp_Type.__name__ = "Integer32"
+_PIntGetIpFromDhcp_Object = MibTableColumn
+pIntGetIpFromDhcp = _PIntGetIpFromDhcp_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 5, 1, 1, 3),
+    _PIntGetIpFromDhcp_Type()
+)
+pIntGetIpFromDhcp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pIntGetIpFromDhcp.setStatus("current")
+_PIntDhcpTimeout_Type = Integer32
+_PIntDhcpTimeout_Object = MibTableColumn
+pIntDhcpTimeout = _PIntDhcpTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 5, 1, 1, 4),
+    _PIntDhcpTimeout_Type()
+)
+pIntDhcpTimeout.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pIntDhcpTimeout.setStatus("current")
+_PIntIpAddress_Type = BlueIpAddress
+_PIntIpAddress_Object = MibTableColumn
+pIntIpAddress = _PIntIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 5, 1, 1, 5),
+    _PIntIpAddress_Type()
+)
+pIntIpAddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pIntIpAddress.setStatus("current")
+_PIntNetmask_Type = BlueIpAddress
+_PIntNetmask_Object = MibTableColumn
+pIntNetmask = _PIntNetmask_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 5, 1, 1, 6),
+    _PIntNetmask_Type()
+)
+pIntNetmask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pIntNetmask.setStatus("current")
+_PIntGateway_Type = BlueIpAddress
+_PIntGateway_Object = MibTableColumn
+pIntGateway = _PIntGateway_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 5, 1, 1, 7),
+    _PIntGateway_Type()
+)
+pIntGateway.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pIntGateway.setStatus("current")
+_PIntPrimaryDNS_Type = BlueIpAddress
+_PIntPrimaryDNS_Object = MibTableColumn
+pIntPrimaryDNS = _PIntPrimaryDNS_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 5, 1, 1, 8),
+    _PIntPrimaryDNS_Type()
+)
+pIntPrimaryDNS.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pIntPrimaryDNS.setStatus("current")
+_PIntSecondaryDNS_Type = BlueIpAddress
+_PIntSecondaryDNS_Object = MibTableColumn
+pIntSecondaryDNS = _PIntSecondaryDNS_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 5, 1, 1, 9),
+    _PIntSecondaryDNS_Type()
+)
+pIntSecondaryDNS.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pIntSecondaryDNS.setStatus("current")
+
+
+class _PIntDefaultDomain_Type(OctetString):
+    """Custom type pIntDefaultDomain based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 50),
+    )
+
+
+_PIntDefaultDomain_Type.__name__ = "OctetString"
+_PIntDefaultDomain_Object = MibTableColumn
+pIntDefaultDomain = _PIntDefaultDomain_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 5, 1, 1, 10),
+    _PIntDefaultDomain_Type()
+)
+pIntDefaultDomain.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pIntDefaultDomain.setStatus("current")
+_PIntHostName_Type = DisplayString
+_PIntHostName_Object = MibTableColumn
+pIntHostName = _PIntHostName_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 5, 1, 1, 11),
+    _PIntHostName_Type()
+)
+pIntHostName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pIntHostName.setStatus("current")
+
+
+class _PIntEnableMulticast_Type(Integer32):
+    """Custom type pIntEnableMulticast based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("false", 0),
+          ("true", 1))
+    )
+
+
+_PIntEnableMulticast_Type.__name__ = "Integer32"
+_PIntEnableMulticast_Object = MibTableColumn
+pIntEnableMulticast = _PIntEnableMulticast_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 5, 1, 1, 12),
+    _PIntEnableMulticast_Type()
+)
+pIntEnableMulticast.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pIntEnableMulticast.setStatus("current")
+_PIntVlanId_Type = Integer32
+_PIntVlanId_Object = MibTableColumn
+pIntVlanId = _PIntVlanId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 5, 1, 1, 13),
+    _PIntVlanId_Type()
+)
+pIntVlanId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pIntVlanId.setStatus("current")
+_PIntVlanInterface_Type = Integer32
+_PIntVlanInterface_Object = MibTableColumn
+pIntVlanInterface = _PIntVlanInterface_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 5, 1, 1, 14),
+    _PIntVlanInterface_Type()
+)
+pIntVlanInterface.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pIntVlanInterface.setStatus("current")
+
+
+class _PIntProxyArpStatus_Type(Integer32):
+    """Custom type pIntProxyArpStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_PIntProxyArpStatus_Type.__name__ = "Integer32"
+_PIntProxyArpStatus_Object = MibTableColumn
+pIntProxyArpStatus = _PIntProxyArpStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 5, 1, 1, 15),
+    _PIntProxyArpStatus_Type()
+)
+pIntProxyArpStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pIntProxyArpStatus.setStatus("current")
+_PIntRowStatus_Type = RowStatus
+_PIntRowStatus_Object = MibTableColumn
+pIntRowStatus = _PIntRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 8, 5, 1, 1, 16),
+    _PIntRowStatus_Type()
+)
+pIntRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pIntRowStatus.setStatus("current")
+_Replication_ObjectIdentity = ObjectIdentity
+replication = _Replication_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 9)
+)
+
+
+class _MachineRole_Type(Integer32):
+    """Custom type machineRole based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("master", 1),
+          ("slave", 2))
+    )
+
+
+_MachineRole_Type.__name__ = "Integer32"
+_MachineRole_Object = MibScalar
+machineRole = _MachineRole_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 9, 1),
+    _MachineRole_Type()
+)
+machineRole.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    machineRole.setStatus("current")
+
+
+class _GenSnapshot_Type(Integer32):
+    """Custom type genSnapshot based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_GenSnapshot_Type.__name__ = "Integer32"
+_GenSnapshot_Object = MibScalar
+genSnapshot = _GenSnapshot_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 9, 2),
+    _GenSnapshot_Type()
+)
+genSnapshot.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    genSnapshot.setStatus("current")
+_SlaveTable_Object = MibTable
+slaveTable = _SlaveTable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 9, 3)
+)
+if mibBuilder.loadTexts:
+    slaveTable.setStatus("current")
+_SlaveEntry_Object = MibTableRow
+slaveEntry = _SlaveEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 9, 3, 1)
+)
+slaveEntry.setIndexNames(
+    (0, "BLUESOCKET-MIB", "slaveId"),
+)
+if mibBuilder.loadTexts:
+    slaveEntry.setStatus("current")
+
+
+class _SlaveId_Type(Integer32):
+    """Custom type slaveId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_SlaveId_Type.__name__ = "Integer32"
+_SlaveId_Object = MibTableColumn
+slaveId = _SlaveId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 9, 3, 1, 1),
+    _SlaveId_Type()
+)
+slaveId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    slaveId.setStatus("current")
+
+
+class _SlaveEnabled_Type(Integer32):
+    """Custom type slaveEnabled based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 0),
+          ("yes", 1))
+    )
+
+
+_SlaveEnabled_Type.__name__ = "Integer32"
+_SlaveEnabled_Object = MibTableColumn
+slaveEnabled = _SlaveEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 9, 3, 1, 2),
+    _SlaveEnabled_Type()
+)
+slaveEnabled.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    slaveEnabled.setStatus("current")
+
+
+class _SlaveAddress_Type(OctetString):
+    """Custom type slaveAddress based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 50),
+    )
+
+
+_SlaveAddress_Type.__name__ = "OctetString"
+_SlaveAddress_Object = MibTableColumn
+slaveAddress = _SlaveAddress_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 9, 3, 1, 3),
+    _SlaveAddress_Type()
+)
+slaveAddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    slaveAddress.setStatus("current")
+_SlaveNotes_Type = DisplayString
+_SlaveNotes_Object = MibTableColumn
+slaveNotes = _SlaveNotes_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 9, 3, 1, 4),
+    _SlaveNotes_Type()
+)
+slaveNotes.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    slaveNotes.setStatus("current")
+_SlaveRowStatus_Type = RowStatus
+_SlaveRowStatus_Object = MibTableColumn
+slaveRowStatus = _SlaveRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 9, 3, 1, 5),
+    _SlaveRowStatus_Type()
+)
+slaveRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    slaveRowStatus.setStatus("current")
+
+
+class _SlaveMobility_Type(Integer32):
+    """Custom type slaveMobility based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_SlaveMobility_Type.__name__ = "Integer32"
+_SlaveMobility_Object = MibTableColumn
+slaveMobility = _SlaveMobility_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 9, 3, 1, 6),
+    _SlaveMobility_Type()
+)
+slaveMobility.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    slaveMobility.setStatus("current")
+_Connection_ObjectIdentity = ObjectIdentity
+connection = _Connection_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 10)
+)
+_ConnectionTable_Object = MibTable
+connectionTable = _ConnectionTable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 10, 1)
+)
+if mibBuilder.loadTexts:
+    connectionTable.setStatus("current")
+_ConnectionEntry_Object = MibTableRow
+connectionEntry = _ConnectionEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 10, 1, 1)
+)
+connectionEntry.setIndexNames(
+    (0, "BLUESOCKET-MIB", "connectionId"),
+)
+if mibBuilder.loadTexts:
+    connectionEntry.setStatus("current")
+
+
+class _ConnectionId_Type(Integer32):
+    """Custom type connectionId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_ConnectionId_Type.__name__ = "Integer32"
+_ConnectionId_Object = MibTableColumn
+connectionId = _ConnectionId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 10, 1, 1, 1),
+    _ConnectionId_Type()
+)
+connectionId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    connectionId.setStatus("current")
+_ConnectionName_Type = DisplayString
+_ConnectionName_Object = MibTableColumn
+connectionName = _ConnectionName_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 10, 1, 1, 2),
+    _ConnectionName_Type()
+)
+connectionName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    connectionName.setStatus("current")
+_ConnectionIp_Type = BlueIpAddress
+_ConnectionIp_Object = MibTableColumn
+connectionIp = _ConnectionIp_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 10, 1, 1, 3),
+    _ConnectionIp_Type()
+)
+connectionIp.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    connectionIp.setStatus("current")
+
+
+class _ConnectionMac_Type(OctetString):
+    """Custom type connectionMac based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(6, 17),
+    )
+
+
+_ConnectionMac_Type.__name__ = "OctetString"
+_ConnectionMac_Object = MibTableColumn
+connectionMac = _ConnectionMac_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 10, 1, 1, 4),
+    _ConnectionMac_Type()
+)
+connectionMac.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    connectionMac.setStatus("current")
+_ConnectionRoleId_Type = Integer32
+_ConnectionRoleId_Object = MibTableColumn
+connectionRoleId = _ConnectionRoleId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 10, 1, 1, 5),
+    _ConnectionRoleId_Type()
+)
+connectionRoleId.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    connectionRoleId.setStatus("current")
+_ConnectionUserId_Type = Integer32
+_ConnectionUserId_Object = MibTableColumn
+connectionUserId = _ConnectionUserId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 10, 1, 1, 6),
+    _ConnectionUserId_Type()
+)
+connectionUserId.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    connectionUserId.setStatus("current")
+_ConnectionLoginTime_Type = DateAndTime
+_ConnectionLoginTime_Object = MibTableColumn
+connectionLoginTime = _ConnectionLoginTime_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 10, 1, 1, 7),
+    _ConnectionLoginTime_Type()
+)
+connectionLoginTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    connectionLoginTime.setStatus("current")
+_ConnectionChecked_Type = TimeTicks
+_ConnectionChecked_Object = MibTableColumn
+connectionChecked = _ConnectionChecked_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 10, 1, 1, 8),
+    _ConnectionChecked_Type()
+)
+connectionChecked.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    connectionChecked.setStatus("current")
+_ConnectionBytes_Type = Integer32
+_ConnectionBytes_Object = MibTableColumn
+connectionBytes = _ConnectionBytes_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 10, 1, 1, 9),
+    _ConnectionBytes_Type()
+)
+connectionBytes.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    connectionBytes.setStatus("current")
+_ConnectionCurRate_Type = Integer32
+_ConnectionCurRate_Object = MibTableColumn
+connectionCurRate = _ConnectionCurRate_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 10, 1, 1, 10),
+    _ConnectionCurRate_Type()
+)
+connectionCurRate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    connectionCurRate.setStatus("current")
+_ConnectionExpiry_Type = Integer32
+_ConnectionExpiry_Object = MibTableColumn
+connectionExpiry = _ConnectionExpiry_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 10, 1, 1, 11),
+    _ConnectionExpiry_Type()
+)
+connectionExpiry.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    connectionExpiry.setStatus("current")
+
+
+class _ConnectionDev_Type(OctetString):
+    """Custom type connectionDev based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 11),
+    )
+
+
+_ConnectionDev_Type.__name__ = "OctetString"
+_ConnectionDev_Object = MibTableColumn
+connectionDev = _ConnectionDev_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 10, 1, 1, 12),
+    _ConnectionDev_Type()
+)
+connectionDev.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    connectionDev.setStatus("current")
+_ConnectionHost_Type = DisplayString
+_ConnectionHost_Object = MibTableColumn
+connectionHost = _ConnectionHost_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 10, 1, 1, 13),
+    _ConnectionHost_Type()
+)
+connectionHost.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    connectionHost.setStatus("current")
+_ConnectionUnReg_Type = Integer32
+_ConnectionUnReg_Object = MibTableColumn
+connectionUnReg = _ConnectionUnReg_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 10, 1, 1, 14),
+    _ConnectionUnReg_Type()
+)
+connectionUnReg.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    connectionUnReg.setStatus("current")
+
+
+class _ConnectionAP_Type(OctetString):
+    """Custom type connectionAP based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 20),
+    )
+
+
+_ConnectionAP_Type.__name__ = "OctetString"
+_ConnectionAP_Object = MibTableColumn
+connectionAP = _ConnectionAP_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 10, 1, 1, 15),
+    _ConnectionAP_Type()
+)
+connectionAP.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    connectionAP.setStatus("current")
+_ConnectionLoginAttempt_Type = Integer32
+_ConnectionLoginAttempt_Object = MibTableColumn
+connectionLoginAttempt = _ConnectionLoginAttempt_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 10, 1, 1, 16),
+    _ConnectionLoginAttempt_Type()
+)
+connectionLoginAttempt.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    connectionLoginAttempt.setStatus("current")
+_ConnectionLoginAttemptCnt_Type = Integer32
+_ConnectionLoginAttemptCnt_Object = MibTableColumn
+connectionLoginAttemptCnt = _ConnectionLoginAttemptCnt_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 10, 1, 1, 17),
+    _ConnectionLoginAttemptCnt_Type()
+)
+connectionLoginAttemptCnt.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    connectionLoginAttemptCnt.setStatus("current")
+
+
+class _ConnectionRoamMac_Type(OctetString):
+    """Custom type connectionRoamMac based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(6, 17),
+    )
+
+
+_ConnectionRoamMac_Type.__name__ = "OctetString"
+_ConnectionRoamMac_Object = MibTableColumn
+connectionRoamMac = _ConnectionRoamMac_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 10, 1, 1, 18),
+    _ConnectionRoamMac_Type()
+)
+connectionRoamMac.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    connectionRoamMac.setStatus("current")
+_Roles_ObjectIdentity = ObjectIdentity
+roles = _Roles_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 11)
+)
+_RoleTable_Object = MibTable
+roleTable = _RoleTable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 11, 1)
+)
+if mibBuilder.loadTexts:
+    roleTable.setStatus("current")
+_RoleEntry_Object = MibTableRow
+roleEntry = _RoleEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1)
+)
+roleEntry.setIndexNames(
+    (0, "BLUESOCKET-MIB", "roleId"),
+)
+if mibBuilder.loadTexts:
+    roleEntry.setStatus("current")
+
+
+class _RoleId_Type(Integer32):
+    """Custom type roleId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_RoleId_Type.__name__ = "Integer32"
+_RoleId_Object = MibTableColumn
+roleId = _RoleId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 1),
+    _RoleId_Type()
+)
+roleId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    roleId.setStatus("current")
+
+
+class _RoleName_Type(OctetString):
+    """Custom type roleName based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 50),
+    )
+
+
+_RoleName_Type.__name__ = "OctetString"
+_RoleName_Object = MibTableColumn
+roleName = _RoleName_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 2),
+    _RoleName_Type()
+)
+roleName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    roleName.setStatus("current")
+
+
+class _RoleType_Type(OctetString):
+    """Custom type roleType based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 3),
+    )
+
+
+_RoleType_Type.__name__ = "OctetString"
+_RoleType_Object = MibTableColumn
+roleType = _RoleType_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 3),
+    _RoleType_Type()
+)
+roleType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    roleType.setStatus("current")
+
+
+class _RoleQosRate_Type(OctetString):
+    """Custom type roleQosRate based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 5),
+    )
+
+
+_RoleQosRate_Type.__name__ = "OctetString"
+_RoleQosRate_Object = MibTableColumn
+roleQosRate = _RoleQosRate_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 4),
+    _RoleQosRate_Type()
+)
+roleQosRate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    roleQosRate.setStatus("current")
+_RoleQosQnt_Type = Integer32
+_RoleQosQnt_Object = MibTableColumn
+roleQosQnt = _RoleQosQnt_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 5),
+    _RoleQosQnt_Type()
+)
+roleQosQnt.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    roleQosQnt.setStatus("current")
+
+
+class _RoleVpn_Type(Integer32):
+    """Custom type roleVpn based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("modarate", 3),
+          ("none", 1),
+          ("pptp", 2))
+    )
+
+
+_RoleVpn_Type.__name__ = "Integer32"
+_RoleVpn_Object = MibTableColumn
+roleVpn = _RoleVpn_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 6),
+    _RoleVpn_Type()
+)
+roleVpn.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    roleVpn.setStatus("current")
+_RoleInherit_Type = Integer32
+_RoleInherit_Object = MibTableColumn
+roleInherit = _RoleInherit_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 7),
+    _RoleInherit_Type()
+)
+roleInherit.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    roleInherit.setStatus("current")
+_RoleUnGuestLogin_Type = Integer32
+_RoleUnGuestLogin_Object = MibTableColumn
+roleUnGuestLogin = _RoleUnGuestLogin_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 8),
+    _RoleUnGuestLogin_Type()
+)
+roleUnGuestLogin.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    roleUnGuestLogin.setStatus("current")
+_RoleUnUserLogin_Type = Integer32
+_RoleUnUserLogin_Object = MibTableColumn
+roleUnUserLogin = _RoleUnUserLogin_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 9),
+    _RoleUnUserLogin_Type()
+)
+roleUnUserLogin.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    roleUnUserLogin.setStatus("current")
+_RoleNotes_Type = DisplayString
+_RoleNotes_Object = MibTableColumn
+roleNotes = _RoleNotes_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 10),
+    _RoleNotes_Type()
+)
+roleNotes.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    roleNotes.setStatus("current")
+_RoleQosUserIn_Type = Integer32
+_RoleQosUserIn_Object = MibTableColumn
+roleQosUserIn = _RoleQosUserIn_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 12),
+    _RoleQosUserIn_Type()
+)
+roleQosUserIn.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    roleQosUserIn.setStatus("current")
+_RoleQosUserOut_Type = Integer32
+_RoleQosUserOut_Object = MibTableColumn
+roleQosUserOut = _RoleQosUserOut_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 13),
+    _RoleQosUserOut_Type()
+)
+roleQosUserOut.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    roleQosUserOut.setStatus("current")
+_RoleQosPriorityIn_Type = Integer32
+_RoleQosPriorityIn_Object = MibTableColumn
+roleQosPriorityIn = _RoleQosPriorityIn_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 14),
+    _RoleQosPriorityIn_Type()
+)
+roleQosPriorityIn.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    roleQosPriorityIn.setStatus("current")
+_RoleQosPriorityOut_Type = Integer32
+_RoleQosPriorityOut_Object = MibTableColumn
+roleQosPriorityOut = _RoleQosPriorityOut_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 15),
+    _RoleQosPriorityOut_Type()
+)
+roleQosPriorityOut.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    roleQosPriorityOut.setStatus("current")
+
+
+class _RoleQosPriInOverride_Type(OctetString):
+    """Custom type roleQosPriInOverride based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 1),
+    )
+
+
+_RoleQosPriInOverride_Type.__name__ = "OctetString"
+_RoleQosPriInOverride_Object = MibTableColumn
+roleQosPriInOverride = _RoleQosPriInOverride_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 16),
+    _RoleQosPriInOverride_Type()
+)
+roleQosPriInOverride.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    roleQosPriInOverride.setStatus("current")
+
+
+class _RoleQosPriOutOverride_Type(OctetString):
+    """Custom type roleQosPriOutOverride based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 1),
+    )
+
+
+_RoleQosPriOutOverride_Type.__name__ = "OctetString"
+_RoleQosPriOutOverride_Object = MibTableColumn
+roleQosPriOutOverride = _RoleQosPriOutOverride_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 17),
+    _RoleQosPriOutOverride_Type()
+)
+roleQosPriOutOverride.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    roleQosPriOutOverride.setStatus("current")
+_RoleQosDscpIn_Type = Integer32
+_RoleQosDscpIn_Object = MibTableColumn
+roleQosDscpIn = _RoleQosDscpIn_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 18),
+    _RoleQosDscpIn_Type()
+)
+roleQosDscpIn.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    roleQosDscpIn.setStatus("current")
+_RoleQosDscpOut_Type = Integer32
+_RoleQosDscpOut_Object = MibTableColumn
+roleQosDscpOut = _RoleQosDscpOut_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 19),
+    _RoleQosDscpOut_Type()
+)
+roleQosDscpOut.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    roleQosDscpOut.setStatus("current")
+
+
+class _RoleQosDscpInOverride_Type(OctetString):
+    """Custom type roleQosDscpInOverride based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 1),
+    )
+
+
+_RoleQosDscpInOverride_Type.__name__ = "OctetString"
+_RoleQosDscpInOverride_Object = MibTableColumn
+roleQosDscpInOverride = _RoleQosDscpInOverride_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 20),
+    _RoleQosDscpInOverride_Type()
+)
+roleQosDscpInOverride.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    roleQosDscpInOverride.setStatus("current")
+
+
+class _RoleQosDscpOutOverride_Type(OctetString):
+    """Custom type roleQosDscpOutOverride based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 1),
+    )
+
+
+_RoleQosDscpOutOverride_Type.__name__ = "OctetString"
+_RoleQosDscpOutOverride_Object = MibTableColumn
+roleQosDscpOutOverride = _RoleQosDscpOutOverride_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 21),
+    _RoleQosDscpOutOverride_Type()
+)
+roleQosDscpOutOverride.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    roleQosDscpOutOverride.setStatus("current")
+_RoleQosRateOut_Type = Integer32
+_RoleQosRateOut_Object = MibTableColumn
+roleQosRateOut = _RoleQosRateOut_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 22),
+    _RoleQosRateOut_Type()
+)
+roleQosRateOut.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    roleQosRateOut.setStatus("current")
+
+
+class _RoleQosRateQntOut_Type(OctetString):
+    """Custom type roleQosRateQntOut based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 5),
+    )
+
+
+_RoleQosRateQntOut_Type.__name__ = "OctetString"
+_RoleQosRateQntOut_Object = MibTableColumn
+roleQosRateQntOut = _RoleQosRateQntOut_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 23),
+    _RoleQosRateQntOut_Type()
+)
+roleQosRateQntOut.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    roleQosRateQntOut.setStatus("current")
+_RoleVlanId_Type = Integer32
+_RoleVlanId_Object = MibTableColumn
+roleVlanId = _RoleVlanId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 24),
+    _RoleVlanId_Type()
+)
+roleVlanId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    roleVlanId.setStatus("current")
+
+
+class _RoleRedirect_Type(OctetString):
+    """Custom type roleRedirect based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 5),
+    )
+
+
+_RoleRedirect_Type.__name__ = "OctetString"
+_RoleRedirect_Object = MibTableColumn
+roleRedirect = _RoleRedirect_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 25),
+    _RoleRedirect_Type()
+)
+roleRedirect.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    roleRedirect.setStatus("current")
+_RoleRowStatus_Type = RowStatus
+_RoleRowStatus_Object = MibTableColumn
+roleRowStatus = _RoleRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 11, 1, 1, 26),
+    _RoleRowStatus_Type()
+)
+roleRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    roleRowStatus.setStatus("current")
+_ServiceMgmt_ObjectIdentity = ObjectIdentity
+serviceMgmt = _ServiceMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 12)
+)
+_ServiceMgmtTable_Object = MibTable
+serviceMgmtTable = _ServiceMgmtTable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 12, 1)
+)
+if mibBuilder.loadTexts:
+    serviceMgmtTable.setStatus("current")
+_ServiceMgmtEntry_Object = MibTableRow
+serviceMgmtEntry = _ServiceMgmtEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 12, 1, 1)
+)
+serviceMgmtEntry.setIndexNames(
+    (0, "BLUESOCKET-MIB", "serviceMgmtId"),
+)
+if mibBuilder.loadTexts:
+    serviceMgmtEntry.setStatus("current")
+
+
+class _ServiceMgmtId_Type(Integer32):
+    """Custom type serviceMgmtId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_ServiceMgmtId_Type.__name__ = "Integer32"
+_ServiceMgmtId_Object = MibTableColumn
+serviceMgmtId = _ServiceMgmtId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 12, 1, 1, 1),
+    _ServiceMgmtId_Type()
+)
+serviceMgmtId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    serviceMgmtId.setStatus("current")
+_ServiceMgmtName_Type = DisplayString
+_ServiceMgmtName_Object = MibTableColumn
+serviceMgmtName = _ServiceMgmtName_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 12, 1, 1, 2),
+    _ServiceMgmtName_Type()
+)
+serviceMgmtName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    serviceMgmtName.setStatus("current")
+
+
+class _ServiceMgmtOptStatus_Type(Integer32):
+    """Custom type serviceMgmtOptStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("noopt", 4),
+          ("restart", 3),
+          ("start", 1),
+          ("stop", 2))
+    )
+
+
+_ServiceMgmtOptStatus_Type.__name__ = "Integer32"
+_ServiceMgmtOptStatus_Object = MibTableColumn
+serviceMgmtOptStatus = _ServiceMgmtOptStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 12, 1, 1, 3),
+    _ServiceMgmtOptStatus_Type()
+)
+serviceMgmtOptStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    serviceMgmtOptStatus.setStatus("current")
+_ServiceMgmtDesr_Type = DisplayString
+_ServiceMgmtDesr_Object = MibTableColumn
+serviceMgmtDesr = _ServiceMgmtDesr_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 12, 1, 1, 4),
+    _ServiceMgmtDesr_Type()
+)
+serviceMgmtDesr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    serviceMgmtDesr.setStatus("current")
+_Statistics_ObjectIdentity = ObjectIdentity
+statistics = _Statistics_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 13)
+)
+_UserSummary_ObjectIdentity = ObjectIdentity
+userSummary = _UserSummary_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 13, 1)
+)
+_UserSumNoOfUsr_Type = Integer32
+_UserSumNoOfUsr_Object = MibScalar
+userSumNoOfUsr = _UserSumNoOfUsr_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 13, 1, 1),
+    _UserSumNoOfUsr_Type()
+)
+userSumNoOfUsr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    userSumNoOfUsr.setStatus("current")
+_UserSumNoOfLogdInUsr_Type = Integer32
+_UserSumNoOfLogdInUsr_Object = MibScalar
+userSumNoOfLogdInUsr = _UserSumNoOfLogdInUsr_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 13, 1, 2),
+    _UserSumNoOfLogdInUsr_Type()
+)
+userSumNoOfLogdInUsr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    userSumNoOfLogdInUsr.setStatus("current")
+_UserSumNoOfLogdVPNUsr_Type = Integer32
+_UserSumNoOfLogdVPNUsr_Object = MibScalar
+userSumNoOfLogdVPNUsr = _UserSumNoOfLogdVPNUsr_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 13, 1, 3),
+    _UserSumNoOfLogdVPNUsr_Type()
+)
+userSumNoOfLogdVPNUsr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    userSumNoOfLogdVPNUsr.setStatus("current")
+_UsmSumTtlBandWthInUse_Type = Integer32
+_UsmSumTtlBandWthInUse_Object = MibScalar
+usmSumTtlBandWthInUse = _UsmSumTtlBandWthInUse_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 13, 1, 4),
+    _UsmSumTtlBandWthInUse_Type()
+)
+usmSumTtlBandWthInUse.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    usmSumTtlBandWthInUse.setStatus("current")
+_SystemStats_ObjectIdentity = ObjectIdentity
+systemStats = _SystemStats_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 13, 2)
+)
+_SysStatCpuUtil_Type = Integer32
+_SysStatCpuUtil_Object = MibScalar
+sysStatCpuUtil = _SysStatCpuUtil_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 13, 2, 1),
+    _SysStatCpuUtil_Type()
+)
+sysStatCpuUtil.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sysStatCpuUtil.setStatus("current")
+_SysStatMemUtil_Type = Integer32
+_SysStatMemUtil_Object = MibScalar
+sysStatMemUtil = _SysStatMemUtil_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 13, 2, 2),
+    _SysStatMemUtil_Type()
+)
+sysStatMemUtil.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sysStatMemUtil.setStatus("current")
+_SysStatTotalDiskSpace_Type = Integer32
+_SysStatTotalDiskSpace_Object = MibScalar
+sysStatTotalDiskSpace = _SysStatTotalDiskSpace_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 13, 2, 3),
+    _SysStatTotalDiskSpace_Type()
+)
+sysStatTotalDiskSpace.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sysStatTotalDiskSpace.setStatus("current")
+_SysStatDiskSpaceUsed_Type = Integer32
+_SysStatDiskSpaceUsed_Object = MibScalar
+sysStatDiskSpaceUsed = _SysStatDiskSpaceUsed_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 13, 2, 4),
+    _SysStatDiskSpaceUsed_Type()
+)
+sysStatDiskSpaceUsed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sysStatDiskSpaceUsed.setStatus("current")
+_SysStatDiskSpaceFree_Type = Integer32
+_SysStatDiskSpaceFree_Object = MibScalar
+sysStatDiskSpaceFree = _SysStatDiskSpaceFree_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 13, 2, 5),
+    _SysStatDiskSpaceFree_Type()
+)
+sysStatDiskSpaceFree.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sysStatDiskSpaceFree.setStatus("current")
+_SysStatLOgSpaceUsed_Type = Integer32
+_SysStatLOgSpaceUsed_Object = MibScalar
+sysStatLOgSpaceUsed = _SysStatLOgSpaceUsed_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 13, 2, 6),
+    _SysStatLOgSpaceUsed_Type()
+)
+sysStatLOgSpaceUsed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sysStatLOgSpaceUsed.setStatus("current")
+
+
+class _SysStatNeedRestart_Type(Integer32):
+    """Custom type sysStatNeedRestart based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 0),
+          ("yes", 1))
+    )
+
+
+_SysStatNeedRestart_Type.__name__ = "Integer32"
+_SysStatNeedRestart_Object = MibScalar
+sysStatNeedRestart = _SysStatNeedRestart_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 13, 2, 7),
+    _SysStatNeedRestart_Type()
+)
+sysStatNeedRestart.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sysStatNeedRestart.setStatus("current")
+_Vlan_ObjectIdentity = ObjectIdentity
+vlan = _Vlan_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 14)
+)
+_VlanTable_Object = MibTable
+vlanTable = _VlanTable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 14, 1)
+)
+if mibBuilder.loadTexts:
+    vlanTable.setStatus("current")
+_VlanEntry_Object = MibTableRow
+vlanEntry = _VlanEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 14, 1, 1)
+)
+vlanEntry.setIndexNames(
+    (0, "BLUESOCKET-MIB", "vlanRowId"),
+)
+if mibBuilder.loadTexts:
+    vlanEntry.setStatus("current")
+
+
+class _VlanRowId_Type(Integer32):
+    """Custom type vlanRowId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_VlanRowId_Type.__name__ = "Integer32"
+_VlanRowId_Object = MibTableColumn
+vlanRowId = _VlanRowId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 14, 1, 1, 1),
+    _VlanRowId_Type()
+)
+vlanRowId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    vlanRowId.setStatus("current")
+
+
+class _VlanName_Type(OctetString):
+    """Custom type vlanName based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 50),
+    )
+
+
+_VlanName_Type.__name__ = "OctetString"
+_VlanName_Object = MibTableColumn
+vlanName = _VlanName_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 14, 1, 1, 2),
+    _VlanName_Type()
+)
+vlanName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vlanName.setStatus("current")
+_VlanId_Type = Integer32
+_VlanId_Object = MibTableColumn
+vlanId = _VlanId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 14, 1, 1, 3),
+    _VlanId_Type()
+)
+vlanId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vlanId.setStatus("current")
+_VlanNotes_Type = DisplayString
+_VlanNotes_Object = MibTableColumn
+vlanNotes = _VlanNotes_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 14, 1, 1, 4),
+    _VlanNotes_Type()
+)
+vlanNotes.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vlanNotes.setStatus("current")
+_VlanRowStatus_Type = RowStatus
+_VlanRowStatus_Object = MibTableColumn
+vlanRowStatus = _VlanRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 14, 1, 1, 5),
+    _VlanRowStatus_Type()
+)
+vlanRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vlanRowStatus.setStatus("current")
+_VlanGrpTable_Object = MibTable
+vlanGrpTable = _VlanGrpTable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 14, 2)
+)
+if mibBuilder.loadTexts:
+    vlanGrpTable.setStatus("current")
+_VlanGrpEntry_Object = MibTableRow
+vlanGrpEntry = _VlanGrpEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 14, 2, 1)
+)
+vlanGrpEntry.setIndexNames(
+    (0, "BLUESOCKET-MIB", "vlanGrpId"),
+)
+if mibBuilder.loadTexts:
+    vlanGrpEntry.setStatus("current")
+
+
+class _VlanGrpId_Type(Integer32):
+    """Custom type vlanGrpId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_VlanGrpId_Type.__name__ = "Integer32"
+_VlanGrpId_Object = MibTableColumn
+vlanGrpId = _VlanGrpId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 14, 2, 1, 1),
+    _VlanGrpId_Type()
+)
+vlanGrpId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    vlanGrpId.setStatus("current")
+
+
+class _VlanGrpName_Type(OctetString):
+    """Custom type vlanGrpName based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 50),
+    )
+
+
+_VlanGrpName_Type.__name__ = "OctetString"
+_VlanGrpName_Object = MibTableColumn
+vlanGrpName = _VlanGrpName_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 14, 2, 1, 2),
+    _VlanGrpName_Type()
+)
+vlanGrpName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vlanGrpName.setStatus("current")
+_VlanGrpRowStatus_Type = RowStatus
+_VlanGrpRowStatus_Object = MibTableColumn
+vlanGrpRowStatus = _VlanGrpRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 14, 2, 1, 3),
+    _VlanGrpRowStatus_Type()
+)
+vlanGrpRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vlanGrpRowStatus.setStatus("current")
+_VlanGrpMemTable_Object = MibTable
+vlanGrpMemTable = _VlanGrpMemTable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 14, 3)
+)
+if mibBuilder.loadTexts:
+    vlanGrpMemTable.setStatus("current")
+_VlanGrpMemEntry_Object = MibTableRow
+vlanGrpMemEntry = _VlanGrpMemEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 14, 3, 1)
+)
+vlanGrpMemEntry.setIndexNames(
+    (0, "BLUESOCKET-MIB", "vlanGrpId"),
+    (0, "BLUESOCKET-MIB", "vlanGrpMemId"),
+)
+if mibBuilder.loadTexts:
+    vlanGrpMemEntry.setStatus("current")
+
+
+class _VlanGrpMemId_Type(Integer32):
+    """Custom type vlanGrpMemId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_VlanGrpMemId_Type.__name__ = "Integer32"
+_VlanGrpMemId_Object = MibTableColumn
+vlanGrpMemId = _VlanGrpMemId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 14, 3, 1, 1),
+    _VlanGrpMemId_Type()
+)
+vlanGrpMemId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    vlanGrpMemId.setStatus("current")
+_VlanGrpMemRowStatus_Type = RowStatus
+_VlanGrpMemRowStatus_Object = MibTableColumn
+vlanGrpMemRowStatus = _VlanGrpMemRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 14, 3, 1, 2),
+    _VlanGrpMemRowStatus_Type()
+)
+vlanGrpMemRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vlanGrpMemRowStatus.setStatus("current")
+_Schedule_ObjectIdentity = ObjectIdentity
+schedule = _Schedule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 15)
+)
+_SchedTable_Object = MibTable
+schedTable = _SchedTable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 15, 1)
+)
+if mibBuilder.loadTexts:
+    schedTable.setStatus("current")
+_SchedEntry_Object = MibTableRow
+schedEntry = _SchedEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 15, 1, 1)
+)
+schedEntry.setIndexNames(
+    (0, "BLUESOCKET-MIB", "schedRowId"),
+)
+if mibBuilder.loadTexts:
+    schedEntry.setStatus("current")
+
+
+class _SchedRowId_Type(Integer32):
+    """Custom type schedRowId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_SchedRowId_Type.__name__ = "Integer32"
+_SchedRowId_Object = MibTableColumn
+schedRowId = _SchedRowId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 15, 1, 1, 1),
+    _SchedRowId_Type()
+)
+schedRowId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    schedRowId.setStatus("current")
+
+
+class _SchedName_Type(OctetString):
+    """Custom type schedName based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 50),
+    )
+
+
+_SchedName_Type.__name__ = "OctetString"
+_SchedName_Object = MibTableColumn
+schedName = _SchedName_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 15, 1, 1, 2),
+    _SchedName_Type()
+)
+schedName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    schedName.setStatus("current")
+
+
+class _SchedAllDay_Type(Integer32):
+    """Custom type schedAllDay based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_SchedAllDay_Type.__name__ = "Integer32"
+_SchedAllDay_Object = MibTableColumn
+schedAllDay = _SchedAllDay_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 15, 1, 1, 3),
+    _SchedAllDay_Type()
+)
+schedAllDay.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    schedAllDay.setStatus("current")
+
+
+class _SchedEveryDay_Type(Integer32):
+    """Custom type schedEveryDay based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_SchedEveryDay_Type.__name__ = "Integer32"
+_SchedEveryDay_Object = MibTableColumn
+schedEveryDay = _SchedEveryDay_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 15, 1, 1, 4),
+    _SchedEveryDay_Type()
+)
+schedEveryDay.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    schedEveryDay.setStatus("current")
+_SchedStartDateAndTime_Type = LocalDateAndTime
+_SchedStartDateAndTime_Object = MibTableColumn
+schedStartDateAndTime = _SchedStartDateAndTime_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 15, 1, 1, 5),
+    _SchedStartDateAndTime_Type()
+)
+schedStartDateAndTime.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    schedStartDateAndTime.setStatus("current")
+_SchedEndDateAndTime_Type = LocalDateAndTime
+_SchedEndDateAndTime_Object = MibTableColumn
+schedEndDateAndTime = _SchedEndDateAndTime_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 15, 1, 1, 6),
+    _SchedEndDateAndTime_Type()
+)
+schedEndDateAndTime.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    schedEndDateAndTime.setStatus("current")
+
+
+class _SchedMonth_Type(Integer32):
+    """Custom type schedMonth based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12)
+        )
+    )
+    namedValues = NamedValues(
+        *(("april", 4),
+          ("august", 8),
+          ("december", 12),
+          ("february", 2),
+          ("january", 1),
+          ("july", 7),
+          ("june", 6),
+          ("march", 3),
+          ("may", 5),
+          ("november", 11),
+          ("october", 10),
+          ("september", 9))
+    )
+
+
+_SchedMonth_Type.__name__ = "Integer32"
+_SchedMonth_Object = MibTableColumn
+schedMonth = _SchedMonth_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 15, 1, 1, 7),
+    _SchedMonth_Type()
+)
+schedMonth.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    schedMonth.setStatus("current")
+
+
+class _SchedWeekDay_Type(Integer32):
+    """Custom type schedWeekDay based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("friday", 6),
+          ("monday", 2),
+          ("saturday", 7),
+          ("sunday", 1),
+          ("thursday", 5),
+          ("tuesday", 3),
+          ("wednesday", 4))
+    )
+
+
+_SchedWeekDay_Type.__name__ = "Integer32"
+_SchedWeekDay_Object = MibTableColumn
+schedWeekDay = _SchedWeekDay_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 15, 1, 1, 8),
+    _SchedWeekDay_Type()
+)
+schedWeekDay.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    schedWeekDay.setStatus("current")
+_SchedDayOfMonth_Type = Integer32
+_SchedDayOfMonth_Object = MibTableColumn
+schedDayOfMonth = _SchedDayOfMonth_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 15, 1, 1, 9),
+    _SchedDayOfMonth_Type()
+)
+schedDayOfMonth.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    schedDayOfMonth.setStatus("current")
+_SchedRowStatus_Type = RowStatus
+_SchedRowStatus_Object = MibTableColumn
+schedRowStatus = _SchedRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 15, 1, 1, 10),
+    _SchedRowStatus_Type()
+)
+schedRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    schedRowStatus.setStatus("current")
+_SchedGrpTable_Object = MibTable
+schedGrpTable = _SchedGrpTable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 15, 2)
+)
+if mibBuilder.loadTexts:
+    schedGrpTable.setStatus("current")
+_SchedGrpEntry_Object = MibTableRow
+schedGrpEntry = _SchedGrpEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 15, 2, 1)
+)
+schedGrpEntry.setIndexNames(
+    (0, "BLUESOCKET-MIB", "schedGrpId"),
+)
+if mibBuilder.loadTexts:
+    schedGrpEntry.setStatus("current")
+
+
+class _SchedGrpId_Type(Integer32):
+    """Custom type schedGrpId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_SchedGrpId_Type.__name__ = "Integer32"
+_SchedGrpId_Object = MibTableColumn
+schedGrpId = _SchedGrpId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 15, 2, 1, 1),
+    _SchedGrpId_Type()
+)
+schedGrpId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    schedGrpId.setStatus("current")
+
+
+class _SchedGrpName_Type(OctetString):
+    """Custom type schedGrpName based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 50),
+    )
+
+
+_SchedGrpName_Type.__name__ = "OctetString"
+_SchedGrpName_Object = MibTableColumn
+schedGrpName = _SchedGrpName_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 15, 2, 1, 2),
+    _SchedGrpName_Type()
+)
+schedGrpName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    schedGrpName.setStatus("current")
+_SchedGrpRowStatus_Type = RowStatus
+_SchedGrpRowStatus_Object = MibTableColumn
+schedGrpRowStatus = _SchedGrpRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 15, 2, 1, 3),
+    _SchedGrpRowStatus_Type()
+)
+schedGrpRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    schedGrpRowStatus.setStatus("current")
+_SchedGrpMemTable_Object = MibTable
+schedGrpMemTable = _SchedGrpMemTable_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 15, 3)
+)
+if mibBuilder.loadTexts:
+    schedGrpMemTable.setStatus("current")
+_SchedGrpMemEntry_Object = MibTableRow
+schedGrpMemEntry = _SchedGrpMemEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 15, 3, 1)
+)
+schedGrpMemEntry.setIndexNames(
+    (0, "BLUESOCKET-MIB", "schedGrpId"),
+    (0, "BLUESOCKET-MIB", "schedGrpMemId"),
+)
+if mibBuilder.loadTexts:
+    schedGrpMemEntry.setStatus("current")
+
+
+class _SchedGrpMemId_Type(Integer32):
+    """Custom type schedGrpMemId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_SchedGrpMemId_Type.__name__ = "Integer32"
+_SchedGrpMemId_Object = MibTableColumn
+schedGrpMemId = _SchedGrpMemId_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 15, 3, 1, 1),
+    _SchedGrpMemId_Type()
+)
+schedGrpMemId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    schedGrpMemId.setStatus("current")
+_SchedGrpMemRowStatus_Type = RowStatus
+_SchedGrpMemRowStatus_Object = MibTableColumn
+schedGrpMemRowStatus = _SchedGrpMemRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9967, 1, 15, 3, 1, 2),
+    _SchedGrpMemRowStatus_Type()
+)
+schedGrpMemRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    schedGrpMemRowStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "BLUESOCKET-MIB",
+    **{"BlueIpAddress": BlueIpAddress,
+       "BlueMacAddress": BlueMacAddress,
+       "LocalDateAndTime": LocalDateAndTime,
+       "blueServer": blueServer,
+       "users": users,
+       "nativeUsers": nativeUsers,
+       "nativeUserTable": nativeUserTable,
+       "nativeUserEntry": nativeUserEntry,
+       "nativeUserId": nativeUserId,
+       "nativeUserAccess": nativeUserAccess,
+       "nativeUserName": nativeUserName,
+       "nativeUserRoleId": nativeUserRoleId,
+       "nativeUserEmailId": nativeUserEmailId,
+       "nativeUserFixedIpAddr": nativeUserFixedIpAddr,
+       "nativeUserPassword": nativeUserPassword,
+       "nativeUserNotes": nativeUserNotes,
+       "nativeUserRowStatus": nativeUserRowStatus,
+       "nativeUserRadAcctServId": nativeUserRadAcctServId,
+       "adminUsers": adminUsers,
+       "adminUserTable": adminUserTable,
+       "adminUserEntry": adminUserEntry,
+       "adminUserId": adminUserId,
+       "adminUserStatus": adminUserStatus,
+       "adminUserName": adminUserName,
+       "adminUserAccess": adminUserAccess,
+       "adminUserEmailId": adminUserEmailId,
+       "adminUserPassword": adminUserPassword,
+       "adminUserNotes": adminUserNotes,
+       "adminUserRowStatus": adminUserRowStatus,
+       "adUsrAccessTable": adUsrAccessTable,
+       "adUsrAccessEntry": adUsrAccessEntry,
+       "adUsrAccessAdminUser": adUsrAccessAdminUser,
+       "adUsrAccessNativeUser": adUsrAccessNativeUser,
+       "adUsrAccessExServer": adUsrAccessExServer,
+       "adUsrAccessAccounting": adUsrAccessAccounting,
+       "adUsrAccessRoles": adUsrAccessRoles,
+       "adUsrAccessDestination": adUsrAccessDestination,
+       "adUsrAccessServices": adUsrAccessServices,
+       "adUsrAccessVpn": adUsrAccessVpn,
+       "adUsrAccessConfiguration": adUsrAccessConfiguration,
+       "adUsrAccessNetwork": adUsrAccessNetwork,
+       "adUsrAccessReplication": adUsrAccessReplication,
+       "adUsrAccessMaintance": adUsrAccessMaintance,
+       "adUsrAccessStatus": adUsrAccessStatus,
+       "adUsrAccessVlans": adUsrAccessVlans,
+       "adUsrAccessSchedules": adUsrAccessSchedules,
+       "adUsrAccessMacDev": adUsrAccessMacDev,
+       "destination": destination,
+       "hostTable": hostTable,
+       "hostEntry": hostEntry,
+       "hostId": hostId,
+       "hostName": hostName,
+       "hostAddress": hostAddress,
+       "hostNetmask": hostNetmask,
+       "hostInvertDest": hostInvertDest,
+       "hostType": hostType,
+       "hostNotes": hostNotes,
+       "hostRowStatus": hostRowStatus,
+       "hostGrpTable": hostGrpTable,
+       "hostGrpEntry": hostGrpEntry,
+       "hostGrpId": hostGrpId,
+       "hostGrpName": hostGrpName,
+       "hostGrpRowStatus": hostGrpRowStatus,
+       "hostGrpMemTable": hostGrpMemTable,
+       "hostGrpMemEntry": hostGrpMemEntry,
+       "hostGrpMemId": hostGrpMemId,
+       "hostGrpMemRowStatus": hostGrpMemRowStatus,
+       "service": service,
+       "serviceTable": serviceTable,
+       "serviceEntry": serviceEntry,
+       "serviceId": serviceId,
+       "serviceName": serviceName,
+       "servicePort": servicePort,
+       "serviceProtocol": serviceProtocol,
+       "serviceCosPriorityIn": serviceCosPriorityIn,
+       "serviceCosPriorityOut": serviceCosPriorityOut,
+       "serviceCosDscpIn": serviceCosDscpIn,
+       "serviceCosDscpOut": serviceCosDscpOut,
+       "serviceNotes": serviceNotes,
+       "serviceRowStatus": serviceRowStatus,
+       "serviceGrpTable": serviceGrpTable,
+       "serviceGrpEntry": serviceGrpEntry,
+       "serviceGrpId": serviceGrpId,
+       "serviceGrpName": serviceGrpName,
+       "serviceGrpRowStatus": serviceGrpRowStatus,
+       "serviceGrpMemTable": serviceGrpMemTable,
+       "serviceGrpMemEntry": serviceGrpMemEntry,
+       "serviceGrpMemId": serviceGrpMemId,
+       "serviceGrpMemRowStatus": serviceGrpMemRowStatus,
+       "policy": policy,
+       "policyTable": policyTable,
+       "policyEntry": policyEntry,
+       "policyId": policyId,
+       "policyServiceId": policyServiceId,
+       "policyHostId": policyHostId,
+       "policyAction": policyAction,
+       "policyDirection": policyDirection,
+       "policySeqId": policySeqId,
+       "policyVlanId": policyVlanId,
+       "policyScheduleId": policyScheduleId,
+       "policyRowStatus": policyRowStatus,
+       "vpn": vpn,
+       "ipsec": ipsec,
+       "exchangeMode": exchangeMode,
+       "authenticationMethod": authenticationMethod,
+       "idleTimeout": idleTimeout,
+       "maxLifeTimeInSecs": maxLifeTimeInSecs,
+       "maxLifeTimeInKbs": maxLifeTimeInKbs,
+       "refreshThresholdInSecs": refreshThresholdInSecs,
+       "refreshThresholdInKbs": refreshThresholdInKbs,
+       "minLifeTimeInSecs": minLifeTimeInSecs,
+       "minLifeTimeInKbs": minLifeTimeInKbs,
+       "exModeAggressive": exModeAggressive,
+       "exModeMain": exModeMain,
+       "authMethodCertificates": authMethodCertificates,
+       "authMethodPreSharedKeys": authMethodPreSharedKeys,
+       "ipsecConfTable": ipsecConfTable,
+       "ipsecConfEntry": ipsecConfEntry,
+       "ipsecConfId": ipsecConfId,
+       "ipsecConfEnableConfiguration": ipsecConfEnableConfiguration,
+       "ipsecConfName": ipsecConfName,
+       "ipsecConfLocalAuth": ipsecConfLocalAuth,
+       "ipsecConfEspTripleDESWithSHA1": ipsecConfEspTripleDESWithSHA1,
+       "ipsecConfEspTripleDESWithMD5": ipsecConfEspTripleDESWithMD5,
+       "ipsecConfEsp56BitDESWithMD5": ipsecConfEsp56BitDESWithMD5,
+       "ipsecConfEsp56BitDESWithSHA1": ipsecConfEsp56BitDESWithSHA1,
+       "ipsecConfEsp128BitAESWithMD5": ipsecConfEsp128BitAESWithMD5,
+       "ipsecConfEsp128BitAESWithSHA1": ipsecConfEsp128BitAESWithSHA1,
+       "ipsecConfEsp192BitAESWithMD5": ipsecConfEsp192BitAESWithMD5,
+       "ipsecConfEsp192BitAESWithSHA1": ipsecConfEsp192BitAESWithSHA1,
+       "ipsecConfEsp256BitAESWithMD5": ipsecConfEsp256BitAESWithMD5,
+       "ipsecConfEsp256BitAESWithSHA1": ipsecConfEsp256BitAESWithSHA1,
+       "ipsecConfDiffieHellmanGrp1": ipsecConfDiffieHellmanGrp1,
+       "ipsecConfDiffieHellmanGrp2": ipsecConfDiffieHellmanGrp2,
+       "ipsecConfDiffieHellmanGrp5": ipsecConfDiffieHellmanGrp5,
+       "ipsecConfPsfMode": ipsecConfPsfMode,
+       "ipsecConfCompressionDeflate": ipsecConfCompressionDeflate,
+       "ipsecConfCompressionLZS": ipsecConfCompressionLZS,
+       "ipsecConfRowStatus": ipsecConfRowStatus,
+       "pptp": pptp,
+       "pptpEnable": pptpEnable,
+       "pptpRemoteIpStartAddr": pptpRemoteIpStartAddr,
+       "pptpRemoteIpEndAddr": pptpRemoteIpEndAddr,
+       "pptpLocalIpAddr": pptpLocalIpAddr,
+       "pptpEncryption40Bit": pptpEncryption40Bit,
+       "pptpEncryption128Bit": pptpEncryption128Bit,
+       "pptpIdleTimeout": pptpIdleTimeout,
+       "pptpLdapPwdAttrName": pptpLdapPwdAttrName,
+       "pptpRoleId": pptpRoleId,
+       "subnetVpn": subnetVpn,
+       "subnetVpnMode": subnetVpnMode,
+       "subnetVpnRtFirstIp": subnetVpnRtFirstIp,
+       "subnetVpnRtLastIp": subnetVpnRtLastIp,
+       "subnetVpnSharedSec": subnetVpnSharedSec,
+       "subnetIpConfIdInUse": subnetIpConfIdInUse,
+       "certificate": certificate,
+       "certTable": certTable,
+       "certEntry": certEntry,
+       "certId": certId,
+       "certType": certType,
+       "certSubject": certSubject,
+       "certStartDate": certStartDate,
+       "certEndDate": certEndDate,
+       "certIssuer": certIssuer,
+       "certName": certName,
+       "certOrg": certOrg,
+       "certContent": certContent,
+       "certPkey": certPkey,
+       "certPkeyAlgo": certPkeyAlgo,
+       "certPkeySize": certPkeySize,
+       "certSerial": certSerial,
+       "certSignAlgo": certSignAlgo,
+       "certVersion": certVersion,
+       "certRowStatus": certRowStatus,
+       "l2tp": l2tp,
+       "l2tpEnable": l2tpEnable,
+       "l2tpRemoteIpStartAddr": l2tpRemoteIpStartAddr,
+       "l2tpRemoteIpEndAddr": l2tpRemoteIpEndAddr,
+       "l2tpLocalIpAddr": l2tpLocalIpAddr,
+       "l2tpIdleTimeout": l2tpIdleTimeout,
+       "l2tpLdapPwdAttrName": l2tpLdapPwdAttrName,
+       "l2tpRoleId": l2tpRoleId,
+       "configuration": configuration,
+       "http": http,
+       "httpPort": httpPort,
+       "httpRedirect": httpRedirect,
+       "httpAutoRedirectStatus": httpAutoRedirectStatus,
+       "httpAutoPause": httpAutoPause,
+       "httpDefaultUrl": httpDefaultUrl,
+       "httpLogoutPopup": httpLogoutPopup,
+       "httpRootCaUrl": httpRootCaUrl,
+       "httpExServerChoice": httpExServerChoice,
+       "httpPasswdChangeChoice": httpPasswdChangeChoice,
+       "httpLangChangeChoice": httpLangChangeChoice,
+       "httpLoginHelpButton": httpLoginHelpButton,
+       "httpAttemptWait": httpAttemptWait,
+       "httpMaxNumOfActiveSess": httpMaxNumOfActiveSess,
+       "httpAdminACL": httpAdminACL,
+       "httpRedirectToHostName": httpRedirectToHostName,
+       "httpLoginAttempts": httpLoginAttempts,
+       "httpChainCertChangeChoice": httpChainCertChangeChoice,
+       "misc": misc,
+       "statusUpTime": statusUpTime,
+       "connectionCheckTime": connectionCheckTime,
+       "apCheckTime": apCheckTime,
+       "statusRefreshTime": statusRefreshTime,
+       "apSnmpCommunity": apSnmpCommunity,
+       "autoBackup": autoBackup,
+       "autoBkupRate": autoBkupRate,
+       "autoBkupFtpServName": autoBkupFtpServName,
+       "autoBkupFtpDestDir": autoBkupFtpDestDir,
+       "autoBkupFtpServUser": autoBkupFtpServUser,
+       "autoBkupFtpServPasswd": autoBkupFtpServPasswd,
+       "time": time,
+       "tZone": tZone,
+       "tMonth": tMonth,
+       "tDay": tDay,
+       "tYear": tYear,
+       "tHours": tHours,
+       "tMinutes": tMinutes,
+       "tSeconds": tSeconds,
+       "tNtpSync": tNtpSync,
+       "tNtpServers": tNtpServers,
+       "mobility": mobility,
+       "mobilityMode": mobilityMode,
+       "mobilityMeshKey": mobilityMeshKey,
+       "publicAccess": publicAccess,
+       "paFixedIpClientAccess": paFixedIpClientAccess,
+       "paSMTPServerIp": paSMTPServerIp,
+       "confLog": confLog,
+       "confLogGroup": confLogGroup,
+       "logMaxLogEntries": logMaxLogEntries,
+       "logNoOfDelLogEntries": logNoOfDelLogEntries,
+       "logStorage": logStorage,
+       "remoteLog": remoteLog,
+       "sysLogFacility": sysLogFacility,
+       "logMaxRemSysLogLevel": logMaxRemSysLogLevel,
+       "appLogLevTable": appLogLevTable,
+       "appLogLevEntry": appLogLevEntry,
+       "appLogLevId": appLogLevId,
+       "appLogLevName": appLogLevName,
+       "appLogLevLevel": appLogLevLevel,
+       "snmpConf": snmpConf,
+       "snmpTrapConf": snmpTrapConf,
+       "snmpTrapMgmtTable": snmpTrapMgmtTable,
+       "snmpTrapMgmtEntry": snmpTrapMgmtEntry,
+       "snmpTrapMgmtId": snmpTrapMgmtId,
+       "snmpTrapMgmtIpAddress": snmpTrapMgmtIpAddress,
+       "snmpTrapMgmtCommunity": snmpTrapMgmtCommunity,
+       "snmpTrapMgmtRowStatus": snmpTrapMgmtRowStatus,
+       "blueEventTable": blueEventTable,
+       "blueEventEntry": blueEventEntry,
+       "btId": btId,
+       "btName": btName,
+       "btEventOptStatus": btEventOptStatus,
+       "systemTracker": systemTracker,
+       "stThresholdTable": stThresholdTable,
+       "stThresholdEntry": stThresholdEntry,
+       "stThresholdId": stThresholdId,
+       "stThresholdAttrName": stThresholdAttrName,
+       "stThresholdToLogMessage": stThresholdToLogMessage,
+       "stThresholdToSendTrap": stThresholdToSendTrap,
+       "stThresholdToFailover": stThresholdToFailover,
+       "authentication": authentication,
+       "exAuthServer": exAuthServer,
+       "exRdAuthServTable": exRdAuthServTable,
+       "exRdAuthServEntry": exRdAuthServEntry,
+       "exRdAuthServId": exRdAuthServId,
+       "exRdAuthServState": exRdAuthServState,
+       "exRdAuthServName": exRdAuthServName,
+       "exRdAuthServDefRoleId": exRdAuthServDefRoleId,
+       "exRdAuthServRdAccId": exRdAuthServRdAccId,
+       "exRdAuthServAddr": exRdAuthServAddr,
+       "exRdAuthServPort": exRdAuthServPort,
+       "exRdAuthServSecret": exRdAuthServSecret,
+       "exRdAuthServPrecedence": exRdAuthServPrecedence,
+       "exRdAuthServNotes": exRdAuthServNotes,
+       "exRdAuthServRowStatus": exRdAuthServRowStatus,
+       "exLdapServTable": exLdapServTable,
+       "exLdapServEntry": exLdapServEntry,
+       "exLdapServId": exLdapServId,
+       "exLdapServState": exLdapServState,
+       "exLdapServName": exLdapServName,
+       "exLdapServDefRoleId": exLdapServDefRoleId,
+       "exLdapServRdAccState": exLdapServRdAccState,
+       "exLdapServRdAccId": exLdapServRdAccId,
+       "exLdapServAddr": exLdapServAddr,
+       "exLdapServPort": exLdapServPort,
+       "exLdapServBase": exLdapServBase,
+       "exLdapServUniqueId": exLdapServUniqueId,
+       "exLdapServAccount": exLdapServAccount,
+       "exLdapServFilters": exLdapServFilters,
+       "exLdapServSecret": exLdapServSecret,
+       "exLdapServPrecedence": exLdapServPrecedence,
+       "exLdapServNotes": exLdapServNotes,
+       "exLdapServSsl": exLdapServSsl,
+       "exLdapServSslServer": exLdapServSslServer,
+       "exLdapServSslClient": exLdapServSslClient,
+       "exLdapServRowStatus": exLdapServRowStatus,
+       "exNtlmServTable": exNtlmServTable,
+       "exNtlmServEntry": exNtlmServEntry,
+       "exNtlmServId": exNtlmServId,
+       "exNtlmServState": exNtlmServState,
+       "exNtlmServName": exNtlmServName,
+       "exNtlmServRdAccState": exNtlmServRdAccState,
+       "exNtlmServRdAccId": exNtlmServRdAccId,
+       "exNtlmServDefRoleId": exNtlmServDefRoleId,
+       "exNtlmServDomainName": exNtlmServDomainName,
+       "exNtlmServMsdc": exNtlmServMsdc,
+       "exNtlmServMsrpc": exNtlmServMsrpc,
+       "exNtlmServMsad": exNtlmServMsad,
+       "exNtlmServNotes": exNtlmServNotes,
+       "exNtlmServRowStatus": exNtlmServRowStatus,
+       "exUserRuleTable": exUserRuleTable,
+       "exUserRuleEntry": exUserRuleEntry,
+       "exServId": exServId,
+       "exUserRuleId": exUserRuleId,
+       "exUserRuleAttribute": exUserRuleAttribute,
+       "exUserRuleOperator": exUserRuleOperator,
+       "exUserRuleValue": exUserRuleValue,
+       "exUserRuleRoleId": exUserRuleRoleId,
+       "exUserRuleSeqId": exUserRuleSeqId,
+       "exUserRuleRowStatus": exUserRuleRowStatus,
+       "exRdAccServTable": exRdAccServTable,
+       "exRdAccServEntry": exRdAccServEntry,
+       "exRdAccServId": exRdAccServId,
+       "exRdAccServState": exRdAccServState,
+       "exRdAccServName": exRdAccServName,
+       "exRdAccServAddr": exRdAccServAddr,
+       "exRdAccServPort": exRdAccServPort,
+       "exRdAccServSecret": exRdAccServSecret,
+       "exRdAccServNotes": exRdAccServNotes,
+       "exRdAccServRowStatus": exRdAccServRowStatus,
+       "ex802AuthServTable": ex802AuthServTable,
+       "ex802AuthServEntry": ex802AuthServEntry,
+       "ex802AuthServId": ex802AuthServId,
+       "ex802AuthServState": ex802AuthServState,
+       "ex802AuthServName": ex802AuthServName,
+       "ex802AuthServAddr": ex802AuthServAddr,
+       "ex802AuthServPort": ex802AuthServPort,
+       "ex802AuthServDefaultRole": ex802AuthServDefaultRole,
+       "ex802AuthServNotes": ex802AuthServNotes,
+       "ex802AuthServRowStatus": ex802AuthServRowStatus,
+       "macDevAuthTable": macDevAuthTable,
+       "macDevAuthEntry": macDevAuthEntry,
+       "macDevAuthId": macDevAuthId,
+       "macDevAuthState": macDevAuthState,
+       "macDevAuthName": macDevAuthName,
+       "macDevAuthMac": macDevAuthMac,
+       "macDevAuthDefaultRole": macDevAuthDefaultRole,
+       "macDevAuthNotes": macDevAuthNotes,
+       "macDevAuthRowStatus": macDevAuthRowStatus,
+       "interface": interface,
+       "failover": failover,
+       "heartBeatInterval": heartBeatInterval,
+       "noOfFailedBeats": noOfFailedBeats,
+       "managed": managed,
+       "mIntTable": mIntTable,
+       "mIntEntry": mIntEntry,
+       "mIntId": mIntId,
+       "mIntName": mIntName,
+       "mIntEnableDhcpRelay": mIntEnableDhcpRelay,
+       "mIntIpAddress": mIntIpAddress,
+       "mIntNetmask": mIntNetmask,
+       "mIntDhcpServerOpt": mIntDhcpServerOpt,
+       "mIntNatAddresses": mIntNatAddresses,
+       "mIntMulticastOpt": mIntMulticastOpt,
+       "mIntDhcpStartIpAddr": mIntDhcpStartIpAddr,
+       "mIntDhcpEndIpAddr": mIntDhcpEndIpAddr,
+       "mIntNetbiosNameServ": mIntNetbiosNameServ,
+       "mIntDnsDomainName": mIntDnsDomainName,
+       "mIntDefaultLease": mIntDefaultLease,
+       "mIntMaximumLease": mIntMaximumLease,
+       "mIntDynamicDNS": mIntDynamicDNS,
+       "mIntVlanId": mIntVlanId,
+       "mIntVlanInterface": mIntVlanInterface,
+       "mIntProxyArpStatus": mIntProxyArpStatus,
+       "mIntRowStatus": mIntRowStatus,
+       "fixedIpAddrTable": fixedIpAddrTable,
+       "fixedIpAddrEntry": fixedIpAddrEntry,
+       "fixedIpAddrId": fixedIpAddrId,
+       "fixedIpAddrMac": fixedIpAddrMac,
+       "fixedIpAddrAddress": fixedIpAddrAddress,
+       "fixedIpAddrHost": fixedIpAddrHost,
+       "fixedIpAddrRoleId": fixedIpAddrRoleId,
+       "fixedIpAddrRowStatus": fixedIpAddrRowStatus,
+       "natTable": natTable,
+       "natEntry": natEntry,
+       "natId": natId,
+       "natProtectedIp": natProtectedIp,
+       "natManagedIp": natManagedIp,
+       "natRowStatus": natRowStatus,
+       "protected": protected,
+       "pIntTable": pIntTable,
+       "pIntEntry": pIntEntry,
+       "pIntId": pIntId,
+       "pIntName": pIntName,
+       "pIntGetIpFromDhcp": pIntGetIpFromDhcp,
+       "pIntDhcpTimeout": pIntDhcpTimeout,
+       "pIntIpAddress": pIntIpAddress,
+       "pIntNetmask": pIntNetmask,
+       "pIntGateway": pIntGateway,
+       "pIntPrimaryDNS": pIntPrimaryDNS,
+       "pIntSecondaryDNS": pIntSecondaryDNS,
+       "pIntDefaultDomain": pIntDefaultDomain,
+       "pIntHostName": pIntHostName,
+       "pIntEnableMulticast": pIntEnableMulticast,
+       "pIntVlanId": pIntVlanId,
+       "pIntVlanInterface": pIntVlanInterface,
+       "pIntProxyArpStatus": pIntProxyArpStatus,
+       "pIntRowStatus": pIntRowStatus,
+       "replication": replication,
+       "machineRole": machineRole,
+       "genSnapshot": genSnapshot,
+       "slaveTable": slaveTable,
+       "slaveEntry": slaveEntry,
+       "slaveId": slaveId,
+       "slaveEnabled": slaveEnabled,
+       "slaveAddress": slaveAddress,
+       "slaveNotes": slaveNotes,
+       "slaveRowStatus": slaveRowStatus,
+       "slaveMobility": slaveMobility,
+       "connection": connection,
+       "connectionTable": connectionTable,
+       "connectionEntry": connectionEntry,
+       "connectionId": connectionId,
+       "connectionName": connectionName,
+       "connectionIp": connectionIp,
+       "connectionMac": connectionMac,
+       "connectionRoleId": connectionRoleId,
+       "connectionUserId": connectionUserId,
+       "connectionLoginTime": connectionLoginTime,
+       "connectionChecked": connectionChecked,
+       "connectionBytes": connectionBytes,
+       "connectionCurRate": connectionCurRate,
+       "connectionExpiry": connectionExpiry,
+       "connectionDev": connectionDev,
+       "connectionHost": connectionHost,
+       "connectionUnReg": connectionUnReg,
+       "connectionAP": connectionAP,
+       "connectionLoginAttempt": connectionLoginAttempt,
+       "connectionLoginAttemptCnt": connectionLoginAttemptCnt,
+       "connectionRoamMac": connectionRoamMac,
+       "roles": roles,
+       "roleTable": roleTable,
+       "roleEntry": roleEntry,
+       "roleId": roleId,
+       "roleName": roleName,
+       "roleType": roleType,
+       "roleQosRate": roleQosRate,
+       "roleQosQnt": roleQosQnt,
+       "roleVpn": roleVpn,
+       "roleInherit": roleInherit,
+       "roleUnGuestLogin": roleUnGuestLogin,
+       "roleUnUserLogin": roleUnUserLogin,
+       "roleNotes": roleNotes,
+       "roleQosUserIn": roleQosUserIn,
+       "roleQosUserOut": roleQosUserOut,
+       "roleQosPriorityIn": roleQosPriorityIn,
+       "roleQosPriorityOut": roleQosPriorityOut,
+       "roleQosPriInOverride": roleQosPriInOverride,
+       "roleQosPriOutOverride": roleQosPriOutOverride,
+       "roleQosDscpIn": roleQosDscpIn,
+       "roleQosDscpOut": roleQosDscpOut,
+       "roleQosDscpInOverride": roleQosDscpInOverride,
+       "roleQosDscpOutOverride": roleQosDscpOutOverride,
+       "roleQosRateOut": roleQosRateOut,
+       "roleQosRateQntOut": roleQosRateQntOut,
+       "roleVlanId": roleVlanId,
+       "roleRedirect": roleRedirect,
+       "roleRowStatus": roleRowStatus,
+       "serviceMgmt": serviceMgmt,
+       "serviceMgmtTable": serviceMgmtTable,
+       "serviceMgmtEntry": serviceMgmtEntry,
+       "serviceMgmtId": serviceMgmtId,
+       "serviceMgmtName": serviceMgmtName,
+       "serviceMgmtOptStatus": serviceMgmtOptStatus,
+       "serviceMgmtDesr": serviceMgmtDesr,
+       "statistics": statistics,
+       "userSummary": userSummary,
+       "userSumNoOfUsr": userSumNoOfUsr,
+       "userSumNoOfLogdInUsr": userSumNoOfLogdInUsr,
+       "userSumNoOfLogdVPNUsr": userSumNoOfLogdVPNUsr,
+       "usmSumTtlBandWthInUse": usmSumTtlBandWthInUse,
+       "systemStats": systemStats,
+       "sysStatCpuUtil": sysStatCpuUtil,
+       "sysStatMemUtil": sysStatMemUtil,
+       "sysStatTotalDiskSpace": sysStatTotalDiskSpace,
+       "sysStatDiskSpaceUsed": sysStatDiskSpaceUsed,
+       "sysStatDiskSpaceFree": sysStatDiskSpaceFree,
+       "sysStatLOgSpaceUsed": sysStatLOgSpaceUsed,
+       "sysStatNeedRestart": sysStatNeedRestart,
+       "vlan": vlan,
+       "vlanTable": vlanTable,
+       "vlanEntry": vlanEntry,
+       "vlanRowId": vlanRowId,
+       "vlanName": vlanName,
+       "vlanId": vlanId,
+       "vlanNotes": vlanNotes,
+       "vlanRowStatus": vlanRowStatus,
+       "vlanGrpTable": vlanGrpTable,
+       "vlanGrpEntry": vlanGrpEntry,
+       "vlanGrpId": vlanGrpId,
+       "vlanGrpName": vlanGrpName,
+       "vlanGrpRowStatus": vlanGrpRowStatus,
+       "vlanGrpMemTable": vlanGrpMemTable,
+       "vlanGrpMemEntry": vlanGrpMemEntry,
+       "vlanGrpMemId": vlanGrpMemId,
+       "vlanGrpMemRowStatus": vlanGrpMemRowStatus,
+       "schedule": schedule,
+       "schedTable": schedTable,
+       "schedEntry": schedEntry,
+       "schedRowId": schedRowId,
+       "schedName": schedName,
+       "schedAllDay": schedAllDay,
+       "schedEveryDay": schedEveryDay,
+       "schedStartDateAndTime": schedStartDateAndTime,
+       "schedEndDateAndTime": schedEndDateAndTime,
+       "schedMonth": schedMonth,
+       "schedWeekDay": schedWeekDay,
+       "schedDayOfMonth": schedDayOfMonth,
+       "schedRowStatus": schedRowStatus,
+       "schedGrpTable": schedGrpTable,
+       "schedGrpEntry": schedGrpEntry,
+       "schedGrpId": schedGrpId,
+       "schedGrpName": schedGrpName,
+       "schedGrpRowStatus": schedGrpRowStatus,
+       "schedGrpMemTable": schedGrpMemTable,
+       "schedGrpMemEntry": schedGrpMemEntry,
+       "schedGrpMemId": schedGrpMemId,
+       "schedGrpMemRowStatus": schedGrpMemRowStatus}
+)

@@ -1,778 +1,8309 @@
+# SNMP MIB module (QMS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module QMS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/QMS-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:35:15 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
-snmp, = mibBuilder.importSymbols("RFC1158-MIB", "snmp")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter32, ObjectIdentity, Unsigned32, NotificationType, IpAddress, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, MibIdentifier, iso, Bits, TimeTicks, enterprises, Gauge32, NotificationType, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "ObjectIdentity", "Unsigned32", "NotificationType", "IpAddress", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "MibIdentifier", "iso", "Bits", "TimeTicks", "enterprises", "Gauge32", "NotificationType", "Integer32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-qmsInc = MibIdentifier((1, 3, 6, 1, 4, 1, 480))
-qmsUIH = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 1))
-qmsSystem = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 1, 1))
-qmsMemory = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 1, 5))
-qmsIoCtl = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 1, 101))
-qmsHTTP = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 1, 102))
-qmsIoTimeOuts = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 1, 103))
-qmsIoPages = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 1, 104))
-qmsSerial = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 1, 160))
-qmsParallel = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 1, 161))
-qmsEngine = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 1, 304))
-qmsAccounting = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 1, 401))
-qmsScanner = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 1, 402))
-qmsCostPerPage = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 1, 403))
-qmsColorMatch = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 1, 404))
-qmsPS = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 1, 520))
-qmsHPGL = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 1, 524))
-qmsHPPCL = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 1, 525))
-qmsDECLN03 = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 1, 532))
-qmsQUIC2 = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 1, 534))
-qmsCCITT = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 1, 538))
-qmsLinePrinter = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 1, 539))
-qmsTIFF = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 1, 541))
-qmsCALS = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 1, 542))
-qmsCGM = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 1, 544))
-qmsSYSPageCount = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 1, 1001), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsSYSPageCount.setStatus('mandatory')
-qmsSYSSheetCount = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 1, 1002), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsSYSSheetCount.setStatus('mandatory')
-qmsSYSPrinterModel = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 1, 1003), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsSYSPrinterModel.setStatus('mandatory')
-qmsSYSPrinterVersion = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 1, 1004), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsSYSPrinterVersion.setStatus('mandatory')
-qmsSYSPrinterName = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 1, 1005), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsSYSPrinterName.setStatus('mandatory')
-qmsSYSA3PageCount = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 1, 1006), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsSYSA3PageCount.setStatus('mandatory')
-qmsSYSA3SheetCount = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 1, 1007), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsSYSA3SheetCount.setStatus('mandatory')
-qmsSYSFPA = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 1, 1008), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("yes", 2), ("no", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsSYSFPA.setStatus('mandatory')
-qmsSYSSystemImage = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 1, 1009), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("flashSystem", 2), ("diskSystem", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsSYSSystemImage.setStatus('mandatory')
-qmsSYSDiskSwap = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 1, 1010), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("diskSwapingDisabled", 1), ("diskSwapingEnabled", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsSYSDiskSwap.setStatus('mandatory')
-qmsSYSMultiRes = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 1, 1011), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("notSupported", 1), ("notPresent", 2), ("lowMemory", 3), ("disabled", 4), ("optional", 5), ("standard", 6)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsSYSMultiRes.setStatus('mandatory')
-qmsMEMPhysical = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 5, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsMEMPhysical.setStatus('mandatory')
-qmsMEMTotal = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 5, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsMEMTotal.setStatus('mandatory')
-qmsClientSystem = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 5, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsClientSystem.setStatus('mandatory')
-qmsClientSpool = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 5, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsClientSpool.setStatus('mandatory')
-qmsClientEmulation = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 5, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsClientEmulation.setStatus('mandatory')
-qmsClientHeap = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 5, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsClientHeap.setStatus('mandatory')
-qmsClientFontCache = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 5, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsClientFontCache.setStatus('mandatory')
-qmsClientDisplayList = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 5, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsClientDisplayList.setStatus('mandatory')
-qmsClientFrameBuffer = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 5, 9), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsClientFrameBuffer.setStatus('mandatory')
-qmsClientEmulTemp = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 5, 10), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsClientEmulTemp.setStatus('mandatory')
-qmsClientDisk = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 5, 11), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsClientDisk.setStatus('mandatory')
-qmsClientColorMatching = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 5, 13), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsClientColorMatching.setStatus('mandatory')
-qmsClientHPStoragePool = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 5, 14), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsClientHPStoragePool.setStatus('mandatory')
-qmsFEDoStartPage = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 104, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("yes", 2), ("no", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsFEDoStartPage.setStatus('mandatory')
-qmsFEHeaderPage = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 104, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("on", 2), ("off", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsFEHeaderPage.setStatus('mandatory')
-qmsFEHeaderInputbin = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 104, 9), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsFEHeaderInputbin.setStatus('mandatory')
-qmsFETrailerPage = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 104, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 4, 3, 5))).clone(namedValues=NamedValues(("off", 1), ("on", 4), ("errorOnly", 3), ("onError", 5)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsFETrailerPage.setStatus('mandatory')
-qmsFETrailerInputbin = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 104, 11), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsFETrailerInputbin.setStatus('mandatory')
-qmsFEDoSysStart = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 104, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("yes", 2), ("no", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsFEDoSysStart.setStatus('mandatory')
-qmsFEStatusPageType = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 104, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("advanced", 2), ("standard", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsFEStatusPageType.setStatus('mandatory')
-qmsFEEspEmul = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 101, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 5, 6, 13, 15, 19, 20, 22, 23, 25))).clone(namedValues=NamedValues(("postscript", 1), ("hpgl", 5), ("hppcl", 6), ("ln03", 13), ("quic2", 15), ("ccitt", 19), ("lineprinter", 20), ("tiff", 22), ("cals", 23), ("cgm", 25)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsFEEspEmul.setStatus('mandatory')
-qmsFECopies = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 101, 17), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 999))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsFECopies.setStatus('mandatory')
-qmsFETmPSWait = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 103, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 99999))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsFETmPSWait.setStatus('mandatory')
-qmsFETmJob = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 103, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 99999))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsFETmJob.setStatus('mandatory')
-qmsFETmNonPSEmul = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 103, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 99999))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsFETmNonPSEmul.setStatus('mandatory')
-qmsFETmEsp = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 103, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 99999))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsFETmEsp.setStatus('mandatory')
-qmsHTTPContact = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 102, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsHTTPContact.setStatus('mandatory')
-qmsHTTPHelpURL = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 102, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsHTTPHelpURL.setStatus('mandatory')
-qmsHTTPContactNumber = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 102, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsHTTPContactNumber.setStatus('mandatory')
-qmsHTTPCorpURL = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 102, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsHTTPCorpURL.setStatus('mandatory')
-qmsHTTPSuppliesNumber = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 102, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsHTTPSuppliesNumber.setStatus('mandatory')
-qmsSerBufferSize = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 160, 104), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsSerBufferSize.setStatus('mandatory')
-qmsSerSpoolTimeout = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 160, 112), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 99999))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsSerSpoolTimeout.setStatus('mandatory')
-qmsSerMode = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 160, 101), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 3, 4))).clone(namedValues=NamedValues(("disabled", 1), ("interactive", 3), ("noninteractive", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsSerMode.setStatus('mandatory')
-qmsSerEmulation = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 160, 102), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 5, 6, 7, 13, 15, 19, 20, 22, 23, 25, 201))).clone(namedValues=NamedValues(("postscript", 1), ("hpgl", 5), ("hppcl", 6), ("hexdump", 7), ("ln03", 13), ("quic2", 15), ("ccitt", 19), ("lineprinter", 20), ("tiff", 22), ("cals", 23), ("cgm", 25), ("esp", 201)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsSerEmulation.setStatus('mandatory')
-qmsSerEndDocumentMode = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 160, 111), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("none", 1), ("qmseod", 2), ("hpeod", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsSerEndDocumentMode.setStatus('mandatory')
-qmsSerPriority = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 160, 103), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 100))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsSerPriority.setStatus('mandatory')
-qmsSerPSProtocol = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 160, 100), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("normal", 1), ("normalfixed", 2), ("binary", 3), ("binaryfixed", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsSerPSProtocol.setStatus('mandatory')
-qmsSerBaudRate = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 160, 201), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(38401, 19201, 9601, 4801, 2401, 1201, 601, 301))).clone(namedValues=NamedValues(("bps38400", 38401), ("bps19200", 19201), ("bps9600", 9601), ("bps4800", 4801), ("bps2400", 2401), ("bps1200", 1201), ("bps600", 601), ("bps300", 301)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsSerBaudRate.setStatus('mandatory')
-qmsSerHwDSRPOL = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 160, 213), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("reverse", 1), ("normal", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsSerHwDSRPOL.setStatus('mandatory')
-qmsSerHwDSR = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 160, 212), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("off", 1), ("on", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsSerHwDSR.setStatus('mandatory')
-qmsSerHwDTRPOL = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 160, 211), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("reverse", 1), ("normal", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsSerHwDTRPOL.setStatus('mandatory')
-qmsSerHwDTR = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 160, 210), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("off", 1), ("on", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsSerHwDTR.setStatus('mandatory')
-qmsSerHwRTS = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 160, 209), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("off", 1), ("on", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsSerHwRTS.setStatus('mandatory')
-qmsSerHwCTS = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 160, 208), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("off", 1), ("on", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsSerHwCTS.setStatus('mandatory')
-qmsSerStopBits = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 160, 207), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("onebit", 1), ("twobits", 2), ("oneandhalf", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsSerStopBits.setStatus('mandatory')
-qmsSerDataBits = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 160, 206), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("bits8", 1), ("bits7", 2), ("bits6", 3), ("bits5", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsSerDataBits.setStatus('mandatory')
-qmsSerTxSWFlow = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 160, 205), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("none", 1), ("xonxoff", 2), ("etxack", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsSerTxSWFlow.setStatus('mandatory')
-qmsSerRxSWFlow = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 160, 204), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("none", 1), ("xonxoff", 2), ("etxack", 3), ("robustxonxoff", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsSerRxSWFlow.setStatus('mandatory')
-qmsSerIgnoreParity = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 160, 203), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("off", 1), ("on", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsSerIgnoreParity.setStatus('mandatory')
-qmsSerParity = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 160, 202), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 4, 5))).clone(namedValues=NamedValues(("none", 1), ("odd", 4), ("even", 5)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsSerParity.setStatus('mandatory')
-qmsParBufferSize = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 161, 104), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsParBufferSize.setStatus('mandatory')
-qmsParSpoolTimeout = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 161, 111), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 99999))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsParSpoolTimeout.setStatus('mandatory')
-qmsParMode = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 161, 101), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(3, 4, 1))).clone(namedValues=NamedValues(("interactive", 3), ("noninteractive", 4), ("disabled", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsParMode.setStatus('mandatory')
-qmsParEmulation = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 161, 102), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 5, 6, 7, 13, 15, 19, 20, 22, 23, 25, 201))).clone(namedValues=NamedValues(("postscript", 1), ("hpgl", 5), ("hppcl", 6), ("hexdump", 7), ("ln03", 13), ("quic2", 15), ("ccitt", 19), ("lineprinter", 20), ("tiff", 22), ("cals", 23), ("cgm", 25), ("esp", 201)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsParEmulation.setStatus('mandatory')
-qmsParDataBits = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 161, 113), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("bits8", 1), ("bits7", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsParDataBits.setStatus('mandatory')
-qmsParEndDocumentMode = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 161, 112), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("none", 1), ("qmseod", 2), ("hpeod", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsParEndDocumentMode.setStatus('mandatory')
-qmsParPriority = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 161, 103), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 100))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsParPriority.setStatus('mandatory')
-qmsParPSProtocol = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 161, 100), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("normal", 1), ("normalfixed", 2), ("binary", 3), ("binaryfixed", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsParPSProtocol.setStatus('mandatory')
-qmsENGTopOffset = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 304, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 300))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsENGTopOffset.setStatus('mandatory')
-qmsENGLeftOffset = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 304, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 300))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsENGLeftOffset.setStatus('mandatory')
-qmsENGTopOffsetDuplex = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 304, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 300))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsENGTopOffsetDuplex.setStatus('mandatory')
-qmsENGLeftOffsetDuplex = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 304, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 300))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsENGLeftOffsetDuplex.setStatus('mandatory')
-qmsENGResolution = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 304, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(301, 601, 1201, 2401))).clone(namedValues=NamedValues(("dpi300", 301), ("dpi600", 601), ("dpi1200", 1201), ("dpi2401", 2401)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsENGResolution.setStatus('mandatory')
-qmsENGDefaultPaper = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 304, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("letter", 1), ("a4", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsENGDefaultPaper.setStatus('mandatory')
-qmsENGDuplex = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 304, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("off", 1), ("longedge", 2), ("shortedge", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsENGDuplex.setStatus('mandatory')
-qmsENGOrientation = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 304, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("portrait", 1), ("landscape", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsENGOrientation.setStatus('mandatory')
-qmsENGInputbin = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 304, 15), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsENGInputbin.setStatus('mandatory')
-qmsENGOutputbin = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 304, 16), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsENGOutputbin.setStatus('mandatory')
-qmsENGCollation = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 304, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("off", 1), ("on", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsENGCollation.setStatus('mandatory')
-qmsENGErrorRecovery = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 304, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("on", 2), ("off", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsENGErrorRecovery.setStatus('mandatory')
-qmsENGManualTrayMedia = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 304, 20), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16))).clone(namedValues=NamedValues(("letter", 1), ("legal", 2), ("executive", 3), ("sz11x17", 4), ("a3", 5), ("a4", 6), ("a5", 7), ("b4", 8), ("b5", 9), ("statement", 10), ("universal", 11), ("com10", 12), ("dl", 13), ("monarch", 14), ("c5", 15), ("envelope", 16)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsENGManualTrayMedia.setStatus('mandatory')
-qmsENGToneroutAction = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 304, 21), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("stop", 1), ("continue", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsENGToneroutAction.setStatus('mandatory')
-qmsENGLetterheadMode = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 304, 23), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("off", 1), ("duplexPath", 2), ("rotateSimplex", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsENGLetterheadMode.setStatus('mandatory')
-qmsENGManualFeedTimeout = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 304, 24), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 300))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsENGManualFeedTimeout.setStatus('mandatory')
-qmsENGOffsetStacking = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 304, 26), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("off", 1), ("on", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsENGOffsetStacking.setStatus('mandatory')
-qmsENGEnergyStar = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 304, 27), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 16, 31, 61, 121, 181))).clone(namedValues=NamedValues(("off", 1), ("min15", 16), ("min30", 31), ("hour1", 61), ("hour2", 121), ("hour3", 181)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsENGEnergyStar.setStatus('mandatory')
-qmsENGPageOrder = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 304, 40), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("reverse", 1), ("normal", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsENGPageOrder.setStatus('mandatory')
-qmsENGEnvelopeTrayMedia = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 304, 41), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(12, 13, 14, 15, 16))).clone(namedValues=NamedValues(("com10", 12), ("dl", 13), ("monarch", 14), ("c5", 15), ("envelope", 16)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsENGEnvelopeTrayMedia.setStatus('mandatory')
-qmsENGDensity = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 304, 42), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsENGDensity.setStatus('mandatory')
-qmsENGColorModel = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 304, 43), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 3, 4, 5))).clone(namedValues=NamedValues(("gray", 2), ("cmy", 3), ("rgb", 4), ("cmyk", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsENGColorModel.setStatus('mandatory')
-qmsENGColorSeparation = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 304, 44), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("on", 2), ("off", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsENGColorSeparation.setStatus('mandatory')
-qmsENGUnderColor = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 304, 45), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("on", 2), ("off", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsENGUnderColor.setStatus('mandatory')
-qmsENGQuality = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 304, 48), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 5))).clone(namedValues=NamedValues(("normal", 1), ("conserveToner", 2), ("smooth600dpi", 3), ("fineMode", 5)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsENGQuality.setStatus('mandatory')
-qmsENGConsumeNameMulti = MibTable((1, 3, 6, 1, 4, 1, 480, 1, 304, 1000), )
-if mibBuilder.loadTexts: qmsENGConsumeNameMulti.setStatus('mandatory')
-qmsENGConsumeName = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 1, 304, 1000, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsENGConsumeName.setStatus('mandatory')
-qmsENGConsumeLevelMulti = MibTable((1, 3, 6, 1, 4, 1, 480, 1, 304, 1001), )
-if mibBuilder.loadTexts: qmsENGConsumeLevelMulti.setStatus('mandatory')
-qmsENGConsumeLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 1, 304, 1001, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsENGConsumeLevel.setStatus('mandatory')
-qmsENGConsumeMaxMulti = MibTable((1, 3, 6, 1, 4, 1, 480, 1, 304, 1002), )
-if mibBuilder.loadTexts: qmsENGConsumeMaxMulti.setStatus('mandatory')
-qmsENGConsumeMax = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 1, 304, 1002, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsENGConsumeMax.setStatus('mandatory')
-qmsENGConsumeUnitsMulti = MibTable((1, 3, 6, 1, 4, 1, 480, 1, 304, 1003), )
-if mibBuilder.loadTexts: qmsENGConsumeUnitsMulti.setStatus('mandatory')
-qmsENGConsumeUnits = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 1, 304, 1003, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsENGConsumeUnits.setStatus('mandatory')
-qmsENGConsumeTypeMulti = MibTable((1, 3, 6, 1, 4, 1, 480, 1, 304, 1004), )
-if mibBuilder.loadTexts: qmsENGConsumeTypeMulti.setStatus('mandatory')
-qmsENGConsumeType = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 1, 304, 1004, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))).clone(namedValues=NamedValues(("invalid", 1), ("inputBin", 2), ("outputBin", 3), ("toner", 4), ("wasteToner", 5), ("opc", 6), ("fuserUnit", 7), ("fuserCRoller", 8), ("fuserOil", 9), ("pmService", 10)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsENGConsumeType.setStatus('mandatory')
-qmsENGConsumeNote1Multi = MibTable((1, 3, 6, 1, 4, 1, 480, 1, 304, 1005), )
-if mibBuilder.loadTexts: qmsENGConsumeNote1Multi.setStatus('mandatory')
-qmsENGConsumeNote1 = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 1, 304, 1005, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsENGConsumeNote1.setStatus('mandatory')
-qmsENGConsumeNote2Multi = MibTable((1, 3, 6, 1, 4, 1, 480, 1, 304, 1006), )
-if mibBuilder.loadTexts: qmsENGConsumeNote2Multi.setStatus('mandatory')
-qmsENGConsumeNote2 = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 1, 304, 1006, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsENGConsumeNote2.setStatus('mandatory')
-qmsENGConsumeIndexMulti = MibTable((1, 3, 6, 1, 4, 1, 480, 1, 304, 1007), )
-if mibBuilder.loadTexts: qmsENGConsumeIndexMulti.setStatus('mandatory')
-qmsENGConsumeIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 1, 304, 1007, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsENGConsumeIndex.setStatus('mandatory')
-qmsENGNumConsumables = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 304, 1010), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsENGNumConsumables.setStatus('mandatory')
-qmsENGChainInputBins = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 304, 1011), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("off", 1), ("on", 2), ("onAny", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsENGChainInputBins.setStatus('mandatory')
-qmsENGChainOutputbinMulti = MibTable((1, 3, 6, 1, 4, 1, 480, 1, 304, 1012), )
-if mibBuilder.loadTexts: qmsENGChainOutputbinMulti.setStatus('mandatory')
-qmsENGChainOutputbin = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 1, 304, 1012, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("off", 1), ("on", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsENGChainOutputbin.setStatus('mandatory')
-qmsENGInputbinMediatypeMulti = MibTable((1, 3, 6, 1, 4, 1, 480, 1, 304, 1013), )
-if mibBuilder.loadTexts: qmsENGInputbinMediatypeMulti.setStatus('mandatory')
-qmsENGInputbinMediatype = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 1, 304, 1013, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14))).clone(namedValues=NamedValues(("plainPaper", 1), ("transparency", 2), ("thermal", 3), ("prePrinted", 4), ("letterhead", 5), ("prePunched", 6), ("labels", 7), ("bond", 8), ("recycled", 9), ("color", 10), ("cardStock", 11), ("thinStock", 12), ("automatic", 13), ("thickStock", 14)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsENGInputbinMediatype.setStatus('mandatory')
-qmsENGChainInputbinMulti = MibTable((1, 3, 6, 1, 4, 1, 480, 1, 304, 1014), )
-if mibBuilder.loadTexts: qmsENGChainInputbinMulti.setStatus('mandatory')
-qmsENGChainInputbin = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 1, 304, 1014, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("off", 1), ("on", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsENGChainInputbin.setStatus('mandatory')
-qmsENGStaplePosition = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 304, 1015), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("off", 1), ("frontCorner", 2), ("backCorner", 3), ("center", 4), ("offsetStacking", 5)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsENGStaplePosition.setStatus('mandatory')
-qmsACCMode = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 401, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("enabled", 2), ("disabled", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsACCMode.setStatus('mandatory')
-qmsACCDiskSpace = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 401, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsACCDiskSpace.setStatus('mandatory')
-qmsACCFileSegment = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 401, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 3))).clone(namedValues=NamedValues(("single", 2), ("multiple", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsACCFileSegment.setStatus('mandatory')
-qmsSCColorAdjust = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 402, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsSCColorAdjust.setStatus('mandatory')
-qmsSCScanResolution = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 402, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(101, 151, 201, 301))).clone(namedValues=NamedValues(("dpi100", 101), ("dpi150", 151), ("dpi200", 201), ("dpi300", 301)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsSCScanResolution.setStatus('mandatory')
-qmsSCSizeHorizontal = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 402, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 850))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsSCSizeHorizontal.setStatus('mandatory')
-qmsSCSizeVertical = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 402, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1400))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsSCSizeVertical.setStatus('mandatory')
-qmsSCOffsetHorizontal = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 402, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 850))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsSCOffsetHorizontal.setStatus('mandatory')
-qmsSCOffsetVertical = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 402, 20), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1100))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsSCOffsetVertical.setStatus('mandatory')
-qmsSCCopyMode = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 402, 24), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(8, 9, 10, 11, 4, 5, 6, 7))).clone(namedValues=NamedValues(("automaticColor", 8), ("customColor", 9), ("binaryColor", 10), ("halftoneColor", 11), ("automaticGray", 4), ("customGray", 5), ("binaryBandW", 6), ("halftoneBandW", 7)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsSCCopyMode.setStatus('mandatory')
-qmsSCRedGammaFunction = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 402, 26), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsSCRedGammaFunction.setStatus('mandatory')
-qmsSCGreenGammaFunction = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 402, 27), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsSCGreenGammaFunction.setStatus('mandatory')
-qmsSCBlueGammaFunction = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 402, 28), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsSCBlueGammaFunction.setStatus('mandatory')
-qmsSCGrayGammaFunction = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 402, 29), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("none", 1), ("photoGraphic", 2), ("reverseImage", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsSCGrayGammaFunction.setStatus('mandatory')
-qmsSCBinaryAdjustment = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 402, 31), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsSCBinaryAdjustment.setStatus('mandatory')
-qmsSCTrans = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 402, 35), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disabled", 1), ("enabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsSCTrans.setStatus('mandatory')
-qmsSCContrast = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 402, 36), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsSCContrast.setStatus('mandatory')
-qmsCPPSerialNumber = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 403, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsCPPSerialNumber.setStatus('mandatory')
-qmsCMMICCColorMatch = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 404, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disabled", 1), ("enabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsCMMICCColorMatch.setStatus('mandatory')
-qmsCMMICCRGBSource = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 404, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsCMMICCRGBSource.setStatus('mandatory')
-qmsCMMICCSimulation = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 404, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsCMMICCSimulation.setStatus('mandatory')
-qmsCMMICCDestination = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 404, 6), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsCMMICCDestination.setStatus('mandatory')
-qmsCMMICCHP = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 404, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disabled", 1), ("srgb", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsCMMICCHP.setStatus('mandatory')
-qmsCMMLinkQuality = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 404, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("low", 1), ("medium", 2), ("high", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsCMMLinkQuality.setStatus('mandatory')
-qmsCMMSimInRGBLinks = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 404, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("no", 1), ("yes", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsCMMSimInRGBLinks.setStatus('mandatory')
-qmsCMMProfileTable = MibTable((1, 3, 6, 1, 4, 1, 480, 1, 404, 1000), )
-if mibBuilder.loadTexts: qmsCMMProfileTable.setStatus('mandatory')
-qmsCMMProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 480, 1, 404, 1000, 1), ).setIndexNames((0, "QMS-MIB", "qmsCMMProfileIndex"))
-if mibBuilder.loadTexts: qmsCMMProfileEntry.setStatus('mandatory')
-qmsCMMProfileIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 1, 404, 1000, 1, 1000), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsCMMProfileIndex.setStatus('mandatory')
-qmsCMMProfileDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 1, 404, 1000, 1, 1001), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsCMMProfileDescription.setStatus('mandatory')
-qmsCMMProfileType = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 1, 404, 1000, 1, 1002), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("source", 1), ("destination", 2), ("simulation", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsCMMProfileType.setStatus('mandatory')
-qmsPSErrorHandler = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 520, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("yes", 2), ("no", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsPSErrorHandler.setStatus('mandatory')
-qmsPSOutputPositioning = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 520, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("on", 2), ("off", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsPSOutputPositioning.setStatus('mandatory')
-qmsPSDefaultHalftone = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 520, 138), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("basic", 1), ("standard", 2), ("advanced", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsPSDefaultHalftone.setStatus('mandatory')
-qmsPSDefaultBlackOverPrint = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 520, 139), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("on", 2), ("off", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsPSDefaultBlackOverPrint.setStatus('mandatory')
-qmsPSDefaultCRD = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 520, 140), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 15))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsPSDefaultCRD.setStatus('mandatory')
-qmsPSDefaultDither = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 520, 141), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("on", 2), ("off", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsPSDefaultDither.setStatus('mandatory')
-qmsPSDefaultGamma = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 520, 152), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("on", 2), ("off", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsPSDefaultGamma.setStatus('mandatory')
-qmsPSIntensity = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 520, 154), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("darkest", 1), ("darker", 2), ("normal", 3), ("lighter", 4), ("lightest", 5)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsPSIntensity.setStatus('mandatory')
-qmsHPGLPaperType = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 524, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14))).clone(namedValues=NamedValues(("a", 1), ("a4", 2), ("b", 3), ("a3", 4), ("c", 5), ("d", 6), ("e", 7), ("cArch", 8), ("dArch", 9), ("eArch", 10), ("a2", 11), ("a1", 12), ("a0", 13), ("scaleToPaper", 14)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsHPGLPaperType.setStatus('mandatory')
-qmsHPGLPlotter = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 524, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("plotter7475A", 1), ("plotter7470A", 2), ("colorpro", 3), ("plotter7550A", 4), ("draftmaster", 5)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsHPGLPlotter.setStatus('mandatory')
-qmsHPGLScalingPercent = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 524, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 150))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsHPGLScalingPercent.setStatus('mandatory')
-qmsHPGLEnhancedMode = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 524, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("off", 1), ("on", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsHPGLEnhancedMode.setStatus('mandatory')
-qmsHPGLExpandMode = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 524, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("off", 1), ("on", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsHPGLExpandMode.setStatus('mandatory')
-qmsHPGLPenWidth1 = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 524, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 60))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsHPGLPenWidth1.setStatus('mandatory')
-qmsHPGLPenWidth2 = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 524, 17), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 60))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsHPGLPenWidth2.setStatus('mandatory')
-qmsHPGLPenWidth3 = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 524, 18), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 60))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsHPGLPenWidth3.setStatus('mandatory')
-qmsHPGLPenWidth4 = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 524, 19), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 60))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsHPGLPenWidth4.setStatus('mandatory')
-qmsHPGLPenWidth5 = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 524, 20), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 60))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsHPGLPenWidth5.setStatus('mandatory')
-qmsHPGLPenWidth6 = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 524, 21), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 60))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsHPGLPenWidth6.setStatus('mandatory')
-qmsHPGLPenWidth7 = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 524, 22), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 60))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsHPGLPenWidth7.setStatus('mandatory')
-qmsHPGLPenWidth8 = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 524, 23), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 60))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsHPGLPenWidth8.setStatus('mandatory')
-qmsHPGLPenColor1 = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 524, 24), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14))).clone(namedValues=NamedValues(("red", 2), ("orange", 3), ("yellow", 4), ("green", 5), ("blue", 6), ("cyan", 7), ("magenta", 8), ("black", 9), ("violet", 10), ("brown", 11), ("gray25Percent", 12), ("gray50Percent", 13), ("gray75Percent", 14)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsHPGLPenColor1.setStatus('mandatory')
-qmsHPGLPenColor2 = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 524, 25), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14))).clone(namedValues=NamedValues(("red", 2), ("orange", 3), ("yellow", 4), ("green", 5), ("blue", 6), ("cyan", 7), ("magenta", 8), ("black", 9), ("violet", 10), ("brown", 11), ("gray25Percent", 12), ("gray50Percent", 13), ("gray75Percent", 14)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsHPGLPenColor2.setStatus('mandatory')
-qmsHPGLPenColor3 = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 524, 26), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14))).clone(namedValues=NamedValues(("red", 2), ("orange", 3), ("yellow", 4), ("green", 5), ("blue", 6), ("cyan", 7), ("magenta", 8), ("black", 9), ("violet", 10), ("brown", 11), ("gray25Percent", 12), ("gray50Percent", 13), ("gray75Percent", 14)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsHPGLPenColor3.setStatus('mandatory')
-qmsHPGLPenColor4 = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 524, 27), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14))).clone(namedValues=NamedValues(("red", 2), ("orange", 3), ("yellow", 4), ("green", 5), ("blue", 6), ("cyan", 7), ("magenta", 8), ("black", 9), ("violet", 10), ("brown", 11), ("gray25Percent", 12), ("gray50Percent", 13), ("gray75Percent", 14)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsHPGLPenColor4.setStatus('mandatory')
-qmsHPGLPenColor5 = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 524, 28), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14))).clone(namedValues=NamedValues(("red", 2), ("orange", 3), ("yellow", 4), ("green", 5), ("blue", 6), ("cyan", 7), ("magenta", 8), ("black", 9), ("violet", 10), ("brown", 11), ("gray25Percent", 12), ("gray50Percent", 13), ("gray75Percent", 14)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsHPGLPenColor5.setStatus('mandatory')
-qmsHPGLPenColor6 = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 524, 29), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14))).clone(namedValues=NamedValues(("red", 2), ("orange", 3), ("yellow", 4), ("green", 5), ("blue", 6), ("cyan", 7), ("magenta", 8), ("black", 9), ("violet", 10), ("brown", 11), ("gray25Percent", 12), ("gray50Percent", 13), ("gray75Percent", 14)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsHPGLPenColor6.setStatus('mandatory')
-qmsHPGLPenColor7 = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 524, 30), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14))).clone(namedValues=NamedValues(("red", 2), ("orange", 3), ("yellow", 4), ("green", 5), ("blue", 6), ("cyan", 7), ("magenta", 8), ("black", 9), ("violet", 10), ("brown", 11), ("gray25Percent", 12), ("gray50Percent", 13), ("gray75Percent", 14)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsHPGLPenColor7.setStatus('mandatory')
-qmsHPGLPenColor8 = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 524, 31), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14))).clone(namedValues=NamedValues(("red", 2), ("orange", 3), ("yellow", 4), ("green", 5), ("blue", 6), ("cyan", 7), ("magenta", 8), ("black", 9), ("violet", 10), ("brown", 11), ("gray25Percent", 12), ("gray50Percent", 13), ("gray75Percent", 14)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsHPGLPenColor8.setStatus('mandatory')
-qmsHPPCLLineTermination = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 525, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("crEQcr-lfEQlf", 1), ("crEQcrANDlf-lfEQlf", 2), ("crEQcr-lfEQcrANDlf", 3), ("crORlfEQcrANDlf", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsHPPCLLineTermination.setStatus('mandatory')
-qmsHPPCLFontNumber = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 525, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20))).clone(namedValues=NamedValues(("courier12", 1), ("courier12Bold", 2), ("courier12Italic", 3), ("courier10", 4), ("courier10Bold", 5), ("courier10Italic", 6), ("lineprinter", 7), ("times", 8), ("timesItalic", 9), ("timesBold", 10), ("timesBldItalic", 11), ("univ", 12), ("univItalic", 13), ("univBold", 14), ("univBoldItalic", 15), ("univcond", 16), ("univcondItalic", 17), ("univcondBold", 18), ("univcondBldItlc", 19), ("selectByIndex", 20)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsHPPCLFontNumber.setStatus('mandatory')
-qmsHPPCLLinesPerInch = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 525, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(100, 4800))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsHPPCLLinesPerInch.setStatus('mandatory')
-qmsHPPCLDefaultSymbolSet = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 525, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(278, 15, 79, 175, 342, 374, 406, 566, 309, 630, 294, 181, 235, 331, 427, 459, 203, 270, 174, 206, 502, 54, 38, 22, 20, 10, 84, 40, 5, 39, 310, 395))).clone(namedValues=NamedValues(("roman8", 278), ("isoLatin1", 15), ("isoLatin2", 79), ("isoLatin5", 175), ("pc8US", 342), ("pc8DN", 374), ("pc850", 406), ("pc852Latin2", 566), ("pc8TK", 309), ("win31Latin1", 630), ("win31Latin2", 294), ("win31Latin5", 181), ("desktop", 235), ("psText", 331), ("venturaIntl", 427), ("venturaUS", 459), ("microsoftPub", 203), ("math8", 270), ("psMath", 174), ("ventura-Math", 206), ("piFont", 502), ("legal", 54), ("iso4UK", 38), ("iso6ASCII", 22), ("iso11SWED", 20), ("iso15ITAL", 10), ("iso17SPAN", 84), ("iso21GERM", 40), ("iso60NORW", 5), ("iso69FREN", 39), ("win30Latin1", 310), ("mcText", 395)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsHPPCLDefaultSymbolSet.setStatus('mandatory')
-qmsHPPCLPreJobReset = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 525, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("off", 1), ("on", 2), ("oncompatibility", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsHPPCLPreJobReset.setStatus('mandatory')
-qmsHPPCLPointSize = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 525, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(25, 99975))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsHPPCLPointSize.setStatus('mandatory')
-qmsHPPCLDefaultFontID = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 525, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 32767))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsHPPCLDefaultFontID.setStatus('mandatory')
-qmsHPPCLGL2Plotter = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 525, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("off", 1), ("on", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsHPPCLGL2Plotter.setStatus('mandatory')
-qmsHPPCLDiskOrRam = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 525, 24), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("memory", 1), ("disk", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsHPPCLDiskOrRam.setStatus('mandatory')
-qmsDECLN03ProductID = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 532, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("ln03", 1), ("lqp02", 2), ("la100", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsDECLN03ProductID.setStatus('mandatory')
-qmsDECLN03AutowrapMode = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 532, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("off", 1), ("on", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsDECLN03AutowrapMode.setStatus('mandatory')
-qmsDECLN03PaperSize = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 532, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("letter", 1), ("a4", 2), ("legal", 3), ("sz11x17", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsDECLN03PaperSize.setStatus('mandatory')
-qmsDECLN03PaperSizeOverride = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 532, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("off", 1), ("on", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsDECLN03PaperSizeOverride.setStatus('mandatory')
-qmsDECLN03Xorigin = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 532, 8), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsDECLN03Xorigin.setStatus('mandatory')
-qmsDECLN03Yorigin = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 532, 10), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsDECLN03Yorigin.setStatus('mandatory')
-qmsDECLN03Reset = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 532, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("off", 1), ("on", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsDECLN03Reset.setStatus('mandatory')
-qmsDECLN03Orientation = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 532, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("portrait", 1), ("landscape", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsDECLN03Orientation.setStatus('mandatory')
-qmsQUIC2CommandCharacter = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 534, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(32, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsQUIC2CommandCharacter.setStatus('mandatory')
-qmsQUIC2TopMargin = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 534, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 9999))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsQUIC2TopMargin.setStatus('mandatory')
-qmsQUIC2BottomMargin = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 534, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 9999))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsQUIC2BottomMargin.setStatus('mandatory')
-qmsQUIC2LeftMargin = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 534, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 9999))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsQUIC2LeftMargin.setStatus('mandatory')
-qmsQUIC2RightMargin = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 534, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 9999))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsQUIC2RightMargin.setStatus('mandatory')
-qmsQUIC2IfParam = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 534, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("immediateErase", 1), ("immediateEject", 2), ("onPageEject", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsQUIC2IfParam.setStatus('mandatory')
-qmsQUIC2CReqCRLF = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 534, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("crEQcrANDlf", 2), ("crEQcr", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsQUIC2CReqCRLF.setStatus('mandatory')
-qmsQUIC2LFeqLFCR = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 534, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("lfEQlfANDcr", 2), ("lfEQlf", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsQUIC2LFeqLFCR.setStatus('mandatory')
-qmsQUIC2Decimal = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 534, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("implicitLeft", 1), ("implicitRight", 2), ("explicit", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsQUIC2Decimal.setStatus('mandatory')
-qmsQUIC2Dimensions = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 534, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("dots", 1), ("centimeters", 2), ("inches", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsQUIC2Dimensions.setStatus('mandatory')
-qmsQUIC2EDPMode = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 534, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("on", 2), ("off", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsQUIC2EDPMode.setStatus('mandatory')
-qmsQUIC2DefaultFont = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 534, 20), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 32767))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsQUIC2DefaultFont.setStatus('mandatory')
-qmsQUIC2LineSpacing = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 534, 22), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("lpi6", 1), ("lpi8", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsQUIC2LineSpacing.setStatus('mandatory')
-qmsQUIC2Orientation = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 534, 23), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("portrait", 1), ("landscape", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsQUIC2Orientation.setStatus('mandatory')
-qmsQUIC2Scan = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 534, 24), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("on", 2), ("off", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsQUIC2Scan.setStatus('mandatory')
-qmsQUIC2Spaces = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 534, 25), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("on", 2), ("off", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsQUIC2Spaces.setStatus('mandatory')
-qmsQUIC2AllowDataRepeats = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 534, 26), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("on", 2), ("off", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsQUIC2AllowDataRepeats.setStatus('mandatory')
-qmsQUIC2AllowOverlays = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 534, 27), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("on", 2), ("off", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsQUIC2AllowOverlays.setStatus('mandatory')
-qmsQUIC2AllowPageCopies = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 534, 28), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("on", 2), ("off", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsQUIC2AllowPageCopies.setStatus('mandatory')
-qmsQUIC2SaveDLF = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 534, 29), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("on", 2), ("off", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsQUIC2SaveDLF.setStatus('mandatory')
-qmsQUIC2SaveOverlays = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 534, 30), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("on", 2), ("off", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsQUIC2SaveOverlays.setStatus('mandatory')
-qmsQUIC2DefaultMode = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 534, 31), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("linePrinter", 1), ("commandFree", 2), ("commandNoFree", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsQUIC2DefaultMode.setStatus('mandatory')
-qmsQUIC2RebuildFontTable = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 534, 32), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("on", 2), ("off", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsQUIC2RebuildFontTable.setStatus('mandatory')
-qmsQUIC2TrayMap1 = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 534, 33), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 5))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsQUIC2TrayMap1.setStatus('mandatory')
-qmsQUIC2TrayMap2 = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 534, 34), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 5))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsQUIC2TrayMap2.setStatus('mandatory')
-qmsQUIC2TrayMap3 = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 534, 35), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 5))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsQUIC2TrayMap3.setStatus('mandatory')
-qmsQUIC2TrayMap4 = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 534, 36), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 5))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsQUIC2TrayMap4.setStatus('mandatory')
-qmsQUIC2TrayMap5 = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 534, 37), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 5))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsQUIC2TrayMap5.setStatus('mandatory')
-qmsQUIC2PatternType = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 534, 38), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("opaque", 1), ("transparent", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsQUIC2PatternType.setStatus('mandatory')
-qmsLPFont = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 539, 46), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsLPFont.setStatus('mandatory')
-qmsLPPointSize = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 539, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 99999))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsLPPointSize.setStatus('mandatory')
-qmsLPAsciiMap = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 539, 32), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("ascii", 2), ("ebcdic", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsLPAsciiMap.setStatus('mandatory')
-qmsLPLineNumbering = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 539, 34), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("on", 2), ("off", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsLPLineNumbering.setStatus('mandatory')
-qmsLPTabStops = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 539, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 256))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsLPTabStops.setStatus('mandatory')
-qmsLPLFisCRLF = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 539, 36), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("on", 2), ("off", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsLPLFisCRLF.setStatus('mandatory')
-qmsLPCRisCRLF = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 539, 38), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("on", 2), ("off", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsLPCRisCRLF.setStatus('mandatory')
-qmsLPFFisCRFF = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 539, 40), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("on", 2), ("off", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsLPFFisCRFF.setStatus('mandatory')
-qmsLPOrientation = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 539, 42), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("portrait", 1), ("landscape", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsLPOrientation.setStatus('mandatory')
-qmsLPLineWrap = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 539, 44), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("on", 2), ("off", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsLPLineWrap.setStatus('mandatory')
-qmsLPLinesPerPage = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 539, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 128))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsLPLinesPerPage.setStatus('mandatory')
-qmsLPLeftMargin = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 539, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 79200))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsLPLeftMargin.setStatus('mandatory')
-qmsLPRightMargin = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 539, 20), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 79200))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsLPRightMargin.setStatus('mandatory')
-qmsLPTopMargin = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 539, 24), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 79200))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsLPTopMargin.setStatus('mandatory')
-qmsLPBottomMargin = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 539, 28), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 79200))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsLPBottomMargin.setStatus('mandatory')
-qmsTIFFAutoRotation = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 541, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("off", 1), ("rot90", 2), ("rot270", 3), ("rot180", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsTIFFAutoRotation.setStatus('mandatory')
-qmsTIFFScratchFileSize = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 541, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsTIFFScratchFileSize.setStatus('mandatory')
-qmsTIFFPaperToImage = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 541, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("on", 2), ("off", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsTIFFPaperToImage.setStatus('mandatory')
-qmsTIFFAnnotationState = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 541, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disabled", 1), ("enabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsTIFFAnnotationState.setStatus('mandatory')
-qmsTIFFAnnotationTag = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 541, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65000))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsTIFFAnnotationTag.setStatus('mandatory')
-qmsTIFFReverseImage = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 541, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("off", 1), ("on", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsTIFFReverseImage.setStatus('mandatory')
-qmsTIFFAutoScaling = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 541, 50), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("off", 1), ("upANDdown", 2), ("upOnly", 3), ("downOnly", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsTIFFAutoScaling.setStatus('mandatory')
-qmsCALSAutoRotation = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 542, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("off", 1), ("rot90", 2), ("rot270", 3), ("rot180", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsCALSAutoRotation.setStatus('mandatory')
-qmsCALSAutoScaling = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 542, 50), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("off", 1), ("upANDdown", 2), ("upOnly", 3), ("downOnly", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsCALSAutoScaling.setStatus('mandatory')
-qmsCGMSuppressScale = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 544, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("yes", 2), ("no", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsCGMSuppressScale.setStatus('mandatory')
-qmsCGMMono = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 544, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("on", 2), ("off", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsCGMMono.setStatus('mandatory')
-qmsCGMIgnoreBorder = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 544, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("yes", 2), ("no", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsCGMIgnoreBorder.setStatus('mandatory')
-qmsCGMOriginX = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 544, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1700))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsCGMOriginX.setStatus('mandatory')
-qmsCGMOriginY = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 544, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1700))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsCGMOriginY.setStatus('mandatory')
-qmsCGMPrintErrors = MibScalar((1, 3, 6, 1, 4, 1, 480, 1, 544, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("yes", 2), ("no", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsCGMPrintErrors.setStatus('mandatory')
-qmsRel = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 2))
-qmsPrinter = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 2, 1))
-qmsIF = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 2, 9))
-qmsConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 2, 10))
-qmsPtrSys = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 2, 1, 1))
-qmsPtrEmu = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 2, 1, 2))
-qmsPtrJobs = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 2, 1, 3))
-qmsIFAdmin = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 2, 9, 1))
-qmsIFSetup = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 2, 9, 2))
-qmsIFConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 1))
-qmsIFNetware = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5))
-qmsIFApple = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 6))
-qmsIFSnmpcontrol = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 8))
-qmsIFLservlmgr = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 9))
-qmsCfgUser = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 2, 10, 10))
-qmsCfgAdmin = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 2, 10, 20))
-qmsCfgSecurity = MibIdentifier((1, 3, 6, 1, 4, 1, 480, 2, 10, 30))
-qmsPtrSysStatus = MibScalar((1, 3, 6, 1, 4, 1, 480, 2, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsPtrSysStatus.setStatus('mandatory')
-qmsPtrSysNamePrinter = MibScalar((1, 3, 6, 1, 4, 1, 480, 2, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsPtrSysNamePrinter.setStatus('optional')
-qmsPtrIfTable = MibTable((1, 3, 6, 1, 4, 1, 480, 2, 1, 1, 3), )
-if mibBuilder.loadTexts: qmsPtrIfTable.setStatus('mandatory')
-qmsPtrIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 480, 2, 1, 1, 3, 1), ).setIndexNames((0, "QMS-MIB", "qmsPtrIfIndex"))
-if mibBuilder.loadTexts: qmsPtrIfEntry.setStatus('mandatory')
-qmsPtrIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 1, 1, 3, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsPtrIfIndex.setStatus('mandatory')
-qmsPtrIfName = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 1, 1, 3, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsPtrIfName.setStatus('mandatory')
-qmsPtrIfDefEmu = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 1, 1, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 201, 65534, 65535))).clone(namedValues=NamedValues(("ultrascript", 1), ("ibm-proprinter", 2), ("diablo-630", 3), ("ti-855", 4), ("hp-gl", 5), ("hp-pcl", 6), ("hex-dump", 7), ("ti-855-dp", 8), ("ti-810", 9), ("epson-fx", 10), ("dec-ansi", 11), ("ibm-ext-ascii", 12), ("ln03", 13), ("tektronix-4014", 14), ("quic-2", 15), ("impress", 16), ("code-v", 17), ("r1", 18), ("ccitt", 19), ("line-printer", 20), ("hp-pcl-5", 21), ("esp", 201), ("not-supported", 65534), ("wild-card", 65535)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsPtrIfDefEmu.setStatus('mandatory')
-qmsPtrBinTable = MibTable((1, 3, 6, 1, 4, 1, 480, 2, 1, 1, 4), )
-if mibBuilder.loadTexts: qmsPtrBinTable.setStatus('mandatory')
-qmsPtrBinEntry = MibTableRow((1, 3, 6, 1, 4, 1, 480, 2, 1, 1, 4, 1), ).setIndexNames((0, "QMS-MIB", "qmsPtrBinIndex"))
-if mibBuilder.loadTexts: qmsPtrBinEntry.setStatus('mandatory')
-qmsPtrBinIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 1, 1, 4, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsPtrBinIndex.setStatus('mandatory')
-qmsPtrBinType = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 1, 1, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("output", 1), ("input", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsPtrBinType.setStatus('mandatory')
-qmsPtrBinId = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 1, 1, 4, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsPtrBinId.setStatus('mandatory')
-qmsPtrBinPaper = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 1, 1, 4, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsPtrBinPaper.setStatus('mandatory')
-qmsPtrBinName = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 1, 1, 4, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsPtrBinName.setStatus('mandatory')
-qmsPtrJobsCurStatus = MibScalar((1, 3, 6, 1, 4, 1, 480, 2, 1, 3, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 4, 8, 16, 32, 64, 128, 256, 32768))).clone(namedValues=NamedValues(("spooling", 1), ("interpreting", 2), ("rasterizing", 4), ("printing", 8), ("terminating", 16), ("waiting", 32), ("spooled", 64), ("printed", 128), ("canceled", 256), ("internal", 32768)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsPtrJobsCurStatus.setStatus('mandatory')
-qmsPtrJobsCurSheet = MibScalar((1, 3, 6, 1, 4, 1, 480, 2, 1, 3, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsPtrJobsCurSheet.setStatus('mandatory')
-qmsPtrJobsCurPage = MibScalar((1, 3, 6, 1, 4, 1, 480, 2, 1, 3, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsPtrJobsCurPage.setStatus('mandatory')
-qmsPtrJobsTable = MibTable((1, 3, 6, 1, 4, 1, 480, 2, 1, 3, 4), )
-if mibBuilder.loadTexts: qmsPtrJobsTable.setStatus('mandatory')
-qmsPtrJobsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 480, 2, 1, 3, 4, 1), ).setIndexNames((0, "QMS-MIB", "qmsPtrJobsIndex"))
-if mibBuilder.loadTexts: qmsPtrJobsEntry.setStatus('mandatory')
-qmsPtrJobsIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 1, 3, 4, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsPtrJobsIndex.setStatus('mandatory')
-qmsPtrJobsStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 1, 3, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 4, 8, 16, 32, 64, 128, 256, 32768))).clone(namedValues=NamedValues(("spooling", 1), ("interpreting", 2), ("rasterizing", 4), ("printing", 8), ("terminating", 16), ("waiting", 32), ("spooled", 64), ("printed", 128), ("canceled", 256), ("internal", 32768)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsPtrJobsStatus.setStatus('mandatory')
-qmsPtrJobsEmulation = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 1, 3, 4, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 25, 26, 201, 65536))).clone(namedValues=NamedValues(("ultrascript", 1), ("ibm-proprinter", 2), ("diablo-630", 3), ("ti-855", 4), ("hp-gl", 5), ("hp-pcl", 6), ("hex-dump", 7), ("ti-855-dp", 8), ("ti-810", 9), ("epson-fx", 10), ("dec-ansi", 11), ("ibm-ext-ascii", 12), ("ln03", 13), ("tektronix-4014", 14), ("quic-2", 15), ("impress", 16), ("code-v", 17), ("r1", 18), ("ccitt", 19), ("line-printer", 20), ("hp-pcl-5", 21), ("tiff", 22), ("cals", 23), ("cgm", 25), ("hp-pcl-xl", 26), ("esp", 201), ("wild-card", 65536)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsPtrJobsEmulation.setStatus('mandatory')
-qmsPtrJobsPage = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 1, 3, 4, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsPtrJobsPage.setStatus('mandatory')
-qmsPtrJobsSheet = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 1, 3, 4, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsPtrJobsSheet.setStatus('mandatory')
-qmsPtrJobsChannel = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 1, 3, 4, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 12, 13, 14, 16))).clone(namedValues=NamedValues(("other", 1), ("rs-232", 12), ("parallel", 13), ("appletalk", 14), ("optional-io", 16)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsPtrJobsChannel.setStatus('mandatory')
-qmsPtrJobsComment = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 1, 3, 4, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsPtrJobsComment.setStatus('mandatory')
-qmsPtrJobsTitle = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 1, 3, 4, 1, 9), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsPtrJobsTitle.setStatus('mandatory')
-qmsPtrJobsOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 1, 3, 4, 1, 10), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsPtrJobsOwner.setStatus('mandatory')
-qmsPtrJobsStatPages = MibScalar((1, 3, 6, 1, 4, 1, 480, 2, 1, 3, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsPtrJobsStatPages.setStatus('mandatory')
-qmsPtrJobsStatSheets = MibScalar((1, 3, 6, 1, 4, 1, 480, 2, 1, 3, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qmsPtrJobsStatSheets.setStatus('mandatory')
-qmsIFAdminUnitStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("running", 1), ("resetOnNoClient", 2), ("hardReset", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsIFAdminUnitStatus.setStatus('mandatory')
-qmsIFAdminConfigStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("configUnknown1", 1), ("configUnknown2", 2), ("configLoadRequest", 3), ("configSaveRequest", 4), ("configDefaultRequest", 5)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsIFAdminConfigStatus.setStatus('mandatory')
-qmsIFAdminOldIntAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 1, 3), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qmsIFAdminOldIntAddr.setStatus('mandatory')
-intAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 1, 1), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: intAddr.setStatus('mandatory')
-ethAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 1, 2), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ethAddr.setStatus('mandatory')
-defRout = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 1, 3), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: defRout.setStatus('mandatory')
-netMask = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 1, 4), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: netMask.setStatus('mandatory')
-tcpEnb = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("no", 1), ("yes", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tcpEnb.setStatus('mandatory')
-tftpEnb = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("no", 1), ("yes", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tftpEnb.setStatus('mandatory')
-tnPort = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 1, 16), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tnPort.setStatus('obsolete')
-rtnOpt = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("no", 1), ("yes", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rtnOpt.setStatus('obsolete')
-trP1 = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 1, 30), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: trP1.setStatus('mandatory')
-bootP = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 1, 698), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("yes", 2), ("no", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: bootP.setStatus('mandatory')
-rarp = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 1, 699), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1))).clone(namedValues=NamedValues(("yes", 2), ("no", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rarp.setStatus('mandatory')
-spooling = MibScalar((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 1, 9000), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("on", 1), ("onInputIdle", 2), ("onIdle", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: spooling.setStatus('mandatory')
-netwEnb = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 400), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("no", 1), ("yes", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: netwEnb.setStatus('mandatory')
-psName = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 401), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: psName.setStatus('mandatory')
-confServ = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 402), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: confServ.setStatus('mandatory')
-msgLog = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 403), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("none", 1), ("console", 2), ("netlog", 3), ("both", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: msgLog.setStatus('mandatory')
-nwMode = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 404), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("off", 1), ("pserver", 2), ("rprinter", 3), ("both", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nwMode.setStatus('mandatory')
-psPoll = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 405), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: psPoll.setStatus('mandatory')
-fr8023 = MibScalar((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 420), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("no", 1), ("yes", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fr8023.setStatus('mandatory')
-freth2 = MibScalar((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 421), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("no", 1), ("yes", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: freth2.setStatus('mandatory')
-fr8022 = MibScalar((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 422), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("no", 1), ("yes", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fr8022.setStatus('mandatory')
-frSnap = MibScalar((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 423), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("no", 1), ("yes", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: frSnap.setStatus('mandatory')
-login1 = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 432), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: login1.setStatus('mandatory')
-login2 = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 433), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: login2.setStatus('mandatory')
-login3 = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 434), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: login3.setStatus('mandatory')
-login4 = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 435), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: login4.setStatus('mandatory')
-login5 = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 436), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: login5.setStatus('mandatory')
-login6 = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 437), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: login6.setStatus('mandatory')
-login7 = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 438), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: login7.setStatus('mandatory')
-login8 = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 439), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: login8.setStatus('mandatory')
-login9 = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 440), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: login9.setStatus('mandatory')
-login10 = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 441), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: login10.setStatus('mandatory')
-login11 = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 442), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: login11.setStatus('mandatory')
-login12 = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 443), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: login12.setStatus('mandatory')
-login13 = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 444), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: login13.setStatus('mandatory')
-login14 = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 445), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: login14.setStatus('mandatory')
-login15 = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 446), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: login15.setStatus('mandatory')
-login16 = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 447), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: login16.setStatus('mandatory')
-rprinter1 = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 470), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rprinter1.setStatus('mandatory')
-rprinter2 = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 471), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rprinter2.setStatus('mandatory')
-rprinter3 = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 472), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rprinter3.setStatus('mandatory')
-rprinter4 = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 473), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rprinter4.setStatus('mandatory')
-rprinter5 = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 474), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rprinter5.setStatus('mandatory')
-rprinter6 = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 475), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rprinter6.setStatus('mandatory')
-rprinter7 = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 476), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rprinter7.setStatus('mandatory')
-rprinter8 = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 477), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rprinter8.setStatus('mandatory')
-atlkEnb = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 6, 500), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("no", 1), ("yes", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atlkEnb.setStatus('mandatory')
-atlkZone = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 6, 502), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atlkZone.setStatus('mandatory')
-atlkZonerEnb = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 6, 503), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("no", 1), ("yes", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atlkZonerEnb.setStatus('mandatory')
-atlkLWEnb = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 6, 560), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("no", 1), ("yes", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atlkLWEnb.setStatus('mandatory')
-atlkQMSRemConEnb = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 6, 561), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("no", 1), ("yes", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atlkQMSRemConEnb.setStatus('mandatory')
-atlkConnType = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 6, 562), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("conventional", 1), ("spooling", 2), ("both", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atlkConnType.setStatus('mandatory')
-enableAuthenTraps = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 8, 715), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: enableAuthenTraps.setStatus('mandatory')
-enablePrinterTraps = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 8, 716), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: enablePrinterTraps.setStatus('mandatory')
-nms1Address = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 8, 730), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nms1Address.setStatus('mandatory')
-nms1Community = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 8, 731), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nms1Community.setStatus('mandatory')
-nms1Access = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 8, 732), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("none", 1), ("trap", 2), ("read", 3), ("readtrap", 4), ("write", 5), ("writetrap", 6)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nms1Access.setStatus('mandatory')
-nms2Address = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 8, 735), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nms2Address.setStatus('mandatory')
-nms2Community = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 8, 736), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nms2Community.setStatus('mandatory')
-nms2Access = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 8, 737), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("none", 1), ("trap", 2), ("read", 3), ("readtrap", 4), ("write", 5), ("writetrap", 6)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nms2Access.setStatus('mandatory')
-nms3Address = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 8, 740), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nms3Address.setStatus('mandatory')
-nms3Community = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 8, 741), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nms3Community.setStatus('mandatory')
-nms3Access = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 8, 742), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("none", 1), ("trap", 2), ("read", 3), ("readtrap", 4), ("write", 5), ("writetrap", 6)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nms3Access.setStatus('mandatory')
-nms4Address = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 8, 745), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nms4Address.setStatus('mandatory')
-nms4Community = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 8, 746), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nms4Community.setStatus('mandatory')
-nms4Access = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 8, 747), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("none", 1), ("trap", 2), ("read", 3), ("readtrap", 4), ("write", 5), ("writetrap", 6)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nms4Access.setStatus('mandatory')
-nms5Address = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 8, 750), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nms5Address.setStatus('mandatory')
-nms5Community = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 8, 751), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nms5Community.setStatus('mandatory')
-nms5Access = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 8, 752), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("none", 1), ("trap", 2), ("read", 3), ("readtrap", 4), ("write", 5), ("writetrap", 6)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nms5Access.setStatus('mandatory')
-lslmEnb = MibTableColumn((1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 9, 800), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("no", 1), ("yes", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lslmEnb.setStatus('mandatory')
-coldStart = NotificationType((1, 3, 6, 1, 2, 1, 11) + (0,0))
-authenticationFailure = NotificationType((1, 3, 6, 1, 2, 1, 11) + (0,4))
-qmsPtrErrorMsg = NotificationType((1, 3, 6, 1, 4, 1, 480) + (0,1)).setObjects(("QMS-MIB", "qmsPtrSysStatus"))
-trapNewIPaddr = NotificationType((1, 3, 6, 1, 4, 1, 480) + (0,2)).setObjects(("QMS-MIB", "qmsIFAdminOldIntAddr"))
-mibBuilder.exportSymbols("QMS-MIB", qmsClientColorMatching=qmsClientColorMatching, qmsSYSDiskSwap=qmsSYSDiskSwap, nms5Access=nms5Access, qmsQUIC2Decimal=qmsQUIC2Decimal, netMask=netMask, qmsSerIgnoreParity=qmsSerIgnoreParity, confServ=confServ, qmsHPGLPaperType=qmsHPGLPaperType, qmsQUIC2Scan=qmsQUIC2Scan, qmsPtrJobsTitle=qmsPtrJobsTitle, qmsQUIC2PatternType=qmsQUIC2PatternType, qmsENGConsumeNote2Multi=qmsENGConsumeNote2Multi, qmsQUIC2TrayMap3=qmsQUIC2TrayMap3, qmsColorMatch=qmsColorMatch, qmsENGPageOrder=qmsENGPageOrder, qmsENGConsumeNameMulti=qmsENGConsumeNameMulti, qmsENGConsumeMaxMulti=qmsENGConsumeMaxMulti, qmsSerRxSWFlow=qmsSerRxSWFlow, nms3Access=nms3Access, qmsQUIC2TrayMap5=qmsQUIC2TrayMap5, qmsQUIC2LeftMargin=qmsQUIC2LeftMargin, nms2Access=nms2Access, qmsSCOffsetHorizontal=qmsSCOffsetHorizontal, qmsParallel=qmsParallel, atlkZonerEnb=atlkZonerEnb, qmsSCGreenGammaFunction=qmsSCGreenGammaFunction, qmsHPPCLDiskOrRam=qmsHPPCLDiskOrRam, login7=login7, qmsHPPCLDefaultSymbolSet=qmsHPPCLDefaultSymbolSet, nms1Address=nms1Address, qmsLPLeftMargin=qmsLPLeftMargin, rprinter3=rprinter3, login15=login15, qmsPtrBinName=qmsPtrBinName, qmsLPTabStops=qmsLPTabStops, qmsQUIC2AllowDataRepeats=qmsQUIC2AllowDataRepeats, rprinter8=rprinter8, nms5Community=nms5Community, qmsSYSFPA=qmsSYSFPA, qmsENGConsumeNote1Multi=qmsENGConsumeNote1Multi, qmsPtrSys=qmsPtrSys, qmsSYSSheetCount=qmsSYSSheetCount, qmsENGLetterheadMode=qmsENGLetterheadMode, login2=login2, qmsSYSPrinterVersion=qmsSYSPrinterVersion, qmsLPLinesPerPage=qmsLPLinesPerPage, qmsSerPSProtocol=qmsSerPSProtocol, qmsDECLN03Orientation=qmsDECLN03Orientation, qmsParPSProtocol=qmsParPSProtocol, qmsCALS=qmsCALS, qmsQUIC2EDPMode=qmsQUIC2EDPMode, qmsCfgSecurity=qmsCfgSecurity, qmsSCScanResolution=qmsSCScanResolution, qmsCPPSerialNumber=qmsCPPSerialNumber, qmsIFAdminOldIntAddr=qmsIFAdminOldIntAddr, qmsENGChainInputbin=qmsENGChainInputbin, qmsENGConsumeNote2=qmsENGConsumeNote2, qmsCfgUser=qmsCfgUser, nms5Address=nms5Address, qmsPSDefaultGamma=qmsPSDefaultGamma, qmsHTTPCorpURL=qmsHTTPCorpURL, login6=login6, qmsQUIC2DefaultMode=qmsQUIC2DefaultMode, qmsSYSMultiRes=qmsSYSMultiRes, qmsQUIC2TopMargin=qmsQUIC2TopMargin, qmsCMMSimInRGBLinks=qmsCMMSimInRGBLinks, qmsClientHeap=qmsClientHeap, rprinter6=rprinter6, trapNewIPaddr=trapNewIPaddr, qmsSerStopBits=qmsSerStopBits, qmsTIFFAnnotationTag=qmsTIFFAnnotationTag, nms1Community=nms1Community, qmsFETmPSWait=qmsFETmPSWait, qmsSCSizeHorizontal=qmsSCSizeHorizontal, qmsENGChainInputBins=qmsENGChainInputBins, qmsCALSAutoRotation=qmsCALSAutoRotation, qmsFEEspEmul=qmsFEEspEmul, qmsParDataBits=qmsParDataBits, qmsSYSA3SheetCount=qmsSYSA3SheetCount, qmsClientEmulTemp=qmsClientEmulTemp, qmsPtrJobsStatus=qmsPtrJobsStatus, qmsCGMIgnoreBorder=qmsCGMIgnoreBorder, qmsCCITT=qmsCCITT, qmsMEMPhysical=qmsMEMPhysical, qmsHPGLScalingPercent=qmsHPGLScalingPercent, qmsQUIC2RightMargin=qmsQUIC2RightMargin, qmsParPriority=qmsParPriority, qmsLPCRisCRLF=qmsLPCRisCRLF, qmsQUIC2SaveOverlays=qmsQUIC2SaveOverlays, qmsIFConfig=qmsIFConfig, qmsPtrBinPaper=qmsPtrBinPaper, qmsENGOrientation=qmsENGOrientation, tcpEnb=tcpEnb, qmsCfgAdmin=qmsCfgAdmin, qmsENGOutputbin=qmsENGOutputbin, qmsHPGLPlotter=qmsHPGLPlotter, qmsSerBufferSize=qmsSerBufferSize, qmsQUIC2TrayMap4=qmsQUIC2TrayMap4, spooling=spooling, qmsTIFF=qmsTIFF, qmsQUIC2TrayMap1=qmsQUIC2TrayMap1, qmsENGConsumeType=qmsENGConsumeType, qmsHPGLPenWidth3=qmsHPGLPenWidth3, qmsPtrJobsCurSheet=qmsPtrJobsCurSheet, psName=psName, qmsLinePrinter=qmsLinePrinter, qmsHPGLPenColor8=qmsHPGLPenColor8, qmsIFSetup=qmsIFSetup, qmsQUIC2LFeqLFCR=qmsQUIC2LFeqLFCR, qmsSerHwRTS=qmsSerHwRTS, qmsSCBinaryAdjustment=qmsSCBinaryAdjustment, qmsParMode=qmsParMode, qmsIFAdminConfigStatus=qmsIFAdminConfigStatus, ethAddr=ethAddr, login5=login5, qmsIFAdmin=qmsIFAdmin, qmsPtrIfDefEmu=qmsPtrIfDefEmu, intAddr=intAddr, qmsPtrJobsPage=qmsPtrJobsPage, qmsCGMOriginY=qmsCGMOriginY, qmsFEHeaderPage=qmsFEHeaderPage, qmsQUIC2TrayMap2=qmsQUIC2TrayMap2, tnPort=tnPort, qmsSerHwCTS=qmsSerHwCTS, qmsHPGL=qmsHPGL, qmsHPPCLFontNumber=qmsHPPCLFontNumber, qmsDECLN03Reset=qmsDECLN03Reset, qmsSerEndDocumentMode=qmsSerEndDocumentMode, atlkEnb=atlkEnb, rprinter5=rprinter5, qmsSerBaudRate=qmsSerBaudRate, qmsACCMode=qmsACCMode, qmsPSDefaultCRD=qmsPSDefaultCRD, qmsDECLN03PaperSizeOverride=qmsDECLN03PaperSizeOverride, qmsMemory=qmsMemory, qmsSYSPrinterModel=qmsSYSPrinterModel, rprinter2=rprinter2, qmsQUIC2=qmsQUIC2, qmsENGEnergyStar=qmsENGEnergyStar, qmsUIH=qmsUIH, qmsCMMProfileEntry=qmsCMMProfileEntry, qmsFEDoSysStart=qmsFEDoSysStart, qmsPtrJobsEntry=qmsPtrJobsEntry, qmsHPPCLDefaultFontID=qmsHPPCLDefaultFontID, qmsCMMProfileDescription=qmsCMMProfileDescription, qmsCMMICCHP=qmsCMMICCHP, qmsIoPages=qmsIoPages, qmsQUIC2AllowOverlays=qmsQUIC2AllowOverlays, qmsCMMICCColorMatch=qmsCMMICCColorMatch, qmsENGColorSeparation=qmsENGColorSeparation, nms4Community=nms4Community, qmsIFNetware=qmsIFNetware, qmsENGStaplePosition=qmsENGStaplePosition, nwMode=nwMode, qmsTIFFScratchFileSize=qmsTIFFScratchFileSize, qmsPtrBinId=qmsPtrBinId, qmsIF=qmsIF, qmsPtrJobsOwner=qmsPtrJobsOwner, qmsQUIC2DefaultFont=qmsQUIC2DefaultFont, qmsIFApple=qmsIFApple, qmsPtrJobsTable=qmsPtrJobsTable, qmsENGColorModel=qmsENGColorModel, qmsHPPCL=qmsHPPCL, qmsENGEnvelopeTrayMedia=qmsENGEnvelopeTrayMedia, atlkQMSRemConEnb=atlkQMSRemConEnb, freth2=freth2, qmsENGLeftOffsetDuplex=qmsENGLeftOffsetDuplex, enablePrinterTraps=enablePrinterTraps, qmsFETrailerInputbin=qmsFETrailerInputbin, qmsQUIC2BottomMargin=qmsQUIC2BottomMargin, qmsSerHwDTR=qmsSerHwDTR, qmsCMMICCDestination=qmsCMMICCDestination, qmsParEmulation=qmsParEmulation, qmsENGLeftOffset=qmsENGLeftOffset, qmsPtrSysStatus=qmsPtrSysStatus, qmsHTTPContact=qmsHTTPContact, qmsQUIC2Orientation=qmsQUIC2Orientation, qmsENGConsumeNote1=qmsENGConsumeNote1, login11=login11, qmsConfig=qmsConfig, qmsENGOffsetStacking=qmsENGOffsetStacking, qmsClientFrameBuffer=qmsClientFrameBuffer, qmsENGInputbinMediatype=qmsENGInputbinMediatype, qmsClientEmulation=qmsClientEmulation, login1=login1, qmsSerHwDSRPOL=qmsSerHwDSRPOL, qmsENGTopOffset=qmsENGTopOffset, qmsHPGLEnhancedMode=qmsHPGLEnhancedMode, qmsFETrailerPage=qmsFETrailerPage, qmsPtrJobsComment=qmsPtrJobsComment, qmsClientHPStoragePool=qmsClientHPStoragePool, qmsSerDataBits=qmsSerDataBits, qmsHPGLPenWidth2=qmsHPGLPenWidth2, qmsDECLN03AutowrapMode=qmsDECLN03AutowrapMode, login12=login12, qmsENGManualTrayMedia=qmsENGManualTrayMedia, qmsPtrIfIndex=qmsPtrIfIndex, qmsPtrJobsCurStatus=qmsPtrJobsCurStatus, qmsPtrBinIndex=qmsPtrBinIndex, qmsFETmJob=qmsFETmJob, fr8023=fr8023, qmsClientDisplayList=qmsClientDisplayList, authenticationFailure=authenticationFailure, qmsCMMProfileTable=qmsCMMProfileTable, qmsPrinter=qmsPrinter, qmsPtrJobsIndex=qmsPtrJobsIndex, trP1=trP1, qmsTIFFAnnotationState=qmsTIFFAnnotationState, qmsTIFFAutoScaling=qmsTIFFAutoScaling, qmsHPGLPenColor3=qmsHPGLPenColor3, qmsENGManualFeedTimeout=qmsENGManualFeedTimeout, qmsCostPerPage=qmsCostPerPage, qmsSystem=qmsSystem, qmsRel=qmsRel, qmsHPGLPenWidth1=qmsHPGLPenWidth1, qmsLPFont=qmsLPFont, qmsIFAdminUnitStatus=qmsIFAdminUnitStatus, login4=login4, login3=login3, login16=login16, qmsCMMICCRGBSource=qmsCMMICCRGBSource, qmsIFSnmpcontrol=qmsIFSnmpcontrol, qmsHPGLPenWidth6=qmsHPGLPenWidth6, qmsPtrIfEntry=qmsPtrIfEntry, qmsSCColorAdjust=qmsSCColorAdjust, rprinter4=rprinter4, qmsSerParity=qmsSerParity, login9=login9, qmsDECLN03=qmsDECLN03, qmsTIFFAutoRotation=qmsTIFFAutoRotation, atlkZone=atlkZone, qmsLPOrientation=qmsLPOrientation, qmsFEDoStartPage=qmsFEDoStartPage, qmsHPGLExpandMode=qmsHPGLExpandMode, qmsPtrJobsSheet=qmsPtrJobsSheet, qmsSCOffsetVertical=qmsSCOffsetVertical, qmsENGConsumeIndex=qmsENGConsumeIndex, qmsDECLN03PaperSize=qmsDECLN03PaperSize, qmsSerial=qmsSerial, qmsENGConsumeLevelMulti=qmsENGConsumeLevelMulti, qmsENGTopOffsetDuplex=qmsENGTopOffsetDuplex, qmsFETmEsp=qmsFETmEsp, qmsENGConsumeUnits=qmsENGConsumeUnits, enableAuthenTraps=enableAuthenTraps, qmsEngine=qmsEngine, qmsENGErrorRecovery=qmsENGErrorRecovery, qmsHPGLPenWidth4=qmsHPGLPenWidth4, qmsCGM=qmsCGM, lslmEnb=lslmEnb, atlkLWEnb=atlkLWEnb, qmsHTTPContactNumber=qmsHTTPContactNumber, qmsLPAsciiMap=qmsLPAsciiMap, qmsClientFontCache=qmsClientFontCache, qmsSCTrans=qmsSCTrans)
-mibBuilder.exportSymbols("QMS-MIB", login8=login8, qmsTIFFReverseImage=qmsTIFFReverseImage, qmsScanner=qmsScanner, qmsPSOutputPositioning=qmsPSOutputPositioning, fr8022=fr8022, qmsPtrErrorMsg=qmsPtrErrorMsg, qmsPtrJobsChannel=qmsPtrJobsChannel, qmsPSDefaultHalftone=qmsPSDefaultHalftone, qmsPtrEmu=qmsPtrEmu, qmsHPPCLPreJobReset=qmsHPPCLPreJobReset, qmsSCContrast=qmsSCContrast, qmsENGInputbinMediatypeMulti=qmsENGInputbinMediatypeMulti, qmsACCFileSegment=qmsACCFileSegment, qmsENGChainOutputbinMulti=qmsENGChainOutputbinMulti, qmsHPGLPenColor7=qmsHPGLPenColor7, qmsSYSA3PageCount=qmsSYSA3PageCount, nms2Community=nms2Community, qmsENGConsumeMax=qmsENGConsumeMax, msgLog=msgLog, qmsSerHwDTRPOL=qmsSerHwDTRPOL, qmsENGChainInputbinMulti=qmsENGChainInputbinMulti, qmsIFLservlmgr=qmsIFLservlmgr, qmsSCBlueGammaFunction=qmsSCBlueGammaFunction, qmsQUIC2CReqCRLF=qmsQUIC2CReqCRLF, qmsHPPCLGL2Plotter=qmsHPPCLGL2Plotter, qmsAccounting=qmsAccounting, qmsENGNumConsumables=qmsENGNumConsumables, qmsIoTimeOuts=qmsIoTimeOuts, qmsCMMProfileIndex=qmsCMMProfileIndex, qmsSYSSystemImage=qmsSYSSystemImage, qmsPtrIfName=qmsPtrIfName, qmsPSDefaultBlackOverPrint=qmsPSDefaultBlackOverPrint, qmsSerSpoolTimeout=qmsSerSpoolTimeout, qmsENGConsumeName=qmsENGConsumeName, qmsHPPCLPointSize=qmsHPPCLPointSize, rtnOpt=rtnOpt, qmsENGDuplex=qmsENGDuplex, qmsPtrJobsEmulation=qmsPtrJobsEmulation, nms4Access=nms4Access, qmsPSErrorHandler=qmsPSErrorHandler, netwEnb=netwEnb, rprinter1=rprinter1, qmsSCCopyMode=qmsSCCopyMode, qmsPSDefaultDither=qmsPSDefaultDither, qmsPtrBinType=qmsPtrBinType, qmsHTTPHelpURL=qmsHTTPHelpURL, qmsENGCollation=qmsENGCollation, qmsParEndDocumentMode=qmsParEndDocumentMode, qmsHPGLPenWidth5=qmsHPGLPenWidth5, psPoll=psPoll, rarp=rarp, qmsSerEmulation=qmsSerEmulation, qmsLPLineWrap=qmsLPLineWrap, defRout=defRout, qmsHTTP=qmsHTTP, qmsCGMMono=qmsCGMMono, qmsHPGLPenColor4=qmsHPGLPenColor4, qmsSYSPrinterName=qmsSYSPrinterName, qmsClientSpool=qmsClientSpool, qmsLPPointSize=qmsLPPointSize, qmsSerMode=qmsSerMode, qmsENGConsumeLevel=qmsENGConsumeLevel, qmsENGResolution=qmsENGResolution, qmsHPGLPenWidth7=qmsHPGLPenWidth7, qmsENGToneroutAction=qmsENGToneroutAction, coldStart=coldStart, atlkConnType=atlkConnType, qmsHPPCLLineTermination=qmsHPPCLLineTermination, qmsLPLineNumbering=qmsLPLineNumbering, qmsSYSPageCount=qmsSYSPageCount, qmsQUIC2Dimensions=qmsQUIC2Dimensions, qmsPtrJobsStatSheets=qmsPtrJobsStatSheets, qmsENGDensity=qmsENGDensity, qmsENGConsumeTypeMulti=qmsENGConsumeTypeMulti, qmsSCGrayGammaFunction=qmsSCGrayGammaFunction, qmsSCSizeVertical=qmsSCSizeVertical, qmsSerTxSWFlow=qmsSerTxSWFlow, qmsFEStatusPageType=qmsFEStatusPageType, qmsHPGLPenColor1=qmsHPGLPenColor1, login13=login13, qmsPS=qmsPS, qmsPtrBinTable=qmsPtrBinTable, qmsFETmNonPSEmul=qmsFETmNonPSEmul, tftpEnb=tftpEnb, qmsCMMICCSimulation=qmsCMMICCSimulation, qmsPtrJobsCurPage=qmsPtrJobsCurPage, qmsSerHwDSR=qmsSerHwDSR, qmsDECLN03Xorigin=qmsDECLN03Xorigin, qmsPtrJobsStatPages=qmsPtrJobsStatPages, qmsHPGLPenColor2=qmsHPGLPenColor2, qmsInc=qmsInc, qmsHPGLPenColor6=qmsHPGLPenColor6, qmsDECLN03ProductID=qmsDECLN03ProductID, frSnap=frSnap, qmsCGMPrintErrors=qmsCGMPrintErrors, qmsQUIC2IfParam=qmsQUIC2IfParam, qmsHTTPSuppliesNumber=qmsHTTPSuppliesNumber, qmsLPTopMargin=qmsLPTopMargin, qmsCMMProfileType=qmsCMMProfileType, qmsPSIntensity=qmsPSIntensity, rprinter7=rprinter7, qmsClientSystem=qmsClientSystem, qmsPtrIfTable=qmsPtrIfTable, qmsENGQuality=qmsENGQuality, qmsLPBottomMargin=qmsLPBottomMargin, login14=login14, qmsQUIC2LineSpacing=qmsQUIC2LineSpacing, qmsIoCtl=qmsIoCtl, qmsENGInputbin=qmsENGInputbin, qmsCGMOriginX=qmsCGMOriginX, qmsSCRedGammaFunction=qmsSCRedGammaFunction, qmsQUIC2CommandCharacter=qmsQUIC2CommandCharacter, qmsLPRightMargin=qmsLPRightMargin, qmsParBufferSize=qmsParBufferSize, qmsENGDefaultPaper=qmsENGDefaultPaper, nms3Community=nms3Community, login10=login10, qmsPtrBinEntry=qmsPtrBinEntry, qmsFECopies=qmsFECopies, qmsMEMTotal=qmsMEMTotal, qmsHPPCLLinesPerInch=qmsHPPCLLinesPerInch, qmsENGUnderColor=qmsENGUnderColor, qmsACCDiskSpace=qmsACCDiskSpace, qmsCALSAutoScaling=qmsCALSAutoScaling, qmsPtrJobs=qmsPtrJobs, nms1Access=nms1Access, qmsHPGLPenWidth8=qmsHPGLPenWidth8, nms4Address=nms4Address, qmsENGConsumeIndexMulti=qmsENGConsumeIndexMulti, qmsQUIC2SaveDLF=qmsQUIC2SaveDLF, bootP=bootP, qmsENGChainOutputbin=qmsENGChainOutputbin, nms3Address=nms3Address, qmsClientDisk=qmsClientDisk, qmsLPLFisCRLF=qmsLPLFisCRLF, qmsPtrSysNamePrinter=qmsPtrSysNamePrinter, nms2Address=nms2Address, qmsCGMSuppressScale=qmsCGMSuppressScale, qmsQUIC2AllowPageCopies=qmsQUIC2AllowPageCopies, qmsSerPriority=qmsSerPriority, qmsDECLN03Yorigin=qmsDECLN03Yorigin, qmsTIFFPaperToImage=qmsTIFFPaperToImage, qmsFEHeaderInputbin=qmsFEHeaderInputbin, qmsCMMLinkQuality=qmsCMMLinkQuality, qmsENGConsumeUnitsMulti=qmsENGConsumeUnitsMulti, qmsQUIC2Spaces=qmsQUIC2Spaces, qmsParSpoolTimeout=qmsParSpoolTimeout, qmsQUIC2RebuildFontTable=qmsQUIC2RebuildFontTable, qmsLPFFisCRFF=qmsLPFFisCRFF, qmsHPGLPenColor5=qmsHPGLPenColor5)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/QMS-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:40:54 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(snmp,) = mibBuilder.importSymbols(
+    "SNMPv2-MIB",
+    "snmp")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ NotificationType,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "NotificationType",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_QmsInc_ObjectIdentity = ObjectIdentity
+qmsInc = _QmsInc_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480)
+)
+_QmsUIH_ObjectIdentity = ObjectIdentity
+qmsUIH = _QmsUIH_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 1)
+)
+_QmsSystem_ObjectIdentity = ObjectIdentity
+qmsSystem = _QmsSystem_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 1, 1)
+)
+_QmsSYSPageCount_Type = Integer32
+_QmsSYSPageCount_Object = MibScalar
+qmsSYSPageCount = _QmsSYSPageCount_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 1, 1001),
+    _QmsSYSPageCount_Type()
+)
+qmsSYSPageCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsSYSPageCount.setStatus("mandatory")
+_QmsSYSSheetCount_Type = Integer32
+_QmsSYSSheetCount_Object = MibScalar
+qmsSYSSheetCount = _QmsSYSSheetCount_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 1, 1002),
+    _QmsSYSSheetCount_Type()
+)
+qmsSYSSheetCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsSYSSheetCount.setStatus("mandatory")
+
+
+class _QmsSYSPrinterModel_Type(DisplayString):
+    """Custom type qmsSYSPrinterModel based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 80),
+    )
+
+
+_QmsSYSPrinterModel_Type.__name__ = "DisplayString"
+_QmsSYSPrinterModel_Object = MibScalar
+qmsSYSPrinterModel = _QmsSYSPrinterModel_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 1, 1003),
+    _QmsSYSPrinterModel_Type()
+)
+qmsSYSPrinterModel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsSYSPrinterModel.setStatus("mandatory")
+
+
+class _QmsSYSPrinterVersion_Type(DisplayString):
+    """Custom type qmsSYSPrinterVersion based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 80),
+    )
+
+
+_QmsSYSPrinterVersion_Type.__name__ = "DisplayString"
+_QmsSYSPrinterVersion_Object = MibScalar
+qmsSYSPrinterVersion = _QmsSYSPrinterVersion_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 1, 1004),
+    _QmsSYSPrinterVersion_Type()
+)
+qmsSYSPrinterVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsSYSPrinterVersion.setStatus("mandatory")
+
+
+class _QmsSYSPrinterName_Type(DisplayString):
+    """Custom type qmsSYSPrinterName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_QmsSYSPrinterName_Type.__name__ = "DisplayString"
+_QmsSYSPrinterName_Object = MibScalar
+qmsSYSPrinterName = _QmsSYSPrinterName_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 1, 1005),
+    _QmsSYSPrinterName_Type()
+)
+qmsSYSPrinterName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsSYSPrinterName.setStatus("mandatory")
+_QmsSYSA3PageCount_Type = Integer32
+_QmsSYSA3PageCount_Object = MibScalar
+qmsSYSA3PageCount = _QmsSYSA3PageCount_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 1, 1006),
+    _QmsSYSA3PageCount_Type()
+)
+qmsSYSA3PageCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsSYSA3PageCount.setStatus("mandatory")
+_QmsSYSA3SheetCount_Type = Integer32
+_QmsSYSA3SheetCount_Object = MibScalar
+qmsSYSA3SheetCount = _QmsSYSA3SheetCount_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 1, 1007),
+    _QmsSYSA3SheetCount_Type()
+)
+qmsSYSA3SheetCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsSYSA3SheetCount.setStatus("mandatory")
+
+
+class _QmsSYSFPA_Type(Integer32):
+    """Custom type qmsSYSFPA based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 1),
+          ("yes", 2))
+    )
+
+
+_QmsSYSFPA_Type.__name__ = "Integer32"
+_QmsSYSFPA_Object = MibScalar
+qmsSYSFPA = _QmsSYSFPA_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 1, 1008),
+    _QmsSYSFPA_Type()
+)
+qmsSYSFPA.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsSYSFPA.setStatus("mandatory")
+
+
+class _QmsSYSSystemImage_Type(Integer32):
+    """Custom type qmsSYSSystemImage based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("diskSystem", 1),
+          ("flashSystem", 2))
+    )
+
+
+_QmsSYSSystemImage_Type.__name__ = "Integer32"
+_QmsSYSSystemImage_Object = MibScalar
+qmsSYSSystemImage = _QmsSYSSystemImage_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 1, 1009),
+    _QmsSYSSystemImage_Type()
+)
+qmsSYSSystemImage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsSYSSystemImage.setStatus("mandatory")
+
+
+class _QmsSYSDiskSwap_Type(Integer32):
+    """Custom type qmsSYSDiskSwap based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("diskSwapingDisabled", 1),
+          ("diskSwapingEnabled", 2))
+    )
+
+
+_QmsSYSDiskSwap_Type.__name__ = "Integer32"
+_QmsSYSDiskSwap_Object = MibScalar
+qmsSYSDiskSwap = _QmsSYSDiskSwap_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 1, 1010),
+    _QmsSYSDiskSwap_Type()
+)
+qmsSYSDiskSwap.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsSYSDiskSwap.setStatus("mandatory")
+
+
+class _QmsSYSMultiRes_Type(Integer32):
+    """Custom type qmsSYSMultiRes based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 4),
+          ("lowMemory", 3),
+          ("notPresent", 2),
+          ("notSupported", 1),
+          ("optional", 5),
+          ("standard", 6))
+    )
+
+
+_QmsSYSMultiRes_Type.__name__ = "Integer32"
+_QmsSYSMultiRes_Object = MibScalar
+qmsSYSMultiRes = _QmsSYSMultiRes_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 1, 1011),
+    _QmsSYSMultiRes_Type()
+)
+qmsSYSMultiRes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsSYSMultiRes.setStatus("mandatory")
+_QmsMemory_ObjectIdentity = ObjectIdentity
+qmsMemory = _QmsMemory_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 1, 5)
+)
+_QmsMEMPhysical_Type = Integer32
+_QmsMEMPhysical_Object = MibScalar
+qmsMEMPhysical = _QmsMEMPhysical_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 5, 1),
+    _QmsMEMPhysical_Type()
+)
+qmsMEMPhysical.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsMEMPhysical.setStatus("mandatory")
+_QmsMEMTotal_Type = Integer32
+_QmsMEMTotal_Object = MibScalar
+qmsMEMTotal = _QmsMEMTotal_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 5, 2),
+    _QmsMEMTotal_Type()
+)
+qmsMEMTotal.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsMEMTotal.setStatus("mandatory")
+_QmsClientSystem_Type = Integer32
+_QmsClientSystem_Object = MibScalar
+qmsClientSystem = _QmsClientSystem_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 5, 3),
+    _QmsClientSystem_Type()
+)
+qmsClientSystem.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsClientSystem.setStatus("mandatory")
+_QmsClientSpool_Type = Integer32
+_QmsClientSpool_Object = MibScalar
+qmsClientSpool = _QmsClientSpool_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 5, 4),
+    _QmsClientSpool_Type()
+)
+qmsClientSpool.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsClientSpool.setStatus("mandatory")
+_QmsClientEmulation_Type = Integer32
+_QmsClientEmulation_Object = MibScalar
+qmsClientEmulation = _QmsClientEmulation_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 5, 5),
+    _QmsClientEmulation_Type()
+)
+qmsClientEmulation.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsClientEmulation.setStatus("mandatory")
+_QmsClientHeap_Type = Integer32
+_QmsClientHeap_Object = MibScalar
+qmsClientHeap = _QmsClientHeap_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 5, 6),
+    _QmsClientHeap_Type()
+)
+qmsClientHeap.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsClientHeap.setStatus("mandatory")
+_QmsClientFontCache_Type = Integer32
+_QmsClientFontCache_Object = MibScalar
+qmsClientFontCache = _QmsClientFontCache_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 5, 7),
+    _QmsClientFontCache_Type()
+)
+qmsClientFontCache.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsClientFontCache.setStatus("mandatory")
+_QmsClientDisplayList_Type = Integer32
+_QmsClientDisplayList_Object = MibScalar
+qmsClientDisplayList = _QmsClientDisplayList_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 5, 8),
+    _QmsClientDisplayList_Type()
+)
+qmsClientDisplayList.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsClientDisplayList.setStatus("mandatory")
+_QmsClientFrameBuffer_Type = Integer32
+_QmsClientFrameBuffer_Object = MibScalar
+qmsClientFrameBuffer = _QmsClientFrameBuffer_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 5, 9),
+    _QmsClientFrameBuffer_Type()
+)
+qmsClientFrameBuffer.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsClientFrameBuffer.setStatus("mandatory")
+_QmsClientEmulTemp_Type = Integer32
+_QmsClientEmulTemp_Object = MibScalar
+qmsClientEmulTemp = _QmsClientEmulTemp_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 5, 10),
+    _QmsClientEmulTemp_Type()
+)
+qmsClientEmulTemp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsClientEmulTemp.setStatus("mandatory")
+_QmsClientDisk_Type = Integer32
+_QmsClientDisk_Object = MibScalar
+qmsClientDisk = _QmsClientDisk_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 5, 11),
+    _QmsClientDisk_Type()
+)
+qmsClientDisk.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsClientDisk.setStatus("mandatory")
+_QmsClientColorMatching_Type = Integer32
+_QmsClientColorMatching_Object = MibScalar
+qmsClientColorMatching = _QmsClientColorMatching_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 5, 13),
+    _QmsClientColorMatching_Type()
+)
+qmsClientColorMatching.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsClientColorMatching.setStatus("mandatory")
+_QmsClientHPStoragePool_Type = Integer32
+_QmsClientHPStoragePool_Object = MibScalar
+qmsClientHPStoragePool = _QmsClientHPStoragePool_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 5, 14),
+    _QmsClientHPStoragePool_Type()
+)
+qmsClientHPStoragePool.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsClientHPStoragePool.setStatus("mandatory")
+_QmsIoCtl_ObjectIdentity = ObjectIdentity
+qmsIoCtl = _QmsIoCtl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 1, 101)
+)
+
+
+class _QmsFEEspEmul_Type(Integer32):
+    """Custom type qmsFEEspEmul based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              5,
+              6,
+              13,
+              15,
+              19,
+              20,
+              22,
+              23,
+              25)
+        )
+    )
+    namedValues = NamedValues(
+        *(("cals", 23),
+          ("ccitt", 19),
+          ("cgm", 25),
+          ("hpgl", 5),
+          ("hppcl", 6),
+          ("lineprinter", 20),
+          ("ln03", 13),
+          ("postscript", 1),
+          ("quic2", 15),
+          ("tiff", 22))
+    )
+
+
+_QmsFEEspEmul_Type.__name__ = "Integer32"
+_QmsFEEspEmul_Object = MibScalar
+qmsFEEspEmul = _QmsFEEspEmul_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 101, 7),
+    _QmsFEEspEmul_Type()
+)
+qmsFEEspEmul.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsFEEspEmul.setStatus("mandatory")
+
+
+class _QmsFECopies_Type(Integer32):
+    """Custom type qmsFECopies based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 999),
+    )
+
+
+_QmsFECopies_Type.__name__ = "Integer32"
+_QmsFECopies_Object = MibScalar
+qmsFECopies = _QmsFECopies_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 101, 17),
+    _QmsFECopies_Type()
+)
+qmsFECopies.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsFECopies.setStatus("mandatory")
+_QmsHTTP_ObjectIdentity = ObjectIdentity
+qmsHTTP = _QmsHTTP_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 1, 102)
+)
+
+
+class _QmsHTTPContact_Type(DisplayString):
+    """Custom type qmsHTTPContact based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 128),
+    )
+
+
+_QmsHTTPContact_Type.__name__ = "DisplayString"
+_QmsHTTPContact_Object = MibScalar
+qmsHTTPContact = _QmsHTTPContact_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 102, 1),
+    _QmsHTTPContact_Type()
+)
+qmsHTTPContact.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsHTTPContact.setStatus("mandatory")
+
+
+class _QmsHTTPHelpURL_Type(DisplayString):
+    """Custom type qmsHTTPHelpURL based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 128),
+    )
+
+
+_QmsHTTPHelpURL_Type.__name__ = "DisplayString"
+_QmsHTTPHelpURL_Object = MibScalar
+qmsHTTPHelpURL = _QmsHTTPHelpURL_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 102, 2),
+    _QmsHTTPHelpURL_Type()
+)
+qmsHTTPHelpURL.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsHTTPHelpURL.setStatus("mandatory")
+
+
+class _QmsHTTPContactNumber_Type(DisplayString):
+    """Custom type qmsHTTPContactNumber based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 128),
+    )
+
+
+_QmsHTTPContactNumber_Type.__name__ = "DisplayString"
+_QmsHTTPContactNumber_Object = MibScalar
+qmsHTTPContactNumber = _QmsHTTPContactNumber_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 102, 3),
+    _QmsHTTPContactNumber_Type()
+)
+qmsHTTPContactNumber.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsHTTPContactNumber.setStatus("mandatory")
+
+
+class _QmsHTTPCorpURL_Type(DisplayString):
+    """Custom type qmsHTTPCorpURL based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 128),
+    )
+
+
+_QmsHTTPCorpURL_Type.__name__ = "DisplayString"
+_QmsHTTPCorpURL_Object = MibScalar
+qmsHTTPCorpURL = _QmsHTTPCorpURL_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 102, 4),
+    _QmsHTTPCorpURL_Type()
+)
+qmsHTTPCorpURL.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsHTTPCorpURL.setStatus("mandatory")
+
+
+class _QmsHTTPSuppliesNumber_Type(DisplayString):
+    """Custom type qmsHTTPSuppliesNumber based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 128),
+    )
+
+
+_QmsHTTPSuppliesNumber_Type.__name__ = "DisplayString"
+_QmsHTTPSuppliesNumber_Object = MibScalar
+qmsHTTPSuppliesNumber = _QmsHTTPSuppliesNumber_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 102, 5),
+    _QmsHTTPSuppliesNumber_Type()
+)
+qmsHTTPSuppliesNumber.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsHTTPSuppliesNumber.setStatus("mandatory")
+_QmsIoTimeOuts_ObjectIdentity = ObjectIdentity
+qmsIoTimeOuts = _QmsIoTimeOuts_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 1, 103)
+)
+
+
+class _QmsFETmPSWait_Type(Integer32):
+    """Custom type qmsFETmPSWait based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 99999),
+    )
+
+
+_QmsFETmPSWait_Type.__name__ = "Integer32"
+_QmsFETmPSWait_Object = MibScalar
+qmsFETmPSWait = _QmsFETmPSWait_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 103, 1),
+    _QmsFETmPSWait_Type()
+)
+qmsFETmPSWait.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsFETmPSWait.setStatus("mandatory")
+
+
+class _QmsFETmJob_Type(Integer32):
+    """Custom type qmsFETmJob based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 99999),
+    )
+
+
+_QmsFETmJob_Type.__name__ = "Integer32"
+_QmsFETmJob_Object = MibScalar
+qmsFETmJob = _QmsFETmJob_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 103, 2),
+    _QmsFETmJob_Type()
+)
+qmsFETmJob.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsFETmJob.setStatus("mandatory")
+
+
+class _QmsFETmNonPSEmul_Type(Integer32):
+    """Custom type qmsFETmNonPSEmul based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 99999),
+    )
+
+
+_QmsFETmNonPSEmul_Type.__name__ = "Integer32"
+_QmsFETmNonPSEmul_Object = MibScalar
+qmsFETmNonPSEmul = _QmsFETmNonPSEmul_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 103, 3),
+    _QmsFETmNonPSEmul_Type()
+)
+qmsFETmNonPSEmul.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsFETmNonPSEmul.setStatus("mandatory")
+
+
+class _QmsFETmEsp_Type(Integer32):
+    """Custom type qmsFETmEsp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 99999),
+    )
+
+
+_QmsFETmEsp_Type.__name__ = "Integer32"
+_QmsFETmEsp_Object = MibScalar
+qmsFETmEsp = _QmsFETmEsp_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 103, 4),
+    _QmsFETmEsp_Type()
+)
+qmsFETmEsp.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsFETmEsp.setStatus("mandatory")
+_QmsIoPages_ObjectIdentity = ObjectIdentity
+qmsIoPages = _QmsIoPages_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 1, 104)
+)
+
+
+class _QmsFEDoStartPage_Type(Integer32):
+    """Custom type qmsFEDoStartPage based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 1),
+          ("yes", 2))
+    )
+
+
+_QmsFEDoStartPage_Type.__name__ = "Integer32"
+_QmsFEDoStartPage_Object = MibScalar
+qmsFEDoStartPage = _QmsFEDoStartPage_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 104, 5),
+    _QmsFEDoStartPage_Type()
+)
+qmsFEDoStartPage.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsFEDoStartPage.setStatus("mandatory")
+
+
+class _QmsFEHeaderPage_Type(Integer32):
+    """Custom type qmsFEHeaderPage based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsFEHeaderPage_Type.__name__ = "Integer32"
+_QmsFEHeaderPage_Object = MibScalar
+qmsFEHeaderPage = _QmsFEHeaderPage_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 104, 8),
+    _QmsFEHeaderPage_Type()
+)
+qmsFEHeaderPage.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsFEHeaderPage.setStatus("mandatory")
+_QmsFEHeaderInputbin_Type = Integer32
+_QmsFEHeaderInputbin_Object = MibScalar
+qmsFEHeaderInputbin = _QmsFEHeaderInputbin_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 104, 9),
+    _QmsFEHeaderInputbin_Type()
+)
+qmsFEHeaderInputbin.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsFEHeaderInputbin.setStatus("mandatory")
+
+
+class _QmsFETrailerPage_Type(Integer32):
+    """Custom type qmsFETrailerPage based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("errorOnly", 3),
+          ("off", 1),
+          ("on", 4),
+          ("onError", 5))
+    )
+
+
+_QmsFETrailerPage_Type.__name__ = "Integer32"
+_QmsFETrailerPage_Object = MibScalar
+qmsFETrailerPage = _QmsFETrailerPage_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 104, 10),
+    _QmsFETrailerPage_Type()
+)
+qmsFETrailerPage.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsFETrailerPage.setStatus("mandatory")
+_QmsFETrailerInputbin_Type = Integer32
+_QmsFETrailerInputbin_Object = MibScalar
+qmsFETrailerInputbin = _QmsFETrailerInputbin_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 104, 11),
+    _QmsFETrailerInputbin_Type()
+)
+qmsFETrailerInputbin.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsFETrailerInputbin.setStatus("mandatory")
+
+
+class _QmsFEDoSysStart_Type(Integer32):
+    """Custom type qmsFEDoSysStart based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 1),
+          ("yes", 2))
+    )
+
+
+_QmsFEDoSysStart_Type.__name__ = "Integer32"
+_QmsFEDoSysStart_Object = MibScalar
+qmsFEDoSysStart = _QmsFEDoSysStart_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 104, 12),
+    _QmsFEDoSysStart_Type()
+)
+qmsFEDoSysStart.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsFEDoSysStart.setStatus("mandatory")
+
+
+class _QmsFEStatusPageType_Type(Integer32):
+    """Custom type qmsFEStatusPageType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("advanced", 2),
+          ("standard", 1))
+    )
+
+
+_QmsFEStatusPageType_Type.__name__ = "Integer32"
+_QmsFEStatusPageType_Object = MibScalar
+qmsFEStatusPageType = _QmsFEStatusPageType_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 104, 15),
+    _QmsFEStatusPageType_Type()
+)
+qmsFEStatusPageType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsFEStatusPageType.setStatus("mandatory")
+_QmsSerial_ObjectIdentity = ObjectIdentity
+qmsSerial = _QmsSerial_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 1, 160)
+)
+
+
+class _QmsSerPSProtocol_Type(Integer32):
+    """Custom type qmsSerPSProtocol based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("binary", 3),
+          ("binaryfixed", 4),
+          ("normal", 1),
+          ("normalfixed", 2))
+    )
+
+
+_QmsSerPSProtocol_Type.__name__ = "Integer32"
+_QmsSerPSProtocol_Object = MibScalar
+qmsSerPSProtocol = _QmsSerPSProtocol_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 160, 100),
+    _QmsSerPSProtocol_Type()
+)
+qmsSerPSProtocol.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsSerPSProtocol.setStatus("mandatory")
+
+
+class _QmsSerMode_Type(Integer32):
+    """Custom type qmsSerMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 1),
+          ("interactive", 3),
+          ("noninteractive", 4))
+    )
+
+
+_QmsSerMode_Type.__name__ = "Integer32"
+_QmsSerMode_Object = MibScalar
+qmsSerMode = _QmsSerMode_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 160, 101),
+    _QmsSerMode_Type()
+)
+qmsSerMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsSerMode.setStatus("mandatory")
+
+
+class _QmsSerEmulation_Type(Integer32):
+    """Custom type qmsSerEmulation based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              5,
+              6,
+              7,
+              13,
+              15,
+              19,
+              20,
+              22,
+              23,
+              25,
+              201)
+        )
+    )
+    namedValues = NamedValues(
+        *(("cals", 23),
+          ("ccitt", 19),
+          ("cgm", 25),
+          ("esp", 201),
+          ("hexdump", 7),
+          ("hpgl", 5),
+          ("hppcl", 6),
+          ("lineprinter", 20),
+          ("ln03", 13),
+          ("postscript", 1),
+          ("quic2", 15),
+          ("tiff", 22))
+    )
+
+
+_QmsSerEmulation_Type.__name__ = "Integer32"
+_QmsSerEmulation_Object = MibScalar
+qmsSerEmulation = _QmsSerEmulation_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 160, 102),
+    _QmsSerEmulation_Type()
+)
+qmsSerEmulation.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsSerEmulation.setStatus("mandatory")
+
+
+class _QmsSerPriority_Type(Integer32):
+    """Custom type qmsSerPriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 100),
+    )
+
+
+_QmsSerPriority_Type.__name__ = "Integer32"
+_QmsSerPriority_Object = MibScalar
+qmsSerPriority = _QmsSerPriority_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 160, 103),
+    _QmsSerPriority_Type()
+)
+qmsSerPriority.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsSerPriority.setStatus("mandatory")
+_QmsSerBufferSize_Type = Integer32
+_QmsSerBufferSize_Object = MibScalar
+qmsSerBufferSize = _QmsSerBufferSize_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 160, 104),
+    _QmsSerBufferSize_Type()
+)
+qmsSerBufferSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsSerBufferSize.setStatus("mandatory")
+
+
+class _QmsSerEndDocumentMode_Type(Integer32):
+    """Custom type qmsSerEndDocumentMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("hpeod", 3),
+          ("none", 1),
+          ("qmseod", 2))
+    )
+
+
+_QmsSerEndDocumentMode_Type.__name__ = "Integer32"
+_QmsSerEndDocumentMode_Object = MibScalar
+qmsSerEndDocumentMode = _QmsSerEndDocumentMode_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 160, 111),
+    _QmsSerEndDocumentMode_Type()
+)
+qmsSerEndDocumentMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsSerEndDocumentMode.setStatus("mandatory")
+
+
+class _QmsSerSpoolTimeout_Type(Integer32):
+    """Custom type qmsSerSpoolTimeout based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 99999),
+    )
+
+
+_QmsSerSpoolTimeout_Type.__name__ = "Integer32"
+_QmsSerSpoolTimeout_Object = MibScalar
+qmsSerSpoolTimeout = _QmsSerSpoolTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 160, 112),
+    _QmsSerSpoolTimeout_Type()
+)
+qmsSerSpoolTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsSerSpoolTimeout.setStatus("mandatory")
+
+
+class _QmsSerBaudRate_Type(Integer32):
+    """Custom type qmsSerBaudRate based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(301,
+              601,
+              1201,
+              2401,
+              4801,
+              9601,
+              19201,
+              38401)
+        )
+    )
+    namedValues = NamedValues(
+        *(("bps1200", 1201),
+          ("bps19200", 19201),
+          ("bps2400", 2401),
+          ("bps300", 301),
+          ("bps38400", 38401),
+          ("bps4800", 4801),
+          ("bps600", 601),
+          ("bps9600", 9601))
+    )
+
+
+_QmsSerBaudRate_Type.__name__ = "Integer32"
+_QmsSerBaudRate_Object = MibScalar
+qmsSerBaudRate = _QmsSerBaudRate_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 160, 201),
+    _QmsSerBaudRate_Type()
+)
+qmsSerBaudRate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsSerBaudRate.setStatus("mandatory")
+
+
+class _QmsSerParity_Type(Integer32):
+    """Custom type qmsSerParity based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("even", 5),
+          ("none", 1),
+          ("odd", 4))
+    )
+
+
+_QmsSerParity_Type.__name__ = "Integer32"
+_QmsSerParity_Object = MibScalar
+qmsSerParity = _QmsSerParity_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 160, 202),
+    _QmsSerParity_Type()
+)
+qmsSerParity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsSerParity.setStatus("mandatory")
+
+
+class _QmsSerIgnoreParity_Type(Integer32):
+    """Custom type qmsSerIgnoreParity based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsSerIgnoreParity_Type.__name__ = "Integer32"
+_QmsSerIgnoreParity_Object = MibScalar
+qmsSerIgnoreParity = _QmsSerIgnoreParity_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 160, 203),
+    _QmsSerIgnoreParity_Type()
+)
+qmsSerIgnoreParity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsSerIgnoreParity.setStatus("mandatory")
+
+
+class _QmsSerRxSWFlow_Type(Integer32):
+    """Custom type qmsSerRxSWFlow based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("etxack", 3),
+          ("none", 1),
+          ("robustxonxoff", 4),
+          ("xonxoff", 2))
+    )
+
+
+_QmsSerRxSWFlow_Type.__name__ = "Integer32"
+_QmsSerRxSWFlow_Object = MibScalar
+qmsSerRxSWFlow = _QmsSerRxSWFlow_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 160, 204),
+    _QmsSerRxSWFlow_Type()
+)
+qmsSerRxSWFlow.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsSerRxSWFlow.setStatus("mandatory")
+
+
+class _QmsSerTxSWFlow_Type(Integer32):
+    """Custom type qmsSerTxSWFlow based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("etxack", 3),
+          ("none", 1),
+          ("xonxoff", 2))
+    )
+
+
+_QmsSerTxSWFlow_Type.__name__ = "Integer32"
+_QmsSerTxSWFlow_Object = MibScalar
+qmsSerTxSWFlow = _QmsSerTxSWFlow_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 160, 205),
+    _QmsSerTxSWFlow_Type()
+)
+qmsSerTxSWFlow.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsSerTxSWFlow.setStatus("mandatory")
+
+
+class _QmsSerDataBits_Type(Integer32):
+    """Custom type qmsSerDataBits based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("bits5", 4),
+          ("bits6", 3),
+          ("bits7", 2),
+          ("bits8", 1))
+    )
+
+
+_QmsSerDataBits_Type.__name__ = "Integer32"
+_QmsSerDataBits_Object = MibScalar
+qmsSerDataBits = _QmsSerDataBits_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 160, 206),
+    _QmsSerDataBits_Type()
+)
+qmsSerDataBits.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsSerDataBits.setStatus("mandatory")
+
+
+class _QmsSerStopBits_Type(Integer32):
+    """Custom type qmsSerStopBits based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("oneandhalf", 3),
+          ("onebit", 1),
+          ("twobits", 2))
+    )
+
+
+_QmsSerStopBits_Type.__name__ = "Integer32"
+_QmsSerStopBits_Object = MibScalar
+qmsSerStopBits = _QmsSerStopBits_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 160, 207),
+    _QmsSerStopBits_Type()
+)
+qmsSerStopBits.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsSerStopBits.setStatus("mandatory")
+
+
+class _QmsSerHwCTS_Type(Integer32):
+    """Custom type qmsSerHwCTS based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsSerHwCTS_Type.__name__ = "Integer32"
+_QmsSerHwCTS_Object = MibScalar
+qmsSerHwCTS = _QmsSerHwCTS_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 160, 208),
+    _QmsSerHwCTS_Type()
+)
+qmsSerHwCTS.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsSerHwCTS.setStatus("mandatory")
+
+
+class _QmsSerHwRTS_Type(Integer32):
+    """Custom type qmsSerHwRTS based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsSerHwRTS_Type.__name__ = "Integer32"
+_QmsSerHwRTS_Object = MibScalar
+qmsSerHwRTS = _QmsSerHwRTS_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 160, 209),
+    _QmsSerHwRTS_Type()
+)
+qmsSerHwRTS.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsSerHwRTS.setStatus("mandatory")
+
+
+class _QmsSerHwDTR_Type(Integer32):
+    """Custom type qmsSerHwDTR based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsSerHwDTR_Type.__name__ = "Integer32"
+_QmsSerHwDTR_Object = MibScalar
+qmsSerHwDTR = _QmsSerHwDTR_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 160, 210),
+    _QmsSerHwDTR_Type()
+)
+qmsSerHwDTR.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsSerHwDTR.setStatus("mandatory")
+
+
+class _QmsSerHwDTRPOL_Type(Integer32):
+    """Custom type qmsSerHwDTRPOL based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("normal", 2),
+          ("reverse", 1))
+    )
+
+
+_QmsSerHwDTRPOL_Type.__name__ = "Integer32"
+_QmsSerHwDTRPOL_Object = MibScalar
+qmsSerHwDTRPOL = _QmsSerHwDTRPOL_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 160, 211),
+    _QmsSerHwDTRPOL_Type()
+)
+qmsSerHwDTRPOL.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsSerHwDTRPOL.setStatus("mandatory")
+
+
+class _QmsSerHwDSR_Type(Integer32):
+    """Custom type qmsSerHwDSR based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsSerHwDSR_Type.__name__ = "Integer32"
+_QmsSerHwDSR_Object = MibScalar
+qmsSerHwDSR = _QmsSerHwDSR_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 160, 212),
+    _QmsSerHwDSR_Type()
+)
+qmsSerHwDSR.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsSerHwDSR.setStatus("mandatory")
+
+
+class _QmsSerHwDSRPOL_Type(Integer32):
+    """Custom type qmsSerHwDSRPOL based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("normal", 2),
+          ("reverse", 1))
+    )
+
+
+_QmsSerHwDSRPOL_Type.__name__ = "Integer32"
+_QmsSerHwDSRPOL_Object = MibScalar
+qmsSerHwDSRPOL = _QmsSerHwDSRPOL_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 160, 213),
+    _QmsSerHwDSRPOL_Type()
+)
+qmsSerHwDSRPOL.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsSerHwDSRPOL.setStatus("mandatory")
+_QmsParallel_ObjectIdentity = ObjectIdentity
+qmsParallel = _QmsParallel_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 1, 161)
+)
+
+
+class _QmsParPSProtocol_Type(Integer32):
+    """Custom type qmsParPSProtocol based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("binary", 3),
+          ("binaryfixed", 4),
+          ("normal", 1),
+          ("normalfixed", 2))
+    )
+
+
+_QmsParPSProtocol_Type.__name__ = "Integer32"
+_QmsParPSProtocol_Object = MibScalar
+qmsParPSProtocol = _QmsParPSProtocol_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 161, 100),
+    _QmsParPSProtocol_Type()
+)
+qmsParPSProtocol.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsParPSProtocol.setStatus("mandatory")
+
+
+class _QmsParMode_Type(Integer32):
+    """Custom type qmsParMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 1),
+          ("interactive", 3),
+          ("noninteractive", 4))
+    )
+
+
+_QmsParMode_Type.__name__ = "Integer32"
+_QmsParMode_Object = MibScalar
+qmsParMode = _QmsParMode_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 161, 101),
+    _QmsParMode_Type()
+)
+qmsParMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsParMode.setStatus("mandatory")
+
+
+class _QmsParEmulation_Type(Integer32):
+    """Custom type qmsParEmulation based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              5,
+              6,
+              7,
+              13,
+              15,
+              19,
+              20,
+              22,
+              23,
+              25,
+              201)
+        )
+    )
+    namedValues = NamedValues(
+        *(("cals", 23),
+          ("ccitt", 19),
+          ("cgm", 25),
+          ("esp", 201),
+          ("hexdump", 7),
+          ("hpgl", 5),
+          ("hppcl", 6),
+          ("lineprinter", 20),
+          ("ln03", 13),
+          ("postscript", 1),
+          ("quic2", 15),
+          ("tiff", 22))
+    )
+
+
+_QmsParEmulation_Type.__name__ = "Integer32"
+_QmsParEmulation_Object = MibScalar
+qmsParEmulation = _QmsParEmulation_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 161, 102),
+    _QmsParEmulation_Type()
+)
+qmsParEmulation.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsParEmulation.setStatus("mandatory")
+
+
+class _QmsParPriority_Type(Integer32):
+    """Custom type qmsParPriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 100),
+    )
+
+
+_QmsParPriority_Type.__name__ = "Integer32"
+_QmsParPriority_Object = MibScalar
+qmsParPriority = _QmsParPriority_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 161, 103),
+    _QmsParPriority_Type()
+)
+qmsParPriority.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsParPriority.setStatus("mandatory")
+_QmsParBufferSize_Type = Integer32
+_QmsParBufferSize_Object = MibScalar
+qmsParBufferSize = _QmsParBufferSize_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 161, 104),
+    _QmsParBufferSize_Type()
+)
+qmsParBufferSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsParBufferSize.setStatus("mandatory")
+
+
+class _QmsParSpoolTimeout_Type(Integer32):
+    """Custom type qmsParSpoolTimeout based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 99999),
+    )
+
+
+_QmsParSpoolTimeout_Type.__name__ = "Integer32"
+_QmsParSpoolTimeout_Object = MibScalar
+qmsParSpoolTimeout = _QmsParSpoolTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 161, 111),
+    _QmsParSpoolTimeout_Type()
+)
+qmsParSpoolTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsParSpoolTimeout.setStatus("mandatory")
+
+
+class _QmsParEndDocumentMode_Type(Integer32):
+    """Custom type qmsParEndDocumentMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("hpeod", 3),
+          ("none", 1),
+          ("qmseod", 2))
+    )
+
+
+_QmsParEndDocumentMode_Type.__name__ = "Integer32"
+_QmsParEndDocumentMode_Object = MibScalar
+qmsParEndDocumentMode = _QmsParEndDocumentMode_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 161, 112),
+    _QmsParEndDocumentMode_Type()
+)
+qmsParEndDocumentMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsParEndDocumentMode.setStatus("mandatory")
+
+
+class _QmsParDataBits_Type(Integer32):
+    """Custom type qmsParDataBits based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("bits7", 2),
+          ("bits8", 1))
+    )
+
+
+_QmsParDataBits_Type.__name__ = "Integer32"
+_QmsParDataBits_Object = MibScalar
+qmsParDataBits = _QmsParDataBits_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 161, 113),
+    _QmsParDataBits_Type()
+)
+qmsParDataBits.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsParDataBits.setStatus("mandatory")
+_QmsEngine_ObjectIdentity = ObjectIdentity
+qmsEngine = _QmsEngine_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304)
+)
+
+
+class _QmsENGTopOffset_Type(Integer32):
+    """Custom type qmsENGTopOffset based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 300),
+    )
+
+
+_QmsENGTopOffset_Type.__name__ = "Integer32"
+_QmsENGTopOffset_Object = MibScalar
+qmsENGTopOffset = _QmsENGTopOffset_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 1),
+    _QmsENGTopOffset_Type()
+)
+qmsENGTopOffset.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsENGTopOffset.setStatus("mandatory")
+
+
+class _QmsENGLeftOffset_Type(Integer32):
+    """Custom type qmsENGLeftOffset based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 300),
+    )
+
+
+_QmsENGLeftOffset_Type.__name__ = "Integer32"
+_QmsENGLeftOffset_Object = MibScalar
+qmsENGLeftOffset = _QmsENGLeftOffset_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 2),
+    _QmsENGLeftOffset_Type()
+)
+qmsENGLeftOffset.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsENGLeftOffset.setStatus("mandatory")
+
+
+class _QmsENGTopOffsetDuplex_Type(Integer32):
+    """Custom type qmsENGTopOffsetDuplex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 300),
+    )
+
+
+_QmsENGTopOffsetDuplex_Type.__name__ = "Integer32"
+_QmsENGTopOffsetDuplex_Object = MibScalar
+qmsENGTopOffsetDuplex = _QmsENGTopOffsetDuplex_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 4),
+    _QmsENGTopOffsetDuplex_Type()
+)
+qmsENGTopOffsetDuplex.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsENGTopOffsetDuplex.setStatus("mandatory")
+
+
+class _QmsENGLeftOffsetDuplex_Type(Integer32):
+    """Custom type qmsENGLeftOffsetDuplex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 300),
+    )
+
+
+_QmsENGLeftOffsetDuplex_Type.__name__ = "Integer32"
+_QmsENGLeftOffsetDuplex_Object = MibScalar
+qmsENGLeftOffsetDuplex = _QmsENGLeftOffsetDuplex_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 6),
+    _QmsENGLeftOffsetDuplex_Type()
+)
+qmsENGLeftOffsetDuplex.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsENGLeftOffsetDuplex.setStatus("mandatory")
+
+
+class _QmsENGResolution_Type(Integer32):
+    """Custom type qmsENGResolution based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(301,
+              601,
+              1201,
+              2401)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dpi1200", 1201),
+          ("dpi2401", 2401),
+          ("dpi300", 301),
+          ("dpi600", 601))
+    )
+
+
+_QmsENGResolution_Type.__name__ = "Integer32"
+_QmsENGResolution_Object = MibScalar
+qmsENGResolution = _QmsENGResolution_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 8),
+    _QmsENGResolution_Type()
+)
+qmsENGResolution.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsENGResolution.setStatus("mandatory")
+
+
+class _QmsENGDefaultPaper_Type(Integer32):
+    """Custom type qmsENGDefaultPaper based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("a4", 2),
+          ("letter", 1))
+    )
+
+
+_QmsENGDefaultPaper_Type.__name__ = "Integer32"
+_QmsENGDefaultPaper_Object = MibScalar
+qmsENGDefaultPaper = _QmsENGDefaultPaper_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 11),
+    _QmsENGDefaultPaper_Type()
+)
+qmsENGDefaultPaper.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsENGDefaultPaper.setStatus("mandatory")
+
+
+class _QmsENGDuplex_Type(Integer32):
+    """Custom type qmsENGDuplex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("longedge", 2),
+          ("off", 1),
+          ("shortedge", 3))
+    )
+
+
+_QmsENGDuplex_Type.__name__ = "Integer32"
+_QmsENGDuplex_Object = MibScalar
+qmsENGDuplex = _QmsENGDuplex_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 12),
+    _QmsENGDuplex_Type()
+)
+qmsENGDuplex.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsENGDuplex.setStatus("mandatory")
+
+
+class _QmsENGOrientation_Type(Integer32):
+    """Custom type qmsENGOrientation based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("landscape", 2),
+          ("portrait", 1))
+    )
+
+
+_QmsENGOrientation_Type.__name__ = "Integer32"
+_QmsENGOrientation_Object = MibScalar
+qmsENGOrientation = _QmsENGOrientation_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 14),
+    _QmsENGOrientation_Type()
+)
+qmsENGOrientation.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsENGOrientation.setStatus("mandatory")
+_QmsENGInputbin_Type = Integer32
+_QmsENGInputbin_Object = MibScalar
+qmsENGInputbin = _QmsENGInputbin_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 15),
+    _QmsENGInputbin_Type()
+)
+qmsENGInputbin.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsENGInputbin.setStatus("mandatory")
+_QmsENGOutputbin_Type = Integer32
+_QmsENGOutputbin_Object = MibScalar
+qmsENGOutputbin = _QmsENGOutputbin_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 16),
+    _QmsENGOutputbin_Type()
+)
+qmsENGOutputbin.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsENGOutputbin.setStatus("mandatory")
+
+
+class _QmsENGCollation_Type(Integer32):
+    """Custom type qmsENGCollation based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsENGCollation_Type.__name__ = "Integer32"
+_QmsENGCollation_Object = MibScalar
+qmsENGCollation = _QmsENGCollation_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 17),
+    _QmsENGCollation_Type()
+)
+qmsENGCollation.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsENGCollation.setStatus("mandatory")
+
+
+class _QmsENGErrorRecovery_Type(Integer32):
+    """Custom type qmsENGErrorRecovery based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsENGErrorRecovery_Type.__name__ = "Integer32"
+_QmsENGErrorRecovery_Object = MibScalar
+qmsENGErrorRecovery = _QmsENGErrorRecovery_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 19),
+    _QmsENGErrorRecovery_Type()
+)
+qmsENGErrorRecovery.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsENGErrorRecovery.setStatus("mandatory")
+
+
+class _QmsENGManualTrayMedia_Type(Integer32):
+    """Custom type qmsENGManualTrayMedia based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16)
+        )
+    )
+    namedValues = NamedValues(
+        *(("a3", 5),
+          ("a4", 6),
+          ("a5", 7),
+          ("b4", 8),
+          ("b5", 9),
+          ("c5", 15),
+          ("com10", 12),
+          ("dl", 13),
+          ("envelope", 16),
+          ("executive", 3),
+          ("legal", 2),
+          ("letter", 1),
+          ("monarch", 14),
+          ("statement", 10),
+          ("sz11x17", 4),
+          ("universal", 11))
+    )
+
+
+_QmsENGManualTrayMedia_Type.__name__ = "Integer32"
+_QmsENGManualTrayMedia_Object = MibScalar
+qmsENGManualTrayMedia = _QmsENGManualTrayMedia_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 20),
+    _QmsENGManualTrayMedia_Type()
+)
+qmsENGManualTrayMedia.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsENGManualTrayMedia.setStatus("mandatory")
+
+
+class _QmsENGToneroutAction_Type(Integer32):
+    """Custom type qmsENGToneroutAction based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("continue", 2),
+          ("stop", 1))
+    )
+
+
+_QmsENGToneroutAction_Type.__name__ = "Integer32"
+_QmsENGToneroutAction_Object = MibScalar
+qmsENGToneroutAction = _QmsENGToneroutAction_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 21),
+    _QmsENGToneroutAction_Type()
+)
+qmsENGToneroutAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsENGToneroutAction.setStatus("mandatory")
+
+
+class _QmsENGLetterheadMode_Type(Integer32):
+    """Custom type qmsENGLetterheadMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("duplexPath", 2),
+          ("off", 1),
+          ("rotateSimplex", 3))
+    )
+
+
+_QmsENGLetterheadMode_Type.__name__ = "Integer32"
+_QmsENGLetterheadMode_Object = MibScalar
+qmsENGLetterheadMode = _QmsENGLetterheadMode_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 23),
+    _QmsENGLetterheadMode_Type()
+)
+qmsENGLetterheadMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsENGLetterheadMode.setStatus("mandatory")
+
+
+class _QmsENGManualFeedTimeout_Type(Integer32):
+    """Custom type qmsENGManualFeedTimeout based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 300),
+    )
+
+
+_QmsENGManualFeedTimeout_Type.__name__ = "Integer32"
+_QmsENGManualFeedTimeout_Object = MibScalar
+qmsENGManualFeedTimeout = _QmsENGManualFeedTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 24),
+    _QmsENGManualFeedTimeout_Type()
+)
+qmsENGManualFeedTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsENGManualFeedTimeout.setStatus("mandatory")
+
+
+class _QmsENGOffsetStacking_Type(Integer32):
+    """Custom type qmsENGOffsetStacking based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsENGOffsetStacking_Type.__name__ = "Integer32"
+_QmsENGOffsetStacking_Object = MibScalar
+qmsENGOffsetStacking = _QmsENGOffsetStacking_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 26),
+    _QmsENGOffsetStacking_Type()
+)
+qmsENGOffsetStacking.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsENGOffsetStacking.setStatus("mandatory")
+
+
+class _QmsENGEnergyStar_Type(Integer32):
+    """Custom type qmsENGEnergyStar based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              16,
+              31,
+              61,
+              121,
+              181)
+        )
+    )
+    namedValues = NamedValues(
+        *(("hour1", 61),
+          ("hour2", 121),
+          ("hour3", 181),
+          ("min15", 16),
+          ("min30", 31),
+          ("off", 1))
+    )
+
+
+_QmsENGEnergyStar_Type.__name__ = "Integer32"
+_QmsENGEnergyStar_Object = MibScalar
+qmsENGEnergyStar = _QmsENGEnergyStar_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 27),
+    _QmsENGEnergyStar_Type()
+)
+qmsENGEnergyStar.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsENGEnergyStar.setStatus("mandatory")
+
+
+class _QmsENGPageOrder_Type(Integer32):
+    """Custom type qmsENGPageOrder based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("normal", 2),
+          ("reverse", 1))
+    )
+
+
+_QmsENGPageOrder_Type.__name__ = "Integer32"
+_QmsENGPageOrder_Object = MibScalar
+qmsENGPageOrder = _QmsENGPageOrder_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 40),
+    _QmsENGPageOrder_Type()
+)
+qmsENGPageOrder.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsENGPageOrder.setStatus("mandatory")
+
+
+class _QmsENGEnvelopeTrayMedia_Type(Integer32):
+    """Custom type qmsENGEnvelopeTrayMedia based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(12,
+              13,
+              14,
+              15,
+              16)
+        )
+    )
+    namedValues = NamedValues(
+        *(("c5", 15),
+          ("com10", 12),
+          ("dl", 13),
+          ("envelope", 16),
+          ("monarch", 14))
+    )
+
+
+_QmsENGEnvelopeTrayMedia_Type.__name__ = "Integer32"
+_QmsENGEnvelopeTrayMedia_Object = MibScalar
+qmsENGEnvelopeTrayMedia = _QmsENGEnvelopeTrayMedia_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 41),
+    _QmsENGEnvelopeTrayMedia_Type()
+)
+qmsENGEnvelopeTrayMedia.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsENGEnvelopeTrayMedia.setStatus("mandatory")
+_QmsENGDensity_Type = Integer32
+_QmsENGDensity_Object = MibScalar
+qmsENGDensity = _QmsENGDensity_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 42),
+    _QmsENGDensity_Type()
+)
+qmsENGDensity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsENGDensity.setStatus("mandatory")
+
+
+class _QmsENGColorModel_Type(Integer32):
+    """Custom type qmsENGColorModel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("cmy", 3),
+          ("cmyk", 5),
+          ("gray", 2),
+          ("rgb", 4))
+    )
+
+
+_QmsENGColorModel_Type.__name__ = "Integer32"
+_QmsENGColorModel_Object = MibScalar
+qmsENGColorModel = _QmsENGColorModel_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 43),
+    _QmsENGColorModel_Type()
+)
+qmsENGColorModel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsENGColorModel.setStatus("mandatory")
+
+
+class _QmsENGColorSeparation_Type(Integer32):
+    """Custom type qmsENGColorSeparation based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsENGColorSeparation_Type.__name__ = "Integer32"
+_QmsENGColorSeparation_Object = MibScalar
+qmsENGColorSeparation = _QmsENGColorSeparation_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 44),
+    _QmsENGColorSeparation_Type()
+)
+qmsENGColorSeparation.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsENGColorSeparation.setStatus("mandatory")
+
+
+class _QmsENGUnderColor_Type(Integer32):
+    """Custom type qmsENGUnderColor based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsENGUnderColor_Type.__name__ = "Integer32"
+_QmsENGUnderColor_Object = MibScalar
+qmsENGUnderColor = _QmsENGUnderColor_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 45),
+    _QmsENGUnderColor_Type()
+)
+qmsENGUnderColor.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsENGUnderColor.setStatus("mandatory")
+
+
+class _QmsENGQuality_Type(Integer32):
+    """Custom type qmsENGQuality based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("conserveToner", 2),
+          ("fineMode", 5),
+          ("normal", 1),
+          ("smooth600dpi", 3))
+    )
+
+
+_QmsENGQuality_Type.__name__ = "Integer32"
+_QmsENGQuality_Object = MibScalar
+qmsENGQuality = _QmsENGQuality_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 48),
+    _QmsENGQuality_Type()
+)
+qmsENGQuality.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsENGQuality.setStatus("mandatory")
+_QmsENGConsumeNameMulti_Object = MibTable
+qmsENGConsumeNameMulti = _QmsENGConsumeNameMulti_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 1000)
+)
+if mibBuilder.loadTexts:
+    qmsENGConsumeNameMulti.setStatus("mandatory")
+
+
+class _QmsENGConsumeName_Type(DisplayString):
+    """Custom type qmsENGConsumeName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 80),
+    )
+
+
+_QmsENGConsumeName_Type.__name__ = "DisplayString"
+_QmsENGConsumeName_Object = MibTableColumn
+qmsENGConsumeName = _QmsENGConsumeName_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 1000, 1),
+    _QmsENGConsumeName_Type()
+)
+qmsENGConsumeName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsENGConsumeName.setStatus("mandatory")
+_QmsENGConsumeLevelMulti_Object = MibTable
+qmsENGConsumeLevelMulti = _QmsENGConsumeLevelMulti_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 1001)
+)
+if mibBuilder.loadTexts:
+    qmsENGConsumeLevelMulti.setStatus("mandatory")
+_QmsENGConsumeLevel_Type = Integer32
+_QmsENGConsumeLevel_Object = MibTableColumn
+qmsENGConsumeLevel = _QmsENGConsumeLevel_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 1001, 1),
+    _QmsENGConsumeLevel_Type()
+)
+qmsENGConsumeLevel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsENGConsumeLevel.setStatus("mandatory")
+_QmsENGConsumeMaxMulti_Object = MibTable
+qmsENGConsumeMaxMulti = _QmsENGConsumeMaxMulti_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 1002)
+)
+if mibBuilder.loadTexts:
+    qmsENGConsumeMaxMulti.setStatus("mandatory")
+_QmsENGConsumeMax_Type = Integer32
+_QmsENGConsumeMax_Object = MibTableColumn
+qmsENGConsumeMax = _QmsENGConsumeMax_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 1002, 1),
+    _QmsENGConsumeMax_Type()
+)
+qmsENGConsumeMax.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsENGConsumeMax.setStatus("mandatory")
+_QmsENGConsumeUnitsMulti_Object = MibTable
+qmsENGConsumeUnitsMulti = _QmsENGConsumeUnitsMulti_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 1003)
+)
+if mibBuilder.loadTexts:
+    qmsENGConsumeUnitsMulti.setStatus("mandatory")
+
+
+class _QmsENGConsumeUnits_Type(DisplayString):
+    """Custom type qmsENGConsumeUnits based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 80),
+    )
+
+
+_QmsENGConsumeUnits_Type.__name__ = "DisplayString"
+_QmsENGConsumeUnits_Object = MibTableColumn
+qmsENGConsumeUnits = _QmsENGConsumeUnits_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 1003, 1),
+    _QmsENGConsumeUnits_Type()
+)
+qmsENGConsumeUnits.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsENGConsumeUnits.setStatus("mandatory")
+_QmsENGConsumeTypeMulti_Object = MibTable
+qmsENGConsumeTypeMulti = _QmsENGConsumeTypeMulti_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 1004)
+)
+if mibBuilder.loadTexts:
+    qmsENGConsumeTypeMulti.setStatus("mandatory")
+
+
+class _QmsENGConsumeType_Type(Integer32):
+    """Custom type qmsENGConsumeType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10)
+        )
+    )
+    namedValues = NamedValues(
+        *(("fuserCRoller", 8),
+          ("fuserOil", 9),
+          ("fuserUnit", 7),
+          ("inputBin", 2),
+          ("invalid", 1),
+          ("opc", 6),
+          ("outputBin", 3),
+          ("pmService", 10),
+          ("toner", 4),
+          ("wasteToner", 5))
+    )
+
+
+_QmsENGConsumeType_Type.__name__ = "Integer32"
+_QmsENGConsumeType_Object = MibTableColumn
+qmsENGConsumeType = _QmsENGConsumeType_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 1004, 1),
+    _QmsENGConsumeType_Type()
+)
+qmsENGConsumeType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsENGConsumeType.setStatus("mandatory")
+_QmsENGConsumeNote1Multi_Object = MibTable
+qmsENGConsumeNote1Multi = _QmsENGConsumeNote1Multi_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 1005)
+)
+if mibBuilder.loadTexts:
+    qmsENGConsumeNote1Multi.setStatus("mandatory")
+
+
+class _QmsENGConsumeNote1_Type(DisplayString):
+    """Custom type qmsENGConsumeNote1 based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 80),
+    )
+
+
+_QmsENGConsumeNote1_Type.__name__ = "DisplayString"
+_QmsENGConsumeNote1_Object = MibTableColumn
+qmsENGConsumeNote1 = _QmsENGConsumeNote1_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 1005, 1),
+    _QmsENGConsumeNote1_Type()
+)
+qmsENGConsumeNote1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsENGConsumeNote1.setStatus("mandatory")
+_QmsENGConsumeNote2Multi_Object = MibTable
+qmsENGConsumeNote2Multi = _QmsENGConsumeNote2Multi_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 1006)
+)
+if mibBuilder.loadTexts:
+    qmsENGConsumeNote2Multi.setStatus("mandatory")
+
+
+class _QmsENGConsumeNote2_Type(DisplayString):
+    """Custom type qmsENGConsumeNote2 based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 80),
+    )
+
+
+_QmsENGConsumeNote2_Type.__name__ = "DisplayString"
+_QmsENGConsumeNote2_Object = MibTableColumn
+qmsENGConsumeNote2 = _QmsENGConsumeNote2_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 1006, 1),
+    _QmsENGConsumeNote2_Type()
+)
+qmsENGConsumeNote2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsENGConsumeNote2.setStatus("mandatory")
+_QmsENGConsumeIndexMulti_Object = MibTable
+qmsENGConsumeIndexMulti = _QmsENGConsumeIndexMulti_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 1007)
+)
+if mibBuilder.loadTexts:
+    qmsENGConsumeIndexMulti.setStatus("mandatory")
+_QmsENGConsumeIndex_Type = Integer32
+_QmsENGConsumeIndex_Object = MibTableColumn
+qmsENGConsumeIndex = _QmsENGConsumeIndex_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 1007, 1),
+    _QmsENGConsumeIndex_Type()
+)
+qmsENGConsumeIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsENGConsumeIndex.setStatus("mandatory")
+_QmsENGNumConsumables_Type = Integer32
+_QmsENGNumConsumables_Object = MibScalar
+qmsENGNumConsumables = _QmsENGNumConsumables_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 1010),
+    _QmsENGNumConsumables_Type()
+)
+qmsENGNumConsumables.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsENGNumConsumables.setStatus("mandatory")
+
+
+class _QmsENGChainInputBins_Type(Integer32):
+    """Custom type qmsENGChainInputBins based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2),
+          ("onAny", 3))
+    )
+
+
+_QmsENGChainInputBins_Type.__name__ = "Integer32"
+_QmsENGChainInputBins_Object = MibScalar
+qmsENGChainInputBins = _QmsENGChainInputBins_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 1011),
+    _QmsENGChainInputBins_Type()
+)
+qmsENGChainInputBins.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsENGChainInputBins.setStatus("mandatory")
+_QmsENGChainOutputbinMulti_Object = MibTable
+qmsENGChainOutputbinMulti = _QmsENGChainOutputbinMulti_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 1012)
+)
+if mibBuilder.loadTexts:
+    qmsENGChainOutputbinMulti.setStatus("mandatory")
+
+
+class _QmsENGChainOutputbin_Type(Integer32):
+    """Custom type qmsENGChainOutputbin based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsENGChainOutputbin_Type.__name__ = "Integer32"
+_QmsENGChainOutputbin_Object = MibTableColumn
+qmsENGChainOutputbin = _QmsENGChainOutputbin_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 1012, 1),
+    _QmsENGChainOutputbin_Type()
+)
+qmsENGChainOutputbin.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsENGChainOutputbin.setStatus("mandatory")
+_QmsENGInputbinMediatypeMulti_Object = MibTable
+qmsENGInputbinMediatypeMulti = _QmsENGInputbinMediatypeMulti_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 1013)
+)
+if mibBuilder.loadTexts:
+    qmsENGInputbinMediatypeMulti.setStatus("mandatory")
+
+
+class _QmsENGInputbinMediatype_Type(Integer32):
+    """Custom type qmsENGInputbinMediatype based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14)
+        )
+    )
+    namedValues = NamedValues(
+        *(("automatic", 13),
+          ("bond", 8),
+          ("cardStock", 11),
+          ("color", 10),
+          ("labels", 7),
+          ("letterhead", 5),
+          ("plainPaper", 1),
+          ("prePrinted", 4),
+          ("prePunched", 6),
+          ("recycled", 9),
+          ("thermal", 3),
+          ("thickStock", 14),
+          ("thinStock", 12),
+          ("transparency", 2))
+    )
+
+
+_QmsENGInputbinMediatype_Type.__name__ = "Integer32"
+_QmsENGInputbinMediatype_Object = MibTableColumn
+qmsENGInputbinMediatype = _QmsENGInputbinMediatype_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 1013, 1),
+    _QmsENGInputbinMediatype_Type()
+)
+qmsENGInputbinMediatype.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsENGInputbinMediatype.setStatus("mandatory")
+_QmsENGChainInputbinMulti_Object = MibTable
+qmsENGChainInputbinMulti = _QmsENGChainInputbinMulti_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 1014)
+)
+if mibBuilder.loadTexts:
+    qmsENGChainInputbinMulti.setStatus("mandatory")
+
+
+class _QmsENGChainInputbin_Type(Integer32):
+    """Custom type qmsENGChainInputbin based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsENGChainInputbin_Type.__name__ = "Integer32"
+_QmsENGChainInputbin_Object = MibTableColumn
+qmsENGChainInputbin = _QmsENGChainInputbin_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 1014, 1),
+    _QmsENGChainInputbin_Type()
+)
+qmsENGChainInputbin.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsENGChainInputbin.setStatus("mandatory")
+
+
+class _QmsENGStaplePosition_Type(Integer32):
+    """Custom type qmsENGStaplePosition based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("backCorner", 3),
+          ("center", 4),
+          ("frontCorner", 2),
+          ("off", 1),
+          ("offsetStacking", 5))
+    )
+
+
+_QmsENGStaplePosition_Type.__name__ = "Integer32"
+_QmsENGStaplePosition_Object = MibScalar
+qmsENGStaplePosition = _QmsENGStaplePosition_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 304, 1015),
+    _QmsENGStaplePosition_Type()
+)
+qmsENGStaplePosition.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsENGStaplePosition.setStatus("mandatory")
+_QmsAccounting_ObjectIdentity = ObjectIdentity
+qmsAccounting = _QmsAccounting_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 1, 401)
+)
+
+
+class _QmsACCMode_Type(Integer32):
+    """Custom type qmsACCMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 1),
+          ("enabled", 2))
+    )
+
+
+_QmsACCMode_Type.__name__ = "Integer32"
+_QmsACCMode_Object = MibScalar
+qmsACCMode = _QmsACCMode_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 401, 1),
+    _QmsACCMode_Type()
+)
+qmsACCMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsACCMode.setStatus("mandatory")
+_QmsACCDiskSpace_Type = Integer32
+_QmsACCDiskSpace_Object = MibScalar
+qmsACCDiskSpace = _QmsACCDiskSpace_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 401, 2),
+    _QmsACCDiskSpace_Type()
+)
+qmsACCDiskSpace.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsACCDiskSpace.setStatus("mandatory")
+
+
+class _QmsACCFileSegment_Type(Integer32):
+    """Custom type qmsACCFileSegment based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("multiple", 3),
+          ("single", 2))
+    )
+
+
+_QmsACCFileSegment_Type.__name__ = "Integer32"
+_QmsACCFileSegment_Object = MibScalar
+qmsACCFileSegment = _QmsACCFileSegment_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 401, 3),
+    _QmsACCFileSegment_Type()
+)
+qmsACCFileSegment.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsACCFileSegment.setStatus("mandatory")
+_QmsScanner_ObjectIdentity = ObjectIdentity
+qmsScanner = _QmsScanner_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 1, 402)
+)
+_QmsSCColorAdjust_Type = Integer32
+_QmsSCColorAdjust_Object = MibScalar
+qmsSCColorAdjust = _QmsSCColorAdjust_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 402, 3),
+    _QmsSCColorAdjust_Type()
+)
+qmsSCColorAdjust.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsSCColorAdjust.setStatus("mandatory")
+
+
+class _QmsSCScanResolution_Type(Integer32):
+    """Custom type qmsSCScanResolution based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(101,
+              151,
+              201,
+              301)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dpi100", 101),
+          ("dpi150", 151),
+          ("dpi200", 201),
+          ("dpi300", 301))
+    )
+
+
+_QmsSCScanResolution_Type.__name__ = "Integer32"
+_QmsSCScanResolution_Object = MibScalar
+qmsSCScanResolution = _QmsSCScanResolution_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 402, 4),
+    _QmsSCScanResolution_Type()
+)
+qmsSCScanResolution.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsSCScanResolution.setStatus("mandatory")
+
+
+class _QmsSCSizeHorizontal_Type(Integer32):
+    """Custom type qmsSCSizeHorizontal based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 850),
+    )
+
+
+_QmsSCSizeHorizontal_Type.__name__ = "Integer32"
+_QmsSCSizeHorizontal_Object = MibScalar
+qmsSCSizeHorizontal = _QmsSCSizeHorizontal_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 402, 8),
+    _QmsSCSizeHorizontal_Type()
+)
+qmsSCSizeHorizontal.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsSCSizeHorizontal.setStatus("mandatory")
+
+
+class _QmsSCSizeVertical_Type(Integer32):
+    """Custom type qmsSCSizeVertical based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1400),
+    )
+
+
+_QmsSCSizeVertical_Type.__name__ = "Integer32"
+_QmsSCSizeVertical_Object = MibScalar
+qmsSCSizeVertical = _QmsSCSizeVertical_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 402, 12),
+    _QmsSCSizeVertical_Type()
+)
+qmsSCSizeVertical.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsSCSizeVertical.setStatus("mandatory")
+
+
+class _QmsSCOffsetHorizontal_Type(Integer32):
+    """Custom type qmsSCOffsetHorizontal based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 850),
+    )
+
+
+_QmsSCOffsetHorizontal_Type.__name__ = "Integer32"
+_QmsSCOffsetHorizontal_Object = MibScalar
+qmsSCOffsetHorizontal = _QmsSCOffsetHorizontal_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 402, 16),
+    _QmsSCOffsetHorizontal_Type()
+)
+qmsSCOffsetHorizontal.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsSCOffsetHorizontal.setStatus("mandatory")
+
+
+class _QmsSCOffsetVertical_Type(Integer32):
+    """Custom type qmsSCOffsetVertical based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1100),
+    )
+
+
+_QmsSCOffsetVertical_Type.__name__ = "Integer32"
+_QmsSCOffsetVertical_Object = MibScalar
+qmsSCOffsetVertical = _QmsSCOffsetVertical_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 402, 20),
+    _QmsSCOffsetVertical_Type()
+)
+qmsSCOffsetVertical.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsSCOffsetVertical.setStatus("mandatory")
+
+
+class _QmsSCCopyMode_Type(Integer32):
+    """Custom type qmsSCCopyMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11)
+        )
+    )
+    namedValues = NamedValues(
+        *(("automaticColor", 8),
+          ("automaticGray", 4),
+          ("binaryBandW", 6),
+          ("binaryColor", 10),
+          ("customColor", 9),
+          ("customGray", 5),
+          ("halftoneBandW", 7),
+          ("halftoneColor", 11))
+    )
+
+
+_QmsSCCopyMode_Type.__name__ = "Integer32"
+_QmsSCCopyMode_Object = MibScalar
+qmsSCCopyMode = _QmsSCCopyMode_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 402, 24),
+    _QmsSCCopyMode_Type()
+)
+qmsSCCopyMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsSCCopyMode.setStatus("mandatory")
+_QmsSCRedGammaFunction_Type = Integer32
+_QmsSCRedGammaFunction_Object = MibScalar
+qmsSCRedGammaFunction = _QmsSCRedGammaFunction_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 402, 26),
+    _QmsSCRedGammaFunction_Type()
+)
+qmsSCRedGammaFunction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsSCRedGammaFunction.setStatus("mandatory")
+_QmsSCGreenGammaFunction_Type = Integer32
+_QmsSCGreenGammaFunction_Object = MibScalar
+qmsSCGreenGammaFunction = _QmsSCGreenGammaFunction_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 402, 27),
+    _QmsSCGreenGammaFunction_Type()
+)
+qmsSCGreenGammaFunction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsSCGreenGammaFunction.setStatus("mandatory")
+_QmsSCBlueGammaFunction_Type = Integer32
+_QmsSCBlueGammaFunction_Object = MibScalar
+qmsSCBlueGammaFunction = _QmsSCBlueGammaFunction_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 402, 28),
+    _QmsSCBlueGammaFunction_Type()
+)
+qmsSCBlueGammaFunction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsSCBlueGammaFunction.setStatus("mandatory")
+
+
+class _QmsSCGrayGammaFunction_Type(Integer32):
+    """Custom type qmsSCGrayGammaFunction based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("photoGraphic", 2),
+          ("reverseImage", 3))
+    )
+
+
+_QmsSCGrayGammaFunction_Type.__name__ = "Integer32"
+_QmsSCGrayGammaFunction_Object = MibScalar
+qmsSCGrayGammaFunction = _QmsSCGrayGammaFunction_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 402, 29),
+    _QmsSCGrayGammaFunction_Type()
+)
+qmsSCGrayGammaFunction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsSCGrayGammaFunction.setStatus("mandatory")
+_QmsSCBinaryAdjustment_Type = Integer32
+_QmsSCBinaryAdjustment_Object = MibScalar
+qmsSCBinaryAdjustment = _QmsSCBinaryAdjustment_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 402, 31),
+    _QmsSCBinaryAdjustment_Type()
+)
+qmsSCBinaryAdjustment.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsSCBinaryAdjustment.setStatus("mandatory")
+
+
+class _QmsSCTrans_Type(Integer32):
+    """Custom type qmsSCTrans based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 1),
+          ("enabled", 2))
+    )
+
+
+_QmsSCTrans_Type.__name__ = "Integer32"
+_QmsSCTrans_Object = MibScalar
+qmsSCTrans = _QmsSCTrans_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 402, 35),
+    _QmsSCTrans_Type()
+)
+qmsSCTrans.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsSCTrans.setStatus("mandatory")
+_QmsSCContrast_Type = Integer32
+_QmsSCContrast_Object = MibScalar
+qmsSCContrast = _QmsSCContrast_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 402, 36),
+    _QmsSCContrast_Type()
+)
+qmsSCContrast.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsSCContrast.setStatus("mandatory")
+_QmsCostPerPage_ObjectIdentity = ObjectIdentity
+qmsCostPerPage = _QmsCostPerPage_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 1, 403)
+)
+
+
+class _QmsCPPSerialNumber_Type(DisplayString):
+    """Custom type qmsCPPSerialNumber based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_QmsCPPSerialNumber_Type.__name__ = "DisplayString"
+_QmsCPPSerialNumber_Object = MibScalar
+qmsCPPSerialNumber = _QmsCPPSerialNumber_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 403, 2),
+    _QmsCPPSerialNumber_Type()
+)
+qmsCPPSerialNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsCPPSerialNumber.setStatus("mandatory")
+_QmsColorMatch_ObjectIdentity = ObjectIdentity
+qmsColorMatch = _QmsColorMatch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 1, 404)
+)
+
+
+class _QmsCMMICCColorMatch_Type(Integer32):
+    """Custom type qmsCMMICCColorMatch based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 1),
+          ("enabled", 2))
+    )
+
+
+_QmsCMMICCColorMatch_Type.__name__ = "Integer32"
+_QmsCMMICCColorMatch_Object = MibScalar
+qmsCMMICCColorMatch = _QmsCMMICCColorMatch_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 404, 1),
+    _QmsCMMICCColorMatch_Type()
+)
+qmsCMMICCColorMatch.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsCMMICCColorMatch.setStatus("mandatory")
+_QmsCMMICCRGBSource_Type = Integer32
+_QmsCMMICCRGBSource_Object = MibScalar
+qmsCMMICCRGBSource = _QmsCMMICCRGBSource_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 404, 2),
+    _QmsCMMICCRGBSource_Type()
+)
+qmsCMMICCRGBSource.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsCMMICCRGBSource.setStatus("mandatory")
+_QmsCMMICCSimulation_Type = Integer32
+_QmsCMMICCSimulation_Object = MibScalar
+qmsCMMICCSimulation = _QmsCMMICCSimulation_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 404, 4),
+    _QmsCMMICCSimulation_Type()
+)
+qmsCMMICCSimulation.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsCMMICCSimulation.setStatus("mandatory")
+_QmsCMMICCDestination_Type = Integer32
+_QmsCMMICCDestination_Object = MibScalar
+qmsCMMICCDestination = _QmsCMMICCDestination_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 404, 6),
+    _QmsCMMICCDestination_Type()
+)
+qmsCMMICCDestination.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsCMMICCDestination.setStatus("mandatory")
+
+
+class _QmsCMMLinkQuality_Type(Integer32):
+    """Custom type qmsCMMLinkQuality based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("high", 3),
+          ("low", 1),
+          ("medium", 2))
+    )
+
+
+_QmsCMMLinkQuality_Type.__name__ = "Integer32"
+_QmsCMMLinkQuality_Object = MibScalar
+qmsCMMLinkQuality = _QmsCMMLinkQuality_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 404, 8),
+    _QmsCMMLinkQuality_Type()
+)
+qmsCMMLinkQuality.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsCMMLinkQuality.setStatus("mandatory")
+
+
+class _QmsCMMSimInRGBLinks_Type(Integer32):
+    """Custom type qmsCMMSimInRGBLinks based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 1),
+          ("yes", 2))
+    )
+
+
+_QmsCMMSimInRGBLinks_Type.__name__ = "Integer32"
+_QmsCMMSimInRGBLinks_Object = MibScalar
+qmsCMMSimInRGBLinks = _QmsCMMSimInRGBLinks_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 404, 10),
+    _QmsCMMSimInRGBLinks_Type()
+)
+qmsCMMSimInRGBLinks.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsCMMSimInRGBLinks.setStatus("mandatory")
+
+
+class _QmsCMMICCHP_Type(Integer32):
+    """Custom type qmsCMMICCHP based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 1),
+          ("srgb", 2))
+    )
+
+
+_QmsCMMICCHP_Type.__name__ = "Integer32"
+_QmsCMMICCHP_Object = MibScalar
+qmsCMMICCHP = _QmsCMMICCHP_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 404, 12),
+    _QmsCMMICCHP_Type()
+)
+qmsCMMICCHP.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsCMMICCHP.setStatus("mandatory")
+_QmsCMMProfileTable_Object = MibTable
+qmsCMMProfileTable = _QmsCMMProfileTable_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 404, 1000)
+)
+if mibBuilder.loadTexts:
+    qmsCMMProfileTable.setStatus("mandatory")
+_QmsCMMProfileEntry_Object = MibTableRow
+qmsCMMProfileEntry = _QmsCMMProfileEntry_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 404, 1000, 1)
+)
+qmsCMMProfileEntry.setIndexNames(
+    (0, "QMS-MIB", "qmsCMMProfileIndex"),
+)
+if mibBuilder.loadTexts:
+    qmsCMMProfileEntry.setStatus("mandatory")
+_QmsCMMProfileIndex_Type = Integer32
+_QmsCMMProfileIndex_Object = MibTableColumn
+qmsCMMProfileIndex = _QmsCMMProfileIndex_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 404, 1000, 1, 1000),
+    _QmsCMMProfileIndex_Type()
+)
+qmsCMMProfileIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsCMMProfileIndex.setStatus("mandatory")
+
+
+class _QmsCMMProfileDescription_Type(DisplayString):
+    """Custom type qmsCMMProfileDescription based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_QmsCMMProfileDescription_Type.__name__ = "DisplayString"
+_QmsCMMProfileDescription_Object = MibTableColumn
+qmsCMMProfileDescription = _QmsCMMProfileDescription_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 404, 1000, 1, 1001),
+    _QmsCMMProfileDescription_Type()
+)
+qmsCMMProfileDescription.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsCMMProfileDescription.setStatus("mandatory")
+
+
+class _QmsCMMProfileType_Type(Integer32):
+    """Custom type qmsCMMProfileType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("destination", 2),
+          ("simulation", 3),
+          ("source", 1))
+    )
+
+
+_QmsCMMProfileType_Type.__name__ = "Integer32"
+_QmsCMMProfileType_Object = MibTableColumn
+qmsCMMProfileType = _QmsCMMProfileType_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 404, 1000, 1, 1002),
+    _QmsCMMProfileType_Type()
+)
+qmsCMMProfileType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsCMMProfileType.setStatus("mandatory")
+_QmsPS_ObjectIdentity = ObjectIdentity
+qmsPS = _QmsPS_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 1, 520)
+)
+
+
+class _QmsPSErrorHandler_Type(Integer32):
+    """Custom type qmsPSErrorHandler based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 1),
+          ("yes", 2))
+    )
+
+
+_QmsPSErrorHandler_Type.__name__ = "Integer32"
+_QmsPSErrorHandler_Object = MibScalar
+qmsPSErrorHandler = _QmsPSErrorHandler_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 520, 5),
+    _QmsPSErrorHandler_Type()
+)
+qmsPSErrorHandler.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsPSErrorHandler.setStatus("mandatory")
+
+
+class _QmsPSOutputPositioning_Type(Integer32):
+    """Custom type qmsPSOutputPositioning based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsPSOutputPositioning_Type.__name__ = "Integer32"
+_QmsPSOutputPositioning_Object = MibScalar
+qmsPSOutputPositioning = _QmsPSOutputPositioning_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 520, 6),
+    _QmsPSOutputPositioning_Type()
+)
+qmsPSOutputPositioning.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsPSOutputPositioning.setStatus("mandatory")
+
+
+class _QmsPSDefaultHalftone_Type(Integer32):
+    """Custom type qmsPSDefaultHalftone based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("advanced", 3),
+          ("basic", 1),
+          ("standard", 2))
+    )
+
+
+_QmsPSDefaultHalftone_Type.__name__ = "Integer32"
+_QmsPSDefaultHalftone_Object = MibScalar
+qmsPSDefaultHalftone = _QmsPSDefaultHalftone_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 520, 138),
+    _QmsPSDefaultHalftone_Type()
+)
+qmsPSDefaultHalftone.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsPSDefaultHalftone.setStatus("mandatory")
+
+
+class _QmsPSDefaultBlackOverPrint_Type(Integer32):
+    """Custom type qmsPSDefaultBlackOverPrint based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsPSDefaultBlackOverPrint_Type.__name__ = "Integer32"
+_QmsPSDefaultBlackOverPrint_Object = MibScalar
+qmsPSDefaultBlackOverPrint = _QmsPSDefaultBlackOverPrint_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 520, 139),
+    _QmsPSDefaultBlackOverPrint_Type()
+)
+qmsPSDefaultBlackOverPrint.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsPSDefaultBlackOverPrint.setStatus("mandatory")
+
+
+class _QmsPSDefaultCRD_Type(Integer32):
+    """Custom type qmsPSDefaultCRD based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 15),
+    )
+
+
+_QmsPSDefaultCRD_Type.__name__ = "Integer32"
+_QmsPSDefaultCRD_Object = MibScalar
+qmsPSDefaultCRD = _QmsPSDefaultCRD_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 520, 140),
+    _QmsPSDefaultCRD_Type()
+)
+qmsPSDefaultCRD.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsPSDefaultCRD.setStatus("mandatory")
+
+
+class _QmsPSDefaultDither_Type(Integer32):
+    """Custom type qmsPSDefaultDither based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsPSDefaultDither_Type.__name__ = "Integer32"
+_QmsPSDefaultDither_Object = MibScalar
+qmsPSDefaultDither = _QmsPSDefaultDither_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 520, 141),
+    _QmsPSDefaultDither_Type()
+)
+qmsPSDefaultDither.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsPSDefaultDither.setStatus("mandatory")
+
+
+class _QmsPSDefaultGamma_Type(Integer32):
+    """Custom type qmsPSDefaultGamma based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsPSDefaultGamma_Type.__name__ = "Integer32"
+_QmsPSDefaultGamma_Object = MibScalar
+qmsPSDefaultGamma = _QmsPSDefaultGamma_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 520, 152),
+    _QmsPSDefaultGamma_Type()
+)
+qmsPSDefaultGamma.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsPSDefaultGamma.setStatus("mandatory")
+
+
+class _QmsPSIntensity_Type(Integer32):
+    """Custom type qmsPSIntensity based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("darker", 2),
+          ("darkest", 1),
+          ("lighter", 4),
+          ("lightest", 5),
+          ("normal", 3))
+    )
+
+
+_QmsPSIntensity_Type.__name__ = "Integer32"
+_QmsPSIntensity_Object = MibScalar
+qmsPSIntensity = _QmsPSIntensity_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 520, 154),
+    _QmsPSIntensity_Type()
+)
+qmsPSIntensity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsPSIntensity.setStatus("mandatory")
+_QmsHPGL_ObjectIdentity = ObjectIdentity
+qmsHPGL = _QmsHPGL_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 1, 524)
+)
+
+
+class _QmsHPGLPaperType_Type(Integer32):
+    """Custom type qmsHPGLPaperType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14)
+        )
+    )
+    namedValues = NamedValues(
+        *(("a", 1),
+          ("a0", 13),
+          ("a1", 12),
+          ("a2", 11),
+          ("a3", 4),
+          ("a4", 2),
+          ("b", 3),
+          ("c", 5),
+          ("cArch", 8),
+          ("d", 6),
+          ("dArch", 9),
+          ("e", 7),
+          ("eArch", 10),
+          ("scaleToPaper", 14))
+    )
+
+
+_QmsHPGLPaperType_Type.__name__ = "Integer32"
+_QmsHPGLPaperType_Object = MibScalar
+qmsHPGLPaperType = _QmsHPGLPaperType_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 524, 2),
+    _QmsHPGLPaperType_Type()
+)
+qmsHPGLPaperType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsHPGLPaperType.setStatus("mandatory")
+
+
+class _QmsHPGLPlotter_Type(Integer32):
+    """Custom type qmsHPGLPlotter based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("colorpro", 3),
+          ("draftmaster", 5),
+          ("plotter7470A", 2),
+          ("plotter7475A", 1),
+          ("plotter7550A", 4))
+    )
+
+
+_QmsHPGLPlotter_Type.__name__ = "Integer32"
+_QmsHPGLPlotter_Object = MibScalar
+qmsHPGLPlotter = _QmsHPGLPlotter_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 524, 12),
+    _QmsHPGLPlotter_Type()
+)
+qmsHPGLPlotter.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsHPGLPlotter.setStatus("mandatory")
+
+
+class _QmsHPGLScalingPercent_Type(Integer32):
+    """Custom type qmsHPGLScalingPercent based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 150),
+    )
+
+
+_QmsHPGLScalingPercent_Type.__name__ = "Integer32"
+_QmsHPGLScalingPercent_Object = MibScalar
+qmsHPGLScalingPercent = _QmsHPGLScalingPercent_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 524, 13),
+    _QmsHPGLScalingPercent_Type()
+)
+qmsHPGLScalingPercent.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsHPGLScalingPercent.setStatus("mandatory")
+
+
+class _QmsHPGLEnhancedMode_Type(Integer32):
+    """Custom type qmsHPGLEnhancedMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsHPGLEnhancedMode_Type.__name__ = "Integer32"
+_QmsHPGLEnhancedMode_Object = MibScalar
+qmsHPGLEnhancedMode = _QmsHPGLEnhancedMode_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 524, 14),
+    _QmsHPGLEnhancedMode_Type()
+)
+qmsHPGLEnhancedMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsHPGLEnhancedMode.setStatus("mandatory")
+
+
+class _QmsHPGLExpandMode_Type(Integer32):
+    """Custom type qmsHPGLExpandMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsHPGLExpandMode_Type.__name__ = "Integer32"
+_QmsHPGLExpandMode_Object = MibScalar
+qmsHPGLExpandMode = _QmsHPGLExpandMode_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 524, 15),
+    _QmsHPGLExpandMode_Type()
+)
+qmsHPGLExpandMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsHPGLExpandMode.setStatus("mandatory")
+
+
+class _QmsHPGLPenWidth1_Type(Integer32):
+    """Custom type qmsHPGLPenWidth1 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 60),
+    )
+
+
+_QmsHPGLPenWidth1_Type.__name__ = "Integer32"
+_QmsHPGLPenWidth1_Object = MibScalar
+qmsHPGLPenWidth1 = _QmsHPGLPenWidth1_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 524, 16),
+    _QmsHPGLPenWidth1_Type()
+)
+qmsHPGLPenWidth1.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsHPGLPenWidth1.setStatus("mandatory")
+
+
+class _QmsHPGLPenWidth2_Type(Integer32):
+    """Custom type qmsHPGLPenWidth2 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 60),
+    )
+
+
+_QmsHPGLPenWidth2_Type.__name__ = "Integer32"
+_QmsHPGLPenWidth2_Object = MibScalar
+qmsHPGLPenWidth2 = _QmsHPGLPenWidth2_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 524, 17),
+    _QmsHPGLPenWidth2_Type()
+)
+qmsHPGLPenWidth2.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsHPGLPenWidth2.setStatus("mandatory")
+
+
+class _QmsHPGLPenWidth3_Type(Integer32):
+    """Custom type qmsHPGLPenWidth3 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 60),
+    )
+
+
+_QmsHPGLPenWidth3_Type.__name__ = "Integer32"
+_QmsHPGLPenWidth3_Object = MibScalar
+qmsHPGLPenWidth3 = _QmsHPGLPenWidth3_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 524, 18),
+    _QmsHPGLPenWidth3_Type()
+)
+qmsHPGLPenWidth3.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsHPGLPenWidth3.setStatus("mandatory")
+
+
+class _QmsHPGLPenWidth4_Type(Integer32):
+    """Custom type qmsHPGLPenWidth4 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 60),
+    )
+
+
+_QmsHPGLPenWidth4_Type.__name__ = "Integer32"
+_QmsHPGLPenWidth4_Object = MibScalar
+qmsHPGLPenWidth4 = _QmsHPGLPenWidth4_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 524, 19),
+    _QmsHPGLPenWidth4_Type()
+)
+qmsHPGLPenWidth4.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsHPGLPenWidth4.setStatus("mandatory")
+
+
+class _QmsHPGLPenWidth5_Type(Integer32):
+    """Custom type qmsHPGLPenWidth5 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 60),
+    )
+
+
+_QmsHPGLPenWidth5_Type.__name__ = "Integer32"
+_QmsHPGLPenWidth5_Object = MibScalar
+qmsHPGLPenWidth5 = _QmsHPGLPenWidth5_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 524, 20),
+    _QmsHPGLPenWidth5_Type()
+)
+qmsHPGLPenWidth5.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsHPGLPenWidth5.setStatus("mandatory")
+
+
+class _QmsHPGLPenWidth6_Type(Integer32):
+    """Custom type qmsHPGLPenWidth6 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 60),
+    )
+
+
+_QmsHPGLPenWidth6_Type.__name__ = "Integer32"
+_QmsHPGLPenWidth6_Object = MibScalar
+qmsHPGLPenWidth6 = _QmsHPGLPenWidth6_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 524, 21),
+    _QmsHPGLPenWidth6_Type()
+)
+qmsHPGLPenWidth6.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsHPGLPenWidth6.setStatus("mandatory")
+
+
+class _QmsHPGLPenWidth7_Type(Integer32):
+    """Custom type qmsHPGLPenWidth7 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 60),
+    )
+
+
+_QmsHPGLPenWidth7_Type.__name__ = "Integer32"
+_QmsHPGLPenWidth7_Object = MibScalar
+qmsHPGLPenWidth7 = _QmsHPGLPenWidth7_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 524, 22),
+    _QmsHPGLPenWidth7_Type()
+)
+qmsHPGLPenWidth7.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsHPGLPenWidth7.setStatus("mandatory")
+
+
+class _QmsHPGLPenWidth8_Type(Integer32):
+    """Custom type qmsHPGLPenWidth8 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 60),
+    )
+
+
+_QmsHPGLPenWidth8_Type.__name__ = "Integer32"
+_QmsHPGLPenWidth8_Object = MibScalar
+qmsHPGLPenWidth8 = _QmsHPGLPenWidth8_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 524, 23),
+    _QmsHPGLPenWidth8_Type()
+)
+qmsHPGLPenWidth8.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsHPGLPenWidth8.setStatus("mandatory")
+
+
+class _QmsHPGLPenColor1_Type(Integer32):
+    """Custom type qmsHPGLPenColor1 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14)
+        )
+    )
+    namedValues = NamedValues(
+        *(("black", 9),
+          ("blue", 6),
+          ("brown", 11),
+          ("cyan", 7),
+          ("gray25Percent", 12),
+          ("gray50Percent", 13),
+          ("gray75Percent", 14),
+          ("green", 5),
+          ("magenta", 8),
+          ("orange", 3),
+          ("red", 2),
+          ("violet", 10),
+          ("yellow", 4))
+    )
+
+
+_QmsHPGLPenColor1_Type.__name__ = "Integer32"
+_QmsHPGLPenColor1_Object = MibScalar
+qmsHPGLPenColor1 = _QmsHPGLPenColor1_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 524, 24),
+    _QmsHPGLPenColor1_Type()
+)
+qmsHPGLPenColor1.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsHPGLPenColor1.setStatus("mandatory")
+
+
+class _QmsHPGLPenColor2_Type(Integer32):
+    """Custom type qmsHPGLPenColor2 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14)
+        )
+    )
+    namedValues = NamedValues(
+        *(("black", 9),
+          ("blue", 6),
+          ("brown", 11),
+          ("cyan", 7),
+          ("gray25Percent", 12),
+          ("gray50Percent", 13),
+          ("gray75Percent", 14),
+          ("green", 5),
+          ("magenta", 8),
+          ("orange", 3),
+          ("red", 2),
+          ("violet", 10),
+          ("yellow", 4))
+    )
+
+
+_QmsHPGLPenColor2_Type.__name__ = "Integer32"
+_QmsHPGLPenColor2_Object = MibScalar
+qmsHPGLPenColor2 = _QmsHPGLPenColor2_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 524, 25),
+    _QmsHPGLPenColor2_Type()
+)
+qmsHPGLPenColor2.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsHPGLPenColor2.setStatus("mandatory")
+
+
+class _QmsHPGLPenColor3_Type(Integer32):
+    """Custom type qmsHPGLPenColor3 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14)
+        )
+    )
+    namedValues = NamedValues(
+        *(("black", 9),
+          ("blue", 6),
+          ("brown", 11),
+          ("cyan", 7),
+          ("gray25Percent", 12),
+          ("gray50Percent", 13),
+          ("gray75Percent", 14),
+          ("green", 5),
+          ("magenta", 8),
+          ("orange", 3),
+          ("red", 2),
+          ("violet", 10),
+          ("yellow", 4))
+    )
+
+
+_QmsHPGLPenColor3_Type.__name__ = "Integer32"
+_QmsHPGLPenColor3_Object = MibScalar
+qmsHPGLPenColor3 = _QmsHPGLPenColor3_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 524, 26),
+    _QmsHPGLPenColor3_Type()
+)
+qmsHPGLPenColor3.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsHPGLPenColor3.setStatus("mandatory")
+
+
+class _QmsHPGLPenColor4_Type(Integer32):
+    """Custom type qmsHPGLPenColor4 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14)
+        )
+    )
+    namedValues = NamedValues(
+        *(("black", 9),
+          ("blue", 6),
+          ("brown", 11),
+          ("cyan", 7),
+          ("gray25Percent", 12),
+          ("gray50Percent", 13),
+          ("gray75Percent", 14),
+          ("green", 5),
+          ("magenta", 8),
+          ("orange", 3),
+          ("red", 2),
+          ("violet", 10),
+          ("yellow", 4))
+    )
+
+
+_QmsHPGLPenColor4_Type.__name__ = "Integer32"
+_QmsHPGLPenColor4_Object = MibScalar
+qmsHPGLPenColor4 = _QmsHPGLPenColor4_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 524, 27),
+    _QmsHPGLPenColor4_Type()
+)
+qmsHPGLPenColor4.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsHPGLPenColor4.setStatus("mandatory")
+
+
+class _QmsHPGLPenColor5_Type(Integer32):
+    """Custom type qmsHPGLPenColor5 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14)
+        )
+    )
+    namedValues = NamedValues(
+        *(("black", 9),
+          ("blue", 6),
+          ("brown", 11),
+          ("cyan", 7),
+          ("gray25Percent", 12),
+          ("gray50Percent", 13),
+          ("gray75Percent", 14),
+          ("green", 5),
+          ("magenta", 8),
+          ("orange", 3),
+          ("red", 2),
+          ("violet", 10),
+          ("yellow", 4))
+    )
+
+
+_QmsHPGLPenColor5_Type.__name__ = "Integer32"
+_QmsHPGLPenColor5_Object = MibScalar
+qmsHPGLPenColor5 = _QmsHPGLPenColor5_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 524, 28),
+    _QmsHPGLPenColor5_Type()
+)
+qmsHPGLPenColor5.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsHPGLPenColor5.setStatus("mandatory")
+
+
+class _QmsHPGLPenColor6_Type(Integer32):
+    """Custom type qmsHPGLPenColor6 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14)
+        )
+    )
+    namedValues = NamedValues(
+        *(("black", 9),
+          ("blue", 6),
+          ("brown", 11),
+          ("cyan", 7),
+          ("gray25Percent", 12),
+          ("gray50Percent", 13),
+          ("gray75Percent", 14),
+          ("green", 5),
+          ("magenta", 8),
+          ("orange", 3),
+          ("red", 2),
+          ("violet", 10),
+          ("yellow", 4))
+    )
+
+
+_QmsHPGLPenColor6_Type.__name__ = "Integer32"
+_QmsHPGLPenColor6_Object = MibScalar
+qmsHPGLPenColor6 = _QmsHPGLPenColor6_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 524, 29),
+    _QmsHPGLPenColor6_Type()
+)
+qmsHPGLPenColor6.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsHPGLPenColor6.setStatus("mandatory")
+
+
+class _QmsHPGLPenColor7_Type(Integer32):
+    """Custom type qmsHPGLPenColor7 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14)
+        )
+    )
+    namedValues = NamedValues(
+        *(("black", 9),
+          ("blue", 6),
+          ("brown", 11),
+          ("cyan", 7),
+          ("gray25Percent", 12),
+          ("gray50Percent", 13),
+          ("gray75Percent", 14),
+          ("green", 5),
+          ("magenta", 8),
+          ("orange", 3),
+          ("red", 2),
+          ("violet", 10),
+          ("yellow", 4))
+    )
+
+
+_QmsHPGLPenColor7_Type.__name__ = "Integer32"
+_QmsHPGLPenColor7_Object = MibScalar
+qmsHPGLPenColor7 = _QmsHPGLPenColor7_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 524, 30),
+    _QmsHPGLPenColor7_Type()
+)
+qmsHPGLPenColor7.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsHPGLPenColor7.setStatus("mandatory")
+
+
+class _QmsHPGLPenColor8_Type(Integer32):
+    """Custom type qmsHPGLPenColor8 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14)
+        )
+    )
+    namedValues = NamedValues(
+        *(("black", 9),
+          ("blue", 6),
+          ("brown", 11),
+          ("cyan", 7),
+          ("gray25Percent", 12),
+          ("gray50Percent", 13),
+          ("gray75Percent", 14),
+          ("green", 5),
+          ("magenta", 8),
+          ("orange", 3),
+          ("red", 2),
+          ("violet", 10),
+          ("yellow", 4))
+    )
+
+
+_QmsHPGLPenColor8_Type.__name__ = "Integer32"
+_QmsHPGLPenColor8_Object = MibScalar
+qmsHPGLPenColor8 = _QmsHPGLPenColor8_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 524, 31),
+    _QmsHPGLPenColor8_Type()
+)
+qmsHPGLPenColor8.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsHPGLPenColor8.setStatus("mandatory")
+_QmsHPPCL_ObjectIdentity = ObjectIdentity
+qmsHPPCL = _QmsHPPCL_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 1, 525)
+)
+
+
+class _QmsHPPCLLineTermination_Type(Integer32):
+    """Custom type qmsHPPCLLineTermination based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("crEQcr-lfEQcrANDlf", 3),
+          ("crEQcr-lfEQlf", 1),
+          ("crEQcrANDlf-lfEQlf", 2),
+          ("crORlfEQcrANDlf", 4))
+    )
+
+
+_QmsHPPCLLineTermination_Type.__name__ = "Integer32"
+_QmsHPPCLLineTermination_Object = MibScalar
+qmsHPPCLLineTermination = _QmsHPPCLLineTermination_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 525, 2),
+    _QmsHPPCLLineTermination_Type()
+)
+qmsHPPCLLineTermination.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsHPPCLLineTermination.setStatus("mandatory")
+
+
+class _QmsHPPCLFontNumber_Type(Integer32):
+    """Custom type qmsHPPCLFontNumber based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20)
+        )
+    )
+    namedValues = NamedValues(
+        *(("courier10", 4),
+          ("courier10Bold", 5),
+          ("courier10Italic", 6),
+          ("courier12", 1),
+          ("courier12Bold", 2),
+          ("courier12Italic", 3),
+          ("lineprinter", 7),
+          ("selectByIndex", 20),
+          ("times", 8),
+          ("timesBldItalic", 11),
+          ("timesBold", 10),
+          ("timesItalic", 9),
+          ("univ", 12),
+          ("univBold", 14),
+          ("univBoldItalic", 15),
+          ("univItalic", 13),
+          ("univcond", 16),
+          ("univcondBldItlc", 19),
+          ("univcondBold", 18),
+          ("univcondItalic", 17))
+    )
+
+
+_QmsHPPCLFontNumber_Type.__name__ = "Integer32"
+_QmsHPPCLFontNumber_Object = MibScalar
+qmsHPPCLFontNumber = _QmsHPPCLFontNumber_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 525, 4),
+    _QmsHPPCLFontNumber_Type()
+)
+qmsHPPCLFontNumber.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsHPPCLFontNumber.setStatus("mandatory")
+
+
+class _QmsHPPCLLinesPerInch_Type(Integer32):
+    """Custom type qmsHPPCLLinesPerInch based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(100, 4800),
+    )
+
+
+_QmsHPPCLLinesPerInch_Type.__name__ = "Integer32"
+_QmsHPPCLLinesPerInch_Object = MibScalar
+qmsHPPCLLinesPerInch = _QmsHPPCLLinesPerInch_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 525, 6),
+    _QmsHPPCLLinesPerInch_Type()
+)
+qmsHPPCLLinesPerInch.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsHPPCLLinesPerInch.setStatus("mandatory")
+
+
+class _QmsHPPCLDefaultSymbolSet_Type(Integer32):
+    """Custom type qmsHPPCLDefaultSymbolSet based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(5,
+              10,
+              15,
+              20,
+              22,
+              38,
+              39,
+              40,
+              54,
+              79,
+              84,
+              174,
+              175,
+              181,
+              203,
+              206,
+              235,
+              270,
+              278,
+              294,
+              309,
+              310,
+              331,
+              342,
+              374,
+              395,
+              406,
+              427,
+              459,
+              502,
+              566,
+              630)
+        )
+    )
+    namedValues = NamedValues(
+        *(("desktop", 235),
+          ("iso11SWED", 20),
+          ("iso15ITAL", 10),
+          ("iso17SPAN", 84),
+          ("iso21GERM", 40),
+          ("iso4UK", 38),
+          ("iso60NORW", 5),
+          ("iso69FREN", 39),
+          ("iso6ASCII", 22),
+          ("isoLatin1", 15),
+          ("isoLatin2", 79),
+          ("isoLatin5", 175),
+          ("legal", 54),
+          ("math8", 270),
+          ("mcText", 395),
+          ("microsoftPub", 203),
+          ("pc850", 406),
+          ("pc852Latin2", 566),
+          ("pc8DN", 374),
+          ("pc8TK", 309),
+          ("pc8US", 342),
+          ("piFont", 502),
+          ("psMath", 174),
+          ("psText", 331),
+          ("roman8", 278),
+          ("ventura-Math", 206),
+          ("venturaIntl", 427),
+          ("venturaUS", 459),
+          ("win30Latin1", 310),
+          ("win31Latin1", 630),
+          ("win31Latin2", 294),
+          ("win31Latin5", 181))
+    )
+
+
+_QmsHPPCLDefaultSymbolSet_Type.__name__ = "Integer32"
+_QmsHPPCLDefaultSymbolSet_Object = MibScalar
+qmsHPPCLDefaultSymbolSet = _QmsHPPCLDefaultSymbolSet_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 525, 8),
+    _QmsHPPCLDefaultSymbolSet_Type()
+)
+qmsHPPCLDefaultSymbolSet.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsHPPCLDefaultSymbolSet.setStatus("mandatory")
+
+
+class _QmsHPPCLPreJobReset_Type(Integer32):
+    """Custom type qmsHPPCLPreJobReset based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2),
+          ("oncompatibility", 3))
+    )
+
+
+_QmsHPPCLPreJobReset_Type.__name__ = "Integer32"
+_QmsHPPCLPreJobReset_Object = MibScalar
+qmsHPPCLPreJobReset = _QmsHPPCLPreJobReset_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 525, 10),
+    _QmsHPPCLPreJobReset_Type()
+)
+qmsHPPCLPreJobReset.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsHPPCLPreJobReset.setStatus("mandatory")
+
+
+class _QmsHPPCLPointSize_Type(Integer32):
+    """Custom type qmsHPPCLPointSize based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(25, 99975),
+    )
+
+
+_QmsHPPCLPointSize_Type.__name__ = "Integer32"
+_QmsHPPCLPointSize_Object = MibScalar
+qmsHPPCLPointSize = _QmsHPPCLPointSize_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 525, 12),
+    _QmsHPPCLPointSize_Type()
+)
+qmsHPPCLPointSize.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsHPPCLPointSize.setStatus("mandatory")
+
+
+class _QmsHPPCLDefaultFontID_Type(Integer32):
+    """Custom type qmsHPPCLDefaultFontID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 32767),
+    )
+
+
+_QmsHPPCLDefaultFontID_Type.__name__ = "Integer32"
+_QmsHPPCLDefaultFontID_Object = MibScalar
+qmsHPPCLDefaultFontID = _QmsHPPCLDefaultFontID_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 525, 16),
+    _QmsHPPCLDefaultFontID_Type()
+)
+qmsHPPCLDefaultFontID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsHPPCLDefaultFontID.setStatus("mandatory")
+
+
+class _QmsHPPCLGL2Plotter_Type(Integer32):
+    """Custom type qmsHPPCLGL2Plotter based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsHPPCLGL2Plotter_Type.__name__ = "Integer32"
+_QmsHPPCLGL2Plotter_Object = MibScalar
+qmsHPPCLGL2Plotter = _QmsHPPCLGL2Plotter_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 525, 18),
+    _QmsHPPCLGL2Plotter_Type()
+)
+qmsHPPCLGL2Plotter.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsHPPCLGL2Plotter.setStatus("mandatory")
+
+
+class _QmsHPPCLDiskOrRam_Type(Integer32):
+    """Custom type qmsHPPCLDiskOrRam based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disk", 2),
+          ("memory", 1))
+    )
+
+
+_QmsHPPCLDiskOrRam_Type.__name__ = "Integer32"
+_QmsHPPCLDiskOrRam_Object = MibScalar
+qmsHPPCLDiskOrRam = _QmsHPPCLDiskOrRam_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 525, 24),
+    _QmsHPPCLDiskOrRam_Type()
+)
+qmsHPPCLDiskOrRam.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsHPPCLDiskOrRam.setStatus("mandatory")
+_QmsDECLN03_ObjectIdentity = ObjectIdentity
+qmsDECLN03 = _QmsDECLN03_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 1, 532)
+)
+
+
+class _QmsDECLN03ProductID_Type(Integer32):
+    """Custom type qmsDECLN03ProductID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("la100", 3),
+          ("ln03", 1),
+          ("lqp02", 2))
+    )
+
+
+_QmsDECLN03ProductID_Type.__name__ = "Integer32"
+_QmsDECLN03ProductID_Object = MibScalar
+qmsDECLN03ProductID = _QmsDECLN03ProductID_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 532, 4),
+    _QmsDECLN03ProductID_Type()
+)
+qmsDECLN03ProductID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsDECLN03ProductID.setStatus("mandatory")
+
+
+class _QmsDECLN03AutowrapMode_Type(Integer32):
+    """Custom type qmsDECLN03AutowrapMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsDECLN03AutowrapMode_Type.__name__ = "Integer32"
+_QmsDECLN03AutowrapMode_Object = MibScalar
+qmsDECLN03AutowrapMode = _QmsDECLN03AutowrapMode_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 532, 5),
+    _QmsDECLN03AutowrapMode_Type()
+)
+qmsDECLN03AutowrapMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsDECLN03AutowrapMode.setStatus("mandatory")
+
+
+class _QmsDECLN03PaperSize_Type(Integer32):
+    """Custom type qmsDECLN03PaperSize based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("a4", 2),
+          ("legal", 3),
+          ("letter", 1),
+          ("sz11x17", 4))
+    )
+
+
+_QmsDECLN03PaperSize_Type.__name__ = "Integer32"
+_QmsDECLN03PaperSize_Object = MibScalar
+qmsDECLN03PaperSize = _QmsDECLN03PaperSize_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 532, 6),
+    _QmsDECLN03PaperSize_Type()
+)
+qmsDECLN03PaperSize.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsDECLN03PaperSize.setStatus("mandatory")
+
+
+class _QmsDECLN03PaperSizeOverride_Type(Integer32):
+    """Custom type qmsDECLN03PaperSizeOverride based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsDECLN03PaperSizeOverride_Type.__name__ = "Integer32"
+_QmsDECLN03PaperSizeOverride_Object = MibScalar
+qmsDECLN03PaperSizeOverride = _QmsDECLN03PaperSizeOverride_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 532, 7),
+    _QmsDECLN03PaperSizeOverride_Type()
+)
+qmsDECLN03PaperSizeOverride.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsDECLN03PaperSizeOverride.setStatus("mandatory")
+_QmsDECLN03Xorigin_Type = Integer32
+_QmsDECLN03Xorigin_Object = MibScalar
+qmsDECLN03Xorigin = _QmsDECLN03Xorigin_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 532, 8),
+    _QmsDECLN03Xorigin_Type()
+)
+qmsDECLN03Xorigin.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsDECLN03Xorigin.setStatus("mandatory")
+_QmsDECLN03Yorigin_Type = Integer32
+_QmsDECLN03Yorigin_Object = MibScalar
+qmsDECLN03Yorigin = _QmsDECLN03Yorigin_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 532, 10),
+    _QmsDECLN03Yorigin_Type()
+)
+qmsDECLN03Yorigin.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsDECLN03Yorigin.setStatus("mandatory")
+
+
+class _QmsDECLN03Reset_Type(Integer32):
+    """Custom type qmsDECLN03Reset based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsDECLN03Reset_Type.__name__ = "Integer32"
+_QmsDECLN03Reset_Object = MibScalar
+qmsDECLN03Reset = _QmsDECLN03Reset_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 532, 12),
+    _QmsDECLN03Reset_Type()
+)
+qmsDECLN03Reset.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsDECLN03Reset.setStatus("mandatory")
+
+
+class _QmsDECLN03Orientation_Type(Integer32):
+    """Custom type qmsDECLN03Orientation based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("landscape", 2),
+          ("portrait", 1))
+    )
+
+
+_QmsDECLN03Orientation_Type.__name__ = "Integer32"
+_QmsDECLN03Orientation_Object = MibScalar
+qmsDECLN03Orientation = _QmsDECLN03Orientation_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 532, 14),
+    _QmsDECLN03Orientation_Type()
+)
+qmsDECLN03Orientation.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsDECLN03Orientation.setStatus("mandatory")
+_QmsQUIC2_ObjectIdentity = ObjectIdentity
+qmsQUIC2 = _QmsQUIC2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 1, 534)
+)
+
+
+class _QmsQUIC2CommandCharacter_Type(Integer32):
+    """Custom type qmsQUIC2CommandCharacter based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(32, 255),
+    )
+
+
+_QmsQUIC2CommandCharacter_Type.__name__ = "Integer32"
+_QmsQUIC2CommandCharacter_Object = MibScalar
+qmsQUIC2CommandCharacter = _QmsQUIC2CommandCharacter_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 534, 4),
+    _QmsQUIC2CommandCharacter_Type()
+)
+qmsQUIC2CommandCharacter.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsQUIC2CommandCharacter.setStatus("mandatory")
+
+
+class _QmsQUIC2TopMargin_Type(Integer32):
+    """Custom type qmsQUIC2TopMargin based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 9999),
+    )
+
+
+_QmsQUIC2TopMargin_Type.__name__ = "Integer32"
+_QmsQUIC2TopMargin_Object = MibScalar
+qmsQUIC2TopMargin = _QmsQUIC2TopMargin_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 534, 6),
+    _QmsQUIC2TopMargin_Type()
+)
+qmsQUIC2TopMargin.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsQUIC2TopMargin.setStatus("mandatory")
+
+
+class _QmsQUIC2BottomMargin_Type(Integer32):
+    """Custom type qmsQUIC2BottomMargin based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 9999),
+    )
+
+
+_QmsQUIC2BottomMargin_Type.__name__ = "Integer32"
+_QmsQUIC2BottomMargin_Object = MibScalar
+qmsQUIC2BottomMargin = _QmsQUIC2BottomMargin_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 534, 8),
+    _QmsQUIC2BottomMargin_Type()
+)
+qmsQUIC2BottomMargin.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsQUIC2BottomMargin.setStatus("mandatory")
+
+
+class _QmsQUIC2LeftMargin_Type(Integer32):
+    """Custom type qmsQUIC2LeftMargin based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 9999),
+    )
+
+
+_QmsQUIC2LeftMargin_Type.__name__ = "Integer32"
+_QmsQUIC2LeftMargin_Object = MibScalar
+qmsQUIC2LeftMargin = _QmsQUIC2LeftMargin_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 534, 10),
+    _QmsQUIC2LeftMargin_Type()
+)
+qmsQUIC2LeftMargin.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsQUIC2LeftMargin.setStatus("mandatory")
+
+
+class _QmsQUIC2RightMargin_Type(Integer32):
+    """Custom type qmsQUIC2RightMargin based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 9999),
+    )
+
+
+_QmsQUIC2RightMargin_Type.__name__ = "Integer32"
+_QmsQUIC2RightMargin_Object = MibScalar
+qmsQUIC2RightMargin = _QmsQUIC2RightMargin_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 534, 12),
+    _QmsQUIC2RightMargin_Type()
+)
+qmsQUIC2RightMargin.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsQUIC2RightMargin.setStatus("mandatory")
+
+
+class _QmsQUIC2IfParam_Type(Integer32):
+    """Custom type qmsQUIC2IfParam based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("immediateEject", 2),
+          ("immediateErase", 1),
+          ("onPageEject", 3))
+    )
+
+
+_QmsQUIC2IfParam_Type.__name__ = "Integer32"
+_QmsQUIC2IfParam_Object = MibScalar
+qmsQUIC2IfParam = _QmsQUIC2IfParam_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 534, 14),
+    _QmsQUIC2IfParam_Type()
+)
+qmsQUIC2IfParam.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsQUIC2IfParam.setStatus("mandatory")
+
+
+class _QmsQUIC2CReqCRLF_Type(Integer32):
+    """Custom type qmsQUIC2CReqCRLF based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("crEQcr", 1),
+          ("crEQcrANDlf", 2))
+    )
+
+
+_QmsQUIC2CReqCRLF_Type.__name__ = "Integer32"
+_QmsQUIC2CReqCRLF_Object = MibScalar
+qmsQUIC2CReqCRLF = _QmsQUIC2CReqCRLF_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 534, 15),
+    _QmsQUIC2CReqCRLF_Type()
+)
+qmsQUIC2CReqCRLF.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsQUIC2CReqCRLF.setStatus("mandatory")
+
+
+class _QmsQUIC2LFeqLFCR_Type(Integer32):
+    """Custom type qmsQUIC2LFeqLFCR based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("lfEQlf", 1),
+          ("lfEQlfANDcr", 2))
+    )
+
+
+_QmsQUIC2LFeqLFCR_Type.__name__ = "Integer32"
+_QmsQUIC2LFeqLFCR_Object = MibScalar
+qmsQUIC2LFeqLFCR = _QmsQUIC2LFeqLFCR_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 534, 16),
+    _QmsQUIC2LFeqLFCR_Type()
+)
+qmsQUIC2LFeqLFCR.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsQUIC2LFeqLFCR.setStatus("mandatory")
+
+
+class _QmsQUIC2Decimal_Type(Integer32):
+    """Custom type qmsQUIC2Decimal based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("explicit", 3),
+          ("implicitLeft", 1),
+          ("implicitRight", 2))
+    )
+
+
+_QmsQUIC2Decimal_Type.__name__ = "Integer32"
+_QmsQUIC2Decimal_Object = MibScalar
+qmsQUIC2Decimal = _QmsQUIC2Decimal_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 534, 17),
+    _QmsQUIC2Decimal_Type()
+)
+qmsQUIC2Decimal.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsQUIC2Decimal.setStatus("mandatory")
+
+
+class _QmsQUIC2Dimensions_Type(Integer32):
+    """Custom type qmsQUIC2Dimensions based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("centimeters", 2),
+          ("dots", 1),
+          ("inches", 3))
+    )
+
+
+_QmsQUIC2Dimensions_Type.__name__ = "Integer32"
+_QmsQUIC2Dimensions_Object = MibScalar
+qmsQUIC2Dimensions = _QmsQUIC2Dimensions_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 534, 18),
+    _QmsQUIC2Dimensions_Type()
+)
+qmsQUIC2Dimensions.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsQUIC2Dimensions.setStatus("mandatory")
+
+
+class _QmsQUIC2EDPMode_Type(Integer32):
+    """Custom type qmsQUIC2EDPMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsQUIC2EDPMode_Type.__name__ = "Integer32"
+_QmsQUIC2EDPMode_Object = MibScalar
+qmsQUIC2EDPMode = _QmsQUIC2EDPMode_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 534, 19),
+    _QmsQUIC2EDPMode_Type()
+)
+qmsQUIC2EDPMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsQUIC2EDPMode.setStatus("mandatory")
+
+
+class _QmsQUIC2DefaultFont_Type(Integer32):
+    """Custom type qmsQUIC2DefaultFont based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 32767),
+    )
+
+
+_QmsQUIC2DefaultFont_Type.__name__ = "Integer32"
+_QmsQUIC2DefaultFont_Object = MibScalar
+qmsQUIC2DefaultFont = _QmsQUIC2DefaultFont_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 534, 20),
+    _QmsQUIC2DefaultFont_Type()
+)
+qmsQUIC2DefaultFont.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsQUIC2DefaultFont.setStatus("mandatory")
+
+
+class _QmsQUIC2LineSpacing_Type(Integer32):
+    """Custom type qmsQUIC2LineSpacing based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("lpi6", 1),
+          ("lpi8", 2))
+    )
+
+
+_QmsQUIC2LineSpacing_Type.__name__ = "Integer32"
+_QmsQUIC2LineSpacing_Object = MibScalar
+qmsQUIC2LineSpacing = _QmsQUIC2LineSpacing_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 534, 22),
+    _QmsQUIC2LineSpacing_Type()
+)
+qmsQUIC2LineSpacing.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsQUIC2LineSpacing.setStatus("mandatory")
+
+
+class _QmsQUIC2Orientation_Type(Integer32):
+    """Custom type qmsQUIC2Orientation based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("landscape", 2),
+          ("portrait", 1))
+    )
+
+
+_QmsQUIC2Orientation_Type.__name__ = "Integer32"
+_QmsQUIC2Orientation_Object = MibScalar
+qmsQUIC2Orientation = _QmsQUIC2Orientation_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 534, 23),
+    _QmsQUIC2Orientation_Type()
+)
+qmsQUIC2Orientation.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsQUIC2Orientation.setStatus("mandatory")
+
+
+class _QmsQUIC2Scan_Type(Integer32):
+    """Custom type qmsQUIC2Scan based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsQUIC2Scan_Type.__name__ = "Integer32"
+_QmsQUIC2Scan_Object = MibScalar
+qmsQUIC2Scan = _QmsQUIC2Scan_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 534, 24),
+    _QmsQUIC2Scan_Type()
+)
+qmsQUIC2Scan.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsQUIC2Scan.setStatus("mandatory")
+
+
+class _QmsQUIC2Spaces_Type(Integer32):
+    """Custom type qmsQUIC2Spaces based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsQUIC2Spaces_Type.__name__ = "Integer32"
+_QmsQUIC2Spaces_Object = MibScalar
+qmsQUIC2Spaces = _QmsQUIC2Spaces_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 534, 25),
+    _QmsQUIC2Spaces_Type()
+)
+qmsQUIC2Spaces.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsQUIC2Spaces.setStatus("mandatory")
+
+
+class _QmsQUIC2AllowDataRepeats_Type(Integer32):
+    """Custom type qmsQUIC2AllowDataRepeats based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsQUIC2AllowDataRepeats_Type.__name__ = "Integer32"
+_QmsQUIC2AllowDataRepeats_Object = MibScalar
+qmsQUIC2AllowDataRepeats = _QmsQUIC2AllowDataRepeats_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 534, 26),
+    _QmsQUIC2AllowDataRepeats_Type()
+)
+qmsQUIC2AllowDataRepeats.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsQUIC2AllowDataRepeats.setStatus("mandatory")
+
+
+class _QmsQUIC2AllowOverlays_Type(Integer32):
+    """Custom type qmsQUIC2AllowOverlays based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsQUIC2AllowOverlays_Type.__name__ = "Integer32"
+_QmsQUIC2AllowOverlays_Object = MibScalar
+qmsQUIC2AllowOverlays = _QmsQUIC2AllowOverlays_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 534, 27),
+    _QmsQUIC2AllowOverlays_Type()
+)
+qmsQUIC2AllowOverlays.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsQUIC2AllowOverlays.setStatus("mandatory")
+
+
+class _QmsQUIC2AllowPageCopies_Type(Integer32):
+    """Custom type qmsQUIC2AllowPageCopies based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsQUIC2AllowPageCopies_Type.__name__ = "Integer32"
+_QmsQUIC2AllowPageCopies_Object = MibScalar
+qmsQUIC2AllowPageCopies = _QmsQUIC2AllowPageCopies_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 534, 28),
+    _QmsQUIC2AllowPageCopies_Type()
+)
+qmsQUIC2AllowPageCopies.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsQUIC2AllowPageCopies.setStatus("mandatory")
+
+
+class _QmsQUIC2SaveDLF_Type(Integer32):
+    """Custom type qmsQUIC2SaveDLF based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsQUIC2SaveDLF_Type.__name__ = "Integer32"
+_QmsQUIC2SaveDLF_Object = MibScalar
+qmsQUIC2SaveDLF = _QmsQUIC2SaveDLF_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 534, 29),
+    _QmsQUIC2SaveDLF_Type()
+)
+qmsQUIC2SaveDLF.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsQUIC2SaveDLF.setStatus("mandatory")
+
+
+class _QmsQUIC2SaveOverlays_Type(Integer32):
+    """Custom type qmsQUIC2SaveOverlays based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsQUIC2SaveOverlays_Type.__name__ = "Integer32"
+_QmsQUIC2SaveOverlays_Object = MibScalar
+qmsQUIC2SaveOverlays = _QmsQUIC2SaveOverlays_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 534, 30),
+    _QmsQUIC2SaveOverlays_Type()
+)
+qmsQUIC2SaveOverlays.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsQUIC2SaveOverlays.setStatus("mandatory")
+
+
+class _QmsQUIC2DefaultMode_Type(Integer32):
+    """Custom type qmsQUIC2DefaultMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("commandFree", 2),
+          ("commandNoFree", 3),
+          ("linePrinter", 1))
+    )
+
+
+_QmsQUIC2DefaultMode_Type.__name__ = "Integer32"
+_QmsQUIC2DefaultMode_Object = MibScalar
+qmsQUIC2DefaultMode = _QmsQUIC2DefaultMode_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 534, 31),
+    _QmsQUIC2DefaultMode_Type()
+)
+qmsQUIC2DefaultMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsQUIC2DefaultMode.setStatus("mandatory")
+
+
+class _QmsQUIC2RebuildFontTable_Type(Integer32):
+    """Custom type qmsQUIC2RebuildFontTable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsQUIC2RebuildFontTable_Type.__name__ = "Integer32"
+_QmsQUIC2RebuildFontTable_Object = MibScalar
+qmsQUIC2RebuildFontTable = _QmsQUIC2RebuildFontTable_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 534, 32),
+    _QmsQUIC2RebuildFontTable_Type()
+)
+qmsQUIC2RebuildFontTable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsQUIC2RebuildFontTable.setStatus("mandatory")
+
+
+class _QmsQUIC2TrayMap1_Type(Integer32):
+    """Custom type qmsQUIC2TrayMap1 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 5),
+    )
+
+
+_QmsQUIC2TrayMap1_Type.__name__ = "Integer32"
+_QmsQUIC2TrayMap1_Object = MibScalar
+qmsQUIC2TrayMap1 = _QmsQUIC2TrayMap1_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 534, 33),
+    _QmsQUIC2TrayMap1_Type()
+)
+qmsQUIC2TrayMap1.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsQUIC2TrayMap1.setStatus("mandatory")
+
+
+class _QmsQUIC2TrayMap2_Type(Integer32):
+    """Custom type qmsQUIC2TrayMap2 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 5),
+    )
+
+
+_QmsQUIC2TrayMap2_Type.__name__ = "Integer32"
+_QmsQUIC2TrayMap2_Object = MibScalar
+qmsQUIC2TrayMap2 = _QmsQUIC2TrayMap2_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 534, 34),
+    _QmsQUIC2TrayMap2_Type()
+)
+qmsQUIC2TrayMap2.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsQUIC2TrayMap2.setStatus("mandatory")
+
+
+class _QmsQUIC2TrayMap3_Type(Integer32):
+    """Custom type qmsQUIC2TrayMap3 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 5),
+    )
+
+
+_QmsQUIC2TrayMap3_Type.__name__ = "Integer32"
+_QmsQUIC2TrayMap3_Object = MibScalar
+qmsQUIC2TrayMap3 = _QmsQUIC2TrayMap3_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 534, 35),
+    _QmsQUIC2TrayMap3_Type()
+)
+qmsQUIC2TrayMap3.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsQUIC2TrayMap3.setStatus("mandatory")
+
+
+class _QmsQUIC2TrayMap4_Type(Integer32):
+    """Custom type qmsQUIC2TrayMap4 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 5),
+    )
+
+
+_QmsQUIC2TrayMap4_Type.__name__ = "Integer32"
+_QmsQUIC2TrayMap4_Object = MibScalar
+qmsQUIC2TrayMap4 = _QmsQUIC2TrayMap4_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 534, 36),
+    _QmsQUIC2TrayMap4_Type()
+)
+qmsQUIC2TrayMap4.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsQUIC2TrayMap4.setStatus("mandatory")
+
+
+class _QmsQUIC2TrayMap5_Type(Integer32):
+    """Custom type qmsQUIC2TrayMap5 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 5),
+    )
+
+
+_QmsQUIC2TrayMap5_Type.__name__ = "Integer32"
+_QmsQUIC2TrayMap5_Object = MibScalar
+qmsQUIC2TrayMap5 = _QmsQUIC2TrayMap5_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 534, 37),
+    _QmsQUIC2TrayMap5_Type()
+)
+qmsQUIC2TrayMap5.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsQUIC2TrayMap5.setStatus("mandatory")
+
+
+class _QmsQUIC2PatternType_Type(Integer32):
+    """Custom type qmsQUIC2PatternType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("opaque", 1),
+          ("transparent", 2))
+    )
+
+
+_QmsQUIC2PatternType_Type.__name__ = "Integer32"
+_QmsQUIC2PatternType_Object = MibScalar
+qmsQUIC2PatternType = _QmsQUIC2PatternType_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 534, 38),
+    _QmsQUIC2PatternType_Type()
+)
+qmsQUIC2PatternType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsQUIC2PatternType.setStatus("mandatory")
+_QmsCCITT_ObjectIdentity = ObjectIdentity
+qmsCCITT = _QmsCCITT_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 1, 538)
+)
+_QmsLinePrinter_ObjectIdentity = ObjectIdentity
+qmsLinePrinter = _QmsLinePrinter_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 1, 539)
+)
+
+
+class _QmsLPPointSize_Type(Integer32):
+    """Custom type qmsLPPointSize based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 99999),
+    )
+
+
+_QmsLPPointSize_Type.__name__ = "Integer32"
+_QmsLPPointSize_Object = MibScalar
+qmsLPPointSize = _QmsLPPointSize_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 539, 4),
+    _QmsLPPointSize_Type()
+)
+qmsLPPointSize.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsLPPointSize.setStatus("mandatory")
+
+
+class _QmsLPTabStops_Type(Integer32):
+    """Custom type qmsLPTabStops based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 256),
+    )
+
+
+_QmsLPTabStops_Type.__name__ = "Integer32"
+_QmsLPTabStops_Object = MibScalar
+qmsLPTabStops = _QmsLPTabStops_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 539, 8),
+    _QmsLPTabStops_Type()
+)
+qmsLPTabStops.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsLPTabStops.setStatus("mandatory")
+
+
+class _QmsLPLinesPerPage_Type(Integer32):
+    """Custom type qmsLPLinesPerPage based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 128),
+    )
+
+
+_QmsLPLinesPerPage_Type.__name__ = "Integer32"
+_QmsLPLinesPerPage_Object = MibScalar
+qmsLPLinesPerPage = _QmsLPLinesPerPage_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 539, 12),
+    _QmsLPLinesPerPage_Type()
+)
+qmsLPLinesPerPage.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsLPLinesPerPage.setStatus("mandatory")
+
+
+class _QmsLPLeftMargin_Type(Integer32):
+    """Custom type qmsLPLeftMargin based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 79200),
+    )
+
+
+_QmsLPLeftMargin_Type.__name__ = "Integer32"
+_QmsLPLeftMargin_Object = MibScalar
+qmsLPLeftMargin = _QmsLPLeftMargin_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 539, 16),
+    _QmsLPLeftMargin_Type()
+)
+qmsLPLeftMargin.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsLPLeftMargin.setStatus("mandatory")
+
+
+class _QmsLPRightMargin_Type(Integer32):
+    """Custom type qmsLPRightMargin based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 79200),
+    )
+
+
+_QmsLPRightMargin_Type.__name__ = "Integer32"
+_QmsLPRightMargin_Object = MibScalar
+qmsLPRightMargin = _QmsLPRightMargin_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 539, 20),
+    _QmsLPRightMargin_Type()
+)
+qmsLPRightMargin.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsLPRightMargin.setStatus("mandatory")
+
+
+class _QmsLPTopMargin_Type(Integer32):
+    """Custom type qmsLPTopMargin based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 79200),
+    )
+
+
+_QmsLPTopMargin_Type.__name__ = "Integer32"
+_QmsLPTopMargin_Object = MibScalar
+qmsLPTopMargin = _QmsLPTopMargin_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 539, 24),
+    _QmsLPTopMargin_Type()
+)
+qmsLPTopMargin.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsLPTopMargin.setStatus("mandatory")
+
+
+class _QmsLPBottomMargin_Type(Integer32):
+    """Custom type qmsLPBottomMargin based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 79200),
+    )
+
+
+_QmsLPBottomMargin_Type.__name__ = "Integer32"
+_QmsLPBottomMargin_Object = MibScalar
+qmsLPBottomMargin = _QmsLPBottomMargin_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 539, 28),
+    _QmsLPBottomMargin_Type()
+)
+qmsLPBottomMargin.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsLPBottomMargin.setStatus("mandatory")
+
+
+class _QmsLPAsciiMap_Type(Integer32):
+    """Custom type qmsLPAsciiMap based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ascii", 2),
+          ("ebcdic", 1))
+    )
+
+
+_QmsLPAsciiMap_Type.__name__ = "Integer32"
+_QmsLPAsciiMap_Object = MibScalar
+qmsLPAsciiMap = _QmsLPAsciiMap_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 539, 32),
+    _QmsLPAsciiMap_Type()
+)
+qmsLPAsciiMap.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsLPAsciiMap.setStatus("mandatory")
+
+
+class _QmsLPLineNumbering_Type(Integer32):
+    """Custom type qmsLPLineNumbering based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsLPLineNumbering_Type.__name__ = "Integer32"
+_QmsLPLineNumbering_Object = MibScalar
+qmsLPLineNumbering = _QmsLPLineNumbering_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 539, 34),
+    _QmsLPLineNumbering_Type()
+)
+qmsLPLineNumbering.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsLPLineNumbering.setStatus("mandatory")
+
+
+class _QmsLPLFisCRLF_Type(Integer32):
+    """Custom type qmsLPLFisCRLF based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsLPLFisCRLF_Type.__name__ = "Integer32"
+_QmsLPLFisCRLF_Object = MibScalar
+qmsLPLFisCRLF = _QmsLPLFisCRLF_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 539, 36),
+    _QmsLPLFisCRLF_Type()
+)
+qmsLPLFisCRLF.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsLPLFisCRLF.setStatus("mandatory")
+
+
+class _QmsLPCRisCRLF_Type(Integer32):
+    """Custom type qmsLPCRisCRLF based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsLPCRisCRLF_Type.__name__ = "Integer32"
+_QmsLPCRisCRLF_Object = MibScalar
+qmsLPCRisCRLF = _QmsLPCRisCRLF_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 539, 38),
+    _QmsLPCRisCRLF_Type()
+)
+qmsLPCRisCRLF.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsLPCRisCRLF.setStatus("mandatory")
+
+
+class _QmsLPFFisCRFF_Type(Integer32):
+    """Custom type qmsLPFFisCRFF based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsLPFFisCRFF_Type.__name__ = "Integer32"
+_QmsLPFFisCRFF_Object = MibScalar
+qmsLPFFisCRFF = _QmsLPFFisCRFF_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 539, 40),
+    _QmsLPFFisCRFF_Type()
+)
+qmsLPFFisCRFF.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsLPFFisCRFF.setStatus("mandatory")
+
+
+class _QmsLPOrientation_Type(Integer32):
+    """Custom type qmsLPOrientation based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("landscape", 2),
+          ("portrait", 1))
+    )
+
+
+_QmsLPOrientation_Type.__name__ = "Integer32"
+_QmsLPOrientation_Object = MibScalar
+qmsLPOrientation = _QmsLPOrientation_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 539, 42),
+    _QmsLPOrientation_Type()
+)
+qmsLPOrientation.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsLPOrientation.setStatus("mandatory")
+
+
+class _QmsLPLineWrap_Type(Integer32):
+    """Custom type qmsLPLineWrap based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsLPLineWrap_Type.__name__ = "Integer32"
+_QmsLPLineWrap_Object = MibScalar
+qmsLPLineWrap = _QmsLPLineWrap_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 539, 44),
+    _QmsLPLineWrap_Type()
+)
+qmsLPLineWrap.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsLPLineWrap.setStatus("mandatory")
+
+
+class _QmsLPFont_Type(DisplayString):
+    """Custom type qmsLPFont based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_QmsLPFont_Type.__name__ = "DisplayString"
+_QmsLPFont_Object = MibScalar
+qmsLPFont = _QmsLPFont_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 539, 46),
+    _QmsLPFont_Type()
+)
+qmsLPFont.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsLPFont.setStatus("mandatory")
+_QmsTIFF_ObjectIdentity = ObjectIdentity
+qmsTIFF = _QmsTIFF_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 1, 541)
+)
+
+
+class _QmsTIFFAutoRotation_Type(Integer32):
+    """Custom type qmsTIFFAutoRotation based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("rot180", 4),
+          ("rot270", 3),
+          ("rot90", 2))
+    )
+
+
+_QmsTIFFAutoRotation_Type.__name__ = "Integer32"
+_QmsTIFFAutoRotation_Object = MibScalar
+qmsTIFFAutoRotation = _QmsTIFFAutoRotation_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 541, 1),
+    _QmsTIFFAutoRotation_Type()
+)
+qmsTIFFAutoRotation.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsTIFFAutoRotation.setStatus("mandatory")
+
+
+class _QmsTIFFScratchFileSize_Type(Integer32):
+    """Custom type qmsTIFFScratchFileSize based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_QmsTIFFScratchFileSize_Type.__name__ = "Integer32"
+_QmsTIFFScratchFileSize_Object = MibScalar
+qmsTIFFScratchFileSize = _QmsTIFFScratchFileSize_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 541, 2),
+    _QmsTIFFScratchFileSize_Type()
+)
+qmsTIFFScratchFileSize.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsTIFFScratchFileSize.setStatus("mandatory")
+
+
+class _QmsTIFFPaperToImage_Type(Integer32):
+    """Custom type qmsTIFFPaperToImage based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsTIFFPaperToImage_Type.__name__ = "Integer32"
+_QmsTIFFPaperToImage_Object = MibScalar
+qmsTIFFPaperToImage = _QmsTIFFPaperToImage_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 541, 3),
+    _QmsTIFFPaperToImage_Type()
+)
+qmsTIFFPaperToImage.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsTIFFPaperToImage.setStatus("mandatory")
+
+
+class _QmsTIFFAnnotationState_Type(Integer32):
+    """Custom type qmsTIFFAnnotationState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 1),
+          ("enabled", 2))
+    )
+
+
+_QmsTIFFAnnotationState_Type.__name__ = "Integer32"
+_QmsTIFFAnnotationState_Object = MibScalar
+qmsTIFFAnnotationState = _QmsTIFFAnnotationState_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 541, 4),
+    _QmsTIFFAnnotationState_Type()
+)
+qmsTIFFAnnotationState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsTIFFAnnotationState.setStatus("mandatory")
+
+
+class _QmsTIFFAnnotationTag_Type(Integer32):
+    """Custom type qmsTIFFAnnotationTag based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65000),
+    )
+
+
+_QmsTIFFAnnotationTag_Type.__name__ = "Integer32"
+_QmsTIFFAnnotationTag_Object = MibScalar
+qmsTIFFAnnotationTag = _QmsTIFFAnnotationTag_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 541, 5),
+    _QmsTIFFAnnotationTag_Type()
+)
+qmsTIFFAnnotationTag.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsTIFFAnnotationTag.setStatus("mandatory")
+
+
+class _QmsTIFFReverseImage_Type(Integer32):
+    """Custom type qmsTIFFReverseImage based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsTIFFReverseImage_Type.__name__ = "Integer32"
+_QmsTIFFReverseImage_Object = MibScalar
+qmsTIFFReverseImage = _QmsTIFFReverseImage_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 541, 7),
+    _QmsTIFFReverseImage_Type()
+)
+qmsTIFFReverseImage.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsTIFFReverseImage.setStatus("mandatory")
+
+
+class _QmsTIFFAutoScaling_Type(Integer32):
+    """Custom type qmsTIFFAutoScaling based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("downOnly", 4),
+          ("off", 1),
+          ("upANDdown", 2),
+          ("upOnly", 3))
+    )
+
+
+_QmsTIFFAutoScaling_Type.__name__ = "Integer32"
+_QmsTIFFAutoScaling_Object = MibScalar
+qmsTIFFAutoScaling = _QmsTIFFAutoScaling_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 541, 50),
+    _QmsTIFFAutoScaling_Type()
+)
+qmsTIFFAutoScaling.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsTIFFAutoScaling.setStatus("mandatory")
+_QmsCALS_ObjectIdentity = ObjectIdentity
+qmsCALS = _QmsCALS_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 1, 542)
+)
+
+
+class _QmsCALSAutoRotation_Type(Integer32):
+    """Custom type qmsCALSAutoRotation based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("rot180", 4),
+          ("rot270", 3),
+          ("rot90", 2))
+    )
+
+
+_QmsCALSAutoRotation_Type.__name__ = "Integer32"
+_QmsCALSAutoRotation_Object = MibScalar
+qmsCALSAutoRotation = _QmsCALSAutoRotation_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 542, 1),
+    _QmsCALSAutoRotation_Type()
+)
+qmsCALSAutoRotation.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsCALSAutoRotation.setStatus("mandatory")
+
+
+class _QmsCALSAutoScaling_Type(Integer32):
+    """Custom type qmsCALSAutoScaling based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("downOnly", 4),
+          ("off", 1),
+          ("upANDdown", 2),
+          ("upOnly", 3))
+    )
+
+
+_QmsCALSAutoScaling_Type.__name__ = "Integer32"
+_QmsCALSAutoScaling_Object = MibScalar
+qmsCALSAutoScaling = _QmsCALSAutoScaling_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 542, 50),
+    _QmsCALSAutoScaling_Type()
+)
+qmsCALSAutoScaling.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsCALSAutoScaling.setStatus("mandatory")
+_QmsCGM_ObjectIdentity = ObjectIdentity
+qmsCGM = _QmsCGM_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 1, 544)
+)
+
+
+class _QmsCGMSuppressScale_Type(Integer32):
+    """Custom type qmsCGMSuppressScale based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 1),
+          ("yes", 2))
+    )
+
+
+_QmsCGMSuppressScale_Type.__name__ = "Integer32"
+_QmsCGMSuppressScale_Object = MibScalar
+qmsCGMSuppressScale = _QmsCGMSuppressScale_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 544, 1),
+    _QmsCGMSuppressScale_Type()
+)
+qmsCGMSuppressScale.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsCGMSuppressScale.setStatus("mandatory")
+
+
+class _QmsCGMMono_Type(Integer32):
+    """Custom type qmsCGMMono based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_QmsCGMMono_Type.__name__ = "Integer32"
+_QmsCGMMono_Object = MibScalar
+qmsCGMMono = _QmsCGMMono_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 544, 2),
+    _QmsCGMMono_Type()
+)
+qmsCGMMono.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsCGMMono.setStatus("mandatory")
+
+
+class _QmsCGMIgnoreBorder_Type(Integer32):
+    """Custom type qmsCGMIgnoreBorder based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 1),
+          ("yes", 2))
+    )
+
+
+_QmsCGMIgnoreBorder_Type.__name__ = "Integer32"
+_QmsCGMIgnoreBorder_Object = MibScalar
+qmsCGMIgnoreBorder = _QmsCGMIgnoreBorder_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 544, 3),
+    _QmsCGMIgnoreBorder_Type()
+)
+qmsCGMIgnoreBorder.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsCGMIgnoreBorder.setStatus("mandatory")
+
+
+class _QmsCGMOriginX_Type(Integer32):
+    """Custom type qmsCGMOriginX based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1700),
+    )
+
+
+_QmsCGMOriginX_Type.__name__ = "Integer32"
+_QmsCGMOriginX_Object = MibScalar
+qmsCGMOriginX = _QmsCGMOriginX_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 544, 4),
+    _QmsCGMOriginX_Type()
+)
+qmsCGMOriginX.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsCGMOriginX.setStatus("mandatory")
+
+
+class _QmsCGMOriginY_Type(Integer32):
+    """Custom type qmsCGMOriginY based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1700),
+    )
+
+
+_QmsCGMOriginY_Type.__name__ = "Integer32"
+_QmsCGMOriginY_Object = MibScalar
+qmsCGMOriginY = _QmsCGMOriginY_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 544, 8),
+    _QmsCGMOriginY_Type()
+)
+qmsCGMOriginY.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsCGMOriginY.setStatus("mandatory")
+
+
+class _QmsCGMPrintErrors_Type(Integer32):
+    """Custom type qmsCGMPrintErrors based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 1),
+          ("yes", 2))
+    )
+
+
+_QmsCGMPrintErrors_Type.__name__ = "Integer32"
+_QmsCGMPrintErrors_Object = MibScalar
+qmsCGMPrintErrors = _QmsCGMPrintErrors_Object(
+    (1, 3, 6, 1, 4, 1, 480, 1, 544, 12),
+    _QmsCGMPrintErrors_Type()
+)
+qmsCGMPrintErrors.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsCGMPrintErrors.setStatus("mandatory")
+_QmsRel_ObjectIdentity = ObjectIdentity
+qmsRel = _QmsRel_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 2)
+)
+_QmsPrinter_ObjectIdentity = ObjectIdentity
+qmsPrinter = _QmsPrinter_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 2, 1)
+)
+_QmsPtrSys_ObjectIdentity = ObjectIdentity
+qmsPtrSys = _QmsPtrSys_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 2, 1, 1)
+)
+
+
+class _QmsPtrSysStatus_Type(DisplayString):
+    """Custom type qmsPtrSysStatus based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_QmsPtrSysStatus_Type.__name__ = "DisplayString"
+_QmsPtrSysStatus_Object = MibScalar
+qmsPtrSysStatus = _QmsPtrSysStatus_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 1, 1, 1),
+    _QmsPtrSysStatus_Type()
+)
+qmsPtrSysStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsPtrSysStatus.setStatus("mandatory")
+
+
+class _QmsPtrSysNamePrinter_Type(DisplayString):
+    """Custom type qmsPtrSysNamePrinter based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_QmsPtrSysNamePrinter_Type.__name__ = "DisplayString"
+_QmsPtrSysNamePrinter_Object = MibScalar
+qmsPtrSysNamePrinter = _QmsPtrSysNamePrinter_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 1, 1, 2),
+    _QmsPtrSysNamePrinter_Type()
+)
+qmsPtrSysNamePrinter.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsPtrSysNamePrinter.setStatus("optional")
+_QmsPtrIfTable_Object = MibTable
+qmsPtrIfTable = _QmsPtrIfTable_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 1, 1, 3)
+)
+if mibBuilder.loadTexts:
+    qmsPtrIfTable.setStatus("mandatory")
+_QmsPtrIfEntry_Object = MibTableRow
+qmsPtrIfEntry = _QmsPtrIfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 1, 1, 3, 1)
+)
+qmsPtrIfEntry.setIndexNames(
+    (0, "QMS-MIB", "qmsPtrIfIndex"),
+)
+if mibBuilder.loadTexts:
+    qmsPtrIfEntry.setStatus("mandatory")
+_QmsPtrIfIndex_Type = Integer32
+_QmsPtrIfIndex_Object = MibTableColumn
+qmsPtrIfIndex = _QmsPtrIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 1, 1, 3, 1, 1),
+    _QmsPtrIfIndex_Type()
+)
+qmsPtrIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsPtrIfIndex.setStatus("mandatory")
+
+
+class _QmsPtrIfName_Type(DisplayString):
+    """Custom type qmsPtrIfName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_QmsPtrIfName_Type.__name__ = "DisplayString"
+_QmsPtrIfName_Object = MibTableColumn
+qmsPtrIfName = _QmsPtrIfName_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 1, 1, 3, 1, 2),
+    _QmsPtrIfName_Type()
+)
+qmsPtrIfName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsPtrIfName.setStatus("mandatory")
+
+
+class _QmsPtrIfDefEmu_Type(Integer32):
+    """Custom type qmsPtrIfDefEmu based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              201,
+              65534,
+              65535)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ccitt", 19),
+          ("code-v", 17),
+          ("dec-ansi", 11),
+          ("diablo-630", 3),
+          ("epson-fx", 10),
+          ("esp", 201),
+          ("hex-dump", 7),
+          ("hp-gl", 5),
+          ("hp-pcl", 6),
+          ("hp-pcl-5", 21),
+          ("ibm-ext-ascii", 12),
+          ("ibm-proprinter", 2),
+          ("impress", 16),
+          ("line-printer", 20),
+          ("ln03", 13),
+          ("not-supported", 65534),
+          ("quic-2", 15),
+          ("r1", 18),
+          ("tektronix-4014", 14),
+          ("ti-810", 9),
+          ("ti-855", 4),
+          ("ti-855-dp", 8),
+          ("ultrascript", 1),
+          ("wild-card", 65535))
+    )
+
+
+_QmsPtrIfDefEmu_Type.__name__ = "Integer32"
+_QmsPtrIfDefEmu_Object = MibTableColumn
+qmsPtrIfDefEmu = _QmsPtrIfDefEmu_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 1, 1, 3, 1, 3),
+    _QmsPtrIfDefEmu_Type()
+)
+qmsPtrIfDefEmu.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsPtrIfDefEmu.setStatus("mandatory")
+_QmsPtrBinTable_Object = MibTable
+qmsPtrBinTable = _QmsPtrBinTable_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 1, 1, 4)
+)
+if mibBuilder.loadTexts:
+    qmsPtrBinTable.setStatus("mandatory")
+_QmsPtrBinEntry_Object = MibTableRow
+qmsPtrBinEntry = _QmsPtrBinEntry_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 1, 1, 4, 1)
+)
+qmsPtrBinEntry.setIndexNames(
+    (0, "QMS-MIB", "qmsPtrBinIndex"),
+)
+if mibBuilder.loadTexts:
+    qmsPtrBinEntry.setStatus("mandatory")
+_QmsPtrBinIndex_Type = Integer32
+_QmsPtrBinIndex_Object = MibTableColumn
+qmsPtrBinIndex = _QmsPtrBinIndex_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 1, 1, 4, 1, 1),
+    _QmsPtrBinIndex_Type()
+)
+qmsPtrBinIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsPtrBinIndex.setStatus("mandatory")
+
+
+class _QmsPtrBinType_Type(Integer32):
+    """Custom type qmsPtrBinType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("input", 2),
+          ("output", 1))
+    )
+
+
+_QmsPtrBinType_Type.__name__ = "Integer32"
+_QmsPtrBinType_Object = MibTableColumn
+qmsPtrBinType = _QmsPtrBinType_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 1, 1, 4, 1, 2),
+    _QmsPtrBinType_Type()
+)
+qmsPtrBinType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsPtrBinType.setStatus("mandatory")
+_QmsPtrBinId_Type = Integer32
+_QmsPtrBinId_Object = MibTableColumn
+qmsPtrBinId = _QmsPtrBinId_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 1, 1, 4, 1, 3),
+    _QmsPtrBinId_Type()
+)
+qmsPtrBinId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsPtrBinId.setStatus("mandatory")
+
+
+class _QmsPtrBinPaper_Type(DisplayString):
+    """Custom type qmsPtrBinPaper based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_QmsPtrBinPaper_Type.__name__ = "DisplayString"
+_QmsPtrBinPaper_Object = MibTableColumn
+qmsPtrBinPaper = _QmsPtrBinPaper_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 1, 1, 4, 1, 4),
+    _QmsPtrBinPaper_Type()
+)
+qmsPtrBinPaper.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsPtrBinPaper.setStatus("mandatory")
+
+
+class _QmsPtrBinName_Type(DisplayString):
+    """Custom type qmsPtrBinName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_QmsPtrBinName_Type.__name__ = "DisplayString"
+_QmsPtrBinName_Object = MibTableColumn
+qmsPtrBinName = _QmsPtrBinName_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 1, 1, 4, 1, 5),
+    _QmsPtrBinName_Type()
+)
+qmsPtrBinName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsPtrBinName.setStatus("mandatory")
+_QmsPtrEmu_ObjectIdentity = ObjectIdentity
+qmsPtrEmu = _QmsPtrEmu_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 2, 1, 2)
+)
+_QmsPtrJobs_ObjectIdentity = ObjectIdentity
+qmsPtrJobs = _QmsPtrJobs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 2, 1, 3)
+)
+
+
+class _QmsPtrJobsCurStatus_Type(Integer32):
+    """Custom type qmsPtrJobsCurStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              4,
+              8,
+              16,
+              32,
+              64,
+              128,
+              256,
+              32768)
+        )
+    )
+    namedValues = NamedValues(
+        *(("canceled", 256),
+          ("internal", 32768),
+          ("interpreting", 2),
+          ("printed", 128),
+          ("printing", 8),
+          ("rasterizing", 4),
+          ("spooled", 64),
+          ("spooling", 1),
+          ("terminating", 16),
+          ("waiting", 32))
+    )
+
+
+_QmsPtrJobsCurStatus_Type.__name__ = "Integer32"
+_QmsPtrJobsCurStatus_Object = MibScalar
+qmsPtrJobsCurStatus = _QmsPtrJobsCurStatus_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 1, 3, 1),
+    _QmsPtrJobsCurStatus_Type()
+)
+qmsPtrJobsCurStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsPtrJobsCurStatus.setStatus("mandatory")
+_QmsPtrJobsCurSheet_Type = Integer32
+_QmsPtrJobsCurSheet_Object = MibScalar
+qmsPtrJobsCurSheet = _QmsPtrJobsCurSheet_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 1, 3, 2),
+    _QmsPtrJobsCurSheet_Type()
+)
+qmsPtrJobsCurSheet.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsPtrJobsCurSheet.setStatus("mandatory")
+_QmsPtrJobsCurPage_Type = Integer32
+_QmsPtrJobsCurPage_Object = MibScalar
+qmsPtrJobsCurPage = _QmsPtrJobsCurPage_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 1, 3, 3),
+    _QmsPtrJobsCurPage_Type()
+)
+qmsPtrJobsCurPage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsPtrJobsCurPage.setStatus("mandatory")
+_QmsPtrJobsTable_Object = MibTable
+qmsPtrJobsTable = _QmsPtrJobsTable_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 1, 3, 4)
+)
+if mibBuilder.loadTexts:
+    qmsPtrJobsTable.setStatus("mandatory")
+_QmsPtrJobsEntry_Object = MibTableRow
+qmsPtrJobsEntry = _QmsPtrJobsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 1, 3, 4, 1)
+)
+qmsPtrJobsEntry.setIndexNames(
+    (0, "QMS-MIB", "qmsPtrJobsIndex"),
+)
+if mibBuilder.loadTexts:
+    qmsPtrJobsEntry.setStatus("mandatory")
+_QmsPtrJobsIndex_Type = Integer32
+_QmsPtrJobsIndex_Object = MibTableColumn
+qmsPtrJobsIndex = _QmsPtrJobsIndex_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 1, 3, 4, 1, 1),
+    _QmsPtrJobsIndex_Type()
+)
+qmsPtrJobsIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsPtrJobsIndex.setStatus("mandatory")
+
+
+class _QmsPtrJobsStatus_Type(Integer32):
+    """Custom type qmsPtrJobsStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              4,
+              8,
+              16,
+              32,
+              64,
+              128,
+              256,
+              32768)
+        )
+    )
+    namedValues = NamedValues(
+        *(("canceled", 256),
+          ("internal", 32768),
+          ("interpreting", 2),
+          ("printed", 128),
+          ("printing", 8),
+          ("rasterizing", 4),
+          ("spooled", 64),
+          ("spooling", 1),
+          ("terminating", 16),
+          ("waiting", 32))
+    )
+
+
+_QmsPtrJobsStatus_Type.__name__ = "Integer32"
+_QmsPtrJobsStatus_Object = MibTableColumn
+qmsPtrJobsStatus = _QmsPtrJobsStatus_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 1, 3, 4, 1, 2),
+    _QmsPtrJobsStatus_Type()
+)
+qmsPtrJobsStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsPtrJobsStatus.setStatus("mandatory")
+
+
+class _QmsPtrJobsEmulation_Type(Integer32):
+    """Custom type qmsPtrJobsEmulation based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              25,
+              26,
+              201,
+              65536)
+        )
+    )
+    namedValues = NamedValues(
+        *(("cals", 23),
+          ("ccitt", 19),
+          ("cgm", 25),
+          ("code-v", 17),
+          ("dec-ansi", 11),
+          ("diablo-630", 3),
+          ("epson-fx", 10),
+          ("esp", 201),
+          ("hex-dump", 7),
+          ("hp-gl", 5),
+          ("hp-pcl", 6),
+          ("hp-pcl-5", 21),
+          ("hp-pcl-xl", 26),
+          ("ibm-ext-ascii", 12),
+          ("ibm-proprinter", 2),
+          ("impress", 16),
+          ("line-printer", 20),
+          ("ln03", 13),
+          ("quic-2", 15),
+          ("r1", 18),
+          ("tektronix-4014", 14),
+          ("ti-810", 9),
+          ("ti-855", 4),
+          ("ti-855-dp", 8),
+          ("tiff", 22),
+          ("ultrascript", 1),
+          ("wild-card", 65536))
+    )
+
+
+_QmsPtrJobsEmulation_Type.__name__ = "Integer32"
+_QmsPtrJobsEmulation_Object = MibTableColumn
+qmsPtrJobsEmulation = _QmsPtrJobsEmulation_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 1, 3, 4, 1, 4),
+    _QmsPtrJobsEmulation_Type()
+)
+qmsPtrJobsEmulation.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsPtrJobsEmulation.setStatus("mandatory")
+_QmsPtrJobsPage_Type = Integer32
+_QmsPtrJobsPage_Object = MibTableColumn
+qmsPtrJobsPage = _QmsPtrJobsPage_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 1, 3, 4, 1, 5),
+    _QmsPtrJobsPage_Type()
+)
+qmsPtrJobsPage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsPtrJobsPage.setStatus("mandatory")
+_QmsPtrJobsSheet_Type = Integer32
+_QmsPtrJobsSheet_Object = MibTableColumn
+qmsPtrJobsSheet = _QmsPtrJobsSheet_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 1, 3, 4, 1, 6),
+    _QmsPtrJobsSheet_Type()
+)
+qmsPtrJobsSheet.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsPtrJobsSheet.setStatus("mandatory")
+
+
+class _QmsPtrJobsChannel_Type(Integer32):
+    """Custom type qmsPtrJobsChannel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              12,
+              13,
+              14,
+              16)
+        )
+    )
+    namedValues = NamedValues(
+        *(("appletalk", 14),
+          ("optional-io", 16),
+          ("other", 1),
+          ("parallel", 13),
+          ("rs-232", 12))
+    )
+
+
+_QmsPtrJobsChannel_Type.__name__ = "Integer32"
+_QmsPtrJobsChannel_Object = MibTableColumn
+qmsPtrJobsChannel = _QmsPtrJobsChannel_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 1, 3, 4, 1, 7),
+    _QmsPtrJobsChannel_Type()
+)
+qmsPtrJobsChannel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsPtrJobsChannel.setStatus("mandatory")
+
+
+class _QmsPtrJobsComment_Type(DisplayString):
+    """Custom type qmsPtrJobsComment based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_QmsPtrJobsComment_Type.__name__ = "DisplayString"
+_QmsPtrJobsComment_Object = MibTableColumn
+qmsPtrJobsComment = _QmsPtrJobsComment_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 1, 3, 4, 1, 8),
+    _QmsPtrJobsComment_Type()
+)
+qmsPtrJobsComment.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsPtrJobsComment.setStatus("mandatory")
+
+
+class _QmsPtrJobsTitle_Type(DisplayString):
+    """Custom type qmsPtrJobsTitle based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_QmsPtrJobsTitle_Type.__name__ = "DisplayString"
+_QmsPtrJobsTitle_Object = MibTableColumn
+qmsPtrJobsTitle = _QmsPtrJobsTitle_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 1, 3, 4, 1, 9),
+    _QmsPtrJobsTitle_Type()
+)
+qmsPtrJobsTitle.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsPtrJobsTitle.setStatus("mandatory")
+
+
+class _QmsPtrJobsOwner_Type(DisplayString):
+    """Custom type qmsPtrJobsOwner based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_QmsPtrJobsOwner_Type.__name__ = "DisplayString"
+_QmsPtrJobsOwner_Object = MibTableColumn
+qmsPtrJobsOwner = _QmsPtrJobsOwner_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 1, 3, 4, 1, 10),
+    _QmsPtrJobsOwner_Type()
+)
+qmsPtrJobsOwner.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsPtrJobsOwner.setStatus("mandatory")
+_QmsPtrJobsStatPages_Type = Integer32
+_QmsPtrJobsStatPages_Object = MibScalar
+qmsPtrJobsStatPages = _QmsPtrJobsStatPages_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 1, 3, 6),
+    _QmsPtrJobsStatPages_Type()
+)
+qmsPtrJobsStatPages.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsPtrJobsStatPages.setStatus("mandatory")
+_QmsPtrJobsStatSheets_Type = Integer32
+_QmsPtrJobsStatSheets_Object = MibScalar
+qmsPtrJobsStatSheets = _QmsPtrJobsStatSheets_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 1, 3, 7),
+    _QmsPtrJobsStatSheets_Type()
+)
+qmsPtrJobsStatSheets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qmsPtrJobsStatSheets.setStatus("mandatory")
+_QmsIF_ObjectIdentity = ObjectIdentity
+qmsIF = _QmsIF_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9)
+)
+_QmsIFAdmin_ObjectIdentity = ObjectIdentity
+qmsIFAdmin = _QmsIFAdmin_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 1)
+)
+
+
+class _QmsIFAdminUnitStatus_Type(Integer32):
+    """Custom type qmsIFAdminUnitStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("hardReset", 3),
+          ("resetOnNoClient", 2),
+          ("running", 1))
+    )
+
+
+_QmsIFAdminUnitStatus_Type.__name__ = "Integer32"
+_QmsIFAdminUnitStatus_Object = MibTableColumn
+qmsIFAdminUnitStatus = _QmsIFAdminUnitStatus_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 1, 1),
+    _QmsIFAdminUnitStatus_Type()
+)
+qmsIFAdminUnitStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsIFAdminUnitStatus.setStatus("mandatory")
+
+
+class _QmsIFAdminConfigStatus_Type(Integer32):
+    """Custom type qmsIFAdminConfigStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("configDefaultRequest", 5),
+          ("configLoadRequest", 3),
+          ("configSaveRequest", 4),
+          ("configUnknown1", 1),
+          ("configUnknown2", 2))
+    )
+
+
+_QmsIFAdminConfigStatus_Type.__name__ = "Integer32"
+_QmsIFAdminConfigStatus_Object = MibTableColumn
+qmsIFAdminConfigStatus = _QmsIFAdminConfigStatus_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 1, 2),
+    _QmsIFAdminConfigStatus_Type()
+)
+qmsIFAdminConfigStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsIFAdminConfigStatus.setStatus("mandatory")
+_QmsIFAdminOldIntAddr_Type = IpAddress
+_QmsIFAdminOldIntAddr_Object = MibTableColumn
+qmsIFAdminOldIntAddr = _QmsIFAdminOldIntAddr_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 1, 3),
+    _QmsIFAdminOldIntAddr_Type()
+)
+qmsIFAdminOldIntAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qmsIFAdminOldIntAddr.setStatus("mandatory")
+_QmsIFSetup_ObjectIdentity = ObjectIdentity
+qmsIFSetup = _QmsIFSetup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2)
+)
+_QmsIFConfig_ObjectIdentity = ObjectIdentity
+qmsIFConfig = _QmsIFConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 1)
+)
+_IntAddr_Type = IpAddress
+_IntAddr_Object = MibTableColumn
+intAddr = _IntAddr_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 1, 1),
+    _IntAddr_Type()
+)
+intAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    intAddr.setStatus("mandatory")
+_EthAddr_Type = IpAddress
+_EthAddr_Object = MibTableColumn
+ethAddr = _EthAddr_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 1, 2),
+    _EthAddr_Type()
+)
+ethAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ethAddr.setStatus("mandatory")
+_DefRout_Type = IpAddress
+_DefRout_Object = MibTableColumn
+defRout = _DefRout_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 1, 3),
+    _DefRout_Type()
+)
+defRout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    defRout.setStatus("mandatory")
+_NetMask_Type = IpAddress
+_NetMask_Object = MibTableColumn
+netMask = _NetMask_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 1, 4),
+    _NetMask_Type()
+)
+netMask.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    netMask.setStatus("mandatory")
+
+
+class _TcpEnb_Type(Integer32):
+    """Custom type tcpEnb based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 1),
+          ("yes", 2))
+    )
+
+
+_TcpEnb_Type.__name__ = "Integer32"
+_TcpEnb_Object = MibTableColumn
+tcpEnb = _TcpEnb_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 1, 5),
+    _TcpEnb_Type()
+)
+tcpEnb.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tcpEnb.setStatus("mandatory")
+
+
+class _TftpEnb_Type(Integer32):
+    """Custom type tftpEnb based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 1),
+          ("yes", 2))
+    )
+
+
+_TftpEnb_Type.__name__ = "Integer32"
+_TftpEnb_Object = MibTableColumn
+tftpEnb = _TftpEnb_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 1, 13),
+    _TftpEnb_Type()
+)
+tftpEnb.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tftpEnb.setStatus("mandatory")
+_TnPort_Type = Integer32
+_TnPort_Object = MibTableColumn
+tnPort = _TnPort_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 1, 16),
+    _TnPort_Type()
+)
+tnPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tnPort.setStatus("obsolete")
+
+
+class _RtnOpt_Type(Integer32):
+    """Custom type rtnOpt based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 1),
+          ("yes", 2))
+    )
+
+
+_RtnOpt_Type.__name__ = "Integer32"
+_RtnOpt_Object = MibTableColumn
+rtnOpt = _RtnOpt_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 1, 18),
+    _RtnOpt_Type()
+)
+rtnOpt.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rtnOpt.setStatus("obsolete")
+_TrP1_Type = Integer32
+_TrP1_Object = MibTableColumn
+trP1 = _TrP1_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 1, 30),
+    _TrP1_Type()
+)
+trP1.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    trP1.setStatus("mandatory")
+
+
+class _BootP_Type(Integer32):
+    """Custom type bootP based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 1),
+          ("yes", 2))
+    )
+
+
+_BootP_Type.__name__ = "Integer32"
+_BootP_Object = MibTableColumn
+bootP = _BootP_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 1, 698),
+    _BootP_Type()
+)
+bootP.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    bootP.setStatus("mandatory")
+
+
+class _Rarp_Type(Integer32):
+    """Custom type rarp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 1),
+          ("yes", 2))
+    )
+
+
+_Rarp_Type.__name__ = "Integer32"
+_Rarp_Object = MibTableColumn
+rarp = _Rarp_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 1, 699),
+    _Rarp_Type()
+)
+rarp.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rarp.setStatus("mandatory")
+
+
+class _Spooling_Type(Integer32):
+    """Custom type spooling based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("on", 1),
+          ("onIdle", 3),
+          ("onInputIdle", 2))
+    )
+
+
+_Spooling_Type.__name__ = "Integer32"
+_Spooling_Object = MibScalar
+spooling = _Spooling_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 1, 9000),
+    _Spooling_Type()
+)
+spooling.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    spooling.setStatus("mandatory")
+_QmsIFNetware_ObjectIdentity = ObjectIdentity
+qmsIFNetware = _QmsIFNetware_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5)
+)
+
+
+class _NetwEnb_Type(Integer32):
+    """Custom type netwEnb based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 1),
+          ("yes", 2))
+    )
+
+
+_NetwEnb_Type.__name__ = "Integer32"
+_NetwEnb_Object = MibTableColumn
+netwEnb = _NetwEnb_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 400),
+    _NetwEnb_Type()
+)
+netwEnb.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    netwEnb.setStatus("mandatory")
+_PsName_Type = DisplayString
+_PsName_Object = MibTableColumn
+psName = _PsName_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 401),
+    _PsName_Type()
+)
+psName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    psName.setStatus("mandatory")
+_ConfServ_Type = DisplayString
+_ConfServ_Object = MibTableColumn
+confServ = _ConfServ_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 402),
+    _ConfServ_Type()
+)
+confServ.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    confServ.setStatus("mandatory")
+
+
+class _MsgLog_Type(Integer32):
+    """Custom type msgLog based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("both", 4),
+          ("console", 2),
+          ("netlog", 3),
+          ("none", 1))
+    )
+
+
+_MsgLog_Type.__name__ = "Integer32"
+_MsgLog_Object = MibTableColumn
+msgLog = _MsgLog_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 403),
+    _MsgLog_Type()
+)
+msgLog.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    msgLog.setStatus("mandatory")
+
+
+class _NwMode_Type(Integer32):
+    """Custom type nwMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("both", 4),
+          ("off", 1),
+          ("pserver", 2),
+          ("rprinter", 3))
+    )
+
+
+_NwMode_Type.__name__ = "Integer32"
+_NwMode_Object = MibTableColumn
+nwMode = _NwMode_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 404),
+    _NwMode_Type()
+)
+nwMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nwMode.setStatus("mandatory")
+
+
+class _PsPoll_Type(Integer32):
+    """Custom type psPoll based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_PsPoll_Type.__name__ = "Integer32"
+_PsPoll_Object = MibTableColumn
+psPoll = _PsPoll_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 405),
+    _PsPoll_Type()
+)
+psPoll.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    psPoll.setStatus("mandatory")
+
+
+class _Fr8023_Type(Integer32):
+    """Custom type fr8023 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 1),
+          ("yes", 2))
+    )
+
+
+_Fr8023_Type.__name__ = "Integer32"
+_Fr8023_Object = MibScalar
+fr8023 = _Fr8023_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 420),
+    _Fr8023_Type()
+)
+fr8023.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    fr8023.setStatus("mandatory")
+
+
+class _Freth2_Type(Integer32):
+    """Custom type freth2 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 1),
+          ("yes", 2))
+    )
+
+
+_Freth2_Type.__name__ = "Integer32"
+_Freth2_Object = MibScalar
+freth2 = _Freth2_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 421),
+    _Freth2_Type()
+)
+freth2.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    freth2.setStatus("mandatory")
+
+
+class _Fr8022_Type(Integer32):
+    """Custom type fr8022 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 1),
+          ("yes", 2))
+    )
+
+
+_Fr8022_Type.__name__ = "Integer32"
+_Fr8022_Object = MibScalar
+fr8022 = _Fr8022_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 422),
+    _Fr8022_Type()
+)
+fr8022.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    fr8022.setStatus("mandatory")
+
+
+class _FrSnap_Type(Integer32):
+    """Custom type frSnap based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 1),
+          ("yes", 2))
+    )
+
+
+_FrSnap_Type.__name__ = "Integer32"
+_FrSnap_Object = MibScalar
+frSnap = _FrSnap_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 423),
+    _FrSnap_Type()
+)
+frSnap.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    frSnap.setStatus("mandatory")
+_Login1_Type = DisplayString
+_Login1_Object = MibTableColumn
+login1 = _Login1_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 432),
+    _Login1_Type()
+)
+login1.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    login1.setStatus("mandatory")
+_Login2_Type = DisplayString
+_Login2_Object = MibTableColumn
+login2 = _Login2_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 433),
+    _Login2_Type()
+)
+login2.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    login2.setStatus("mandatory")
+_Login3_Type = DisplayString
+_Login3_Object = MibTableColumn
+login3 = _Login3_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 434),
+    _Login3_Type()
+)
+login3.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    login3.setStatus("mandatory")
+_Login4_Type = DisplayString
+_Login4_Object = MibTableColumn
+login4 = _Login4_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 435),
+    _Login4_Type()
+)
+login4.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    login4.setStatus("mandatory")
+_Login5_Type = DisplayString
+_Login5_Object = MibTableColumn
+login5 = _Login5_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 436),
+    _Login5_Type()
+)
+login5.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    login5.setStatus("mandatory")
+_Login6_Type = DisplayString
+_Login6_Object = MibTableColumn
+login6 = _Login6_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 437),
+    _Login6_Type()
+)
+login6.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    login6.setStatus("mandatory")
+_Login7_Type = DisplayString
+_Login7_Object = MibTableColumn
+login7 = _Login7_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 438),
+    _Login7_Type()
+)
+login7.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    login7.setStatus("mandatory")
+_Login8_Type = DisplayString
+_Login8_Object = MibTableColumn
+login8 = _Login8_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 439),
+    _Login8_Type()
+)
+login8.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    login8.setStatus("mandatory")
+_Login9_Type = DisplayString
+_Login9_Object = MibTableColumn
+login9 = _Login9_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 440),
+    _Login9_Type()
+)
+login9.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    login9.setStatus("mandatory")
+_Login10_Type = DisplayString
+_Login10_Object = MibTableColumn
+login10 = _Login10_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 441),
+    _Login10_Type()
+)
+login10.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    login10.setStatus("mandatory")
+_Login11_Type = DisplayString
+_Login11_Object = MibTableColumn
+login11 = _Login11_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 442),
+    _Login11_Type()
+)
+login11.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    login11.setStatus("mandatory")
+_Login12_Type = DisplayString
+_Login12_Object = MibTableColumn
+login12 = _Login12_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 443),
+    _Login12_Type()
+)
+login12.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    login12.setStatus("mandatory")
+_Login13_Type = DisplayString
+_Login13_Object = MibTableColumn
+login13 = _Login13_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 444),
+    _Login13_Type()
+)
+login13.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    login13.setStatus("mandatory")
+_Login14_Type = DisplayString
+_Login14_Object = MibTableColumn
+login14 = _Login14_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 445),
+    _Login14_Type()
+)
+login14.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    login14.setStatus("mandatory")
+_Login15_Type = DisplayString
+_Login15_Object = MibTableColumn
+login15 = _Login15_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 446),
+    _Login15_Type()
+)
+login15.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    login15.setStatus("mandatory")
+_Login16_Type = DisplayString
+_Login16_Object = MibTableColumn
+login16 = _Login16_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 447),
+    _Login16_Type()
+)
+login16.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    login16.setStatus("mandatory")
+_Rprinter1_Type = DisplayString
+_Rprinter1_Object = MibTableColumn
+rprinter1 = _Rprinter1_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 470),
+    _Rprinter1_Type()
+)
+rprinter1.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rprinter1.setStatus("mandatory")
+_Rprinter2_Type = DisplayString
+_Rprinter2_Object = MibTableColumn
+rprinter2 = _Rprinter2_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 471),
+    _Rprinter2_Type()
+)
+rprinter2.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rprinter2.setStatus("mandatory")
+_Rprinter3_Type = DisplayString
+_Rprinter3_Object = MibTableColumn
+rprinter3 = _Rprinter3_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 472),
+    _Rprinter3_Type()
+)
+rprinter3.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rprinter3.setStatus("mandatory")
+_Rprinter4_Type = DisplayString
+_Rprinter4_Object = MibTableColumn
+rprinter4 = _Rprinter4_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 473),
+    _Rprinter4_Type()
+)
+rprinter4.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rprinter4.setStatus("mandatory")
+_Rprinter5_Type = DisplayString
+_Rprinter5_Object = MibTableColumn
+rprinter5 = _Rprinter5_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 474),
+    _Rprinter5_Type()
+)
+rprinter5.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rprinter5.setStatus("mandatory")
+_Rprinter6_Type = DisplayString
+_Rprinter6_Object = MibTableColumn
+rprinter6 = _Rprinter6_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 475),
+    _Rprinter6_Type()
+)
+rprinter6.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rprinter6.setStatus("mandatory")
+_Rprinter7_Type = DisplayString
+_Rprinter7_Object = MibTableColumn
+rprinter7 = _Rprinter7_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 476),
+    _Rprinter7_Type()
+)
+rprinter7.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rprinter7.setStatus("mandatory")
+_Rprinter8_Type = DisplayString
+_Rprinter8_Object = MibTableColumn
+rprinter8 = _Rprinter8_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 5, 477),
+    _Rprinter8_Type()
+)
+rprinter8.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rprinter8.setStatus("mandatory")
+_QmsIFApple_ObjectIdentity = ObjectIdentity
+qmsIFApple = _QmsIFApple_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 6)
+)
+
+
+class _AtlkEnb_Type(Integer32):
+    """Custom type atlkEnb based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 1),
+          ("yes", 2))
+    )
+
+
+_AtlkEnb_Type.__name__ = "Integer32"
+_AtlkEnb_Object = MibTableColumn
+atlkEnb = _AtlkEnb_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 6, 500),
+    _AtlkEnb_Type()
+)
+atlkEnb.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    atlkEnb.setStatus("mandatory")
+_AtlkZone_Type = DisplayString
+_AtlkZone_Object = MibTableColumn
+atlkZone = _AtlkZone_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 6, 502),
+    _AtlkZone_Type()
+)
+atlkZone.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    atlkZone.setStatus("mandatory")
+
+
+class _AtlkZonerEnb_Type(Integer32):
+    """Custom type atlkZonerEnb based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 1),
+          ("yes", 2))
+    )
+
+
+_AtlkZonerEnb_Type.__name__ = "Integer32"
+_AtlkZonerEnb_Object = MibTableColumn
+atlkZonerEnb = _AtlkZonerEnb_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 6, 503),
+    _AtlkZonerEnb_Type()
+)
+atlkZonerEnb.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    atlkZonerEnb.setStatus("mandatory")
+
+
+class _AtlkLWEnb_Type(Integer32):
+    """Custom type atlkLWEnb based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 1),
+          ("yes", 2))
+    )
+
+
+_AtlkLWEnb_Type.__name__ = "Integer32"
+_AtlkLWEnb_Object = MibTableColumn
+atlkLWEnb = _AtlkLWEnb_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 6, 560),
+    _AtlkLWEnb_Type()
+)
+atlkLWEnb.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    atlkLWEnb.setStatus("mandatory")
+
+
+class _AtlkQMSRemConEnb_Type(Integer32):
+    """Custom type atlkQMSRemConEnb based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 1),
+          ("yes", 2))
+    )
+
+
+_AtlkQMSRemConEnb_Type.__name__ = "Integer32"
+_AtlkQMSRemConEnb_Object = MibTableColumn
+atlkQMSRemConEnb = _AtlkQMSRemConEnb_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 6, 561),
+    _AtlkQMSRemConEnb_Type()
+)
+atlkQMSRemConEnb.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    atlkQMSRemConEnb.setStatus("mandatory")
+
+
+class _AtlkConnType_Type(Integer32):
+    """Custom type atlkConnType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("both", 3),
+          ("conventional", 1),
+          ("spooling", 2))
+    )
+
+
+_AtlkConnType_Type.__name__ = "Integer32"
+_AtlkConnType_Object = MibTableColumn
+atlkConnType = _AtlkConnType_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 6, 562),
+    _AtlkConnType_Type()
+)
+atlkConnType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    atlkConnType.setStatus("mandatory")
+_QmsIFSnmpcontrol_ObjectIdentity = ObjectIdentity
+qmsIFSnmpcontrol = _QmsIFSnmpcontrol_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 8)
+)
+
+
+class _EnableAuthenTraps_Type(Integer32):
+    """Custom type enableAuthenTraps based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_EnableAuthenTraps_Type.__name__ = "Integer32"
+_EnableAuthenTraps_Object = MibTableColumn
+enableAuthenTraps = _EnableAuthenTraps_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 8, 715),
+    _EnableAuthenTraps_Type()
+)
+enableAuthenTraps.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    enableAuthenTraps.setStatus("mandatory")
+
+
+class _EnablePrinterTraps_Type(Integer32):
+    """Custom type enablePrinterTraps based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_EnablePrinterTraps_Type.__name__ = "Integer32"
+_EnablePrinterTraps_Object = MibTableColumn
+enablePrinterTraps = _EnablePrinterTraps_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 8, 716),
+    _EnablePrinterTraps_Type()
+)
+enablePrinterTraps.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    enablePrinterTraps.setStatus("mandatory")
+_Nms1Address_Type = IpAddress
+_Nms1Address_Object = MibTableColumn
+nms1Address = _Nms1Address_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 8, 730),
+    _Nms1Address_Type()
+)
+nms1Address.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nms1Address.setStatus("mandatory")
+_Nms1Community_Type = DisplayString
+_Nms1Community_Object = MibTableColumn
+nms1Community = _Nms1Community_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 8, 731),
+    _Nms1Community_Type()
+)
+nms1Community.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nms1Community.setStatus("mandatory")
+
+
+class _Nms1Access_Type(Integer32):
+    """Custom type nms1Access based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("read", 3),
+          ("readtrap", 4),
+          ("trap", 2),
+          ("write", 5),
+          ("writetrap", 6))
+    )
+
+
+_Nms1Access_Type.__name__ = "Integer32"
+_Nms1Access_Object = MibTableColumn
+nms1Access = _Nms1Access_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 8, 732),
+    _Nms1Access_Type()
+)
+nms1Access.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nms1Access.setStatus("mandatory")
+_Nms2Address_Type = IpAddress
+_Nms2Address_Object = MibTableColumn
+nms2Address = _Nms2Address_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 8, 735),
+    _Nms2Address_Type()
+)
+nms2Address.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nms2Address.setStatus("mandatory")
+_Nms2Community_Type = DisplayString
+_Nms2Community_Object = MibTableColumn
+nms2Community = _Nms2Community_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 8, 736),
+    _Nms2Community_Type()
+)
+nms2Community.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nms2Community.setStatus("mandatory")
+
+
+class _Nms2Access_Type(Integer32):
+    """Custom type nms2Access based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("read", 3),
+          ("readtrap", 4),
+          ("trap", 2),
+          ("write", 5),
+          ("writetrap", 6))
+    )
+
+
+_Nms2Access_Type.__name__ = "Integer32"
+_Nms2Access_Object = MibTableColumn
+nms2Access = _Nms2Access_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 8, 737),
+    _Nms2Access_Type()
+)
+nms2Access.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nms2Access.setStatus("mandatory")
+_Nms3Address_Type = IpAddress
+_Nms3Address_Object = MibTableColumn
+nms3Address = _Nms3Address_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 8, 740),
+    _Nms3Address_Type()
+)
+nms3Address.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nms3Address.setStatus("mandatory")
+_Nms3Community_Type = DisplayString
+_Nms3Community_Object = MibTableColumn
+nms3Community = _Nms3Community_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 8, 741),
+    _Nms3Community_Type()
+)
+nms3Community.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nms3Community.setStatus("mandatory")
+
+
+class _Nms3Access_Type(Integer32):
+    """Custom type nms3Access based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("read", 3),
+          ("readtrap", 4),
+          ("trap", 2),
+          ("write", 5),
+          ("writetrap", 6))
+    )
+
+
+_Nms3Access_Type.__name__ = "Integer32"
+_Nms3Access_Object = MibTableColumn
+nms3Access = _Nms3Access_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 8, 742),
+    _Nms3Access_Type()
+)
+nms3Access.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nms3Access.setStatus("mandatory")
+_Nms4Address_Type = IpAddress
+_Nms4Address_Object = MibTableColumn
+nms4Address = _Nms4Address_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 8, 745),
+    _Nms4Address_Type()
+)
+nms4Address.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nms4Address.setStatus("mandatory")
+_Nms4Community_Type = DisplayString
+_Nms4Community_Object = MibTableColumn
+nms4Community = _Nms4Community_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 8, 746),
+    _Nms4Community_Type()
+)
+nms4Community.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nms4Community.setStatus("mandatory")
+
+
+class _Nms4Access_Type(Integer32):
+    """Custom type nms4Access based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("read", 3),
+          ("readtrap", 4),
+          ("trap", 2),
+          ("write", 5),
+          ("writetrap", 6))
+    )
+
+
+_Nms4Access_Type.__name__ = "Integer32"
+_Nms4Access_Object = MibTableColumn
+nms4Access = _Nms4Access_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 8, 747),
+    _Nms4Access_Type()
+)
+nms4Access.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nms4Access.setStatus("mandatory")
+_Nms5Address_Type = IpAddress
+_Nms5Address_Object = MibTableColumn
+nms5Address = _Nms5Address_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 8, 750),
+    _Nms5Address_Type()
+)
+nms5Address.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nms5Address.setStatus("mandatory")
+_Nms5Community_Type = DisplayString
+_Nms5Community_Object = MibTableColumn
+nms5Community = _Nms5Community_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 8, 751),
+    _Nms5Community_Type()
+)
+nms5Community.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nms5Community.setStatus("mandatory")
+
+
+class _Nms5Access_Type(Integer32):
+    """Custom type nms5Access based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("read", 3),
+          ("readtrap", 4),
+          ("trap", 2),
+          ("write", 5),
+          ("writetrap", 6))
+    )
+
+
+_Nms5Access_Type.__name__ = "Integer32"
+_Nms5Access_Object = MibTableColumn
+nms5Access = _Nms5Access_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 8, 752),
+    _Nms5Access_Type()
+)
+nms5Access.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nms5Access.setStatus("mandatory")
+_QmsIFLservlmgr_ObjectIdentity = ObjectIdentity
+qmsIFLservlmgr = _QmsIFLservlmgr_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 9)
+)
+
+
+class _LslmEnb_Type(Integer32):
+    """Custom type lslmEnb based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 1),
+          ("yes", 2))
+    )
+
+
+_LslmEnb_Type.__name__ = "Integer32"
+_LslmEnb_Object = MibTableColumn
+lslmEnb = _LslmEnb_Object(
+    (1, 3, 6, 1, 4, 1, 480, 2, 9, 2, 9, 800),
+    _LslmEnb_Type()
+)
+lslmEnb.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    lslmEnb.setStatus("mandatory")
+_QmsConfig_ObjectIdentity = ObjectIdentity
+qmsConfig = _QmsConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 2, 10)
+)
+_QmsCfgUser_ObjectIdentity = ObjectIdentity
+qmsCfgUser = _QmsCfgUser_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 2, 10, 10)
+)
+_QmsCfgAdmin_ObjectIdentity = ObjectIdentity
+qmsCfgAdmin = _QmsCfgAdmin_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 2, 10, 20)
+)
+_QmsCfgSecurity_ObjectIdentity = ObjectIdentity
+qmsCfgSecurity = _QmsCfgSecurity_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 480, 2, 10, 30)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+coldStart = NotificationType(
+    (1, 3, 6, 1, 2, 1, 11, 0, 0)
+)
+if mibBuilder.loadTexts:
+    coldStart.setStatus(
+        ""
+    )
+
+authenticationFailure = NotificationType(
+    (1, 3, 6, 1, 2, 1, 11, 0, 4)
+)
+if mibBuilder.loadTexts:
+    authenticationFailure.setStatus(
+        ""
+    )
+
+qmsPtrErrorMsg = NotificationType(
+    (1, 3, 6, 1, 4, 1, 480, 0, 1)
+)
+qmsPtrErrorMsg.setObjects(
+    ("QMS-MIB", "qmsPtrSysStatus")
+)
+if mibBuilder.loadTexts:
+    qmsPtrErrorMsg.setStatus(
+        ""
+    )
+
+trapNewIPaddr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 480, 0, 2)
+)
+trapNewIPaddr.setObjects(
+    ("QMS-MIB", "qmsIFAdminOldIntAddr")
+)
+if mibBuilder.loadTexts:
+    trapNewIPaddr.setStatus(
+        ""
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "QMS-MIB",
+    **{"coldStart": coldStart,
+       "authenticationFailure": authenticationFailure,
+       "qmsInc": qmsInc,
+       "qmsPtrErrorMsg": qmsPtrErrorMsg,
+       "trapNewIPaddr": trapNewIPaddr,
+       "qmsUIH": qmsUIH,
+       "qmsSystem": qmsSystem,
+       "qmsSYSPageCount": qmsSYSPageCount,
+       "qmsSYSSheetCount": qmsSYSSheetCount,
+       "qmsSYSPrinterModel": qmsSYSPrinterModel,
+       "qmsSYSPrinterVersion": qmsSYSPrinterVersion,
+       "qmsSYSPrinterName": qmsSYSPrinterName,
+       "qmsSYSA3PageCount": qmsSYSA3PageCount,
+       "qmsSYSA3SheetCount": qmsSYSA3SheetCount,
+       "qmsSYSFPA": qmsSYSFPA,
+       "qmsSYSSystemImage": qmsSYSSystemImage,
+       "qmsSYSDiskSwap": qmsSYSDiskSwap,
+       "qmsSYSMultiRes": qmsSYSMultiRes,
+       "qmsMemory": qmsMemory,
+       "qmsMEMPhysical": qmsMEMPhysical,
+       "qmsMEMTotal": qmsMEMTotal,
+       "qmsClientSystem": qmsClientSystem,
+       "qmsClientSpool": qmsClientSpool,
+       "qmsClientEmulation": qmsClientEmulation,
+       "qmsClientHeap": qmsClientHeap,
+       "qmsClientFontCache": qmsClientFontCache,
+       "qmsClientDisplayList": qmsClientDisplayList,
+       "qmsClientFrameBuffer": qmsClientFrameBuffer,
+       "qmsClientEmulTemp": qmsClientEmulTemp,
+       "qmsClientDisk": qmsClientDisk,
+       "qmsClientColorMatching": qmsClientColorMatching,
+       "qmsClientHPStoragePool": qmsClientHPStoragePool,
+       "qmsIoCtl": qmsIoCtl,
+       "qmsFEEspEmul": qmsFEEspEmul,
+       "qmsFECopies": qmsFECopies,
+       "qmsHTTP": qmsHTTP,
+       "qmsHTTPContact": qmsHTTPContact,
+       "qmsHTTPHelpURL": qmsHTTPHelpURL,
+       "qmsHTTPContactNumber": qmsHTTPContactNumber,
+       "qmsHTTPCorpURL": qmsHTTPCorpURL,
+       "qmsHTTPSuppliesNumber": qmsHTTPSuppliesNumber,
+       "qmsIoTimeOuts": qmsIoTimeOuts,
+       "qmsFETmPSWait": qmsFETmPSWait,
+       "qmsFETmJob": qmsFETmJob,
+       "qmsFETmNonPSEmul": qmsFETmNonPSEmul,
+       "qmsFETmEsp": qmsFETmEsp,
+       "qmsIoPages": qmsIoPages,
+       "qmsFEDoStartPage": qmsFEDoStartPage,
+       "qmsFEHeaderPage": qmsFEHeaderPage,
+       "qmsFEHeaderInputbin": qmsFEHeaderInputbin,
+       "qmsFETrailerPage": qmsFETrailerPage,
+       "qmsFETrailerInputbin": qmsFETrailerInputbin,
+       "qmsFEDoSysStart": qmsFEDoSysStart,
+       "qmsFEStatusPageType": qmsFEStatusPageType,
+       "qmsSerial": qmsSerial,
+       "qmsSerPSProtocol": qmsSerPSProtocol,
+       "qmsSerMode": qmsSerMode,
+       "qmsSerEmulation": qmsSerEmulation,
+       "qmsSerPriority": qmsSerPriority,
+       "qmsSerBufferSize": qmsSerBufferSize,
+       "qmsSerEndDocumentMode": qmsSerEndDocumentMode,
+       "qmsSerSpoolTimeout": qmsSerSpoolTimeout,
+       "qmsSerBaudRate": qmsSerBaudRate,
+       "qmsSerParity": qmsSerParity,
+       "qmsSerIgnoreParity": qmsSerIgnoreParity,
+       "qmsSerRxSWFlow": qmsSerRxSWFlow,
+       "qmsSerTxSWFlow": qmsSerTxSWFlow,
+       "qmsSerDataBits": qmsSerDataBits,
+       "qmsSerStopBits": qmsSerStopBits,
+       "qmsSerHwCTS": qmsSerHwCTS,
+       "qmsSerHwRTS": qmsSerHwRTS,
+       "qmsSerHwDTR": qmsSerHwDTR,
+       "qmsSerHwDTRPOL": qmsSerHwDTRPOL,
+       "qmsSerHwDSR": qmsSerHwDSR,
+       "qmsSerHwDSRPOL": qmsSerHwDSRPOL,
+       "qmsParallel": qmsParallel,
+       "qmsParPSProtocol": qmsParPSProtocol,
+       "qmsParMode": qmsParMode,
+       "qmsParEmulation": qmsParEmulation,
+       "qmsParPriority": qmsParPriority,
+       "qmsParBufferSize": qmsParBufferSize,
+       "qmsParSpoolTimeout": qmsParSpoolTimeout,
+       "qmsParEndDocumentMode": qmsParEndDocumentMode,
+       "qmsParDataBits": qmsParDataBits,
+       "qmsEngine": qmsEngine,
+       "qmsENGTopOffset": qmsENGTopOffset,
+       "qmsENGLeftOffset": qmsENGLeftOffset,
+       "qmsENGTopOffsetDuplex": qmsENGTopOffsetDuplex,
+       "qmsENGLeftOffsetDuplex": qmsENGLeftOffsetDuplex,
+       "qmsENGResolution": qmsENGResolution,
+       "qmsENGDefaultPaper": qmsENGDefaultPaper,
+       "qmsENGDuplex": qmsENGDuplex,
+       "qmsENGOrientation": qmsENGOrientation,
+       "qmsENGInputbin": qmsENGInputbin,
+       "qmsENGOutputbin": qmsENGOutputbin,
+       "qmsENGCollation": qmsENGCollation,
+       "qmsENGErrorRecovery": qmsENGErrorRecovery,
+       "qmsENGManualTrayMedia": qmsENGManualTrayMedia,
+       "qmsENGToneroutAction": qmsENGToneroutAction,
+       "qmsENGLetterheadMode": qmsENGLetterheadMode,
+       "qmsENGManualFeedTimeout": qmsENGManualFeedTimeout,
+       "qmsENGOffsetStacking": qmsENGOffsetStacking,
+       "qmsENGEnergyStar": qmsENGEnergyStar,
+       "qmsENGPageOrder": qmsENGPageOrder,
+       "qmsENGEnvelopeTrayMedia": qmsENGEnvelopeTrayMedia,
+       "qmsENGDensity": qmsENGDensity,
+       "qmsENGColorModel": qmsENGColorModel,
+       "qmsENGColorSeparation": qmsENGColorSeparation,
+       "qmsENGUnderColor": qmsENGUnderColor,
+       "qmsENGQuality": qmsENGQuality,
+       "qmsENGConsumeNameMulti": qmsENGConsumeNameMulti,
+       "qmsENGConsumeName": qmsENGConsumeName,
+       "qmsENGConsumeLevelMulti": qmsENGConsumeLevelMulti,
+       "qmsENGConsumeLevel": qmsENGConsumeLevel,
+       "qmsENGConsumeMaxMulti": qmsENGConsumeMaxMulti,
+       "qmsENGConsumeMax": qmsENGConsumeMax,
+       "qmsENGConsumeUnitsMulti": qmsENGConsumeUnitsMulti,
+       "qmsENGConsumeUnits": qmsENGConsumeUnits,
+       "qmsENGConsumeTypeMulti": qmsENGConsumeTypeMulti,
+       "qmsENGConsumeType": qmsENGConsumeType,
+       "qmsENGConsumeNote1Multi": qmsENGConsumeNote1Multi,
+       "qmsENGConsumeNote1": qmsENGConsumeNote1,
+       "qmsENGConsumeNote2Multi": qmsENGConsumeNote2Multi,
+       "qmsENGConsumeNote2": qmsENGConsumeNote2,
+       "qmsENGConsumeIndexMulti": qmsENGConsumeIndexMulti,
+       "qmsENGConsumeIndex": qmsENGConsumeIndex,
+       "qmsENGNumConsumables": qmsENGNumConsumables,
+       "qmsENGChainInputBins": qmsENGChainInputBins,
+       "qmsENGChainOutputbinMulti": qmsENGChainOutputbinMulti,
+       "qmsENGChainOutputbin": qmsENGChainOutputbin,
+       "qmsENGInputbinMediatypeMulti": qmsENGInputbinMediatypeMulti,
+       "qmsENGInputbinMediatype": qmsENGInputbinMediatype,
+       "qmsENGChainInputbinMulti": qmsENGChainInputbinMulti,
+       "qmsENGChainInputbin": qmsENGChainInputbin,
+       "qmsENGStaplePosition": qmsENGStaplePosition,
+       "qmsAccounting": qmsAccounting,
+       "qmsACCMode": qmsACCMode,
+       "qmsACCDiskSpace": qmsACCDiskSpace,
+       "qmsACCFileSegment": qmsACCFileSegment,
+       "qmsScanner": qmsScanner,
+       "qmsSCColorAdjust": qmsSCColorAdjust,
+       "qmsSCScanResolution": qmsSCScanResolution,
+       "qmsSCSizeHorizontal": qmsSCSizeHorizontal,
+       "qmsSCSizeVertical": qmsSCSizeVertical,
+       "qmsSCOffsetHorizontal": qmsSCOffsetHorizontal,
+       "qmsSCOffsetVertical": qmsSCOffsetVertical,
+       "qmsSCCopyMode": qmsSCCopyMode,
+       "qmsSCRedGammaFunction": qmsSCRedGammaFunction,
+       "qmsSCGreenGammaFunction": qmsSCGreenGammaFunction,
+       "qmsSCBlueGammaFunction": qmsSCBlueGammaFunction,
+       "qmsSCGrayGammaFunction": qmsSCGrayGammaFunction,
+       "qmsSCBinaryAdjustment": qmsSCBinaryAdjustment,
+       "qmsSCTrans": qmsSCTrans,
+       "qmsSCContrast": qmsSCContrast,
+       "qmsCostPerPage": qmsCostPerPage,
+       "qmsCPPSerialNumber": qmsCPPSerialNumber,
+       "qmsColorMatch": qmsColorMatch,
+       "qmsCMMICCColorMatch": qmsCMMICCColorMatch,
+       "qmsCMMICCRGBSource": qmsCMMICCRGBSource,
+       "qmsCMMICCSimulation": qmsCMMICCSimulation,
+       "qmsCMMICCDestination": qmsCMMICCDestination,
+       "qmsCMMLinkQuality": qmsCMMLinkQuality,
+       "qmsCMMSimInRGBLinks": qmsCMMSimInRGBLinks,
+       "qmsCMMICCHP": qmsCMMICCHP,
+       "qmsCMMProfileTable": qmsCMMProfileTable,
+       "qmsCMMProfileEntry": qmsCMMProfileEntry,
+       "qmsCMMProfileIndex": qmsCMMProfileIndex,
+       "qmsCMMProfileDescription": qmsCMMProfileDescription,
+       "qmsCMMProfileType": qmsCMMProfileType,
+       "qmsPS": qmsPS,
+       "qmsPSErrorHandler": qmsPSErrorHandler,
+       "qmsPSOutputPositioning": qmsPSOutputPositioning,
+       "qmsPSDefaultHalftone": qmsPSDefaultHalftone,
+       "qmsPSDefaultBlackOverPrint": qmsPSDefaultBlackOverPrint,
+       "qmsPSDefaultCRD": qmsPSDefaultCRD,
+       "qmsPSDefaultDither": qmsPSDefaultDither,
+       "qmsPSDefaultGamma": qmsPSDefaultGamma,
+       "qmsPSIntensity": qmsPSIntensity,
+       "qmsHPGL": qmsHPGL,
+       "qmsHPGLPaperType": qmsHPGLPaperType,
+       "qmsHPGLPlotter": qmsHPGLPlotter,
+       "qmsHPGLScalingPercent": qmsHPGLScalingPercent,
+       "qmsHPGLEnhancedMode": qmsHPGLEnhancedMode,
+       "qmsHPGLExpandMode": qmsHPGLExpandMode,
+       "qmsHPGLPenWidth1": qmsHPGLPenWidth1,
+       "qmsHPGLPenWidth2": qmsHPGLPenWidth2,
+       "qmsHPGLPenWidth3": qmsHPGLPenWidth3,
+       "qmsHPGLPenWidth4": qmsHPGLPenWidth4,
+       "qmsHPGLPenWidth5": qmsHPGLPenWidth5,
+       "qmsHPGLPenWidth6": qmsHPGLPenWidth6,
+       "qmsHPGLPenWidth7": qmsHPGLPenWidth7,
+       "qmsHPGLPenWidth8": qmsHPGLPenWidth8,
+       "qmsHPGLPenColor1": qmsHPGLPenColor1,
+       "qmsHPGLPenColor2": qmsHPGLPenColor2,
+       "qmsHPGLPenColor3": qmsHPGLPenColor3,
+       "qmsHPGLPenColor4": qmsHPGLPenColor4,
+       "qmsHPGLPenColor5": qmsHPGLPenColor5,
+       "qmsHPGLPenColor6": qmsHPGLPenColor6,
+       "qmsHPGLPenColor7": qmsHPGLPenColor7,
+       "qmsHPGLPenColor8": qmsHPGLPenColor8,
+       "qmsHPPCL": qmsHPPCL,
+       "qmsHPPCLLineTermination": qmsHPPCLLineTermination,
+       "qmsHPPCLFontNumber": qmsHPPCLFontNumber,
+       "qmsHPPCLLinesPerInch": qmsHPPCLLinesPerInch,
+       "qmsHPPCLDefaultSymbolSet": qmsHPPCLDefaultSymbolSet,
+       "qmsHPPCLPreJobReset": qmsHPPCLPreJobReset,
+       "qmsHPPCLPointSize": qmsHPPCLPointSize,
+       "qmsHPPCLDefaultFontID": qmsHPPCLDefaultFontID,
+       "qmsHPPCLGL2Plotter": qmsHPPCLGL2Plotter,
+       "qmsHPPCLDiskOrRam": qmsHPPCLDiskOrRam,
+       "qmsDECLN03": qmsDECLN03,
+       "qmsDECLN03ProductID": qmsDECLN03ProductID,
+       "qmsDECLN03AutowrapMode": qmsDECLN03AutowrapMode,
+       "qmsDECLN03PaperSize": qmsDECLN03PaperSize,
+       "qmsDECLN03PaperSizeOverride": qmsDECLN03PaperSizeOverride,
+       "qmsDECLN03Xorigin": qmsDECLN03Xorigin,
+       "qmsDECLN03Yorigin": qmsDECLN03Yorigin,
+       "qmsDECLN03Reset": qmsDECLN03Reset,
+       "qmsDECLN03Orientation": qmsDECLN03Orientation,
+       "qmsQUIC2": qmsQUIC2,
+       "qmsQUIC2CommandCharacter": qmsQUIC2CommandCharacter,
+       "qmsQUIC2TopMargin": qmsQUIC2TopMargin,
+       "qmsQUIC2BottomMargin": qmsQUIC2BottomMargin,
+       "qmsQUIC2LeftMargin": qmsQUIC2LeftMargin,
+       "qmsQUIC2RightMargin": qmsQUIC2RightMargin,
+       "qmsQUIC2IfParam": qmsQUIC2IfParam,
+       "qmsQUIC2CReqCRLF": qmsQUIC2CReqCRLF,
+       "qmsQUIC2LFeqLFCR": qmsQUIC2LFeqLFCR,
+       "qmsQUIC2Decimal": qmsQUIC2Decimal,
+       "qmsQUIC2Dimensions": qmsQUIC2Dimensions,
+       "qmsQUIC2EDPMode": qmsQUIC2EDPMode,
+       "qmsQUIC2DefaultFont": qmsQUIC2DefaultFont,
+       "qmsQUIC2LineSpacing": qmsQUIC2LineSpacing,
+       "qmsQUIC2Orientation": qmsQUIC2Orientation,
+       "qmsQUIC2Scan": qmsQUIC2Scan,
+       "qmsQUIC2Spaces": qmsQUIC2Spaces,
+       "qmsQUIC2AllowDataRepeats": qmsQUIC2AllowDataRepeats,
+       "qmsQUIC2AllowOverlays": qmsQUIC2AllowOverlays,
+       "qmsQUIC2AllowPageCopies": qmsQUIC2AllowPageCopies,
+       "qmsQUIC2SaveDLF": qmsQUIC2SaveDLF,
+       "qmsQUIC2SaveOverlays": qmsQUIC2SaveOverlays,
+       "qmsQUIC2DefaultMode": qmsQUIC2DefaultMode,
+       "qmsQUIC2RebuildFontTable": qmsQUIC2RebuildFontTable,
+       "qmsQUIC2TrayMap1": qmsQUIC2TrayMap1,
+       "qmsQUIC2TrayMap2": qmsQUIC2TrayMap2,
+       "qmsQUIC2TrayMap3": qmsQUIC2TrayMap3,
+       "qmsQUIC2TrayMap4": qmsQUIC2TrayMap4,
+       "qmsQUIC2TrayMap5": qmsQUIC2TrayMap5,
+       "qmsQUIC2PatternType": qmsQUIC2PatternType,
+       "qmsCCITT": qmsCCITT,
+       "qmsLinePrinter": qmsLinePrinter,
+       "qmsLPPointSize": qmsLPPointSize,
+       "qmsLPTabStops": qmsLPTabStops,
+       "qmsLPLinesPerPage": qmsLPLinesPerPage,
+       "qmsLPLeftMargin": qmsLPLeftMargin,
+       "qmsLPRightMargin": qmsLPRightMargin,
+       "qmsLPTopMargin": qmsLPTopMargin,
+       "qmsLPBottomMargin": qmsLPBottomMargin,
+       "qmsLPAsciiMap": qmsLPAsciiMap,
+       "qmsLPLineNumbering": qmsLPLineNumbering,
+       "qmsLPLFisCRLF": qmsLPLFisCRLF,
+       "qmsLPCRisCRLF": qmsLPCRisCRLF,
+       "qmsLPFFisCRFF": qmsLPFFisCRFF,
+       "qmsLPOrientation": qmsLPOrientation,
+       "qmsLPLineWrap": qmsLPLineWrap,
+       "qmsLPFont": qmsLPFont,
+       "qmsTIFF": qmsTIFF,
+       "qmsTIFFAutoRotation": qmsTIFFAutoRotation,
+       "qmsTIFFScratchFileSize": qmsTIFFScratchFileSize,
+       "qmsTIFFPaperToImage": qmsTIFFPaperToImage,
+       "qmsTIFFAnnotationState": qmsTIFFAnnotationState,
+       "qmsTIFFAnnotationTag": qmsTIFFAnnotationTag,
+       "qmsTIFFReverseImage": qmsTIFFReverseImage,
+       "qmsTIFFAutoScaling": qmsTIFFAutoScaling,
+       "qmsCALS": qmsCALS,
+       "qmsCALSAutoRotation": qmsCALSAutoRotation,
+       "qmsCALSAutoScaling": qmsCALSAutoScaling,
+       "qmsCGM": qmsCGM,
+       "qmsCGMSuppressScale": qmsCGMSuppressScale,
+       "qmsCGMMono": qmsCGMMono,
+       "qmsCGMIgnoreBorder": qmsCGMIgnoreBorder,
+       "qmsCGMOriginX": qmsCGMOriginX,
+       "qmsCGMOriginY": qmsCGMOriginY,
+       "qmsCGMPrintErrors": qmsCGMPrintErrors,
+       "qmsRel": qmsRel,
+       "qmsPrinter": qmsPrinter,
+       "qmsPtrSys": qmsPtrSys,
+       "qmsPtrSysStatus": qmsPtrSysStatus,
+       "qmsPtrSysNamePrinter": qmsPtrSysNamePrinter,
+       "qmsPtrIfTable": qmsPtrIfTable,
+       "qmsPtrIfEntry": qmsPtrIfEntry,
+       "qmsPtrIfIndex": qmsPtrIfIndex,
+       "qmsPtrIfName": qmsPtrIfName,
+       "qmsPtrIfDefEmu": qmsPtrIfDefEmu,
+       "qmsPtrBinTable": qmsPtrBinTable,
+       "qmsPtrBinEntry": qmsPtrBinEntry,
+       "qmsPtrBinIndex": qmsPtrBinIndex,
+       "qmsPtrBinType": qmsPtrBinType,
+       "qmsPtrBinId": qmsPtrBinId,
+       "qmsPtrBinPaper": qmsPtrBinPaper,
+       "qmsPtrBinName": qmsPtrBinName,
+       "qmsPtrEmu": qmsPtrEmu,
+       "qmsPtrJobs": qmsPtrJobs,
+       "qmsPtrJobsCurStatus": qmsPtrJobsCurStatus,
+       "qmsPtrJobsCurSheet": qmsPtrJobsCurSheet,
+       "qmsPtrJobsCurPage": qmsPtrJobsCurPage,
+       "qmsPtrJobsTable": qmsPtrJobsTable,
+       "qmsPtrJobsEntry": qmsPtrJobsEntry,
+       "qmsPtrJobsIndex": qmsPtrJobsIndex,
+       "qmsPtrJobsStatus": qmsPtrJobsStatus,
+       "qmsPtrJobsEmulation": qmsPtrJobsEmulation,
+       "qmsPtrJobsPage": qmsPtrJobsPage,
+       "qmsPtrJobsSheet": qmsPtrJobsSheet,
+       "qmsPtrJobsChannel": qmsPtrJobsChannel,
+       "qmsPtrJobsComment": qmsPtrJobsComment,
+       "qmsPtrJobsTitle": qmsPtrJobsTitle,
+       "qmsPtrJobsOwner": qmsPtrJobsOwner,
+       "qmsPtrJobsStatPages": qmsPtrJobsStatPages,
+       "qmsPtrJobsStatSheets": qmsPtrJobsStatSheets,
+       "qmsIF": qmsIF,
+       "qmsIFAdmin": qmsIFAdmin,
+       "qmsIFAdminUnitStatus": qmsIFAdminUnitStatus,
+       "qmsIFAdminConfigStatus": qmsIFAdminConfigStatus,
+       "qmsIFAdminOldIntAddr": qmsIFAdminOldIntAddr,
+       "qmsIFSetup": qmsIFSetup,
+       "qmsIFConfig": qmsIFConfig,
+       "intAddr": intAddr,
+       "ethAddr": ethAddr,
+       "defRout": defRout,
+       "netMask": netMask,
+       "tcpEnb": tcpEnb,
+       "tftpEnb": tftpEnb,
+       "tnPort": tnPort,
+       "rtnOpt": rtnOpt,
+       "trP1": trP1,
+       "bootP": bootP,
+       "rarp": rarp,
+       "spooling": spooling,
+       "qmsIFNetware": qmsIFNetware,
+       "netwEnb": netwEnb,
+       "psName": psName,
+       "confServ": confServ,
+       "msgLog": msgLog,
+       "nwMode": nwMode,
+       "psPoll": psPoll,
+       "fr8023": fr8023,
+       "freth2": freth2,
+       "fr8022": fr8022,
+       "frSnap": frSnap,
+       "login1": login1,
+       "login2": login2,
+       "login3": login3,
+       "login4": login4,
+       "login5": login5,
+       "login6": login6,
+       "login7": login7,
+       "login8": login8,
+       "login9": login9,
+       "login10": login10,
+       "login11": login11,
+       "login12": login12,
+       "login13": login13,
+       "login14": login14,
+       "login15": login15,
+       "login16": login16,
+       "rprinter1": rprinter1,
+       "rprinter2": rprinter2,
+       "rprinter3": rprinter3,
+       "rprinter4": rprinter4,
+       "rprinter5": rprinter5,
+       "rprinter6": rprinter6,
+       "rprinter7": rprinter7,
+       "rprinter8": rprinter8,
+       "qmsIFApple": qmsIFApple,
+       "atlkEnb": atlkEnb,
+       "atlkZone": atlkZone,
+       "atlkZonerEnb": atlkZonerEnb,
+       "atlkLWEnb": atlkLWEnb,
+       "atlkQMSRemConEnb": atlkQMSRemConEnb,
+       "atlkConnType": atlkConnType,
+       "qmsIFSnmpcontrol": qmsIFSnmpcontrol,
+       "enableAuthenTraps": enableAuthenTraps,
+       "enablePrinterTraps": enablePrinterTraps,
+       "nms1Address": nms1Address,
+       "nms1Community": nms1Community,
+       "nms1Access": nms1Access,
+       "nms2Address": nms2Address,
+       "nms2Community": nms2Community,
+       "nms2Access": nms2Access,
+       "nms3Address": nms3Address,
+       "nms3Community": nms3Community,
+       "nms3Access": nms3Access,
+       "nms4Address": nms4Address,
+       "nms4Community": nms4Community,
+       "nms4Access": nms4Access,
+       "nms5Address": nms5Address,
+       "nms5Community": nms5Community,
+       "nms5Access": nms5Access,
+       "qmsIFLservlmgr": qmsIFLservlmgr,
+       "lslmEnb": lslmEnb,
+       "qmsConfig": qmsConfig,
+       "qmsCfgUser": qmsCfgUser,
+       "qmsCfgAdmin": qmsCfgAdmin,
+       "qmsCfgSecurity": qmsCfgSecurity}
+)

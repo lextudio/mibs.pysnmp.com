@@ -1,46 +1,285 @@
+# SNMP MIB module (CTRON-LINE-STATISTICS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CTRON-LINE-STATISTICS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/CTRON-LINE-STATISTICS-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:14:41 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-cabletron, = mibBuilder.importSymbols("CTRON-OIDS", "cabletron")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Unsigned32, Counter32, Counter64, iso, NotificationType, ModuleIdentity, Gauge32, IpAddress, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Integer32, MibIdentifier, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Counter32", "Counter64", "iso", "NotificationType", "ModuleIdentity", "Gauge32", "IpAddress", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Integer32", "MibIdentifier", "ObjectIdentity")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-ctSSA = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4497))
-ctDsx1LineStatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4497, 21), )
-if mibBuilder.loadTexts: ctDsx1LineStatisticsTable.setStatus('mandatory')
-ctDsx1LineStatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 4497, 21, 1), ).setIndexNames((0, "CTRON-LINE-STATISTICS-MIB", "lsLineIndex"))
-if mibBuilder.loadTexts: ctDsx1LineStatisticsEntry.setStatus('mandatory')
-lsLineIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4497, 21, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lsLineIndex.setStatus('mandatory')
-lsLayer1Up = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4497, 21, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lsLayer1Up.setStatus('mandatory')
-lsLayer1Down = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4497, 21, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lsLayer1Down.setStatus('mandatory')
-lsLayer1LOS = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4497, 21, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lsLayer1LOS.setStatus('mandatory')
-lsLayer1LOF = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4497, 21, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lsLayer1LOF.setStatus('mandatory')
-lsLayer1RAI = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4497, 21, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lsLayer1RAI.setStatus('mandatory')
-lsLayer1AIS = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4497, 21, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lsLayer1AIS.setStatus('mandatory')
-lsLayer1LOSAll = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4497, 21, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lsLayer1LOSAll.setStatus('mandatory')
-lsLayer1LOFAll = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4497, 21, 1, 9), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lsLayer1LOFAll.setStatus('mandatory')
-lsLayer1RAIAll = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4497, 21, 1, 10), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lsLayer1RAIAll.setStatus('mandatory')
-lsLayer1AISAll = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4497, 21, 1, 11), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lsLayer1AISAll.setStatus('mandatory')
-lsLayer1Interrupts = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4497, 21, 1, 12), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lsLayer1Interrupts.setStatus('mandatory')
-lsLayer1ClearStats = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4497, 21, 1, 13), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lsLayer1ClearStats.setStatus('mandatory')
-mibBuilder.exportSymbols("CTRON-LINE-STATISTICS-MIB", ctDsx1LineStatisticsEntry=ctDsx1LineStatisticsEntry, lsLayer1RAI=lsLayer1RAI, lsLayer1Interrupts=lsLayer1Interrupts, lsLayer1Up=lsLayer1Up, lsLayer1AISAll=lsLayer1AISAll, ctSSA=ctSSA, lsLayer1LOS=lsLayer1LOS, lsLayer1AIS=lsLayer1AIS, lsLineIndex=lsLineIndex, lsLayer1Down=lsLayer1Down, ctDsx1LineStatisticsTable=ctDsx1LineStatisticsTable, lsLayer1LOSAll=lsLayer1LOSAll, lsLayer1ClearStats=lsLayer1ClearStats, lsLayer1LOFAll=lsLayer1LOFAll, lsLayer1RAIAll=lsLayer1RAIAll, lsLayer1LOF=lsLayer1LOF)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CTRON-LINE-STATISTICS-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:19:01 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(cabletron,) = mibBuilder.importSymbols(
+    "CTRON-OIDS",
+    "cabletron")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CtSSA_ObjectIdentity = ObjectIdentity
+ctSSA = _CtSSA_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 52, 4497)
+)
+_CtDsx1LineStatisticsTable_Object = MibTable
+ctDsx1LineStatisticsTable = _CtDsx1LineStatisticsTable_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4497, 21)
+)
+if mibBuilder.loadTexts:
+    ctDsx1LineStatisticsTable.setStatus("mandatory")
+_CtDsx1LineStatisticsEntry_Object = MibTableRow
+ctDsx1LineStatisticsEntry = _CtDsx1LineStatisticsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4497, 21, 1)
+)
+ctDsx1LineStatisticsEntry.setIndexNames(
+    (0, "CTRON-LINE-STATISTICS-MIB", "lsLineIndex"),
+)
+if mibBuilder.loadTexts:
+    ctDsx1LineStatisticsEntry.setStatus("mandatory")
+_LsLineIndex_Type = Integer32
+_LsLineIndex_Object = MibTableColumn
+lsLineIndex = _LsLineIndex_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4497, 21, 1, 1),
+    _LsLineIndex_Type()
+)
+lsLineIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lsLineIndex.setStatus("mandatory")
+_LsLayer1Up_Type = Integer32
+_LsLayer1Up_Object = MibTableColumn
+lsLayer1Up = _LsLayer1Up_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4497, 21, 1, 2),
+    _LsLayer1Up_Type()
+)
+lsLayer1Up.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lsLayer1Up.setStatus("mandatory")
+_LsLayer1Down_Type = Integer32
+_LsLayer1Down_Object = MibTableColumn
+lsLayer1Down = _LsLayer1Down_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4497, 21, 1, 3),
+    _LsLayer1Down_Type()
+)
+lsLayer1Down.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lsLayer1Down.setStatus("mandatory")
+_LsLayer1LOS_Type = Integer32
+_LsLayer1LOS_Object = MibTableColumn
+lsLayer1LOS = _LsLayer1LOS_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4497, 21, 1, 4),
+    _LsLayer1LOS_Type()
+)
+lsLayer1LOS.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lsLayer1LOS.setStatus("mandatory")
+_LsLayer1LOF_Type = Integer32
+_LsLayer1LOF_Object = MibTableColumn
+lsLayer1LOF = _LsLayer1LOF_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4497, 21, 1, 5),
+    _LsLayer1LOF_Type()
+)
+lsLayer1LOF.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lsLayer1LOF.setStatus("mandatory")
+_LsLayer1RAI_Type = Integer32
+_LsLayer1RAI_Object = MibTableColumn
+lsLayer1RAI = _LsLayer1RAI_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4497, 21, 1, 6),
+    _LsLayer1RAI_Type()
+)
+lsLayer1RAI.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lsLayer1RAI.setStatus("mandatory")
+_LsLayer1AIS_Type = Integer32
+_LsLayer1AIS_Object = MibTableColumn
+lsLayer1AIS = _LsLayer1AIS_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4497, 21, 1, 7),
+    _LsLayer1AIS_Type()
+)
+lsLayer1AIS.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lsLayer1AIS.setStatus("mandatory")
+_LsLayer1LOSAll_Type = Integer32
+_LsLayer1LOSAll_Object = MibTableColumn
+lsLayer1LOSAll = _LsLayer1LOSAll_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4497, 21, 1, 8),
+    _LsLayer1LOSAll_Type()
+)
+lsLayer1LOSAll.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lsLayer1LOSAll.setStatus("mandatory")
+_LsLayer1LOFAll_Type = Integer32
+_LsLayer1LOFAll_Object = MibTableColumn
+lsLayer1LOFAll = _LsLayer1LOFAll_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4497, 21, 1, 9),
+    _LsLayer1LOFAll_Type()
+)
+lsLayer1LOFAll.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lsLayer1LOFAll.setStatus("mandatory")
+_LsLayer1RAIAll_Type = Integer32
+_LsLayer1RAIAll_Object = MibTableColumn
+lsLayer1RAIAll = _LsLayer1RAIAll_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4497, 21, 1, 10),
+    _LsLayer1RAIAll_Type()
+)
+lsLayer1RAIAll.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lsLayer1RAIAll.setStatus("mandatory")
+_LsLayer1AISAll_Type = Integer32
+_LsLayer1AISAll_Object = MibTableColumn
+lsLayer1AISAll = _LsLayer1AISAll_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4497, 21, 1, 11),
+    _LsLayer1AISAll_Type()
+)
+lsLayer1AISAll.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lsLayer1AISAll.setStatus("mandatory")
+_LsLayer1Interrupts_Type = Integer32
+_LsLayer1Interrupts_Object = MibTableColumn
+lsLayer1Interrupts = _LsLayer1Interrupts_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4497, 21, 1, 12),
+    _LsLayer1Interrupts_Type()
+)
+lsLayer1Interrupts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lsLayer1Interrupts.setStatus("mandatory")
+_LsLayer1ClearStats_Type = Integer32
+_LsLayer1ClearStats_Object = MibTableColumn
+lsLayer1ClearStats = _LsLayer1ClearStats_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4497, 21, 1, 13),
+    _LsLayer1ClearStats_Type()
+)
+lsLayer1ClearStats.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    lsLayer1ClearStats.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CTRON-LINE-STATISTICS-MIB",
+    **{"ctSSA": ctSSA,
+       "ctDsx1LineStatisticsTable": ctDsx1LineStatisticsTable,
+       "ctDsx1LineStatisticsEntry": ctDsx1LineStatisticsEntry,
+       "lsLineIndex": lsLineIndex,
+       "lsLayer1Up": lsLayer1Up,
+       "lsLayer1Down": lsLayer1Down,
+       "lsLayer1LOS": lsLayer1LOS,
+       "lsLayer1LOF": lsLayer1LOF,
+       "lsLayer1RAI": lsLayer1RAI,
+       "lsLayer1AIS": lsLayer1AIS,
+       "lsLayer1LOSAll": lsLayer1LOSAll,
+       "lsLayer1LOFAll": lsLayer1LOFAll,
+       "lsLayer1RAIAll": lsLayer1RAIAll,
+       "lsLayer1AISAll": lsLayer1AISAll,
+       "lsLayer1Interrupts": lsLayer1Interrupts,
+       "lsLayer1ClearStats": lsLayer1ClearStats}
+)

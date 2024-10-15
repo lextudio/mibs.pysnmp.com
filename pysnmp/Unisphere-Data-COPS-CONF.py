@@ -1,30 +1,178 @@
+# SNMP MIB module (Unisphere-Data-COPS-CONF) expressed in pysnmp data model.
 #
-# PySNMP MIB module Unisphere-Data-COPS-CONF (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/Unisphere-Data-COPS-CONF
-# Produced by pysmi-0.3.4 at Mon Apr 29 21:23:28 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
-NotificationGroup, ModuleCompliance, AgentCapabilities = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "AgentCapabilities")
-iso, Unsigned32, Bits, MibIdentifier, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Gauge32, TimeTicks, Integer32, Counter64, ModuleIdentity, Counter32, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Unsigned32", "Bits", "MibIdentifier", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Gauge32", "TimeTicks", "Integer32", "Counter64", "ModuleIdentity", "Counter32", "ObjectIdentity")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-usDataAgents, = mibBuilder.importSymbols("Unisphere-Data-Agents", "usDataAgents")
-usdCopsProtocolGroup, usdCopsProtocolGroup2 = mibBuilder.importSymbols("Unisphere-Data-COPS-MIB", "usdCopsProtocolGroup", "usdCopsProtocolGroup2")
-usdCopsAgent = ModuleIdentity((1, 3, 6, 1, 4, 1, 4874, 5, 2, 7))
-usdCopsAgent.setRevisions(('2002-01-14 19:36', '2001-03-27 22:45',))
-if mibBuilder.loadTexts: usdCopsAgent.setLastUpdated('200201141936Z')
-if mibBuilder.loadTexts: usdCopsAgent.setOrganization('Unisphere Networks, Inc.')
-usdCopsAgentV1 = AgentCapabilities((1, 3, 6, 1, 4, 1, 4874, 5, 2, 7, 1))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    usdCopsAgentV1 = usdCopsAgentV1.setProductRelease('Version 1 of the COPS component of the Unisphere Routing Switch SNMP\n        agent.  This version of the COPS component was supported in the\n        Unisphere RX 2.x and 3.x system releases.')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    usdCopsAgentV1 = usdCopsAgentV1.setStatus('current')
-usdCopsAgentV2 = AgentCapabilities((1, 3, 6, 1, 4, 1, 4874, 5, 2, 7, 2))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    usdCopsAgentV2 = usdCopsAgentV2.setProductRelease('Version 2 of the COPS component of the Unisphere Routing Switch SNMP\n        agent.  This version of the COPS component is supported in the Unisphere\n        RX 4.0 and subsequent system releases.')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    usdCopsAgentV2 = usdCopsAgentV2.setStatus('current')
-mibBuilder.exportSymbols("Unisphere-Data-COPS-CONF", usdCopsAgentV2=usdCopsAgentV2, PYSNMP_MODULE_ID=usdCopsAgent, usdCopsAgentV1=usdCopsAgentV1, usdCopsAgent=usdCopsAgent)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/Unisphere-Data-COPS-CONF
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:10:28 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(AgentCapabilities,
+ ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "AgentCapabilities",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+(usDataAgents,) = mibBuilder.importSymbols(
+    "Unisphere-Data-Agents",
+    "usDataAgents")
+
+(usdCopsProtocolGroup,
+ usdCopsProtocolGroup2) = mibBuilder.importSymbols(
+    "Unisphere-Data-COPS-MIB",
+    "usdCopsProtocolGroup",
+    "usdCopsProtocolGroup2")
+
+
+# MODULE-IDENTITY
+
+usdCopsAgent = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 7)
+)
+usdCopsAgent.setRevisions(
+        ("2002-01-14 19:36",
+         "2001-03-27 22:45")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+usdCopsAgentV1 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 7, 1)
+)
+if mibBuilder.loadTexts:
+    usdCopsAgentV1.setProductRelease("""\
+Version 1 of the COPS component of the Unisphere Routing Switch SNMP
+        agent.  This version of the COPS component was supported in the
+        Unisphere RX 2.x and 3.x system releases.""")
+if mibBuilder.loadTexts:
+    usdCopsAgentV1.setStatus(
+        "current"
+    )
+
+usdCopsAgentV2 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 7, 2)
+)
+if mibBuilder.loadTexts:
+    usdCopsAgentV2.setProductRelease("""\
+Version 2 of the COPS component of the Unisphere Routing Switch SNMP
+        agent.  This version of the COPS component is supported in the Unisphere
+        RX 4.0 and subsequent system releases.""")
+if mibBuilder.loadTexts:
+    usdCopsAgentV2.setStatus(
+        "current"
+    )
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "Unisphere-Data-COPS-CONF",
+    **{"usdCopsAgent": usdCopsAgent,
+       "usdCopsAgentV1": usdCopsAgentV1,
+       "usdCopsAgentV2": usdCopsAgentV2}
+)

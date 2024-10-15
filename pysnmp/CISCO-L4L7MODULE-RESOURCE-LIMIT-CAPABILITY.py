@@ -1,34 +1,184 @@
+# SNMP MIB module (CISCO-L4L7MODULE-RESOURCE-LIMIT-CAPABILITY) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-L4L7MODULE-RESOURCE-LIMIT-CAPABILITY (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/CISCO-L4L7MODULE-RESOURCE-LIMIT-CAPABILITY
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:47:10 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
-ciscoAgentCapability, = mibBuilder.importSymbols("CISCO-SMI", "ciscoAgentCapability")
-NotificationGroup, AgentCapabilities, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "AgentCapabilities", "ModuleCompliance")
-IpAddress, Unsigned32, MibIdentifier, Counter32, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Integer32, ObjectIdentity, iso, NotificationType, Gauge32, ModuleIdentity, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Unsigned32", "MibIdentifier", "Counter32", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Integer32", "ObjectIdentity", "iso", "NotificationType", "Gauge32", "ModuleIdentity", "TimeTicks")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-ciscoL4L7ModRsrcLimCap = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 7, 499))
-ciscoL4L7ModRsrcLimCap.setRevisions(('2008-07-22 00:00', '2008-07-21 00:00', '2006-04-19 00:00',))
-if mibBuilder.loadTexts: ciscoL4L7ModRsrcLimCap.setLastUpdated('200807220000Z')
-if mibBuilder.loadTexts: ciscoL4L7ModRsrcLimCap.setOrganization('Cisco Systems, Inc.')
-cL4L7ModRsrcLimCapACSWV03R000 = AgentCapabilities((1, 3, 6, 1, 4, 1, 9, 7, 499, 1))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cL4L7ModRsrcLimCapACSWV03R000 = cL4L7ModRsrcLimCapACSWV03R000.setProductRelease('ACSW (Application Control Software) 3.0')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cL4L7ModRsrcLimCapACSWV03R000 = cL4L7ModRsrcLimCapACSWV03R000.setStatus('current')
-cL4L7ModRsrcLimCapc4710aceVA1R700 = AgentCapabilities((1, 3, 6, 1, 4, 1, 9, 7, 499, 2))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cL4L7ModRsrcLimCapc4710aceVA1R700 = cL4L7ModRsrcLimCapc4710aceVA1R700.setProductRelease('ACSW (Application Control Software) A1(7)\n                for ACE 4710 Application Control Engine \n                Appliance.')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cL4L7ModRsrcLimCapc4710aceVA1R700 = cL4L7ModRsrcLimCapc4710aceVA1R700.setStatus('current')
-cL4L7ModRsrcLimCapc4710aceVA3R10 = AgentCapabilities((1, 3, 6, 1, 4, 1, 9, 7, 499, 3))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cL4L7ModRsrcLimCapc4710aceVA3R10 = cL4L7ModRsrcLimCapc4710aceVA3R10.setProductRelease('ACSW (Application Control Software) A3(1.0)\n                    for ACE 4710 Application Control Engine \n                    Appliance.')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cL4L7ModRsrcLimCapc4710aceVA3R10 = cL4L7ModRsrcLimCapc4710aceVA3R10.setStatus('current')
-mibBuilder.exportSymbols("CISCO-L4L7MODULE-RESOURCE-LIMIT-CAPABILITY", ciscoL4L7ModRsrcLimCap=ciscoL4L7ModRsrcLimCap, PYSNMP_MODULE_ID=ciscoL4L7ModRsrcLimCap, cL4L7ModRsrcLimCapc4710aceVA3R10=cL4L7ModRsrcLimCapc4710aceVA3R10, cL4L7ModRsrcLimCapACSWV03R000=cL4L7ModRsrcLimCapACSWV03R000, cL4L7ModRsrcLimCapc4710aceVA1R700=cL4L7ModRsrcLimCapc4710aceVA1R700)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CISCO-L4L7MODULE-RESOURCE-LIMIT-CAPABILITY
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:03:51 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ciscoAgentCapability,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoAgentCapability")
+
+(AgentCapabilities,
+ ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "AgentCapabilities",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+ciscoL4L7ModRsrcLimCap = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 7, 499)
+)
+ciscoL4L7ModRsrcLimCap.setRevisions(
+        ("2008-07-22 00:00",
+         "2008-07-21 00:00",
+         "2006-04-19 00:00")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+cL4L7ModRsrcLimCapACSWV03R000 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 9, 7, 499, 1)
+)
+if mibBuilder.loadTexts:
+    cL4L7ModRsrcLimCapACSWV03R000.setProductRelease("ACSW (Application Control Software) 3.0")
+if mibBuilder.loadTexts:
+    cL4L7ModRsrcLimCapACSWV03R000.setStatus(
+        "current"
+    )
+
+cL4L7ModRsrcLimCapc4710aceVA1R700 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 9, 7, 499, 2)
+)
+if mibBuilder.loadTexts:
+    cL4L7ModRsrcLimCapc4710aceVA1R700.setProductRelease("""\
+ACSW (Application Control Software) A1(7)
+                for ACE 4710 Application Control Engine 
+                Appliance.""")
+if mibBuilder.loadTexts:
+    cL4L7ModRsrcLimCapc4710aceVA1R700.setStatus(
+        "current"
+    )
+
+cL4L7ModRsrcLimCapc4710aceVA3R10 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 9, 7, 499, 3)
+)
+if mibBuilder.loadTexts:
+    cL4L7ModRsrcLimCapc4710aceVA3R10.setProductRelease("""\
+ACSW (Application Control Software) A3(1.0)
+                    for ACE 4710 Application Control Engine 
+                    Appliance.""")
+if mibBuilder.loadTexts:
+    cL4L7ModRsrcLimCapc4710aceVA3R10.setStatus(
+        "current"
+    )
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-L4L7MODULE-RESOURCE-LIMIT-CAPABILITY",
+    **{"ciscoL4L7ModRsrcLimCap": ciscoL4L7ModRsrcLimCap,
+       "cL4L7ModRsrcLimCapACSWV03R000": cL4L7ModRsrcLimCapACSWV03R000,
+       "cL4L7ModRsrcLimCapc4710aceVA1R700": cL4L7ModRsrcLimCapc4710aceVA1R700,
+       "cL4L7ModRsrcLimCapc4710aceVA3R10": cL4L7ModRsrcLimCapc4710aceVA3R10}
+)

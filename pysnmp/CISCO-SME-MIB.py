@@ -1,139 +1,761 @@
+# SNMP MIB module (CISCO-SME-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-SME-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/CISCO-SME-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:55:38 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint")
-ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-FcNameId, = mibBuilder.importSymbols("CISCO-ST-TC", "FcNameId")
-ifDescr, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "ifDescr", "InterfaceIndex")
-InetAddress, InetAddressType = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress", "InetAddressType")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Integer32, TimeTicks, Unsigned32, Counter32, ObjectIdentity, NotificationType, IpAddress, Counter64, Bits, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Integer32", "TimeTicks", "Unsigned32", "Counter32", "ObjectIdentity", "NotificationType", "IpAddress", "Counter64", "Bits", "ModuleIdentity", "Gauge32")
-TextualConvention, TimeStamp, DisplayString, RowStatus, TruthValue, StorageType = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TimeStamp", "DisplayString", "RowStatus", "TruthValue", "StorageType")
-ciscoSmeMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 632))
-ciscoSmeMIB.setRevisions(('2008-03-28 00:00',))
-if mibBuilder.loadTexts: ciscoSmeMIB.setLastUpdated('200803280000Z')
-if mibBuilder.loadTexts: ciscoSmeMIB.setOrganization('Cisco Systems Inc. ')
-ciscoSmeMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 632, 0))
-ciscoSmeMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 632, 1))
-ciscoSmeMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 632, 2))
-cSmeConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1))
-class CiscoSmeInterfaceStatus(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("unknown", 1), ("initializing", 2), ("offline", 3), ("online", 4))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CISCO-SME-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:08:27 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class CiscoSmeClusterStatus(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))
-    namedValues = NamedValues(("unknown", 1), ("inactive", 2), ("degraded", 3), ("recovery", 4), ("active", 5))
+if 'mibBuilder' not in globals():
+    import sys
 
-class CiscoSmeClusterIndex(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(32, 32)
-    fixedLength = 32
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-cSmeClusterTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 1), )
-if mibBuilder.loadTexts: cSmeClusterTable.setStatus('current')
-cSmeClusterEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 1, 1), ).setIndexNames((0, "CISCO-SME-MIB", "cSmeClusterId"))
-if mibBuilder.loadTexts: cSmeClusterEntry.setStatus('current')
-cSmeClusterId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 1, 1, 1), CiscoSmeClusterIndex())
-if mibBuilder.loadTexts: cSmeClusterId.setStatus('current')
-cSmeClusterName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 1, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cSmeClusterName.setStatus('current')
-cSmeClusterState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 1, 1, 3), CiscoSmeClusterStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cSmeClusterState.setStatus('current')
-cSmeClusterMasterInetAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 1, 1, 4), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cSmeClusterMasterInetAddrType.setStatus('current')
-cSmeClusterMasterInetAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 1, 1, 5), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cSmeClusterMasterInetAddr.setStatus('current')
-cSmeClusterStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 1, 1, 6), StorageType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cSmeClusterStorageType.setStatus('current')
-cSmeClusterRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 1, 1, 7), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cSmeClusterRowStatus.setStatus('current')
-cSmeClusterMembersTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 2), )
-if mibBuilder.loadTexts: cSmeClusterMembersTable.setStatus('current')
-cSmeClusterMembersEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 2, 1), ).setIndexNames((0, "CISCO-SME-MIB", "cSmeClusterId"), (0, "CISCO-SME-MIB", "cSmeMemberInetAddrType"), (0, "CISCO-SME-MIB", "cSmeMemberInetAddr"))
-if mibBuilder.loadTexts: cSmeClusterMembersEntry.setStatus('current')
-cSmeMemberInetAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 2, 1, 1), InetAddressType())
-if mibBuilder.loadTexts: cSmeMemberInetAddrType.setStatus('current')
-cSmeMemberInetAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 2, 1, 2), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(0, 32)))
-if mibBuilder.loadTexts: cSmeMemberInetAddr.setStatus('current')
-cSmeFabric = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 2, 1, 3), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cSmeFabric.setStatus('current')
-cSmeIsMemberLocal = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 2, 1, 4), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cSmeIsMemberLocal.setStatus('current')
-cSmeMemberIsMaster = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 2, 1, 5), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cSmeMemberIsMaster.setStatus('current')
-cSmeClusterMemberStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 2, 1, 6), StorageType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cSmeClusterMemberStorageType.setStatus('current')
-cSmeClusterMemberRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 2, 1, 7), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cSmeClusterMemberRowStatus.setStatus('current')
-cSmeClusterMemberIfTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 3), )
-if mibBuilder.loadTexts: cSmeClusterMemberIfTable.setStatus('current')
-cSmeClusterMemberIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 3, 1), ).setIndexNames((0, "CISCO-SME-MIB", "cSmeClusterId"), (0, "CISCO-SME-MIB", "cSmeMemberInetAddrType"), (0, "CISCO-SME-MIB", "cSmeMemberInetAddr"), (0, "CISCO-SME-MIB", "cSmeClusterInterfaceIndex"))
-if mibBuilder.loadTexts: cSmeClusterMemberIfEntry.setStatus('current')
-cSmeClusterInterfaceIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 3, 1, 1), InterfaceIndex())
-if mibBuilder.loadTexts: cSmeClusterInterfaceIndex.setStatus('current')
-cSmeClusterInterfaceState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 3, 1, 2), CiscoSmeInterfaceStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cSmeClusterInterfaceState.setStatus('current')
-cSmeInterfaceTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 4), )
-if mibBuilder.loadTexts: cSmeInterfaceTable.setStatus('current')
-cSmeInterfaceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 4, 1), ).setIndexNames((0, "CISCO-SME-MIB", "cSmeInterfaceIndex"))
-if mibBuilder.loadTexts: cSmeInterfaceEntry.setStatus('current')
-cSmeInterfaceIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 4, 1, 1), InterfaceIndex())
-if mibBuilder.loadTexts: cSmeInterfaceIndex.setStatus('current')
-cSmeInterfaceState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 4, 1, 2), CiscoSmeInterfaceStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cSmeInterfaceState.setStatus('current')
-cSmeInterfaceClusterId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 4, 1, 3), CiscoSmeClusterIndex()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cSmeInterfaceClusterId.setStatus('current')
-cSmeInterfaceStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 4, 1, 4), StorageType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cSmeInterfaceStorageType.setStatus('current')
-cSmeInterfaceRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 4, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cSmeInterfaceRowStatus.setStatus('current')
-cSmeHostPortTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 5), )
-if mibBuilder.loadTexts: cSmeHostPortTable.setStatus('current')
-cSmeHostPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 5, 1), ).setIndexNames((0, "CISCO-SME-MIB", "cSmeHostPortName"))
-if mibBuilder.loadTexts: cSmeHostPortEntry.setStatus('current')
-cSmeHostPortName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 5, 1, 1), FcNameId())
-if mibBuilder.loadTexts: cSmeHostPortName.setStatus('current')
-cSmeHostPortClusterId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 5, 1, 2), CiscoSmeClusterIndex()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cSmeHostPortClusterId.setStatus('current')
-cSmeHostPortStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 5, 1, 3), StorageType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cSmeHostPortStorageType.setStatus('current')
-cSmeHostPortRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 5, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cSmeHostPortRowStatus.setStatus('current')
-cSmeConfigTableLastChanged = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 6), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cSmeConfigTableLastChanged.setStatus('current')
-cSmeHostPortTableLastChanged = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 7), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cSmeHostPortTableLastChanged.setStatus('current')
-cSmeNotifyEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 8), TruthValue().clone('true')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cSmeNotifyEnable.setStatus('current')
-ciscoSmeInterfaceCreate = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 632, 0, 1)).setObjects(("IF-MIB", "ifDescr"))
-if mibBuilder.loadTexts: ciscoSmeInterfaceCreate.setStatus('current')
-ciscoSmeInterfaceDelete = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 632, 0, 2)).setObjects(("IF-MIB", "ifDescr"))
-if mibBuilder.loadTexts: ciscoSmeInterfaceDelete.setStatus('current')
-ciscoSmeClusterNewMaster = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 632, 0, 3)).setObjects(("CISCO-SME-MIB", "cSmeClusterName"), ("CISCO-SME-MIB", "cSmeClusterMasterInetAddrType"), ("CISCO-SME-MIB", "cSmeClusterMasterInetAddr"))
-if mibBuilder.loadTexts: ciscoSmeClusterNewMaster.setStatus('current')
-ciscoSmeMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 632, 2, 1))
-ciscoSmeMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 632, 2, 2))
-ciscoSmeMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 632, 2, 1, 1)).setObjects(("CISCO-SME-MIB", "ciscoSmeConfigGroup"), ("CISCO-SME-MIB", "ciscoSmeNotifControlGroup"), ("CISCO-SME-MIB", "ciscoSmeNotifsGroup"))
+# Import base ASN.1 objects even if this MIB does not use it
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoSmeMIBCompliance = ciscoSmeMIBCompliance.setStatus('current')
-ciscoSmeConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 632, 2, 2, 1)).setObjects(("CISCO-SME-MIB", "cSmeClusterState"), ("CISCO-SME-MIB", "cSmeClusterMasterInetAddrType"), ("CISCO-SME-MIB", "cSmeClusterMasterInetAddr"), ("CISCO-SME-MIB", "cSmeIsMemberLocal"), ("CISCO-SME-MIB", "cSmeClusterInterfaceState"), ("CISCO-SME-MIB", "cSmeInterfaceState"), ("CISCO-SME-MIB", "cSmeInterfaceClusterId"), ("CISCO-SME-MIB", "cSmeHostPortClusterId"), ("CISCO-SME-MIB", "cSmeConfigTableLastChanged"), ("CISCO-SME-MIB", "cSmeHostPortTableLastChanged"), ("CISCO-SME-MIB", "cSmeFabric"), ("CISCO-SME-MIB", "cSmeClusterName"), ("CISCO-SME-MIB", "cSmeInterfaceRowStatus"), ("CISCO-SME-MIB", "cSmeClusterRowStatus"), ("CISCO-SME-MIB", "cSmeMemberIsMaster"), ("CISCO-SME-MIB", "cSmeClusterMemberRowStatus"), ("CISCO-SME-MIB", "cSmeClusterStorageType"), ("CISCO-SME-MIB", "cSmeClusterMemberStorageType"), ("CISCO-SME-MIB", "cSmeInterfaceStorageType"), ("CISCO-SME-MIB", "cSmeHostPortStorageType"), ("CISCO-SME-MIB", "cSmeHostPortRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoSmeConfigGroup = ciscoSmeConfigGroup.setStatus('current')
-ciscoSmeNotifControlGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 632, 2, 2, 2)).setObjects(("CISCO-SME-MIB", "cSmeNotifyEnable"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoSmeNotifControlGroup = ciscoSmeNotifControlGroup.setStatus('current')
-ciscoSmeNotifsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 632, 2, 2, 3)).setObjects(("CISCO-SME-MIB", "ciscoSmeInterfaceCreate"), ("CISCO-SME-MIB", "ciscoSmeInterfaceDelete"), ("CISCO-SME-MIB", "ciscoSmeClusterNewMaster"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoSmeNotifsGroup = ciscoSmeNotifsGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-SME-MIB", cSmeNotifyEnable=cSmeNotifyEnable, ciscoSmeMIB=ciscoSmeMIB, cSmeClusterMemberStorageType=cSmeClusterMemberStorageType, CiscoSmeClusterStatus=CiscoSmeClusterStatus, cSmeConfigTableLastChanged=cSmeConfigTableLastChanged, ciscoSmeMIBConform=ciscoSmeMIBConform, cSmeFabric=cSmeFabric, cSmeMemberIsMaster=cSmeMemberIsMaster, ciscoSmeMIBNotifs=ciscoSmeMIBNotifs, ciscoSmeClusterNewMaster=ciscoSmeClusterNewMaster, cSmeInterfaceRowStatus=cSmeInterfaceRowStatus, cSmeClusterMemberRowStatus=cSmeClusterMemberRowStatus, cSmeConfig=cSmeConfig, cSmeInterfaceEntry=cSmeInterfaceEntry, cSmeClusterMasterInetAddrType=cSmeClusterMasterInetAddrType, cSmeClusterInterfaceIndex=cSmeClusterInterfaceIndex, cSmeInterfaceClusterId=cSmeInterfaceClusterId, CiscoSmeInterfaceStatus=CiscoSmeInterfaceStatus, cSmeClusterInterfaceState=cSmeClusterInterfaceState, cSmeHostPortTable=cSmeHostPortTable, cSmeClusterId=cSmeClusterId, cSmeClusterName=cSmeClusterName, ciscoSmeMIBObjects=ciscoSmeMIBObjects, cSmeHostPortTableLastChanged=cSmeHostPortTableLastChanged, ciscoSmeNotifsGroup=ciscoSmeNotifsGroup, cSmeClusterMembersEntry=cSmeClusterMembersEntry, cSmeClusterRowStatus=cSmeClusterRowStatus, cSmeIsMemberLocal=cSmeIsMemberLocal, cSmeClusterMemberIfEntry=cSmeClusterMemberIfEntry, cSmeInterfaceIndex=cSmeInterfaceIndex, PYSNMP_MODULE_ID=ciscoSmeMIB, cSmeInterfaceStorageType=cSmeInterfaceStorageType, ciscoSmeInterfaceCreate=ciscoSmeInterfaceCreate, cSmeClusterMasterInetAddr=cSmeClusterMasterInetAddr, CiscoSmeClusterIndex=CiscoSmeClusterIndex, cSmeHostPortRowStatus=cSmeHostPortRowStatus, cSmeMemberInetAddrType=cSmeMemberInetAddrType, cSmeHostPortClusterId=cSmeHostPortClusterId, ciscoSmeMIBCompliances=ciscoSmeMIBCompliances, cSmeClusterMemberIfTable=cSmeClusterMemberIfTable, ciscoSmeMIBGroups=ciscoSmeMIBGroups, cSmeHostPortStorageType=cSmeHostPortStorageType, ciscoSmeConfigGroup=ciscoSmeConfigGroup, cSmeInterfaceTable=cSmeInterfaceTable, cSmeHostPortName=cSmeHostPortName, ciscoSmeInterfaceDelete=ciscoSmeInterfaceDelete, cSmeClusterMembersTable=cSmeClusterMembersTable, ciscoSmeMIBCompliance=ciscoSmeMIBCompliance, cSmeClusterStorageType=cSmeClusterStorageType, cSmeInterfaceState=cSmeInterfaceState, cSmeMemberInetAddr=cSmeMemberInetAddr, cSmeClusterTable=cSmeClusterTable, cSmeClusterState=cSmeClusterState, cSmeHostPortEntry=cSmeHostPortEntry, cSmeClusterEntry=cSmeClusterEntry, ciscoSmeNotifControlGroup=ciscoSmeNotifControlGroup)
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ciscoMgmt,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoMgmt")
+
+(FcNameId,) = mibBuilder.importSymbols(
+    "CISCO-ST-TC",
+    "FcNameId")
+
+(InterfaceIndex,
+ ifDescr) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex",
+    "ifDescr")
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ RowStatus,
+ StorageType,
+ TextualConvention,
+ TimeStamp,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "RowStatus",
+    "StorageType",
+    "TextualConvention",
+    "TimeStamp",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+ciscoSmeMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632)
+)
+ciscoSmeMIB.setRevisions(
+        ("2008-03-28 00:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class CiscoSmeInterfaceStatus(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("initializing", 2),
+          ("offline", 3),
+          ("online", 4),
+          ("unknown", 1))
+    )
+
+
+
+class CiscoSmeClusterStatus(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 5),
+          ("degraded", 3),
+          ("inactive", 2),
+          ("recovery", 4),
+          ("unknown", 1))
+    )
+
+
+
+class CiscoSmeClusterIndex(OctetString, TextualConvention):
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(32, 32),
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CiscoSmeMIBNotifs_ObjectIdentity = ObjectIdentity
+ciscoSmeMIBNotifs = _CiscoSmeMIBNotifs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 0)
+)
+_CiscoSmeMIBObjects_ObjectIdentity = ObjectIdentity
+ciscoSmeMIBObjects = _CiscoSmeMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1)
+)
+_CSmeConfig_ObjectIdentity = ObjectIdentity
+cSmeConfig = _CSmeConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1)
+)
+_CSmeClusterTable_Object = MibTable
+cSmeClusterTable = _CSmeClusterTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    cSmeClusterTable.setStatus("current")
+_CSmeClusterEntry_Object = MibTableRow
+cSmeClusterEntry = _CSmeClusterEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 1, 1)
+)
+cSmeClusterEntry.setIndexNames(
+    (0, "CISCO-SME-MIB", "cSmeClusterId"),
+)
+if mibBuilder.loadTexts:
+    cSmeClusterEntry.setStatus("current")
+_CSmeClusterId_Type = CiscoSmeClusterIndex
+_CSmeClusterId_Object = MibTableColumn
+cSmeClusterId = _CSmeClusterId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 1, 1, 1),
+    _CSmeClusterId_Type()
+)
+cSmeClusterId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cSmeClusterId.setStatus("current")
+
+
+class _CSmeClusterName_Type(SnmpAdminString):
+    """Custom type cSmeClusterName based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_CSmeClusterName_Type.__name__ = "SnmpAdminString"
+_CSmeClusterName_Object = MibTableColumn
+cSmeClusterName = _CSmeClusterName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 1, 1, 2),
+    _CSmeClusterName_Type()
+)
+cSmeClusterName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cSmeClusterName.setStatus("current")
+_CSmeClusterState_Type = CiscoSmeClusterStatus
+_CSmeClusterState_Object = MibTableColumn
+cSmeClusterState = _CSmeClusterState_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 1, 1, 3),
+    _CSmeClusterState_Type()
+)
+cSmeClusterState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cSmeClusterState.setStatus("current")
+_CSmeClusterMasterInetAddrType_Type = InetAddressType
+_CSmeClusterMasterInetAddrType_Object = MibTableColumn
+cSmeClusterMasterInetAddrType = _CSmeClusterMasterInetAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 1, 1, 4),
+    _CSmeClusterMasterInetAddrType_Type()
+)
+cSmeClusterMasterInetAddrType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cSmeClusterMasterInetAddrType.setStatus("current")
+_CSmeClusterMasterInetAddr_Type = InetAddress
+_CSmeClusterMasterInetAddr_Object = MibTableColumn
+cSmeClusterMasterInetAddr = _CSmeClusterMasterInetAddr_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 1, 1, 5),
+    _CSmeClusterMasterInetAddr_Type()
+)
+cSmeClusterMasterInetAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cSmeClusterMasterInetAddr.setStatus("current")
+_CSmeClusterStorageType_Type = StorageType
+_CSmeClusterStorageType_Object = MibTableColumn
+cSmeClusterStorageType = _CSmeClusterStorageType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 1, 1, 6),
+    _CSmeClusterStorageType_Type()
+)
+cSmeClusterStorageType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cSmeClusterStorageType.setStatus("current")
+_CSmeClusterRowStatus_Type = RowStatus
+_CSmeClusterRowStatus_Object = MibTableColumn
+cSmeClusterRowStatus = _CSmeClusterRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 1, 1, 7),
+    _CSmeClusterRowStatus_Type()
+)
+cSmeClusterRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cSmeClusterRowStatus.setStatus("current")
+_CSmeClusterMembersTable_Object = MibTable
+cSmeClusterMembersTable = _CSmeClusterMembersTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    cSmeClusterMembersTable.setStatus("current")
+_CSmeClusterMembersEntry_Object = MibTableRow
+cSmeClusterMembersEntry = _CSmeClusterMembersEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 2, 1)
+)
+cSmeClusterMembersEntry.setIndexNames(
+    (0, "CISCO-SME-MIB", "cSmeClusterId"),
+    (0, "CISCO-SME-MIB", "cSmeMemberInetAddrType"),
+    (0, "CISCO-SME-MIB", "cSmeMemberInetAddr"),
+)
+if mibBuilder.loadTexts:
+    cSmeClusterMembersEntry.setStatus("current")
+_CSmeMemberInetAddrType_Type = InetAddressType
+_CSmeMemberInetAddrType_Object = MibTableColumn
+cSmeMemberInetAddrType = _CSmeMemberInetAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 2, 1, 1),
+    _CSmeMemberInetAddrType_Type()
+)
+cSmeMemberInetAddrType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cSmeMemberInetAddrType.setStatus("current")
+
+
+class _CSmeMemberInetAddr_Type(InetAddress):
+    """Custom type cSmeMemberInetAddr based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_CSmeMemberInetAddr_Type.__name__ = "InetAddress"
+_CSmeMemberInetAddr_Object = MibTableColumn
+cSmeMemberInetAddr = _CSmeMemberInetAddr_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 2, 1, 2),
+    _CSmeMemberInetAddr_Type()
+)
+cSmeMemberInetAddr.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cSmeMemberInetAddr.setStatus("current")
+
+
+class _CSmeFabric_Type(SnmpAdminString):
+    """Custom type cSmeFabric based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_CSmeFabric_Type.__name__ = "SnmpAdminString"
+_CSmeFabric_Object = MibTableColumn
+cSmeFabric = _CSmeFabric_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 2, 1, 3),
+    _CSmeFabric_Type()
+)
+cSmeFabric.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cSmeFabric.setStatus("current")
+_CSmeIsMemberLocal_Type = TruthValue
+_CSmeIsMemberLocal_Object = MibTableColumn
+cSmeIsMemberLocal = _CSmeIsMemberLocal_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 2, 1, 4),
+    _CSmeIsMemberLocal_Type()
+)
+cSmeIsMemberLocal.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cSmeIsMemberLocal.setStatus("current")
+_CSmeMemberIsMaster_Type = TruthValue
+_CSmeMemberIsMaster_Object = MibTableColumn
+cSmeMemberIsMaster = _CSmeMemberIsMaster_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 2, 1, 5),
+    _CSmeMemberIsMaster_Type()
+)
+cSmeMemberIsMaster.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cSmeMemberIsMaster.setStatus("current")
+_CSmeClusterMemberStorageType_Type = StorageType
+_CSmeClusterMemberStorageType_Object = MibTableColumn
+cSmeClusterMemberStorageType = _CSmeClusterMemberStorageType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 2, 1, 6),
+    _CSmeClusterMemberStorageType_Type()
+)
+cSmeClusterMemberStorageType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cSmeClusterMemberStorageType.setStatus("current")
+_CSmeClusterMemberRowStatus_Type = RowStatus
+_CSmeClusterMemberRowStatus_Object = MibTableColumn
+cSmeClusterMemberRowStatus = _CSmeClusterMemberRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 2, 1, 7),
+    _CSmeClusterMemberRowStatus_Type()
+)
+cSmeClusterMemberRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cSmeClusterMemberRowStatus.setStatus("current")
+_CSmeClusterMemberIfTable_Object = MibTable
+cSmeClusterMemberIfTable = _CSmeClusterMemberIfTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 3)
+)
+if mibBuilder.loadTexts:
+    cSmeClusterMemberIfTable.setStatus("current")
+_CSmeClusterMemberIfEntry_Object = MibTableRow
+cSmeClusterMemberIfEntry = _CSmeClusterMemberIfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 3, 1)
+)
+cSmeClusterMemberIfEntry.setIndexNames(
+    (0, "CISCO-SME-MIB", "cSmeClusterId"),
+    (0, "CISCO-SME-MIB", "cSmeMemberInetAddrType"),
+    (0, "CISCO-SME-MIB", "cSmeMemberInetAddr"),
+    (0, "CISCO-SME-MIB", "cSmeClusterInterfaceIndex"),
+)
+if mibBuilder.loadTexts:
+    cSmeClusterMemberIfEntry.setStatus("current")
+_CSmeClusterInterfaceIndex_Type = InterfaceIndex
+_CSmeClusterInterfaceIndex_Object = MibTableColumn
+cSmeClusterInterfaceIndex = _CSmeClusterInterfaceIndex_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 3, 1, 1),
+    _CSmeClusterInterfaceIndex_Type()
+)
+cSmeClusterInterfaceIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cSmeClusterInterfaceIndex.setStatus("current")
+_CSmeClusterInterfaceState_Type = CiscoSmeInterfaceStatus
+_CSmeClusterInterfaceState_Object = MibTableColumn
+cSmeClusterInterfaceState = _CSmeClusterInterfaceState_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 3, 1, 2),
+    _CSmeClusterInterfaceState_Type()
+)
+cSmeClusterInterfaceState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cSmeClusterInterfaceState.setStatus("current")
+_CSmeInterfaceTable_Object = MibTable
+cSmeInterfaceTable = _CSmeInterfaceTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 4)
+)
+if mibBuilder.loadTexts:
+    cSmeInterfaceTable.setStatus("current")
+_CSmeInterfaceEntry_Object = MibTableRow
+cSmeInterfaceEntry = _CSmeInterfaceEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 4, 1)
+)
+cSmeInterfaceEntry.setIndexNames(
+    (0, "CISCO-SME-MIB", "cSmeInterfaceIndex"),
+)
+if mibBuilder.loadTexts:
+    cSmeInterfaceEntry.setStatus("current")
+_CSmeInterfaceIndex_Type = InterfaceIndex
+_CSmeInterfaceIndex_Object = MibTableColumn
+cSmeInterfaceIndex = _CSmeInterfaceIndex_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 4, 1, 1),
+    _CSmeInterfaceIndex_Type()
+)
+cSmeInterfaceIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cSmeInterfaceIndex.setStatus("current")
+_CSmeInterfaceState_Type = CiscoSmeInterfaceStatus
+_CSmeInterfaceState_Object = MibTableColumn
+cSmeInterfaceState = _CSmeInterfaceState_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 4, 1, 2),
+    _CSmeInterfaceState_Type()
+)
+cSmeInterfaceState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cSmeInterfaceState.setStatus("current")
+_CSmeInterfaceClusterId_Type = CiscoSmeClusterIndex
+_CSmeInterfaceClusterId_Object = MibTableColumn
+cSmeInterfaceClusterId = _CSmeInterfaceClusterId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 4, 1, 3),
+    _CSmeInterfaceClusterId_Type()
+)
+cSmeInterfaceClusterId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cSmeInterfaceClusterId.setStatus("current")
+_CSmeInterfaceStorageType_Type = StorageType
+_CSmeInterfaceStorageType_Object = MibTableColumn
+cSmeInterfaceStorageType = _CSmeInterfaceStorageType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 4, 1, 4),
+    _CSmeInterfaceStorageType_Type()
+)
+cSmeInterfaceStorageType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cSmeInterfaceStorageType.setStatus("current")
+_CSmeInterfaceRowStatus_Type = RowStatus
+_CSmeInterfaceRowStatus_Object = MibTableColumn
+cSmeInterfaceRowStatus = _CSmeInterfaceRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 4, 1, 5),
+    _CSmeInterfaceRowStatus_Type()
+)
+cSmeInterfaceRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cSmeInterfaceRowStatus.setStatus("current")
+_CSmeHostPortTable_Object = MibTable
+cSmeHostPortTable = _CSmeHostPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 5)
+)
+if mibBuilder.loadTexts:
+    cSmeHostPortTable.setStatus("current")
+_CSmeHostPortEntry_Object = MibTableRow
+cSmeHostPortEntry = _CSmeHostPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 5, 1)
+)
+cSmeHostPortEntry.setIndexNames(
+    (0, "CISCO-SME-MIB", "cSmeHostPortName"),
+)
+if mibBuilder.loadTexts:
+    cSmeHostPortEntry.setStatus("current")
+_CSmeHostPortName_Type = FcNameId
+_CSmeHostPortName_Object = MibTableColumn
+cSmeHostPortName = _CSmeHostPortName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 5, 1, 1),
+    _CSmeHostPortName_Type()
+)
+cSmeHostPortName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cSmeHostPortName.setStatus("current")
+_CSmeHostPortClusterId_Type = CiscoSmeClusterIndex
+_CSmeHostPortClusterId_Object = MibTableColumn
+cSmeHostPortClusterId = _CSmeHostPortClusterId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 5, 1, 2),
+    _CSmeHostPortClusterId_Type()
+)
+cSmeHostPortClusterId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cSmeHostPortClusterId.setStatus("current")
+_CSmeHostPortStorageType_Type = StorageType
+_CSmeHostPortStorageType_Object = MibTableColumn
+cSmeHostPortStorageType = _CSmeHostPortStorageType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 5, 1, 3),
+    _CSmeHostPortStorageType_Type()
+)
+cSmeHostPortStorageType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cSmeHostPortStorageType.setStatus("current")
+_CSmeHostPortRowStatus_Type = RowStatus
+_CSmeHostPortRowStatus_Object = MibTableColumn
+cSmeHostPortRowStatus = _CSmeHostPortRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 5, 1, 4),
+    _CSmeHostPortRowStatus_Type()
+)
+cSmeHostPortRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cSmeHostPortRowStatus.setStatus("current")
+_CSmeConfigTableLastChanged_Type = TimeStamp
+_CSmeConfigTableLastChanged_Object = MibScalar
+cSmeConfigTableLastChanged = _CSmeConfigTableLastChanged_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 6),
+    _CSmeConfigTableLastChanged_Type()
+)
+cSmeConfigTableLastChanged.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cSmeConfigTableLastChanged.setStatus("current")
+_CSmeHostPortTableLastChanged_Type = TimeStamp
+_CSmeHostPortTableLastChanged_Object = MibScalar
+cSmeHostPortTableLastChanged = _CSmeHostPortTableLastChanged_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 7),
+    _CSmeHostPortTableLastChanged_Type()
+)
+cSmeHostPortTableLastChanged.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cSmeHostPortTableLastChanged.setStatus("current")
+
+
+class _CSmeNotifyEnable_Type(TruthValue):
+    """Custom type cSmeNotifyEnable based on TruthValue"""
+
+
+_CSmeNotifyEnable_Object = MibScalar
+cSmeNotifyEnable = _CSmeNotifyEnable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 1, 1, 8),
+    _CSmeNotifyEnable_Type()
+)
+cSmeNotifyEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cSmeNotifyEnable.setStatus("current")
+_CiscoSmeMIBConform_ObjectIdentity = ObjectIdentity
+ciscoSmeMIBConform = _CiscoSmeMIBConform_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 2)
+)
+_CiscoSmeMIBCompliances_ObjectIdentity = ObjectIdentity
+ciscoSmeMIBCompliances = _CiscoSmeMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 2, 1)
+)
+_CiscoSmeMIBGroups_ObjectIdentity = ObjectIdentity
+ciscoSmeMIBGroups = _CiscoSmeMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 2, 2)
+)
+
+# Managed Objects groups
+
+ciscoSmeConfigGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 2, 2, 1)
+)
+ciscoSmeConfigGroup.setObjects(
+      *(("CISCO-SME-MIB", "cSmeClusterState"),
+        ("CISCO-SME-MIB", "cSmeClusterMasterInetAddrType"),
+        ("CISCO-SME-MIB", "cSmeClusterMasterInetAddr"),
+        ("CISCO-SME-MIB", "cSmeIsMemberLocal"),
+        ("CISCO-SME-MIB", "cSmeClusterInterfaceState"),
+        ("CISCO-SME-MIB", "cSmeInterfaceState"),
+        ("CISCO-SME-MIB", "cSmeInterfaceClusterId"),
+        ("CISCO-SME-MIB", "cSmeHostPortClusterId"),
+        ("CISCO-SME-MIB", "cSmeConfigTableLastChanged"),
+        ("CISCO-SME-MIB", "cSmeHostPortTableLastChanged"),
+        ("CISCO-SME-MIB", "cSmeFabric"),
+        ("CISCO-SME-MIB", "cSmeClusterName"),
+        ("CISCO-SME-MIB", "cSmeInterfaceRowStatus"),
+        ("CISCO-SME-MIB", "cSmeClusterRowStatus"),
+        ("CISCO-SME-MIB", "cSmeMemberIsMaster"),
+        ("CISCO-SME-MIB", "cSmeClusterMemberRowStatus"),
+        ("CISCO-SME-MIB", "cSmeClusterStorageType"),
+        ("CISCO-SME-MIB", "cSmeClusterMemberStorageType"),
+        ("CISCO-SME-MIB", "cSmeInterfaceStorageType"),
+        ("CISCO-SME-MIB", "cSmeHostPortStorageType"),
+        ("CISCO-SME-MIB", "cSmeHostPortRowStatus"))
+)
+if mibBuilder.loadTexts:
+    ciscoSmeConfigGroup.setStatus("current")
+
+ciscoSmeNotifControlGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 2, 2, 2)
+)
+ciscoSmeNotifControlGroup.setObjects(
+    ("CISCO-SME-MIB", "cSmeNotifyEnable")
+)
+if mibBuilder.loadTexts:
+    ciscoSmeNotifControlGroup.setStatus("current")
+
+
+# Notification objects
+
+ciscoSmeInterfaceCreate = NotificationType(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 0, 1)
+)
+ciscoSmeInterfaceCreate.setObjects(
+    ("IF-MIB", "ifDescr")
+)
+if mibBuilder.loadTexts:
+    ciscoSmeInterfaceCreate.setStatus(
+        "current"
+    )
+
+ciscoSmeInterfaceDelete = NotificationType(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 0, 2)
+)
+ciscoSmeInterfaceDelete.setObjects(
+    ("IF-MIB", "ifDescr")
+)
+if mibBuilder.loadTexts:
+    ciscoSmeInterfaceDelete.setStatus(
+        "current"
+    )
+
+ciscoSmeClusterNewMaster = NotificationType(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 0, 3)
+)
+ciscoSmeClusterNewMaster.setObjects(
+      *(("CISCO-SME-MIB", "cSmeClusterName"),
+        ("CISCO-SME-MIB", "cSmeClusterMasterInetAddrType"),
+        ("CISCO-SME-MIB", "cSmeClusterMasterInetAddr"))
+)
+if mibBuilder.loadTexts:
+    ciscoSmeClusterNewMaster.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+ciscoSmeNotifsGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 2, 2, 3)
+)
+ciscoSmeNotifsGroup.setObjects(
+      *(("CISCO-SME-MIB", "ciscoSmeInterfaceCreate"),
+        ("CISCO-SME-MIB", "ciscoSmeInterfaceDelete"),
+        ("CISCO-SME-MIB", "ciscoSmeClusterNewMaster"))
+)
+if mibBuilder.loadTexts:
+    ciscoSmeNotifsGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+ciscoSmeMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 632, 2, 1, 1)
+)
+if mibBuilder.loadTexts:
+    ciscoSmeMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-SME-MIB",
+    **{"CiscoSmeInterfaceStatus": CiscoSmeInterfaceStatus,
+       "CiscoSmeClusterStatus": CiscoSmeClusterStatus,
+       "CiscoSmeClusterIndex": CiscoSmeClusterIndex,
+       "ciscoSmeMIB": ciscoSmeMIB,
+       "ciscoSmeMIBNotifs": ciscoSmeMIBNotifs,
+       "ciscoSmeInterfaceCreate": ciscoSmeInterfaceCreate,
+       "ciscoSmeInterfaceDelete": ciscoSmeInterfaceDelete,
+       "ciscoSmeClusterNewMaster": ciscoSmeClusterNewMaster,
+       "ciscoSmeMIBObjects": ciscoSmeMIBObjects,
+       "cSmeConfig": cSmeConfig,
+       "cSmeClusterTable": cSmeClusterTable,
+       "cSmeClusterEntry": cSmeClusterEntry,
+       "cSmeClusterId": cSmeClusterId,
+       "cSmeClusterName": cSmeClusterName,
+       "cSmeClusterState": cSmeClusterState,
+       "cSmeClusterMasterInetAddrType": cSmeClusterMasterInetAddrType,
+       "cSmeClusterMasterInetAddr": cSmeClusterMasterInetAddr,
+       "cSmeClusterStorageType": cSmeClusterStorageType,
+       "cSmeClusterRowStatus": cSmeClusterRowStatus,
+       "cSmeClusterMembersTable": cSmeClusterMembersTable,
+       "cSmeClusterMembersEntry": cSmeClusterMembersEntry,
+       "cSmeMemberInetAddrType": cSmeMemberInetAddrType,
+       "cSmeMemberInetAddr": cSmeMemberInetAddr,
+       "cSmeFabric": cSmeFabric,
+       "cSmeIsMemberLocal": cSmeIsMemberLocal,
+       "cSmeMemberIsMaster": cSmeMemberIsMaster,
+       "cSmeClusterMemberStorageType": cSmeClusterMemberStorageType,
+       "cSmeClusterMemberRowStatus": cSmeClusterMemberRowStatus,
+       "cSmeClusterMemberIfTable": cSmeClusterMemberIfTable,
+       "cSmeClusterMemberIfEntry": cSmeClusterMemberIfEntry,
+       "cSmeClusterInterfaceIndex": cSmeClusterInterfaceIndex,
+       "cSmeClusterInterfaceState": cSmeClusterInterfaceState,
+       "cSmeInterfaceTable": cSmeInterfaceTable,
+       "cSmeInterfaceEntry": cSmeInterfaceEntry,
+       "cSmeInterfaceIndex": cSmeInterfaceIndex,
+       "cSmeInterfaceState": cSmeInterfaceState,
+       "cSmeInterfaceClusterId": cSmeInterfaceClusterId,
+       "cSmeInterfaceStorageType": cSmeInterfaceStorageType,
+       "cSmeInterfaceRowStatus": cSmeInterfaceRowStatus,
+       "cSmeHostPortTable": cSmeHostPortTable,
+       "cSmeHostPortEntry": cSmeHostPortEntry,
+       "cSmeHostPortName": cSmeHostPortName,
+       "cSmeHostPortClusterId": cSmeHostPortClusterId,
+       "cSmeHostPortStorageType": cSmeHostPortStorageType,
+       "cSmeHostPortRowStatus": cSmeHostPortRowStatus,
+       "cSmeConfigTableLastChanged": cSmeConfigTableLastChanged,
+       "cSmeHostPortTableLastChanged": cSmeHostPortTableLastChanged,
+       "cSmeNotifyEnable": cSmeNotifyEnable,
+       "ciscoSmeMIBConform": ciscoSmeMIBConform,
+       "ciscoSmeMIBCompliances": ciscoSmeMIBCompliances,
+       "ciscoSmeMIBCompliance": ciscoSmeMIBCompliance,
+       "ciscoSmeMIBGroups": ciscoSmeMIBGroups,
+       "ciscoSmeConfigGroup": ciscoSmeConfigGroup,
+       "ciscoSmeNotifControlGroup": ciscoSmeNotifControlGroup,
+       "ciscoSmeNotifsGroup": ciscoSmeNotifsGroup}
+)

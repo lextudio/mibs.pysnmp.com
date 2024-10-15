@@ -1,17 +1,17 @@
-"""SNMP MIB module (XEROX-GENERAL-MIB) expressed in pysnmp data model.
+# SNMP MIB module (XEROX-GENERAL-MIB) expressed in pysnmp data model.
+#
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/XEROX-GENERAL-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:18:19 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-This Python module is designed to be imported and executed by the
-pysnmp library.
-
-See https://www.pysnmp.com/pysnmp for further information.
-
-Notes
------
-ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/XEROX-GENERAL-MIB
-Produced by pysmi-1.3.3 at Sun Mar 10 06:00:28 2024
-On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm
-Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
-"""
 if 'mibBuilder' not in globals():
     import sys
 
@@ -65,103 +65,103 @@ if 'mibBuilder' not in globals():
     "NotificationGroup",
     "ObjectGroup")
 
-(Counter64,
- Unsigned32,
- NotificationType,
- Gauge32,
+(Bits,
  Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
  IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
  MibScalar,
  MibTable,
  MibTableRow,
  MibTableColumn,
- MibIdentifier,
- ModuleIdentity,
- Integer32,
- ObjectIdentity,
- iso,
- Bits,
- TimeTicks) = mibBuilder.importSymbols(
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
     "SNMPv2-SMI",
-    "Counter64",
-    "Unsigned32",
-    "NotificationType",
-    "Gauge32",
+    "Bits",
     "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
     "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
     "MibScalar",
     "MibTable",
     "MibTableRow",
     "MibTableColumn",
-    "MibIdentifier",
-    "ModuleIdentity",
-    "Integer32",
-    "ObjectIdentity",
-    "iso",
-    "Bits",
-    "TimeTicks")
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
 
-(TruthValue,
- RowStatus,
+(DateAndTime,
  DisplayString,
- DateAndTime,
- TextualConvention) = mibBuilder.importSymbols(
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
     "SNMPv2-TC",
-    "TruthValue",
-    "RowStatus",
-    "DisplayString",
     "DateAndTime",
-    "TextualConvention")
+    "DisplayString",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
 
 (xeroxCommonMIB,) = mibBuilder.importSymbols(
     "XEROX-COMMON-MIB",
     "xeroxCommonMIB")
 
-(XcmGenNotifySeverityFilter,
- XcmGenSNMPv2ErrorStatus,
- Cardinal32,
- XcmGenRowPersistence,
- XcmNamedLocaleUtf8String,
- XcmGenNotifySchemeSupport,
- CodedLanguage,
- XcmGlobalUniqueID,
- Ordinal32,
- XcmGenNotifyDetailType,
+(Cardinal32,
  CodeIndexedStringIndex,
  CodedCountry,
- XcmGenSNMPVersion,
- zeroDotZero,
+ CodedLanguage,
+ Ordinal16,
+ Ordinal32,
  XcmFixedLocaleDisplayString,
+ XcmGenGroupSupport,
+ XcmGenMessageMapStringLabel,
+ XcmGenNotifyDetailType,
+ XcmGenNotifySchemeSupport,
+ XcmGenNotifySeverityFilter,
+ XcmGenNotifyTrainingFilter,
  XcmGenOptionValueSyntax,
  XcmGenReconfOptionState,
- Ordinal16,
+ XcmGenRowPersistence,
  XcmGenSNMPDomain,
- XcmGenGroupSupport,
- XcmGenNotifyTrainingFilter,
- XcmGenMessageMapStringLabel) = mibBuilder.importSymbols(
+ XcmGenSNMPVersion,
+ XcmGenSNMPv2ErrorStatus,
+ XcmGlobalUniqueID,
+ XcmNamedLocaleUtf8String,
+ zeroDotZero) = mibBuilder.importSymbols(
     "XEROX-GENERAL-TC",
-    "XcmGenNotifySeverityFilter",
-    "XcmGenSNMPv2ErrorStatus",
     "Cardinal32",
-    "XcmGenRowPersistence",
-    "XcmNamedLocaleUtf8String",
-    "XcmGenNotifySchemeSupport",
-    "CodedLanguage",
-    "XcmGlobalUniqueID",
-    "Ordinal32",
-    "XcmGenNotifyDetailType",
     "CodeIndexedStringIndex",
     "CodedCountry",
-    "XcmGenSNMPVersion",
-    "zeroDotZero",
+    "CodedLanguage",
+    "Ordinal16",
+    "Ordinal32",
     "XcmFixedLocaleDisplayString",
+    "XcmGenGroupSupport",
+    "XcmGenMessageMapStringLabel",
+    "XcmGenNotifyDetailType",
+    "XcmGenNotifySchemeSupport",
+    "XcmGenNotifySeverityFilter",
+    "XcmGenNotifyTrainingFilter",
     "XcmGenOptionValueSyntax",
     "XcmGenReconfOptionState",
-    "Ordinal16",
+    "XcmGenRowPersistence",
     "XcmGenSNMPDomain",
-    "XcmGenGroupSupport",
-    "XcmGenNotifyTrainingFilter",
-    "XcmGenMessageMapStringLabel")
+    "XcmGenSNMPVersion",
+    "XcmGenSNMPv2ErrorStatus",
+    "XcmGlobalUniqueID",
+    "XcmNamedLocaleUtf8String",
+    "zeroDotZero")
 
 
 # MODULE-IDENTITY
@@ -221,7 +221,13 @@ xcmGenBaseRowStatus = _XcmGenBaseRowStatus_Object(
 xcmGenBaseRowStatus.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmGenBaseRowStatus.setStatus("current")
-_XcmGenBaseSystemHrDeviceIndex_Type = Cardinal32
+
+
+class _XcmGenBaseSystemHrDeviceIndex_Type(Cardinal32):
+    """Custom type xcmGenBaseSystemHrDeviceIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmGenBaseSystemHrDeviceIndex_Object = MibTableColumn
 xcmGenBaseSystemHrDeviceIndex = _XcmGenBaseSystemHrDeviceIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 51, 1, 2, 1, 3),
@@ -275,7 +281,13 @@ xcmGenBaseGroupUpdateSupport = _XcmGenBaseGroupUpdateSupport_Object(
 xcmGenBaseGroupUpdateSupport.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmGenBaseGroupUpdateSupport.setStatus("current")
-_XcmGenBaseClientDataMaxSupport_Type = Cardinal32
+
+
+class _XcmGenBaseClientDataMaxSupport_Type(Cardinal32):
+    """Custom type xcmGenBaseClientDataMaxSupport based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmGenBaseClientDataMaxSupport_Object = MibTableColumn
 xcmGenBaseClientDataMaxSupport = _XcmGenBaseClientDataMaxSupport_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 51, 1, 2, 1, 7),
@@ -284,7 +296,13 @@ xcmGenBaseClientDataMaxSupport = _XcmGenBaseClientDataMaxSupport_Object(
 xcmGenBaseClientDataMaxSupport.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmGenBaseClientDataMaxSupport.setStatus("current")
-_XcmGenBaseOptionSyntaxSupport_Type = Cardinal32
+
+
+class _XcmGenBaseOptionSyntaxSupport_Type(Cardinal32):
+    """Custom type xcmGenBaseOptionSyntaxSupport based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmGenBaseOptionSyntaxSupport_Object = MibTableColumn
 xcmGenBaseOptionSyntaxSupport = _XcmGenBaseOptionSyntaxSupport_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 51, 1, 2, 1, 8),
@@ -293,7 +311,13 @@ xcmGenBaseOptionSyntaxSupport = _XcmGenBaseOptionSyntaxSupport_Object(
 xcmGenBaseOptionSyntaxSupport.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmGenBaseOptionSyntaxSupport.setStatus("current")
-_XcmGenBaseReconfStateSupport_Type = Cardinal32
+
+
+class _XcmGenBaseReconfStateSupport_Type(Cardinal32):
+    """Custom type xcmGenBaseReconfStateSupport based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmGenBaseReconfStateSupport_Object = MibTableColumn
 xcmGenBaseReconfStateSupport = _XcmGenBaseReconfStateSupport_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 51, 1, 2, 1, 9),
@@ -833,7 +857,13 @@ xcmGenLockSimple = _XcmGenLockSimple_ObjectIdentity(
 )
 if mibBuilder.loadTexts:
     xcmGenLockSimple.setStatus("current")
-_XcmGenLockSupportMaxTimer_Type = Cardinal32
+
+
+class _XcmGenLockSupportMaxTimer_Type(Cardinal32):
+    """Custom type xcmGenLockSupportMaxTimer based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmGenLockSupportMaxTimer_Object = MibScalar
 xcmGenLockSupportMaxTimer = _XcmGenLockSupportMaxTimer_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 51, 8, 1, 1),
@@ -844,7 +874,13 @@ if mibBuilder.loadTexts:
     xcmGenLockSupportMaxTimer.setStatus("current")
 if mibBuilder.loadTexts:
     xcmGenLockSupportMaxTimer.setUnits("seconds")
-_XcmGenLockCurrentMaxTimer_Type = Cardinal32
+
+
+class _XcmGenLockCurrentMaxTimer_Type(Cardinal32):
+    """Custom type xcmGenLockCurrentMaxTimer based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmGenLockCurrentMaxTimer_Object = MibScalar
 xcmGenLockCurrentMaxTimer = _XcmGenLockCurrentMaxTimer_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 51, 8, 1, 2),
@@ -855,7 +891,13 @@ if mibBuilder.loadTexts:
     xcmGenLockCurrentMaxTimer.setStatus("current")
 if mibBuilder.loadTexts:
     xcmGenLockCurrentMaxTimer.setUnits("seconds")
-_XcmGenLockCurrentLockCount_Type = Cardinal32
+
+
+class _XcmGenLockCurrentLockCount_Type(Cardinal32):
+    """Custom type xcmGenLockCurrentLockCount based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmGenLockCurrentLockCount_Object = MibScalar
 xcmGenLockCurrentLockCount = _XcmGenLockCurrentLockCount_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 51, 8, 1, 3),
@@ -864,7 +906,13 @@ xcmGenLockCurrentLockCount = _XcmGenLockCurrentLockCount_Object(
 xcmGenLockCurrentLockCount.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmGenLockCurrentLockCount.setStatus("current")
-_XcmGenLockHighestLockIndex_Type = Cardinal32
+
+
+class _XcmGenLockHighestLockIndex_Type(Cardinal32):
+    """Custom type xcmGenLockHighestLockIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmGenLockHighestLockIndex_Object = MibScalar
 xcmGenLockHighestLockIndex = _XcmGenLockHighestLockIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 51, 8, 1, 4),
@@ -873,7 +921,13 @@ xcmGenLockHighestLockIndex = _XcmGenLockHighestLockIndex_Object(
 xcmGenLockHighestLockIndex.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmGenLockHighestLockIndex.setStatus("current")
-_XcmGenLockSupportMaxCount_Type = Cardinal32
+
+
+class _XcmGenLockSupportMaxCount_Type(Cardinal32):
+    """Custom type xcmGenLockSupportMaxCount based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmGenLockSupportMaxCount_Object = MibScalar
 xcmGenLockSupportMaxCount = _XcmGenLockSupportMaxCount_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 51, 8, 1, 5),
@@ -940,7 +994,7 @@ if mibBuilder.loadTexts:
 
 class _XcmGenLockOwnerSubtree_Type(ObjectIdentifier):
     """Custom type xcmGenLockOwnerSubtree based on ObjectIdentifier"""
-    defaultValue = "(0, 0)"
+    defaultValue = (0, 0)
 
 
 _XcmGenLockOwnerSubtree_Object = MibTableColumn
@@ -990,7 +1044,13 @@ xcmGenReconfEntryCount = _XcmGenReconfEntryCount_Object(
 xcmGenReconfEntryCount.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmGenReconfEntryCount.setStatus("current")
-_XcmGenReconfSupportMaxCount_Type = Cardinal32
+
+
+class _XcmGenReconfSupportMaxCount_Type(Cardinal32):
+    """Custom type xcmGenReconfSupportMaxCount based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmGenReconfSupportMaxCount_Object = MibScalar
 xcmGenReconfSupportMaxCount = _XcmGenReconfSupportMaxCount_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 51, 9, 1, 3),
@@ -1033,7 +1093,13 @@ xcmGenReconfRowStatus = _XcmGenReconfRowStatus_Object(
 xcmGenReconfRowStatus.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmGenReconfRowStatus.setStatus("current")
-_XcmGenReconfOptionIndex_Type = Cardinal32
+
+
+class _XcmGenReconfOptionIndex_Type(Cardinal32):
+    """Custom type xcmGenReconfOptionIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmGenReconfOptionIndex_Object = MibTableColumn
 xcmGenReconfOptionIndex = _XcmGenReconfOptionIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 51, 9, 2, 1, 3),
@@ -1056,7 +1122,13 @@ xcmGenReconfOptionState = _XcmGenReconfOptionState_Object(
 xcmGenReconfOptionState.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmGenReconfOptionState.setStatus("current")
-_XcmGenReconfErrorIndex_Type = Cardinal32
+
+
+class _XcmGenReconfErrorIndex_Type(Cardinal32):
+    """Custom type xcmGenReconfErrorIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmGenReconfErrorIndex_Object = MibTableColumn
 xcmGenReconfErrorIndex = _XcmGenReconfErrorIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 51, 9, 2, 1, 5),
@@ -1109,7 +1181,13 @@ xcmGenOptionEntryCount = _XcmGenOptionEntryCount_Object(
 xcmGenOptionEntryCount.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmGenOptionEntryCount.setStatus("current")
-_XcmGenOptionSupportMaxCount_Type = Cardinal32
+
+
+class _XcmGenOptionSupportMaxCount_Type(Cardinal32):
+    """Custom type xcmGenOptionSupportMaxCount based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmGenOptionSupportMaxCount_Object = MibScalar
 xcmGenOptionSupportMaxCount = _XcmGenOptionSupportMaxCount_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 51, 10, 1, 3),
@@ -1156,7 +1234,7 @@ if mibBuilder.loadTexts:
 
 class _XcmGenOptionTypeOID_Type(ObjectIdentifier):
     """Custom type xcmGenOptionTypeOID based on ObjectIdentifier"""
-    defaultValue = "(0, 0)"
+    defaultValue = (0, 0)
 
 
 _XcmGenOptionTypeOID_Object = MibTableColumn
@@ -1181,7 +1259,13 @@ xcmGenOptionValueSyntax = _XcmGenOptionValueSyntax_Object(
 xcmGenOptionValueSyntax.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmGenOptionValueSyntax.setStatus("current")
-_XcmGenOptionValueInteger_Type = Integer32
+
+
+class _XcmGenOptionValueInteger_Type(Integer32):
+    """Custom type xcmGenOptionValueInteger based on Integer32"""
+    defaultValue = 0
+
+
 _XcmGenOptionValueInteger_Object = MibTableColumn
 xcmGenOptionValueInteger = _XcmGenOptionValueInteger_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 51, 10, 2, 1, 5),
@@ -1194,7 +1278,7 @@ if mibBuilder.loadTexts:
 
 class _XcmGenOptionValueOID_Type(ObjectIdentifier):
     """Custom type xcmGenOptionValueOID based on ObjectIdentifier"""
-    defaultValue = "(0, 0)"
+    defaultValue = (0, 0)
 
 
 _XcmGenOptionValueOID_Object = MibTableColumn
@@ -1226,7 +1310,13 @@ xcmGenOptionValueString = _XcmGenOptionValueString_Object(
 xcmGenOptionValueString.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmGenOptionValueString.setStatus("current")
-_XcmGenOptionValueLocalization_Type = Cardinal32
+
+
+class _XcmGenOptionValueLocalization_Type(Cardinal32):
+    """Custom type xcmGenOptionValueLocalization based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmGenOptionValueLocalization_Object = MibTableColumn
 xcmGenOptionValueLocalization = _XcmGenOptionValueLocalization_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 51, 10, 2, 1, 8),
@@ -1249,7 +1339,13 @@ xcmGenOptionValueCodedCharSet = _XcmGenOptionValueCodedCharSet_Object(
 xcmGenOptionValueCodedCharSet.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmGenOptionValueCodedCharSet.setStatus("current")
-_XcmGenOptionNextIndex_Type = Cardinal32
+
+
+class _XcmGenOptionNextIndex_Type(Cardinal32):
+    """Custom type xcmGenOptionNextIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmGenOptionNextIndex_Object = MibTableColumn
 xcmGenOptionNextIndex = _XcmGenOptionNextIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 51, 10, 2, 1, 10),
@@ -1258,7 +1354,13 @@ xcmGenOptionNextIndex = _XcmGenOptionNextIndex_Object(
 xcmGenOptionNextIndex.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmGenOptionNextIndex.setStatus("current")
-_XcmGenOptionPreviousIndex_Type = Cardinal32
+
+
+class _XcmGenOptionPreviousIndex_Type(Cardinal32):
+    """Custom type xcmGenOptionPreviousIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmGenOptionPreviousIndex_Object = MibTableColumn
 xcmGenOptionPreviousIndex = _XcmGenOptionPreviousIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 51, 10, 2, 1, 11),
@@ -1267,7 +1369,13 @@ xcmGenOptionPreviousIndex = _XcmGenOptionPreviousIndex_Object(
 xcmGenOptionPreviousIndex.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmGenOptionPreviousIndex.setStatus("current")
-_XcmGenOptionFamilyIndex_Type = Cardinal32
+
+
+class _XcmGenOptionFamilyIndex_Type(Cardinal32):
+    """Custom type xcmGenOptionFamilyIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmGenOptionFamilyIndex_Object = MibTableColumn
 xcmGenOptionFamilyIndex = _XcmGenOptionFamilyIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 51, 10, 2, 1, 12),
@@ -1304,7 +1412,13 @@ xcmGenClientDataLastIndex = _XcmGenClientDataLastIndex_Object(
 xcmGenClientDataLastIndex.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmGenClientDataLastIndex.setStatus("current")
-_XcmGenClientDataSupportMaxCount_Type = Cardinal32
+
+
+class _XcmGenClientDataSupportMaxCount_Type(Cardinal32):
+    """Custom type xcmGenClientDataSupportMaxCount based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmGenClientDataSupportMaxCount_Object = MibScalar
 xcmGenClientDataSupportMaxCount = _XcmGenClientDataSupportMaxCount_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 51, 11, 1, 3),
@@ -1380,7 +1494,7 @@ if mibBuilder.loadTexts:
 
 class _XcmGenClientDataProductID_Type(ProductID):
     """Custom type xcmGenClientDataProductID based on ProductID"""
-    defaultValue = "(0, 0)"
+    defaultValue = (0, 0)
 
 
 _XcmGenClientDataProductID_Object = MibTableColumn
@@ -1391,7 +1505,13 @@ xcmGenClientDataProductID = _XcmGenClientDataProductID_Object(
 xcmGenClientDataProductID.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmGenClientDataProductID.setStatus("current")
-_XcmGenClientDataLength_Type = Cardinal32
+
+
+class _XcmGenClientDataLength_Type(Cardinal32):
+    """Custom type xcmGenClientDataLength based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmGenClientDataLength_Object = MibTableColumn
 xcmGenClientDataLength = _XcmGenClientDataLength_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 51, 11, 2, 1, 6),
@@ -1440,7 +1560,13 @@ xcmGenTrapClientEntryCount = _XcmGenTrapClientEntryCount_Object(
 xcmGenTrapClientEntryCount.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmGenTrapClientEntryCount.setStatus("current")
-_XcmGenTrapClientSupportMaxCount_Type = Cardinal32
+
+
+class _XcmGenTrapClientSupportMaxCount_Type(Cardinal32):
+    """Custom type xcmGenTrapClientSupportMaxCount based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmGenTrapClientSupportMaxCount_Object = MibScalar
 xcmGenTrapClientSupportMaxCount = _XcmGenTrapClientSupportMaxCount_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 51, 13, 1, 2),
@@ -1577,7 +1703,13 @@ xcmGenTrapViewEntryCount = _XcmGenTrapViewEntryCount_Object(
 xcmGenTrapViewEntryCount.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmGenTrapViewEntryCount.setStatus("current")
-_XcmGenTrapViewSupportMaxCount_Type = Cardinal32
+
+
+class _XcmGenTrapViewSupportMaxCount_Type(Cardinal32):
+    """Custom type xcmGenTrapViewSupportMaxCount based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmGenTrapViewSupportMaxCount_Object = MibScalar
 xcmGenTrapViewSupportMaxCount = _XcmGenTrapViewSupportMaxCount_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 51, 14, 1, 2),
@@ -1763,7 +1895,13 @@ xcmGenNotifyRuleEntryCount = _XcmGenNotifyRuleEntryCount_Object(
 xcmGenNotifyRuleEntryCount.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmGenNotifyRuleEntryCount.setStatus("current")
-_XcmGenNotifyRuleSupportMaxCount_Type = Cardinal32
+
+
+class _XcmGenNotifyRuleSupportMaxCount_Type(Cardinal32):
+    """Custom type xcmGenNotifyRuleSupportMaxCount based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmGenNotifyRuleSupportMaxCount_Object = MibScalar
 xcmGenNotifyRuleSupportMaxCount = _XcmGenNotifyRuleSupportMaxCount_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 51, 17, 1, 2),
@@ -1861,7 +1999,13 @@ xcmGenNotifyRuleEventNames = _XcmGenNotifyRuleEventNames_Object(
 xcmGenNotifyRuleEventNames.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmGenNotifyRuleEventNames.setStatus("current")
-_XcmGenNotifyRuleEventDelay_Type = Cardinal32
+
+
+class _XcmGenNotifyRuleEventDelay_Type(Cardinal32):
+    """Custom type xcmGenNotifyRuleEventDelay based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmGenNotifyRuleEventDelay_Object = MibTableColumn
 xcmGenNotifyRuleEventDelay = _XcmGenNotifyRuleEventDelay_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 51, 17, 2, 1, 6),
@@ -1929,7 +2073,13 @@ xcmGenNotifyRuleNaturalLanguage = _XcmGenNotifyRuleNaturalLanguage_Object(
 xcmGenNotifyRuleNaturalLanguage.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmGenNotifyRuleNaturalLanguage.setStatus("current")
-_XcmGenNotifyRuleSequenceNumber_Type = Cardinal32
+
+
+class _XcmGenNotifyRuleSequenceNumber_Type(Cardinal32):
+    """Custom type xcmGenNotifyRuleSequenceNumber based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmGenNotifyRuleSequenceNumber_Object = MibTableColumn
 xcmGenNotifyRuleSequenceNumber = _XcmGenNotifyRuleSequenceNumber_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 51, 17, 2, 1, 11),
@@ -1957,7 +2107,13 @@ xcmGenNotifyDetailEntryCount = _XcmGenNotifyDetailEntryCount_Object(
 xcmGenNotifyDetailEntryCount.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmGenNotifyDetailEntryCount.setStatus("current")
-_XcmGenNotifyDetailSupportMax_Type = Cardinal32
+
+
+class _XcmGenNotifyDetailSupportMax_Type(Cardinal32):
+    """Custom type xcmGenNotifyDetailSupportMax based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmGenNotifyDetailSupportMax_Object = MibScalar
 xcmGenNotifyDetailSupportMax = _XcmGenNotifyDetailSupportMax_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 51, 18, 1, 2),

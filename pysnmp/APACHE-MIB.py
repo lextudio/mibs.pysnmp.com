@@ -1,54 +1,328 @@
+# SNMP MIB module (APACHE-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module APACHE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/APACHE-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:07:13 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, enterprises, ObjectIdentity, Bits, IpAddress, Counter64, TimeTicks, MibIdentifier, Counter32, Integer32, NotificationType, iso, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "enterprises", "ObjectIdentity", "Bits", "IpAddress", "Counter64", "TimeTicks", "MibIdentifier", "Counter32", "Integer32", "NotificationType", "iso", "Gauge32")
-TimeStamp, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "TextualConvention")
-apacheMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4))
-apacheMIB.setRevisions(('1998-10-01 00:00',))
-if mibBuilder.loadTexts: apacheMIB.setLastUpdated('9810010000Z')
-if mibBuilder.loadTexts: apacheMIB.setOrganization('Harrie hazewinkel')
-jointResearchCentre = MibIdentifier((1, 3, 6, 1, 4, 1, 1847))
-jrcMIBs = MibIdentifier((1, 3, 6, 1, 4, 1, 1847, 1))
-class ApacheServerStatusType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9))
-    namedValues = NamedValues(("dead", 1), ("starting", 2), ("ready", 3), ("read", 4), ("write", 5), ("keepalive", 6), ("log", 7), ("dns", 8), ("graceful", 9))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/APACHE-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 20:39:09 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-apacheMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4, 1))
-apScoreBoardTable = MibTable((1, 3, 6, 1, 4, 1, 4, 1, 1), )
-if mibBuilder.loadTexts: apScoreBoardTable.setStatus('current')
-apScoreBoardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4, 1, 1, 1), ).setIndexNames((0, "APACHE-MIB", "apScoreBoardIndex"))
-if mibBuilder.loadTexts: apScoreBoardEntry.setStatus('current')
-apScoreBoardIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4, 1, 1, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: apScoreBoardIndex.setStatus('current')
-apScoreBoardProcessId = MibTableColumn((1, 3, 6, 1, 4, 1, 4, 1, 1, 1, 2), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apScoreBoardProcessId.setStatus('current')
-apScoreBoardStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4, 1, 1, 1, 3), ApacheServerStatusType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apScoreBoardStatus.setStatus('current')
-apScoreBoardStartTime = MibTableColumn((1, 3, 6, 1, 4, 1, 4, 1, 1, 1, 4), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apScoreBoardStartTime.setStatus('current')
-apScoreBoardAccessCount = MibTableColumn((1, 3, 6, 1, 4, 1, 4, 1, 1, 1, 5), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apScoreBoardAccessCount.setStatus('current')
-apScoreBoardAccessBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 4, 1, 1, 1, 6), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apScoreBoardAccessBytes.setStatus('current')
-apScoreBoardClient = MibTableColumn((1, 3, 6, 1, 4, 1, 4, 1, 1, 1, 7), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apScoreBoardClient.setStatus('current')
-apScoreBoardRequest = MibTableColumn((1, 3, 6, 1, 4, 1, 4, 1, 1, 1, 8), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apScoreBoardRequest.setStatus('current')
-apScoreBoardVirtualHost = MibTableColumn((1, 3, 6, 1, 4, 1, 4, 1, 1, 1, 9), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apScoreBoardVirtualHost.setStatus('current')
-apMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 4, 2))
-apMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 4, 2, 1))
-apMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 4, 2, 2))
-apScoreBoardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4, 2, 2, 1)).setObjects(("APACHE-MIB", "apScoreBoardProcessId"), ("APACHE-MIB", "apScoreBoardStatus"), ("APACHE-MIB", "apScoreBoardStartTime"), ("APACHE-MIB", "apScoreBoardAccessCount"), ("APACHE-MIB", "apScoreBoardAccessBytes"), ("APACHE-MIB", "apScoreBoardClient"), ("APACHE-MIB", "apScoreBoardRequest"), ("APACHE-MIB", "apScoreBoardVirtualHost"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    apScoreBoardGroup = apScoreBoardGroup.setStatus('current')
-mibBuilder.exportSymbols("APACHE-MIB", apacheMIB=apacheMIB, apScoreBoardAccessBytes=apScoreBoardAccessBytes, apMIBConformance=apMIBConformance, apScoreBoardEntry=apScoreBoardEntry, apScoreBoardVirtualHost=apScoreBoardVirtualHost, apScoreBoardStatus=apScoreBoardStatus, apScoreBoardStartTime=apScoreBoardStartTime, PYSNMP_MODULE_ID=apacheMIB, apacheMIBObjects=apacheMIBObjects, apScoreBoardTable=apScoreBoardTable, jrcMIBs=jrcMIBs, apMIBGroups=apMIBGroups, jointResearchCentre=jointResearchCentre, apScoreBoardRequest=apScoreBoardRequest, apScoreBoardAccessCount=apScoreBoardAccessCount, apScoreBoardGroup=apScoreBoardGroup, ApacheServerStatusType=ApacheServerStatusType, apMIBCompliances=apMIBCompliances, apScoreBoardClient=apScoreBoardClient, apScoreBoardProcessId=apScoreBoardProcessId, apScoreBoardIndex=apScoreBoardIndex)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ TextualConvention,
+ TimeStamp) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention",
+    "TimeStamp")
+
+
+# MODULE-IDENTITY
+
+apacheMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4)
+)
+apacheMIB.setRevisions(
+        ("1998-10-01 00:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class ApacheServerStatusType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dead", 1),
+          ("dns", 8),
+          ("graceful", 9),
+          ("keepalive", 6),
+          ("log", 7),
+          ("read", 4),
+          ("ready", 3),
+          ("starting", 2),
+          ("write", 5))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_ApacheMIBObjects_ObjectIdentity = ObjectIdentity
+apacheMIBObjects = _ApacheMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4, 1)
+)
+_ApScoreBoardTable_Object = MibTable
+apScoreBoardTable = _ApScoreBoardTable_Object(
+    (1, 3, 6, 1, 4, 1, 4, 1, 1)
+)
+if mibBuilder.loadTexts:
+    apScoreBoardTable.setStatus("current")
+_ApScoreBoardEntry_Object = MibTableRow
+apScoreBoardEntry = _ApScoreBoardEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4, 1, 1, 1)
+)
+apScoreBoardEntry.setIndexNames(
+    (0, "APACHE-MIB", "apScoreBoardIndex"),
+)
+if mibBuilder.loadTexts:
+    apScoreBoardEntry.setStatus("current")
+_ApScoreBoardIndex_Type = Unsigned32
+_ApScoreBoardIndex_Object = MibTableColumn
+apScoreBoardIndex = _ApScoreBoardIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4, 1, 1, 1, 1),
+    _ApScoreBoardIndex_Type()
+)
+apScoreBoardIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    apScoreBoardIndex.setStatus("current")
+_ApScoreBoardProcessId_Type = Unsigned32
+_ApScoreBoardProcessId_Object = MibTableColumn
+apScoreBoardProcessId = _ApScoreBoardProcessId_Object(
+    (1, 3, 6, 1, 4, 1, 4, 1, 1, 1, 2),
+    _ApScoreBoardProcessId_Type()
+)
+apScoreBoardProcessId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    apScoreBoardProcessId.setStatus("current")
+_ApScoreBoardStatus_Type = ApacheServerStatusType
+_ApScoreBoardStatus_Object = MibTableColumn
+apScoreBoardStatus = _ApScoreBoardStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4, 1, 1, 1, 3),
+    _ApScoreBoardStatus_Type()
+)
+apScoreBoardStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    apScoreBoardStatus.setStatus("current")
+_ApScoreBoardStartTime_Type = TimeStamp
+_ApScoreBoardStartTime_Object = MibTableColumn
+apScoreBoardStartTime = _ApScoreBoardStartTime_Object(
+    (1, 3, 6, 1, 4, 1, 4, 1, 1, 1, 4),
+    _ApScoreBoardStartTime_Type()
+)
+apScoreBoardStartTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    apScoreBoardStartTime.setStatus("current")
+_ApScoreBoardAccessCount_Type = Unsigned32
+_ApScoreBoardAccessCount_Object = MibTableColumn
+apScoreBoardAccessCount = _ApScoreBoardAccessCount_Object(
+    (1, 3, 6, 1, 4, 1, 4, 1, 1, 1, 5),
+    _ApScoreBoardAccessCount_Type()
+)
+apScoreBoardAccessCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    apScoreBoardAccessCount.setStatus("current")
+_ApScoreBoardAccessBytes_Type = Unsigned32
+_ApScoreBoardAccessBytes_Object = MibTableColumn
+apScoreBoardAccessBytes = _ApScoreBoardAccessBytes_Object(
+    (1, 3, 6, 1, 4, 1, 4, 1, 1, 1, 6),
+    _ApScoreBoardAccessBytes_Type()
+)
+apScoreBoardAccessBytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    apScoreBoardAccessBytes.setStatus("current")
+_ApScoreBoardClient_Type = DisplayString
+_ApScoreBoardClient_Object = MibTableColumn
+apScoreBoardClient = _ApScoreBoardClient_Object(
+    (1, 3, 6, 1, 4, 1, 4, 1, 1, 1, 7),
+    _ApScoreBoardClient_Type()
+)
+apScoreBoardClient.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    apScoreBoardClient.setStatus("current")
+_ApScoreBoardRequest_Type = DisplayString
+_ApScoreBoardRequest_Object = MibTableColumn
+apScoreBoardRequest = _ApScoreBoardRequest_Object(
+    (1, 3, 6, 1, 4, 1, 4, 1, 1, 1, 8),
+    _ApScoreBoardRequest_Type()
+)
+apScoreBoardRequest.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    apScoreBoardRequest.setStatus("current")
+_ApScoreBoardVirtualHost_Type = Unsigned32
+_ApScoreBoardVirtualHost_Object = MibTableColumn
+apScoreBoardVirtualHost = _ApScoreBoardVirtualHost_Object(
+    (1, 3, 6, 1, 4, 1, 4, 1, 1, 1, 9),
+    _ApScoreBoardVirtualHost_Type()
+)
+apScoreBoardVirtualHost.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    apScoreBoardVirtualHost.setStatus("current")
+_ApMIBConformance_ObjectIdentity = ObjectIdentity
+apMIBConformance = _ApMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4, 2)
+)
+_ApMIBCompliances_ObjectIdentity = ObjectIdentity
+apMIBCompliances = _ApMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4, 2, 1)
+)
+_ApMIBGroups_ObjectIdentity = ObjectIdentity
+apMIBGroups = _ApMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4, 2, 2)
+)
+_JointResearchCentre_ObjectIdentity = ObjectIdentity
+jointResearchCentre = _JointResearchCentre_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1847)
+)
+_JrcMIBs_ObjectIdentity = ObjectIdentity
+jrcMIBs = _JrcMIBs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1847, 1)
+)
+
+# Managed Objects groups
+
+apScoreBoardGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 4, 2, 2, 1)
+)
+apScoreBoardGroup.setObjects(
+      *(("APACHE-MIB", "apScoreBoardProcessId"),
+        ("APACHE-MIB", "apScoreBoardStatus"),
+        ("APACHE-MIB", "apScoreBoardStartTime"),
+        ("APACHE-MIB", "apScoreBoardAccessCount"),
+        ("APACHE-MIB", "apScoreBoardAccessBytes"),
+        ("APACHE-MIB", "apScoreBoardClient"),
+        ("APACHE-MIB", "apScoreBoardRequest"),
+        ("APACHE-MIB", "apScoreBoardVirtualHost"))
+)
+if mibBuilder.loadTexts:
+    apScoreBoardGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "APACHE-MIB",
+    **{"ApacheServerStatusType": ApacheServerStatusType,
+       "apacheMIB": apacheMIB,
+       "apacheMIBObjects": apacheMIBObjects,
+       "apScoreBoardTable": apScoreBoardTable,
+       "apScoreBoardEntry": apScoreBoardEntry,
+       "apScoreBoardIndex": apScoreBoardIndex,
+       "apScoreBoardProcessId": apScoreBoardProcessId,
+       "apScoreBoardStatus": apScoreBoardStatus,
+       "apScoreBoardStartTime": apScoreBoardStartTime,
+       "apScoreBoardAccessCount": apScoreBoardAccessCount,
+       "apScoreBoardAccessBytes": apScoreBoardAccessBytes,
+       "apScoreBoardClient": apScoreBoardClient,
+       "apScoreBoardRequest": apScoreBoardRequest,
+       "apScoreBoardVirtualHost": apScoreBoardVirtualHost,
+       "apMIBConformance": apMIBConformance,
+       "apMIBCompliances": apMIBCompliances,
+       "apMIBGroups": apMIBGroups,
+       "apScoreBoardGroup": apScoreBoardGroup,
+       "jointResearchCentre": jointResearchCentre,
+       "jrcMIBs": jrcMIBs}
+)

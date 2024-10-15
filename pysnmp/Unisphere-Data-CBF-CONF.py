@@ -1,25 +1,161 @@
+# SNMP MIB module (Unisphere-Data-CBF-CONF) expressed in pysnmp data model.
 #
-# PySNMP MIB module Unisphere-Data-CBF-CONF (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/Unisphere-Data-CBF-CONF
-# Produced by pysmi-0.3.4 at Mon Apr 29 21:23:22 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint")
-AgentCapabilities, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "AgentCapabilities", "NotificationGroup", "ModuleCompliance")
-IpAddress, ObjectIdentity, Counter64, NotificationType, TimeTicks, iso, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, ModuleIdentity, MibIdentifier, Counter32, Gauge32, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "ObjectIdentity", "Counter64", "NotificationType", "TimeTicks", "iso", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "ModuleIdentity", "MibIdentifier", "Counter32", "Gauge32", "Integer32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-usDataAgents, = mibBuilder.importSymbols("Unisphere-Data-Agents", "usDataAgents")
-usdCbfGroup, = mibBuilder.importSymbols("Unisphere-Data-CBF-MIB", "usdCbfGroup")
-usdCbfAgent = ModuleIdentity((1, 3, 6, 1, 4, 1, 4874, 5, 2, 48))
-usdCbfAgent.setRevisions(('2001-03-29 20:23',))
-if mibBuilder.loadTexts: usdCbfAgent.setLastUpdated('200103292023Z')
-if mibBuilder.loadTexts: usdCbfAgent.setOrganization('Unisphere Networks, Inc.')
-usdCbfAgentV1 = AgentCapabilities((1, 3, 6, 1, 4, 1, 4874, 5, 2, 48, 1))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    usdCbfAgentV1 = usdCbfAgentV1.setProductRelease('Version 1 of the Connection-Based Forwarding (CBF) component of the\n        Unisphere Routing Switch SNMP agent.  This version of the CBF component\n        is supported in the Unisphere RX 3.2 and subsequent system releases.')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    usdCbfAgentV1 = usdCbfAgentV1.setStatus('current')
-mibBuilder.exportSymbols("Unisphere-Data-CBF-CONF", usdCbfAgent=usdCbfAgent, usdCbfAgentV1=usdCbfAgentV1, PYSNMP_MODULE_ID=usdCbfAgent)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/Unisphere-Data-CBF-CONF
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:10:25 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(AgentCapabilities,
+ ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "AgentCapabilities",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+(usDataAgents,) = mibBuilder.importSymbols(
+    "Unisphere-Data-Agents",
+    "usDataAgents")
+
+(usdCbfGroup,) = mibBuilder.importSymbols(
+    "Unisphere-Data-CBF-MIB",
+    "usdCbfGroup")
+
+
+# MODULE-IDENTITY
+
+usdCbfAgent = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 48)
+)
+usdCbfAgent.setRevisions(
+        ("2001-03-29 20:23",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+usdCbfAgentV1 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 48, 1)
+)
+if mibBuilder.loadTexts:
+    usdCbfAgentV1.setProductRelease("""\
+Version 1 of the Connection-Based Forwarding (CBF) component of the
+        Unisphere Routing Switch SNMP agent.  This version of the CBF component
+        is supported in the Unisphere RX 3.2 and subsequent system releases.""")
+if mibBuilder.loadTexts:
+    usdCbfAgentV1.setStatus(
+        "current"
+    )
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "Unisphere-Data-CBF-CONF",
+    **{"usdCbfAgent": usdCbfAgent,
+       "usdCbfAgentV1": usdCbfAgentV1}
+)

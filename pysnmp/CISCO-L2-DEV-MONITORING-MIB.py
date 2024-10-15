@@ -1,65 +1,406 @@
+# SNMP MIB module (CISCO-L2-DEV-MONITORING-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-L2-DEV-MONITORING-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/CISCO-L2-DEV-MONITORING-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:47:00 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint")
-ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-Gauge32, TimeTicks, Counter64, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Unsigned32, NotificationType, IpAddress, Bits, Integer32, Counter32, ModuleIdentity, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "TimeTicks", "Counter64", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Unsigned32", "NotificationType", "IpAddress", "Bits", "Integer32", "Counter32", "ModuleIdentity", "iso")
-TextualConvention, RowStatus, DisplayString, MacAddress, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "RowStatus", "DisplayString", "MacAddress", "TruthValue")
-ciscoL2DevMonMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 271))
-ciscoL2DevMonMIB.setRevisions(('2003-07-22 00:00', '2001-09-27 00:00',))
-if mibBuilder.loadTexts: ciscoL2DevMonMIB.setLastUpdated('200307220000Z')
-if mibBuilder.loadTexts: ciscoL2DevMonMIB.setOrganization('Cisco System Inc.')
-ciscoL2DevMonMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 271, 1))
-cl2DevMonConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 271, 1, 1))
-cl2DevMonInStandbyMode = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 271, 1, 1, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cl2DevMonInStandbyMode.setStatus('current')
-cl2DevMonNotifEnabled = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 271, 1, 1, 2), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cl2DevMonNotifEnabled.setStatus('current')
-cl2DevMonActiveTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 271, 1, 1, 3), )
-if mibBuilder.loadTexts: cl2DevMonActiveTable.setStatus('current')
-cl2DevMonActiveEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 271, 1, 1, 3, 1), ).setIndexNames((0, "CISCO-L2-DEV-MONITORING-MIB", "cl2DevMonActiveMacAddress"))
-if mibBuilder.loadTexts: cl2DevMonActiveEntry.setStatus('current')
-cl2DevMonActiveMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 271, 1, 1, 3, 1, 1), MacAddress())
-if mibBuilder.loadTexts: cl2DevMonActiveMacAddress.setStatus('current')
-cl2DevMonActivePollingFrequency = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 271, 1, 1, 3, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 30)).clone(5)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cl2DevMonActivePollingFrequency.setStatus('current')
-cl2DevMonActivePollingTimeOut = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 271, 1, 1, 3, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 600)).clone(5)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cl2DevMonActivePollingTimeOut.setStatus('current')
-cl2DevMonActiveRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 271, 1, 1, 3, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cl2DevMonActiveRowStatus.setStatus('current')
-cl2DevMonActiveRadioMacType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 271, 1, 1, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("ieee802dot11a", 1), ("ieee802dot11b", 2), ("ieee802dot11g", 3)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cl2DevMonActiveRadioMacType.setStatus('current')
-cl2DevMonActiveLocalRadioIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 271, 1, 1, 3, 1, 6), InterfaceIndex()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cl2DevMonActiveLocalRadioIndex.setStatus('current')
-ciscoL2DevMonMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 271, 0))
-cl2DevMonSwitchover = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 271, 0, 1)).setObjects(("CISCO-L2-DEV-MONITORING-MIB", "cl2DevMonActivePollingFrequency"), ("CISCO-L2-DEV-MONITORING-MIB", "cl2DevMonActivePollingTimeOut"))
-if mibBuilder.loadTexts: cl2DevMonSwitchover.setStatus('current')
-ciscoL2DevMonMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 271, 2))
-ciscoL2DevMonMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 271, 2, 1))
-ciscoL2DevMonMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 271, 2, 2))
-ciscoL2DevMonCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 271, 2, 1, 1)).setObjects(("CISCO-L2-DEV-MONITORING-MIB", "ciscoL2DevMonConfigGroup"), ("CISCO-L2-DEV-MONITORING-MIB", "ciscoL2DevMonNotificationGroup"))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CISCO-L2-DEV-MONITORING-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:03:45 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoL2DevMonCompliance = ciscoL2DevMonCompliance.setStatus('deprecated')
-ciscoL2DevMonComplianceRev1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 271, 2, 1, 2)).setObjects(("CISCO-L2-DEV-MONITORING-MIB", "ciscoL2DevMonConfigGroup"), ("CISCO-L2-DEV-MONITORING-MIB", "ciscoL2DevMonNotificationGroup"), ("CISCO-L2-DEV-MONITORING-MIB", "ciscoL2DevMonRadioConfigGroup"))
+if 'mibBuilder' not in globals():
+    import sys
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoL2DevMonComplianceRev1 = ciscoL2DevMonComplianceRev1.setStatus('current')
-ciscoL2DevMonConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 271, 2, 2, 1)).setObjects(("CISCO-L2-DEV-MONITORING-MIB", "cl2DevMonInStandbyMode"), ("CISCO-L2-DEV-MONITORING-MIB", "cl2DevMonNotifEnabled"), ("CISCO-L2-DEV-MONITORING-MIB", "cl2DevMonActivePollingFrequency"), ("CISCO-L2-DEV-MONITORING-MIB", "cl2DevMonActivePollingTimeOut"), ("CISCO-L2-DEV-MONITORING-MIB", "cl2DevMonActiveRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoL2DevMonConfigGroup = ciscoL2DevMonConfigGroup.setStatus('current')
-ciscoL2DevMonNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 271, 2, 2, 2)).setObjects(("CISCO-L2-DEV-MONITORING-MIB", "cl2DevMonSwitchover"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoL2DevMonNotificationGroup = ciscoL2DevMonNotificationGroup.setStatus('current')
-ciscoL2DevMonRadioConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 271, 2, 2, 3)).setObjects(("CISCO-L2-DEV-MONITORING-MIB", "cl2DevMonActiveRadioMacType"), ("CISCO-L2-DEV-MONITORING-MIB", "cl2DevMonActiveLocalRadioIndex"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoL2DevMonRadioConfigGroup = ciscoL2DevMonRadioConfigGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-L2-DEV-MONITORING-MIB", cl2DevMonActivePollingTimeOut=cl2DevMonActivePollingTimeOut, cl2DevMonActiveEntry=cl2DevMonActiveEntry, cl2DevMonActiveTable=cl2DevMonActiveTable, ciscoL2DevMonConfigGroup=ciscoL2DevMonConfigGroup, ciscoL2DevMonMIBCompliances=ciscoL2DevMonMIBCompliances, cl2DevMonActiveMacAddress=cl2DevMonActiveMacAddress, ciscoL2DevMonMIB=ciscoL2DevMonMIB, cl2DevMonActiveRadioMacType=cl2DevMonActiveRadioMacType, ciscoL2DevMonMIBConformance=ciscoL2DevMonMIBConformance, cl2DevMonActivePollingFrequency=cl2DevMonActivePollingFrequency, ciscoL2DevMonCompliance=ciscoL2DevMonCompliance, cl2DevMonConfig=cl2DevMonConfig, ciscoL2DevMonMIBNotifications=ciscoL2DevMonMIBNotifications, cl2DevMonActiveLocalRadioIndex=cl2DevMonActiveLocalRadioIndex, cl2DevMonActiveRowStatus=cl2DevMonActiveRowStatus, ciscoL2DevMonMIBObjects=ciscoL2DevMonMIBObjects, PYSNMP_MODULE_ID=ciscoL2DevMonMIB, ciscoL2DevMonMIBGroups=ciscoL2DevMonMIBGroups, cl2DevMonNotifEnabled=cl2DevMonNotifEnabled, ciscoL2DevMonNotificationGroup=ciscoL2DevMonNotificationGroup, cl2DevMonInStandbyMode=cl2DevMonInStandbyMode, ciscoL2DevMonRadioConfigGroup=ciscoL2DevMonRadioConfigGroup, ciscoL2DevMonComplianceRev1=ciscoL2DevMonComplianceRev1, cl2DevMonSwitchover=cl2DevMonSwitchover)
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ciscoMgmt,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoMgmt")
+
+(InterfaceIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+ciscoL2DevMonMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 271)
+)
+ciscoL2DevMonMIB.setRevisions(
+        ("2003-07-22 00:00",
+         "2001-09-27 00:00")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CiscoL2DevMonMIBNotifications_ObjectIdentity = ObjectIdentity
+ciscoL2DevMonMIBNotifications = _CiscoL2DevMonMIBNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 271, 0)
+)
+_CiscoL2DevMonMIBObjects_ObjectIdentity = ObjectIdentity
+ciscoL2DevMonMIBObjects = _CiscoL2DevMonMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 271, 1)
+)
+_Cl2DevMonConfig_ObjectIdentity = ObjectIdentity
+cl2DevMonConfig = _Cl2DevMonConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 271, 1, 1)
+)
+
+
+class _Cl2DevMonInStandbyMode_Type(TruthValue):
+    """Custom type cl2DevMonInStandbyMode based on TruthValue"""
+
+
+_Cl2DevMonInStandbyMode_Object = MibScalar
+cl2DevMonInStandbyMode = _Cl2DevMonInStandbyMode_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 271, 1, 1, 1),
+    _Cl2DevMonInStandbyMode_Type()
+)
+cl2DevMonInStandbyMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cl2DevMonInStandbyMode.setStatus("current")
+
+
+class _Cl2DevMonNotifEnabled_Type(TruthValue):
+    """Custom type cl2DevMonNotifEnabled based on TruthValue"""
+
+
+_Cl2DevMonNotifEnabled_Object = MibScalar
+cl2DevMonNotifEnabled = _Cl2DevMonNotifEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 271, 1, 1, 2),
+    _Cl2DevMonNotifEnabled_Type()
+)
+cl2DevMonNotifEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cl2DevMonNotifEnabled.setStatus("current")
+_Cl2DevMonActiveTable_Object = MibTable
+cl2DevMonActiveTable = _Cl2DevMonActiveTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 271, 1, 1, 3)
+)
+if mibBuilder.loadTexts:
+    cl2DevMonActiveTable.setStatus("current")
+_Cl2DevMonActiveEntry_Object = MibTableRow
+cl2DevMonActiveEntry = _Cl2DevMonActiveEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 271, 1, 1, 3, 1)
+)
+cl2DevMonActiveEntry.setIndexNames(
+    (0, "CISCO-L2-DEV-MONITORING-MIB", "cl2DevMonActiveMacAddress"),
+)
+if mibBuilder.loadTexts:
+    cl2DevMonActiveEntry.setStatus("current")
+_Cl2DevMonActiveMacAddress_Type = MacAddress
+_Cl2DevMonActiveMacAddress_Object = MibTableColumn
+cl2DevMonActiveMacAddress = _Cl2DevMonActiveMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 271, 1, 1, 3, 1, 1),
+    _Cl2DevMonActiveMacAddress_Type()
+)
+cl2DevMonActiveMacAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cl2DevMonActiveMacAddress.setStatus("current")
+
+
+class _Cl2DevMonActivePollingFrequency_Type(Unsigned32):
+    """Custom type cl2DevMonActivePollingFrequency based on Unsigned32"""
+    defaultValue = 5
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 30),
+    )
+
+
+_Cl2DevMonActivePollingFrequency_Type.__name__ = "Unsigned32"
+_Cl2DevMonActivePollingFrequency_Object = MibTableColumn
+cl2DevMonActivePollingFrequency = _Cl2DevMonActivePollingFrequency_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 271, 1, 1, 3, 1, 2),
+    _Cl2DevMonActivePollingFrequency_Type()
+)
+cl2DevMonActivePollingFrequency.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cl2DevMonActivePollingFrequency.setStatus("current")
+if mibBuilder.loadTexts:
+    cl2DevMonActivePollingFrequency.setUnits("seconds")
+
+
+class _Cl2DevMonActivePollingTimeOut_Type(Unsigned32):
+    """Custom type cl2DevMonActivePollingTimeOut based on Unsigned32"""
+    defaultValue = 5
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 600),
+    )
+
+
+_Cl2DevMonActivePollingTimeOut_Type.__name__ = "Unsigned32"
+_Cl2DevMonActivePollingTimeOut_Object = MibTableColumn
+cl2DevMonActivePollingTimeOut = _Cl2DevMonActivePollingTimeOut_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 271, 1, 1, 3, 1, 3),
+    _Cl2DevMonActivePollingTimeOut_Type()
+)
+cl2DevMonActivePollingTimeOut.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cl2DevMonActivePollingTimeOut.setStatus("current")
+if mibBuilder.loadTexts:
+    cl2DevMonActivePollingTimeOut.setUnits("seconds")
+_Cl2DevMonActiveRowStatus_Type = RowStatus
+_Cl2DevMonActiveRowStatus_Object = MibTableColumn
+cl2DevMonActiveRowStatus = _Cl2DevMonActiveRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 271, 1, 1, 3, 1, 4),
+    _Cl2DevMonActiveRowStatus_Type()
+)
+cl2DevMonActiveRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cl2DevMonActiveRowStatus.setStatus("current")
+
+
+class _Cl2DevMonActiveRadioMacType_Type(Integer32):
+    """Custom type cl2DevMonActiveRadioMacType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ieee802dot11a", 1),
+          ("ieee802dot11b", 2),
+          ("ieee802dot11g", 3))
+    )
+
+
+_Cl2DevMonActiveRadioMacType_Type.__name__ = "Integer32"
+_Cl2DevMonActiveRadioMacType_Object = MibTableColumn
+cl2DevMonActiveRadioMacType = _Cl2DevMonActiveRadioMacType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 271, 1, 1, 3, 1, 5),
+    _Cl2DevMonActiveRadioMacType_Type()
+)
+cl2DevMonActiveRadioMacType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cl2DevMonActiveRadioMacType.setStatus("current")
+_Cl2DevMonActiveLocalRadioIndex_Type = InterfaceIndex
+_Cl2DevMonActiveLocalRadioIndex_Object = MibTableColumn
+cl2DevMonActiveLocalRadioIndex = _Cl2DevMonActiveLocalRadioIndex_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 271, 1, 1, 3, 1, 6),
+    _Cl2DevMonActiveLocalRadioIndex_Type()
+)
+cl2DevMonActiveLocalRadioIndex.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cl2DevMonActiveLocalRadioIndex.setStatus("current")
+_CiscoL2DevMonMIBConformance_ObjectIdentity = ObjectIdentity
+ciscoL2DevMonMIBConformance = _CiscoL2DevMonMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 271, 2)
+)
+_CiscoL2DevMonMIBCompliances_ObjectIdentity = ObjectIdentity
+ciscoL2DevMonMIBCompliances = _CiscoL2DevMonMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 271, 2, 1)
+)
+_CiscoL2DevMonMIBGroups_ObjectIdentity = ObjectIdentity
+ciscoL2DevMonMIBGroups = _CiscoL2DevMonMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 271, 2, 2)
+)
+
+# Managed Objects groups
+
+ciscoL2DevMonConfigGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 271, 2, 2, 1)
+)
+ciscoL2DevMonConfigGroup.setObjects(
+      *(("CISCO-L2-DEV-MONITORING-MIB", "cl2DevMonInStandbyMode"),
+        ("CISCO-L2-DEV-MONITORING-MIB", "cl2DevMonNotifEnabled"),
+        ("CISCO-L2-DEV-MONITORING-MIB", "cl2DevMonActivePollingFrequency"),
+        ("CISCO-L2-DEV-MONITORING-MIB", "cl2DevMonActivePollingTimeOut"),
+        ("CISCO-L2-DEV-MONITORING-MIB", "cl2DevMonActiveRowStatus"))
+)
+if mibBuilder.loadTexts:
+    ciscoL2DevMonConfigGroup.setStatus("current")
+
+ciscoL2DevMonRadioConfigGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 271, 2, 2, 3)
+)
+ciscoL2DevMonRadioConfigGroup.setObjects(
+      *(("CISCO-L2-DEV-MONITORING-MIB", "cl2DevMonActiveRadioMacType"),
+        ("CISCO-L2-DEV-MONITORING-MIB", "cl2DevMonActiveLocalRadioIndex"))
+)
+if mibBuilder.loadTexts:
+    ciscoL2DevMonRadioConfigGroup.setStatus("current")
+
+
+# Notification objects
+
+cl2DevMonSwitchover = NotificationType(
+    (1, 3, 6, 1, 4, 1, 9, 9, 271, 0, 1)
+)
+cl2DevMonSwitchover.setObjects(
+      *(("CISCO-L2-DEV-MONITORING-MIB", "cl2DevMonActivePollingFrequency"),
+        ("CISCO-L2-DEV-MONITORING-MIB", "cl2DevMonActivePollingTimeOut"))
+)
+if mibBuilder.loadTexts:
+    cl2DevMonSwitchover.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+ciscoL2DevMonNotificationGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 271, 2, 2, 2)
+)
+ciscoL2DevMonNotificationGroup.setObjects(
+    ("CISCO-L2-DEV-MONITORING-MIB", "cl2DevMonSwitchover")
+)
+if mibBuilder.loadTexts:
+    ciscoL2DevMonNotificationGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+ciscoL2DevMonCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 271, 2, 1, 1)
+)
+if mibBuilder.loadTexts:
+    ciscoL2DevMonCompliance.setStatus(
+        "deprecated"
+    )
+
+ciscoL2DevMonComplianceRev1 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 271, 2, 1, 2)
+)
+if mibBuilder.loadTexts:
+    ciscoL2DevMonComplianceRev1.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-L2-DEV-MONITORING-MIB",
+    **{"ciscoL2DevMonMIB": ciscoL2DevMonMIB,
+       "ciscoL2DevMonMIBNotifications": ciscoL2DevMonMIBNotifications,
+       "cl2DevMonSwitchover": cl2DevMonSwitchover,
+       "ciscoL2DevMonMIBObjects": ciscoL2DevMonMIBObjects,
+       "cl2DevMonConfig": cl2DevMonConfig,
+       "cl2DevMonInStandbyMode": cl2DevMonInStandbyMode,
+       "cl2DevMonNotifEnabled": cl2DevMonNotifEnabled,
+       "cl2DevMonActiveTable": cl2DevMonActiveTable,
+       "cl2DevMonActiveEntry": cl2DevMonActiveEntry,
+       "cl2DevMonActiveMacAddress": cl2DevMonActiveMacAddress,
+       "cl2DevMonActivePollingFrequency": cl2DevMonActivePollingFrequency,
+       "cl2DevMonActivePollingTimeOut": cl2DevMonActivePollingTimeOut,
+       "cl2DevMonActiveRowStatus": cl2DevMonActiveRowStatus,
+       "cl2DevMonActiveRadioMacType": cl2DevMonActiveRadioMacType,
+       "cl2DevMonActiveLocalRadioIndex": cl2DevMonActiveLocalRadioIndex,
+       "ciscoL2DevMonMIBConformance": ciscoL2DevMonMIBConformance,
+       "ciscoL2DevMonMIBCompliances": ciscoL2DevMonMIBCompliances,
+       "ciscoL2DevMonCompliance": ciscoL2DevMonCompliance,
+       "ciscoL2DevMonComplianceRev1": ciscoL2DevMonComplianceRev1,
+       "ciscoL2DevMonMIBGroups": ciscoL2DevMonMIBGroups,
+       "ciscoL2DevMonConfigGroup": ciscoL2DevMonConfigGroup,
+       "ciscoL2DevMonNotificationGroup": ciscoL2DevMonNotificationGroup,
+       "ciscoL2DevMonRadioConfigGroup": ciscoL2DevMonRadioConfigGroup}
+)

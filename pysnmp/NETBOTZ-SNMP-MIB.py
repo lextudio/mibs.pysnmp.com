@@ -1,37 +1,243 @@
+# SNMP MIB module (NETBOTZ-SNMP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module NETBOTZ-SNMP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/NETBOTZ-SNMP-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:08:46 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection")
-netBotz_snmp, = mibBuilder.importSymbols("NETBOTZ-MIB", "netBotz-snmp")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter32, ObjectIdentity, Gauge32, TimeTicks, Bits, Integer32, iso, ModuleIdentity, Unsigned32, NotificationType, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "ObjectIdentity", "Gauge32", "TimeTicks", "Bits", "Integer32", "iso", "ModuleIdentity", "Unsigned32", "NotificationType", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "IpAddress")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-netBotz_snmp_traptarget = MibScalar((1, 3, 6, 1, 4, 1, 5528, 40, 1), IpAddress()).setLabel("netBotz-snmp-traptarget").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: netBotz_snmp_traptarget.setStatus('mandatory')
-netBotz_snmp_community = MibScalar((1, 3, 6, 1, 4, 1, 5528, 40, 2), DisplayString()).setLabel("netBotz-snmp-community").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: netBotz_snmp_community.setStatus('mandatory')
-netBotz_snmp_timeout = MibScalar((1, 3, 6, 1, 4, 1, 5528, 40, 3), Integer32()).setLabel("netBotz-snmp-timeout").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: netBotz_snmp_timeout.setStatus('mandatory')
-netBotz_snmp_retries = MibScalar((1, 3, 6, 1, 4, 1, 5528, 40, 4), Integer32()).setLabel("netBotz-snmp-retries").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: netBotz_snmp_retries.setStatus('mandatory')
-netBotz_userid_1 = MibScalar((1, 3, 6, 1, 4, 1, 5528, 40, 5), DisplayString()).setLabel("netBotz-userid-1").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: netBotz_userid_1.setStatus('mandatory')
-netBotz_password_1 = MibScalar((1, 3, 6, 1, 4, 1, 5528, 40, 6), DisplayString()).setLabel("netBotz-password-1").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: netBotz_password_1.setStatus('mandatory')
-netBotz_userid_2 = MibScalar((1, 3, 6, 1, 4, 1, 5528, 40, 7), DisplayString()).setLabel("netBotz-userid-2").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: netBotz_userid_2.setStatus('mandatory')
-netBotz_password_2 = MibScalar((1, 3, 6, 1, 4, 1, 5528, 40, 8), DisplayString()).setLabel("netBotz-password-2").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: netBotz_password_2.setStatus('mandatory')
-netBotz_userid_3 = MibScalar((1, 3, 6, 1, 4, 1, 5528, 40, 9), DisplayString()).setLabel("netBotz-userid-3").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: netBotz_userid_3.setStatus('mandatory')
-netBotz_password_3 = MibScalar((1, 3, 6, 1, 4, 1, 5528, 40, 10), DisplayString()).setLabel("netBotz-password-3").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: netBotz_password_3.setStatus('mandatory')
-netBotz_snmp_traptarget2 = MibScalar((1, 3, 6, 1, 4, 1, 5528, 40, 11), IpAddress()).setLabel("netBotz-snmp-traptarget2").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: netBotz_snmp_traptarget2.setStatus('mandatory')
-mibBuilder.exportSymbols("NETBOTZ-SNMP-MIB", netBotz_snmp_community=netBotz_snmp_community, netBotz_password_3=netBotz_password_3, netBotz_snmp_retries=netBotz_snmp_retries, netBotz_snmp_traptarget2=netBotz_snmp_traptarget2, netBotz_userid_1=netBotz_userid_1, netBotz_snmp_timeout=netBotz_snmp_timeout, netBotz_userid_2=netBotz_userid_2, netBotz_snmp_traptarget=netBotz_snmp_traptarget, netBotz_userid_3=netBotz_userid_3, netBotz_password_2=netBotz_password_2, netBotz_password_1=netBotz_password_1)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/NETBOTZ-SNMP-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:25:39 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(netBotz_snmp,) = mibBuilder.importSymbols(
+    "NETBOTZ-MIB",
+    "netBotz-snmp")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_NetBotz_snmp_traptarget_Type = IpAddress
+_NetBotz_snmp_traptarget_Object = MibScalar
+netBotz_snmp_traptarget = _NetBotz_snmp_traptarget_Object(
+    (1, 3, 6, 1, 4, 1, 5528, 40, 1),
+    _NetBotz_snmp_traptarget_Type()
+)
+netBotz_snmp_traptarget.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    netBotz_snmp_traptarget.setStatus("mandatory")
+_NetBotz_snmp_community_Type = DisplayString
+_NetBotz_snmp_community_Object = MibScalar
+netBotz_snmp_community = _NetBotz_snmp_community_Object(
+    (1, 3, 6, 1, 4, 1, 5528, 40, 2),
+    _NetBotz_snmp_community_Type()
+)
+netBotz_snmp_community.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    netBotz_snmp_community.setStatus("mandatory")
+_NetBotz_snmp_timeout_Type = Integer32
+_NetBotz_snmp_timeout_Object = MibScalar
+netBotz_snmp_timeout = _NetBotz_snmp_timeout_Object(
+    (1, 3, 6, 1, 4, 1, 5528, 40, 3),
+    _NetBotz_snmp_timeout_Type()
+)
+netBotz_snmp_timeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    netBotz_snmp_timeout.setStatus("mandatory")
+_NetBotz_snmp_retries_Type = Integer32
+_NetBotz_snmp_retries_Object = MibScalar
+netBotz_snmp_retries = _NetBotz_snmp_retries_Object(
+    (1, 3, 6, 1, 4, 1, 5528, 40, 4),
+    _NetBotz_snmp_retries_Type()
+)
+netBotz_snmp_retries.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    netBotz_snmp_retries.setStatus("mandatory")
+_NetBotz_userid_1_Type = DisplayString
+_NetBotz_userid_1_Object = MibScalar
+netBotz_userid_1 = _NetBotz_userid_1_Object(
+    (1, 3, 6, 1, 4, 1, 5528, 40, 5),
+    _NetBotz_userid_1_Type()
+)
+netBotz_userid_1.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    netBotz_userid_1.setStatus("mandatory")
+_NetBotz_password_1_Type = DisplayString
+_NetBotz_password_1_Object = MibScalar
+netBotz_password_1 = _NetBotz_password_1_Object(
+    (1, 3, 6, 1, 4, 1, 5528, 40, 6),
+    _NetBotz_password_1_Type()
+)
+netBotz_password_1.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    netBotz_password_1.setStatus("mandatory")
+_NetBotz_userid_2_Type = DisplayString
+_NetBotz_userid_2_Object = MibScalar
+netBotz_userid_2 = _NetBotz_userid_2_Object(
+    (1, 3, 6, 1, 4, 1, 5528, 40, 7),
+    _NetBotz_userid_2_Type()
+)
+netBotz_userid_2.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    netBotz_userid_2.setStatus("mandatory")
+_NetBotz_password_2_Type = DisplayString
+_NetBotz_password_2_Object = MibScalar
+netBotz_password_2 = _NetBotz_password_2_Object(
+    (1, 3, 6, 1, 4, 1, 5528, 40, 8),
+    _NetBotz_password_2_Type()
+)
+netBotz_password_2.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    netBotz_password_2.setStatus("mandatory")
+_NetBotz_userid_3_Type = DisplayString
+_NetBotz_userid_3_Object = MibScalar
+netBotz_userid_3 = _NetBotz_userid_3_Object(
+    (1, 3, 6, 1, 4, 1, 5528, 40, 9),
+    _NetBotz_userid_3_Type()
+)
+netBotz_userid_3.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    netBotz_userid_3.setStatus("mandatory")
+_NetBotz_password_3_Type = DisplayString
+_NetBotz_password_3_Object = MibScalar
+netBotz_password_3 = _NetBotz_password_3_Object(
+    (1, 3, 6, 1, 4, 1, 5528, 40, 10),
+    _NetBotz_password_3_Type()
+)
+netBotz_password_3.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    netBotz_password_3.setStatus("mandatory")
+_NetBotz_snmp_traptarget2_Type = IpAddress
+_NetBotz_snmp_traptarget2_Object = MibScalar
+netBotz_snmp_traptarget2 = _NetBotz_snmp_traptarget2_Object(
+    (1, 3, 6, 1, 4, 1, 5528, 40, 11),
+    _NetBotz_snmp_traptarget2_Type()
+)
+netBotz_snmp_traptarget2.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    netBotz_snmp_traptarget2.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "NETBOTZ-SNMP-MIB",
+    **{"netBotz-snmp-traptarget": netBotz_snmp_traptarget,
+       "netBotz-snmp-community": netBotz_snmp_community,
+       "netBotz-snmp-timeout": netBotz_snmp_timeout,
+       "netBotz-snmp-retries": netBotz_snmp_retries,
+       "netBotz-userid-1": netBotz_userid_1,
+       "netBotz-password-1": netBotz_password_1,
+       "netBotz-userid-2": netBotz_userid_2,
+       "netBotz-password-2": netBotz_password_2,
+       "netBotz-userid-3": netBotz_userid_3,
+       "netBotz-password-3": netBotz_password_3,
+       "netBotz-snmp-traptarget2": netBotz_snmp_traptarget2}
+)

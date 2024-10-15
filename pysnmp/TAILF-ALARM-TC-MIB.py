@@ -1,42 +1,201 @@
+# SNMP MIB module (TAILF-ALARM-TC-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module TAILF-ALARM-TC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/TAILF-ALARM-TC-MIB
-# Produced by pysmi-0.3.4 at Wed Aug  7 20:00:11 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.7.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Gauge32, IpAddress, ModuleIdentity, Integer32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Counter64, Bits, MibIdentifier, ObjectIdentity, NotificationType, Unsigned32, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "IpAddress", "ModuleIdentity", "Integer32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Counter64", "Bits", "MibIdentifier", "ObjectIdentity", "NotificationType", "Unsigned32", "TimeTicks")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-tfModules, = mibBuilder.importSymbols("TAILF-TOP-MIB", "tfModules")
-tfAlarmTCModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 24961, 2, 101))
-tfAlarmTCModule.setRevisions(('2012-08-30 00:00', '2011-03-01 00:00',))
-if mibBuilder.loadTexts: tfAlarmTCModule.setLastUpdated('201208300000Z')
-if mibBuilder.loadTexts: tfAlarmTCModule.setOrganization('Tail-f Systems AB')
-class TfAlarmIndex(TextualConvention, Unsigned32):
-    status = 'current'
-    displayHint = 'd'
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/TAILF-ALARM-TC-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:00:53 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class TfYANGResource(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '255t'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 255)
+if 'mibBuilder' not in globals():
+    import sys
 
-class TfAlarmOperatorState(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))
-    namedValues = NamedValues(("none", 1), ("ack", 2), ("investigation", 3), ("observation", 4), ("closed", 5), ("other", 6))
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-class TfUtf8String(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '255t'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 255)
+# Import base ASN.1 objects even if this MIB does not use it
 
-class TfProbableCause(TextualConvention, Unsigned32):
-    status = 'current'
-    displayHint = 'd'
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
 
-mibBuilder.exportSymbols("TAILF-ALARM-TC-MIB", TfYANGResource=TfYANGResource, PYSNMP_MODULE_ID=tfAlarmTCModule, TfAlarmIndex=TfAlarmIndex, TfAlarmOperatorState=TfAlarmOperatorState, TfProbableCause=TfProbableCause, tfAlarmTCModule=tfAlarmTCModule, TfUtf8String=TfUtf8String)
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+(tfModules,) = mibBuilder.importSymbols(
+    "TAILF-TOP-MIB",
+    "tfModules")
+
+
+# MODULE-IDENTITY
+
+tfAlarmTCModule = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 24961, 2, 101)
+)
+tfAlarmTCModule.setRevisions(
+        ("2012-08-30 00:00",
+         "2011-03-01 00:00")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class TfAlarmIndex(Unsigned32, TextualConvention):
+    status = "current"
+    displayHint = "d"
+
+
+class TfYANGResource(OctetString, TextualConvention):
+    status = "current"
+    displayHint = "255t"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+
+class TfAlarmOperatorState(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ack", 2),
+          ("closed", 5),
+          ("investigation", 3),
+          ("none", 1),
+          ("observation", 4),
+          ("other", 6))
+    )
+
+
+
+class TfUtf8String(OctetString, TextualConvention):
+    status = "current"
+    displayHint = "255t"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+
+class TfProbableCause(Unsigned32, TextualConvention):
+    status = "current"
+    displayHint = "d"
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "TAILF-ALARM-TC-MIB",
+    **{"TfAlarmIndex": TfAlarmIndex,
+       "TfYANGResource": TfYANGResource,
+       "TfAlarmOperatorState": TfAlarmOperatorState,
+       "TfUtf8String": TfUtf8String,
+       "TfProbableCause": TfProbableCause,
+       "tfAlarmTCModule": tfAlarmTCModule}
+)

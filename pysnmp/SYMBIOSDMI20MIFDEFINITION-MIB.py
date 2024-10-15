@@ -1,531 +1,4642 @@
+# SNMP MIB module (SYMBIOSDMI20MIFDEFINITION-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module SYMBIOSDMI20MIFDEFINITION-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/SYMBIOSDMI20MIFDEFINITION-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 21:06:13 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ObjectIdentity, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Counter64, IpAddress, MibIdentifier, iso, Counter32, Integer32, NotificationType, Gauge32, Bits, enterprises, TimeTicks, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Counter64", "IpAddress", "MibIdentifier", "iso", "Counter32", "Integer32", "NotificationType", "Gauge32", "Bits", "enterprises", "TimeTicks", "Unsigned32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/SYMBIOSDMI20MIFDEFINITION-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:59:32 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ NotificationType,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "NotificationType",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+
 class DmiCounter(Counter32):
-    pass
+    """Custom type DmiCounter based on Counter32"""
+
+
+
 
 class DmiInteger(Integer32):
-    pass
+    """Custom type DmiInteger based on Integer32"""
+
+
+
 
 class DmiInteger64X(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(-18446744073709551615, 18446744073709551615)
+    """Custom type DmiInteger64X based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-18446744073709551615, 18446744073709551615),
+    )
+
+
+
+
 
 class DmiDisplaystring(DisplayString):
-    pass
+    """Custom type DmiDisplaystring based on DisplayString"""
+
+
+
 
 class DmiDateX(OctetString):
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(28, 28)
-    fixedLength = 28
+    """Custom type DmiDateX based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(28, 28),
+    )
+
+
+
+
 
 class DmiComponentIndex(Integer32):
-    pass
+    """Custom type DmiComponentIndex based on Integer32"""
 
-symbios = MibIdentifier((1, 3, 6, 1, 4, 1, 1123))
-cosprings = MibIdentifier((1, 3, 6, 1, 4, 1, 1123, 3))
-scsi = MibIdentifier((1, 3, 6, 1, 4, 1, 1123, 3, 1))
-fam8xx = MibIdentifier((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2))
-id19 = MibIdentifier((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19))
-dmtfGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1))
-tComponentid = MibTable((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 1), )
-if mibBuilder.loadTexts: tComponentid.setStatus('mandatory')
-eComponentid = MibTableRow((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 1, 1), ).setIndexNames((0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"))
-if mibBuilder.loadTexts: eComponentid.setStatus('mandatory')
-a1Manufacturer = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 1, 1, 1), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a1Manufacturer.setStatus('mandatory')
-a1Product = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 1, 1, 2), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a1Product.setStatus('mandatory')
-a1Version = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 1, 1, 3), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a1Version.setStatus('mandatory')
-a1SerialNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 1, 1, 4), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a1SerialNumber.setStatus('mandatory')
-a1Installation = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 1, 1, 5), DmiDateX()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a1Installation.setStatus('mandatory')
-a1Verify = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("vAnErrorOccurredCheckStatusCode", 0), ("vThisComponentDoesNotExist", 1), ("vTheVerifyIsNotSupported", 2), ("vReserved", 3), ("vThisComponentExistsButTheFunctionalityI", 4), ("vThisComponentExistsButTheFunctionality1", 5), ("vThisComponentExistsAndIsNotFunctioningC", 6), ("vThisComponentExistsAndIsFunctioningCorr", 7)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a1Verify.setStatus('mandatory')
-tSubcomponentSoftware = MibTable((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 2), )
-if mibBuilder.loadTexts: tSubcomponentSoftware.setStatus('mandatory')
-eSubcomponentSoftware = MibTableRow((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 2, 1), ).setIndexNames((0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"), (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a2SoftwareIndex"))
-if mibBuilder.loadTexts: eSubcomponentSoftware.setStatus('mandatory')
-a2SoftwareIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 2, 1, 1), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a2SoftwareIndex.setStatus('mandatory')
-a2Type = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 2, 1, 2), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a2Type.setStatus('mandatory')
-a2Vendor = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 2, 1, 3), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a2Vendor.setStatus('mandatory')
-a2Version = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 2, 1, 4), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a2Version.setStatus('mandatory')
-a2Description = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 2, 1, 5), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a2Description.setStatus('mandatory')
-a2IdentificationCode = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 2, 1, 6), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a2IdentificationCode.setStatus('mandatory')
-a2LanguageEdition = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 2, 1, 7), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a2LanguageEdition.setStatus('mandatory')
-a2InterfaceDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 2, 1, 8), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a2InterfaceDescription.setStatus('mandatory')
-a2InterfaceVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 2, 1, 9), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a2InterfaceVersion.setStatus('mandatory')
-tWorldwideIdentifer = MibTable((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 3), )
-if mibBuilder.loadTexts: tWorldwideIdentifer.setStatus('mandatory')
-eWorldwideIdentifer = MibTableRow((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 3, 1), ).setIndexNames((0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"), (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a3WorldwideIdentifierIndex"))
-if mibBuilder.loadTexts: eWorldwideIdentifer.setStatus('mandatory')
-a3WorldwideIdentifierIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 3, 1, 1), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a3WorldwideIdentifierIndex.setStatus('mandatory')
-a3WorldwideIdentifierType = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))).clone(namedValues=NamedValues(("vOther", 1), ("vUnknown", 2), ("vNone", 3), ("vVendorIdProductIdSerialNumber", 4), ("vIeeeExtendedUniqueIdentifier64-bit", 5), ("vFc-ph64-bitName-identifier", 6), ("vBinary", 7), ("vUnicode", 8), ("vLanMacAddress", 9), ("vWanAccessAddress", 10)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a3WorldwideIdentifierType.setStatus('mandatory')
-a3WorldwideIdentifier = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 3, 1, 3), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a3WorldwideIdentifier.setStatus('mandatory')
-tFieldReplaceableUnit = MibTable((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 4), )
-if mibBuilder.loadTexts: tFieldReplaceableUnit.setStatus('mandatory')
-eFieldReplaceableUnit = MibTableRow((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 4, 1), ).setIndexNames((0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"), (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a4FruIndex"))
-if mibBuilder.loadTexts: eFieldReplaceableUnit.setStatus('mandatory')
-a4FruIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 4, 1, 1), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a4FruIndex.setStatus('mandatory')
-a4DeviceGroupIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 4, 1, 2), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a4DeviceGroupIndex.setStatus('mandatory')
-a4Description = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 4, 1, 3), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a4Description.setStatus('mandatory')
-a4Manufacturer = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 4, 1, 4), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a4Manufacturer.setStatus('mandatory')
-a4Model = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 4, 1, 5), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a4Model.setStatus('mandatory')
-a4PartNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 4, 1, 6), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a4PartNumber.setStatus('mandatory')
-a4FruSerialNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 4, 1, 7), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a4FruSerialNumber.setStatus('mandatory')
-a4RevisionLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 4, 1, 8), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a4RevisionLevel.setStatus('mandatory')
-a4WarrantyStartDate = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 4, 1, 9), DmiDateX()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a4WarrantyStartDate.setStatus('mandatory')
-a4WarrantyDuration = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 4, 1, 10), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a4WarrantyDuration.setStatus('mandatory')
-a4SupportPhoneNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 4, 1, 11), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a4SupportPhoneNumber.setStatus('mandatory')
-a4FruInternetUniformResourceLocator = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 4, 1, 12), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a4FruInternetUniformResourceLocator.setStatus('mandatory')
-tStorageDevices = MibTable((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 5), )
-if mibBuilder.loadTexts: tStorageDevices.setStatus('mandatory')
-eStorageDevices = MibTableRow((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 5, 1), ).setIndexNames((0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"), (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a5StorageDeviceIndex"))
-if mibBuilder.loadTexts: eStorageDevices.setStatus('mandatory')
-a5StorageDeviceIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 5, 1, 1), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a5StorageDeviceIndex.setStatus('mandatory')
-a5Type = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 5, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16))).clone(namedValues=NamedValues(("vOther", 1), ("vUnknown", 2), ("vRigidDiskDrive", 3), ("vFlexibleDisketteDrive", 4), ("vOpticalWrite-onceread-manyWormDrive", 6), ("vMagneto-opticalDrive", 7), ("vCompactDiskDrive", 8), ("vFlashDisk", 9), ("vCartridgeRigidDiskDrive", 10), ("vOpticalFloppyDiskDrive", 11), ("vTapeDrive", 12), ("vMediaChanger", 13), ("vSolidState", 14), ("vDigitalVersatileDiskDvdDrive", 15), ("vDigitalVersatileDiskDvdramRamDrive", 16)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a5Type.setStatus('mandatory')
-a5TypeDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 5, 1, 3), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a5TypeDescription.setStatus('mandatory')
-a5Sub_identifier = MibScalar((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 5, 1, 4), DmiDisplaystring()).setLabel("a5Sub-identifier").setMaxAccess("readonly")
-if mibBuilder.loadTexts: a5Sub_identifier.setStatus('mandatory')
-a5MediaDataBlockSize = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 5, 1, 5), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a5MediaDataBlockSize.setStatus('mandatory')
-a5FormattedMediaCapacity = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 5, 1, 6), DmiInteger64X()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a5FormattedMediaCapacity.setStatus('mandatory')
-a5RemovableDevice = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 5, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("vFalse", 0), ("vTrue", 1), ("vUnknown", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a5RemovableDevice.setStatus('mandatory')
-a5DeviceLoaded = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 5, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("vFalse", 0), ("vTrue", 1), ("vUnknown", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a5DeviceLoaded.setStatus('mandatory')
-a5RemovableMedia = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 5, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("vFalse", 0), ("vTrue", 1), ("vUnknown", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a5RemovableMedia.setStatus('mandatory')
-a5MediaLoaded = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 5, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("vFalse", 0), ("vTrue", 1), ("vUnknown", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a5MediaLoaded.setStatus('mandatory')
-a5Compression = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 5, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("vFalse", 0), ("vTrue", 1), ("vUnknown", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a5Compression.setStatus('mandatory')
-a5Encryption = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 5, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("vFalse", 0), ("vTrue", 1), ("vUnknown", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a5Encryption.setStatus('mandatory')
-tStorageDevicesEvents = MibTable((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 6), )
-if mibBuilder.loadTexts: tStorageDevicesEvents.setStatus('mandatory')
-eStorageDevicesEvents = MibTableRow((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 6, 1), ).setIndexNames((0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"), (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a6AssociatedGroup"))
-if mibBuilder.loadTexts: eStorageDevicesEvents.setStatus('mandatory')
-a6StorageDevicesEventType = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 6, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("vRebuildInProgress", 1), ("vStorageDeviceReadying", 2), ("vStorageDeviceError", 3), ("vSelf-monitoringWarning", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a6StorageDevicesEventType.setStatus('mandatory')
-a6EventSeverity = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 6, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 4, 8, 16, 32))).clone(namedValues=NamedValues(("vMonitor", 1), ("vInformation", 2), ("vOk", 4), ("vNon-critical", 8), ("vCritical", 16), ("vNon-recoverable", 32)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a6EventSeverity.setStatus('mandatory')
-a6EventIsStateBased = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 6, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("vFalse", 0), ("vTrue", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a6EventIsStateBased.setStatus('mandatory')
-a6EventStateKey = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 6, 1, 4), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a6EventStateKey.setStatus('mandatory')
-a6AssociatedGroup = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 6, 1, 5), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a6AssociatedGroup.setStatus('mandatory')
-a6EventSystem = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 6, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("vOther", 1), ("vUnknown", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a6EventSystem.setStatus('mandatory')
-a6EventSubsystem = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 6, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("vOther", 1), ("vUnknown", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a6EventSubsystem.setStatus('mandatory')
-tStorageController = MibTable((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 7), )
-if mibBuilder.loadTexts: tStorageController.setStatus('mandatory')
-eStorageController = MibTableRow((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 7, 1), ).setIndexNames((0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"), (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a7ControllerIndex"))
-if mibBuilder.loadTexts: eStorageController.setStatus('mandatory')
-a7ControllerIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 7, 1, 1), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a7ControllerIndex.setStatus('mandatory')
-a7Identification = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 7, 1, 2), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a7Identification.setStatus('mandatory')
-a7ProtectionManagement = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 7, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("vOther", 1), ("vUnknown", 2), ("vUnprotected", 3), ("vProtected", 4), ("vProtectedThroughScsi-3ControllerCommand", 5), ("vProtectedThroughScsi-3ControllerComman1", 6)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a7ProtectionManagement.setStatus('mandatory')
-a7BusMaster = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 7, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("vFalse", 0), ("vTrue", 1), ("vUnknown", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a7BusMaster.setStatus('mandatory')
-a7SecondsSinceLastPower_up = MibScalar((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 7, 1, 5), DmiInteger()).setLabel("a7SecondsSinceLastPower-up").setMaxAccess("readonly")
-if mibBuilder.loadTexts: a7SecondsSinceLastPower_up.setStatus('mandatory')
-tStorageControllerEvents = MibTable((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 8), )
-if mibBuilder.loadTexts: tStorageControllerEvents.setStatus('mandatory')
-eStorageControllerEvents = MibTableRow((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 8, 1), ).setIndexNames((0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"), (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a8AssociatedGroup"))
-if mibBuilder.loadTexts: eStorageControllerEvents.setStatus('mandatory')
-a8StorageControllerEventType = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 8, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("vStorageControllerError", 1), ("vSelf-monitoringWarning1", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a8StorageControllerEventType.setStatus('mandatory')
-a8EventSeverity = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 8, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 4, 8, 16, 32))).clone(namedValues=NamedValues(("vMonitor", 1), ("vInformation", 2), ("vOk", 4), ("vNon-critical", 8), ("vCritical", 16), ("vNon-recoverable", 32)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a8EventSeverity.setStatus('mandatory')
-a8EventIsStateBased = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 8, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("vFalse", 0), ("vTrue", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a8EventIsStateBased.setStatus('mandatory')
-a8EventStateKey = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 8, 1, 4), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a8EventStateKey.setStatus('mandatory')
-a8AssociatedGroup = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 8, 1, 5), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a8AssociatedGroup.setStatus('mandatory')
-a8EventSystem = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 8, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("vOther", 1), ("vUnknown", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a8EventSystem.setStatus('mandatory')
-a8EventSubsystem = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 8, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("vOther", 1), ("vUnknown", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a8EventSubsystem.setStatus('mandatory')
-tBusPort = MibTable((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 9), )
-if mibBuilder.loadTexts: tBusPort.setStatus('mandatory')
-eBusPort = MibTableRow((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 9, 1), ).setIndexNames((0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"), (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a9BusPortIndex"))
-if mibBuilder.loadTexts: eBusPort.setStatus('mandatory')
-a9BusPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 9, 1, 1), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a9BusPortIndex.setStatus('mandatory')
-a9Protocol = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 9, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35))).clone(namedValues=NamedValues(("vOther", 1), ("vUnknown", 2), ("vEisa", 3), ("vIsa", 4), ("vPci", 5), ("vAtaatapi", 6), ("vFlexibleDiskette", 7), ("v1496", 8), ("vScsiParallelInterface", 9), ("vScsiFibreChannelProtocol", 10), ("vScsiSerialBusProtocol", 11), ("vScsiSerialBusProtocol-21394", 12), ("vScsiSerialStorageArchitecture", 13), ("vVesa", 14), ("vPcmcia", 15), ("vUniversalSerialBus", 16), ("vParallelPort", 17), ("vEscon", 18), ("vDiagnostic", 19), ("vI2c", 20), ("vPower", 21), ("vHippi", 22), ("vMultibus", 23), ("vVme", 24), ("vIpi", 25), ("vIeee-488", 26), ("vRs232", 27), ("vIeee802310base5", 28), ("vIeee802310base2", 29), ("vIeee80231base5", 30), ("vIeee802310broad36", 31), ("vIeee8023100basevg", 32), ("vIeee8025Token-ring", 33), ("vAnsiX3t95Fddi", 34), ("vMca", 35)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a9Protocol.setStatus('mandatory')
-a9ProtocolDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 9, 1, 3), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a9ProtocolDescription.setStatus('mandatory')
-a9SignalCharacteristics = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 9, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("vOther", 1), ("vUnknown", 2), ("vSingleEnded", 3), ("vDifferential", 4), ("vLowVoltageDifferential", 5), ("vOptical", 6)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a9SignalCharacteristics.setStatus('mandatory')
-a9AddressDescriptor = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 9, 1, 5), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a9AddressDescriptor.setStatus('mandatory')
-a9Isochronous = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 9, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("vFalse", 0), ("vTrue", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a9Isochronous.setStatus('mandatory')
-a9MaximumWidth = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 9, 1, 7), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a9MaximumWidth.setStatus('mandatory')
-a9MaximumTransferRate = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 9, 1, 8), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a9MaximumTransferRate.setStatus('mandatory')
-a9MaximumNumberOfAttachments = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 9, 1, 9), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a9MaximumNumberOfAttachments.setStatus('mandatory')
-a9ConnectorType = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 9, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45))).clone(namedValues=NamedValues(("vOther", 1), ("vUnknown", 2), ("vNone", 3), ("vScsiAHigh-densityShielded50Pins", 4), ("vScsiAHigh-densityUnshielded50Pins", 5), ("vScsiALow-densityShielded50Pins", 6), ("vScsiALow-densityUnshielded50Pins", 7), ("vScsiPHigh-densityShielded68Pins", 8), ("vScsiPHigh-densityUnshielded68Pins", 9), ("vScsiSca-i80Pins", 10), ("vScsiSca-ii80Pins", 11), ("vScsiFibreChannelDb9Copper", 12), ("vScsiFibreChannelFibre", 13), ("vScsiFibreChannelSca-ii40Pins", 14), ("vScsiFibreChannelSca-ii20Pins", 15), ("vScsiFibreChannelBnc", 16), ("vAta3-12Inch40Pins", 17), ("vAta2-12Inch44Pins", 18), ("vSerial9Pin", 19), ("vSerial25Pin", 20), ("vRs23225Pin", 21), ("vRs422", 22), ("vIeee-488", 23), ("vAui", 24), ("vUptCategory3", 25), ("vUptCategory4", 26), ("vUptCategory5", 27), ("vBnc", 28), ("vStpRj11", 29), ("vStpRj45", 30), ("vStpDb9", 31), ("vFiberMic", 32), ("vAppleAui", 33), ("vPciSlot", 34), ("vIsaSlot", 35), ("vEisaSlot", 36), ("vVesaSlot", 37), ("vPcmciaSlot", 38), ("vPcCardSlot", 39), ("vFloppyDiskette5-14Inch", 40), ("vFloppyDiskette3-12Inch", 41), ("vHssdc6Pins", 42), ("vGbicSocket", 43), ("v13946Pins", 44), ("vScsiVhdciShielded68Pins", 45)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a9ConnectorType.setStatus('mandatory')
-a9ConnectorTypeDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 9, 1, 11), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a9ConnectorTypeDescription.setStatus('mandatory')
-a9ConnectorGender = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 9, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("vOther", 1), ("vUnknown", 2), ("vFemale", 3), ("vMale", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a9ConnectorGender.setStatus('mandatory')
-tFibreChannelBusPortExtensions = MibTable((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 10), )
-if mibBuilder.loadTexts: tFibreChannelBusPortExtensions.setStatus('mandatory')
-eFibreChannelBusPortExtensions = MibTableRow((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 10, 1), ).setIndexNames((0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"), (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a10BusPortIndex"))
-if mibBuilder.loadTexts: eFibreChannelBusPortExtensions.setStatus('mandatory')
-a10BusPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 10, 1, 1), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a10BusPortIndex.setStatus('mandatory')
-a10EndToEndCredit = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 10, 1, 2), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a10EndToEndCredit.setStatus('mandatory')
-a10BufferToBufferCredit = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 10, 1, 3), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a10BufferToBufferCredit.setStatus('mandatory')
-a10LinkType = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 10, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))).clone(namedValues=NamedValues(("vOther", 1), ("vUnknown", 2), ("vCopper", 3), ("vFibre-SingleMode1300Nanometers", 4), ("vFibre-SingleMode1500Nanometers", 5), ("vFibre-Multimode50-Laser", 6), ("vFibre-Multimode50-Led", 7), ("vFibre-Multimode625-Laser", 8), ("vFibre-Multimode625-Led", 9), ("vFibreLongWave", 10), ("vFibreShortWave", 11)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a10LinkType.setStatus('mandatory')
-a10FlowControlClassType = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 10, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("vOther", 1), ("vUnknown", 2), ("vClass-1", 3), ("vClass-2", 4), ("vClass-3", 5), ("vClass-1class-2", 6)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a10FlowControlClassType.setStatus('mandatory')
-a10FlowControlAcknowledgmentType = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 10, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("vOther", 1), ("vUnknown", 2), ("vAck-0", 3), ("vAck-1", 4), ("vAck-n", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a10FlowControlAcknowledgmentType.setStatus('mandatory')
-a10FabricTopology = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 10, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("vFalse", 0), ("vTrue", 1), ("vUnknown", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a10FabricTopology.setStatus('mandatory')
-tMassStorageAssociation = MibTable((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 11), )
-if mibBuilder.loadTexts: tMassStorageAssociation.setStatus('mandatory')
-eMassStorageAssociation = MibTableRow((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 11, 1), ).setIndexNames((0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"), (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a11AssociationIndex"))
-if mibBuilder.loadTexts: eMassStorageAssociation.setStatus('mandatory')
-a11AssociationIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 11, 1, 1), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a11AssociationIndex.setStatus('mandatory')
-a11Type = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 11, 1, 2), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a11Type.setStatus('mandatory')
-a11Reference1 = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 11, 1, 3), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a11Reference1.setStatus('mandatory')
-a11Reference2 = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 11, 1, 4), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a11Reference2.setStatus('mandatory')
-tMassStorageAssociationEvents = MibTable((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 12), )
-if mibBuilder.loadTexts: tMassStorageAssociationEvents.setStatus('mandatory')
-eMassStorageAssociationEvents = MibTableRow((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 12, 1), ).setIndexNames((0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"), (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a12AssociatedGroup"))
-if mibBuilder.loadTexts: eMassStorageAssociationEvents.setStatus('mandatory')
-a12MassStorageAssociationEventType = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 12, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("vNewObjectDetected", 1), ("vExistingObjectReplaced", 2), ("vExistingObjectGone", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a12MassStorageAssociationEventType.setStatus('mandatory')
-a12EventSeverity = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 12, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 4, 8, 16, 32))).clone(namedValues=NamedValues(("vMonitor", 1), ("vInformation", 2), ("vOk", 4), ("vNon-critical", 8), ("vCritical", 16), ("vNon-recoverable", 32)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a12EventSeverity.setStatus('mandatory')
-a12EventIsStateBased = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 12, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("vFalse", 0), ("vTrue", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a12EventIsStateBased.setStatus('mandatory')
-a12EventStateKey = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 12, 1, 4), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a12EventStateKey.setStatus('mandatory')
-a12AssociatedGroup = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 12, 1, 5), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a12AssociatedGroup.setStatus('mandatory')
-a12EventSystem = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 12, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))).clone(namedValues=NamedValues(("vOther", 0), ("vUnknown", 1), ("vStorageController", 2), ("vStorageDevice", 3), ("vBusPort", 4), ("vVolumeSet", 5), ("vProtectedSpaceExtent", 6), ("vAggregateProtectedSpaceExtent", 7), ("vPhysicalExtent", 8), ("vAggregatePhysicalExtent", 9), ("vRedundancyGroup", 10), ("vCache", 11), ("vSoftwareSubcomponent", 12)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a12EventSystem.setStatus('mandatory')
-a12EventSubsystem = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 12, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("vOther", 1), ("vUnknown", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a12EventSubsystem.setStatus('mandatory')
-tBusPortAssociation = MibTable((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 13), )
-if mibBuilder.loadTexts: tBusPortAssociation.setStatus('mandatory')
-eBusPortAssociation = MibTableRow((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 13, 1), ).setIndexNames((0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"), (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a13BusPortAssociationIndex"))
-if mibBuilder.loadTexts: eBusPortAssociation.setStatus('mandatory')
-a13BusPortAssociationIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 13, 1, 1), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a13BusPortAssociationIndex.setStatus('mandatory')
-a13NegotiatedSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 13, 1, 2), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a13NegotiatedSpeed.setStatus('mandatory')
-a13NegotiatedWidth = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 13, 1, 3), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a13NegotiatedWidth.setStatus('mandatory')
-tOperationalState = MibTable((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 14), )
-if mibBuilder.loadTexts: tOperationalState.setStatus('mandatory')
-eOperationalState = MibTableRow((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 14, 1), ).setIndexNames((0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"), (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a14OperationalStateInstanceIndex"))
-if mibBuilder.loadTexts: eOperationalState.setStatus('mandatory')
-a14OperationalStateInstanceIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 14, 1, 1), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a14OperationalStateInstanceIndex.setStatus('mandatory')
-a14DeviceGroupIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 14, 1, 2), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a14DeviceGroupIndex.setStatus('mandatory')
-a14OperationalStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 14, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("vOther", 1), ("vUnknown", 2), ("vEnabled", 3), ("vDisabled", 4), ("vNotApplicable", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a14OperationalStatus.setStatus('mandatory')
-a14UsageState = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 14, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("vOther", 1), ("vUnknown", 2), ("vIdle", 3), ("vActive", 4), ("vBusy", 5), ("vNotApplicable", 6)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a14UsageState.setStatus('mandatory')
-a14AvailabilityStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 14, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13))).clone(namedValues=NamedValues(("vOther", 1), ("vUnknown", 2), ("vRunning", 3), ("vWarning", 4), ("vInTest", 5), ("vNotApplicable", 6), ("vPowerOff", 7), ("vOffLine", 8), ("vOffDuty", 9), ("vDegraded", 10), ("vNotInstalled", 11), ("vInstallError", 12), ("vPowerSave", 13)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a14AvailabilityStatus.setStatus('mandatory')
-a14AdministrativeState = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 14, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("vOther", 1), ("vUnknown", 2), ("vLocked", 3), ("vUnlocked", 4), ("vNotApplicable", 5), ("vShuttingDown", 6)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a14AdministrativeState.setStatus('mandatory')
-a14FatalErrorCount = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 14, 1, 7), DmiCounter()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a14FatalErrorCount.setStatus('mandatory')
-a14MajorErrorCount = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 14, 1, 8), DmiCounter()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a14MajorErrorCount.setStatus('mandatory')
-a14WarningErrorCount = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 14, 1, 9), DmiCounter()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a14WarningErrorCount.setStatus('mandatory')
-a14CurrentErrorStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 14, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("vOther", 1), ("vUnknown", 2), ("vOk", 3), ("vNon-critical1", 4), ("vCritical", 5), ("vNon-recoverable1", 6)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a14CurrentErrorStatus.setStatus('mandatory')
-a14DevicePredictedFailureStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 14, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("vOther", 1), ("vUnknown", 2), ("vNotSupportedByThisDevice", 3), ("vNoFailurePredictedByTheDevice", 4), ("vDeviceFailurePredictedByTheDevice", 5), ("vMediaFailurePredictedByTheDevice", 6)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a14DevicePredictedFailureStatus.setStatus('mandatory')
-tSymbiosEventPolling = MibTable((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 15), )
-if mibBuilder.loadTexts: tSymbiosEventPolling.setStatus('mandatory')
-eSymbiosEventPolling = MibTableRow((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 15, 1), ).setIndexNames((0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"))
-if mibBuilder.loadTexts: eSymbiosEventPolling.setStatus('mandatory')
-a15SymbiosFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 15, 1, 1), DmiInteger()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: a15SymbiosFlag.setStatus('mandatory')
-a15SmartEventPolling = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 15, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("vDisabled", 0), ("vEnabled", 1), ("vUnknown", 2), ("vNotApplicable", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: a15SmartEventPolling.setStatus('mandatory')
-a15ScanEventPolling = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 15, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("vDisabled", 0), ("vEnabled", 1), ("vUnknown", 2), ("vNotApplicable", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: a15ScanEventPolling.setStatus('mandatory')
-a15Saf_teEventPolling = MibScalar((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 15, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("vDisabled", 0), ("vEnabled", 1), ("vUnknown", 2), ("vNotApplicable", 3)))).setLabel("a15Saf-teEventPolling").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: a15Saf_teEventPolling.setStatus('mandatory')
-a15EventPollingPeriod = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 15, 1, 5), DmiInteger()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: a15EventPollingPeriod.setStatus('mandatory')
-tSymbiosSmartDevice = MibTable((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 16), )
-if mibBuilder.loadTexts: tSymbiosSmartDevice.setStatus('mandatory')
-eSymbiosSmartDevice = MibTableRow((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 16, 1), ).setIndexNames((0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"), (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a16SymSmartDeviceIndex"))
-if mibBuilder.loadTexts: eSymbiosSmartDevice.setStatus('mandatory')
-a16SymSmartDeviceIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 16, 1, 1), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a16SymSmartDeviceIndex.setStatus('mandatory')
-a16SmartReportingCapability = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 16, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("vDisabled", 0), ("vEnabled", 1), ("vUnknown", 2), ("vNotSupported", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: a16SmartReportingCapability.setStatus('mandatory')
-tSaf_teProcessor = MibTable((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 17), ).setLabel("tSaf-teProcessor")
-if mibBuilder.loadTexts: tSaf_teProcessor.setStatus('mandatory')
-eSaf_teProcessor = MibTableRow((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 17, 1), ).setLabel("eSaf-teProcessor").setIndexNames((0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"), (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a17Saf-teProcessorIndex"))
-if mibBuilder.loadTexts: eSaf_teProcessor.setStatus('mandatory')
-a17Saf_teProcessorIndex = MibScalar((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 17, 1, 1), DmiInteger()).setLabel("a17Saf-teProcessorIndex").setMaxAccess("readonly")
-if mibBuilder.loadTexts: a17Saf_teProcessorIndex.setStatus('mandatory')
-a17StorageControllerIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 17, 1, 2), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a17StorageControllerIndex.setStatus('mandatory')
-a17ScsiId = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 17, 1, 3), DmiInteger64X()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a17ScsiId.setStatus('mandatory')
-a17ScsiLun = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 17, 1, 4), DmiInteger64X()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a17ScsiLun.setStatus('mandatory')
-a17VendorId = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 17, 1, 5), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a17VendorId.setStatus('mandatory')
-a17ProductId = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 17, 1, 6), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a17ProductId.setStatus('mandatory')
-a17FirmwareRevisionLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 17, 1, 7), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a17FirmwareRevisionLevel.setStatus('mandatory')
-a17EnclosureUniqueIdentifier = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 17, 1, 8), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a17EnclosureUniqueIdentifier.setStatus('mandatory')
-a17Saf_teSpecificationRevisionLevel = MibScalar((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 17, 1, 9), DmiDisplaystring()).setLabel("a17Saf-teSpecificationRevisionLevel").setMaxAccess("readonly")
-if mibBuilder.loadTexts: a17Saf_teSpecificationRevisionLevel.setStatus('mandatory')
-a17HasLocks = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 17, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("vFalse", 0), ("vTrue", 1), ("vUnknown", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a17HasLocks.setStatus('mandatory')
-a17HasSpeakers = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 17, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("vFalse", 0), ("vTrue", 1), ("vUnknown", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a17HasSpeakers.setStatus('mandatory')
-a17DoorLocked = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 17, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("vFalse", 0), ("vTrue", 1), ("vUnknown", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a17DoorLocked.setStatus('mandatory')
-a17SpeakerStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 17, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("vFalse", 0), ("vTrue", 1), ("vUnknown", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a17SpeakerStatus.setStatus('mandatory')
-a17PowerOnMinutes = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 17, 1, 14), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a17PowerOnMinutes.setStatus('mandatory')
-a17PowerOnCycles = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 17, 1, 15), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a17PowerOnCycles.setStatus('mandatory')
-a17TemperatureOutOfRange = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 17, 1, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("vFalse", 0), ("vTrue", 1), ("vUnknown", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a17TemperatureOutOfRange.setStatus('mandatory')
-tSaf_teControlledFan = MibTable((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 18), ).setLabel("tSaf-teControlledFan")
-if mibBuilder.loadTexts: tSaf_teControlledFan.setStatus('mandatory')
-eSaf_teControlledFan = MibTableRow((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 18, 1), ).setLabel("eSaf-teControlledFan").setIndexNames((0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"), (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a18Saf-teControlledFanIndex"))
-if mibBuilder.loadTexts: eSaf_teControlledFan.setStatus('mandatory')
-a18Saf_teControlledFanIndex = MibScalar((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 18, 1, 1), DmiInteger()).setLabel("a18Saf-teControlledFanIndex").setMaxAccess("readonly")
-if mibBuilder.loadTexts: a18Saf_teControlledFanIndex.setStatus('mandatory')
-a18Saf_teProcessorIndex = MibScalar((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 18, 1, 2), DmiInteger()).setLabel("a18Saf-teProcessorIndex").setMaxAccess("readonly")
-if mibBuilder.loadTexts: a18Saf_teProcessorIndex.setStatus('mandatory')
-a18Status = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 18, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 128))).clone(namedValues=NamedValues(("vFanIsOperational", 0), ("vFanIsMalfunctioning", 1), ("vFanIsNotInstalled", 2), ("vUnknownStatus", 128)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a18Status.setStatus('mandatory')
-tSaf_teControlledPowerSupply = MibTable((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 19), ).setLabel("tSaf-teControlledPowerSupply")
-if mibBuilder.loadTexts: tSaf_teControlledPowerSupply.setStatus('mandatory')
-eSaf_teControlledPowerSupply = MibTableRow((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 19, 1), ).setLabel("eSaf-teControlledPowerSupply").setIndexNames((0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"), (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a19Saf-teControlledPowerSupplyIndex"))
-if mibBuilder.loadTexts: eSaf_teControlledPowerSupply.setStatus('mandatory')
-a19Saf_teControlledPowerSupplyIndex = MibScalar((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 19, 1, 1), DmiInteger()).setLabel("a19Saf-teControlledPowerSupplyIndex").setMaxAccess("readonly")
-if mibBuilder.loadTexts: a19Saf_teControlledPowerSupplyIndex.setStatus('mandatory')
-a19Saf_teProcessorIndex = MibScalar((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 19, 1, 2), DmiInteger()).setLabel("a19Saf-teProcessorIndex").setMaxAccess("readonly")
-if mibBuilder.loadTexts: a19Saf_teProcessorIndex.setStatus('mandatory')
-a19Status = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 19, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 16, 17, 32, 33, 128))).clone(namedValues=NamedValues(("vPowerSupplyIsOperationalAndOn", 0), ("vPowerSupplyIsOperationalAndOff", 1), ("vPowerSupplyIsMalfunctioningAndCommanded", 16), ("vPowerSupplyIsMalfunctioningAndCommande1", 17), ("vPowerSupplyIsNotPresent", 32), ("vPowerSupplyIsPresent", 33), ("vUnknownStatus", 128)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a19Status.setStatus('mandatory')
-tSaf_teControlledSlot = MibTable((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 20), ).setLabel("tSaf-teControlledSlot")
-if mibBuilder.loadTexts: tSaf_teControlledSlot.setStatus('mandatory')
-eSaf_teControlledSlot = MibTableRow((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 20, 1), ).setLabel("eSaf-teControlledSlot").setIndexNames((0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"), (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a20Saf-teControlledSlotIndex"))
-if mibBuilder.loadTexts: eSaf_teControlledSlot.setStatus('mandatory')
-a20Saf_teControlledSlotIndex = MibScalar((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 20, 1, 1), DmiInteger()).setLabel("a20Saf-teControlledSlotIndex").setMaxAccess("readonly")
-if mibBuilder.loadTexts: a20Saf_teControlledSlotIndex.setStatus('mandatory')
-a20Saf_teProcessorIndex = MibScalar((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 20, 1, 2), DmiInteger()).setLabel("a20Saf-teProcessorIndex").setMaxAccess("readonly")
-if mibBuilder.loadTexts: a20Saf_teProcessorIndex.setStatus('mandatory')
-a20ScsiId = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 20, 1, 3), DmiInteger64X()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a20ScsiId.setStatus('mandatory')
-a20NumberOfInsertions = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 20, 1, 4), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a20NumberOfInsertions.setStatus('mandatory')
-a20State = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 20, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("vDevicePresent-Ready", 1), ("vDevicePresent-NotReady", 2), ("vDevicePresent-HotSpare", 3), ("vDevicePresent-ReadyForRemoval", 4), ("vDeviceNotPresent", 5), ("vDeviceNotPresent-ReadyForInsertion", 6), ("vUnconfigured", 7), ("vUnknownState", 8)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a20State.setStatus('mandatory')
-a20Rebuild = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 20, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("vNotRebuilding", 0), ("vRebuildInProcess", 1), ("vRebuildStopped", 2), ("vUnknownStatus", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a20Rebuild.setStatus('mandatory')
-a20DeviceFault = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 20, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("vFalse", 0), ("vTrue", 1), ("vUnknown", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a20DeviceFault.setStatus('mandatory')
-a20InFailedArray = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 20, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("vFalse", 0), ("vTrue", 1), ("vUnknown", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a20InFailedArray.setStatus('mandatory')
-a20InCriticalArray = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 20, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("vFalse", 0), ("vTrue", 1), ("vUnknown", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a20InCriticalArray.setStatus('mandatory')
-a20ParityCheck = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 20, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("vFalse", 0), ("vTrue", 1), ("vUnknown", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a20ParityCheck.setStatus('mandatory')
-a20PredictedFault = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 20, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("vFalse", 0), ("vTrue", 1), ("vUnknown", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a20PredictedFault.setStatus('mandatory')
-tSaf_teControlledTemperatureSensor = MibTable((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 21), ).setLabel("tSaf-teControlledTemperatureSensor")
-if mibBuilder.loadTexts: tSaf_teControlledTemperatureSensor.setStatus('mandatory')
-eSaf_teControlledTemperatureSensor = MibTableRow((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 21, 1), ).setLabel("eSaf-teControlledTemperatureSensor").setIndexNames((0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"), (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a21Saf-teControlledTemperatureSensorInde"))
-if mibBuilder.loadTexts: eSaf_teControlledTemperatureSensor.setStatus('mandatory')
-a21Saf_teControlledTemperatureSensorInde = MibScalar((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 21, 1, 1), DmiInteger()).setLabel("a21Saf-teControlledTemperatureSensorInde").setMaxAccess("readonly")
-if mibBuilder.loadTexts: a21Saf_teControlledTemperatureSensorInde.setStatus('mandatory')
-a21Saf_teProcessorIndex = MibScalar((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 21, 1, 2), DmiInteger()).setLabel("a21Saf-teProcessorIndex").setMaxAccess("readonly")
-if mibBuilder.loadTexts: a21Saf_teProcessorIndex.setStatus('mandatory')
-a21Temperature = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 21, 1, 3), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a21Temperature.setStatus('mandatory')
-tNetworkAdapter802PortGroup = MibTable((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 22), )
-if mibBuilder.loadTexts: tNetworkAdapter802PortGroup.setStatus('mandatory')
-eNetworkAdapter802PortGroup = MibTableRow((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 22, 1), ).setIndexNames((0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"), (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a22PortIndex"))
-if mibBuilder.loadTexts: eNetworkAdapter802PortGroup.setStatus('mandatory')
-a22PortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 22, 1, 1), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a22PortIndex.setStatus('mandatory')
-a22PermanentNetworkAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 22, 1, 2), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a22PermanentNetworkAddress.setStatus('mandatory')
-a22CurrentNetworkAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 22, 1, 3), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a22CurrentNetworkAddress.setStatus('mandatory')
-a22ConnectorType = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 22, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))).clone(namedValues=NamedValues(("vUnknown", 1), ("vAui", 2), ("vUtpCategory3", 3), ("vUtpCategory4", 4), ("vUtpCategory5", 5), ("vBnc", 6), ("vStpRj45", 7), ("vStpDb9", 8), ("vFiberMic", 9), ("vAppleAui", 10)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a22ConnectorType.setStatus('mandatory')
-a22DataRate = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 22, 1, 5), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a22DataRate.setStatus('mandatory')
-tNetworkAdapterHardwareGroup = MibTable((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 23), )
-if mibBuilder.loadTexts: tNetworkAdapterHardwareGroup.setStatus('mandatory')
-eNetworkAdapterHardwareGroup = MibTableRow((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 23, 1), ).setIndexNames((0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"))
-if mibBuilder.loadTexts: eNetworkAdapterHardwareGroup.setStatus('mandatory')
-a23NetworkTopology = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 23, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13))).clone(namedValues=NamedValues(("vOther", 1), ("v10MbpsEthernet", 2), ("v100MbpsEthernet", 3), ("v10010MbpsEthernet", 4), ("v100MbpsVgAnylan", 5), ("v4MbpsToken-ring", 6), ("v16MbpsToken-ring", 7), ("v164MbpsToken-ring", 8), ("v2MbpsArcnet", 9), ("v20MbpsArcnet", 10), ("vFddi", 11), ("vAtm", 12), ("vAppletalk", 13)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a23NetworkTopology.setStatus('mandatory')
-a23TransmissionCapability = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 23, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("vNormal", 1), ("vFullDuplex", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a23TransmissionCapability.setStatus('mandatory')
-a23NetworkAdapterRamSize = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 23, 1, 3), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a23NetworkAdapterRamSize.setStatus('mandatory')
-a23BusType = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 23, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 256))).clone(namedValues=NamedValues(("vOther", 1), ("vIsa", 2), ("vEisa", 3), ("vMca", 4), ("vPci", 5), ("vVl", 6), ("vPcmcia", 7), ("vParallel", 8), ("vNec98", 9), ("vMotherboard", 256)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a23BusType.setStatus('mandatory')
-a23BusWidth = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 23, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("vOther", 1), ("vUnknown", 2), ("v8BitCard", 3), ("v16BitCard", 4), ("v32BitCard", 5), ("v64BitCard", 6), ("v128BitCard", 7)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a23BusWidth.setStatus('mandatory')
-tEventGenerationForPowerSupply = MibTable((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 24), )
-if mibBuilder.loadTexts: tEventGenerationForPowerSupply.setStatus('mandatory')
-eEventGenerationForPowerSupply = MibTableRow((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 24, 1), ).setIndexNames((0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"), (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a24AssociatedGroup"))
-if mibBuilder.loadTexts: eEventGenerationForPowerSupply.setStatus('mandatory')
-a24EventType = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 24, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(256, 257, 258))).clone(namedValues=NamedValues(("vPowerSupplyFailed", 256), ("vPowerSupplyOk", 257), ("vPowerSupplyLikelyToFail", 258)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a24EventType.setStatus('mandatory')
-a24EventSeverity = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 24, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 4, 8, 16, 32))).clone(namedValues=NamedValues(("vMonitor", 1), ("vInformation", 2), ("vOk", 4), ("vNon-critical", 8), ("vCritical", 16), ("vNon-recoverable", 32)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a24EventSeverity.setStatus('mandatory')
-a24IsEventState_based = MibScalar((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 24, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("vFalse", 0), ("vTrue", 1)))).setLabel("a24IsEventState-based").setMaxAccess("readonly")
-if mibBuilder.loadTexts: a24IsEventState_based.setStatus('mandatory')
-a24EventStateKey = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 24, 1, 4), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a24EventStateKey.setStatus('mandatory')
-a24AssociatedGroup = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 24, 1, 5), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a24AssociatedGroup.setStatus('mandatory')
-a24EventSystem = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 24, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("vOther", 1), ("vUnknown", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a24EventSystem.setStatus('mandatory')
-a24EventSubsystem = MibScalar((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 24, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("vOther", 1), ("vUnknown", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a24EventSubsystem.setStatus('mandatory')
-a24IsInstanceDataPresent = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 24, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("vFalse", 0), ("vTrue", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a24IsInstanceDataPresent.setStatus('mandatory')
-a24EventMessage = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 24, 1, 9), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a24EventMessage.setStatus('mandatory')
-tEventGenerationForTemperatureProbe = MibTable((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 25), )
-if mibBuilder.loadTexts: tEventGenerationForTemperatureProbe.setStatus('mandatory')
-eEventGenerationForTemperatureProbe = MibTableRow((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 25, 1), ).setIndexNames((0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"), (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a25AssociatedGroup"))
-if mibBuilder.loadTexts: eEventGenerationForTemperatureProbe.setStatus('mandatory')
-a25EventType = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 25, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("vTemperatureOutOfRange", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a25EventType.setStatus('mandatory')
-a25EventSeverity = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 25, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 4, 8, 16, 32))).clone(namedValues=NamedValues(("vMonitor", 1), ("vInformation", 2), ("vOk", 4), ("vNon-critical", 8), ("vCritical", 16), ("vNon-recoverable", 32)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a25EventSeverity.setStatus('mandatory')
-a25IsEventState_based = MibScalar((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 25, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("vFalse", 0), ("vTrue", 1)))).setLabel("a25IsEventState-based").setMaxAccess("readonly")
-if mibBuilder.loadTexts: a25IsEventState_based.setStatus('mandatory')
-a25EventStateKey = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 25, 1, 4), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a25EventStateKey.setStatus('mandatory')
-a25AssociatedGroup = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 25, 1, 5), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a25AssociatedGroup.setStatus('mandatory')
-a25EventSystem = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 25, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("vOther", 1), ("vUnknown", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a25EventSystem.setStatus('mandatory')
-a25EventSubsystem = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 25, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("vOther", 1), ("vUnknown", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a25EventSubsystem.setStatus('mandatory')
-a25IsInstanceDataPresent = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 25, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("vFalse", 0), ("vTrue", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a25IsInstanceDataPresent.setStatus('mandatory')
-a25EventMessage = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 25, 1, 9), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a25EventMessage.setStatus('mandatory')
-tEventGenerationForFans = MibTable((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 26), )
-if mibBuilder.loadTexts: tEventGenerationForFans.setStatus('mandatory')
-eEventGenerationForFans = MibTableRow((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 26, 1), ).setIndexNames((0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"), (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a26AssociatedGroup"))
-if mibBuilder.loadTexts: eEventGenerationForFans.setStatus('mandatory')
-a26EventType = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 26, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("vFanFailure", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a26EventType.setStatus('mandatory')
-a26EventSeverity = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 26, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 4, 8, 16, 32))).clone(namedValues=NamedValues(("vMonitor", 1), ("vInformation", 2), ("vOk", 4), ("vNon-critical", 8), ("vCritical", 16), ("vNon-recoverable", 32)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a26EventSeverity.setStatus('mandatory')
-a26IsEventState_based = MibScalar((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 26, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("vFalse", 0), ("vTrue", 1)))).setLabel("a26IsEventState-based").setMaxAccess("readonly")
-if mibBuilder.loadTexts: a26IsEventState_based.setStatus('mandatory')
-a26EventStateKey = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 26, 1, 4), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a26EventStateKey.setStatus('mandatory')
-a26AssociatedGroup = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 26, 1, 5), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a26AssociatedGroup.setStatus('mandatory')
-a26EventSystem = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 26, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("vOther", 1), ("vUnknown", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a26EventSystem.setStatus('mandatory')
-a26EventSubsystem = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 26, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("vOther", 1), ("vUnknown", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a26EventSubsystem.setStatus('mandatory')
-a26IsInstanceDataPresent = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 26, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("vFalse", 0), ("vTrue", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a26IsInstanceDataPresent.setStatus('mandatory')
-a26EventMessage = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 26, 1, 9), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a26EventMessage.setStatus('mandatory')
-tMiftomib = MibTable((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 99), )
-if mibBuilder.loadTexts: tMiftomib.setStatus('mandatory')
-eMiftomib = MibTableRow((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 99, 1), ).setIndexNames((0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"))
-if mibBuilder.loadTexts: eMiftomib.setStatus('mandatory')
-a99MibName = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 99, 1, 1), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a99MibName.setStatus('mandatory')
-a99MibOid = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 99, 1, 2), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a99MibOid.setStatus('mandatory')
-a99DisableTrap = MibTableColumn((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 99, 1, 3), DmiInteger()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: a99DisableTrap.setStatus('mandatory')
-storageDevicesTrap1 = NotificationType((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 6, 1) + (0,1)).setObjects(("SYMBIOSDMI20MIFDEFINITION-MIB", "a6StorageDevicesEventType"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a6EventSeverity"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a6EventIsStateBased"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a6EventStateKey"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a6AssociatedGroup"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a6EventSystem"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a6EventSubsystem"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a5StorageDeviceIndex"))
-storageDevicesTrap2 = NotificationType((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 6, 1) + (0,2)).setObjects(("SYMBIOSDMI20MIFDEFINITION-MIB", "a6StorageDevicesEventType"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a6EventSeverity"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a6EventIsStateBased"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a6EventStateKey"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a6AssociatedGroup"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a6EventSystem"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a6EventSubsystem"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a5StorageDeviceIndex"))
-storageControllerTrap3 = NotificationType((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 8, 1) + (0,3)).setObjects(("SYMBIOSDMI20MIFDEFINITION-MIB", "a8StorageControllerEventType"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a8EventSeverity"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a8EventIsStateBased"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a8EventStateKey"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a8AssociatedGroup"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a8EventSystem"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a8EventSubsystem"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a7ControllerIndex"))
-massStorageAssociationTrap4 = NotificationType((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 12, 1) + (0,4)).setObjects(("SYMBIOSDMI20MIFDEFINITION-MIB", "a12MassStorageAssociationEventType"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventSeverity"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventIsStateBased"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventStateKey"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12AssociatedGroup"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventSystem"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventSubsystem"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a11AssociationIndex"))
-massStorageAssociationTrap5 = NotificationType((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 12, 1) + (0,5)).setObjects(("SYMBIOSDMI20MIFDEFINITION-MIB", "a12MassStorageAssociationEventType"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventSeverity"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventIsStateBased"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventStateKey"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12AssociatedGroup"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventSystem"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventSubsystem"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a11AssociationIndex"))
-massStorageAssociationTrap6 = NotificationType((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 12, 1) + (0,6)).setObjects(("SYMBIOSDMI20MIFDEFINITION-MIB", "a12MassStorageAssociationEventType"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventSeverity"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventIsStateBased"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventStateKey"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12AssociatedGroup"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventSystem"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventSubsystem"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a11AssociationIndex"))
-massStorageAssociationTrap7 = NotificationType((1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 12, 1) + (0,7)).setObjects(("SYMBIOSDMI20MIFDEFINITION-MIB", "a12MassStorageAssociationEventType"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventSeverity"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventIsStateBased"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventStateKey"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12AssociatedGroup"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventSystem"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventSubsystem"), ("SYMBIOSDMI20MIFDEFINITION-MIB", "a11AssociationIndex"))
-mibBuilder.exportSymbols("SYMBIOSDMI20MIFDEFINITION-MIB", eSaf_teControlledSlot=eSaf_teControlledSlot, a26AssociatedGroup=a26AssociatedGroup, a2SoftwareIndex=a2SoftwareIndex, eComponentid=eComponentid, a9MaximumWidth=a9MaximumWidth, massStorageAssociationTrap5=massStorageAssociationTrap5, id19=id19, eSubcomponentSoftware=eSubcomponentSoftware, a22DataRate=a22DataRate, eFieldReplaceableUnit=eFieldReplaceableUnit, a6EventStateKey=a6EventStateKey, a11Type=a11Type, a1SerialNumber=a1SerialNumber, a17ProductId=a17ProductId, a6EventSubsystem=a6EventSubsystem, a19Status=a19Status, a4Model=a4Model, DmiInteger64X=DmiInteger64X, a24EventSubsystem=a24EventSubsystem, a17StorageControllerIndex=a17StorageControllerIndex, a6StorageDevicesEventType=a6StorageDevicesEventType, eSymbiosSmartDevice=eSymbiosSmartDevice, a17PowerOnCycles=a17PowerOnCycles, a8AssociatedGroup=a8AssociatedGroup, a15EventPollingPeriod=a15EventPollingPeriod, eStorageController=eStorageController, symbios=symbios, tNetworkAdapterHardwareGroup=tNetworkAdapterHardwareGroup, a7SecondsSinceLastPower_up=a7SecondsSinceLastPower_up, eWorldwideIdentifer=eWorldwideIdentifer, a4WarrantyStartDate=a4WarrantyStartDate, a8EventSubsystem=a8EventSubsystem, a15SmartEventPolling=a15SmartEventPolling, a1Verify=a1Verify, a22PermanentNetworkAddress=a22PermanentNetworkAddress, a23NetworkTopology=a23NetworkTopology, eNetworkAdapter802PortGroup=eNetworkAdapter802PortGroup, a2Vendor=a2Vendor, tStorageControllerEvents=tStorageControllerEvents, a10EndToEndCredit=a10EndToEndCredit, dmtfGroups=dmtfGroups, tMassStorageAssociation=tMassStorageAssociation, a23BusType=a23BusType, a4Manufacturer=a4Manufacturer, a99MibOid=a99MibOid, tStorageDevicesEvents=tStorageDevicesEvents, tMiftomib=tMiftomib, storageDevicesTrap2=storageDevicesTrap2, tStorageDevices=tStorageDevices, a14CurrentErrorStatus=a14CurrentErrorStatus, a22CurrentNetworkAddress=a22CurrentNetworkAddress, a25IsInstanceDataPresent=a25IsInstanceDataPresent, tStorageController=tStorageController, a7Identification=a7Identification, a26EventSeverity=a26EventSeverity, a26EventStateKey=a26EventStateKey, storageDevicesTrap1=storageDevicesTrap1, tEventGenerationForFans=tEventGenerationForFans, eBusPort=eBusPort, a15Saf_teEventPolling=a15Saf_teEventPolling, a24IsEventState_based=a24IsEventState_based, a22PortIndex=a22PortIndex, a6EventSystem=a6EventSystem, a20DeviceFault=a20DeviceFault, a14AdministrativeState=a14AdministrativeState, a14UsageState=a14UsageState, a26EventMessage=a26EventMessage, a6EventSeverity=a6EventSeverity, eMassStorageAssociationEvents=eMassStorageAssociationEvents, a20State=a20State, a2InterfaceVersion=a2InterfaceVersion, a9SignalCharacteristics=a9SignalCharacteristics, a2LanguageEdition=a2LanguageEdition, eEventGenerationForTemperatureProbe=eEventGenerationForTemperatureProbe, massStorageAssociationTrap7=massStorageAssociationTrap7, a4FruSerialNumber=a4FruSerialNumber, massStorageAssociationTrap4=massStorageAssociationTrap4, a5StorageDeviceIndex=a5StorageDeviceIndex, a17TemperatureOutOfRange=a17TemperatureOutOfRange, a9Protocol=a9Protocol, a20NumberOfInsertions=a20NumberOfInsertions, a9ConnectorType=a9ConnectorType, a2InterfaceDescription=a2InterfaceDescription, a18Saf_teProcessorIndex=a18Saf_teProcessorIndex, a7ProtectionManagement=a7ProtectionManagement, a1Version=a1Version, eStorageDevices=eStorageDevices, a24EventType=a24EventType, a24IsInstanceDataPresent=a24IsInstanceDataPresent, a11AssociationIndex=a11AssociationIndex, a26IsEventState_based=a26IsEventState_based, a15SymbiosFlag=a15SymbiosFlag, a17ScsiLun=a17ScsiLun, a17Saf_teSpecificationRevisionLevel=a17Saf_teSpecificationRevisionLevel, a12EventSeverity=a12EventSeverity, a4WarrantyDuration=a4WarrantyDuration, tSaf_teControlledPowerSupply=tSaf_teControlledPowerSupply, eBusPortAssociation=eBusPortAssociation, eSymbiosEventPolling=eSymbiosEventPolling, a21Saf_teControlledTemperatureSensorInde=a21Saf_teControlledTemperatureSensorInde, a14DevicePredictedFailureStatus=a14DevicePredictedFailureStatus, a17HasLocks=a17HasLocks, tSaf_teProcessor=tSaf_teProcessor, eSaf_teControlledTemperatureSensor=eSaf_teControlledTemperatureSensor, tEventGenerationForPowerSupply=tEventGenerationForPowerSupply, a12EventSubsystem=a12EventSubsystem, a12AssociatedGroup=a12AssociatedGroup, a4DeviceGroupIndex=a4DeviceGroupIndex, a4RevisionLevel=a4RevisionLevel, tFieldReplaceableUnit=tFieldReplaceableUnit, a5MediaLoaded=a5MediaLoaded, a9ConnectorGender=a9ConnectorGender, a14DeviceGroupIndex=a14DeviceGroupIndex, tSaf_teControlledSlot=tSaf_teControlledSlot, a21Saf_teProcessorIndex=a21Saf_teProcessorIndex, a14AvailabilityStatus=a14AvailabilityStatus, DmiDateX=DmiDateX, cosprings=cosprings, a13BusPortAssociationIndex=a13BusPortAssociationIndex, a14OperationalStateInstanceIndex=a14OperationalStateInstanceIndex, a17Saf_teProcessorIndex=a17Saf_teProcessorIndex, a24EventSeverity=a24EventSeverity, a9AddressDescriptor=a9AddressDescriptor, a8EventSystem=a8EventSystem, a4Description=a4Description, a26EventSystem=a26EventSystem, a18Status=a18Status, a5DeviceLoaded=a5DeviceLoaded, scsi=scsi, a5Sub_identifier=a5Sub_identifier, DmiComponentIndex=DmiComponentIndex, tSaf_teControlledFan=tSaf_teControlledFan, storageControllerTrap3=storageControllerTrap3, a20Saf_teProcessorIndex=a20Saf_teProcessorIndex, a5RemovableDevice=a5RemovableDevice, a19Saf_teControlledPowerSupplyIndex=a19Saf_teControlledPowerSupplyIndex, a2Version=a2Version, a24EventSystem=a24EventSystem, a25AssociatedGroup=a25AssociatedGroup, eMassStorageAssociation=eMassStorageAssociation, tWorldwideIdentifer=tWorldwideIdentifer, a15ScanEventPolling=a15ScanEventPolling, a24EventStateKey=a24EventStateKey, a10LinkType=a10LinkType, a8StorageControllerEventType=a8StorageControllerEventType, a2Description=a2Description, a9MaximumNumberOfAttachments=a9MaximumNumberOfAttachments, a14FatalErrorCount=a14FatalErrorCount, tFibreChannelBusPortExtensions=tFibreChannelBusPortExtensions, a25EventType=a25EventType, tEventGenerationForTemperatureProbe=tEventGenerationForTemperatureProbe, eSaf_teControlledPowerSupply=eSaf_teControlledPowerSupply, a1Installation=a1Installation, a23TransmissionCapability=a23TransmissionCapability, a99MibName=a99MibName, a4PartNumber=a4PartNumber, a20ParityCheck=a20ParityCheck, a2IdentificationCode=a2IdentificationCode, eStorageDevicesEvents=eStorageDevicesEvents, a1Manufacturer=a1Manufacturer, a13NegotiatedSpeed=a13NegotiatedSpeed, a18Saf_teControlledFanIndex=a18Saf_teControlledFanIndex, a7ControllerIndex=a7ControllerIndex, tSubcomponentSoftware=tSubcomponentSoftware, a14OperationalStatus=a14OperationalStatus, a12EventStateKey=a12EventStateKey, eOperationalState=eOperationalState, a2Type=a2Type, DmiInteger=DmiInteger, tSymbiosEventPolling=tSymbiosEventPolling, massStorageAssociationTrap6=massStorageAssociationTrap6, a11Reference1=a11Reference1, a4SupportPhoneNumber=a4SupportPhoneNumber, a9ProtocolDescription=a9ProtocolDescription, a5TypeDescription=a5TypeDescription, a12MassStorageAssociationEventType=a12MassStorageAssociationEventType, a20PredictedFault=a20PredictedFault, a17VendorId=a17VendorId, a26EventType=a26EventType, a10FlowControlClassType=a10FlowControlClassType, tBusPortAssociation=tBusPortAssociation, a22ConnectorType=a22ConnectorType, a10FlowControlAcknowledgmentType=a10FlowControlAcknowledgmentType, a12EventIsStateBased=a12EventIsStateBased, a25EventSystem=a25EventSystem, a99DisableTrap=a99DisableTrap, a6AssociatedGroup=a6AssociatedGroup, a17PowerOnMinutes=a17PowerOnMinutes, a25EventStateKey=a25EventStateKey, tComponentid=tComponentid, a6EventIsStateBased=a6EventIsStateBased, a10BufferToBufferCredit=a10BufferToBufferCredit, a17FirmwareRevisionLevel=a17FirmwareRevisionLevel, a24EventMessage=a24EventMessage, eSaf_teControlledFan=eSaf_teControlledFan, DmiCounter=DmiCounter, a9MaximumTransferRate=a9MaximumTransferRate, a5MediaDataBlockSize=a5MediaDataBlockSize, fam8xx=fam8xx, tSaf_teControlledTemperatureSensor=tSaf_teControlledTemperatureSensor, eFibreChannelBusPortExtensions=eFibreChannelBusPortExtensions, tNetworkAdapter802PortGroup=tNetworkAdapter802PortGroup, a25EventSeverity=a25EventSeverity, a9BusPortIndex=a9BusPortIndex, a17ScsiId=a17ScsiId, eMiftomib=eMiftomib, a5Type=a5Type, a8EventIsStateBased=a8EventIsStateBased, DmiDisplaystring=DmiDisplaystring, a8EventSeverity=a8EventSeverity, a13NegotiatedWidth=a13NegotiatedWidth, tBusPort=tBusPort, a5Compression=a5Compression, a17HasSpeakers=a17HasSpeakers, a17DoorLocked=a17DoorLocked, a19Saf_teProcessorIndex=a19Saf_teProcessorIndex, a10BusPortIndex=a10BusPortIndex, a25IsEventState_based=a25IsEventState_based, a20Rebuild=a20Rebuild, a23NetworkAdapterRamSize=a23NetworkAdapterRamSize, a1Product=a1Product, eStorageControllerEvents=eStorageControllerEvents, eEventGenerationForFans=eEventGenerationForFans, a20InFailedArray=a20InFailedArray, a7BusMaster=a7BusMaster, eEventGenerationForPowerSupply=eEventGenerationForPowerSupply, a4FruInternetUniformResourceLocator=a4FruInternetUniformResourceLocator, a24AssociatedGroup=a24AssociatedGroup, a25EventSubsystem=a25EventSubsystem, a3WorldwideIdentifierType=a3WorldwideIdentifierType, a16SymSmartDeviceIndex=a16SymSmartDeviceIndex, a26EventSubsystem=a26EventSubsystem, a5FormattedMediaCapacity=a5FormattedMediaCapacity, a12EventSystem=a12EventSystem, a26IsInstanceDataPresent=a26IsInstanceDataPresent, tSymbiosSmartDevice=tSymbiosSmartDevice, a23BusWidth=a23BusWidth, a3WorldwideIdentifier=a3WorldwideIdentifier, a25EventMessage=a25EventMessage, a5RemovableMedia=a5RemovableMedia, a4FruIndex=a4FruIndex, a8EventStateKey=a8EventStateKey, tOperationalState=tOperationalState, a14MajorErrorCount=a14MajorErrorCount, a9Isochronous=a9Isochronous, a17SpeakerStatus=a17SpeakerStatus, a20InCriticalArray=a20InCriticalArray, a20Saf_teControlledSlotIndex=a20Saf_teControlledSlotIndex, a3WorldwideIdentifierIndex=a3WorldwideIdentifierIndex, a5Encryption=a5Encryption, a10FabricTopology=a10FabricTopology, a14WarningErrorCount=a14WarningErrorCount, tMassStorageAssociationEvents=tMassStorageAssociationEvents, a20ScsiId=a20ScsiId)
-mibBuilder.exportSymbols("SYMBIOSDMI20MIFDEFINITION-MIB", a11Reference2=a11Reference2, a17EnclosureUniqueIdentifier=a17EnclosureUniqueIdentifier, eNetworkAdapterHardwareGroup=eNetworkAdapterHardwareGroup, a16SmartReportingCapability=a16SmartReportingCapability, a9ConnectorTypeDescription=a9ConnectorTypeDescription, a21Temperature=a21Temperature, eSaf_teProcessor=eSaf_teProcessor)
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Symbios_ObjectIdentity = ObjectIdentity
+symbios = _Symbios_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1123)
+)
+_Cosprings_ObjectIdentity = ObjectIdentity
+cosprings = _Cosprings_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1123, 3)
+)
+_Scsi_ObjectIdentity = ObjectIdentity
+scsi = _Scsi_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1)
+)
+_Fam8xx_ObjectIdentity = ObjectIdentity
+fam8xx = _Fam8xx_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2)
+)
+_Id19_ObjectIdentity = ObjectIdentity
+id19 = _Id19_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19)
+)
+_DmtfGroups_ObjectIdentity = ObjectIdentity
+dmtfGroups = _DmtfGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1)
+)
+_TComponentid_Object = MibTable
+tComponentid = _TComponentid_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 1)
+)
+if mibBuilder.loadTexts:
+    tComponentid.setStatus("mandatory")
+_EComponentid_Object = MibTableRow
+eComponentid = _EComponentid_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 1, 1)
+)
+eComponentid.setIndexNames(
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"),
+)
+if mibBuilder.loadTexts:
+    eComponentid.setStatus("mandatory")
+_A1Manufacturer_Type = DmiDisplaystring
+_A1Manufacturer_Object = MibTableColumn
+a1Manufacturer = _A1Manufacturer_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 1, 1, 1),
+    _A1Manufacturer_Type()
+)
+a1Manufacturer.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a1Manufacturer.setStatus("mandatory")
+_A1Product_Type = DmiDisplaystring
+_A1Product_Object = MibTableColumn
+a1Product = _A1Product_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 1, 1, 2),
+    _A1Product_Type()
+)
+a1Product.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a1Product.setStatus("mandatory")
+_A1Version_Type = DmiDisplaystring
+_A1Version_Object = MibTableColumn
+a1Version = _A1Version_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 1, 1, 3),
+    _A1Version_Type()
+)
+a1Version.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a1Version.setStatus("mandatory")
+_A1SerialNumber_Type = DmiDisplaystring
+_A1SerialNumber_Object = MibTableColumn
+a1SerialNumber = _A1SerialNumber_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 1, 1, 4),
+    _A1SerialNumber_Type()
+)
+a1SerialNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a1SerialNumber.setStatus("mandatory")
+_A1Installation_Type = DmiDateX
+_A1Installation_Object = MibTableColumn
+a1Installation = _A1Installation_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 1, 1, 5),
+    _A1Installation_Type()
+)
+a1Installation.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a1Installation.setStatus("mandatory")
+
+
+class _A1Verify_Type(Integer32):
+    """Custom type a1Verify based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vAnErrorOccurredCheckStatusCode", 0),
+          ("vReserved", 3),
+          ("vTheVerifyIsNotSupported", 2),
+          ("vThisComponentDoesNotExist", 1),
+          ("vThisComponentExistsAndIsFunctioningCorr", 7),
+          ("vThisComponentExistsAndIsNotFunctioningC", 6),
+          ("vThisComponentExistsButTheFunctionality1", 5),
+          ("vThisComponentExistsButTheFunctionalityI", 4))
+    )
+
+
+_A1Verify_Type.__name__ = "Integer32"
+_A1Verify_Object = MibTableColumn
+a1Verify = _A1Verify_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 1, 1, 6),
+    _A1Verify_Type()
+)
+a1Verify.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a1Verify.setStatus("mandatory")
+_TSubcomponentSoftware_Object = MibTable
+tSubcomponentSoftware = _TSubcomponentSoftware_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 2)
+)
+if mibBuilder.loadTexts:
+    tSubcomponentSoftware.setStatus("mandatory")
+_ESubcomponentSoftware_Object = MibTableRow
+eSubcomponentSoftware = _ESubcomponentSoftware_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 2, 1)
+)
+eSubcomponentSoftware.setIndexNames(
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"),
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a2SoftwareIndex"),
+)
+if mibBuilder.loadTexts:
+    eSubcomponentSoftware.setStatus("mandatory")
+_A2SoftwareIndex_Type = DmiInteger
+_A2SoftwareIndex_Object = MibTableColumn
+a2SoftwareIndex = _A2SoftwareIndex_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 2, 1, 1),
+    _A2SoftwareIndex_Type()
+)
+a2SoftwareIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a2SoftwareIndex.setStatus("mandatory")
+_A2Type_Type = DmiDisplaystring
+_A2Type_Object = MibTableColumn
+a2Type = _A2Type_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 2, 1, 2),
+    _A2Type_Type()
+)
+a2Type.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a2Type.setStatus("mandatory")
+_A2Vendor_Type = DmiDisplaystring
+_A2Vendor_Object = MibTableColumn
+a2Vendor = _A2Vendor_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 2, 1, 3),
+    _A2Vendor_Type()
+)
+a2Vendor.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a2Vendor.setStatus("mandatory")
+_A2Version_Type = DmiDisplaystring
+_A2Version_Object = MibTableColumn
+a2Version = _A2Version_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 2, 1, 4),
+    _A2Version_Type()
+)
+a2Version.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a2Version.setStatus("mandatory")
+_A2Description_Type = DmiDisplaystring
+_A2Description_Object = MibTableColumn
+a2Description = _A2Description_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 2, 1, 5),
+    _A2Description_Type()
+)
+a2Description.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a2Description.setStatus("mandatory")
+_A2IdentificationCode_Type = DmiDisplaystring
+_A2IdentificationCode_Object = MibTableColumn
+a2IdentificationCode = _A2IdentificationCode_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 2, 1, 6),
+    _A2IdentificationCode_Type()
+)
+a2IdentificationCode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a2IdentificationCode.setStatus("mandatory")
+_A2LanguageEdition_Type = DmiDisplaystring
+_A2LanguageEdition_Object = MibTableColumn
+a2LanguageEdition = _A2LanguageEdition_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 2, 1, 7),
+    _A2LanguageEdition_Type()
+)
+a2LanguageEdition.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a2LanguageEdition.setStatus("mandatory")
+_A2InterfaceDescription_Type = DmiDisplaystring
+_A2InterfaceDescription_Object = MibTableColumn
+a2InterfaceDescription = _A2InterfaceDescription_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 2, 1, 8),
+    _A2InterfaceDescription_Type()
+)
+a2InterfaceDescription.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a2InterfaceDescription.setStatus("mandatory")
+_A2InterfaceVersion_Type = DmiDisplaystring
+_A2InterfaceVersion_Object = MibTableColumn
+a2InterfaceVersion = _A2InterfaceVersion_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 2, 1, 9),
+    _A2InterfaceVersion_Type()
+)
+a2InterfaceVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a2InterfaceVersion.setStatus("mandatory")
+_TWorldwideIdentifer_Object = MibTable
+tWorldwideIdentifer = _TWorldwideIdentifer_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 3)
+)
+if mibBuilder.loadTexts:
+    tWorldwideIdentifer.setStatus("mandatory")
+_EWorldwideIdentifer_Object = MibTableRow
+eWorldwideIdentifer = _EWorldwideIdentifer_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 3, 1)
+)
+eWorldwideIdentifer.setIndexNames(
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"),
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a3WorldwideIdentifierIndex"),
+)
+if mibBuilder.loadTexts:
+    eWorldwideIdentifer.setStatus("mandatory")
+_A3WorldwideIdentifierIndex_Type = DmiInteger
+_A3WorldwideIdentifierIndex_Object = MibTableColumn
+a3WorldwideIdentifierIndex = _A3WorldwideIdentifierIndex_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 3, 1, 1),
+    _A3WorldwideIdentifierIndex_Type()
+)
+a3WorldwideIdentifierIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a3WorldwideIdentifierIndex.setStatus("mandatory")
+
+
+class _A3WorldwideIdentifierType_Type(Integer32):
+    """Custom type a3WorldwideIdentifierType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vBinary", 7),
+          ("vFc-ph64-bitName-identifier", 6),
+          ("vIeeeExtendedUniqueIdentifier64-bit", 5),
+          ("vLanMacAddress", 9),
+          ("vNone", 3),
+          ("vOther", 1),
+          ("vUnicode", 8),
+          ("vUnknown", 2),
+          ("vVendorIdProductIdSerialNumber", 4),
+          ("vWanAccessAddress", 10))
+    )
+
+
+_A3WorldwideIdentifierType_Type.__name__ = "Integer32"
+_A3WorldwideIdentifierType_Object = MibTableColumn
+a3WorldwideIdentifierType = _A3WorldwideIdentifierType_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 3, 1, 2),
+    _A3WorldwideIdentifierType_Type()
+)
+a3WorldwideIdentifierType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a3WorldwideIdentifierType.setStatus("mandatory")
+_A3WorldwideIdentifier_Type = DmiDisplaystring
+_A3WorldwideIdentifier_Object = MibTableColumn
+a3WorldwideIdentifier = _A3WorldwideIdentifier_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 3, 1, 3),
+    _A3WorldwideIdentifier_Type()
+)
+a3WorldwideIdentifier.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a3WorldwideIdentifier.setStatus("mandatory")
+_TFieldReplaceableUnit_Object = MibTable
+tFieldReplaceableUnit = _TFieldReplaceableUnit_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 4)
+)
+if mibBuilder.loadTexts:
+    tFieldReplaceableUnit.setStatus("mandatory")
+_EFieldReplaceableUnit_Object = MibTableRow
+eFieldReplaceableUnit = _EFieldReplaceableUnit_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 4, 1)
+)
+eFieldReplaceableUnit.setIndexNames(
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"),
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a4FruIndex"),
+)
+if mibBuilder.loadTexts:
+    eFieldReplaceableUnit.setStatus("mandatory")
+_A4FruIndex_Type = DmiInteger
+_A4FruIndex_Object = MibTableColumn
+a4FruIndex = _A4FruIndex_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 4, 1, 1),
+    _A4FruIndex_Type()
+)
+a4FruIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a4FruIndex.setStatus("mandatory")
+_A4DeviceGroupIndex_Type = DmiInteger
+_A4DeviceGroupIndex_Object = MibTableColumn
+a4DeviceGroupIndex = _A4DeviceGroupIndex_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 4, 1, 2),
+    _A4DeviceGroupIndex_Type()
+)
+a4DeviceGroupIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a4DeviceGroupIndex.setStatus("mandatory")
+_A4Description_Type = DmiDisplaystring
+_A4Description_Object = MibTableColumn
+a4Description = _A4Description_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 4, 1, 3),
+    _A4Description_Type()
+)
+a4Description.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a4Description.setStatus("mandatory")
+_A4Manufacturer_Type = DmiDisplaystring
+_A4Manufacturer_Object = MibTableColumn
+a4Manufacturer = _A4Manufacturer_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 4, 1, 4),
+    _A4Manufacturer_Type()
+)
+a4Manufacturer.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a4Manufacturer.setStatus("mandatory")
+_A4Model_Type = DmiDisplaystring
+_A4Model_Object = MibTableColumn
+a4Model = _A4Model_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 4, 1, 5),
+    _A4Model_Type()
+)
+a4Model.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a4Model.setStatus("mandatory")
+_A4PartNumber_Type = DmiDisplaystring
+_A4PartNumber_Object = MibTableColumn
+a4PartNumber = _A4PartNumber_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 4, 1, 6),
+    _A4PartNumber_Type()
+)
+a4PartNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a4PartNumber.setStatus("mandatory")
+_A4FruSerialNumber_Type = DmiDisplaystring
+_A4FruSerialNumber_Object = MibTableColumn
+a4FruSerialNumber = _A4FruSerialNumber_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 4, 1, 7),
+    _A4FruSerialNumber_Type()
+)
+a4FruSerialNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a4FruSerialNumber.setStatus("mandatory")
+_A4RevisionLevel_Type = DmiDisplaystring
+_A4RevisionLevel_Object = MibTableColumn
+a4RevisionLevel = _A4RevisionLevel_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 4, 1, 8),
+    _A4RevisionLevel_Type()
+)
+a4RevisionLevel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a4RevisionLevel.setStatus("mandatory")
+_A4WarrantyStartDate_Type = DmiDateX
+_A4WarrantyStartDate_Object = MibTableColumn
+a4WarrantyStartDate = _A4WarrantyStartDate_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 4, 1, 9),
+    _A4WarrantyStartDate_Type()
+)
+a4WarrantyStartDate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a4WarrantyStartDate.setStatus("mandatory")
+_A4WarrantyDuration_Type = DmiInteger
+_A4WarrantyDuration_Object = MibTableColumn
+a4WarrantyDuration = _A4WarrantyDuration_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 4, 1, 10),
+    _A4WarrantyDuration_Type()
+)
+a4WarrantyDuration.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a4WarrantyDuration.setStatus("mandatory")
+_A4SupportPhoneNumber_Type = DmiDisplaystring
+_A4SupportPhoneNumber_Object = MibTableColumn
+a4SupportPhoneNumber = _A4SupportPhoneNumber_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 4, 1, 11),
+    _A4SupportPhoneNumber_Type()
+)
+a4SupportPhoneNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a4SupportPhoneNumber.setStatus("mandatory")
+_A4FruInternetUniformResourceLocator_Type = DmiDisplaystring
+_A4FruInternetUniformResourceLocator_Object = MibTableColumn
+a4FruInternetUniformResourceLocator = _A4FruInternetUniformResourceLocator_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 4, 1, 12),
+    _A4FruInternetUniformResourceLocator_Type()
+)
+a4FruInternetUniformResourceLocator.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a4FruInternetUniformResourceLocator.setStatus("mandatory")
+_TStorageDevices_Object = MibTable
+tStorageDevices = _TStorageDevices_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 5)
+)
+if mibBuilder.loadTexts:
+    tStorageDevices.setStatus("mandatory")
+_EStorageDevices_Object = MibTableRow
+eStorageDevices = _EStorageDevices_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 5, 1)
+)
+eStorageDevices.setIndexNames(
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"),
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a5StorageDeviceIndex"),
+)
+if mibBuilder.loadTexts:
+    eStorageDevices.setStatus("mandatory")
+_A5StorageDeviceIndex_Type = DmiInteger
+_A5StorageDeviceIndex_Object = MibTableColumn
+a5StorageDeviceIndex = _A5StorageDeviceIndex_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 5, 1, 1),
+    _A5StorageDeviceIndex_Type()
+)
+a5StorageDeviceIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a5StorageDeviceIndex.setStatus("mandatory")
+
+
+class _A5Type_Type(Integer32):
+    """Custom type a5Type based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vCartridgeRigidDiskDrive", 10),
+          ("vCompactDiskDrive", 8),
+          ("vDigitalVersatileDiskDvdDrive", 15),
+          ("vDigitalVersatileDiskDvdramRamDrive", 16),
+          ("vFlashDisk", 9),
+          ("vFlexibleDisketteDrive", 4),
+          ("vMagneto-opticalDrive", 7),
+          ("vMediaChanger", 13),
+          ("vOpticalFloppyDiskDrive", 11),
+          ("vOpticalWrite-onceread-manyWormDrive", 6),
+          ("vOther", 1),
+          ("vRigidDiskDrive", 3),
+          ("vSolidState", 14),
+          ("vTapeDrive", 12),
+          ("vUnknown", 2))
+    )
+
+
+_A5Type_Type.__name__ = "Integer32"
+_A5Type_Object = MibTableColumn
+a5Type = _A5Type_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 5, 1, 2),
+    _A5Type_Type()
+)
+a5Type.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a5Type.setStatus("mandatory")
+_A5TypeDescription_Type = DmiDisplaystring
+_A5TypeDescription_Object = MibTableColumn
+a5TypeDescription = _A5TypeDescription_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 5, 1, 3),
+    _A5TypeDescription_Type()
+)
+a5TypeDescription.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a5TypeDescription.setStatus("mandatory")
+_A5Sub_identifier_Type = DmiDisplaystring
+_A5Sub_identifier_Object = MibScalar
+a5Sub_identifier = _A5Sub_identifier_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 5, 1, 4),
+    _A5Sub_identifier_Type()
+)
+a5Sub_identifier.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a5Sub_identifier.setStatus("mandatory")
+_A5MediaDataBlockSize_Type = DmiInteger
+_A5MediaDataBlockSize_Object = MibTableColumn
+a5MediaDataBlockSize = _A5MediaDataBlockSize_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 5, 1, 5),
+    _A5MediaDataBlockSize_Type()
+)
+a5MediaDataBlockSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a5MediaDataBlockSize.setStatus("mandatory")
+_A5FormattedMediaCapacity_Type = DmiInteger64X
+_A5FormattedMediaCapacity_Object = MibTableColumn
+a5FormattedMediaCapacity = _A5FormattedMediaCapacity_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 5, 1, 6),
+    _A5FormattedMediaCapacity_Type()
+)
+a5FormattedMediaCapacity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a5FormattedMediaCapacity.setStatus("mandatory")
+
+
+class _A5RemovableDevice_Type(Integer32):
+    """Custom type a5RemovableDevice based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vFalse", 0),
+          ("vTrue", 1),
+          ("vUnknown", 2))
+    )
+
+
+_A5RemovableDevice_Type.__name__ = "Integer32"
+_A5RemovableDevice_Object = MibTableColumn
+a5RemovableDevice = _A5RemovableDevice_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 5, 1, 7),
+    _A5RemovableDevice_Type()
+)
+a5RemovableDevice.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a5RemovableDevice.setStatus("mandatory")
+
+
+class _A5DeviceLoaded_Type(Integer32):
+    """Custom type a5DeviceLoaded based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vFalse", 0),
+          ("vTrue", 1),
+          ("vUnknown", 2))
+    )
+
+
+_A5DeviceLoaded_Type.__name__ = "Integer32"
+_A5DeviceLoaded_Object = MibTableColumn
+a5DeviceLoaded = _A5DeviceLoaded_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 5, 1, 8),
+    _A5DeviceLoaded_Type()
+)
+a5DeviceLoaded.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a5DeviceLoaded.setStatus("mandatory")
+
+
+class _A5RemovableMedia_Type(Integer32):
+    """Custom type a5RemovableMedia based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vFalse", 0),
+          ("vTrue", 1),
+          ("vUnknown", 2))
+    )
+
+
+_A5RemovableMedia_Type.__name__ = "Integer32"
+_A5RemovableMedia_Object = MibTableColumn
+a5RemovableMedia = _A5RemovableMedia_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 5, 1, 9),
+    _A5RemovableMedia_Type()
+)
+a5RemovableMedia.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a5RemovableMedia.setStatus("mandatory")
+
+
+class _A5MediaLoaded_Type(Integer32):
+    """Custom type a5MediaLoaded based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vFalse", 0),
+          ("vTrue", 1),
+          ("vUnknown", 2))
+    )
+
+
+_A5MediaLoaded_Type.__name__ = "Integer32"
+_A5MediaLoaded_Object = MibTableColumn
+a5MediaLoaded = _A5MediaLoaded_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 5, 1, 10),
+    _A5MediaLoaded_Type()
+)
+a5MediaLoaded.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a5MediaLoaded.setStatus("mandatory")
+
+
+class _A5Compression_Type(Integer32):
+    """Custom type a5Compression based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vFalse", 0),
+          ("vTrue", 1),
+          ("vUnknown", 2))
+    )
+
+
+_A5Compression_Type.__name__ = "Integer32"
+_A5Compression_Object = MibTableColumn
+a5Compression = _A5Compression_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 5, 1, 11),
+    _A5Compression_Type()
+)
+a5Compression.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a5Compression.setStatus("mandatory")
+
+
+class _A5Encryption_Type(Integer32):
+    """Custom type a5Encryption based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vFalse", 0),
+          ("vTrue", 1),
+          ("vUnknown", 2))
+    )
+
+
+_A5Encryption_Type.__name__ = "Integer32"
+_A5Encryption_Object = MibTableColumn
+a5Encryption = _A5Encryption_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 5, 1, 12),
+    _A5Encryption_Type()
+)
+a5Encryption.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a5Encryption.setStatus("mandatory")
+_TStorageDevicesEvents_Object = MibTable
+tStorageDevicesEvents = _TStorageDevicesEvents_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 6)
+)
+if mibBuilder.loadTexts:
+    tStorageDevicesEvents.setStatus("mandatory")
+_EStorageDevicesEvents_Object = MibTableRow
+eStorageDevicesEvents = _EStorageDevicesEvents_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 6, 1)
+)
+eStorageDevicesEvents.setIndexNames(
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"),
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a6AssociatedGroup"),
+)
+if mibBuilder.loadTexts:
+    eStorageDevicesEvents.setStatus("mandatory")
+
+
+class _A6StorageDevicesEventType_Type(Integer32):
+    """Custom type a6StorageDevicesEventType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vRebuildInProgress", 1),
+          ("vSelf-monitoringWarning", 4),
+          ("vStorageDeviceError", 3),
+          ("vStorageDeviceReadying", 2))
+    )
+
+
+_A6StorageDevicesEventType_Type.__name__ = "Integer32"
+_A6StorageDevicesEventType_Object = MibTableColumn
+a6StorageDevicesEventType = _A6StorageDevicesEventType_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 6, 1, 1),
+    _A6StorageDevicesEventType_Type()
+)
+a6StorageDevicesEventType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a6StorageDevicesEventType.setStatus("mandatory")
+
+
+class _A6EventSeverity_Type(Integer32):
+    """Custom type a6EventSeverity based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              4,
+              8,
+              16,
+              32)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vCritical", 16),
+          ("vInformation", 2),
+          ("vMonitor", 1),
+          ("vNon-critical", 8),
+          ("vNon-recoverable", 32),
+          ("vOk", 4))
+    )
+
+
+_A6EventSeverity_Type.__name__ = "Integer32"
+_A6EventSeverity_Object = MibTableColumn
+a6EventSeverity = _A6EventSeverity_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 6, 1, 2),
+    _A6EventSeverity_Type()
+)
+a6EventSeverity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a6EventSeverity.setStatus("mandatory")
+
+
+class _A6EventIsStateBased_Type(Integer32):
+    """Custom type a6EventIsStateBased based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vFalse", 0),
+          ("vTrue", 1))
+    )
+
+
+_A6EventIsStateBased_Type.__name__ = "Integer32"
+_A6EventIsStateBased_Object = MibTableColumn
+a6EventIsStateBased = _A6EventIsStateBased_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 6, 1, 3),
+    _A6EventIsStateBased_Type()
+)
+a6EventIsStateBased.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a6EventIsStateBased.setStatus("mandatory")
+_A6EventStateKey_Type = DmiInteger
+_A6EventStateKey_Object = MibTableColumn
+a6EventStateKey = _A6EventStateKey_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 6, 1, 4),
+    _A6EventStateKey_Type()
+)
+a6EventStateKey.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a6EventStateKey.setStatus("mandatory")
+_A6AssociatedGroup_Type = DmiDisplaystring
+_A6AssociatedGroup_Object = MibTableColumn
+a6AssociatedGroup = _A6AssociatedGroup_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 6, 1, 5),
+    _A6AssociatedGroup_Type()
+)
+a6AssociatedGroup.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a6AssociatedGroup.setStatus("mandatory")
+
+
+class _A6EventSystem_Type(Integer32):
+    """Custom type a6EventSystem based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vOther", 1),
+          ("vUnknown", 2))
+    )
+
+
+_A6EventSystem_Type.__name__ = "Integer32"
+_A6EventSystem_Object = MibTableColumn
+a6EventSystem = _A6EventSystem_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 6, 1, 6),
+    _A6EventSystem_Type()
+)
+a6EventSystem.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a6EventSystem.setStatus("mandatory")
+
+
+class _A6EventSubsystem_Type(Integer32):
+    """Custom type a6EventSubsystem based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vOther", 1),
+          ("vUnknown", 2))
+    )
+
+
+_A6EventSubsystem_Type.__name__ = "Integer32"
+_A6EventSubsystem_Object = MibTableColumn
+a6EventSubsystem = _A6EventSubsystem_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 6, 1, 7),
+    _A6EventSubsystem_Type()
+)
+a6EventSubsystem.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a6EventSubsystem.setStatus("mandatory")
+_TStorageController_Object = MibTable
+tStorageController = _TStorageController_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 7)
+)
+if mibBuilder.loadTexts:
+    tStorageController.setStatus("mandatory")
+_EStorageController_Object = MibTableRow
+eStorageController = _EStorageController_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 7, 1)
+)
+eStorageController.setIndexNames(
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"),
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a7ControllerIndex"),
+)
+if mibBuilder.loadTexts:
+    eStorageController.setStatus("mandatory")
+_A7ControllerIndex_Type = DmiInteger
+_A7ControllerIndex_Object = MibTableColumn
+a7ControllerIndex = _A7ControllerIndex_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 7, 1, 1),
+    _A7ControllerIndex_Type()
+)
+a7ControllerIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a7ControllerIndex.setStatus("mandatory")
+_A7Identification_Type = DmiDisplaystring
+_A7Identification_Object = MibTableColumn
+a7Identification = _A7Identification_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 7, 1, 2),
+    _A7Identification_Type()
+)
+a7Identification.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a7Identification.setStatus("mandatory")
+
+
+class _A7ProtectionManagement_Type(Integer32):
+    """Custom type a7ProtectionManagement based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vOther", 1),
+          ("vProtected", 4),
+          ("vProtectedThroughScsi-3ControllerComman1", 6),
+          ("vProtectedThroughScsi-3ControllerCommand", 5),
+          ("vUnknown", 2),
+          ("vUnprotected", 3))
+    )
+
+
+_A7ProtectionManagement_Type.__name__ = "Integer32"
+_A7ProtectionManagement_Object = MibTableColumn
+a7ProtectionManagement = _A7ProtectionManagement_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 7, 1, 3),
+    _A7ProtectionManagement_Type()
+)
+a7ProtectionManagement.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a7ProtectionManagement.setStatus("mandatory")
+
+
+class _A7BusMaster_Type(Integer32):
+    """Custom type a7BusMaster based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vFalse", 0),
+          ("vTrue", 1),
+          ("vUnknown", 2))
+    )
+
+
+_A7BusMaster_Type.__name__ = "Integer32"
+_A7BusMaster_Object = MibTableColumn
+a7BusMaster = _A7BusMaster_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 7, 1, 4),
+    _A7BusMaster_Type()
+)
+a7BusMaster.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a7BusMaster.setStatus("mandatory")
+_A7SecondsSinceLastPower_up_Type = DmiInteger
+_A7SecondsSinceLastPower_up_Object = MibScalar
+a7SecondsSinceLastPower_up = _A7SecondsSinceLastPower_up_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 7, 1, 5),
+    _A7SecondsSinceLastPower_up_Type()
+)
+a7SecondsSinceLastPower_up.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a7SecondsSinceLastPower_up.setStatus("mandatory")
+_TStorageControllerEvents_Object = MibTable
+tStorageControllerEvents = _TStorageControllerEvents_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 8)
+)
+if mibBuilder.loadTexts:
+    tStorageControllerEvents.setStatus("mandatory")
+_EStorageControllerEvents_Object = MibTableRow
+eStorageControllerEvents = _EStorageControllerEvents_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 8, 1)
+)
+eStorageControllerEvents.setIndexNames(
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"),
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a8AssociatedGroup"),
+)
+if mibBuilder.loadTexts:
+    eStorageControllerEvents.setStatus("mandatory")
+
+
+class _A8StorageControllerEventType_Type(Integer32):
+    """Custom type a8StorageControllerEventType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vSelf-monitoringWarning1", 2),
+          ("vStorageControllerError", 1))
+    )
+
+
+_A8StorageControllerEventType_Type.__name__ = "Integer32"
+_A8StorageControllerEventType_Object = MibTableColumn
+a8StorageControllerEventType = _A8StorageControllerEventType_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 8, 1, 1),
+    _A8StorageControllerEventType_Type()
+)
+a8StorageControllerEventType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a8StorageControllerEventType.setStatus("mandatory")
+
+
+class _A8EventSeverity_Type(Integer32):
+    """Custom type a8EventSeverity based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              4,
+              8,
+              16,
+              32)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vCritical", 16),
+          ("vInformation", 2),
+          ("vMonitor", 1),
+          ("vNon-critical", 8),
+          ("vNon-recoverable", 32),
+          ("vOk", 4))
+    )
+
+
+_A8EventSeverity_Type.__name__ = "Integer32"
+_A8EventSeverity_Object = MibTableColumn
+a8EventSeverity = _A8EventSeverity_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 8, 1, 2),
+    _A8EventSeverity_Type()
+)
+a8EventSeverity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a8EventSeverity.setStatus("mandatory")
+
+
+class _A8EventIsStateBased_Type(Integer32):
+    """Custom type a8EventIsStateBased based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vFalse", 0),
+          ("vTrue", 1))
+    )
+
+
+_A8EventIsStateBased_Type.__name__ = "Integer32"
+_A8EventIsStateBased_Object = MibTableColumn
+a8EventIsStateBased = _A8EventIsStateBased_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 8, 1, 3),
+    _A8EventIsStateBased_Type()
+)
+a8EventIsStateBased.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a8EventIsStateBased.setStatus("mandatory")
+_A8EventStateKey_Type = DmiInteger
+_A8EventStateKey_Object = MibTableColumn
+a8EventStateKey = _A8EventStateKey_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 8, 1, 4),
+    _A8EventStateKey_Type()
+)
+a8EventStateKey.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a8EventStateKey.setStatus("mandatory")
+_A8AssociatedGroup_Type = DmiDisplaystring
+_A8AssociatedGroup_Object = MibTableColumn
+a8AssociatedGroup = _A8AssociatedGroup_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 8, 1, 5),
+    _A8AssociatedGroup_Type()
+)
+a8AssociatedGroup.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a8AssociatedGroup.setStatus("mandatory")
+
+
+class _A8EventSystem_Type(Integer32):
+    """Custom type a8EventSystem based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vOther", 1),
+          ("vUnknown", 2))
+    )
+
+
+_A8EventSystem_Type.__name__ = "Integer32"
+_A8EventSystem_Object = MibTableColumn
+a8EventSystem = _A8EventSystem_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 8, 1, 6),
+    _A8EventSystem_Type()
+)
+a8EventSystem.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a8EventSystem.setStatus("mandatory")
+
+
+class _A8EventSubsystem_Type(Integer32):
+    """Custom type a8EventSubsystem based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vOther", 1),
+          ("vUnknown", 2))
+    )
+
+
+_A8EventSubsystem_Type.__name__ = "Integer32"
+_A8EventSubsystem_Object = MibTableColumn
+a8EventSubsystem = _A8EventSubsystem_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 8, 1, 7),
+    _A8EventSubsystem_Type()
+)
+a8EventSubsystem.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a8EventSubsystem.setStatus("mandatory")
+_TBusPort_Object = MibTable
+tBusPort = _TBusPort_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 9)
+)
+if mibBuilder.loadTexts:
+    tBusPort.setStatus("mandatory")
+_EBusPort_Object = MibTableRow
+eBusPort = _EBusPort_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 9, 1)
+)
+eBusPort.setIndexNames(
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"),
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a9BusPortIndex"),
+)
+if mibBuilder.loadTexts:
+    eBusPort.setStatus("mandatory")
+_A9BusPortIndex_Type = DmiInteger
+_A9BusPortIndex_Object = MibTableColumn
+a9BusPortIndex = _A9BusPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 9, 1, 1),
+    _A9BusPortIndex_Type()
+)
+a9BusPortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a9BusPortIndex.setStatus("mandatory")
+
+
+class _A9Protocol_Type(Integer32):
+    """Custom type a9Protocol based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35)
+        )
+    )
+    namedValues = NamedValues(
+        *(("v1496", 8),
+          ("vAnsiX3t95Fddi", 34),
+          ("vAtaatapi", 6),
+          ("vDiagnostic", 19),
+          ("vEisa", 3),
+          ("vEscon", 18),
+          ("vFlexibleDiskette", 7),
+          ("vHippi", 22),
+          ("vI2c", 20),
+          ("vIeee-488", 26),
+          ("vIeee8023100basevg", 32),
+          ("vIeee802310base2", 29),
+          ("vIeee802310base5", 28),
+          ("vIeee802310broad36", 31),
+          ("vIeee80231base5", 30),
+          ("vIeee8025Token-ring", 33),
+          ("vIpi", 25),
+          ("vIsa", 4),
+          ("vMca", 35),
+          ("vMultibus", 23),
+          ("vOther", 1),
+          ("vParallelPort", 17),
+          ("vPci", 5),
+          ("vPcmcia", 15),
+          ("vPower", 21),
+          ("vRs232", 27),
+          ("vScsiFibreChannelProtocol", 10),
+          ("vScsiParallelInterface", 9),
+          ("vScsiSerialBusProtocol", 11),
+          ("vScsiSerialBusProtocol-21394", 12),
+          ("vScsiSerialStorageArchitecture", 13),
+          ("vUniversalSerialBus", 16),
+          ("vUnknown", 2),
+          ("vVesa", 14),
+          ("vVme", 24))
+    )
+
+
+_A9Protocol_Type.__name__ = "Integer32"
+_A9Protocol_Object = MibTableColumn
+a9Protocol = _A9Protocol_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 9, 1, 2),
+    _A9Protocol_Type()
+)
+a9Protocol.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a9Protocol.setStatus("mandatory")
+_A9ProtocolDescription_Type = DmiDisplaystring
+_A9ProtocolDescription_Object = MibTableColumn
+a9ProtocolDescription = _A9ProtocolDescription_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 9, 1, 3),
+    _A9ProtocolDescription_Type()
+)
+a9ProtocolDescription.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a9ProtocolDescription.setStatus("mandatory")
+
+
+class _A9SignalCharacteristics_Type(Integer32):
+    """Custom type a9SignalCharacteristics based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vDifferential", 4),
+          ("vLowVoltageDifferential", 5),
+          ("vOptical", 6),
+          ("vOther", 1),
+          ("vSingleEnded", 3),
+          ("vUnknown", 2))
+    )
+
+
+_A9SignalCharacteristics_Type.__name__ = "Integer32"
+_A9SignalCharacteristics_Object = MibTableColumn
+a9SignalCharacteristics = _A9SignalCharacteristics_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 9, 1, 4),
+    _A9SignalCharacteristics_Type()
+)
+a9SignalCharacteristics.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a9SignalCharacteristics.setStatus("mandatory")
+_A9AddressDescriptor_Type = DmiDisplaystring
+_A9AddressDescriptor_Object = MibTableColumn
+a9AddressDescriptor = _A9AddressDescriptor_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 9, 1, 5),
+    _A9AddressDescriptor_Type()
+)
+a9AddressDescriptor.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a9AddressDescriptor.setStatus("mandatory")
+
+
+class _A9Isochronous_Type(Integer32):
+    """Custom type a9Isochronous based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vFalse", 0),
+          ("vTrue", 1))
+    )
+
+
+_A9Isochronous_Type.__name__ = "Integer32"
+_A9Isochronous_Object = MibTableColumn
+a9Isochronous = _A9Isochronous_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 9, 1, 6),
+    _A9Isochronous_Type()
+)
+a9Isochronous.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a9Isochronous.setStatus("mandatory")
+_A9MaximumWidth_Type = DmiInteger
+_A9MaximumWidth_Object = MibTableColumn
+a9MaximumWidth = _A9MaximumWidth_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 9, 1, 7),
+    _A9MaximumWidth_Type()
+)
+a9MaximumWidth.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a9MaximumWidth.setStatus("mandatory")
+_A9MaximumTransferRate_Type = DmiInteger
+_A9MaximumTransferRate_Object = MibTableColumn
+a9MaximumTransferRate = _A9MaximumTransferRate_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 9, 1, 8),
+    _A9MaximumTransferRate_Type()
+)
+a9MaximumTransferRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a9MaximumTransferRate.setStatus("mandatory")
+_A9MaximumNumberOfAttachments_Type = DmiInteger
+_A9MaximumNumberOfAttachments_Object = MibTableColumn
+a9MaximumNumberOfAttachments = _A9MaximumNumberOfAttachments_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 9, 1, 9),
+    _A9MaximumNumberOfAttachments_Type()
+)
+a9MaximumNumberOfAttachments.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a9MaximumNumberOfAttachments.setStatus("mandatory")
+
+
+class _A9ConnectorType_Type(Integer32):
+    """Custom type a9ConnectorType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45)
+        )
+    )
+    namedValues = NamedValues(
+        *(("v13946Pins", 44),
+          ("vAppleAui", 33),
+          ("vAta2-12Inch44Pins", 18),
+          ("vAta3-12Inch40Pins", 17),
+          ("vAui", 24),
+          ("vBnc", 28),
+          ("vEisaSlot", 36),
+          ("vFiberMic", 32),
+          ("vFloppyDiskette3-12Inch", 41),
+          ("vFloppyDiskette5-14Inch", 40),
+          ("vGbicSocket", 43),
+          ("vHssdc6Pins", 42),
+          ("vIeee-488", 23),
+          ("vIsaSlot", 35),
+          ("vNone", 3),
+          ("vOther", 1),
+          ("vPcCardSlot", 39),
+          ("vPciSlot", 34),
+          ("vPcmciaSlot", 38),
+          ("vRs23225Pin", 21),
+          ("vRs422", 22),
+          ("vScsiAHigh-densityShielded50Pins", 4),
+          ("vScsiAHigh-densityUnshielded50Pins", 5),
+          ("vScsiALow-densityShielded50Pins", 6),
+          ("vScsiALow-densityUnshielded50Pins", 7),
+          ("vScsiFibreChannelBnc", 16),
+          ("vScsiFibreChannelDb9Copper", 12),
+          ("vScsiFibreChannelFibre", 13),
+          ("vScsiFibreChannelSca-ii20Pins", 15),
+          ("vScsiFibreChannelSca-ii40Pins", 14),
+          ("vScsiPHigh-densityShielded68Pins", 8),
+          ("vScsiPHigh-densityUnshielded68Pins", 9),
+          ("vScsiSca-i80Pins", 10),
+          ("vScsiSca-ii80Pins", 11),
+          ("vScsiVhdciShielded68Pins", 45),
+          ("vSerial25Pin", 20),
+          ("vSerial9Pin", 19),
+          ("vStpDb9", 31),
+          ("vStpRj11", 29),
+          ("vStpRj45", 30),
+          ("vUnknown", 2),
+          ("vUptCategory3", 25),
+          ("vUptCategory4", 26),
+          ("vUptCategory5", 27),
+          ("vVesaSlot", 37))
+    )
+
+
+_A9ConnectorType_Type.__name__ = "Integer32"
+_A9ConnectorType_Object = MibTableColumn
+a9ConnectorType = _A9ConnectorType_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 9, 1, 10),
+    _A9ConnectorType_Type()
+)
+a9ConnectorType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a9ConnectorType.setStatus("mandatory")
+_A9ConnectorTypeDescription_Type = DmiDisplaystring
+_A9ConnectorTypeDescription_Object = MibTableColumn
+a9ConnectorTypeDescription = _A9ConnectorTypeDescription_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 9, 1, 11),
+    _A9ConnectorTypeDescription_Type()
+)
+a9ConnectorTypeDescription.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a9ConnectorTypeDescription.setStatus("mandatory")
+
+
+class _A9ConnectorGender_Type(Integer32):
+    """Custom type a9ConnectorGender based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vFemale", 3),
+          ("vMale", 4),
+          ("vOther", 1),
+          ("vUnknown", 2))
+    )
+
+
+_A9ConnectorGender_Type.__name__ = "Integer32"
+_A9ConnectorGender_Object = MibTableColumn
+a9ConnectorGender = _A9ConnectorGender_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 9, 1, 12),
+    _A9ConnectorGender_Type()
+)
+a9ConnectorGender.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a9ConnectorGender.setStatus("mandatory")
+_TFibreChannelBusPortExtensions_Object = MibTable
+tFibreChannelBusPortExtensions = _TFibreChannelBusPortExtensions_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 10)
+)
+if mibBuilder.loadTexts:
+    tFibreChannelBusPortExtensions.setStatus("mandatory")
+_EFibreChannelBusPortExtensions_Object = MibTableRow
+eFibreChannelBusPortExtensions = _EFibreChannelBusPortExtensions_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 10, 1)
+)
+eFibreChannelBusPortExtensions.setIndexNames(
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"),
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a10BusPortIndex"),
+)
+if mibBuilder.loadTexts:
+    eFibreChannelBusPortExtensions.setStatus("mandatory")
+_A10BusPortIndex_Type = DmiInteger
+_A10BusPortIndex_Object = MibTableColumn
+a10BusPortIndex = _A10BusPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 10, 1, 1),
+    _A10BusPortIndex_Type()
+)
+a10BusPortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a10BusPortIndex.setStatus("mandatory")
+_A10EndToEndCredit_Type = DmiInteger
+_A10EndToEndCredit_Object = MibTableColumn
+a10EndToEndCredit = _A10EndToEndCredit_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 10, 1, 2),
+    _A10EndToEndCredit_Type()
+)
+a10EndToEndCredit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a10EndToEndCredit.setStatus("mandatory")
+_A10BufferToBufferCredit_Type = DmiInteger
+_A10BufferToBufferCredit_Object = MibTableColumn
+a10BufferToBufferCredit = _A10BufferToBufferCredit_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 10, 1, 3),
+    _A10BufferToBufferCredit_Type()
+)
+a10BufferToBufferCredit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a10BufferToBufferCredit.setStatus("mandatory")
+
+
+class _A10LinkType_Type(Integer32):
+    """Custom type a10LinkType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vCopper", 3),
+          ("vFibre-Multimode50-Laser", 6),
+          ("vFibre-Multimode50-Led", 7),
+          ("vFibre-Multimode625-Laser", 8),
+          ("vFibre-Multimode625-Led", 9),
+          ("vFibre-SingleMode1300Nanometers", 4),
+          ("vFibre-SingleMode1500Nanometers", 5),
+          ("vFibreLongWave", 10),
+          ("vFibreShortWave", 11),
+          ("vOther", 1),
+          ("vUnknown", 2))
+    )
+
+
+_A10LinkType_Type.__name__ = "Integer32"
+_A10LinkType_Object = MibTableColumn
+a10LinkType = _A10LinkType_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 10, 1, 4),
+    _A10LinkType_Type()
+)
+a10LinkType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a10LinkType.setStatus("mandatory")
+
+
+class _A10FlowControlClassType_Type(Integer32):
+    """Custom type a10FlowControlClassType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vClass-1", 3),
+          ("vClass-1class-2", 6),
+          ("vClass-2", 4),
+          ("vClass-3", 5),
+          ("vOther", 1),
+          ("vUnknown", 2))
+    )
+
+
+_A10FlowControlClassType_Type.__name__ = "Integer32"
+_A10FlowControlClassType_Object = MibTableColumn
+a10FlowControlClassType = _A10FlowControlClassType_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 10, 1, 5),
+    _A10FlowControlClassType_Type()
+)
+a10FlowControlClassType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a10FlowControlClassType.setStatus("mandatory")
+
+
+class _A10FlowControlAcknowledgmentType_Type(Integer32):
+    """Custom type a10FlowControlAcknowledgmentType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vAck-0", 3),
+          ("vAck-1", 4),
+          ("vAck-n", 5),
+          ("vOther", 1),
+          ("vUnknown", 2))
+    )
+
+
+_A10FlowControlAcknowledgmentType_Type.__name__ = "Integer32"
+_A10FlowControlAcknowledgmentType_Object = MibTableColumn
+a10FlowControlAcknowledgmentType = _A10FlowControlAcknowledgmentType_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 10, 1, 6),
+    _A10FlowControlAcknowledgmentType_Type()
+)
+a10FlowControlAcknowledgmentType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a10FlowControlAcknowledgmentType.setStatus("mandatory")
+
+
+class _A10FabricTopology_Type(Integer32):
+    """Custom type a10FabricTopology based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vFalse", 0),
+          ("vTrue", 1),
+          ("vUnknown", 2))
+    )
+
+
+_A10FabricTopology_Type.__name__ = "Integer32"
+_A10FabricTopology_Object = MibTableColumn
+a10FabricTopology = _A10FabricTopology_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 10, 1, 7),
+    _A10FabricTopology_Type()
+)
+a10FabricTopology.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a10FabricTopology.setStatus("mandatory")
+_TMassStorageAssociation_Object = MibTable
+tMassStorageAssociation = _TMassStorageAssociation_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 11)
+)
+if mibBuilder.loadTexts:
+    tMassStorageAssociation.setStatus("mandatory")
+_EMassStorageAssociation_Object = MibTableRow
+eMassStorageAssociation = _EMassStorageAssociation_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 11, 1)
+)
+eMassStorageAssociation.setIndexNames(
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"),
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a11AssociationIndex"),
+)
+if mibBuilder.loadTexts:
+    eMassStorageAssociation.setStatus("mandatory")
+_A11AssociationIndex_Type = DmiInteger
+_A11AssociationIndex_Object = MibTableColumn
+a11AssociationIndex = _A11AssociationIndex_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 11, 1, 1),
+    _A11AssociationIndex_Type()
+)
+a11AssociationIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a11AssociationIndex.setStatus("mandatory")
+_A11Type_Type = DmiDisplaystring
+_A11Type_Object = MibTableColumn
+a11Type = _A11Type_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 11, 1, 2),
+    _A11Type_Type()
+)
+a11Type.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a11Type.setStatus("mandatory")
+_A11Reference1_Type = DmiDisplaystring
+_A11Reference1_Object = MibTableColumn
+a11Reference1 = _A11Reference1_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 11, 1, 3),
+    _A11Reference1_Type()
+)
+a11Reference1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a11Reference1.setStatus("mandatory")
+_A11Reference2_Type = DmiDisplaystring
+_A11Reference2_Object = MibTableColumn
+a11Reference2 = _A11Reference2_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 11, 1, 4),
+    _A11Reference2_Type()
+)
+a11Reference2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a11Reference2.setStatus("mandatory")
+_TMassStorageAssociationEvents_Object = MibTable
+tMassStorageAssociationEvents = _TMassStorageAssociationEvents_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 12)
+)
+if mibBuilder.loadTexts:
+    tMassStorageAssociationEvents.setStatus("mandatory")
+_EMassStorageAssociationEvents_Object = MibTableRow
+eMassStorageAssociationEvents = _EMassStorageAssociationEvents_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 12, 1)
+)
+eMassStorageAssociationEvents.setIndexNames(
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"),
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a12AssociatedGroup"),
+)
+if mibBuilder.loadTexts:
+    eMassStorageAssociationEvents.setStatus("mandatory")
+
+
+class _A12MassStorageAssociationEventType_Type(Integer32):
+    """Custom type a12MassStorageAssociationEventType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vExistingObjectGone", 3),
+          ("vExistingObjectReplaced", 2),
+          ("vNewObjectDetected", 1))
+    )
+
+
+_A12MassStorageAssociationEventType_Type.__name__ = "Integer32"
+_A12MassStorageAssociationEventType_Object = MibTableColumn
+a12MassStorageAssociationEventType = _A12MassStorageAssociationEventType_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 12, 1, 1),
+    _A12MassStorageAssociationEventType_Type()
+)
+a12MassStorageAssociationEventType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a12MassStorageAssociationEventType.setStatus("mandatory")
+
+
+class _A12EventSeverity_Type(Integer32):
+    """Custom type a12EventSeverity based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              4,
+              8,
+              16,
+              32)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vCritical", 16),
+          ("vInformation", 2),
+          ("vMonitor", 1),
+          ("vNon-critical", 8),
+          ("vNon-recoverable", 32),
+          ("vOk", 4))
+    )
+
+
+_A12EventSeverity_Type.__name__ = "Integer32"
+_A12EventSeverity_Object = MibTableColumn
+a12EventSeverity = _A12EventSeverity_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 12, 1, 2),
+    _A12EventSeverity_Type()
+)
+a12EventSeverity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a12EventSeverity.setStatus("mandatory")
+
+
+class _A12EventIsStateBased_Type(Integer32):
+    """Custom type a12EventIsStateBased based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vFalse", 0),
+          ("vTrue", 1))
+    )
+
+
+_A12EventIsStateBased_Type.__name__ = "Integer32"
+_A12EventIsStateBased_Object = MibTableColumn
+a12EventIsStateBased = _A12EventIsStateBased_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 12, 1, 3),
+    _A12EventIsStateBased_Type()
+)
+a12EventIsStateBased.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a12EventIsStateBased.setStatus("mandatory")
+_A12EventStateKey_Type = DmiInteger
+_A12EventStateKey_Object = MibTableColumn
+a12EventStateKey = _A12EventStateKey_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 12, 1, 4),
+    _A12EventStateKey_Type()
+)
+a12EventStateKey.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a12EventStateKey.setStatus("mandatory")
+_A12AssociatedGroup_Type = DmiDisplaystring
+_A12AssociatedGroup_Object = MibTableColumn
+a12AssociatedGroup = _A12AssociatedGroup_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 12, 1, 5),
+    _A12AssociatedGroup_Type()
+)
+a12AssociatedGroup.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a12AssociatedGroup.setStatus("mandatory")
+
+
+class _A12EventSystem_Type(Integer32):
+    """Custom type a12EventSystem based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vAggregatePhysicalExtent", 9),
+          ("vAggregateProtectedSpaceExtent", 7),
+          ("vBusPort", 4),
+          ("vCache", 11),
+          ("vOther", 0),
+          ("vPhysicalExtent", 8),
+          ("vProtectedSpaceExtent", 6),
+          ("vRedundancyGroup", 10),
+          ("vSoftwareSubcomponent", 12),
+          ("vStorageController", 2),
+          ("vStorageDevice", 3),
+          ("vUnknown", 1),
+          ("vVolumeSet", 5))
+    )
+
+
+_A12EventSystem_Type.__name__ = "Integer32"
+_A12EventSystem_Object = MibTableColumn
+a12EventSystem = _A12EventSystem_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 12, 1, 6),
+    _A12EventSystem_Type()
+)
+a12EventSystem.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a12EventSystem.setStatus("mandatory")
+
+
+class _A12EventSubsystem_Type(Integer32):
+    """Custom type a12EventSubsystem based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vOther", 1),
+          ("vUnknown", 2))
+    )
+
+
+_A12EventSubsystem_Type.__name__ = "Integer32"
+_A12EventSubsystem_Object = MibTableColumn
+a12EventSubsystem = _A12EventSubsystem_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 12, 1, 7),
+    _A12EventSubsystem_Type()
+)
+a12EventSubsystem.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a12EventSubsystem.setStatus("mandatory")
+_TBusPortAssociation_Object = MibTable
+tBusPortAssociation = _TBusPortAssociation_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 13)
+)
+if mibBuilder.loadTexts:
+    tBusPortAssociation.setStatus("mandatory")
+_EBusPortAssociation_Object = MibTableRow
+eBusPortAssociation = _EBusPortAssociation_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 13, 1)
+)
+eBusPortAssociation.setIndexNames(
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"),
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a13BusPortAssociationIndex"),
+)
+if mibBuilder.loadTexts:
+    eBusPortAssociation.setStatus("mandatory")
+_A13BusPortAssociationIndex_Type = DmiInteger
+_A13BusPortAssociationIndex_Object = MibTableColumn
+a13BusPortAssociationIndex = _A13BusPortAssociationIndex_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 13, 1, 1),
+    _A13BusPortAssociationIndex_Type()
+)
+a13BusPortAssociationIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a13BusPortAssociationIndex.setStatus("mandatory")
+_A13NegotiatedSpeed_Type = DmiInteger
+_A13NegotiatedSpeed_Object = MibTableColumn
+a13NegotiatedSpeed = _A13NegotiatedSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 13, 1, 2),
+    _A13NegotiatedSpeed_Type()
+)
+a13NegotiatedSpeed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a13NegotiatedSpeed.setStatus("mandatory")
+_A13NegotiatedWidth_Type = DmiInteger
+_A13NegotiatedWidth_Object = MibTableColumn
+a13NegotiatedWidth = _A13NegotiatedWidth_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 13, 1, 3),
+    _A13NegotiatedWidth_Type()
+)
+a13NegotiatedWidth.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a13NegotiatedWidth.setStatus("mandatory")
+_TOperationalState_Object = MibTable
+tOperationalState = _TOperationalState_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 14)
+)
+if mibBuilder.loadTexts:
+    tOperationalState.setStatus("mandatory")
+_EOperationalState_Object = MibTableRow
+eOperationalState = _EOperationalState_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 14, 1)
+)
+eOperationalState.setIndexNames(
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"),
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a14OperationalStateInstanceIndex"),
+)
+if mibBuilder.loadTexts:
+    eOperationalState.setStatus("mandatory")
+_A14OperationalStateInstanceIndex_Type = DmiInteger
+_A14OperationalStateInstanceIndex_Object = MibTableColumn
+a14OperationalStateInstanceIndex = _A14OperationalStateInstanceIndex_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 14, 1, 1),
+    _A14OperationalStateInstanceIndex_Type()
+)
+a14OperationalStateInstanceIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a14OperationalStateInstanceIndex.setStatus("mandatory")
+_A14DeviceGroupIndex_Type = DmiInteger
+_A14DeviceGroupIndex_Object = MibTableColumn
+a14DeviceGroupIndex = _A14DeviceGroupIndex_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 14, 1, 2),
+    _A14DeviceGroupIndex_Type()
+)
+a14DeviceGroupIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a14DeviceGroupIndex.setStatus("mandatory")
+
+
+class _A14OperationalStatus_Type(Integer32):
+    """Custom type a14OperationalStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vDisabled", 4),
+          ("vEnabled", 3),
+          ("vNotApplicable", 5),
+          ("vOther", 1),
+          ("vUnknown", 2))
+    )
+
+
+_A14OperationalStatus_Type.__name__ = "Integer32"
+_A14OperationalStatus_Object = MibTableColumn
+a14OperationalStatus = _A14OperationalStatus_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 14, 1, 3),
+    _A14OperationalStatus_Type()
+)
+a14OperationalStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a14OperationalStatus.setStatus("mandatory")
+
+
+class _A14UsageState_Type(Integer32):
+    """Custom type a14UsageState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vActive", 4),
+          ("vBusy", 5),
+          ("vIdle", 3),
+          ("vNotApplicable", 6),
+          ("vOther", 1),
+          ("vUnknown", 2))
+    )
+
+
+_A14UsageState_Type.__name__ = "Integer32"
+_A14UsageState_Object = MibTableColumn
+a14UsageState = _A14UsageState_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 14, 1, 4),
+    _A14UsageState_Type()
+)
+a14UsageState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a14UsageState.setStatus("mandatory")
+
+
+class _A14AvailabilityStatus_Type(Integer32):
+    """Custom type a14AvailabilityStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vDegraded", 10),
+          ("vInTest", 5),
+          ("vInstallError", 12),
+          ("vNotApplicable", 6),
+          ("vNotInstalled", 11),
+          ("vOffDuty", 9),
+          ("vOffLine", 8),
+          ("vOther", 1),
+          ("vPowerOff", 7),
+          ("vPowerSave", 13),
+          ("vRunning", 3),
+          ("vUnknown", 2),
+          ("vWarning", 4))
+    )
+
+
+_A14AvailabilityStatus_Type.__name__ = "Integer32"
+_A14AvailabilityStatus_Object = MibTableColumn
+a14AvailabilityStatus = _A14AvailabilityStatus_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 14, 1, 5),
+    _A14AvailabilityStatus_Type()
+)
+a14AvailabilityStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a14AvailabilityStatus.setStatus("mandatory")
+
+
+class _A14AdministrativeState_Type(Integer32):
+    """Custom type a14AdministrativeState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vLocked", 3),
+          ("vNotApplicable", 5),
+          ("vOther", 1),
+          ("vShuttingDown", 6),
+          ("vUnknown", 2),
+          ("vUnlocked", 4))
+    )
+
+
+_A14AdministrativeState_Type.__name__ = "Integer32"
+_A14AdministrativeState_Object = MibTableColumn
+a14AdministrativeState = _A14AdministrativeState_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 14, 1, 6),
+    _A14AdministrativeState_Type()
+)
+a14AdministrativeState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a14AdministrativeState.setStatus("mandatory")
+_A14FatalErrorCount_Type = DmiCounter
+_A14FatalErrorCount_Object = MibTableColumn
+a14FatalErrorCount = _A14FatalErrorCount_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 14, 1, 7),
+    _A14FatalErrorCount_Type()
+)
+a14FatalErrorCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a14FatalErrorCount.setStatus("mandatory")
+_A14MajorErrorCount_Type = DmiCounter
+_A14MajorErrorCount_Object = MibTableColumn
+a14MajorErrorCount = _A14MajorErrorCount_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 14, 1, 8),
+    _A14MajorErrorCount_Type()
+)
+a14MajorErrorCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a14MajorErrorCount.setStatus("mandatory")
+_A14WarningErrorCount_Type = DmiCounter
+_A14WarningErrorCount_Object = MibTableColumn
+a14WarningErrorCount = _A14WarningErrorCount_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 14, 1, 9),
+    _A14WarningErrorCount_Type()
+)
+a14WarningErrorCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a14WarningErrorCount.setStatus("mandatory")
+
+
+class _A14CurrentErrorStatus_Type(Integer32):
+    """Custom type a14CurrentErrorStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vCritical", 5),
+          ("vNon-critical1", 4),
+          ("vNon-recoverable1", 6),
+          ("vOk", 3),
+          ("vOther", 1),
+          ("vUnknown", 2))
+    )
+
+
+_A14CurrentErrorStatus_Type.__name__ = "Integer32"
+_A14CurrentErrorStatus_Object = MibTableColumn
+a14CurrentErrorStatus = _A14CurrentErrorStatus_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 14, 1, 10),
+    _A14CurrentErrorStatus_Type()
+)
+a14CurrentErrorStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a14CurrentErrorStatus.setStatus("mandatory")
+
+
+class _A14DevicePredictedFailureStatus_Type(Integer32):
+    """Custom type a14DevicePredictedFailureStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vDeviceFailurePredictedByTheDevice", 5),
+          ("vMediaFailurePredictedByTheDevice", 6),
+          ("vNoFailurePredictedByTheDevice", 4),
+          ("vNotSupportedByThisDevice", 3),
+          ("vOther", 1),
+          ("vUnknown", 2))
+    )
+
+
+_A14DevicePredictedFailureStatus_Type.__name__ = "Integer32"
+_A14DevicePredictedFailureStatus_Object = MibTableColumn
+a14DevicePredictedFailureStatus = _A14DevicePredictedFailureStatus_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 14, 1, 11),
+    _A14DevicePredictedFailureStatus_Type()
+)
+a14DevicePredictedFailureStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a14DevicePredictedFailureStatus.setStatus("mandatory")
+_TSymbiosEventPolling_Object = MibTable
+tSymbiosEventPolling = _TSymbiosEventPolling_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 15)
+)
+if mibBuilder.loadTexts:
+    tSymbiosEventPolling.setStatus("mandatory")
+_ESymbiosEventPolling_Object = MibTableRow
+eSymbiosEventPolling = _ESymbiosEventPolling_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 15, 1)
+)
+eSymbiosEventPolling.setIndexNames(
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"),
+)
+if mibBuilder.loadTexts:
+    eSymbiosEventPolling.setStatus("mandatory")
+_A15SymbiosFlag_Type = DmiInteger
+_A15SymbiosFlag_Object = MibTableColumn
+a15SymbiosFlag = _A15SymbiosFlag_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 15, 1, 1),
+    _A15SymbiosFlag_Type()
+)
+a15SymbiosFlag.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    a15SymbiosFlag.setStatus("mandatory")
+
+
+class _A15SmartEventPolling_Type(Integer32):
+    """Custom type a15SmartEventPolling based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vDisabled", 0),
+          ("vEnabled", 1),
+          ("vNotApplicable", 3),
+          ("vUnknown", 2))
+    )
+
+
+_A15SmartEventPolling_Type.__name__ = "Integer32"
+_A15SmartEventPolling_Object = MibTableColumn
+a15SmartEventPolling = _A15SmartEventPolling_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 15, 1, 2),
+    _A15SmartEventPolling_Type()
+)
+a15SmartEventPolling.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    a15SmartEventPolling.setStatus("mandatory")
+
+
+class _A15ScanEventPolling_Type(Integer32):
+    """Custom type a15ScanEventPolling based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vDisabled", 0),
+          ("vEnabled", 1),
+          ("vNotApplicable", 3),
+          ("vUnknown", 2))
+    )
+
+
+_A15ScanEventPolling_Type.__name__ = "Integer32"
+_A15ScanEventPolling_Object = MibTableColumn
+a15ScanEventPolling = _A15ScanEventPolling_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 15, 1, 3),
+    _A15ScanEventPolling_Type()
+)
+a15ScanEventPolling.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    a15ScanEventPolling.setStatus("mandatory")
+
+
+class _A15Saf_teEventPolling_Type(Integer32):
+    """Custom type a15Saf_teEventPolling based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vDisabled", 0),
+          ("vEnabled", 1),
+          ("vNotApplicable", 3),
+          ("vUnknown", 2))
+    )
+
+
+_A15Saf_teEventPolling_Type.__name__ = "Integer32"
+_A15Saf_teEventPolling_Object = MibScalar
+a15Saf_teEventPolling = _A15Saf_teEventPolling_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 15, 1, 4),
+    _A15Saf_teEventPolling_Type()
+)
+a15Saf_teEventPolling.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    a15Saf_teEventPolling.setStatus("mandatory")
+_A15EventPollingPeriod_Type = DmiInteger
+_A15EventPollingPeriod_Object = MibTableColumn
+a15EventPollingPeriod = _A15EventPollingPeriod_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 15, 1, 5),
+    _A15EventPollingPeriod_Type()
+)
+a15EventPollingPeriod.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    a15EventPollingPeriod.setStatus("mandatory")
+_TSymbiosSmartDevice_Object = MibTable
+tSymbiosSmartDevice = _TSymbiosSmartDevice_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 16)
+)
+if mibBuilder.loadTexts:
+    tSymbiosSmartDevice.setStatus("mandatory")
+_ESymbiosSmartDevice_Object = MibTableRow
+eSymbiosSmartDevice = _ESymbiosSmartDevice_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 16, 1)
+)
+eSymbiosSmartDevice.setIndexNames(
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"),
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a16SymSmartDeviceIndex"),
+)
+if mibBuilder.loadTexts:
+    eSymbiosSmartDevice.setStatus("mandatory")
+_A16SymSmartDeviceIndex_Type = DmiInteger
+_A16SymSmartDeviceIndex_Object = MibTableColumn
+a16SymSmartDeviceIndex = _A16SymSmartDeviceIndex_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 16, 1, 1),
+    _A16SymSmartDeviceIndex_Type()
+)
+a16SymSmartDeviceIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a16SymSmartDeviceIndex.setStatus("mandatory")
+
+
+class _A16SmartReportingCapability_Type(Integer32):
+    """Custom type a16SmartReportingCapability based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vDisabled", 0),
+          ("vEnabled", 1),
+          ("vNotSupported", 3),
+          ("vUnknown", 2))
+    )
+
+
+_A16SmartReportingCapability_Type.__name__ = "Integer32"
+_A16SmartReportingCapability_Object = MibTableColumn
+a16SmartReportingCapability = _A16SmartReportingCapability_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 16, 1, 2),
+    _A16SmartReportingCapability_Type()
+)
+a16SmartReportingCapability.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    a16SmartReportingCapability.setStatus("mandatory")
+_TSaf_teProcessor_Object = MibTable
+tSaf_teProcessor = _TSaf_teProcessor_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 17)
+)
+if mibBuilder.loadTexts:
+    tSaf_teProcessor.setStatus("mandatory")
+_ESaf_teProcessor_Object = MibTableRow
+eSaf_teProcessor = _ESaf_teProcessor_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 17, 1)
+)
+eSaf_teProcessor.setIndexNames(
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"),
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a17Saf-teProcessorIndex"),
+)
+if mibBuilder.loadTexts:
+    eSaf_teProcessor.setStatus("mandatory")
+_A17Saf_teProcessorIndex_Type = DmiInteger
+_A17Saf_teProcessorIndex_Object = MibScalar
+a17Saf_teProcessorIndex = _A17Saf_teProcessorIndex_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 17, 1, 1),
+    _A17Saf_teProcessorIndex_Type()
+)
+a17Saf_teProcessorIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a17Saf_teProcessorIndex.setStatus("mandatory")
+_A17StorageControllerIndex_Type = DmiInteger
+_A17StorageControllerIndex_Object = MibTableColumn
+a17StorageControllerIndex = _A17StorageControllerIndex_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 17, 1, 2),
+    _A17StorageControllerIndex_Type()
+)
+a17StorageControllerIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a17StorageControllerIndex.setStatus("mandatory")
+_A17ScsiId_Type = DmiInteger64X
+_A17ScsiId_Object = MibTableColumn
+a17ScsiId = _A17ScsiId_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 17, 1, 3),
+    _A17ScsiId_Type()
+)
+a17ScsiId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a17ScsiId.setStatus("mandatory")
+_A17ScsiLun_Type = DmiInteger64X
+_A17ScsiLun_Object = MibTableColumn
+a17ScsiLun = _A17ScsiLun_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 17, 1, 4),
+    _A17ScsiLun_Type()
+)
+a17ScsiLun.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a17ScsiLun.setStatus("mandatory")
+_A17VendorId_Type = DmiDisplaystring
+_A17VendorId_Object = MibTableColumn
+a17VendorId = _A17VendorId_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 17, 1, 5),
+    _A17VendorId_Type()
+)
+a17VendorId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a17VendorId.setStatus("mandatory")
+_A17ProductId_Type = DmiDisplaystring
+_A17ProductId_Object = MibTableColumn
+a17ProductId = _A17ProductId_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 17, 1, 6),
+    _A17ProductId_Type()
+)
+a17ProductId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a17ProductId.setStatus("mandatory")
+_A17FirmwareRevisionLevel_Type = DmiDisplaystring
+_A17FirmwareRevisionLevel_Object = MibTableColumn
+a17FirmwareRevisionLevel = _A17FirmwareRevisionLevel_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 17, 1, 7),
+    _A17FirmwareRevisionLevel_Type()
+)
+a17FirmwareRevisionLevel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a17FirmwareRevisionLevel.setStatus("mandatory")
+_A17EnclosureUniqueIdentifier_Type = DmiDisplaystring
+_A17EnclosureUniqueIdentifier_Object = MibTableColumn
+a17EnclosureUniqueIdentifier = _A17EnclosureUniqueIdentifier_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 17, 1, 8),
+    _A17EnclosureUniqueIdentifier_Type()
+)
+a17EnclosureUniqueIdentifier.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a17EnclosureUniqueIdentifier.setStatus("mandatory")
+_A17Saf_teSpecificationRevisionLevel_Type = DmiDisplaystring
+_A17Saf_teSpecificationRevisionLevel_Object = MibScalar
+a17Saf_teSpecificationRevisionLevel = _A17Saf_teSpecificationRevisionLevel_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 17, 1, 9),
+    _A17Saf_teSpecificationRevisionLevel_Type()
+)
+a17Saf_teSpecificationRevisionLevel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a17Saf_teSpecificationRevisionLevel.setStatus("mandatory")
+
+
+class _A17HasLocks_Type(Integer32):
+    """Custom type a17HasLocks based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vFalse", 0),
+          ("vTrue", 1),
+          ("vUnknown", 2))
+    )
+
+
+_A17HasLocks_Type.__name__ = "Integer32"
+_A17HasLocks_Object = MibTableColumn
+a17HasLocks = _A17HasLocks_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 17, 1, 10),
+    _A17HasLocks_Type()
+)
+a17HasLocks.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a17HasLocks.setStatus("mandatory")
+
+
+class _A17HasSpeakers_Type(Integer32):
+    """Custom type a17HasSpeakers based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vFalse", 0),
+          ("vTrue", 1),
+          ("vUnknown", 2))
+    )
+
+
+_A17HasSpeakers_Type.__name__ = "Integer32"
+_A17HasSpeakers_Object = MibTableColumn
+a17HasSpeakers = _A17HasSpeakers_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 17, 1, 11),
+    _A17HasSpeakers_Type()
+)
+a17HasSpeakers.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a17HasSpeakers.setStatus("mandatory")
+
+
+class _A17DoorLocked_Type(Integer32):
+    """Custom type a17DoorLocked based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vFalse", 0),
+          ("vTrue", 1),
+          ("vUnknown", 2))
+    )
+
+
+_A17DoorLocked_Type.__name__ = "Integer32"
+_A17DoorLocked_Object = MibTableColumn
+a17DoorLocked = _A17DoorLocked_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 17, 1, 12),
+    _A17DoorLocked_Type()
+)
+a17DoorLocked.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a17DoorLocked.setStatus("mandatory")
+
+
+class _A17SpeakerStatus_Type(Integer32):
+    """Custom type a17SpeakerStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vFalse", 0),
+          ("vTrue", 1),
+          ("vUnknown", 2))
+    )
+
+
+_A17SpeakerStatus_Type.__name__ = "Integer32"
+_A17SpeakerStatus_Object = MibTableColumn
+a17SpeakerStatus = _A17SpeakerStatus_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 17, 1, 13),
+    _A17SpeakerStatus_Type()
+)
+a17SpeakerStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a17SpeakerStatus.setStatus("mandatory")
+_A17PowerOnMinutes_Type = DmiInteger
+_A17PowerOnMinutes_Object = MibTableColumn
+a17PowerOnMinutes = _A17PowerOnMinutes_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 17, 1, 14),
+    _A17PowerOnMinutes_Type()
+)
+a17PowerOnMinutes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a17PowerOnMinutes.setStatus("mandatory")
+_A17PowerOnCycles_Type = DmiInteger
+_A17PowerOnCycles_Object = MibTableColumn
+a17PowerOnCycles = _A17PowerOnCycles_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 17, 1, 15),
+    _A17PowerOnCycles_Type()
+)
+a17PowerOnCycles.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a17PowerOnCycles.setStatus("mandatory")
+
+
+class _A17TemperatureOutOfRange_Type(Integer32):
+    """Custom type a17TemperatureOutOfRange based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vFalse", 0),
+          ("vTrue", 1),
+          ("vUnknown", 2))
+    )
+
+
+_A17TemperatureOutOfRange_Type.__name__ = "Integer32"
+_A17TemperatureOutOfRange_Object = MibTableColumn
+a17TemperatureOutOfRange = _A17TemperatureOutOfRange_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 17, 1, 16),
+    _A17TemperatureOutOfRange_Type()
+)
+a17TemperatureOutOfRange.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a17TemperatureOutOfRange.setStatus("mandatory")
+_TSaf_teControlledFan_Object = MibTable
+tSaf_teControlledFan = _TSaf_teControlledFan_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 18)
+)
+if mibBuilder.loadTexts:
+    tSaf_teControlledFan.setStatus("mandatory")
+_ESaf_teControlledFan_Object = MibTableRow
+eSaf_teControlledFan = _ESaf_teControlledFan_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 18, 1)
+)
+eSaf_teControlledFan.setIndexNames(
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"),
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a18Saf-teControlledFanIndex"),
+)
+if mibBuilder.loadTexts:
+    eSaf_teControlledFan.setStatus("mandatory")
+_A18Saf_teControlledFanIndex_Type = DmiInteger
+_A18Saf_teControlledFanIndex_Object = MibScalar
+a18Saf_teControlledFanIndex = _A18Saf_teControlledFanIndex_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 18, 1, 1),
+    _A18Saf_teControlledFanIndex_Type()
+)
+a18Saf_teControlledFanIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a18Saf_teControlledFanIndex.setStatus("mandatory")
+_A18Saf_teProcessorIndex_Type = DmiInteger
+_A18Saf_teProcessorIndex_Object = MibScalar
+a18Saf_teProcessorIndex = _A18Saf_teProcessorIndex_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 18, 1, 2),
+    _A18Saf_teProcessorIndex_Type()
+)
+a18Saf_teProcessorIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a18Saf_teProcessorIndex.setStatus("mandatory")
+
+
+class _A18Status_Type(Integer32):
+    """Custom type a18Status based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              128)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vFanIsMalfunctioning", 1),
+          ("vFanIsNotInstalled", 2),
+          ("vFanIsOperational", 0),
+          ("vUnknownStatus", 128))
+    )
+
+
+_A18Status_Type.__name__ = "Integer32"
+_A18Status_Object = MibTableColumn
+a18Status = _A18Status_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 18, 1, 3),
+    _A18Status_Type()
+)
+a18Status.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a18Status.setStatus("mandatory")
+_TSaf_teControlledPowerSupply_Object = MibTable
+tSaf_teControlledPowerSupply = _TSaf_teControlledPowerSupply_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 19)
+)
+if mibBuilder.loadTexts:
+    tSaf_teControlledPowerSupply.setStatus("mandatory")
+_ESaf_teControlledPowerSupply_Object = MibTableRow
+eSaf_teControlledPowerSupply = _ESaf_teControlledPowerSupply_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 19, 1)
+)
+eSaf_teControlledPowerSupply.setIndexNames(
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"),
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a19Saf-teControlledPowerSupplyIndex"),
+)
+if mibBuilder.loadTexts:
+    eSaf_teControlledPowerSupply.setStatus("mandatory")
+_A19Saf_teControlledPowerSupplyIndex_Type = DmiInteger
+_A19Saf_teControlledPowerSupplyIndex_Object = MibScalar
+a19Saf_teControlledPowerSupplyIndex = _A19Saf_teControlledPowerSupplyIndex_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 19, 1, 1),
+    _A19Saf_teControlledPowerSupplyIndex_Type()
+)
+a19Saf_teControlledPowerSupplyIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a19Saf_teControlledPowerSupplyIndex.setStatus("mandatory")
+_A19Saf_teProcessorIndex_Type = DmiInteger
+_A19Saf_teProcessorIndex_Object = MibScalar
+a19Saf_teProcessorIndex = _A19Saf_teProcessorIndex_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 19, 1, 2),
+    _A19Saf_teProcessorIndex_Type()
+)
+a19Saf_teProcessorIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a19Saf_teProcessorIndex.setStatus("mandatory")
+
+
+class _A19Status_Type(Integer32):
+    """Custom type a19Status based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              16,
+              17,
+              32,
+              33,
+              128)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vPowerSupplyIsMalfunctioningAndCommande1", 17),
+          ("vPowerSupplyIsMalfunctioningAndCommanded", 16),
+          ("vPowerSupplyIsNotPresent", 32),
+          ("vPowerSupplyIsOperationalAndOff", 1),
+          ("vPowerSupplyIsOperationalAndOn", 0),
+          ("vPowerSupplyIsPresent", 33),
+          ("vUnknownStatus", 128))
+    )
+
+
+_A19Status_Type.__name__ = "Integer32"
+_A19Status_Object = MibTableColumn
+a19Status = _A19Status_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 19, 1, 3),
+    _A19Status_Type()
+)
+a19Status.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a19Status.setStatus("mandatory")
+_TSaf_teControlledSlot_Object = MibTable
+tSaf_teControlledSlot = _TSaf_teControlledSlot_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 20)
+)
+if mibBuilder.loadTexts:
+    tSaf_teControlledSlot.setStatus("mandatory")
+_ESaf_teControlledSlot_Object = MibTableRow
+eSaf_teControlledSlot = _ESaf_teControlledSlot_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 20, 1)
+)
+eSaf_teControlledSlot.setIndexNames(
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"),
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a20Saf-teControlledSlotIndex"),
+)
+if mibBuilder.loadTexts:
+    eSaf_teControlledSlot.setStatus("mandatory")
+_A20Saf_teControlledSlotIndex_Type = DmiInteger
+_A20Saf_teControlledSlotIndex_Object = MibScalar
+a20Saf_teControlledSlotIndex = _A20Saf_teControlledSlotIndex_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 20, 1, 1),
+    _A20Saf_teControlledSlotIndex_Type()
+)
+a20Saf_teControlledSlotIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a20Saf_teControlledSlotIndex.setStatus("mandatory")
+_A20Saf_teProcessorIndex_Type = DmiInteger
+_A20Saf_teProcessorIndex_Object = MibScalar
+a20Saf_teProcessorIndex = _A20Saf_teProcessorIndex_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 20, 1, 2),
+    _A20Saf_teProcessorIndex_Type()
+)
+a20Saf_teProcessorIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a20Saf_teProcessorIndex.setStatus("mandatory")
+_A20ScsiId_Type = DmiInteger64X
+_A20ScsiId_Object = MibTableColumn
+a20ScsiId = _A20ScsiId_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 20, 1, 3),
+    _A20ScsiId_Type()
+)
+a20ScsiId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a20ScsiId.setStatus("mandatory")
+_A20NumberOfInsertions_Type = DmiInteger
+_A20NumberOfInsertions_Object = MibTableColumn
+a20NumberOfInsertions = _A20NumberOfInsertions_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 20, 1, 4),
+    _A20NumberOfInsertions_Type()
+)
+a20NumberOfInsertions.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a20NumberOfInsertions.setStatus("mandatory")
+
+
+class _A20State_Type(Integer32):
+    """Custom type a20State based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vDeviceNotPresent", 5),
+          ("vDeviceNotPresent-ReadyForInsertion", 6),
+          ("vDevicePresent-HotSpare", 3),
+          ("vDevicePresent-NotReady", 2),
+          ("vDevicePresent-Ready", 1),
+          ("vDevicePresent-ReadyForRemoval", 4),
+          ("vUnconfigured", 7),
+          ("vUnknownState", 8))
+    )
+
+
+_A20State_Type.__name__ = "Integer32"
+_A20State_Object = MibTableColumn
+a20State = _A20State_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 20, 1, 5),
+    _A20State_Type()
+)
+a20State.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a20State.setStatus("mandatory")
+
+
+class _A20Rebuild_Type(Integer32):
+    """Custom type a20Rebuild based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vNotRebuilding", 0),
+          ("vRebuildInProcess", 1),
+          ("vRebuildStopped", 2),
+          ("vUnknownStatus", 3))
+    )
+
+
+_A20Rebuild_Type.__name__ = "Integer32"
+_A20Rebuild_Object = MibTableColumn
+a20Rebuild = _A20Rebuild_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 20, 1, 6),
+    _A20Rebuild_Type()
+)
+a20Rebuild.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a20Rebuild.setStatus("mandatory")
+
+
+class _A20DeviceFault_Type(Integer32):
+    """Custom type a20DeviceFault based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vFalse", 0),
+          ("vTrue", 1),
+          ("vUnknown", 2))
+    )
+
+
+_A20DeviceFault_Type.__name__ = "Integer32"
+_A20DeviceFault_Object = MibTableColumn
+a20DeviceFault = _A20DeviceFault_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 20, 1, 7),
+    _A20DeviceFault_Type()
+)
+a20DeviceFault.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a20DeviceFault.setStatus("mandatory")
+
+
+class _A20InFailedArray_Type(Integer32):
+    """Custom type a20InFailedArray based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vFalse", 0),
+          ("vTrue", 1),
+          ("vUnknown", 2))
+    )
+
+
+_A20InFailedArray_Type.__name__ = "Integer32"
+_A20InFailedArray_Object = MibTableColumn
+a20InFailedArray = _A20InFailedArray_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 20, 1, 8),
+    _A20InFailedArray_Type()
+)
+a20InFailedArray.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a20InFailedArray.setStatus("mandatory")
+
+
+class _A20InCriticalArray_Type(Integer32):
+    """Custom type a20InCriticalArray based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vFalse", 0),
+          ("vTrue", 1),
+          ("vUnknown", 2))
+    )
+
+
+_A20InCriticalArray_Type.__name__ = "Integer32"
+_A20InCriticalArray_Object = MibTableColumn
+a20InCriticalArray = _A20InCriticalArray_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 20, 1, 9),
+    _A20InCriticalArray_Type()
+)
+a20InCriticalArray.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a20InCriticalArray.setStatus("mandatory")
+
+
+class _A20ParityCheck_Type(Integer32):
+    """Custom type a20ParityCheck based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vFalse", 0),
+          ("vTrue", 1),
+          ("vUnknown", 2))
+    )
+
+
+_A20ParityCheck_Type.__name__ = "Integer32"
+_A20ParityCheck_Object = MibTableColumn
+a20ParityCheck = _A20ParityCheck_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 20, 1, 10),
+    _A20ParityCheck_Type()
+)
+a20ParityCheck.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a20ParityCheck.setStatus("mandatory")
+
+
+class _A20PredictedFault_Type(Integer32):
+    """Custom type a20PredictedFault based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vFalse", 0),
+          ("vTrue", 1),
+          ("vUnknown", 2))
+    )
+
+
+_A20PredictedFault_Type.__name__ = "Integer32"
+_A20PredictedFault_Object = MibTableColumn
+a20PredictedFault = _A20PredictedFault_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 20, 1, 11),
+    _A20PredictedFault_Type()
+)
+a20PredictedFault.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a20PredictedFault.setStatus("mandatory")
+_TSaf_teControlledTemperatureSensor_Object = MibTable
+tSaf_teControlledTemperatureSensor = _TSaf_teControlledTemperatureSensor_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 21)
+)
+if mibBuilder.loadTexts:
+    tSaf_teControlledTemperatureSensor.setStatus("mandatory")
+_ESaf_teControlledTemperatureSensor_Object = MibTableRow
+eSaf_teControlledTemperatureSensor = _ESaf_teControlledTemperatureSensor_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 21, 1)
+)
+eSaf_teControlledTemperatureSensor.setIndexNames(
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"),
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a21Saf-teControlledTemperatureSensorInde"),
+)
+if mibBuilder.loadTexts:
+    eSaf_teControlledTemperatureSensor.setStatus("mandatory")
+_A21Saf_teControlledTemperatureSensorInde_Type = DmiInteger
+_A21Saf_teControlledTemperatureSensorInde_Object = MibScalar
+a21Saf_teControlledTemperatureSensorInde = _A21Saf_teControlledTemperatureSensorInde_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 21, 1, 1),
+    _A21Saf_teControlledTemperatureSensorInde_Type()
+)
+a21Saf_teControlledTemperatureSensorInde.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a21Saf_teControlledTemperatureSensorInde.setStatus("mandatory")
+_A21Saf_teProcessorIndex_Type = DmiInteger
+_A21Saf_teProcessorIndex_Object = MibScalar
+a21Saf_teProcessorIndex = _A21Saf_teProcessorIndex_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 21, 1, 2),
+    _A21Saf_teProcessorIndex_Type()
+)
+a21Saf_teProcessorIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a21Saf_teProcessorIndex.setStatus("mandatory")
+_A21Temperature_Type = DmiInteger
+_A21Temperature_Object = MibTableColumn
+a21Temperature = _A21Temperature_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 21, 1, 3),
+    _A21Temperature_Type()
+)
+a21Temperature.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a21Temperature.setStatus("mandatory")
+_TNetworkAdapter802PortGroup_Object = MibTable
+tNetworkAdapter802PortGroup = _TNetworkAdapter802PortGroup_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 22)
+)
+if mibBuilder.loadTexts:
+    tNetworkAdapter802PortGroup.setStatus("mandatory")
+_ENetworkAdapter802PortGroup_Object = MibTableRow
+eNetworkAdapter802PortGroup = _ENetworkAdapter802PortGroup_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 22, 1)
+)
+eNetworkAdapter802PortGroup.setIndexNames(
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"),
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a22PortIndex"),
+)
+if mibBuilder.loadTexts:
+    eNetworkAdapter802PortGroup.setStatus("mandatory")
+_A22PortIndex_Type = DmiInteger
+_A22PortIndex_Object = MibTableColumn
+a22PortIndex = _A22PortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 22, 1, 1),
+    _A22PortIndex_Type()
+)
+a22PortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a22PortIndex.setStatus("mandatory")
+_A22PermanentNetworkAddress_Type = DmiDisplaystring
+_A22PermanentNetworkAddress_Object = MibTableColumn
+a22PermanentNetworkAddress = _A22PermanentNetworkAddress_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 22, 1, 2),
+    _A22PermanentNetworkAddress_Type()
+)
+a22PermanentNetworkAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a22PermanentNetworkAddress.setStatus("mandatory")
+_A22CurrentNetworkAddress_Type = DmiDisplaystring
+_A22CurrentNetworkAddress_Object = MibTableColumn
+a22CurrentNetworkAddress = _A22CurrentNetworkAddress_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 22, 1, 3),
+    _A22CurrentNetworkAddress_Type()
+)
+a22CurrentNetworkAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a22CurrentNetworkAddress.setStatus("mandatory")
+
+
+class _A22ConnectorType_Type(Integer32):
+    """Custom type a22ConnectorType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vAppleAui", 10),
+          ("vAui", 2),
+          ("vBnc", 6),
+          ("vFiberMic", 9),
+          ("vStpDb9", 8),
+          ("vStpRj45", 7),
+          ("vUnknown", 1),
+          ("vUtpCategory3", 3),
+          ("vUtpCategory4", 4),
+          ("vUtpCategory5", 5))
+    )
+
+
+_A22ConnectorType_Type.__name__ = "Integer32"
+_A22ConnectorType_Object = MibTableColumn
+a22ConnectorType = _A22ConnectorType_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 22, 1, 4),
+    _A22ConnectorType_Type()
+)
+a22ConnectorType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a22ConnectorType.setStatus("mandatory")
+_A22DataRate_Type = DmiInteger
+_A22DataRate_Object = MibTableColumn
+a22DataRate = _A22DataRate_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 22, 1, 5),
+    _A22DataRate_Type()
+)
+a22DataRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a22DataRate.setStatus("mandatory")
+_TNetworkAdapterHardwareGroup_Object = MibTable
+tNetworkAdapterHardwareGroup = _TNetworkAdapterHardwareGroup_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 23)
+)
+if mibBuilder.loadTexts:
+    tNetworkAdapterHardwareGroup.setStatus("mandatory")
+_ENetworkAdapterHardwareGroup_Object = MibTableRow
+eNetworkAdapterHardwareGroup = _ENetworkAdapterHardwareGroup_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 23, 1)
+)
+eNetworkAdapterHardwareGroup.setIndexNames(
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"),
+)
+if mibBuilder.loadTexts:
+    eNetworkAdapterHardwareGroup.setStatus("mandatory")
+
+
+class _A23NetworkTopology_Type(Integer32):
+    """Custom type a23NetworkTopology based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13)
+        )
+    )
+    namedValues = NamedValues(
+        *(("v10010MbpsEthernet", 4),
+          ("v100MbpsEthernet", 3),
+          ("v100MbpsVgAnylan", 5),
+          ("v10MbpsEthernet", 2),
+          ("v164MbpsToken-ring", 8),
+          ("v16MbpsToken-ring", 7),
+          ("v20MbpsArcnet", 10),
+          ("v2MbpsArcnet", 9),
+          ("v4MbpsToken-ring", 6),
+          ("vAppletalk", 13),
+          ("vAtm", 12),
+          ("vFddi", 11),
+          ("vOther", 1))
+    )
+
+
+_A23NetworkTopology_Type.__name__ = "Integer32"
+_A23NetworkTopology_Object = MibTableColumn
+a23NetworkTopology = _A23NetworkTopology_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 23, 1, 1),
+    _A23NetworkTopology_Type()
+)
+a23NetworkTopology.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a23NetworkTopology.setStatus("mandatory")
+
+
+class _A23TransmissionCapability_Type(Integer32):
+    """Custom type a23TransmissionCapability based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vFullDuplex", 2),
+          ("vNormal", 1))
+    )
+
+
+_A23TransmissionCapability_Type.__name__ = "Integer32"
+_A23TransmissionCapability_Object = MibTableColumn
+a23TransmissionCapability = _A23TransmissionCapability_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 23, 1, 2),
+    _A23TransmissionCapability_Type()
+)
+a23TransmissionCapability.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a23TransmissionCapability.setStatus("mandatory")
+_A23NetworkAdapterRamSize_Type = DmiInteger
+_A23NetworkAdapterRamSize_Object = MibTableColumn
+a23NetworkAdapterRamSize = _A23NetworkAdapterRamSize_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 23, 1, 3),
+    _A23NetworkAdapterRamSize_Type()
+)
+a23NetworkAdapterRamSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a23NetworkAdapterRamSize.setStatus("mandatory")
+
+
+class _A23BusType_Type(Integer32):
+    """Custom type a23BusType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              256)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vEisa", 3),
+          ("vIsa", 2),
+          ("vMca", 4),
+          ("vMotherboard", 256),
+          ("vNec98", 9),
+          ("vOther", 1),
+          ("vParallel", 8),
+          ("vPci", 5),
+          ("vPcmcia", 7),
+          ("vVl", 6))
+    )
+
+
+_A23BusType_Type.__name__ = "Integer32"
+_A23BusType_Object = MibTableColumn
+a23BusType = _A23BusType_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 23, 1, 4),
+    _A23BusType_Type()
+)
+a23BusType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a23BusType.setStatus("mandatory")
+
+
+class _A23BusWidth_Type(Integer32):
+    """Custom type a23BusWidth based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("v128BitCard", 7),
+          ("v16BitCard", 4),
+          ("v32BitCard", 5),
+          ("v64BitCard", 6),
+          ("v8BitCard", 3),
+          ("vOther", 1),
+          ("vUnknown", 2))
+    )
+
+
+_A23BusWidth_Type.__name__ = "Integer32"
+_A23BusWidth_Object = MibTableColumn
+a23BusWidth = _A23BusWidth_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 23, 1, 5),
+    _A23BusWidth_Type()
+)
+a23BusWidth.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a23BusWidth.setStatus("mandatory")
+_TEventGenerationForPowerSupply_Object = MibTable
+tEventGenerationForPowerSupply = _TEventGenerationForPowerSupply_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 24)
+)
+if mibBuilder.loadTexts:
+    tEventGenerationForPowerSupply.setStatus("mandatory")
+_EEventGenerationForPowerSupply_Object = MibTableRow
+eEventGenerationForPowerSupply = _EEventGenerationForPowerSupply_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 24, 1)
+)
+eEventGenerationForPowerSupply.setIndexNames(
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"),
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a24AssociatedGroup"),
+)
+if mibBuilder.loadTexts:
+    eEventGenerationForPowerSupply.setStatus("mandatory")
+
+
+class _A24EventType_Type(Integer32):
+    """Custom type a24EventType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(256,
+              257,
+              258)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vPowerSupplyFailed", 256),
+          ("vPowerSupplyLikelyToFail", 258),
+          ("vPowerSupplyOk", 257))
+    )
+
+
+_A24EventType_Type.__name__ = "Integer32"
+_A24EventType_Object = MibTableColumn
+a24EventType = _A24EventType_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 24, 1, 1),
+    _A24EventType_Type()
+)
+a24EventType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a24EventType.setStatus("mandatory")
+
+
+class _A24EventSeverity_Type(Integer32):
+    """Custom type a24EventSeverity based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              4,
+              8,
+              16,
+              32)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vCritical", 16),
+          ("vInformation", 2),
+          ("vMonitor", 1),
+          ("vNon-critical", 8),
+          ("vNon-recoverable", 32),
+          ("vOk", 4))
+    )
+
+
+_A24EventSeverity_Type.__name__ = "Integer32"
+_A24EventSeverity_Object = MibTableColumn
+a24EventSeverity = _A24EventSeverity_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 24, 1, 2),
+    _A24EventSeverity_Type()
+)
+a24EventSeverity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a24EventSeverity.setStatus("mandatory")
+
+
+class _A24IsEventState_based_Type(Integer32):
+    """Custom type a24IsEventState_based based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vFalse", 0),
+          ("vTrue", 1))
+    )
+
+
+_A24IsEventState_based_Type.__name__ = "Integer32"
+_A24IsEventState_based_Object = MibScalar
+a24IsEventState_based = _A24IsEventState_based_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 24, 1, 3),
+    _A24IsEventState_based_Type()
+)
+a24IsEventState_based.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a24IsEventState_based.setStatus("mandatory")
+_A24EventStateKey_Type = DmiInteger
+_A24EventStateKey_Object = MibTableColumn
+a24EventStateKey = _A24EventStateKey_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 24, 1, 4),
+    _A24EventStateKey_Type()
+)
+a24EventStateKey.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a24EventStateKey.setStatus("mandatory")
+_A24AssociatedGroup_Type = DmiDisplaystring
+_A24AssociatedGroup_Object = MibTableColumn
+a24AssociatedGroup = _A24AssociatedGroup_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 24, 1, 5),
+    _A24AssociatedGroup_Type()
+)
+a24AssociatedGroup.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a24AssociatedGroup.setStatus("mandatory")
+
+
+class _A24EventSystem_Type(Integer32):
+    """Custom type a24EventSystem based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vOther", 1),
+          ("vUnknown", 2))
+    )
+
+
+_A24EventSystem_Type.__name__ = "Integer32"
+_A24EventSystem_Object = MibTableColumn
+a24EventSystem = _A24EventSystem_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 24, 1, 6),
+    _A24EventSystem_Type()
+)
+a24EventSystem.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a24EventSystem.setStatus("mandatory")
+
+
+class _A24EventSubsystem_Type(Integer32):
+    """Custom type a24EventSubsystem based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vOther", 1),
+          ("vUnknown", 2))
+    )
+
+
+_A24EventSubsystem_Type.__name__ = "Integer32"
+_A24EventSubsystem_Object = MibScalar
+a24EventSubsystem = _A24EventSubsystem_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 24, 1, 7),
+    _A24EventSubsystem_Type()
+)
+a24EventSubsystem.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a24EventSubsystem.setStatus("mandatory")
+
+
+class _A24IsInstanceDataPresent_Type(Integer32):
+    """Custom type a24IsInstanceDataPresent based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vFalse", 0),
+          ("vTrue", 1))
+    )
+
+
+_A24IsInstanceDataPresent_Type.__name__ = "Integer32"
+_A24IsInstanceDataPresent_Object = MibTableColumn
+a24IsInstanceDataPresent = _A24IsInstanceDataPresent_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 24, 1, 8),
+    _A24IsInstanceDataPresent_Type()
+)
+a24IsInstanceDataPresent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a24IsInstanceDataPresent.setStatus("mandatory")
+_A24EventMessage_Type = DmiDisplaystring
+_A24EventMessage_Object = MibTableColumn
+a24EventMessage = _A24EventMessage_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 24, 1, 9),
+    _A24EventMessage_Type()
+)
+a24EventMessage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a24EventMessage.setStatus("mandatory")
+_TEventGenerationForTemperatureProbe_Object = MibTable
+tEventGenerationForTemperatureProbe = _TEventGenerationForTemperatureProbe_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 25)
+)
+if mibBuilder.loadTexts:
+    tEventGenerationForTemperatureProbe.setStatus("mandatory")
+_EEventGenerationForTemperatureProbe_Object = MibTableRow
+eEventGenerationForTemperatureProbe = _EEventGenerationForTemperatureProbe_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 25, 1)
+)
+eEventGenerationForTemperatureProbe.setIndexNames(
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"),
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a25AssociatedGroup"),
+)
+if mibBuilder.loadTexts:
+    eEventGenerationForTemperatureProbe.setStatus("mandatory")
+
+
+class _A25EventType_Type(Integer32):
+    """Custom type a25EventType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            1
+        )
+    )
+    namedValues = NamedValues(
+        ("vTemperatureOutOfRange", 1)
+    )
+
+
+_A25EventType_Type.__name__ = "Integer32"
+_A25EventType_Object = MibTableColumn
+a25EventType = _A25EventType_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 25, 1, 1),
+    _A25EventType_Type()
+)
+a25EventType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a25EventType.setStatus("mandatory")
+
+
+class _A25EventSeverity_Type(Integer32):
+    """Custom type a25EventSeverity based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              4,
+              8,
+              16,
+              32)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vCritical", 16),
+          ("vInformation", 2),
+          ("vMonitor", 1),
+          ("vNon-critical", 8),
+          ("vNon-recoverable", 32),
+          ("vOk", 4))
+    )
+
+
+_A25EventSeverity_Type.__name__ = "Integer32"
+_A25EventSeverity_Object = MibTableColumn
+a25EventSeverity = _A25EventSeverity_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 25, 1, 2),
+    _A25EventSeverity_Type()
+)
+a25EventSeverity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a25EventSeverity.setStatus("mandatory")
+
+
+class _A25IsEventState_based_Type(Integer32):
+    """Custom type a25IsEventState_based based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vFalse", 0),
+          ("vTrue", 1))
+    )
+
+
+_A25IsEventState_based_Type.__name__ = "Integer32"
+_A25IsEventState_based_Object = MibScalar
+a25IsEventState_based = _A25IsEventState_based_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 25, 1, 3),
+    _A25IsEventState_based_Type()
+)
+a25IsEventState_based.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a25IsEventState_based.setStatus("mandatory")
+_A25EventStateKey_Type = DmiInteger
+_A25EventStateKey_Object = MibTableColumn
+a25EventStateKey = _A25EventStateKey_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 25, 1, 4),
+    _A25EventStateKey_Type()
+)
+a25EventStateKey.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a25EventStateKey.setStatus("mandatory")
+_A25AssociatedGroup_Type = DmiDisplaystring
+_A25AssociatedGroup_Object = MibTableColumn
+a25AssociatedGroup = _A25AssociatedGroup_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 25, 1, 5),
+    _A25AssociatedGroup_Type()
+)
+a25AssociatedGroup.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a25AssociatedGroup.setStatus("mandatory")
+
+
+class _A25EventSystem_Type(Integer32):
+    """Custom type a25EventSystem based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vOther", 1),
+          ("vUnknown", 2))
+    )
+
+
+_A25EventSystem_Type.__name__ = "Integer32"
+_A25EventSystem_Object = MibTableColumn
+a25EventSystem = _A25EventSystem_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 25, 1, 6),
+    _A25EventSystem_Type()
+)
+a25EventSystem.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a25EventSystem.setStatus("mandatory")
+
+
+class _A25EventSubsystem_Type(Integer32):
+    """Custom type a25EventSubsystem based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vOther", 1),
+          ("vUnknown", 2))
+    )
+
+
+_A25EventSubsystem_Type.__name__ = "Integer32"
+_A25EventSubsystem_Object = MibTableColumn
+a25EventSubsystem = _A25EventSubsystem_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 25, 1, 7),
+    _A25EventSubsystem_Type()
+)
+a25EventSubsystem.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a25EventSubsystem.setStatus("mandatory")
+
+
+class _A25IsInstanceDataPresent_Type(Integer32):
+    """Custom type a25IsInstanceDataPresent based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vFalse", 0),
+          ("vTrue", 1))
+    )
+
+
+_A25IsInstanceDataPresent_Type.__name__ = "Integer32"
+_A25IsInstanceDataPresent_Object = MibTableColumn
+a25IsInstanceDataPresent = _A25IsInstanceDataPresent_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 25, 1, 8),
+    _A25IsInstanceDataPresent_Type()
+)
+a25IsInstanceDataPresent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a25IsInstanceDataPresent.setStatus("mandatory")
+_A25EventMessage_Type = DmiDisplaystring
+_A25EventMessage_Object = MibTableColumn
+a25EventMessage = _A25EventMessage_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 25, 1, 9),
+    _A25EventMessage_Type()
+)
+a25EventMessage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a25EventMessage.setStatus("mandatory")
+_TEventGenerationForFans_Object = MibTable
+tEventGenerationForFans = _TEventGenerationForFans_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 26)
+)
+if mibBuilder.loadTexts:
+    tEventGenerationForFans.setStatus("mandatory")
+_EEventGenerationForFans_Object = MibTableRow
+eEventGenerationForFans = _EEventGenerationForFans_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 26, 1)
+)
+eEventGenerationForFans.setIndexNames(
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"),
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "a26AssociatedGroup"),
+)
+if mibBuilder.loadTexts:
+    eEventGenerationForFans.setStatus("mandatory")
+
+
+class _A26EventType_Type(Integer32):
+    """Custom type a26EventType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            1
+        )
+    )
+    namedValues = NamedValues(
+        ("vFanFailure", 1)
+    )
+
+
+_A26EventType_Type.__name__ = "Integer32"
+_A26EventType_Object = MibTableColumn
+a26EventType = _A26EventType_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 26, 1, 1),
+    _A26EventType_Type()
+)
+a26EventType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a26EventType.setStatus("mandatory")
+
+
+class _A26EventSeverity_Type(Integer32):
+    """Custom type a26EventSeverity based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              4,
+              8,
+              16,
+              32)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vCritical", 16),
+          ("vInformation", 2),
+          ("vMonitor", 1),
+          ("vNon-critical", 8),
+          ("vNon-recoverable", 32),
+          ("vOk", 4))
+    )
+
+
+_A26EventSeverity_Type.__name__ = "Integer32"
+_A26EventSeverity_Object = MibTableColumn
+a26EventSeverity = _A26EventSeverity_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 26, 1, 2),
+    _A26EventSeverity_Type()
+)
+a26EventSeverity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a26EventSeverity.setStatus("mandatory")
+
+
+class _A26IsEventState_based_Type(Integer32):
+    """Custom type a26IsEventState_based based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vFalse", 0),
+          ("vTrue", 1))
+    )
+
+
+_A26IsEventState_based_Type.__name__ = "Integer32"
+_A26IsEventState_based_Object = MibScalar
+a26IsEventState_based = _A26IsEventState_based_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 26, 1, 3),
+    _A26IsEventState_based_Type()
+)
+a26IsEventState_based.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a26IsEventState_based.setStatus("mandatory")
+_A26EventStateKey_Type = DmiInteger
+_A26EventStateKey_Object = MibTableColumn
+a26EventStateKey = _A26EventStateKey_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 26, 1, 4),
+    _A26EventStateKey_Type()
+)
+a26EventStateKey.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a26EventStateKey.setStatus("mandatory")
+_A26AssociatedGroup_Type = DmiDisplaystring
+_A26AssociatedGroup_Object = MibTableColumn
+a26AssociatedGroup = _A26AssociatedGroup_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 26, 1, 5),
+    _A26AssociatedGroup_Type()
+)
+a26AssociatedGroup.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a26AssociatedGroup.setStatus("mandatory")
+
+
+class _A26EventSystem_Type(Integer32):
+    """Custom type a26EventSystem based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vOther", 1),
+          ("vUnknown", 2))
+    )
+
+
+_A26EventSystem_Type.__name__ = "Integer32"
+_A26EventSystem_Object = MibTableColumn
+a26EventSystem = _A26EventSystem_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 26, 1, 6),
+    _A26EventSystem_Type()
+)
+a26EventSystem.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a26EventSystem.setStatus("mandatory")
+
+
+class _A26EventSubsystem_Type(Integer32):
+    """Custom type a26EventSubsystem based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vOther", 1),
+          ("vUnknown", 2))
+    )
+
+
+_A26EventSubsystem_Type.__name__ = "Integer32"
+_A26EventSubsystem_Object = MibTableColumn
+a26EventSubsystem = _A26EventSubsystem_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 26, 1, 7),
+    _A26EventSubsystem_Type()
+)
+a26EventSubsystem.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a26EventSubsystem.setStatus("mandatory")
+
+
+class _A26IsInstanceDataPresent_Type(Integer32):
+    """Custom type a26IsInstanceDataPresent based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("vFalse", 0),
+          ("vTrue", 1))
+    )
+
+
+_A26IsInstanceDataPresent_Type.__name__ = "Integer32"
+_A26IsInstanceDataPresent_Object = MibTableColumn
+a26IsInstanceDataPresent = _A26IsInstanceDataPresent_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 26, 1, 8),
+    _A26IsInstanceDataPresent_Type()
+)
+a26IsInstanceDataPresent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a26IsInstanceDataPresent.setStatus("mandatory")
+_A26EventMessage_Type = DmiDisplaystring
+_A26EventMessage_Object = MibTableColumn
+a26EventMessage = _A26EventMessage_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 26, 1, 9),
+    _A26EventMessage_Type()
+)
+a26EventMessage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a26EventMessage.setStatus("mandatory")
+_TMiftomib_Object = MibTable
+tMiftomib = _TMiftomib_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 99)
+)
+if mibBuilder.loadTexts:
+    tMiftomib.setStatus("mandatory")
+_EMiftomib_Object = MibTableRow
+eMiftomib = _EMiftomib_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 99, 1)
+)
+eMiftomib.setIndexNames(
+    (0, "SYMBIOSDMI20MIFDEFINITION-MIB", "DmiComponentIndex"),
+)
+if mibBuilder.loadTexts:
+    eMiftomib.setStatus("mandatory")
+_A99MibName_Type = DmiDisplaystring
+_A99MibName_Object = MibTableColumn
+a99MibName = _A99MibName_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 99, 1, 1),
+    _A99MibName_Type()
+)
+a99MibName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a99MibName.setStatus("mandatory")
+_A99MibOid_Type = DmiDisplaystring
+_A99MibOid_Object = MibTableColumn
+a99MibOid = _A99MibOid_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 99, 1, 2),
+    _A99MibOid_Type()
+)
+a99MibOid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a99MibOid.setStatus("mandatory")
+_A99DisableTrap_Type = DmiInteger
+_A99DisableTrap_Object = MibTableColumn
+a99DisableTrap = _A99DisableTrap_Object(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 99, 1, 3),
+    _A99DisableTrap_Type()
+)
+a99DisableTrap.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    a99DisableTrap.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+storageDevicesTrap1 = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 6, 1, 0, 1)
+)
+storageDevicesTrap1.setObjects(
+      *(("SYMBIOSDMI20MIFDEFINITION-MIB", "a6StorageDevicesEventType"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a6EventSeverity"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a6EventIsStateBased"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a6EventStateKey"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a6AssociatedGroup"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a6EventSystem"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a6EventSubsystem"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a5StorageDeviceIndex"))
+)
+if mibBuilder.loadTexts:
+    storageDevicesTrap1.setStatus(
+        ""
+    )
+
+storageDevicesTrap2 = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 6, 1, 0, 2)
+)
+storageDevicesTrap2.setObjects(
+      *(("SYMBIOSDMI20MIFDEFINITION-MIB", "a6StorageDevicesEventType"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a6EventSeverity"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a6EventIsStateBased"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a6EventStateKey"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a6AssociatedGroup"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a6EventSystem"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a6EventSubsystem"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a5StorageDeviceIndex"))
+)
+if mibBuilder.loadTexts:
+    storageDevicesTrap2.setStatus(
+        ""
+    )
+
+storageControllerTrap3 = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 8, 1, 0, 3)
+)
+storageControllerTrap3.setObjects(
+      *(("SYMBIOSDMI20MIFDEFINITION-MIB", "a8StorageControllerEventType"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a8EventSeverity"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a8EventIsStateBased"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a8EventStateKey"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a8AssociatedGroup"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a8EventSystem"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a8EventSubsystem"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a7ControllerIndex"))
+)
+if mibBuilder.loadTexts:
+    storageControllerTrap3.setStatus(
+        ""
+    )
+
+massStorageAssociationTrap4 = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 12, 1, 0, 4)
+)
+massStorageAssociationTrap4.setObjects(
+      *(("SYMBIOSDMI20MIFDEFINITION-MIB", "a12MassStorageAssociationEventType"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventSeverity"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventIsStateBased"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventStateKey"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12AssociatedGroup"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventSystem"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventSubsystem"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a11AssociationIndex"))
+)
+if mibBuilder.loadTexts:
+    massStorageAssociationTrap4.setStatus(
+        ""
+    )
+
+massStorageAssociationTrap5 = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 12, 1, 0, 5)
+)
+massStorageAssociationTrap5.setObjects(
+      *(("SYMBIOSDMI20MIFDEFINITION-MIB", "a12MassStorageAssociationEventType"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventSeverity"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventIsStateBased"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventStateKey"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12AssociatedGroup"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventSystem"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventSubsystem"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a11AssociationIndex"))
+)
+if mibBuilder.loadTexts:
+    massStorageAssociationTrap5.setStatus(
+        ""
+    )
+
+massStorageAssociationTrap6 = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 12, 1, 0, 6)
+)
+massStorageAssociationTrap6.setObjects(
+      *(("SYMBIOSDMI20MIFDEFINITION-MIB", "a12MassStorageAssociationEventType"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventSeverity"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventIsStateBased"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventStateKey"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12AssociatedGroup"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventSystem"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventSubsystem"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a11AssociationIndex"))
+)
+if mibBuilder.loadTexts:
+    massStorageAssociationTrap6.setStatus(
+        ""
+    )
+
+massStorageAssociationTrap7 = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1123, 3, 1, 2, 19, 1, 12, 1, 0, 7)
+)
+massStorageAssociationTrap7.setObjects(
+      *(("SYMBIOSDMI20MIFDEFINITION-MIB", "a12MassStorageAssociationEventType"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventSeverity"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventIsStateBased"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventStateKey"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12AssociatedGroup"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventSystem"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a12EventSubsystem"),
+        ("SYMBIOSDMI20MIFDEFINITION-MIB", "a11AssociationIndex"))
+)
+if mibBuilder.loadTexts:
+    massStorageAssociationTrap7.setStatus(
+        ""
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "SYMBIOSDMI20MIFDEFINITION-MIB",
+    **{"DmiCounter": DmiCounter,
+       "DmiInteger": DmiInteger,
+       "DmiInteger64X": DmiInteger64X,
+       "DmiDisplaystring": DmiDisplaystring,
+       "DmiDateX": DmiDateX,
+       "DmiComponentIndex": DmiComponentIndex,
+       "symbios": symbios,
+       "cosprings": cosprings,
+       "scsi": scsi,
+       "fam8xx": fam8xx,
+       "id19": id19,
+       "dmtfGroups": dmtfGroups,
+       "tComponentid": tComponentid,
+       "eComponentid": eComponentid,
+       "a1Manufacturer": a1Manufacturer,
+       "a1Product": a1Product,
+       "a1Version": a1Version,
+       "a1SerialNumber": a1SerialNumber,
+       "a1Installation": a1Installation,
+       "a1Verify": a1Verify,
+       "tSubcomponentSoftware": tSubcomponentSoftware,
+       "eSubcomponentSoftware": eSubcomponentSoftware,
+       "a2SoftwareIndex": a2SoftwareIndex,
+       "a2Type": a2Type,
+       "a2Vendor": a2Vendor,
+       "a2Version": a2Version,
+       "a2Description": a2Description,
+       "a2IdentificationCode": a2IdentificationCode,
+       "a2LanguageEdition": a2LanguageEdition,
+       "a2InterfaceDescription": a2InterfaceDescription,
+       "a2InterfaceVersion": a2InterfaceVersion,
+       "tWorldwideIdentifer": tWorldwideIdentifer,
+       "eWorldwideIdentifer": eWorldwideIdentifer,
+       "a3WorldwideIdentifierIndex": a3WorldwideIdentifierIndex,
+       "a3WorldwideIdentifierType": a3WorldwideIdentifierType,
+       "a3WorldwideIdentifier": a3WorldwideIdentifier,
+       "tFieldReplaceableUnit": tFieldReplaceableUnit,
+       "eFieldReplaceableUnit": eFieldReplaceableUnit,
+       "a4FruIndex": a4FruIndex,
+       "a4DeviceGroupIndex": a4DeviceGroupIndex,
+       "a4Description": a4Description,
+       "a4Manufacturer": a4Manufacturer,
+       "a4Model": a4Model,
+       "a4PartNumber": a4PartNumber,
+       "a4FruSerialNumber": a4FruSerialNumber,
+       "a4RevisionLevel": a4RevisionLevel,
+       "a4WarrantyStartDate": a4WarrantyStartDate,
+       "a4WarrantyDuration": a4WarrantyDuration,
+       "a4SupportPhoneNumber": a4SupportPhoneNumber,
+       "a4FruInternetUniformResourceLocator": a4FruInternetUniformResourceLocator,
+       "tStorageDevices": tStorageDevices,
+       "eStorageDevices": eStorageDevices,
+       "a5StorageDeviceIndex": a5StorageDeviceIndex,
+       "a5Type": a5Type,
+       "a5TypeDescription": a5TypeDescription,
+       "a5Sub-identifier": a5Sub_identifier,
+       "a5MediaDataBlockSize": a5MediaDataBlockSize,
+       "a5FormattedMediaCapacity": a5FormattedMediaCapacity,
+       "a5RemovableDevice": a5RemovableDevice,
+       "a5DeviceLoaded": a5DeviceLoaded,
+       "a5RemovableMedia": a5RemovableMedia,
+       "a5MediaLoaded": a5MediaLoaded,
+       "a5Compression": a5Compression,
+       "a5Encryption": a5Encryption,
+       "tStorageDevicesEvents": tStorageDevicesEvents,
+       "eStorageDevicesEvents": eStorageDevicesEvents,
+       "storageDevicesTrap1": storageDevicesTrap1,
+       "storageDevicesTrap2": storageDevicesTrap2,
+       "a6StorageDevicesEventType": a6StorageDevicesEventType,
+       "a6EventSeverity": a6EventSeverity,
+       "a6EventIsStateBased": a6EventIsStateBased,
+       "a6EventStateKey": a6EventStateKey,
+       "a6AssociatedGroup": a6AssociatedGroup,
+       "a6EventSystem": a6EventSystem,
+       "a6EventSubsystem": a6EventSubsystem,
+       "tStorageController": tStorageController,
+       "eStorageController": eStorageController,
+       "a7ControllerIndex": a7ControllerIndex,
+       "a7Identification": a7Identification,
+       "a7ProtectionManagement": a7ProtectionManagement,
+       "a7BusMaster": a7BusMaster,
+       "a7SecondsSinceLastPower-up": a7SecondsSinceLastPower_up,
+       "tStorageControllerEvents": tStorageControllerEvents,
+       "eStorageControllerEvents": eStorageControllerEvents,
+       "storageControllerTrap3": storageControllerTrap3,
+       "a8StorageControllerEventType": a8StorageControllerEventType,
+       "a8EventSeverity": a8EventSeverity,
+       "a8EventIsStateBased": a8EventIsStateBased,
+       "a8EventStateKey": a8EventStateKey,
+       "a8AssociatedGroup": a8AssociatedGroup,
+       "a8EventSystem": a8EventSystem,
+       "a8EventSubsystem": a8EventSubsystem,
+       "tBusPort": tBusPort,
+       "eBusPort": eBusPort,
+       "a9BusPortIndex": a9BusPortIndex,
+       "a9Protocol": a9Protocol,
+       "a9ProtocolDescription": a9ProtocolDescription,
+       "a9SignalCharacteristics": a9SignalCharacteristics,
+       "a9AddressDescriptor": a9AddressDescriptor,
+       "a9Isochronous": a9Isochronous,
+       "a9MaximumWidth": a9MaximumWidth,
+       "a9MaximumTransferRate": a9MaximumTransferRate,
+       "a9MaximumNumberOfAttachments": a9MaximumNumberOfAttachments,
+       "a9ConnectorType": a9ConnectorType,
+       "a9ConnectorTypeDescription": a9ConnectorTypeDescription,
+       "a9ConnectorGender": a9ConnectorGender,
+       "tFibreChannelBusPortExtensions": tFibreChannelBusPortExtensions,
+       "eFibreChannelBusPortExtensions": eFibreChannelBusPortExtensions,
+       "a10BusPortIndex": a10BusPortIndex,
+       "a10EndToEndCredit": a10EndToEndCredit,
+       "a10BufferToBufferCredit": a10BufferToBufferCredit,
+       "a10LinkType": a10LinkType,
+       "a10FlowControlClassType": a10FlowControlClassType,
+       "a10FlowControlAcknowledgmentType": a10FlowControlAcknowledgmentType,
+       "a10FabricTopology": a10FabricTopology,
+       "tMassStorageAssociation": tMassStorageAssociation,
+       "eMassStorageAssociation": eMassStorageAssociation,
+       "a11AssociationIndex": a11AssociationIndex,
+       "a11Type": a11Type,
+       "a11Reference1": a11Reference1,
+       "a11Reference2": a11Reference2,
+       "tMassStorageAssociationEvents": tMassStorageAssociationEvents,
+       "eMassStorageAssociationEvents": eMassStorageAssociationEvents,
+       "massStorageAssociationTrap4": massStorageAssociationTrap4,
+       "massStorageAssociationTrap5": massStorageAssociationTrap5,
+       "massStorageAssociationTrap6": massStorageAssociationTrap6,
+       "massStorageAssociationTrap7": massStorageAssociationTrap7,
+       "a12MassStorageAssociationEventType": a12MassStorageAssociationEventType,
+       "a12EventSeverity": a12EventSeverity,
+       "a12EventIsStateBased": a12EventIsStateBased,
+       "a12EventStateKey": a12EventStateKey,
+       "a12AssociatedGroup": a12AssociatedGroup,
+       "a12EventSystem": a12EventSystem,
+       "a12EventSubsystem": a12EventSubsystem,
+       "tBusPortAssociation": tBusPortAssociation,
+       "eBusPortAssociation": eBusPortAssociation,
+       "a13BusPortAssociationIndex": a13BusPortAssociationIndex,
+       "a13NegotiatedSpeed": a13NegotiatedSpeed,
+       "a13NegotiatedWidth": a13NegotiatedWidth,
+       "tOperationalState": tOperationalState,
+       "eOperationalState": eOperationalState,
+       "a14OperationalStateInstanceIndex": a14OperationalStateInstanceIndex,
+       "a14DeviceGroupIndex": a14DeviceGroupIndex,
+       "a14OperationalStatus": a14OperationalStatus,
+       "a14UsageState": a14UsageState,
+       "a14AvailabilityStatus": a14AvailabilityStatus,
+       "a14AdministrativeState": a14AdministrativeState,
+       "a14FatalErrorCount": a14FatalErrorCount,
+       "a14MajorErrorCount": a14MajorErrorCount,
+       "a14WarningErrorCount": a14WarningErrorCount,
+       "a14CurrentErrorStatus": a14CurrentErrorStatus,
+       "a14DevicePredictedFailureStatus": a14DevicePredictedFailureStatus,
+       "tSymbiosEventPolling": tSymbiosEventPolling,
+       "eSymbiosEventPolling": eSymbiosEventPolling,
+       "a15SymbiosFlag": a15SymbiosFlag,
+       "a15SmartEventPolling": a15SmartEventPolling,
+       "a15ScanEventPolling": a15ScanEventPolling,
+       "a15Saf-teEventPolling": a15Saf_teEventPolling,
+       "a15EventPollingPeriod": a15EventPollingPeriod,
+       "tSymbiosSmartDevice": tSymbiosSmartDevice,
+       "eSymbiosSmartDevice": eSymbiosSmartDevice,
+       "a16SymSmartDeviceIndex": a16SymSmartDeviceIndex,
+       "a16SmartReportingCapability": a16SmartReportingCapability,
+       "tSaf-teProcessor": tSaf_teProcessor,
+       "eSaf-teProcessor": eSaf_teProcessor,
+       "a17Saf-teProcessorIndex": a17Saf_teProcessorIndex,
+       "a17StorageControllerIndex": a17StorageControllerIndex,
+       "a17ScsiId": a17ScsiId,
+       "a17ScsiLun": a17ScsiLun,
+       "a17VendorId": a17VendorId,
+       "a17ProductId": a17ProductId,
+       "a17FirmwareRevisionLevel": a17FirmwareRevisionLevel,
+       "a17EnclosureUniqueIdentifier": a17EnclosureUniqueIdentifier,
+       "a17Saf-teSpecificationRevisionLevel": a17Saf_teSpecificationRevisionLevel,
+       "a17HasLocks": a17HasLocks,
+       "a17HasSpeakers": a17HasSpeakers,
+       "a17DoorLocked": a17DoorLocked,
+       "a17SpeakerStatus": a17SpeakerStatus,
+       "a17PowerOnMinutes": a17PowerOnMinutes,
+       "a17PowerOnCycles": a17PowerOnCycles,
+       "a17TemperatureOutOfRange": a17TemperatureOutOfRange,
+       "tSaf-teControlledFan": tSaf_teControlledFan,
+       "eSaf-teControlledFan": eSaf_teControlledFan,
+       "a18Saf-teControlledFanIndex": a18Saf_teControlledFanIndex,
+       "a18Saf-teProcessorIndex": a18Saf_teProcessorIndex,
+       "a18Status": a18Status,
+       "tSaf-teControlledPowerSupply": tSaf_teControlledPowerSupply,
+       "eSaf-teControlledPowerSupply": eSaf_teControlledPowerSupply,
+       "a19Saf-teControlledPowerSupplyIndex": a19Saf_teControlledPowerSupplyIndex,
+       "a19Saf-teProcessorIndex": a19Saf_teProcessorIndex,
+       "a19Status": a19Status,
+       "tSaf-teControlledSlot": tSaf_teControlledSlot,
+       "eSaf-teControlledSlot": eSaf_teControlledSlot,
+       "a20Saf-teControlledSlotIndex": a20Saf_teControlledSlotIndex,
+       "a20Saf-teProcessorIndex": a20Saf_teProcessorIndex,
+       "a20ScsiId": a20ScsiId,
+       "a20NumberOfInsertions": a20NumberOfInsertions,
+       "a20State": a20State,
+       "a20Rebuild": a20Rebuild,
+       "a20DeviceFault": a20DeviceFault,
+       "a20InFailedArray": a20InFailedArray,
+       "a20InCriticalArray": a20InCriticalArray,
+       "a20ParityCheck": a20ParityCheck,
+       "a20PredictedFault": a20PredictedFault,
+       "tSaf-teControlledTemperatureSensor": tSaf_teControlledTemperatureSensor,
+       "eSaf-teControlledTemperatureSensor": eSaf_teControlledTemperatureSensor,
+       "a21Saf-teControlledTemperatureSensorInde": a21Saf_teControlledTemperatureSensorInde,
+       "a21Saf-teProcessorIndex": a21Saf_teProcessorIndex,
+       "a21Temperature": a21Temperature,
+       "tNetworkAdapter802PortGroup": tNetworkAdapter802PortGroup,
+       "eNetworkAdapter802PortGroup": eNetworkAdapter802PortGroup,
+       "a22PortIndex": a22PortIndex,
+       "a22PermanentNetworkAddress": a22PermanentNetworkAddress,
+       "a22CurrentNetworkAddress": a22CurrentNetworkAddress,
+       "a22ConnectorType": a22ConnectorType,
+       "a22DataRate": a22DataRate,
+       "tNetworkAdapterHardwareGroup": tNetworkAdapterHardwareGroup,
+       "eNetworkAdapterHardwareGroup": eNetworkAdapterHardwareGroup,
+       "a23NetworkTopology": a23NetworkTopology,
+       "a23TransmissionCapability": a23TransmissionCapability,
+       "a23NetworkAdapterRamSize": a23NetworkAdapterRamSize,
+       "a23BusType": a23BusType,
+       "a23BusWidth": a23BusWidth,
+       "tEventGenerationForPowerSupply": tEventGenerationForPowerSupply,
+       "eEventGenerationForPowerSupply": eEventGenerationForPowerSupply,
+       "a24EventType": a24EventType,
+       "a24EventSeverity": a24EventSeverity,
+       "a24IsEventState-based": a24IsEventState_based,
+       "a24EventStateKey": a24EventStateKey,
+       "a24AssociatedGroup": a24AssociatedGroup,
+       "a24EventSystem": a24EventSystem,
+       "a24EventSubsystem": a24EventSubsystem,
+       "a24IsInstanceDataPresent": a24IsInstanceDataPresent,
+       "a24EventMessage": a24EventMessage,
+       "tEventGenerationForTemperatureProbe": tEventGenerationForTemperatureProbe,
+       "eEventGenerationForTemperatureProbe": eEventGenerationForTemperatureProbe,
+       "a25EventType": a25EventType,
+       "a25EventSeverity": a25EventSeverity,
+       "a25IsEventState-based": a25IsEventState_based,
+       "a25EventStateKey": a25EventStateKey,
+       "a25AssociatedGroup": a25AssociatedGroup,
+       "a25EventSystem": a25EventSystem,
+       "a25EventSubsystem": a25EventSubsystem,
+       "a25IsInstanceDataPresent": a25IsInstanceDataPresent,
+       "a25EventMessage": a25EventMessage,
+       "tEventGenerationForFans": tEventGenerationForFans,
+       "eEventGenerationForFans": eEventGenerationForFans,
+       "a26EventType": a26EventType,
+       "a26EventSeverity": a26EventSeverity,
+       "a26IsEventState-based": a26IsEventState_based,
+       "a26EventStateKey": a26EventStateKey,
+       "a26AssociatedGroup": a26AssociatedGroup,
+       "a26EventSystem": a26EventSystem,
+       "a26EventSubsystem": a26EventSubsystem,
+       "a26IsInstanceDataPresent": a26IsInstanceDataPresent,
+       "a26EventMessage": a26EventMessage,
+       "tMiftomib": tMiftomib,
+       "eMiftomib": eMiftomib,
+       "a99MibName": a99MibName,
+       "a99MibOid": a99MibOid,
+       "a99DisableTrap": a99DisableTrap}
+)

@@ -1,45 +1,249 @@
+# SNMP MIB module (TUBS-IBR-LINUX-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module TUBS-IBR-LINUX-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/TUBS-IBR-LINUX-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 21:20:28 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-Integer32, TimeTicks, Counter64, ModuleIdentity, NotificationType, Unsigned32, Gauge32, IpAddress, iso, Bits, ObjectIdentity, Counter32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "TimeTicks", "Counter64", "ModuleIdentity", "NotificationType", "Unsigned32", "Gauge32", "IpAddress", "iso", "Bits", "ObjectIdentity", "Counter32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-ibr, = mibBuilder.importSymbols("TUBS-REGISTRATION", "ibr")
-linuxMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 1575, 1, 5))
-linuxMIB.setRevisions(('1998-01-07 06:22', '1997-02-14 10:23', '1994-11-15 20:24',))
-if mibBuilder.loadTexts: linuxMIB.setLastUpdated('9801070622Z')
-if mibBuilder.loadTexts: linuxMIB.setOrganization('TU Braunschweig')
-linuxObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 1575, 1, 5, 2))
-linuxConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 1575, 1, 5, 3))
-class LoadValue(TextualConvention, Integer32):
-    status = 'current'
-    displayHint = 'd-2'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 2147483647)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/TUBS-IBR-LINUX-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:07:53 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-linuxCPU = MibScalar((1, 3, 6, 1, 4, 1, 1575, 1, 5, 2, 1), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: linuxCPU.setStatus('current')
-linuxBogo = MibScalar((1, 3, 6, 1, 4, 1, 1575, 1, 5, 2, 2), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: linuxBogo.setStatus('current')
-linuxLoadAvg1 = MibScalar((1, 3, 6, 1, 4, 1, 1575, 1, 5, 2, 3), LoadValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: linuxLoadAvg1.setStatus('current')
-linuxLoadAvg5 = MibScalar((1, 3, 6, 1, 4, 1, 1575, 1, 5, 2, 4), LoadValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: linuxLoadAvg5.setStatus('current')
-linuxLoadAvg15 = MibScalar((1, 3, 6, 1, 4, 1, 1575, 1, 5, 2, 5), LoadValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: linuxLoadAvg15.setStatus('current')
-linuxCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 1575, 1, 5, 3, 1))
-linuxGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 1575, 1, 5, 3, 2))
-linuxCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 1575, 1, 5, 3, 1, 1)).setObjects(("TUBS-IBR-LINUX-MIB", "linuxGroup"))
+if 'mibBuilder' not in globals():
+    import sys
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    linuxCompliance = linuxCompliance.setStatus('current')
-linuxGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1575, 1, 5, 3, 2, 1)).setObjects(("TUBS-IBR-LINUX-MIB", "linuxCPU"), ("TUBS-IBR-LINUX-MIB", "linuxBogo"), ("TUBS-IBR-LINUX-MIB", "linuxLoadAvg1"), ("TUBS-IBR-LINUX-MIB", "linuxLoadAvg5"), ("TUBS-IBR-LINUX-MIB", "linuxLoadAvg15"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    linuxGroup = linuxGroup.setStatus('current')
-mibBuilder.exportSymbols("TUBS-IBR-LINUX-MIB", linuxCPU=linuxCPU, linuxConformance=linuxConformance, linuxCompliances=linuxCompliances, linuxGroups=linuxGroups, PYSNMP_MODULE_ID=linuxMIB, linuxLoadAvg5=linuxLoadAvg5, linuxCompliance=linuxCompliance, linuxGroup=linuxGroup, linuxObjects=linuxObjects, linuxMIB=linuxMIB, linuxLoadAvg15=linuxLoadAvg15, LoadValue=LoadValue, linuxBogo=linuxBogo, linuxLoadAvg1=linuxLoadAvg1)
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+(ibr,) = mibBuilder.importSymbols(
+    "TUBS-REGISTRATION",
+    "ibr")
+
+
+# MODULE-IDENTITY
+
+linuxMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 1575, 1, 5)
+)
+linuxMIB.setRevisions(
+        ("1998-01-07 06:22",
+         "1997-02-14 10:23",
+         "1994-11-15 20:24")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class LoadValue(Integer32, TextualConvention):
+    status = "current"
+    displayHint = "d-2"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_LinuxObjects_ObjectIdentity = ObjectIdentity
+linuxObjects = _LinuxObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1575, 1, 5, 2)
+)
+_LinuxCPU_Type = DisplayString
+_LinuxCPU_Object = MibScalar
+linuxCPU = _LinuxCPU_Object(
+    (1, 3, 6, 1, 4, 1, 1575, 1, 5, 2, 1),
+    _LinuxCPU_Type()
+)
+linuxCPU.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    linuxCPU.setStatus("current")
+_LinuxBogo_Type = Unsigned32
+_LinuxBogo_Object = MibScalar
+linuxBogo = _LinuxBogo_Object(
+    (1, 3, 6, 1, 4, 1, 1575, 1, 5, 2, 2),
+    _LinuxBogo_Type()
+)
+linuxBogo.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    linuxBogo.setStatus("current")
+_LinuxLoadAvg1_Type = LoadValue
+_LinuxLoadAvg1_Object = MibScalar
+linuxLoadAvg1 = _LinuxLoadAvg1_Object(
+    (1, 3, 6, 1, 4, 1, 1575, 1, 5, 2, 3),
+    _LinuxLoadAvg1_Type()
+)
+linuxLoadAvg1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    linuxLoadAvg1.setStatus("current")
+_LinuxLoadAvg5_Type = LoadValue
+_LinuxLoadAvg5_Object = MibScalar
+linuxLoadAvg5 = _LinuxLoadAvg5_Object(
+    (1, 3, 6, 1, 4, 1, 1575, 1, 5, 2, 4),
+    _LinuxLoadAvg5_Type()
+)
+linuxLoadAvg5.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    linuxLoadAvg5.setStatus("current")
+_LinuxLoadAvg15_Type = LoadValue
+_LinuxLoadAvg15_Object = MibScalar
+linuxLoadAvg15 = _LinuxLoadAvg15_Object(
+    (1, 3, 6, 1, 4, 1, 1575, 1, 5, 2, 5),
+    _LinuxLoadAvg15_Type()
+)
+linuxLoadAvg15.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    linuxLoadAvg15.setStatus("current")
+_LinuxConformance_ObjectIdentity = ObjectIdentity
+linuxConformance = _LinuxConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1575, 1, 5, 3)
+)
+_LinuxCompliances_ObjectIdentity = ObjectIdentity
+linuxCompliances = _LinuxCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1575, 1, 5, 3, 1)
+)
+_LinuxGroups_ObjectIdentity = ObjectIdentity
+linuxGroups = _LinuxGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1575, 1, 5, 3, 2)
+)
+
+# Managed Objects groups
+
+linuxGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 1575, 1, 5, 3, 2, 1)
+)
+linuxGroup.setObjects(
+      *(("TUBS-IBR-LINUX-MIB", "linuxCPU"),
+        ("TUBS-IBR-LINUX-MIB", "linuxBogo"),
+        ("TUBS-IBR-LINUX-MIB", "linuxLoadAvg1"),
+        ("TUBS-IBR-LINUX-MIB", "linuxLoadAvg5"),
+        ("TUBS-IBR-LINUX-MIB", "linuxLoadAvg15"))
+)
+if mibBuilder.loadTexts:
+    linuxGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+linuxCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 1575, 1, 5, 3, 1, 1)
+)
+if mibBuilder.loadTexts:
+    linuxCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "TUBS-IBR-LINUX-MIB",
+    **{"LoadValue": LoadValue,
+       "linuxMIB": linuxMIB,
+       "linuxObjects": linuxObjects,
+       "linuxCPU": linuxCPU,
+       "linuxBogo": linuxBogo,
+       "linuxLoadAvg1": linuxLoadAvg1,
+       "linuxLoadAvg5": linuxLoadAvg5,
+       "linuxLoadAvg15": linuxLoadAvg15,
+       "linuxConformance": linuxConformance,
+       "linuxCompliances": linuxCompliances,
+       "linuxCompliance": linuxCompliance,
+       "linuxGroups": linuxGroups,
+       "linuxGroup": linuxGroup}
+)

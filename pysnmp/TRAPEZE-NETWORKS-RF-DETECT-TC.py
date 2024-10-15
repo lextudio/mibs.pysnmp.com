@@ -1,39 +1,250 @@
+# SNMP MIB module (TRAPEZE-NETWORKS-RF-DETECT-TC) expressed in pysnmp data model.
 #
-# PySNMP MIB module TRAPEZE-NETWORKS-RF-DETECT-TC (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/TRAPEZE-NETWORKS-RF-DETECT-TC
-# Produced by pysmi-0.3.4 at Mon Apr 29 21:19:55 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Gauge32, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, IpAddress, MibIdentifier, Counter64, Integer32, NotificationType, ObjectIdentity, iso, Bits, Counter32, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "IpAddress", "MibIdentifier", "Counter64", "Integer32", "NotificationType", "ObjectIdentity", "iso", "Bits", "Counter32", "ModuleIdentity")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-trpzMibs, = mibBuilder.importSymbols("TRAPEZE-NETWORKS-ROOT-MIB", "trpzMibs")
-trpzRFDetectTc = ModuleIdentity((1, 3, 6, 1, 4, 1, 14525, 4, 11))
-trpzRFDetectTc.setRevisions(('2011-07-27 00:11', '2009-08-13 00:10', '2007-04-18 00:02', '2007-03-28 00:01',))
-if mibBuilder.loadTexts: trpzRFDetectTc.setLastUpdated('201107270011Z')
-if mibBuilder.loadTexts: trpzRFDetectTc.setOrganization('Trapeze Networks')
-class TrpzRFDetectClassificationReason(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))
-    namedValues = NamedValues(("other", 1), ("default-classification", 2), ("rogue-list", 3), ("ap-in-modo", 4), ("neighbor-list", 5), ("ssid-masquerade", 6), ("seen-in-network", 7), ("ad-hoc", 8), ("ssid-list", 9), ("pass-fingerprint", 10), ("fail-fingerprint", 11))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/TRAPEZE-NETWORKS-RF-DETECT-TC
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:07:33 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class TrpzRFDetectClassification(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))
-    namedValues = NamedValues(("other", 1), ("not-classified", 2), ("member", 3), ("neighbor", 4), ("suspect", 5), ("rogue", 6), ("tag", 7))
+if 'mibBuilder' not in globals():
+    import sys
 
-class TrpzRFDetectNetworkingMode(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("ad-hoc", 1), ("infrastructure", 2))
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-class TrpzRFDetectDot11ModulationStandard(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))
-    namedValues = NamedValues(("dot11Unknown", 1), ("dot11Other", 2), ("dot11A", 3), ("dot11B", 4), ("dot11G", 5), ("dot11NA", 6), ("dot11NG", 7))
+# Import base ASN.1 objects even if this MIB does not use it
 
-mibBuilder.exportSymbols("TRAPEZE-NETWORKS-RF-DETECT-TC", TrpzRFDetectClassification=TrpzRFDetectClassification, TrpzRFDetectClassificationReason=TrpzRFDetectClassificationReason, TrpzRFDetectNetworkingMode=TrpzRFDetectNetworkingMode, TrpzRFDetectDot11ModulationStandard=TrpzRFDetectDot11ModulationStandard, PYSNMP_MODULE_ID=trpzRFDetectTc, trpzRFDetectTc=trpzRFDetectTc)
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+(trpzMibs,) = mibBuilder.importSymbols(
+    "TRAPEZE-NETWORKS-ROOT-MIB",
+    "trpzMibs")
+
+
+# MODULE-IDENTITY
+
+trpzRFDetectTc = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 14525, 4, 11)
+)
+trpzRFDetectTc.setRevisions(
+        ("2011-07-27 00:11",
+         "2009-08-13 00:10",
+         "2007-04-18 00:02",
+         "2007-03-28 00:01")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class TrpzRFDetectClassificationReason(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ad-hoc", 8),
+          ("ap-in-modo", 4),
+          ("default-classification", 2),
+          ("fail-fingerprint", 11),
+          ("neighbor-list", 5),
+          ("other", 1),
+          ("pass-fingerprint", 10),
+          ("rogue-list", 3),
+          ("seen-in-network", 7),
+          ("ssid-list", 9),
+          ("ssid-masquerade", 6))
+    )
+
+
+
+class TrpzRFDetectClassification(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("member", 3),
+          ("neighbor", 4),
+          ("not-classified", 2),
+          ("other", 1),
+          ("rogue", 6),
+          ("suspect", 5),
+          ("tag", 7))
+    )
+
+
+
+class TrpzRFDetectNetworkingMode(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ad-hoc", 1),
+          ("infrastructure", 2))
+    )
+
+
+
+class TrpzRFDetectDot11ModulationStandard(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dot11A", 3),
+          ("dot11B", 4),
+          ("dot11G", 5),
+          ("dot11NA", 6),
+          ("dot11NG", 7),
+          ("dot11Other", 2),
+          ("dot11Unknown", 1))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "TRAPEZE-NETWORKS-RF-DETECT-TC",
+    **{"TrpzRFDetectClassificationReason": TrpzRFDetectClassificationReason,
+       "TrpzRFDetectClassification": TrpzRFDetectClassification,
+       "TrpzRFDetectNetworkingMode": TrpzRFDetectNetworkingMode,
+       "TrpzRFDetectDot11ModulationStandard": TrpzRFDetectDot11ModulationStandard,
+       "trpzRFDetectTc": trpzRFDetectTc}
+)

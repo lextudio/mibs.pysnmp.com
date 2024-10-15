@@ -1,17 +1,17 @@
-"""SNMP MIB module (XEROX-RESOURCES-MIB) expressed in pysnmp data model.
+# SNMP MIB module (XEROX-RESOURCES-MIB) expressed in pysnmp data model.
+#
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/XEROX-RESOURCES-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:18:32 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-This Python module is designed to be imported and executed by the
-pysnmp library.
-
-See https://www.pysnmp.com/pysnmp for further information.
-
-Notes
------
-ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/XEROX-RESOURCES-MIB
-Produced by pysmi-1.3.3 at Sun Mar 10 06:00:40 2024
-On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm
-Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
-"""
 if 'mibBuilder' not in globals():
     import sys
 
@@ -53,92 +53,92 @@ if 'mibBuilder' not in globals():
     "IANA-CHARSET-MIB",
     "IANACharset")
 
-(NotificationGroup,
- ObjectGroup,
- ModuleCompliance) = mibBuilder.importSymbols(
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
     "SNMPv2-CONF",
+    "ModuleCompliance",
     "NotificationGroup",
-    "ObjectGroup",
-    "ModuleCompliance")
+    "ObjectGroup")
 
-(MibIdentifier,
- Counter64,
- IpAddress,
- Bits,
- Gauge32,
- ModuleIdentity,
- NotificationType,
- TimeTicks,
- Integer32,
- ObjectIdentity,
+(Bits,
  Counter32,
- Unsigned32,
- iso,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
  MibScalar,
  MibTable,
  MibTableRow,
- MibTableColumn) = mibBuilder.importSymbols(
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
     "SNMPv2-SMI",
-    "MibIdentifier",
-    "Counter64",
-    "IpAddress",
     "Bits",
-    "Gauge32",
-    "ModuleIdentity",
-    "NotificationType",
-    "TimeTicks",
-    "Integer32",
-    "ObjectIdentity",
     "Counter32",
-    "Unsigned32",
-    "iso",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
     "MibScalar",
     "MibTable",
     "MibTableRow",
-    "MibTableColumn")
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
 
-(RowStatus,
- TextualConvention,
- DisplayString) = mibBuilder.importSymbols(
+(DisplayString,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
     "SNMPv2-TC",
+    "DisplayString",
     "RowStatus",
-    "TextualConvention",
-    "DisplayString")
+    "TextualConvention")
 
 (xeroxCommonMIB,) = mibBuilder.importSymbols(
     "XEROX-COMMON-MIB",
     "xeroxCommonMIB")
 
 (Cardinal32,
+ CodeIndexedStringIndex,
  Integer64High,
  Integer64Low,
- Ordinal32,
- CodeIndexedStringIndex) = mibBuilder.importSymbols(
+ Ordinal32) = mibBuilder.importSymbols(
     "XEROX-GENERAL-TC",
     "Cardinal32",
+    "CodeIndexedStringIndex",
     "Integer64High",
     "Integer64Low",
-    "Ordinal32",
-    "CodeIndexedStringIndex")
+    "Ordinal32")
 
 (XcmPrtInterpreterLangFamily,) = mibBuilder.importSymbols(
     "XEROX-PRINTER-EXT-TC",
     "XcmPrtInterpreterLangFamily")
 
-(XcmRsrcGroupSupport,
- XcmFontSpacing,
- XcmRsrcPersistence,
- XcmFontType,
- XcmFontPCLStrokeWeight,
+(XcmFontPCLStrokeWeight,
  XcmFontPCLStyle,
+ XcmFontSpacing,
+ XcmFontType,
+ XcmRsrcGroupSupport,
+ XcmRsrcPersistence,
  XcmRsrcType) = mibBuilder.importSymbols(
     "XEROX-RESOURCES-TC",
-    "XcmRsrcGroupSupport",
-    "XcmFontSpacing",
-    "XcmRsrcPersistence",
-    "XcmFontType",
     "XcmFontPCLStrokeWeight",
     "XcmFontPCLStyle",
+    "XcmFontSpacing",
+    "XcmFontType",
+    "XcmRsrcGroupSupport",
+    "XcmRsrcPersistence",
     "XcmRsrcType")
 
 
@@ -210,7 +210,13 @@ xcmRsrcGeneralGroupSupport = _XcmRsrcGeneralGroupSupport_Object(
 xcmRsrcGeneralGroupSupport.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmRsrcGeneralGroupSupport.setStatus("current")
-_XcmRsrcGeneralCreateSupport_Type = XcmRsrcGroupSupport
+
+
+class _XcmRsrcGeneralCreateSupport_Type(XcmRsrcGroupSupport):
+    """Custom type xcmRsrcGeneralCreateSupport based on XcmRsrcGroupSupport"""
+    defaultValue = 0
+
+
 _XcmRsrcGeneralCreateSupport_Object = MibTableColumn
 xcmRsrcGeneralCreateSupport = _XcmRsrcGeneralCreateSupport_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 57, 1, 1, 1, 4),
@@ -219,7 +225,13 @@ xcmRsrcGeneralCreateSupport = _XcmRsrcGeneralCreateSupport_Object(
 xcmRsrcGeneralCreateSupport.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmRsrcGeneralCreateSupport.setStatus("current")
-_XcmRsrcGeneralUpdateSupport_Type = XcmRsrcGroupSupport
+
+
+class _XcmRsrcGeneralUpdateSupport_Type(XcmRsrcGroupSupport):
+    """Custom type xcmRsrcGeneralUpdateSupport based on XcmRsrcGroupSupport"""
+    defaultValue = 0
+
+
 _XcmRsrcGeneralUpdateSupport_Object = MibTableColumn
 xcmRsrcGeneralUpdateSupport = _XcmRsrcGeneralUpdateSupport_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 57, 1, 1, 1, 5),
@@ -378,7 +390,13 @@ xcmRsrcInterpreterLangFamily = _XcmRsrcInterpreterLangFamily_Object(
 xcmRsrcInterpreterLangFamily.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmRsrcInterpreterLangFamily.setStatus("current")
-_XcmRsrcName_Type = CodeIndexedStringIndex
+
+
+class _XcmRsrcName_Type(CodeIndexedStringIndex):
+    """Custom type xcmRsrcName based on CodeIndexedStringIndex"""
+    defaultValue = 0
+
+
 _XcmRsrcName_Object = MibTableColumn
 xcmRsrcName = _XcmRsrcName_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 57, 3, 1, 1, 5),
@@ -387,7 +405,13 @@ xcmRsrcName = _XcmRsrcName_Object(
 xcmRsrcName.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmRsrcName.setStatus("current")
-_XcmRsrcDescription_Type = CodeIndexedStringIndex
+
+
+class _XcmRsrcDescription_Type(CodeIndexedStringIndex):
+    """Custom type xcmRsrcDescription based on CodeIndexedStringIndex"""
+    defaultValue = 0
+
+
 _XcmRsrcDescription_Object = MibTableColumn
 xcmRsrcDescription = _XcmRsrcDescription_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 57, 3, 1, 1, 6),
@@ -396,7 +420,13 @@ xcmRsrcDescription = _XcmRsrcDescription_Object(
 xcmRsrcDescription.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmRsrcDescription.setStatus("current")
-_XcmRsrcCopyright_Type = CodeIndexedStringIndex
+
+
+class _XcmRsrcCopyright_Type(CodeIndexedStringIndex):
+    """Custom type xcmRsrcCopyright based on CodeIndexedStringIndex"""
+    defaultValue = 0
+
+
 _XcmRsrcCopyright_Object = MibTableColumn
 xcmRsrcCopyright = _XcmRsrcCopyright_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 57, 3, 1, 1, 7),
@@ -419,7 +449,13 @@ xcmRsrcPersistence = _XcmRsrcPersistence_Object(
 xcmRsrcPersistence.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmRsrcPersistence.setStatus("current")
-_XcmRsrcHrStorageIndex_Type = Cardinal32
+
+
+class _XcmRsrcHrStorageIndex_Type(Cardinal32):
+    """Custom type xcmRsrcHrStorageIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmRsrcHrStorageIndex_Object = MibTableColumn
 xcmRsrcHrStorageIndex = _XcmRsrcHrStorageIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 57, 3, 1, 1, 9),
@@ -443,7 +479,13 @@ xcmRsrcSizeHigh = _XcmRsrcSizeHigh_Object(
 xcmRsrcSizeHigh.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmRsrcSizeHigh.setStatus("current")
-_XcmRsrcSizeLow_Type = Integer64Low
+
+
+class _XcmRsrcSizeLow_Type(Integer64Low):
+    """Custom type xcmRsrcSizeLow based on Integer64Low"""
+    defaultValue = 0
+
+
 _XcmRsrcSizeLow_Object = MibTableColumn
 xcmRsrcSizeLow = _XcmRsrcSizeLow_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 57, 3, 1, 1, 11),
@@ -452,7 +494,13 @@ xcmRsrcSizeLow = _XcmRsrcSizeLow_Object(
 xcmRsrcSizeLow.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmRsrcSizeLow.setStatus("current")
-_XcmRsrcID_Type = CodeIndexedStringIndex
+
+
+class _XcmRsrcID_Type(CodeIndexedStringIndex):
+    """Custom type xcmRsrcID based on CodeIndexedStringIndex"""
+    defaultValue = 0
+
+
 _XcmRsrcID_Object = MibTableColumn
 xcmRsrcID = _XcmRsrcID_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 57, 3, 1, 1, 12),
@@ -461,7 +509,13 @@ xcmRsrcID = _XcmRsrcID_Object(
 xcmRsrcID.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmRsrcID.setStatus("current")
-_XcmRsrcVersion_Type = CodeIndexedStringIndex
+
+
+class _XcmRsrcVersion_Type(CodeIndexedStringIndex):
+    """Custom type xcmRsrcVersion based on CodeIndexedStringIndex"""
+    defaultValue = 0
+
+
 _XcmRsrcVersion_Object = MibTableColumn
 xcmRsrcVersion = _XcmRsrcVersion_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 57, 3, 1, 1, 13),

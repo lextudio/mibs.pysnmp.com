@@ -1,36 +1,273 @@
+# SNMP MIB module (PACEMAKER-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module PACEMAKER-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/PACEMAKER-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:26:54 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection")
-InetAddress, InetAddressType = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress", "InetAddressType")
-netSnmp, = mibBuilder.importSymbols("NET-SNMP-MIB", "netSnmp")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-NotificationType, Unsigned32, Counter64, TimeTicks, ObjectIdentity, ModuleIdentity, Integer32, MibIdentifier, Bits, iso, Gauge32, IpAddress, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Unsigned32", "Counter64", "TimeTicks", "ObjectIdentity", "ModuleIdentity", "Integer32", "MibIdentifier", "Bits", "iso", "Gauge32", "IpAddress", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "enterprises")
-StorageType, TextualConvention, DisplayString, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "StorageType", "TextualConvention", "DisplayString", "RowStatus")
-pacemaker = ModuleIdentity((1, 3, 6, 1, 4, 1, 32723))
-pacemaker.setRevisions(('2009-10-05 11:15', '2009-10-06 21:15',))
-if mibBuilder.loadTexts: pacemaker.setLastUpdated('200901051115Z')
-if mibBuilder.loadTexts: pacemaker.setOrganization('www.clusterlabs.org')
-pacemakerNotification = MibIdentifier((1, 3, 6, 1, 4, 1, 32723, 1))
-pacemakerNotificationNode = MibScalar((1, 3, 6, 1, 4, 1, 32723, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 64))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: pacemakerNotificationNode.setStatus('current')
-pacemakerNotificationResource = MibScalar((1, 3, 6, 1, 4, 1, 32723, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 256))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: pacemakerNotificationResource.setStatus('current')
-pacemakerNotificationOperation = MibScalar((1, 3, 6, 1, 4, 1, 32723, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 64))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: pacemakerNotificationOperation.setStatus('current')
-pacemakerNotificationDescription = MibScalar((1, 3, 6, 1, 4, 1, 32723, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 256))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: pacemakerNotificationDescription.setStatus('current')
-pacemakerNotificationStatus = MibScalar((1, 3, 6, 1, 4, 1, 32723, 1, 5), Integer32()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: pacemakerNotificationStatus.setStatus('current')
-pacemakerNotificationReturnCode = MibScalar((1, 3, 6, 1, 4, 1, 32723, 1, 6), Integer32()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: pacemakerNotificationReturnCode.setStatus('current')
-pacemakerNotificationTargetReturnCode = MibScalar((1, 3, 6, 1, 4, 1, 32723, 1, 7), Integer32()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: pacemakerNotificationTargetReturnCode.setStatus('current')
-mibBuilder.exportSymbols("PACEMAKER-MIB", pacemakerNotificationNode=pacemakerNotificationNode, pacemakerNotificationStatus=pacemakerNotificationStatus, PYSNMP_MODULE_ID=pacemaker, pacemaker=pacemaker, pacemakerNotificationOperation=pacemakerNotificationOperation, pacemakerNotification=pacemakerNotification, pacemakerNotificationReturnCode=pacemakerNotificationReturnCode, pacemakerNotificationDescription=pacemakerNotificationDescription, pacemakerNotificationResource=pacemakerNotificationResource, pacemakerNotificationTargetReturnCode=pacemakerNotificationTargetReturnCode)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/PACEMAKER-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:35:59 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(netSnmp,) = mibBuilder.importSymbols(
+    "NET-SNMP-MIB",
+    "netSnmp")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ RowStatus,
+ StorageType,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "RowStatus",
+    "StorageType",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+pacemaker = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 32723)
+)
+pacemaker.setRevisions(
+        ("2009-10-05 11:15",
+         "2009-10-06 21:15")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_PacemakerNotification_ObjectIdentity = ObjectIdentity
+pacemakerNotification = _PacemakerNotification_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 32723, 1)
+)
+
+
+class _PacemakerNotificationNode_Type(OctetString):
+    """Custom type pacemakerNotificationNode based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 64),
+    )
+
+
+_PacemakerNotificationNode_Type.__name__ = "OctetString"
+_PacemakerNotificationNode_Object = MibScalar
+pacemakerNotificationNode = _PacemakerNotificationNode_Object(
+    (1, 3, 6, 1, 4, 1, 32723, 1, 1),
+    _PacemakerNotificationNode_Type()
+)
+pacemakerNotificationNode.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    pacemakerNotificationNode.setStatus("current")
+
+
+class _PacemakerNotificationResource_Type(OctetString):
+    """Custom type pacemakerNotificationResource based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 256),
+    )
+
+
+_PacemakerNotificationResource_Type.__name__ = "OctetString"
+_PacemakerNotificationResource_Object = MibScalar
+pacemakerNotificationResource = _PacemakerNotificationResource_Object(
+    (1, 3, 6, 1, 4, 1, 32723, 1, 2),
+    _PacemakerNotificationResource_Type()
+)
+pacemakerNotificationResource.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    pacemakerNotificationResource.setStatus("current")
+
+
+class _PacemakerNotificationOperation_Type(OctetString):
+    """Custom type pacemakerNotificationOperation based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 64),
+    )
+
+
+_PacemakerNotificationOperation_Type.__name__ = "OctetString"
+_PacemakerNotificationOperation_Object = MibScalar
+pacemakerNotificationOperation = _PacemakerNotificationOperation_Object(
+    (1, 3, 6, 1, 4, 1, 32723, 1, 3),
+    _PacemakerNotificationOperation_Type()
+)
+pacemakerNotificationOperation.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    pacemakerNotificationOperation.setStatus("current")
+
+
+class _PacemakerNotificationDescription_Type(OctetString):
+    """Custom type pacemakerNotificationDescription based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 256),
+    )
+
+
+_PacemakerNotificationDescription_Type.__name__ = "OctetString"
+_PacemakerNotificationDescription_Object = MibScalar
+pacemakerNotificationDescription = _PacemakerNotificationDescription_Object(
+    (1, 3, 6, 1, 4, 1, 32723, 1, 4),
+    _PacemakerNotificationDescription_Type()
+)
+pacemakerNotificationDescription.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    pacemakerNotificationDescription.setStatus("current")
+_PacemakerNotificationStatus_Type = Integer32
+_PacemakerNotificationStatus_Object = MibScalar
+pacemakerNotificationStatus = _PacemakerNotificationStatus_Object(
+    (1, 3, 6, 1, 4, 1, 32723, 1, 5),
+    _PacemakerNotificationStatus_Type()
+)
+pacemakerNotificationStatus.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    pacemakerNotificationStatus.setStatus("current")
+_PacemakerNotificationReturnCode_Type = Integer32
+_PacemakerNotificationReturnCode_Object = MibScalar
+pacemakerNotificationReturnCode = _PacemakerNotificationReturnCode_Object(
+    (1, 3, 6, 1, 4, 1, 32723, 1, 6),
+    _PacemakerNotificationReturnCode_Type()
+)
+pacemakerNotificationReturnCode.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    pacemakerNotificationReturnCode.setStatus("current")
+_PacemakerNotificationTargetReturnCode_Type = Integer32
+_PacemakerNotificationTargetReturnCode_Object = MibScalar
+pacemakerNotificationTargetReturnCode = _PacemakerNotificationTargetReturnCode_Object(
+    (1, 3, 6, 1, 4, 1, 32723, 1, 7),
+    _PacemakerNotificationTargetReturnCode_Type()
+)
+pacemakerNotificationTargetReturnCode.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    pacemakerNotificationTargetReturnCode.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "PACEMAKER-MIB",
+    **{"pacemaker": pacemaker,
+       "pacemakerNotification": pacemakerNotification,
+       "pacemakerNotificationNode": pacemakerNotificationNode,
+       "pacemakerNotificationResource": pacemakerNotificationResource,
+       "pacemakerNotificationOperation": pacemakerNotificationOperation,
+       "pacemakerNotificationDescription": pacemakerNotificationDescription,
+       "pacemakerNotificationStatus": pacemakerNotificationStatus,
+       "pacemakerNotificationReturnCode": pacemakerNotificationReturnCode,
+       "pacemakerNotificationTargetReturnCode": pacemakerNotificationTargetReturnCode}
+)

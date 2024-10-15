@@ -1,32 +1,263 @@
+# SNMP MIB module (TPLINK-ETHERNETOAMLINKMONCFG-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module TPLINK-ETHERNETOAMLINKMONCFG-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/TPLINK-ETHERNETOAMLINKMONCFG-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 21:17:15 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-IpAddress, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, TimeTicks, MibIdentifier, ModuleIdentity, Gauge32, Bits, Unsigned32, ObjectIdentity, NotificationType, Integer32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "TimeTicks", "MibIdentifier", "ModuleIdentity", "Gauge32", "Bits", "Unsigned32", "ObjectIdentity", "NotificationType", "Integer32", "iso")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-ethernetOamLinkMonConfig, = mibBuilder.importSymbols("TPLINK-ETHERNETOAM-MIB", "ethernetOamLinkMonConfig")
-ethernetOamLinkMonCfgTable = MibTable((1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 2, 1), )
-if mibBuilder.loadTexts: ethernetOamLinkMonCfgTable.setStatus('current')
-ethernetOamLinkMonCfgEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "TPLINK-ETHERNETOAMLINKMONCFG-MIB", "ethernetOamLinkMonCfgEvent"))
-if mibBuilder.loadTexts: ethernetOamLinkMonCfgEntry.setStatus('current')
-ethernetOamLinkMonCfgPort = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 2, 1, 1, 1), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ethernetOamLinkMonCfgPort.setStatus('current')
-ethernetOamLinkMonCfgEvent = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("symbol-period", 1), ("frame", 2), ("frame-period", 3), ("frame-seconds", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ethernetOamLinkMonCfgEvent.setStatus('current')
-ethernetOamLinkMonCfgThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 2, 1, 1, 3), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ethernetOamLinkMonCfgThreshold.setStatus('current')
-ethernetOamLinkMonCfgWindow = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 2, 1, 1, 4), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ethernetOamLinkMonCfgWindow.setStatus('current')
-ethernetOamLinkMonCfgNotify = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ethernetOamLinkMonCfgNotify.setStatus('current')
-ethernetOamLinkMonCfgLAG = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 2, 1, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 10))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ethernetOamLinkMonCfgLAG.setStatus('current')
-mibBuilder.exportSymbols("TPLINK-ETHERNETOAMLINKMONCFG-MIB", ethernetOamLinkMonCfgThreshold=ethernetOamLinkMonCfgThreshold, ethernetOamLinkMonCfgEvent=ethernetOamLinkMonCfgEvent, ethernetOamLinkMonCfgPort=ethernetOamLinkMonCfgPort, ethernetOamLinkMonCfgNotify=ethernetOamLinkMonCfgNotify, ethernetOamLinkMonCfgLAG=ethernetOamLinkMonCfgLAG, ethernetOamLinkMonCfgEntry=ethernetOamLinkMonCfgEntry, ethernetOamLinkMonCfgTable=ethernetOamLinkMonCfgTable, ethernetOamLinkMonCfgWindow=ethernetOamLinkMonCfgWindow)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/TPLINK-ETHERNETOAMLINKMONCFG-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:06:03 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+(ethernetOamLinkMonConfig,) = mibBuilder.importSymbols(
+    "TPLINK-ETHERNETOAM-MIB",
+    "ethernetOamLinkMonConfig")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_EthernetOamLinkMonCfgTable_Object = MibTable
+ethernetOamLinkMonCfgTable = _EthernetOamLinkMonCfgTable_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    ethernetOamLinkMonCfgTable.setStatus("current")
+_EthernetOamLinkMonCfgEntry_Object = MibTableRow
+ethernetOamLinkMonCfgEntry = _EthernetOamLinkMonCfgEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 2, 1, 1)
+)
+ethernetOamLinkMonCfgEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+    (0, "TPLINK-ETHERNETOAMLINKMONCFG-MIB", "ethernetOamLinkMonCfgEvent"),
+)
+if mibBuilder.loadTexts:
+    ethernetOamLinkMonCfgEntry.setStatus("current")
+_EthernetOamLinkMonCfgPort_Type = DisplayString
+_EthernetOamLinkMonCfgPort_Object = MibTableColumn
+ethernetOamLinkMonCfgPort = _EthernetOamLinkMonCfgPort_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 2, 1, 1, 1),
+    _EthernetOamLinkMonCfgPort_Type()
+)
+ethernetOamLinkMonCfgPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ethernetOamLinkMonCfgPort.setStatus("current")
+
+
+class _EthernetOamLinkMonCfgEvent_Type(Integer32):
+    """Custom type ethernetOamLinkMonCfgEvent based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("frame", 2),
+          ("frame-period", 3),
+          ("frame-seconds", 4),
+          ("symbol-period", 1))
+    )
+
+
+_EthernetOamLinkMonCfgEvent_Type.__name__ = "Integer32"
+_EthernetOamLinkMonCfgEvent_Object = MibTableColumn
+ethernetOamLinkMonCfgEvent = _EthernetOamLinkMonCfgEvent_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 2, 1, 1, 2),
+    _EthernetOamLinkMonCfgEvent_Type()
+)
+ethernetOamLinkMonCfgEvent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ethernetOamLinkMonCfgEvent.setStatus("current")
+_EthernetOamLinkMonCfgThreshold_Type = Unsigned32
+_EthernetOamLinkMonCfgThreshold_Object = MibTableColumn
+ethernetOamLinkMonCfgThreshold = _EthernetOamLinkMonCfgThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 2, 1, 1, 3),
+    _EthernetOamLinkMonCfgThreshold_Type()
+)
+ethernetOamLinkMonCfgThreshold.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ethernetOamLinkMonCfgThreshold.setStatus("current")
+_EthernetOamLinkMonCfgWindow_Type = Unsigned32
+_EthernetOamLinkMonCfgWindow_Object = MibTableColumn
+ethernetOamLinkMonCfgWindow = _EthernetOamLinkMonCfgWindow_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 2, 1, 1, 4),
+    _EthernetOamLinkMonCfgWindow_Type()
+)
+ethernetOamLinkMonCfgWindow.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ethernetOamLinkMonCfgWindow.setStatus("current")
+
+
+class _EthernetOamLinkMonCfgNotify_Type(Integer32):
+    """Custom type ethernetOamLinkMonCfgNotify based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_EthernetOamLinkMonCfgNotify_Type.__name__ = "Integer32"
+_EthernetOamLinkMonCfgNotify_Object = MibTableColumn
+ethernetOamLinkMonCfgNotify = _EthernetOamLinkMonCfgNotify_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 2, 1, 1, 5),
+    _EthernetOamLinkMonCfgNotify_Type()
+)
+ethernetOamLinkMonCfgNotify.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ethernetOamLinkMonCfgNotify.setStatus("current")
+
+
+class _EthernetOamLinkMonCfgLAG_Type(OctetString):
+    """Custom type ethernetOamLinkMonCfgLAG based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 10),
+    )
+
+
+_EthernetOamLinkMonCfgLAG_Type.__name__ = "OctetString"
+_EthernetOamLinkMonCfgLAG_Object = MibTableColumn
+ethernetOamLinkMonCfgLAG = _EthernetOamLinkMonCfgLAG_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 2, 1, 1, 6),
+    _EthernetOamLinkMonCfgLAG_Type()
+)
+ethernetOamLinkMonCfgLAG.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ethernetOamLinkMonCfgLAG.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "TPLINK-ETHERNETOAMLINKMONCFG-MIB",
+    **{"ethernetOamLinkMonCfgTable": ethernetOamLinkMonCfgTable,
+       "ethernetOamLinkMonCfgEntry": ethernetOamLinkMonCfgEntry,
+       "ethernetOamLinkMonCfgPort": ethernetOamLinkMonCfgPort,
+       "ethernetOamLinkMonCfgEvent": ethernetOamLinkMonCfgEvent,
+       "ethernetOamLinkMonCfgThreshold": ethernetOamLinkMonCfgThreshold,
+       "ethernetOamLinkMonCfgWindow": ethernetOamLinkMonCfgWindow,
+       "ethernetOamLinkMonCfgNotify": ethernetOamLinkMonCfgNotify,
+       "ethernetOamLinkMonCfgLAG": ethernetOamLinkMonCfgLAG}
+)

@@ -1,17 +1,17 @@
-"""SNMP MIB module (XEROX-JOB-MONITORING-EXT-MIB) expressed in pysnmp data model.
+# SNMP MIB module (XEROX-JOB-MONITORING-EXT-MIB) expressed in pysnmp data model.
+#
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/XEROX-JOB-MONITORING-EXT-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:18:24 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-This Python module is designed to be imported and executed by the
-pysnmp library.
-
-See https://www.pysnmp.com/pysnmp for further information.
-
-Notes
------
-ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/XEROX-JOB-MONITORING-EXT-MIB
-Produced by pysmi-1.3.3 at Sun Mar 10 06:00:33 2024
-On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm
-Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
-"""
 if 'mibBuilder' not in globals():
     import sys
 
@@ -46,84 +46,84 @@ if 'mibBuilder' not in globals():
 # Import SMI symbols from the MIBs this MIB depends on
 
 (jmJobEntry,
- jmNumberOfInterveningJobs,
+ jmJobImpressionsCompleted,
+ jmJobImpressionsPerCopyRequested,
+ jmJobKOctetsPerCopyRequested,
  jmJobKOctetsProcessed,
  jmJobState,
- jmJobKOctetsPerCopyRequested,
- jmJobImpressionsPerCopyRequested,
  jmJobStateReasons1,
- jmJobImpressionsCompleted) = mibBuilder.importSymbols(
+ jmNumberOfInterveningJobs) = mibBuilder.importSymbols(
     "Job-Monitoring-MIB",
     "jmJobEntry",
-    "jmNumberOfInterveningJobs",
+    "jmJobImpressionsCompleted",
+    "jmJobImpressionsPerCopyRequested",
+    "jmJobKOctetsPerCopyRequested",
     "jmJobKOctetsProcessed",
     "jmJobState",
-    "jmJobKOctetsPerCopyRequested",
-    "jmJobImpressionsPerCopyRequested",
     "jmJobStateReasons1",
-    "jmJobImpressionsCompleted")
+    "jmNumberOfInterveningJobs")
 
-(ObjectGroup,
+(ModuleCompliance,
  NotificationGroup,
- ModuleCompliance) = mibBuilder.importSymbols(
+ ObjectGroup) = mibBuilder.importSymbols(
     "SNMPv2-CONF",
-    "ObjectGroup",
+    "ModuleCompliance",
     "NotificationGroup",
-    "ModuleCompliance")
+    "ObjectGroup")
 
 (Bits,
- ModuleIdentity,
  Counter32,
- ObjectIdentity,
- IpAddress,
- Integer32,
- iso,
- Unsigned32,
- TimeTicks,
  Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
  MibScalar,
  MibTable,
  MibTableRow,
  MibTableColumn,
- MibIdentifier,
- NotificationType,
- Gauge32) = mibBuilder.importSymbols(
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
     "SNMPv2-SMI",
     "Bits",
-    "ModuleIdentity",
     "Counter32",
-    "ObjectIdentity",
-    "IpAddress",
-    "Integer32",
-    "iso",
-    "Unsigned32",
-    "TimeTicks",
     "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
     "MibScalar",
     "MibTable",
     "MibTableRow",
     "MibTableColumn",
-    "MibIdentifier",
-    "NotificationType",
-    "Gauge32")
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
 
-(TruthValue,
+(DisplayString,
  TextualConvention,
- DisplayString) = mibBuilder.importSymbols(
+ TruthValue) = mibBuilder.importSymbols(
     "SNMPv2-TC",
-    "TruthValue",
+    "DisplayString",
     "TextualConvention",
-    "DisplayString")
+    "TruthValue")
 
 (xeroxCommonMIB,) = mibBuilder.importSymbols(
     "XEROX-COMMON-MIB",
     "xeroxCommonMIB")
 
-(XcmGenSNMPv2ErrorStatus,
- Ordinal32) = mibBuilder.importSymbols(
+(Ordinal32,
+ XcmGenSNMPv2ErrorStatus) = mibBuilder.importSymbols(
     "XEROX-GENERAL-TC",
-    "XcmGenSNMPv2ErrorStatus",
-    "Ordinal32")
+    "Ordinal32",
+    "XcmGenSNMPv2ErrorStatus")
 
 
 # MODULE-IDENTITY
@@ -140,7 +140,7 @@ xcmJmxMIB = ModuleIdentity(
 
 
 
-class XcmJmxGroupSupport(TextualConvention, Integer32):
+class XcmJmxGroupSupport(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -149,7 +149,7 @@ class XcmJmxGroupSupport(TextualConvention, Integer32):
 
 
 
-class XcmJmxJobAdminOperation(TextualConvention, Integer32):
+class XcmJmxJobAdminOperation(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -181,7 +181,7 @@ class XcmJmxJobAdminOperation(TextualConvention, Integer32):
 
 
 
-class XcmJmxJobAccntSupport(TextualConvention, Integer32):
+class XcmJmxJobAccntSupport(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -314,11 +314,6 @@ _XcmJmxJobAdminEntry_Object = MibTableRow
 xcmJmxJobAdminEntry = _XcmJmxJobAdminEntry_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 83, 1, 2, 1, 1)
 )
-jmJobEntry.registerAugmentions(
-    ("XEROX-JOB-MONITORING-EXT-MIB",
-     "xcmJmxJobAdminEntry")
-)
-xcmJmxJobAdminEntry.setIndexNames(*jmJobEntry.getIndexNames())
 if mibBuilder.loadTexts:
     xcmJmxJobAdminEntry.setStatus("current")
 
@@ -444,6 +439,11 @@ _XcmJmxMIBTrapGroups_ObjectIdentity = ObjectIdentity
 xcmJmxMIBTrapGroups = _XcmJmxMIBTrapGroups_ObjectIdentity(
     (1, 3, 6, 1, 4, 1, 253, 8, 83, 3, 3)
 )
+jmJobEntry.registerAugmentions(
+    ("XEROX-JOB-MONITORING-EXT-MIB",
+     "xcmJmxJobAdminEntry")
+)
+xcmJmxJobAdminEntry.setIndexNames(*jmJobEntry.getIndexNames())
 
 # Managed Objects groups
 

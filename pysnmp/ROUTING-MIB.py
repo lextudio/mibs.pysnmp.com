@@ -1,34 +1,233 @@
+# SNMP MIB module (ROUTING-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ROUTING-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/ROUTING-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:50:09 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
-routing, = mibBuilder.importSymbols("CORIOLIS-MIB", "routing")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, Gauge32, Unsigned32, ModuleIdentity, TimeTicks, NotificationType, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Bits, Integer32, Counter32, iso, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Gauge32", "Unsigned32", "ModuleIdentity", "TimeTicks", "NotificationType", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Bits", "Integer32", "Counter32", "iso", "ObjectIdentity")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-routingMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 5812, 7, 1))
-if mibBuilder.loadTexts: routingMIB.setLastUpdated('0007270000Z')
-if mibBuilder.loadTexts: routingMIB.setOrganization('Coriolis Networks')
-routeAdvPrefixTable = MibTable((1, 3, 6, 1, 4, 1, 5812, 7, 2), )
-if mibBuilder.loadTexts: routeAdvPrefixTable.setStatus('current')
-routeAdvPrefixEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5812, 7, 2, 1), ).setIndexNames((0, "ROUTING-MIB", "routeAdvSummAddr"), (0, "ROUTING-MIB", "routeAdvSummMask"))
-if mibBuilder.loadTexts: routeAdvPrefixEntry.setStatus('current')
-routeAdvSummAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 5812, 7, 2, 1, 1), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: routeAdvSummAddr.setStatus('current')
-routeAdvSummMask = MibTableColumn((1, 3, 6, 1, 4, 1, 5812, 7, 2, 1, 2), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: routeAdvSummMask.setStatus('current')
-routeAdvSummRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 5812, 7, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("active", 1), ("invalid", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: routeAdvSummRowStatus.setStatus('current')
-routeAdvSummRipAdminCost = MibTableColumn((1, 3, 6, 1, 4, 1, 5812, 7, 2, 1, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: routeAdvSummRipAdminCost.setStatus('current')
-routeAdvSummOspfAdminCost = MibTableColumn((1, 3, 6, 1, 4, 1, 5812, 7, 2, 1, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: routeAdvSummOspfAdminCost.setStatus('current')
-routeAdvSummNumSuppressedRoutes = MibTableColumn((1, 3, 6, 1, 4, 1, 5812, 7, 2, 1, 6), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: routeAdvSummNumSuppressedRoutes.setStatus('current')
-mibBuilder.exportSymbols("ROUTING-MIB", PYSNMP_MODULE_ID=routingMIB, routeAdvSummRowStatus=routeAdvSummRowStatus, routeAdvPrefixTable=routeAdvPrefixTable, routeAdvSummMask=routeAdvSummMask, routeAdvSummNumSuppressedRoutes=routeAdvSummNumSuppressedRoutes, routeAdvSummRipAdminCost=routeAdvSummRipAdminCost, routeAdvSummAddr=routeAdvSummAddr, routeAdvSummOspfAdminCost=routeAdvSummOspfAdminCost, routingMIB=routingMIB, routeAdvPrefixEntry=routeAdvPrefixEntry)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/ROUTING-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:48:20 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(routing,) = mibBuilder.importSymbols(
+    "CORIOLIS-MIB",
+    "routing")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+routingMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 5812, 7, 1)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_RouteAdvPrefixTable_Object = MibTable
+routeAdvPrefixTable = _RouteAdvPrefixTable_Object(
+    (1, 3, 6, 1, 4, 1, 5812, 7, 2)
+)
+if mibBuilder.loadTexts:
+    routeAdvPrefixTable.setStatus("current")
+_RouteAdvPrefixEntry_Object = MibTableRow
+routeAdvPrefixEntry = _RouteAdvPrefixEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5812, 7, 2, 1)
+)
+routeAdvPrefixEntry.setIndexNames(
+    (0, "ROUTING-MIB", "routeAdvSummAddr"),
+    (0, "ROUTING-MIB", "routeAdvSummMask"),
+)
+if mibBuilder.loadTexts:
+    routeAdvPrefixEntry.setStatus("current")
+_RouteAdvSummAddr_Type = IpAddress
+_RouteAdvSummAddr_Object = MibTableColumn
+routeAdvSummAddr = _RouteAdvSummAddr_Object(
+    (1, 3, 6, 1, 4, 1, 5812, 7, 2, 1, 1),
+    _RouteAdvSummAddr_Type()
+)
+routeAdvSummAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    routeAdvSummAddr.setStatus("current")
+_RouteAdvSummMask_Type = IpAddress
+_RouteAdvSummMask_Object = MibTableColumn
+routeAdvSummMask = _RouteAdvSummMask_Object(
+    (1, 3, 6, 1, 4, 1, 5812, 7, 2, 1, 2),
+    _RouteAdvSummMask_Type()
+)
+routeAdvSummMask.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    routeAdvSummMask.setStatus("current")
+
+
+class _RouteAdvSummRowStatus_Type(Integer32):
+    """Custom type routeAdvSummRowStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 1),
+          ("invalid", 2))
+    )
+
+
+_RouteAdvSummRowStatus_Type.__name__ = "Integer32"
+_RouteAdvSummRowStatus_Object = MibTableColumn
+routeAdvSummRowStatus = _RouteAdvSummRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 5812, 7, 2, 1, 3),
+    _RouteAdvSummRowStatus_Type()
+)
+routeAdvSummRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    routeAdvSummRowStatus.setStatus("current")
+_RouteAdvSummRipAdminCost_Type = Integer32
+_RouteAdvSummRipAdminCost_Object = MibTableColumn
+routeAdvSummRipAdminCost = _RouteAdvSummRipAdminCost_Object(
+    (1, 3, 6, 1, 4, 1, 5812, 7, 2, 1, 4),
+    _RouteAdvSummRipAdminCost_Type()
+)
+routeAdvSummRipAdminCost.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    routeAdvSummRipAdminCost.setStatus("current")
+_RouteAdvSummOspfAdminCost_Type = Integer32
+_RouteAdvSummOspfAdminCost_Object = MibTableColumn
+routeAdvSummOspfAdminCost = _RouteAdvSummOspfAdminCost_Object(
+    (1, 3, 6, 1, 4, 1, 5812, 7, 2, 1, 5),
+    _RouteAdvSummOspfAdminCost_Type()
+)
+routeAdvSummOspfAdminCost.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    routeAdvSummOspfAdminCost.setStatus("current")
+_RouteAdvSummNumSuppressedRoutes_Type = Integer32
+_RouteAdvSummNumSuppressedRoutes_Object = MibTableColumn
+routeAdvSummNumSuppressedRoutes = _RouteAdvSummNumSuppressedRoutes_Object(
+    (1, 3, 6, 1, 4, 1, 5812, 7, 2, 1, 6),
+    _RouteAdvSummNumSuppressedRoutes_Type()
+)
+routeAdvSummNumSuppressedRoutes.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    routeAdvSummNumSuppressedRoutes.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ROUTING-MIB",
+    **{"routingMIB": routingMIB,
+       "routeAdvPrefixTable": routeAdvPrefixTable,
+       "routeAdvPrefixEntry": routeAdvPrefixEntry,
+       "routeAdvSummAddr": routeAdvSummAddr,
+       "routeAdvSummMask": routeAdvSummMask,
+       "routeAdvSummRowStatus": routeAdvSummRowStatus,
+       "routeAdvSummRipAdminCost": routeAdvSummRipAdminCost,
+       "routeAdvSummOspfAdminCost": routeAdvSummOspfAdminCost,
+       "routeAdvSummNumSuppressedRoutes": routeAdvSummNumSuppressedRoutes}
+)

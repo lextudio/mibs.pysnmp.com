@@ -1,67 +1,565 @@
+# SNMP MIB module (BIANCA-BRICK-SEC-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module BIANCA-BRICK-SEC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/BIANCA-BRICK-SEC-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:21:39 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Unsigned32, ObjectIdentity, TimeTicks, NotificationType, Bits, IpAddress, ModuleIdentity, iso, Gauge32, Counter64, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "ObjectIdentity", "TimeTicks", "NotificationType", "Bits", "IpAddress", "ModuleIdentity", "iso", "Gauge32", "Counter64", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Integer32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-org = MibIdentifier((1, 3))
-dod = MibIdentifier((1, 3, 6))
-internet = MibIdentifier((1, 3, 6, 1))
-private = MibIdentifier((1, 3, 6, 1, 4))
-enterprises = MibIdentifier((1, 3, 6, 1, 4, 1))
-bintec = MibIdentifier((1, 3, 6, 1, 4, 1, 272))
-bintecsec = MibIdentifier((1, 3, 6, 1, 4, 1, 272, 254))
-biboAdmAdminCommunity = MibScalar((1, 3, 6, 1, 4, 1, 272, 254, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: biboAdmAdminCommunity.setStatus('mandatory')
-biboAdmReadCommunity = MibScalar((1, 3, 6, 1, 4, 1, 272, 254, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: biboAdmReadCommunity.setStatus('mandatory')
-biboAdmWriteCommunity = MibScalar((1, 3, 6, 1, 4, 1, 272, 254, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: biboAdmWriteCommunity.setStatus('mandatory')
-biboAdmLicenseTable = MibTable((1, 3, 6, 1, 4, 1, 272, 254, 4), )
-if mibBuilder.loadTexts: biboAdmLicenseTable.setStatus('mandatory')
-biboAdmLicenseEntry = MibTableRow((1, 3, 6, 1, 4, 1, 272, 254, 4, 1), ).setIndexNames((0, "BIANCA-BRICK-SEC-MIB", "biboAdmLicenseKey"))
-if mibBuilder.loadTexts: biboAdmLicenseEntry.setStatus('mandatory')
-biboAdmLicenseSerialNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 254, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 999999))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: biboAdmLicenseSerialNumber.setStatus('mandatory')
-biboAdmLicenseMask = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 254, 4, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: biboAdmLicenseMask.setStatus('mandatory')
-biboAdmLicenseKey = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 254, 4, 1, 3), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: biboAdmLicenseKey.setStatus('mandatory')
-biboAdmLicenseState = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 254, 4, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("ok", 1), ("not-ok", 2), ("delete", 3), ("internal-ok", 4), ("internal-erase", 5), ("not-supported", 6)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: biboAdmLicenseState.setStatus('mandatory')
-biboAdmLicenseSerialId = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 254, 4, 1, 5), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: biboAdmLicenseSerialId.setStatus('mandatory')
-biboAdmLicenseHwSerial = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 254, 4, 1, 6), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: biboAdmLicenseHwSerial.setStatus('mandatory')
-biboAdmLicenseLicType = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 254, 4, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 33, 128, 129, 130, 131, 132))).clone(namedValues=NamedValues(("ip", 1), ("capi", 2), ("bridge", 3), ("x25", 4), ("ipx", 5), ("stac", 6), ("frame-relay", 7), ("tapi", 8), ("ospf", 9), ("extended-lan", 10), ("tunneling", 11), ("taf", 12), ("extended-wan", 13), ("leased-line", 14), ("ipsec", 33), ("ethernet", 128), ("bri", 129), ("g703", 130), ("pri", 131), ("modem", 132)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: biboAdmLicenseLicType.setStatus('mandatory')
-biboAdmRadiusSecret = MibScalar((1, 3, 6, 1, 4, 1, 272, 254, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: biboAdmRadiusSecret.setStatus('mandatory')
-biboAdmHttpPassword = MibScalar((1, 3, 6, 1, 4, 1, 272, 254, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: biboAdmHttpPassword.setStatus('mandatory')
-biboAdmLoginTable = MibTable((1, 3, 6, 1, 4, 1, 272, 254, 7), )
-if mibBuilder.loadTexts: biboAdmLoginTable.setStatus('mandatory')
-biboAdmLoginEntry = MibTableRow((1, 3, 6, 1, 4, 1, 272, 254, 7, 1), ).setIndexNames((0, "BIANCA-BRICK-SEC-MIB", "biboAdmLoginUser"))
-if mibBuilder.loadTexts: biboAdmLoginEntry.setStatus('mandatory')
-biboAdmLoginUser = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 254, 7, 1, 1), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: biboAdmLoginUser.setStatus('mandatory')
-biboAdmLoginPassword = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 254, 7, 1, 2), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: biboAdmLoginPassword.setStatus('mandatory')
-biboAdmLoginCommand = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 254, 7, 1, 3), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: biboAdmLoginCommand.setStatus('mandatory')
-biboAdmLoginState = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 254, 7, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("valid", 1), ("delete", 2), ("invalid", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: biboAdmLoginState.setStatus('mandatory')
-biboAdmPublicKey = MibScalar((1, 3, 6, 1, 4, 1, 272, 254, 10), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: biboAdmPublicKey.setStatus('mandatory')
-biboAdmPrivateKey = MibScalar((1, 3, 6, 1, 4, 1, 272, 254, 11), OctetString())
-if mibBuilder.loadTexts: biboAdmPrivateKey.setStatus('mandatory')
-biboAdmActMonPassword = MibScalar((1, 3, 6, 1, 4, 1, 272, 254, 12), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: biboAdmActMonPassword.setStatus('mandatory')
-mibBuilder.exportSymbols("BIANCA-BRICK-SEC-MIB", biboAdmRadiusSecret=biboAdmRadiusSecret, biboAdmLicenseSerialNumber=biboAdmLicenseSerialNumber, biboAdmLicenseMask=biboAdmLicenseMask, bintec=bintec, biboAdmLoginState=biboAdmLoginState, private=private, org=org, biboAdmReadCommunity=biboAdmReadCommunity, biboAdmLicenseLicType=biboAdmLicenseLicType, biboAdmLoginEntry=biboAdmLoginEntry, biboAdmLoginPassword=biboAdmLoginPassword, biboAdmLoginTable=biboAdmLoginTable, biboAdmLicenseKey=biboAdmLicenseKey, biboAdmLoginUser=biboAdmLoginUser, biboAdmLicenseHwSerial=biboAdmLicenseHwSerial, biboAdmPrivateKey=biboAdmPrivateKey, biboAdmLicenseState=biboAdmLicenseState, biboAdmLicenseEntry=biboAdmLicenseEntry, biboAdmHttpPassword=biboAdmHttpPassword, biboAdmLicenseSerialId=biboAdmLicenseSerialId, enterprises=enterprises, biboAdmPublicKey=biboAdmPublicKey, biboAdmActMonPassword=biboAdmActMonPassword, bintecsec=bintecsec, biboAdmLoginCommand=biboAdmLoginCommand, biboAdmAdminCommunity=biboAdmAdminCommunity, internet=internet, biboAdmWriteCommunity=biboAdmWriteCommunity, dod=dod, biboAdmLicenseTable=biboAdmLicenseTable)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/BIANCA-BRICK-SEC-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 20:47:45 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Org_ObjectIdentity = ObjectIdentity
+org = _Org_ObjectIdentity(
+    (1, 3)
+)
+_Dod_ObjectIdentity = ObjectIdentity
+dod = _Dod_ObjectIdentity(
+    (1, 3, 6)
+)
+_Internet_ObjectIdentity = ObjectIdentity
+internet = _Internet_ObjectIdentity(
+    (1, 3, 6, 1)
+)
+_Private_ObjectIdentity = ObjectIdentity
+private = _Private_ObjectIdentity(
+    (1, 3, 6, 1, 4)
+)
+_Enterprises_ObjectIdentity = ObjectIdentity
+enterprises = _Enterprises_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1)
+)
+_Bintec_ObjectIdentity = ObjectIdentity
+bintec = _Bintec_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 272)
+)
+_Bintecsec_ObjectIdentity = ObjectIdentity
+bintecsec = _Bintecsec_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 272, 254)
+)
+
+
+class _BiboAdmAdminCommunity_Type(DisplayString):
+    """Custom type biboAdmAdminCommunity based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_BiboAdmAdminCommunity_Type.__name__ = "DisplayString"
+_BiboAdmAdminCommunity_Object = MibScalar
+biboAdmAdminCommunity = _BiboAdmAdminCommunity_Object(
+    (1, 3, 6, 1, 4, 1, 272, 254, 1),
+    _BiboAdmAdminCommunity_Type()
+)
+biboAdmAdminCommunity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    biboAdmAdminCommunity.setStatus("mandatory")
+
+
+class _BiboAdmReadCommunity_Type(DisplayString):
+    """Custom type biboAdmReadCommunity based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_BiboAdmReadCommunity_Type.__name__ = "DisplayString"
+_BiboAdmReadCommunity_Object = MibScalar
+biboAdmReadCommunity = _BiboAdmReadCommunity_Object(
+    (1, 3, 6, 1, 4, 1, 272, 254, 2),
+    _BiboAdmReadCommunity_Type()
+)
+biboAdmReadCommunity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    biboAdmReadCommunity.setStatus("mandatory")
+
+
+class _BiboAdmWriteCommunity_Type(DisplayString):
+    """Custom type biboAdmWriteCommunity based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_BiboAdmWriteCommunity_Type.__name__ = "DisplayString"
+_BiboAdmWriteCommunity_Object = MibScalar
+biboAdmWriteCommunity = _BiboAdmWriteCommunity_Object(
+    (1, 3, 6, 1, 4, 1, 272, 254, 3),
+    _BiboAdmWriteCommunity_Type()
+)
+biboAdmWriteCommunity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    biboAdmWriteCommunity.setStatus("mandatory")
+_BiboAdmLicenseTable_Object = MibTable
+biboAdmLicenseTable = _BiboAdmLicenseTable_Object(
+    (1, 3, 6, 1, 4, 1, 272, 254, 4)
+)
+if mibBuilder.loadTexts:
+    biboAdmLicenseTable.setStatus("mandatory")
+_BiboAdmLicenseEntry_Object = MibTableRow
+biboAdmLicenseEntry = _BiboAdmLicenseEntry_Object(
+    (1, 3, 6, 1, 4, 1, 272, 254, 4, 1)
+)
+biboAdmLicenseEntry.setIndexNames(
+    (0, "BIANCA-BRICK-SEC-MIB", "biboAdmLicenseKey"),
+)
+if mibBuilder.loadTexts:
+    biboAdmLicenseEntry.setStatus("mandatory")
+
+
+class _BiboAdmLicenseSerialNumber_Type(Integer32):
+    """Custom type biboAdmLicenseSerialNumber based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 999999),
+    )
+
+
+_BiboAdmLicenseSerialNumber_Type.__name__ = "Integer32"
+_BiboAdmLicenseSerialNumber_Object = MibTableColumn
+biboAdmLicenseSerialNumber = _BiboAdmLicenseSerialNumber_Object(
+    (1, 3, 6, 1, 4, 1, 272, 254, 4, 1, 1),
+    _BiboAdmLicenseSerialNumber_Type()
+)
+biboAdmLicenseSerialNumber.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    biboAdmLicenseSerialNumber.setStatus("mandatory")
+
+
+class _BiboAdmLicenseMask_Type(Integer32):
+    """Custom type biboAdmLicenseMask based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_BiboAdmLicenseMask_Type.__name__ = "Integer32"
+_BiboAdmLicenseMask_Object = MibTableColumn
+biboAdmLicenseMask = _BiboAdmLicenseMask_Object(
+    (1, 3, 6, 1, 4, 1, 272, 254, 4, 1, 2),
+    _BiboAdmLicenseMask_Type()
+)
+biboAdmLicenseMask.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    biboAdmLicenseMask.setStatus("mandatory")
+_BiboAdmLicenseKey_Type = DisplayString
+_BiboAdmLicenseKey_Object = MibTableColumn
+biboAdmLicenseKey = _BiboAdmLicenseKey_Object(
+    (1, 3, 6, 1, 4, 1, 272, 254, 4, 1, 3),
+    _BiboAdmLicenseKey_Type()
+)
+biboAdmLicenseKey.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    biboAdmLicenseKey.setStatus("mandatory")
+
+
+class _BiboAdmLicenseState_Type(Integer32):
+    """Custom type biboAdmLicenseState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("delete", 3),
+          ("internal-erase", 5),
+          ("internal-ok", 4),
+          ("not-ok", 2),
+          ("not-supported", 6),
+          ("ok", 1))
+    )
+
+
+_BiboAdmLicenseState_Type.__name__ = "Integer32"
+_BiboAdmLicenseState_Object = MibTableColumn
+biboAdmLicenseState = _BiboAdmLicenseState_Object(
+    (1, 3, 6, 1, 4, 1, 272, 254, 4, 1, 4),
+    _BiboAdmLicenseState_Type()
+)
+biboAdmLicenseState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    biboAdmLicenseState.setStatus("mandatory")
+_BiboAdmLicenseSerialId_Type = DisplayString
+_BiboAdmLicenseSerialId_Object = MibTableColumn
+biboAdmLicenseSerialId = _BiboAdmLicenseSerialId_Object(
+    (1, 3, 6, 1, 4, 1, 272, 254, 4, 1, 5),
+    _BiboAdmLicenseSerialId_Type()
+)
+biboAdmLicenseSerialId.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    biboAdmLicenseSerialId.setStatus("mandatory")
+_BiboAdmLicenseHwSerial_Type = DisplayString
+_BiboAdmLicenseHwSerial_Object = MibTableColumn
+biboAdmLicenseHwSerial = _BiboAdmLicenseHwSerial_Object(
+    (1, 3, 6, 1, 4, 1, 272, 254, 4, 1, 6),
+    _BiboAdmLicenseHwSerial_Type()
+)
+biboAdmLicenseHwSerial.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    biboAdmLicenseHwSerial.setStatus("mandatory")
+
+
+class _BiboAdmLicenseLicType_Type(Integer32):
+    """Custom type biboAdmLicenseLicType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              33,
+              128,
+              129,
+              130,
+              131,
+              132)
+        )
+    )
+    namedValues = NamedValues(
+        *(("bri", 129),
+          ("bridge", 3),
+          ("capi", 2),
+          ("ethernet", 128),
+          ("extended-lan", 10),
+          ("extended-wan", 13),
+          ("frame-relay", 7),
+          ("g703", 130),
+          ("ip", 1),
+          ("ipsec", 33),
+          ("ipx", 5),
+          ("leased-line", 14),
+          ("modem", 132),
+          ("ospf", 9),
+          ("pri", 131),
+          ("stac", 6),
+          ("taf", 12),
+          ("tapi", 8),
+          ("tunneling", 11),
+          ("x25", 4))
+    )
+
+
+_BiboAdmLicenseLicType_Type.__name__ = "Integer32"
+_BiboAdmLicenseLicType_Object = MibTableColumn
+biboAdmLicenseLicType = _BiboAdmLicenseLicType_Object(
+    (1, 3, 6, 1, 4, 1, 272, 254, 4, 1, 7),
+    _BiboAdmLicenseLicType_Type()
+)
+biboAdmLicenseLicType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    biboAdmLicenseLicType.setStatus("mandatory")
+
+
+class _BiboAdmRadiusSecret_Type(DisplayString):
+    """Custom type biboAdmRadiusSecret based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_BiboAdmRadiusSecret_Type.__name__ = "DisplayString"
+_BiboAdmRadiusSecret_Object = MibScalar
+biboAdmRadiusSecret = _BiboAdmRadiusSecret_Object(
+    (1, 3, 6, 1, 4, 1, 272, 254, 5),
+    _BiboAdmRadiusSecret_Type()
+)
+biboAdmRadiusSecret.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    biboAdmRadiusSecret.setStatus("mandatory")
+
+
+class _BiboAdmHttpPassword_Type(DisplayString):
+    """Custom type biboAdmHttpPassword based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_BiboAdmHttpPassword_Type.__name__ = "DisplayString"
+_BiboAdmHttpPassword_Object = MibScalar
+biboAdmHttpPassword = _BiboAdmHttpPassword_Object(
+    (1, 3, 6, 1, 4, 1, 272, 254, 6),
+    _BiboAdmHttpPassword_Type()
+)
+biboAdmHttpPassword.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    biboAdmHttpPassword.setStatus("mandatory")
+_BiboAdmLoginTable_Object = MibTable
+biboAdmLoginTable = _BiboAdmLoginTable_Object(
+    (1, 3, 6, 1, 4, 1, 272, 254, 7)
+)
+if mibBuilder.loadTexts:
+    biboAdmLoginTable.setStatus("mandatory")
+_BiboAdmLoginEntry_Object = MibTableRow
+biboAdmLoginEntry = _BiboAdmLoginEntry_Object(
+    (1, 3, 6, 1, 4, 1, 272, 254, 7, 1)
+)
+biboAdmLoginEntry.setIndexNames(
+    (0, "BIANCA-BRICK-SEC-MIB", "biboAdmLoginUser"),
+)
+if mibBuilder.loadTexts:
+    biboAdmLoginEntry.setStatus("mandatory")
+_BiboAdmLoginUser_Type = DisplayString
+_BiboAdmLoginUser_Object = MibTableColumn
+biboAdmLoginUser = _BiboAdmLoginUser_Object(
+    (1, 3, 6, 1, 4, 1, 272, 254, 7, 1, 1),
+    _BiboAdmLoginUser_Type()
+)
+biboAdmLoginUser.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    biboAdmLoginUser.setStatus("mandatory")
+_BiboAdmLoginPassword_Type = DisplayString
+_BiboAdmLoginPassword_Object = MibTableColumn
+biboAdmLoginPassword = _BiboAdmLoginPassword_Object(
+    (1, 3, 6, 1, 4, 1, 272, 254, 7, 1, 2),
+    _BiboAdmLoginPassword_Type()
+)
+biboAdmLoginPassword.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    biboAdmLoginPassword.setStatus("mandatory")
+_BiboAdmLoginCommand_Type = DisplayString
+_BiboAdmLoginCommand_Object = MibTableColumn
+biboAdmLoginCommand = _BiboAdmLoginCommand_Object(
+    (1, 3, 6, 1, 4, 1, 272, 254, 7, 1, 3),
+    _BiboAdmLoginCommand_Type()
+)
+biboAdmLoginCommand.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    biboAdmLoginCommand.setStatus("mandatory")
+
+
+class _BiboAdmLoginState_Type(Integer32):
+    """Custom type biboAdmLoginState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("delete", 2),
+          ("invalid", 3),
+          ("valid", 1))
+    )
+
+
+_BiboAdmLoginState_Type.__name__ = "Integer32"
+_BiboAdmLoginState_Object = MibTableColumn
+biboAdmLoginState = _BiboAdmLoginState_Object(
+    (1, 3, 6, 1, 4, 1, 272, 254, 7, 1, 4),
+    _BiboAdmLoginState_Type()
+)
+biboAdmLoginState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    biboAdmLoginState.setStatus("mandatory")
+_BiboAdmPublicKey_Type = OctetString
+_BiboAdmPublicKey_Object = MibScalar
+biboAdmPublicKey = _BiboAdmPublicKey_Object(
+    (1, 3, 6, 1, 4, 1, 272, 254, 10),
+    _BiboAdmPublicKey_Type()
+)
+biboAdmPublicKey.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    biboAdmPublicKey.setStatus("mandatory")
+_BiboAdmPrivateKey_Type = OctetString
+_BiboAdmPrivateKey_Object = MibScalar
+biboAdmPrivateKey = _BiboAdmPrivateKey_Object(
+    (1, 3, 6, 1, 4, 1, 272, 254, 11),
+    _BiboAdmPrivateKey_Type()
+)
+biboAdmPrivateKey.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    biboAdmPrivateKey.setStatus("mandatory")
+
+
+class _BiboAdmActMonPassword_Type(DisplayString):
+    """Custom type biboAdmActMonPassword based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_BiboAdmActMonPassword_Type.__name__ = "DisplayString"
+_BiboAdmActMonPassword_Object = MibScalar
+biboAdmActMonPassword = _BiboAdmActMonPassword_Object(
+    (1, 3, 6, 1, 4, 1, 272, 254, 12),
+    _BiboAdmActMonPassword_Type()
+)
+biboAdmActMonPassword.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    biboAdmActMonPassword.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "BIANCA-BRICK-SEC-MIB",
+    **{"org": org,
+       "dod": dod,
+       "internet": internet,
+       "private": private,
+       "enterprises": enterprises,
+       "bintec": bintec,
+       "bintecsec": bintecsec,
+       "biboAdmAdminCommunity": biboAdmAdminCommunity,
+       "biboAdmReadCommunity": biboAdmReadCommunity,
+       "biboAdmWriteCommunity": biboAdmWriteCommunity,
+       "biboAdmLicenseTable": biboAdmLicenseTable,
+       "biboAdmLicenseEntry": biboAdmLicenseEntry,
+       "biboAdmLicenseSerialNumber": biboAdmLicenseSerialNumber,
+       "biboAdmLicenseMask": biboAdmLicenseMask,
+       "biboAdmLicenseKey": biboAdmLicenseKey,
+       "biboAdmLicenseState": biboAdmLicenseState,
+       "biboAdmLicenseSerialId": biboAdmLicenseSerialId,
+       "biboAdmLicenseHwSerial": biboAdmLicenseHwSerial,
+       "biboAdmLicenseLicType": biboAdmLicenseLicType,
+       "biboAdmRadiusSecret": biboAdmRadiusSecret,
+       "biboAdmHttpPassword": biboAdmHttpPassword,
+       "biboAdmLoginTable": biboAdmLoginTable,
+       "biboAdmLoginEntry": biboAdmLoginEntry,
+       "biboAdmLoginUser": biboAdmLoginUser,
+       "biboAdmLoginPassword": biboAdmLoginPassword,
+       "biboAdmLoginCommand": biboAdmLoginCommand,
+       "biboAdmLoginState": biboAdmLoginState,
+       "biboAdmPublicKey": biboAdmPublicKey,
+       "biboAdmPrivateKey": biboAdmPrivateKey,
+       "biboAdmActMonPassword": biboAdmActMonPassword}
+)

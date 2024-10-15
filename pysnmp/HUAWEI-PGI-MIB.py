@@ -1,41 +1,270 @@
+# SNMP MIB module (HUAWEI-PGI-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HUAWEI-PGI-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/HUAWEI-PGI-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:35:58 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint")
-hwDatacomm, = mibBuilder.importSymbols("HUAWEI-MIB", "hwDatacomm")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-Counter64, Gauge32, Integer32, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, iso, ModuleIdentity, MibIdentifier, Bits, Unsigned32, Counter32, IpAddress, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Gauge32", "Integer32", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "iso", "ModuleIdentity", "MibIdentifier", "Bits", "Unsigned32", "Counter32", "IpAddress", "NotificationType")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
-hwPortGroupIsolation = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 5, 25, 144))
-if mibBuilder.loadTexts: hwPortGroupIsolation.setLastUpdated('200701010000Z')
-if mibBuilder.loadTexts: hwPortGroupIsolation.setOrganization('Huawei Technologies Co. Ltd.')
-hwPortGroupIsolationMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 5, 25, 144, 1))
-hwPortGroupIsolationConfigTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 5, 25, 144, 1, 1), )
-if mibBuilder.loadTexts: hwPortGroupIsolationConfigTable.setStatus('current')
-hwPortGroupIsolationConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 5, 25, 144, 1, 1, 1), ).setIndexNames((0, "HUAWEI-PGI-MIB", "hwPortGroupIsolationIndex"))
-if mibBuilder.loadTexts: hwPortGroupIsolationConfigEntry.setStatus('current')
-hwPortGroupIsolationIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 144, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1024)))
-if mibBuilder.loadTexts: hwPortGroupIsolationIndex.setStatus('current')
-hwPortGroupIsolationIfName = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 144, 1, 1, 1, 11), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hwPortGroupIsolationIfName.setStatus('current')
-hwPortGroupIsolationGroupID = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 144, 1, 1, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hwPortGroupIsolationGroupID.setStatus('current')
-hwPortGroupIsolationConfigRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 144, 1, 1, 1, 51), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hwPortGroupIsolationConfigRowStatus.setStatus('current')
-hwPortGroupIsolationConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 5, 25, 144, 3))
-hwPortGroupIsolationCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 5, 25, 144, 3, 1))
-hwPortGroupIsolationCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 2011, 5, 25, 144, 3, 1, 1)).setObjects(("HUAWEI-PGI-MIB", "hwPortGroupIsolationObjectGroup"))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-PGI-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:05:29 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hwPortGroupIsolationCompliance = hwPortGroupIsolationCompliance.setStatus('current')
-hwPortGroupIsolationGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 5, 25, 144, 3, 3))
-hwPortGroupIsolationObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2011, 5, 25, 144, 3, 3, 1)).setObjects(("HUAWEI-PGI-MIB", "hwPortGroupIsolationIfName"), ("HUAWEI-PGI-MIB", "hwPortGroupIsolationGroupID"), ("HUAWEI-PGI-MIB", "hwPortGroupIsolationConfigRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hwPortGroupIsolationObjectGroup = hwPortGroupIsolationObjectGroup.setStatus('current')
-mibBuilder.exportSymbols("HUAWEI-PGI-MIB", PYSNMP_MODULE_ID=hwPortGroupIsolation, hwPortGroupIsolation=hwPortGroupIsolation, hwPortGroupIsolationIfName=hwPortGroupIsolationIfName, hwPortGroupIsolationCompliance=hwPortGroupIsolationCompliance, hwPortGroupIsolationConformance=hwPortGroupIsolationConformance, hwPortGroupIsolationConfigTable=hwPortGroupIsolationConfigTable, hwPortGroupIsolationIndex=hwPortGroupIsolationIndex, hwPortGroupIsolationGroups=hwPortGroupIsolationGroups, hwPortGroupIsolationConfigEntry=hwPortGroupIsolationConfigEntry, hwPortGroupIsolationMibObjects=hwPortGroupIsolationMibObjects, hwPortGroupIsolationObjectGroup=hwPortGroupIsolationObjectGroup, hwPortGroupIsolationGroupID=hwPortGroupIsolationGroupID, hwPortGroupIsolationCompliances=hwPortGroupIsolationCompliances, hwPortGroupIsolationConfigRowStatus=hwPortGroupIsolationConfigRowStatus)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(hwDatacomm,) = mibBuilder.importSymbols(
+    "HUAWEI-MIB",
+    "hwDatacomm")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+hwPortGroupIsolation = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 144)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_HwPortGroupIsolationMibObjects_ObjectIdentity = ObjectIdentity
+hwPortGroupIsolationMibObjects = _HwPortGroupIsolationMibObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 144, 1)
+)
+_HwPortGroupIsolationConfigTable_Object = MibTable
+hwPortGroupIsolationConfigTable = _HwPortGroupIsolationConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 144, 1, 1)
+)
+if mibBuilder.loadTexts:
+    hwPortGroupIsolationConfigTable.setStatus("current")
+_HwPortGroupIsolationConfigEntry_Object = MibTableRow
+hwPortGroupIsolationConfigEntry = _HwPortGroupIsolationConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 144, 1, 1, 1)
+)
+hwPortGroupIsolationConfigEntry.setIndexNames(
+    (0, "HUAWEI-PGI-MIB", "hwPortGroupIsolationIndex"),
+)
+if mibBuilder.loadTexts:
+    hwPortGroupIsolationConfigEntry.setStatus("current")
+
+
+class _HwPortGroupIsolationIndex_Type(Integer32):
+    """Custom type hwPortGroupIsolationIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1024),
+    )
+
+
+_HwPortGroupIsolationIndex_Type.__name__ = "Integer32"
+_HwPortGroupIsolationIndex_Object = MibTableColumn
+hwPortGroupIsolationIndex = _HwPortGroupIsolationIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 144, 1, 1, 1, 1),
+    _HwPortGroupIsolationIndex_Type()
+)
+hwPortGroupIsolationIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hwPortGroupIsolationIndex.setStatus("current")
+
+
+class _HwPortGroupIsolationIfName_Type(OctetString):
+    """Custom type hwPortGroupIsolationIfName based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_HwPortGroupIsolationIfName_Type.__name__ = "OctetString"
+_HwPortGroupIsolationIfName_Object = MibTableColumn
+hwPortGroupIsolationIfName = _HwPortGroupIsolationIfName_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 144, 1, 1, 1, 11),
+    _HwPortGroupIsolationIfName_Type()
+)
+hwPortGroupIsolationIfName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hwPortGroupIsolationIfName.setStatus("current")
+
+
+class _HwPortGroupIsolationGroupID_Type(Integer32):
+    """Custom type hwPortGroupIsolationGroupID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_HwPortGroupIsolationGroupID_Type.__name__ = "Integer32"
+_HwPortGroupIsolationGroupID_Object = MibTableColumn
+hwPortGroupIsolationGroupID = _HwPortGroupIsolationGroupID_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 144, 1, 1, 1, 12),
+    _HwPortGroupIsolationGroupID_Type()
+)
+hwPortGroupIsolationGroupID.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hwPortGroupIsolationGroupID.setStatus("current")
+_HwPortGroupIsolationConfigRowStatus_Type = RowStatus
+_HwPortGroupIsolationConfigRowStatus_Object = MibTableColumn
+hwPortGroupIsolationConfigRowStatus = _HwPortGroupIsolationConfigRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 144, 1, 1, 1, 51),
+    _HwPortGroupIsolationConfigRowStatus_Type()
+)
+hwPortGroupIsolationConfigRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hwPortGroupIsolationConfigRowStatus.setStatus("current")
+_HwPortGroupIsolationConformance_ObjectIdentity = ObjectIdentity
+hwPortGroupIsolationConformance = _HwPortGroupIsolationConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 144, 3)
+)
+_HwPortGroupIsolationCompliances_ObjectIdentity = ObjectIdentity
+hwPortGroupIsolationCompliances = _HwPortGroupIsolationCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 144, 3, 1)
+)
+_HwPortGroupIsolationGroups_ObjectIdentity = ObjectIdentity
+hwPortGroupIsolationGroups = _HwPortGroupIsolationGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 144, 3, 3)
+)
+
+# Managed Objects groups
+
+hwPortGroupIsolationObjectGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 144, 3, 3, 1)
+)
+hwPortGroupIsolationObjectGroup.setObjects(
+      *(("HUAWEI-PGI-MIB", "hwPortGroupIsolationIfName"),
+        ("HUAWEI-PGI-MIB", "hwPortGroupIsolationGroupID"),
+        ("HUAWEI-PGI-MIB", "hwPortGroupIsolationConfigRowStatus"))
+)
+if mibBuilder.loadTexts:
+    hwPortGroupIsolationObjectGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+hwPortGroupIsolationCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 144, 3, 1, 1)
+)
+if mibBuilder.loadTexts:
+    hwPortGroupIsolationCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HUAWEI-PGI-MIB",
+    **{"hwPortGroupIsolation": hwPortGroupIsolation,
+       "hwPortGroupIsolationMibObjects": hwPortGroupIsolationMibObjects,
+       "hwPortGroupIsolationConfigTable": hwPortGroupIsolationConfigTable,
+       "hwPortGroupIsolationConfigEntry": hwPortGroupIsolationConfigEntry,
+       "hwPortGroupIsolationIndex": hwPortGroupIsolationIndex,
+       "hwPortGroupIsolationIfName": hwPortGroupIsolationIfName,
+       "hwPortGroupIsolationGroupID": hwPortGroupIsolationGroupID,
+       "hwPortGroupIsolationConfigRowStatus": hwPortGroupIsolationConfigRowStatus,
+       "hwPortGroupIsolationConformance": hwPortGroupIsolationConformance,
+       "hwPortGroupIsolationCompliances": hwPortGroupIsolationCompliances,
+       "hwPortGroupIsolationCompliance": hwPortGroupIsolationCompliance,
+       "hwPortGroupIsolationGroups": hwPortGroupIsolationGroups,
+       "hwPortGroupIsolationObjectGroup": hwPortGroupIsolationObjectGroup}
+)

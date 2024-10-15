@@ -1,108 +1,527 @@
+# SNMP MIB module (PDN-TC) expressed in pysnmp data model.
 #
-# PySNMP MIB module PDN-TC (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/PDN-TC
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:29:02 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Gauge32, iso, Bits, Unsigned32, NotificationType, Counter32, Integer32, Counter64, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, ObjectIdentity, enterprises, MibIdentifier, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "iso", "Bits", "Unsigned32", "NotificationType", "Counter32", "Integer32", "Counter64", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "ObjectIdentity", "enterprises", "MibIdentifier", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-pdyn = MibIdentifier((1, 3, 6, 1, 4, 1, 1795))
-class VnidMode(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
-    namedValues = NamedValues(("implicit", 1), ("explicit", 2), ("notagging", 3))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/PDN-TC
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:37:15 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class ClientState(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("static", 1), ("dynamic", 2))
+if 'mibBuilder' not in globals():
+    import sys
 
-class VnidTaggingState(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("enabled", 1), ("disabled", 2))
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-class VnidRange(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(2, 4000)
+# Import base ASN.1 objects even if this MIB does not use it
 
-class SwitchState(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("enabled", 1), ("disabled", 2))
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
 
-class ResetStates(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
-    namedValues = NamedValues(("noOp", 1), ("reset", 2), ("resetToFactoryDefaults", 3))
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
 
-class ResultTypes(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("none", 1), ("success", 2), ("failure", 3), ("inProgress", 4))
+# Import SMI symbols from the MIBs this MIB depends on
 
-class InitiatorTypes(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("noop", 1), ("telnet", 2), ("console", 3), ("snmp", 4))
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
 
-class NTPMode(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("unicast", 1), ("broadcast", 2))
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
 
-class DNSServerType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("primary", 1), ("secondary", 2))
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
 
-class MibOidType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("scalar", 1), ("table", 2), ("mib", 3), ("section", 4))
 
-class SocketType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))
-    namedValues = NamedValues(("unknown", 1), ("stream", 2), ("datagram", 3), ("rawProtocol", 4), ("reliableMessageDelivery", 5), ("sequencedPacket", 6))
+# MODULE-IDENTITY
 
-class SocketFamily(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23))
-    namedValues = NamedValues(("unknown", 1), ("unix", 2), ("darpaInternet", 3), ("darpaIMP", 4), ("pUP", 5), ("cHAOSFamily", 6), ("xeroxNovell", 7), ("nBS", 8), ("eCMA", 9), ("dATAKIT", 10), ("cCITT", 11), ("sNA", 12), ("dECnet", 13), ("directDataLinkInterface", 14), ("dECLAT", 15), ("nSCHyperChannel", 16), ("appleTalk", 17), ("netqorkInterfaceTap", 18), ("iEEE8020ISO8802", 19), ("oSI", 20), ("x25", 21), ("oSIAFI47IDI4", 22), ("uSGovermentOSI", 23))
 
-class SocketState(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))
-    namedValues = NamedValues(("closed", 1), ("listen", 2), ("sYNSent", 3), ("sYNRCVD", 4), ("established", 5), ("closeWait", 6), ("fINWait", 7), ("closing", 8), ("lastAck", 9), ("fINWait2", 10), ("timeWait", 11))
+# Types definitions
 
-class DomainName(DisplayString):
-    status = 'current'
-    subtypeSpec = DisplayString.subtypeSpec + ValueSizeConstraint(1, 64)
 
-class SnmpAdminString(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '255a'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 255)
+# TEXTUAL-CONVENTIONS
 
-class InetAddressType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("primary", 1), ("secondary", 2))
 
-class ManagementType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("inband", 1), ("outband", 2))
 
-class IdslClockMode(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("triState", 1), ("portCardSinkClock", 2), ("portCardDriveClock", 3), ("portCardDriveClockOnboard", 4))
+class VnidMode(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("explicit", 2),
+          ("implicit", 1),
+          ("notagging", 3))
+    )
 
-mibBuilder.exportSymbols("PDN-TC", DomainName=DomainName, DNSServerType=DNSServerType, ClientState=ClientState, VnidRange=VnidRange, VnidTaggingState=VnidTaggingState, SocketType=SocketType, SnmpAdminString=SnmpAdminString, ResultTypes=ResultTypes, IdslClockMode=IdslClockMode, SocketState=SocketState, ResetStates=ResetStates, VnidMode=VnidMode, ManagementType=ManagementType, SwitchState=SwitchState, MibOidType=MibOidType, NTPMode=NTPMode, InitiatorTypes=InitiatorTypes, SocketFamily=SocketFamily, InetAddressType=InetAddressType, pdyn=pdyn)
+
+
+class ClientState(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dynamic", 2),
+          ("static", 1))
+    )
+
+
+
+class VnidTaggingState(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+
+class VnidRange(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(2, 4000),
+    )
+
+
+
+class SwitchState(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+
+class ResetStates(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("noOp", 1),
+          ("reset", 2),
+          ("resetToFactoryDefaults", 3))
+    )
+
+
+
+class ResultTypes(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("failure", 3),
+          ("inProgress", 4),
+          ("none", 1),
+          ("success", 2))
+    )
+
+
+
+class InitiatorTypes(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("console", 3),
+          ("noop", 1),
+          ("snmp", 4),
+          ("telnet", 2))
+    )
+
+
+
+class NTPMode(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("broadcast", 2),
+          ("unicast", 1))
+    )
+
+
+
+class DNSServerType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("primary", 1),
+          ("secondary", 2))
+    )
+
+
+
+class MibOidType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("mib", 3),
+          ("scalar", 1),
+          ("section", 4),
+          ("table", 2))
+    )
+
+
+
+class SocketType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("datagram", 3),
+          ("rawProtocol", 4),
+          ("reliableMessageDelivery", 5),
+          ("sequencedPacket", 6),
+          ("stream", 2),
+          ("unknown", 1))
+    )
+
+
+
+class SocketFamily(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23)
+        )
+    )
+    namedValues = NamedValues(
+        *(("appleTalk", 17),
+          ("cCITT", 11),
+          ("cHAOSFamily", 6),
+          ("dATAKIT", 10),
+          ("dECLAT", 15),
+          ("dECnet", 13),
+          ("darpaIMP", 4),
+          ("darpaInternet", 3),
+          ("directDataLinkInterface", 14),
+          ("eCMA", 9),
+          ("iEEE8020ISO8802", 19),
+          ("nBS", 8),
+          ("nSCHyperChannel", 16),
+          ("netqorkInterfaceTap", 18),
+          ("oSI", 20),
+          ("oSIAFI47IDI4", 22),
+          ("pUP", 5),
+          ("sNA", 12),
+          ("uSGovermentOSI", 23),
+          ("unix", 2),
+          ("unknown", 1),
+          ("x25", 21),
+          ("xeroxNovell", 7))
+    )
+
+
+
+class SocketState(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11)
+        )
+    )
+    namedValues = NamedValues(
+        *(("closeWait", 6),
+          ("closed", 1),
+          ("closing", 8),
+          ("established", 5),
+          ("fINWait", 7),
+          ("fINWait2", 10),
+          ("lastAck", 9),
+          ("listen", 2),
+          ("sYNRCVD", 4),
+          ("sYNSent", 3),
+          ("timeWait", 11))
+    )
+
+
+
+class DomainName(DisplayString, TextualConvention):
+    status = "current"
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 64),
+    )
+
+
+
+class SnmpAdminString(OctetString, TextualConvention):
+    status = "current"
+    displayHint = "255a"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+
+class InetAddressType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("primary", 1),
+          ("secondary", 2))
+    )
+
+
+
+class ManagementType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("inband", 1),
+          ("outband", 2))
+    )
+
+
+
+class IdslClockMode(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("portCardDriveClock", 3),
+          ("portCardDriveClockOnboard", 4),
+          ("portCardSinkClock", 2),
+          ("triState", 1))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Pdyn_ObjectIdentity = ObjectIdentity
+pdyn = _Pdyn_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1795)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "PDN-TC",
+    **{"VnidMode": VnidMode,
+       "ClientState": ClientState,
+       "VnidTaggingState": VnidTaggingState,
+       "VnidRange": VnidRange,
+       "SwitchState": SwitchState,
+       "ResetStates": ResetStates,
+       "ResultTypes": ResultTypes,
+       "InitiatorTypes": InitiatorTypes,
+       "NTPMode": NTPMode,
+       "DNSServerType": DNSServerType,
+       "MibOidType": MibOidType,
+       "SocketType": SocketType,
+       "SocketFamily": SocketFamily,
+       "SocketState": SocketState,
+       "DomainName": DomainName,
+       "SnmpAdminString": SnmpAdminString,
+       "InetAddressType": InetAddressType,
+       "ManagementType": ManagementType,
+       "IdslClockMode": IdslClockMode,
+       "pdyn": pdyn}
+)

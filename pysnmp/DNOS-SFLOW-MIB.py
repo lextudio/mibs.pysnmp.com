@@ -1,22 +1,157 @@
+# SNMP MIB module (DNOS-SFLOW-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module DNOS-SFLOW-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/DNOS-SFLOW-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:37:15 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion")
-dnOS, = mibBuilder.importSymbols("DELL-REF-MIB", "dnOS")
-InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Unsigned32, MibIdentifier, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, TimeTicks, Counter64, iso, Counter32, Gauge32, Bits, ObjectIdentity, ModuleIdentity, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "MibIdentifier", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "TimeTicks", "Counter64", "iso", "Counter32", "Gauge32", "Bits", "ObjectIdentity", "ModuleIdentity", "NotificationType")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-fastPathSflow = ModuleIdentity((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 59))
-if mibBuilder.loadTexts: fastPathSflow.setLastUpdated('201201120000Z')
-if mibBuilder.loadTexts: fastPathSflow.setOrganization('Dell, Inc.')
-agentFastPathSflowObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 59, 1))
-agentSflowSourceInterface = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 59, 1, 1), InterfaceIndexOrZero()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentSflowSourceInterface.setStatus('current')
-mibBuilder.exportSymbols("DNOS-SFLOW-MIB", fastPathSflow=fastPathSflow, PYSNMP_MODULE_ID=fastPathSflow, agentFastPathSflowObjects=agentFastPathSflowObjects, agentSflowSourceInterface=agentSflowSourceInterface)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/DNOS-SFLOW-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:32:16 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(dnOS,) = mibBuilder.importSymbols(
+    "DELL-REF-MIB",
+    "dnOS")
+
+(InterfaceIndexOrZero,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndexOrZero")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+fastPathSflow = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 59)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AgentFastPathSflowObjects_ObjectIdentity = ObjectIdentity
+agentFastPathSflowObjects = _AgentFastPathSflowObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 59, 1)
+)
+_AgentSflowSourceInterface_Type = InterfaceIndexOrZero
+_AgentSflowSourceInterface_Object = MibScalar
+agentSflowSourceInterface = _AgentSflowSourceInterface_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 59, 1, 1),
+    _AgentSflowSourceInterface_Type()
+)
+agentSflowSourceInterface.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentSflowSourceInterface.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "DNOS-SFLOW-MIB",
+    **{"fastPathSflow": fastPathSflow,
+       "agentFastPathSflowObjects": agentFastPathSflowObjects,
+       "agentSflowSourceInterface": agentSflowSourceInterface}
+)

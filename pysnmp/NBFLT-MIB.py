@@ -1,50 +1,465 @@
+# SNMP MIB module (NBFLT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module NBFLT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/NBFLT-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:07:15 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection")
-ngen, = mibBuilder.importSymbols("NT-Reference-MIB", "ngen")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Unsigned32, ModuleIdentity, MibIdentifier, Bits, NotificationType, Counter32, NotificationType, Counter64, ObjectIdentity, IpAddress, Gauge32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "ModuleIdentity", "MibIdentifier", "Bits", "NotificationType", "Counter32", "NotificationType", "Counter64", "ObjectIdentity", "IpAddress", "Gauge32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "TimeTicks")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-nGenBase = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 3, 8, 1))
-nbFltMngmt = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5))
-nbFltSNMPAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 1))
-nbFltSNMPAgentStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 1, 1))
-nbFltTrapOnAlarm = MibScalar((1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("off", 0), ("on", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nbFltTrapOnAlarm.setStatus('mandatory')
-nbFltAgentRunningState = MibScalar((1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("notRegistered", 0), ("registered", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbFltAgentRunningState.setStatus('mandatory')
-nbFltAlarmTrapFormat = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 1, 2))
-nbFltAlarmSymposiumTrapFormat = MibScalar((1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 1, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("off", 0), ("on", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nbFltAlarmSymposiumTrapFormat.setStatus('mandatory')
-nbFltAlarmCybeleTrapFormat = MibScalar((1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 1, 2, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("off", 0), ("on", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nbFltAlarmCybeleTrapFormat.setStatus('mandatory')
-nbFltTrapObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 2))
-nbFltAlarmTrapObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 2, 1))
-nbFltAlarmSequence = MibScalar((1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 2, 1, 1), Counter32())
-if mibBuilder.loadTexts: nbFltAlarmSequence.setStatus('mandatory')
-nbFltAlarmTimeStamp = MibScalar((1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16)))
-if mibBuilder.loadTexts: nbFltAlarmTimeStamp.setStatus('mandatory')
-nbFltAlarmEventCode = MibScalar((1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 2, 1, 3), Integer32())
-if mibBuilder.loadTexts: nbFltAlarmEventCode.setStatus('mandatory')
-nbFltAlarmEventType = MibScalar((1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 4))).clone(namedValues=NamedValues(("unknown", 0), ("set", 1), ("clear", 2), ("message", 4))))
-if mibBuilder.loadTexts: nbFltAlarmEventType.setStatus('mandatory')
-nbFltAlarmEventSeverity = MibScalar((1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("indeterminate", 0), ("critical", 1), ("major", 2), ("minor", 3))))
-if mibBuilder.loadTexts: nbFltAlarmEventSeverity.setStatus('mandatory')
-nbFltAlarmTenantID = MibScalar((1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 2, 1, 6), Integer32())
-if mibBuilder.loadTexts: nbFltAlarmTenantID.setStatus('mandatory')
-nbFltAlarmCustomerID = MibScalar((1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 2, 1, 7), Integer32())
-if mibBuilder.loadTexts: nbFltAlarmCustomerID.setStatus('mandatory')
-nbFltAlarmOriginator = MibScalar((1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 2, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32)))
-if mibBuilder.loadTexts: nbFltAlarmOriginator.setStatus('mandatory')
-nbFltAlarmDescription = MibScalar((1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 2, 1, 9), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 256)))
-if mibBuilder.loadTexts: nbFltAlarmDescription.setStatus('mandatory')
-nbFltTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 3))
-nbSymposiumAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 3) + (0,1)).setObjects(("NBFLT-MIB", "nbFltAlarmSequence"), ("NBFLT-MIB", "nbFltAlarmTimeStamp"), ("NBFLT-MIB", "nbFltAlarmEventCode"), ("NBFLT-MIB", "nbFltAlarmEventType"), ("NBFLT-MIB", "nbFltAlarmEventSeverity"), ("NBFLT-MIB", "nbFltAlarmTenantID"), ("NBFLT-MIB", "nbFltAlarmCustomerID"), ("NBFLT-MIB", "nbFltAlarmOriginator"), ("NBFLT-MIB", "nbFltAlarmDescription"))
-mibBuilder.exportSymbols("NBFLT-MIB", nbFltAlarmTimeStamp=nbFltAlarmTimeStamp, nbFltSNMPAgent=nbFltSNMPAgent, nbFltAlarmSequence=nbFltAlarmSequence, nbFltAlarmSymposiumTrapFormat=nbFltAlarmSymposiumTrapFormat, nbFltAlarmTrapFormat=nbFltAlarmTrapFormat, nbFltAlarmCustomerID=nbFltAlarmCustomerID, nbFltTrapObjects=nbFltTrapObjects, nbFltAlarmEventCode=nbFltAlarmEventCode, nbFltSNMPAgentStatus=nbFltSNMPAgentStatus, nbSymposiumAlarmTrap=nbSymposiumAlarmTrap, nbFltAlarmTrapObjects=nbFltAlarmTrapObjects, nbFltAlarmTenantID=nbFltAlarmTenantID, nbFltAlarmEventType=nbFltAlarmEventType, nbFltMngmt=nbFltMngmt, nbFltTrapOnAlarm=nbFltTrapOnAlarm, nGenBase=nGenBase, nbFltAgentRunningState=nbFltAgentRunningState, nbFltAlarmEventSeverity=nbFltAlarmEventSeverity, nbFltTraps=nbFltTraps, nbFltAlarmDescription=nbFltAlarmDescription, nbFltAlarmOriginator=nbFltAlarmOriginator, nbFltAlarmCybeleTrapFormat=nbFltAlarmCybeleTrapFormat)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/NBFLT-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:24:44 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ngen,) = mibBuilder.importSymbols(
+    "NT-Reference-MIB",
+    "ngen")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ NotificationType,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "NotificationType",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_NGenBase_ObjectIdentity = ObjectIdentity
+nGenBase = _NGenBase_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 3, 8, 1)
+)
+_NbFltMngmt_ObjectIdentity = ObjectIdentity
+nbFltMngmt = _NbFltMngmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5)
+)
+_NbFltSNMPAgent_ObjectIdentity = ObjectIdentity
+nbFltSNMPAgent = _NbFltSNMPAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 1)
+)
+_NbFltSNMPAgentStatus_ObjectIdentity = ObjectIdentity
+nbFltSNMPAgentStatus = _NbFltSNMPAgentStatus_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 1, 1)
+)
+
+
+class _NbFltTrapOnAlarm_Type(Integer32):
+    """Custom type nbFltTrapOnAlarm based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 0),
+          ("on", 1))
+    )
+
+
+_NbFltTrapOnAlarm_Type.__name__ = "Integer32"
+_NbFltTrapOnAlarm_Object = MibScalar
+nbFltTrapOnAlarm = _NbFltTrapOnAlarm_Object(
+    (1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 1, 1, 1),
+    _NbFltTrapOnAlarm_Type()
+)
+nbFltTrapOnAlarm.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nbFltTrapOnAlarm.setStatus("mandatory")
+
+
+class _NbFltAgentRunningState_Type(Integer32):
+    """Custom type nbFltAgentRunningState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notRegistered", 0),
+          ("registered", 1))
+    )
+
+
+_NbFltAgentRunningState_Type.__name__ = "Integer32"
+_NbFltAgentRunningState_Object = MibScalar
+nbFltAgentRunningState = _NbFltAgentRunningState_Object(
+    (1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 1, 1, 2),
+    _NbFltAgentRunningState_Type()
+)
+nbFltAgentRunningState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbFltAgentRunningState.setStatus("mandatory")
+_NbFltAlarmTrapFormat_ObjectIdentity = ObjectIdentity
+nbFltAlarmTrapFormat = _NbFltAlarmTrapFormat_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 1, 2)
+)
+
+
+class _NbFltAlarmSymposiumTrapFormat_Type(Integer32):
+    """Custom type nbFltAlarmSymposiumTrapFormat based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 0),
+          ("on", 1))
+    )
+
+
+_NbFltAlarmSymposiumTrapFormat_Type.__name__ = "Integer32"
+_NbFltAlarmSymposiumTrapFormat_Object = MibScalar
+nbFltAlarmSymposiumTrapFormat = _NbFltAlarmSymposiumTrapFormat_Object(
+    (1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 1, 2, 1),
+    _NbFltAlarmSymposiumTrapFormat_Type()
+)
+nbFltAlarmSymposiumTrapFormat.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nbFltAlarmSymposiumTrapFormat.setStatus("mandatory")
+
+
+class _NbFltAlarmCybeleTrapFormat_Type(Integer32):
+    """Custom type nbFltAlarmCybeleTrapFormat based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 0),
+          ("on", 1))
+    )
+
+
+_NbFltAlarmCybeleTrapFormat_Type.__name__ = "Integer32"
+_NbFltAlarmCybeleTrapFormat_Object = MibScalar
+nbFltAlarmCybeleTrapFormat = _NbFltAlarmCybeleTrapFormat_Object(
+    (1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 1, 2, 2),
+    _NbFltAlarmCybeleTrapFormat_Type()
+)
+nbFltAlarmCybeleTrapFormat.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nbFltAlarmCybeleTrapFormat.setStatus("mandatory")
+_NbFltTrapObjects_ObjectIdentity = ObjectIdentity
+nbFltTrapObjects = _NbFltTrapObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 2)
+)
+_NbFltAlarmTrapObjects_ObjectIdentity = ObjectIdentity
+nbFltAlarmTrapObjects = _NbFltAlarmTrapObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 2, 1)
+)
+_NbFltAlarmSequence_Type = Counter32
+_NbFltAlarmSequence_Object = MibScalar
+nbFltAlarmSequence = _NbFltAlarmSequence_Object(
+    (1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 2, 1, 1),
+    _NbFltAlarmSequence_Type()
+)
+nbFltAlarmSequence.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    nbFltAlarmSequence.setStatus("mandatory")
+
+
+class _NbFltAlarmTimeStamp_Type(DisplayString):
+    """Custom type nbFltAlarmTimeStamp based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 16),
+    )
+
+
+_NbFltAlarmTimeStamp_Type.__name__ = "DisplayString"
+_NbFltAlarmTimeStamp_Object = MibScalar
+nbFltAlarmTimeStamp = _NbFltAlarmTimeStamp_Object(
+    (1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 2, 1, 2),
+    _NbFltAlarmTimeStamp_Type()
+)
+nbFltAlarmTimeStamp.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    nbFltAlarmTimeStamp.setStatus("mandatory")
+_NbFltAlarmEventCode_Type = Integer32
+_NbFltAlarmEventCode_Object = MibScalar
+nbFltAlarmEventCode = _NbFltAlarmEventCode_Object(
+    (1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 2, 1, 3),
+    _NbFltAlarmEventCode_Type()
+)
+nbFltAlarmEventCode.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    nbFltAlarmEventCode.setStatus("mandatory")
+
+
+class _NbFltAlarmEventType_Type(Integer32):
+    """Custom type nbFltAlarmEventType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("clear", 2),
+          ("message", 4),
+          ("set", 1),
+          ("unknown", 0))
+    )
+
+
+_NbFltAlarmEventType_Type.__name__ = "Integer32"
+_NbFltAlarmEventType_Object = MibScalar
+nbFltAlarmEventType = _NbFltAlarmEventType_Object(
+    (1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 2, 1, 4),
+    _NbFltAlarmEventType_Type()
+)
+nbFltAlarmEventType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    nbFltAlarmEventType.setStatus("mandatory")
+
+
+class _NbFltAlarmEventSeverity_Type(Integer32):
+    """Custom type nbFltAlarmEventSeverity based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("critical", 1),
+          ("indeterminate", 0),
+          ("major", 2),
+          ("minor", 3))
+    )
+
+
+_NbFltAlarmEventSeverity_Type.__name__ = "Integer32"
+_NbFltAlarmEventSeverity_Object = MibScalar
+nbFltAlarmEventSeverity = _NbFltAlarmEventSeverity_Object(
+    (1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 2, 1, 5),
+    _NbFltAlarmEventSeverity_Type()
+)
+nbFltAlarmEventSeverity.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    nbFltAlarmEventSeverity.setStatus("mandatory")
+_NbFltAlarmTenantID_Type = Integer32
+_NbFltAlarmTenantID_Object = MibScalar
+nbFltAlarmTenantID = _NbFltAlarmTenantID_Object(
+    (1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 2, 1, 6),
+    _NbFltAlarmTenantID_Type()
+)
+nbFltAlarmTenantID.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    nbFltAlarmTenantID.setStatus("mandatory")
+_NbFltAlarmCustomerID_Type = Integer32
+_NbFltAlarmCustomerID_Object = MibScalar
+nbFltAlarmCustomerID = _NbFltAlarmCustomerID_Object(
+    (1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 2, 1, 7),
+    _NbFltAlarmCustomerID_Type()
+)
+nbFltAlarmCustomerID.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    nbFltAlarmCustomerID.setStatus("mandatory")
+
+
+class _NbFltAlarmOriginator_Type(DisplayString):
+    """Custom type nbFltAlarmOriginator based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_NbFltAlarmOriginator_Type.__name__ = "DisplayString"
+_NbFltAlarmOriginator_Object = MibScalar
+nbFltAlarmOriginator = _NbFltAlarmOriginator_Object(
+    (1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 2, 1, 8),
+    _NbFltAlarmOriginator_Type()
+)
+nbFltAlarmOriginator.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    nbFltAlarmOriginator.setStatus("mandatory")
+
+
+class _NbFltAlarmDescription_Type(DisplayString):
+    """Custom type nbFltAlarmDescription based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 256),
+    )
+
+
+_NbFltAlarmDescription_Type.__name__ = "DisplayString"
+_NbFltAlarmDescription_Object = MibScalar
+nbFltAlarmDescription = _NbFltAlarmDescription_Object(
+    (1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 2, 1, 9),
+    _NbFltAlarmDescription_Type()
+)
+nbFltAlarmDescription.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    nbFltAlarmDescription.setStatus("mandatory")
+_NbFltTraps_ObjectIdentity = ObjectIdentity
+nbFltTraps = _NbFltTraps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 3)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+nbSymposiumAlarmTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 562, 3, 8, 1, 5, 3, 0, 1)
+)
+nbSymposiumAlarmTrap.setObjects(
+      *(("NBFLT-MIB", "nbFltAlarmSequence"),
+        ("NBFLT-MIB", "nbFltAlarmTimeStamp"),
+        ("NBFLT-MIB", "nbFltAlarmEventCode"),
+        ("NBFLT-MIB", "nbFltAlarmEventType"),
+        ("NBFLT-MIB", "nbFltAlarmEventSeverity"),
+        ("NBFLT-MIB", "nbFltAlarmTenantID"),
+        ("NBFLT-MIB", "nbFltAlarmCustomerID"),
+        ("NBFLT-MIB", "nbFltAlarmOriginator"),
+        ("NBFLT-MIB", "nbFltAlarmDescription"))
+)
+if mibBuilder.loadTexts:
+    nbSymposiumAlarmTrap.setStatus(
+        ""
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "NBFLT-MIB",
+    **{"nGenBase": nGenBase,
+       "nbFltMngmt": nbFltMngmt,
+       "nbFltSNMPAgent": nbFltSNMPAgent,
+       "nbFltSNMPAgentStatus": nbFltSNMPAgentStatus,
+       "nbFltTrapOnAlarm": nbFltTrapOnAlarm,
+       "nbFltAgentRunningState": nbFltAgentRunningState,
+       "nbFltAlarmTrapFormat": nbFltAlarmTrapFormat,
+       "nbFltAlarmSymposiumTrapFormat": nbFltAlarmSymposiumTrapFormat,
+       "nbFltAlarmCybeleTrapFormat": nbFltAlarmCybeleTrapFormat,
+       "nbFltTrapObjects": nbFltTrapObjects,
+       "nbFltAlarmTrapObjects": nbFltAlarmTrapObjects,
+       "nbFltAlarmSequence": nbFltAlarmSequence,
+       "nbFltAlarmTimeStamp": nbFltAlarmTimeStamp,
+       "nbFltAlarmEventCode": nbFltAlarmEventCode,
+       "nbFltAlarmEventType": nbFltAlarmEventType,
+       "nbFltAlarmEventSeverity": nbFltAlarmEventSeverity,
+       "nbFltAlarmTenantID": nbFltAlarmTenantID,
+       "nbFltAlarmCustomerID": nbFltAlarmCustomerID,
+       "nbFltAlarmOriginator": nbFltAlarmOriginator,
+       "nbFltAlarmDescription": nbFltAlarmDescription,
+       "nbFltTraps": nbFltTraps,
+       "nbSymposiumAlarmTrap": nbSymposiumAlarmTrap}
+)

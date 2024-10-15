@@ -1,17 +1,17 @@
-"""SNMP MIB module (QB-CESV2-MIB) expressed in pysnmp data model.
+# SNMP MIB module (QB-CESV2-MIB) expressed in pysnmp data model.
+#
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/QB-CESV2-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:40:40 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-This Python module is designed to be imported and executed by the
-pysnmp library.
-
-See https://www.pysnmp.com/pysnmp for further information.
-
-Notes
------
-ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/QB-CESV2-MIB
-Produced by pysmi-1.3.3 at Sun Mar 10 05:35:12 2024
-On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm
-Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
-"""
 if 'mibBuilder' not in globals():
     import sys
 
@@ -45,99 +45,99 @@ if 'mibBuilder' not in globals():
 
 # Import SMI symbols from the MIBs this MIB depends on
 
-(AtmVpIdentifier,
- AtmVorXAdminStatus,
- AtmVorXOperStatus,
- atmNoClpNoScr,
+(AtmAddr,
+ AtmConnCastType,
+ AtmConnKind,
  AtmServiceCategory,
  AtmTrafficDescrParamIndex,
- AtmConnKind,
+ AtmVcIdentifier,
+ AtmVorXAdminStatus,
  AtmVorXLastChange,
- AtmAddr,
- AtmConnCastType,
- AtmVcIdentifier) = mibBuilder.importSymbols(
+ AtmVorXOperStatus,
+ AtmVpIdentifier,
+ atmNoClpNoScr) = mibBuilder.importSymbols(
     "ATM-TC-MIB",
-    "AtmVpIdentifier",
-    "AtmVorXAdminStatus",
-    "AtmVorXOperStatus",
-    "atmNoClpNoScr",
-    "AtmServiceCategory",
-    "AtmTrafficDescrParamIndex",
-    "AtmConnKind",
-    "AtmVorXLastChange",
     "AtmAddr",
     "AtmConnCastType",
-    "AtmVcIdentifier")
+    "AtmConnKind",
+    "AtmServiceCategory",
+    "AtmTrafficDescrParamIndex",
+    "AtmVcIdentifier",
+    "AtmVorXAdminStatus",
+    "AtmVorXLastChange",
+    "AtmVorXOperStatus",
+    "AtmVpIdentifier",
+    "atmNoClpNoScr")
 
-(atmfCESStatsEntry,
- atmfCESConfEntry) = mibBuilder.importSymbols(
+(atmfCESConfEntry,
+ atmfCESStatsEntry) = mibBuilder.importSymbols(
     "ATMF-CES",
-    "atmfCESStatsEntry",
-    "atmfCESConfEntry")
+    "atmfCESConfEntry",
+    "atmfCESStatsEntry")
 
-(QbPvcConnKind,
- QbBitRate,
- QbEnableStatus) = mibBuilder.importSymbols(
+(QbBitRate,
+ QbEnableStatus,
+ QbPvcConnKind) = mibBuilder.importSymbols(
     "QB-DWS-MIB",
-    "QbPvcConnKind",
     "QbBitRate",
-    "QbEnableStatus")
+    "QbEnableStatus",
+    "QbPvcConnKind")
 
 (qbMibs,) = mibBuilder.importSymbols(
     "QUANTUMBRIDGE-REG",
     "qbMibs")
 
-(ObjectGroup,
+(ModuleCompliance,
  NotificationGroup,
- ModuleCompliance) = mibBuilder.importSymbols(
+ ObjectGroup) = mibBuilder.importSymbols(
     "SNMPv2-CONF",
-    "ObjectGroup",
+    "ModuleCompliance",
     "NotificationGroup",
-    "ModuleCompliance")
+    "ObjectGroup")
 
-(Integer32,
- ObjectIdentity,
- iso,
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
  ModuleIdentity,
- TimeTicks,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
  MibScalar,
  MibTable,
  MibTableRow,
  MibTableColumn,
- Gauge32,
- Counter64,
- IpAddress,
- NotificationType,
- MibIdentifier,
- Counter32,
+ TimeTicks,
  Unsigned32,
- Bits) = mibBuilder.importSymbols(
+ iso) = mibBuilder.importSymbols(
     "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
     "Integer32",
-    "ObjectIdentity",
-    "iso",
+    "IpAddress",
     "ModuleIdentity",
-    "TimeTicks",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
     "MibScalar",
     "MibTable",
     "MibTableRow",
     "MibTableColumn",
-    "Gauge32",
-    "Counter64",
-    "IpAddress",
-    "NotificationType",
-    "MibIdentifier",
-    "Counter32",
+    "TimeTicks",
     "Unsigned32",
-    "Bits")
+    "iso")
 
-(TextualConvention,
- TimeStamp,
- DisplayString) = mibBuilder.importSymbols(
+(DisplayString,
+ TextualConvention,
+ TimeStamp) = mibBuilder.importSymbols(
     "SNMPv2-TC",
+    "DisplayString",
     "TextualConvention",
-    "TimeStamp",
-    "DisplayString")
+    "TimeStamp")
 
 
 # MODULE-IDENTITY
@@ -174,11 +174,6 @@ _QbCESConfEntry_Object = MibTableRow
 qbCESConfEntry = _QbCESConfEntry_Object(
     (1, 3, 6, 1, 4, 1, 4323, 2, 4, 2, 1, 1)
 )
-atmfCESConfEntry.registerAugmentions(
-    ("QB-CESV2-MIB",
-     "qbCESConfEntry")
-)
-qbCESConfEntry.setIndexNames(*atmfCESConfEntry.getIndexNames())
 if mibBuilder.loadTexts:
     qbCESConfEntry.setStatus("current")
 
@@ -258,11 +253,6 @@ _QbCESStatsEntry_Object = MibTableRow
 qbCESStatsEntry = _QbCESStatsEntry_Object(
     (1, 3, 6, 1, 4, 1, 4323, 2, 4, 2, 2, 1)
 )
-atmfCESStatsEntry.registerAugmentions(
-    ("QB-CESV2-MIB",
-     "qbCESStatsEntry")
-)
-qbCESStatsEntry.setIndexNames(*atmfCESStatsEntry.getIndexNames())
 if mibBuilder.loadTexts:
     qbCESStatsEntry.setStatus("current")
 _QbCESStatsTxCells_Type = Counter32
@@ -313,6 +303,16 @@ _QbCESGroups_ObjectIdentity = ObjectIdentity
 qbCESGroups = _QbCESGroups_ObjectIdentity(
     (1, 3, 6, 1, 4, 1, 4323, 2, 4, 3, 2)
 )
+atmfCESConfEntry.registerAugmentions(
+    ("QB-CESV2-MIB",
+     "qbCESConfEntry")
+)
+qbCESConfEntry.setIndexNames(*atmfCESConfEntry.getIndexNames())
+atmfCESStatsEntry.registerAugmentions(
+    ("QB-CESV2-MIB",
+     "qbCESStatsEntry")
+)
+qbCESStatsEntry.setIndexNames(*atmfCESStatsEntry.getIndexNames())
 
 # Managed Objects groups
 

@@ -1,263 +1,1880 @@
+# SNMP MIB module (JUNIPER-TLB-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module JUNIPER-TLB-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/JUNIPER-TLB-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:50:26 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
-InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-InetAddressType, InetAddressIPv4, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddressIPv4", "InetAddress")
-jnxSDKApplicationsRoot, = mibBuilder.importSymbols("JUNIPER-SMI", "jnxSDKApplicationsRoot")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-sysName, sysContact, sysLocation = mibBuilder.importSymbols("SNMPv2-MIB", "sysName", "sysContact", "sysLocation")
-Gauge32, ObjectIdentity, iso, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, MibIdentifier, Unsigned32, NotificationType, IpAddress, ModuleIdentity, Bits, TimeTicks, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "ObjectIdentity", "iso", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "MibIdentifier", "Unsigned32", "NotificationType", "IpAddress", "ModuleIdentity", "Bits", "TimeTicks", "Counter64")
-DateAndTime, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "DisplayString")
-jnxTLBMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1))
-jnxTLBMIB.setRevisions(('2014-02-12 20:22',))
-if mibBuilder.loadTexts: jnxTLBMIB.setLastUpdated('201402122022Z')
-if mibBuilder.loadTexts: jnxTLBMIB.setOrganization('Juniper Networks, Inc.')
-jnxTLBrealServer = MibIdentifier((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1))
-jnxTLBvirtualService = MibIdentifier((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2))
-jnxTLBserverGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 3))
-jnxTLBNetworkMonitorProfile = MibIdentifier((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 6))
-jnxTLBRealServerTable = MibTable((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1), )
-if mibBuilder.loadTexts: jnxTLBRealServerTable.setStatus('current')
-jnxTLBRealServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1), ).setIndexNames((0, "JUNIPER-TLB-MIB", "jnxTLBRealServerNameKey"))
-if mibBuilder.loadTexts: jnxTLBRealServerEntry.setStatus('current')
-jnxTLBRealServerNameKey = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255)))
-if mibBuilder.loadTexts: jnxTLBRealServerNameKey.setStatus('current')
-jnxTLBRealServerName = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBRealServerName.setStatus('current')
-jnxTLBRealServerInstance = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBRealServerInstance.setStatus('current')
-jnxTLBRealServerIPVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("ipv4", 1), ("ipv6", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBRealServerIPVersion.setStatus('current')
-jnxTLBRealServerIP = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBRealServerIP.setStatus('current')
-jnxTLBRealServerOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBRealServerOperStatus.setStatus('current')
-jnxTLBRealServerAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBRealServerAdminStatus.setStatus('current')
-jnxTLBRealServerSubUnitNo = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 8), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBRealServerSubUnitNo.setStatus('current')
-jnxTLBRealServerFailures = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 9), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBRealServerFailures.setStatus('current')
-jnxTLBRSClientPacketForwardCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 10), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBRSClientPacketForwardCount.setStatus('current')
-jnxTLBRSClientByteForwardCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 11), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBRSClientByteForwardCount.setStatus('current')
-jnxTLBRSClientPacketReverseCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 12), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBRSClientPacketReverseCount.setStatus('current')
-jnxTLBRSClientByteReverseCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 13), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBRSClientByteReverseCount.setStatus('current')
-jnxTLBRSTotalUpCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 14), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBRSTotalUpCount.setStatus('current')
-jnxTLBRSTotalDownCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 15), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBRSTotalDownCount.setStatus('current')
-jnxTLBRSTotalRejoinCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 16), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBRSTotalRejoinCount.setStatus('current')
-jnxTLBRSTotalProbeSent = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 17), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBRSTotalProbeSent.setStatus('current')
-jnxTLBRSTotalProbeSuccess = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 18), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBRSTotalProbeSuccess.setStatus('current')
-jnxTLBRSTotalProbeFail = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 19), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBRSTotalProbeFail.setStatus('current')
-jnxTLBRSTotalProbeSentFail = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 20), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBRSTotalProbeSentFail.setStatus('current')
-jnxTLBVirtualServiceTable = MibTable((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1), )
-if mibBuilder.loadTexts: jnxTLBVirtualServiceTable.setStatus('current')
-jnxTLBVirtualServiceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1), ).setIndexNames((0, "JUNIPER-TLB-MIB", "jnxTLBVirtualServiceNameKey"))
-if mibBuilder.loadTexts: jnxTLBVirtualServiceEntry.setStatus('current')
-jnxTLBVirtualServiceNameKey = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255)))
-if mibBuilder.loadTexts: jnxTLBVirtualServiceNameKey.setStatus('current')
-jnxTLBVirtualServiceName = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBVirtualServiceName.setStatus('current')
-jnxTLBVirtualServiceTranslationMode = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBVirtualServiceTranslationMode.setStatus('current')
-jnxTLBVirtualServiceInstance = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBVirtualServiceInstance.setStatus('current')
-jnxTLBVirtualServiceIPVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("ipv4", 1), ("ipv6", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBVirtualServiceIPVersion.setStatus('current')
-jnxTLBVirtualServiceIP = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBVirtualServiceIP.setStatus('current')
-jnxTLBVirtualServiceOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBVirtualServiceOperStatus.setStatus('current')
-jnxTLBVirtualServiceAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBVirtualServiceAdminStatus.setStatus('current')
-jnxTLBVirtualServiceSubUnitNo = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 9), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBVirtualServiceSubUnitNo.setStatus('current')
-jnxTLBVirtualServiceFailures = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 10), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBVirtualServiceFailures.setStatus('current')
-jnxTLBVSClientPacketForwardCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 11), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBVSClientPacketForwardCount.setStatus('current')
-jnxTLBVSClientByteForwardCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 12), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBVSClientByteForwardCount.setStatus('current')
-jnxTLBVSClientPacketReverseCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 13), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBVSClientPacketReverseCount.setStatus('current')
-jnxTLBVSClientByteReverseCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 14), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBVSClientByteReverseCount.setStatus('current')
-jnxTLBVSTotalUpCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 15), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBVSTotalUpCount.setStatus('current')
-jnxTLBVSTotalDownCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 16), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBVSTotalDownCount.setStatus('current')
-jnxTLBVSTotalRealServerCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 17), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBVSTotalRealServerCount.setStatus('current')
-jnxTLBVSServiceUpTime = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 18), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBVSServiceUpTime.setStatus('current')
-jnxTLBVSActiveRealServerCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 19), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBVSActiveRealServerCount.setStatus('current')
-jnxTLBVSNetworkMonitorProfileCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 20), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBVSNetworkMonitorProfileCount.setStatus('current')
-jnxTLBVirtualServiceVirtualPort = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 21), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBVirtualServiceVirtualPort.setStatus('current')
-jnxTLBVirtualServiceRealPort = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 22), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBVirtualServiceRealPort.setStatus('current')
-jnxTLBVirtualServiceNextHopIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 23), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBVirtualServiceNextHopIndex.setStatus('current')
-jnxTLBVirtualServiceProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 24), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBVirtualServiceProtocol.setStatus('current')
-jnxTLBVirtualServiceDemuxNextHopIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 25), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBVirtualServiceDemuxNextHopIndex.setStatus('current')
-jnxTLBVirtualServiceInterface = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 26), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBVirtualServiceInterface.setStatus('current')
-jnxTLBVirtualServiceRoutingInstance = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 27), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBVirtualServiceRoutingInstance.setStatus('current')
-jnxTLBVirtualServiceHashMethod = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 28), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBVirtualServiceHashMethod.setStatus('current')
-jnxTLBVirtualServiceRouteMetric = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 29), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBVirtualServiceRouteMetric.setStatus('current')
-jnxTLBVirtualServiceAutoRejoin = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 30), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("true", 0), ("false", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBVirtualServiceAutoRejoin.setStatus('current')
-jnxTLBVirtualServiceRouteHoldTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 31), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBVirtualServiceRouteHoldTimer.setStatus('current')
-jnxTLBVirtualServiceWarmUpTime = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 32), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBVirtualServiceWarmUpTime.setStatus('current')
-jnxTLBServerGroupTable = MibTable((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 3, 1), )
-if mibBuilder.loadTexts: jnxTLBServerGroupTable.setStatus('current')
-jnxTLBServerGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 3, 1, 1), ).setIndexNames((0, "JUNIPER-TLB-MIB", "jnxTLBServerGroupNameKey"))
-if mibBuilder.loadTexts: jnxTLBServerGroupEntry.setStatus('current')
-jnxTLBServerGroupNameKey = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 3, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255)))
-if mibBuilder.loadTexts: jnxTLBServerGroupNameKey.setStatus('current')
-jnxTLBServerGroupName = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 3, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBServerGroupName.setStatus('current')
-jnxTLBServerGroupInstance = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 3, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBServerGroupInstance.setStatus('current')
-jnxTLBServerGroupIPVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 3, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("ipv4", 1), ("ipv6", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBServerGroupIPVersion.setStatus('current')
-jnxTLBServerGroupOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 3, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBServerGroupOperStatus.setStatus('current')
-jnxTLBServerGroupAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 3, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBServerGroupAdminStatus.setStatus('current')
-jnxTLBServerGroupFailures = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 3, 1, 1, 7), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBServerGroupFailures.setStatus('current')
-jnxTLBServerGroupLastTimeUp = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 3, 1, 1, 8), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBServerGroupLastTimeUp.setStatus('current')
-jnxTLBServerGroupLastTimeDown = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 3, 1, 1, 9), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBServerGroupLastTimeDown.setStatus('current')
-jnxTLBServerGroupTotalUpCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 3, 1, 1, 10), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBServerGroupTotalUpCount.setStatus('current')
-jnxTLBServerGroupTotalDownCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 3, 1, 1, 11), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBServerGroupTotalDownCount.setStatus('current')
-jnxTLBNetworkMonitorProfileTable = MibTable((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 6, 1), )
-if mibBuilder.loadTexts: jnxTLBNetworkMonitorProfileTable.setStatus('current')
-jnxTLBNetworkMonitorProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 6, 1, 1), ).setIndexNames((0, "JUNIPER-TLB-MIB", "jnxTLBNetworkMonitorProfileNameKey"))
-if mibBuilder.loadTexts: jnxTLBNetworkMonitorProfileEntry.setStatus('current')
-jnxTLBNetworkMonitorProfileNameKey = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 6, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255)))
-if mibBuilder.loadTexts: jnxTLBNetworkMonitorProfileNameKey.setStatus('current')
-jnxTLBNetworkMonitorProfileVirtualServiceName = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 6, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64)))
-if mibBuilder.loadTexts: jnxTLBNetworkMonitorProfileVirtualServiceName.setStatus('current')
-jnxTLBNetworkMonitorProfileRealServerName = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 6, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64)))
-if mibBuilder.loadTexts: jnxTLBNetworkMonitorProfileRealServerName.setStatus('current')
-jnxTLBNetworkMonitorProfileIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 6, 1, 1, 4), Unsigned32())
-if mibBuilder.loadTexts: jnxTLBNetworkMonitorProfileIndex.setStatus('current')
-jnxTLBNetworkMonitorProfileName = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 6, 1, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBNetworkMonitorProfileName.setStatus('current')
-jnxTLBNetworkMonitorProfileType = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 6, 1, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBNetworkMonitorProfileType.setStatus('current')
-jnxTLBNetworkMonitorProfileProbeInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 6, 1, 1, 7), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBNetworkMonitorProfileProbeInterval.setStatus('current')
-jnxTLBNetworkMonitorProfileFailureRetry = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 6, 1, 1, 8), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBNetworkMonitorProfileFailureRetry.setStatus('current')
-jnxTLBNetworkMonitorProfileRecoverRetry = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 6, 1, 1, 9), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBNetworkMonitorProfileRecoverRetry.setStatus('current')
-jnxTLBNetworkMonitorProfilePortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 6, 1, 1, 10), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBNetworkMonitorProfilePortNumber.setStatus('current')
-jnxTLBNetworkMonitorProfileProbeState = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 6, 1, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("probeStateUp", 1), ("probeStateDown", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBNetworkMonitorProfileProbeState.setStatus('current')
-jnxTLBNetworkMonitorProfileProbeSent = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 6, 1, 1, 12), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBNetworkMonitorProfileProbeSent.setStatus('current')
-jnxTLBNetworkMonitorProfileProbeSuccess = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 6, 1, 1, 13), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBNetworkMonitorProfileProbeSuccess.setStatus('current')
-jnxTLBNetworkMonitorProfileProbeFail = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 6, 1, 1, 14), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBNetworkMonitorProfileProbeFail.setStatus('current')
-jnxTLBNetworkMonitorProfileProbeConsecutiveSuccess = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 6, 1, 1, 15), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBNetworkMonitorProfileProbeConsecutiveSuccess.setStatus('current')
-jnxTLBNetworkMonitorProfileProbeConsecutiveFail = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 6, 1, 1, 16), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxTLBNetworkMonitorProfileProbeConsecutiveFail.setStatus('current')
-tlbDataMib = ObjectIdentity((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 4))
-if mibBuilder.loadTexts: tlbDataMib.setStatus('current')
-tlbTrapMib = ObjectIdentity((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5))
-if mibBuilder.loadTexts: tlbTrapMib.setStatus('current')
-tlbNotificationObjMib = MibIdentifier((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 3))
-tlbNotificationMib = MibIdentifier((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 4))
-tlbInstanceName = MibScalar((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 3, 1001), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tlbInstanceName.setStatus('current')
-tlbRealServerName = MibScalar((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 3, 1002), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tlbRealServerName.setStatus('current')
-tlbRealServerGroupName = MibScalar((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 3, 1003), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tlbRealServerGroupName.setStatus('current')
-tlbRealServerIpAddress = MibScalar((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 3, 1004), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tlbRealServerIpAddress.setStatus('current')
-tlbVirtualServiceName = MibScalar((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 3, 1005), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tlbVirtualServiceName.setStatus('current')
-tlbVirtualServiceIpAddr = MibScalar((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 3, 1006), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tlbVirtualServiceIpAddr.setStatus('current')
-tlbVirtualServicePort = MibScalar((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 3, 1007), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tlbVirtualServicePort.setStatus('current')
-tlbProfileName = MibScalar((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 3, 1008), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tlbProfileName.setStatus('current')
-tlbMultiserviceInterface = MibScalar((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 3, 1009), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tlbMultiserviceInterface.setStatus('current')
-tlbMultiServicePIC = MibScalar((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 3, 1010), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tlbMultiServicePIC.setStatus('current')
-tlbNetmonCpuUsage = MibScalar((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 3, 1011), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tlbNetmonCpuUsage.setStatus('current')
-tlbMonitorMode = MibScalar((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 3, 1099), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tlbMonitorMode.setStatus('current')
-tlbRealServerUp = NotificationType((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 4, 1)).setObjects(("JUNIPER-TLB-MIB", "tlbInstanceName"), ("JUNIPER-TLB-MIB", "tlbRealServerName"), ("JUNIPER-TLB-MIB", "tlbRealServerIpAddress"), ("JUNIPER-TLB-MIB", "tlbRealServerGroupName"), ("JUNIPER-TLB-MIB", "tlbMonitorMode"), ("SNMPv2-MIB", "sysName"), ("SNMPv2-MIB", "sysLocation"), ("SNMPv2-MIB", "sysContact"))
-if mibBuilder.loadTexts: tlbRealServerUp.setStatus('current')
-tlbRealServerDown = NotificationType((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 4, 2)).setObjects(("JUNIPER-TLB-MIB", "tlbInstanceName"), ("JUNIPER-TLB-MIB", "tlbRealServerName"), ("JUNIPER-TLB-MIB", "tlbRealServerIpAddress"), ("JUNIPER-TLB-MIB", "tlbRealServerGroupName"), ("JUNIPER-TLB-MIB", "tlbMonitorMode"), ("SNMPv2-MIB", "sysName"), ("SNMPv2-MIB", "sysLocation"), ("SNMPv2-MIB", "sysContact"))
-if mibBuilder.loadTexts: tlbRealServerDown.setStatus('current')
-tlbRealServerRejoined = NotificationType((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 4, 3)).setObjects(("JUNIPER-TLB-MIB", "tlbInstanceName"), ("JUNIPER-TLB-MIB", "tlbRealServerName"), ("JUNIPER-TLB-MIB", "tlbRealServerIpAddress"), ("JUNIPER-TLB-MIB", "tlbRealServerGroupName"), ("JUNIPER-TLB-MIB", "tlbMonitorMode"), ("SNMPv2-MIB", "sysName"), ("SNMPv2-MIB", "sysLocation"), ("SNMPv2-MIB", "sysContact"))
-if mibBuilder.loadTexts: tlbRealServerRejoined.setStatus('current')
-tlbVirtualServiceUp = NotificationType((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 4, 5)).setObjects(("JUNIPER-TLB-MIB", "tlbInstanceName"), ("JUNIPER-TLB-MIB", "tlbVirtualServiceName"), ("JUNIPER-TLB-MIB", "tlbVirtualServiceIpAddr"), ("JUNIPER-TLB-MIB", "tlbRealServerGroupName"), ("JUNIPER-TLB-MIB", "tlbMonitorMode"), ("SNMPv2-MIB", "sysName"), ("SNMPv2-MIB", "sysLocation"), ("SNMPv2-MIB", "sysContact"))
-if mibBuilder.loadTexts: tlbVirtualServiceUp.setStatus('current')
-tlbVirtualServiceDown = NotificationType((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 4, 6)).setObjects(("JUNIPER-TLB-MIB", "tlbInstanceName"), ("JUNIPER-TLB-MIB", "tlbVirtualServiceName"), ("JUNIPER-TLB-MIB", "tlbVirtualServiceIpAddr"), ("JUNIPER-TLB-MIB", "tlbRealServerGroupName"), ("JUNIPER-TLB-MIB", "tlbMonitorMode"), ("SNMPv2-MIB", "sysName"), ("SNMPv2-MIB", "sysLocation"), ("SNMPv2-MIB", "sysContact"))
-if mibBuilder.loadTexts: tlbVirtualServiceDown.setStatus('current')
-tlbRealServerServiceUp = NotificationType((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 4, 7)).setObjects(("JUNIPER-TLB-MIB", "tlbInstanceName"), ("JUNIPER-TLB-MIB", "tlbRealServerName"), ("JUNIPER-TLB-MIB", "tlbRealServerIpAddress"), ("JUNIPER-TLB-MIB", "tlbRealServerGroupName"), ("JUNIPER-TLB-MIB", "tlbMonitorMode"), ("SNMPv2-MIB", "sysName"), ("SNMPv2-MIB", "sysLocation"), ("SNMPv2-MIB", "sysContact"))
-if mibBuilder.loadTexts: tlbRealServerServiceUp.setStatus('current')
-tlbRealServerServiceDown = NotificationType((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 4, 8)).setObjects(("JUNIPER-TLB-MIB", "tlbInstanceName"), ("JUNIPER-TLB-MIB", "tlbRealServerName"), ("JUNIPER-TLB-MIB", "tlbRealServerIpAddress"), ("JUNIPER-TLB-MIB", "tlbRealServerGroupName"), ("JUNIPER-TLB-MIB", "tlbMonitorMode"), ("SNMPv2-MIB", "sysName"), ("SNMPv2-MIB", "sysLocation"), ("SNMPv2-MIB", "sysContact"))
-if mibBuilder.loadTexts: tlbRealServerServiceDown.setStatus('current')
-tlbVirtualServerServiceUp = NotificationType((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 4, 9)).setObjects(("JUNIPER-TLB-MIB", "tlbInstanceName"), ("JUNIPER-TLB-MIB", "tlbVirtualServiceName"), ("JUNIPER-TLB-MIB", "tlbVirtualServiceIpAddr"), ("JUNIPER-TLB-MIB", "tlbRealServerGroupName"), ("JUNIPER-TLB-MIB", "tlbVirtualServicePort"), ("JUNIPER-TLB-MIB", "tlbMonitorMode"), ("SNMPv2-MIB", "sysName"), ("SNMPv2-MIB", "sysLocation"), ("SNMPv2-MIB", "sysContact"))
-if mibBuilder.loadTexts: tlbVirtualServerServiceUp.setStatus('current')
-tlbVirtualServerServiceDown = NotificationType((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 4, 10)).setObjects(("JUNIPER-TLB-MIB", "tlbInstanceName"), ("JUNIPER-TLB-MIB", "tlbVirtualServiceName"), ("JUNIPER-TLB-MIB", "tlbVirtualServiceIpAddr"), ("JUNIPER-TLB-MIB", "tlbRealServerGroupName"), ("JUNIPER-TLB-MIB", "tlbVirtualServicePort"), ("JUNIPER-TLB-MIB", "tlbMonitorMode"), ("SNMPv2-MIB", "sysName"), ("SNMPv2-MIB", "sysLocation"), ("SNMPv2-MIB", "sysContact"))
-if mibBuilder.loadTexts: tlbVirtualServerServiceDown.setStatus('current')
-tlbUp = NotificationType((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 4, 11)).setObjects(("JUNIPER-TLB-MIB", "tlbMonitorMode"), ("SNMPv2-MIB", "sysName"), ("SNMPv2-MIB", "sysLocation"), ("SNMPv2-MIB", "sysContact"))
-if mibBuilder.loadTexts: tlbUp.setStatus('current')
-tlbShutdown = NotificationType((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 4, 12)).setObjects(("JUNIPER-TLB-MIB", "tlbMonitorMode"), ("SNMPv2-MIB", "sysName"), ("SNMPv2-MIB", "sysLocation"), ("SNMPv2-MIB", "sysContact"))
-if mibBuilder.loadTexts: tlbShutdown.setStatus('current')
-tlbPicConnected = NotificationType((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 4, 13)).setObjects(("JUNIPER-TLB-MIB", "tlbMonitorMode"), ("JUNIPER-TLB-MIB", "tlbMultiserviceInterface"), ("SNMPv2-MIB", "sysName"), ("SNMPv2-MIB", "sysLocation"), ("SNMPv2-MIB", "sysContact"))
-if mibBuilder.loadTexts: tlbPicConnected.setStatus('current')
-tlbPicDisconnected = NotificationType((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 4, 14)).setObjects(("JUNIPER-TLB-MIB", "tlbMonitorMode"), ("JUNIPER-TLB-MIB", "tlbMultiserviceInterface"), ("SNMPv2-MIB", "sysName"), ("SNMPv2-MIB", "sysLocation"), ("SNMPv2-MIB", "sysContact"))
-if mibBuilder.loadTexts: tlbPicDisconnected.setStatus('current')
-tlbCpuHigh = NotificationType((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 4, 15)).setObjects(("JUNIPER-TLB-MIB", "tlbMonitorMode"), ("JUNIPER-TLB-MIB", "tlbNetmonCpuUsage"), ("SNMPv2-MIB", "sysName"), ("SNMPv2-MIB", "sysLocation"), ("SNMPv2-MIB", "sysContact"))
-if mibBuilder.loadTexts: tlbCpuHigh.setStatus('current')
-tlbCpuNormal = NotificationType((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 4, 16)).setObjects(("JUNIPER-TLB-MIB", "tlbMonitorMode"), ("JUNIPER-TLB-MIB", "tlbNetmonCpuUsage"), ("SNMPv2-MIB", "sysName"), ("SNMPv2-MIB", "sysLocation"), ("SNMPv2-MIB", "sysContact"))
-if mibBuilder.loadTexts: tlbCpuNormal.setStatus('current')
-tlbUnlicensedPic = NotificationType((1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 4, 17)).setObjects(("JUNIPER-TLB-MIB", "tlbMonitorMode"), ("SNMPv2-MIB", "sysName"), ("SNMPv2-MIB", "sysLocation"), ("SNMPv2-MIB", "sysContact"))
-if mibBuilder.loadTexts: tlbUnlicensedPic.setStatus('current')
-mibBuilder.exportSymbols("JUNIPER-TLB-MIB", jnxTLBVSNetworkMonitorProfileCount=jnxTLBVSNetworkMonitorProfileCount, jnxTLBVirtualServiceVirtualPort=jnxTLBVirtualServiceVirtualPort, jnxTLBVirtualServiceName=jnxTLBVirtualServiceName, jnxTLBVirtualServiceRealPort=jnxTLBVirtualServiceRealPort, jnxTLBNetworkMonitorProfileProbeState=jnxTLBNetworkMonitorProfileProbeState, jnxTLBRSTotalProbeSent=jnxTLBRSTotalProbeSent, jnxTLBserverGroup=jnxTLBserverGroup, jnxTLBServerGroupName=jnxTLBServerGroupName, jnxTLBNetworkMonitorProfileProbeSuccess=jnxTLBNetworkMonitorProfileProbeSuccess, tlbRealServerRejoined=tlbRealServerRejoined, tlbMultiserviceInterface=tlbMultiserviceInterface, jnxTLBVirtualServiceTranslationMode=jnxTLBVirtualServiceTranslationMode, jnxTLBVirtualServiceAdminStatus=jnxTLBVirtualServiceAdminStatus, jnxTLBRealServerNameKey=jnxTLBRealServerNameKey, jnxTLBVirtualServiceRouteHoldTimer=jnxTLBVirtualServiceRouteHoldTimer, jnxTLBRealServerOperStatus=jnxTLBRealServerOperStatus, jnxTLBVSClientPacketReverseCount=jnxTLBVSClientPacketReverseCount, tlbVirtualServicePort=tlbVirtualServicePort, jnxTLBVirtualServiceAutoRejoin=jnxTLBVirtualServiceAutoRejoin, tlbRealServerUp=tlbRealServerUp, tlbUnlicensedPic=tlbUnlicensedPic, jnxTLBMIB=jnxTLBMIB, PYSNMP_MODULE_ID=jnxTLBMIB, tlbProfileName=tlbProfileName, jnxTLBRealServerSubUnitNo=jnxTLBRealServerSubUnitNo, jnxTLBVSClientByteForwardCount=jnxTLBVSClientByteForwardCount, tlbVirtualServerServiceDown=tlbVirtualServerServiceDown, jnxTLBRealServerInstance=jnxTLBRealServerInstance, jnxTLBVSTotalRealServerCount=jnxTLBVSTotalRealServerCount, jnxTLBVirtualServiceTable=jnxTLBVirtualServiceTable, jnxTLBVirtualServiceOperStatus=jnxTLBVirtualServiceOperStatus, jnxTLBVSServiceUpTime=jnxTLBVSServiceUpTime, jnxTLBVirtualServiceEntry=jnxTLBVirtualServiceEntry, tlbVirtualServiceUp=tlbVirtualServiceUp, tlbNotificationObjMib=tlbNotificationObjMib, tlbInstanceName=tlbInstanceName, jnxTLBServerGroupNameKey=jnxTLBServerGroupNameKey, jnxTLBNetworkMonitorProfileProbeSent=jnxTLBNetworkMonitorProfileProbeSent, tlbVirtualServiceDown=tlbVirtualServiceDown, jnxTLBNetworkMonitorProfileProbeConsecutiveSuccess=jnxTLBNetworkMonitorProfileProbeConsecutiveSuccess, tlbUp=tlbUp, tlbPicConnected=tlbPicConnected, jnxTLBRealServerAdminStatus=jnxTLBRealServerAdminStatus, jnxTLBVirtualServiceIPVersion=jnxTLBVirtualServiceIPVersion, jnxTLBServerGroupLastTimeDown=jnxTLBServerGroupLastTimeDown, jnxTLBvirtualService=jnxTLBvirtualService, jnxTLBRealServerFailures=jnxTLBRealServerFailures, jnxTLBRealServerIP=jnxTLBRealServerIP, jnxTLBNetworkMonitorProfileType=jnxTLBNetworkMonitorProfileType, tlbMultiServicePIC=tlbMultiServicePIC, jnxTLBVirtualServiceFailures=jnxTLBVirtualServiceFailures, jnxTLBVirtualServiceIP=jnxTLBVirtualServiceIP, jnxTLBRSTotalDownCount=jnxTLBRSTotalDownCount, jnxTLBNetworkMonitorProfileTable=jnxTLBNetworkMonitorProfileTable, jnxTLBNetworkMonitorProfileIndex=jnxTLBNetworkMonitorProfileIndex, jnxTLBRSClientByteReverseCount=jnxTLBRSClientByteReverseCount, jnxTLBServerGroupInstance=jnxTLBServerGroupInstance, jnxTLBRSClientPacketForwardCount=jnxTLBRSClientPacketForwardCount, tlbDataMib=tlbDataMib, jnxTLBServerGroupTable=jnxTLBServerGroupTable, tlbTrapMib=tlbTrapMib, jnxTLBServerGroupIPVersion=jnxTLBServerGroupIPVersion, jnxTLBVirtualServiceInstance=jnxTLBVirtualServiceInstance, jnxTLBVirtualServiceRoutingInstance=jnxTLBVirtualServiceRoutingInstance, tlbCpuHigh=tlbCpuHigh, jnxTLBNetworkMonitorProfileEntry=jnxTLBNetworkMonitorProfileEntry, tlbNetmonCpuUsage=tlbNetmonCpuUsage, jnxTLBRealServerIPVersion=jnxTLBRealServerIPVersion, jnxTLBVirtualServiceWarmUpTime=jnxTLBVirtualServiceWarmUpTime, jnxTLBRSClientByteForwardCount=jnxTLBRSClientByteForwardCount, tlbVirtualServerServiceUp=tlbVirtualServerServiceUp, tlbShutdown=tlbShutdown, jnxTLBRSClientPacketReverseCount=jnxTLBRSClientPacketReverseCount, jnxTLBVirtualServiceNextHopIndex=jnxTLBVirtualServiceNextHopIndex, jnxTLBNetworkMonitorProfileName=jnxTLBNetworkMonitorProfileName, jnxTLBServerGroupTotalDownCount=jnxTLBServerGroupTotalDownCount, jnxTLBRSTotalUpCount=jnxTLBRSTotalUpCount, tlbNotificationMib=tlbNotificationMib, jnxTLBServerGroupOperStatus=jnxTLBServerGroupOperStatus, jnxTLBServerGroupAdminStatus=jnxTLBServerGroupAdminStatus, jnxTLBServerGroupLastTimeUp=jnxTLBServerGroupLastTimeUp, jnxTLBVSClientPacketForwardCount=jnxTLBVSClientPacketForwardCount, jnxTLBRealServerTable=jnxTLBRealServerTable, jnxTLBVirtualServiceHashMethod=jnxTLBVirtualServiceHashMethod, jnxTLBVSClientByteReverseCount=jnxTLBVSClientByteReverseCount, jnxTLBNetworkMonitorProfilePortNumber=jnxTLBNetworkMonitorProfilePortNumber, tlbRealServerName=tlbRealServerName, tlbVirtualServiceName=tlbVirtualServiceName, jnxTLBRealServerName=jnxTLBRealServerName, jnxTLBNetworkMonitorProfileFailureRetry=jnxTLBNetworkMonitorProfileFailureRetry, jnxTLBVSActiveRealServerCount=jnxTLBVSActiveRealServerCount, jnxTLBVirtualServiceInterface=jnxTLBVirtualServiceInterface, jnxTLBNetworkMonitorProfileProbeFail=jnxTLBNetworkMonitorProfileProbeFail, jnxTLBVSTotalUpCount=jnxTLBVSTotalUpCount, jnxTLBRSTotalProbeSentFail=jnxTLBRSTotalProbeSentFail, jnxTLBrealServer=jnxTLBrealServer, jnxTLBVSTotalDownCount=jnxTLBVSTotalDownCount, jnxTLBVirtualServiceSubUnitNo=jnxTLBVirtualServiceSubUnitNo, jnxTLBVirtualServiceProtocol=jnxTLBVirtualServiceProtocol, tlbRealServerDown=tlbRealServerDown, tlbRealServerServiceUp=tlbRealServerServiceUp, jnxTLBNetworkMonitorProfile=jnxTLBNetworkMonitorProfile, jnxTLBServerGroupFailures=jnxTLBServerGroupFailures, tlbVirtualServiceIpAddr=tlbVirtualServiceIpAddr, tlbRealServerGroupName=tlbRealServerGroupName, tlbCpuNormal=tlbCpuNormal, jnxTLBNetworkMonitorProfileProbeInterval=jnxTLBNetworkMonitorProfileProbeInterval, jnxTLBNetworkMonitorProfileNameKey=jnxTLBNetworkMonitorProfileNameKey, jnxTLBVirtualServiceRouteMetric=jnxTLBVirtualServiceRouteMetric, jnxTLBRSTotalProbeFail=jnxTLBRSTotalProbeFail, jnxTLBVirtualServiceNameKey=jnxTLBVirtualServiceNameKey, jnxTLBRSTotalRejoinCount=jnxTLBRSTotalRejoinCount, jnxTLBNetworkMonitorProfileRecoverRetry=jnxTLBNetworkMonitorProfileRecoverRetry, jnxTLBVirtualServiceDemuxNextHopIndex=jnxTLBVirtualServiceDemuxNextHopIndex, jnxTLBServerGroupEntry=jnxTLBServerGroupEntry, tlbPicDisconnected=tlbPicDisconnected, tlbRealServerServiceDown=tlbRealServerServiceDown, tlbRealServerIpAddress=tlbRealServerIpAddress, jnxTLBServerGroupTotalUpCount=jnxTLBServerGroupTotalUpCount, jnxTLBRSTotalProbeSuccess=jnxTLBRSTotalProbeSuccess, jnxTLBRealServerEntry=jnxTLBRealServerEntry, jnxTLBNetworkMonitorProfileRealServerName=jnxTLBNetworkMonitorProfileRealServerName, jnxTLBNetworkMonitorProfileProbeConsecutiveFail=jnxTLBNetworkMonitorProfileProbeConsecutiveFail, tlbMonitorMode=tlbMonitorMode, jnxTLBNetworkMonitorProfileVirtualServiceName=jnxTLBNetworkMonitorProfileVirtualServiceName)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/JUNIPER-TLB-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:14:20 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InterfaceIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex")
+
+(InetAddress,
+ InetAddressIPv4,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressIPv4",
+    "InetAddressType")
+
+(jnxSDKApplicationsRoot,) = mibBuilder.importSymbols(
+    "JUNIPER-SMI",
+    "jnxSDKApplicationsRoot")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(sysContact,
+ sysLocation,
+ sysName) = mibBuilder.importSymbols(
+    "SNMPv2-MIB",
+    "sysContact",
+    "sysLocation",
+    "sysName")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+jnxTLBMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1)
+)
+jnxTLBMIB.setRevisions(
+        ("2014-02-12 20:22",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_JnxTLBrealServer_ObjectIdentity = ObjectIdentity
+jnxTLBrealServer = _JnxTLBrealServer_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1)
+)
+_JnxTLBRealServerTable_Object = MibTable
+jnxTLBRealServerTable = _JnxTLBRealServerTable_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    jnxTLBRealServerTable.setStatus("current")
+_JnxTLBRealServerEntry_Object = MibTableRow
+jnxTLBRealServerEntry = _JnxTLBRealServerEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1)
+)
+jnxTLBRealServerEntry.setIndexNames(
+    (0, "JUNIPER-TLB-MIB", "jnxTLBRealServerNameKey"),
+)
+if mibBuilder.loadTexts:
+    jnxTLBRealServerEntry.setStatus("current")
+
+
+class _JnxTLBRealServerNameKey_Type(DisplayString):
+    """Custom type jnxTLBRealServerNameKey based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_JnxTLBRealServerNameKey_Type.__name__ = "DisplayString"
+_JnxTLBRealServerNameKey_Object = MibTableColumn
+jnxTLBRealServerNameKey = _JnxTLBRealServerNameKey_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 1),
+    _JnxTLBRealServerNameKey_Type()
+)
+jnxTLBRealServerNameKey.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    jnxTLBRealServerNameKey.setStatus("current")
+
+
+class _JnxTLBRealServerName_Type(DisplayString):
+    """Custom type jnxTLBRealServerName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_JnxTLBRealServerName_Type.__name__ = "DisplayString"
+_JnxTLBRealServerName_Object = MibTableColumn
+jnxTLBRealServerName = _JnxTLBRealServerName_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 2),
+    _JnxTLBRealServerName_Type()
+)
+jnxTLBRealServerName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBRealServerName.setStatus("current")
+
+
+class _JnxTLBRealServerInstance_Type(DisplayString):
+    """Custom type jnxTLBRealServerInstance based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_JnxTLBRealServerInstance_Type.__name__ = "DisplayString"
+_JnxTLBRealServerInstance_Object = MibTableColumn
+jnxTLBRealServerInstance = _JnxTLBRealServerInstance_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 3),
+    _JnxTLBRealServerInstance_Type()
+)
+jnxTLBRealServerInstance.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBRealServerInstance.setStatus("current")
+
+
+class _JnxTLBRealServerIPVersion_Type(Integer32):
+    """Custom type jnxTLBRealServerIPVersion based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ipv4", 1),
+          ("ipv6", 2))
+    )
+
+
+_JnxTLBRealServerIPVersion_Type.__name__ = "Integer32"
+_JnxTLBRealServerIPVersion_Object = MibTableColumn
+jnxTLBRealServerIPVersion = _JnxTLBRealServerIPVersion_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 4),
+    _JnxTLBRealServerIPVersion_Type()
+)
+jnxTLBRealServerIPVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBRealServerIPVersion.setStatus("current")
+
+
+class _JnxTLBRealServerIP_Type(DisplayString):
+    """Custom type jnxTLBRealServerIP based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_JnxTLBRealServerIP_Type.__name__ = "DisplayString"
+_JnxTLBRealServerIP_Object = MibTableColumn
+jnxTLBRealServerIP = _JnxTLBRealServerIP_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 5),
+    _JnxTLBRealServerIP_Type()
+)
+jnxTLBRealServerIP.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBRealServerIP.setStatus("current")
+
+
+class _JnxTLBRealServerOperStatus_Type(Integer32):
+    """Custom type jnxTLBRealServerOperStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 2),
+          ("up", 1))
+    )
+
+
+_JnxTLBRealServerOperStatus_Type.__name__ = "Integer32"
+_JnxTLBRealServerOperStatus_Object = MibTableColumn
+jnxTLBRealServerOperStatus = _JnxTLBRealServerOperStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 6),
+    _JnxTLBRealServerOperStatus_Type()
+)
+jnxTLBRealServerOperStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBRealServerOperStatus.setStatus("current")
+
+
+class _JnxTLBRealServerAdminStatus_Type(Integer32):
+    """Custom type jnxTLBRealServerAdminStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 2),
+          ("up", 1))
+    )
+
+
+_JnxTLBRealServerAdminStatus_Type.__name__ = "Integer32"
+_JnxTLBRealServerAdminStatus_Object = MibTableColumn
+jnxTLBRealServerAdminStatus = _JnxTLBRealServerAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 7),
+    _JnxTLBRealServerAdminStatus_Type()
+)
+jnxTLBRealServerAdminStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBRealServerAdminStatus.setStatus("current")
+_JnxTLBRealServerSubUnitNo_Type = Unsigned32
+_JnxTLBRealServerSubUnitNo_Object = MibTableColumn
+jnxTLBRealServerSubUnitNo = _JnxTLBRealServerSubUnitNo_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 8),
+    _JnxTLBRealServerSubUnitNo_Type()
+)
+jnxTLBRealServerSubUnitNo.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBRealServerSubUnitNo.setStatus("current")
+_JnxTLBRealServerFailures_Type = Unsigned32
+_JnxTLBRealServerFailures_Object = MibTableColumn
+jnxTLBRealServerFailures = _JnxTLBRealServerFailures_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 9),
+    _JnxTLBRealServerFailures_Type()
+)
+jnxTLBRealServerFailures.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBRealServerFailures.setStatus("current")
+_JnxTLBRSClientPacketForwardCount_Type = Counter64
+_JnxTLBRSClientPacketForwardCount_Object = MibTableColumn
+jnxTLBRSClientPacketForwardCount = _JnxTLBRSClientPacketForwardCount_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 10),
+    _JnxTLBRSClientPacketForwardCount_Type()
+)
+jnxTLBRSClientPacketForwardCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBRSClientPacketForwardCount.setStatus("current")
+_JnxTLBRSClientByteForwardCount_Type = Counter64
+_JnxTLBRSClientByteForwardCount_Object = MibTableColumn
+jnxTLBRSClientByteForwardCount = _JnxTLBRSClientByteForwardCount_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 11),
+    _JnxTLBRSClientByteForwardCount_Type()
+)
+jnxTLBRSClientByteForwardCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBRSClientByteForwardCount.setStatus("current")
+_JnxTLBRSClientPacketReverseCount_Type = Counter64
+_JnxTLBRSClientPacketReverseCount_Object = MibTableColumn
+jnxTLBRSClientPacketReverseCount = _JnxTLBRSClientPacketReverseCount_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 12),
+    _JnxTLBRSClientPacketReverseCount_Type()
+)
+jnxTLBRSClientPacketReverseCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBRSClientPacketReverseCount.setStatus("current")
+_JnxTLBRSClientByteReverseCount_Type = Counter64
+_JnxTLBRSClientByteReverseCount_Object = MibTableColumn
+jnxTLBRSClientByteReverseCount = _JnxTLBRSClientByteReverseCount_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 13),
+    _JnxTLBRSClientByteReverseCount_Type()
+)
+jnxTLBRSClientByteReverseCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBRSClientByteReverseCount.setStatus("current")
+_JnxTLBRSTotalUpCount_Type = Unsigned32
+_JnxTLBRSTotalUpCount_Object = MibTableColumn
+jnxTLBRSTotalUpCount = _JnxTLBRSTotalUpCount_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 14),
+    _JnxTLBRSTotalUpCount_Type()
+)
+jnxTLBRSTotalUpCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBRSTotalUpCount.setStatus("current")
+_JnxTLBRSTotalDownCount_Type = Unsigned32
+_JnxTLBRSTotalDownCount_Object = MibTableColumn
+jnxTLBRSTotalDownCount = _JnxTLBRSTotalDownCount_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 15),
+    _JnxTLBRSTotalDownCount_Type()
+)
+jnxTLBRSTotalDownCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBRSTotalDownCount.setStatus("current")
+_JnxTLBRSTotalRejoinCount_Type = Unsigned32
+_JnxTLBRSTotalRejoinCount_Object = MibTableColumn
+jnxTLBRSTotalRejoinCount = _JnxTLBRSTotalRejoinCount_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 16),
+    _JnxTLBRSTotalRejoinCount_Type()
+)
+jnxTLBRSTotalRejoinCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBRSTotalRejoinCount.setStatus("current")
+_JnxTLBRSTotalProbeSent_Type = Unsigned32
+_JnxTLBRSTotalProbeSent_Object = MibTableColumn
+jnxTLBRSTotalProbeSent = _JnxTLBRSTotalProbeSent_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 17),
+    _JnxTLBRSTotalProbeSent_Type()
+)
+jnxTLBRSTotalProbeSent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBRSTotalProbeSent.setStatus("current")
+_JnxTLBRSTotalProbeSuccess_Type = Unsigned32
+_JnxTLBRSTotalProbeSuccess_Object = MibTableColumn
+jnxTLBRSTotalProbeSuccess = _JnxTLBRSTotalProbeSuccess_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 18),
+    _JnxTLBRSTotalProbeSuccess_Type()
+)
+jnxTLBRSTotalProbeSuccess.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBRSTotalProbeSuccess.setStatus("current")
+_JnxTLBRSTotalProbeFail_Type = Unsigned32
+_JnxTLBRSTotalProbeFail_Object = MibTableColumn
+jnxTLBRSTotalProbeFail = _JnxTLBRSTotalProbeFail_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 19),
+    _JnxTLBRSTotalProbeFail_Type()
+)
+jnxTLBRSTotalProbeFail.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBRSTotalProbeFail.setStatus("current")
+_JnxTLBRSTotalProbeSentFail_Type = Unsigned32
+_JnxTLBRSTotalProbeSentFail_Object = MibTableColumn
+jnxTLBRSTotalProbeSentFail = _JnxTLBRSTotalProbeSentFail_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 1, 1, 1, 20),
+    _JnxTLBRSTotalProbeSentFail_Type()
+)
+jnxTLBRSTotalProbeSentFail.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBRSTotalProbeSentFail.setStatus("current")
+_JnxTLBvirtualService_ObjectIdentity = ObjectIdentity
+jnxTLBvirtualService = _JnxTLBvirtualService_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2)
+)
+_JnxTLBVirtualServiceTable_Object = MibTable
+jnxTLBVirtualServiceTable = _JnxTLBVirtualServiceTable_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    jnxTLBVirtualServiceTable.setStatus("current")
+_JnxTLBVirtualServiceEntry_Object = MibTableRow
+jnxTLBVirtualServiceEntry = _JnxTLBVirtualServiceEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1)
+)
+jnxTLBVirtualServiceEntry.setIndexNames(
+    (0, "JUNIPER-TLB-MIB", "jnxTLBVirtualServiceNameKey"),
+)
+if mibBuilder.loadTexts:
+    jnxTLBVirtualServiceEntry.setStatus("current")
+
+
+class _JnxTLBVirtualServiceNameKey_Type(DisplayString):
+    """Custom type jnxTLBVirtualServiceNameKey based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_JnxTLBVirtualServiceNameKey_Type.__name__ = "DisplayString"
+_JnxTLBVirtualServiceNameKey_Object = MibTableColumn
+jnxTLBVirtualServiceNameKey = _JnxTLBVirtualServiceNameKey_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 1),
+    _JnxTLBVirtualServiceNameKey_Type()
+)
+jnxTLBVirtualServiceNameKey.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    jnxTLBVirtualServiceNameKey.setStatus("current")
+
+
+class _JnxTLBVirtualServiceName_Type(DisplayString):
+    """Custom type jnxTLBVirtualServiceName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_JnxTLBVirtualServiceName_Type.__name__ = "DisplayString"
+_JnxTLBVirtualServiceName_Object = MibTableColumn
+jnxTLBVirtualServiceName = _JnxTLBVirtualServiceName_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 2),
+    _JnxTLBVirtualServiceName_Type()
+)
+jnxTLBVirtualServiceName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBVirtualServiceName.setStatus("current")
+
+
+class _JnxTLBVirtualServiceTranslationMode_Type(DisplayString):
+    """Custom type jnxTLBVirtualServiceTranslationMode based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_JnxTLBVirtualServiceTranslationMode_Type.__name__ = "DisplayString"
+_JnxTLBVirtualServiceTranslationMode_Object = MibTableColumn
+jnxTLBVirtualServiceTranslationMode = _JnxTLBVirtualServiceTranslationMode_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 3),
+    _JnxTLBVirtualServiceTranslationMode_Type()
+)
+jnxTLBVirtualServiceTranslationMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBVirtualServiceTranslationMode.setStatus("current")
+
+
+class _JnxTLBVirtualServiceInstance_Type(DisplayString):
+    """Custom type jnxTLBVirtualServiceInstance based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_JnxTLBVirtualServiceInstance_Type.__name__ = "DisplayString"
+_JnxTLBVirtualServiceInstance_Object = MibTableColumn
+jnxTLBVirtualServiceInstance = _JnxTLBVirtualServiceInstance_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 4),
+    _JnxTLBVirtualServiceInstance_Type()
+)
+jnxTLBVirtualServiceInstance.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBVirtualServiceInstance.setStatus("current")
+
+
+class _JnxTLBVirtualServiceIPVersion_Type(Integer32):
+    """Custom type jnxTLBVirtualServiceIPVersion based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ipv4", 1),
+          ("ipv6", 2))
+    )
+
+
+_JnxTLBVirtualServiceIPVersion_Type.__name__ = "Integer32"
+_JnxTLBVirtualServiceIPVersion_Object = MibTableColumn
+jnxTLBVirtualServiceIPVersion = _JnxTLBVirtualServiceIPVersion_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 5),
+    _JnxTLBVirtualServiceIPVersion_Type()
+)
+jnxTLBVirtualServiceIPVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBVirtualServiceIPVersion.setStatus("current")
+
+
+class _JnxTLBVirtualServiceIP_Type(DisplayString):
+    """Custom type jnxTLBVirtualServiceIP based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_JnxTLBVirtualServiceIP_Type.__name__ = "DisplayString"
+_JnxTLBVirtualServiceIP_Object = MibTableColumn
+jnxTLBVirtualServiceIP = _JnxTLBVirtualServiceIP_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 6),
+    _JnxTLBVirtualServiceIP_Type()
+)
+jnxTLBVirtualServiceIP.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBVirtualServiceIP.setStatus("current")
+
+
+class _JnxTLBVirtualServiceOperStatus_Type(Integer32):
+    """Custom type jnxTLBVirtualServiceOperStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 2),
+          ("up", 1))
+    )
+
+
+_JnxTLBVirtualServiceOperStatus_Type.__name__ = "Integer32"
+_JnxTLBVirtualServiceOperStatus_Object = MibTableColumn
+jnxTLBVirtualServiceOperStatus = _JnxTLBVirtualServiceOperStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 7),
+    _JnxTLBVirtualServiceOperStatus_Type()
+)
+jnxTLBVirtualServiceOperStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBVirtualServiceOperStatus.setStatus("current")
+
+
+class _JnxTLBVirtualServiceAdminStatus_Type(Integer32):
+    """Custom type jnxTLBVirtualServiceAdminStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 2),
+          ("up", 1))
+    )
+
+
+_JnxTLBVirtualServiceAdminStatus_Type.__name__ = "Integer32"
+_JnxTLBVirtualServiceAdminStatus_Object = MibTableColumn
+jnxTLBVirtualServiceAdminStatus = _JnxTLBVirtualServiceAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 8),
+    _JnxTLBVirtualServiceAdminStatus_Type()
+)
+jnxTLBVirtualServiceAdminStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBVirtualServiceAdminStatus.setStatus("current")
+_JnxTLBVirtualServiceSubUnitNo_Type = Unsigned32
+_JnxTLBVirtualServiceSubUnitNo_Object = MibTableColumn
+jnxTLBVirtualServiceSubUnitNo = _JnxTLBVirtualServiceSubUnitNo_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 9),
+    _JnxTLBVirtualServiceSubUnitNo_Type()
+)
+jnxTLBVirtualServiceSubUnitNo.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBVirtualServiceSubUnitNo.setStatus("current")
+_JnxTLBVirtualServiceFailures_Type = Unsigned32
+_JnxTLBVirtualServiceFailures_Object = MibTableColumn
+jnxTLBVirtualServiceFailures = _JnxTLBVirtualServiceFailures_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 10),
+    _JnxTLBVirtualServiceFailures_Type()
+)
+jnxTLBVirtualServiceFailures.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBVirtualServiceFailures.setStatus("current")
+_JnxTLBVSClientPacketForwardCount_Type = Counter64
+_JnxTLBVSClientPacketForwardCount_Object = MibTableColumn
+jnxTLBVSClientPacketForwardCount = _JnxTLBVSClientPacketForwardCount_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 11),
+    _JnxTLBVSClientPacketForwardCount_Type()
+)
+jnxTLBVSClientPacketForwardCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBVSClientPacketForwardCount.setStatus("current")
+_JnxTLBVSClientByteForwardCount_Type = Counter64
+_JnxTLBVSClientByteForwardCount_Object = MibTableColumn
+jnxTLBVSClientByteForwardCount = _JnxTLBVSClientByteForwardCount_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 12),
+    _JnxTLBVSClientByteForwardCount_Type()
+)
+jnxTLBVSClientByteForwardCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBVSClientByteForwardCount.setStatus("current")
+_JnxTLBVSClientPacketReverseCount_Type = Counter64
+_JnxTLBVSClientPacketReverseCount_Object = MibTableColumn
+jnxTLBVSClientPacketReverseCount = _JnxTLBVSClientPacketReverseCount_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 13),
+    _JnxTLBVSClientPacketReverseCount_Type()
+)
+jnxTLBVSClientPacketReverseCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBVSClientPacketReverseCount.setStatus("current")
+_JnxTLBVSClientByteReverseCount_Type = Counter64
+_JnxTLBVSClientByteReverseCount_Object = MibTableColumn
+jnxTLBVSClientByteReverseCount = _JnxTLBVSClientByteReverseCount_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 14),
+    _JnxTLBVSClientByteReverseCount_Type()
+)
+jnxTLBVSClientByteReverseCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBVSClientByteReverseCount.setStatus("current")
+_JnxTLBVSTotalUpCount_Type = Unsigned32
+_JnxTLBVSTotalUpCount_Object = MibTableColumn
+jnxTLBVSTotalUpCount = _JnxTLBVSTotalUpCount_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 15),
+    _JnxTLBVSTotalUpCount_Type()
+)
+jnxTLBVSTotalUpCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBVSTotalUpCount.setStatus("current")
+_JnxTLBVSTotalDownCount_Type = Unsigned32
+_JnxTLBVSTotalDownCount_Object = MibTableColumn
+jnxTLBVSTotalDownCount = _JnxTLBVSTotalDownCount_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 16),
+    _JnxTLBVSTotalDownCount_Type()
+)
+jnxTLBVSTotalDownCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBVSTotalDownCount.setStatus("current")
+_JnxTLBVSTotalRealServerCount_Type = Unsigned32
+_JnxTLBVSTotalRealServerCount_Object = MibTableColumn
+jnxTLBVSTotalRealServerCount = _JnxTLBVSTotalRealServerCount_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 17),
+    _JnxTLBVSTotalRealServerCount_Type()
+)
+jnxTLBVSTotalRealServerCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBVSTotalRealServerCount.setStatus("current")
+_JnxTLBVSServiceUpTime_Type = DisplayString
+_JnxTLBVSServiceUpTime_Object = MibTableColumn
+jnxTLBVSServiceUpTime = _JnxTLBVSServiceUpTime_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 18),
+    _JnxTLBVSServiceUpTime_Type()
+)
+jnxTLBVSServiceUpTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBVSServiceUpTime.setStatus("current")
+_JnxTLBVSActiveRealServerCount_Type = Unsigned32
+_JnxTLBVSActiveRealServerCount_Object = MibTableColumn
+jnxTLBVSActiveRealServerCount = _JnxTLBVSActiveRealServerCount_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 19),
+    _JnxTLBVSActiveRealServerCount_Type()
+)
+jnxTLBVSActiveRealServerCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBVSActiveRealServerCount.setStatus("current")
+_JnxTLBVSNetworkMonitorProfileCount_Type = Unsigned32
+_JnxTLBVSNetworkMonitorProfileCount_Object = MibTableColumn
+jnxTLBVSNetworkMonitorProfileCount = _JnxTLBVSNetworkMonitorProfileCount_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 20),
+    _JnxTLBVSNetworkMonitorProfileCount_Type()
+)
+jnxTLBVSNetworkMonitorProfileCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBVSNetworkMonitorProfileCount.setStatus("current")
+_JnxTLBVirtualServiceVirtualPort_Type = Unsigned32
+_JnxTLBVirtualServiceVirtualPort_Object = MibTableColumn
+jnxTLBVirtualServiceVirtualPort = _JnxTLBVirtualServiceVirtualPort_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 21),
+    _JnxTLBVirtualServiceVirtualPort_Type()
+)
+jnxTLBVirtualServiceVirtualPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBVirtualServiceVirtualPort.setStatus("current")
+_JnxTLBVirtualServiceRealPort_Type = Unsigned32
+_JnxTLBVirtualServiceRealPort_Object = MibTableColumn
+jnxTLBVirtualServiceRealPort = _JnxTLBVirtualServiceRealPort_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 22),
+    _JnxTLBVirtualServiceRealPort_Type()
+)
+jnxTLBVirtualServiceRealPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBVirtualServiceRealPort.setStatus("current")
+_JnxTLBVirtualServiceNextHopIndex_Type = Unsigned32
+_JnxTLBVirtualServiceNextHopIndex_Object = MibTableColumn
+jnxTLBVirtualServiceNextHopIndex = _JnxTLBVirtualServiceNextHopIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 23),
+    _JnxTLBVirtualServiceNextHopIndex_Type()
+)
+jnxTLBVirtualServiceNextHopIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBVirtualServiceNextHopIndex.setStatus("current")
+_JnxTLBVirtualServiceProtocol_Type = DisplayString
+_JnxTLBVirtualServiceProtocol_Object = MibTableColumn
+jnxTLBVirtualServiceProtocol = _JnxTLBVirtualServiceProtocol_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 24),
+    _JnxTLBVirtualServiceProtocol_Type()
+)
+jnxTLBVirtualServiceProtocol.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBVirtualServiceProtocol.setStatus("current")
+_JnxTLBVirtualServiceDemuxNextHopIndex_Type = Unsigned32
+_JnxTLBVirtualServiceDemuxNextHopIndex_Object = MibTableColumn
+jnxTLBVirtualServiceDemuxNextHopIndex = _JnxTLBVirtualServiceDemuxNextHopIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 25),
+    _JnxTLBVirtualServiceDemuxNextHopIndex_Type()
+)
+jnxTLBVirtualServiceDemuxNextHopIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBVirtualServiceDemuxNextHopIndex.setStatus("current")
+
+
+class _JnxTLBVirtualServiceInterface_Type(DisplayString):
+    """Custom type jnxTLBVirtualServiceInterface based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_JnxTLBVirtualServiceInterface_Type.__name__ = "DisplayString"
+_JnxTLBVirtualServiceInterface_Object = MibTableColumn
+jnxTLBVirtualServiceInterface = _JnxTLBVirtualServiceInterface_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 26),
+    _JnxTLBVirtualServiceInterface_Type()
+)
+jnxTLBVirtualServiceInterface.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBVirtualServiceInterface.setStatus("current")
+
+
+class _JnxTLBVirtualServiceRoutingInstance_Type(DisplayString):
+    """Custom type jnxTLBVirtualServiceRoutingInstance based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_JnxTLBVirtualServiceRoutingInstance_Type.__name__ = "DisplayString"
+_JnxTLBVirtualServiceRoutingInstance_Object = MibTableColumn
+jnxTLBVirtualServiceRoutingInstance = _JnxTLBVirtualServiceRoutingInstance_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 27),
+    _JnxTLBVirtualServiceRoutingInstance_Type()
+)
+jnxTLBVirtualServiceRoutingInstance.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBVirtualServiceRoutingInstance.setStatus("current")
+_JnxTLBVirtualServiceHashMethod_Type = DisplayString
+_JnxTLBVirtualServiceHashMethod_Object = MibTableColumn
+jnxTLBVirtualServiceHashMethod = _JnxTLBVirtualServiceHashMethod_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 28),
+    _JnxTLBVirtualServiceHashMethod_Type()
+)
+jnxTLBVirtualServiceHashMethod.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBVirtualServiceHashMethod.setStatus("current")
+_JnxTLBVirtualServiceRouteMetric_Type = Unsigned32
+_JnxTLBVirtualServiceRouteMetric_Object = MibTableColumn
+jnxTLBVirtualServiceRouteMetric = _JnxTLBVirtualServiceRouteMetric_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 29),
+    _JnxTLBVirtualServiceRouteMetric_Type()
+)
+jnxTLBVirtualServiceRouteMetric.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBVirtualServiceRouteMetric.setStatus("current")
+
+
+class _JnxTLBVirtualServiceAutoRejoin_Type(Integer32):
+    """Custom type jnxTLBVirtualServiceAutoRejoin based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("false", 1),
+          ("true", 0))
+    )
+
+
+_JnxTLBVirtualServiceAutoRejoin_Type.__name__ = "Integer32"
+_JnxTLBVirtualServiceAutoRejoin_Object = MibTableColumn
+jnxTLBVirtualServiceAutoRejoin = _JnxTLBVirtualServiceAutoRejoin_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 30),
+    _JnxTLBVirtualServiceAutoRejoin_Type()
+)
+jnxTLBVirtualServiceAutoRejoin.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBVirtualServiceAutoRejoin.setStatus("current")
+
+
+class _JnxTLBVirtualServiceRouteHoldTimer_Type(Integer32):
+    """Custom type jnxTLBVirtualServiceRouteHoldTimer based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_JnxTLBVirtualServiceRouteHoldTimer_Type.__name__ = "Integer32"
+_JnxTLBVirtualServiceRouteHoldTimer_Object = MibTableColumn
+jnxTLBVirtualServiceRouteHoldTimer = _JnxTLBVirtualServiceRouteHoldTimer_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 31),
+    _JnxTLBVirtualServiceRouteHoldTimer_Type()
+)
+jnxTLBVirtualServiceRouteHoldTimer.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBVirtualServiceRouteHoldTimer.setStatus("current")
+
+
+class _JnxTLBVirtualServiceWarmUpTime_Type(Integer32):
+    """Custom type jnxTLBVirtualServiceWarmUpTime based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_JnxTLBVirtualServiceWarmUpTime_Type.__name__ = "Integer32"
+_JnxTLBVirtualServiceWarmUpTime_Object = MibTableColumn
+jnxTLBVirtualServiceWarmUpTime = _JnxTLBVirtualServiceWarmUpTime_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 2, 1, 1, 32),
+    _JnxTLBVirtualServiceWarmUpTime_Type()
+)
+jnxTLBVirtualServiceWarmUpTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBVirtualServiceWarmUpTime.setStatus("current")
+_JnxTLBserverGroup_ObjectIdentity = ObjectIdentity
+jnxTLBserverGroup = _JnxTLBserverGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 3)
+)
+_JnxTLBServerGroupTable_Object = MibTable
+jnxTLBServerGroupTable = _JnxTLBServerGroupTable_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 3, 1)
+)
+if mibBuilder.loadTexts:
+    jnxTLBServerGroupTable.setStatus("current")
+_JnxTLBServerGroupEntry_Object = MibTableRow
+jnxTLBServerGroupEntry = _JnxTLBServerGroupEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 3, 1, 1)
+)
+jnxTLBServerGroupEntry.setIndexNames(
+    (0, "JUNIPER-TLB-MIB", "jnxTLBServerGroupNameKey"),
+)
+if mibBuilder.loadTexts:
+    jnxTLBServerGroupEntry.setStatus("current")
+
+
+class _JnxTLBServerGroupNameKey_Type(DisplayString):
+    """Custom type jnxTLBServerGroupNameKey based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_JnxTLBServerGroupNameKey_Type.__name__ = "DisplayString"
+_JnxTLBServerGroupNameKey_Object = MibTableColumn
+jnxTLBServerGroupNameKey = _JnxTLBServerGroupNameKey_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 3, 1, 1, 1),
+    _JnxTLBServerGroupNameKey_Type()
+)
+jnxTLBServerGroupNameKey.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    jnxTLBServerGroupNameKey.setStatus("current")
+
+
+class _JnxTLBServerGroupName_Type(DisplayString):
+    """Custom type jnxTLBServerGroupName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_JnxTLBServerGroupName_Type.__name__ = "DisplayString"
+_JnxTLBServerGroupName_Object = MibTableColumn
+jnxTLBServerGroupName = _JnxTLBServerGroupName_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 3, 1, 1, 2),
+    _JnxTLBServerGroupName_Type()
+)
+jnxTLBServerGroupName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBServerGroupName.setStatus("current")
+_JnxTLBServerGroupInstance_Type = DisplayString
+_JnxTLBServerGroupInstance_Object = MibTableColumn
+jnxTLBServerGroupInstance = _JnxTLBServerGroupInstance_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 3, 1, 1, 3),
+    _JnxTLBServerGroupInstance_Type()
+)
+jnxTLBServerGroupInstance.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBServerGroupInstance.setStatus("current")
+
+
+class _JnxTLBServerGroupIPVersion_Type(Integer32):
+    """Custom type jnxTLBServerGroupIPVersion based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ipv4", 1),
+          ("ipv6", 2))
+    )
+
+
+_JnxTLBServerGroupIPVersion_Type.__name__ = "Integer32"
+_JnxTLBServerGroupIPVersion_Object = MibTableColumn
+jnxTLBServerGroupIPVersion = _JnxTLBServerGroupIPVersion_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 3, 1, 1, 4),
+    _JnxTLBServerGroupIPVersion_Type()
+)
+jnxTLBServerGroupIPVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBServerGroupIPVersion.setStatus("current")
+
+
+class _JnxTLBServerGroupOperStatus_Type(Integer32):
+    """Custom type jnxTLBServerGroupOperStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 2),
+          ("up", 1))
+    )
+
+
+_JnxTLBServerGroupOperStatus_Type.__name__ = "Integer32"
+_JnxTLBServerGroupOperStatus_Object = MibTableColumn
+jnxTLBServerGroupOperStatus = _JnxTLBServerGroupOperStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 3, 1, 1, 5),
+    _JnxTLBServerGroupOperStatus_Type()
+)
+jnxTLBServerGroupOperStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBServerGroupOperStatus.setStatus("current")
+
+
+class _JnxTLBServerGroupAdminStatus_Type(Integer32):
+    """Custom type jnxTLBServerGroupAdminStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 2),
+          ("up", 1))
+    )
+
+
+_JnxTLBServerGroupAdminStatus_Type.__name__ = "Integer32"
+_JnxTLBServerGroupAdminStatus_Object = MibTableColumn
+jnxTLBServerGroupAdminStatus = _JnxTLBServerGroupAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 3, 1, 1, 6),
+    _JnxTLBServerGroupAdminStatus_Type()
+)
+jnxTLBServerGroupAdminStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBServerGroupAdminStatus.setStatus("current")
+_JnxTLBServerGroupFailures_Type = Unsigned32
+_JnxTLBServerGroupFailures_Object = MibTableColumn
+jnxTLBServerGroupFailures = _JnxTLBServerGroupFailures_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 3, 1, 1, 7),
+    _JnxTLBServerGroupFailures_Type()
+)
+jnxTLBServerGroupFailures.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBServerGroupFailures.setStatus("current")
+_JnxTLBServerGroupLastTimeUp_Type = DisplayString
+_JnxTLBServerGroupLastTimeUp_Object = MibTableColumn
+jnxTLBServerGroupLastTimeUp = _JnxTLBServerGroupLastTimeUp_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 3, 1, 1, 8),
+    _JnxTLBServerGroupLastTimeUp_Type()
+)
+jnxTLBServerGroupLastTimeUp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBServerGroupLastTimeUp.setStatus("current")
+_JnxTLBServerGroupLastTimeDown_Type = DisplayString
+_JnxTLBServerGroupLastTimeDown_Object = MibTableColumn
+jnxTLBServerGroupLastTimeDown = _JnxTLBServerGroupLastTimeDown_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 3, 1, 1, 9),
+    _JnxTLBServerGroupLastTimeDown_Type()
+)
+jnxTLBServerGroupLastTimeDown.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBServerGroupLastTimeDown.setStatus("current")
+_JnxTLBServerGroupTotalUpCount_Type = Unsigned32
+_JnxTLBServerGroupTotalUpCount_Object = MibTableColumn
+jnxTLBServerGroupTotalUpCount = _JnxTLBServerGroupTotalUpCount_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 3, 1, 1, 10),
+    _JnxTLBServerGroupTotalUpCount_Type()
+)
+jnxTLBServerGroupTotalUpCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBServerGroupTotalUpCount.setStatus("current")
+_JnxTLBServerGroupTotalDownCount_Type = Unsigned32
+_JnxTLBServerGroupTotalDownCount_Object = MibTableColumn
+jnxTLBServerGroupTotalDownCount = _JnxTLBServerGroupTotalDownCount_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 3, 1, 1, 11),
+    _JnxTLBServerGroupTotalDownCount_Type()
+)
+jnxTLBServerGroupTotalDownCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBServerGroupTotalDownCount.setStatus("current")
+_TlbDataMib_ObjectIdentity = ObjectIdentity
+tlbDataMib = _TlbDataMib_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 4)
+)
+if mibBuilder.loadTexts:
+    tlbDataMib.setStatus("current")
+_TlbTrapMib_ObjectIdentity = ObjectIdentity
+tlbTrapMib = _TlbTrapMib_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5)
+)
+if mibBuilder.loadTexts:
+    tlbTrapMib.setStatus("current")
+_TlbNotificationObjMib_ObjectIdentity = ObjectIdentity
+tlbNotificationObjMib = _TlbNotificationObjMib_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 3)
+)
+_TlbInstanceName_Type = OctetString
+_TlbInstanceName_Object = MibScalar
+tlbInstanceName = _TlbInstanceName_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 3, 1001),
+    _TlbInstanceName_Type()
+)
+tlbInstanceName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tlbInstanceName.setStatus("current")
+_TlbRealServerName_Type = OctetString
+_TlbRealServerName_Object = MibScalar
+tlbRealServerName = _TlbRealServerName_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 3, 1002),
+    _TlbRealServerName_Type()
+)
+tlbRealServerName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tlbRealServerName.setStatus("current")
+_TlbRealServerGroupName_Type = OctetString
+_TlbRealServerGroupName_Object = MibScalar
+tlbRealServerGroupName = _TlbRealServerGroupName_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 3, 1003),
+    _TlbRealServerGroupName_Type()
+)
+tlbRealServerGroupName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tlbRealServerGroupName.setStatus("current")
+_TlbRealServerIpAddress_Type = OctetString
+_TlbRealServerIpAddress_Object = MibScalar
+tlbRealServerIpAddress = _TlbRealServerIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 3, 1004),
+    _TlbRealServerIpAddress_Type()
+)
+tlbRealServerIpAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tlbRealServerIpAddress.setStatus("current")
+_TlbVirtualServiceName_Type = OctetString
+_TlbVirtualServiceName_Object = MibScalar
+tlbVirtualServiceName = _TlbVirtualServiceName_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 3, 1005),
+    _TlbVirtualServiceName_Type()
+)
+tlbVirtualServiceName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tlbVirtualServiceName.setStatus("current")
+_TlbVirtualServiceIpAddr_Type = OctetString
+_TlbVirtualServiceIpAddr_Object = MibScalar
+tlbVirtualServiceIpAddr = _TlbVirtualServiceIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 3, 1006),
+    _TlbVirtualServiceIpAddr_Type()
+)
+tlbVirtualServiceIpAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tlbVirtualServiceIpAddr.setStatus("current")
+
+
+class _TlbVirtualServicePort_Type(Integer32):
+    """Custom type tlbVirtualServicePort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_TlbVirtualServicePort_Type.__name__ = "Integer32"
+_TlbVirtualServicePort_Object = MibScalar
+tlbVirtualServicePort = _TlbVirtualServicePort_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 3, 1007),
+    _TlbVirtualServicePort_Type()
+)
+tlbVirtualServicePort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tlbVirtualServicePort.setStatus("current")
+_TlbProfileName_Type = OctetString
+_TlbProfileName_Object = MibScalar
+tlbProfileName = _TlbProfileName_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 3, 1008),
+    _TlbProfileName_Type()
+)
+tlbProfileName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tlbProfileName.setStatus("current")
+_TlbMultiserviceInterface_Type = OctetString
+_TlbMultiserviceInterface_Object = MibScalar
+tlbMultiserviceInterface = _TlbMultiserviceInterface_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 3, 1009),
+    _TlbMultiserviceInterface_Type()
+)
+tlbMultiserviceInterface.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tlbMultiserviceInterface.setStatus("current")
+
+
+class _TlbMultiServicePIC_Type(Integer32):
+    """Custom type tlbMultiServicePIC based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 8),
+    )
+
+
+_TlbMultiServicePIC_Type.__name__ = "Integer32"
+_TlbMultiServicePIC_Object = MibScalar
+tlbMultiServicePIC = _TlbMultiServicePIC_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 3, 1010),
+    _TlbMultiServicePIC_Type()
+)
+tlbMultiServicePIC.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tlbMultiServicePIC.setStatus("current")
+_TlbNetmonCpuUsage_Type = Unsigned32
+_TlbNetmonCpuUsage_Object = MibScalar
+tlbNetmonCpuUsage = _TlbNetmonCpuUsage_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 3, 1011),
+    _TlbNetmonCpuUsage_Type()
+)
+tlbNetmonCpuUsage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tlbNetmonCpuUsage.setStatus("current")
+_TlbMonitorMode_Type = OctetString
+_TlbMonitorMode_Object = MibScalar
+tlbMonitorMode = _TlbMonitorMode_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 3, 1099),
+    _TlbMonitorMode_Type()
+)
+tlbMonitorMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tlbMonitorMode.setStatus("current")
+_TlbNotificationMib_ObjectIdentity = ObjectIdentity
+tlbNotificationMib = _TlbNotificationMib_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 4)
+)
+_JnxTLBNetworkMonitorProfile_ObjectIdentity = ObjectIdentity
+jnxTLBNetworkMonitorProfile = _JnxTLBNetworkMonitorProfile_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 6)
+)
+_JnxTLBNetworkMonitorProfileTable_Object = MibTable
+jnxTLBNetworkMonitorProfileTable = _JnxTLBNetworkMonitorProfileTable_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 6, 1)
+)
+if mibBuilder.loadTexts:
+    jnxTLBNetworkMonitorProfileTable.setStatus("current")
+_JnxTLBNetworkMonitorProfileEntry_Object = MibTableRow
+jnxTLBNetworkMonitorProfileEntry = _JnxTLBNetworkMonitorProfileEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 6, 1, 1)
+)
+jnxTLBNetworkMonitorProfileEntry.setIndexNames(
+    (0, "JUNIPER-TLB-MIB", "jnxTLBNetworkMonitorProfileNameKey"),
+)
+if mibBuilder.loadTexts:
+    jnxTLBNetworkMonitorProfileEntry.setStatus("current")
+
+
+class _JnxTLBNetworkMonitorProfileNameKey_Type(DisplayString):
+    """Custom type jnxTLBNetworkMonitorProfileNameKey based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_JnxTLBNetworkMonitorProfileNameKey_Type.__name__ = "DisplayString"
+_JnxTLBNetworkMonitorProfileNameKey_Object = MibTableColumn
+jnxTLBNetworkMonitorProfileNameKey = _JnxTLBNetworkMonitorProfileNameKey_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 6, 1, 1, 1),
+    _JnxTLBNetworkMonitorProfileNameKey_Type()
+)
+jnxTLBNetworkMonitorProfileNameKey.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    jnxTLBNetworkMonitorProfileNameKey.setStatus("current")
+
+
+class _JnxTLBNetworkMonitorProfileVirtualServiceName_Type(DisplayString):
+    """Custom type jnxTLBNetworkMonitorProfileVirtualServiceName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_JnxTLBNetworkMonitorProfileVirtualServiceName_Type.__name__ = "DisplayString"
+_JnxTLBNetworkMonitorProfileVirtualServiceName_Object = MibTableColumn
+jnxTLBNetworkMonitorProfileVirtualServiceName = _JnxTLBNetworkMonitorProfileVirtualServiceName_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 6, 1, 1, 2),
+    _JnxTLBNetworkMonitorProfileVirtualServiceName_Type()
+)
+jnxTLBNetworkMonitorProfileVirtualServiceName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    jnxTLBNetworkMonitorProfileVirtualServiceName.setStatus("current")
+
+
+class _JnxTLBNetworkMonitorProfileRealServerName_Type(DisplayString):
+    """Custom type jnxTLBNetworkMonitorProfileRealServerName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_JnxTLBNetworkMonitorProfileRealServerName_Type.__name__ = "DisplayString"
+_JnxTLBNetworkMonitorProfileRealServerName_Object = MibTableColumn
+jnxTLBNetworkMonitorProfileRealServerName = _JnxTLBNetworkMonitorProfileRealServerName_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 6, 1, 1, 3),
+    _JnxTLBNetworkMonitorProfileRealServerName_Type()
+)
+jnxTLBNetworkMonitorProfileRealServerName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    jnxTLBNetworkMonitorProfileRealServerName.setStatus("current")
+_JnxTLBNetworkMonitorProfileIndex_Type = Unsigned32
+_JnxTLBNetworkMonitorProfileIndex_Object = MibTableColumn
+jnxTLBNetworkMonitorProfileIndex = _JnxTLBNetworkMonitorProfileIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 6, 1, 1, 4),
+    _JnxTLBNetworkMonitorProfileIndex_Type()
+)
+jnxTLBNetworkMonitorProfileIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    jnxTLBNetworkMonitorProfileIndex.setStatus("current")
+
+
+class _JnxTLBNetworkMonitorProfileName_Type(DisplayString):
+    """Custom type jnxTLBNetworkMonitorProfileName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_JnxTLBNetworkMonitorProfileName_Type.__name__ = "DisplayString"
+_JnxTLBNetworkMonitorProfileName_Object = MibTableColumn
+jnxTLBNetworkMonitorProfileName = _JnxTLBNetworkMonitorProfileName_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 6, 1, 1, 5),
+    _JnxTLBNetworkMonitorProfileName_Type()
+)
+jnxTLBNetworkMonitorProfileName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBNetworkMonitorProfileName.setStatus("current")
+
+
+class _JnxTLBNetworkMonitorProfileType_Type(DisplayString):
+    """Custom type jnxTLBNetworkMonitorProfileType based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_JnxTLBNetworkMonitorProfileType_Type.__name__ = "DisplayString"
+_JnxTLBNetworkMonitorProfileType_Object = MibTableColumn
+jnxTLBNetworkMonitorProfileType = _JnxTLBNetworkMonitorProfileType_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 6, 1, 1, 6),
+    _JnxTLBNetworkMonitorProfileType_Type()
+)
+jnxTLBNetworkMonitorProfileType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBNetworkMonitorProfileType.setStatus("current")
+_JnxTLBNetworkMonitorProfileProbeInterval_Type = Unsigned32
+_JnxTLBNetworkMonitorProfileProbeInterval_Object = MibTableColumn
+jnxTLBNetworkMonitorProfileProbeInterval = _JnxTLBNetworkMonitorProfileProbeInterval_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 6, 1, 1, 7),
+    _JnxTLBNetworkMonitorProfileProbeInterval_Type()
+)
+jnxTLBNetworkMonitorProfileProbeInterval.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBNetworkMonitorProfileProbeInterval.setStatus("current")
+_JnxTLBNetworkMonitorProfileFailureRetry_Type = Unsigned32
+_JnxTLBNetworkMonitorProfileFailureRetry_Object = MibTableColumn
+jnxTLBNetworkMonitorProfileFailureRetry = _JnxTLBNetworkMonitorProfileFailureRetry_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 6, 1, 1, 8),
+    _JnxTLBNetworkMonitorProfileFailureRetry_Type()
+)
+jnxTLBNetworkMonitorProfileFailureRetry.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBNetworkMonitorProfileFailureRetry.setStatus("current")
+_JnxTLBNetworkMonitorProfileRecoverRetry_Type = Unsigned32
+_JnxTLBNetworkMonitorProfileRecoverRetry_Object = MibTableColumn
+jnxTLBNetworkMonitorProfileRecoverRetry = _JnxTLBNetworkMonitorProfileRecoverRetry_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 6, 1, 1, 9),
+    _JnxTLBNetworkMonitorProfileRecoverRetry_Type()
+)
+jnxTLBNetworkMonitorProfileRecoverRetry.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBNetworkMonitorProfileRecoverRetry.setStatus("current")
+_JnxTLBNetworkMonitorProfilePortNumber_Type = Unsigned32
+_JnxTLBNetworkMonitorProfilePortNumber_Object = MibTableColumn
+jnxTLBNetworkMonitorProfilePortNumber = _JnxTLBNetworkMonitorProfilePortNumber_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 6, 1, 1, 10),
+    _JnxTLBNetworkMonitorProfilePortNumber_Type()
+)
+jnxTLBNetworkMonitorProfilePortNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBNetworkMonitorProfilePortNumber.setStatus("current")
+
+
+class _JnxTLBNetworkMonitorProfileProbeState_Type(Integer32):
+    """Custom type jnxTLBNetworkMonitorProfileProbeState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("probeStateDown", 2),
+          ("probeStateUp", 1))
+    )
+
+
+_JnxTLBNetworkMonitorProfileProbeState_Type.__name__ = "Integer32"
+_JnxTLBNetworkMonitorProfileProbeState_Object = MibTableColumn
+jnxTLBNetworkMonitorProfileProbeState = _JnxTLBNetworkMonitorProfileProbeState_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 6, 1, 1, 11),
+    _JnxTLBNetworkMonitorProfileProbeState_Type()
+)
+jnxTLBNetworkMonitorProfileProbeState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBNetworkMonitorProfileProbeState.setStatus("current")
+_JnxTLBNetworkMonitorProfileProbeSent_Type = Unsigned32
+_JnxTLBNetworkMonitorProfileProbeSent_Object = MibTableColumn
+jnxTLBNetworkMonitorProfileProbeSent = _JnxTLBNetworkMonitorProfileProbeSent_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 6, 1, 1, 12),
+    _JnxTLBNetworkMonitorProfileProbeSent_Type()
+)
+jnxTLBNetworkMonitorProfileProbeSent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBNetworkMonitorProfileProbeSent.setStatus("current")
+_JnxTLBNetworkMonitorProfileProbeSuccess_Type = Unsigned32
+_JnxTLBNetworkMonitorProfileProbeSuccess_Object = MibTableColumn
+jnxTLBNetworkMonitorProfileProbeSuccess = _JnxTLBNetworkMonitorProfileProbeSuccess_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 6, 1, 1, 13),
+    _JnxTLBNetworkMonitorProfileProbeSuccess_Type()
+)
+jnxTLBNetworkMonitorProfileProbeSuccess.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBNetworkMonitorProfileProbeSuccess.setStatus("current")
+_JnxTLBNetworkMonitorProfileProbeFail_Type = Unsigned32
+_JnxTLBNetworkMonitorProfileProbeFail_Object = MibTableColumn
+jnxTLBNetworkMonitorProfileProbeFail = _JnxTLBNetworkMonitorProfileProbeFail_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 6, 1, 1, 14),
+    _JnxTLBNetworkMonitorProfileProbeFail_Type()
+)
+jnxTLBNetworkMonitorProfileProbeFail.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBNetworkMonitorProfileProbeFail.setStatus("current")
+_JnxTLBNetworkMonitorProfileProbeConsecutiveSuccess_Type = Unsigned32
+_JnxTLBNetworkMonitorProfileProbeConsecutiveSuccess_Object = MibTableColumn
+jnxTLBNetworkMonitorProfileProbeConsecutiveSuccess = _JnxTLBNetworkMonitorProfileProbeConsecutiveSuccess_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 6, 1, 1, 15),
+    _JnxTLBNetworkMonitorProfileProbeConsecutiveSuccess_Type()
+)
+jnxTLBNetworkMonitorProfileProbeConsecutiveSuccess.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBNetworkMonitorProfileProbeConsecutiveSuccess.setStatus("current")
+_JnxTLBNetworkMonitorProfileProbeConsecutiveFail_Type = Unsigned32
+_JnxTLBNetworkMonitorProfileProbeConsecutiveFail_Object = MibTableColumn
+jnxTLBNetworkMonitorProfileProbeConsecutiveFail = _JnxTLBNetworkMonitorProfileProbeConsecutiveFail_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 6, 1, 1, 16),
+    _JnxTLBNetworkMonitorProfileProbeConsecutiveFail_Type()
+)
+jnxTLBNetworkMonitorProfileProbeConsecutiveFail.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxTLBNetworkMonitorProfileProbeConsecutiveFail.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+tlbRealServerUp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 4, 1)
+)
+tlbRealServerUp.setObjects(
+      *(("JUNIPER-TLB-MIB", "tlbInstanceName"),
+        ("JUNIPER-TLB-MIB", "tlbRealServerName"),
+        ("JUNIPER-TLB-MIB", "tlbRealServerIpAddress"),
+        ("JUNIPER-TLB-MIB", "tlbRealServerGroupName"),
+        ("JUNIPER-TLB-MIB", "tlbMonitorMode"),
+        ("SNMPv2-MIB", "sysName"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("SNMPv2-MIB", "sysContact"))
+)
+if mibBuilder.loadTexts:
+    tlbRealServerUp.setStatus(
+        "current"
+    )
+
+tlbRealServerDown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 4, 2)
+)
+tlbRealServerDown.setObjects(
+      *(("JUNIPER-TLB-MIB", "tlbInstanceName"),
+        ("JUNIPER-TLB-MIB", "tlbRealServerName"),
+        ("JUNIPER-TLB-MIB", "tlbRealServerIpAddress"),
+        ("JUNIPER-TLB-MIB", "tlbRealServerGroupName"),
+        ("JUNIPER-TLB-MIB", "tlbMonitorMode"),
+        ("SNMPv2-MIB", "sysName"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("SNMPv2-MIB", "sysContact"))
+)
+if mibBuilder.loadTexts:
+    tlbRealServerDown.setStatus(
+        "current"
+    )
+
+tlbRealServerRejoined = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 4, 3)
+)
+tlbRealServerRejoined.setObjects(
+      *(("JUNIPER-TLB-MIB", "tlbInstanceName"),
+        ("JUNIPER-TLB-MIB", "tlbRealServerName"),
+        ("JUNIPER-TLB-MIB", "tlbRealServerIpAddress"),
+        ("JUNIPER-TLB-MIB", "tlbRealServerGroupName"),
+        ("JUNIPER-TLB-MIB", "tlbMonitorMode"),
+        ("SNMPv2-MIB", "sysName"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("SNMPv2-MIB", "sysContact"))
+)
+if mibBuilder.loadTexts:
+    tlbRealServerRejoined.setStatus(
+        "current"
+    )
+
+tlbVirtualServiceUp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 4, 5)
+)
+tlbVirtualServiceUp.setObjects(
+      *(("JUNIPER-TLB-MIB", "tlbInstanceName"),
+        ("JUNIPER-TLB-MIB", "tlbVirtualServiceName"),
+        ("JUNIPER-TLB-MIB", "tlbVirtualServiceIpAddr"),
+        ("JUNIPER-TLB-MIB", "tlbRealServerGroupName"),
+        ("JUNIPER-TLB-MIB", "tlbMonitorMode"),
+        ("SNMPv2-MIB", "sysName"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("SNMPv2-MIB", "sysContact"))
+)
+if mibBuilder.loadTexts:
+    tlbVirtualServiceUp.setStatus(
+        "current"
+    )
+
+tlbVirtualServiceDown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 4, 6)
+)
+tlbVirtualServiceDown.setObjects(
+      *(("JUNIPER-TLB-MIB", "tlbInstanceName"),
+        ("JUNIPER-TLB-MIB", "tlbVirtualServiceName"),
+        ("JUNIPER-TLB-MIB", "tlbVirtualServiceIpAddr"),
+        ("JUNIPER-TLB-MIB", "tlbRealServerGroupName"),
+        ("JUNIPER-TLB-MIB", "tlbMonitorMode"),
+        ("SNMPv2-MIB", "sysName"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("SNMPv2-MIB", "sysContact"))
+)
+if mibBuilder.loadTexts:
+    tlbVirtualServiceDown.setStatus(
+        "current"
+    )
+
+tlbRealServerServiceUp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 4, 7)
+)
+tlbRealServerServiceUp.setObjects(
+      *(("JUNIPER-TLB-MIB", "tlbInstanceName"),
+        ("JUNIPER-TLB-MIB", "tlbRealServerName"),
+        ("JUNIPER-TLB-MIB", "tlbRealServerIpAddress"),
+        ("JUNIPER-TLB-MIB", "tlbRealServerGroupName"),
+        ("JUNIPER-TLB-MIB", "tlbMonitorMode"),
+        ("SNMPv2-MIB", "sysName"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("SNMPv2-MIB", "sysContact"))
+)
+if mibBuilder.loadTexts:
+    tlbRealServerServiceUp.setStatus(
+        "current"
+    )
+
+tlbRealServerServiceDown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 4, 8)
+)
+tlbRealServerServiceDown.setObjects(
+      *(("JUNIPER-TLB-MIB", "tlbInstanceName"),
+        ("JUNIPER-TLB-MIB", "tlbRealServerName"),
+        ("JUNIPER-TLB-MIB", "tlbRealServerIpAddress"),
+        ("JUNIPER-TLB-MIB", "tlbRealServerGroupName"),
+        ("JUNIPER-TLB-MIB", "tlbMonitorMode"),
+        ("SNMPv2-MIB", "sysName"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("SNMPv2-MIB", "sysContact"))
+)
+if mibBuilder.loadTexts:
+    tlbRealServerServiceDown.setStatus(
+        "current"
+    )
+
+tlbVirtualServerServiceUp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 4, 9)
+)
+tlbVirtualServerServiceUp.setObjects(
+      *(("JUNIPER-TLB-MIB", "tlbInstanceName"),
+        ("JUNIPER-TLB-MIB", "tlbVirtualServiceName"),
+        ("JUNIPER-TLB-MIB", "tlbVirtualServiceIpAddr"),
+        ("JUNIPER-TLB-MIB", "tlbRealServerGroupName"),
+        ("JUNIPER-TLB-MIB", "tlbVirtualServicePort"),
+        ("JUNIPER-TLB-MIB", "tlbMonitorMode"),
+        ("SNMPv2-MIB", "sysName"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("SNMPv2-MIB", "sysContact"))
+)
+if mibBuilder.loadTexts:
+    tlbVirtualServerServiceUp.setStatus(
+        "current"
+    )
+
+tlbVirtualServerServiceDown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 4, 10)
+)
+tlbVirtualServerServiceDown.setObjects(
+      *(("JUNIPER-TLB-MIB", "tlbInstanceName"),
+        ("JUNIPER-TLB-MIB", "tlbVirtualServiceName"),
+        ("JUNIPER-TLB-MIB", "tlbVirtualServiceIpAddr"),
+        ("JUNIPER-TLB-MIB", "tlbRealServerGroupName"),
+        ("JUNIPER-TLB-MIB", "tlbVirtualServicePort"),
+        ("JUNIPER-TLB-MIB", "tlbMonitorMode"),
+        ("SNMPv2-MIB", "sysName"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("SNMPv2-MIB", "sysContact"))
+)
+if mibBuilder.loadTexts:
+    tlbVirtualServerServiceDown.setStatus(
+        "current"
+    )
+
+tlbUp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 4, 11)
+)
+tlbUp.setObjects(
+      *(("JUNIPER-TLB-MIB", "tlbMonitorMode"),
+        ("SNMPv2-MIB", "sysName"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("SNMPv2-MIB", "sysContact"))
+)
+if mibBuilder.loadTexts:
+    tlbUp.setStatus(
+        "current"
+    )
+
+tlbShutdown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 4, 12)
+)
+tlbShutdown.setObjects(
+      *(("JUNIPER-TLB-MIB", "tlbMonitorMode"),
+        ("SNMPv2-MIB", "sysName"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("SNMPv2-MIB", "sysContact"))
+)
+if mibBuilder.loadTexts:
+    tlbShutdown.setStatus(
+        "current"
+    )
+
+tlbPicConnected = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 4, 13)
+)
+tlbPicConnected.setObjects(
+      *(("JUNIPER-TLB-MIB", "tlbMonitorMode"),
+        ("JUNIPER-TLB-MIB", "tlbMultiserviceInterface"),
+        ("SNMPv2-MIB", "sysName"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("SNMPv2-MIB", "sysContact"))
+)
+if mibBuilder.loadTexts:
+    tlbPicConnected.setStatus(
+        "current"
+    )
+
+tlbPicDisconnected = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 4, 14)
+)
+tlbPicDisconnected.setObjects(
+      *(("JUNIPER-TLB-MIB", "tlbMonitorMode"),
+        ("JUNIPER-TLB-MIB", "tlbMultiserviceInterface"),
+        ("SNMPv2-MIB", "sysName"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("SNMPv2-MIB", "sysContact"))
+)
+if mibBuilder.loadTexts:
+    tlbPicDisconnected.setStatus(
+        "current"
+    )
+
+tlbCpuHigh = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 4, 15)
+)
+tlbCpuHigh.setObjects(
+      *(("JUNIPER-TLB-MIB", "tlbMonitorMode"),
+        ("JUNIPER-TLB-MIB", "tlbNetmonCpuUsage"),
+        ("SNMPv2-MIB", "sysName"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("SNMPv2-MIB", "sysContact"))
+)
+if mibBuilder.loadTexts:
+    tlbCpuHigh.setStatus(
+        "current"
+    )
+
+tlbCpuNormal = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 4, 16)
+)
+tlbCpuNormal.setObjects(
+      *(("JUNIPER-TLB-MIB", "tlbMonitorMode"),
+        ("JUNIPER-TLB-MIB", "tlbNetmonCpuUsage"),
+        ("SNMPv2-MIB", "sysName"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("SNMPv2-MIB", "sysContact"))
+)
+if mibBuilder.loadTexts:
+    tlbCpuNormal.setStatus(
+        "current"
+    )
+
+tlbUnlicensedPic = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2636, 1, 7, 1, 5, 4, 17)
+)
+tlbUnlicensedPic.setObjects(
+      *(("JUNIPER-TLB-MIB", "tlbMonitorMode"),
+        ("SNMPv2-MIB", "sysName"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("SNMPv2-MIB", "sysContact"))
+)
+if mibBuilder.loadTexts:
+    tlbUnlicensedPic.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "JUNIPER-TLB-MIB",
+    **{"jnxTLBMIB": jnxTLBMIB,
+       "jnxTLBrealServer": jnxTLBrealServer,
+       "jnxTLBRealServerTable": jnxTLBRealServerTable,
+       "jnxTLBRealServerEntry": jnxTLBRealServerEntry,
+       "jnxTLBRealServerNameKey": jnxTLBRealServerNameKey,
+       "jnxTLBRealServerName": jnxTLBRealServerName,
+       "jnxTLBRealServerInstance": jnxTLBRealServerInstance,
+       "jnxTLBRealServerIPVersion": jnxTLBRealServerIPVersion,
+       "jnxTLBRealServerIP": jnxTLBRealServerIP,
+       "jnxTLBRealServerOperStatus": jnxTLBRealServerOperStatus,
+       "jnxTLBRealServerAdminStatus": jnxTLBRealServerAdminStatus,
+       "jnxTLBRealServerSubUnitNo": jnxTLBRealServerSubUnitNo,
+       "jnxTLBRealServerFailures": jnxTLBRealServerFailures,
+       "jnxTLBRSClientPacketForwardCount": jnxTLBRSClientPacketForwardCount,
+       "jnxTLBRSClientByteForwardCount": jnxTLBRSClientByteForwardCount,
+       "jnxTLBRSClientPacketReverseCount": jnxTLBRSClientPacketReverseCount,
+       "jnxTLBRSClientByteReverseCount": jnxTLBRSClientByteReverseCount,
+       "jnxTLBRSTotalUpCount": jnxTLBRSTotalUpCount,
+       "jnxTLBRSTotalDownCount": jnxTLBRSTotalDownCount,
+       "jnxTLBRSTotalRejoinCount": jnxTLBRSTotalRejoinCount,
+       "jnxTLBRSTotalProbeSent": jnxTLBRSTotalProbeSent,
+       "jnxTLBRSTotalProbeSuccess": jnxTLBRSTotalProbeSuccess,
+       "jnxTLBRSTotalProbeFail": jnxTLBRSTotalProbeFail,
+       "jnxTLBRSTotalProbeSentFail": jnxTLBRSTotalProbeSentFail,
+       "jnxTLBvirtualService": jnxTLBvirtualService,
+       "jnxTLBVirtualServiceTable": jnxTLBVirtualServiceTable,
+       "jnxTLBVirtualServiceEntry": jnxTLBVirtualServiceEntry,
+       "jnxTLBVirtualServiceNameKey": jnxTLBVirtualServiceNameKey,
+       "jnxTLBVirtualServiceName": jnxTLBVirtualServiceName,
+       "jnxTLBVirtualServiceTranslationMode": jnxTLBVirtualServiceTranslationMode,
+       "jnxTLBVirtualServiceInstance": jnxTLBVirtualServiceInstance,
+       "jnxTLBVirtualServiceIPVersion": jnxTLBVirtualServiceIPVersion,
+       "jnxTLBVirtualServiceIP": jnxTLBVirtualServiceIP,
+       "jnxTLBVirtualServiceOperStatus": jnxTLBVirtualServiceOperStatus,
+       "jnxTLBVirtualServiceAdminStatus": jnxTLBVirtualServiceAdminStatus,
+       "jnxTLBVirtualServiceSubUnitNo": jnxTLBVirtualServiceSubUnitNo,
+       "jnxTLBVirtualServiceFailures": jnxTLBVirtualServiceFailures,
+       "jnxTLBVSClientPacketForwardCount": jnxTLBVSClientPacketForwardCount,
+       "jnxTLBVSClientByteForwardCount": jnxTLBVSClientByteForwardCount,
+       "jnxTLBVSClientPacketReverseCount": jnxTLBVSClientPacketReverseCount,
+       "jnxTLBVSClientByteReverseCount": jnxTLBVSClientByteReverseCount,
+       "jnxTLBVSTotalUpCount": jnxTLBVSTotalUpCount,
+       "jnxTLBVSTotalDownCount": jnxTLBVSTotalDownCount,
+       "jnxTLBVSTotalRealServerCount": jnxTLBVSTotalRealServerCount,
+       "jnxTLBVSServiceUpTime": jnxTLBVSServiceUpTime,
+       "jnxTLBVSActiveRealServerCount": jnxTLBVSActiveRealServerCount,
+       "jnxTLBVSNetworkMonitorProfileCount": jnxTLBVSNetworkMonitorProfileCount,
+       "jnxTLBVirtualServiceVirtualPort": jnxTLBVirtualServiceVirtualPort,
+       "jnxTLBVirtualServiceRealPort": jnxTLBVirtualServiceRealPort,
+       "jnxTLBVirtualServiceNextHopIndex": jnxTLBVirtualServiceNextHopIndex,
+       "jnxTLBVirtualServiceProtocol": jnxTLBVirtualServiceProtocol,
+       "jnxTLBVirtualServiceDemuxNextHopIndex": jnxTLBVirtualServiceDemuxNextHopIndex,
+       "jnxTLBVirtualServiceInterface": jnxTLBVirtualServiceInterface,
+       "jnxTLBVirtualServiceRoutingInstance": jnxTLBVirtualServiceRoutingInstance,
+       "jnxTLBVirtualServiceHashMethod": jnxTLBVirtualServiceHashMethod,
+       "jnxTLBVirtualServiceRouteMetric": jnxTLBVirtualServiceRouteMetric,
+       "jnxTLBVirtualServiceAutoRejoin": jnxTLBVirtualServiceAutoRejoin,
+       "jnxTLBVirtualServiceRouteHoldTimer": jnxTLBVirtualServiceRouteHoldTimer,
+       "jnxTLBVirtualServiceWarmUpTime": jnxTLBVirtualServiceWarmUpTime,
+       "jnxTLBserverGroup": jnxTLBserverGroup,
+       "jnxTLBServerGroupTable": jnxTLBServerGroupTable,
+       "jnxTLBServerGroupEntry": jnxTLBServerGroupEntry,
+       "jnxTLBServerGroupNameKey": jnxTLBServerGroupNameKey,
+       "jnxTLBServerGroupName": jnxTLBServerGroupName,
+       "jnxTLBServerGroupInstance": jnxTLBServerGroupInstance,
+       "jnxTLBServerGroupIPVersion": jnxTLBServerGroupIPVersion,
+       "jnxTLBServerGroupOperStatus": jnxTLBServerGroupOperStatus,
+       "jnxTLBServerGroupAdminStatus": jnxTLBServerGroupAdminStatus,
+       "jnxTLBServerGroupFailures": jnxTLBServerGroupFailures,
+       "jnxTLBServerGroupLastTimeUp": jnxTLBServerGroupLastTimeUp,
+       "jnxTLBServerGroupLastTimeDown": jnxTLBServerGroupLastTimeDown,
+       "jnxTLBServerGroupTotalUpCount": jnxTLBServerGroupTotalUpCount,
+       "jnxTLBServerGroupTotalDownCount": jnxTLBServerGroupTotalDownCount,
+       "tlbDataMib": tlbDataMib,
+       "tlbTrapMib": tlbTrapMib,
+       "tlbNotificationObjMib": tlbNotificationObjMib,
+       "tlbInstanceName": tlbInstanceName,
+       "tlbRealServerName": tlbRealServerName,
+       "tlbRealServerGroupName": tlbRealServerGroupName,
+       "tlbRealServerIpAddress": tlbRealServerIpAddress,
+       "tlbVirtualServiceName": tlbVirtualServiceName,
+       "tlbVirtualServiceIpAddr": tlbVirtualServiceIpAddr,
+       "tlbVirtualServicePort": tlbVirtualServicePort,
+       "tlbProfileName": tlbProfileName,
+       "tlbMultiserviceInterface": tlbMultiserviceInterface,
+       "tlbMultiServicePIC": tlbMultiServicePIC,
+       "tlbNetmonCpuUsage": tlbNetmonCpuUsage,
+       "tlbMonitorMode": tlbMonitorMode,
+       "tlbNotificationMib": tlbNotificationMib,
+       "tlbRealServerUp": tlbRealServerUp,
+       "tlbRealServerDown": tlbRealServerDown,
+       "tlbRealServerRejoined": tlbRealServerRejoined,
+       "tlbVirtualServiceUp": tlbVirtualServiceUp,
+       "tlbVirtualServiceDown": tlbVirtualServiceDown,
+       "tlbRealServerServiceUp": tlbRealServerServiceUp,
+       "tlbRealServerServiceDown": tlbRealServerServiceDown,
+       "tlbVirtualServerServiceUp": tlbVirtualServerServiceUp,
+       "tlbVirtualServerServiceDown": tlbVirtualServerServiceDown,
+       "tlbUp": tlbUp,
+       "tlbShutdown": tlbShutdown,
+       "tlbPicConnected": tlbPicConnected,
+       "tlbPicDisconnected": tlbPicDisconnected,
+       "tlbCpuHigh": tlbCpuHigh,
+       "tlbCpuNormal": tlbCpuNormal,
+       "tlbUnlicensedPic": tlbUnlicensedPic,
+       "jnxTLBNetworkMonitorProfile": jnxTLBNetworkMonitorProfile,
+       "jnxTLBNetworkMonitorProfileTable": jnxTLBNetworkMonitorProfileTable,
+       "jnxTLBNetworkMonitorProfileEntry": jnxTLBNetworkMonitorProfileEntry,
+       "jnxTLBNetworkMonitorProfileNameKey": jnxTLBNetworkMonitorProfileNameKey,
+       "jnxTLBNetworkMonitorProfileVirtualServiceName": jnxTLBNetworkMonitorProfileVirtualServiceName,
+       "jnxTLBNetworkMonitorProfileRealServerName": jnxTLBNetworkMonitorProfileRealServerName,
+       "jnxTLBNetworkMonitorProfileIndex": jnxTLBNetworkMonitorProfileIndex,
+       "jnxTLBNetworkMonitorProfileName": jnxTLBNetworkMonitorProfileName,
+       "jnxTLBNetworkMonitorProfileType": jnxTLBNetworkMonitorProfileType,
+       "jnxTLBNetworkMonitorProfileProbeInterval": jnxTLBNetworkMonitorProfileProbeInterval,
+       "jnxTLBNetworkMonitorProfileFailureRetry": jnxTLBNetworkMonitorProfileFailureRetry,
+       "jnxTLBNetworkMonitorProfileRecoverRetry": jnxTLBNetworkMonitorProfileRecoverRetry,
+       "jnxTLBNetworkMonitorProfilePortNumber": jnxTLBNetworkMonitorProfilePortNumber,
+       "jnxTLBNetworkMonitorProfileProbeState": jnxTLBNetworkMonitorProfileProbeState,
+       "jnxTLBNetworkMonitorProfileProbeSent": jnxTLBNetworkMonitorProfileProbeSent,
+       "jnxTLBNetworkMonitorProfileProbeSuccess": jnxTLBNetworkMonitorProfileProbeSuccess,
+       "jnxTLBNetworkMonitorProfileProbeFail": jnxTLBNetworkMonitorProfileProbeFail,
+       "jnxTLBNetworkMonitorProfileProbeConsecutiveSuccess": jnxTLBNetworkMonitorProfileProbeConsecutiveSuccess,
+       "jnxTLBNetworkMonitorProfileProbeConsecutiveFail": jnxTLBNetworkMonitorProfileProbeConsecutiveFail}
+)

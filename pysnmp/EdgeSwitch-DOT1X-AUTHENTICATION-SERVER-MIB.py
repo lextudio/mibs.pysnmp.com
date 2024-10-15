@@ -1,34 +1,256 @@
+# SNMP MIB module (EdgeSwitch-DOT1X-AUTHENTICATION-SERVER-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module EdgeSwitch-DOT1X-AUTHENTICATION-SERVER-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/EdgeSwitch-DOT1X-AUTHENTICATION-SERVER-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:56:12 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
-fastPath, = mibBuilder.importSymbols("EdgeSwitch-REF-MIB", "fastPath")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ObjectIdentity, Bits, Integer32, TimeTicks, MibIdentifier, NotificationType, Counter64, Unsigned32, IpAddress, iso, Counter32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Bits", "Integer32", "TimeTicks", "MibIdentifier", "NotificationType", "Counter64", "Unsigned32", "IpAddress", "iso", "Counter32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32")
-TextualConvention, RowStatus, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "RowStatus", "DisplayString")
-fastPathdot1xAuthenticationServer = ModuleIdentity((1, 3, 6, 1, 4, 1, 4413, 1, 1, 49))
-fastPathdot1xAuthenticationServer.setRevisions(('2011-01-26 00:00', '2009-11-12 00:00',))
-if mibBuilder.loadTexts: fastPathdot1xAuthenticationServer.setLastUpdated('201101260000Z')
-if mibBuilder.loadTexts: fastPathdot1xAuthenticationServer.setOrganization('Broadcom Inc')
-agentDot1xAuthServUserConfigGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4413, 1, 1, 49, 1))
-agentDot1xAuthServUserConfigCreate = MibScalar((1, 3, 6, 1, 4, 1, 4413, 1, 1, 49, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 64))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDot1xAuthServUserConfigCreate.setStatus('current')
-agentDot1xAuthServUserConfigTable = MibTable((1, 3, 6, 1, 4, 1, 4413, 1, 1, 49, 1, 2), )
-if mibBuilder.loadTexts: agentDot1xAuthServUserConfigTable.setStatus('current')
-agentDot1xAuthServUserConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4413, 1, 1, 49, 1, 2, 1), ).setIndexNames((0, "EdgeSwitch-DOT1X-AUTHENTICATION-SERVER-MIB", "agentDot1xAuthServUserIndex"))
-if mibBuilder.loadTexts: agentDot1xAuthServUserConfigEntry.setStatus('current')
-agentDot1xAuthServUserIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 49, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 99)))
-if mibBuilder.loadTexts: agentDot1xAuthServUserIndex.setStatus('current')
-agentDot1xAuthServUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 49, 1, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 64))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDot1xAuthServUserName.setStatus('current')
-agentDot1xAuthServUserPassword = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 49, 1, 2, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDot1xAuthServUserPassword.setStatus('current')
-agentDot1xAuthServUserStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 49, 1, 2, 1, 4), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDot1xAuthServUserStatus.setStatus('current')
-mibBuilder.exportSymbols("EdgeSwitch-DOT1X-AUTHENTICATION-SERVER-MIB", agentDot1xAuthServUserConfigCreate=agentDot1xAuthServUserConfigCreate, agentDot1xAuthServUserName=agentDot1xAuthServUserName, agentDot1xAuthServUserConfigGroup=agentDot1xAuthServUserConfigGroup, agentDot1xAuthServUserStatus=agentDot1xAuthServUserStatus, PYSNMP_MODULE_ID=fastPathdot1xAuthenticationServer, agentDot1xAuthServUserPassword=agentDot1xAuthServUserPassword, agentDot1xAuthServUserConfigTable=agentDot1xAuthServUserConfigTable, agentDot1xAuthServUserIndex=agentDot1xAuthServUserIndex, agentDot1xAuthServUserConfigEntry=agentDot1xAuthServUserConfigEntry, fastPathdot1xAuthenticationServer=fastPathdot1xAuthenticationServer)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/EdgeSwitch-DOT1X-AUTHENTICATION-SERVER-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:42:44 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(fastPath,) = mibBuilder.importSymbols(
+    "EdgeSwitch-REF-MIB",
+    "fastPath")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+fastPathdot1xAuthenticationServer = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 49)
+)
+fastPathdot1xAuthenticationServer.setRevisions(
+        ("2011-01-26 00:00",
+         "2009-11-12 00:00")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AgentDot1xAuthServUserConfigGroup_ObjectIdentity = ObjectIdentity
+agentDot1xAuthServUserConfigGroup = _AgentDot1xAuthServUserConfigGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 49, 1)
+)
+
+
+class _AgentDot1xAuthServUserConfigCreate_Type(DisplayString):
+    """Custom type agentDot1xAuthServUserConfigCreate based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 64),
+    )
+
+
+_AgentDot1xAuthServUserConfigCreate_Type.__name__ = "DisplayString"
+_AgentDot1xAuthServUserConfigCreate_Object = MibScalar
+agentDot1xAuthServUserConfigCreate = _AgentDot1xAuthServUserConfigCreate_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 49, 1, 1),
+    _AgentDot1xAuthServUserConfigCreate_Type()
+)
+agentDot1xAuthServUserConfigCreate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDot1xAuthServUserConfigCreate.setStatus("current")
+_AgentDot1xAuthServUserConfigTable_Object = MibTable
+agentDot1xAuthServUserConfigTable = _AgentDot1xAuthServUserConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 49, 1, 2)
+)
+if mibBuilder.loadTexts:
+    agentDot1xAuthServUserConfigTable.setStatus("current")
+_AgentDot1xAuthServUserConfigEntry_Object = MibTableRow
+agentDot1xAuthServUserConfigEntry = _AgentDot1xAuthServUserConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 49, 1, 2, 1)
+)
+agentDot1xAuthServUserConfigEntry.setIndexNames(
+    (0, "EdgeSwitch-DOT1X-AUTHENTICATION-SERVER-MIB", "agentDot1xAuthServUserIndex"),
+)
+if mibBuilder.loadTexts:
+    agentDot1xAuthServUserConfigEntry.setStatus("current")
+
+
+class _AgentDot1xAuthServUserIndex_Type(Integer32):
+    """Custom type agentDot1xAuthServUserIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 99),
+    )
+
+
+_AgentDot1xAuthServUserIndex_Type.__name__ = "Integer32"
+_AgentDot1xAuthServUserIndex_Object = MibTableColumn
+agentDot1xAuthServUserIndex = _AgentDot1xAuthServUserIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 49, 1, 2, 1, 1),
+    _AgentDot1xAuthServUserIndex_Type()
+)
+agentDot1xAuthServUserIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    agentDot1xAuthServUserIndex.setStatus("current")
+
+
+class _AgentDot1xAuthServUserName_Type(DisplayString):
+    """Custom type agentDot1xAuthServUserName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 64),
+    )
+
+
+_AgentDot1xAuthServUserName_Type.__name__ = "DisplayString"
+_AgentDot1xAuthServUserName_Object = MibTableColumn
+agentDot1xAuthServUserName = _AgentDot1xAuthServUserName_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 49, 1, 2, 1, 2),
+    _AgentDot1xAuthServUserName_Type()
+)
+agentDot1xAuthServUserName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDot1xAuthServUserName.setStatus("current")
+
+
+class _AgentDot1xAuthServUserPassword_Type(DisplayString):
+    """Custom type agentDot1xAuthServUserPassword based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_AgentDot1xAuthServUserPassword_Type.__name__ = "DisplayString"
+_AgentDot1xAuthServUserPassword_Object = MibTableColumn
+agentDot1xAuthServUserPassword = _AgentDot1xAuthServUserPassword_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 49, 1, 2, 1, 3),
+    _AgentDot1xAuthServUserPassword_Type()
+)
+agentDot1xAuthServUserPassword.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDot1xAuthServUserPassword.setStatus("current")
+_AgentDot1xAuthServUserStatus_Type = RowStatus
+_AgentDot1xAuthServUserStatus_Object = MibTableColumn
+agentDot1xAuthServUserStatus = _AgentDot1xAuthServUserStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 49, 1, 2, 1, 4),
+    _AgentDot1xAuthServUserStatus_Type()
+)
+agentDot1xAuthServUserStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDot1xAuthServUserStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "EdgeSwitch-DOT1X-AUTHENTICATION-SERVER-MIB",
+    **{"fastPathdot1xAuthenticationServer": fastPathdot1xAuthenticationServer,
+       "agentDot1xAuthServUserConfigGroup": agentDot1xAuthServUserConfigGroup,
+       "agentDot1xAuthServUserConfigCreate": agentDot1xAuthServUserConfigCreate,
+       "agentDot1xAuthServUserConfigTable": agentDot1xAuthServUserConfigTable,
+       "agentDot1xAuthServUserConfigEntry": agentDot1xAuthServUserConfigEntry,
+       "agentDot1xAuthServUserIndex": agentDot1xAuthServUserIndex,
+       "agentDot1xAuthServUserName": agentDot1xAuthServUserName,
+       "agentDot1xAuthServUserPassword": agentDot1xAuthServUserPassword,
+       "agentDot1xAuthServUserStatus": agentDot1xAuthServUserStatus}
+)

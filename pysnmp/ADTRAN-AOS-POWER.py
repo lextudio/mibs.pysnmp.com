@@ -1,87 +1,467 @@
+# SNMP MIB module (ADTRAN-AOS-POWER) expressed in pysnmp data model.
 #
-# PySNMP MIB module ADTRAN-AOS-POWER (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/ADTRAN-AOS-POWER
-# Produced by pysmi-0.3.4 at Mon Apr 29 16:58:52 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-adGenAOSConformance, adGenAOSPower = mibBuilder.importSymbols("ADTRAN-AOS", "adGenAOSConformance", "adGenAOSPower")
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-ModuleIdentity, Integer32, IpAddress, iso, Bits, Gauge32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, TimeTicks, ObjectIdentity, Counter64, Counter32, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "IpAddress", "iso", "Bits", "Gauge32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "TimeTicks", "ObjectIdentity", "Counter64", "Counter32", "Unsigned32")
-TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
-adGenAOSPowerMonitor = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 5, 53, 7, 1))
-adGenAOSPowerMonitor.setRevisions(('2010-09-10 00:00', '2013-02-10 00:00',))
-if mibBuilder.loadTexts: adGenAOSPowerMonitor.setLastUpdated('201009100000Z')
-if mibBuilder.loadTexts: adGenAOSPowerMonitor.setOrganization('ADTRAN, Inc.')
-adGenAOSPowerTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 7, 0))
-adGenAOSPowerRollOverCtl = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 7, 1, 1))
-adGenAOSPowerEpsRps = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 7, 1, 2))
-class AdEpsPowerDeliveryStateTC(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("delivering", 1), ("notDelivering", 2), ("failed", 3), ("unknown", 4))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/ADTRAN-AOS-POWER
+# Produced by pysmi-1.5.4 at Mon Oct 14 20:34:12 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class AdRpsPowerDeliveryStateTC(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))
-    namedValues = NamedValues(("failed", 1), ("busy", 2), ("delivering", 3), ("available", 4), ("unknown", 5))
+if 'mibBuilder' not in globals():
+    import sys
 
-class AdPowerConnectionStateTC(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("connected", 1), ("notConnected", 2), ("notApplicable", 3), ("unknown", 4))
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-adGenAOSPowerRolloverOnAC = MibScalar((1, 3, 6, 1, 4, 1, 664, 5, 53, 7, 1, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adGenAOSPowerRolloverOnAC.setStatus('current')
-adGenAOSPwrRollOvrEvntSecSinceEpoch = MibScalar((1, 3, 6, 1, 4, 1, 664, 5, 53, 7, 1, 1, 2), Unsigned32()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: adGenAOSPwrRollOvrEvntSecSinceEpoch.setStatus('current')
-adGenAOSPowerEpsRpsTable = MibTable((1, 3, 6, 1, 4, 1, 664, 5, 53, 7, 1, 2, 1), )
-if mibBuilder.loadTexts: adGenAOSPowerEpsRpsTable.setStatus('current')
-adGenAOSPowerEpsRpsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 5, 53, 7, 1, 2, 1, 1), ).setIndexNames((0, "ADTRAN-AOS-POWER", "adGenAOSPowerEpsRpsInstanceId"))
-if mibBuilder.loadTexts: adGenAOSPowerEpsRpsEntry.setStatus('current')
-adGenAOSPowerEpsRpsInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 53, 7, 1, 2, 1, 1, 1), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adGenAOSPowerEpsRpsInstanceId.setStatus('current')
-adGenAOSPowerEpsConnectionState = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 53, 7, 1, 2, 1, 1, 2), AdPowerConnectionStateTC()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adGenAOSPowerEpsConnectionState.setStatus('current')
-adGenAOSPowerEpsDeliveryState = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 53, 7, 1, 2, 1, 1, 3), AdEpsPowerDeliveryStateTC()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adGenAOSPowerEpsDeliveryState.setStatus('current')
-adGenAOSPowerRpsConnectionState = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 53, 7, 1, 2, 1, 1, 4), AdPowerConnectionStateTC()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adGenAOSPowerRpsConnectionState.setStatus('current')
-adGenAOSPowerRpsDeliveryState = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 53, 7, 1, 2, 1, 1, 5), AdRpsPowerDeliveryStateTC()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adGenAOSPowerRpsDeliveryState.setStatus('current')
-adGenAOSPowerRollover = NotificationType((1, 3, 6, 1, 4, 1, 664, 5, 53, 7, 0, 1)).setObjects(("ADTRAN-AOS-POWER", "adGenAOSPowerRolloverOnAC"), ("ADTRAN-AOS-POWER", "adGenAOSPwrRollOvrEvntSecSinceEpoch"))
-if mibBuilder.loadTexts: adGenAOSPowerRollover.setStatus('current')
-adGenAOSEpsConnectionChange = NotificationType((1, 3, 6, 1, 4, 1, 664, 5, 53, 7, 0, 2)).setObjects(("ADTRAN-AOS-POWER", "adGenAOSPowerEpsRpsInstanceId"), ("ADTRAN-AOS-POWER", "adGenAOSPowerEpsConnectionState"))
-if mibBuilder.loadTexts: adGenAOSEpsConnectionChange.setStatus('current')
-adGenAOSEpsDeliveryChange = NotificationType((1, 3, 6, 1, 4, 1, 664, 5, 53, 7, 0, 3)).setObjects(("ADTRAN-AOS-POWER", "adGenAOSPowerEpsRpsInstanceId"), ("ADTRAN-AOS-POWER", "adGenAOSPowerEpsDeliveryState"))
-if mibBuilder.loadTexts: adGenAOSEpsDeliveryChange.setStatus('current')
-adGenAOSRpsConnectionChange = NotificationType((1, 3, 6, 1, 4, 1, 664, 5, 53, 7, 0, 4)).setObjects(("ADTRAN-AOS-POWER", "adGenAOSPowerEpsRpsInstanceId"), ("ADTRAN-AOS-POWER", "adGenAOSPowerRpsConnectionState"))
-if mibBuilder.loadTexts: adGenAOSRpsConnectionChange.setStatus('current')
-adGenAOSRpsDeliveryChange = NotificationType((1, 3, 6, 1, 4, 1, 664, 5, 53, 7, 0, 5)).setObjects(("ADTRAN-AOS-POWER", "adGenAOSPowerEpsRpsInstanceId"), ("ADTRAN-AOS-POWER", "adGenAOSPowerRpsDeliveryState"))
-if mibBuilder.loadTexts: adGenAOSRpsDeliveryChange.setStatus('current')
-adGenAOSPowerConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 11))
-adGenAOSPowerGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 11, 1))
-adGenAOSPowerCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 11, 2))
-adGenAOSPowerFullCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 11, 2, 1)).setObjects(("ADTRAN-AOS-POWER", "adGenAOSPowerRollOverCtlGroup"), ("ADTRAN-AOS-POWER", "adGenAOSPowerNotificationGroup"), ("ADTRAN-AOS-POWER", "adGenAOSEpsRpsConfigurationGroup"), ("ADTRAN-AOS-POWER", "adGenAOSEpsNotificationGroup"), ("ADTRAN-AOS-POWER", "adGenAOSRpsNotificationGroup"))
+# Import base ASN.1 objects even if this MIB does not use it
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    adGenAOSPowerFullCompliance = adGenAOSPowerFullCompliance.setStatus('current')
-adGenAOSPowerNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 11, 1, 1)).setObjects(("ADTRAN-AOS-POWER", "adGenAOSPowerRollover"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    adGenAOSPowerNotificationGroup = adGenAOSPowerNotificationGroup.setStatus('current')
-adGenAOSPowerRollOverCtlGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 11, 1, 2)).setObjects(("ADTRAN-AOS-POWER", "adGenAOSPwrRollOvrEvntSecSinceEpoch"), ("ADTRAN-AOS-POWER", "adGenAOSPowerRolloverOnAC"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    adGenAOSPowerRollOverCtlGroup = adGenAOSPowerRollOverCtlGroup.setStatus('current')
-adGenAOSEpsNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 11, 1, 3)).setObjects(("ADTRAN-AOS-POWER", "adGenAOSEpsConnectionChange"), ("ADTRAN-AOS-POWER", "adGenAOSEpsDeliveryChange"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    adGenAOSEpsNotificationGroup = adGenAOSEpsNotificationGroup.setStatus('current')
-adGenAOSRpsNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 11, 1, 4)).setObjects(("ADTRAN-AOS-POWER", "adGenAOSRpsConnectionChange"), ("ADTRAN-AOS-POWER", "adGenAOSRpsDeliveryChange"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    adGenAOSRpsNotificationGroup = adGenAOSRpsNotificationGroup.setStatus('current')
-adGenAOSEpsRpsConfigurationGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 11, 1, 5)).setObjects(("ADTRAN-AOS-POWER", "adGenAOSPowerEpsRpsInstanceId"), ("ADTRAN-AOS-POWER", "adGenAOSPowerRpsConnectionState"), ("ADTRAN-AOS-POWER", "adGenAOSPowerRpsDeliveryState"), ("ADTRAN-AOS-POWER", "adGenAOSPowerEpsConnectionState"), ("ADTRAN-AOS-POWER", "adGenAOSPowerEpsDeliveryState"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    adGenAOSEpsRpsConfigurationGroup = adGenAOSEpsRpsConfigurationGroup.setStatus('current')
-mibBuilder.exportSymbols("ADTRAN-AOS-POWER", adGenAOSPowerConformance=adGenAOSPowerConformance, adGenAOSPowerEpsRpsEntry=adGenAOSPowerEpsRpsEntry, AdRpsPowerDeliveryStateTC=AdRpsPowerDeliveryStateTC, adGenAOSPowerGroups=adGenAOSPowerGroups, adGenAOSEpsNotificationGroup=adGenAOSEpsNotificationGroup, adGenAOSRpsNotificationGroup=adGenAOSRpsNotificationGroup, adGenAOSPowerRolloverOnAC=adGenAOSPowerRolloverOnAC, adGenAOSRpsConnectionChange=adGenAOSRpsConnectionChange, adGenAOSPowerEpsRpsInstanceId=adGenAOSPowerEpsRpsInstanceId, adGenAOSPowerEpsRps=adGenAOSPowerEpsRps, adGenAOSPowerEpsDeliveryState=adGenAOSPowerEpsDeliveryState, adGenAOSEpsRpsConfigurationGroup=adGenAOSEpsRpsConfigurationGroup, adGenAOSPowerRpsDeliveryState=adGenAOSPowerRpsDeliveryState, adGenAOSPowerTraps=adGenAOSPowerTraps, adGenAOSPowerRollOverCtlGroup=adGenAOSPowerRollOverCtlGroup, AdEpsPowerDeliveryStateTC=AdEpsPowerDeliveryStateTC, adGenAOSPowerRpsConnectionState=adGenAOSPowerRpsConnectionState, adGenAOSPowerEpsConnectionState=adGenAOSPowerEpsConnectionState, adGenAOSPowerEpsRpsTable=adGenAOSPowerEpsRpsTable, PYSNMP_MODULE_ID=adGenAOSPowerMonitor, adGenAOSEpsDeliveryChange=adGenAOSEpsDeliveryChange, adGenAOSPowerCompliances=adGenAOSPowerCompliances, AdPowerConnectionStateTC=AdPowerConnectionStateTC, adGenAOSPowerRollOverCtl=adGenAOSPowerRollOverCtl, adGenAOSPowerRollover=adGenAOSPowerRollover, adGenAOSPowerMonitor=adGenAOSPowerMonitor, adGenAOSEpsConnectionChange=adGenAOSEpsConnectionChange, adGenAOSRpsDeliveryChange=adGenAOSRpsDeliveryChange, adGenAOSPowerNotificationGroup=adGenAOSPowerNotificationGroup, adGenAOSPwrRollOvrEvntSecSinceEpoch=adGenAOSPwrRollOvrEvntSecSinceEpoch, adGenAOSPowerFullCompliance=adGenAOSPowerFullCompliance)
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(adGenAOSConformance,
+ adGenAOSPower) = mibBuilder.importSymbols(
+    "ADTRAN-AOS",
+    "adGenAOSConformance",
+    "adGenAOSPower")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+adGenAOSPowerMonitor = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 7, 1)
+)
+adGenAOSPowerMonitor.setRevisions(
+        ("2010-09-10 00:00",
+         "2013-02-10 00:00")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class AdEpsPowerDeliveryStateTC(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("delivering", 1),
+          ("failed", 3),
+          ("notDelivering", 2),
+          ("unknown", 4))
+    )
+
+
+
+class AdRpsPowerDeliveryStateTC(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("available", 4),
+          ("busy", 2),
+          ("delivering", 3),
+          ("failed", 1),
+          ("unknown", 5))
+    )
+
+
+
+class AdPowerConnectionStateTC(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("connected", 1),
+          ("notApplicable", 3),
+          ("notConnected", 2),
+          ("unknown", 4))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AdGenAOSPowerTraps_ObjectIdentity = ObjectIdentity
+adGenAOSPowerTraps = _AdGenAOSPowerTraps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 7, 0)
+)
+_AdGenAOSPowerRollOverCtl_ObjectIdentity = ObjectIdentity
+adGenAOSPowerRollOverCtl = _AdGenAOSPowerRollOverCtl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 7, 1, 1)
+)
+_AdGenAOSPowerRolloverOnAC_Type = TruthValue
+_AdGenAOSPowerRolloverOnAC_Object = MibScalar
+adGenAOSPowerRolloverOnAC = _AdGenAOSPowerRolloverOnAC_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 7, 1, 1, 1),
+    _AdGenAOSPowerRolloverOnAC_Type()
+)
+adGenAOSPowerRolloverOnAC.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    adGenAOSPowerRolloverOnAC.setStatus("current")
+_AdGenAOSPwrRollOvrEvntSecSinceEpoch_Type = Unsigned32
+_AdGenAOSPwrRollOvrEvntSecSinceEpoch_Object = MibScalar
+adGenAOSPwrRollOvrEvntSecSinceEpoch = _AdGenAOSPwrRollOvrEvntSecSinceEpoch_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 7, 1, 1, 2),
+    _AdGenAOSPwrRollOvrEvntSecSinceEpoch_Type()
+)
+adGenAOSPwrRollOvrEvntSecSinceEpoch.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    adGenAOSPwrRollOvrEvntSecSinceEpoch.setStatus("current")
+_AdGenAOSPowerEpsRps_ObjectIdentity = ObjectIdentity
+adGenAOSPowerEpsRps = _AdGenAOSPowerEpsRps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 7, 1, 2)
+)
+_AdGenAOSPowerEpsRpsTable_Object = MibTable
+adGenAOSPowerEpsRpsTable = _AdGenAOSPowerEpsRpsTable_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 7, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    adGenAOSPowerEpsRpsTable.setStatus("current")
+_AdGenAOSPowerEpsRpsEntry_Object = MibTableRow
+adGenAOSPowerEpsRpsEntry = _AdGenAOSPowerEpsRpsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 7, 1, 2, 1, 1)
+)
+adGenAOSPowerEpsRpsEntry.setIndexNames(
+    (0, "ADTRAN-AOS-POWER", "adGenAOSPowerEpsRpsInstanceId"),
+)
+if mibBuilder.loadTexts:
+    adGenAOSPowerEpsRpsEntry.setStatus("current")
+_AdGenAOSPowerEpsRpsInstanceId_Type = Unsigned32
+_AdGenAOSPowerEpsRpsInstanceId_Object = MibTableColumn
+adGenAOSPowerEpsRpsInstanceId = _AdGenAOSPowerEpsRpsInstanceId_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 7, 1, 2, 1, 1, 1),
+    _AdGenAOSPowerEpsRpsInstanceId_Type()
+)
+adGenAOSPowerEpsRpsInstanceId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    adGenAOSPowerEpsRpsInstanceId.setStatus("current")
+_AdGenAOSPowerEpsConnectionState_Type = AdPowerConnectionStateTC
+_AdGenAOSPowerEpsConnectionState_Object = MibTableColumn
+adGenAOSPowerEpsConnectionState = _AdGenAOSPowerEpsConnectionState_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 7, 1, 2, 1, 1, 2),
+    _AdGenAOSPowerEpsConnectionState_Type()
+)
+adGenAOSPowerEpsConnectionState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    adGenAOSPowerEpsConnectionState.setStatus("current")
+_AdGenAOSPowerEpsDeliveryState_Type = AdEpsPowerDeliveryStateTC
+_AdGenAOSPowerEpsDeliveryState_Object = MibTableColumn
+adGenAOSPowerEpsDeliveryState = _AdGenAOSPowerEpsDeliveryState_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 7, 1, 2, 1, 1, 3),
+    _AdGenAOSPowerEpsDeliveryState_Type()
+)
+adGenAOSPowerEpsDeliveryState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    adGenAOSPowerEpsDeliveryState.setStatus("current")
+_AdGenAOSPowerRpsConnectionState_Type = AdPowerConnectionStateTC
+_AdGenAOSPowerRpsConnectionState_Object = MibTableColumn
+adGenAOSPowerRpsConnectionState = _AdGenAOSPowerRpsConnectionState_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 7, 1, 2, 1, 1, 4),
+    _AdGenAOSPowerRpsConnectionState_Type()
+)
+adGenAOSPowerRpsConnectionState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    adGenAOSPowerRpsConnectionState.setStatus("current")
+_AdGenAOSPowerRpsDeliveryState_Type = AdRpsPowerDeliveryStateTC
+_AdGenAOSPowerRpsDeliveryState_Object = MibTableColumn
+adGenAOSPowerRpsDeliveryState = _AdGenAOSPowerRpsDeliveryState_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 7, 1, 2, 1, 1, 5),
+    _AdGenAOSPowerRpsDeliveryState_Type()
+)
+adGenAOSPowerRpsDeliveryState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    adGenAOSPowerRpsDeliveryState.setStatus("current")
+_AdGenAOSPowerConformance_ObjectIdentity = ObjectIdentity
+adGenAOSPowerConformance = _AdGenAOSPowerConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 11)
+)
+_AdGenAOSPowerGroups_ObjectIdentity = ObjectIdentity
+adGenAOSPowerGroups = _AdGenAOSPowerGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 11, 1)
+)
+_AdGenAOSPowerCompliances_ObjectIdentity = ObjectIdentity
+adGenAOSPowerCompliances = _AdGenAOSPowerCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 11, 2)
+)
+
+# Managed Objects groups
+
+adGenAOSPowerRollOverCtlGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 11, 1, 2)
+)
+adGenAOSPowerRollOverCtlGroup.setObjects(
+      *(("ADTRAN-AOS-POWER", "adGenAOSPwrRollOvrEvntSecSinceEpoch"),
+        ("ADTRAN-AOS-POWER", "adGenAOSPowerRolloverOnAC"))
+)
+if mibBuilder.loadTexts:
+    adGenAOSPowerRollOverCtlGroup.setStatus("current")
+
+adGenAOSEpsRpsConfigurationGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 11, 1, 5)
+)
+adGenAOSEpsRpsConfigurationGroup.setObjects(
+      *(("ADTRAN-AOS-POWER", "adGenAOSPowerEpsRpsInstanceId"),
+        ("ADTRAN-AOS-POWER", "adGenAOSPowerRpsConnectionState"),
+        ("ADTRAN-AOS-POWER", "adGenAOSPowerRpsDeliveryState"),
+        ("ADTRAN-AOS-POWER", "adGenAOSPowerEpsConnectionState"),
+        ("ADTRAN-AOS-POWER", "adGenAOSPowerEpsDeliveryState"))
+)
+if mibBuilder.loadTexts:
+    adGenAOSEpsRpsConfigurationGroup.setStatus("current")
+
+
+# Notification objects
+
+adGenAOSPowerRollover = NotificationType(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 7, 0, 1)
+)
+adGenAOSPowerRollover.setObjects(
+      *(("ADTRAN-AOS-POWER", "adGenAOSPowerRolloverOnAC"),
+        ("ADTRAN-AOS-POWER", "adGenAOSPwrRollOvrEvntSecSinceEpoch"))
+)
+if mibBuilder.loadTexts:
+    adGenAOSPowerRollover.setStatus(
+        "current"
+    )
+
+adGenAOSEpsConnectionChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 7, 0, 2)
+)
+adGenAOSEpsConnectionChange.setObjects(
+      *(("ADTRAN-AOS-POWER", "adGenAOSPowerEpsRpsInstanceId"),
+        ("ADTRAN-AOS-POWER", "adGenAOSPowerEpsConnectionState"))
+)
+if mibBuilder.loadTexts:
+    adGenAOSEpsConnectionChange.setStatus(
+        "current"
+    )
+
+adGenAOSEpsDeliveryChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 7, 0, 3)
+)
+adGenAOSEpsDeliveryChange.setObjects(
+      *(("ADTRAN-AOS-POWER", "adGenAOSPowerEpsRpsInstanceId"),
+        ("ADTRAN-AOS-POWER", "adGenAOSPowerEpsDeliveryState"))
+)
+if mibBuilder.loadTexts:
+    adGenAOSEpsDeliveryChange.setStatus(
+        "current"
+    )
+
+adGenAOSRpsConnectionChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 7, 0, 4)
+)
+adGenAOSRpsConnectionChange.setObjects(
+      *(("ADTRAN-AOS-POWER", "adGenAOSPowerEpsRpsInstanceId"),
+        ("ADTRAN-AOS-POWER", "adGenAOSPowerRpsConnectionState"))
+)
+if mibBuilder.loadTexts:
+    adGenAOSRpsConnectionChange.setStatus(
+        "current"
+    )
+
+adGenAOSRpsDeliveryChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 7, 0, 5)
+)
+adGenAOSRpsDeliveryChange.setObjects(
+      *(("ADTRAN-AOS-POWER", "adGenAOSPowerEpsRpsInstanceId"),
+        ("ADTRAN-AOS-POWER", "adGenAOSPowerRpsDeliveryState"))
+)
+if mibBuilder.loadTexts:
+    adGenAOSRpsDeliveryChange.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+adGenAOSPowerNotificationGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 11, 1, 1)
+)
+adGenAOSPowerNotificationGroup.setObjects(
+    ("ADTRAN-AOS-POWER", "adGenAOSPowerRollover")
+)
+if mibBuilder.loadTexts:
+    adGenAOSPowerNotificationGroup.setStatus(
+        "current"
+    )
+
+adGenAOSEpsNotificationGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 11, 1, 3)
+)
+adGenAOSEpsNotificationGroup.setObjects(
+      *(("ADTRAN-AOS-POWER", "adGenAOSEpsConnectionChange"),
+        ("ADTRAN-AOS-POWER", "adGenAOSEpsDeliveryChange"))
+)
+if mibBuilder.loadTexts:
+    adGenAOSEpsNotificationGroup.setStatus(
+        "current"
+    )
+
+adGenAOSRpsNotificationGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 11, 1, 4)
+)
+adGenAOSRpsNotificationGroup.setObjects(
+      *(("ADTRAN-AOS-POWER", "adGenAOSRpsConnectionChange"),
+        ("ADTRAN-AOS-POWER", "adGenAOSRpsDeliveryChange"))
+)
+if mibBuilder.loadTexts:
+    adGenAOSRpsNotificationGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+adGenAOSPowerFullCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 11, 2, 1)
+)
+if mibBuilder.loadTexts:
+    adGenAOSPowerFullCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ADTRAN-AOS-POWER",
+    **{"AdEpsPowerDeliveryStateTC": AdEpsPowerDeliveryStateTC,
+       "AdRpsPowerDeliveryStateTC": AdRpsPowerDeliveryStateTC,
+       "AdPowerConnectionStateTC": AdPowerConnectionStateTC,
+       "adGenAOSPowerTraps": adGenAOSPowerTraps,
+       "adGenAOSPowerRollover": adGenAOSPowerRollover,
+       "adGenAOSEpsConnectionChange": adGenAOSEpsConnectionChange,
+       "adGenAOSEpsDeliveryChange": adGenAOSEpsDeliveryChange,
+       "adGenAOSRpsConnectionChange": adGenAOSRpsConnectionChange,
+       "adGenAOSRpsDeliveryChange": adGenAOSRpsDeliveryChange,
+       "adGenAOSPowerMonitor": adGenAOSPowerMonitor,
+       "adGenAOSPowerRollOverCtl": adGenAOSPowerRollOverCtl,
+       "adGenAOSPowerRolloverOnAC": adGenAOSPowerRolloverOnAC,
+       "adGenAOSPwrRollOvrEvntSecSinceEpoch": adGenAOSPwrRollOvrEvntSecSinceEpoch,
+       "adGenAOSPowerEpsRps": adGenAOSPowerEpsRps,
+       "adGenAOSPowerEpsRpsTable": adGenAOSPowerEpsRpsTable,
+       "adGenAOSPowerEpsRpsEntry": adGenAOSPowerEpsRpsEntry,
+       "adGenAOSPowerEpsRpsInstanceId": adGenAOSPowerEpsRpsInstanceId,
+       "adGenAOSPowerEpsConnectionState": adGenAOSPowerEpsConnectionState,
+       "adGenAOSPowerEpsDeliveryState": adGenAOSPowerEpsDeliveryState,
+       "adGenAOSPowerRpsConnectionState": adGenAOSPowerRpsConnectionState,
+       "adGenAOSPowerRpsDeliveryState": adGenAOSPowerRpsDeliveryState,
+       "adGenAOSPowerConformance": adGenAOSPowerConformance,
+       "adGenAOSPowerGroups": adGenAOSPowerGroups,
+       "adGenAOSPowerNotificationGroup": adGenAOSPowerNotificationGroup,
+       "adGenAOSPowerRollOverCtlGroup": adGenAOSPowerRollOverCtlGroup,
+       "adGenAOSEpsNotificationGroup": adGenAOSEpsNotificationGroup,
+       "adGenAOSRpsNotificationGroup": adGenAOSRpsNotificationGroup,
+       "adGenAOSEpsRpsConfigurationGroup": adGenAOSEpsRpsConfigurationGroup,
+       "adGenAOSPowerCompliances": adGenAOSPowerCompliances,
+       "adGenAOSPowerFullCompliance": adGenAOSPowerFullCompliance}
+)

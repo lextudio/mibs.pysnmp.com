@@ -1,45 +1,279 @@
+# SNMP MIB module (MTSALLSTREAM-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module MTSALLSTREAM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/MTSALLSTREAM-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:05:59 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-Unsigned32, MibIdentifier, TimeTicks, NotificationType, ObjectIdentity, Bits, Integer32, ModuleIdentity, IpAddress, iso, Counter32, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, enterprises, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "MibIdentifier", "TimeTicks", "NotificationType", "ObjectIdentity", "Bits", "Integer32", "ModuleIdentity", "IpAddress", "iso", "Counter32", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "enterprises", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-mtsallstream = ModuleIdentity((1, 3, 6, 1, 4, 1, 23398))
-if mibBuilder.loadTexts: mtsallstream.setLastUpdated('200505240000Z')
-if mibBuilder.loadTexts: mtsallstream.setOrganization('MTS Allstream')
-allstreamObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 23398, 1))
-allstreamMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 23398, 2))
-allstreamCICEventEntities = MibIdentifier((1, 3, 6, 1, 4, 1, 23398, 1, 1))
-cicEventID = MibScalar((1, 3, 6, 1, 4, 1, 23398, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cicEventID.setStatus('current')
-cicNode = MibScalar((1, 3, 6, 1, 4, 1, 23398, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cicNode.setStatus('current')
-cicEventMessage = MibScalar((1, 3, 6, 1, 4, 1, 23398, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cicEventMessage.setStatus('current')
-cicEventSeverity = MibScalar((1, 3, 6, 1, 4, 1, 23398, 1, 1, 4), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cicEventSeverity.setStatus('current')
-cicEventTrapReason = MibScalar((1, 3, 6, 1, 4, 1, 23398, 1, 1, 5), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cicEventTrapReason.setStatus('current')
-allstreamNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 23398, 1, 20))
-allstreamForwardCICEventTrap = NotificationType((1, 3, 6, 1, 4, 1, 23398, 1, 20, 1)).setObjects(("MTSALLSTREAM-MIB", "cicEventID"), ("MTSALLSTREAM-MIB", "cicNode"), ("MTSALLSTREAM-MIB", "cicEventMessage"), ("MTSALLSTREAM-MIB", "cicEventSeverity"), ("MTSALLSTREAM-MIB", "cicEventTrapReason"))
-if mibBuilder.loadTexts: allstreamForwardCICEventTrap.setStatus('current')
-allstreamCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 23398, 2, 1))
-allstreamGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 23398, 2, 2))
-allstreamBasicCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 23398, 2, 1, 1)).setObjects(("MTSALLSTREAM-MIB", "allstreamNotificationsGroup"), ("MTSALLSTREAM-MIB", "allstreamObjectGroup"))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/MTSALLSTREAM-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:24:04 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    allstreamBasicCompliance = allstreamBasicCompliance.setStatus('current')
-allstreamNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 23398, 2, 2, 1)).setObjects(("MTSALLSTREAM-MIB", "allstreamForwardCICEventTrap"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    allstreamNotificationsGroup = allstreamNotificationsGroup.setStatus('current')
-allstreamObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 23398, 2, 2, 2)).setObjects(("MTSALLSTREAM-MIB", "cicEventID"), ("MTSALLSTREAM-MIB", "cicNode"), ("MTSALLSTREAM-MIB", "cicEventMessage"), ("MTSALLSTREAM-MIB", "cicEventSeverity"), ("MTSALLSTREAM-MIB", "cicEventTrapReason"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    allstreamObjectGroup = allstreamObjectGroup.setStatus('current')
-mibBuilder.exportSymbols("MTSALLSTREAM-MIB", allstreamNotifications=allstreamNotifications, cicEventID=cicEventID, allstreamBasicCompliance=allstreamBasicCompliance, allstreamGroups=allstreamGroups, PYSNMP_MODULE_ID=mtsallstream, mtsallstream=mtsallstream, allstreamObjects=allstreamObjects, cicNode=cicNode, cicEventMessage=cicEventMessage, allstreamNotificationsGroup=allstreamNotificationsGroup, cicEventTrapReason=cicEventTrapReason, allstreamCompliances=allstreamCompliances, allstreamForwardCICEventTrap=allstreamForwardCICEventTrap, allstreamCICEventEntities=allstreamCICEventEntities, allstreamMIBConformance=allstreamMIBConformance, allstreamObjectGroup=allstreamObjectGroup, cicEventSeverity=cicEventSeverity)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+mtsallstream = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 23398)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AllstreamObjects_ObjectIdentity = ObjectIdentity
+allstreamObjects = _AllstreamObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 23398, 1)
+)
+_AllstreamCICEventEntities_ObjectIdentity = ObjectIdentity
+allstreamCICEventEntities = _AllstreamCICEventEntities_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 23398, 1, 1)
+)
+
+
+class _CicEventID_Type(Unsigned32):
+    """Custom type cicEventID based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4294967295),
+    )
+
+
+_CicEventID_Type.__name__ = "Unsigned32"
+_CicEventID_Object = MibScalar
+cicEventID = _CicEventID_Object(
+    (1, 3, 6, 1, 4, 1, 23398, 1, 1, 1),
+    _CicEventID_Type()
+)
+cicEventID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cicEventID.setStatus("current")
+_CicNode_Type = DisplayString
+_CicNode_Object = MibScalar
+cicNode = _CicNode_Object(
+    (1, 3, 6, 1, 4, 1, 23398, 1, 1, 2),
+    _CicNode_Type()
+)
+cicNode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cicNode.setStatus("current")
+_CicEventMessage_Type = DisplayString
+_CicEventMessage_Object = MibScalar
+cicEventMessage = _CicEventMessage_Object(
+    (1, 3, 6, 1, 4, 1, 23398, 1, 1, 3),
+    _CicEventMessage_Type()
+)
+cicEventMessage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cicEventMessage.setStatus("current")
+_CicEventSeverity_Type = Unsigned32
+_CicEventSeverity_Object = MibScalar
+cicEventSeverity = _CicEventSeverity_Object(
+    (1, 3, 6, 1, 4, 1, 23398, 1, 1, 4),
+    _CicEventSeverity_Type()
+)
+cicEventSeverity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cicEventSeverity.setStatus("current")
+_CicEventTrapReason_Type = DisplayString
+_CicEventTrapReason_Object = MibScalar
+cicEventTrapReason = _CicEventTrapReason_Object(
+    (1, 3, 6, 1, 4, 1, 23398, 1, 1, 5),
+    _CicEventTrapReason_Type()
+)
+cicEventTrapReason.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cicEventTrapReason.setStatus("current")
+_AllstreamNotifications_ObjectIdentity = ObjectIdentity
+allstreamNotifications = _AllstreamNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 23398, 1, 20)
+)
+_AllstreamMIBConformance_ObjectIdentity = ObjectIdentity
+allstreamMIBConformance = _AllstreamMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 23398, 2)
+)
+_AllstreamCompliances_ObjectIdentity = ObjectIdentity
+allstreamCompliances = _AllstreamCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 23398, 2, 1)
+)
+_AllstreamGroups_ObjectIdentity = ObjectIdentity
+allstreamGroups = _AllstreamGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 23398, 2, 2)
+)
+
+# Managed Objects groups
+
+allstreamObjectGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 23398, 2, 2, 2)
+)
+allstreamObjectGroup.setObjects(
+      *(("MTSALLSTREAM-MIB", "cicEventID"),
+        ("MTSALLSTREAM-MIB", "cicNode"),
+        ("MTSALLSTREAM-MIB", "cicEventMessage"),
+        ("MTSALLSTREAM-MIB", "cicEventSeverity"),
+        ("MTSALLSTREAM-MIB", "cicEventTrapReason"))
+)
+if mibBuilder.loadTexts:
+    allstreamObjectGroup.setStatus("current")
+
+
+# Notification objects
+
+allstreamForwardCICEventTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 23398, 1, 20, 1)
+)
+allstreamForwardCICEventTrap.setObjects(
+      *(("MTSALLSTREAM-MIB", "cicEventID"),
+        ("MTSALLSTREAM-MIB", "cicNode"),
+        ("MTSALLSTREAM-MIB", "cicEventMessage"),
+        ("MTSALLSTREAM-MIB", "cicEventSeverity"),
+        ("MTSALLSTREAM-MIB", "cicEventTrapReason"))
+)
+if mibBuilder.loadTexts:
+    allstreamForwardCICEventTrap.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+allstreamNotificationsGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 23398, 2, 2, 1)
+)
+allstreamNotificationsGroup.setObjects(
+    ("MTSALLSTREAM-MIB", "allstreamForwardCICEventTrap")
+)
+if mibBuilder.loadTexts:
+    allstreamNotificationsGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+allstreamBasicCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 23398, 2, 1, 1)
+)
+if mibBuilder.loadTexts:
+    allstreamBasicCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "MTSALLSTREAM-MIB",
+    **{"mtsallstream": mtsallstream,
+       "allstreamObjects": allstreamObjects,
+       "allstreamCICEventEntities": allstreamCICEventEntities,
+       "cicEventID": cicEventID,
+       "cicNode": cicNode,
+       "cicEventMessage": cicEventMessage,
+       "cicEventSeverity": cicEventSeverity,
+       "cicEventTrapReason": cicEventTrapReason,
+       "allstreamNotifications": allstreamNotifications,
+       "allstreamForwardCICEventTrap": allstreamForwardCICEventTrap,
+       "allstreamMIBConformance": allstreamMIBConformance,
+       "allstreamCompliances": allstreamCompliances,
+       "allstreamBasicCompliance": allstreamBasicCompliance,
+       "allstreamGroups": allstreamGroups,
+       "allstreamNotificationsGroup": allstreamNotificationsGroup,
+       "allstreamObjectGroup": allstreamObjectGroup}
+)

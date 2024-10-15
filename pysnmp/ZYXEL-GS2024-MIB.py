@@ -1,17 +1,17 @@
-"""SNMP MIB module (ZYXEL-GS2024-MIB) expressed in pysnmp data model.
+# SNMP MIB module (ZYXEL-GS2024-MIB) expressed in pysnmp data model.
+#
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/ZYXEL-GS2024-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:21:53 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-This Python module is designed to be imported and executed by the
-pysnmp library.
-
-See https://www.pysnmp.com/pysnmp for further information.
-
-Notes
------
-ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/ZYXEL-GS2024-MIB
-Produced by pysmi-1.3.3 at Sun Mar 10 06:03:01 2024
-On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm
-Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
-"""
 if 'mibBuilder' not in globals():
     import sys
 
@@ -57,11 +57,11 @@ if 'mibBuilder' not in globals():
     "IF-MIB",
     "InterfaceIndexOrZero")
 
-(InetAddressType,
- InetAddress) = mibBuilder.importSymbols(
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
     "INET-ADDRESS-MIB",
-    "InetAddressType",
-    "InetAddress")
+    "InetAddress",
+    "InetAddressType")
 
 (EnabledStatus,) = mibBuilder.importSymbols(
     "P-BRIDGE-MIB",
@@ -75,68 +75,68 @@ if 'mibBuilder' not in globals():
     "SNMP-FRAMEWORK-MIB",
     "SnmpAdminString")
 
-(NotificationGroup,
- ModuleCompliance) = mibBuilder.importSymbols(
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
     "SNMPv2-CONF",
-    "NotificationGroup",
-    "ModuleCompliance")
+    "ModuleCompliance",
+    "NotificationGroup")
 
 (sysObjectID,) = mibBuilder.importSymbols(
     "SNMPv2-MIB",
     "sysObjectID")
 
-(MibIdentifier,
- Integer32,
- NotificationType,
- iso,
+(Bits,
  Counter32,
- enterprises,
- TimeTicks,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
  MibScalar,
  MibTable,
  MibTableRow,
  MibTableColumn,
- Counter64,
- Gauge32,
- ObjectIdentity,
- IpAddress,
+ TimeTicks,
  Unsigned32,
- ModuleIdentity,
- Bits) = mibBuilder.importSymbols(
+ enterprises,
+ iso) = mibBuilder.importSymbols(
     "SNMPv2-SMI",
-    "MibIdentifier",
-    "Integer32",
-    "NotificationType",
-    "iso",
+    "Bits",
     "Counter32",
-    "enterprises",
-    "TimeTicks",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
     "MibScalar",
     "MibTable",
     "MibTableRow",
     "MibTableColumn",
-    "Counter64",
-    "Gauge32",
-    "ObjectIdentity",
-    "IpAddress",
+    "TimeTicks",
     "Unsigned32",
-    "ModuleIdentity",
-    "Bits")
+    "enterprises",
+    "iso")
 
 (DateAndTime,
- TextualConvention,
+ DisplayString,
+ PhysAddress,
  RowStatus,
  StorageType,
- PhysAddress,
- DisplayString,
+ TextualConvention,
  TruthValue) = mibBuilder.importSymbols(
     "SNMPv2-TC",
     "DateAndTime",
-    "TextualConvention",
+    "DisplayString",
+    "PhysAddress",
     "RowStatus",
     "StorageType",
-    "PhysAddress",
-    "DisplayString",
+    "TextualConvention",
     "TruthValue")
 
 
@@ -158,15 +158,15 @@ faultTrapsMIB = ModuleIdentity(
 
 
 
-class UtcTimeStamp(TextualConvention, Unsigned32):
+class UtcTimeStamp(Unsigned32, TextualConvention):
     status = "current"
 
 
-class EventIdNumber(TextualConvention, Integer32):
+class EventIdNumber(Integer32, TextualConvention):
     status = "current"
 
 
-class EventSeverity(TextualConvention, Integer32):
+class EventSeverity(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -186,7 +186,7 @@ class EventSeverity(TextualConvention, Integer32):
 
 
 
-class EventServiceAffective(TextualConvention, Integer32):
+class EventServiceAffective(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -202,7 +202,7 @@ class EventServiceAffective(TextualConvention, Integer32):
 
 
 
-class InstanceType(TextualConvention, Integer32):
+class InstanceType(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -232,7 +232,7 @@ class InstanceType(TextualConvention, Integer32):
 
 
 
-class EventPersistence(TextualConvention, Integer32):
+class EventPersistence(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(

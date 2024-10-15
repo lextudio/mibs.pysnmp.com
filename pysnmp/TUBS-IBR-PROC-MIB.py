@@ -1,29 +1,202 @@
+# SNMP MIB module (TUBS-IBR-PROC-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module TUBS-IBR-PROC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/TUBS-IBR-PROC-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 21:20:32 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Bits, Counter64, Counter32, iso, IpAddress, TimeTicks, MibIdentifier, NotificationType, Integer32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, ObjectIdentity, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter64", "Counter32", "iso", "IpAddress", "TimeTicks", "MibIdentifier", "NotificationType", "Integer32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "ObjectIdentity", "ModuleIdentity")
-TextualConvention, DateAndTime, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DateAndTime", "DisplayString")
-ibr, = mibBuilder.importSymbols("TUBS-SMI", "ibr")
-procMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 1575, 1, 3))
-procMIB.setRevisions(('2000-02-09 00:00', '1997-02-14 10:23', '1994-11-15 20:24',))
-if mibBuilder.loadTexts: procMIB.setLastUpdated('200002090000Z')
-if mibBuilder.loadTexts: procMIB.setOrganization('TU Braunschweig')
-procReload = MibScalar((1, 3, 6, 1, 4, 1, 1575, 1, 3, 1), DateAndTime()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: procReload.setStatus('current')
-procTable = MibTable((1, 3, 6, 1, 4, 1, 1575, 1, 3, 2), )
-if mibBuilder.loadTexts: procTable.setStatus('current')
-procEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1575, 1, 3, 2, 1), ).setIndexNames((0, "TUBS-IBR-PROC-MIB", "procID"))
-if mibBuilder.loadTexts: procEntry.setStatus('current')
-procID = MibTableColumn((1, 3, 6, 1, 4, 1, 1575, 1, 3, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: procID.setStatus('current')
-procCmd = MibTableColumn((1, 3, 6, 1, 4, 1, 1575, 1, 3, 2, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: procCmd.setStatus('current')
-mibBuilder.exportSymbols("TUBS-IBR-PROC-MIB", PYSNMP_MODULE_ID=procMIB, procMIB=procMIB, procTable=procTable, procEntry=procEntry, procCmd=procCmd, procID=procID, procReload=procReload)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/TUBS-IBR-PROC-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:07:56 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "TextualConvention")
+
+(ibr,) = mibBuilder.importSymbols(
+    "TUBS-SMI",
+    "ibr")
+
+
+# MODULE-IDENTITY
+
+procMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 1575, 1, 3)
+)
+procMIB.setRevisions(
+        ("2000-02-09 00:00",
+         "1997-02-14 10:23",
+         "1994-11-15 20:24")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_ProcReload_Type = DateAndTime
+_ProcReload_Object = MibScalar
+procReload = _ProcReload_Object(
+    (1, 3, 6, 1, 4, 1, 1575, 1, 3, 1),
+    _ProcReload_Type()
+)
+procReload.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    procReload.setStatus("current")
+_ProcTable_Object = MibTable
+procTable = _ProcTable_Object(
+    (1, 3, 6, 1, 4, 1, 1575, 1, 3, 2)
+)
+if mibBuilder.loadTexts:
+    procTable.setStatus("current")
+_ProcEntry_Object = MibTableRow
+procEntry = _ProcEntry_Object(
+    (1, 3, 6, 1, 4, 1, 1575, 1, 3, 2, 1)
+)
+procEntry.setIndexNames(
+    (0, "TUBS-IBR-PROC-MIB", "procID"),
+)
+if mibBuilder.loadTexts:
+    procEntry.setStatus("current")
+
+
+class _ProcID_Type(Integer32):
+    """Custom type procID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_ProcID_Type.__name__ = "Integer32"
+_ProcID_Object = MibTableColumn
+procID = _ProcID_Object(
+    (1, 3, 6, 1, 4, 1, 1575, 1, 3, 2, 1, 1),
+    _ProcID_Type()
+)
+procID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    procID.setStatus("current")
+_ProcCmd_Type = DisplayString
+_ProcCmd_Object = MibTableColumn
+procCmd = _ProcCmd_Object(
+    (1, 3, 6, 1, 4, 1, 1575, 1, 3, 2, 1, 2),
+    _ProcCmd_Type()
+)
+procCmd.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    procCmd.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "TUBS-IBR-PROC-MIB",
+    **{"procMIB": procMIB,
+       "procReload": procReload,
+       "procTable": procTable,
+       "procEntry": procEntry,
+       "procID": procID,
+       "procCmd": procCmd}
+)

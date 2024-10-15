@@ -1,17 +1,17 @@
-"""SNMP MIB module (XEROX-HOST-RESOURCES-EXT-TC) expressed in pysnmp data model.
+# SNMP MIB module (XEROX-HOST-RESOURCES-EXT-TC) expressed in pysnmp data model.
+#
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/XEROX-HOST-RESOURCES-EXT-TC
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:18:17 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-This Python module is designed to be imported and executed by the
-pysnmp library.
-
-See https://www.pysnmp.com/pysnmp for further information.
-
-Notes
------
-ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/XEROX-HOST-RESOURCES-EXT-TC
-Produced by pysmi-1.3.3 at Sun Mar 10 06:00:26 2024
-On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm
-Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
-"""
 if 'mibBuilder' not in globals():
     import sys
 
@@ -45,53 +45,53 @@ if 'mibBuilder' not in globals():
 
 # Import SMI symbols from the MIBs this MIB depends on
 
-(NotificationGroup,
- ModuleCompliance) = mibBuilder.importSymbols(
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
     "SNMPv2-CONF",
-    "NotificationGroup",
-    "ModuleCompliance")
+    "ModuleCompliance",
+    "NotificationGroup")
 
-(MibIdentifier,
+(Bits,
+ Counter32,
+ Counter64,
  Gauge32,
  Integer32,
  IpAddress,
- Bits,
- TimeTicks,
- iso,
- Unsigned32,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
  MibScalar,
  MibTable,
  MibTableRow,
  MibTableColumn,
- Counter64,
- NotificationType,
- ObjectIdentity,
- ModuleIdentity,
- Counter32) = mibBuilder.importSymbols(
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
     "SNMPv2-SMI",
-    "MibIdentifier",
+    "Bits",
+    "Counter32",
+    "Counter64",
     "Gauge32",
     "Integer32",
     "IpAddress",
-    "Bits",
-    "TimeTicks",
-    "iso",
-    "Unsigned32",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
     "MibScalar",
     "MibTable",
     "MibTableRow",
     "MibTableColumn",
-    "Counter64",
-    "NotificationType",
-    "ObjectIdentity",
-    "ModuleIdentity",
-    "Counter32")
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
 
-(TextualConvention,
- DisplayString) = mibBuilder.importSymbols(
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
     "SNMPv2-TC",
-    "TextualConvention",
-    "DisplayString")
+    "DisplayString",
+    "TextualConvention")
 
 (xeroxCommonMIB,) = mibBuilder.importSymbols(
     "XEROX-COMMON-MIB",
@@ -112,7 +112,7 @@ xcmHrTC = ModuleIdentity(
 
 
 
-class XcmHrDevCalendarDayOfWeek(TextualConvention, Integer32):
+class XcmHrDevCalendarDayOfWeek(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -146,7 +146,7 @@ class XcmHrDevCalendarDayOfWeek(TextualConvention, Integer32):
 
 
 
-class XcmHrDevCalendarTimeOfDay(TextualConvention, Integer32):
+class XcmHrDevCalendarTimeOfDay(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -155,7 +155,7 @@ class XcmHrDevCalendarTimeOfDay(TextualConvention, Integer32):
 
 
 
-class XcmHrDevDetailType(TextualConvention, Integer32):
+class XcmHrDevDetailType(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -465,7 +465,7 @@ class XcmHrDevDetailType(TextualConvention, Integer32):
 
 
 
-class XcmHrDevDetailUnitClass(TextualConvention, Integer32):
+class XcmHrDevDetailUnitClass(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -535,7 +535,7 @@ class XcmHrDevDetailUnitClass(TextualConvention, Integer32):
 
 
 
-class XcmHrDevInfoRealization(TextualConvention, Integer32):
+class XcmHrDevInfoRealization(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -557,7 +557,7 @@ class XcmHrDevInfoRealization(TextualConvention, Integer32):
 
 
 
-class XcmHrDevInfoStatus(TextualConvention, Integer32):
+class XcmHrDevInfoStatus(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -579,7 +579,7 @@ class XcmHrDevInfoStatus(TextualConvention, Integer32):
 
 
 
-class XcmHrDevInfoXStatus(TextualConvention, Integer32):
+class XcmHrDevInfoXStatus(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -713,7 +713,7 @@ class XcmHrDevInfoXStatus(TextualConvention, Integer32):
 
 
 
-class XcmHrDevInfoConditions(TextualConvention, Integer32):
+class XcmHrDevInfoConditions(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -722,7 +722,7 @@ class XcmHrDevInfoConditions(TextualConvention, Integer32):
 
 
 
-class XcmHrDevInfoXConditions(TextualConvention, Integer32):
+class XcmHrDevInfoXConditions(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -731,7 +731,7 @@ class XcmHrDevInfoXConditions(TextualConvention, Integer32):
 
 
 
-class XcmHrDeviceStatusType(TextualConvention, Integer32):
+class XcmHrDeviceStatusType(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -753,7 +753,7 @@ class XcmHrDeviceStatusType(TextualConvention, Integer32):
 
 
 
-class XcmHrDevMgmtCommandRequest(TextualConvention, Integer32):
+class XcmHrDevMgmtCommandRequest(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -923,7 +923,7 @@ class XcmHrDevMgmtCommandRequest(TextualConvention, Integer32):
 
 
 
-class XcmHrDevMgmtCommandData(TextualConvention, OctetString):
+class XcmHrDevMgmtCommandData(OctetString, TextualConvention):
     status = "current"
     subtypeSpec = OctetString.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -932,7 +932,7 @@ class XcmHrDevMgmtCommandData(TextualConvention, OctetString):
 
 
 
-class XcmHrDevMgmtCommandDataTag(TextualConvention, OctetString):
+class XcmHrDevMgmtCommandDataTag(OctetString, TextualConvention):
     status = "current"
     subtypeSpec = OctetString.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -941,7 +941,7 @@ class XcmHrDevMgmtCommandDataTag(TextualConvention, OctetString):
 
 
 
-class XcmHrDevPowerModeType(TextualConvention, Integer32):
+class XcmHrDevPowerModeType(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -965,7 +965,7 @@ class XcmHrDevPowerModeType(TextualConvention, Integer32):
 
 
 
-class XcmHrDevPowerTimeUnit(TextualConvention, Integer32):
+class XcmHrDevPowerTimeUnit(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -1003,7 +1003,7 @@ class XcmHrDevPowerTimeUnit(TextualConvention, Integer32):
 
 
 
-class XcmHrDevTrafficUnit(TextualConvention, Integer32):
+class XcmHrDevTrafficUnit(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -1131,7 +1131,7 @@ class XcmHrDevTrafficUnit(TextualConvention, Integer32):
 
 
 
-class XcmHrGroupSupport(TextualConvention, Integer32):
+class XcmHrGroupSupport(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -1140,7 +1140,7 @@ class XcmHrGroupSupport(TextualConvention, Integer32):
 
 
 
-class XcmHrSWRunXStatus(TextualConvention, Integer32):
+class XcmHrSWRunXStatus(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -1158,7 +1158,7 @@ class XcmHrSWRunXStatus(TextualConvention, Integer32):
 
 
 
-class XcmHrStorageDetailType(TextualConvention, Integer32):
+class XcmHrStorageDetailType(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -1226,7 +1226,7 @@ class XcmHrStorageDetailType(TextualConvention, Integer32):
 
 
 
-class XcmHrStorageRealization(TextualConvention, Integer32):
+class XcmHrStorageRealization(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -1254,7 +1254,7 @@ class XcmHrStorageRealization(TextualConvention, Integer32):
 
 
 
-class XcmHrDpaAvailability(TextualConvention, Integer32):
+class XcmHrDpaAvailability(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -1276,7 +1276,7 @@ class XcmHrDpaAvailability(TextualConvention, Integer32):
 
 
 
-class XcmHrDpaConditions(TextualConvention, Integer32):
+class XcmHrDpaConditions(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -1285,7 +1285,7 @@ class XcmHrDpaConditions(TextualConvention, Integer32):
 
 
 
-class XcmHrDpaJobValidateSupport(TextualConvention, Integer32):
+class XcmHrDpaJobValidateSupport(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -1294,7 +1294,7 @@ class XcmHrDpaJobValidateSupport(TextualConvention, Integer32):
 
 
 
-class XcmHrDpaObjectClassSupport(TextualConvention, Integer32):
+class XcmHrDpaObjectClassSupport(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -1303,7 +1303,7 @@ class XcmHrDpaObjectClassSupport(TextualConvention, Integer32):
 
 
 
-class XcmHrDpaState(TextualConvention, Integer32):
+class XcmHrDpaState(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -1329,7 +1329,7 @@ class XcmHrDpaState(TextualConvention, Integer32):
 
 
 
-class XcmHrSuppliesClassTC(TextualConvention, Integer32):
+class XcmHrSuppliesClassTC(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -1355,7 +1355,7 @@ class XcmHrSuppliesClassTC(TextualConvention, Integer32):
 
 
 
-class XcmHrDetailTableEnumTC(TextualConvention, Integer32):
+class XcmHrDetailTableEnumTC(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -1373,7 +1373,7 @@ class XcmHrDetailTableEnumTC(TextualConvention, Integer32):
 
 
 
-class XcmHrConsoleDefaultService(TextualConvention, Integer32):
+class XcmHrConsoleDefaultService(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(

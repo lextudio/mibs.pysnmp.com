@@ -1,41 +1,423 @@
+# SNMP MIB module (SONOMASYSTEMS-SONOMA-IPAPPS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module SONOMASYSTEMS-SONOMA-IPAPPS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/SONOMASYSTEMS-SONOMA-IPAPPS-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 21:01:28 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ModuleIdentity, Unsigned32, Bits, MibIdentifier, iso, Integer32, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, NotificationType, ObjectIdentity, Counter32, IpAddress, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Unsigned32", "Bits", "MibIdentifier", "iso", "Integer32", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "NotificationType", "ObjectIdentity", "Counter32", "IpAddress", "Counter64")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-sonomaApplications, = mibBuilder.importSymbols("SONOMASYSTEMS-SONOMA-MIB", "sonomaApplications")
-ipApplications = MibIdentifier((1, 3, 6, 1, 4, 1, 2926, 25, 8, 1))
-bootpGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 2926, 25, 8, 1, 1))
-pingGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 2926, 25, 8, 1, 2))
-class DisplayString(OctetString):
-    pass
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/SONOMASYSTEMS-SONOMA-IPAPPS-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:56:45 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-tftpFileServerIpAddress = MibScalar((1, 3, 6, 1, 4, 1, 2926, 25, 8, 1, 1, 1), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tftpFileServerIpAddress.setStatus('mandatory')
-tftpFileName = MibScalar((1, 3, 6, 1, 4, 1, 2926, 25, 8, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 127))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tftpFileName.setStatus('mandatory')
-tftpImageNumber = MibScalar((1, 3, 6, 1, 4, 1, 2926, 25, 8, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("image1", 1), ("image2", 2), ("image3", 3), ("image4", 4), ("image5", 5), ("image6", 6), ("image7", 7), ("image8", 8))).clone('image1')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tftpImageNumber.setStatus('mandatory')
-tftpFileAction = MibScalar((1, 3, 6, 1, 4, 1, 2926, 25, 8, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))).clone(namedValues=NamedValues(("noAction", 1), ("startBootPImageDownload", 2), ("startTFTPImageDownload", 3), ("startPrimaryImageTFTPDownload", 4), ("startSecondaryImageTFTPDownload", 5), ("startTFTPParameterBinDownload", 6), ("startTFTPParameterTextDownload", 7), ("startTFTPParameterBinUpload", 8), ("startTFTPParameterTextUpload", 9), ("startTFTPProfileDownload", 10))).clone('noAction')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tftpFileAction.setStatus('mandatory')
-tftpFileTransferStatus = MibScalar((1, 3, 6, 1, 4, 1, 2926, 25, 8, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18))).clone(namedValues=NamedValues(("idle", 1), ("downloading", 2), ("uploading", 3), ("programmingflash", 4), ("failBootpNoServer", 5), ("failTFTPNoFile", 6), ("errorServerResponse", 7), ("failTFTPInvalidFile", 8), ("failNetworkTimeout", 9), ("failFlashProgError", 10), ("failFlashChksumError", 11), ("errorServerData", 12), ("uploadResultUnknown", 13), ("uploadSuccessful", 14), ("downloadSuccessful", 15), ("generalFailure", 16), ("failCannotOverwriteActiveImage", 17), ("failCannotOverwriteActiveParam", 18)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tftpFileTransferStatus.setStatus('mandatory')
-pingIpAddress = MibScalar((1, 3, 6, 1, 4, 1, 2926, 25, 8, 1, 2, 1), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pingIpAddress.setStatus('mandatory')
-pingTimeout = MibScalar((1, 3, 6, 1, 4, 1, 2926, 25, 8, 1, 2, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pingTimeout.setStatus('mandatory')
-pingRetries = MibScalar((1, 3, 6, 1, 4, 1, 2926, 25, 8, 1, 2, 3), Integer32().clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pingRetries.setStatus('mandatory')
-pingStatus = MibScalar((1, 3, 6, 1, 4, 1, 2926, 25, 8, 1, 2, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 256))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pingStatus.setStatus('mandatory')
-pingAction = MibScalar((1, 3, 6, 1, 4, 1, 2926, 25, 8, 1, 2, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("start", 1), ("stop", 2), ("noAction", 3))).clone('noAction')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pingAction.setStatus('mandatory')
-mibBuilder.exportSymbols("SONOMASYSTEMS-SONOMA-IPAPPS-MIB", bootpGroup=bootpGroup, ipApplications=ipApplications, pingGroup=pingGroup, pingStatus=pingStatus, tftpFileServerIpAddress=tftpFileServerIpAddress, tftpFileAction=tftpFileAction, pingTimeout=pingTimeout, tftpFileTransferStatus=tftpFileTransferStatus, tftpFileName=tftpFileName, pingIpAddress=pingIpAddress, tftpImageNumber=tftpImageNumber, pingRetries=pingRetries, pingAction=pingAction, DisplayString=DisplayString)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+(sonomaApplications,) = mibBuilder.importSymbols(
+    "SONOMASYSTEMS-SONOMA-MIB",
+    "sonomaApplications")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+
+class DisplayString(OctetString):
+    """Custom type DisplayString based on OctetString"""
+
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_IpApplications_ObjectIdentity = ObjectIdentity
+ipApplications = _IpApplications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2926, 25, 8, 1)
+)
+_BootpGroup_ObjectIdentity = ObjectIdentity
+bootpGroup = _BootpGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2926, 25, 8, 1, 1)
+)
+_TftpFileServerIpAddress_Type = IpAddress
+_TftpFileServerIpAddress_Object = MibScalar
+tftpFileServerIpAddress = _TftpFileServerIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 2926, 25, 8, 1, 1, 1),
+    _TftpFileServerIpAddress_Type()
+)
+tftpFileServerIpAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tftpFileServerIpAddress.setStatus("mandatory")
+
+
+class _TftpFileName_Type(DisplayString):
+    """Custom type tftpFileName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 127),
+    )
+
+
+_TftpFileName_Type.__name__ = "DisplayString"
+_TftpFileName_Object = MibScalar
+tftpFileName = _TftpFileName_Object(
+    (1, 3, 6, 1, 4, 1, 2926, 25, 8, 1, 1, 2),
+    _TftpFileName_Type()
+)
+tftpFileName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tftpFileName.setStatus("mandatory")
+
+
+class _TftpImageNumber_Type(Integer32):
+    """Custom type tftpImageNumber based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("image1", 1),
+          ("image2", 2),
+          ("image3", 3),
+          ("image4", 4),
+          ("image5", 5),
+          ("image6", 6),
+          ("image7", 7),
+          ("image8", 8))
+    )
+
+
+_TftpImageNumber_Type.__name__ = "Integer32"
+_TftpImageNumber_Object = MibScalar
+tftpImageNumber = _TftpImageNumber_Object(
+    (1, 3, 6, 1, 4, 1, 2926, 25, 8, 1, 1, 3),
+    _TftpImageNumber_Type()
+)
+tftpImageNumber.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tftpImageNumber.setStatus("mandatory")
+
+
+class _TftpFileAction_Type(Integer32):
+    """Custom type tftpFileAction based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10)
+        )
+    )
+    namedValues = NamedValues(
+        *(("noAction", 1),
+          ("startBootPImageDownload", 2),
+          ("startPrimaryImageTFTPDownload", 4),
+          ("startSecondaryImageTFTPDownload", 5),
+          ("startTFTPImageDownload", 3),
+          ("startTFTPParameterBinDownload", 6),
+          ("startTFTPParameterBinUpload", 8),
+          ("startTFTPParameterTextDownload", 7),
+          ("startTFTPParameterTextUpload", 9),
+          ("startTFTPProfileDownload", 10))
+    )
+
+
+_TftpFileAction_Type.__name__ = "Integer32"
+_TftpFileAction_Object = MibScalar
+tftpFileAction = _TftpFileAction_Object(
+    (1, 3, 6, 1, 4, 1, 2926, 25, 8, 1, 1, 4),
+    _TftpFileAction_Type()
+)
+tftpFileAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tftpFileAction.setStatus("mandatory")
+
+
+class _TftpFileTransferStatus_Type(Integer32):
+    """Custom type tftpFileTransferStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18)
+        )
+    )
+    namedValues = NamedValues(
+        *(("downloadSuccessful", 15),
+          ("downloading", 2),
+          ("errorServerData", 12),
+          ("errorServerResponse", 7),
+          ("failBootpNoServer", 5),
+          ("failCannotOverwriteActiveImage", 17),
+          ("failCannotOverwriteActiveParam", 18),
+          ("failFlashChksumError", 11),
+          ("failFlashProgError", 10),
+          ("failNetworkTimeout", 9),
+          ("failTFTPInvalidFile", 8),
+          ("failTFTPNoFile", 6),
+          ("generalFailure", 16),
+          ("idle", 1),
+          ("programmingflash", 4),
+          ("uploadResultUnknown", 13),
+          ("uploadSuccessful", 14),
+          ("uploading", 3))
+    )
+
+
+_TftpFileTransferStatus_Type.__name__ = "Integer32"
+_TftpFileTransferStatus_Object = MibScalar
+tftpFileTransferStatus = _TftpFileTransferStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2926, 25, 8, 1, 1, 5),
+    _TftpFileTransferStatus_Type()
+)
+tftpFileTransferStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tftpFileTransferStatus.setStatus("mandatory")
+_PingGroup_ObjectIdentity = ObjectIdentity
+pingGroup = _PingGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2926, 25, 8, 1, 2)
+)
+_PingIpAddress_Type = IpAddress
+_PingIpAddress_Object = MibScalar
+pingIpAddress = _PingIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 2926, 25, 8, 1, 2, 1),
+    _PingIpAddress_Type()
+)
+pingIpAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pingIpAddress.setStatus("mandatory")
+
+
+class _PingTimeout_Type(Integer32):
+    """Custom type pingTimeout based on Integer32"""
+    defaultValue = 0
+
+
+_PingTimeout_Object = MibScalar
+pingTimeout = _PingTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 2926, 25, 8, 1, 2, 2),
+    _PingTimeout_Type()
+)
+pingTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pingTimeout.setStatus("mandatory")
+
+
+class _PingRetries_Type(Integer32):
+    """Custom type pingRetries based on Integer32"""
+    defaultValue = 1
+
+
+_PingRetries_Object = MibScalar
+pingRetries = _PingRetries_Object(
+    (1, 3, 6, 1, 4, 1, 2926, 25, 8, 1, 2, 3),
+    _PingRetries_Type()
+)
+pingRetries.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pingRetries.setStatus("mandatory")
+
+
+class _PingStatus_Type(DisplayString):
+    """Custom type pingStatus based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 256),
+    )
+
+
+_PingStatus_Type.__name__ = "DisplayString"
+_PingStatus_Object = MibScalar
+pingStatus = _PingStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2926, 25, 8, 1, 2, 4),
+    _PingStatus_Type()
+)
+pingStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pingStatus.setStatus("mandatory")
+
+
+class _PingAction_Type(Integer32):
+    """Custom type pingAction based on Integer32"""
+    defaultValue = 3
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("noAction", 3),
+          ("start", 1),
+          ("stop", 2))
+    )
+
+
+_PingAction_Type.__name__ = "Integer32"
+_PingAction_Object = MibScalar
+pingAction = _PingAction_Object(
+    (1, 3, 6, 1, 4, 1, 2926, 25, 8, 1, 2, 5),
+    _PingAction_Type()
+)
+pingAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pingAction.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "SONOMASYSTEMS-SONOMA-IPAPPS-MIB",
+    **{"DisplayString": DisplayString,
+       "ipApplications": ipApplications,
+       "bootpGroup": bootpGroup,
+       "tftpFileServerIpAddress": tftpFileServerIpAddress,
+       "tftpFileName": tftpFileName,
+       "tftpImageNumber": tftpImageNumber,
+       "tftpFileAction": tftpFileAction,
+       "tftpFileTransferStatus": tftpFileTransferStatus,
+       "pingGroup": pingGroup,
+       "pingIpAddress": pingIpAddress,
+       "pingTimeout": pingTimeout,
+       "pingRetries": pingRetries,
+       "pingStatus": pingStatus,
+       "pingAction": pingAction}
+)

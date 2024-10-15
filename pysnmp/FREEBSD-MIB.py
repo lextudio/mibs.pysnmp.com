@@ -1,28 +1,174 @@
+# SNMP MIB module (FREEBSD-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module FREEBSD-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/FREEBSD-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:02:29 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Bits, Unsigned32, Counter64, Counter32, IpAddress, MibIdentifier, enterprises, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Integer32, NotificationType, Gauge32, iso, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Unsigned32", "Counter64", "Counter32", "IpAddress", "MibIdentifier", "enterprises", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Integer32", "NotificationType", "Gauge32", "iso", "ModuleIdentity")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-freeBSD = ModuleIdentity((1, 3, 6, 1, 4, 1, 2238))
-freeBSD.setRevisions(('2006-10-31 08:00',))
-if mibBuilder.loadTexts: freeBSD.setLastUpdated('200610311000Z')
-if mibBuilder.loadTexts: freeBSD.setOrganization('The FreeBSD Project.')
-freeBSDsrc = ObjectIdentity((1, 3, 6, 1, 4, 1, 2238, 1))
-if mibBuilder.loadTexts: freeBSDsrc.setStatus('current')
-freeBSDports = ObjectIdentity((1, 3, 6, 1, 4, 1, 2238, 2))
-if mibBuilder.loadTexts: freeBSDports.setStatus('current')
-freeBSDpeople = ObjectIdentity((1, 3, 6, 1, 4, 1, 2238, 3))
-if mibBuilder.loadTexts: freeBSDpeople.setStatus('current')
-freeBSDpeoplePhk = ObjectIdentity((1, 3, 6, 1, 4, 1, 2238, 3, 1))
-if mibBuilder.loadTexts: freeBSDpeoplePhk.setStatus('current')
-freeBSDVersion = ObjectIdentity((1, 3, 6, 1, 4, 1, 2238, 4))
-if mibBuilder.loadTexts: freeBSDVersion.setStatus('current')
-mibBuilder.exportSymbols("FREEBSD-MIB", freeBSDpeople=freeBSDpeople, freeBSDpeoplePhk=freeBSDpeoplePhk, freeBSDsrc=freeBSDsrc, freeBSDVersion=freeBSDVersion, freeBSD=freeBSD, freeBSDports=freeBSDports, PYSNMP_MODULE_ID=freeBSD)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/FREEBSD-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:46:23 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+freeBSD = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2238)
+)
+freeBSD.setRevisions(
+        ("2006-10-31 08:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_FreeBSDsrc_ObjectIdentity = ObjectIdentity
+freeBSDsrc = _FreeBSDsrc_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2238, 1)
+)
+if mibBuilder.loadTexts:
+    freeBSDsrc.setStatus("current")
+_FreeBSDports_ObjectIdentity = ObjectIdentity
+freeBSDports = _FreeBSDports_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2238, 2)
+)
+if mibBuilder.loadTexts:
+    freeBSDports.setStatus("current")
+_FreeBSDpeople_ObjectIdentity = ObjectIdentity
+freeBSDpeople = _FreeBSDpeople_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2238, 3)
+)
+if mibBuilder.loadTexts:
+    freeBSDpeople.setStatus("current")
+_FreeBSDpeoplePhk_ObjectIdentity = ObjectIdentity
+freeBSDpeoplePhk = _FreeBSDpeoplePhk_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2238, 3, 1)
+)
+if mibBuilder.loadTexts:
+    freeBSDpeoplePhk.setStatus("current")
+_FreeBSDVersion_ObjectIdentity = ObjectIdentity
+freeBSDVersion = _FreeBSDVersion_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2238, 4)
+)
+if mibBuilder.loadTexts:
+    freeBSDVersion.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "FREEBSD-MIB",
+    **{"freeBSD": freeBSD,
+       "freeBSDsrc": freeBSDsrc,
+       "freeBSDports": freeBSDports,
+       "freeBSDpeople": freeBSDpeople,
+       "freeBSDpeoplePhk": freeBSDpeoplePhk,
+       "freeBSDVersion": freeBSDVersion}
+)

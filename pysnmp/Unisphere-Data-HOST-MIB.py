@@ -1,47 +1,317 @@
+# SNMP MIB module (Unisphere-Data-HOST-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module Unisphere-Data-HOST-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/Unisphere-Data-HOST-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 21:24:11 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, ModuleIdentity, Counter32, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Counter64, Integer32, iso, TimeTicks, NotificationType, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "ModuleIdentity", "Counter32", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Counter64", "Integer32", "iso", "TimeTicks", "NotificationType", "Bits")
-RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TextualConvention")
-usDataMibs, = mibBuilder.importSymbols("Unisphere-Data-MIBs", "usDataMibs")
-usdHostMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4874, 2, 2, 33))
-usdHostMIB.setRevisions(('2001-05-07 17:02', '2000-01-26 00:00',))
-if mibBuilder.loadTexts: usdHostMIB.setLastUpdated('200105071702Z')
-if mibBuilder.loadTexts: usdHostMIB.setOrganization('Unisphere Networks, Inc.')
-usdHostObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 33, 1))
-usdHost = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 33, 1, 1))
-usdHostTable = MibTable((1, 3, 6, 1, 4, 1, 4874, 2, 2, 33, 1, 1, 1), )
-if mibBuilder.loadTexts: usdHostTable.setStatus('current')
-usdHostEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4874, 2, 2, 33, 1, 1, 1, 1), ).setIndexNames((1, "Unisphere-Data-HOST-MIB", "usdHostName"))
-if mibBuilder.loadTexts: usdHostEntry.setStatus('current')
-usdHostName = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 33, 1, 1, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 40))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: usdHostName.setStatus('current')
-usdHostIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 33, 1, 1, 1, 1, 2), IpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: usdHostIpAddress.setStatus('current')
-usdHostProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 33, 1, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("usdHostFtp", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: usdHostProtocol.setStatus('current')
-usdHostUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 33, 1, 1, 1, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: usdHostUserName.setStatus('current')
-usdHostUserPassword = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 33, 1, 1, 1, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 25))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: usdHostUserPassword.setStatus('current')
-usdHostRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 33, 1, 1, 1, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: usdHostRowStatus.setStatus('current')
-usdHostMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 33, 4))
-usdHostMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 33, 4, 1))
-usdHostMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 33, 4, 2))
-usdHostCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 33, 4, 1, 1)).setObjects(("Unisphere-Data-HOST-MIB", "usdHostGroup"))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/Unisphere-Data-HOST-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:10:49 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    usdHostCompliance = usdHostCompliance.setStatus('current')
-usdHostGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 33, 4, 2, 1)).setObjects(("Unisphere-Data-HOST-MIB", "usdHostName"), ("Unisphere-Data-HOST-MIB", "usdHostIpAddress"), ("Unisphere-Data-HOST-MIB", "usdHostProtocol"), ("Unisphere-Data-HOST-MIB", "usdHostUserName"), ("Unisphere-Data-HOST-MIB", "usdHostUserPassword"), ("Unisphere-Data-HOST-MIB", "usdHostRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    usdHostGroup = usdHostGroup.setStatus('current')
-mibBuilder.exportSymbols("Unisphere-Data-HOST-MIB", usdHostUserPassword=usdHostUserPassword, usdHostRowStatus=usdHostRowStatus, usdHostUserName=usdHostUserName, usdHost=usdHost, PYSNMP_MODULE_ID=usdHostMIB, usdHostObjects=usdHostObjects, usdHostEntry=usdHostEntry, usdHostProtocol=usdHostProtocol, usdHostMIBCompliances=usdHostMIBCompliances, usdHostMIBConformance=usdHostMIBConformance, usdHostTable=usdHostTable, usdHostIpAddress=usdHostIpAddress, usdHostMIBGroups=usdHostMIBGroups, usdHostCompliance=usdHostCompliance, usdHostMIB=usdHostMIB, usdHostName=usdHostName, usdHostGroup=usdHostGroup)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "RowStatus",
+    "TextualConvention")
+
+(usDataMibs,) = mibBuilder.importSymbols(
+    "Unisphere-Data-MIBs",
+    "usDataMibs")
+
+
+# MODULE-IDENTITY
+
+usdHostMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 33)
+)
+usdHostMIB.setRevisions(
+        ("2001-05-07 17:02",
+         "2000-01-26 00:00")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_UsdHostObjects_ObjectIdentity = ObjectIdentity
+usdHostObjects = _UsdHostObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 33, 1)
+)
+_UsdHost_ObjectIdentity = ObjectIdentity
+usdHost = _UsdHost_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 33, 1, 1)
+)
+_UsdHostTable_Object = MibTable
+usdHostTable = _UsdHostTable_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 33, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    usdHostTable.setStatus("current")
+_UsdHostEntry_Object = MibTableRow
+usdHostEntry = _UsdHostEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 33, 1, 1, 1, 1)
+)
+usdHostEntry.setIndexNames(
+    (1, "Unisphere-Data-HOST-MIB", "usdHostName"),
+)
+if mibBuilder.loadTexts:
+    usdHostEntry.setStatus("current")
+
+
+class _UsdHostName_Type(DisplayString):
+    """Custom type usdHostName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 40),
+    )
+
+
+_UsdHostName_Type.__name__ = "DisplayString"
+_UsdHostName_Object = MibTableColumn
+usdHostName = _UsdHostName_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 33, 1, 1, 1, 1, 1),
+    _UsdHostName_Type()
+)
+usdHostName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    usdHostName.setStatus("current")
+_UsdHostIpAddress_Type = IpAddress
+_UsdHostIpAddress_Object = MibTableColumn
+usdHostIpAddress = _UsdHostIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 33, 1, 1, 1, 1, 2),
+    _UsdHostIpAddress_Type()
+)
+usdHostIpAddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    usdHostIpAddress.setStatus("current")
+
+
+class _UsdHostProtocol_Type(Integer32):
+    """Custom type usdHostProtocol based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            1
+        )
+    )
+    namedValues = NamedValues(
+        ("usdHostFtp", 1)
+    )
+
+
+_UsdHostProtocol_Type.__name__ = "Integer32"
+_UsdHostProtocol_Object = MibTableColumn
+usdHostProtocol = _UsdHostProtocol_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 33, 1, 1, 1, 1, 3),
+    _UsdHostProtocol_Type()
+)
+usdHostProtocol.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    usdHostProtocol.setStatus("current")
+
+
+class _UsdHostUserName_Type(DisplayString):
+    """Custom type usdHostUserName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 20),
+    )
+
+
+_UsdHostUserName_Type.__name__ = "DisplayString"
+_UsdHostUserName_Object = MibTableColumn
+usdHostUserName = _UsdHostUserName_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 33, 1, 1, 1, 1, 4),
+    _UsdHostUserName_Type()
+)
+usdHostUserName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    usdHostUserName.setStatus("current")
+
+
+class _UsdHostUserPassword_Type(DisplayString):
+    """Custom type usdHostUserPassword based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 25),
+    )
+
+
+_UsdHostUserPassword_Type.__name__ = "DisplayString"
+_UsdHostUserPassword_Object = MibTableColumn
+usdHostUserPassword = _UsdHostUserPassword_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 33, 1, 1, 1, 1, 5),
+    _UsdHostUserPassword_Type()
+)
+usdHostUserPassword.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    usdHostUserPassword.setStatus("current")
+_UsdHostRowStatus_Type = RowStatus
+_UsdHostRowStatus_Object = MibTableColumn
+usdHostRowStatus = _UsdHostRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 33, 1, 1, 1, 1, 6),
+    _UsdHostRowStatus_Type()
+)
+usdHostRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    usdHostRowStatus.setStatus("current")
+_UsdHostMIBConformance_ObjectIdentity = ObjectIdentity
+usdHostMIBConformance = _UsdHostMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 33, 4)
+)
+_UsdHostMIBCompliances_ObjectIdentity = ObjectIdentity
+usdHostMIBCompliances = _UsdHostMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 33, 4, 1)
+)
+_UsdHostMIBGroups_ObjectIdentity = ObjectIdentity
+usdHostMIBGroups = _UsdHostMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 33, 4, 2)
+)
+
+# Managed Objects groups
+
+usdHostGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 33, 4, 2, 1)
+)
+usdHostGroup.setObjects(
+      *(("Unisphere-Data-HOST-MIB", "usdHostName"),
+        ("Unisphere-Data-HOST-MIB", "usdHostIpAddress"),
+        ("Unisphere-Data-HOST-MIB", "usdHostProtocol"),
+        ("Unisphere-Data-HOST-MIB", "usdHostUserName"),
+        ("Unisphere-Data-HOST-MIB", "usdHostUserPassword"),
+        ("Unisphere-Data-HOST-MIB", "usdHostRowStatus"))
+)
+if mibBuilder.loadTexts:
+    usdHostGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+usdHostCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 33, 4, 1, 1)
+)
+if mibBuilder.loadTexts:
+    usdHostCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "Unisphere-Data-HOST-MIB",
+    **{"usdHostMIB": usdHostMIB,
+       "usdHostObjects": usdHostObjects,
+       "usdHost": usdHost,
+       "usdHostTable": usdHostTable,
+       "usdHostEntry": usdHostEntry,
+       "usdHostName": usdHostName,
+       "usdHostIpAddress": usdHostIpAddress,
+       "usdHostProtocol": usdHostProtocol,
+       "usdHostUserName": usdHostUserName,
+       "usdHostUserPassword": usdHostUserPassword,
+       "usdHostRowStatus": usdHostRowStatus,
+       "usdHostMIBConformance": usdHostMIBConformance,
+       "usdHostMIBCompliances": usdHostMIBCompliances,
+       "usdHostCompliance": usdHostCompliance,
+       "usdHostMIBGroups": usdHostMIBGroups,
+       "usdHostGroup": usdHostGroup}
+)

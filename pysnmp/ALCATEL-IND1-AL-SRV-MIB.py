@@ -1,41 +1,266 @@
+# SNMP MIB module (ALCATEL-IND1-AL-SRV-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ALCATEL-IND1-AL-SRV-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/ALCATEL-IND1-AL-SRV-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:01:23 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-softentIND1ActiveLeaseSrvMIB, = mibBuilder.importSymbols("ALCATEL-IND1-BASE", "softentIND1ActiveLeaseSrvMIB")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint")
-InetAddress, InetAddressType = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress", "InetAddressType")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-ObjectIdentity, Bits, TimeTicks, Integer32, NotificationType, IpAddress, ModuleIdentity, Unsigned32, Counter32, MibIdentifier, Gauge32, Counter64, iso, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Bits", "TimeTicks", "Integer32", "NotificationType", "IpAddress", "ModuleIdentity", "Unsigned32", "Counter32", "MibIdentifier", "Gauge32", "Counter64", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-TextualConvention, DisplayString, DateAndTime, MacAddress = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "DateAndTime", "MacAddress")
-alcatelIND1ActiveLeaseSrvMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 80, 1))
-alcatelIND1ActiveLeaseSrvMIB.setRevisions(('2013-06-05 00:00',))
-if mibBuilder.loadTexts: alcatelIND1ActiveLeaseSrvMIB.setLastUpdated('201306050000Z')
-if mibBuilder.loadTexts: alcatelIND1ActiveLeaseSrvMIB.setOrganization('Alcatel - Architects Of An Internet World')
-alcatelIND1ActiveLeaseSrvMIBNotifications = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 80, 1, 0))
-if mibBuilder.loadTexts: alcatelIND1ActiveLeaseSrvMIBNotifications.setStatus('current')
-alcatelIND1ActiveLeaseSrvMIBObjects = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 80, 1, 1))
-if mibBuilder.loadTexts: alcatelIND1ActiveLeaseSrvMIBObjects.setStatus('current')
-alcatelIND1ActiveLeaseSrvMIBConformance = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 80, 1, 2))
-if mibBuilder.loadTexts: alcatelIND1ActiveLeaseSrvMIBConformance.setStatus('current')
-alcatelIND1ActiveLeaseSrvMIBGroups = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 80, 1, 2, 1))
-if mibBuilder.loadTexts: alcatelIND1ActiveLeaseSrvMIBGroups.setStatus('current')
-alcatelIND1ActiveLeaseSrvMIBCompliances = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 80, 1, 2, 2))
-if mibBuilder.loadTexts: alcatelIND1ActiveLeaseSrvMIBCompliances.setStatus('current')
-alaActiveLeaseSrvGlobalConfigStatus = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 80, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaActiveLeaseSrvGlobalConfigStatus.setStatus('current')
-alaActiveLeaseSrvGlobalRestart = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 80, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("inactive", 1), ("restart", 2))).clone('inactive')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaActiveLeaseSrvGlobalRestart.setStatus('current')
-alcatelIND1ActiveLeaseSrvMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 80, 1, 2, 2, 1)).setObjects(("ALCATEL-IND1-AL-SRV-MIB", "alaActiveLeaseSrvGlobalConfigGroup"))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/ALCATEL-IND1-AL-SRV-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 20:35:40 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alcatelIND1ActiveLeaseSrvMIBCompliance = alcatelIND1ActiveLeaseSrvMIBCompliance.setStatus('current')
-alaActiveLeaseSrvGlobalConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 80, 1, 2, 1, 1)).setObjects(("ALCATEL-IND1-AL-SRV-MIB", "alaActiveLeaseSrvGlobalConfigStatus"), ("ALCATEL-IND1-AL-SRV-MIB", "alaActiveLeaseSrvGlobalRestart"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaActiveLeaseSrvGlobalConfigGroup = alaActiveLeaseSrvGlobalConfigGroup.setStatus('current')
-mibBuilder.exportSymbols("ALCATEL-IND1-AL-SRV-MIB", alcatelIND1ActiveLeaseSrvMIBCompliance=alcatelIND1ActiveLeaseSrvMIBCompliance, alcatelIND1ActiveLeaseSrvMIBCompliances=alcatelIND1ActiveLeaseSrvMIBCompliances, alaActiveLeaseSrvGlobalRestart=alaActiveLeaseSrvGlobalRestart, alcatelIND1ActiveLeaseSrvMIB=alcatelIND1ActiveLeaseSrvMIB, alcatelIND1ActiveLeaseSrvMIBGroups=alcatelIND1ActiveLeaseSrvMIBGroups, alcatelIND1ActiveLeaseSrvMIBObjects=alcatelIND1ActiveLeaseSrvMIBObjects, alaActiveLeaseSrvGlobalConfigStatus=alaActiveLeaseSrvGlobalConfigStatus, PYSNMP_MODULE_ID=alcatelIND1ActiveLeaseSrvMIB, alaActiveLeaseSrvGlobalConfigGroup=alaActiveLeaseSrvGlobalConfigGroup, alcatelIND1ActiveLeaseSrvMIBConformance=alcatelIND1ActiveLeaseSrvMIBConformance, alcatelIND1ActiveLeaseSrvMIBNotifications=alcatelIND1ActiveLeaseSrvMIBNotifications)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(softentIND1ActiveLeaseSrvMIB,) = mibBuilder.importSymbols(
+    "ALCATEL-IND1-BASE",
+    "softentIND1ActiveLeaseSrvMIB")
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ MacAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "MacAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+alcatelIND1ActiveLeaseSrvMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 80, 1)
+)
+alcatelIND1ActiveLeaseSrvMIB.setRevisions(
+        ("2013-06-05 00:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AlcatelIND1ActiveLeaseSrvMIBNotifications_ObjectIdentity = ObjectIdentity
+alcatelIND1ActiveLeaseSrvMIBNotifications = _AlcatelIND1ActiveLeaseSrvMIBNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 80, 1, 0)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1ActiveLeaseSrvMIBNotifications.setStatus("current")
+_AlcatelIND1ActiveLeaseSrvMIBObjects_ObjectIdentity = ObjectIdentity
+alcatelIND1ActiveLeaseSrvMIBObjects = _AlcatelIND1ActiveLeaseSrvMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 80, 1, 1)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1ActiveLeaseSrvMIBObjects.setStatus("current")
+
+
+class _AlaActiveLeaseSrvGlobalConfigStatus_Type(Integer32):
+    """Custom type alaActiveLeaseSrvGlobalConfigStatus based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 2),
+          ("enable", 1))
+    )
+
+
+_AlaActiveLeaseSrvGlobalConfigStatus_Type.__name__ = "Integer32"
+_AlaActiveLeaseSrvGlobalConfigStatus_Object = MibScalar
+alaActiveLeaseSrvGlobalConfigStatus = _AlaActiveLeaseSrvGlobalConfigStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 80, 1, 1, 1),
+    _AlaActiveLeaseSrvGlobalConfigStatus_Type()
+)
+alaActiveLeaseSrvGlobalConfigStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaActiveLeaseSrvGlobalConfigStatus.setStatus("current")
+
+
+class _AlaActiveLeaseSrvGlobalRestart_Type(Integer32):
+    """Custom type alaActiveLeaseSrvGlobalRestart based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("inactive", 1),
+          ("restart", 2))
+    )
+
+
+_AlaActiveLeaseSrvGlobalRestart_Type.__name__ = "Integer32"
+_AlaActiveLeaseSrvGlobalRestart_Object = MibScalar
+alaActiveLeaseSrvGlobalRestart = _AlaActiveLeaseSrvGlobalRestart_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 80, 1, 1, 2),
+    _AlaActiveLeaseSrvGlobalRestart_Type()
+)
+alaActiveLeaseSrvGlobalRestart.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaActiveLeaseSrvGlobalRestart.setStatus("current")
+_AlcatelIND1ActiveLeaseSrvMIBConformance_ObjectIdentity = ObjectIdentity
+alcatelIND1ActiveLeaseSrvMIBConformance = _AlcatelIND1ActiveLeaseSrvMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 80, 1, 2)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1ActiveLeaseSrvMIBConformance.setStatus("current")
+_AlcatelIND1ActiveLeaseSrvMIBGroups_ObjectIdentity = ObjectIdentity
+alcatelIND1ActiveLeaseSrvMIBGroups = _AlcatelIND1ActiveLeaseSrvMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 80, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1ActiveLeaseSrvMIBGroups.setStatus("current")
+_AlcatelIND1ActiveLeaseSrvMIBCompliances_ObjectIdentity = ObjectIdentity
+alcatelIND1ActiveLeaseSrvMIBCompliances = _AlcatelIND1ActiveLeaseSrvMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 80, 1, 2, 2)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1ActiveLeaseSrvMIBCompliances.setStatus("current")
+
+# Managed Objects groups
+
+alaActiveLeaseSrvGlobalConfigGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 80, 1, 2, 1, 1)
+)
+alaActiveLeaseSrvGlobalConfigGroup.setObjects(
+      *(("ALCATEL-IND1-AL-SRV-MIB", "alaActiveLeaseSrvGlobalConfigStatus"),
+        ("ALCATEL-IND1-AL-SRV-MIB", "alaActiveLeaseSrvGlobalRestart"))
+)
+if mibBuilder.loadTexts:
+    alaActiveLeaseSrvGlobalConfigGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+alcatelIND1ActiveLeaseSrvMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 80, 1, 2, 2, 1)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1ActiveLeaseSrvMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ALCATEL-IND1-AL-SRV-MIB",
+    **{"alcatelIND1ActiveLeaseSrvMIB": alcatelIND1ActiveLeaseSrvMIB,
+       "alcatelIND1ActiveLeaseSrvMIBNotifications": alcatelIND1ActiveLeaseSrvMIBNotifications,
+       "alcatelIND1ActiveLeaseSrvMIBObjects": alcatelIND1ActiveLeaseSrvMIBObjects,
+       "alaActiveLeaseSrvGlobalConfigStatus": alaActiveLeaseSrvGlobalConfigStatus,
+       "alaActiveLeaseSrvGlobalRestart": alaActiveLeaseSrvGlobalRestart,
+       "alcatelIND1ActiveLeaseSrvMIBConformance": alcatelIND1ActiveLeaseSrvMIBConformance,
+       "alcatelIND1ActiveLeaseSrvMIBGroups": alcatelIND1ActiveLeaseSrvMIBGroups,
+       "alaActiveLeaseSrvGlobalConfigGroup": alaActiveLeaseSrvGlobalConfigGroup,
+       "alcatelIND1ActiveLeaseSrvMIBCompliances": alcatelIND1ActiveLeaseSrvMIBCompliances,
+       "alcatelIND1ActiveLeaseSrvMIBCompliance": alcatelIND1ActiveLeaseSrvMIBCompliance}
+)

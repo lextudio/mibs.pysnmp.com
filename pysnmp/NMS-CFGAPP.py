@@ -1,24 +1,208 @@
+# SNMP MIB module (NMS-CFGAPP) expressed in pysnmp data model.
 #
-# PySNMP MIB module NMS-CFGAPP (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/NMS-CFGAPP
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:11:45 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint")
-nmstemporary, = mibBuilder.importSymbols("NMS-SMI", "nmstemporary")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Integer32, MibIdentifier, Counter64, TimeTicks, NotificationType, Unsigned32, Gauge32, IpAddress, Bits, iso, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Integer32", "MibIdentifier", "Counter64", "TimeTicks", "NotificationType", "Unsigned32", "Gauge32", "IpAddress", "Bits", "iso", "ObjectIdentity")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-nmscfgapp = MibIdentifier((1, 3, 6, 1, 4, 1, 11606, 10, 3, 8))
-nmsCfgAddToBuf = MibScalar((1, 3, 6, 1, 4, 1, 11606, 10, 3, 8, 1), DisplayString()).setMaxAccess("writeonly")
-if mibBuilder.loadTexts: nmsCfgAddToBuf.setStatus('mandatory')
-nmsCfgAppAction = MibScalar((1, 3, 6, 1, 4, 1, 11606, 10, 3, 8, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("apply", 1)))).setMaxAccess("writeonly")
-if mibBuilder.loadTexts: nmsCfgAppAction.setStatus('mandatory')
-nmsCfgClearBuf = MibScalar((1, 3, 6, 1, 4, 1, 11606, 10, 3, 8, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("clear", 1)))).setMaxAccess("writeonly")
-if mibBuilder.loadTexts: nmsCfgClearBuf.setStatus('mandatory')
-nmsCfgAppResult = MibScalar((1, 3, 6, 1, 4, 1, 11606, 10, 3, 8, 4), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nmsCfgAppResult.setStatus('mandatory')
-mibBuilder.exportSymbols("NMS-CFGAPP", nmsCfgAppResult=nmsCfgAppResult, nmsCfgAppAction=nmsCfgAppAction, nmsCfgClearBuf=nmsCfgClearBuf, nmsCfgAddToBuf=nmsCfgAddToBuf, nmscfgapp=nmscfgapp)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/NMS-CFGAPP
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:27:38 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(nmstemporary,) = mibBuilder.importSymbols(
+    "NMS-SMI",
+    "nmstemporary")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Nmscfgapp_ObjectIdentity = ObjectIdentity
+nmscfgapp = _Nmscfgapp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11606, 10, 3, 8)
+)
+_NmsCfgAddToBuf_Type = DisplayString
+_NmsCfgAddToBuf_Object = MibScalar
+nmsCfgAddToBuf = _NmsCfgAddToBuf_Object(
+    (1, 3, 6, 1, 4, 1, 11606, 10, 3, 8, 1),
+    _NmsCfgAddToBuf_Type()
+)
+nmsCfgAddToBuf.setMaxAccess("write-only")
+if mibBuilder.loadTexts:
+    nmsCfgAddToBuf.setStatus("mandatory")
+
+
+class _NmsCfgAppAction_Type(Integer32):
+    """Custom type nmsCfgAppAction based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            1
+        )
+    )
+    namedValues = NamedValues(
+        ("apply", 1)
+    )
+
+
+_NmsCfgAppAction_Type.__name__ = "Integer32"
+_NmsCfgAppAction_Object = MibScalar
+nmsCfgAppAction = _NmsCfgAppAction_Object(
+    (1, 3, 6, 1, 4, 1, 11606, 10, 3, 8, 2),
+    _NmsCfgAppAction_Type()
+)
+nmsCfgAppAction.setMaxAccess("write-only")
+if mibBuilder.loadTexts:
+    nmsCfgAppAction.setStatus("mandatory")
+
+
+class _NmsCfgClearBuf_Type(Integer32):
+    """Custom type nmsCfgClearBuf based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            1
+        )
+    )
+    namedValues = NamedValues(
+        ("clear", 1)
+    )
+
+
+_NmsCfgClearBuf_Type.__name__ = "Integer32"
+_NmsCfgClearBuf_Object = MibScalar
+nmsCfgClearBuf = _NmsCfgClearBuf_Object(
+    (1, 3, 6, 1, 4, 1, 11606, 10, 3, 8, 3),
+    _NmsCfgClearBuf_Type()
+)
+nmsCfgClearBuf.setMaxAccess("write-only")
+if mibBuilder.loadTexts:
+    nmsCfgClearBuf.setStatus("mandatory")
+_NmsCfgAppResult_Type = DisplayString
+_NmsCfgAppResult_Object = MibScalar
+nmsCfgAppResult = _NmsCfgAppResult_Object(
+    (1, 3, 6, 1, 4, 1, 11606, 10, 3, 8, 4),
+    _NmsCfgAppResult_Type()
+)
+nmsCfgAppResult.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nmsCfgAppResult.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "NMS-CFGAPP",
+    **{"nmscfgapp": nmscfgapp,
+       "nmsCfgAddToBuf": nmsCfgAddToBuf,
+       "nmsCfgAppAction": nmsCfgAppAction,
+       "nmsCfgClearBuf": nmsCfgClearBuf,
+       "nmsCfgAppResult": nmsCfgAppResult}
+)

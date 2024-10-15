@@ -1,23 +1,173 @@
+# SNMP MIB module (ELTEX-MES-MNG-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ELTEX-MES-MNG-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/ELTEX-MES-MNG-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:46:09 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-eltMesMng, = mibBuilder.importSymbols("ELTEX-MES", "eltMesMng")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter64, iso, TimeTicks, MibIdentifier, Counter32, IpAddress, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Integer32, Unsigned32, NotificationType, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "iso", "TimeTicks", "MibIdentifier", "Counter32", "IpAddress", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Integer32", "Unsigned32", "NotificationType", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-elt_mes_mib_2 = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 1)).setLabel("elt-mes-mib-2")
-eltMesFtp = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 2))
-eltMesAAAStatMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 3))
-eltMesSnmpCommExtMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 4))
-eltMesCpuTasksUtilMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 9))
-eltMesIfExtensionMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 276))
-eltMesBridgeExtMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 401))
-eltMesSwitchRateLimiterMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 773))
-mibBuilder.exportSymbols("ELTEX-MES-MNG-MIB", eltMesSwitchRateLimiterMIB=eltMesSwitchRateLimiterMIB, eltMesCpuTasksUtilMIB=eltMesCpuTasksUtilMIB, eltMesBridgeExtMIB=eltMesBridgeExtMIB, eltMesSnmpCommExtMIB=eltMesSnmpCommExtMIB, eltMesIfExtensionMIB=eltMesIfExtensionMIB, elt_mes_mib_2=elt_mes_mib_2, eltMesFtp=eltMesFtp, eltMesAAAStatMIB=eltMesAAAStatMIB)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/ELTEX-MES-MNG-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:37:21 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(eltMesMng,) = mibBuilder.importSymbols(
+    "ELTEX-MES",
+    "eltMesMng")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Elt_mes_mib_2_ObjectIdentity = ObjectIdentity
+elt_mes_mib_2 = _Elt_mes_mib_2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 1)
+)
+_EltMesFtp_ObjectIdentity = ObjectIdentity
+eltMesFtp = _EltMesFtp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 2)
+)
+_EltMesAAAStatMIB_ObjectIdentity = ObjectIdentity
+eltMesAAAStatMIB = _EltMesAAAStatMIB_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 3)
+)
+_EltMesSnmpCommExtMIB_ObjectIdentity = ObjectIdentity
+eltMesSnmpCommExtMIB = _EltMesSnmpCommExtMIB_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 4)
+)
+_EltMesCpuTasksUtilMIB_ObjectIdentity = ObjectIdentity
+eltMesCpuTasksUtilMIB = _EltMesCpuTasksUtilMIB_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 9)
+)
+_EltMesIfExtensionMIB_ObjectIdentity = ObjectIdentity
+eltMesIfExtensionMIB = _EltMesIfExtensionMIB_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 276)
+)
+_EltMesBridgeExtMIB_ObjectIdentity = ObjectIdentity
+eltMesBridgeExtMIB = _EltMesBridgeExtMIB_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 401)
+)
+_EltMesSwitchRateLimiterMIB_ObjectIdentity = ObjectIdentity
+eltMesSwitchRateLimiterMIB = _EltMesSwitchRateLimiterMIB_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 773)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ELTEX-MES-MNG-MIB",
+    **{"elt-mes-mib-2": elt_mes_mib_2,
+       "eltMesFtp": eltMesFtp,
+       "eltMesAAAStatMIB": eltMesAAAStatMIB,
+       "eltMesSnmpCommExtMIB": eltMesSnmpCommExtMIB,
+       "eltMesCpuTasksUtilMIB": eltMesCpuTasksUtilMIB,
+       "eltMesIfExtensionMIB": eltMesIfExtensionMIB,
+       "eltMesBridgeExtMIB": eltMesBridgeExtMIB,
+       "eltMesSwitchRateLimiterMIB": eltMesSwitchRateLimiterMIB}
+)

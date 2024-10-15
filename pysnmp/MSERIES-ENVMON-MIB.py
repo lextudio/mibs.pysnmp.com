@@ -1,40 +1,243 @@
+# SNMP MIB module (MSERIES-ENVMON-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module MSERIES-ENVMON-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/MSERIES-ENVMON-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:05:42 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint")
-mseries, = mibBuilder.importSymbols("MSERIES-MIB", "mseries")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-Gauge32, Counter64, iso, Counter32, IpAddress, ModuleIdentity, ObjectIdentity, Bits, Integer32, TimeTicks, Unsigned32, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Counter64", "iso", "Counter32", "IpAddress", "ModuleIdentity", "ObjectIdentity", "Bits", "Integer32", "TimeTicks", "Unsigned32", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-smartEnvMon = ModuleIdentity((1, 3, 6, 1, 4, 1, 30826, 1, 4))
-smartEnvMon.setRevisions(('2014-02-15 10:34',))
-if mibBuilder.loadTexts: smartEnvMon.setLastUpdated('201402151034Z')
-if mibBuilder.loadTexts: smartEnvMon.setOrganization('SmartOptics')
-smartEnvMonObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 30826, 1, 4, 1))
-smartEnvMonMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 30826, 1, 4, 2))
-smartEnvMonGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 30826, 1, 4, 2, 1))
-smartEnvMonCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 30826, 1, 4, 2, 2))
-smartEnvMonTemperatureTable = MibTable((1, 3, 6, 1, 4, 1, 30826, 1, 4, 1, 1), )
-if mibBuilder.loadTexts: smartEnvMonTemperatureTable.setStatus('current')
-smartEnvMonTemperatureEntry = MibTableRow((1, 3, 6, 1, 4, 1, 30826, 1, 4, 1, 1, 1), ).setIndexNames((0, "MSERIES-ENVMON-MIB", "smartEnvMonTemperatureIndex"))
-if mibBuilder.loadTexts: smartEnvMonTemperatureEntry.setStatus('current')
-smartEnvMonTemperatureIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 30826, 1, 4, 1, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: smartEnvMonTemperatureIndex.setStatus('current')
-smartEnvMonTemperatureDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 30826, 1, 4, 1, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: smartEnvMonTemperatureDescr.setStatus('current')
-smartEnvMonTemperatureValue = MibTableColumn((1, 3, 6, 1, 4, 1, 30826, 1, 4, 1, 1, 1, 3), Integer32()).setUnits('degrees Celsius').setMaxAccess("readonly")
-if mibBuilder.loadTexts: smartEnvMonTemperatureValue.setStatus('current')
-smartEnvMonTemperatureGroupV1 = ObjectGroup((1, 3, 6, 1, 4, 1, 30826, 1, 4, 2, 1, 1)).setObjects(("MSERIES-ENVMON-MIB", "smartEnvMonTemperatureIndex"), ("MSERIES-ENVMON-MIB", "smartEnvMonTemperatureDescr"), ("MSERIES-ENVMON-MIB", "smartEnvMonTemperatureValue"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    smartEnvMonTemperatureGroupV1 = smartEnvMonTemperatureGroupV1.setStatus('current')
-smartEnvMonBasicComplV1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 30826, 1, 4, 2, 2, 1)).setObjects(("MSERIES-ENVMON-MIB", "smartEnvMonTemperatureGroupV1"))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/MSERIES-ENVMON-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:23:55 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    smartEnvMonBasicComplV1 = smartEnvMonBasicComplV1.setStatus('current')
-mibBuilder.exportSymbols("MSERIES-ENVMON-MIB", smartEnvMonTemperatureEntry=smartEnvMonTemperatureEntry, smartEnvMonTemperatureGroupV1=smartEnvMonTemperatureGroupV1, smartEnvMon=smartEnvMon, smartEnvMonObjects=smartEnvMonObjects, smartEnvMonGroups=smartEnvMonGroups, smartEnvMonBasicComplV1=smartEnvMonBasicComplV1, smartEnvMonMIBConformance=smartEnvMonMIBConformance, PYSNMP_MODULE_ID=smartEnvMon, smartEnvMonTemperatureIndex=smartEnvMonTemperatureIndex, smartEnvMonTemperatureValue=smartEnvMonTemperatureValue, smartEnvMonTemperatureDescr=smartEnvMonTemperatureDescr, smartEnvMonTemperatureTable=smartEnvMonTemperatureTable, smartEnvMonCompliances=smartEnvMonCompliances)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(mseries,) = mibBuilder.importSymbols(
+    "MSERIES-MIB",
+    "mseries")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+smartEnvMon = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 30826, 1, 4)
+)
+smartEnvMon.setRevisions(
+        ("2014-02-15 10:34",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_SmartEnvMonObjects_ObjectIdentity = ObjectIdentity
+smartEnvMonObjects = _SmartEnvMonObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 30826, 1, 4, 1)
+)
+_SmartEnvMonTemperatureTable_Object = MibTable
+smartEnvMonTemperatureTable = _SmartEnvMonTemperatureTable_Object(
+    (1, 3, 6, 1, 4, 1, 30826, 1, 4, 1, 1)
+)
+if mibBuilder.loadTexts:
+    smartEnvMonTemperatureTable.setStatus("current")
+_SmartEnvMonTemperatureEntry_Object = MibTableRow
+smartEnvMonTemperatureEntry = _SmartEnvMonTemperatureEntry_Object(
+    (1, 3, 6, 1, 4, 1, 30826, 1, 4, 1, 1, 1)
+)
+smartEnvMonTemperatureEntry.setIndexNames(
+    (0, "MSERIES-ENVMON-MIB", "smartEnvMonTemperatureIndex"),
+)
+if mibBuilder.loadTexts:
+    smartEnvMonTemperatureEntry.setStatus("current")
+
+
+class _SmartEnvMonTemperatureIndex_Type(Unsigned32):
+    """Custom type smartEnvMonTemperatureIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_SmartEnvMonTemperatureIndex_Type.__name__ = "Unsigned32"
+_SmartEnvMonTemperatureIndex_Object = MibTableColumn
+smartEnvMonTemperatureIndex = _SmartEnvMonTemperatureIndex_Object(
+    (1, 3, 6, 1, 4, 1, 30826, 1, 4, 1, 1, 1, 1),
+    _SmartEnvMonTemperatureIndex_Type()
+)
+smartEnvMonTemperatureIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    smartEnvMonTemperatureIndex.setStatus("current")
+_SmartEnvMonTemperatureDescr_Type = DisplayString
+_SmartEnvMonTemperatureDescr_Object = MibTableColumn
+smartEnvMonTemperatureDescr = _SmartEnvMonTemperatureDescr_Object(
+    (1, 3, 6, 1, 4, 1, 30826, 1, 4, 1, 1, 1, 2),
+    _SmartEnvMonTemperatureDescr_Type()
+)
+smartEnvMonTemperatureDescr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    smartEnvMonTemperatureDescr.setStatus("current")
+_SmartEnvMonTemperatureValue_Type = Integer32
+_SmartEnvMonTemperatureValue_Object = MibTableColumn
+smartEnvMonTemperatureValue = _SmartEnvMonTemperatureValue_Object(
+    (1, 3, 6, 1, 4, 1, 30826, 1, 4, 1, 1, 1, 3),
+    _SmartEnvMonTemperatureValue_Type()
+)
+smartEnvMonTemperatureValue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    smartEnvMonTemperatureValue.setStatus("current")
+if mibBuilder.loadTexts:
+    smartEnvMonTemperatureValue.setUnits("degrees Celsius")
+_SmartEnvMonMIBConformance_ObjectIdentity = ObjectIdentity
+smartEnvMonMIBConformance = _SmartEnvMonMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 30826, 1, 4, 2)
+)
+_SmartEnvMonGroups_ObjectIdentity = ObjectIdentity
+smartEnvMonGroups = _SmartEnvMonGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 30826, 1, 4, 2, 1)
+)
+_SmartEnvMonCompliances_ObjectIdentity = ObjectIdentity
+smartEnvMonCompliances = _SmartEnvMonCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 30826, 1, 4, 2, 2)
+)
+
+# Managed Objects groups
+
+smartEnvMonTemperatureGroupV1 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 30826, 1, 4, 2, 1, 1)
+)
+smartEnvMonTemperatureGroupV1.setObjects(
+      *(("MSERIES-ENVMON-MIB", "smartEnvMonTemperatureIndex"),
+        ("MSERIES-ENVMON-MIB", "smartEnvMonTemperatureDescr"),
+        ("MSERIES-ENVMON-MIB", "smartEnvMonTemperatureValue"))
+)
+if mibBuilder.loadTexts:
+    smartEnvMonTemperatureGroupV1.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+smartEnvMonBasicComplV1 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 30826, 1, 4, 2, 2, 1)
+)
+if mibBuilder.loadTexts:
+    smartEnvMonBasicComplV1.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "MSERIES-ENVMON-MIB",
+    **{"smartEnvMon": smartEnvMon,
+       "smartEnvMonObjects": smartEnvMonObjects,
+       "smartEnvMonTemperatureTable": smartEnvMonTemperatureTable,
+       "smartEnvMonTemperatureEntry": smartEnvMonTemperatureEntry,
+       "smartEnvMonTemperatureIndex": smartEnvMonTemperatureIndex,
+       "smartEnvMonTemperatureDescr": smartEnvMonTemperatureDescr,
+       "smartEnvMonTemperatureValue": smartEnvMonTemperatureValue,
+       "smartEnvMonMIBConformance": smartEnvMonMIBConformance,
+       "smartEnvMonGroups": smartEnvMonGroups,
+       "smartEnvMonTemperatureGroupV1": smartEnvMonTemperatureGroupV1,
+       "smartEnvMonCompliances": smartEnvMonCompliances,
+       "smartEnvMonBasicComplV1": smartEnvMonBasicComplV1}
+)

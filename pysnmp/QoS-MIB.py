@@ -1,33 +1,140 @@
+# SNMP MIB module (QOS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module QoS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/QOS-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:35:33 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint")
-dot1dBasePort, = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dBasePort")
-dlink_common_mgmt, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlink-common-mgmt")
-PortList, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "PortList")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter32, TimeTicks, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, ObjectIdentity, Counter64, IpAddress, Gauge32, Integer32, MibIdentifier, ModuleIdentity, NotificationType, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "TimeTicks", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "ObjectIdentity", "Counter64", "IpAddress", "Gauge32", "Integer32", "MibIdentifier", "ModuleIdentity", "NotificationType", "Unsigned32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-swQoSMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 12, 61))
-if mibBuilder.loadTexts: swQoSMIB.setLastUpdated('0904090000Z')
-if mibBuilder.loadTexts: swQoSMIB.setOrganization('D-Link Corp.')
-swQoSCtrl = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 61, 1))
-swQoSInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 61, 2))
-swQoSMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 61, 3))
-swCoSBandwidthControlTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 61, 3, 9), )
-if mibBuilder.loadTexts: swCoSBandwidthControlTable.setStatus('current')
-swCoSBandwidthControlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 61, 3, 9, 1), ).setIndexNames((0, "QoS-MIB", "swCoSBandwidthPort"), (0, "QoS-MIB", "swCoSBandwidthCoSID"))
-if mibBuilder.loadTexts: swCoSBandwidthControlEntry.setStatus('current')
-swCoSBandwidthPort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 61, 3, 9, 1, 1), Integer32())
-if mibBuilder.loadTexts: swCoSBandwidthPort.setStatus('current')
-swCoSBandwidthCoSID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 61, 3, 9, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7)))
-if mibBuilder.loadTexts: swCoSBandwidthCoSID.setStatus('current')
-swCoSBandwidthMaxRate = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 61, 3, 9, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(64, 1024000), ))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swCoSBandwidthMaxRate.setStatus('current')
-mibBuilder.exportSymbols("QoS-MIB", swCoSBandwidthControlTable=swCoSBandwidthControlTable, swQoSCtrl=swQoSCtrl, swCoSBandwidthMaxRate=swCoSBandwidthMaxRate, swQoSMgmt=swQoSMgmt, swCoSBandwidthPort=swCoSBandwidthPort, swCoSBandwidthControlEntry=swCoSBandwidthControlEntry, PYSNMP_MODULE_ID=swQoSMIB, swQoSMIB=swQoSMIB, swQoSInfo=swQoSInfo, swCoSBandwidthCoSID=swCoSBandwidthCoSID)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/QOS-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:40:55 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(switch,) = mibBuilder.importSymbols(
+    "QUANTA-SWITCH-MIB",
+    "switch")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+qos = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 7244, 2, 3)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "QOS-MIB",
+    **{"qos": qos}
+)

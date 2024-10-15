@@ -1,17 +1,17 @@
-"""SNMP MIB module (XEROX-HOST-RESOURCES-EXT-MIB) expressed in pysnmp data model.
+# SNMP MIB module (XEROX-HOST-RESOURCES-EXT-MIB) expressed in pysnmp data model.
+#
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/XEROX-HOST-RESOURCES-EXT-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:18:22 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-This Python module is designed to be imported and executed by the
-pysnmp library.
-
-See https://www.pysnmp.com/pysnmp for further information.
-
-Notes
------
-ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/XEROX-HOST-RESOURCES-EXT-MIB
-Produced by pysmi-1.3.3 at Sun Mar 10 06:00:31 2024
-On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm
-Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
-"""
 if 'mibBuilder' not in globals():
     import sys
 
@@ -45,143 +45,143 @@ if 'mibBuilder' not in globals():
 
 # Import SMI symbols from the MIBs this MIB depends on
 
-(hrSWRunIndex,
- hrStorageIndex,
- hrSWInstalledIndex,
+(ProductID,
  hrDeviceIndex,
  hrDeviceStatus,
- ProductID) = mibBuilder.importSymbols(
+ hrSWInstalledIndex,
+ hrSWRunIndex,
+ hrStorageIndex) = mibBuilder.importSymbols(
     "HOST-RESOURCES-MIB",
-    "hrSWRunIndex",
-    "hrStorageIndex",
-    "hrSWInstalledIndex",
+    "ProductID",
     "hrDeviceIndex",
     "hrDeviceStatus",
-    "ProductID")
+    "hrSWInstalledIndex",
+    "hrSWRunIndex",
+    "hrStorageIndex")
 
 (PresentOnOff,) = mibBuilder.importSymbols(
     "Printer-MIB",
     "PresentOnOff")
 
 (ModuleCompliance,
- ObjectGroup,
- NotificationGroup) = mibBuilder.importSymbols(
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
     "SNMPv2-CONF",
     "ModuleCompliance",
-    "ObjectGroup",
-    "NotificationGroup")
+    "NotificationGroup",
+    "ObjectGroup")
 
-(Unsigned32,
- MibIdentifier,
+(Bits,
  Counter32,
- NotificationType,
  Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
  MibScalar,
  MibTable,
  MibTableRow,
  MibTableColumn,
- ObjectIdentity,
- Integer32,
- ModuleIdentity,
- iso,
- Gauge32,
- IpAddress,
  TimeTicks,
- Bits) = mibBuilder.importSymbols(
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
     "SNMPv2-SMI",
-    "Unsigned32",
-    "MibIdentifier",
+    "Bits",
     "Counter32",
-    "NotificationType",
     "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
     "MibScalar",
     "MibTable",
     "MibTableRow",
     "MibTableColumn",
-    "ObjectIdentity",
-    "Integer32",
-    "ModuleIdentity",
-    "iso",
-    "Gauge32",
-    "IpAddress",
     "TimeTicks",
-    "Bits")
+    "Unsigned32",
+    "iso")
 
-(RowStatus,
- TextualConvention,
+(AutonomousType,
  DateAndTime,
- AutonomousType,
- TruthValue,
- DisplayString) = mibBuilder.importSymbols(
+ DisplayString,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
     "SNMPv2-TC",
+    "AutonomousType",
+    "DateAndTime",
+    "DisplayString",
     "RowStatus",
     "TextualConvention",
-    "DateAndTime",
-    "AutonomousType",
-    "TruthValue",
-    "DisplayString")
+    "TruthValue")
 
 (xeroxCommonMIB,) = mibBuilder.importSymbols(
     "XEROX-COMMON-MIB",
     "xeroxCommonMIB")
 
-(XcmFixedLocaleDisplayString,
+(Cardinal32,
  Ordinal32,
- XcmGenNotifyTrainingFilter,
+ XcmFixedLocaleDisplayString,
  XcmGenNotifySeverityFilter,
- zeroDotZero,
- Cardinal32,
- XcmGenSNMPv2ErrorStatus) = mibBuilder.importSymbols(
+ XcmGenNotifyTrainingFilter,
+ XcmGenSNMPv2ErrorStatus,
+ zeroDotZero) = mibBuilder.importSymbols(
     "XEROX-GENERAL-TC",
-    "XcmFixedLocaleDisplayString",
-    "Ordinal32",
-    "XcmGenNotifyTrainingFilter",
-    "XcmGenNotifySeverityFilter",
-    "zeroDotZero",
     "Cardinal32",
-    "XcmGenSNMPv2ErrorStatus")
+    "Ordinal32",
+    "XcmFixedLocaleDisplayString",
+    "XcmGenNotifySeverityFilter",
+    "XcmGenNotifyTrainingFilter",
+    "XcmGenSNMPv2ErrorStatus",
+    "zeroDotZero")
 
-(XcmHrStorageRealization,
+(XcmHrConsoleDefaultService,
  XcmHrDetailTableEnumTC,
- XcmHrDevPowerTimeUnit,
- XcmHrDevInfoXStatus,
- XcmHrDevMgmtCommandData,
- XcmHrGroupSupport,
- XcmHrConsoleDefaultService,
- XcmHrDevDetailUnitClass,
- XcmHrSWRunXStatus,
- XcmHrDevInfoStatus,
- XcmHrDevInfoConditions,
- XcmHrDevMgmtCommandRequest,
- XcmHrDevTrafficUnit,
- XcmHrStorageDetailType,
- XcmHrDevInfoXConditions,
- XcmHrSuppliesClassTC,
- XcmHrDevInfoRealization,
  XcmHrDevCalendarDayOfWeek,
  XcmHrDevCalendarTimeOfDay,
- XcmHrDevDetailType) = mibBuilder.importSymbols(
+ XcmHrDevDetailType,
+ XcmHrDevDetailUnitClass,
+ XcmHrDevInfoConditions,
+ XcmHrDevInfoRealization,
+ XcmHrDevInfoStatus,
+ XcmHrDevInfoXConditions,
+ XcmHrDevInfoXStatus,
+ XcmHrDevMgmtCommandData,
+ XcmHrDevMgmtCommandRequest,
+ XcmHrDevPowerTimeUnit,
+ XcmHrDevTrafficUnit,
+ XcmHrGroupSupport,
+ XcmHrSWRunXStatus,
+ XcmHrStorageDetailType,
+ XcmHrStorageRealization,
+ XcmHrSuppliesClassTC) = mibBuilder.importSymbols(
     "XEROX-HOST-RESOURCES-EXT-TC",
-    "XcmHrStorageRealization",
-    "XcmHrDetailTableEnumTC",
-    "XcmHrDevPowerTimeUnit",
-    "XcmHrDevInfoXStatus",
-    "XcmHrDevMgmtCommandData",
-    "XcmHrGroupSupport",
     "XcmHrConsoleDefaultService",
-    "XcmHrDevDetailUnitClass",
-    "XcmHrSWRunXStatus",
-    "XcmHrDevInfoStatus",
-    "XcmHrDevInfoConditions",
-    "XcmHrDevMgmtCommandRequest",
-    "XcmHrDevTrafficUnit",
-    "XcmHrStorageDetailType",
-    "XcmHrDevInfoXConditions",
-    "XcmHrSuppliesClassTC",
-    "XcmHrDevInfoRealization",
+    "XcmHrDetailTableEnumTC",
     "XcmHrDevCalendarDayOfWeek",
     "XcmHrDevCalendarTimeOfDay",
-    "XcmHrDevDetailType")
+    "XcmHrDevDetailType",
+    "XcmHrDevDetailUnitClass",
+    "XcmHrDevInfoConditions",
+    "XcmHrDevInfoRealization",
+    "XcmHrDevInfoStatus",
+    "XcmHrDevInfoXConditions",
+    "XcmHrDevInfoXStatus",
+    "XcmHrDevMgmtCommandData",
+    "XcmHrDevMgmtCommandRequest",
+    "XcmHrDevPowerTimeUnit",
+    "XcmHrDevTrafficUnit",
+    "XcmHrGroupSupport",
+    "XcmHrSWRunXStatus",
+    "XcmHrStorageDetailType",
+    "XcmHrStorageRealization",
+    "XcmHrSuppliesClassTC")
 
 
 # MODULE-IDENTITY
@@ -315,7 +315,13 @@ xcmHrDevInfoXStatus = _XcmHrDevInfoXStatus_Object(
 xcmHrDevInfoXStatus.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmHrDevInfoXStatus.setStatus("current")
-_XcmHrDevInfoConditions_Type = XcmHrDevInfoConditions
+
+
+class _XcmHrDevInfoConditions_Type(XcmHrDevInfoConditions):
+    """Custom type xcmHrDevInfoConditions based on XcmHrDevInfoConditions"""
+    defaultValue = 0
+
+
 _XcmHrDevInfoConditions_Object = MibTableColumn
 xcmHrDevInfoConditions = _XcmHrDevInfoConditions_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 3, 2, 1, 6),
@@ -324,7 +330,13 @@ xcmHrDevInfoConditions = _XcmHrDevInfoConditions_Object(
 xcmHrDevInfoConditions.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmHrDevInfoConditions.setStatus("current")
-_XcmHrDevInfoXConditions_Type = XcmHrDevInfoXConditions
+
+
+class _XcmHrDevInfoXConditions_Type(XcmHrDevInfoXConditions):
+    """Custom type xcmHrDevInfoXConditions based on XcmHrDevInfoXConditions"""
+    defaultValue = 0
+
+
 _XcmHrDevInfoXConditions_Object = MibTableColumn
 xcmHrDevInfoXConditions = _XcmHrDevInfoXConditions_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 3, 2, 1, 7),
@@ -363,7 +375,13 @@ xcmHrDevInfoResetDate = _XcmHrDevInfoResetDate_Object(
 xcmHrDevInfoResetDate.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmHrDevInfoResetDate.setStatus("current")
-_XcmHrDevInfoNextDeviceIndex_Type = Cardinal32
+
+
+class _XcmHrDevInfoNextDeviceIndex_Type(Cardinal32):
+    """Custom type xcmHrDevInfoNextDeviceIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmHrDevInfoNextDeviceIndex_Object = MibTableColumn
 xcmHrDevInfoNextDeviceIndex = _XcmHrDevInfoNextDeviceIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 3, 2, 1, 10),
@@ -372,7 +390,13 @@ xcmHrDevInfoNextDeviceIndex = _XcmHrDevInfoNextDeviceIndex_Object(
 xcmHrDevInfoNextDeviceIndex.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrDevInfoNextDeviceIndex.setStatus("current")
-_XcmHrDevInfoPreviousDeviceIndex_Type = Cardinal32
+
+
+class _XcmHrDevInfoPreviousDeviceIndex_Type(Cardinal32):
+    """Custom type xcmHrDevInfoPreviousDeviceIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmHrDevInfoPreviousDeviceIndex_Object = MibTableColumn
 xcmHrDevInfoPreviousDeviceIndex = _XcmHrDevInfoPreviousDeviceIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 3, 2, 1, 11),
@@ -381,7 +405,13 @@ xcmHrDevInfoPreviousDeviceIndex = _XcmHrDevInfoPreviousDeviceIndex_Object(
 xcmHrDevInfoPreviousDeviceIndex.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrDevInfoPreviousDeviceIndex.setStatus("current")
-_XcmHrDevInfoPhysicalDeviceIndex_Type = Cardinal32
+
+
+class _XcmHrDevInfoPhysicalDeviceIndex_Type(Cardinal32):
+    """Custom type xcmHrDevInfoPhysicalDeviceIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmHrDevInfoPhysicalDeviceIndex_Object = MibTableColumn
 xcmHrDevInfoPhysicalDeviceIndex = _XcmHrDevInfoPhysicalDeviceIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 3, 2, 1, 12),
@@ -394,6 +424,8 @@ if mibBuilder.loadTexts:
 
 class _XcmHrDevInfoPriority_Type(Integer32):
     """Custom type xcmHrDevInfoPriority based on Integer32"""
+    defaultValue = 0
+
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
         ValueRangeConstraint(0, 100),
@@ -584,7 +616,13 @@ xcmHrDevHelpProblemMessage = _XcmHrDevHelpProblemMessage_Object(
 xcmHrDevHelpProblemMessage.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrDevHelpProblemMessage.setStatus("current")
-_XcmHrDevHelpCommsAddressIndex_Type = Cardinal32
+
+
+class _XcmHrDevHelpCommsAddressIndex_Type(Cardinal32):
+    """Custom type xcmHrDevHelpCommsAddressIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmHrDevHelpCommsAddressIndex_Object = MibTableColumn
 xcmHrDevHelpCommsAddressIndex = _XcmHrDevHelpCommsAddressIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 4, 2, 1, 4),
@@ -920,7 +958,13 @@ xcmHrDevPowerTimeUnit = _XcmHrDevPowerTimeUnit_Object(
 xcmHrDevPowerTimeUnit.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrDevPowerTimeUnit.setStatus("current")
-_XcmHrDevPowerWarmUpDelay_Type = Integer32
+
+
+class _XcmHrDevPowerWarmUpDelay_Type(Integer32):
+    """Custom type xcmHrDevPowerWarmUpDelay based on Integer32"""
+    defaultValue = 0
+
+
 _XcmHrDevPowerWarmUpDelay_Object = MibTableColumn
 xcmHrDevPowerWarmUpDelay = _XcmHrDevPowerWarmUpDelay_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 6, 2, 1, 6),
@@ -929,7 +973,13 @@ xcmHrDevPowerWarmUpDelay = _XcmHrDevPowerWarmUpDelay_Object(
 xcmHrDevPowerWarmUpDelay.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrDevPowerWarmUpDelay.setStatus("current")
-_XcmHrDevPowerWarmUpDuration_Type = Integer32
+
+
+class _XcmHrDevPowerWarmUpDuration_Type(Integer32):
+    """Custom type xcmHrDevPowerWarmUpDuration based on Integer32"""
+    defaultValue = 0
+
+
 _XcmHrDevPowerWarmUpDuration_Object = MibTableColumn
 xcmHrDevPowerWarmUpDuration = _XcmHrDevPowerWarmUpDuration_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 6, 2, 1, 7),
@@ -938,7 +988,13 @@ xcmHrDevPowerWarmUpDuration = _XcmHrDevPowerWarmUpDuration_Object(
 xcmHrDevPowerWarmUpDuration.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrDevPowerWarmUpDuration.setStatus("current")
-_XcmHrDevPowerCoolDownDelay_Type = Integer32
+
+
+class _XcmHrDevPowerCoolDownDelay_Type(Integer32):
+    """Custom type xcmHrDevPowerCoolDownDelay based on Integer32"""
+    defaultValue = 0
+
+
 _XcmHrDevPowerCoolDownDelay_Object = MibTableColumn
 xcmHrDevPowerCoolDownDelay = _XcmHrDevPowerCoolDownDelay_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 6, 2, 1, 8),
@@ -947,7 +1003,13 @@ xcmHrDevPowerCoolDownDelay = _XcmHrDevPowerCoolDownDelay_Object(
 xcmHrDevPowerCoolDownDelay.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrDevPowerCoolDownDelay.setStatus("current")
-_XcmHrDevPowerCoolDownDuration_Type = Integer32
+
+
+class _XcmHrDevPowerCoolDownDuration_Type(Integer32):
+    """Custom type xcmHrDevPowerCoolDownDuration based on Integer32"""
+    defaultValue = 0
+
+
 _XcmHrDevPowerCoolDownDuration_Object = MibTableColumn
 xcmHrDevPowerCoolDownDuration = _XcmHrDevPowerCoolDownDuration_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 6, 2, 1, 9),
@@ -956,7 +1018,13 @@ xcmHrDevPowerCoolDownDuration = _XcmHrDevPowerCoolDownDuration_Object(
 xcmHrDevPowerCoolDownDuration.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrDevPowerCoolDownDuration.setStatus("current")
-_XcmHrDevPowerEnergySaveDelay_Type = Integer32
+
+
+class _XcmHrDevPowerEnergySaveDelay_Type(Integer32):
+    """Custom type xcmHrDevPowerEnergySaveDelay based on Integer32"""
+    defaultValue = 0
+
+
 _XcmHrDevPowerEnergySaveDelay_Object = MibTableColumn
 xcmHrDevPowerEnergySaveDelay = _XcmHrDevPowerEnergySaveDelay_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 6, 2, 1, 10),
@@ -965,7 +1033,13 @@ xcmHrDevPowerEnergySaveDelay = _XcmHrDevPowerEnergySaveDelay_Object(
 xcmHrDevPowerEnergySaveDelay.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrDevPowerEnergySaveDelay.setStatus("current")
-_XcmHrDevPowerEnergySaveDuration_Type = Integer32
+
+
+class _XcmHrDevPowerEnergySaveDuration_Type(Integer32):
+    """Custom type xcmHrDevPowerEnergySaveDuration based on Integer32"""
+    defaultValue = 0
+
+
 _XcmHrDevPowerEnergySaveDuration_Object = MibTableColumn
 xcmHrDevPowerEnergySaveDuration = _XcmHrDevPowerEnergySaveDuration_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 6, 2, 1, 11),
@@ -988,7 +1062,13 @@ xcmHrDevPowerWakeUpSupport = _XcmHrDevPowerWakeUpSupport_Object(
 xcmHrDevPowerWakeUpSupport.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrDevPowerWakeUpSupport.setStatus("current")
-_XcmHrDevPowerWakeUpDelay_Type = Integer32
+
+
+class _XcmHrDevPowerWakeUpDelay_Type(Integer32):
+    """Custom type xcmHrDevPowerWakeUpDelay based on Integer32"""
+    defaultValue = 0
+
+
 _XcmHrDevPowerWakeUpDelay_Object = MibTableColumn
 xcmHrDevPowerWakeUpDelay = _XcmHrDevPowerWakeUpDelay_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 6, 2, 1, 13),
@@ -997,7 +1077,13 @@ xcmHrDevPowerWakeUpDelay = _XcmHrDevPowerWakeUpDelay_Object(
 xcmHrDevPowerWakeUpDelay.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrDevPowerWakeUpDelay.setStatus("current")
-_XcmHrDevPowerWakeUpDuration_Type = Integer32
+
+
+class _XcmHrDevPowerWakeUpDuration_Type(Integer32):
+    """Custom type xcmHrDevPowerWakeUpDuration based on Integer32"""
+    defaultValue = 0
+
+
 _XcmHrDevPowerWakeUpDuration_Object = MibTableColumn
 xcmHrDevPowerWakeUpDuration = _XcmHrDevPowerWakeUpDuration_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 6, 2, 1, 14),
@@ -1006,7 +1092,13 @@ xcmHrDevPowerWakeUpDuration = _XcmHrDevPowerWakeUpDuration_Object(
 xcmHrDevPowerWakeUpDuration.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrDevPowerWakeUpDuration.setStatus("current")
-_XcmHrDevPowerShutdownDelay_Type = Integer32
+
+
+class _XcmHrDevPowerShutdownDelay_Type(Integer32):
+    """Custom type xcmHrDevPowerShutdownDelay based on Integer32"""
+    defaultValue = 0
+
+
 _XcmHrDevPowerShutdownDelay_Object = MibTableColumn
 xcmHrDevPowerShutdownDelay = _XcmHrDevPowerShutdownDelay_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 6, 2, 1, 15),
@@ -1015,7 +1107,13 @@ xcmHrDevPowerShutdownDelay = _XcmHrDevPowerShutdownDelay_Object(
 xcmHrDevPowerShutdownDelay.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrDevPowerShutdownDelay.setStatus("current")
-_XcmHrDevPowerShutdownDuration_Type = Integer32
+
+
+class _XcmHrDevPowerShutdownDuration_Type(Integer32):
+    """Custom type xcmHrDevPowerShutdownDuration based on Integer32"""
+    defaultValue = 0
+
+
 _XcmHrDevPowerShutdownDuration_Object = MibTableColumn
 xcmHrDevPowerShutdownDuration = _XcmHrDevPowerShutdownDuration_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 6, 2, 1, 16),
@@ -1024,7 +1122,13 @@ xcmHrDevPowerShutdownDuration = _XcmHrDevPowerShutdownDuration_Object(
 xcmHrDevPowerShutdownDuration.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrDevPowerShutdownDuration.setStatus("current")
-_XcmHrDevPowerStartupDelay_Type = Integer32
+
+
+class _XcmHrDevPowerStartupDelay_Type(Integer32):
+    """Custom type xcmHrDevPowerStartupDelay based on Integer32"""
+    defaultValue = 0
+
+
 _XcmHrDevPowerStartupDelay_Object = MibTableColumn
 xcmHrDevPowerStartupDelay = _XcmHrDevPowerStartupDelay_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 6, 2, 1, 17),
@@ -1033,7 +1137,13 @@ xcmHrDevPowerStartupDelay = _XcmHrDevPowerStartupDelay_Object(
 xcmHrDevPowerStartupDelay.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrDevPowerStartupDelay.setStatus("current")
-_XcmHrDevPowerStartupDuration_Type = Integer32
+
+
+class _XcmHrDevPowerStartupDuration_Type(Integer32):
+    """Custom type xcmHrDevPowerStartupDuration based on Integer32"""
+    defaultValue = 0
+
+
 _XcmHrDevPowerStartupDuration_Object = MibTableColumn
 xcmHrDevPowerStartupDuration = _XcmHrDevPowerStartupDuration_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 6, 2, 1, 18),
@@ -1144,7 +1254,13 @@ xcmHrDevTrafficOutputCount = _XcmHrDevTrafficOutputCount_Object(
 xcmHrDevTrafficOutputCount.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmHrDevTrafficOutputCount.setStatus("current")
-_XcmHrDevTrafficInputMaxSize_Type = Cardinal32
+
+
+class _XcmHrDevTrafficInputMaxSize_Type(Cardinal32):
+    """Custom type xcmHrDevTrafficInputMaxSize based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmHrDevTrafficInputMaxSize_Object = MibTableColumn
 xcmHrDevTrafficInputMaxSize = _XcmHrDevTrafficInputMaxSize_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 7, 2, 1, 8),
@@ -1153,7 +1269,13 @@ xcmHrDevTrafficInputMaxSize = _XcmHrDevTrafficInputMaxSize_Object(
 xcmHrDevTrafficInputMaxSize.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrDevTrafficInputMaxSize.setStatus("current")
-_XcmHrDevTrafficOutputMaxSize_Type = Cardinal32
+
+
+class _XcmHrDevTrafficOutputMaxSize_Type(Cardinal32):
+    """Custom type xcmHrDevTrafficOutputMaxSize based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmHrDevTrafficOutputMaxSize_Object = MibTableColumn
 xcmHrDevTrafficOutputMaxSize = _XcmHrDevTrafficOutputMaxSize_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 7, 2, 1, 9),
@@ -1162,7 +1284,13 @@ xcmHrDevTrafficOutputMaxSize = _XcmHrDevTrafficOutputMaxSize_Object(
 xcmHrDevTrafficOutputMaxSize.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrDevTrafficOutputMaxSize.setStatus("current")
-_XcmHrDevTrafficInputTimeout_Type = Integer32
+
+
+class _XcmHrDevTrafficInputTimeout_Type(Integer32):
+    """Custom type xcmHrDevTrafficInputTimeout based on Integer32"""
+    defaultValue = 0
+
+
 _XcmHrDevTrafficInputTimeout_Object = MibTableColumn
 xcmHrDevTrafficInputTimeout = _XcmHrDevTrafficInputTimeout_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 7, 2, 1, 10),
@@ -1173,7 +1301,13 @@ if mibBuilder.loadTexts:
     xcmHrDevTrafficInputTimeout.setStatus("current")
 if mibBuilder.loadTexts:
     xcmHrDevTrafficInputTimeout.setUnits("seconds")
-_XcmHrDevTrafficOutputTimeout_Type = Integer32
+
+
+class _XcmHrDevTrafficOutputTimeout_Type(Integer32):
+    """Custom type xcmHrDevTrafficOutputTimeout based on Integer32"""
+    defaultValue = 0
+
+
 _XcmHrDevTrafficOutputTimeout_Object = MibTableColumn
 xcmHrDevTrafficOutputTimeout = _XcmHrDevTrafficOutputTimeout_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 7, 2, 1, 11),
@@ -1221,7 +1355,13 @@ xcmHrSystemFaultRowStatus = _XcmHrSystemFaultRowStatus_Object(
 xcmHrSystemFaultRowStatus.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrSystemFaultRowStatus.setStatus("current")
-_XcmHrSystemFaultCode_Type = Integer32
+
+
+class _XcmHrSystemFaultCode_Type(Integer32):
+    """Custom type xcmHrSystemFaultCode based on Integer32"""
+    defaultValue = 0
+
+
 _XcmHrSystemFaultCode_Object = MibTableColumn
 xcmHrSystemFaultCode = _XcmHrSystemFaultCode_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 8, 2, 1, 3),
@@ -1255,7 +1395,7 @@ if mibBuilder.loadTexts:
 
 class _XcmHrSystemFaultReferenceOID_Type(ObjectIdentifier):
     """Custom type xcmHrSystemFaultReferenceOID based on ObjectIdentifier"""
-    defaultValue = "(0, 0)"
+    defaultValue = (0, 0)
 
 
 _XcmHrSystemFaultReferenceOID_Object = MibTableColumn
@@ -1266,7 +1406,13 @@ xcmHrSystemFaultReferenceOID = _XcmHrSystemFaultReferenceOID_Object(
 xcmHrSystemFaultReferenceOID.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmHrSystemFaultReferenceOID.setStatus("current")
-_XcmHrSystemFaultHrDeviceIndex_Type = Cardinal32
+
+
+class _XcmHrSystemFaultHrDeviceIndex_Type(Cardinal32):
+    """Custom type xcmHrSystemFaultHrDeviceIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmHrSystemFaultHrDeviceIndex_Object = MibTableColumn
 xcmHrSystemFaultHrDeviceIndex = _XcmHrSystemFaultHrDeviceIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 8, 2, 1, 6),
@@ -1331,7 +1477,7 @@ if mibBuilder.loadTexts:
 
 class _XcmHrGeneralVersionID_Type(ProductID):
     """Custom type xcmHrGeneralVersionID based on ProductID"""
-    defaultValue = "(0, 0)"
+    defaultValue = (0, 0)
 
 
 _XcmHrGeneralVersionID_Object = MibTableColumn
@@ -1372,7 +1518,13 @@ xcmHrGeneralGroupSupport = _XcmHrGeneralGroupSupport_Object(
 xcmHrGeneralGroupSupport.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmHrGeneralGroupSupport.setStatus("current")
-_XcmHrGeneralStorageLast_Type = Cardinal32
+
+
+class _XcmHrGeneralStorageLast_Type(Cardinal32):
+    """Custom type xcmHrGeneralStorageLast based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmHrGeneralStorageLast_Object = MibTableColumn
 xcmHrGeneralStorageLast = _XcmHrGeneralStorageLast_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 9, 2, 1, 6),
@@ -1381,7 +1533,13 @@ xcmHrGeneralStorageLast = _XcmHrGeneralStorageLast_Object(
 xcmHrGeneralStorageLast.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmHrGeneralStorageLast.setStatus("current")
-_XcmHrGeneralDeviceLast_Type = Cardinal32
+
+
+class _XcmHrGeneralDeviceLast_Type(Cardinal32):
+    """Custom type xcmHrGeneralDeviceLast based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmHrGeneralDeviceLast_Object = MibTableColumn
 xcmHrGeneralDeviceLast = _XcmHrGeneralDeviceLast_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 9, 2, 1, 7),
@@ -1390,7 +1548,13 @@ xcmHrGeneralDeviceLast = _XcmHrGeneralDeviceLast_Object(
 xcmHrGeneralDeviceLast.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmHrGeneralDeviceLast.setStatus("current")
-_XcmHrGeneralFSLast_Type = Cardinal32
+
+
+class _XcmHrGeneralFSLast_Type(Cardinal32):
+    """Custom type xcmHrGeneralFSLast based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmHrGeneralFSLast_Object = MibTableColumn
 xcmHrGeneralFSLast = _XcmHrGeneralFSLast_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 9, 2, 1, 8),
@@ -1399,7 +1563,13 @@ xcmHrGeneralFSLast = _XcmHrGeneralFSLast_Object(
 xcmHrGeneralFSLast.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmHrGeneralFSLast.setStatus("current")
-_XcmHrGeneralSWRunLast_Type = Cardinal32
+
+
+class _XcmHrGeneralSWRunLast_Type(Cardinal32):
+    """Custom type xcmHrGeneralSWRunLast based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmHrGeneralSWRunLast_Object = MibTableColumn
 xcmHrGeneralSWRunLast = _XcmHrGeneralSWRunLast_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 9, 2, 1, 9),
@@ -1408,7 +1578,13 @@ xcmHrGeneralSWRunLast = _XcmHrGeneralSWRunLast_Object(
 xcmHrGeneralSWRunLast.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmHrGeneralSWRunLast.setStatus("current")
-_XcmHrGeneralSWInstalledLast_Type = Cardinal32
+
+
+class _XcmHrGeneralSWInstalledLast_Type(Cardinal32):
+    """Custom type xcmHrGeneralSWInstalledLast based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmHrGeneralSWInstalledLast_Object = MibTableColumn
 xcmHrGeneralSWInstalledLast = _XcmHrGeneralSWInstalledLast_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 9, 2, 1, 10),
@@ -1417,7 +1593,13 @@ xcmHrGeneralSWInstalledLast = _XcmHrGeneralSWInstalledLast_Object(
 xcmHrGeneralSWInstalledLast.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmHrGeneralSWInstalledLast.setStatus("current")
-_XcmHrGeneralSystemFaultLast_Type = Cardinal32
+
+
+class _XcmHrGeneralSystemFaultLast_Type(Cardinal32):
+    """Custom type xcmHrGeneralSystemFaultLast based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmHrGeneralSystemFaultLast_Object = MibTableColumn
 xcmHrGeneralSystemFaultLast = _XcmHrGeneralSystemFaultLast_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 9, 2, 1, 11),
@@ -1426,7 +1608,13 @@ xcmHrGeneralSystemFaultLast = _XcmHrGeneralSystemFaultLast_Object(
 xcmHrGeneralSystemFaultLast.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmHrGeneralSystemFaultLast.setStatus("current")
-_XcmHrGeneralCreateSupport_Type = XcmHrGroupSupport
+
+
+class _XcmHrGeneralCreateSupport_Type(XcmHrGroupSupport):
+    """Custom type xcmHrGeneralCreateSupport based on XcmHrGroupSupport"""
+    defaultValue = 0
+
+
 _XcmHrGeneralCreateSupport_Object = MibTableColumn
 xcmHrGeneralCreateSupport = _XcmHrGeneralCreateSupport_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 9, 2, 1, 12),
@@ -1435,7 +1623,13 @@ xcmHrGeneralCreateSupport = _XcmHrGeneralCreateSupport_Object(
 xcmHrGeneralCreateSupport.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmHrGeneralCreateSupport.setStatus("current")
-_XcmHrGeneralUpdateSupport_Type = XcmHrGroupSupport
+
+
+class _XcmHrGeneralUpdateSupport_Type(XcmHrGroupSupport):
+    """Custom type xcmHrGeneralUpdateSupport based on XcmHrGroupSupport"""
+    defaultValue = 0
+
+
 _XcmHrGeneralUpdateSupport_Object = MibTableColumn
 xcmHrGeneralUpdateSupport = _XcmHrGeneralUpdateSupport_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 9, 2, 1, 13),
@@ -1609,7 +1803,13 @@ xcmHrSWRunRowCreateDate = _XcmHrSWRunRowCreateDate_Object(
 xcmHrSWRunRowCreateDate.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmHrSWRunRowCreateDate.setStatus("current")
-_XcmHrSWRunPhysicalDeviceIndex_Type = Cardinal32
+
+
+class _XcmHrSWRunPhysicalDeviceIndex_Type(Cardinal32):
+    """Custom type xcmHrSWRunPhysicalDeviceIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmHrSWRunPhysicalDeviceIndex_Object = MibTableColumn
 xcmHrSWRunPhysicalDeviceIndex = _XcmHrSWRunPhysicalDeviceIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 11, 2, 1, 5),
@@ -1618,7 +1818,13 @@ xcmHrSWRunPhysicalDeviceIndex = _XcmHrSWRunPhysicalDeviceIndex_Object(
 xcmHrSWRunPhysicalDeviceIndex.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrSWRunPhysicalDeviceIndex.setStatus("current")
-_XcmHrSWRunLogicalDeviceIndex_Type = Cardinal32
+
+
+class _XcmHrSWRunLogicalDeviceIndex_Type(Cardinal32):
+    """Custom type xcmHrSWRunLogicalDeviceIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmHrSWRunLogicalDeviceIndex_Object = MibTableColumn
 xcmHrSWRunLogicalDeviceIndex = _XcmHrSWRunLogicalDeviceIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 11, 2, 1, 6),
@@ -1627,7 +1833,13 @@ xcmHrSWRunLogicalDeviceIndex = _XcmHrSWRunLogicalDeviceIndex_Object(
 xcmHrSWRunLogicalDeviceIndex.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrSWRunLogicalDeviceIndex.setStatus("current")
-_XcmHrSWRunNextIndex_Type = Cardinal32
+
+
+class _XcmHrSWRunNextIndex_Type(Cardinal32):
+    """Custom type xcmHrSWRunNextIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmHrSWRunNextIndex_Object = MibTableColumn
 xcmHrSWRunNextIndex = _XcmHrSWRunNextIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 11, 2, 1, 7),
@@ -1636,7 +1848,13 @@ xcmHrSWRunNextIndex = _XcmHrSWRunNextIndex_Object(
 xcmHrSWRunNextIndex.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrSWRunNextIndex.setStatus("current")
-_XcmHrSWRunPreviousIndex_Type = Cardinal32
+
+
+class _XcmHrSWRunPreviousIndex_Type(Cardinal32):
+    """Custom type xcmHrSWRunPreviousIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmHrSWRunPreviousIndex_Object = MibTableColumn
 xcmHrSWRunPreviousIndex = _XcmHrSWRunPreviousIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 11, 2, 1, 8),
@@ -1718,7 +1936,13 @@ xcmHrSWInstalledRowCreateDate = _XcmHrSWInstalledRowCreateDate_Object(
 xcmHrSWInstalledRowCreateDate.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmHrSWInstalledRowCreateDate.setStatus("current")
-_XcmHrSWInstalledPhysicalIndex_Type = Cardinal32
+
+
+class _XcmHrSWInstalledPhysicalIndex_Type(Cardinal32):
+    """Custom type xcmHrSWInstalledPhysicalIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmHrSWInstalledPhysicalIndex_Object = MibTableColumn
 xcmHrSWInstalledPhysicalIndex = _XcmHrSWInstalledPhysicalIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 12, 2, 1, 5),
@@ -1727,7 +1951,13 @@ xcmHrSWInstalledPhysicalIndex = _XcmHrSWInstalledPhysicalIndex_Object(
 xcmHrSWInstalledPhysicalIndex.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrSWInstalledPhysicalIndex.setStatus("current")
-_XcmHrSWInstalledLogicalIndex_Type = Cardinal32
+
+
+class _XcmHrSWInstalledLogicalIndex_Type(Cardinal32):
+    """Custom type xcmHrSWInstalledLogicalIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmHrSWInstalledLogicalIndex_Object = MibTableColumn
 xcmHrSWInstalledLogicalIndex = _XcmHrSWInstalledLogicalIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 12, 2, 1, 6),
@@ -1736,7 +1966,13 @@ xcmHrSWInstalledLogicalIndex = _XcmHrSWInstalledLogicalIndex_Object(
 xcmHrSWInstalledLogicalIndex.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrSWInstalledLogicalIndex.setStatus("current")
-_XcmHrSWInstalledNextIndex_Type = Cardinal32
+
+
+class _XcmHrSWInstalledNextIndex_Type(Cardinal32):
+    """Custom type xcmHrSWInstalledNextIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmHrSWInstalledNextIndex_Object = MibTableColumn
 xcmHrSWInstalledNextIndex = _XcmHrSWInstalledNextIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 12, 2, 1, 7),
@@ -1745,7 +1981,13 @@ xcmHrSWInstalledNextIndex = _XcmHrSWInstalledNextIndex_Object(
 xcmHrSWInstalledNextIndex.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrSWInstalledNextIndex.setStatus("current")
-_XcmHrSWInstalledPreviousIndex_Type = Cardinal32
+
+
+class _XcmHrSWInstalledPreviousIndex_Type(Cardinal32):
+    """Custom type xcmHrSWInstalledPreviousIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmHrSWInstalledPreviousIndex_Object = MibTableColumn
 xcmHrSWInstalledPreviousIndex = _XcmHrSWInstalledPreviousIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 12, 2, 1, 8),
@@ -1826,7 +2068,13 @@ xcmHrDevDetailUnitClass = _XcmHrDevDetailUnitClass_Object(
 xcmHrDevDetailUnitClass.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrDevDetailUnitClass.setStatus("current")
-_XcmHrDevDetailUnit_Type = Cardinal32
+
+
+class _XcmHrDevDetailUnit_Type(Cardinal32):
+    """Custom type xcmHrDevDetailUnit based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmHrDevDetailUnit_Object = MibTableColumn
 xcmHrDevDetailUnit = _XcmHrDevDetailUnit_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 13, 2, 1, 5),
@@ -1835,7 +2083,13 @@ xcmHrDevDetailUnit = _XcmHrDevDetailUnit_Object(
 xcmHrDevDetailUnit.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrDevDetailUnit.setStatus("current")
-_XcmHrDevDetailValueInteger_Type = Integer32
+
+
+class _XcmHrDevDetailValueInteger_Type(Integer32):
+    """Custom type xcmHrDevDetailValueInteger based on Integer32"""
+    defaultValue = 0
+
+
 _XcmHrDevDetailValueInteger_Object = MibTableColumn
 xcmHrDevDetailValueInteger = _XcmHrDevDetailValueInteger_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 13, 2, 1, 6),
@@ -1848,7 +2102,7 @@ if mibBuilder.loadTexts:
 
 class _XcmHrDevDetailValueOID_Type(ObjectIdentifier):
     """Custom type xcmHrDevDetailValueOID based on ObjectIdentifier"""
-    defaultValue = "(0, 0)"
+    defaultValue = (0, 0)
 
 
 _XcmHrDevDetailValueOID_Object = MibTableColumn
@@ -1955,7 +2209,13 @@ xcmHrStorageStatus = _XcmHrStorageStatus_Object(
 xcmHrStorageStatus.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmHrStorageStatus.setStatus("current")
-_XcmHrStorageProductDeviceIndex_Type = Cardinal32
+
+
+class _XcmHrStorageProductDeviceIndex_Type(Cardinal32):
+    """Custom type xcmHrStorageProductDeviceIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmHrStorageProductDeviceIndex_Object = MibTableColumn
 xcmHrStorageProductDeviceIndex = _XcmHrStorageProductDeviceIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 14, 2, 1, 4),
@@ -1964,7 +2224,13 @@ xcmHrStorageProductDeviceIndex = _XcmHrStorageProductDeviceIndex_Object(
 xcmHrStorageProductDeviceIndex.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrStorageProductDeviceIndex.setStatus("current")
-_XcmHrStoragePlatformDeviceIndex_Type = Cardinal32
+
+
+class _XcmHrStoragePlatformDeviceIndex_Type(Cardinal32):
+    """Custom type xcmHrStoragePlatformDeviceIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmHrStoragePlatformDeviceIndex_Object = MibTableColumn
 xcmHrStoragePlatformDeviceIndex = _XcmHrStoragePlatformDeviceIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 14, 2, 1, 5),
@@ -1973,7 +2239,13 @@ xcmHrStoragePlatformDeviceIndex = _XcmHrStoragePlatformDeviceIndex_Object(
 xcmHrStoragePlatformDeviceIndex.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrStoragePlatformDeviceIndex.setStatus("current")
-_XcmHrStoragePagingDeviceIndex_Type = Cardinal32
+
+
+class _XcmHrStoragePagingDeviceIndex_Type(Cardinal32):
+    """Custom type xcmHrStoragePagingDeviceIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmHrStoragePagingDeviceIndex_Object = MibTableColumn
 xcmHrStoragePagingDeviceIndex = _XcmHrStoragePagingDeviceIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 14, 2, 1, 6),
@@ -1982,7 +2254,13 @@ xcmHrStoragePagingDeviceIndex = _XcmHrStoragePagingDeviceIndex_Object(
 xcmHrStoragePagingDeviceIndex.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrStoragePagingDeviceIndex.setStatus("current")
-_XcmHrStorageMatchingDeviceIndex_Type = Cardinal32
+
+
+class _XcmHrStorageMatchingDeviceIndex_Type(Cardinal32):
+    """Custom type xcmHrStorageMatchingDeviceIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmHrStorageMatchingDeviceIndex_Object = MibTableColumn
 xcmHrStorageMatchingDeviceIndex = _XcmHrStorageMatchingDeviceIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 14, 2, 1, 7),
@@ -1991,7 +2269,13 @@ xcmHrStorageMatchingDeviceIndex = _XcmHrStorageMatchingDeviceIndex_Object(
 xcmHrStorageMatchingDeviceIndex.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrStorageMatchingDeviceIndex.setStatus("current")
-_XcmHrStorageSWRunIndex_Type = Cardinal32
+
+
+class _XcmHrStorageSWRunIndex_Type(Cardinal32):
+    """Custom type xcmHrStorageSWRunIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmHrStorageSWRunIndex_Object = MibTableColumn
 xcmHrStorageSWRunIndex = _XcmHrStorageSWRunIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 14, 2, 1, 8),
@@ -2000,7 +2284,13 @@ xcmHrStorageSWRunIndex = _XcmHrStorageSWRunIndex_Object(
 xcmHrStorageSWRunIndex.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrStorageSWRunIndex.setStatus("current")
-_XcmHrStorageSWInstalledIndex_Type = Cardinal32
+
+
+class _XcmHrStorageSWInstalledIndex_Type(Cardinal32):
+    """Custom type xcmHrStorageSWInstalledIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmHrStorageSWInstalledIndex_Object = MibTableColumn
 xcmHrStorageSWInstalledIndex = _XcmHrStorageSWInstalledIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 14, 2, 1, 9),
@@ -2009,7 +2299,13 @@ xcmHrStorageSWInstalledIndex = _XcmHrStorageSWInstalledIndex_Object(
 xcmHrStorageSWInstalledIndex.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrStorageSWInstalledIndex.setStatus("current")
-_XcmHrStorageNextIndex_Type = Cardinal32
+
+
+class _XcmHrStorageNextIndex_Type(Cardinal32):
+    """Custom type xcmHrStorageNextIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmHrStorageNextIndex_Object = MibTableColumn
 xcmHrStorageNextIndex = _XcmHrStorageNextIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 14, 2, 1, 10),
@@ -2018,7 +2314,13 @@ xcmHrStorageNextIndex = _XcmHrStorageNextIndex_Object(
 xcmHrStorageNextIndex.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrStorageNextIndex.setStatus("current")
-_XcmHrStoragePreviousIndex_Type = Cardinal32
+
+
+class _XcmHrStoragePreviousIndex_Type(Cardinal32):
+    """Custom type xcmHrStoragePreviousIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmHrStoragePreviousIndex_Object = MibTableColumn
 xcmHrStoragePreviousIndex = _XcmHrStoragePreviousIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 14, 2, 1, 11),
@@ -2027,7 +2329,13 @@ xcmHrStoragePreviousIndex = _XcmHrStoragePreviousIndex_Object(
 xcmHrStoragePreviousIndex.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrStoragePreviousIndex.setStatus("current")
-_XcmHrStoragePhysicalIndex_Type = Cardinal32
+
+
+class _XcmHrStoragePhysicalIndex_Type(Cardinal32):
+    """Custom type xcmHrStoragePhysicalIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmHrStoragePhysicalIndex_Object = MibTableColumn
 xcmHrStoragePhysicalIndex = _XcmHrStoragePhysicalIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 14, 2, 1, 12),
@@ -2098,7 +2406,13 @@ xcmHrStorageDetailUnitClass = _XcmHrStorageDetailUnitClass_Object(
 xcmHrStorageDetailUnitClass.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrStorageDetailUnitClass.setStatus("current")
-_XcmHrStorageDetailUnit_Type = Cardinal32
+
+
+class _XcmHrStorageDetailUnit_Type(Cardinal32):
+    """Custom type xcmHrStorageDetailUnit based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmHrStorageDetailUnit_Object = MibTableColumn
 xcmHrStorageDetailUnit = _XcmHrStorageDetailUnit_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 15, 2, 1, 5),
@@ -2107,7 +2421,13 @@ xcmHrStorageDetailUnit = _XcmHrStorageDetailUnit_Object(
 xcmHrStorageDetailUnit.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrStorageDetailUnit.setStatus("current")
-_XcmHrStorageDetailValueInteger_Type = Integer32
+
+
+class _XcmHrStorageDetailValueInteger_Type(Integer32):
+    """Custom type xcmHrStorageDetailValueInteger based on Integer32"""
+    defaultValue = 0
+
+
 _XcmHrStorageDetailValueInteger_Object = MibTableColumn
 xcmHrStorageDetailValueInteger = _XcmHrStorageDetailValueInteger_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 15, 2, 1, 6),
@@ -2120,7 +2440,7 @@ if mibBuilder.loadTexts:
 
 class _XcmHrStorageDetailValueOID_Type(ObjectIdentifier):
     """Custom type xcmHrStorageDetailValueOID based on ObjectIdentifier"""
-    defaultValue = "(0, 0)"
+    defaultValue = (0, 0)
 
 
 _XcmHrStorageDetailValueOID_Object = MibTableColumn
@@ -2308,7 +2628,13 @@ xcmHrDevAlertRowStatus = _XcmHrDevAlertRowStatus_Object(
 xcmHrDevAlertRowStatus.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrDevAlertRowStatus.setStatus("current")
-_XcmHrDevAlertSeverityLevel_Type = XcmGenNotifySeverityFilter
+
+
+class _XcmHrDevAlertSeverityLevel_Type(XcmGenNotifySeverityFilter):
+    """Custom type xcmHrDevAlertSeverityLevel based on XcmGenNotifySeverityFilter"""
+    defaultValue = 0
+
+
 _XcmHrDevAlertSeverityLevel_Object = MibTableColumn
 xcmHrDevAlertSeverityLevel = _XcmHrDevAlertSeverityLevel_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 17, 2, 1, 3),
@@ -2317,7 +2643,13 @@ xcmHrDevAlertSeverityLevel = _XcmHrDevAlertSeverityLevel_Object(
 xcmHrDevAlertSeverityLevel.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmHrDevAlertSeverityLevel.setStatus("current")
-_XcmHrDevAlertTrainingLevel_Type = XcmGenNotifyTrainingFilter
+
+
+class _XcmHrDevAlertTrainingLevel_Type(XcmGenNotifyTrainingFilter):
+    """Custom type xcmHrDevAlertTrainingLevel based on XcmGenNotifyTrainingFilter"""
+    defaultValue = 0
+
+
 _XcmHrDevAlertTrainingLevel_Object = MibTableColumn
 xcmHrDevAlertTrainingLevel = _XcmHrDevAlertTrainingLevel_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 17, 2, 1, 4),
@@ -2326,7 +2658,13 @@ xcmHrDevAlertTrainingLevel = _XcmHrDevAlertTrainingLevel_Object(
 xcmHrDevAlertTrainingLevel.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmHrDevAlertTrainingLevel.setStatus("current")
-_XcmHrDevAlertCodeInteger_Type = Integer32
+
+
+class _XcmHrDevAlertCodeInteger_Type(Integer32):
+    """Custom type xcmHrDevAlertCodeInteger based on Integer32"""
+    defaultValue = 0
+
+
 _XcmHrDevAlertCodeInteger_Object = MibTableColumn
 xcmHrDevAlertCodeInteger = _XcmHrDevAlertCodeInteger_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 17, 2, 1, 5),
@@ -2381,7 +2719,7 @@ if mibBuilder.loadTexts:
 
 class _XcmHrDevAlertReferenceOID_Type(ObjectIdentifier):
     """Custom type xcmHrDevAlertReferenceOID based on ObjectIdentifier"""
-    defaultValue = "(0, 0)"
+    defaultValue = (0, 0)
 
 
 _XcmHrDevAlertReferenceOID_Object = MibTableColumn
@@ -2479,7 +2817,13 @@ xcmHrDevAlertReferenceLocation = _XcmHrDevAlertReferenceLocation_Object(
 xcmHrDevAlertReferenceLocation.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrDevAlertReferenceLocation.setStatus("current")
-_XcmHrDevAlertDevAlertIndex_Type = Integer32
+
+
+class _XcmHrDevAlertDevAlertIndex_Type(Integer32):
+    """Custom type xcmHrDevAlertDevAlertIndex based on Integer32"""
+    defaultValue = 0
+
+
 _XcmHrDevAlertDevAlertIndex_Object = MibTableColumn
 xcmHrDevAlertDevAlertIndex = _XcmHrDevAlertDevAlertIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 17, 2, 1, 14),
@@ -2488,7 +2832,13 @@ xcmHrDevAlertDevAlertIndex = _XcmHrDevAlertDevAlertIndex_Object(
 xcmHrDevAlertDevAlertIndex.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmHrDevAlertDevAlertIndex.setStatus("current")
-_XcmHrDevAlertPriority_Type = Integer32
+
+
+class _XcmHrDevAlertPriority_Type(Integer32):
+    """Custom type xcmHrDevAlertPriority based on Integer32"""
+    defaultValue = 0
+
+
 _XcmHrDevAlertPriority_Object = MibTableColumn
 xcmHrDevAlertPriority = _XcmHrDevAlertPriority_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 17, 2, 1, 15),
@@ -2586,7 +2936,13 @@ xcmHrConsoleScreenDescription = _XcmHrConsoleScreenDescription_Object(
 xcmHrConsoleScreenDescription.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmHrConsoleScreenDescription.setStatus("current")
-_XcmHrConsoleScreenParentIndex_Type = Cardinal32
+
+
+class _XcmHrConsoleScreenParentIndex_Type(Cardinal32):
+    """Custom type xcmHrConsoleScreenParentIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmHrConsoleScreenParentIndex_Object = MibTableColumn
 xcmHrConsoleScreenParentIndex = _XcmHrConsoleScreenParentIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 18, 2, 1, 4),
@@ -2599,6 +2955,8 @@ if mibBuilder.loadTexts:
 
 class _XcmHrConsoleScreenPriority_Type(Integer32):
     """Custom type xcmHrConsoleScreenPriority based on Integer32"""
+    defaultValue = 0
+
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
         ValueRangeConstraint(0, 100),
@@ -2614,7 +2972,13 @@ xcmHrConsoleScreenPriority = _XcmHrConsoleScreenPriority_Object(
 xcmHrConsoleScreenPriority.setMaxAccess("read-write")
 if mibBuilder.loadTexts:
     xcmHrConsoleScreenPriority.setStatus("current")
-_XcmHrConsoleScreenTabCount_Type = Cardinal32
+
+
+class _XcmHrConsoleScreenTabCount_Type(Cardinal32):
+    """Custom type xcmHrConsoleScreenTabCount based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmHrConsoleScreenTabCount_Object = MibTableColumn
 xcmHrConsoleScreenTabCount = _XcmHrConsoleScreenTabCount_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 18, 2, 1, 6),
@@ -2695,7 +3059,13 @@ xcmHrConsoleTabDescription = _XcmHrConsoleTabDescription_Object(
 xcmHrConsoleTabDescription.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmHrConsoleTabDescription.setStatus("current")
-_XcmHrConsoleTabScreenIndex_Type = Cardinal32
+
+
+class _XcmHrConsoleTabScreenIndex_Type(Cardinal32):
+    """Custom type xcmHrConsoleTabScreenIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmHrConsoleTabScreenIndex_Object = MibTableColumn
 xcmHrConsoleTabScreenIndex = _XcmHrConsoleTabScreenIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 19, 2, 1, 4),
@@ -2708,6 +3078,8 @@ if mibBuilder.loadTexts:
 
 class _XcmHrConsoleTabPriority_Type(Integer32):
     """Custom type xcmHrConsoleTabPriority based on Integer32"""
+    defaultValue = 0
+
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
         ValueRangeConstraint(0, 100),
@@ -2874,7 +3246,13 @@ xcmHrDetailUnitClass = _XcmHrDetailUnitClass_Object(
 xcmHrDetailUnitClass.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmHrDetailUnitClass.setStatus("current")
-_XcmHrDetailUnit_Type = Cardinal32
+
+
+class _XcmHrDetailUnit_Type(Cardinal32):
+    """Custom type xcmHrDetailUnit based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmHrDetailUnit_Object = MibTableColumn
 xcmHrDetailUnit = _XcmHrDetailUnit_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 53, 20, 2, 1, 6),

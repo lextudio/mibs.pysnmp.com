@@ -1,22 +1,173 @@
+# SNMP MIB module (SPINS-DS1-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module SPINS-DS1-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/SPINS-DS1-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 21:02:32 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Unsigned32, iso, TimeTicks, NotificationType, enterprises, Integer32, IpAddress, ModuleIdentity, snmpModules, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectName, Counter64, Gauge32, ObjectIdentity, MibIdentifier, Counter32, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "iso", "TimeTicks", "NotificationType", "enterprises", "Integer32", "IpAddress", "ModuleIdentity", "snmpModules", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectName", "Counter64", "Gauge32", "ObjectIdentity", "MibIdentifier", "Counter32", "Bits")
-TruthValue, TimeStamp, DisplayString, RowStatus, TextualConvention, TestAndIncr = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TimeStamp", "DisplayString", "RowStatus", "TextualConvention", "TestAndIncr")
-lucent = MibIdentifier((1, 3, 6, 1, 4, 1, 1751))
-products = MibIdentifier((1, 3, 6, 1, 4, 1, 1751, 1))
-softSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 1751, 1, 1198))
-spinsDeviceServer = MibIdentifier((1, 3, 6, 1, 4, 1, 1751, 1, 1198, 8))
-spinsDS1 = ModuleIdentity((1, 3, 6, 1, 4, 1, 1751, 1, 1198, 8, 1))
-if mibBuilder.loadTexts: spinsDS1.setLastUpdated('240701')
-if mibBuilder.loadTexts: spinsDS1.setOrganization('Lucent Technologies')
-spinsSystem = MibIdentifier((1, 3, 6, 1, 4, 1, 1751, 1, 1198, 8, 1, 1))
-mibBuilder.exportSymbols("SPINS-DS1-MIB", spinsSystem=spinsSystem, softSwitch=softSwitch, spinsDS1=spinsDS1, lucent=lucent, spinsDeviceServer=spinsDeviceServer, products=products, PYSNMP_MODULE_ID=spinsDS1)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/SPINS-DS1-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:57:22 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ ObjectName,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso,
+ snmpModules) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "ObjectName",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso",
+    "snmpModules")
+
+(DisplayString,
+ RowStatus,
+ TextualConvention,
+ TestAndIncr,
+ TimeStamp,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "RowStatus",
+    "TextualConvention",
+    "TestAndIncr",
+    "TimeStamp",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+spinsDS1 = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198, 8, 1)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Lucent_ObjectIdentity = ObjectIdentity
+lucent = _Lucent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751)
+)
+_Products_ObjectIdentity = ObjectIdentity
+products = _Products_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 1)
+)
+_SoftSwitch_ObjectIdentity = ObjectIdentity
+softSwitch = _SoftSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198)
+)
+_SpinsDeviceServer_ObjectIdentity = ObjectIdentity
+spinsDeviceServer = _SpinsDeviceServer_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198, 8)
+)
+_SpinsSystem_ObjectIdentity = ObjectIdentity
+spinsSystem = _SpinsSystem_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198, 8, 1, 1)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "SPINS-DS1-MIB",
+    **{"lucent": lucent,
+       "products": products,
+       "softSwitch": softSwitch,
+       "spinsDeviceServer": spinsDeviceServer,
+       "spinsDS1": spinsDS1,
+       "spinsSystem": spinsSystem}
+)

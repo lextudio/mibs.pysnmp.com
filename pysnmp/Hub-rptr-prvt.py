@@ -1,17 +1,17 @@
-"""SNMP MIB module (Hub-rptr-prvt) expressed in pysnmp data model.
+# SNMP MIB module (Hub-rptr-prvt) expressed in pysnmp data model.
+#
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/Hub-rptr-prvt
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:06:55 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-This Python module is designed to be imported and executed by the
-pysnmp library.
-
-See https://www.pysnmp.com/pysnmp for further information.
-
-Notes
------
-ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/Hub-rptr-prvt
-Produced by pysmi-1.3.3 at Sun Mar 10 05:13:07 2024
-On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm
-Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
-"""
 if 'mibBuilder' not in globals():
     import sys
 
@@ -46,64 +46,64 @@ if 'mibBuilder' not in globals():
 # Import SMI symbols from the MIBs this MIB depends on
 
 (rptrPortAdminStatus,
- rptrPortIndex,
- rptrPortGroupIndex) = mibBuilder.importSymbols(
+ rptrPortGroupIndex,
+ rptrPortIndex) = mibBuilder.importSymbols(
     "SNMP-REPEATER-MIB",
     "rptrPortAdminStatus",
-    "rptrPortIndex",
-    "rptrPortGroupIndex")
+    "rptrPortGroupIndex",
+    "rptrPortIndex")
 
-(NotificationGroup,
- ModuleCompliance) = mibBuilder.importSymbols(
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
     "SNMPv2-CONF",
-    "NotificationGroup",
-    "ModuleCompliance")
+    "ModuleCompliance",
+    "NotificationGroup")
 
-(Gauge32,
- Integer32,
- MibIdentifier,
- iso,
- Unsigned32,
- IpAddress,
+(Bits,
  Counter32,
- Bits,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
  MibScalar,
  MibTable,
  MibTableRow,
  MibTableColumn,
  NotificationType,
  TimeTicks,
- NotificationType,
- ModuleIdentity,
- ObjectIdentity,
- Counter64,
- internet) = mibBuilder.importSymbols(
+ Unsigned32,
+ internet,
+ iso) = mibBuilder.importSymbols(
     "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
     "Gauge32",
     "Integer32",
-    "MibIdentifier",
-    "iso",
-    "Unsigned32",
     "IpAddress",
-    "Counter32",
-    "Bits",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
     "MibScalar",
     "MibTable",
     "MibTableRow",
     "MibTableColumn",
     "NotificationType",
     "TimeTicks",
-    "NotificationType",
-    "ModuleIdentity",
-    "ObjectIdentity",
-    "Counter64",
-    "internet")
+    "Unsigned32",
+    "internet",
+    "iso")
 
-(TextualConvention,
- DisplayString) = mibBuilder.importSymbols(
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
     "SNMPv2-TC",
-    "TextualConvention",
-    "DisplayString")
+    "DisplayString",
+    "TextualConvention")
 
 
 # MODULE-IDENTITY

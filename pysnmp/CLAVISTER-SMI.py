@@ -1,27 +1,184 @@
+# SNMP MIB module (CLAVISTER-SMI) expressed in pysnmp data model.
 #
-# PySNMP MIB module CLAVISTER-SMI (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/CLAVISTER-SMI
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:09:04 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ObjectIdentity, Gauge32, MibIdentifier, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, enterprises, iso, Bits, NotificationType, TimeTicks, IpAddress, Unsigned32, Integer32, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Gauge32", "MibIdentifier", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "enterprises", "iso", "Bits", "NotificationType", "TimeTicks", "IpAddress", "Unsigned32", "Integer32", "ModuleIdentity")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-clavisterSmiMibModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 5089, 0))
-clavisterSmiMibModule.setRevisions(('2006-05-19 09:00',))
-if mibBuilder.loadTexts: clavisterSmiMibModule.setLastUpdated('200605190900Z')
-if mibBuilder.loadTexts: clavisterSmiMibModule.setOrganization('Clavister AB')
-clavister = MibIdentifier((1, 3, 6, 1, 4, 1, 5089))
-clavisterOS = MibIdentifier((1, 3, 6, 1, 4, 1, 5089, 1))
-clavisterOSTrap = MibIdentifier((1, 3, 6, 1, 4, 1, 5089, 1, 0))
-clavisterOSTrapInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 5089, 1, 1))
-clavisterOSStats = MibIdentifier((1, 3, 6, 1, 4, 1, 5089, 1, 2))
-clavisterReg = MibIdentifier((1, 3, 6, 1, 4, 1, 5089, 2))
-clavisterMibModules = MibIdentifier((1, 3, 6, 1, 4, 1, 5089, 2, 1))
-clavisterMibConfs = MibIdentifier((1, 3, 6, 1, 4, 1, 5089, 2, 2))
-clavisterMibObjectGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 5089, 2, 3))
-mibBuilder.exportSymbols("CLAVISTER-SMI", clavisterOSStats=clavisterOSStats, clavisterOSTrap=clavisterOSTrap, clavister=clavister, clavisterMibModules=clavisterMibModules, clavisterMibObjectGroups=clavisterMibObjectGroups, clavisterReg=clavisterReg, clavisterOS=clavisterOS, clavisterOSTrapInfo=clavisterOSTrapInfo, PYSNMP_MODULE_ID=clavisterSmiMibModule, clavisterMibConfs=clavisterMibConfs, clavisterSmiMibModule=clavisterSmiMibModule)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CLAVISTER-SMI
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:15:43 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+clavisterSmiMibModule = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 5089, 0)
+)
+clavisterSmiMibModule.setRevisions(
+        ("2006-05-19 09:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Clavister_ObjectIdentity = ObjectIdentity
+clavister = _Clavister_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5089)
+)
+_ClavisterOS_ObjectIdentity = ObjectIdentity
+clavisterOS = _ClavisterOS_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5089, 1)
+)
+_ClavisterOSTrap_ObjectIdentity = ObjectIdentity
+clavisterOSTrap = _ClavisterOSTrap_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5089, 1, 0)
+)
+_ClavisterOSTrapInfo_ObjectIdentity = ObjectIdentity
+clavisterOSTrapInfo = _ClavisterOSTrapInfo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5089, 1, 1)
+)
+_ClavisterOSStats_ObjectIdentity = ObjectIdentity
+clavisterOSStats = _ClavisterOSStats_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5089, 1, 2)
+)
+_ClavisterReg_ObjectIdentity = ObjectIdentity
+clavisterReg = _ClavisterReg_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5089, 2)
+)
+_ClavisterMibModules_ObjectIdentity = ObjectIdentity
+clavisterMibModules = _ClavisterMibModules_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5089, 2, 1)
+)
+_ClavisterMibConfs_ObjectIdentity = ObjectIdentity
+clavisterMibConfs = _ClavisterMibConfs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5089, 2, 2)
+)
+_ClavisterMibObjectGroups_ObjectIdentity = ObjectIdentity
+clavisterMibObjectGroups = _ClavisterMibObjectGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5089, 2, 3)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CLAVISTER-SMI",
+    **{"clavister": clavister,
+       "clavisterSmiMibModule": clavisterSmiMibModule,
+       "clavisterOS": clavisterOS,
+       "clavisterOSTrap": clavisterOSTrap,
+       "clavisterOSTrapInfo": clavisterOSTrapInfo,
+       "clavisterOSStats": clavisterOSStats,
+       "clavisterReg": clavisterReg,
+       "clavisterMibModules": clavisterMibModules,
+       "clavisterMibConfs": clavisterMibConfs,
+       "clavisterMibObjectGroups": clavisterMibObjectGroups}
+)

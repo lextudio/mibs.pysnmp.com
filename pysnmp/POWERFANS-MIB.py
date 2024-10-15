@@ -1,49 +1,296 @@
+# SNMP MIB module (POWERFANS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module POWERFANS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/POWERFANS-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:32:44 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter64, TimeTicks, NotificationType, Bits, mgmt, enterprises, Counter32, Unsigned32, ObjectIdentity, ModuleIdentity, MibIdentifier, NotificationType, iso, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "TimeTicks", "NotificationType", "Bits", "mgmt", "enterprises", "Counter32", "Unsigned32", "ObjectIdentity", "ModuleIdentity", "MibIdentifier", "NotificationType", "iso", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Integer32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-zte = MibIdentifier((1, 3, 6, 1, 4, 1, 3902))
-zxr10 = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 3))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/POWERFANS-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:39:23 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ NotificationType,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso,
+ mgmt) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "NotificationType",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso",
+    "mgmt")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+
 class FanStatus(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
-    namedValues = NamedValues(("fan-online", 0), ("fan-offline", 1))
+    """Custom type FanStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("fan-offline", 1),
+          ("fan-online", 0))
+    )
+
+
+
+
 
 class PowerStatus(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
-    namedValues = NamedValues(("power-work", 0), ("power-online", 1), ("power-offline", 2))
+    """Custom type PowerStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("power-offline", 2),
+          ("power-online", 1),
+          ("power-work", 0))
+    )
+
+
+
+
 
 class DisplayString(OctetString):
-    pass
+    """Custom type DisplayString based on OctetString"""
 
-zxr10systemconfig = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 3, 1))
-enviorment = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 3, 200))
-fanTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 3, 200, 1), )
-if mibBuilder.loadTexts: fanTable.setStatus('current')
-fanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 3, 200, 1, 1), ).setIndexNames((0, "POWERFANS-MIB", "fanNo"))
-if mibBuilder.loadTexts: fanEntry.setStatus('current')
-fanNo = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 3, 200, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fanNo.setStatus('current')
-fanStat = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 3, 200, 1, 1, 2), FanStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fanStat.setStatus('current')
-fanRotateSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 3, 200, 1, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fanRotateSpeed.setStatus('current')
-powerTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 3, 200, 2), )
-if mibBuilder.loadTexts: powerTable.setStatus('current')
-powerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 3, 200, 2, 1), ).setIndexNames((0, "POWERFANS-MIB", "powerNo"))
-if mibBuilder.loadTexts: powerEntry.setStatus('current')
-powerNo = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 3, 200, 2, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: powerNo.setStatus('current')
-powerStat = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 3, 200, 2, 1, 2), PowerStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: powerStat.setStatus('current')
-powerTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 3, 200, 2, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: powerTemperature.setStatus('current')
-mibBuilder.exportSymbols("POWERFANS-MIB", zxr10=zxr10, fanStat=fanStat, powerTemperature=powerTemperature, FanStatus=FanStatus, fanTable=fanTable, enviorment=enviorment, zte=zte, powerTable=powerTable, fanRotateSpeed=fanRotateSpeed, powerStat=powerStat, zxr10systemconfig=zxr10systemconfig, powerEntry=powerEntry, DisplayString=DisplayString, PowerStatus=PowerStatus, powerNo=powerNo, fanEntry=fanEntry, fanNo=fanNo)
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Zte_ObjectIdentity = ObjectIdentity
+zte = _Zte_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3902)
+)
+_Zxr10_ObjectIdentity = ObjectIdentity
+zxr10 = _Zxr10_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3902, 3)
+)
+_Zxr10systemconfig_ObjectIdentity = ObjectIdentity
+zxr10systemconfig = _Zxr10systemconfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3902, 3, 1)
+)
+_Enviorment_ObjectIdentity = ObjectIdentity
+enviorment = _Enviorment_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3902, 3, 200)
+)
+_FanTable_Object = MibTable
+fanTable = _FanTable_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 3, 200, 1)
+)
+if mibBuilder.loadTexts:
+    fanTable.setStatus("current")
+_FanEntry_Object = MibTableRow
+fanEntry = _FanEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 3, 200, 1, 1)
+)
+fanEntry.setIndexNames(
+    (0, "POWERFANS-MIB", "fanNo"),
+)
+if mibBuilder.loadTexts:
+    fanEntry.setStatus("current")
+_FanNo_Type = Integer32
+_FanNo_Object = MibTableColumn
+fanNo = _FanNo_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 3, 200, 1, 1, 1),
+    _FanNo_Type()
+)
+fanNo.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fanNo.setStatus("current")
+_FanStat_Type = FanStatus
+_FanStat_Object = MibTableColumn
+fanStat = _FanStat_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 3, 200, 1, 1, 2),
+    _FanStat_Type()
+)
+fanStat.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fanStat.setStatus("current")
+_FanRotateSpeed_Type = Integer32
+_FanRotateSpeed_Object = MibTableColumn
+fanRotateSpeed = _FanRotateSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 3, 200, 1, 1, 3),
+    _FanRotateSpeed_Type()
+)
+fanRotateSpeed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fanRotateSpeed.setStatus("current")
+_PowerTable_Object = MibTable
+powerTable = _PowerTable_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 3, 200, 2)
+)
+if mibBuilder.loadTexts:
+    powerTable.setStatus("current")
+_PowerEntry_Object = MibTableRow
+powerEntry = _PowerEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 3, 200, 2, 1)
+)
+powerEntry.setIndexNames(
+    (0, "POWERFANS-MIB", "powerNo"),
+)
+if mibBuilder.loadTexts:
+    powerEntry.setStatus("current")
+_PowerNo_Type = Integer32
+_PowerNo_Object = MibTableColumn
+powerNo = _PowerNo_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 3, 200, 2, 1, 1),
+    _PowerNo_Type()
+)
+powerNo.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    powerNo.setStatus("current")
+_PowerStat_Type = PowerStatus
+_PowerStat_Object = MibTableColumn
+powerStat = _PowerStat_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 3, 200, 2, 1, 2),
+    _PowerStat_Type()
+)
+powerStat.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    powerStat.setStatus("current")
+_PowerTemperature_Type = Integer32
+_PowerTemperature_Object = MibTableColumn
+powerTemperature = _PowerTemperature_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 3, 200, 2, 1, 3),
+    _PowerTemperature_Type()
+)
+powerTemperature.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    powerTemperature.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "POWERFANS-MIB",
+    **{"FanStatus": FanStatus,
+       "PowerStatus": PowerStatus,
+       "DisplayString": DisplayString,
+       "zte": zte,
+       "zxr10": zxr10,
+       "zxr10systemconfig": zxr10systemconfig,
+       "enviorment": enviorment,
+       "fanTable": fanTable,
+       "fanEntry": fanEntry,
+       "fanNo": fanNo,
+       "fanStat": fanStat,
+       "fanRotateSpeed": fanRotateSpeed,
+       "powerTable": powerTable,
+       "powerEntry": powerEntry,
+       "powerNo": powerNo,
+       "powerStat": powerStat,
+       "powerTemperature": powerTemperature}
+)

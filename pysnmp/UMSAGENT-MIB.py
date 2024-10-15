@@ -1,25 +1,208 @@
+# SNMP MIB module (UMSAGENT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module UMSAGENT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/UMSAGENT-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 21:21:21 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ModuleIdentity, Counter64, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, TimeTicks, Gauge32, Bits, Counter32, ObjectIdentity, IpAddress, MibIdentifier, NotificationType, iso, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "TimeTicks", "Gauge32", "Bits", "Counter32", "ObjectIdentity", "IpAddress", "MibIdentifier", "NotificationType", "iso", "Unsigned32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-Datetime, Sint32, Sint16, ibmpsgAgent, Uint16, Sint64, Real32, Sint8, Real64, Uint64, Boolean, Uint32, Uint8, String = mibBuilder.importSymbols("UMS-MIB", "Datetime", "Sint32", "Sint16", "ibmpsgAgent", "Uint16", "Sint64", "Real32", "Sint8", "Real64", "Uint64", "Boolean", "Uint32", "Uint8", "String")
-iBMPSGHTTPConfigurationTable = MibTable((1, 3, 6, 1, 4, 1, 2, 6, 159, 1, 1, 10, 2), )
-if mibBuilder.loadTexts: iBMPSGHTTPConfigurationTable.setStatus('mandatory')
-iBMPSGHTTPConfigurationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2, 6, 159, 1, 1, 10, 2, 1), ).setIndexNames((0, "UMSAGENT-MIB", "iBMPSGHTTPConfigurationKeyIndex"))
-if mibBuilder.loadTexts: iBMPSGHTTPConfigurationEntry.setStatus('mandatory')
-iBMPSGHTTPConfigurationKeyIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 159, 1, 1, 10, 2, 1, 1), String()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: iBMPSGHTTPConfigurationKeyIndex.setStatus('mandatory')
-iBMPSGHTTPConfigurationSettingId = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 159, 1, 1, 10, 2, 1, 2), String()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: iBMPSGHTTPConfigurationSettingId.setStatus('mandatory')
-iBMPSGHTTPConfigurationPort = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 159, 1, 1, 10, 2, 1, 3), Uint16()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: iBMPSGHTTPConfigurationPort.setStatus('mandatory')
-mibBuilder.exportSymbols("UMSAGENT-MIB", iBMPSGHTTPConfigurationEntry=iBMPSGHTTPConfigurationEntry, iBMPSGHTTPConfigurationKeyIndex=iBMPSGHTTPConfigurationKeyIndex, iBMPSGHTTPConfigurationPort=iBMPSGHTTPConfigurationPort, iBMPSGHTTPConfigurationSettingId=iBMPSGHTTPConfigurationSettingId, iBMPSGHTTPConfigurationTable=iBMPSGHTTPConfigurationTable)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/UMSAGENT-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:08:29 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ NotificationType,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "NotificationType",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+(Boolean,
+ Datetime,
+ Real32,
+ Real64,
+ Sint16,
+ Sint32,
+ Sint64,
+ Sint8,
+ String,
+ Uint16,
+ Uint32,
+ Uint64,
+ Uint8,
+ ibmpsgAgent) = mibBuilder.importSymbols(
+    "UMS-MIB",
+    "Boolean",
+    "Datetime",
+    "Real32",
+    "Real64",
+    "Sint16",
+    "Sint32",
+    "Sint64",
+    "Sint8",
+    "String",
+    "Uint16",
+    "Uint32",
+    "Uint64",
+    "Uint8",
+    "ibmpsgAgent")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_IBMPSGHTTPConfigurationTable_Object = MibTable
+iBMPSGHTTPConfigurationTable = _IBMPSGHTTPConfigurationTable_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 159, 1, 1, 10, 2)
+)
+if mibBuilder.loadTexts:
+    iBMPSGHTTPConfigurationTable.setStatus("mandatory")
+_IBMPSGHTTPConfigurationEntry_Object = MibTableRow
+iBMPSGHTTPConfigurationEntry = _IBMPSGHTTPConfigurationEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 159, 1, 1, 10, 2, 1)
+)
+iBMPSGHTTPConfigurationEntry.setIndexNames(
+    (0, "UMSAGENT-MIB", "iBMPSGHTTPConfigurationKeyIndex"),
+)
+if mibBuilder.loadTexts:
+    iBMPSGHTTPConfigurationEntry.setStatus("mandatory")
+_IBMPSGHTTPConfigurationKeyIndex_Type = String
+_IBMPSGHTTPConfigurationKeyIndex_Object = MibTableColumn
+iBMPSGHTTPConfigurationKeyIndex = _IBMPSGHTTPConfigurationKeyIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 159, 1, 1, 10, 2, 1, 1),
+    _IBMPSGHTTPConfigurationKeyIndex_Type()
+)
+iBMPSGHTTPConfigurationKeyIndex.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    iBMPSGHTTPConfigurationKeyIndex.setStatus("mandatory")
+_IBMPSGHTTPConfigurationSettingId_Type = String
+_IBMPSGHTTPConfigurationSettingId_Object = MibTableColumn
+iBMPSGHTTPConfigurationSettingId = _IBMPSGHTTPConfigurationSettingId_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 159, 1, 1, 10, 2, 1, 2),
+    _IBMPSGHTTPConfigurationSettingId_Type()
+)
+iBMPSGHTTPConfigurationSettingId.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    iBMPSGHTTPConfigurationSettingId.setStatus("mandatory")
+_IBMPSGHTTPConfigurationPort_Type = Uint16
+_IBMPSGHTTPConfigurationPort_Object = MibTableColumn
+iBMPSGHTTPConfigurationPort = _IBMPSGHTTPConfigurationPort_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 159, 1, 1, 10, 2, 1, 3),
+    _IBMPSGHTTPConfigurationPort_Type()
+)
+iBMPSGHTTPConfigurationPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    iBMPSGHTTPConfigurationPort.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "UMSAGENT-MIB",
+    **{"iBMPSGHTTPConfigurationTable": iBMPSGHTTPConfigurationTable,
+       "iBMPSGHTTPConfigurationEntry": iBMPSGHTTPConfigurationEntry,
+       "iBMPSGHTTPConfigurationKeyIndex": iBMPSGHTTPConfigurationKeyIndex,
+       "iBMPSGHTTPConfigurationSettingId": iBMPSGHTTPConfigurationSettingId,
+       "iBMPSGHTTPConfigurationPort": iBMPSGHTTPConfigurationPort}
+)

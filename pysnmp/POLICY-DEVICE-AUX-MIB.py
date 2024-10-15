@@ -1,52 +1,278 @@
+# SNMP MIB module (POLICY-DEVICE-AUX-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module POLICY-DEVICE-AUX-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/POLICY-DEVICE-AUX-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:32:20 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint")
-InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, MibIdentifier, NotificationType, ObjectIdentity, Counter64, experimental, Integer32, ModuleIdentity, IpAddress, TimeTicks, Gauge32, Counter32, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "MibIdentifier", "NotificationType", "ObjectIdentity", "Counter64", "experimental", "Integer32", "ModuleIdentity", "IpAddress", "TimeTicks", "Gauge32", "Counter32", "Bits")
-StorageType, TextualConvention, DisplayString, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "StorageType", "TextualConvention", "DisplayString", "RowStatus")
-policyDeviceAuxMib = ModuleIdentity((1, 3, 6, 1, 3, 999))
-if mibBuilder.loadTexts: policyDeviceAuxMib.setLastUpdated('200007121800Z')
-if mibBuilder.loadTexts: policyDeviceAuxMib.setOrganization('IETF RAP WG')
-policyDeviceAuxObjects = MibIdentifier((1, 3, 6, 1, 3, 999, 1))
-policyDeviceAuxConformance = MibIdentifier((1, 3, 6, 1, 3, 999, 2))
-policyDeviceConfig = MibIdentifier((1, 3, 6, 1, 3, 999, 1, 1))
-class Role(TextualConvention, OctetString):
-    reference = 'Policy Core Information Model, draft-ietf-policy-core-info-model-06.txt'
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(1, 31)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/POLICY-DEVICE-AUX-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:39:10 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class RoleCombination(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 255)
+if 'mibBuilder' not in globals():
+    import sys
 
-policyInterfaceTable = MibTable((1, 3, 6, 1, 3, 999, 1, 1, 1), )
-if mibBuilder.loadTexts: policyInterfaceTable.setStatus('current')
-policyInterfaceEntry = MibTableRow((1, 3, 6, 1, 3, 999, 1, 1, 1, 1), ).setIndexNames((0, "POLICY-DEVICE-AUX-MIB", "policyInterfaceIfIndex"))
-if mibBuilder.loadTexts: policyInterfaceEntry.setStatus('current')
-policyInterfaceIfIndex = MibTableColumn((1, 3, 6, 1, 3, 999, 1, 1, 1, 1, 1), InterfaceIndex())
-if mibBuilder.loadTexts: policyInterfaceIfIndex.setStatus('current')
-policyInterfaceRoleCombo = MibTableColumn((1, 3, 6, 1, 3, 999, 1, 1, 1, 1, 2), RoleCombination()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: policyInterfaceRoleCombo.setStatus('current')
-policyInterfaceStorage = MibTableColumn((1, 3, 6, 1, 3, 999, 1, 1, 1, 1, 3), StorageType().clone('volatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: policyInterfaceStorage.setStatus('current')
-policyInterfaceStatus = MibTableColumn((1, 3, 6, 1, 3, 999, 1, 1, 1, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: policyInterfaceStatus.setStatus('current')
-policyDeviceCompliances = MibIdentifier((1, 3, 6, 1, 3, 999, 2, 1))
-policyDeviceGroups = MibIdentifier((1, 3, 6, 1, 3, 999, 2, 2))
-policyDeviceCompliance = ModuleCompliance((1, 3, 6, 1, 3, 999, 2, 1, 1)).setObjects(("POLICY-DEVICE-AUX-MIB", "policyInterfaceGroup"))
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    policyDeviceCompliance = policyDeviceCompliance.setStatus('current')
-policyInterfaceGroup = ObjectGroup((1, 3, 6, 1, 3, 999, 2, 2, 1)).setObjects(("POLICY-DEVICE-AUX-MIB", "policyInterfaceRoleCombo"), ("POLICY-DEVICE-AUX-MIB", "policyInterfaceStorage"), ("POLICY-DEVICE-AUX-MIB", "policyInterfaceStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    policyInterfaceGroup = policyInterfaceGroup.setStatus('current')
-mibBuilder.exportSymbols("POLICY-DEVICE-AUX-MIB", policyInterfaceRoleCombo=policyInterfaceRoleCombo, policyDeviceAuxObjects=policyDeviceAuxObjects, policyDeviceConfig=policyDeviceConfig, policyInterfaceEntry=policyInterfaceEntry, policyInterfaceStatus=policyInterfaceStatus, policyDeviceCompliance=policyDeviceCompliance, policyInterfaceTable=policyInterfaceTable, Role=Role, policyInterfaceGroup=policyInterfaceGroup, policyDeviceCompliances=policyDeviceCompliances, RoleCombination=RoleCombination, PYSNMP_MODULE_ID=policyDeviceAuxMib, policyDeviceAuxMib=policyDeviceAuxMib, policyInterfaceStorage=policyInterfaceStorage, policyDeviceAuxConformance=policyDeviceAuxConformance, policyInterfaceIfIndex=policyInterfaceIfIndex, policyDeviceGroups=policyDeviceGroups)
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InterfaceIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ experimental,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "experimental",
+    "iso")
+
+(DisplayString,
+ RowStatus,
+ StorageType,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "RowStatus",
+    "StorageType",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+policyDeviceAuxMib = ModuleIdentity(
+    (1, 3, 6, 1, 3, 999)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class Role(OctetString, TextualConvention):
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 31),
+    )
+
+
+
+class RoleCombination(OctetString, TextualConvention):
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_PolicyDeviceAuxObjects_ObjectIdentity = ObjectIdentity
+policyDeviceAuxObjects = _PolicyDeviceAuxObjects_ObjectIdentity(
+    (1, 3, 6, 1, 3, 999, 1)
+)
+_PolicyDeviceConfig_ObjectIdentity = ObjectIdentity
+policyDeviceConfig = _PolicyDeviceConfig_ObjectIdentity(
+    (1, 3, 6, 1, 3, 999, 1, 1)
+)
+_PolicyInterfaceTable_Object = MibTable
+policyInterfaceTable = _PolicyInterfaceTable_Object(
+    (1, 3, 6, 1, 3, 999, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    policyInterfaceTable.setStatus("current")
+_PolicyInterfaceEntry_Object = MibTableRow
+policyInterfaceEntry = _PolicyInterfaceEntry_Object(
+    (1, 3, 6, 1, 3, 999, 1, 1, 1, 1)
+)
+policyInterfaceEntry.setIndexNames(
+    (0, "POLICY-DEVICE-AUX-MIB", "policyInterfaceIfIndex"),
+)
+if mibBuilder.loadTexts:
+    policyInterfaceEntry.setStatus("current")
+_PolicyInterfaceIfIndex_Type = InterfaceIndex
+_PolicyInterfaceIfIndex_Object = MibTableColumn
+policyInterfaceIfIndex = _PolicyInterfaceIfIndex_Object(
+    (1, 3, 6, 1, 3, 999, 1, 1, 1, 1, 1),
+    _PolicyInterfaceIfIndex_Type()
+)
+policyInterfaceIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    policyInterfaceIfIndex.setStatus("current")
+_PolicyInterfaceRoleCombo_Type = RoleCombination
+_PolicyInterfaceRoleCombo_Object = MibTableColumn
+policyInterfaceRoleCombo = _PolicyInterfaceRoleCombo_Object(
+    (1, 3, 6, 1, 3, 999, 1, 1, 1, 1, 2),
+    _PolicyInterfaceRoleCombo_Type()
+)
+policyInterfaceRoleCombo.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    policyInterfaceRoleCombo.setStatus("current")
+
+
+class _PolicyInterfaceStorage_Type(StorageType):
+    """Custom type policyInterfaceStorage based on StorageType"""
+
+
+_PolicyInterfaceStorage_Object = MibTableColumn
+policyInterfaceStorage = _PolicyInterfaceStorage_Object(
+    (1, 3, 6, 1, 3, 999, 1, 1, 1, 1, 3),
+    _PolicyInterfaceStorage_Type()
+)
+policyInterfaceStorage.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    policyInterfaceStorage.setStatus("current")
+_PolicyInterfaceStatus_Type = RowStatus
+_PolicyInterfaceStatus_Object = MibTableColumn
+policyInterfaceStatus = _PolicyInterfaceStatus_Object(
+    (1, 3, 6, 1, 3, 999, 1, 1, 1, 1, 4),
+    _PolicyInterfaceStatus_Type()
+)
+policyInterfaceStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    policyInterfaceStatus.setStatus("current")
+_PolicyDeviceAuxConformance_ObjectIdentity = ObjectIdentity
+policyDeviceAuxConformance = _PolicyDeviceAuxConformance_ObjectIdentity(
+    (1, 3, 6, 1, 3, 999, 2)
+)
+_PolicyDeviceCompliances_ObjectIdentity = ObjectIdentity
+policyDeviceCompliances = _PolicyDeviceCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 3, 999, 2, 1)
+)
+_PolicyDeviceGroups_ObjectIdentity = ObjectIdentity
+policyDeviceGroups = _PolicyDeviceGroups_ObjectIdentity(
+    (1, 3, 6, 1, 3, 999, 2, 2)
+)
+
+# Managed Objects groups
+
+policyInterfaceGroup = ObjectGroup(
+    (1, 3, 6, 1, 3, 999, 2, 2, 1)
+)
+policyInterfaceGroup.setObjects(
+      *(("POLICY-DEVICE-AUX-MIB", "policyInterfaceRoleCombo"),
+        ("POLICY-DEVICE-AUX-MIB", "policyInterfaceStorage"),
+        ("POLICY-DEVICE-AUX-MIB", "policyInterfaceStatus"))
+)
+if mibBuilder.loadTexts:
+    policyInterfaceGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+policyDeviceCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 3, 999, 2, 1, 1)
+)
+if mibBuilder.loadTexts:
+    policyDeviceCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "POLICY-DEVICE-AUX-MIB",
+    **{"Role": Role,
+       "RoleCombination": RoleCombination,
+       "policyDeviceAuxMib": policyDeviceAuxMib,
+       "policyDeviceAuxObjects": policyDeviceAuxObjects,
+       "policyDeviceConfig": policyDeviceConfig,
+       "policyInterfaceTable": policyInterfaceTable,
+       "policyInterfaceEntry": policyInterfaceEntry,
+       "policyInterfaceIfIndex": policyInterfaceIfIndex,
+       "policyInterfaceRoleCombo": policyInterfaceRoleCombo,
+       "policyInterfaceStorage": policyInterfaceStorage,
+       "policyInterfaceStatus": policyInterfaceStatus,
+       "policyDeviceAuxConformance": policyDeviceAuxConformance,
+       "policyDeviceCompliances": policyDeviceCompliances,
+       "policyDeviceCompliance": policyDeviceCompliance,
+       "policyDeviceGroups": policyDeviceGroups,
+       "policyInterfaceGroup": policyInterfaceGroup}
+)

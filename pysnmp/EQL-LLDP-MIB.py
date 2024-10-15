@@ -1,73 +1,422 @@
+# SNMP MIB module (EQL-LLDP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module EQL-LLDP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/EQL-LLDP-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:50:52 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection")
-eqlGroupId, = mibBuilder.importSymbols("EQLGROUP-MIB", "eqlGroupId")
-eqlMemberIndex, = mibBuilder.importSymbols("EQLMEMBER-MIB", "eqlMemberIndex")
-equalLogic, = mibBuilder.importSymbols("EQUALLOGIC-SMI", "equalLogic")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter32, ObjectIdentity, MibIdentifier, Counter64, TimeTicks, NotificationType, iso, IpAddress, enterprises, Unsigned32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, ModuleIdentity, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "ObjectIdentity", "MibIdentifier", "Counter64", "TimeTicks", "NotificationType", "iso", "IpAddress", "enterprises", "Unsigned32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "ModuleIdentity", "Bits")
-TimeInterval, TruthValue, TextualConvention, MacAddress, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TimeInterval", "TruthValue", "TextualConvention", "MacAddress", "DisplayString")
-eqlLldpMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 12740, 21))
-eqlLldpMib.setRevisions(('2010-07-23 00:00',))
-if mibBuilder.loadTexts: eqlLldpMib.setLastUpdated('201403121459Z')
-if mibBuilder.loadTexts: eqlLldpMib.setOrganization('EqualLogic Inc.')
-eqlLldpMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 12740, 21, 1))
-class EqlLldpV2ChassisIdSubtype(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))
-    namedValues = NamedValues(("chassisComponent", 1), ("interfaceAlias", 2), ("portComponent", 3), ("macAddress", 4), ("networkAddress", 5), ("interfaceName", 6), ("local", 7))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/EQL-LLDP-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:39:56 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class EqlLldpV2ChassisId(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '1x:'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(255, 255)
-    fixedLength = 255
+if 'mibBuilder' not in globals():
+    import sys
 
-class EqlLldpV2PortIdSubtype(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))
-    namedValues = NamedValues(("interfaceAlias", 1), ("portComponent", 2), ("macAddress", 3), ("networkAddress", 4), ("interfaceName", 5), ("agentCircuitId", 6), ("local", 7))
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-class EqlLldpV2PortId(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '1x:'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(1, 255)
+# Import base ASN.1 objects even if this MIB does not use it
 
-class EqlLldpV2State(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))
-    namedValues = NamedValues(("off", 0), ("noPeer", 1), ("active", 2), ("multiplePeers", 3))
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
 
-eqlLldpDynamicIfTable = MibTable((1, 3, 6, 1, 4, 1, 12740, 21, 1, 1), )
-if mibBuilder.loadTexts: eqlLldpDynamicIfTable.setStatus('current')
-eqlLldpDynamicIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 12740, 21, 1, 1, 1), ).setIndexNames((0, "EQLGROUP-MIB", "eqlGroupId"), (0, "EQLMEMBER-MIB", "eqlMemberIndex"), (0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: eqlLldpDynamicIfEntry.setStatus('current')
-eqlLldpRemMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 21, 1, 1, 1, 1), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eqlLldpRemMacAddress.setStatus('current')
-eqlLldpV2RemChassisIdSubtype = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 21, 1, 1, 1, 2), EqlLldpV2ChassisIdSubtype()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eqlLldpV2RemChassisIdSubtype.setStatus('current')
-eqlLldpV2RemChassisId = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 21, 1, 1, 1, 3), EqlLldpV2ChassisId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eqlLldpV2RemChassisId.setStatus('current')
-eqlLldpV2RemPortIdSubtype = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 21, 1, 1, 1, 4), EqlLldpV2PortIdSubtype()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eqlLldpV2RemPortIdSubtype.setStatus('current')
-eqlLldpV2RemPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 21, 1, 1, 1, 5), EqlLldpV2PortId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eqlLldpV2RemPortId.setStatus('current')
-eqlLldpV2RemPortDesc = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 21, 1, 1, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eqlLldpV2RemPortDesc.setStatus('current')
-eqlLldpV2RemSysName = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 21, 1, 1, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eqlLldpV2RemSysName.setStatus('current')
-eqlLldpV2RemSysDesc = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 21, 1, 1, 1, 8), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eqlLldpV2RemSysDesc.setStatus('current')
-eqlLldpV2State = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 21, 1, 1, 1, 9), EqlLldpV2State()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eqlLldpV2State.setStatus('current')
-eqlLldpV2RemMgmtAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 21, 1, 1, 1, 10), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eqlLldpV2RemMgmtAddr.setStatus('current')
-mibBuilder.exportSymbols("EQL-LLDP-MIB", EqlLldpV2ChassisIdSubtype=EqlLldpV2ChassisIdSubtype, eqlLldpMIBObjects=eqlLldpMIBObjects, eqlLldpV2RemPortDesc=eqlLldpV2RemPortDesc, eqlLldpV2RemMgmtAddr=eqlLldpV2RemMgmtAddr, EqlLldpV2PortId=EqlLldpV2PortId, eqlLldpMib=eqlLldpMib, eqlLldpV2RemSysDesc=eqlLldpV2RemSysDesc, EqlLldpV2ChassisId=EqlLldpV2ChassisId, eqlLldpDynamicIfEntry=eqlLldpDynamicIfEntry, eqlLldpDynamicIfTable=eqlLldpDynamicIfTable, EqlLldpV2PortIdSubtype=EqlLldpV2PortIdSubtype, eqlLldpV2RemChassisId=eqlLldpV2RemChassisId, eqlLldpV2RemPortIdSubtype=eqlLldpV2RemPortIdSubtype, eqlLldpV2RemPortId=eqlLldpV2RemPortId, EqlLldpV2State=EqlLldpV2State, eqlLldpV2RemSysName=eqlLldpV2RemSysName, eqlLldpV2State=eqlLldpV2State, eqlLldpRemMacAddress=eqlLldpRemMacAddress, eqlLldpV2RemChassisIdSubtype=eqlLldpV2RemChassisIdSubtype, PYSNMP_MODULE_ID=eqlLldpMib)
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(eqlGroupId,) = mibBuilder.importSymbols(
+    "EQLGROUP-MIB",
+    "eqlGroupId")
+
+(eqlMemberIndex,) = mibBuilder.importSymbols(
+    "EQLMEMBER-MIB",
+    "eqlMemberIndex")
+
+(equalLogic,) = mibBuilder.importSymbols(
+    "EQUALLOGIC-SMI",
+    "equalLogic")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ TextualConvention,
+ TimeInterval,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "TextualConvention",
+    "TimeInterval",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+eqlLldpMib = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 12740, 21)
+)
+eqlLldpMib.setRevisions(
+        ("2010-07-23 00:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class EqlLldpV2ChassisIdSubtype(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("chassisComponent", 1),
+          ("interfaceAlias", 2),
+          ("interfaceName", 6),
+          ("local", 7),
+          ("macAddress", 4),
+          ("networkAddress", 5),
+          ("portComponent", 3))
+    )
+
+
+
+class EqlLldpV2ChassisId(OctetString, TextualConvention):
+    status = "current"
+    displayHint = "1x:"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(255, 255),
+    )
+
+
+
+class EqlLldpV2PortIdSubtype(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("agentCircuitId", 6),
+          ("interfaceAlias", 1),
+          ("interfaceName", 5),
+          ("local", 7),
+          ("macAddress", 3),
+          ("networkAddress", 4),
+          ("portComponent", 2))
+    )
+
+
+
+class EqlLldpV2PortId(OctetString, TextualConvention):
+    status = "current"
+    displayHint = "1x:"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 255),
+    )
+
+
+
+class EqlLldpV2State(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 2),
+          ("multiplePeers", 3),
+          ("noPeer", 1),
+          ("off", 0))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_EqlLldpMIBObjects_ObjectIdentity = ObjectIdentity
+eqlLldpMIBObjects = _EqlLldpMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12740, 21, 1)
+)
+_EqlLldpDynamicIfTable_Object = MibTable
+eqlLldpDynamicIfTable = _EqlLldpDynamicIfTable_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 21, 1, 1)
+)
+if mibBuilder.loadTexts:
+    eqlLldpDynamicIfTable.setStatus("current")
+_EqlLldpDynamicIfEntry_Object = MibTableRow
+eqlLldpDynamicIfEntry = _EqlLldpDynamicIfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 21, 1, 1, 1)
+)
+eqlLldpDynamicIfEntry.setIndexNames(
+    (0, "EQLGROUP-MIB", "eqlGroupId"),
+    (0, "EQLMEMBER-MIB", "eqlMemberIndex"),
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    eqlLldpDynamicIfEntry.setStatus("current")
+_EqlLldpRemMacAddress_Type = MacAddress
+_EqlLldpRemMacAddress_Object = MibTableColumn
+eqlLldpRemMacAddress = _EqlLldpRemMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 21, 1, 1, 1, 1),
+    _EqlLldpRemMacAddress_Type()
+)
+eqlLldpRemMacAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eqlLldpRemMacAddress.setStatus("current")
+_EqlLldpV2RemChassisIdSubtype_Type = EqlLldpV2ChassisIdSubtype
+_EqlLldpV2RemChassisIdSubtype_Object = MibTableColumn
+eqlLldpV2RemChassisIdSubtype = _EqlLldpV2RemChassisIdSubtype_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 21, 1, 1, 1, 2),
+    _EqlLldpV2RemChassisIdSubtype_Type()
+)
+eqlLldpV2RemChassisIdSubtype.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eqlLldpV2RemChassisIdSubtype.setStatus("current")
+_EqlLldpV2RemChassisId_Type = EqlLldpV2ChassisId
+_EqlLldpV2RemChassisId_Object = MibTableColumn
+eqlLldpV2RemChassisId = _EqlLldpV2RemChassisId_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 21, 1, 1, 1, 3),
+    _EqlLldpV2RemChassisId_Type()
+)
+eqlLldpV2RemChassisId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eqlLldpV2RemChassisId.setStatus("current")
+_EqlLldpV2RemPortIdSubtype_Type = EqlLldpV2PortIdSubtype
+_EqlLldpV2RemPortIdSubtype_Object = MibTableColumn
+eqlLldpV2RemPortIdSubtype = _EqlLldpV2RemPortIdSubtype_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 21, 1, 1, 1, 4),
+    _EqlLldpV2RemPortIdSubtype_Type()
+)
+eqlLldpV2RemPortIdSubtype.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eqlLldpV2RemPortIdSubtype.setStatus("current")
+_EqlLldpV2RemPortId_Type = EqlLldpV2PortId
+_EqlLldpV2RemPortId_Object = MibTableColumn
+eqlLldpV2RemPortId = _EqlLldpV2RemPortId_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 21, 1, 1, 1, 5),
+    _EqlLldpV2RemPortId_Type()
+)
+eqlLldpV2RemPortId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eqlLldpV2RemPortId.setStatus("current")
+
+
+class _EqlLldpV2RemPortDesc_Type(OctetString):
+    """Custom type eqlLldpV2RemPortDesc based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_EqlLldpV2RemPortDesc_Type.__name__ = "OctetString"
+_EqlLldpV2RemPortDesc_Object = MibTableColumn
+eqlLldpV2RemPortDesc = _EqlLldpV2RemPortDesc_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 21, 1, 1, 1, 6),
+    _EqlLldpV2RemPortDesc_Type()
+)
+eqlLldpV2RemPortDesc.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eqlLldpV2RemPortDesc.setStatus("current")
+
+
+class _EqlLldpV2RemSysName_Type(OctetString):
+    """Custom type eqlLldpV2RemSysName based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_EqlLldpV2RemSysName_Type.__name__ = "OctetString"
+_EqlLldpV2RemSysName_Object = MibTableColumn
+eqlLldpV2RemSysName = _EqlLldpV2RemSysName_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 21, 1, 1, 1, 7),
+    _EqlLldpV2RemSysName_Type()
+)
+eqlLldpV2RemSysName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eqlLldpV2RemSysName.setStatus("current")
+
+
+class _EqlLldpV2RemSysDesc_Type(OctetString):
+    """Custom type eqlLldpV2RemSysDesc based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_EqlLldpV2RemSysDesc_Type.__name__ = "OctetString"
+_EqlLldpV2RemSysDesc_Object = MibTableColumn
+eqlLldpV2RemSysDesc = _EqlLldpV2RemSysDesc_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 21, 1, 1, 1, 8),
+    _EqlLldpV2RemSysDesc_Type()
+)
+eqlLldpV2RemSysDesc.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eqlLldpV2RemSysDesc.setStatus("current")
+_EqlLldpV2State_Type = EqlLldpV2State
+_EqlLldpV2State_Object = MibTableColumn
+eqlLldpV2State = _EqlLldpV2State_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 21, 1, 1, 1, 9),
+    _EqlLldpV2State_Type()
+)
+eqlLldpV2State.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eqlLldpV2State.setStatus("current")
+
+
+class _EqlLldpV2RemMgmtAddr_Type(OctetString):
+    """Custom type eqlLldpV2RemMgmtAddr based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_EqlLldpV2RemMgmtAddr_Type.__name__ = "OctetString"
+_EqlLldpV2RemMgmtAddr_Object = MibTableColumn
+eqlLldpV2RemMgmtAddr = _EqlLldpV2RemMgmtAddr_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 21, 1, 1, 1, 10),
+    _EqlLldpV2RemMgmtAddr_Type()
+)
+eqlLldpV2RemMgmtAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eqlLldpV2RemMgmtAddr.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "EQL-LLDP-MIB",
+    **{"EqlLldpV2ChassisIdSubtype": EqlLldpV2ChassisIdSubtype,
+       "EqlLldpV2ChassisId": EqlLldpV2ChassisId,
+       "EqlLldpV2PortIdSubtype": EqlLldpV2PortIdSubtype,
+       "EqlLldpV2PortId": EqlLldpV2PortId,
+       "EqlLldpV2State": EqlLldpV2State,
+       "eqlLldpMib": eqlLldpMib,
+       "eqlLldpMIBObjects": eqlLldpMIBObjects,
+       "eqlLldpDynamicIfTable": eqlLldpDynamicIfTable,
+       "eqlLldpDynamicIfEntry": eqlLldpDynamicIfEntry,
+       "eqlLldpRemMacAddress": eqlLldpRemMacAddress,
+       "eqlLldpV2RemChassisIdSubtype": eqlLldpV2RemChassisIdSubtype,
+       "eqlLldpV2RemChassisId": eqlLldpV2RemChassisId,
+       "eqlLldpV2RemPortIdSubtype": eqlLldpV2RemPortIdSubtype,
+       "eqlLldpV2RemPortId": eqlLldpV2RemPortId,
+       "eqlLldpV2RemPortDesc": eqlLldpV2RemPortDesc,
+       "eqlLldpV2RemSysName": eqlLldpV2RemSysName,
+       "eqlLldpV2RemSysDesc": eqlLldpV2RemSysDesc,
+       "eqlLldpV2State": eqlLldpV2State,
+       "eqlLldpV2RemMgmtAddr": eqlLldpV2RemMgmtAddr}
+)

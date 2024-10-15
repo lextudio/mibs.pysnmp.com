@@ -1,34 +1,232 @@
+# SNMP MIB module (LOOPBACK-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module LOOPBACK-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/LOOPBACK-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:45:39 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
-InetAddressIPv4, = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressIPv4")
-switch, = mibBuilder.importSymbols("QUANTA-SWITCH-MIB", "switch")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-IpAddress, Counter64, NotificationType, MibIdentifier, TimeTicks, Bits, iso, Gauge32, ModuleIdentity, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, mib_2, Integer32, Counter32, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Counter64", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "iso", "Gauge32", "ModuleIdentity", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "mib-2", "Integer32", "Counter32", "Unsigned32")
-RowStatus, TruthValue, DisplayString, PhysAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TruthValue", "DisplayString", "PhysAddress", "TextualConvention")
-loopback = ModuleIdentity((1, 3, 6, 1, 4, 1, 7244, 2, 22))
-if mibBuilder.loadTexts: loopback.setLastUpdated('201108310000Z')
-if mibBuilder.loadTexts: loopback.setOrganization('QCI')
-agentLoopbackGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 7244, 2, 22, 1))
-agentLoopbackTable = MibTable((1, 3, 6, 1, 4, 1, 7244, 2, 22, 1, 1), )
-if mibBuilder.loadTexts: agentLoopbackTable.setStatus('current')
-agentLoopbackEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7244, 2, 22, 1, 1, 1), ).setIndexNames((0, "LOOPBACK-MIB", "agentLoopbackID"))
-if mibBuilder.loadTexts: agentLoopbackEntry.setStatus('current')
-agentLoopbackID = MibTableColumn((1, 3, 6, 1, 4, 1, 7244, 2, 22, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)))
-if mibBuilder.loadTexts: agentLoopbackID.setStatus('current')
-agentLoopbackIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 7244, 2, 22, 1, 1, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentLoopbackIfIndex.setStatus('current')
-agentLoopbackIPAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 7244, 2, 22, 1, 1, 1, 3), InetAddressIPv4()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentLoopbackIPAddress.setStatus('current')
-agentLoopbackIPSubnet = MibTableColumn((1, 3, 6, 1, 4, 1, 7244, 2, 22, 1, 1, 1, 4), InetAddressIPv4()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentLoopbackIPSubnet.setStatus('current')
-agentLoopbackStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 7244, 2, 22, 1, 1, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentLoopbackStatus.setStatus('current')
-mibBuilder.exportSymbols("LOOPBACK-MIB", agentLoopbackIPAddress=agentLoopbackIPAddress, agentLoopbackIfIndex=agentLoopbackIfIndex, PYSNMP_MODULE_ID=loopback, agentLoopbackIPSubnet=agentLoopbackIPSubnet, agentLoopbackGroup=agentLoopbackGroup, agentLoopbackID=agentLoopbackID, agentLoopbackStatus=agentLoopbackStatus, loopback=loopback, agentLoopbackEntry=agentLoopbackEntry, agentLoopbackTable=agentLoopbackTable)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/LOOPBACK-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:11:26 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InetAddressIPv4,) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddressIPv4")
+
+(switch,) = mibBuilder.importSymbols(
+    "QUANTA-SWITCH-MIB",
+    "switch")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso,
+ mib_2) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso",
+    "mib-2")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+loopback = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 7244, 2, 22)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AgentLoopbackGroup_ObjectIdentity = ObjectIdentity
+agentLoopbackGroup = _AgentLoopbackGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 7244, 2, 22, 1)
+)
+_AgentLoopbackTable_Object = MibTable
+agentLoopbackTable = _AgentLoopbackTable_Object(
+    (1, 3, 6, 1, 4, 1, 7244, 2, 22, 1, 1)
+)
+if mibBuilder.loadTexts:
+    agentLoopbackTable.setStatus("current")
+_AgentLoopbackEntry_Object = MibTableRow
+agentLoopbackEntry = _AgentLoopbackEntry_Object(
+    (1, 3, 6, 1, 4, 1, 7244, 2, 22, 1, 1, 1)
+)
+agentLoopbackEntry.setIndexNames(
+    (0, "LOOPBACK-MIB", "agentLoopbackID"),
+)
+if mibBuilder.loadTexts:
+    agentLoopbackEntry.setStatus("current")
+
+
+class _AgentLoopbackID_Type(Integer32):
+    """Custom type agentLoopbackID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_AgentLoopbackID_Type.__name__ = "Integer32"
+_AgentLoopbackID_Object = MibTableColumn
+agentLoopbackID = _AgentLoopbackID_Object(
+    (1, 3, 6, 1, 4, 1, 7244, 2, 22, 1, 1, 1, 1),
+    _AgentLoopbackID_Type()
+)
+agentLoopbackID.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    agentLoopbackID.setStatus("current")
+_AgentLoopbackIfIndex_Type = Integer32
+_AgentLoopbackIfIndex_Object = MibTableColumn
+agentLoopbackIfIndex = _AgentLoopbackIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 7244, 2, 22, 1, 1, 1, 2),
+    _AgentLoopbackIfIndex_Type()
+)
+agentLoopbackIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentLoopbackIfIndex.setStatus("current")
+_AgentLoopbackIPAddress_Type = InetAddressIPv4
+_AgentLoopbackIPAddress_Object = MibTableColumn
+agentLoopbackIPAddress = _AgentLoopbackIPAddress_Object(
+    (1, 3, 6, 1, 4, 1, 7244, 2, 22, 1, 1, 1, 3),
+    _AgentLoopbackIPAddress_Type()
+)
+agentLoopbackIPAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentLoopbackIPAddress.setStatus("current")
+_AgentLoopbackIPSubnet_Type = InetAddressIPv4
+_AgentLoopbackIPSubnet_Object = MibTableColumn
+agentLoopbackIPSubnet = _AgentLoopbackIPSubnet_Object(
+    (1, 3, 6, 1, 4, 1, 7244, 2, 22, 1, 1, 1, 4),
+    _AgentLoopbackIPSubnet_Type()
+)
+agentLoopbackIPSubnet.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentLoopbackIPSubnet.setStatus("current")
+_AgentLoopbackStatus_Type = RowStatus
+_AgentLoopbackStatus_Object = MibTableColumn
+agentLoopbackStatus = _AgentLoopbackStatus_Object(
+    (1, 3, 6, 1, 4, 1, 7244, 2, 22, 1, 1, 1, 5),
+    _AgentLoopbackStatus_Type()
+)
+agentLoopbackStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentLoopbackStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "LOOPBACK-MIB",
+    **{"loopback": loopback,
+       "agentLoopbackGroup": agentLoopbackGroup,
+       "agentLoopbackTable": agentLoopbackTable,
+       "agentLoopbackEntry": agentLoopbackEntry,
+       "agentLoopbackID": agentLoopbackID,
+       "agentLoopbackIfIndex": agentLoopbackIfIndex,
+       "agentLoopbackIPAddress": agentLoopbackIPAddress,
+       "agentLoopbackIPSubnet": agentLoopbackIPSubnet,
+       "agentLoopbackStatus": agentLoopbackStatus}
+)

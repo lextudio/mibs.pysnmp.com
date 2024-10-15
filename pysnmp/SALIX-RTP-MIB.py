@@ -1,69 +1,411 @@
+# SNMP MIB module (SALIX-RTP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module SALIX-RTP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/SALIX-RTP-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:52:22 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint")
-platform1, = mibBuilder.importSymbols("SALIX-MIB", "platform1")
-NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, iso, Gauge32, ObjectIdentity, MibIdentifier, Bits, IpAddress, ModuleIdentity, NotificationType, Integer32, Counter64, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "iso", "Gauge32", "ObjectIdentity", "MibIdentifier", "Bits", "IpAddress", "ModuleIdentity", "NotificationType", "Integer32", "Counter64", "Unsigned32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-salixRtpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2158, 5, 1, 1))
-if mibBuilder.loadTexts: salixRtpMIB.setLastUpdated('9810130000Z')
-if mibBuilder.loadTexts: salixRtpMIB.setOrganization('SALIX Technologies')
-salixRtpMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1))
-salixRtpMIBTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 2))
-salixRtpMIBCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 3))
-salixRtpMIBTrapPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 2, 0))
-salixRtpStatsTable = MibTable((1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1, 1), )
-if mibBuilder.loadTexts: salixRtpStatsTable.setStatus('current')
-salixRtpStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1, 1, 1), ).setIndexNames((0, "SALIX-RTP-MIB", "salixRtpStatsSrcIpAddress"), (0, "SALIX-RTP-MIB", "salixRtpStatsSrcPort"), (0, "SALIX-RTP-MIB", "salixRtpStatsDestIpAddress"), (0, "SALIX-RTP-MIB", "salixRtpStatsDestPort"))
-if mibBuilder.loadTexts: salixRtpStatsEntry.setStatus('current')
-salixRtpStatsSrcIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1, 1, 1, 1), IpAddress())
-if mibBuilder.loadTexts: salixRtpStatsSrcIpAddress.setStatus('current')
-salixRtpStatsSrcPort = MibTableColumn((1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)))
-if mibBuilder.loadTexts: salixRtpStatsSrcPort.setStatus('current')
-salixRtpStatsDestIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1, 1, 1, 3), IpAddress())
-if mibBuilder.loadTexts: salixRtpStatsDestIpAddress.setStatus('current')
-salixRtpStatsDestPort = MibTableColumn((1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)))
-if mibBuilder.loadTexts: salixRtpStatsDestPort.setStatus('current')
-salixRtpStatsPktsSent = MibTableColumn((1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1, 1, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: salixRtpStatsPktsSent.setStatus('current')
-salixRtpStatsPktsRecv = MibTableColumn((1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1, 1, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: salixRtpStatsPktsRecv.setStatus('current')
-salixRtpStatsPktsDropped = MibTableColumn((1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1, 1, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: salixRtpStatsPktsDropped.setStatus('current')
-salixRtpStatsBytesSent = MibTableColumn((1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1, 1, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: salixRtpStatsBytesSent.setStatus('current')
-salixRtpStatsBytesRecv = MibTableColumn((1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1, 1, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: salixRtpStatsBytesRecv.setStatus('current')
-salixRtpStatsBytesDropped = MibTableColumn((1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1, 1, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: salixRtpStatsBytesDropped.setStatus('current')
-salixRtpStatsSignalPktsSent = MibTableColumn((1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1, 1, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: salixRtpStatsSignalPktsSent.setStatus('current')
-salixRtpStatsSignalPktsRecv = MibTableColumn((1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1, 1, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: salixRtpStatsSignalPktsRecv.setStatus('current')
-salixRtpStatsSignalPktsDropped = MibTableColumn((1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1, 1, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: salixRtpStatsSignalPktsDropped.setStatus('current')
-salixRtpStatsSignalBytesRecv = MibTableColumn((1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1, 1, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: salixRtpStatsSignalBytesRecv.setStatus('current')
-salixRtpStatsAudioPktsRecv = MibTableColumn((1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1, 1, 1, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: salixRtpStatsAudioPktsRecv.setStatus('current')
-salixRtpStatsAudioBytesRecv = MibTableColumn((1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1, 1, 1, 16), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: salixRtpStatsAudioBytesRecv.setStatus('current')
-salixRtpStatsEstimatedAvgLatency = MibTableColumn((1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1, 1, 1, 17), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: salixRtpStatsEstimatedAvgLatency.setStatus('current')
-salixRtpGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 3, 1))
-salixRtpCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 3, 2))
-salixRtpGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 3, 1, 3)).setObjects(("SALIX-RTP-MIB", "salixRtpStatsPktsSent"), ("SALIX-RTP-MIB", "salixRtpStatsPktsRecv"), ("SALIX-RTP-MIB", "salixRtpStatsPktsDropped"), ("SALIX-RTP-MIB", "salixRtpStatsBytesSent"), ("SALIX-RTP-MIB", "salixRtpStatsBytesRecv"), ("SALIX-RTP-MIB", "salixRtpStatsBytesDropped"), ("SALIX-RTP-MIB", "salixRtpStatsSignalPktsSent"), ("SALIX-RTP-MIB", "salixRtpStatsSignalPktsRecv"), ("SALIX-RTP-MIB", "salixRtpStatsSignalPktsDropped"), ("SALIX-RTP-MIB", "salixRtpStatsSignalBytesRecv"), ("SALIX-RTP-MIB", "salixRtpStatsAudioPktsRecv"), ("SALIX-RTP-MIB", "salixRtpStatsAudioBytesRecv"), ("SALIX-RTP-MIB", "salixRtpStatsEstimatedAvgLatency"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    salixRtpGroup = salixRtpGroup.setStatus('current')
-salixRtpCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 3, 2, 1)).setObjects(("SALIX-RTP-MIB", "salixRtpGroup"))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/SALIX-RTP-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:49:35 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    salixRtpCompliance = salixRtpCompliance.setStatus('current')
-mibBuilder.exportSymbols("SALIX-RTP-MIB", salixRtpStatsDestIpAddress=salixRtpStatsDestIpAddress, salixRtpStatsEntry=salixRtpStatsEntry, salixRtpStatsDestPort=salixRtpStatsDestPort, salixRtpStatsPktsSent=salixRtpStatsPktsSent, salixRtpStatsSrcPort=salixRtpStatsSrcPort, salixRtpCompliances=salixRtpCompliances, salixRtpStatsSignalPktsDropped=salixRtpStatsSignalPktsDropped, salixRtpStatsPktsDropped=salixRtpStatsPktsDropped, salixRtpMIBCompliance=salixRtpMIBCompliance, salixRtpStatsBytesSent=salixRtpStatsBytesSent, salixRtpMIBObjects=salixRtpMIBObjects, salixRtpStatsTable=salixRtpStatsTable, salixRtpMIB=salixRtpMIB, salixRtpGroup=salixRtpGroup, salixRtpStatsAudioBytesRecv=salixRtpStatsAudioBytesRecv, salixRtpCompliance=salixRtpCompliance, salixRtpStatsBytesDropped=salixRtpStatsBytesDropped, salixRtpGroups=salixRtpGroups, salixRtpMIBTraps=salixRtpMIBTraps, salixRtpMIBTrapPrefix=salixRtpMIBTrapPrefix, salixRtpStatsAudioPktsRecv=salixRtpStatsAudioPktsRecv, salixRtpStatsEstimatedAvgLatency=salixRtpStatsEstimatedAvgLatency, salixRtpStatsPktsRecv=salixRtpStatsPktsRecv, salixRtpStatsSignalPktsRecv=salixRtpStatsSignalPktsRecv, PYSNMP_MODULE_ID=salixRtpMIB, salixRtpStatsSignalBytesRecv=salixRtpStatsSignalBytesRecv, salixRtpStatsSignalPktsSent=salixRtpStatsSignalPktsSent, salixRtpStatsSrcIpAddress=salixRtpStatsSrcIpAddress, salixRtpStatsBytesRecv=salixRtpStatsBytesRecv)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(platform1,) = mibBuilder.importSymbols(
+    "SALIX-MIB",
+    "platform1")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+salixRtpMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2158, 5, 1, 1)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_SalixRtpMIBObjects_ObjectIdentity = ObjectIdentity
+salixRtpMIBObjects = _SalixRtpMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1)
+)
+_SalixRtpStatsTable_Object = MibTable
+salixRtpStatsTable = _SalixRtpStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    salixRtpStatsTable.setStatus("current")
+_SalixRtpStatsEntry_Object = MibTableRow
+salixRtpStatsEntry = _SalixRtpStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1, 1, 1)
+)
+salixRtpStatsEntry.setIndexNames(
+    (0, "SALIX-RTP-MIB", "salixRtpStatsSrcIpAddress"),
+    (0, "SALIX-RTP-MIB", "salixRtpStatsSrcPort"),
+    (0, "SALIX-RTP-MIB", "salixRtpStatsDestIpAddress"),
+    (0, "SALIX-RTP-MIB", "salixRtpStatsDestPort"),
+)
+if mibBuilder.loadTexts:
+    salixRtpStatsEntry.setStatus("current")
+_SalixRtpStatsSrcIpAddress_Type = IpAddress
+_SalixRtpStatsSrcIpAddress_Object = MibTableColumn
+salixRtpStatsSrcIpAddress = _SalixRtpStatsSrcIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1, 1, 1, 1),
+    _SalixRtpStatsSrcIpAddress_Type()
+)
+salixRtpStatsSrcIpAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    salixRtpStatsSrcIpAddress.setStatus("current")
+
+
+class _SalixRtpStatsSrcPort_Type(Integer32):
+    """Custom type salixRtpStatsSrcPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SalixRtpStatsSrcPort_Type.__name__ = "Integer32"
+_SalixRtpStatsSrcPort_Object = MibTableColumn
+salixRtpStatsSrcPort = _SalixRtpStatsSrcPort_Object(
+    (1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1, 1, 1, 2),
+    _SalixRtpStatsSrcPort_Type()
+)
+salixRtpStatsSrcPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    salixRtpStatsSrcPort.setStatus("current")
+_SalixRtpStatsDestIpAddress_Type = IpAddress
+_SalixRtpStatsDestIpAddress_Object = MibTableColumn
+salixRtpStatsDestIpAddress = _SalixRtpStatsDestIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1, 1, 1, 3),
+    _SalixRtpStatsDestIpAddress_Type()
+)
+salixRtpStatsDestIpAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    salixRtpStatsDestIpAddress.setStatus("current")
+
+
+class _SalixRtpStatsDestPort_Type(Integer32):
+    """Custom type salixRtpStatsDestPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SalixRtpStatsDestPort_Type.__name__ = "Integer32"
+_SalixRtpStatsDestPort_Object = MibTableColumn
+salixRtpStatsDestPort = _SalixRtpStatsDestPort_Object(
+    (1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1, 1, 1, 4),
+    _SalixRtpStatsDestPort_Type()
+)
+salixRtpStatsDestPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    salixRtpStatsDestPort.setStatus("current")
+_SalixRtpStatsPktsSent_Type = Counter32
+_SalixRtpStatsPktsSent_Object = MibTableColumn
+salixRtpStatsPktsSent = _SalixRtpStatsPktsSent_Object(
+    (1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1, 1, 1, 5),
+    _SalixRtpStatsPktsSent_Type()
+)
+salixRtpStatsPktsSent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    salixRtpStatsPktsSent.setStatus("current")
+_SalixRtpStatsPktsRecv_Type = Counter32
+_SalixRtpStatsPktsRecv_Object = MibTableColumn
+salixRtpStatsPktsRecv = _SalixRtpStatsPktsRecv_Object(
+    (1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1, 1, 1, 6),
+    _SalixRtpStatsPktsRecv_Type()
+)
+salixRtpStatsPktsRecv.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    salixRtpStatsPktsRecv.setStatus("current")
+_SalixRtpStatsPktsDropped_Type = Counter32
+_SalixRtpStatsPktsDropped_Object = MibTableColumn
+salixRtpStatsPktsDropped = _SalixRtpStatsPktsDropped_Object(
+    (1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1, 1, 1, 7),
+    _SalixRtpStatsPktsDropped_Type()
+)
+salixRtpStatsPktsDropped.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    salixRtpStatsPktsDropped.setStatus("current")
+_SalixRtpStatsBytesSent_Type = Counter32
+_SalixRtpStatsBytesSent_Object = MibTableColumn
+salixRtpStatsBytesSent = _SalixRtpStatsBytesSent_Object(
+    (1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1, 1, 1, 8),
+    _SalixRtpStatsBytesSent_Type()
+)
+salixRtpStatsBytesSent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    salixRtpStatsBytesSent.setStatus("current")
+_SalixRtpStatsBytesRecv_Type = Counter32
+_SalixRtpStatsBytesRecv_Object = MibTableColumn
+salixRtpStatsBytesRecv = _SalixRtpStatsBytesRecv_Object(
+    (1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1, 1, 1, 9),
+    _SalixRtpStatsBytesRecv_Type()
+)
+salixRtpStatsBytesRecv.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    salixRtpStatsBytesRecv.setStatus("current")
+_SalixRtpStatsBytesDropped_Type = Counter32
+_SalixRtpStatsBytesDropped_Object = MibTableColumn
+salixRtpStatsBytesDropped = _SalixRtpStatsBytesDropped_Object(
+    (1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1, 1, 1, 10),
+    _SalixRtpStatsBytesDropped_Type()
+)
+salixRtpStatsBytesDropped.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    salixRtpStatsBytesDropped.setStatus("current")
+_SalixRtpStatsSignalPktsSent_Type = Counter32
+_SalixRtpStatsSignalPktsSent_Object = MibTableColumn
+salixRtpStatsSignalPktsSent = _SalixRtpStatsSignalPktsSent_Object(
+    (1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1, 1, 1, 11),
+    _SalixRtpStatsSignalPktsSent_Type()
+)
+salixRtpStatsSignalPktsSent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    salixRtpStatsSignalPktsSent.setStatus("current")
+_SalixRtpStatsSignalPktsRecv_Type = Counter32
+_SalixRtpStatsSignalPktsRecv_Object = MibTableColumn
+salixRtpStatsSignalPktsRecv = _SalixRtpStatsSignalPktsRecv_Object(
+    (1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1, 1, 1, 12),
+    _SalixRtpStatsSignalPktsRecv_Type()
+)
+salixRtpStatsSignalPktsRecv.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    salixRtpStatsSignalPktsRecv.setStatus("current")
+_SalixRtpStatsSignalPktsDropped_Type = Counter32
+_SalixRtpStatsSignalPktsDropped_Object = MibTableColumn
+salixRtpStatsSignalPktsDropped = _SalixRtpStatsSignalPktsDropped_Object(
+    (1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1, 1, 1, 13),
+    _SalixRtpStatsSignalPktsDropped_Type()
+)
+salixRtpStatsSignalPktsDropped.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    salixRtpStatsSignalPktsDropped.setStatus("current")
+_SalixRtpStatsSignalBytesRecv_Type = Counter32
+_SalixRtpStatsSignalBytesRecv_Object = MibTableColumn
+salixRtpStatsSignalBytesRecv = _SalixRtpStatsSignalBytesRecv_Object(
+    (1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1, 1, 1, 14),
+    _SalixRtpStatsSignalBytesRecv_Type()
+)
+salixRtpStatsSignalBytesRecv.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    salixRtpStatsSignalBytesRecv.setStatus("current")
+_SalixRtpStatsAudioPktsRecv_Type = Counter32
+_SalixRtpStatsAudioPktsRecv_Object = MibTableColumn
+salixRtpStatsAudioPktsRecv = _SalixRtpStatsAudioPktsRecv_Object(
+    (1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1, 1, 1, 15),
+    _SalixRtpStatsAudioPktsRecv_Type()
+)
+salixRtpStatsAudioPktsRecv.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    salixRtpStatsAudioPktsRecv.setStatus("current")
+_SalixRtpStatsAudioBytesRecv_Type = Counter32
+_SalixRtpStatsAudioBytesRecv_Object = MibTableColumn
+salixRtpStatsAudioBytesRecv = _SalixRtpStatsAudioBytesRecv_Object(
+    (1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1, 1, 1, 16),
+    _SalixRtpStatsAudioBytesRecv_Type()
+)
+salixRtpStatsAudioBytesRecv.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    salixRtpStatsAudioBytesRecv.setStatus("current")
+_SalixRtpStatsEstimatedAvgLatency_Type = Integer32
+_SalixRtpStatsEstimatedAvgLatency_Object = MibTableColumn
+salixRtpStatsEstimatedAvgLatency = _SalixRtpStatsEstimatedAvgLatency_Object(
+    (1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 1, 1, 1, 17),
+    _SalixRtpStatsEstimatedAvgLatency_Type()
+)
+salixRtpStatsEstimatedAvgLatency.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    salixRtpStatsEstimatedAvgLatency.setStatus("current")
+_SalixRtpMIBTraps_ObjectIdentity = ObjectIdentity
+salixRtpMIBTraps = _SalixRtpMIBTraps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 2)
+)
+_SalixRtpMIBTrapPrefix_ObjectIdentity = ObjectIdentity
+salixRtpMIBTrapPrefix = _SalixRtpMIBTrapPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 2, 0)
+)
+_SalixRtpMIBCompliance_ObjectIdentity = ObjectIdentity
+salixRtpMIBCompliance = _SalixRtpMIBCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 3)
+)
+_SalixRtpGroups_ObjectIdentity = ObjectIdentity
+salixRtpGroups = _SalixRtpGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 3, 1)
+)
+_SalixRtpCompliances_ObjectIdentity = ObjectIdentity
+salixRtpCompliances = _SalixRtpCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 3, 2)
+)
+
+# Managed Objects groups
+
+salixRtpGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 3, 1, 3)
+)
+salixRtpGroup.setObjects(
+      *(("SALIX-RTP-MIB", "salixRtpStatsPktsSent"),
+        ("SALIX-RTP-MIB", "salixRtpStatsPktsRecv"),
+        ("SALIX-RTP-MIB", "salixRtpStatsPktsDropped"),
+        ("SALIX-RTP-MIB", "salixRtpStatsBytesSent"),
+        ("SALIX-RTP-MIB", "salixRtpStatsBytesRecv"),
+        ("SALIX-RTP-MIB", "salixRtpStatsBytesDropped"),
+        ("SALIX-RTP-MIB", "salixRtpStatsSignalPktsSent"),
+        ("SALIX-RTP-MIB", "salixRtpStatsSignalPktsRecv"),
+        ("SALIX-RTP-MIB", "salixRtpStatsSignalPktsDropped"),
+        ("SALIX-RTP-MIB", "salixRtpStatsSignalBytesRecv"),
+        ("SALIX-RTP-MIB", "salixRtpStatsAudioPktsRecv"),
+        ("SALIX-RTP-MIB", "salixRtpStatsAudioBytesRecv"),
+        ("SALIX-RTP-MIB", "salixRtpStatsEstimatedAvgLatency"))
+)
+if mibBuilder.loadTexts:
+    salixRtpGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+salixRtpCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 2158, 5, 1, 1, 3, 2, 1)
+)
+if mibBuilder.loadTexts:
+    salixRtpCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "SALIX-RTP-MIB",
+    **{"salixRtpMIB": salixRtpMIB,
+       "salixRtpMIBObjects": salixRtpMIBObjects,
+       "salixRtpStatsTable": salixRtpStatsTable,
+       "salixRtpStatsEntry": salixRtpStatsEntry,
+       "salixRtpStatsSrcIpAddress": salixRtpStatsSrcIpAddress,
+       "salixRtpStatsSrcPort": salixRtpStatsSrcPort,
+       "salixRtpStatsDestIpAddress": salixRtpStatsDestIpAddress,
+       "salixRtpStatsDestPort": salixRtpStatsDestPort,
+       "salixRtpStatsPktsSent": salixRtpStatsPktsSent,
+       "salixRtpStatsPktsRecv": salixRtpStatsPktsRecv,
+       "salixRtpStatsPktsDropped": salixRtpStatsPktsDropped,
+       "salixRtpStatsBytesSent": salixRtpStatsBytesSent,
+       "salixRtpStatsBytesRecv": salixRtpStatsBytesRecv,
+       "salixRtpStatsBytesDropped": salixRtpStatsBytesDropped,
+       "salixRtpStatsSignalPktsSent": salixRtpStatsSignalPktsSent,
+       "salixRtpStatsSignalPktsRecv": salixRtpStatsSignalPktsRecv,
+       "salixRtpStatsSignalPktsDropped": salixRtpStatsSignalPktsDropped,
+       "salixRtpStatsSignalBytesRecv": salixRtpStatsSignalBytesRecv,
+       "salixRtpStatsAudioPktsRecv": salixRtpStatsAudioPktsRecv,
+       "salixRtpStatsAudioBytesRecv": salixRtpStatsAudioBytesRecv,
+       "salixRtpStatsEstimatedAvgLatency": salixRtpStatsEstimatedAvgLatency,
+       "salixRtpMIBTraps": salixRtpMIBTraps,
+       "salixRtpMIBTrapPrefix": salixRtpMIBTrapPrefix,
+       "salixRtpMIBCompliance": salixRtpMIBCompliance,
+       "salixRtpGroups": salixRtpGroups,
+       "salixRtpGroup": salixRtpGroup,
+       "salixRtpCompliances": salixRtpCompliances,
+       "salixRtpCompliance": salixRtpCompliance}
+)

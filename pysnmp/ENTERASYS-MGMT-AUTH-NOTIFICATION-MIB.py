@@ -1,76 +1,426 @@
+# SNMP MIB module (ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:49:38 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint")
-etsysModules, = mibBuilder.importSymbols("ENTERASYS-MIB-NAMES", "etsysModules")
-InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
-InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-NotificationType, ModuleIdentity, Bits, ObjectIdentity, IpAddress, Integer32, Counter64, iso, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, MibIdentifier, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "ModuleIdentity", "Bits", "ObjectIdentity", "IpAddress", "Integer32", "Counter64", "iso", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "MibIdentifier", "Counter32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-etsysMgmtAuthNotificationMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 5624, 1, 2, 60))
-etsysMgmtAuthNotificationMIB.setRevisions(('2011-03-08 20:40', '2005-11-14 16:48',))
-if mibBuilder.loadTexts: etsysMgmtAuthNotificationMIB.setLastUpdated('201103082040Z')
-if mibBuilder.loadTexts: etsysMgmtAuthNotificationMIB.setOrganization('Enterasys Networks, Inc')
-class EtsysMgmtAuthNotificationTypes(TextualConvention, Bits):
-    status = 'current'
-    namedValues = NamedValues(("cliConsole", 0), ("cliSsh", 1), ("cliTelnet", 2), ("webview", 3), ("inactiveUser", 4), ("maxUserAttempt", 5), ("maxUserFail", 6))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:39:11 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-etsysMgmtAuthObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 1))
-etsysMgmtAuthNotificationBranch = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 1, 0))
-etsysMgmtAuthConfigBranch = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 1, 1))
-etsysMgmtAuthAuthenticationBranch = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 1, 2))
-etsysMgmtAuthNotificationsSupported = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 1, 1, 1), EtsysMgmtAuthNotificationTypes()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: etsysMgmtAuthNotificationsSupported.setStatus('current')
-etsysMgmtAuthNotificationEnabledStatus = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 1, 1, 2), EtsysMgmtAuthNotificationTypes()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: etsysMgmtAuthNotificationEnabledStatus.setStatus('current')
-etsysMgmtAuthType = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 1, 2, 1), EtsysMgmtAuthNotificationTypes()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: etsysMgmtAuthType.setStatus('current')
-etsysMgmtAuthUserName = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 1, 2, 2), DisplayString()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: etsysMgmtAuthUserName.setStatus('current')
-etsysMgmtAuthInetAddressType = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 1, 2, 3), InetAddressType()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: etsysMgmtAuthInetAddressType.setStatus('current')
-etsysMgmtAuthInetAddress = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 1, 2, 4), InetAddress()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: etsysMgmtAuthInetAddress.setStatus('current')
-etsysMgmtAuthInIfIndex = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 1, 2, 5), InterfaceIndexOrZero()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: etsysMgmtAuthInIfIndex.setStatus('current')
-etsysMgmtAuthSuccessNotificiation = NotificationType((1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 1, 0, 1)).setObjects(("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthType"), ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthUserName"), ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthInetAddressType"), ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthInetAddress"), ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthInIfIndex"))
-if mibBuilder.loadTexts: etsysMgmtAuthSuccessNotificiation.setStatus('current')
-etsysMgmtAuthFailNotificiation = NotificationType((1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 1, 0, 2)).setObjects(("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthType"), ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthUserName"), ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthInetAddressType"), ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthInetAddress"), ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthInIfIndex"))
-if mibBuilder.loadTexts: etsysMgmtAuthFailNotificiation.setStatus('current')
-etsysMgmtAuthInactiveNotification = NotificationType((1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 1, 0, 3)).setObjects(("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthType"), ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthUserName"), ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthInetAddressType"), ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthInetAddress"), ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthInIfIndex"))
-if mibBuilder.loadTexts: etsysMgmtAuthInactiveNotification.setStatus('current')
-etsysMgmtAuthMaxAuthAttemptNotification = NotificationType((1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 1, 0, 4)).setObjects(("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthType"), ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthUserName"), ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthInetAddressType"), ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthInetAddress"), ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthInIfIndex"))
-if mibBuilder.loadTexts: etsysMgmtAuthMaxAuthAttemptNotification.setStatus('current')
-etsysMgmtAuthMaxFailNotification = NotificationType((1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 1, 0, 5)).setObjects(("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthType"), ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthUserName"), ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthInetAddressType"), ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthInetAddress"), ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthInIfIndex"))
-if mibBuilder.loadTexts: etsysMgmtAuthMaxFailNotification.setStatus('current')
-etsysMgmtAuthConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 2))
-etsysMgmtAuthGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 2, 1))
-etsysMgmtAuthCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 2, 2))
-etsysMgmtAuthConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 2, 1, 1)).setObjects(("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthNotificationsSupported"), ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthNotificationEnabledStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    etsysMgmtAuthConfigGroup = etsysMgmtAuthConfigGroup.setStatus('current')
-etsysMgmtAuthHistoryGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 2, 1, 2)).setObjects(("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthType"), ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthUserName"), ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthInetAddressType"), ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthInetAddress"), ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthInIfIndex"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    etsysMgmtAuthHistoryGroup = etsysMgmtAuthHistoryGroup.setStatus('current')
-etsysMgmtAuthNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 2, 1, 3)).setObjects(("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthSuccessNotificiation"), ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthFailNotificiation"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    etsysMgmtAuthNotificationGroup = etsysMgmtAuthNotificationGroup.setStatus('current')
-etsysMgmtAuthNotificationUserGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 2, 1, 4)).setObjects(("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthInactiveNotification"), ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthMaxAuthAttemptNotification"), ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthMaxFailNotification"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    etsysMgmtAuthNotificationUserGroup = etsysMgmtAuthNotificationUserGroup.setStatus('current')
-etsysMgmtAuthCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 2, 2, 1)).setObjects(("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthConfigGroup"), ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthHistoryGroup"), ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthNotificationGroup"))
+if 'mibBuilder' not in globals():
+    import sys
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    etsysMgmtAuthCompliance = etsysMgmtAuthCompliance.setStatus('current')
-etsysMgmtAuthUserCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 2, 2, 2)).setObjects(("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthNotificationUserGroup"))
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    etsysMgmtAuthUserCompliance = etsysMgmtAuthUserCompliance.setStatus('current')
-mibBuilder.exportSymbols("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", etsysMgmtAuthNotificationUserGroup=etsysMgmtAuthNotificationUserGroup, etsysMgmtAuthNotificationGroup=etsysMgmtAuthNotificationGroup, etsysMgmtAuthNotificationBranch=etsysMgmtAuthNotificationBranch, etsysMgmtAuthFailNotificiation=etsysMgmtAuthFailNotificiation, etsysMgmtAuthConfigGroup=etsysMgmtAuthConfigGroup, etsysMgmtAuthMaxFailNotification=etsysMgmtAuthMaxFailNotification, etsysMgmtAuthNotificationEnabledStatus=etsysMgmtAuthNotificationEnabledStatus, etsysMgmtAuthCompliance=etsysMgmtAuthCompliance, etsysMgmtAuthGroups=etsysMgmtAuthGroups, etsysMgmtAuthConformance=etsysMgmtAuthConformance, etsysMgmtAuthNotificationMIB=etsysMgmtAuthNotificationMIB, etsysMgmtAuthInetAddress=etsysMgmtAuthInetAddress, PYSNMP_MODULE_ID=etsysMgmtAuthNotificationMIB, etsysMgmtAuthNotificationsSupported=etsysMgmtAuthNotificationsSupported, etsysMgmtAuthConfigBranch=etsysMgmtAuthConfigBranch, etsysMgmtAuthInIfIndex=etsysMgmtAuthInIfIndex, etsysMgmtAuthSuccessNotificiation=etsysMgmtAuthSuccessNotificiation, etsysMgmtAuthType=etsysMgmtAuthType, etsysMgmtAuthUserCompliance=etsysMgmtAuthUserCompliance, etsysMgmtAuthUserName=etsysMgmtAuthUserName, etsysMgmtAuthAuthenticationBranch=etsysMgmtAuthAuthenticationBranch, etsysMgmtAuthObjects=etsysMgmtAuthObjects, etsysMgmtAuthInactiveNotification=etsysMgmtAuthInactiveNotification, etsysMgmtAuthMaxAuthAttemptNotification=etsysMgmtAuthMaxAuthAttemptNotification, etsysMgmtAuthInetAddressType=etsysMgmtAuthInetAddressType, EtsysMgmtAuthNotificationTypes=EtsysMgmtAuthNotificationTypes, etsysMgmtAuthCompliances=etsysMgmtAuthCompliances, etsysMgmtAuthHistoryGroup=etsysMgmtAuthHistoryGroup)
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(etsysModules,) = mibBuilder.importSymbols(
+    "ENTERASYS-MIB-NAMES",
+    "etsysModules")
+
+(InterfaceIndexOrZero,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndexOrZero")
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+etsysMgmtAuthNotificationMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 60)
+)
+etsysMgmtAuthNotificationMIB.setRevisions(
+        ("2011-03-08 20:40",
+         "2005-11-14 16:48")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class EtsysMgmtAuthNotificationTypes(Bits, TextualConvention):
+    status = "current"
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_EtsysMgmtAuthObjects_ObjectIdentity = ObjectIdentity
+etsysMgmtAuthObjects = _EtsysMgmtAuthObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 1)
+)
+_EtsysMgmtAuthNotificationBranch_ObjectIdentity = ObjectIdentity
+etsysMgmtAuthNotificationBranch = _EtsysMgmtAuthNotificationBranch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 1, 0)
+)
+_EtsysMgmtAuthConfigBranch_ObjectIdentity = ObjectIdentity
+etsysMgmtAuthConfigBranch = _EtsysMgmtAuthConfigBranch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 1, 1)
+)
+
+
+class _EtsysMgmtAuthNotificationsSupported_Type(EtsysMgmtAuthNotificationTypes):
+    """Custom type etsysMgmtAuthNotificationsSupported based on EtsysMgmtAuthNotificationTypes"""
+    defaultBinValue = "0"
+
+
+_EtsysMgmtAuthNotificationsSupported_Object = MibScalar
+etsysMgmtAuthNotificationsSupported = _EtsysMgmtAuthNotificationsSupported_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 1, 1, 1),
+    _EtsysMgmtAuthNotificationsSupported_Type()
+)
+etsysMgmtAuthNotificationsSupported.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    etsysMgmtAuthNotificationsSupported.setStatus("current")
+
+
+class _EtsysMgmtAuthNotificationEnabledStatus_Type(EtsysMgmtAuthNotificationTypes):
+    """Custom type etsysMgmtAuthNotificationEnabledStatus based on EtsysMgmtAuthNotificationTypes"""
+    defaultBinValue = "0"
+
+
+_EtsysMgmtAuthNotificationEnabledStatus_Object = MibScalar
+etsysMgmtAuthNotificationEnabledStatus = _EtsysMgmtAuthNotificationEnabledStatus_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 1, 1, 2),
+    _EtsysMgmtAuthNotificationEnabledStatus_Type()
+)
+etsysMgmtAuthNotificationEnabledStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    etsysMgmtAuthNotificationEnabledStatus.setStatus("current")
+_EtsysMgmtAuthAuthenticationBranch_ObjectIdentity = ObjectIdentity
+etsysMgmtAuthAuthenticationBranch = _EtsysMgmtAuthAuthenticationBranch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 1, 2)
+)
+_EtsysMgmtAuthType_Type = EtsysMgmtAuthNotificationTypes
+_EtsysMgmtAuthType_Object = MibScalar
+etsysMgmtAuthType = _EtsysMgmtAuthType_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 1, 2, 1),
+    _EtsysMgmtAuthType_Type()
+)
+etsysMgmtAuthType.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    etsysMgmtAuthType.setStatus("current")
+_EtsysMgmtAuthUserName_Type = DisplayString
+_EtsysMgmtAuthUserName_Object = MibScalar
+etsysMgmtAuthUserName = _EtsysMgmtAuthUserName_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 1, 2, 2),
+    _EtsysMgmtAuthUserName_Type()
+)
+etsysMgmtAuthUserName.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    etsysMgmtAuthUserName.setStatus("current")
+_EtsysMgmtAuthInetAddressType_Type = InetAddressType
+_EtsysMgmtAuthInetAddressType_Object = MibScalar
+etsysMgmtAuthInetAddressType = _EtsysMgmtAuthInetAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 1, 2, 3),
+    _EtsysMgmtAuthInetAddressType_Type()
+)
+etsysMgmtAuthInetAddressType.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    etsysMgmtAuthInetAddressType.setStatus("current")
+_EtsysMgmtAuthInetAddress_Type = InetAddress
+_EtsysMgmtAuthInetAddress_Object = MibScalar
+etsysMgmtAuthInetAddress = _EtsysMgmtAuthInetAddress_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 1, 2, 4),
+    _EtsysMgmtAuthInetAddress_Type()
+)
+etsysMgmtAuthInetAddress.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    etsysMgmtAuthInetAddress.setStatus("current")
+_EtsysMgmtAuthInIfIndex_Type = InterfaceIndexOrZero
+_EtsysMgmtAuthInIfIndex_Object = MibScalar
+etsysMgmtAuthInIfIndex = _EtsysMgmtAuthInIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 1, 2, 5),
+    _EtsysMgmtAuthInIfIndex_Type()
+)
+etsysMgmtAuthInIfIndex.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    etsysMgmtAuthInIfIndex.setStatus("current")
+_EtsysMgmtAuthConformance_ObjectIdentity = ObjectIdentity
+etsysMgmtAuthConformance = _EtsysMgmtAuthConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 2)
+)
+_EtsysMgmtAuthGroups_ObjectIdentity = ObjectIdentity
+etsysMgmtAuthGroups = _EtsysMgmtAuthGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 2, 1)
+)
+_EtsysMgmtAuthCompliances_ObjectIdentity = ObjectIdentity
+etsysMgmtAuthCompliances = _EtsysMgmtAuthCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 2, 2)
+)
+
+# Managed Objects groups
+
+etsysMgmtAuthConfigGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 2, 1, 1)
+)
+etsysMgmtAuthConfigGroup.setObjects(
+      *(("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthNotificationsSupported"),
+        ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthNotificationEnabledStatus"))
+)
+if mibBuilder.loadTexts:
+    etsysMgmtAuthConfigGroup.setStatus("current")
+
+etsysMgmtAuthHistoryGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 2, 1, 2)
+)
+etsysMgmtAuthHistoryGroup.setObjects(
+      *(("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthType"),
+        ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthUserName"),
+        ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthInetAddressType"),
+        ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthInetAddress"),
+        ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthInIfIndex"))
+)
+if mibBuilder.loadTexts:
+    etsysMgmtAuthHistoryGroup.setStatus("current")
+
+
+# Notification objects
+
+etsysMgmtAuthSuccessNotificiation = NotificationType(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 1, 0, 1)
+)
+etsysMgmtAuthSuccessNotificiation.setObjects(
+      *(("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthType"),
+        ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthUserName"),
+        ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthInetAddressType"),
+        ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthInetAddress"),
+        ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthInIfIndex"))
+)
+if mibBuilder.loadTexts:
+    etsysMgmtAuthSuccessNotificiation.setStatus(
+        "current"
+    )
+
+etsysMgmtAuthFailNotificiation = NotificationType(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 1, 0, 2)
+)
+etsysMgmtAuthFailNotificiation.setObjects(
+      *(("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthType"),
+        ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthUserName"),
+        ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthInetAddressType"),
+        ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthInetAddress"),
+        ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthInIfIndex"))
+)
+if mibBuilder.loadTexts:
+    etsysMgmtAuthFailNotificiation.setStatus(
+        "current"
+    )
+
+etsysMgmtAuthInactiveNotification = NotificationType(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 1, 0, 3)
+)
+etsysMgmtAuthInactiveNotification.setObjects(
+      *(("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthType"),
+        ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthUserName"),
+        ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthInetAddressType"),
+        ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthInetAddress"),
+        ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthInIfIndex"))
+)
+if mibBuilder.loadTexts:
+    etsysMgmtAuthInactiveNotification.setStatus(
+        "current"
+    )
+
+etsysMgmtAuthMaxAuthAttemptNotification = NotificationType(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 1, 0, 4)
+)
+etsysMgmtAuthMaxAuthAttemptNotification.setObjects(
+      *(("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthType"),
+        ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthUserName"),
+        ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthInetAddressType"),
+        ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthInetAddress"),
+        ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthInIfIndex"))
+)
+if mibBuilder.loadTexts:
+    etsysMgmtAuthMaxAuthAttemptNotification.setStatus(
+        "current"
+    )
+
+etsysMgmtAuthMaxFailNotification = NotificationType(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 1, 0, 5)
+)
+etsysMgmtAuthMaxFailNotification.setObjects(
+      *(("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthType"),
+        ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthUserName"),
+        ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthInetAddressType"),
+        ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthInetAddress"),
+        ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthInIfIndex"))
+)
+if mibBuilder.loadTexts:
+    etsysMgmtAuthMaxFailNotification.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+etsysMgmtAuthNotificationGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 2, 1, 3)
+)
+etsysMgmtAuthNotificationGroup.setObjects(
+      *(("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthSuccessNotificiation"),
+        ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthFailNotificiation"))
+)
+if mibBuilder.loadTexts:
+    etsysMgmtAuthNotificationGroup.setStatus(
+        "current"
+    )
+
+etsysMgmtAuthNotificationUserGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 2, 1, 4)
+)
+etsysMgmtAuthNotificationUserGroup.setObjects(
+      *(("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthInactiveNotification"),
+        ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthMaxAuthAttemptNotification"),
+        ("ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB", "etsysMgmtAuthMaxFailNotification"))
+)
+if mibBuilder.loadTexts:
+    etsysMgmtAuthNotificationUserGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+etsysMgmtAuthCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 2, 2, 1)
+)
+if mibBuilder.loadTexts:
+    etsysMgmtAuthCompliance.setStatus(
+        "current"
+    )
+
+etsysMgmtAuthUserCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 60, 2, 2, 2)
+)
+if mibBuilder.loadTexts:
+    etsysMgmtAuthUserCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ENTERASYS-MGMT-AUTH-NOTIFICATION-MIB",
+    **{"EtsysMgmtAuthNotificationTypes": EtsysMgmtAuthNotificationTypes,
+       "etsysMgmtAuthNotificationMIB": etsysMgmtAuthNotificationMIB,
+       "etsysMgmtAuthObjects": etsysMgmtAuthObjects,
+       "etsysMgmtAuthNotificationBranch": etsysMgmtAuthNotificationBranch,
+       "etsysMgmtAuthSuccessNotificiation": etsysMgmtAuthSuccessNotificiation,
+       "etsysMgmtAuthFailNotificiation": etsysMgmtAuthFailNotificiation,
+       "etsysMgmtAuthInactiveNotification": etsysMgmtAuthInactiveNotification,
+       "etsysMgmtAuthMaxAuthAttemptNotification": etsysMgmtAuthMaxAuthAttemptNotification,
+       "etsysMgmtAuthMaxFailNotification": etsysMgmtAuthMaxFailNotification,
+       "etsysMgmtAuthConfigBranch": etsysMgmtAuthConfigBranch,
+       "etsysMgmtAuthNotificationsSupported": etsysMgmtAuthNotificationsSupported,
+       "etsysMgmtAuthNotificationEnabledStatus": etsysMgmtAuthNotificationEnabledStatus,
+       "etsysMgmtAuthAuthenticationBranch": etsysMgmtAuthAuthenticationBranch,
+       "etsysMgmtAuthType": etsysMgmtAuthType,
+       "etsysMgmtAuthUserName": etsysMgmtAuthUserName,
+       "etsysMgmtAuthInetAddressType": etsysMgmtAuthInetAddressType,
+       "etsysMgmtAuthInetAddress": etsysMgmtAuthInetAddress,
+       "etsysMgmtAuthInIfIndex": etsysMgmtAuthInIfIndex,
+       "etsysMgmtAuthConformance": etsysMgmtAuthConformance,
+       "etsysMgmtAuthGroups": etsysMgmtAuthGroups,
+       "etsysMgmtAuthConfigGroup": etsysMgmtAuthConfigGroup,
+       "etsysMgmtAuthHistoryGroup": etsysMgmtAuthHistoryGroup,
+       "etsysMgmtAuthNotificationGroup": etsysMgmtAuthNotificationGroup,
+       "etsysMgmtAuthNotificationUserGroup": etsysMgmtAuthNotificationUserGroup,
+       "etsysMgmtAuthCompliances": etsysMgmtAuthCompliances,
+       "etsysMgmtAuthCompliance": etsysMgmtAuthCompliance,
+       "etsysMgmtAuthUserCompliance": etsysMgmtAuthUserCompliance}
+)

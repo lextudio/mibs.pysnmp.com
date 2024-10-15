@@ -1,74 +1,459 @@
+# SNMP MIB module (CTRON-RATE-POLICING-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CTRON-RATE-POLICING-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/CTRON-RATE-POLICING-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:14:59 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
-dot1dBasePort, = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dBasePort")
-ctPriorityExt, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctPriorityExt")
-NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, Counter64, IpAddress, iso, ObjectIdentity, ModuleIdentity, Unsigned32, NotificationType, Bits, Gauge32, MibIdentifier, TimeTicks, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "Counter64", "IpAddress", "iso", "ObjectIdentity", "ModuleIdentity", "Unsigned32", "NotificationType", "Bits", "Gauge32", "MibIdentifier", "TimeTicks", "Counter32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-ctRatePolicing = ModuleIdentity((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7))
-ctRatePolicing.setRevisions(('2003-04-10 15:18', '2003-03-11 15:53', '2000-11-28 15:51', '1999-06-21 00:00',))
-if mibBuilder.loadTexts: ctRatePolicing.setLastUpdated('200304101518Z')
-if mibBuilder.loadTexts: ctRatePolicing.setOrganization('Enterasys Networks, Inc')
-ctRatePolicingObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1))
-class CtPriList(TextualConvention, Integer32):
-    status = 'current'
-    displayHint = 'x'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 255)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CTRON-RATE-POLICING-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:19:11 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class CtRatePolActionList(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))
-    namedValues = NamedValues(("none", 0), ("dropPacket", 1), ("flowCtrlPacketAndDrop", 2), ("dropPacketOrFlowCtrlAndDrop", 3))
+if 'mibBuilder' not in globals():
+    import sys
 
-class CtRatePolDirectionList(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))
-    namedValues = NamedValues(("none", 0), ("inbound", 1), ("outbound", 2), ("inboundAndOutbound", 3))
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-ctRatePolicingAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ctRatePolicingAdminStatus.setStatus('current')
-ctRatePolicingConfigLastChange = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 2), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ctRatePolicingConfigLastChange.setStatus('current')
-ctRatePolicingConfigTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 3), )
-if mibBuilder.loadTexts: ctRatePolicingConfigTable.setStatus('current')
-ctRatePolicingConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 3, 1), ).setIndexNames((0, "BRIDGE-MIB", "dot1dBasePort"), (0, "CTRON-RATE-POLICING-MIB", "ctRatePolicingResourceIndex"))
-if mibBuilder.loadTexts: ctRatePolicingConfigEntry.setStatus('current')
-ctRatePolicingResourceIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)))
-if mibBuilder.loadTexts: ctRatePolicingResourceIndex.setStatus('current')
-ctRatePolicingActionsAllowed = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 3, 1, 2), CtRatePolActionList()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ctRatePolicingActionsAllowed.setStatus('current')
-ctRatePolicingAction = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 3, 1, 3), CtRatePolActionList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ctRatePolicingAction.setStatus('current')
-ctRatePolicingThreshHoldMin = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 3, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setUnits('kilobytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: ctRatePolicingThreshHoldMin.setStatus('current')
-ctRatePolicingThreshHold = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 3, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setUnits('kilobytes').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ctRatePolicingThreshHold.setStatus('current')
-ctRatePolicingPriorityList = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 3, 1, 6), CtPriList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ctRatePolicingPriorityList.setStatus('current')
-ctRatePolicingRuleStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 3, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("active", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ctRatePolicingRuleStatus.setStatus('current')
-ctRatePolicingActionsTaken = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 3, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ctRatePolicingActionsTaken.setStatus('current')
-ctRatePolicingDirectionsAllowed = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 3, 1, 9), CtRatePolDirectionList()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ctRatePolicingDirectionsAllowed.setStatus('current')
-ctRatePolicingDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 3, 1, 10), CtRatePolDirectionList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ctRatePolicingDirection.setStatus('current')
-ctRatePolicingConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 2))
-ctRatePolicingGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 2, 1))
-ctRatePolicingCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 2, 2))
-ctRatePolicingConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 2, 1, 1)).setObjects(("CTRON-RATE-POLICING-MIB", "ctRatePolicingAdminStatus"), ("CTRON-RATE-POLICING-MIB", "ctRatePolicingConfigLastChange"), ("CTRON-RATE-POLICING-MIB", "ctRatePolicingActionsAllowed"), ("CTRON-RATE-POLICING-MIB", "ctRatePolicingAction"), ("CTRON-RATE-POLICING-MIB", "ctRatePolicingThreshHold"), ("CTRON-RATE-POLICING-MIB", "ctRatePolicingPriorityList"), ("CTRON-RATE-POLICING-MIB", "ctRatePolicingRuleStatus"), ("CTRON-RATE-POLICING-MIB", "ctRatePolicingActionsTaken"), ("CTRON-RATE-POLICING-MIB", "ctRatePolicingDirectionsAllowed"), ("CTRON-RATE-POLICING-MIB", "ctRatePolicingDirection"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ctRatePolicingConfigGroup = ctRatePolicingConfigGroup.setStatus('current')
-ctRatePolicingCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 2, 2, 1)).setObjects(("CTRON-RATE-POLICING-MIB", "ctRatePolicingConfigGroup"))
+# Import base ASN.1 objects even if this MIB does not use it
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ctRatePolicingCompliance = ctRatePolicingCompliance.setStatus('current')
-mibBuilder.exportSymbols("CTRON-RATE-POLICING-MIB", ctRatePolicingCompliance=ctRatePolicingCompliance, ctRatePolicingConfigEntry=ctRatePolicingConfigEntry, ctRatePolicingPriorityList=ctRatePolicingPriorityList, ctRatePolicingAdminStatus=ctRatePolicingAdminStatus, PYSNMP_MODULE_ID=ctRatePolicing, ctRatePolicingConfigTable=ctRatePolicingConfigTable, ctRatePolicingCompliances=ctRatePolicingCompliances, CtPriList=CtPriList, CtRatePolDirectionList=CtRatePolDirectionList, ctRatePolicingThreshHold=ctRatePolicingThreshHold, ctRatePolicingDirection=ctRatePolicingDirection, ctRatePolicingObjects=ctRatePolicingObjects, ctRatePolicingGroups=ctRatePolicingGroups, CtRatePolActionList=CtRatePolActionList, ctRatePolicingDirectionsAllowed=ctRatePolicingDirectionsAllowed, ctRatePolicingAction=ctRatePolicingAction, ctRatePolicingConformance=ctRatePolicingConformance, ctRatePolicingConfigGroup=ctRatePolicingConfigGroup, ctRatePolicing=ctRatePolicing, ctRatePolicingActionsAllowed=ctRatePolicingActionsAllowed, ctRatePolicingResourceIndex=ctRatePolicingResourceIndex, ctRatePolicingThreshHoldMin=ctRatePolicingThreshHoldMin, ctRatePolicingRuleStatus=ctRatePolicingRuleStatus, ctRatePolicingConfigLastChange=ctRatePolicingConfigLastChange, ctRatePolicingActionsTaken=ctRatePolicingActionsTaken)
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(dot1dBasePort,) = mibBuilder.importSymbols(
+    "BRIDGE-MIB",
+    "dot1dBasePort")
+
+(ctPriorityExt,) = mibBuilder.importSymbols(
+    "CTRON-MIB-NAMES",
+    "ctPriorityExt")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+ctRatePolicing = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7)
+)
+ctRatePolicing.setRevisions(
+        ("2003-04-10 15:18",
+         "2003-03-11 15:53",
+         "2000-11-28 15:51",
+         "1999-06-21 00:00")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class CtPriList(Integer32, TextualConvention):
+    status = "current"
+    displayHint = "x"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+
+class CtRatePolActionList(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dropPacket", 1),
+          ("dropPacketOrFlowCtrlAndDrop", 3),
+          ("flowCtrlPacketAndDrop", 2),
+          ("none", 0))
+    )
+
+
+
+class CtRatePolDirectionList(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("inbound", 1),
+          ("inboundAndOutbound", 3),
+          ("none", 0),
+          ("outbound", 2))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CtRatePolicingObjects_ObjectIdentity = ObjectIdentity
+ctRatePolicingObjects = _CtRatePolicingObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1)
+)
+
+
+class _CtRatePolicingAdminStatus_Type(Integer32):
+    """Custom type ctRatePolicingAdminStatus based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 2),
+          ("enable", 1))
+    )
+
+
+_CtRatePolicingAdminStatus_Type.__name__ = "Integer32"
+_CtRatePolicingAdminStatus_Object = MibScalar
+ctRatePolicingAdminStatus = _CtRatePolicingAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 1),
+    _CtRatePolicingAdminStatus_Type()
+)
+ctRatePolicingAdminStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ctRatePolicingAdminStatus.setStatus("current")
+_CtRatePolicingConfigLastChange_Type = TimeTicks
+_CtRatePolicingConfigLastChange_Object = MibScalar
+ctRatePolicingConfigLastChange = _CtRatePolicingConfigLastChange_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 2),
+    _CtRatePolicingConfigLastChange_Type()
+)
+ctRatePolicingConfigLastChange.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ctRatePolicingConfigLastChange.setStatus("current")
+_CtRatePolicingConfigTable_Object = MibTable
+ctRatePolicingConfigTable = _CtRatePolicingConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 3)
+)
+if mibBuilder.loadTexts:
+    ctRatePolicingConfigTable.setStatus("current")
+_CtRatePolicingConfigEntry_Object = MibTableRow
+ctRatePolicingConfigEntry = _CtRatePolicingConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 3, 1)
+)
+ctRatePolicingConfigEntry.setIndexNames(
+    (0, "BRIDGE-MIB", "dot1dBasePort"),
+    (0, "CTRON-RATE-POLICING-MIB", "ctRatePolicingResourceIndex"),
+)
+if mibBuilder.loadTexts:
+    ctRatePolicingConfigEntry.setStatus("current")
+
+
+class _CtRatePolicingResourceIndex_Type(Integer32):
+    """Custom type ctRatePolicingResourceIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_CtRatePolicingResourceIndex_Type.__name__ = "Integer32"
+_CtRatePolicingResourceIndex_Object = MibTableColumn
+ctRatePolicingResourceIndex = _CtRatePolicingResourceIndex_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 3, 1, 1),
+    _CtRatePolicingResourceIndex_Type()
+)
+ctRatePolicingResourceIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    ctRatePolicingResourceIndex.setStatus("current")
+_CtRatePolicingActionsAllowed_Type = CtRatePolActionList
+_CtRatePolicingActionsAllowed_Object = MibTableColumn
+ctRatePolicingActionsAllowed = _CtRatePolicingActionsAllowed_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 3, 1, 2),
+    _CtRatePolicingActionsAllowed_Type()
+)
+ctRatePolicingActionsAllowed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ctRatePolicingActionsAllowed.setStatus("current")
+_CtRatePolicingAction_Type = CtRatePolActionList
+_CtRatePolicingAction_Object = MibTableColumn
+ctRatePolicingAction = _CtRatePolicingAction_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 3, 1, 3),
+    _CtRatePolicingAction_Type()
+)
+ctRatePolicingAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ctRatePolicingAction.setStatus("current")
+
+
+class _CtRatePolicingThreshHoldMin_Type(Integer32):
+    """Custom type ctRatePolicingThreshHoldMin based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_CtRatePolicingThreshHoldMin_Type.__name__ = "Integer32"
+_CtRatePolicingThreshHoldMin_Object = MibTableColumn
+ctRatePolicingThreshHoldMin = _CtRatePolicingThreshHoldMin_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 3, 1, 4),
+    _CtRatePolicingThreshHoldMin_Type()
+)
+ctRatePolicingThreshHoldMin.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ctRatePolicingThreshHoldMin.setStatus("current")
+if mibBuilder.loadTexts:
+    ctRatePolicingThreshHoldMin.setUnits("kilobytes")
+
+
+class _CtRatePolicingThreshHold_Type(Integer32):
+    """Custom type ctRatePolicingThreshHold based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_CtRatePolicingThreshHold_Type.__name__ = "Integer32"
+_CtRatePolicingThreshHold_Object = MibTableColumn
+ctRatePolicingThreshHold = _CtRatePolicingThreshHold_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 3, 1, 5),
+    _CtRatePolicingThreshHold_Type()
+)
+ctRatePolicingThreshHold.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ctRatePolicingThreshHold.setStatus("current")
+if mibBuilder.loadTexts:
+    ctRatePolicingThreshHold.setUnits("kilobytes")
+_CtRatePolicingPriorityList_Type = CtPriList
+_CtRatePolicingPriorityList_Object = MibTableColumn
+ctRatePolicingPriorityList = _CtRatePolicingPriorityList_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 3, 1, 6),
+    _CtRatePolicingPriorityList_Type()
+)
+ctRatePolicingPriorityList.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ctRatePolicingPriorityList.setStatus("current")
+
+
+class _CtRatePolicingRuleStatus_Type(Integer32):
+    """Custom type ctRatePolicingRuleStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 1),
+          ("disabled", 2))
+    )
+
+
+_CtRatePolicingRuleStatus_Type.__name__ = "Integer32"
+_CtRatePolicingRuleStatus_Object = MibTableColumn
+ctRatePolicingRuleStatus = _CtRatePolicingRuleStatus_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 3, 1, 7),
+    _CtRatePolicingRuleStatus_Type()
+)
+ctRatePolicingRuleStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ctRatePolicingRuleStatus.setStatus("current")
+_CtRatePolicingActionsTaken_Type = Integer32
+_CtRatePolicingActionsTaken_Object = MibTableColumn
+ctRatePolicingActionsTaken = _CtRatePolicingActionsTaken_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 3, 1, 8),
+    _CtRatePolicingActionsTaken_Type()
+)
+ctRatePolicingActionsTaken.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ctRatePolicingActionsTaken.setStatus("current")
+_CtRatePolicingDirectionsAllowed_Type = CtRatePolDirectionList
+_CtRatePolicingDirectionsAllowed_Object = MibTableColumn
+ctRatePolicingDirectionsAllowed = _CtRatePolicingDirectionsAllowed_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 3, 1, 9),
+    _CtRatePolicingDirectionsAllowed_Type()
+)
+ctRatePolicingDirectionsAllowed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ctRatePolicingDirectionsAllowed.setStatus("current")
+_CtRatePolicingDirection_Type = CtRatePolDirectionList
+_CtRatePolicingDirection_Object = MibTableColumn
+ctRatePolicingDirection = _CtRatePolicingDirection_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 3, 1, 10),
+    _CtRatePolicingDirection_Type()
+)
+ctRatePolicingDirection.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ctRatePolicingDirection.setStatus("current")
+_CtRatePolicingConformance_ObjectIdentity = ObjectIdentity
+ctRatePolicingConformance = _CtRatePolicingConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 2)
+)
+_CtRatePolicingGroups_ObjectIdentity = ObjectIdentity
+ctRatePolicingGroups = _CtRatePolicingGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 2, 1)
+)
+_CtRatePolicingCompliances_ObjectIdentity = ObjectIdentity
+ctRatePolicingCompliances = _CtRatePolicingCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 2, 2)
+)
+
+# Managed Objects groups
+
+ctRatePolicingConfigGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 2, 1, 1)
+)
+ctRatePolicingConfigGroup.setObjects(
+      *(("CTRON-RATE-POLICING-MIB", "ctRatePolicingAdminStatus"),
+        ("CTRON-RATE-POLICING-MIB", "ctRatePolicingConfigLastChange"),
+        ("CTRON-RATE-POLICING-MIB", "ctRatePolicingActionsAllowed"),
+        ("CTRON-RATE-POLICING-MIB", "ctRatePolicingAction"),
+        ("CTRON-RATE-POLICING-MIB", "ctRatePolicingThreshHold"),
+        ("CTRON-RATE-POLICING-MIB", "ctRatePolicingPriorityList"),
+        ("CTRON-RATE-POLICING-MIB", "ctRatePolicingRuleStatus"),
+        ("CTRON-RATE-POLICING-MIB", "ctRatePolicingActionsTaken"),
+        ("CTRON-RATE-POLICING-MIB", "ctRatePolicingDirectionsAllowed"),
+        ("CTRON-RATE-POLICING-MIB", "ctRatePolicingDirection"))
+)
+if mibBuilder.loadTexts:
+    ctRatePolicingConfigGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+ctRatePolicingCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 2, 2, 1)
+)
+if mibBuilder.loadTexts:
+    ctRatePolicingCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CTRON-RATE-POLICING-MIB",
+    **{"CtPriList": CtPriList,
+       "CtRatePolActionList": CtRatePolActionList,
+       "CtRatePolDirectionList": CtRatePolDirectionList,
+       "ctRatePolicing": ctRatePolicing,
+       "ctRatePolicingObjects": ctRatePolicingObjects,
+       "ctRatePolicingAdminStatus": ctRatePolicingAdminStatus,
+       "ctRatePolicingConfigLastChange": ctRatePolicingConfigLastChange,
+       "ctRatePolicingConfigTable": ctRatePolicingConfigTable,
+       "ctRatePolicingConfigEntry": ctRatePolicingConfigEntry,
+       "ctRatePolicingResourceIndex": ctRatePolicingResourceIndex,
+       "ctRatePolicingActionsAllowed": ctRatePolicingActionsAllowed,
+       "ctRatePolicingAction": ctRatePolicingAction,
+       "ctRatePolicingThreshHoldMin": ctRatePolicingThreshHoldMin,
+       "ctRatePolicingThreshHold": ctRatePolicingThreshHold,
+       "ctRatePolicingPriorityList": ctRatePolicingPriorityList,
+       "ctRatePolicingRuleStatus": ctRatePolicingRuleStatus,
+       "ctRatePolicingActionsTaken": ctRatePolicingActionsTaken,
+       "ctRatePolicingDirectionsAllowed": ctRatePolicingDirectionsAllowed,
+       "ctRatePolicingDirection": ctRatePolicingDirection,
+       "ctRatePolicingConformance": ctRatePolicingConformance,
+       "ctRatePolicingGroups": ctRatePolicingGroups,
+       "ctRatePolicingConfigGroup": ctRatePolicingConfigGroup,
+       "ctRatePolicingCompliances": ctRatePolicingCompliances,
+       "ctRatePolicingCompliance": ctRatePolicingCompliance}
+)

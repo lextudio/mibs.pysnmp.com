@@ -1,31 +1,255 @@
+# SNMP MIB module (ASCEND-MIBCALLSW-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ASCEND-MIBCALLSW-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/ASCEND-MIBCALLSW-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:10:48 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-configuration, = mibBuilder.importSymbols("ASCEND-MIB", "configuration")
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-NotificationType, Gauge32, Counter32, Bits, Integer32, Counter64, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, ObjectIdentity, iso, IpAddress, ModuleIdentity, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Gauge32", "Counter32", "Bits", "Integer32", "Counter64", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "ObjectIdentity", "iso", "IpAddress", "ModuleIdentity", "MibIdentifier")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-class DisplayString(OctetString):
-    pass
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/ASCEND-MIBCALLSW-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 20:41:20 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-mibcallSwitchingProfile = MibIdentifier((1, 3, 6, 1, 4, 1, 529, 23, 65))
-mibcallSwitchingProfileTable = MibTable((1, 3, 6, 1, 4, 1, 529, 23, 65, 1), )
-if mibBuilder.loadTexts: mibcallSwitchingProfileTable.setStatus('mandatory')
-mibcallSwitchingProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 529, 23, 65, 1, 1), ).setIndexNames((0, "ASCEND-MIBCALLSW-MIB", "callSwitchingProfile-Index-o"))
-if mibBuilder.loadTexts: mibcallSwitchingProfileEntry.setStatus('mandatory')
-callSwitchingProfile_Index_o = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 65, 1, 1, 1), Integer32()).setLabel("callSwitchingProfile-Index-o").setMaxAccess("readonly")
-if mibBuilder.loadTexts: callSwitchingProfile_Index_o.setStatus('mandatory')
-callSwitchingProfile_Enabled = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 65, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("no", 1), ("yes", 2)))).setLabel("callSwitchingProfile-Enabled").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: callSwitchingProfile_Enabled.setStatus('mandatory')
-callSwitchingProfile_ComparisonRule_CallRouteEmptyPhoneNumberAcceptable = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 65, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("no", 1), ("yes", 2)))).setLabel("callSwitchingProfile-ComparisonRule-CallRouteEmptyPhoneNumberAcceptable").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: callSwitchingProfile_ComparisonRule_CallRouteEmptyPhoneNumberAcceptable.setStatus('mandatory')
-callSwitchingProfile_Action_o = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 65, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("noAction", 1), ("createProfile", 2), ("deleteProfile", 3)))).setLabel("callSwitchingProfile-Action-o").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: callSwitchingProfile_Action_o.setStatus('mandatory')
-mibBuilder.exportSymbols("ASCEND-MIBCALLSW-MIB", callSwitchingProfile_Enabled=callSwitchingProfile_Enabled, mibcallSwitchingProfileEntry=mibcallSwitchingProfileEntry, callSwitchingProfile_Index_o=callSwitchingProfile_Index_o, callSwitchingProfile_Action_o=callSwitchingProfile_Action_o, mibcallSwitchingProfile=mibcallSwitchingProfile, DisplayString=DisplayString, callSwitchingProfile_ComparisonRule_CallRouteEmptyPhoneNumberAcceptable=callSwitchingProfile_ComparisonRule_CallRouteEmptyPhoneNumberAcceptable, mibcallSwitchingProfileTable=mibcallSwitchingProfileTable)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(configuration,) = mibBuilder.importSymbols(
+    "ASCEND-MIB",
+    "configuration")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+
+class DisplayString(OctetString):
+    """Custom type DisplayString based on OctetString"""
+
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_MibcallSwitchingProfile_ObjectIdentity = ObjectIdentity
+mibcallSwitchingProfile = _MibcallSwitchingProfile_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 529, 23, 65)
+)
+_MibcallSwitchingProfileTable_Object = MibTable
+mibcallSwitchingProfileTable = _MibcallSwitchingProfileTable_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 65, 1)
+)
+if mibBuilder.loadTexts:
+    mibcallSwitchingProfileTable.setStatus("mandatory")
+_MibcallSwitchingProfileEntry_Object = MibTableRow
+mibcallSwitchingProfileEntry = _MibcallSwitchingProfileEntry_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 65, 1, 1)
+)
+mibcallSwitchingProfileEntry.setIndexNames(
+    (0, "ASCEND-MIBCALLSW-MIB", "callSwitchingProfile-Index-o"),
+)
+if mibBuilder.loadTexts:
+    mibcallSwitchingProfileEntry.setStatus("mandatory")
+_CallSwitchingProfile_Index_o_Type = Integer32
+_CallSwitchingProfile_Index_o_Object = MibScalar
+callSwitchingProfile_Index_o = _CallSwitchingProfile_Index_o_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 65, 1, 1, 1),
+    _CallSwitchingProfile_Index_o_Type()
+)
+callSwitchingProfile_Index_o.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    callSwitchingProfile_Index_o.setStatus("mandatory")
+
+
+class _CallSwitchingProfile_Enabled_Type(Integer32):
+    """Custom type callSwitchingProfile_Enabled based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 1),
+          ("yes", 2))
+    )
+
+
+_CallSwitchingProfile_Enabled_Type.__name__ = "Integer32"
+_CallSwitchingProfile_Enabled_Object = MibScalar
+callSwitchingProfile_Enabled = _CallSwitchingProfile_Enabled_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 65, 1, 1, 2),
+    _CallSwitchingProfile_Enabled_Type()
+)
+callSwitchingProfile_Enabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    callSwitchingProfile_Enabled.setStatus("mandatory")
+
+
+class _CallSwitchingProfile_ComparisonRule_CallRouteEmptyPhoneNumberAcceptable_Type(Integer32):
+    """Custom type callSwitchingProfile_ComparisonRule_CallRouteEmptyPhoneNumberAcceptable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 1),
+          ("yes", 2))
+    )
+
+
+_CallSwitchingProfile_ComparisonRule_CallRouteEmptyPhoneNumberAcceptable_Type.__name__ = "Integer32"
+_CallSwitchingProfile_ComparisonRule_CallRouteEmptyPhoneNumberAcceptable_Object = MibScalar
+callSwitchingProfile_ComparisonRule_CallRouteEmptyPhoneNumberAcceptable = _CallSwitchingProfile_ComparisonRule_CallRouteEmptyPhoneNumberAcceptable_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 65, 1, 1, 3),
+    _CallSwitchingProfile_ComparisonRule_CallRouteEmptyPhoneNumberAcceptable_Type()
+)
+callSwitchingProfile_ComparisonRule_CallRouteEmptyPhoneNumberAcceptable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    callSwitchingProfile_ComparisonRule_CallRouteEmptyPhoneNumberAcceptable.setStatus("mandatory")
+
+
+class _CallSwitchingProfile_Action_o_Type(Integer32):
+    """Custom type callSwitchingProfile_Action_o based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("createProfile", 2),
+          ("deleteProfile", 3),
+          ("noAction", 1))
+    )
+
+
+_CallSwitchingProfile_Action_o_Type.__name__ = "Integer32"
+_CallSwitchingProfile_Action_o_Object = MibScalar
+callSwitchingProfile_Action_o = _CallSwitchingProfile_Action_o_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 65, 1, 1, 4),
+    _CallSwitchingProfile_Action_o_Type()
+)
+callSwitchingProfile_Action_o.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    callSwitchingProfile_Action_o.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ASCEND-MIBCALLSW-MIB",
+    **{"DisplayString": DisplayString,
+       "mibcallSwitchingProfile": mibcallSwitchingProfile,
+       "mibcallSwitchingProfileTable": mibcallSwitchingProfileTable,
+       "mibcallSwitchingProfileEntry": mibcallSwitchingProfileEntry,
+       "callSwitchingProfile-Index-o": callSwitchingProfile_Index_o,
+       "callSwitchingProfile-Enabled": callSwitchingProfile_Enabled,
+       "callSwitchingProfile-ComparisonRule-CallRouteEmptyPhoneNumberAcceptable": callSwitchingProfile_ComparisonRule_CallRouteEmptyPhoneNumberAcceptable,
+       "callSwitchingProfile-Action-o": callSwitchingProfile_Action_o}
+)

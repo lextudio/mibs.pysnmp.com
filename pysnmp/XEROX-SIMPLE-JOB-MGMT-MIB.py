@@ -1,17 +1,17 @@
-"""SNMP MIB module (XEROX-SIMPLE-JOB-MGMT-MIB) expressed in pysnmp data model.
+# SNMP MIB module (XEROX-SIMPLE-JOB-MGMT-MIB) expressed in pysnmp data model.
+#
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/XEROX-SIMPLE-JOB-MGMT-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:18:37 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-This Python module is designed to be imported and executed by the
-pysnmp library.
-
-See https://www.pysnmp.com/pysnmp for further information.
-
-Notes
------
-ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/XEROX-SIMPLE-JOB-MGMT-MIB
-Produced by pysmi-1.3.3 at Sun Mar 10 06:00:46 2024
-On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm
-Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
-"""
 if 'mibBuilder' not in globals():
     import sys
 
@@ -49,84 +49,84 @@ if 'mibBuilder' not in globals():
     "HOST-RESOURCES-MIB",
     "hrDeviceIndex")
 
-(NotificationGroup,
- ObjectGroup,
- ModuleCompliance) = mibBuilder.importSymbols(
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
     "SNMPv2-CONF",
+    "ModuleCompliance",
     "NotificationGroup",
-    "ObjectGroup",
-    "ModuleCompliance")
+    "ObjectGroup")
 
-(TimeTicks,
- ModuleIdentity,
+(Bits,
  Counter32,
- IpAddress,
  Counter64,
- ObjectIdentity,
- Bits,
- Unsigned32,
- iso,
  Gauge32,
  Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
  MibScalar,
  MibTable,
  MibTableRow,
  MibTableColumn,
- NotificationType,
- MibIdentifier) = mibBuilder.importSymbols(
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
     "SNMPv2-SMI",
-    "TimeTicks",
-    "ModuleIdentity",
-    "Counter32",
-    "IpAddress",
-    "Counter64",
-    "ObjectIdentity",
     "Bits",
-    "Unsigned32",
-    "iso",
+    "Counter32",
+    "Counter64",
     "Gauge32",
     "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
     "MibScalar",
     "MibTable",
     "MibTableRow",
     "MibTableColumn",
-    "NotificationType",
-    "MibIdentifier")
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
 
-(TextualConvention,
- TruthValue,
+(DisplayString,
  RowStatus,
- DisplayString) = mibBuilder.importSymbols(
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
     "SNMPv2-TC",
-    "TextualConvention",
-    "TruthValue",
+    "DisplayString",
     "RowStatus",
-    "DisplayString")
+    "TextualConvention",
+    "TruthValue")
 
 (xeroxCommonMIB,) = mibBuilder.importSymbols(
     "XEROX-COMMON-MIB",
     "xeroxCommonMIB")
 
-(XcmFixedLocaleDisplayString,
- XcmGenSNMPv2ErrorStatus,
- Ordinal32) = mibBuilder.importSymbols(
+(Ordinal32,
+ XcmFixedLocaleDisplayString,
+ XcmGenSNMPv2ErrorStatus) = mibBuilder.importSymbols(
     "XEROX-GENERAL-TC",
+    "Ordinal32",
     "XcmFixedLocaleDisplayString",
-    "XcmGenSNMPv2ErrorStatus",
-    "Ordinal32")
+    "XcmGenSNMPv2ErrorStatus")
 
-(xcmJobIdentifierOnSystem,
- xcmJobGenBasicEntry) = mibBuilder.importSymbols(
+(xcmJobGenBasicEntry,
+ xcmJobIdentifierOnSystem) = mibBuilder.importSymbols(
     "XEROX-JOB-MONITORING-MIB",
-    "xcmJobIdentifierOnSystem",
-    "xcmJobGenBasicEntry")
+    "xcmJobGenBasicEntry",
+    "xcmJobIdentifierOnSystem")
 
-(XcmSimpleJobMgmtGroupSupport,
- XcmSimpleJobMgmtData,
+(XcmSimpleJobMgmtData,
+ XcmSimpleJobMgmtGroupSupport,
  XcmSimpleJobMgmtOperation) = mibBuilder.importSymbols(
     "XEROX-SIMPLE-JOB-MGMT-TC",
-    "XcmSimpleJobMgmtGroupSupport",
     "XcmSimpleJobMgmtData",
+    "XcmSimpleJobMgmtGroupSupport",
     "XcmSimpleJobMgmtOperation")
 
 
@@ -198,7 +198,13 @@ xcmSimpleJobBaseGroupSupport = _XcmSimpleJobBaseGroupSupport_Object(
 xcmSimpleJobBaseGroupSupport.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmSimpleJobBaseGroupSupport.setStatus("current")
-_XcmSimpleJobBaseCreateSupport_Type = XcmSimpleJobMgmtGroupSupport
+
+
+class _XcmSimpleJobBaseCreateSupport_Type(XcmSimpleJobMgmtGroupSupport):
+    """Custom type xcmSimpleJobBaseCreateSupport based on XcmSimpleJobMgmtGroupSupport"""
+    defaultValue = 0
+
+
 _XcmSimpleJobBaseCreateSupport_Object = MibTableColumn
 xcmSimpleJobBaseCreateSupport = _XcmSimpleJobBaseCreateSupport_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 76, 1, 2, 1, 4),
@@ -254,11 +260,6 @@ _XcmSimpleJobMgmtEntry_Object = MibTableRow
 xcmSimpleJobMgmtEntry = _XcmSimpleJobMgmtEntry_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 76, 3, 2, 1)
 )
-xcmJobGenBasicEntry.registerAugmentions(
-    ("XEROX-SIMPLE-JOB-MGMT-MIB",
-     "xcmSimpleJobMgmtEntry")
-)
-xcmSimpleJobMgmtEntry.setIndexNames(*xcmJobGenBasicEntry.getIndexNames())
 if mibBuilder.loadTexts:
     xcmSimpleJobMgmtEntry.setStatus("current")
 _XcmSimpleJobMgmtOperation_Type = XcmSimpleJobMgmtOperation
@@ -424,6 +425,11 @@ xcmSimpleJobInterceptInProgress = _XcmSimpleJobInterceptInProgress_Object(
 xcmSimpleJobInterceptInProgress.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmSimpleJobInterceptInProgress.setStatus("current")
+xcmJobGenBasicEntry.registerAugmentions(
+    ("XEROX-SIMPLE-JOB-MGMT-MIB",
+     "xcmSimpleJobMgmtEntry")
+)
+xcmSimpleJobMgmtEntry.setIndexNames(*xcmJobGenBasicEntry.getIndexNames())
 
 # Managed Objects groups
 

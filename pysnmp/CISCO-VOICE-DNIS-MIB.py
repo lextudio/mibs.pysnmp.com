@@ -1,73 +1,405 @@
+# SNMP MIB module (CISCO-VOICE-DNIS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-VOICE-DNIS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/CISCO-VOICE-DNIS-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:03:03 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint")
-ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-iso, NotificationType, Integer32, Counter64, Gauge32, Unsigned32, MibIdentifier, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, TimeTicks, ModuleIdentity, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "NotificationType", "Integer32", "Counter64", "Gauge32", "Unsigned32", "MibIdentifier", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "TimeTicks", "ModuleIdentity", "Bits", "IpAddress")
-DisplayString, TextualConvention, RowStatus, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "RowStatus", "TruthValue")
-ciscoVoiceDnisMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 219))
-if mibBuilder.loadTexts: ciscoVoiceDnisMIB.setLastUpdated('200205010000Z')
-if mibBuilder.loadTexts: ciscoVoiceDnisMIB.setOrganization('Cisco Systems, Inc.')
-class DnisMapname(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '32a'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 32)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CISCO-VOICE-DNIS-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:12:23 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class CvE164String(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '32a'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(1, 32)
+if 'mibBuilder' not in globals():
+    import sys
 
-cvDnisMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 219, 1))
-cvDnisMap = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 219, 1, 1))
-cvDnisMappingTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 219, 1, 1, 1), )
-if mibBuilder.loadTexts: cvDnisMappingTable.setStatus('current')
-cvDnisMappingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 219, 1, 1, 1, 1), ).setIndexNames((1, "CISCO-VOICE-DNIS-MIB", "cvDnisMappingName"))
-if mibBuilder.loadTexts: cvDnisMappingEntry.setStatus('current')
-cvDnisMappingName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 219, 1, 1, 1, 1, 1), DnisMapname().subtype(subtypeSpec=ValueSizeConstraint(1, 32)))
-if mibBuilder.loadTexts: cvDnisMappingName.setStatus('current')
-cvDnisMappingUrl = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 219, 1, 1, 1, 1, 2), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cvDnisMappingUrl.setStatus('current')
-cvDnisMappingRefresh = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 219, 1, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("idle", 1), ("refresh", 2))).clone('idle')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cvDnisMappingRefresh.setStatus('current')
-cvDnisMappingUrlAccessError = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 219, 1, 1, 1, 1, 4), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cvDnisMappingUrlAccessError.setStatus('current')
-cvDnisMappingStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 219, 1, 1, 1, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cvDnisMappingStatus.setStatus('current')
-cvDnisNodeTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 219, 1, 1, 2), )
-if mibBuilder.loadTexts: cvDnisNodeTable.setStatus('current')
-cvDnisNodeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 219, 1, 1, 2, 1), ).setIndexNames((0, "CISCO-VOICE-DNIS-MIB", "cvDnisMappingName"), (1, "CISCO-VOICE-DNIS-MIB", "cvDnisNumber"))
-if mibBuilder.loadTexts: cvDnisNodeEntry.setStatus('current')
-cvDnisNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 219, 1, 1, 2, 1, 1), CvE164String())
-if mibBuilder.loadTexts: cvDnisNumber.setStatus('current')
-cvDnisNodeUrl = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 219, 1, 1, 2, 1, 2), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cvDnisNodeUrl.setStatus('current')
-cvDnisNodeModifiable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 219, 1, 1, 2, 1, 3), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cvDnisNodeModifiable.setStatus('current')
-cvDnisNodeStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 219, 1, 1, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cvDnisNodeStatus.setStatus('current')
-cvDnisMIBNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 219, 2))
-cvDnisMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 219, 2, 0))
-cvDnisMappingUrlInaccessible = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 219, 2, 0, 1)).setObjects(("CISCO-VOICE-DNIS-MIB", "cvDnisMappingUrl"), ("CISCO-VOICE-DNIS-MIB", "cvDnisMappingUrlAccessError"))
-if mibBuilder.loadTexts: cvDnisMappingUrlInaccessible.setStatus('current')
-cvDnisMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 219, 3))
-cvDnisMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 219, 3, 1))
-cvDnisMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 219, 3, 2))
-cvDnisMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 219, 3, 1, 1)).setObjects(("CISCO-VOICE-DNIS-MIB", "cvDnisGroup"), ("CISCO-VOICE-DNIS-MIB", "cvDnisNotificationGroup"))
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cvDnisMIBCompliance = cvDnisMIBCompliance.setStatus('current')
-cvDnisGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 219, 3, 2, 1)).setObjects(("CISCO-VOICE-DNIS-MIB", "cvDnisMappingUrl"), ("CISCO-VOICE-DNIS-MIB", "cvDnisMappingRefresh"), ("CISCO-VOICE-DNIS-MIB", "cvDnisMappingUrlAccessError"), ("CISCO-VOICE-DNIS-MIB", "cvDnisMappingStatus"), ("CISCO-VOICE-DNIS-MIB", "cvDnisNodeUrl"), ("CISCO-VOICE-DNIS-MIB", "cvDnisNodeModifiable"), ("CISCO-VOICE-DNIS-MIB", "cvDnisNodeStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cvDnisGroup = cvDnisGroup.setStatus('current')
-cvDnisNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 219, 3, 2, 2)).setObjects(("CISCO-VOICE-DNIS-MIB", "cvDnisMappingUrlInaccessible"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cvDnisNotificationGroup = cvDnisNotificationGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-VOICE-DNIS-MIB", cvDnisNodeUrl=cvDnisNodeUrl, cvDnisMappingStatus=cvDnisMappingStatus, cvDnisMIBNotificationPrefix=cvDnisMIBNotificationPrefix, cvDnisNumber=cvDnisNumber, cvDnisMappingEntry=cvDnisMappingEntry, cvDnisMIBGroups=cvDnisMIBGroups, cvDnisNodeTable=cvDnisNodeTable, cvDnisGroup=cvDnisGroup, cvDnisMappingTable=cvDnisMappingTable, cvDnisMappingUrlInaccessible=cvDnisMappingUrlInaccessible, cvDnisMIBObjects=cvDnisMIBObjects, cvDnisMappingRefresh=cvDnisMappingRefresh, cvDnisMappingUrl=cvDnisMappingUrl, CvE164String=CvE164String, cvDnisMappingUrlAccessError=cvDnisMappingUrlAccessError, DnisMapname=DnisMapname, ciscoVoiceDnisMIB=ciscoVoiceDnisMIB, cvDnisMap=cvDnisMap, cvDnisMIBConformance=cvDnisMIBConformance, cvDnisMIBCompliances=cvDnisMIBCompliances, cvDnisMIBCompliance=cvDnisMIBCompliance, cvDnisNodeModifiable=cvDnisNodeModifiable, cvDnisNodeStatus=cvDnisNodeStatus, cvDnisMappingName=cvDnisMappingName, cvDnisNotificationGroup=cvDnisNotificationGroup, cvDnisMIBNotifications=cvDnisMIBNotifications, cvDnisNodeEntry=cvDnisNodeEntry, PYSNMP_MODULE_ID=ciscoVoiceDnisMIB)
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ciscoMgmt,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoMgmt")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+ciscoVoiceDnisMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 219)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class DnisMapname(OctetString, TextualConvention):
+    status = "current"
+    displayHint = "32a"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+
+class CvE164String(OctetString, TextualConvention):
+    status = "current"
+    displayHint = "32a"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CvDnisMIBObjects_ObjectIdentity = ObjectIdentity
+cvDnisMIBObjects = _CvDnisMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 219, 1)
+)
+_CvDnisMap_ObjectIdentity = ObjectIdentity
+cvDnisMap = _CvDnisMap_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 219, 1, 1)
+)
+_CvDnisMappingTable_Object = MibTable
+cvDnisMappingTable = _CvDnisMappingTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 219, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    cvDnisMappingTable.setStatus("current")
+_CvDnisMappingEntry_Object = MibTableRow
+cvDnisMappingEntry = _CvDnisMappingEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 219, 1, 1, 1, 1)
+)
+cvDnisMappingEntry.setIndexNames(
+    (1, "CISCO-VOICE-DNIS-MIB", "cvDnisMappingName"),
+)
+if mibBuilder.loadTexts:
+    cvDnisMappingEntry.setStatus("current")
+
+
+class _CvDnisMappingName_Type(DnisMapname):
+    """Custom type cvDnisMappingName based on DnisMapname"""
+    subtypeSpec = DnisMapname.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_CvDnisMappingName_Type.__name__ = "DnisMapname"
+_CvDnisMappingName_Object = MibTableColumn
+cvDnisMappingName = _CvDnisMappingName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 219, 1, 1, 1, 1, 1),
+    _CvDnisMappingName_Type()
+)
+cvDnisMappingName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cvDnisMappingName.setStatus("current")
+_CvDnisMappingUrl_Type = DisplayString
+_CvDnisMappingUrl_Object = MibTableColumn
+cvDnisMappingUrl = _CvDnisMappingUrl_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 219, 1, 1, 1, 1, 2),
+    _CvDnisMappingUrl_Type()
+)
+cvDnisMappingUrl.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cvDnisMappingUrl.setStatus("current")
+
+
+class _CvDnisMappingRefresh_Type(Integer32):
+    """Custom type cvDnisMappingRefresh based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("idle", 1),
+          ("refresh", 2))
+    )
+
+
+_CvDnisMappingRefresh_Type.__name__ = "Integer32"
+_CvDnisMappingRefresh_Object = MibTableColumn
+cvDnisMappingRefresh = _CvDnisMappingRefresh_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 219, 1, 1, 1, 1, 3),
+    _CvDnisMappingRefresh_Type()
+)
+cvDnisMappingRefresh.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cvDnisMappingRefresh.setStatus("current")
+_CvDnisMappingUrlAccessError_Type = DisplayString
+_CvDnisMappingUrlAccessError_Object = MibTableColumn
+cvDnisMappingUrlAccessError = _CvDnisMappingUrlAccessError_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 219, 1, 1, 1, 1, 4),
+    _CvDnisMappingUrlAccessError_Type()
+)
+cvDnisMappingUrlAccessError.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cvDnisMappingUrlAccessError.setStatus("current")
+_CvDnisMappingStatus_Type = RowStatus
+_CvDnisMappingStatus_Object = MibTableColumn
+cvDnisMappingStatus = _CvDnisMappingStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 219, 1, 1, 1, 1, 5),
+    _CvDnisMappingStatus_Type()
+)
+cvDnisMappingStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cvDnisMappingStatus.setStatus("current")
+_CvDnisNodeTable_Object = MibTable
+cvDnisNodeTable = _CvDnisNodeTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 219, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    cvDnisNodeTable.setStatus("current")
+_CvDnisNodeEntry_Object = MibTableRow
+cvDnisNodeEntry = _CvDnisNodeEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 219, 1, 1, 2, 1)
+)
+cvDnisNodeEntry.setIndexNames(
+    (0, "CISCO-VOICE-DNIS-MIB", "cvDnisMappingName"),
+    (1, "CISCO-VOICE-DNIS-MIB", "cvDnisNumber"),
+)
+if mibBuilder.loadTexts:
+    cvDnisNodeEntry.setStatus("current")
+_CvDnisNumber_Type = CvE164String
+_CvDnisNumber_Object = MibTableColumn
+cvDnisNumber = _CvDnisNumber_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 219, 1, 1, 2, 1, 1),
+    _CvDnisNumber_Type()
+)
+cvDnisNumber.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cvDnisNumber.setStatus("current")
+_CvDnisNodeUrl_Type = DisplayString
+_CvDnisNodeUrl_Object = MibTableColumn
+cvDnisNodeUrl = _CvDnisNodeUrl_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 219, 1, 1, 2, 1, 2),
+    _CvDnisNodeUrl_Type()
+)
+cvDnisNodeUrl.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cvDnisNodeUrl.setStatus("current")
+_CvDnisNodeModifiable_Type = TruthValue
+_CvDnisNodeModifiable_Object = MibTableColumn
+cvDnisNodeModifiable = _CvDnisNodeModifiable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 219, 1, 1, 2, 1, 3),
+    _CvDnisNodeModifiable_Type()
+)
+cvDnisNodeModifiable.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cvDnisNodeModifiable.setStatus("current")
+_CvDnisNodeStatus_Type = RowStatus
+_CvDnisNodeStatus_Object = MibTableColumn
+cvDnisNodeStatus = _CvDnisNodeStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 219, 1, 1, 2, 1, 4),
+    _CvDnisNodeStatus_Type()
+)
+cvDnisNodeStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cvDnisNodeStatus.setStatus("current")
+_CvDnisMIBNotificationPrefix_ObjectIdentity = ObjectIdentity
+cvDnisMIBNotificationPrefix = _CvDnisMIBNotificationPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 219, 2)
+)
+_CvDnisMIBNotifications_ObjectIdentity = ObjectIdentity
+cvDnisMIBNotifications = _CvDnisMIBNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 219, 2, 0)
+)
+_CvDnisMIBConformance_ObjectIdentity = ObjectIdentity
+cvDnisMIBConformance = _CvDnisMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 219, 3)
+)
+_CvDnisMIBCompliances_ObjectIdentity = ObjectIdentity
+cvDnisMIBCompliances = _CvDnisMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 219, 3, 1)
+)
+_CvDnisMIBGroups_ObjectIdentity = ObjectIdentity
+cvDnisMIBGroups = _CvDnisMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 219, 3, 2)
+)
+
+# Managed Objects groups
+
+cvDnisGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 219, 3, 2, 1)
+)
+cvDnisGroup.setObjects(
+      *(("CISCO-VOICE-DNIS-MIB", "cvDnisMappingUrl"),
+        ("CISCO-VOICE-DNIS-MIB", "cvDnisMappingRefresh"),
+        ("CISCO-VOICE-DNIS-MIB", "cvDnisMappingUrlAccessError"),
+        ("CISCO-VOICE-DNIS-MIB", "cvDnisMappingStatus"),
+        ("CISCO-VOICE-DNIS-MIB", "cvDnisNodeUrl"),
+        ("CISCO-VOICE-DNIS-MIB", "cvDnisNodeModifiable"),
+        ("CISCO-VOICE-DNIS-MIB", "cvDnisNodeStatus"))
+)
+if mibBuilder.loadTexts:
+    cvDnisGroup.setStatus("current")
+
+
+# Notification objects
+
+cvDnisMappingUrlInaccessible = NotificationType(
+    (1, 3, 6, 1, 4, 1, 9, 9, 219, 2, 0, 1)
+)
+cvDnisMappingUrlInaccessible.setObjects(
+      *(("CISCO-VOICE-DNIS-MIB", "cvDnisMappingUrl"),
+        ("CISCO-VOICE-DNIS-MIB", "cvDnisMappingUrlAccessError"))
+)
+if mibBuilder.loadTexts:
+    cvDnisMappingUrlInaccessible.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+cvDnisNotificationGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 219, 3, 2, 2)
+)
+cvDnisNotificationGroup.setObjects(
+    ("CISCO-VOICE-DNIS-MIB", "cvDnisMappingUrlInaccessible")
+)
+if mibBuilder.loadTexts:
+    cvDnisNotificationGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+cvDnisMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 219, 3, 1, 1)
+)
+if mibBuilder.loadTexts:
+    cvDnisMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-VOICE-DNIS-MIB",
+    **{"DnisMapname": DnisMapname,
+       "CvE164String": CvE164String,
+       "ciscoVoiceDnisMIB": ciscoVoiceDnisMIB,
+       "cvDnisMIBObjects": cvDnisMIBObjects,
+       "cvDnisMap": cvDnisMap,
+       "cvDnisMappingTable": cvDnisMappingTable,
+       "cvDnisMappingEntry": cvDnisMappingEntry,
+       "cvDnisMappingName": cvDnisMappingName,
+       "cvDnisMappingUrl": cvDnisMappingUrl,
+       "cvDnisMappingRefresh": cvDnisMappingRefresh,
+       "cvDnisMappingUrlAccessError": cvDnisMappingUrlAccessError,
+       "cvDnisMappingStatus": cvDnisMappingStatus,
+       "cvDnisNodeTable": cvDnisNodeTable,
+       "cvDnisNodeEntry": cvDnisNodeEntry,
+       "cvDnisNumber": cvDnisNumber,
+       "cvDnisNodeUrl": cvDnisNodeUrl,
+       "cvDnisNodeModifiable": cvDnisNodeModifiable,
+       "cvDnisNodeStatus": cvDnisNodeStatus,
+       "cvDnisMIBNotificationPrefix": cvDnisMIBNotificationPrefix,
+       "cvDnisMIBNotifications": cvDnisMIBNotifications,
+       "cvDnisMappingUrlInaccessible": cvDnisMappingUrlInaccessible,
+       "cvDnisMIBConformance": cvDnisMIBConformance,
+       "cvDnisMIBCompliances": cvDnisMIBCompliances,
+       "cvDnisMIBCompliance": cvDnisMIBCompliance,
+       "cvDnisMIBGroups": cvDnisMIBGroups,
+       "cvDnisGroup": cvDnisGroup,
+       "cvDnisNotificationGroup": cvDnisNotificationGroup}
+)

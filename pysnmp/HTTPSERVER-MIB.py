@@ -1,17 +1,17 @@
-"""SNMP MIB module (HTTPSERVER-MIB) expressed in pysnmp data model.
+# SNMP MIB module (HTTPSERVER-MIB) expressed in pysnmp data model.
+#
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HTTPSERVER-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:02:38 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-This Python module is designed to be imported and executed by the
-pysnmp library.
-
-See https://www.pysnmp.com/pysnmp for further information.
-
-Notes
------
-ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HTTPSERVER-MIB
-Produced by pysmi-1.3.3 at Sun Mar 10 03:54:50 2024
-On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm
-Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
-"""
 if 'mibBuilder' not in globals():
     import sys
 
@@ -55,49 +55,49 @@ if 'mibBuilder' not in globals():
     "ModuleCompliance",
     "NotificationGroup")
 
-(IpAddress,
- ModuleIdentity,
+(Bits,
+ Counter32,
  Counter64,
- Unsigned32,
- Integer32,
  Gauge32,
- Bits,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
  MibScalar,
  MibTable,
  MibTableRow,
  MibTableColumn,
- MibIdentifier,
- NotificationType,
- iso,
- enterprises,
- ObjectIdentity,
  TimeTicks,
- Counter32) = mibBuilder.importSymbols(
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
     "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
     "IpAddress",
     "ModuleIdentity",
-    "Counter64",
-    "Unsigned32",
-    "Integer32",
-    "Gauge32",
-    "Bits",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
     "MibScalar",
     "MibTable",
     "MibTableRow",
     "MibTableColumn",
-    "MibIdentifier",
-    "NotificationType",
-    "iso",
-    "enterprises",
-    "ObjectIdentity",
     "TimeTicks",
-    "Counter32")
+    "Unsigned32",
+    "enterprises",
+    "iso")
 
-(TextualConvention,
- DisplayString) = mibBuilder.importSymbols(
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
     "SNMPv2-TC",
-    "TextualConvention",
-    "DisplayString")
+    "DisplayString",
+    "TextualConvention")
 
 
 # MODULE-IDENTITY

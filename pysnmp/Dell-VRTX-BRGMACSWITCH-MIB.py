@@ -1,41 +1,342 @@
+# SNMP MIB module (Dell-VRTX-BRGMACSWITCH-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module Dell-VRTX-BRGMACSWITCH-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/Dell-VRTX-BRGMACSWITCH-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:42:22 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion")
-rnd, = mibBuilder.importSymbols("Dell-VRTX-MIB", "rnd")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter64, ObjectIdentity, TimeTicks, Counter32, Bits, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Integer32, ModuleIdentity, NotificationType, Unsigned32, iso, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "ObjectIdentity", "TimeTicks", "Counter32", "Bits", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Integer32", "ModuleIdentity", "NotificationType", "Unsigned32", "iso", "Gauge32")
-TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
-rlBrgMacSwitch = ModuleIdentity((1, 3, 6, 1, 4, 1, 89, 50))
-rlBrgMacSwitch.setRevisions(('2007-01-02 00:00',))
-if mibBuilder.loadTexts: rlBrgMacSwitch.setLastUpdated('200701020000Z')
-if mibBuilder.loadTexts: rlBrgMacSwitch.setOrganization('Dell')
-rlBrgMacSwVersion = MibScalar((1, 3, 6, 1, 4, 1, 89, 50, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlBrgMacSwVersion.setStatus('current')
-rlBrgMacSwMaxTableNumber = MibScalar((1, 3, 6, 1, 4, 1, 89, 50, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlBrgMacSwMaxTableNumber.setStatus('current')
-rlBrgMacSwDynamicTables = MibScalar((1, 3, 6, 1, 4, 1, 89, 50, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("supported", 1), ("unsupported", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlBrgMacSwDynamicTables.setStatus('current')
-rlBrgMacSwOldEntryDeleteMode = MibScalar((1, 3, 6, 1, 4, 1, 89, 50, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("refreshFlag", 1), ("agingFlag", 2), ("agingTime", 3), ("boundaries", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlBrgMacSwOldEntryDeleteMode.setStatus('current')
-rlBrgMacSwSpanningTree = MibScalar((1, 3, 6, 1, 4, 1, 89, 50, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("supported", 1), ("unsupported", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlBrgMacSwSpanningTree.setStatus('current')
-rlBrgMacSwKeyType = MibScalar((1, 3, 6, 1, 4, 1, 89, 50, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("macOnly", 1), ("tagAndMac", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlBrgMacSwKeyType.setStatus('current')
-rlBrgMacSwYellowBoundary = MibScalar((1, 3, 6, 1, 4, 1, 89, 50, 8), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlBrgMacSwYellowBoundary.setStatus('current')
-rlBrgMacSwRedBoundary = MibScalar((1, 3, 6, 1, 4, 1, 89, 50, 9), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlBrgMacSwRedBoundary.setStatus('current')
-rlBrgMacSwTrapEnable = MibScalar((1, 3, 6, 1, 4, 1, 89, 50, 10), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlBrgMacSwTrapEnable.setStatus('current')
-rlBrgMacSwOperTrapCount = MibScalar((1, 3, 6, 1, 4, 1, 89, 50, 11), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlBrgMacSwOperTrapCount.setStatus('current')
-rlBrgMacSwAdminTrapFrequency = MibScalar((1, 3, 6, 1, 4, 1, 89, 50, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 86400)).clone(60)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlBrgMacSwAdminTrapFrequency.setStatus('current')
-mibBuilder.exportSymbols("Dell-VRTX-BRGMACSWITCH-MIB", rlBrgMacSwDynamicTables=rlBrgMacSwDynamicTables, PYSNMP_MODULE_ID=rlBrgMacSwitch, rlBrgMacSwAdminTrapFrequency=rlBrgMacSwAdminTrapFrequency, rlBrgMacSwOperTrapCount=rlBrgMacSwOperTrapCount, rlBrgMacSwOldEntryDeleteMode=rlBrgMacSwOldEntryDeleteMode, rlBrgMacSwYellowBoundary=rlBrgMacSwYellowBoundary, rlBrgMacSwKeyType=rlBrgMacSwKeyType, rlBrgMacSwVersion=rlBrgMacSwVersion, rlBrgMacSwSpanningTree=rlBrgMacSwSpanningTree, rlBrgMacSwMaxTableNumber=rlBrgMacSwMaxTableNumber, rlBrgMacSwTrapEnable=rlBrgMacSwTrapEnable, rlBrgMacSwitch=rlBrgMacSwitch, rlBrgMacSwRedBoundary=rlBrgMacSwRedBoundary)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/Dell-VRTX-BRGMACSWITCH-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:35:13 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(rnd,) = mibBuilder.importSymbols(
+    "Dell-VRTX-MIB",
+    "rnd")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+rlBrgMacSwitch = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 89, 50)
+)
+rlBrgMacSwitch.setRevisions(
+        ("2007-01-02 00:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_RlBrgMacSwVersion_Type = Integer32
+_RlBrgMacSwVersion_Object = MibScalar
+rlBrgMacSwVersion = _RlBrgMacSwVersion_Object(
+    (1, 3, 6, 1, 4, 1, 89, 50, 1),
+    _RlBrgMacSwVersion_Type()
+)
+rlBrgMacSwVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlBrgMacSwVersion.setStatus("current")
+_RlBrgMacSwMaxTableNumber_Type = Integer32
+_RlBrgMacSwMaxTableNumber_Object = MibScalar
+rlBrgMacSwMaxTableNumber = _RlBrgMacSwMaxTableNumber_Object(
+    (1, 3, 6, 1, 4, 1, 89, 50, 2),
+    _RlBrgMacSwMaxTableNumber_Type()
+)
+rlBrgMacSwMaxTableNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlBrgMacSwMaxTableNumber.setStatus("current")
+
+
+class _RlBrgMacSwDynamicTables_Type(Integer32):
+    """Custom type rlBrgMacSwDynamicTables based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("supported", 1),
+          ("unsupported", 2))
+    )
+
+
+_RlBrgMacSwDynamicTables_Type.__name__ = "Integer32"
+_RlBrgMacSwDynamicTables_Object = MibScalar
+rlBrgMacSwDynamicTables = _RlBrgMacSwDynamicTables_Object(
+    (1, 3, 6, 1, 4, 1, 89, 50, 3),
+    _RlBrgMacSwDynamicTables_Type()
+)
+rlBrgMacSwDynamicTables.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlBrgMacSwDynamicTables.setStatus("current")
+
+
+class _RlBrgMacSwOldEntryDeleteMode_Type(Integer32):
+    """Custom type rlBrgMacSwOldEntryDeleteMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("agingFlag", 2),
+          ("agingTime", 3),
+          ("boundaries", 4),
+          ("refreshFlag", 1))
+    )
+
+
+_RlBrgMacSwOldEntryDeleteMode_Type.__name__ = "Integer32"
+_RlBrgMacSwOldEntryDeleteMode_Object = MibScalar
+rlBrgMacSwOldEntryDeleteMode = _RlBrgMacSwOldEntryDeleteMode_Object(
+    (1, 3, 6, 1, 4, 1, 89, 50, 5),
+    _RlBrgMacSwOldEntryDeleteMode_Type()
+)
+rlBrgMacSwOldEntryDeleteMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlBrgMacSwOldEntryDeleteMode.setStatus("current")
+
+
+class _RlBrgMacSwSpanningTree_Type(Integer32):
+    """Custom type rlBrgMacSwSpanningTree based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("supported", 1),
+          ("unsupported", 2))
+    )
+
+
+_RlBrgMacSwSpanningTree_Type.__name__ = "Integer32"
+_RlBrgMacSwSpanningTree_Object = MibScalar
+rlBrgMacSwSpanningTree = _RlBrgMacSwSpanningTree_Object(
+    (1, 3, 6, 1, 4, 1, 89, 50, 6),
+    _RlBrgMacSwSpanningTree_Type()
+)
+rlBrgMacSwSpanningTree.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlBrgMacSwSpanningTree.setStatus("current")
+
+
+class _RlBrgMacSwKeyType_Type(Integer32):
+    """Custom type rlBrgMacSwKeyType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("macOnly", 1),
+          ("tagAndMac", 2))
+    )
+
+
+_RlBrgMacSwKeyType_Type.__name__ = "Integer32"
+_RlBrgMacSwKeyType_Object = MibScalar
+rlBrgMacSwKeyType = _RlBrgMacSwKeyType_Object(
+    (1, 3, 6, 1, 4, 1, 89, 50, 7),
+    _RlBrgMacSwKeyType_Type()
+)
+rlBrgMacSwKeyType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlBrgMacSwKeyType.setStatus("current")
+_RlBrgMacSwYellowBoundary_Type = Integer32
+_RlBrgMacSwYellowBoundary_Object = MibScalar
+rlBrgMacSwYellowBoundary = _RlBrgMacSwYellowBoundary_Object(
+    (1, 3, 6, 1, 4, 1, 89, 50, 8),
+    _RlBrgMacSwYellowBoundary_Type()
+)
+rlBrgMacSwYellowBoundary.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlBrgMacSwYellowBoundary.setStatus("current")
+_RlBrgMacSwRedBoundary_Type = Integer32
+_RlBrgMacSwRedBoundary_Object = MibScalar
+rlBrgMacSwRedBoundary = _RlBrgMacSwRedBoundary_Object(
+    (1, 3, 6, 1, 4, 1, 89, 50, 9),
+    _RlBrgMacSwRedBoundary_Type()
+)
+rlBrgMacSwRedBoundary.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlBrgMacSwRedBoundary.setStatus("current")
+
+
+class _RlBrgMacSwTrapEnable_Type(TruthValue):
+    """Custom type rlBrgMacSwTrapEnable based on TruthValue"""
+
+
+_RlBrgMacSwTrapEnable_Object = MibScalar
+rlBrgMacSwTrapEnable = _RlBrgMacSwTrapEnable_Object(
+    (1, 3, 6, 1, 4, 1, 89, 50, 10),
+    _RlBrgMacSwTrapEnable_Type()
+)
+rlBrgMacSwTrapEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlBrgMacSwTrapEnable.setStatus("current")
+_RlBrgMacSwOperTrapCount_Type = Integer32
+_RlBrgMacSwOperTrapCount_Object = MibScalar
+rlBrgMacSwOperTrapCount = _RlBrgMacSwOperTrapCount_Object(
+    (1, 3, 6, 1, 4, 1, 89, 50, 11),
+    _RlBrgMacSwOperTrapCount_Type()
+)
+rlBrgMacSwOperTrapCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlBrgMacSwOperTrapCount.setStatus("current")
+
+
+class _RlBrgMacSwAdminTrapFrequency_Type(Integer32):
+    """Custom type rlBrgMacSwAdminTrapFrequency based on Integer32"""
+    defaultValue = 60
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 86400),
+    )
+
+
+_RlBrgMacSwAdminTrapFrequency_Type.__name__ = "Integer32"
+_RlBrgMacSwAdminTrapFrequency_Object = MibScalar
+rlBrgMacSwAdminTrapFrequency = _RlBrgMacSwAdminTrapFrequency_Object(
+    (1, 3, 6, 1, 4, 1, 89, 50, 12),
+    _RlBrgMacSwAdminTrapFrequency_Type()
+)
+rlBrgMacSwAdminTrapFrequency.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlBrgMacSwAdminTrapFrequency.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "Dell-VRTX-BRGMACSWITCH-MIB",
+    **{"rlBrgMacSwitch": rlBrgMacSwitch,
+       "rlBrgMacSwVersion": rlBrgMacSwVersion,
+       "rlBrgMacSwMaxTableNumber": rlBrgMacSwMaxTableNumber,
+       "rlBrgMacSwDynamicTables": rlBrgMacSwDynamicTables,
+       "rlBrgMacSwOldEntryDeleteMode": rlBrgMacSwOldEntryDeleteMode,
+       "rlBrgMacSwSpanningTree": rlBrgMacSwSpanningTree,
+       "rlBrgMacSwKeyType": rlBrgMacSwKeyType,
+       "rlBrgMacSwYellowBoundary": rlBrgMacSwYellowBoundary,
+       "rlBrgMacSwRedBoundary": rlBrgMacSwRedBoundary,
+       "rlBrgMacSwTrapEnable": rlBrgMacSwTrapEnable,
+       "rlBrgMacSwOperTrapCount": rlBrgMacSwOperTrapCount,
+       "rlBrgMacSwAdminTrapFrequency": rlBrgMacSwAdminTrapFrequency}
+)

@@ -1,82 +1,320 @@
+# SNMP MIB module (CISCO-TRUSTSEC-TC-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-TRUSTSEC-TC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/CISCO-TRUSTSEC-TC-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:57:57 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
-ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Gauge32, MibIdentifier, Integer32, IpAddress, iso, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter64, Unsigned32, Counter32, NotificationType, TimeTicks, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "MibIdentifier", "Integer32", "IpAddress", "iso", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter64", "Unsigned32", "Counter32", "NotificationType", "TimeTicks", "Bits")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-ciscoCtsTcMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 694))
-ciscoCtsTcMIB.setRevisions(('2013-06-06 00:00', '2012-01-30 00:00', '2009-05-14 00:00',))
-if mibBuilder.loadTexts: ciscoCtsTcMIB.setLastUpdated('201306060000Z')
-if mibBuilder.loadTexts: ciscoCtsTcMIB.setOrganization('Cisco Systems, Inc.')
-class CtsSecurityGroupTag(TextualConvention, Unsigned32):
-    status = 'current'
-    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 65535)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CISCO-TRUSTSEC-TC-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:09:46 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class CtsAclName(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '255a'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(1, 255)
+if 'mibBuilder' not in globals():
+    import sys
 
-class CtsAclNameOrEmpty(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '255a'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 255)
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-class CtsAclList(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '255a'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(1, 255)
+# Import base ASN.1 objects even if this MIB does not use it
 
-class CtsAclListOrEmpty(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '255a'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 255)
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
 
-class CtsPolicyName(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '255a'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 255)
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
 
-class CtsPasswordEncryptionType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))
-    namedValues = NamedValues(("other", 1), ("none", 2), ("clearText", 3), ("typeSix", 4), ("typeSeven", 5))
+# Import SMI symbols from the MIBs this MIB depends on
 
-class CtsPassword(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 256)
+(ciscoMgmt,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoMgmt")
 
-class CtsGenerationId(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '128a'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 128)
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
 
-class CtsAcsAuthorityIdentity(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '1x'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 64)
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
 
-class CtsCredentialRecordType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("simpleSecret", 1), ("pac", 2))
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
 
-class CtsSgaclMonitorMode(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("on", 1), ("off", 2))
 
-class CtsSxpConnectionStatus(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))
-    namedValues = NamedValues(("other", 1), ("off", 2), ("on", 3), ("pendingOn", 4), ("deleteHoldDown", 5))
+# MODULE-IDENTITY
 
-mibBuilder.exportSymbols("CISCO-TRUSTSEC-TC-MIB", PYSNMP_MODULE_ID=ciscoCtsTcMIB, CtsAclListOrEmpty=CtsAclListOrEmpty, CtsPolicyName=CtsPolicyName, CtsSxpConnectionStatus=CtsSxpConnectionStatus, CtsPassword=CtsPassword, CtsAclList=CtsAclList, CtsAclNameOrEmpty=CtsAclNameOrEmpty, ciscoCtsTcMIB=ciscoCtsTcMIB, CtsPasswordEncryptionType=CtsPasswordEncryptionType, CtsAclName=CtsAclName, CtsGenerationId=CtsGenerationId, CtsAcsAuthorityIdentity=CtsAcsAuthorityIdentity, CtsCredentialRecordType=CtsCredentialRecordType, CtsSgaclMonitorMode=CtsSgaclMonitorMode, CtsSecurityGroupTag=CtsSecurityGroupTag)
+ciscoCtsTcMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 694)
+)
+ciscoCtsTcMIB.setRevisions(
+        ("2013-06-06 00:00",
+         "2012-01-30 00:00",
+         "2009-05-14 00:00")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class CtsSecurityGroupTag(Unsigned32, TextualConvention):
+    status = "current"
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+
+class CtsAclName(OctetString, TextualConvention):
+    status = "current"
+    displayHint = "255a"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 255),
+    )
+
+
+
+class CtsAclNameOrEmpty(OctetString, TextualConvention):
+    status = "current"
+    displayHint = "255a"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+
+class CtsAclList(OctetString, TextualConvention):
+    status = "current"
+    displayHint = "255a"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 255),
+    )
+
+
+
+class CtsAclListOrEmpty(OctetString, TextualConvention):
+    status = "current"
+    displayHint = "255a"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+
+class CtsPolicyName(OctetString, TextualConvention):
+    status = "current"
+    displayHint = "255a"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+
+class CtsPasswordEncryptionType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("clearText", 3),
+          ("none", 2),
+          ("other", 1),
+          ("typeSeven", 5),
+          ("typeSix", 4))
+    )
+
+
+
+class CtsPassword(OctetString, TextualConvention):
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 256),
+    )
+
+
+
+class CtsGenerationId(OctetString, TextualConvention):
+    status = "current"
+    displayHint = "128a"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 128),
+    )
+
+
+
+class CtsAcsAuthorityIdentity(OctetString, TextualConvention):
+    status = "current"
+    displayHint = "1x"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+
+class CtsCredentialRecordType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("pac", 2),
+          ("simpleSecret", 1))
+    )
+
+
+
+class CtsSgaclMonitorMode(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 2),
+          ("on", 1))
+    )
+
+
+
+class CtsSxpConnectionStatus(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("deleteHoldDown", 5),
+          ("off", 2),
+          ("on", 3),
+          ("other", 1),
+          ("pendingOn", 4))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-TRUSTSEC-TC-MIB",
+    **{"CtsSecurityGroupTag": CtsSecurityGroupTag,
+       "CtsAclName": CtsAclName,
+       "CtsAclNameOrEmpty": CtsAclNameOrEmpty,
+       "CtsAclList": CtsAclList,
+       "CtsAclListOrEmpty": CtsAclListOrEmpty,
+       "CtsPolicyName": CtsPolicyName,
+       "CtsPasswordEncryptionType": CtsPasswordEncryptionType,
+       "CtsPassword": CtsPassword,
+       "CtsGenerationId": CtsGenerationId,
+       "CtsAcsAuthorityIdentity": CtsAcsAuthorityIdentity,
+       "CtsCredentialRecordType": CtsCredentialRecordType,
+       "CtsSgaclMonitorMode": CtsSgaclMonitorMode,
+       "CtsSxpConnectionStatus": CtsSxpConnectionStatus,
+       "ciscoCtsTcMIB": ciscoCtsTcMIB}
+)

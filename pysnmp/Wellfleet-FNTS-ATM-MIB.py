@@ -1,91 +1,735 @@
+# SNMP MIB module (Wellfleet-FNTS-ATM-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module Wellfleet-FNTS-ATM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/Wellfleet-FNTS-ATM-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 21:33:28 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Gauge32, IpAddress, TimeTicks, Counter64, Bits, ModuleIdentity, Counter32, NotificationType, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Integer32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "IpAddress", "TimeTicks", "Counter64", "Bits", "ModuleIdentity", "Counter32", "NotificationType", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Integer32", "MibIdentifier")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-wfFntsAtmGroup, = mibBuilder.importSymbols("Wellfleet-COMMON-MIB", "wfFntsAtmGroup")
-wfFntsAtmTable = MibTable((1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1), )
-if mibBuilder.loadTexts: wfFntsAtmTable.setStatus('mandatory')
-wfFntsAtmEntry = MibTableRow((1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1), ).setIndexNames((0, "Wellfleet-FNTS-ATM-MIB", "wfFntsAtmSlot"), (0, "Wellfleet-FNTS-ATM-MIB", "wfFntsAtmConnector"))
-if mibBuilder.loadTexts: wfFntsAtmEntry.setStatus('mandatory')
-wfFntsAtmDelete = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("create", 1), ("delete", 2))).clone('create')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wfFntsAtmDelete.setStatus('mandatory')
-wfFntsAtmDisable = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('enable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wfFntsAtmDisable.setStatus('mandatory')
-wfFntsAtmState = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("up", 1), ("down", 2), ("init", 3), ("notpresent", 4))).clone('notpresent')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfFntsAtmState.setStatus('mandatory')
-wfFntsAtmSlot = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 14))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfFntsAtmSlot.setStatus('mandatory')
-wfFntsAtmConnector = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 44))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfFntsAtmConnector.setStatus('mandatory')
-wfFntsAtmCct = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1023))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wfFntsAtmCct.setStatus('mandatory')
-wfFntsAtmMtu = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(4508))).clone(namedValues=NamedValues(("default", 4508))).clone('default')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wfFntsAtmMtu.setStatus('mandatory')
-wfFntsAtmMadr = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 8), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfFntsAtmMadr.setStatus('mandatory')
-wfFntsAtmIpAdr = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 9), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfFntsAtmIpAdr.setStatus('mandatory')
-wfFntsAtmAtmState = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 9))).clone(namedValues=NamedValues(("notready", 1), ("init", 2), ("intloop", 3), ("extloop", 4), ("reset", 5), ("down", 6), ("up", 7), ("notpresent", 9))).clone('notpresent')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfFntsAtmAtmState.setStatus('mandatory')
-wfFntsAtmSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(50))).clone(namedValues=NamedValues(("default", 50))).clone('default')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfFntsAtmSpeed.setStatus('mandatory')
-wfFntsAtmRxOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfFntsAtmRxOctets.setStatus('mandatory')
-wfFntsAtmRxFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfFntsAtmRxFrames.setStatus('mandatory')
-wfFntsAtmTxOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfFntsAtmTxOctets.setStatus('mandatory')
-wfFntsAtmTxFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfFntsAtmTxFrames.setStatus('mandatory')
-wfFntsAtmLackRescErrorRx = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 16), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfFntsAtmLackRescErrorRx.setStatus('mandatory')
-wfFntsAtmInErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 17), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfFntsAtmInErrors.setStatus('mandatory')
-wfFntsAtmOutErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 18), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfFntsAtmOutErrors.setStatus('mandatory')
-wfFntsAtmRxLongFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 19), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfFntsAtmRxLongFrames.setStatus('mandatory')
-wfFntsAtmTxClipFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 20), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfFntsAtmTxClipFrames.setStatus('mandatory')
-wfFntsAtmRxReplenMisses = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 21), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfFntsAtmRxReplenMisses.setStatus('mandatory')
-wfFntsAtmRxOverruns = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 22), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfFntsAtmRxOverruns.setStatus('mandatory')
-wfFntsAtmRxRingErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 23), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfFntsAtmRxRingErrors.setStatus('mandatory')
-wfFntsAtmTxRingErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 24), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfFntsAtmTxRingErrors.setStatus('mandatory')
-wfFntsAtmOpErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 25), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfFntsAtmOpErrors.setStatus('mandatory')
-wfFntsAtmRxProcessings = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 26), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfFntsAtmRxProcessings.setStatus('mandatory')
-wfFntsAtmTxProcessings = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 27), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfFntsAtmTxProcessings.setStatus('mandatory')
-wfFntsAtmTxCmplProcessings = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 28), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfFntsAtmTxCmplProcessings.setStatus('mandatory')
-wfFntsAtmIntrProcessings = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 29), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfFntsAtmIntrProcessings.setStatus('mandatory')
-wfFntsAtmSintProcessings = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 30), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfFntsAtmSintProcessings.setStatus('mandatory')
-wfFntsAtmPintProcessings = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 31), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfFntsAtmPintProcessings.setStatus('mandatory')
-wfFntsAtmRxRingLength = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 32), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(63))).clone(namedValues=NamedValues(("default", 63))).clone('default')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wfFntsAtmRxRingLength.setStatus('mandatory')
-wfFntsAtmTxRingLength = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 33), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(63))).clone(namedValues=NamedValues(("default", 63))).clone('default')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wfFntsAtmTxRingLength.setStatus('mandatory')
-wfFntsAtmCfgRxQueueLength = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 34), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(127))).clone(namedValues=NamedValues(("default", 127))).clone('default')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wfFntsAtmCfgRxQueueLength.setStatus('mandatory')
-wfFntsAtmCfgTxQueueLength = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 35), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(127))).clone(namedValues=NamedValues(("default", 127))).clone('default')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wfFntsAtmCfgTxQueueLength.setStatus('mandatory')
-wfFntsAtmLineNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 36), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wfFntsAtmLineNumber.setStatus('mandatory')
-mibBuilder.exportSymbols("Wellfleet-FNTS-ATM-MIB", wfFntsAtmTxRingErrors=wfFntsAtmTxRingErrors, wfFntsAtmOpErrors=wfFntsAtmOpErrors, wfFntsAtmIpAdr=wfFntsAtmIpAdr, wfFntsAtmInErrors=wfFntsAtmInErrors, wfFntsAtmSlot=wfFntsAtmSlot, wfFntsAtmTxClipFrames=wfFntsAtmTxClipFrames, wfFntsAtmTxCmplProcessings=wfFntsAtmTxCmplProcessings, wfFntsAtmDisable=wfFntsAtmDisable, wfFntsAtmCct=wfFntsAtmCct, wfFntsAtmRxFrames=wfFntsAtmRxFrames, wfFntsAtmRxOctets=wfFntsAtmRxOctets, wfFntsAtmSintProcessings=wfFntsAtmSintProcessings, wfFntsAtmRxLongFrames=wfFntsAtmRxLongFrames, wfFntsAtmLackRescErrorRx=wfFntsAtmLackRescErrorRx, wfFntsAtmRxRingLength=wfFntsAtmRxRingLength, wfFntsAtmRxProcessings=wfFntsAtmRxProcessings, wfFntsAtmMadr=wfFntsAtmMadr, wfFntsAtmRxReplenMisses=wfFntsAtmRxReplenMisses, wfFntsAtmMtu=wfFntsAtmMtu, wfFntsAtmSpeed=wfFntsAtmSpeed, wfFntsAtmTable=wfFntsAtmTable, wfFntsAtmCfgRxQueueLength=wfFntsAtmCfgRxQueueLength, wfFntsAtmRxRingErrors=wfFntsAtmRxRingErrors, wfFntsAtmLineNumber=wfFntsAtmLineNumber, wfFntsAtmPintProcessings=wfFntsAtmPintProcessings, wfFntsAtmTxProcessings=wfFntsAtmTxProcessings, wfFntsAtmTxFrames=wfFntsAtmTxFrames, wfFntsAtmDelete=wfFntsAtmDelete, wfFntsAtmAtmState=wfFntsAtmAtmState, wfFntsAtmRxOverruns=wfFntsAtmRxOverruns, wfFntsAtmTxRingLength=wfFntsAtmTxRingLength, wfFntsAtmOutErrors=wfFntsAtmOutErrors, wfFntsAtmState=wfFntsAtmState, wfFntsAtmConnector=wfFntsAtmConnector, wfFntsAtmIntrProcessings=wfFntsAtmIntrProcessings, wfFntsAtmCfgTxQueueLength=wfFntsAtmCfgTxQueueLength, wfFntsAtmEntry=wfFntsAtmEntry, wfFntsAtmTxOctets=wfFntsAtmTxOctets)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/Wellfleet-FNTS-ATM-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:16:13 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+(wfFntsAtmGroup,) = mibBuilder.importSymbols(
+    "Wellfleet-COMMON-MIB",
+    "wfFntsAtmGroup")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_WfFntsAtmTable_Object = MibTable
+wfFntsAtmTable = _WfFntsAtmTable_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1)
+)
+if mibBuilder.loadTexts:
+    wfFntsAtmTable.setStatus("mandatory")
+_WfFntsAtmEntry_Object = MibTableRow
+wfFntsAtmEntry = _WfFntsAtmEntry_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1)
+)
+wfFntsAtmEntry.setIndexNames(
+    (0, "Wellfleet-FNTS-ATM-MIB", "wfFntsAtmSlot"),
+    (0, "Wellfleet-FNTS-ATM-MIB", "wfFntsAtmConnector"),
+)
+if mibBuilder.loadTexts:
+    wfFntsAtmEntry.setStatus("mandatory")
+
+
+class _WfFntsAtmDelete_Type(Integer32):
+    """Custom type wfFntsAtmDelete based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("create", 1),
+          ("delete", 2))
+    )
+
+
+_WfFntsAtmDelete_Type.__name__ = "Integer32"
+_WfFntsAtmDelete_Object = MibTableColumn
+wfFntsAtmDelete = _WfFntsAtmDelete_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 1),
+    _WfFntsAtmDelete_Type()
+)
+wfFntsAtmDelete.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wfFntsAtmDelete.setStatus("mandatory")
+
+
+class _WfFntsAtmDisable_Type(Integer32):
+    """Custom type wfFntsAtmDisable based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 2),
+          ("enable", 1))
+    )
+
+
+_WfFntsAtmDisable_Type.__name__ = "Integer32"
+_WfFntsAtmDisable_Object = MibTableColumn
+wfFntsAtmDisable = _WfFntsAtmDisable_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 2),
+    _WfFntsAtmDisable_Type()
+)
+wfFntsAtmDisable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wfFntsAtmDisable.setStatus("mandatory")
+
+
+class _WfFntsAtmState_Type(Integer32):
+    """Custom type wfFntsAtmState based on Integer32"""
+    defaultValue = 4
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 2),
+          ("init", 3),
+          ("notpresent", 4),
+          ("up", 1))
+    )
+
+
+_WfFntsAtmState_Type.__name__ = "Integer32"
+_WfFntsAtmState_Object = MibTableColumn
+wfFntsAtmState = _WfFntsAtmState_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 3),
+    _WfFntsAtmState_Type()
+)
+wfFntsAtmState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfFntsAtmState.setStatus("mandatory")
+
+
+class _WfFntsAtmSlot_Type(Integer32):
+    """Custom type wfFntsAtmSlot based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 14),
+    )
+
+
+_WfFntsAtmSlot_Type.__name__ = "Integer32"
+_WfFntsAtmSlot_Object = MibTableColumn
+wfFntsAtmSlot = _WfFntsAtmSlot_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 4),
+    _WfFntsAtmSlot_Type()
+)
+wfFntsAtmSlot.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfFntsAtmSlot.setStatus("mandatory")
+
+
+class _WfFntsAtmConnector_Type(Integer32):
+    """Custom type wfFntsAtmConnector based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 44),
+    )
+
+
+_WfFntsAtmConnector_Type.__name__ = "Integer32"
+_WfFntsAtmConnector_Object = MibTableColumn
+wfFntsAtmConnector = _WfFntsAtmConnector_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 5),
+    _WfFntsAtmConnector_Type()
+)
+wfFntsAtmConnector.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfFntsAtmConnector.setStatus("mandatory")
+
+
+class _WfFntsAtmCct_Type(Integer32):
+    """Custom type wfFntsAtmCct based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1023),
+    )
+
+
+_WfFntsAtmCct_Type.__name__ = "Integer32"
+_WfFntsAtmCct_Object = MibTableColumn
+wfFntsAtmCct = _WfFntsAtmCct_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 6),
+    _WfFntsAtmCct_Type()
+)
+wfFntsAtmCct.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wfFntsAtmCct.setStatus("mandatory")
+
+
+class _WfFntsAtmMtu_Type(Integer32):
+    """Custom type wfFntsAtmMtu based on Integer32"""
+    defaultValue = 4508
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            4508
+        )
+    )
+    namedValues = NamedValues(
+        ("default", 4508)
+    )
+
+
+_WfFntsAtmMtu_Type.__name__ = "Integer32"
+_WfFntsAtmMtu_Object = MibTableColumn
+wfFntsAtmMtu = _WfFntsAtmMtu_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 7),
+    _WfFntsAtmMtu_Type()
+)
+wfFntsAtmMtu.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wfFntsAtmMtu.setStatus("mandatory")
+_WfFntsAtmMadr_Type = OctetString
+_WfFntsAtmMadr_Object = MibTableColumn
+wfFntsAtmMadr = _WfFntsAtmMadr_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 8),
+    _WfFntsAtmMadr_Type()
+)
+wfFntsAtmMadr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfFntsAtmMadr.setStatus("mandatory")
+_WfFntsAtmIpAdr_Type = IpAddress
+_WfFntsAtmIpAdr_Object = MibTableColumn
+wfFntsAtmIpAdr = _WfFntsAtmIpAdr_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 9),
+    _WfFntsAtmIpAdr_Type()
+)
+wfFntsAtmIpAdr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfFntsAtmIpAdr.setStatus("mandatory")
+
+
+class _WfFntsAtmAtmState_Type(Integer32):
+    """Custom type wfFntsAtmAtmState based on Integer32"""
+    defaultValue = 9
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              9)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 6),
+          ("extloop", 4),
+          ("init", 2),
+          ("intloop", 3),
+          ("notpresent", 9),
+          ("notready", 1),
+          ("reset", 5),
+          ("up", 7))
+    )
+
+
+_WfFntsAtmAtmState_Type.__name__ = "Integer32"
+_WfFntsAtmAtmState_Object = MibTableColumn
+wfFntsAtmAtmState = _WfFntsAtmAtmState_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 10),
+    _WfFntsAtmAtmState_Type()
+)
+wfFntsAtmAtmState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfFntsAtmAtmState.setStatus("mandatory")
+
+
+class _WfFntsAtmSpeed_Type(Integer32):
+    """Custom type wfFntsAtmSpeed based on Integer32"""
+    defaultValue = 50
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            50
+        )
+    )
+    namedValues = NamedValues(
+        ("default", 50)
+    )
+
+
+_WfFntsAtmSpeed_Type.__name__ = "Integer32"
+_WfFntsAtmSpeed_Object = MibTableColumn
+wfFntsAtmSpeed = _WfFntsAtmSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 11),
+    _WfFntsAtmSpeed_Type()
+)
+wfFntsAtmSpeed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfFntsAtmSpeed.setStatus("mandatory")
+_WfFntsAtmRxOctets_Type = Counter32
+_WfFntsAtmRxOctets_Object = MibTableColumn
+wfFntsAtmRxOctets = _WfFntsAtmRxOctets_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 12),
+    _WfFntsAtmRxOctets_Type()
+)
+wfFntsAtmRxOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfFntsAtmRxOctets.setStatus("mandatory")
+_WfFntsAtmRxFrames_Type = Counter32
+_WfFntsAtmRxFrames_Object = MibTableColumn
+wfFntsAtmRxFrames = _WfFntsAtmRxFrames_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 13),
+    _WfFntsAtmRxFrames_Type()
+)
+wfFntsAtmRxFrames.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfFntsAtmRxFrames.setStatus("mandatory")
+_WfFntsAtmTxOctets_Type = Counter32
+_WfFntsAtmTxOctets_Object = MibTableColumn
+wfFntsAtmTxOctets = _WfFntsAtmTxOctets_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 14),
+    _WfFntsAtmTxOctets_Type()
+)
+wfFntsAtmTxOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfFntsAtmTxOctets.setStatus("mandatory")
+_WfFntsAtmTxFrames_Type = Counter32
+_WfFntsAtmTxFrames_Object = MibTableColumn
+wfFntsAtmTxFrames = _WfFntsAtmTxFrames_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 15),
+    _WfFntsAtmTxFrames_Type()
+)
+wfFntsAtmTxFrames.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfFntsAtmTxFrames.setStatus("mandatory")
+_WfFntsAtmLackRescErrorRx_Type = Counter32
+_WfFntsAtmLackRescErrorRx_Object = MibTableColumn
+wfFntsAtmLackRescErrorRx = _WfFntsAtmLackRescErrorRx_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 16),
+    _WfFntsAtmLackRescErrorRx_Type()
+)
+wfFntsAtmLackRescErrorRx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfFntsAtmLackRescErrorRx.setStatus("mandatory")
+_WfFntsAtmInErrors_Type = Counter32
+_WfFntsAtmInErrors_Object = MibTableColumn
+wfFntsAtmInErrors = _WfFntsAtmInErrors_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 17),
+    _WfFntsAtmInErrors_Type()
+)
+wfFntsAtmInErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfFntsAtmInErrors.setStatus("mandatory")
+_WfFntsAtmOutErrors_Type = Counter32
+_WfFntsAtmOutErrors_Object = MibTableColumn
+wfFntsAtmOutErrors = _WfFntsAtmOutErrors_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 18),
+    _WfFntsAtmOutErrors_Type()
+)
+wfFntsAtmOutErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfFntsAtmOutErrors.setStatus("mandatory")
+_WfFntsAtmRxLongFrames_Type = Counter32
+_WfFntsAtmRxLongFrames_Object = MibTableColumn
+wfFntsAtmRxLongFrames = _WfFntsAtmRxLongFrames_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 19),
+    _WfFntsAtmRxLongFrames_Type()
+)
+wfFntsAtmRxLongFrames.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfFntsAtmRxLongFrames.setStatus("mandatory")
+_WfFntsAtmTxClipFrames_Type = Counter32
+_WfFntsAtmTxClipFrames_Object = MibTableColumn
+wfFntsAtmTxClipFrames = _WfFntsAtmTxClipFrames_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 20),
+    _WfFntsAtmTxClipFrames_Type()
+)
+wfFntsAtmTxClipFrames.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfFntsAtmTxClipFrames.setStatus("mandatory")
+_WfFntsAtmRxReplenMisses_Type = Counter32
+_WfFntsAtmRxReplenMisses_Object = MibTableColumn
+wfFntsAtmRxReplenMisses = _WfFntsAtmRxReplenMisses_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 21),
+    _WfFntsAtmRxReplenMisses_Type()
+)
+wfFntsAtmRxReplenMisses.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfFntsAtmRxReplenMisses.setStatus("mandatory")
+_WfFntsAtmRxOverruns_Type = Counter32
+_WfFntsAtmRxOverruns_Object = MibTableColumn
+wfFntsAtmRxOverruns = _WfFntsAtmRxOverruns_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 22),
+    _WfFntsAtmRxOverruns_Type()
+)
+wfFntsAtmRxOverruns.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfFntsAtmRxOverruns.setStatus("mandatory")
+_WfFntsAtmRxRingErrors_Type = Counter32
+_WfFntsAtmRxRingErrors_Object = MibTableColumn
+wfFntsAtmRxRingErrors = _WfFntsAtmRxRingErrors_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 23),
+    _WfFntsAtmRxRingErrors_Type()
+)
+wfFntsAtmRxRingErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfFntsAtmRxRingErrors.setStatus("mandatory")
+_WfFntsAtmTxRingErrors_Type = Counter32
+_WfFntsAtmTxRingErrors_Object = MibTableColumn
+wfFntsAtmTxRingErrors = _WfFntsAtmTxRingErrors_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 24),
+    _WfFntsAtmTxRingErrors_Type()
+)
+wfFntsAtmTxRingErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfFntsAtmTxRingErrors.setStatus("mandatory")
+_WfFntsAtmOpErrors_Type = Counter32
+_WfFntsAtmOpErrors_Object = MibTableColumn
+wfFntsAtmOpErrors = _WfFntsAtmOpErrors_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 25),
+    _WfFntsAtmOpErrors_Type()
+)
+wfFntsAtmOpErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfFntsAtmOpErrors.setStatus("mandatory")
+_WfFntsAtmRxProcessings_Type = Counter32
+_WfFntsAtmRxProcessings_Object = MibTableColumn
+wfFntsAtmRxProcessings = _WfFntsAtmRxProcessings_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 26),
+    _WfFntsAtmRxProcessings_Type()
+)
+wfFntsAtmRxProcessings.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfFntsAtmRxProcessings.setStatus("mandatory")
+_WfFntsAtmTxProcessings_Type = Counter32
+_WfFntsAtmTxProcessings_Object = MibTableColumn
+wfFntsAtmTxProcessings = _WfFntsAtmTxProcessings_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 27),
+    _WfFntsAtmTxProcessings_Type()
+)
+wfFntsAtmTxProcessings.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfFntsAtmTxProcessings.setStatus("mandatory")
+_WfFntsAtmTxCmplProcessings_Type = Counter32
+_WfFntsAtmTxCmplProcessings_Object = MibTableColumn
+wfFntsAtmTxCmplProcessings = _WfFntsAtmTxCmplProcessings_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 28),
+    _WfFntsAtmTxCmplProcessings_Type()
+)
+wfFntsAtmTxCmplProcessings.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfFntsAtmTxCmplProcessings.setStatus("mandatory")
+_WfFntsAtmIntrProcessings_Type = Counter32
+_WfFntsAtmIntrProcessings_Object = MibTableColumn
+wfFntsAtmIntrProcessings = _WfFntsAtmIntrProcessings_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 29),
+    _WfFntsAtmIntrProcessings_Type()
+)
+wfFntsAtmIntrProcessings.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfFntsAtmIntrProcessings.setStatus("mandatory")
+_WfFntsAtmSintProcessings_Type = Counter32
+_WfFntsAtmSintProcessings_Object = MibTableColumn
+wfFntsAtmSintProcessings = _WfFntsAtmSintProcessings_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 30),
+    _WfFntsAtmSintProcessings_Type()
+)
+wfFntsAtmSintProcessings.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfFntsAtmSintProcessings.setStatus("mandatory")
+_WfFntsAtmPintProcessings_Type = Counter32
+_WfFntsAtmPintProcessings_Object = MibTableColumn
+wfFntsAtmPintProcessings = _WfFntsAtmPintProcessings_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 31),
+    _WfFntsAtmPintProcessings_Type()
+)
+wfFntsAtmPintProcessings.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfFntsAtmPintProcessings.setStatus("mandatory")
+
+
+class _WfFntsAtmRxRingLength_Type(Integer32):
+    """Custom type wfFntsAtmRxRingLength based on Integer32"""
+    defaultValue = 63
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            63
+        )
+    )
+    namedValues = NamedValues(
+        ("default", 63)
+    )
+
+
+_WfFntsAtmRxRingLength_Type.__name__ = "Integer32"
+_WfFntsAtmRxRingLength_Object = MibTableColumn
+wfFntsAtmRxRingLength = _WfFntsAtmRxRingLength_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 32),
+    _WfFntsAtmRxRingLength_Type()
+)
+wfFntsAtmRxRingLength.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wfFntsAtmRxRingLength.setStatus("mandatory")
+
+
+class _WfFntsAtmTxRingLength_Type(Integer32):
+    """Custom type wfFntsAtmTxRingLength based on Integer32"""
+    defaultValue = 63
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            63
+        )
+    )
+    namedValues = NamedValues(
+        ("default", 63)
+    )
+
+
+_WfFntsAtmTxRingLength_Type.__name__ = "Integer32"
+_WfFntsAtmTxRingLength_Object = MibTableColumn
+wfFntsAtmTxRingLength = _WfFntsAtmTxRingLength_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 33),
+    _WfFntsAtmTxRingLength_Type()
+)
+wfFntsAtmTxRingLength.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wfFntsAtmTxRingLength.setStatus("mandatory")
+
+
+class _WfFntsAtmCfgRxQueueLength_Type(Integer32):
+    """Custom type wfFntsAtmCfgRxQueueLength based on Integer32"""
+    defaultValue = 127
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            127
+        )
+    )
+    namedValues = NamedValues(
+        ("default", 127)
+    )
+
+
+_WfFntsAtmCfgRxQueueLength_Type.__name__ = "Integer32"
+_WfFntsAtmCfgRxQueueLength_Object = MibTableColumn
+wfFntsAtmCfgRxQueueLength = _WfFntsAtmCfgRxQueueLength_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 34),
+    _WfFntsAtmCfgRxQueueLength_Type()
+)
+wfFntsAtmCfgRxQueueLength.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wfFntsAtmCfgRxQueueLength.setStatus("mandatory")
+
+
+class _WfFntsAtmCfgTxQueueLength_Type(Integer32):
+    """Custom type wfFntsAtmCfgTxQueueLength based on Integer32"""
+    defaultValue = 127
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            127
+        )
+    )
+    namedValues = NamedValues(
+        ("default", 127)
+    )
+
+
+_WfFntsAtmCfgTxQueueLength_Type.__name__ = "Integer32"
+_WfFntsAtmCfgTxQueueLength_Object = MibTableColumn
+wfFntsAtmCfgTxQueueLength = _WfFntsAtmCfgTxQueueLength_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 35),
+    _WfFntsAtmCfgTxQueueLength_Type()
+)
+wfFntsAtmCfgTxQueueLength.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wfFntsAtmCfgTxQueueLength.setStatus("mandatory")
+_WfFntsAtmLineNumber_Type = Integer32
+_WfFntsAtmLineNumber_Object = MibTableColumn
+wfFntsAtmLineNumber = _WfFntsAtmLineNumber_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 4, 32, 1, 1, 36),
+    _WfFntsAtmLineNumber_Type()
+)
+wfFntsAtmLineNumber.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wfFntsAtmLineNumber.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "Wellfleet-FNTS-ATM-MIB",
+    **{"wfFntsAtmTable": wfFntsAtmTable,
+       "wfFntsAtmEntry": wfFntsAtmEntry,
+       "wfFntsAtmDelete": wfFntsAtmDelete,
+       "wfFntsAtmDisable": wfFntsAtmDisable,
+       "wfFntsAtmState": wfFntsAtmState,
+       "wfFntsAtmSlot": wfFntsAtmSlot,
+       "wfFntsAtmConnector": wfFntsAtmConnector,
+       "wfFntsAtmCct": wfFntsAtmCct,
+       "wfFntsAtmMtu": wfFntsAtmMtu,
+       "wfFntsAtmMadr": wfFntsAtmMadr,
+       "wfFntsAtmIpAdr": wfFntsAtmIpAdr,
+       "wfFntsAtmAtmState": wfFntsAtmAtmState,
+       "wfFntsAtmSpeed": wfFntsAtmSpeed,
+       "wfFntsAtmRxOctets": wfFntsAtmRxOctets,
+       "wfFntsAtmRxFrames": wfFntsAtmRxFrames,
+       "wfFntsAtmTxOctets": wfFntsAtmTxOctets,
+       "wfFntsAtmTxFrames": wfFntsAtmTxFrames,
+       "wfFntsAtmLackRescErrorRx": wfFntsAtmLackRescErrorRx,
+       "wfFntsAtmInErrors": wfFntsAtmInErrors,
+       "wfFntsAtmOutErrors": wfFntsAtmOutErrors,
+       "wfFntsAtmRxLongFrames": wfFntsAtmRxLongFrames,
+       "wfFntsAtmTxClipFrames": wfFntsAtmTxClipFrames,
+       "wfFntsAtmRxReplenMisses": wfFntsAtmRxReplenMisses,
+       "wfFntsAtmRxOverruns": wfFntsAtmRxOverruns,
+       "wfFntsAtmRxRingErrors": wfFntsAtmRxRingErrors,
+       "wfFntsAtmTxRingErrors": wfFntsAtmTxRingErrors,
+       "wfFntsAtmOpErrors": wfFntsAtmOpErrors,
+       "wfFntsAtmRxProcessings": wfFntsAtmRxProcessings,
+       "wfFntsAtmTxProcessings": wfFntsAtmTxProcessings,
+       "wfFntsAtmTxCmplProcessings": wfFntsAtmTxCmplProcessings,
+       "wfFntsAtmIntrProcessings": wfFntsAtmIntrProcessings,
+       "wfFntsAtmSintProcessings": wfFntsAtmSintProcessings,
+       "wfFntsAtmPintProcessings": wfFntsAtmPintProcessings,
+       "wfFntsAtmRxRingLength": wfFntsAtmRxRingLength,
+       "wfFntsAtmTxRingLength": wfFntsAtmTxRingLength,
+       "wfFntsAtmCfgRxQueueLength": wfFntsAtmCfgRxQueueLength,
+       "wfFntsAtmCfgTxQueueLength": wfFntsAtmCfgTxQueueLength,
+       "wfFntsAtmLineNumber": wfFntsAtmLineNumber}
+)

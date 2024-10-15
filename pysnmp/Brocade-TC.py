@@ -1,42 +1,191 @@
+# SNMP MIB module (Brocade-TC) expressed in pysnmp data model.
 #
-# PySNMP MIB module Brocade-TC (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/Brocade-TC
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:19:44 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion")
-bcsiModules, = mibBuilder.importSymbols("Brocade-REG-MIB", "bcsiModules")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ObjectIdentity, Integer32, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Gauge32, NotificationType, TimeTicks, Counter32, MibIdentifier, iso, Bits, ModuleIdentity, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Integer32", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Gauge32", "NotificationType", "TimeTicks", "Counter32", "MibIdentifier", "iso", "Bits", "ModuleIdentity", "Unsigned32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-bcsiModuleTC = ModuleIdentity((1, 3, 6, 1, 4, 1, 1588, 3, 1, 2))
-bcsiModuleTC.setRevisions(('2003-01-13 14:30',))
-if mibBuilder.loadTexts: bcsiModuleTC.setLastUpdated('200301131430Z')
-if mibBuilder.loadTexts: bcsiModuleTC.setOrganization('Brocade Communications Systems, Inc.,')
-class FcWwn(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(8, 8)
-    fixedLength = 8
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/Brocade-TC
+# Produced by pysmi-1.5.4 at Mon Oct 14 20:46:31 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class SwDomainIndex(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 239)
+if 'mibBuilder' not in globals():
+    import sys
 
-class SwNbIndex(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 2048)
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-class SwSensorIndex(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 1024)
+# Import base ASN.1 objects even if this MIB does not use it
 
-class SwPortIndex(TextualConvention, Integer32):
-    status = 'current'
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
 
-class SwTrunkMaster(TextualConvention, Integer32):
-    status = 'current'
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
 
-mibBuilder.exportSymbols("Brocade-TC", SwPortIndex=SwPortIndex, SwDomainIndex=SwDomainIndex, FcWwn=FcWwn, SwTrunkMaster=SwTrunkMaster, SwNbIndex=SwNbIndex, bcsiModuleTC=bcsiModuleTC, PYSNMP_MODULE_ID=bcsiModuleTC, SwSensorIndex=SwSensorIndex)
+# Import SMI symbols from the MIBs this MIB depends on
+
+(bcsiModules,) = mibBuilder.importSymbols(
+    "Brocade-REG-MIB",
+    "bcsiModules")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+bcsiModuleTC = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 1588, 3, 1, 2)
+)
+bcsiModuleTC.setRevisions(
+        ("2003-01-13 14:30",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class FcWwn(OctetString, TextualConvention):
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(8, 8),
+    )
+
+
+
+class SwDomainIndex(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 239),
+    )
+
+
+
+class SwNbIndex(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2048),
+    )
+
+
+
+class SwSensorIndex(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1024),
+    )
+
+
+
+class SwPortIndex(Integer32, TextualConvention):
+    status = "current"
+
+
+class SwTrunkMaster(Integer32, TextualConvention):
+    status = "current"
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "Brocade-TC",
+    **{"FcWwn": FcWwn,
+       "SwDomainIndex": SwDomainIndex,
+       "SwNbIndex": SwNbIndex,
+       "SwSensorIndex": SwSensorIndex,
+       "SwPortIndex": SwPortIndex,
+       "SwTrunkMaster": SwTrunkMaster,
+       "bcsiModuleTC": bcsiModuleTC}
+)

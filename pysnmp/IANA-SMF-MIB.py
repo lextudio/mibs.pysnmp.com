@@ -1,30 +1,179 @@
+# SNMP MIB module (IANA-SMF-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module IANA-SMF-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/IANA-SMF-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:38:52 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter32, NotificationType, iso, ObjectIdentity, MibIdentifier, mib_2, ModuleIdentity, Bits, TimeTicks, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, Integer32, Counter64, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "NotificationType", "iso", "ObjectIdentity", "MibIdentifier", "mib-2", "ModuleIdentity", "Bits", "TimeTicks", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "Integer32", "Counter64", "IpAddress")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-ianaSmfMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 225))
-ianaSmfMIB.setRevisions(('2014-10-10 00:00',))
-if mibBuilder.loadTexts: ianaSmfMIB.setLastUpdated('201410100000Z')
-if mibBuilder.loadTexts: ianaSmfMIB.setOrganization('IANA')
-class IANAsmfOpModeIdTC(TextualConvention, Integer32):
-    reference = "See Section 7.2 'Reduced Relay Set Forwarding', and the Appendices A, B, and C in RFC 6621 - 'Simplified Multicast Forwarding', Macker, J., Ed., May 2012."
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
-    namedValues = NamedValues(("independent", 1), ("routing", 2), ("crossLayer", 3))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/IANA-SMF-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:07:08 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class IANAsmfRssaIdTC(TextualConvention, Integer32):
-    reference = "For example, see: Section 8.1.1. 'SMF Message TLV Type' and the Appendices A, B, and C in RFC 6621 - 'Simplified Multicast Forwarding', Macker, J., Ed., May 2012. RFC 3626 - Clausen, T., Ed., and P. Jacquet, Ed., 'Optimized Link State Routing Protocol (OLSR)', October 2003. RFC 5614 - Ogier, R. and P. Spagnolo, 'Mobile Ad Hoc Network (MANET) Extension of OSPF Using Connected Dominating Set (CDS) Flooding', August 2009. RFC 7181 - Clausen, T., Dearlove, C., Jacquet, P., and U. Herberg, 'The Optimized Link State Routing Protocol Version 2', April 2014."
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("cF", 1), ("sMPR", 2), ("eCDS", 3), ("mprCDS", 4))
+if 'mibBuilder' not in globals():
+    import sys
 
-mibBuilder.exportSymbols("IANA-SMF-MIB", IANAsmfRssaIdTC=IANAsmfRssaIdTC, IANAsmfOpModeIdTC=IANAsmfOpModeIdTC, ianaSmfMIB=ianaSmfMIB, PYSNMP_MODULE_ID=ianaSmfMIB)
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso,
+ mib_2) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso",
+    "mib-2")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+ianaSmfMIB = ModuleIdentity(
+    (1, 3, 6, 1, 2, 1, 225)
+)
+ianaSmfMIB.setRevisions(
+        ("2014-10-10 00:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class IANAsmfOpModeIdTC(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("crossLayer", 3),
+          ("independent", 1),
+          ("routing", 2))
+    )
+
+
+
+class IANAsmfRssaIdTC(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("cF", 1),
+          ("eCDS", 3),
+          ("mprCDS", 4),
+          ("sMPR", 2))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "IANA-SMF-MIB",
+    **{"IANAsmfOpModeIdTC": IANAsmfOpModeIdTC,
+       "IANAsmfRssaIdTC": IANAsmfRssaIdTC,
+       "ianaSmfMIB": ianaSmfMIB}
+)

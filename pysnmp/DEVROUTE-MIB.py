@@ -1,50 +1,376 @@
+# SNMP MIB module (DEVROUTE-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module DEVROUTE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/DEVROUTE-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:26:42 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-device, = mibBuilder.importSymbols("ANIROOT-MIB", "device")
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-iso, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, ObjectIdentity, TimeTicks, Bits, NotificationType, ModuleIdentity, IpAddress, Counter32, Gauge32, Unsigned32, Counter64, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "ObjectIdentity", "TimeTicks", "Bits", "NotificationType", "ModuleIdentity", "IpAddress", "Counter32", "Gauge32", "Unsigned32", "Counter64", "Integer32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-aniDevRoute = ModuleIdentity((1, 3, 6, 1, 4, 1, 4325, 2, 9))
-if mibBuilder.loadTexts: aniDevRoute.setLastUpdated('0105091130Z')
-if mibBuilder.loadTexts: aniDevRoute.setOrganization('Aperto Networks')
-aniDevRouteTable = MibTable((1, 3, 6, 1, 4, 1, 4325, 2, 9, 1), )
-if mibBuilder.loadTexts: aniDevRouteTable.setStatus('current')
-aniDevRouteEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4325, 2, 9, 1, 1), ).setIndexNames((0, "DEVROUTE-MIB", "aniDevRouteDest"), (0, "DEVROUTE-MIB", "aniDevRouteNextHop"), (0, "DEVROUTE-MIB", "aniDevRouteMask"))
-if mibBuilder.loadTexts: aniDevRouteEntry.setStatus('current')
-aniDevRouteDest = MibTableColumn((1, 3, 6, 1, 4, 1, 4325, 2, 9, 1, 1, 1), IpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aniDevRouteDest.setStatus('current')
-aniDevRouteIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4325, 2, 9, 1, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aniDevRouteIfIndex.setStatus('current')
-aniDevRouteMetric1 = MibTableColumn((1, 3, 6, 1, 4, 1, 4325, 2, 9, 1, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aniDevRouteMetric1.setStatus('current')
-aniDevRouteMetric2 = MibTableColumn((1, 3, 6, 1, 4, 1, 4325, 2, 9, 1, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aniDevRouteMetric2.setStatus('current')
-aniDevRouteMetric3 = MibTableColumn((1, 3, 6, 1, 4, 1, 4325, 2, 9, 1, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aniDevRouteMetric3.setStatus('current')
-aniDevRouteMetric4 = MibTableColumn((1, 3, 6, 1, 4, 1, 4325, 2, 9, 1, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aniDevRouteMetric4.setStatus('current')
-aniDevRouteNextHop = MibTableColumn((1, 3, 6, 1, 4, 1, 4325, 2, 9, 1, 1, 7), IpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aniDevRouteNextHop.setStatus('current')
-aniDevRouteType = MibTableColumn((1, 3, 6, 1, 4, 1, 4325, 2, 9, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("invalid", 2), ("direct", 3), ("indirect", 4)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aniDevRouteType.setStatus('current')
-aniDevRouteProto = MibTableColumn((1, 3, 6, 1, 4, 1, 4325, 2, 9, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14))).clone(namedValues=NamedValues(("other", 1), ("local", 2), ("netmgmt", 3), ("icmp", 4), ("egp", 5), ("ggp", 6), ("hello", 7), ("rip", 8), ("is-is", 9), ("es-is", 10), ("ciscoIgrp", 11), ("bbnSpfIgp", 12), ("ospf", 13), ("bgp", 14)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aniDevRouteProto.setStatus('current')
-aniDevRouteAge = MibTableColumn((1, 3, 6, 1, 4, 1, 4325, 2, 9, 1, 1, 10), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aniDevRouteAge.setStatus('current')
-aniDevRouteMask = MibTableColumn((1, 3, 6, 1, 4, 1, 4325, 2, 9, 1, 1, 11), IpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aniDevRouteMask.setStatus('current')
-aniDevRouteMetric5 = MibTableColumn((1, 3, 6, 1, 4, 1, 4325, 2, 9, 1, 1, 12), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aniDevRouteMetric5.setStatus('current')
-aniDevRouteInfo = MibTableColumn((1, 3, 6, 1, 4, 1, 4325, 2, 9, 1, 1, 13), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aniDevRouteInfo.setStatus('current')
-aniDevRouteFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 4325, 2, 9, 1, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("network", 1), ("host", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aniDevRouteFlag.setStatus('current')
-mibBuilder.exportSymbols("DEVROUTE-MIB", aniDevRouteInfo=aniDevRouteInfo, PYSNMP_MODULE_ID=aniDevRoute, aniDevRouteProto=aniDevRouteProto, aniDevRouteDest=aniDevRouteDest, aniDevRouteIfIndex=aniDevRouteIfIndex, aniDevRouteEntry=aniDevRouteEntry, aniDevRouteTable=aniDevRouteTable, aniDevRoute=aniDevRoute, aniDevRouteMetric1=aniDevRouteMetric1, aniDevRouteMetric4=aniDevRouteMetric4, aniDevRouteMetric2=aniDevRouteMetric2, aniDevRouteMetric3=aniDevRouteMetric3, aniDevRouteNextHop=aniDevRouteNextHop, aniDevRouteAge=aniDevRouteAge, aniDevRouteType=aniDevRouteType, aniDevRouteMask=aniDevRouteMask, aniDevRouteMetric5=aniDevRouteMetric5, aniDevRouteFlag=aniDevRouteFlag)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/DEVROUTE-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:26:11 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(device,) = mibBuilder.importSymbols(
+    "ANIROOT-MIB",
+    "device")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+aniDevRoute = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 9)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AniDevRouteTable_Object = MibTable
+aniDevRouteTable = _AniDevRouteTable_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 9, 1)
+)
+if mibBuilder.loadTexts:
+    aniDevRouteTable.setStatus("current")
+_AniDevRouteEntry_Object = MibTableRow
+aniDevRouteEntry = _AniDevRouteEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 9, 1, 1)
+)
+aniDevRouteEntry.setIndexNames(
+    (0, "DEVROUTE-MIB", "aniDevRouteDest"),
+    (0, "DEVROUTE-MIB", "aniDevRouteNextHop"),
+    (0, "DEVROUTE-MIB", "aniDevRouteMask"),
+)
+if mibBuilder.loadTexts:
+    aniDevRouteEntry.setStatus("current")
+_AniDevRouteDest_Type = IpAddress
+_AniDevRouteDest_Object = MibTableColumn
+aniDevRouteDest = _AniDevRouteDest_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 9, 1, 1, 1),
+    _AniDevRouteDest_Type()
+)
+aniDevRouteDest.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aniDevRouteDest.setStatus("current")
+_AniDevRouteIfIndex_Type = Integer32
+_AniDevRouteIfIndex_Object = MibTableColumn
+aniDevRouteIfIndex = _AniDevRouteIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 9, 1, 1, 2),
+    _AniDevRouteIfIndex_Type()
+)
+aniDevRouteIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aniDevRouteIfIndex.setStatus("current")
+_AniDevRouteMetric1_Type = Integer32
+_AniDevRouteMetric1_Object = MibTableColumn
+aniDevRouteMetric1 = _AniDevRouteMetric1_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 9, 1, 1, 3),
+    _AniDevRouteMetric1_Type()
+)
+aniDevRouteMetric1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aniDevRouteMetric1.setStatus("current")
+_AniDevRouteMetric2_Type = Integer32
+_AniDevRouteMetric2_Object = MibTableColumn
+aniDevRouteMetric2 = _AniDevRouteMetric2_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 9, 1, 1, 4),
+    _AniDevRouteMetric2_Type()
+)
+aniDevRouteMetric2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aniDevRouteMetric2.setStatus("current")
+_AniDevRouteMetric3_Type = Integer32
+_AniDevRouteMetric3_Object = MibTableColumn
+aniDevRouteMetric3 = _AniDevRouteMetric3_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 9, 1, 1, 5),
+    _AniDevRouteMetric3_Type()
+)
+aniDevRouteMetric3.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aniDevRouteMetric3.setStatus("current")
+_AniDevRouteMetric4_Type = Integer32
+_AniDevRouteMetric4_Object = MibTableColumn
+aniDevRouteMetric4 = _AniDevRouteMetric4_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 9, 1, 1, 6),
+    _AniDevRouteMetric4_Type()
+)
+aniDevRouteMetric4.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aniDevRouteMetric4.setStatus("current")
+_AniDevRouteNextHop_Type = IpAddress
+_AniDevRouteNextHop_Object = MibTableColumn
+aniDevRouteNextHop = _AniDevRouteNextHop_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 9, 1, 1, 7),
+    _AniDevRouteNextHop_Type()
+)
+aniDevRouteNextHop.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aniDevRouteNextHop.setStatus("current")
+
+
+class _AniDevRouteType_Type(Integer32):
+    """Custom type aniDevRouteType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("direct", 3),
+          ("indirect", 4),
+          ("invalid", 2),
+          ("other", 1))
+    )
+
+
+_AniDevRouteType_Type.__name__ = "Integer32"
+_AniDevRouteType_Object = MibTableColumn
+aniDevRouteType = _AniDevRouteType_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 9, 1, 1, 8),
+    _AniDevRouteType_Type()
+)
+aniDevRouteType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aniDevRouteType.setStatus("current")
+
+
+class _AniDevRouteProto_Type(Integer32):
+    """Custom type aniDevRouteProto based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14)
+        )
+    )
+    namedValues = NamedValues(
+        *(("bbnSpfIgp", 12),
+          ("bgp", 14),
+          ("ciscoIgrp", 11),
+          ("egp", 5),
+          ("es-is", 10),
+          ("ggp", 6),
+          ("hello", 7),
+          ("icmp", 4),
+          ("is-is", 9),
+          ("local", 2),
+          ("netmgmt", 3),
+          ("ospf", 13),
+          ("other", 1),
+          ("rip", 8))
+    )
+
+
+_AniDevRouteProto_Type.__name__ = "Integer32"
+_AniDevRouteProto_Object = MibTableColumn
+aniDevRouteProto = _AniDevRouteProto_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 9, 1, 1, 9),
+    _AniDevRouteProto_Type()
+)
+aniDevRouteProto.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aniDevRouteProto.setStatus("current")
+_AniDevRouteAge_Type = Integer32
+_AniDevRouteAge_Object = MibTableColumn
+aniDevRouteAge = _AniDevRouteAge_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 9, 1, 1, 10),
+    _AniDevRouteAge_Type()
+)
+aniDevRouteAge.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aniDevRouteAge.setStatus("current")
+_AniDevRouteMask_Type = IpAddress
+_AniDevRouteMask_Object = MibTableColumn
+aniDevRouteMask = _AniDevRouteMask_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 9, 1, 1, 11),
+    _AniDevRouteMask_Type()
+)
+aniDevRouteMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aniDevRouteMask.setStatus("current")
+_AniDevRouteMetric5_Type = Integer32
+_AniDevRouteMetric5_Object = MibTableColumn
+aniDevRouteMetric5 = _AniDevRouteMetric5_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 9, 1, 1, 12),
+    _AniDevRouteMetric5_Type()
+)
+aniDevRouteMetric5.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aniDevRouteMetric5.setStatus("current")
+_AniDevRouteInfo_Type = ObjectIdentifier
+_AniDevRouteInfo_Object = MibTableColumn
+aniDevRouteInfo = _AniDevRouteInfo_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 9, 1, 1, 13),
+    _AniDevRouteInfo_Type()
+)
+aniDevRouteInfo.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aniDevRouteInfo.setStatus("current")
+
+
+class _AniDevRouteFlag_Type(Integer32):
+    """Custom type aniDevRouteFlag based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("host", 2),
+          ("network", 1))
+    )
+
+
+_AniDevRouteFlag_Type.__name__ = "Integer32"
+_AniDevRouteFlag_Object = MibTableColumn
+aniDevRouteFlag = _AniDevRouteFlag_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 9, 1, 1, 14),
+    _AniDevRouteFlag_Type()
+)
+aniDevRouteFlag.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aniDevRouteFlag.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "DEVROUTE-MIB",
+    **{"aniDevRoute": aniDevRoute,
+       "aniDevRouteTable": aniDevRouteTable,
+       "aniDevRouteEntry": aniDevRouteEntry,
+       "aniDevRouteDest": aniDevRouteDest,
+       "aniDevRouteIfIndex": aniDevRouteIfIndex,
+       "aniDevRouteMetric1": aniDevRouteMetric1,
+       "aniDevRouteMetric2": aniDevRouteMetric2,
+       "aniDevRouteMetric3": aniDevRouteMetric3,
+       "aniDevRouteMetric4": aniDevRouteMetric4,
+       "aniDevRouteNextHop": aniDevRouteNextHop,
+       "aniDevRouteType": aniDevRouteType,
+       "aniDevRouteProto": aniDevRouteProto,
+       "aniDevRouteAge": aniDevRouteAge,
+       "aniDevRouteMask": aniDevRouteMask,
+       "aniDevRouteMetric5": aniDevRouteMetric5,
+       "aniDevRouteInfo": aniDevRouteInfo,
+       "aniDevRouteFlag": aniDevRouteFlag}
+)

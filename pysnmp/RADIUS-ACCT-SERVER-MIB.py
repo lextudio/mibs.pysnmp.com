@@ -1,124 +1,770 @@
+# SNMP MIB module (RADIUS-ACCT-SERVER-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module RADIUS-ACCT-SERVER-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/RADIUS-ACCT-SERVER-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:36:20 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
-InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-TimeTicks, iso, ModuleIdentity, Counter32, Unsigned32, Counter64, Integer32, Bits, ObjectIdentity, NotificationType, MibIdentifier, mib_2, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "iso", "ModuleIdentity", "Counter32", "Unsigned32", "Counter64", "Integer32", "Bits", "ObjectIdentity", "NotificationType", "MibIdentifier", "mib-2", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-radiusAccServMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 67, 2, 1))
-radiusAccServMIB.setRevisions(('2006-05-10 00:00', '1999-06-11 00:00',))
-if mibBuilder.loadTexts: radiusAccServMIB.setLastUpdated('200605100000Z')
-if mibBuilder.loadTexts: radiusAccServMIB.setOrganization('IETF RADIUS Extensions Working Group.')
-radiusMIB = ObjectIdentity((1, 3, 6, 1, 2, 1, 67))
-if mibBuilder.loadTexts: radiusMIB.setStatus('current')
-radiusAccounting = MibIdentifier((1, 3, 6, 1, 2, 1, 67, 2))
-radiusAccServMIBObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 67, 2, 1, 1))
-radiusAccServ = MibIdentifier((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1))
-radiusAccServIdent = MibScalar((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 1), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusAccServIdent.setStatus('current')
-radiusAccServUpTime = MibScalar((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 2), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusAccServUpTime.setStatus('current')
-radiusAccServResetTime = MibScalar((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 3), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusAccServResetTime.setStatus('current')
-radiusAccServConfigReset = MibScalar((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("reset", 2), ("initializing", 3), ("running", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: radiusAccServConfigReset.setStatus('current')
-radiusAccServTotalRequests = MibScalar((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 5), Counter32()).setUnits('packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusAccServTotalRequests.setStatus('current')
-radiusAccServTotalInvalidRequests = MibScalar((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 6), Counter32()).setUnits('packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusAccServTotalInvalidRequests.setStatus('current')
-radiusAccServTotalDupRequests = MibScalar((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 7), Counter32()).setUnits('packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusAccServTotalDupRequests.setStatus('current')
-radiusAccServTotalResponses = MibScalar((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 8), Counter32()).setUnits('packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusAccServTotalResponses.setStatus('current')
-radiusAccServTotalMalformedRequests = MibScalar((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 9), Counter32()).setUnits('packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusAccServTotalMalformedRequests.setStatus('current')
-radiusAccServTotalBadAuthenticators = MibScalar((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 10), Counter32()).setUnits('packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusAccServTotalBadAuthenticators.setStatus('current')
-radiusAccServTotalPacketsDropped = MibScalar((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 11), Counter32()).setUnits('packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusAccServTotalPacketsDropped.setStatus('current')
-radiusAccServTotalNoRecords = MibScalar((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 12), Counter32()).setUnits('packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusAccServTotalNoRecords.setStatus('current')
-radiusAccServTotalUnknownTypes = MibScalar((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 13), Counter32()).setUnits('packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusAccServTotalUnknownTypes.setStatus('current')
-radiusAccClientTable = MibTable((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 14), )
-if mibBuilder.loadTexts: radiusAccClientTable.setStatus('deprecated')
-radiusAccClientEntry = MibTableRow((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 14, 1), ).setIndexNames((0, "RADIUS-ACCT-SERVER-MIB", "radiusAccClientIndex"))
-if mibBuilder.loadTexts: radiusAccClientEntry.setStatus('deprecated')
-radiusAccClientIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 14, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: radiusAccClientIndex.setStatus('deprecated')
-radiusAccClientAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 14, 1, 2), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusAccClientAddress.setStatus('deprecated')
-radiusAccClientID = MibTableColumn((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 14, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusAccClientID.setStatus('deprecated')
-radiusAccServPacketsDropped = MibTableColumn((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 14, 1, 4), Counter32()).setUnits('packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusAccServPacketsDropped.setStatus('deprecated')
-radiusAccServRequests = MibTableColumn((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 14, 1, 5), Counter32()).setUnits('packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusAccServRequests.setStatus('deprecated')
-radiusAccServDupRequests = MibTableColumn((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 14, 1, 6), Counter32()).setUnits('packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusAccServDupRequests.setStatus('deprecated')
-radiusAccServResponses = MibTableColumn((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 14, 1, 7), Counter32()).setUnits('packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusAccServResponses.setStatus('deprecated')
-radiusAccServBadAuthenticators = MibTableColumn((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 14, 1, 8), Counter32()).setUnits('packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusAccServBadAuthenticators.setStatus('deprecated')
-radiusAccServMalformedRequests = MibTableColumn((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 14, 1, 9), Counter32()).setUnits('packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusAccServMalformedRequests.setStatus('deprecated')
-radiusAccServNoRecords = MibTableColumn((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 14, 1, 10), Counter32()).setUnits('packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusAccServNoRecords.setStatus('deprecated')
-radiusAccServUnknownTypes = MibTableColumn((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 14, 1, 11), Counter32()).setUnits('packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusAccServUnknownTypes.setStatus('deprecated')
-radiusAccClientExtTable = MibTable((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 15), )
-if mibBuilder.loadTexts: radiusAccClientExtTable.setStatus('current')
-radiusAccClientExtEntry = MibTableRow((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 15, 1), ).setIndexNames((0, "RADIUS-ACCT-SERVER-MIB", "radiusAccClientExtIndex"))
-if mibBuilder.loadTexts: radiusAccClientExtEntry.setStatus('current')
-radiusAccClientExtIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 15, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: radiusAccClientExtIndex.setStatus('current')
-radiusAccClientInetAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 15, 1, 2), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusAccClientInetAddressType.setStatus('current')
-radiusAccClientInetAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 15, 1, 3), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusAccClientInetAddress.setStatus('current')
-radiusAccClientExtID = MibTableColumn((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 15, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusAccClientExtID.setStatus('current')
-radiusAccServExtPacketsDropped = MibTableColumn((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 15, 1, 5), Counter32()).setUnits('packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusAccServExtPacketsDropped.setStatus('current')
-radiusAccServExtRequests = MibTableColumn((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 15, 1, 6), Counter32()).setUnits('packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusAccServExtRequests.setStatus('current')
-radiusAccServExtDupRequests = MibTableColumn((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 15, 1, 7), Counter32()).setUnits('packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusAccServExtDupRequests.setStatus('current')
-radiusAccServExtResponses = MibTableColumn((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 15, 1, 8), Counter32()).setUnits('packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusAccServExtResponses.setStatus('current')
-radiusAccServExtBadAuthenticators = MibTableColumn((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 15, 1, 9), Counter32()).setUnits('packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusAccServExtBadAuthenticators.setStatus('current')
-radiusAccServExtMalformedRequests = MibTableColumn((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 15, 1, 10), Counter32()).setUnits('packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusAccServExtMalformedRequests.setStatus('current')
-radiusAccServExtNoRecords = MibTableColumn((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 15, 1, 11), Counter32()).setUnits('packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusAccServExtNoRecords.setStatus('current')
-radiusAccServExtUnknownTypes = MibTableColumn((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 15, 1, 12), Counter32()).setUnits('packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusAccServExtUnknownTypes.setStatus('current')
-radiusAccServerCounterDiscontinuity = MibTableColumn((1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 15, 1, 13), TimeTicks()).setUnits('centiseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusAccServerCounterDiscontinuity.setStatus('current')
-radiusAccServMIBConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 67, 2, 1, 2))
-radiusAccServMIBCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 67, 2, 1, 2, 1))
-radiusAccServMIBGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 67, 2, 1, 2, 2))
-radiusAccServMIBCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 67, 2, 1, 2, 1, 1)).setObjects(("RADIUS-ACCT-SERVER-MIB", "radiusAccServMIBGroup"))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/RADIUS-ACCT-SERVER-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:41:25 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    radiusAccServMIBCompliance = radiusAccServMIBCompliance.setStatus('deprecated')
-radiusAccServExtMIBCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 67, 2, 1, 2, 1, 2)).setObjects(("RADIUS-ACCT-SERVER-MIB", "radiusAccServExtMIBGroup"))
+if 'mibBuilder' not in globals():
+    import sys
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    radiusAccServExtMIBCompliance = radiusAccServExtMIBCompliance.setStatus('current')
-radiusAccServMIBGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 67, 2, 1, 2, 2, 1)).setObjects(("RADIUS-ACCT-SERVER-MIB", "radiusAccServIdent"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServUpTime"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServResetTime"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServConfigReset"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServTotalRequests"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServTotalInvalidRequests"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServTotalDupRequests"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServTotalResponses"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServTotalMalformedRequests"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServTotalBadAuthenticators"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServTotalPacketsDropped"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServTotalNoRecords"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServTotalUnknownTypes"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccClientAddress"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccClientID"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServPacketsDropped"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServRequests"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServDupRequests"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServResponses"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServBadAuthenticators"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServMalformedRequests"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServNoRecords"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServUnknownTypes"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    radiusAccServMIBGroup = radiusAccServMIBGroup.setStatus('deprecated')
-radiusAccServExtMIBGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 67, 2, 1, 2, 2, 2)).setObjects(("RADIUS-ACCT-SERVER-MIB", "radiusAccServIdent"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServUpTime"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServResetTime"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServConfigReset"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServTotalRequests"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServTotalInvalidRequests"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServTotalDupRequests"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServTotalResponses"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServTotalMalformedRequests"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServTotalBadAuthenticators"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServTotalPacketsDropped"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServTotalNoRecords"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServTotalUnknownTypes"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccClientInetAddressType"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccClientInetAddress"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccClientExtID"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServExtPacketsDropped"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServExtRequests"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServExtDupRequests"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServExtResponses"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServExtBadAuthenticators"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServExtMalformedRequests"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServExtNoRecords"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServExtUnknownTypes"), ("RADIUS-ACCT-SERVER-MIB", "radiusAccServerCounterDiscontinuity"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    radiusAccServExtMIBGroup = radiusAccServExtMIBGroup.setStatus('current')
-mibBuilder.exportSymbols("RADIUS-ACCT-SERVER-MIB", radiusAccClientExtID=radiusAccClientExtID, radiusAccServExtPacketsDropped=radiusAccServExtPacketsDropped, radiusAccServExtDupRequests=radiusAccServExtDupRequests, radiusAccServTotalResponses=radiusAccServTotalResponses, radiusAccClientAddress=radiusAccClientAddress, radiusAccServUnknownTypes=radiusAccServUnknownTypes, radiusAccServExtBadAuthenticators=radiusAccServExtBadAuthenticators, radiusAccServExtMIBCompliance=radiusAccServExtMIBCompliance, radiusAccServExtNoRecords=radiusAccServExtNoRecords, radiusAccServMIBGroups=radiusAccServMIBGroups, radiusAccServExtRequests=radiusAccServExtRequests, radiusAccServ=radiusAccServ, radiusAccServTotalPacketsDropped=radiusAccServTotalPacketsDropped, radiusAccServTotalBadAuthenticators=radiusAccServTotalBadAuthenticators, radiusAccServDupRequests=radiusAccServDupRequests, radiusAccServUpTime=radiusAccServUpTime, radiusAccServMIBGroup=radiusAccServMIBGroup, radiusAccServPacketsDropped=radiusAccServPacketsDropped, radiusAccServConfigReset=radiusAccServConfigReset, radiusAccServTotalUnknownTypes=radiusAccServTotalUnknownTypes, radiusAccServMalformedRequests=radiusAccServMalformedRequests, radiusAccServTotalInvalidRequests=radiusAccServTotalInvalidRequests, radiusAccClientExtTable=radiusAccClientExtTable, radiusAccClientID=radiusAccClientID, radiusAccServMIBCompliance=radiusAccServMIBCompliance, radiusAccServMIBConformance=radiusAccServMIBConformance, radiusAccServerCounterDiscontinuity=radiusAccServerCounterDiscontinuity, radiusAccounting=radiusAccounting, radiusAccServNoRecords=radiusAccServNoRecords, radiusAccClientInetAddressType=radiusAccClientInetAddressType, radiusAccServExtResponses=radiusAccServExtResponses, radiusAccServExtMIBGroup=radiusAccServExtMIBGroup, radiusMIB=radiusMIB, radiusAccClientTable=radiusAccClientTable, radiusAccServTotalMalformedRequests=radiusAccServTotalMalformedRequests, radiusAccClientInetAddress=radiusAccClientInetAddress, radiusAccServMIBObjects=radiusAccServMIBObjects, radiusAccServRequests=radiusAccServRequests, radiusAccServIdent=radiusAccServIdent, radiusAccServTotalNoRecords=radiusAccServTotalNoRecords, radiusAccServMIBCompliances=radiusAccServMIBCompliances, PYSNMP_MODULE_ID=radiusAccServMIB, radiusAccClientExtEntry=radiusAccClientExtEntry, radiusAccServTotalRequests=radiusAccServTotalRequests, radiusAccServResetTime=radiusAccServResetTime, radiusAccServExtUnknownTypes=radiusAccServExtUnknownTypes, radiusAccServMIB=radiusAccServMIB, radiusAccClientIndex=radiusAccClientIndex, radiusAccServResponses=radiusAccServResponses, radiusAccClientExtIndex=radiusAccClientExtIndex, radiusAccServExtMalformedRequests=radiusAccServExtMalformedRequests, radiusAccServBadAuthenticators=radiusAccServBadAuthenticators, radiusAccServTotalDupRequests=radiusAccServTotalDupRequests, radiusAccClientEntry=radiusAccClientEntry)
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso,
+ mib_2) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso",
+    "mib-2")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+radiusAccServMIB = ModuleIdentity(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1)
+)
+radiusAccServMIB.setRevisions(
+        ("2006-05-10 00:00",
+         "1999-06-11 00:00")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_RadiusMIB_ObjectIdentity = ObjectIdentity
+radiusMIB = _RadiusMIB_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 67)
+)
+if mibBuilder.loadTexts:
+    radiusMIB.setStatus("current")
+_RadiusAccounting_ObjectIdentity = ObjectIdentity
+radiusAccounting = _RadiusAccounting_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 67, 2)
+)
+_RadiusAccServMIBObjects_ObjectIdentity = ObjectIdentity
+radiusAccServMIBObjects = _RadiusAccServMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1)
+)
+_RadiusAccServ_ObjectIdentity = ObjectIdentity
+radiusAccServ = _RadiusAccServ_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1)
+)
+_RadiusAccServIdent_Type = SnmpAdminString
+_RadiusAccServIdent_Object = MibScalar
+radiusAccServIdent = _RadiusAccServIdent_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 1),
+    _RadiusAccServIdent_Type()
+)
+radiusAccServIdent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    radiusAccServIdent.setStatus("current")
+_RadiusAccServUpTime_Type = TimeTicks
+_RadiusAccServUpTime_Object = MibScalar
+radiusAccServUpTime = _RadiusAccServUpTime_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 2),
+    _RadiusAccServUpTime_Type()
+)
+radiusAccServUpTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    radiusAccServUpTime.setStatus("current")
+_RadiusAccServResetTime_Type = TimeTicks
+_RadiusAccServResetTime_Object = MibScalar
+radiusAccServResetTime = _RadiusAccServResetTime_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 3),
+    _RadiusAccServResetTime_Type()
+)
+radiusAccServResetTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    radiusAccServResetTime.setStatus("current")
+
+
+class _RadiusAccServConfigReset_Type(Integer32):
+    """Custom type radiusAccServConfigReset based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("initializing", 3),
+          ("other", 1),
+          ("reset", 2),
+          ("running", 4))
+    )
+
+
+_RadiusAccServConfigReset_Type.__name__ = "Integer32"
+_RadiusAccServConfigReset_Object = MibScalar
+radiusAccServConfigReset = _RadiusAccServConfigReset_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 4),
+    _RadiusAccServConfigReset_Type()
+)
+radiusAccServConfigReset.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    radiusAccServConfigReset.setStatus("current")
+_RadiusAccServTotalRequests_Type = Counter32
+_RadiusAccServTotalRequests_Object = MibScalar
+radiusAccServTotalRequests = _RadiusAccServTotalRequests_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 5),
+    _RadiusAccServTotalRequests_Type()
+)
+radiusAccServTotalRequests.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    radiusAccServTotalRequests.setStatus("current")
+if mibBuilder.loadTexts:
+    radiusAccServTotalRequests.setUnits("packets")
+_RadiusAccServTotalInvalidRequests_Type = Counter32
+_RadiusAccServTotalInvalidRequests_Object = MibScalar
+radiusAccServTotalInvalidRequests = _RadiusAccServTotalInvalidRequests_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 6),
+    _RadiusAccServTotalInvalidRequests_Type()
+)
+radiusAccServTotalInvalidRequests.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    radiusAccServTotalInvalidRequests.setStatus("current")
+if mibBuilder.loadTexts:
+    radiusAccServTotalInvalidRequests.setUnits("packets")
+_RadiusAccServTotalDupRequests_Type = Counter32
+_RadiusAccServTotalDupRequests_Object = MibScalar
+radiusAccServTotalDupRequests = _RadiusAccServTotalDupRequests_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 7),
+    _RadiusAccServTotalDupRequests_Type()
+)
+radiusAccServTotalDupRequests.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    radiusAccServTotalDupRequests.setStatus("current")
+if mibBuilder.loadTexts:
+    radiusAccServTotalDupRequests.setUnits("packets")
+_RadiusAccServTotalResponses_Type = Counter32
+_RadiusAccServTotalResponses_Object = MibScalar
+radiusAccServTotalResponses = _RadiusAccServTotalResponses_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 8),
+    _RadiusAccServTotalResponses_Type()
+)
+radiusAccServTotalResponses.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    radiusAccServTotalResponses.setStatus("current")
+if mibBuilder.loadTexts:
+    radiusAccServTotalResponses.setUnits("packets")
+_RadiusAccServTotalMalformedRequests_Type = Counter32
+_RadiusAccServTotalMalformedRequests_Object = MibScalar
+radiusAccServTotalMalformedRequests = _RadiusAccServTotalMalformedRequests_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 9),
+    _RadiusAccServTotalMalformedRequests_Type()
+)
+radiusAccServTotalMalformedRequests.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    radiusAccServTotalMalformedRequests.setStatus("current")
+if mibBuilder.loadTexts:
+    radiusAccServTotalMalformedRequests.setUnits("packets")
+_RadiusAccServTotalBadAuthenticators_Type = Counter32
+_RadiusAccServTotalBadAuthenticators_Object = MibScalar
+radiusAccServTotalBadAuthenticators = _RadiusAccServTotalBadAuthenticators_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 10),
+    _RadiusAccServTotalBadAuthenticators_Type()
+)
+radiusAccServTotalBadAuthenticators.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    radiusAccServTotalBadAuthenticators.setStatus("current")
+if mibBuilder.loadTexts:
+    radiusAccServTotalBadAuthenticators.setUnits("packets")
+_RadiusAccServTotalPacketsDropped_Type = Counter32
+_RadiusAccServTotalPacketsDropped_Object = MibScalar
+radiusAccServTotalPacketsDropped = _RadiusAccServTotalPacketsDropped_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 11),
+    _RadiusAccServTotalPacketsDropped_Type()
+)
+radiusAccServTotalPacketsDropped.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    radiusAccServTotalPacketsDropped.setStatus("current")
+if mibBuilder.loadTexts:
+    radiusAccServTotalPacketsDropped.setUnits("packets")
+_RadiusAccServTotalNoRecords_Type = Counter32
+_RadiusAccServTotalNoRecords_Object = MibScalar
+radiusAccServTotalNoRecords = _RadiusAccServTotalNoRecords_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 12),
+    _RadiusAccServTotalNoRecords_Type()
+)
+radiusAccServTotalNoRecords.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    radiusAccServTotalNoRecords.setStatus("current")
+if mibBuilder.loadTexts:
+    radiusAccServTotalNoRecords.setUnits("packets")
+_RadiusAccServTotalUnknownTypes_Type = Counter32
+_RadiusAccServTotalUnknownTypes_Object = MibScalar
+radiusAccServTotalUnknownTypes = _RadiusAccServTotalUnknownTypes_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 13),
+    _RadiusAccServTotalUnknownTypes_Type()
+)
+radiusAccServTotalUnknownTypes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    radiusAccServTotalUnknownTypes.setStatus("current")
+if mibBuilder.loadTexts:
+    radiusAccServTotalUnknownTypes.setUnits("packets")
+_RadiusAccClientTable_Object = MibTable
+radiusAccClientTable = _RadiusAccClientTable_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 14)
+)
+if mibBuilder.loadTexts:
+    radiusAccClientTable.setStatus("deprecated")
+_RadiusAccClientEntry_Object = MibTableRow
+radiusAccClientEntry = _RadiusAccClientEntry_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 14, 1)
+)
+radiusAccClientEntry.setIndexNames(
+    (0, "RADIUS-ACCT-SERVER-MIB", "radiusAccClientIndex"),
+)
+if mibBuilder.loadTexts:
+    radiusAccClientEntry.setStatus("deprecated")
+
+
+class _RadiusAccClientIndex_Type(Integer32):
+    """Custom type radiusAccClientIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_RadiusAccClientIndex_Type.__name__ = "Integer32"
+_RadiusAccClientIndex_Object = MibTableColumn
+radiusAccClientIndex = _RadiusAccClientIndex_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 14, 1, 1),
+    _RadiusAccClientIndex_Type()
+)
+radiusAccClientIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    radiusAccClientIndex.setStatus("deprecated")
+_RadiusAccClientAddress_Type = IpAddress
+_RadiusAccClientAddress_Object = MibTableColumn
+radiusAccClientAddress = _RadiusAccClientAddress_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 14, 1, 2),
+    _RadiusAccClientAddress_Type()
+)
+radiusAccClientAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    radiusAccClientAddress.setStatus("deprecated")
+_RadiusAccClientID_Type = SnmpAdminString
+_RadiusAccClientID_Object = MibTableColumn
+radiusAccClientID = _RadiusAccClientID_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 14, 1, 3),
+    _RadiusAccClientID_Type()
+)
+radiusAccClientID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    radiusAccClientID.setStatus("deprecated")
+_RadiusAccServPacketsDropped_Type = Counter32
+_RadiusAccServPacketsDropped_Object = MibTableColumn
+radiusAccServPacketsDropped = _RadiusAccServPacketsDropped_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 14, 1, 4),
+    _RadiusAccServPacketsDropped_Type()
+)
+radiusAccServPacketsDropped.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    radiusAccServPacketsDropped.setStatus("deprecated")
+if mibBuilder.loadTexts:
+    radiusAccServPacketsDropped.setUnits("packets")
+_RadiusAccServRequests_Type = Counter32
+_RadiusAccServRequests_Object = MibTableColumn
+radiusAccServRequests = _RadiusAccServRequests_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 14, 1, 5),
+    _RadiusAccServRequests_Type()
+)
+radiusAccServRequests.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    radiusAccServRequests.setStatus("deprecated")
+if mibBuilder.loadTexts:
+    radiusAccServRequests.setUnits("packets")
+_RadiusAccServDupRequests_Type = Counter32
+_RadiusAccServDupRequests_Object = MibTableColumn
+radiusAccServDupRequests = _RadiusAccServDupRequests_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 14, 1, 6),
+    _RadiusAccServDupRequests_Type()
+)
+radiusAccServDupRequests.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    radiusAccServDupRequests.setStatus("deprecated")
+if mibBuilder.loadTexts:
+    radiusAccServDupRequests.setUnits("packets")
+_RadiusAccServResponses_Type = Counter32
+_RadiusAccServResponses_Object = MibTableColumn
+radiusAccServResponses = _RadiusAccServResponses_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 14, 1, 7),
+    _RadiusAccServResponses_Type()
+)
+radiusAccServResponses.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    radiusAccServResponses.setStatus("deprecated")
+if mibBuilder.loadTexts:
+    radiusAccServResponses.setUnits("packets")
+_RadiusAccServBadAuthenticators_Type = Counter32
+_RadiusAccServBadAuthenticators_Object = MibTableColumn
+radiusAccServBadAuthenticators = _RadiusAccServBadAuthenticators_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 14, 1, 8),
+    _RadiusAccServBadAuthenticators_Type()
+)
+radiusAccServBadAuthenticators.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    radiusAccServBadAuthenticators.setStatus("deprecated")
+if mibBuilder.loadTexts:
+    radiusAccServBadAuthenticators.setUnits("packets")
+_RadiusAccServMalformedRequests_Type = Counter32
+_RadiusAccServMalformedRequests_Object = MibTableColumn
+radiusAccServMalformedRequests = _RadiusAccServMalformedRequests_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 14, 1, 9),
+    _RadiusAccServMalformedRequests_Type()
+)
+radiusAccServMalformedRequests.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    radiusAccServMalformedRequests.setStatus("deprecated")
+if mibBuilder.loadTexts:
+    radiusAccServMalformedRequests.setUnits("packets")
+_RadiusAccServNoRecords_Type = Counter32
+_RadiusAccServNoRecords_Object = MibTableColumn
+radiusAccServNoRecords = _RadiusAccServNoRecords_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 14, 1, 10),
+    _RadiusAccServNoRecords_Type()
+)
+radiusAccServNoRecords.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    radiusAccServNoRecords.setStatus("deprecated")
+if mibBuilder.loadTexts:
+    radiusAccServNoRecords.setUnits("packets")
+_RadiusAccServUnknownTypes_Type = Counter32
+_RadiusAccServUnknownTypes_Object = MibTableColumn
+radiusAccServUnknownTypes = _RadiusAccServUnknownTypes_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 14, 1, 11),
+    _RadiusAccServUnknownTypes_Type()
+)
+radiusAccServUnknownTypes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    radiusAccServUnknownTypes.setStatus("deprecated")
+if mibBuilder.loadTexts:
+    radiusAccServUnknownTypes.setUnits("packets")
+_RadiusAccClientExtTable_Object = MibTable
+radiusAccClientExtTable = _RadiusAccClientExtTable_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 15)
+)
+if mibBuilder.loadTexts:
+    radiusAccClientExtTable.setStatus("current")
+_RadiusAccClientExtEntry_Object = MibTableRow
+radiusAccClientExtEntry = _RadiusAccClientExtEntry_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 15, 1)
+)
+radiusAccClientExtEntry.setIndexNames(
+    (0, "RADIUS-ACCT-SERVER-MIB", "radiusAccClientExtIndex"),
+)
+if mibBuilder.loadTexts:
+    radiusAccClientExtEntry.setStatus("current")
+
+
+class _RadiusAccClientExtIndex_Type(Integer32):
+    """Custom type radiusAccClientExtIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_RadiusAccClientExtIndex_Type.__name__ = "Integer32"
+_RadiusAccClientExtIndex_Object = MibTableColumn
+radiusAccClientExtIndex = _RadiusAccClientExtIndex_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 15, 1, 1),
+    _RadiusAccClientExtIndex_Type()
+)
+radiusAccClientExtIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    radiusAccClientExtIndex.setStatus("current")
+_RadiusAccClientInetAddressType_Type = InetAddressType
+_RadiusAccClientInetAddressType_Object = MibTableColumn
+radiusAccClientInetAddressType = _RadiusAccClientInetAddressType_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 15, 1, 2),
+    _RadiusAccClientInetAddressType_Type()
+)
+radiusAccClientInetAddressType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    radiusAccClientInetAddressType.setStatus("current")
+_RadiusAccClientInetAddress_Type = InetAddress
+_RadiusAccClientInetAddress_Object = MibTableColumn
+radiusAccClientInetAddress = _RadiusAccClientInetAddress_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 15, 1, 3),
+    _RadiusAccClientInetAddress_Type()
+)
+radiusAccClientInetAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    radiusAccClientInetAddress.setStatus("current")
+_RadiusAccClientExtID_Type = SnmpAdminString
+_RadiusAccClientExtID_Object = MibTableColumn
+radiusAccClientExtID = _RadiusAccClientExtID_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 15, 1, 4),
+    _RadiusAccClientExtID_Type()
+)
+radiusAccClientExtID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    radiusAccClientExtID.setStatus("current")
+_RadiusAccServExtPacketsDropped_Type = Counter32
+_RadiusAccServExtPacketsDropped_Object = MibTableColumn
+radiusAccServExtPacketsDropped = _RadiusAccServExtPacketsDropped_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 15, 1, 5),
+    _RadiusAccServExtPacketsDropped_Type()
+)
+radiusAccServExtPacketsDropped.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    radiusAccServExtPacketsDropped.setStatus("current")
+if mibBuilder.loadTexts:
+    radiusAccServExtPacketsDropped.setUnits("packets")
+_RadiusAccServExtRequests_Type = Counter32
+_RadiusAccServExtRequests_Object = MibTableColumn
+radiusAccServExtRequests = _RadiusAccServExtRequests_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 15, 1, 6),
+    _RadiusAccServExtRequests_Type()
+)
+radiusAccServExtRequests.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    radiusAccServExtRequests.setStatus("current")
+if mibBuilder.loadTexts:
+    radiusAccServExtRequests.setUnits("packets")
+_RadiusAccServExtDupRequests_Type = Counter32
+_RadiusAccServExtDupRequests_Object = MibTableColumn
+radiusAccServExtDupRequests = _RadiusAccServExtDupRequests_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 15, 1, 7),
+    _RadiusAccServExtDupRequests_Type()
+)
+radiusAccServExtDupRequests.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    radiusAccServExtDupRequests.setStatus("current")
+if mibBuilder.loadTexts:
+    radiusAccServExtDupRequests.setUnits("packets")
+_RadiusAccServExtResponses_Type = Counter32
+_RadiusAccServExtResponses_Object = MibTableColumn
+radiusAccServExtResponses = _RadiusAccServExtResponses_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 15, 1, 8),
+    _RadiusAccServExtResponses_Type()
+)
+radiusAccServExtResponses.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    radiusAccServExtResponses.setStatus("current")
+if mibBuilder.loadTexts:
+    radiusAccServExtResponses.setUnits("packets")
+_RadiusAccServExtBadAuthenticators_Type = Counter32
+_RadiusAccServExtBadAuthenticators_Object = MibTableColumn
+radiusAccServExtBadAuthenticators = _RadiusAccServExtBadAuthenticators_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 15, 1, 9),
+    _RadiusAccServExtBadAuthenticators_Type()
+)
+radiusAccServExtBadAuthenticators.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    radiusAccServExtBadAuthenticators.setStatus("current")
+if mibBuilder.loadTexts:
+    radiusAccServExtBadAuthenticators.setUnits("packets")
+_RadiusAccServExtMalformedRequests_Type = Counter32
+_RadiusAccServExtMalformedRequests_Object = MibTableColumn
+radiusAccServExtMalformedRequests = _RadiusAccServExtMalformedRequests_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 15, 1, 10),
+    _RadiusAccServExtMalformedRequests_Type()
+)
+radiusAccServExtMalformedRequests.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    radiusAccServExtMalformedRequests.setStatus("current")
+if mibBuilder.loadTexts:
+    radiusAccServExtMalformedRequests.setUnits("packets")
+_RadiusAccServExtNoRecords_Type = Counter32
+_RadiusAccServExtNoRecords_Object = MibTableColumn
+radiusAccServExtNoRecords = _RadiusAccServExtNoRecords_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 15, 1, 11),
+    _RadiusAccServExtNoRecords_Type()
+)
+radiusAccServExtNoRecords.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    radiusAccServExtNoRecords.setStatus("current")
+if mibBuilder.loadTexts:
+    radiusAccServExtNoRecords.setUnits("packets")
+_RadiusAccServExtUnknownTypes_Type = Counter32
+_RadiusAccServExtUnknownTypes_Object = MibTableColumn
+radiusAccServExtUnknownTypes = _RadiusAccServExtUnknownTypes_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 15, 1, 12),
+    _RadiusAccServExtUnknownTypes_Type()
+)
+radiusAccServExtUnknownTypes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    radiusAccServExtUnknownTypes.setStatus("current")
+if mibBuilder.loadTexts:
+    radiusAccServExtUnknownTypes.setUnits("packets")
+_RadiusAccServerCounterDiscontinuity_Type = TimeTicks
+_RadiusAccServerCounterDiscontinuity_Object = MibTableColumn
+radiusAccServerCounterDiscontinuity = _RadiusAccServerCounterDiscontinuity_Object(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 1, 1, 15, 1, 13),
+    _RadiusAccServerCounterDiscontinuity_Type()
+)
+radiusAccServerCounterDiscontinuity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    radiusAccServerCounterDiscontinuity.setStatus("current")
+if mibBuilder.loadTexts:
+    radiusAccServerCounterDiscontinuity.setUnits("centiseconds")
+_RadiusAccServMIBConformance_ObjectIdentity = ObjectIdentity
+radiusAccServMIBConformance = _RadiusAccServMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 2)
+)
+_RadiusAccServMIBCompliances_ObjectIdentity = ObjectIdentity
+radiusAccServMIBCompliances = _RadiusAccServMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 2, 1)
+)
+_RadiusAccServMIBGroups_ObjectIdentity = ObjectIdentity
+radiusAccServMIBGroups = _RadiusAccServMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 2, 2)
+)
+
+# Managed Objects groups
+
+radiusAccServMIBGroup = ObjectGroup(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 2, 2, 1)
+)
+radiusAccServMIBGroup.setObjects(
+      *(("RADIUS-ACCT-SERVER-MIB", "radiusAccServIdent"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServUpTime"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServResetTime"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServConfigReset"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServTotalRequests"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServTotalInvalidRequests"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServTotalDupRequests"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServTotalResponses"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServTotalMalformedRequests"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServTotalBadAuthenticators"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServTotalPacketsDropped"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServTotalNoRecords"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServTotalUnknownTypes"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccClientAddress"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccClientID"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServPacketsDropped"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServRequests"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServDupRequests"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServResponses"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServBadAuthenticators"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServMalformedRequests"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServNoRecords"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServUnknownTypes"))
+)
+if mibBuilder.loadTexts:
+    radiusAccServMIBGroup.setStatus("deprecated")
+
+radiusAccServExtMIBGroup = ObjectGroup(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 2, 2, 2)
+)
+radiusAccServExtMIBGroup.setObjects(
+      *(("RADIUS-ACCT-SERVER-MIB", "radiusAccServIdent"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServUpTime"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServResetTime"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServConfigReset"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServTotalRequests"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServTotalInvalidRequests"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServTotalDupRequests"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServTotalResponses"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServTotalMalformedRequests"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServTotalBadAuthenticators"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServTotalPacketsDropped"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServTotalNoRecords"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServTotalUnknownTypes"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccClientInetAddressType"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccClientInetAddress"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccClientExtID"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServExtPacketsDropped"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServExtRequests"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServExtDupRequests"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServExtResponses"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServExtBadAuthenticators"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServExtMalformedRequests"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServExtNoRecords"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServExtUnknownTypes"),
+        ("RADIUS-ACCT-SERVER-MIB", "radiusAccServerCounterDiscontinuity"))
+)
+if mibBuilder.loadTexts:
+    radiusAccServExtMIBGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+radiusAccServMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 2, 1, 1)
+)
+if mibBuilder.loadTexts:
+    radiusAccServMIBCompliance.setStatus(
+        "deprecated"
+    )
+
+radiusAccServExtMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 2, 1, 67, 2, 1, 2, 1, 2)
+)
+if mibBuilder.loadTexts:
+    radiusAccServExtMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "RADIUS-ACCT-SERVER-MIB",
+    **{"radiusMIB": radiusMIB,
+       "radiusAccounting": radiusAccounting,
+       "radiusAccServMIB": radiusAccServMIB,
+       "radiusAccServMIBObjects": radiusAccServMIBObjects,
+       "radiusAccServ": radiusAccServ,
+       "radiusAccServIdent": radiusAccServIdent,
+       "radiusAccServUpTime": radiusAccServUpTime,
+       "radiusAccServResetTime": radiusAccServResetTime,
+       "radiusAccServConfigReset": radiusAccServConfigReset,
+       "radiusAccServTotalRequests": radiusAccServTotalRequests,
+       "radiusAccServTotalInvalidRequests": radiusAccServTotalInvalidRequests,
+       "radiusAccServTotalDupRequests": radiusAccServTotalDupRequests,
+       "radiusAccServTotalResponses": radiusAccServTotalResponses,
+       "radiusAccServTotalMalformedRequests": radiusAccServTotalMalformedRequests,
+       "radiusAccServTotalBadAuthenticators": radiusAccServTotalBadAuthenticators,
+       "radiusAccServTotalPacketsDropped": radiusAccServTotalPacketsDropped,
+       "radiusAccServTotalNoRecords": radiusAccServTotalNoRecords,
+       "radiusAccServTotalUnknownTypes": radiusAccServTotalUnknownTypes,
+       "radiusAccClientTable": radiusAccClientTable,
+       "radiusAccClientEntry": radiusAccClientEntry,
+       "radiusAccClientIndex": radiusAccClientIndex,
+       "radiusAccClientAddress": radiusAccClientAddress,
+       "radiusAccClientID": radiusAccClientID,
+       "radiusAccServPacketsDropped": radiusAccServPacketsDropped,
+       "radiusAccServRequests": radiusAccServRequests,
+       "radiusAccServDupRequests": radiusAccServDupRequests,
+       "radiusAccServResponses": radiusAccServResponses,
+       "radiusAccServBadAuthenticators": radiusAccServBadAuthenticators,
+       "radiusAccServMalformedRequests": radiusAccServMalformedRequests,
+       "radiusAccServNoRecords": radiusAccServNoRecords,
+       "radiusAccServUnknownTypes": radiusAccServUnknownTypes,
+       "radiusAccClientExtTable": radiusAccClientExtTable,
+       "radiusAccClientExtEntry": radiusAccClientExtEntry,
+       "radiusAccClientExtIndex": radiusAccClientExtIndex,
+       "radiusAccClientInetAddressType": radiusAccClientInetAddressType,
+       "radiusAccClientInetAddress": radiusAccClientInetAddress,
+       "radiusAccClientExtID": radiusAccClientExtID,
+       "radiusAccServExtPacketsDropped": radiusAccServExtPacketsDropped,
+       "radiusAccServExtRequests": radiusAccServExtRequests,
+       "radiusAccServExtDupRequests": radiusAccServExtDupRequests,
+       "radiusAccServExtResponses": radiusAccServExtResponses,
+       "radiusAccServExtBadAuthenticators": radiusAccServExtBadAuthenticators,
+       "radiusAccServExtMalformedRequests": radiusAccServExtMalformedRequests,
+       "radiusAccServExtNoRecords": radiusAccServExtNoRecords,
+       "radiusAccServExtUnknownTypes": radiusAccServExtUnknownTypes,
+       "radiusAccServerCounterDiscontinuity": radiusAccServerCounterDiscontinuity,
+       "radiusAccServMIBConformance": radiusAccServMIBConformance,
+       "radiusAccServMIBCompliances": radiusAccServMIBCompliances,
+       "radiusAccServMIBCompliance": radiusAccServMIBCompliance,
+       "radiusAccServExtMIBCompliance": radiusAccServExtMIBCompliance,
+       "radiusAccServMIBGroups": radiusAccServMIBGroups,
+       "radiusAccServMIBGroup": radiusAccServMIBGroup,
+       "radiusAccServExtMIBGroup": radiusAccServExtMIBGroup}
+)

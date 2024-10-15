@@ -1,49 +1,325 @@
+# SNMP MIB module (HUAWEI-MEMORY-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HUAWEI-MEMORY-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/HUAWEI-MEMORY-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:34:50 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
-hwFrameIndex, hwSlotIndex = mibBuilder.importSymbols("HUAWEI-DEVICE-MIB", "hwFrameIndex", "hwSlotIndex")
-hwDev, = mibBuilder.importSymbols("HUAWEI-MIB", "hwDev")
-NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Gauge32, TimeTicks, Unsigned32, NotificationType, ObjectIdentity, Counter32, MibIdentifier, ModuleIdentity, IpAddress, Counter64, Bits, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Gauge32", "TimeTicks", "Unsigned32", "NotificationType", "ObjectIdentity", "Counter32", "MibIdentifier", "ModuleIdentity", "IpAddress", "Counter64", "Bits", "Integer32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-hwMemoryDev = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 6, 3, 5))
-if mibBuilder.loadTexts: hwMemoryDev.setLastUpdated('200212290900Z')
-if mibBuilder.loadTexts: hwMemoryDev.setOrganization('HAUWEI MIB Standard community ')
-hwMemoryDevTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 6, 3, 5, 1), )
-if mibBuilder.loadTexts: hwMemoryDevTable.setStatus('current')
-hwMemoryDevEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 6, 3, 5, 1, 1), ).setIndexNames((0, "HUAWEI-DEVICE-MIB", "hwFrameIndex"), (0, "HUAWEI-DEVICE-MIB", "hwSlotIndex"), (0, "HUAWEI-MEMORY-MIB", "hwMemoryDevModuleIndex"))
-if mibBuilder.loadTexts: hwMemoryDevEntry.setStatus('current')
-hwMemoryDevModuleIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 6, 3, 5, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)))
-if mibBuilder.loadTexts: hwMemoryDevModuleIndex.setStatus('current')
-hwMemoryDevSize = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 6, 3, 5, 1, 1, 2), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwMemoryDevSize.setStatus('current')
-hwMemoryDevFree = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 6, 3, 5, 1, 1, 3), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwMemoryDevFree.setStatus('current')
-hwMemoryDevRawSliceUsed = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 6, 3, 5, 1, 1, 4), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwMemoryDevRawSliceUsed.setStatus('current')
-hwMemoryDevLargestFree = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 6, 3, 5, 1, 1, 5), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwMemoryDevLargestFree.setStatus('current')
-hwMemoryDevFail = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 6, 3, 5, 1, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwMemoryDevFail.setStatus('current')
-hwMemoryDevFailNoMem = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 6, 3, 5, 1, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwMemoryDevFailNoMem.setStatus('current')
-hwBufferTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 6, 3, 5, 2), )
-if mibBuilder.loadTexts: hwBufferTable.setStatus('current')
-hwBufferEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 6, 3, 5, 2, 1), ).setIndexNames((0, "HUAWEI-DEVICE-MIB", "hwFrameIndex"), (0, "HUAWEI-DEVICE-MIB", "hwSlotIndex"), (0, "HUAWEI-MEMORY-MIB", "hwBufferModuleIndex"), (0, "HUAWEI-MEMORY-MIB", "hwBufferSize"))
-if mibBuilder.loadTexts: hwBufferEntry.setStatus('current')
-hwBufferModuleIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 6, 3, 5, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)))
-if mibBuilder.loadTexts: hwBufferModuleIndex.setStatus('current')
-hwBufferSize = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 6, 3, 5, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
-if mibBuilder.loadTexts: hwBufferSize.setStatus('current')
-hwBufferCurrentTotal = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 6, 3, 5, 2, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwBufferCurrentTotal.setStatus('current')
-hwBufferCurrentUsed = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 6, 3, 5, 2, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwBufferCurrentUsed.setStatus('current')
-mibBuilder.exportSymbols("HUAWEI-MEMORY-MIB", hwMemoryDevEntry=hwMemoryDevEntry, hwBufferModuleIndex=hwBufferModuleIndex, hwBufferEntry=hwBufferEntry, hwMemoryDevLargestFree=hwMemoryDevLargestFree, hwBufferCurrentUsed=hwBufferCurrentUsed, hwMemoryDevModuleIndex=hwMemoryDevModuleIndex, hwMemoryDev=hwMemoryDev, hwBufferSize=hwBufferSize, hwMemoryDevFree=hwMemoryDevFree, hwMemoryDevFail=hwMemoryDevFail, hwBufferTable=hwBufferTable, hwMemoryDevTable=hwMemoryDevTable, hwMemoryDevFailNoMem=hwMemoryDevFailNoMem, hwBufferCurrentTotal=hwBufferCurrentTotal, hwMemoryDevRawSliceUsed=hwMemoryDevRawSliceUsed, PYSNMP_MODULE_ID=hwMemoryDev, hwMemoryDevSize=hwMemoryDevSize)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-MEMORY-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:04:54 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(hwFrameIndex,
+ hwSlotIndex) = mibBuilder.importSymbols(
+    "HUAWEI-DEVICE-MIB",
+    "hwFrameIndex",
+    "hwSlotIndex")
+
+(hwDev,) = mibBuilder.importSymbols(
+    "HUAWEI-MIB",
+    "hwDev")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+hwMemoryDev = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 6, 3, 5)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_HwMemoryDevTable_Object = MibTable
+hwMemoryDevTable = _HwMemoryDevTable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 6, 3, 5, 1)
+)
+if mibBuilder.loadTexts:
+    hwMemoryDevTable.setStatus("current")
+_HwMemoryDevEntry_Object = MibTableRow
+hwMemoryDevEntry = _HwMemoryDevEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 6, 3, 5, 1, 1)
+)
+hwMemoryDevEntry.setIndexNames(
+    (0, "HUAWEI-DEVICE-MIB", "hwFrameIndex"),
+    (0, "HUAWEI-DEVICE-MIB", "hwSlotIndex"),
+    (0, "HUAWEI-MEMORY-MIB", "hwMemoryDevModuleIndex"),
+)
+if mibBuilder.loadTexts:
+    hwMemoryDevEntry.setStatus("current")
+
+
+class _HwMemoryDevModuleIndex_Type(Integer32):
+    """Custom type hwMemoryDevModuleIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_HwMemoryDevModuleIndex_Type.__name__ = "Integer32"
+_HwMemoryDevModuleIndex_Object = MibTableColumn
+hwMemoryDevModuleIndex = _HwMemoryDevModuleIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 6, 3, 5, 1, 1, 1),
+    _HwMemoryDevModuleIndex_Type()
+)
+hwMemoryDevModuleIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hwMemoryDevModuleIndex.setStatus("current")
+_HwMemoryDevSize_Type = Unsigned32
+_HwMemoryDevSize_Object = MibTableColumn
+hwMemoryDevSize = _HwMemoryDevSize_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 6, 3, 5, 1, 1, 2),
+    _HwMemoryDevSize_Type()
+)
+hwMemoryDevSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwMemoryDevSize.setStatus("current")
+_HwMemoryDevFree_Type = Unsigned32
+_HwMemoryDevFree_Object = MibTableColumn
+hwMemoryDevFree = _HwMemoryDevFree_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 6, 3, 5, 1, 1, 3),
+    _HwMemoryDevFree_Type()
+)
+hwMemoryDevFree.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwMemoryDevFree.setStatus("current")
+_HwMemoryDevRawSliceUsed_Type = Unsigned32
+_HwMemoryDevRawSliceUsed_Object = MibTableColumn
+hwMemoryDevRawSliceUsed = _HwMemoryDevRawSliceUsed_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 6, 3, 5, 1, 1, 4),
+    _HwMemoryDevRawSliceUsed_Type()
+)
+hwMemoryDevRawSliceUsed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwMemoryDevRawSliceUsed.setStatus("current")
+_HwMemoryDevLargestFree_Type = Unsigned32
+_HwMemoryDevLargestFree_Object = MibTableColumn
+hwMemoryDevLargestFree = _HwMemoryDevLargestFree_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 6, 3, 5, 1, 1, 5),
+    _HwMemoryDevLargestFree_Type()
+)
+hwMemoryDevLargestFree.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwMemoryDevLargestFree.setStatus("current")
+_HwMemoryDevFail_Type = Integer32
+_HwMemoryDevFail_Object = MibTableColumn
+hwMemoryDevFail = _HwMemoryDevFail_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 6, 3, 5, 1, 1, 6),
+    _HwMemoryDevFail_Type()
+)
+hwMemoryDevFail.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwMemoryDevFail.setStatus("current")
+_HwMemoryDevFailNoMem_Type = Integer32
+_HwMemoryDevFailNoMem_Object = MibTableColumn
+hwMemoryDevFailNoMem = _HwMemoryDevFailNoMem_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 6, 3, 5, 1, 1, 7),
+    _HwMemoryDevFailNoMem_Type()
+)
+hwMemoryDevFailNoMem.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwMemoryDevFailNoMem.setStatus("current")
+_HwBufferTable_Object = MibTable
+hwBufferTable = _HwBufferTable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 6, 3, 5, 2)
+)
+if mibBuilder.loadTexts:
+    hwBufferTable.setStatus("current")
+_HwBufferEntry_Object = MibTableRow
+hwBufferEntry = _HwBufferEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 6, 3, 5, 2, 1)
+)
+hwBufferEntry.setIndexNames(
+    (0, "HUAWEI-DEVICE-MIB", "hwFrameIndex"),
+    (0, "HUAWEI-DEVICE-MIB", "hwSlotIndex"),
+    (0, "HUAWEI-MEMORY-MIB", "hwBufferModuleIndex"),
+    (0, "HUAWEI-MEMORY-MIB", "hwBufferSize"),
+)
+if mibBuilder.loadTexts:
+    hwBufferEntry.setStatus("current")
+
+
+class _HwBufferModuleIndex_Type(Integer32):
+    """Custom type hwBufferModuleIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_HwBufferModuleIndex_Type.__name__ = "Integer32"
+_HwBufferModuleIndex_Object = MibTableColumn
+hwBufferModuleIndex = _HwBufferModuleIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 6, 3, 5, 2, 1, 1),
+    _HwBufferModuleIndex_Type()
+)
+hwBufferModuleIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hwBufferModuleIndex.setStatus("current")
+
+
+class _HwBufferSize_Type(Integer32):
+    """Custom type hwBufferSize based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_HwBufferSize_Type.__name__ = "Integer32"
+_HwBufferSize_Object = MibTableColumn
+hwBufferSize = _HwBufferSize_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 6, 3, 5, 2, 1, 2),
+    _HwBufferSize_Type()
+)
+hwBufferSize.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hwBufferSize.setStatus("current")
+_HwBufferCurrentTotal_Type = Integer32
+_HwBufferCurrentTotal_Object = MibTableColumn
+hwBufferCurrentTotal = _HwBufferCurrentTotal_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 6, 3, 5, 2, 1, 3),
+    _HwBufferCurrentTotal_Type()
+)
+hwBufferCurrentTotal.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwBufferCurrentTotal.setStatus("current")
+_HwBufferCurrentUsed_Type = Integer32
+_HwBufferCurrentUsed_Object = MibTableColumn
+hwBufferCurrentUsed = _HwBufferCurrentUsed_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 6, 3, 5, 2, 1, 4),
+    _HwBufferCurrentUsed_Type()
+)
+hwBufferCurrentUsed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwBufferCurrentUsed.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HUAWEI-MEMORY-MIB",
+    **{"hwMemoryDev": hwMemoryDev,
+       "hwMemoryDevTable": hwMemoryDevTable,
+       "hwMemoryDevEntry": hwMemoryDevEntry,
+       "hwMemoryDevModuleIndex": hwMemoryDevModuleIndex,
+       "hwMemoryDevSize": hwMemoryDevSize,
+       "hwMemoryDevFree": hwMemoryDevFree,
+       "hwMemoryDevRawSliceUsed": hwMemoryDevRawSliceUsed,
+       "hwMemoryDevLargestFree": hwMemoryDevLargestFree,
+       "hwMemoryDevFail": hwMemoryDevFail,
+       "hwMemoryDevFailNoMem": hwMemoryDevFailNoMem,
+       "hwBufferTable": hwBufferTable,
+       "hwBufferEntry": hwBufferEntry,
+       "hwBufferModuleIndex": hwBufferModuleIndex,
+       "hwBufferSize": hwBufferSize,
+       "hwBufferCurrentTotal": hwBufferCurrentTotal,
+       "hwBufferCurrentUsed": hwBufferCurrentUsed}
+)

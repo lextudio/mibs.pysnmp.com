@@ -1,63 +1,447 @@
+# SNMP MIB module (RFC1229-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module RFC1229-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/RFC1229-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:48:02 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-mib_2, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, NotificationType, MibIdentifier, ModuleIdentity, iso, Integer32, Counter64, Gauge32, ObjectIdentity, Counter32, Unsigned32, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "mib-2", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "NotificationType", "MibIdentifier", "ModuleIdentity", "iso", "Integer32", "Counter64", "Gauge32", "ObjectIdentity", "Counter32", "Unsigned32", "IpAddress")
-TextualConvention, PhysAddress, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "PhysAddress", "DisplayString")
-ifExtensions = MibIdentifier((1, 3, 6, 1, 2, 1, 12))
-ifExtnsTable = MibTable((1, 3, 6, 1, 2, 1, 12, 1), )
-if mibBuilder.loadTexts: ifExtnsTable.setStatus('mandatory')
-ifExtnsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 12, 1, 1), ).setIndexNames((0, "RFC1229-MIB", "ifExtnsIfIndex"))
-if mibBuilder.loadTexts: ifExtnsEntry.setStatus('mandatory')
-ifExtnsIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 12, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifExtnsIfIndex.setStatus('mandatory')
-ifExtnsChipSet = MibTableColumn((1, 3, 6, 1, 2, 1, 12, 1, 1, 2), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifExtnsChipSet.setStatus('mandatory')
-ifExtnsRevWare = MibTableColumn((1, 3, 6, 1, 2, 1, 12, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifExtnsRevWare.setStatus('mandatory')
-ifExtnsMulticastsTransmittedOks = MibTableColumn((1, 3, 6, 1, 2, 1, 12, 1, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifExtnsMulticastsTransmittedOks.setStatus('mandatory')
-ifExtnsBroadcastsTransmittedOks = MibTableColumn((1, 3, 6, 1, 2, 1, 12, 1, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifExtnsBroadcastsTransmittedOks.setStatus('mandatory')
-ifExtnsMulticastsReceivedOks = MibTableColumn((1, 3, 6, 1, 2, 1, 12, 1, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifExtnsMulticastsReceivedOks.setStatus('mandatory')
-ifExtnsBroadcastsReceivedOks = MibTableColumn((1, 3, 6, 1, 2, 1, 12, 1, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifExtnsBroadcastsReceivedOks.setStatus('mandatory')
-ifExtnsPromiscuous = MibTableColumn((1, 3, 6, 1, 2, 1, 12, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("true", 1), ("false", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifExtnsPromiscuous.setStatus('mandatory')
-ifExtnsTestTable = MibTable((1, 3, 6, 1, 2, 1, 12, 2), )
-if mibBuilder.loadTexts: ifExtnsTestTable.setStatus('mandatory')
-ifExtnsTestEntry = MibTableRow((1, 3, 6, 1, 2, 1, 12, 2, 1), ).setIndexNames((0, "RFC1229-MIB", "ifExtnsTestIfIndex"))
-if mibBuilder.loadTexts: ifExtnsTestEntry.setStatus('mandatory')
-ifExtnsTestIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 12, 2, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifExtnsTestIfIndex.setStatus('mandatory')
-ifExtnsTestCommunity = MibTableColumn((1, 3, 6, 1, 2, 1, 12, 2, 1, 2), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifExtnsTestCommunity.setStatus('mandatory')
-ifExtnsTestRequestId = MibTableColumn((1, 3, 6, 1, 2, 1, 12, 2, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifExtnsTestRequestId.setStatus('mandatory')
-ifExtnsTestType = MibTableColumn((1, 3, 6, 1, 2, 1, 12, 2, 1, 4), ObjectIdentifier()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ifExtnsTestType.setStatus('mandatory')
-wellKnownTests = MibIdentifier((1, 3, 6, 1, 2, 1, 12, 4))
-testFullDuplexLoopBack = MibIdentifier((1, 3, 6, 1, 2, 1, 12, 4, 1))
-ifExtnsTestResult = MibTableColumn((1, 3, 6, 1, 2, 1, 12, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("none", 1), ("success", 2), ("inProgress", 3), ("notSupported", 4), ("unAbleToRun", 5), ("aborted", 6), ("failed", 7)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifExtnsTestResult.setStatus('mandatory')
-ifExtnsTestCode = MibTableColumn((1, 3, 6, 1, 2, 1, 12, 2, 1, 6), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifExtnsTestCode.setStatus('mandatory')
-ifExtnsRcvAddrTable = MibTable((1, 3, 6, 1, 2, 1, 12, 3), )
-if mibBuilder.loadTexts: ifExtnsRcvAddrTable.setStatus('mandatory')
-ifExtnsRcvAddrEntry = MibTableRow((1, 3, 6, 1, 2, 1, 12, 3, 1), ).setIndexNames((0, "RFC1229-MIB", "ifExtnsRcvAddrIfIndex"), (0, "RFC1229-MIB", "ifExtnsRcvAddress"))
-if mibBuilder.loadTexts: ifExtnsRcvAddrEntry.setStatus('mandatory')
-ifExtnsRcvAddrIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 12, 3, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifExtnsRcvAddrIfIndex.setStatus('mandatory')
-ifExtnsRcvAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 12, 3, 1, 2), PhysAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifExtnsRcvAddress.setStatus('mandatory')
-ifExtnsRcvAddrStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 12, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("invalid", 2), ("volatile", 3), ("nonVolatile", 4))).clone('volatile')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ifExtnsRcvAddrStatus.setStatus('mandatory')
-mibBuilder.exportSymbols("RFC1229-MIB", ifExtnsTestIfIndex=ifExtnsTestIfIndex, ifExtnsRcvAddrEntry=ifExtnsRcvAddrEntry, ifExtnsTestRequestId=ifExtnsTestRequestId, ifExtnsRcvAddrIfIndex=ifExtnsRcvAddrIfIndex, ifExtnsChipSet=ifExtnsChipSet, ifExtnsEntry=ifExtnsEntry, ifExtnsRcvAddrStatus=ifExtnsRcvAddrStatus, ifExtnsIfIndex=ifExtnsIfIndex, testFullDuplexLoopBack=testFullDuplexLoopBack, ifExtnsRcvAddrTable=ifExtnsRcvAddrTable, ifExtnsRevWare=ifExtnsRevWare, ifExtnsTable=ifExtnsTable, ifExtnsMulticastsTransmittedOks=ifExtnsMulticastsTransmittedOks, ifExtnsTestCode=ifExtnsTestCode, ifExtnsRcvAddress=ifExtnsRcvAddress, wellKnownTests=wellKnownTests, ifExtnsBroadcastsTransmittedOks=ifExtnsBroadcastsTransmittedOks, ifExtnsBroadcastsReceivedOks=ifExtnsBroadcastsReceivedOks, ifExtnsTestEntry=ifExtnsTestEntry, ifExtnsPromiscuous=ifExtnsPromiscuous, ifExtnsMulticastsReceivedOks=ifExtnsMulticastsReceivedOks, ifExtnsTestTable=ifExtnsTestTable, ifExtensions=ifExtensions, ifExtnsTestCommunity=ifExtnsTestCommunity, ifExtnsTestResult=ifExtnsTestResult, ifExtnsTestType=ifExtnsTestType)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/RFC1229-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:47:10 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso,
+ mib_2) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso",
+    "mib-2")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_IfExtensions_ObjectIdentity = ObjectIdentity
+ifExtensions = _IfExtensions_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 12)
+)
+_IfExtnsTable_Object = MibTable
+ifExtnsTable = _IfExtnsTable_Object(
+    (1, 3, 6, 1, 2, 1, 12, 1)
+)
+if mibBuilder.loadTexts:
+    ifExtnsTable.setStatus("mandatory")
+_IfExtnsEntry_Object = MibTableRow
+ifExtnsEntry = _IfExtnsEntry_Object(
+    (1, 3, 6, 1, 2, 1, 12, 1, 1)
+)
+ifExtnsEntry.setIndexNames(
+    (0, "RFC1229-MIB", "ifExtnsIfIndex"),
+)
+if mibBuilder.loadTexts:
+    ifExtnsEntry.setStatus("mandatory")
+_IfExtnsIfIndex_Type = Integer32
+_IfExtnsIfIndex_Object = MibTableColumn
+ifExtnsIfIndex = _IfExtnsIfIndex_Object(
+    (1, 3, 6, 1, 2, 1, 12, 1, 1, 1),
+    _IfExtnsIfIndex_Type()
+)
+ifExtnsIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifExtnsIfIndex.setStatus("mandatory")
+_IfExtnsChipSet_Type = ObjectIdentifier
+_IfExtnsChipSet_Object = MibTableColumn
+ifExtnsChipSet = _IfExtnsChipSet_Object(
+    (1, 3, 6, 1, 2, 1, 12, 1, 1, 2),
+    _IfExtnsChipSet_Type()
+)
+ifExtnsChipSet.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifExtnsChipSet.setStatus("mandatory")
+
+
+class _IfExtnsRevWare_Type(DisplayString):
+    """Custom type ifExtnsRevWare based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_IfExtnsRevWare_Type.__name__ = "DisplayString"
+_IfExtnsRevWare_Object = MibTableColumn
+ifExtnsRevWare = _IfExtnsRevWare_Object(
+    (1, 3, 6, 1, 2, 1, 12, 1, 1, 3),
+    _IfExtnsRevWare_Type()
+)
+ifExtnsRevWare.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifExtnsRevWare.setStatus("mandatory")
+_IfExtnsMulticastsTransmittedOks_Type = Counter32
+_IfExtnsMulticastsTransmittedOks_Object = MibTableColumn
+ifExtnsMulticastsTransmittedOks = _IfExtnsMulticastsTransmittedOks_Object(
+    (1, 3, 6, 1, 2, 1, 12, 1, 1, 4),
+    _IfExtnsMulticastsTransmittedOks_Type()
+)
+ifExtnsMulticastsTransmittedOks.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifExtnsMulticastsTransmittedOks.setStatus("mandatory")
+_IfExtnsBroadcastsTransmittedOks_Type = Counter32
+_IfExtnsBroadcastsTransmittedOks_Object = MibTableColumn
+ifExtnsBroadcastsTransmittedOks = _IfExtnsBroadcastsTransmittedOks_Object(
+    (1, 3, 6, 1, 2, 1, 12, 1, 1, 5),
+    _IfExtnsBroadcastsTransmittedOks_Type()
+)
+ifExtnsBroadcastsTransmittedOks.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifExtnsBroadcastsTransmittedOks.setStatus("mandatory")
+_IfExtnsMulticastsReceivedOks_Type = Counter32
+_IfExtnsMulticastsReceivedOks_Object = MibTableColumn
+ifExtnsMulticastsReceivedOks = _IfExtnsMulticastsReceivedOks_Object(
+    (1, 3, 6, 1, 2, 1, 12, 1, 1, 6),
+    _IfExtnsMulticastsReceivedOks_Type()
+)
+ifExtnsMulticastsReceivedOks.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifExtnsMulticastsReceivedOks.setStatus("mandatory")
+_IfExtnsBroadcastsReceivedOks_Type = Counter32
+_IfExtnsBroadcastsReceivedOks_Object = MibTableColumn
+ifExtnsBroadcastsReceivedOks = _IfExtnsBroadcastsReceivedOks_Object(
+    (1, 3, 6, 1, 2, 1, 12, 1, 1, 7),
+    _IfExtnsBroadcastsReceivedOks_Type()
+)
+ifExtnsBroadcastsReceivedOks.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifExtnsBroadcastsReceivedOks.setStatus("mandatory")
+
+
+class _IfExtnsPromiscuous_Type(Integer32):
+    """Custom type ifExtnsPromiscuous based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("false", 2),
+          ("true", 1))
+    )
+
+
+_IfExtnsPromiscuous_Type.__name__ = "Integer32"
+_IfExtnsPromiscuous_Object = MibTableColumn
+ifExtnsPromiscuous = _IfExtnsPromiscuous_Object(
+    (1, 3, 6, 1, 2, 1, 12, 1, 1, 8),
+    _IfExtnsPromiscuous_Type()
+)
+ifExtnsPromiscuous.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifExtnsPromiscuous.setStatus("mandatory")
+_IfExtnsTestTable_Object = MibTable
+ifExtnsTestTable = _IfExtnsTestTable_Object(
+    (1, 3, 6, 1, 2, 1, 12, 2)
+)
+if mibBuilder.loadTexts:
+    ifExtnsTestTable.setStatus("mandatory")
+_IfExtnsTestEntry_Object = MibTableRow
+ifExtnsTestEntry = _IfExtnsTestEntry_Object(
+    (1, 3, 6, 1, 2, 1, 12, 2, 1)
+)
+ifExtnsTestEntry.setIndexNames(
+    (0, "RFC1229-MIB", "ifExtnsTestIfIndex"),
+)
+if mibBuilder.loadTexts:
+    ifExtnsTestEntry.setStatus("mandatory")
+_IfExtnsTestIfIndex_Type = Integer32
+_IfExtnsTestIfIndex_Object = MibTableColumn
+ifExtnsTestIfIndex = _IfExtnsTestIfIndex_Object(
+    (1, 3, 6, 1, 2, 1, 12, 2, 1, 1),
+    _IfExtnsTestIfIndex_Type()
+)
+ifExtnsTestIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifExtnsTestIfIndex.setStatus("mandatory")
+_IfExtnsTestCommunity_Type = OctetString
+_IfExtnsTestCommunity_Object = MibTableColumn
+ifExtnsTestCommunity = _IfExtnsTestCommunity_Object(
+    (1, 3, 6, 1, 2, 1, 12, 2, 1, 2),
+    _IfExtnsTestCommunity_Type()
+)
+ifExtnsTestCommunity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifExtnsTestCommunity.setStatus("mandatory")
+_IfExtnsTestRequestId_Type = Integer32
+_IfExtnsTestRequestId_Object = MibTableColumn
+ifExtnsTestRequestId = _IfExtnsTestRequestId_Object(
+    (1, 3, 6, 1, 2, 1, 12, 2, 1, 3),
+    _IfExtnsTestRequestId_Type()
+)
+ifExtnsTestRequestId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifExtnsTestRequestId.setStatus("mandatory")
+_IfExtnsTestType_Type = ObjectIdentifier
+_IfExtnsTestType_Object = MibTableColumn
+ifExtnsTestType = _IfExtnsTestType_Object(
+    (1, 3, 6, 1, 2, 1, 12, 2, 1, 4),
+    _IfExtnsTestType_Type()
+)
+ifExtnsTestType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ifExtnsTestType.setStatus("mandatory")
+
+
+class _IfExtnsTestResult_Type(Integer32):
+    """Custom type ifExtnsTestResult based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("aborted", 6),
+          ("failed", 7),
+          ("inProgress", 3),
+          ("none", 1),
+          ("notSupported", 4),
+          ("success", 2),
+          ("unAbleToRun", 5))
+    )
+
+
+_IfExtnsTestResult_Type.__name__ = "Integer32"
+_IfExtnsTestResult_Object = MibTableColumn
+ifExtnsTestResult = _IfExtnsTestResult_Object(
+    (1, 3, 6, 1, 2, 1, 12, 2, 1, 5),
+    _IfExtnsTestResult_Type()
+)
+ifExtnsTestResult.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifExtnsTestResult.setStatus("mandatory")
+_IfExtnsTestCode_Type = ObjectIdentifier
+_IfExtnsTestCode_Object = MibTableColumn
+ifExtnsTestCode = _IfExtnsTestCode_Object(
+    (1, 3, 6, 1, 2, 1, 12, 2, 1, 6),
+    _IfExtnsTestCode_Type()
+)
+ifExtnsTestCode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifExtnsTestCode.setStatus("mandatory")
+_IfExtnsRcvAddrTable_Object = MibTable
+ifExtnsRcvAddrTable = _IfExtnsRcvAddrTable_Object(
+    (1, 3, 6, 1, 2, 1, 12, 3)
+)
+if mibBuilder.loadTexts:
+    ifExtnsRcvAddrTable.setStatus("mandatory")
+_IfExtnsRcvAddrEntry_Object = MibTableRow
+ifExtnsRcvAddrEntry = _IfExtnsRcvAddrEntry_Object(
+    (1, 3, 6, 1, 2, 1, 12, 3, 1)
+)
+ifExtnsRcvAddrEntry.setIndexNames(
+    (0, "RFC1229-MIB", "ifExtnsRcvAddrIfIndex"),
+    (0, "RFC1229-MIB", "ifExtnsRcvAddress"),
+)
+if mibBuilder.loadTexts:
+    ifExtnsRcvAddrEntry.setStatus("mandatory")
+_IfExtnsRcvAddrIfIndex_Type = Integer32
+_IfExtnsRcvAddrIfIndex_Object = MibTableColumn
+ifExtnsRcvAddrIfIndex = _IfExtnsRcvAddrIfIndex_Object(
+    (1, 3, 6, 1, 2, 1, 12, 3, 1, 1),
+    _IfExtnsRcvAddrIfIndex_Type()
+)
+ifExtnsRcvAddrIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifExtnsRcvAddrIfIndex.setStatus("mandatory")
+_IfExtnsRcvAddress_Type = PhysAddress
+_IfExtnsRcvAddress_Object = MibTableColumn
+ifExtnsRcvAddress = _IfExtnsRcvAddress_Object(
+    (1, 3, 6, 1, 2, 1, 12, 3, 1, 2),
+    _IfExtnsRcvAddress_Type()
+)
+ifExtnsRcvAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifExtnsRcvAddress.setStatus("mandatory")
+
+
+class _IfExtnsRcvAddrStatus_Type(Integer32):
+    """Custom type ifExtnsRcvAddrStatus based on Integer32"""
+    defaultValue = 3
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("invalid", 2),
+          ("nonVolatile", 4),
+          ("other", 1),
+          ("volatile", 3))
+    )
+
+
+_IfExtnsRcvAddrStatus_Type.__name__ = "Integer32"
+_IfExtnsRcvAddrStatus_Object = MibTableColumn
+ifExtnsRcvAddrStatus = _IfExtnsRcvAddrStatus_Object(
+    (1, 3, 6, 1, 2, 1, 12, 3, 1, 3),
+    _IfExtnsRcvAddrStatus_Type()
+)
+ifExtnsRcvAddrStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ifExtnsRcvAddrStatus.setStatus("mandatory")
+_WellKnownTests_ObjectIdentity = ObjectIdentity
+wellKnownTests = _WellKnownTests_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 12, 4)
+)
+_TestFullDuplexLoopBack_ObjectIdentity = ObjectIdentity
+testFullDuplexLoopBack = _TestFullDuplexLoopBack_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 12, 4, 1)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "RFC1229-MIB",
+    **{"ifExtensions": ifExtensions,
+       "ifExtnsTable": ifExtnsTable,
+       "ifExtnsEntry": ifExtnsEntry,
+       "ifExtnsIfIndex": ifExtnsIfIndex,
+       "ifExtnsChipSet": ifExtnsChipSet,
+       "ifExtnsRevWare": ifExtnsRevWare,
+       "ifExtnsMulticastsTransmittedOks": ifExtnsMulticastsTransmittedOks,
+       "ifExtnsBroadcastsTransmittedOks": ifExtnsBroadcastsTransmittedOks,
+       "ifExtnsMulticastsReceivedOks": ifExtnsMulticastsReceivedOks,
+       "ifExtnsBroadcastsReceivedOks": ifExtnsBroadcastsReceivedOks,
+       "ifExtnsPromiscuous": ifExtnsPromiscuous,
+       "ifExtnsTestTable": ifExtnsTestTable,
+       "ifExtnsTestEntry": ifExtnsTestEntry,
+       "ifExtnsTestIfIndex": ifExtnsTestIfIndex,
+       "ifExtnsTestCommunity": ifExtnsTestCommunity,
+       "ifExtnsTestRequestId": ifExtnsTestRequestId,
+       "ifExtnsTestType": ifExtnsTestType,
+       "ifExtnsTestResult": ifExtnsTestResult,
+       "ifExtnsTestCode": ifExtnsTestCode,
+       "ifExtnsRcvAddrTable": ifExtnsRcvAddrTable,
+       "ifExtnsRcvAddrEntry": ifExtnsRcvAddrEntry,
+       "ifExtnsRcvAddrIfIndex": ifExtnsRcvAddrIfIndex,
+       "ifExtnsRcvAddress": ifExtnsRcvAddress,
+       "ifExtnsRcvAddrStatus": ifExtnsRcvAddrStatus,
+       "wellKnownTests": wellKnownTests,
+       "testFullDuplexLoopBack": testFullDuplexLoopBack}
+)

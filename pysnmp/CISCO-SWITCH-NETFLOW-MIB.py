@@ -1,95 +1,488 @@
+# SNMP MIB module (CISCO-SWITCH-NETFLOW-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-SWITCH-NETFLOW-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/CISCO-SWITCH-NETFLOW-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:56:59 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint")
-Percent, = mibBuilder.importSymbols("CISCO-QOS-PIB-MIB", "Percent")
-ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-entPhysicalDescr, entPhysicalIndex = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalDescr", "entPhysicalIndex")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-Counter32, IpAddress, TimeTicks, ModuleIdentity, iso, Counter64, NotificationType, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Unsigned32, Gauge32, Bits, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "IpAddress", "TimeTicks", "ModuleIdentity", "iso", "Counter64", "NotificationType", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Unsigned32", "Gauge32", "Bits", "Integer32")
-TextualConvention, DisplayString, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "TruthValue")
-ciscoSwitchNetflowMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 737))
-ciscoSwitchNetflowMIB.setRevisions(('2010-05-26 00:00',))
-if mibBuilder.loadTexts: ciscoSwitchNetflowMIB.setLastUpdated('201005260000Z')
-if mibBuilder.loadTexts: ciscoSwitchNetflowMIB.setOrganization('Cisco Systems, Inc.')
-ciscoSwitchNetflowMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 737, 0))
-ciscoSwitchNetflowMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 737, 1))
-ciscoSwitchNetflowMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 737, 2))
-csnAccounting = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1))
-csnAccGlobal = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 1))
-csnAccNotifControl = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 2))
-cshAccUsageThresh = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 3))
-csnAccUtilization = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 4))
-csnAccNetflowTableSize = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 5))
-csnAccSampler = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 6))
-class CsnNetflowDirectionTypes(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("none", 1), ("ingress", 2), ("egress", 3), ("ingressAndEgress", 4))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CISCO-SWITCH-NETFLOW-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:09:13 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-csnNetflowDirectionType = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 1, 1), CsnNetflowDirectionTypes()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: csnNetflowDirectionType.setStatus('current')
-csnUsageThreshExceedNotifEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 2, 1), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: csnUsageThreshExceedNotifEnable.setStatus('current')
-csnUsageThreshTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 3, 1), )
-if mibBuilder.loadTexts: csnUsageThreshTable.setStatus('current')
-csnUsageThreshEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 3, 1, 1), ).setIndexNames((0, "CISCO-SWITCH-NETFLOW-MIB", "csnUsageDirection"))
-if mibBuilder.loadTexts: csnUsageThreshEntry.setStatus('current')
-csnUsageDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 3, 1, 1, 1), CsnNetflowDirectionTypes())
-if mibBuilder.loadTexts: csnUsageDirection.setStatus('current')
-csnUsageThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 3, 1, 1, 2), Percent()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: csnUsageThreshold.setStatus('current')
-csnUsageInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 3, 1, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295))).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: csnUsageInterval.setStatus('current')
-csnUtilizationTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 4, 1), )
-if mibBuilder.loadTexts: csnUtilizationTable.setStatus('current')
-csnUtilizationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 4, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "CISCO-SWITCH-NETFLOW-MIB", "csnUsageDirection"))
-if mibBuilder.loadTexts: csnUtilizationEntry.setStatus('current')
-csnUtilization = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 4, 1, 1, 1), Percent()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: csnUtilization.setStatus('current')
-csnNetflowTableSizeTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 5, 1), )
-if mibBuilder.loadTexts: csnNetflowTableSizeTable.setStatus('current')
-csnNetflowTableSizeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 5, 1, 1), ).setIndexNames((0, "CISCO-SWITCH-NETFLOW-MIB", "csnUsageDirection"))
-if mibBuilder.loadTexts: csnNetflowTableSizeEntry.setStatus('current')
-csnNetflowTableTotalEntries = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 5, 1, 1, 1), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: csnNetflowTableTotalEntries.setStatus('current')
-csnSamplerTotal = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 6, 1), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: csnSamplerTotal.setStatus('current')
-csnSamplerAvailable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 6, 2), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: csnSamplerAvailable.setStatus('current')
-csnUsageThreshExceededNotif = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 737, 0, 1)).setObjects(("ENTITY-MIB", "entPhysicalDescr"), ("CISCO-SWITCH-NETFLOW-MIB", "csnUtilization"), ("CISCO-SWITCH-NETFLOW-MIB", "csnUsageThreshold"), ("CISCO-SWITCH-NETFLOW-MIB", "csnUsageInterval"))
-if mibBuilder.loadTexts: csnUsageThreshExceededNotif.setStatus('current')
-csnMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 737, 2, 1))
-csnMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 737, 2, 2))
-csnMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 737, 2, 1, 1)).setObjects(("CISCO-SWITCH-NETFLOW-MIB", "csnGlobalGroup"), ("CISCO-SWITCH-NETFLOW-MIB", "csnUsageThreshNotifControlGroup"), ("CISCO-SWITCH-NETFLOW-MIB", "csnUsageThreshGroup"), ("CISCO-SWITCH-NETFLOW-MIB", "csnUtilizationGroup"), ("CISCO-SWITCH-NETFLOW-MIB", "csnUsageThreshNotifGroup"), ("CISCO-SWITCH-NETFLOW-MIB", "csnNetflowTableSizeGroup"), ("CISCO-SWITCH-NETFLOW-MIB", "csnSamplerGroup"))
+if 'mibBuilder' not in globals():
+    import sys
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    csnMIBCompliance = csnMIBCompliance.setStatus('current')
-csnGlobalGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 737, 2, 2, 1)).setObjects(("CISCO-SWITCH-NETFLOW-MIB", "csnNetflowDirectionType"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    csnGlobalGroup = csnGlobalGroup.setStatus('current')
-csnUsageThreshNotifControlGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 737, 2, 2, 2)).setObjects(("CISCO-SWITCH-NETFLOW-MIB", "csnUsageThreshExceedNotifEnable"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    csnUsageThreshNotifControlGroup = csnUsageThreshNotifControlGroup.setStatus('current')
-csnUsageThreshGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 737, 2, 2, 3)).setObjects(("CISCO-SWITCH-NETFLOW-MIB", "csnUsageThreshold"), ("CISCO-SWITCH-NETFLOW-MIB", "csnUsageInterval"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    csnUsageThreshGroup = csnUsageThreshGroup.setStatus('current')
-csnUtilizationGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 737, 2, 2, 4)).setObjects(("CISCO-SWITCH-NETFLOW-MIB", "csnUtilization"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    csnUtilizationGroup = csnUtilizationGroup.setStatus('current')
-csnUsageThreshNotifGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 737, 2, 2, 5)).setObjects(("CISCO-SWITCH-NETFLOW-MIB", "csnUsageThreshExceededNotif"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    csnUsageThreshNotifGroup = csnUsageThreshNotifGroup.setStatus('current')
-csnNetflowTableSizeGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 737, 2, 2, 6)).setObjects(("CISCO-SWITCH-NETFLOW-MIB", "csnNetflowTableTotalEntries"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    csnNetflowTableSizeGroup = csnNetflowTableSizeGroup.setStatus('current')
-csnSamplerGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 737, 2, 2, 7)).setObjects(("CISCO-SWITCH-NETFLOW-MIB", "csnSamplerTotal"), ("CISCO-SWITCH-NETFLOW-MIB", "csnSamplerAvailable"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    csnSamplerGroup = csnSamplerGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-SWITCH-NETFLOW-MIB", csnSamplerAvailable=csnSamplerAvailable, csnGlobalGroup=csnGlobalGroup, csnMIBGroups=csnMIBGroups, ciscoSwitchNetflowMIBObjects=ciscoSwitchNetflowMIBObjects, csnAccNotifControl=csnAccNotifControl, csnNetflowTableTotalEntries=csnNetflowTableTotalEntries, csnUsageInterval=csnUsageInterval, CsnNetflowDirectionTypes=CsnNetflowDirectionTypes, PYSNMP_MODULE_ID=ciscoSwitchNetflowMIB, csnAccNetflowTableSize=csnAccNetflowTableSize, csnAccSampler=csnAccSampler, csnMIBCompliances=csnMIBCompliances, csnNetflowDirectionType=csnNetflowDirectionType, csnNetflowTableSizeTable=csnNetflowTableSizeTable, ciscoSwitchNetflowMIBNotifs=ciscoSwitchNetflowMIBNotifs, csnUsageThreshGroup=csnUsageThreshGroup, ciscoSwitchNetflowMIB=ciscoSwitchNetflowMIB, csnAccounting=csnAccounting, csnNetflowTableSizeGroup=csnNetflowTableSizeGroup, cshAccUsageThresh=cshAccUsageThresh, csnUsageThreshNotifGroup=csnUsageThreshNotifGroup, ciscoSwitchNetflowMIBConform=ciscoSwitchNetflowMIBConform, csnUsageThreshNotifControlGroup=csnUsageThreshNotifControlGroup, csnUsageThreshEntry=csnUsageThreshEntry, csnUsageThreshTable=csnUsageThreshTable, csnNetflowTableSizeEntry=csnNetflowTableSizeEntry, csnUsageThreshold=csnUsageThreshold, csnMIBCompliance=csnMIBCompliance, csnUtilization=csnUtilization, csnUtilizationGroup=csnUtilizationGroup, csnUsageDirection=csnUsageDirection, csnSamplerGroup=csnSamplerGroup, csnSamplerTotal=csnSamplerTotal, csnAccUtilization=csnAccUtilization, csnAccGlobal=csnAccGlobal, csnUtilizationTable=csnUtilizationTable, csnUtilizationEntry=csnUtilizationEntry, csnUsageThreshExceededNotif=csnUsageThreshExceededNotif, csnUsageThreshExceedNotifEnable=csnUsageThreshExceedNotifEnable)
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(Percent,) = mibBuilder.importSymbols(
+    "CISCO-QOS-PIB-MIB",
+    "Percent")
+
+(ciscoMgmt,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoMgmt")
+
+(entPhysicalDescr,
+ entPhysicalIndex) = mibBuilder.importSymbols(
+    "ENTITY-MIB",
+    "entPhysicalDescr",
+    "entPhysicalIndex")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+ciscoSwitchNetflowMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 737)
+)
+ciscoSwitchNetflowMIB.setRevisions(
+        ("2010-05-26 00:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class CsnNetflowDirectionTypes(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("egress", 3),
+          ("ingress", 2),
+          ("ingressAndEgress", 4),
+          ("none", 1))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CiscoSwitchNetflowMIBNotifs_ObjectIdentity = ObjectIdentity
+ciscoSwitchNetflowMIBNotifs = _CiscoSwitchNetflowMIBNotifs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 737, 0)
+)
+_CiscoSwitchNetflowMIBObjects_ObjectIdentity = ObjectIdentity
+ciscoSwitchNetflowMIBObjects = _CiscoSwitchNetflowMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 737, 1)
+)
+_CsnAccounting_ObjectIdentity = ObjectIdentity
+csnAccounting = _CsnAccounting_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1)
+)
+_CsnAccGlobal_ObjectIdentity = ObjectIdentity
+csnAccGlobal = _CsnAccGlobal_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 1)
+)
+_CsnNetflowDirectionType_Type = CsnNetflowDirectionTypes
+_CsnNetflowDirectionType_Object = MibScalar
+csnNetflowDirectionType = _CsnNetflowDirectionType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 1, 1),
+    _CsnNetflowDirectionType_Type()
+)
+csnNetflowDirectionType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    csnNetflowDirectionType.setStatus("current")
+_CsnAccNotifControl_ObjectIdentity = ObjectIdentity
+csnAccNotifControl = _CsnAccNotifControl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 2)
+)
+_CsnUsageThreshExceedNotifEnable_Type = TruthValue
+_CsnUsageThreshExceedNotifEnable_Object = MibScalar
+csnUsageThreshExceedNotifEnable = _CsnUsageThreshExceedNotifEnable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 2, 1),
+    _CsnUsageThreshExceedNotifEnable_Type()
+)
+csnUsageThreshExceedNotifEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    csnUsageThreshExceedNotifEnable.setStatus("current")
+_CshAccUsageThresh_ObjectIdentity = ObjectIdentity
+cshAccUsageThresh = _CshAccUsageThresh_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 3)
+)
+_CsnUsageThreshTable_Object = MibTable
+csnUsageThreshTable = _CsnUsageThreshTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 3, 1)
+)
+if mibBuilder.loadTexts:
+    csnUsageThreshTable.setStatus("current")
+_CsnUsageThreshEntry_Object = MibTableRow
+csnUsageThreshEntry = _CsnUsageThreshEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 3, 1, 1)
+)
+csnUsageThreshEntry.setIndexNames(
+    (0, "CISCO-SWITCH-NETFLOW-MIB", "csnUsageDirection"),
+)
+if mibBuilder.loadTexts:
+    csnUsageThreshEntry.setStatus("current")
+_CsnUsageDirection_Type = CsnNetflowDirectionTypes
+_CsnUsageDirection_Object = MibTableColumn
+csnUsageDirection = _CsnUsageDirection_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 3, 1, 1, 1),
+    _CsnUsageDirection_Type()
+)
+csnUsageDirection.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    csnUsageDirection.setStatus("current")
+_CsnUsageThreshold_Type = Percent
+_CsnUsageThreshold_Object = MibTableColumn
+csnUsageThreshold = _CsnUsageThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 3, 1, 1, 2),
+    _CsnUsageThreshold_Type()
+)
+csnUsageThreshold.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    csnUsageThreshold.setStatus("current")
+
+
+class _CsnUsageInterval_Type(Unsigned32):
+    """Custom type csnUsageInterval based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4294967295),
+    )
+
+
+_CsnUsageInterval_Type.__name__ = "Unsigned32"
+_CsnUsageInterval_Object = MibTableColumn
+csnUsageInterval = _CsnUsageInterval_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 3, 1, 1, 3),
+    _CsnUsageInterval_Type()
+)
+csnUsageInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    csnUsageInterval.setStatus("current")
+if mibBuilder.loadTexts:
+    csnUsageInterval.setUnits("seconds")
+_CsnAccUtilization_ObjectIdentity = ObjectIdentity
+csnAccUtilization = _CsnAccUtilization_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 4)
+)
+_CsnUtilizationTable_Object = MibTable
+csnUtilizationTable = _CsnUtilizationTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 4, 1)
+)
+if mibBuilder.loadTexts:
+    csnUtilizationTable.setStatus("current")
+_CsnUtilizationEntry_Object = MibTableRow
+csnUtilizationEntry = _CsnUtilizationEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 4, 1, 1)
+)
+csnUtilizationEntry.setIndexNames(
+    (0, "ENTITY-MIB", "entPhysicalIndex"),
+    (0, "CISCO-SWITCH-NETFLOW-MIB", "csnUsageDirection"),
+)
+if mibBuilder.loadTexts:
+    csnUtilizationEntry.setStatus("current")
+_CsnUtilization_Type = Percent
+_CsnUtilization_Object = MibTableColumn
+csnUtilization = _CsnUtilization_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 4, 1, 1, 1),
+    _CsnUtilization_Type()
+)
+csnUtilization.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    csnUtilization.setStatus("current")
+_CsnAccNetflowTableSize_ObjectIdentity = ObjectIdentity
+csnAccNetflowTableSize = _CsnAccNetflowTableSize_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 5)
+)
+_CsnNetflowTableSizeTable_Object = MibTable
+csnNetflowTableSizeTable = _CsnNetflowTableSizeTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 5, 1)
+)
+if mibBuilder.loadTexts:
+    csnNetflowTableSizeTable.setStatus("current")
+_CsnNetflowTableSizeEntry_Object = MibTableRow
+csnNetflowTableSizeEntry = _CsnNetflowTableSizeEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 5, 1, 1)
+)
+csnNetflowTableSizeEntry.setIndexNames(
+    (0, "CISCO-SWITCH-NETFLOW-MIB", "csnUsageDirection"),
+)
+if mibBuilder.loadTexts:
+    csnNetflowTableSizeEntry.setStatus("current")
+_CsnNetflowTableTotalEntries_Type = Unsigned32
+_CsnNetflowTableTotalEntries_Object = MibTableColumn
+csnNetflowTableTotalEntries = _CsnNetflowTableTotalEntries_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 5, 1, 1, 1),
+    _CsnNetflowTableTotalEntries_Type()
+)
+csnNetflowTableTotalEntries.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    csnNetflowTableTotalEntries.setStatus("current")
+_CsnAccSampler_ObjectIdentity = ObjectIdentity
+csnAccSampler = _CsnAccSampler_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 6)
+)
+_CsnSamplerTotal_Type = Unsigned32
+_CsnSamplerTotal_Object = MibScalar
+csnSamplerTotal = _CsnSamplerTotal_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 6, 1),
+    _CsnSamplerTotal_Type()
+)
+csnSamplerTotal.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    csnSamplerTotal.setStatus("current")
+_CsnSamplerAvailable_Type = Unsigned32
+_CsnSamplerAvailable_Object = MibScalar
+csnSamplerAvailable = _CsnSamplerAvailable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 737, 1, 1, 6, 2),
+    _CsnSamplerAvailable_Type()
+)
+csnSamplerAvailable.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    csnSamplerAvailable.setStatus("current")
+_CiscoSwitchNetflowMIBConform_ObjectIdentity = ObjectIdentity
+ciscoSwitchNetflowMIBConform = _CiscoSwitchNetflowMIBConform_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 737, 2)
+)
+_CsnMIBCompliances_ObjectIdentity = ObjectIdentity
+csnMIBCompliances = _CsnMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 737, 2, 1)
+)
+_CsnMIBGroups_ObjectIdentity = ObjectIdentity
+csnMIBGroups = _CsnMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 737, 2, 2)
+)
+
+# Managed Objects groups
+
+csnGlobalGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 737, 2, 2, 1)
+)
+csnGlobalGroup.setObjects(
+    ("CISCO-SWITCH-NETFLOW-MIB", "csnNetflowDirectionType")
+)
+if mibBuilder.loadTexts:
+    csnGlobalGroup.setStatus("current")
+
+csnUsageThreshNotifControlGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 737, 2, 2, 2)
+)
+csnUsageThreshNotifControlGroup.setObjects(
+    ("CISCO-SWITCH-NETFLOW-MIB", "csnUsageThreshExceedNotifEnable")
+)
+if mibBuilder.loadTexts:
+    csnUsageThreshNotifControlGroup.setStatus("current")
+
+csnUsageThreshGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 737, 2, 2, 3)
+)
+csnUsageThreshGroup.setObjects(
+      *(("CISCO-SWITCH-NETFLOW-MIB", "csnUsageThreshold"),
+        ("CISCO-SWITCH-NETFLOW-MIB", "csnUsageInterval"))
+)
+if mibBuilder.loadTexts:
+    csnUsageThreshGroup.setStatus("current")
+
+csnUtilizationGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 737, 2, 2, 4)
+)
+csnUtilizationGroup.setObjects(
+    ("CISCO-SWITCH-NETFLOW-MIB", "csnUtilization")
+)
+if mibBuilder.loadTexts:
+    csnUtilizationGroup.setStatus("current")
+
+csnNetflowTableSizeGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 737, 2, 2, 6)
+)
+csnNetflowTableSizeGroup.setObjects(
+    ("CISCO-SWITCH-NETFLOW-MIB", "csnNetflowTableTotalEntries")
+)
+if mibBuilder.loadTexts:
+    csnNetflowTableSizeGroup.setStatus("current")
+
+csnSamplerGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 737, 2, 2, 7)
+)
+csnSamplerGroup.setObjects(
+      *(("CISCO-SWITCH-NETFLOW-MIB", "csnSamplerTotal"),
+        ("CISCO-SWITCH-NETFLOW-MIB", "csnSamplerAvailable"))
+)
+if mibBuilder.loadTexts:
+    csnSamplerGroup.setStatus("current")
+
+
+# Notification objects
+
+csnUsageThreshExceededNotif = NotificationType(
+    (1, 3, 6, 1, 4, 1, 9, 9, 737, 0, 1)
+)
+csnUsageThreshExceededNotif.setObjects(
+      *(("ENTITY-MIB", "entPhysicalDescr"),
+        ("CISCO-SWITCH-NETFLOW-MIB", "csnUtilization"),
+        ("CISCO-SWITCH-NETFLOW-MIB", "csnUsageThreshold"),
+        ("CISCO-SWITCH-NETFLOW-MIB", "csnUsageInterval"))
+)
+if mibBuilder.loadTexts:
+    csnUsageThreshExceededNotif.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+csnUsageThreshNotifGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 737, 2, 2, 5)
+)
+csnUsageThreshNotifGroup.setObjects(
+    ("CISCO-SWITCH-NETFLOW-MIB", "csnUsageThreshExceededNotif")
+)
+if mibBuilder.loadTexts:
+    csnUsageThreshNotifGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+csnMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 737, 2, 1, 1)
+)
+if mibBuilder.loadTexts:
+    csnMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-SWITCH-NETFLOW-MIB",
+    **{"CsnNetflowDirectionTypes": CsnNetflowDirectionTypes,
+       "ciscoSwitchNetflowMIB": ciscoSwitchNetflowMIB,
+       "ciscoSwitchNetflowMIBNotifs": ciscoSwitchNetflowMIBNotifs,
+       "csnUsageThreshExceededNotif": csnUsageThreshExceededNotif,
+       "ciscoSwitchNetflowMIBObjects": ciscoSwitchNetflowMIBObjects,
+       "csnAccounting": csnAccounting,
+       "csnAccGlobal": csnAccGlobal,
+       "csnNetflowDirectionType": csnNetflowDirectionType,
+       "csnAccNotifControl": csnAccNotifControl,
+       "csnUsageThreshExceedNotifEnable": csnUsageThreshExceedNotifEnable,
+       "cshAccUsageThresh": cshAccUsageThresh,
+       "csnUsageThreshTable": csnUsageThreshTable,
+       "csnUsageThreshEntry": csnUsageThreshEntry,
+       "csnUsageDirection": csnUsageDirection,
+       "csnUsageThreshold": csnUsageThreshold,
+       "csnUsageInterval": csnUsageInterval,
+       "csnAccUtilization": csnAccUtilization,
+       "csnUtilizationTable": csnUtilizationTable,
+       "csnUtilizationEntry": csnUtilizationEntry,
+       "csnUtilization": csnUtilization,
+       "csnAccNetflowTableSize": csnAccNetflowTableSize,
+       "csnNetflowTableSizeTable": csnNetflowTableSizeTable,
+       "csnNetflowTableSizeEntry": csnNetflowTableSizeEntry,
+       "csnNetflowTableTotalEntries": csnNetflowTableTotalEntries,
+       "csnAccSampler": csnAccSampler,
+       "csnSamplerTotal": csnSamplerTotal,
+       "csnSamplerAvailable": csnSamplerAvailable,
+       "ciscoSwitchNetflowMIBConform": ciscoSwitchNetflowMIBConform,
+       "csnMIBCompliances": csnMIBCompliances,
+       "csnMIBCompliance": csnMIBCompliance,
+       "csnMIBGroups": csnMIBGroups,
+       "csnGlobalGroup": csnGlobalGroup,
+       "csnUsageThreshNotifControlGroup": csnUsageThreshNotifControlGroup,
+       "csnUsageThreshGroup": csnUsageThreshGroup,
+       "csnUtilizationGroup": csnUtilizationGroup,
+       "csnUsageThreshNotifGroup": csnUsageThreshNotifGroup,
+       "csnNetflowTableSizeGroup": csnNetflowTableSizeGroup,
+       "csnSamplerGroup": csnSamplerGroup}
+)

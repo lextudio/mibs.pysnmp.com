@@ -1,72 +1,310 @@
+# SNMP MIB module (HH3C-STORAGE-REF-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HH3C-STORAGE-REF-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/HH3C-STORAGE-REF-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:13:01 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint")
-hh3c, = mibBuilder.importSymbols("HH3C-OID-MIB", "hh3c")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter64, Bits, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Unsigned32, ObjectIdentity, MibIdentifier, IpAddress, Counter32, ModuleIdentity, Integer32, TimeTicks, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Bits", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Unsigned32", "ObjectIdentity", "MibIdentifier", "IpAddress", "Counter32", "ModuleIdentity", "Integer32", "TimeTicks", "iso")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-hh3cStorageRef = ModuleIdentity((1, 3, 6, 1, 4, 1, 25506, 10))
-if mibBuilder.loadTexts: hh3cStorageRef.setLastUpdated('200709141452Z')
-if mibBuilder.loadTexts: hh3cStorageRef.setOrganization('H3C Technologies Co., Ltd.')
-class Hh3cStorageCapableState(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("support", 1), ("notsupport", 2))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HH3C-STORAGE-REF-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:52:45 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class Hh3cStorageEnableState(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("enable", 1), ("disable", 2))
+if 'mibBuilder' not in globals():
+    import sys
 
-class Hh3cStorageActionType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("action", 1), ("invalid", 2))
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-class Hh3cStorageLedStateType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
-    namedValues = NamedValues(("off", 1), ("on", 2), ("blink", 3))
+# Import base ASN.1 objects even if this MIB does not use it
 
-class Hh3cStorageOnlineState(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("online", 1), ("offline", 2))
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
 
-class Hh3cLvIDType(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(1, 20)
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
 
-class Hh3cSessionIDType(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(1, 16)
+# Import SMI symbols from the MIBs this MIB depends on
 
-class Hh3cWwpnListType(TextualConvention, OctetString):
-    status = 'current'
+(hh3c,) = mibBuilder.importSymbols(
+    "HH3C-OID-MIB",
+    "hh3c")
 
-class Hh3cStorageOwnerType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
-    namedValues = NamedValues(("spa", 1), ("spb", 2), ("none", 3))
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
 
-class Hh3cExtendSelectPolicy(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("differentAdapter", 1), ("differentDrive", 2), ("anyDrive", 3), ("none", 4))
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
 
-class Hh3cRaidIDType(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(36, 71)
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
 
-class Hh3cSoftwareInfoString(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(2, 64)
 
-mibBuilder.exportSymbols("HH3C-STORAGE-REF-MIB", PYSNMP_MODULE_ID=hh3cStorageRef, Hh3cSessionIDType=Hh3cSessionIDType, Hh3cStorageEnableState=Hh3cStorageEnableState, Hh3cExtendSelectPolicy=Hh3cExtendSelectPolicy, Hh3cStorageActionType=Hh3cStorageActionType, Hh3cWwpnListType=Hh3cWwpnListType, Hh3cRaidIDType=Hh3cRaidIDType, Hh3cLvIDType=Hh3cLvIDType, Hh3cSoftwareInfoString=Hh3cSoftwareInfoString, Hh3cStorageOwnerType=Hh3cStorageOwnerType, hh3cStorageRef=hh3cStorageRef, Hh3cStorageOnlineState=Hh3cStorageOnlineState, Hh3cStorageLedStateType=Hh3cStorageLedStateType, Hh3cStorageCapableState=Hh3cStorageCapableState)
+# MODULE-IDENTITY
+
+hh3cStorageRef = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 25506, 10)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class Hh3cStorageCapableState(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notsupport", 2),
+          ("support", 1))
+    )
+
+
+
+class Hh3cStorageEnableState(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 2),
+          ("enable", 1))
+    )
+
+
+
+class Hh3cStorageActionType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("action", 1),
+          ("invalid", 2))
+    )
+
+
+
+class Hh3cStorageLedStateType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("blink", 3),
+          ("off", 1),
+          ("on", 2))
+    )
+
+
+
+class Hh3cStorageOnlineState(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("offline", 2),
+          ("online", 1))
+    )
+
+
+
+class Hh3cLvIDType(OctetString, TextualConvention):
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 20),
+    )
+
+
+
+class Hh3cSessionIDType(OctetString, TextualConvention):
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 16),
+    )
+
+
+
+class Hh3cWwpnListType(OctetString, TextualConvention):
+    status = "current"
+
+
+class Hh3cStorageOwnerType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 3),
+          ("spa", 1),
+          ("spb", 2))
+    )
+
+
+
+class Hh3cExtendSelectPolicy(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("anyDrive", 3),
+          ("differentAdapter", 1),
+          ("differentDrive", 2),
+          ("none", 4))
+    )
+
+
+
+class Hh3cRaidIDType(OctetString, TextualConvention):
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(36, 71),
+    )
+
+
+
+class Hh3cSoftwareInfoString(OctetString, TextualConvention):
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 64),
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HH3C-STORAGE-REF-MIB",
+    **{"Hh3cStorageCapableState": Hh3cStorageCapableState,
+       "Hh3cStorageEnableState": Hh3cStorageEnableState,
+       "Hh3cStorageActionType": Hh3cStorageActionType,
+       "Hh3cStorageLedStateType": Hh3cStorageLedStateType,
+       "Hh3cStorageOnlineState": Hh3cStorageOnlineState,
+       "Hh3cLvIDType": Hh3cLvIDType,
+       "Hh3cSessionIDType": Hh3cSessionIDType,
+       "Hh3cWwpnListType": Hh3cWwpnListType,
+       "Hh3cStorageOwnerType": Hh3cStorageOwnerType,
+       "Hh3cExtendSelectPolicy": Hh3cExtendSelectPolicy,
+       "Hh3cRaidIDType": Hh3cRaidIDType,
+       "Hh3cSoftwareInfoString": Hh3cSoftwareInfoString,
+       "hh3cStorageRef": hh3cStorageRef}
+)

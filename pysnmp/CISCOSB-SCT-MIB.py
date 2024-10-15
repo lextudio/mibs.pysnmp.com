@@ -1,22 +1,160 @@
+# SNMP MIB module (CISCOSB-SCT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCOSB-SCT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/CISCOSB-SCT-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:07:20 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
-switch001, = mibBuilder.importSymbols("CISCOSB-MIB", "switch001")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Integer32, IpAddress, MibIdentifier, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, TimeTicks, ModuleIdentity, NotificationType, Counter32, ObjectIdentity, Unsigned32, Counter64, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "IpAddress", "MibIdentifier", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "TimeTicks", "ModuleIdentity", "NotificationType", "Counter32", "ObjectIdentity", "Unsigned32", "Counter64", "iso")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
-rlSctMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 203))
-if mibBuilder.loadTexts: rlSctMib.setLastUpdated('201008161234Z')
-if mibBuilder.loadTexts: rlSctMib.setOrganization('Cisco Small Business')
-rlSctCpuRateEnabled = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 203, 1), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlSctCpuRateEnabled.setStatus('current')
-rlSctCpuRate = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 203, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlSctCpuRate.setStatus('current')
-mibBuilder.exportSymbols("CISCOSB-SCT-MIB", rlSctCpuRate=rlSctCpuRate, rlSctMib=rlSctMib, PYSNMP_MODULE_ID=rlSctMib, rlSctCpuRateEnabled=rlSctCpuRateEnabled)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CISCOSB-SCT-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:14:46 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(switch001,) = mibBuilder.importSymbols(
+    "CISCOSB-MIB",
+    "switch001")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+rlSctMib = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 203)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_RlSctCpuRateEnabled_Type = TruthValue
+_RlSctCpuRateEnabled_Object = MibScalar
+rlSctCpuRateEnabled = _RlSctCpuRateEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 203, 1),
+    _RlSctCpuRateEnabled_Type()
+)
+rlSctCpuRateEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlSctCpuRateEnabled.setStatus("current")
+_RlSctCpuRate_Type = Counter32
+_RlSctCpuRate_Object = MibScalar
+rlSctCpuRate = _RlSctCpuRate_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 203, 2),
+    _RlSctCpuRate_Type()
+)
+rlSctCpuRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlSctCpuRate.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCOSB-SCT-MIB",
+    **{"rlSctMib": rlSctMib,
+       "rlSctCpuRateEnabled": rlSctCpuRateEnabled,
+       "rlSctCpuRate": rlSctCpuRate}
+)

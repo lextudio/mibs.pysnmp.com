@@ -1,27 +1,183 @@
+# SNMP MIB module (HPN-ICF-FIREWALL-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HPN-ICF-FIREWALL-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/HPN-ICF-FIREWALL-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:26:46 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion")
-hpnicfCommon, = mibBuilder.importSymbols("HPN-ICF-OID-MIB", "hpnicfCommon")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ObjectIdentity, Gauge32, MibIdentifier, Counter64, iso, TimeTicks, Integer32, Unsigned32, NotificationType, IpAddress, ModuleIdentity, Bits, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Gauge32", "MibIdentifier", "Counter64", "iso", "TimeTicks", "Integer32", "Unsigned32", "NotificationType", "IpAddress", "ModuleIdentity", "Bits", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-hpnicfFireWall = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 88))
-if mibBuilder.loadTexts: hpnicfFireWall.setLastUpdated('200801171450Z')
-if mibBuilder.loadTexts: hpnicfFireWall.setOrganization('')
-hpnicfFirewallobject = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 88, 1))
-hpnicfFirewallSpecs = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 88, 1, 1))
-hpnicfFWMaxConnNum = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 88, 1, 1, 1), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfFWMaxConnNum.setStatus('current')
-hpnicfFirewallGlobalStats = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 88, 1, 2))
-hpnicfFWConnNumCurr = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 88, 1, 2, 1), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfFWConnNumCurr.setStatus('current')
-hpnicfFWConnRate = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 88, 1, 2, 2), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfFWConnRate.setStatus('current')
-mibBuilder.exportSymbols("HPN-ICF-FIREWALL-MIB", hpnicfFirewallGlobalStats=hpnicfFirewallGlobalStats, hpnicfFWMaxConnNum=hpnicfFWMaxConnNum, hpnicfFirewallobject=hpnicfFirewallobject, hpnicfFireWall=hpnicfFireWall, hpnicfFWConnRate=hpnicfFWConnRate, hpnicfFWConnNumCurr=hpnicfFWConnNumCurr, hpnicfFirewallSpecs=hpnicfFirewallSpecs, PYSNMP_MODULE_ID=hpnicfFireWall)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HPN-ICF-FIREWALL-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:00:24 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(hpnicfCommon,) = mibBuilder.importSymbols(
+    "HPN-ICF-OID-MIB",
+    "hpnicfCommon")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+hpnicfFireWall = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 88)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_HpnicfFirewallobject_ObjectIdentity = ObjectIdentity
+hpnicfFirewallobject = _HpnicfFirewallobject_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 88, 1)
+)
+_HpnicfFirewallSpecs_ObjectIdentity = ObjectIdentity
+hpnicfFirewallSpecs = _HpnicfFirewallSpecs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 88, 1, 1)
+)
+_HpnicfFWMaxConnNum_Type = Unsigned32
+_HpnicfFWMaxConnNum_Object = MibScalar
+hpnicfFWMaxConnNum = _HpnicfFWMaxConnNum_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 88, 1, 1, 1),
+    _HpnicfFWMaxConnNum_Type()
+)
+hpnicfFWMaxConnNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfFWMaxConnNum.setStatus("current")
+_HpnicfFirewallGlobalStats_ObjectIdentity = ObjectIdentity
+hpnicfFirewallGlobalStats = _HpnicfFirewallGlobalStats_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 88, 1, 2)
+)
+_HpnicfFWConnNumCurr_Type = Gauge32
+_HpnicfFWConnNumCurr_Object = MibScalar
+hpnicfFWConnNumCurr = _HpnicfFWConnNumCurr_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 88, 1, 2, 1),
+    _HpnicfFWConnNumCurr_Type()
+)
+hpnicfFWConnNumCurr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfFWConnNumCurr.setStatus("current")
+_HpnicfFWConnRate_Type = Gauge32
+_HpnicfFWConnRate_Object = MibScalar
+hpnicfFWConnRate = _HpnicfFWConnRate_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 88, 1, 2, 2),
+    _HpnicfFWConnRate_Type()
+)
+hpnicfFWConnRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfFWConnRate.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HPN-ICF-FIREWALL-MIB",
+    **{"hpnicfFireWall": hpnicfFireWall,
+       "hpnicfFirewallobject": hpnicfFirewallobject,
+       "hpnicfFirewallSpecs": hpnicfFirewallSpecs,
+       "hpnicfFWMaxConnNum": hpnicfFWMaxConnNum,
+       "hpnicfFirewallGlobalStats": hpnicfFirewallGlobalStats,
+       "hpnicfFWConnNumCurr": hpnicfFWConnNumCurr,
+       "hpnicfFWConnRate": hpnicfFWConnRate}
+)

@@ -1,31 +1,208 @@
+# SNMP MIB module (XYLAN-ATMLSM-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module XYLAN-ATMLSM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/XYLAN-ATMLSM-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 21:38:19 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ModuleIdentity, ObjectIdentity, MibIdentifier, Counter64, NotificationType, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Counter32, Unsigned32, IpAddress, iso, Integer32, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "ObjectIdentity", "MibIdentifier", "Counter64", "NotificationType", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Counter32", "Unsigned32", "IpAddress", "iso", "Integer32", "Bits")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-atmxLsmGroup, = mibBuilder.importSymbols("XYLAN-ATM-MIB", "atmxLsmGroup")
-class AtmForumLaneAddress(OctetString):
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(20, 20)
-    fixedLength = 20
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/XYLAN-ATMLSM-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:18:55 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-atmxLesConfTable = MibTable((1, 3, 6, 1, 4, 1, 800, 2, 4, 13, 1), )
-if mibBuilder.loadTexts: atmxLesConfTable.setStatus('mandatory')
-atmxLesConfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 800, 2, 4, 13, 1, 1), ).setIndexNames((0, "XYLAN-ATMLSM-MIB", "atmxlesConfIndex"))
-if mibBuilder.loadTexts: atmxLesConfEntry.setStatus('mandatory')
-atmxlesConfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 800, 2, 4, 13, 1, 1, 1), Integer32())
-if mibBuilder.loadTexts: atmxlesConfIndex.setStatus('mandatory')
-atmxLesRedundancyEnabled = MibScalar((1, 3, 6, 1, 4, 1, 800, 2, 4, 13, 1, 1, 19), Integer32().clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmxLesRedundancyEnabled.setStatus('mandatory')
-atmxLesRedundancyRole = MibTableColumn((1, 3, 6, 1, 4, 1, 800, 2, 4, 13, 1, 1, 20), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmxLesRedundancyRole.setStatus('mandatory')
-atmxSecondaryLESAtmAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 800, 2, 4, 13, 1, 1, 21), AtmForumLaneAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmxSecondaryLESAtmAddr.setStatus('mandatory')
-mibBuilder.exportSymbols("XYLAN-ATMLSM-MIB", atmxlesConfIndex=atmxlesConfIndex, atmxLesConfEntry=atmxLesConfEntry, atmxSecondaryLESAtmAddr=atmxSecondaryLESAtmAddr, AtmForumLaneAddress=AtmForumLaneAddress, atmxLesConfTable=atmxLesConfTable, atmxLesRedundancyEnabled=atmxLesRedundancyEnabled, atmxLesRedundancyRole=atmxLesRedundancyRole)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+(atmxLsmGroup,) = mibBuilder.importSymbols(
+    "XYLAN-ATM-MIB",
+    "atmxLsmGroup")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+
+class AtmForumLaneAddress(OctetString):
+    """Custom type AtmForumLaneAddress based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(20, 20),
+    )
+
+
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AtmxLesConfTable_Object = MibTable
+atmxLesConfTable = _AtmxLesConfTable_Object(
+    (1, 3, 6, 1, 4, 1, 800, 2, 4, 13, 1)
+)
+if mibBuilder.loadTexts:
+    atmxLesConfTable.setStatus("mandatory")
+_AtmxLesConfEntry_Object = MibTableRow
+atmxLesConfEntry = _AtmxLesConfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 800, 2, 4, 13, 1, 1)
+)
+atmxLesConfEntry.setIndexNames(
+    (0, "XYLAN-ATMLSM-MIB", "atmxlesConfIndex"),
+)
+if mibBuilder.loadTexts:
+    atmxLesConfEntry.setStatus("mandatory")
+_AtmxlesConfIndex_Type = Integer32
+_AtmxlesConfIndex_Object = MibTableColumn
+atmxlesConfIndex = _AtmxlesConfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 800, 2, 4, 13, 1, 1, 1),
+    _AtmxlesConfIndex_Type()
+)
+atmxlesConfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    atmxlesConfIndex.setStatus("mandatory")
+
+
+class _AtmxLesRedundancyEnabled_Type(Integer32):
+    """Custom type atmxLesRedundancyEnabled based on Integer32"""
+    defaultValue = 1
+
+
+_AtmxLesRedundancyEnabled_Object = MibScalar
+atmxLesRedundancyEnabled = _AtmxLesRedundancyEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 800, 2, 4, 13, 1, 1, 19),
+    _AtmxLesRedundancyEnabled_Type()
+)
+atmxLesRedundancyEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    atmxLesRedundancyEnabled.setStatus("mandatory")
+_AtmxLesRedundancyRole_Type = Integer32
+_AtmxLesRedundancyRole_Object = MibTableColumn
+atmxLesRedundancyRole = _AtmxLesRedundancyRole_Object(
+    (1, 3, 6, 1, 4, 1, 800, 2, 4, 13, 1, 1, 20),
+    _AtmxLesRedundancyRole_Type()
+)
+atmxLesRedundancyRole.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    atmxLesRedundancyRole.setStatus("mandatory")
+_AtmxSecondaryLESAtmAddr_Type = AtmForumLaneAddress
+_AtmxSecondaryLESAtmAddr_Object = MibTableColumn
+atmxSecondaryLESAtmAddr = _AtmxSecondaryLESAtmAddr_Object(
+    (1, 3, 6, 1, 4, 1, 800, 2, 4, 13, 1, 1, 21),
+    _AtmxSecondaryLESAtmAddr_Type()
+)
+atmxSecondaryLESAtmAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    atmxSecondaryLESAtmAddr.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "XYLAN-ATMLSM-MIB",
+    **{"AtmForumLaneAddress": AtmForumLaneAddress,
+       "atmxLesConfTable": atmxLesConfTable,
+       "atmxLesConfEntry": atmxLesConfEntry,
+       "atmxlesConfIndex": atmxlesConfIndex,
+       "atmxLesRedundancyEnabled": atmxLesRedundancyEnabled,
+       "atmxLesRedundancyRole": atmxLesRedundancyRole,
+       "atmxSecondaryLESAtmAddr": atmxSecondaryLESAtmAddr}
+)

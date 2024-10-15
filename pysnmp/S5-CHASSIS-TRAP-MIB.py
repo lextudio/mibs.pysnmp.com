@@ -1,42 +1,296 @@
+# SNMP MIB module (S5-CHASSIS-TRAP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module S5-CHASSIS-TRAP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/S5-CHASSIS-TRAP-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:51:19 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection")
-s5ChasNotifyFanDirection, s5ChasComType, s5ChasComOperState = mibBuilder.importSymbols("S5-CHASSIS-MIB", "s5ChasNotifyFanDirection", "s5ChasComType", "s5ChasComOperState")
-s5ChaTrap, = mibBuilder.importSymbols("S5-ROOT-MIB", "s5ChaTrap")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter64, IpAddress, Integer32, ModuleIdentity, Gauge32, ObjectIdentity, iso, Unsigned32, Counter32, TimeTicks, Bits, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "IpAddress", "Integer32", "ModuleIdentity", "Gauge32", "ObjectIdentity", "iso", "Unsigned32", "Counter32", "TimeTicks", "Bits", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-s5ChassisTrapMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 45, 1, 6, 2, 4, 0))
-s5ChassisTrapMib.setRevisions(('2011-04-15 00:00', '2011-03-29 00:00', '2009-07-29 00:00', '2004-07-20 00:00',))
-if mibBuilder.loadTexts: s5ChassisTrapMib.setLastUpdated('201104150000Z')
-if mibBuilder.loadTexts: s5ChassisTrapMib.setOrganization('Nortel Networks')
-s5CtrHotSwap = NotificationType((1, 3, 6, 1, 4, 1, 45, 1, 6, 2, 4, 1)).setObjects(("S5-CHASSIS-MIB", "s5ChasComType"), ("S5-CHASSIS-MIB", "s5ChasComOperState"))
-if mibBuilder.loadTexts: s5CtrHotSwap.setStatus('current')
-s5CtrProblem = NotificationType((1, 3, 6, 1, 4, 1, 45, 1, 6, 2, 4, 2)).setObjects(("S5-CHASSIS-MIB", "s5ChasComType"), ("S5-CHASSIS-MIB", "s5ChasComOperState"))
-if mibBuilder.loadTexts: s5CtrProblem.setStatus('current')
-s5CtrUnitUp = NotificationType((1, 3, 6, 1, 4, 1, 45, 1, 6, 2, 4, 3)).setObjects(("S5-CHASSIS-MIB", "s5ChasComType"), ("S5-CHASSIS-MIB", "s5ChasComOperState"))
-if mibBuilder.loadTexts: s5CtrUnitUp.setStatus('current')
-s5CtrUnitDown = NotificationType((1, 3, 6, 1, 4, 1, 45, 1, 6, 2, 4, 4)).setObjects(("S5-CHASSIS-MIB", "s5ChasComType"), ("S5-CHASSIS-MIB", "s5ChasComOperState"))
-if mibBuilder.loadTexts: s5CtrUnitDown.setStatus('current')
-s5CtrNewHotSwap = NotificationType((1, 3, 6, 1, 4, 1, 45, 1, 6, 2, 4, 0, 1)).setObjects(("S5-CHASSIS-MIB", "s5ChasComType"), ("S5-CHASSIS-MIB", "s5ChasComOperState"))
-if mibBuilder.loadTexts: s5CtrNewHotSwap.setStatus('current')
-s5CtrNewProblem = NotificationType((1, 3, 6, 1, 4, 1, 45, 1, 6, 2, 4, 0, 2)).setObjects(("S5-CHASSIS-MIB", "s5ChasComType"), ("S5-CHASSIS-MIB", "s5ChasComOperState"))
-if mibBuilder.loadTexts: s5CtrNewProblem.setStatus('current')
-s5CtrNewUnitUp = NotificationType((1, 3, 6, 1, 4, 1, 45, 1, 6, 2, 4, 0, 3)).setObjects(("S5-CHASSIS-MIB", "s5ChasComType"), ("S5-CHASSIS-MIB", "s5ChasComOperState"))
-if mibBuilder.loadTexts: s5CtrNewUnitUp.setStatus('current')
-s5CtrNewUnitDown = NotificationType((1, 3, 6, 1, 4, 1, 45, 1, 6, 2, 4, 0, 4)).setObjects(("S5-CHASSIS-MIB", "s5ChasComType"), ("S5-CHASSIS-MIB", "s5ChasComOperState"))
-if mibBuilder.loadTexts: s5CtrNewUnitDown.setStatus('current')
-s5CtrFanRotationError = NotificationType((1, 3, 6, 1, 4, 1, 45, 1, 6, 2, 4, 0, 5)).setObjects(("S5-CHASSIS-MIB", "s5ChasComType"), ("S5-CHASSIS-MIB", "s5ChasComOperState"))
-if mibBuilder.loadTexts: s5CtrFanRotationError.setStatus('current')
-s5CtrFanDirectionError = NotificationType((1, 3, 6, 1, 4, 1, 45, 1, 6, 2, 4, 0, 6)).setObjects(("S5-CHASSIS-MIB", "s5ChasComType"), ("S5-CHASSIS-MIB", "s5ChasComOperState"), ("S5-CHASSIS-MIB", "s5ChasNotifyFanDirection"))
-if mibBuilder.loadTexts: s5CtrFanDirectionError.setStatus('current')
-s5CtrHighTemperatureError = NotificationType((1, 3, 6, 1, 4, 1, 45, 1, 6, 2, 4, 0, 7)).setObjects(("S5-CHASSIS-MIB", "s5ChasComType"), ("S5-CHASSIS-MIB", "s5ChasComOperState"))
-if mibBuilder.loadTexts: s5CtrHighTemperatureError.setStatus('current')
-mibBuilder.exportSymbols("S5-CHASSIS-TRAP-MIB", s5CtrUnitDown=s5CtrUnitDown, s5CtrFanDirectionError=s5CtrFanDirectionError, s5CtrNewUnitUp=s5CtrNewUnitUp, PYSNMP_MODULE_ID=s5ChassisTrapMib, s5CtrNewProblem=s5CtrNewProblem, s5CtrNewHotSwap=s5CtrNewHotSwap, s5CtrUnitUp=s5CtrUnitUp, s5CtrFanRotationError=s5CtrFanRotationError, s5CtrHotSwap=s5CtrHotSwap, s5CtrProblem=s5CtrProblem, s5CtrHighTemperatureError=s5CtrHighTemperatureError, s5CtrNewUnitDown=s5CtrNewUnitDown, s5ChassisTrapMib=s5ChassisTrapMib)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/S5-CHASSIS-TRAP-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:49:03 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(s5ChasComOperState,
+ s5ChasComType,
+ s5ChasNotifyFanDirection) = mibBuilder.importSymbols(
+    "S5-CHASSIS-MIB",
+    "s5ChasComOperState",
+    "s5ChasComType",
+    "s5ChasNotifyFanDirection")
+
+(s5ChaTrap,) = mibBuilder.importSymbols(
+    "S5-ROOT-MIB",
+    "s5ChaTrap")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+s5ChassisTrapMib = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 45, 1, 6, 2, 4, 0)
+)
+s5ChassisTrapMib.setRevisions(
+        ("2011-04-15 00:00",
+         "2011-03-29 00:00",
+         "2009-07-29 00:00",
+         "2004-07-20 00:00")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+s5CtrNewHotSwap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 45, 1, 6, 2, 4, 0, 1)
+)
+s5CtrNewHotSwap.setObjects(
+      *(("S5-CHASSIS-MIB", "s5ChasComType"),
+        ("S5-CHASSIS-MIB", "s5ChasComOperState"))
+)
+if mibBuilder.loadTexts:
+    s5CtrNewHotSwap.setStatus(
+        "current"
+    )
+
+s5CtrNewProblem = NotificationType(
+    (1, 3, 6, 1, 4, 1, 45, 1, 6, 2, 4, 0, 2)
+)
+s5CtrNewProblem.setObjects(
+      *(("S5-CHASSIS-MIB", "s5ChasComType"),
+        ("S5-CHASSIS-MIB", "s5ChasComOperState"))
+)
+if mibBuilder.loadTexts:
+    s5CtrNewProblem.setStatus(
+        "current"
+    )
+
+s5CtrNewUnitUp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 45, 1, 6, 2, 4, 0, 3)
+)
+s5CtrNewUnitUp.setObjects(
+      *(("S5-CHASSIS-MIB", "s5ChasComType"),
+        ("S5-CHASSIS-MIB", "s5ChasComOperState"))
+)
+if mibBuilder.loadTexts:
+    s5CtrNewUnitUp.setStatus(
+        "current"
+    )
+
+s5CtrNewUnitDown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 45, 1, 6, 2, 4, 0, 4)
+)
+s5CtrNewUnitDown.setObjects(
+      *(("S5-CHASSIS-MIB", "s5ChasComType"),
+        ("S5-CHASSIS-MIB", "s5ChasComOperState"))
+)
+if mibBuilder.loadTexts:
+    s5CtrNewUnitDown.setStatus(
+        "current"
+    )
+
+s5CtrFanRotationError = NotificationType(
+    (1, 3, 6, 1, 4, 1, 45, 1, 6, 2, 4, 0, 5)
+)
+s5CtrFanRotationError.setObjects(
+      *(("S5-CHASSIS-MIB", "s5ChasComType"),
+        ("S5-CHASSIS-MIB", "s5ChasComOperState"))
+)
+if mibBuilder.loadTexts:
+    s5CtrFanRotationError.setStatus(
+        "current"
+    )
+
+s5CtrFanDirectionError = NotificationType(
+    (1, 3, 6, 1, 4, 1, 45, 1, 6, 2, 4, 0, 6)
+)
+s5CtrFanDirectionError.setObjects(
+      *(("S5-CHASSIS-MIB", "s5ChasComType"),
+        ("S5-CHASSIS-MIB", "s5ChasComOperState"),
+        ("S5-CHASSIS-MIB", "s5ChasNotifyFanDirection"))
+)
+if mibBuilder.loadTexts:
+    s5CtrFanDirectionError.setStatus(
+        "current"
+    )
+
+s5CtrHighTemperatureError = NotificationType(
+    (1, 3, 6, 1, 4, 1, 45, 1, 6, 2, 4, 0, 7)
+)
+s5CtrHighTemperatureError.setObjects(
+      *(("S5-CHASSIS-MIB", "s5ChasComType"),
+        ("S5-CHASSIS-MIB", "s5ChasComOperState"))
+)
+if mibBuilder.loadTexts:
+    s5CtrHighTemperatureError.setStatus(
+        "current"
+    )
+
+s5CtrHotSwap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 45, 1, 6, 2, 4, 1)
+)
+s5CtrHotSwap.setObjects(
+      *(("S5-CHASSIS-MIB", "s5ChasComType"),
+        ("S5-CHASSIS-MIB", "s5ChasComOperState"))
+)
+if mibBuilder.loadTexts:
+    s5CtrHotSwap.setStatus(
+        "current"
+    )
+
+s5CtrProblem = NotificationType(
+    (1, 3, 6, 1, 4, 1, 45, 1, 6, 2, 4, 2)
+)
+s5CtrProblem.setObjects(
+      *(("S5-CHASSIS-MIB", "s5ChasComType"),
+        ("S5-CHASSIS-MIB", "s5ChasComOperState"))
+)
+if mibBuilder.loadTexts:
+    s5CtrProblem.setStatus(
+        "current"
+    )
+
+s5CtrUnitUp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 45, 1, 6, 2, 4, 3)
+)
+s5CtrUnitUp.setObjects(
+      *(("S5-CHASSIS-MIB", "s5ChasComType"),
+        ("S5-CHASSIS-MIB", "s5ChasComOperState"))
+)
+if mibBuilder.loadTexts:
+    s5CtrUnitUp.setStatus(
+        "current"
+    )
+
+s5CtrUnitDown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 45, 1, 6, 2, 4, 4)
+)
+s5CtrUnitDown.setObjects(
+      *(("S5-CHASSIS-MIB", "s5ChasComType"),
+        ("S5-CHASSIS-MIB", "s5ChasComOperState"))
+)
+if mibBuilder.loadTexts:
+    s5CtrUnitDown.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "S5-CHASSIS-TRAP-MIB",
+    **{"s5ChassisTrapMib": s5ChassisTrapMib,
+       "s5CtrNewHotSwap": s5CtrNewHotSwap,
+       "s5CtrNewProblem": s5CtrNewProblem,
+       "s5CtrNewUnitUp": s5CtrNewUnitUp,
+       "s5CtrNewUnitDown": s5CtrNewUnitDown,
+       "s5CtrFanRotationError": s5CtrFanRotationError,
+       "s5CtrFanDirectionError": s5CtrFanDirectionError,
+       "s5CtrHighTemperatureError": s5CtrHighTemperatureError,
+       "s5CtrHotSwap": s5CtrHotSwap,
+       "s5CtrProblem": s5CtrProblem,
+       "s5CtrUnitUp": s5CtrUnitUp,
+       "s5CtrUnitDown": s5CtrUnitDown}
+)

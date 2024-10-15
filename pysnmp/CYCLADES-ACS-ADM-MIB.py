@@ -1,23 +1,196 @@
+# SNMP MIB module (CYCLADES-ACS-ADM-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CYCLADES-ACS-ADM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/CYCLADES-ACS-ADM-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:18:44 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint")
-cyACSMgmt, = mibBuilder.importSymbols("CYCLADES-ACS-MIB", "cyACSMgmt")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Gauge32, IpAddress, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, ModuleIdentity, Integer32, Counter32, ObjectIdentity, NotificationType, Counter64, Unsigned32, MibIdentifier, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "IpAddress", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "ModuleIdentity", "Integer32", "Counter32", "ObjectIdentity", "NotificationType", "Counter64", "Unsigned32", "MibIdentifier", "Bits")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-cyACSAdm = ModuleIdentity((1, 3, 6, 1, 4, 1, 2925, 4, 4))
-cyACSAdm.setRevisions(('2005-08-29 00:00', '2002-09-20 00:00',))
-if mibBuilder.loadTexts: cyACSAdm.setLastUpdated('200508290000Z')
-if mibBuilder.loadTexts: cyACSAdm.setOrganization('Cyclades Corporation')
-cyACSSave = MibScalar((1, 3, 6, 1, 4, 1, 2925, 4, 4, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("nosave", 0), ("save", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cyACSSave.setStatus('current')
-cyACSSerialHUP = MibScalar((1, 3, 6, 1, 4, 1, 2925, 4, 4, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("norestartportslave", 0), ("restartportslave", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cyACSSerialHUP.setStatus('current')
-mibBuilder.exportSymbols("CYCLADES-ACS-ADM-MIB", cyACSSerialHUP=cyACSSerialHUP, PYSNMP_MODULE_ID=cyACSAdm, cyACSAdm=cyACSAdm, cyACSSave=cyACSSave)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CYCLADES-ACS-ADM-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:21:22 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(cyACSMgmt,) = mibBuilder.importSymbols(
+    "CYCLADES-ACS-MIB",
+    "cyACSMgmt")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+cyACSAdm = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2925, 4, 4)
+)
+cyACSAdm.setRevisions(
+        ("2005-08-29 00:00",
+         "2002-09-20 00:00")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+
+class _CyACSSave_Type(Integer32):
+    """Custom type cyACSSave based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("nosave", 0),
+          ("save", 1))
+    )
+
+
+_CyACSSave_Type.__name__ = "Integer32"
+_CyACSSave_Object = MibScalar
+cyACSSave = _CyACSSave_Object(
+    (1, 3, 6, 1, 4, 1, 2925, 4, 4, 1),
+    _CyACSSave_Type()
+)
+cyACSSave.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cyACSSave.setStatus("current")
+
+
+class _CyACSSerialHUP_Type(Integer32):
+    """Custom type cyACSSerialHUP based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("norestartportslave", 0),
+          ("restartportslave", 1))
+    )
+
+
+_CyACSSerialHUP_Type.__name__ = "Integer32"
+_CyACSSerialHUP_Object = MibScalar
+cyACSSerialHUP = _CyACSSerialHUP_Object(
+    (1, 3, 6, 1, 4, 1, 2925, 4, 4, 2),
+    _CyACSSerialHUP_Type()
+)
+cyACSSerialHUP.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cyACSSerialHUP.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CYCLADES-ACS-ADM-MIB",
+    **{"cyACSAdm": cyACSAdm,
+       "cyACSSave": cyACSSave,
+       "cyACSSerialHUP": cyACSSerialHUP}
+)

@@ -1,200 +1,941 @@
+# SNMP MIB module (LUMINOUS-TC-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module LUMINOUS-TC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/LUMINOUS-TC-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:58:34 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Gauge32, Counter32, enterprises, NotificationType, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, TimeTicks, MibIdentifier, ObjectIdentity, Counter64, iso, IpAddress, Bits, ModuleIdentity, ObjectName = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Counter32", "enterprises", "NotificationType", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "TimeTicks", "MibIdentifier", "ObjectIdentity", "Counter64", "iso", "IpAddress", "Bits", "ModuleIdentity", "ObjectName")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-luminous = MibIdentifier((1, 3, 6, 1, 4, 1, 4614))
-lumADM = MibIdentifier((1, 3, 6, 1, 4, 1, 4614, 1))
-lumTcMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4614, 1, 9))
-if mibBuilder.loadTexts: lumTcMIB.setLastUpdated('0106270000Z')
-if mibBuilder.loadTexts: lumTcMIB.setOrganization('Luminous Networks')
-class LumShelfType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("mSeries", 1), ("unused1", 2), ("unused2", 3), ("cSeries", 4))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/LUMINOUS-TC-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:19:29 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class LumChassisPlane(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("front", 1), ("back", 2))
+if 'mibBuilder' not in globals():
+    import sys
 
-class LumSlotNum(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 32)
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-class LumPortNum(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 32)
+# Import base ASN.1 objects even if this MIB does not use it
 
-class LumSimpleIndex(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 65535)
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
 
-class LumPercent(TextualConvention, Unsigned32):
-    status = 'current'
-    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 100)
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
 
-class LumRingDirection(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
-    namedValues = NamedValues(("none", 1), ("west", 2), ("east", 3))
+# Import SMI symbols from the MIBs this MIB depends on
 
-class LumAdminStatus(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("up", 1), ("down", 2))
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
 
-class LumOperStatus(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))
-    namedValues = NamedValues(("up", 1), ("down", 2), ("testing", 3), ("unknown", 4), ("dormant", 5), ("notPresent", 6), ("lowerLayerDown", 7), ("misMatch", 8))
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ ObjectName,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "ObjectName",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
 
-class LumControl(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
-    namedValues = NamedValues(("unknown", 1), ("disabled", 2), ("enabled", 3))
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
 
-class LumServiceMode(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("none", 1), ("wire", 2), ("routing", 3), ("policyForwarding", 4))
 
-class LumPortType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
-    namedValues = NamedValues(("none", 1), ("physical", 2), ("subPortDemux", 3))
+# MODULE-IDENTITY
 
-class LumPortCreateType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("implicit", 1), ("explicit", 2))
+lumTcMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4614, 1, 9)
+)
 
-class LumPortDemuxType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("none", 1), ("vlan", 2), ("mplsTag", 3), ("tdmChannel", 4))
 
-class LumPortDemuxId(TextualConvention, Unsigned32):
-    status = 'current'
-    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 65535)
+# Types definitions
 
-class LumConnectorType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))
-    namedValues = NamedValues(("none", 1), ("rj45", 2), ("scFiber", 3), ("miniCoax", 4), ("db9", 5), ("sjFiber", 6), ("stFiber", 7))
 
-class LumSignalState(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("idle", 1), ("active", 2))
+# TEXTUAL-CONVENTIONS
 
-class LumName(DisplayString):
-    status = 'current'
-    subtypeSpec = DisplayString.subtypeSpec + ValueSizeConstraint(1, 40)
 
-class LumDescr(DisplayString):
-    status = 'current'
-    subtypeSpec = DisplayString.subtypeSpec + ValueSizeConstraint(1, 80)
 
-class LumVersionString(DisplayString):
-    status = 'current'
-    subtypeSpec = DisplayString.subtypeSpec + ValueSizeConstraint(1, 20)
+class LumShelfType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("cSeries", 4),
+          ("mSeries", 1),
+          ("unused1", 2),
+          ("unused2", 3))
+    )
 
-class LumSerialNumString(DisplayString):
-    status = 'current'
-    subtypeSpec = DisplayString.subtypeSpec + ValueSizeConstraint(1, 21)
 
-class LumCleiString(DisplayString):
-    status = 'current'
-    subtypeSpec = DisplayString.subtypeSpec + ValueSizeConstraint(1, 17)
 
-class LumManufactureString(DisplayString):
-    status = 'current'
-    subtypeSpec = DisplayString.subtypeSpec + ValueSizeConstraint(1, 20)
+class LumChassisPlane(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("back", 2),
+          ("front", 1))
+    )
 
-class LumDateTimeString(DisplayString):
-    status = 'current'
-    subtypeSpec = DisplayString.subtypeSpec + ValueSizeConstraint(24, 24)
-    fixedLength = 24
 
-class LumCardBaseType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 22, 23, 28, 29, 32, 33, 34, 35, 36, 38))
-    namedValues = NamedValues(("none", 1), ("sysCon", 2), ("ring", 3), ("t1", 4), ("ether", 5), ("alarm", 6), ("upLink", 7), ("ringIO", 8), ("t1IO", 9), ("etherIO", 10), ("utility", 11), ("oc12", 12), ("oc12IO", 13), ("gigE", 14), ("gigEIO", 15), ("oc12IOAlarm", 16), ("etherFXIO", 17), ("wdm", 18), ("wdmIO", 19), ("ringIOLR", 21), ("ring2", 22), ("ring2IO", 23), ("ds3cc12", 28), ("ds3cc12IO", 29), ("ether24", 32), ("ether24IO", 33), ("asi", 34), ("asiIOIn", 35), ("asiIOOut", 36), ("present", 38))
 
-class LumCardType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40))
-    namedValues = NamedValues(("none", 1), ("sysCon", 2), ("ring", 3), ("t1", 4), ("ether", 5), ("alarm", 6), ("upLink", 7), ("ringIO", 8), ("t1IO", 9), ("etherIO", 10), ("utility", 11), ("oc12", 12), ("oc12IO", 13), ("gigE", 14), ("gigEIO", 15), ("oc12IOAlarm", 16), ("etherFXIO", 17), ("wdm", 18), ("wdmIO", 19), ("sysconR", 20), ("ringIOLR", 21), ("ring2", 22), ("ring2IO", 23), ("wdmBand1", 24), ("wdmBand2", 25), ("wdmBand3", 26), ("wdmBand4", 27), ("ds3cc12", 28), ("ds3cc12IO", 29), ("t3cc12", 30), ("e3cc12", 31), ("ether24", 32), ("ether24IO", 33), ("asi", 34), ("asiIOIn", 35), ("asiIOOut", 36), ("gigERouting", 37), ("present", 38), ("sysconU", 39), ("newCardType", 40))
+class LumSlotNum(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 32),
+    )
 
-class LumCardAdminState(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))
-    namedValues = NamedValues(("none", 1), ("active", 2), ("standby", 3), ("outOfService", 4), ("shutDown", 5), ("reset", 6), ("switchover", 7))
 
-class LumCardOperState(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))
-    namedValues = NamedValues(("none", 1), ("active", 2), ("standby", 3), ("outOfService", 4), ("failure", 5), ("down", 6), ("present", 7), ("initializing", 8))
 
-class LumCardFailureState(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("none", 1), ("criticalFault", 2), ("minorFault", 3), ("minorAlarm", 4))
+class LumPortNum(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 32),
+    )
 
-class LumOpticalWaveLength(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 65535)
 
-class LumOpticalFiberType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
-    namedValues = NamedValues(("unknown", 1), ("singleMode", 2), ("multiMode", 3))
 
-class LumOpticalMaxLength(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 1000000)
+class LumSimpleIndex(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
 
-class LumOpticalConnector(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
-    namedValues = NamedValues(("unknown", 1), ("sc", 2), ("lc", 3))
 
-class LumOpticalServiceSupport(TextualConvention, Bits):
-    status = 'current'
-    namedValues = NamedValues(("gigE1", 0), ("gigE2", 1), ("fiberChannel1", 2), ("fiberChannel2", 3), ("oc12", 4), ("oc24", 5), ("oc48", 6), ("rpt", 7), ("rptE2", 8), ("oc3", 9))
 
-class LumOpticalService(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))
-    namedValues = NamedValues(("none", 1), ("gigE1", 2), ("gigE2", 3), ("fiberChannel1", 4), ("fiberChannel2", 5), ("oc12", 6), ("oc24", 7), ("oc48", 8), ("rpt", 9), ("rptE2", 10), ("oc3", 11))
+class LumPercent(Unsigned32, TextualConvention):
+    status = "current"
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
 
-class LumTdmType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))
-    namedValues = NamedValues(("unknown", 1), ("t1", 2), ("e1", 3), ("t3", 4), ("e3", 5))
 
-class LumImageState(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))
-    namedValues = NamedValues(("empty", 1), ("trial", 2), ("tried", 3), ("accepted", 4), ("unknown", 5))
 
-class LumAlarmSeverity(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))
-    namedValues = NamedValues(("undefined", 1), ("critical", 2), ("major", 3), ("minor", 4), ("notAlarmed", 5), ("notReported", 6))
+class LumRingDirection(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("east", 3),
+          ("none", 1),
+          ("west", 2))
+    )
 
-class LumResetCmd(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("none", 1), ("reset", 2))
 
-mibBuilder.exportSymbols("LUMINOUS-TC-MIB", LumName=LumName, LumCardType=LumCardType, LumSerialNumString=LumSerialNumString, LumOperStatus=LumOperStatus, LumAdminStatus=LumAdminStatus, LumSignalState=LumSignalState, LumChassisPlane=LumChassisPlane, LumVersionString=LumVersionString, LumControl=LumControl, LumPortCreateType=LumPortCreateType, LumPortDemuxId=LumPortDemuxId, LumSimpleIndex=LumSimpleIndex, LumOpticalService=LumOpticalService, LumTdmType=LumTdmType, LumPercent=LumPercent, LumRingDirection=LumRingDirection, LumOpticalMaxLength=LumOpticalMaxLength, LumCleiString=LumCleiString, LumManufactureString=LumManufactureString, LumSlotNum=LumSlotNum, LumDateTimeString=LumDateTimeString, lumTcMIB=lumTcMIB, LumDescr=LumDescr, LumCardFailureState=LumCardFailureState, LumResetCmd=LumResetCmd, LumOpticalConnector=LumOpticalConnector, luminous=luminous, LumOpticalServiceSupport=LumOpticalServiceSupport, PYSNMP_MODULE_ID=lumTcMIB, LumShelfType=LumShelfType, LumConnectorType=LumConnectorType, LumCardBaseType=LumCardBaseType, LumAlarmSeverity=LumAlarmSeverity, lumADM=lumADM, LumPortNum=LumPortNum, LumOpticalFiberType=LumOpticalFiberType, LumCardAdminState=LumCardAdminState, LumServiceMode=LumServiceMode, LumOpticalWaveLength=LumOpticalWaveLength, LumPortType=LumPortType, LumImageState=LumImageState, LumPortDemuxType=LumPortDemuxType, LumCardOperState=LumCardOperState)
+
+class LumAdminStatus(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 2),
+          ("up", 1))
+    )
+
+
+
+class LumOperStatus(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dormant", 5),
+          ("down", 2),
+          ("lowerLayerDown", 7),
+          ("misMatch", 8),
+          ("notPresent", 6),
+          ("testing", 3),
+          ("unknown", 4),
+          ("up", 1))
+    )
+
+
+
+class LumControl(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 3),
+          ("unknown", 1))
+    )
+
+
+
+class LumServiceMode(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("policyForwarding", 4),
+          ("routing", 3),
+          ("wire", 2))
+    )
+
+
+
+class LumPortType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("physical", 2),
+          ("subPortDemux", 3))
+    )
+
+
+
+class LumPortCreateType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("explicit", 2),
+          ("implicit", 1))
+    )
+
+
+
+class LumPortDemuxType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("mplsTag", 3),
+          ("none", 1),
+          ("tdmChannel", 4),
+          ("vlan", 2))
+    )
+
+
+
+class LumPortDemuxId(Unsigned32, TextualConvention):
+    status = "current"
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+
+class LumConnectorType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("db9", 5),
+          ("miniCoax", 4),
+          ("none", 1),
+          ("rj45", 2),
+          ("scFiber", 3),
+          ("sjFiber", 6),
+          ("stFiber", 7))
+    )
+
+
+
+class LumSignalState(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 2),
+          ("idle", 1))
+    )
+
+
+
+class LumName(DisplayString, TextualConvention):
+    status = "current"
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 40),
+    )
+
+
+
+class LumDescr(DisplayString, TextualConvention):
+    status = "current"
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 80),
+    )
+
+
+
+class LumVersionString(DisplayString, TextualConvention):
+    status = "current"
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 20),
+    )
+
+
+
+class LumSerialNumString(DisplayString, TextualConvention):
+    status = "current"
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 21),
+    )
+
+
+
+class LumCleiString(DisplayString, TextualConvention):
+    status = "current"
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 17),
+    )
+
+
+
+class LumManufactureString(DisplayString, TextualConvention):
+    status = "current"
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 20),
+    )
+
+
+
+class LumDateTimeString(DisplayString, TextualConvention):
+    status = "current"
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(24, 24),
+    )
+
+
+
+class LumCardBaseType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              21,
+              22,
+              23,
+              28,
+              29,
+              32,
+              33,
+              34,
+              35,
+              36,
+              38)
+        )
+    )
+    namedValues = NamedValues(
+        *(("alarm", 6),
+          ("asi", 34),
+          ("asiIOIn", 35),
+          ("asiIOOut", 36),
+          ("ds3cc12", 28),
+          ("ds3cc12IO", 29),
+          ("ether", 5),
+          ("ether24", 32),
+          ("ether24IO", 33),
+          ("etherFXIO", 17),
+          ("etherIO", 10),
+          ("gigE", 14),
+          ("gigEIO", 15),
+          ("none", 1),
+          ("oc12", 12),
+          ("oc12IO", 13),
+          ("oc12IOAlarm", 16),
+          ("present", 38),
+          ("ring", 3),
+          ("ring2", 22),
+          ("ring2IO", 23),
+          ("ringIO", 8),
+          ("ringIOLR", 21),
+          ("sysCon", 2),
+          ("t1", 4),
+          ("t1IO", 9),
+          ("upLink", 7),
+          ("utility", 11),
+          ("wdm", 18),
+          ("wdmIO", 19))
+    )
+
+
+
+class LumCardType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40)
+        )
+    )
+    namedValues = NamedValues(
+        *(("alarm", 6),
+          ("asi", 34),
+          ("asiIOIn", 35),
+          ("asiIOOut", 36),
+          ("ds3cc12", 28),
+          ("ds3cc12IO", 29),
+          ("e3cc12", 31),
+          ("ether", 5),
+          ("ether24", 32),
+          ("ether24IO", 33),
+          ("etherFXIO", 17),
+          ("etherIO", 10),
+          ("gigE", 14),
+          ("gigEIO", 15),
+          ("gigERouting", 37),
+          ("newCardType", 40),
+          ("none", 1),
+          ("oc12", 12),
+          ("oc12IO", 13),
+          ("oc12IOAlarm", 16),
+          ("present", 38),
+          ("ring", 3),
+          ("ring2", 22),
+          ("ring2IO", 23),
+          ("ringIO", 8),
+          ("ringIOLR", 21),
+          ("sysCon", 2),
+          ("sysconR", 20),
+          ("sysconU", 39),
+          ("t1", 4),
+          ("t1IO", 9),
+          ("t3cc12", 30),
+          ("upLink", 7),
+          ("utility", 11),
+          ("wdm", 18),
+          ("wdmBand1", 24),
+          ("wdmBand2", 25),
+          ("wdmBand3", 26),
+          ("wdmBand4", 27),
+          ("wdmIO", 19))
+    )
+
+
+
+class LumCardAdminState(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 2),
+          ("none", 1),
+          ("outOfService", 4),
+          ("reset", 6),
+          ("shutDown", 5),
+          ("standby", 3),
+          ("switchover", 7))
+    )
+
+
+
+class LumCardOperState(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 2),
+          ("down", 6),
+          ("failure", 5),
+          ("initializing", 8),
+          ("none", 1),
+          ("outOfService", 4),
+          ("present", 7),
+          ("standby", 3))
+    )
+
+
+
+class LumCardFailureState(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("criticalFault", 2),
+          ("minorAlarm", 4),
+          ("minorFault", 3),
+          ("none", 1))
+    )
+
+
+
+class LumOpticalWaveLength(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+
+class LumOpticalFiberType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("multiMode", 3),
+          ("singleMode", 2),
+          ("unknown", 1))
+    )
+
+
+
+class LumOpticalMaxLength(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1000000),
+    )
+
+
+
+class LumOpticalConnector(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("lc", 3),
+          ("sc", 2),
+          ("unknown", 1))
+    )
+
+
+
+class LumOpticalServiceSupport(Bits, TextualConvention):
+    status = "current"
+
+
+class LumOpticalService(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11)
+        )
+    )
+    namedValues = NamedValues(
+        *(("fiberChannel1", 4),
+          ("fiberChannel2", 5),
+          ("gigE1", 2),
+          ("gigE2", 3),
+          ("none", 1),
+          ("oc12", 6),
+          ("oc24", 7),
+          ("oc3", 11),
+          ("oc48", 8),
+          ("rpt", 9),
+          ("rptE2", 10))
+    )
+
+
+
+class LumTdmType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("e1", 3),
+          ("e3", 5),
+          ("t1", 2),
+          ("t3", 4),
+          ("unknown", 1))
+    )
+
+
+
+class LumImageState(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("accepted", 4),
+          ("empty", 1),
+          ("trial", 2),
+          ("tried", 3),
+          ("unknown", 5))
+    )
+
+
+
+class LumAlarmSeverity(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("critical", 2),
+          ("major", 3),
+          ("minor", 4),
+          ("notAlarmed", 5),
+          ("notReported", 6),
+          ("undefined", 1))
+    )
+
+
+
+class LumResetCmd(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("reset", 2))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Luminous_ObjectIdentity = ObjectIdentity
+luminous = _Luminous_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4614)
+)
+_LumADM_ObjectIdentity = ObjectIdentity
+lumADM = _LumADM_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4614, 1)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "LUMINOUS-TC-MIB",
+    **{"LumShelfType": LumShelfType,
+       "LumChassisPlane": LumChassisPlane,
+       "LumSlotNum": LumSlotNum,
+       "LumPortNum": LumPortNum,
+       "LumSimpleIndex": LumSimpleIndex,
+       "LumPercent": LumPercent,
+       "LumRingDirection": LumRingDirection,
+       "LumAdminStatus": LumAdminStatus,
+       "LumOperStatus": LumOperStatus,
+       "LumControl": LumControl,
+       "LumServiceMode": LumServiceMode,
+       "LumPortType": LumPortType,
+       "LumPortCreateType": LumPortCreateType,
+       "LumPortDemuxType": LumPortDemuxType,
+       "LumPortDemuxId": LumPortDemuxId,
+       "LumConnectorType": LumConnectorType,
+       "LumSignalState": LumSignalState,
+       "LumName": LumName,
+       "LumDescr": LumDescr,
+       "LumVersionString": LumVersionString,
+       "LumSerialNumString": LumSerialNumString,
+       "LumCleiString": LumCleiString,
+       "LumManufactureString": LumManufactureString,
+       "LumDateTimeString": LumDateTimeString,
+       "LumCardBaseType": LumCardBaseType,
+       "LumCardType": LumCardType,
+       "LumCardAdminState": LumCardAdminState,
+       "LumCardOperState": LumCardOperState,
+       "LumCardFailureState": LumCardFailureState,
+       "LumOpticalWaveLength": LumOpticalWaveLength,
+       "LumOpticalFiberType": LumOpticalFiberType,
+       "LumOpticalMaxLength": LumOpticalMaxLength,
+       "LumOpticalConnector": LumOpticalConnector,
+       "LumOpticalServiceSupport": LumOpticalServiceSupport,
+       "LumOpticalService": LumOpticalService,
+       "LumTdmType": LumTdmType,
+       "LumImageState": LumImageState,
+       "LumAlarmSeverity": LumAlarmSeverity,
+       "LumResetCmd": LumResetCmd,
+       "luminous": luminous,
+       "lumADM": lumADM,
+       "lumTcMIB": lumTcMIB}
+)

@@ -1,50 +1,219 @@
+# SNMP MIB module (VMWARE-ESX-AGENTCAP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module VMWARE-ESX-AGENTCAP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/VMWARE-ESX-AGENTCAP-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 21:27:49 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint")
-ModuleCompliance, AgentCapabilities, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "AgentCapabilities", "NotificationGroup")
-TimeTicks, Bits, ModuleIdentity, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, IpAddress, Integer32, Gauge32, Counter64, ObjectIdentity, Unsigned32, Counter32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Bits", "ModuleIdentity", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "IpAddress", "Integer32", "Gauge32", "Counter64", "ObjectIdentity", "Unsigned32", "Counter32", "iso")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-vmwareAgentCapabilities, = mibBuilder.importSymbols("VMWARE-ROOT-MIB", "vmwareAgentCapabilities")
-vmwAgentCapabilityMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6876, 70, 1))
-vmwAgentCapabilityMIB.setRevisions(('2015-01-12 00:00', '2014-08-02 00:00', '2012-10-03 00:00', '2012-07-13 00:00', '2010-10-18 00:00', '2008-10-27 00:00',))
-if mibBuilder.loadTexts: vmwAgentCapabilityMIB.setLastUpdated('201501120000Z')
-if mibBuilder.loadTexts: vmwAgentCapabilityMIB.setOrganization('VMware, Inc')
-vmwEsxCapability = MibIdentifier((1, 3, 6, 1, 4, 1, 6876, 70, 1, 1))
-vmwESX60x = AgentCapabilities((1, 3, 6, 1, 4, 1, 6876, 70, 1, 1, 10))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwESX60x = vmwESX60x.setProductRelease('6.0.x')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwESX60x = vmwESX60x.setStatus('current')
-vmwESX55 = AgentCapabilities((1, 3, 6, 1, 4, 1, 6876, 70, 1, 1, 5))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwESX55 = vmwESX55.setProductRelease('5.5.x')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwESX55 = vmwESX55.setStatus('current')
-vmwESX51x = AgentCapabilities((1, 3, 6, 1, 4, 1, 6876, 70, 1, 1, 4))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwESX51x = vmwESX51x.setProductRelease('5.1.x')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwESX51x = vmwESX51x.setStatus('current')
-vmwESX50x = AgentCapabilities((1, 3, 6, 1, 4, 1, 6876, 70, 1, 1, 3))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwESX50x = vmwESX50x.setProductRelease('5.0.x')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwESX50x = vmwESX50x.setStatus('current')
-vmwESX41x = AgentCapabilities((1, 3, 6, 1, 4, 1, 6876, 70, 1, 1, 2))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwESX41x = vmwESX41x.setProductRelease('4.1.x')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwESX41x = vmwESX41x.setStatus('current')
-vmwESX40x = AgentCapabilities((1, 3, 6, 1, 4, 1, 6876, 70, 1, 1, 1))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwESX40x = vmwESX40x.setProductRelease('4.0.x')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwESX40x = vmwESX40x.setStatus('current')
-mibBuilder.exportSymbols("VMWARE-ESX-AGENTCAP-MIB", vmwESX40x=vmwESX40x, vmwESX50x=vmwESX50x, vmwESX51x=vmwESX51x, vmwEsxCapability=vmwEsxCapability, vmwAgentCapabilityMIB=vmwAgentCapabilityMIB, PYSNMP_MODULE_ID=vmwAgentCapabilityMIB, vmwESX41x=vmwESX41x, vmwESX60x=vmwESX60x, vmwESX55=vmwESX55)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/VMWARE-ESX-AGENTCAP-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:12:49 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(AgentCapabilities,
+ ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "AgentCapabilities",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+(vmwareAgentCapabilities,) = mibBuilder.importSymbols(
+    "VMWARE-ROOT-MIB",
+    "vmwareAgentCapabilities")
+
+
+# MODULE-IDENTITY
+
+vmwAgentCapabilityMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 6876, 70, 1)
+)
+vmwAgentCapabilityMIB.setRevisions(
+        ("2015-01-12 00:00",
+         "2014-08-02 00:00",
+         "2012-10-03 00:00",
+         "2012-07-13 00:00",
+         "2010-10-18 00:00",
+         "2008-10-27 00:00")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_VmwEsxCapability_ObjectIdentity = ObjectIdentity
+vmwEsxCapability = _VmwEsxCapability_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6876, 70, 1, 1)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+vmwESX40x = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 6876, 70, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    vmwESX40x.setProductRelease("4.0.x")
+if mibBuilder.loadTexts:
+    vmwESX40x.setStatus(
+        "current"
+    )
+
+vmwESX41x = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 6876, 70, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    vmwESX41x.setProductRelease("4.1.x")
+if mibBuilder.loadTexts:
+    vmwESX41x.setStatus(
+        "current"
+    )
+
+vmwESX50x = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 6876, 70, 1, 1, 3)
+)
+if mibBuilder.loadTexts:
+    vmwESX50x.setProductRelease("5.0.x")
+if mibBuilder.loadTexts:
+    vmwESX50x.setStatus(
+        "current"
+    )
+
+vmwESX51x = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 6876, 70, 1, 1, 4)
+)
+if mibBuilder.loadTexts:
+    vmwESX51x.setProductRelease("5.1.x")
+if mibBuilder.loadTexts:
+    vmwESX51x.setStatus(
+        "current"
+    )
+
+vmwESX55 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 6876, 70, 1, 1, 5)
+)
+if mibBuilder.loadTexts:
+    vmwESX55.setProductRelease("5.5.x")
+if mibBuilder.loadTexts:
+    vmwESX55.setStatus(
+        "current"
+    )
+
+vmwESX60x = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 6876, 70, 1, 1, 10)
+)
+if mibBuilder.loadTexts:
+    vmwESX60x.setProductRelease("6.0.x")
+if mibBuilder.loadTexts:
+    vmwESX60x.setStatus(
+        "current"
+    )
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "VMWARE-ESX-AGENTCAP-MIB",
+    **{"vmwAgentCapabilityMIB": vmwAgentCapabilityMIB,
+       "vmwEsxCapability": vmwEsxCapability,
+       "vmwESX40x": vmwESX40x,
+       "vmwESX41x": vmwESX41x,
+       "vmwESX50x": vmwESX50x,
+       "vmwESX51x": vmwESX51x,
+       "vmwESX55": vmwESX55,
+       "vmwESX60x": vmwESX60x}
+)

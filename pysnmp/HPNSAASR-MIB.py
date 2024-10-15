@@ -1,34 +1,261 @@
+# SNMP MIB module (HPNSAASR-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HPNSAASR-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/HPNSAASR-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:30:02 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Bits, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Gauge32, ModuleIdentity, Integer32, Counter64, ObjectIdentity, iso, Unsigned32, Counter32, IpAddress, MibIdentifier, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Gauge32", "ModuleIdentity", "Integer32", "Counter64", "ObjectIdentity", "iso", "Unsigned32", "Counter32", "IpAddress", "MibIdentifier", "enterprises")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-hp = MibIdentifier((1, 3, 6, 1, 4, 1, 11))
-nm = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2))
-hpnsa = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 23))
-hpnsaASR = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 23, 25))
-hpnsaASRMibRev = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 23, 25, 1))
-hpnsaASRParms = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 23, 25, 2))
-hpnsaASRMibRevMajor = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 23, 25, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnsaASRMibRevMajor.setStatus('mandatory')
-hpnsaASRMibRevMinor = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 23, 25, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnsaASRMibRevMinor.setStatus('mandatory')
-hpnsaASRMaxConsecutiveASR = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 23, 25, 2, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnsaASRMaxConsecutiveASR.setStatus('mandatory')
-hpnsaASRCurrentConsecutiveASR = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 23, 25, 2, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnsaASRCurrentConsecutiveASR.setStatus('mandatory')
-hpnsaASRTimeOutInterval = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 23, 25, 2, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnsaASRTimeOutInterval.setStatus('mandatory')
-hpnsaASRKickInterval = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 23, 25, 2, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnsaASRKickInterval.setStatus('mandatory')
-hpnsaASRTimeoutAction = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 23, 25, 2, 5), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnsaASRTimeoutAction.setStatus('mandatory')
-mibBuilder.exportSymbols("HPNSAASR-MIB", hpnsaASRParms=hpnsaASRParms, hpnsaASRMibRevMinor=hpnsaASRMibRevMinor, hpnsaASRTimeOutInterval=hpnsaASRTimeOutInterval, hpnsaASRKickInterval=hpnsaASRKickInterval, hpnsaASRMaxConsecutiveASR=hpnsaASRMaxConsecutiveASR, hpnsaASRTimeoutAction=hpnsaASRTimeoutAction, hp=hp, hpnsaASRCurrentConsecutiveASR=hpnsaASRCurrentConsecutiveASR, nm=nm, hpnsaASRMibRev=hpnsaASRMibRev, hpnsaASRMibRevMajor=hpnsaASRMibRevMajor, hpnsa=hpnsa, hpnsaASR=hpnsaASR)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HPNSAASR-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:02:18 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Hp_ObjectIdentity = ObjectIdentity
+hp = _Hp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11)
+)
+_Nm_ObjectIdentity = ObjectIdentity
+nm = _Nm_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2)
+)
+_Hpnsa_ObjectIdentity = ObjectIdentity
+hpnsa = _Hpnsa_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 23)
+)
+_HpnsaASR_ObjectIdentity = ObjectIdentity
+hpnsaASR = _HpnsaASR_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 23, 25)
+)
+_HpnsaASRMibRev_ObjectIdentity = ObjectIdentity
+hpnsaASRMibRev = _HpnsaASRMibRev_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 23, 25, 1)
+)
+
+
+class _HpnsaASRMibRevMajor_Type(Integer32):
+    """Custom type hpnsaASRMibRevMajor based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_HpnsaASRMibRevMajor_Type.__name__ = "Integer32"
+_HpnsaASRMibRevMajor_Object = MibScalar
+hpnsaASRMibRevMajor = _HpnsaASRMibRevMajor_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 23, 25, 1, 1),
+    _HpnsaASRMibRevMajor_Type()
+)
+hpnsaASRMibRevMajor.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnsaASRMibRevMajor.setStatus("mandatory")
+
+
+class _HpnsaASRMibRevMinor_Type(Integer32):
+    """Custom type hpnsaASRMibRevMinor based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_HpnsaASRMibRevMinor_Type.__name__ = "Integer32"
+_HpnsaASRMibRevMinor_Object = MibScalar
+hpnsaASRMibRevMinor = _HpnsaASRMibRevMinor_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 23, 25, 1, 2),
+    _HpnsaASRMibRevMinor_Type()
+)
+hpnsaASRMibRevMinor.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnsaASRMibRevMinor.setStatus("mandatory")
+_HpnsaASRParms_ObjectIdentity = ObjectIdentity
+hpnsaASRParms = _HpnsaASRParms_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 23, 25, 2)
+)
+
+
+class _HpnsaASRMaxConsecutiveASR_Type(Integer32):
+    """Custom type hpnsaASRMaxConsecutiveASR based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 10),
+    )
+
+
+_HpnsaASRMaxConsecutiveASR_Type.__name__ = "Integer32"
+_HpnsaASRMaxConsecutiveASR_Object = MibScalar
+hpnsaASRMaxConsecutiveASR = _HpnsaASRMaxConsecutiveASR_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 23, 25, 2, 1),
+    _HpnsaASRMaxConsecutiveASR_Type()
+)
+hpnsaASRMaxConsecutiveASR.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnsaASRMaxConsecutiveASR.setStatus("mandatory")
+_HpnsaASRCurrentConsecutiveASR_Type = Integer32
+_HpnsaASRCurrentConsecutiveASR_Object = MibScalar
+hpnsaASRCurrentConsecutiveASR = _HpnsaASRCurrentConsecutiveASR_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 23, 25, 2, 2),
+    _HpnsaASRCurrentConsecutiveASR_Type()
+)
+hpnsaASRCurrentConsecutiveASR.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnsaASRCurrentConsecutiveASR.setStatus("mandatory")
+_HpnsaASRTimeOutInterval_Type = Integer32
+_HpnsaASRTimeOutInterval_Object = MibScalar
+hpnsaASRTimeOutInterval = _HpnsaASRTimeOutInterval_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 23, 25, 2, 3),
+    _HpnsaASRTimeOutInterval_Type()
+)
+hpnsaASRTimeOutInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnsaASRTimeOutInterval.setStatus("mandatory")
+_HpnsaASRKickInterval_Type = Integer32
+_HpnsaASRKickInterval_Object = MibScalar
+hpnsaASRKickInterval = _HpnsaASRKickInterval_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 23, 25, 2, 4),
+    _HpnsaASRKickInterval_Type()
+)
+hpnsaASRKickInterval.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnsaASRKickInterval.setStatus("mandatory")
+_HpnsaASRTimeoutAction_Type = DisplayString
+_HpnsaASRTimeoutAction_Object = MibScalar
+hpnsaASRTimeoutAction = _HpnsaASRTimeoutAction_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 23, 25, 2, 5),
+    _HpnsaASRTimeoutAction_Type()
+)
+hpnsaASRTimeoutAction.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnsaASRTimeoutAction.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HPNSAASR-MIB",
+    **{"hp": hp,
+       "nm": nm,
+       "hpnsa": hpnsa,
+       "hpnsaASR": hpnsaASR,
+       "hpnsaASRMibRev": hpnsaASRMibRev,
+       "hpnsaASRMibRevMajor": hpnsaASRMibRevMajor,
+       "hpnsaASRMibRevMinor": hpnsaASRMibRevMinor,
+       "hpnsaASRParms": hpnsaASRParms,
+       "hpnsaASRMaxConsecutiveASR": hpnsaASRMaxConsecutiveASR,
+       "hpnsaASRCurrentConsecutiveASR": hpnsaASRCurrentConsecutiveASR,
+       "hpnsaASRTimeOutInterval": hpnsaASRTimeOutInterval,
+       "hpnsaASRKickInterval": hpnsaASRKickInterval,
+       "hpnsaASRTimeoutAction": hpnsaASRTimeoutAction}
+)

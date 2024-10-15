@@ -1,48 +1,262 @@
+# SNMP MIB module (CISCO-VLAN-BRIDGING-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-VLAN-BRIDGING-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/CISCO-VLAN-BRIDGING-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:02:27 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection")
-ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-CiscoPortList, = mibBuilder.importSymbols("CISCO-TC", "CiscoPortList")
-vtpVlanIndex, = mibBuilder.importSymbols("CISCO-VTP-MIB", "vtpVlanIndex")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-TimeTicks, Bits, ModuleIdentity, Counter64, Counter32, IpAddress, MibIdentifier, iso, Gauge32, Integer32, ObjectIdentity, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Bits", "ModuleIdentity", "Counter64", "Counter32", "IpAddress", "MibIdentifier", "iso", "Gauge32", "Integer32", "ObjectIdentity", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-ciscoVlanBridgingMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 56))
-ciscoVlanBridgingMIB.setRevisions(('2003-08-22 00:00', '1996-09-12 00:00',))
-if mibBuilder.loadTexts: ciscoVlanBridgingMIB.setLastUpdated('200308220000Z')
-if mibBuilder.loadTexts: ciscoVlanBridgingMIB.setOrganization('Cisco Systems, Inc.')
-ciscoVlanBridgingMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 56, 1))
-cvbStp = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 56, 1, 1))
-cvbStpTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 56, 1, 1, 1), )
-if mibBuilder.loadTexts: cvbStpTable.setStatus('current')
-cvbStpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 56, 1, 1, 1, 1), ).setIndexNames((0, "CISCO-VTP-MIB", "vtpVlanIndex"))
-if mibBuilder.loadTexts: cvbStpEntry.setStatus('current')
-cvbStpForwardingMap = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 56, 1, 1, 1, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cvbStpForwardingMap.setStatus('deprecated')
-cvbStpForwardingMap2k = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 56, 1, 1, 1, 1, 3), CiscoPortList()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cvbStpForwardingMap2k.setStatus('current')
-ciscoVlanBridgingMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 56, 3))
-ciscoVlanBridgingMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 56, 3, 1))
-ciscoVlanBridgingMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 56, 3, 2))
-ciscoVlanBridgingMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 56, 3, 1, 1)).setObjects(("CISCO-VLAN-BRIDGING-MIB", "ciscoVlanBridgingMIBGroup"))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CISCO-VLAN-BRIDGING-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:12:02 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoVlanBridgingMIBCompliance = ciscoVlanBridgingMIBCompliance.setStatus('deprecated')
-ciscoVlanBridgingMIBCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 56, 3, 1, 2)).setObjects(("CISCO-VLAN-BRIDGING-MIB", "ciscoVlanBridgingMIBGroup2"))
+if 'mibBuilder' not in globals():
+    import sys
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoVlanBridgingMIBCompliance2 = ciscoVlanBridgingMIBCompliance2.setStatus('current')
-ciscoVlanBridgingMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 56, 3, 2, 1)).setObjects(("CISCO-VLAN-BRIDGING-MIB", "cvbStpForwardingMap"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoVlanBridgingMIBGroup = ciscoVlanBridgingMIBGroup.setStatus('deprecated')
-ciscoVlanBridgingMIBGroup2 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 56, 3, 2, 2)).setObjects(("CISCO-VLAN-BRIDGING-MIB", "cvbStpForwardingMap2k"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoVlanBridgingMIBGroup2 = ciscoVlanBridgingMIBGroup2.setStatus('current')
-mibBuilder.exportSymbols("CISCO-VLAN-BRIDGING-MIB", PYSNMP_MODULE_ID=ciscoVlanBridgingMIB, ciscoVlanBridgingMIB=ciscoVlanBridgingMIB, cvbStp=cvbStp, ciscoVlanBridgingMIBCompliance=ciscoVlanBridgingMIBCompliance, ciscoVlanBridgingMIBConformance=ciscoVlanBridgingMIBConformance, cvbStpForwardingMap2k=cvbStpForwardingMap2k, ciscoVlanBridgingMIBCompliance2=ciscoVlanBridgingMIBCompliance2, ciscoVlanBridgingMIBGroup2=ciscoVlanBridgingMIBGroup2, cvbStpEntry=cvbStpEntry, cvbStpForwardingMap=cvbStpForwardingMap, ciscoVlanBridgingMIBGroup=ciscoVlanBridgingMIBGroup, ciscoVlanBridgingMIBCompliances=ciscoVlanBridgingMIBCompliances, cvbStpTable=cvbStpTable, ciscoVlanBridgingMIBGroups=ciscoVlanBridgingMIBGroups, ciscoVlanBridgingMIBObjects=ciscoVlanBridgingMIBObjects)
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ciscoMgmt,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoMgmt")
+
+(CiscoPortList,) = mibBuilder.importSymbols(
+    "CISCO-TC",
+    "CiscoPortList")
+
+(vtpVlanIndex,) = mibBuilder.importSymbols(
+    "CISCO-VTP-MIB",
+    "vtpVlanIndex")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+ciscoVlanBridgingMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 56)
+)
+ciscoVlanBridgingMIB.setRevisions(
+        ("2003-08-22 00:00",
+         "1996-09-12 00:00")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CiscoVlanBridgingMIBObjects_ObjectIdentity = ObjectIdentity
+ciscoVlanBridgingMIBObjects = _CiscoVlanBridgingMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 56, 1)
+)
+_CvbStp_ObjectIdentity = ObjectIdentity
+cvbStp = _CvbStp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 56, 1, 1)
+)
+_CvbStpTable_Object = MibTable
+cvbStpTable = _CvbStpTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 56, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    cvbStpTable.setStatus("current")
+_CvbStpEntry_Object = MibTableRow
+cvbStpEntry = _CvbStpEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 56, 1, 1, 1, 1)
+)
+cvbStpEntry.setIndexNames(
+    (0, "CISCO-VTP-MIB", "vtpVlanIndex"),
+)
+if mibBuilder.loadTexts:
+    cvbStpEntry.setStatus("current")
+
+
+class _CvbStpForwardingMap_Type(OctetString):
+    """Custom type cvbStpForwardingMap based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 128),
+    )
+
+
+_CvbStpForwardingMap_Type.__name__ = "OctetString"
+_CvbStpForwardingMap_Object = MibTableColumn
+cvbStpForwardingMap = _CvbStpForwardingMap_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 56, 1, 1, 1, 1, 2),
+    _CvbStpForwardingMap_Type()
+)
+cvbStpForwardingMap.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cvbStpForwardingMap.setStatus("deprecated")
+_CvbStpForwardingMap2k_Type = CiscoPortList
+_CvbStpForwardingMap2k_Object = MibTableColumn
+cvbStpForwardingMap2k = _CvbStpForwardingMap2k_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 56, 1, 1, 1, 1, 3),
+    _CvbStpForwardingMap2k_Type()
+)
+cvbStpForwardingMap2k.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cvbStpForwardingMap2k.setStatus("current")
+_CiscoVlanBridgingMIBConformance_ObjectIdentity = ObjectIdentity
+ciscoVlanBridgingMIBConformance = _CiscoVlanBridgingMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 56, 3)
+)
+_CiscoVlanBridgingMIBCompliances_ObjectIdentity = ObjectIdentity
+ciscoVlanBridgingMIBCompliances = _CiscoVlanBridgingMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 56, 3, 1)
+)
+_CiscoVlanBridgingMIBGroups_ObjectIdentity = ObjectIdentity
+ciscoVlanBridgingMIBGroups = _CiscoVlanBridgingMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 56, 3, 2)
+)
+
+# Managed Objects groups
+
+ciscoVlanBridgingMIBGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 56, 3, 2, 1)
+)
+ciscoVlanBridgingMIBGroup.setObjects(
+    ("CISCO-VLAN-BRIDGING-MIB", "cvbStpForwardingMap")
+)
+if mibBuilder.loadTexts:
+    ciscoVlanBridgingMIBGroup.setStatus("deprecated")
+
+ciscoVlanBridgingMIBGroup2 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 56, 3, 2, 2)
+)
+ciscoVlanBridgingMIBGroup2.setObjects(
+    ("CISCO-VLAN-BRIDGING-MIB", "cvbStpForwardingMap2k")
+)
+if mibBuilder.loadTexts:
+    ciscoVlanBridgingMIBGroup2.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+ciscoVlanBridgingMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 56, 3, 1, 1)
+)
+if mibBuilder.loadTexts:
+    ciscoVlanBridgingMIBCompliance.setStatus(
+        "deprecated"
+    )
+
+ciscoVlanBridgingMIBCompliance2 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 56, 3, 1, 2)
+)
+if mibBuilder.loadTexts:
+    ciscoVlanBridgingMIBCompliance2.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-VLAN-BRIDGING-MIB",
+    **{"ciscoVlanBridgingMIB": ciscoVlanBridgingMIB,
+       "ciscoVlanBridgingMIBObjects": ciscoVlanBridgingMIBObjects,
+       "cvbStp": cvbStp,
+       "cvbStpTable": cvbStpTable,
+       "cvbStpEntry": cvbStpEntry,
+       "cvbStpForwardingMap": cvbStpForwardingMap,
+       "cvbStpForwardingMap2k": cvbStpForwardingMap2k,
+       "ciscoVlanBridgingMIBConformance": ciscoVlanBridgingMIBConformance,
+       "ciscoVlanBridgingMIBCompliances": ciscoVlanBridgingMIBCompliances,
+       "ciscoVlanBridgingMIBCompliance": ciscoVlanBridgingMIBCompliance,
+       "ciscoVlanBridgingMIBCompliance2": ciscoVlanBridgingMIBCompliance2,
+       "ciscoVlanBridgingMIBGroups": ciscoVlanBridgingMIBGroups,
+       "ciscoVlanBridgingMIBGroup": ciscoVlanBridgingMIBGroup,
+       "ciscoVlanBridgingMIBGroup2": ciscoVlanBridgingMIBGroup2}
+)

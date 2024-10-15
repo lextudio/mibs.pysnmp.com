@@ -1,49 +1,311 @@
+# SNMP MIB module (CISCO-UNIFIED-COMPUTING-ISCSI-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-UNIFIED-COMPUTING-ISCSI-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/CISCO-UNIFIED-COMPUTING-ISCSI-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:00:03 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint")
-ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-CiscoAlarmSeverity, TimeIntervalSec, CiscoInetAddressMask, Unsigned64, CiscoNetworkAddress = mibBuilder.importSymbols("CISCO-TC", "CiscoAlarmSeverity", "TimeIntervalSec", "CiscoInetAddressMask", "Unsigned64", "CiscoNetworkAddress")
-CucsManagedObjectDn, ciscoUnifiedComputingMIBObjects, CucsManagedObjectId = mibBuilder.importSymbols("CISCO-UNIFIED-COMPUTING-MIB", "CucsManagedObjectDn", "ciscoUnifiedComputingMIBObjects", "CucsManagedObjectId")
-CucsPolicyPolicyOwner, = mibBuilder.importSymbols("CISCO-UNIFIED-COMPUTING-TC-MIB", "CucsPolicyPolicyOwner")
-InetAddressIPv4, InetAddressIPv6 = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressIPv4", "InetAddressIPv6")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, ObjectIdentity, Gauge32, TimeTicks, Counter32, NotificationType, Counter64, Bits, Unsigned32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, ModuleIdentity, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "ObjectIdentity", "Gauge32", "TimeTicks", "Counter32", "NotificationType", "Counter64", "Bits", "Unsigned32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "ModuleIdentity", "Integer32")
-TimeStamp, MacAddress, DateAndTime, RowPointer, TextualConvention, TruthValue, TimeInterval, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "MacAddress", "DateAndTime", "RowPointer", "TextualConvention", "TruthValue", "TimeInterval", "DisplayString")
-cucsIscsiObjects = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 60))
-if mibBuilder.loadTexts: cucsIscsiObjects.setLastUpdated('201601180000Z')
-if mibBuilder.loadTexts: cucsIscsiObjects.setOrganization('Cisco Systems Inc.')
-cucsIscsiAuthProfileTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 60, 1), )
-if mibBuilder.loadTexts: cucsIscsiAuthProfileTable.setStatus('current')
-cucsIscsiAuthProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 60, 1, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-ISCSI-MIB", "cucsIscsiAuthProfileInstanceId"))
-if mibBuilder.loadTexts: cucsIscsiAuthProfileEntry.setStatus('current')
-cucsIscsiAuthProfileInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 60, 1, 1, 1), CucsManagedObjectId())
-if mibBuilder.loadTexts: cucsIscsiAuthProfileInstanceId.setStatus('current')
-cucsIscsiAuthProfileDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 60, 1, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsIscsiAuthProfileDn.setStatus('current')
-cucsIscsiAuthProfileRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 60, 1, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsIscsiAuthProfileRn.setStatus('current')
-cucsIscsiAuthProfileDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 60, 1, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsIscsiAuthProfileDescr.setStatus('current')
-cucsIscsiAuthProfileIntId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 60, 1, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsIscsiAuthProfileIntId.setStatus('current')
-cucsIscsiAuthProfileName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 60, 1, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsIscsiAuthProfileName.setStatus('current')
-cucsIscsiAuthProfilePassword = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 60, 1, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsIscsiAuthProfilePassword.setStatus('current')
-cucsIscsiAuthProfileUserId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 60, 1, 1, 8), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsIscsiAuthProfileUserId.setStatus('current')
-cucsIscsiAuthProfileCtpassword = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 60, 1, 1, 9), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsIscsiAuthProfileCtpassword.setStatus('current')
-cucsIscsiAuthProfilePolicyLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 60, 1, 1, 10), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsIscsiAuthProfilePolicyLevel.setStatus('current')
-cucsIscsiAuthProfilePolicyOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 60, 1, 1, 11), CucsPolicyPolicyOwner()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsIscsiAuthProfilePolicyOwner.setStatus('current')
-mibBuilder.exportSymbols("CISCO-UNIFIED-COMPUTING-ISCSI-MIB", cucsIscsiAuthProfilePolicyOwner=cucsIscsiAuthProfilePolicyOwner, cucsIscsiAuthProfileCtpassword=cucsIscsiAuthProfileCtpassword, cucsIscsiAuthProfileName=cucsIscsiAuthProfileName, cucsIscsiAuthProfilePassword=cucsIscsiAuthProfilePassword, cucsIscsiAuthProfileTable=cucsIscsiAuthProfileTable, cucsIscsiObjects=cucsIscsiObjects, cucsIscsiAuthProfileUserId=cucsIscsiAuthProfileUserId, PYSNMP_MODULE_ID=cucsIscsiObjects, cucsIscsiAuthProfileInstanceId=cucsIscsiAuthProfileInstanceId, cucsIscsiAuthProfileDn=cucsIscsiAuthProfileDn, cucsIscsiAuthProfileDescr=cucsIscsiAuthProfileDescr, cucsIscsiAuthProfileRn=cucsIscsiAuthProfileRn, cucsIscsiAuthProfileIntId=cucsIscsiAuthProfileIntId, cucsIscsiAuthProfileEntry=cucsIscsiAuthProfileEntry, cucsIscsiAuthProfilePolicyLevel=cucsIscsiAuthProfilePolicyLevel)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CISCO-UNIFIED-COMPUTING-ISCSI-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:10:48 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ciscoMgmt,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoMgmt")
+
+(CiscoAlarmSeverity,
+ CiscoInetAddressMask,
+ CiscoNetworkAddress,
+ TimeIntervalSec,
+ Unsigned64) = mibBuilder.importSymbols(
+    "CISCO-TC",
+    "CiscoAlarmSeverity",
+    "CiscoInetAddressMask",
+    "CiscoNetworkAddress",
+    "TimeIntervalSec",
+    "Unsigned64")
+
+(CucsManagedObjectDn,
+ CucsManagedObjectId,
+ ciscoUnifiedComputingMIBObjects) = mibBuilder.importSymbols(
+    "CISCO-UNIFIED-COMPUTING-MIB",
+    "CucsManagedObjectDn",
+    "CucsManagedObjectId",
+    "ciscoUnifiedComputingMIBObjects")
+
+(CucsPolicyPolicyOwner,) = mibBuilder.importSymbols(
+    "CISCO-UNIFIED-COMPUTING-TC-MIB",
+    "CucsPolicyPolicyOwner")
+
+(InetAddressIPv4,
+ InetAddressIPv6) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddressIPv4",
+    "InetAddressIPv6")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ MacAddress,
+ RowPointer,
+ TextualConvention,
+ TimeInterval,
+ TimeStamp,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "MacAddress",
+    "RowPointer",
+    "TextualConvention",
+    "TimeInterval",
+    "TimeStamp",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+cucsIscsiObjects = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 60)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CucsIscsiAuthProfileTable_Object = MibTable
+cucsIscsiAuthProfileTable = _CucsIscsiAuthProfileTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 60, 1)
+)
+if mibBuilder.loadTexts:
+    cucsIscsiAuthProfileTable.setStatus("current")
+_CucsIscsiAuthProfileEntry_Object = MibTableRow
+cucsIscsiAuthProfileEntry = _CucsIscsiAuthProfileEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 60, 1, 1)
+)
+cucsIscsiAuthProfileEntry.setIndexNames(
+    (0, "CISCO-UNIFIED-COMPUTING-ISCSI-MIB", "cucsIscsiAuthProfileInstanceId"),
+)
+if mibBuilder.loadTexts:
+    cucsIscsiAuthProfileEntry.setStatus("current")
+_CucsIscsiAuthProfileInstanceId_Type = CucsManagedObjectId
+_CucsIscsiAuthProfileInstanceId_Object = MibTableColumn
+cucsIscsiAuthProfileInstanceId = _CucsIscsiAuthProfileInstanceId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 60, 1, 1, 1),
+    _CucsIscsiAuthProfileInstanceId_Type()
+)
+cucsIscsiAuthProfileInstanceId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cucsIscsiAuthProfileInstanceId.setStatus("current")
+_CucsIscsiAuthProfileDn_Type = CucsManagedObjectDn
+_CucsIscsiAuthProfileDn_Object = MibTableColumn
+cucsIscsiAuthProfileDn = _CucsIscsiAuthProfileDn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 60, 1, 1, 2),
+    _CucsIscsiAuthProfileDn_Type()
+)
+cucsIscsiAuthProfileDn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsIscsiAuthProfileDn.setStatus("current")
+_CucsIscsiAuthProfileRn_Type = SnmpAdminString
+_CucsIscsiAuthProfileRn_Object = MibTableColumn
+cucsIscsiAuthProfileRn = _CucsIscsiAuthProfileRn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 60, 1, 1, 3),
+    _CucsIscsiAuthProfileRn_Type()
+)
+cucsIscsiAuthProfileRn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsIscsiAuthProfileRn.setStatus("current")
+_CucsIscsiAuthProfileDescr_Type = SnmpAdminString
+_CucsIscsiAuthProfileDescr_Object = MibTableColumn
+cucsIscsiAuthProfileDescr = _CucsIscsiAuthProfileDescr_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 60, 1, 1, 4),
+    _CucsIscsiAuthProfileDescr_Type()
+)
+cucsIscsiAuthProfileDescr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsIscsiAuthProfileDescr.setStatus("current")
+_CucsIscsiAuthProfileIntId_Type = SnmpAdminString
+_CucsIscsiAuthProfileIntId_Object = MibTableColumn
+cucsIscsiAuthProfileIntId = _CucsIscsiAuthProfileIntId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 60, 1, 1, 5),
+    _CucsIscsiAuthProfileIntId_Type()
+)
+cucsIscsiAuthProfileIntId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsIscsiAuthProfileIntId.setStatus("current")
+_CucsIscsiAuthProfileName_Type = SnmpAdminString
+_CucsIscsiAuthProfileName_Object = MibTableColumn
+cucsIscsiAuthProfileName = _CucsIscsiAuthProfileName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 60, 1, 1, 6),
+    _CucsIscsiAuthProfileName_Type()
+)
+cucsIscsiAuthProfileName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsIscsiAuthProfileName.setStatus("current")
+_CucsIscsiAuthProfilePassword_Type = SnmpAdminString
+_CucsIscsiAuthProfilePassword_Object = MibTableColumn
+cucsIscsiAuthProfilePassword = _CucsIscsiAuthProfilePassword_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 60, 1, 1, 7),
+    _CucsIscsiAuthProfilePassword_Type()
+)
+cucsIscsiAuthProfilePassword.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsIscsiAuthProfilePassword.setStatus("current")
+_CucsIscsiAuthProfileUserId_Type = SnmpAdminString
+_CucsIscsiAuthProfileUserId_Object = MibTableColumn
+cucsIscsiAuthProfileUserId = _CucsIscsiAuthProfileUserId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 60, 1, 1, 8),
+    _CucsIscsiAuthProfileUserId_Type()
+)
+cucsIscsiAuthProfileUserId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsIscsiAuthProfileUserId.setStatus("current")
+_CucsIscsiAuthProfileCtpassword_Type = SnmpAdminString
+_CucsIscsiAuthProfileCtpassword_Object = MibTableColumn
+cucsIscsiAuthProfileCtpassword = _CucsIscsiAuthProfileCtpassword_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 60, 1, 1, 9),
+    _CucsIscsiAuthProfileCtpassword_Type()
+)
+cucsIscsiAuthProfileCtpassword.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsIscsiAuthProfileCtpassword.setStatus("current")
+_CucsIscsiAuthProfilePolicyLevel_Type = Gauge32
+_CucsIscsiAuthProfilePolicyLevel_Object = MibTableColumn
+cucsIscsiAuthProfilePolicyLevel = _CucsIscsiAuthProfilePolicyLevel_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 60, 1, 1, 10),
+    _CucsIscsiAuthProfilePolicyLevel_Type()
+)
+cucsIscsiAuthProfilePolicyLevel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsIscsiAuthProfilePolicyLevel.setStatus("current")
+_CucsIscsiAuthProfilePolicyOwner_Type = CucsPolicyPolicyOwner
+_CucsIscsiAuthProfilePolicyOwner_Object = MibTableColumn
+cucsIscsiAuthProfilePolicyOwner = _CucsIscsiAuthProfilePolicyOwner_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 60, 1, 1, 11),
+    _CucsIscsiAuthProfilePolicyOwner_Type()
+)
+cucsIscsiAuthProfilePolicyOwner.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsIscsiAuthProfilePolicyOwner.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-UNIFIED-COMPUTING-ISCSI-MIB",
+    **{"cucsIscsiObjects": cucsIscsiObjects,
+       "cucsIscsiAuthProfileTable": cucsIscsiAuthProfileTable,
+       "cucsIscsiAuthProfileEntry": cucsIscsiAuthProfileEntry,
+       "cucsIscsiAuthProfileInstanceId": cucsIscsiAuthProfileInstanceId,
+       "cucsIscsiAuthProfileDn": cucsIscsiAuthProfileDn,
+       "cucsIscsiAuthProfileRn": cucsIscsiAuthProfileRn,
+       "cucsIscsiAuthProfileDescr": cucsIscsiAuthProfileDescr,
+       "cucsIscsiAuthProfileIntId": cucsIscsiAuthProfileIntId,
+       "cucsIscsiAuthProfileName": cucsIscsiAuthProfileName,
+       "cucsIscsiAuthProfilePassword": cucsIscsiAuthProfilePassword,
+       "cucsIscsiAuthProfileUserId": cucsIscsiAuthProfileUserId,
+       "cucsIscsiAuthProfileCtpassword": cucsIscsiAuthProfileCtpassword,
+       "cucsIscsiAuthProfilePolicyLevel": cucsIscsiAuthProfilePolicyLevel,
+       "cucsIscsiAuthProfilePolicyOwner": cucsIscsiAuthProfilePolicyOwner}
+)

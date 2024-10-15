@@ -1,84 +1,444 @@
+# SNMP MIB module (MARVELL-UDLD-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module MARVELL-UDLD-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/MARVELL-UDLD-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:00:12 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
-InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-rndNotifications, rnd = mibBuilder.importSymbols("RADLAN-MIB", "rndNotifications", "rnd")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-Integer32, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Bits, Gauge32, TimeTicks, ObjectIdentity, Counter64, IpAddress, iso, NotificationType, MibIdentifier, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Bits", "Gauge32", "TimeTicks", "ObjectIdentity", "Counter64", "IpAddress", "iso", "NotificationType", "MibIdentifier", "Unsigned32")
-MacAddress, DisplayString, TextualConvention, RowStatus, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "DisplayString", "TextualConvention", "RowStatus", "TruthValue")
-class UdldString(SnmpAdminString):
-    status = 'current'
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/MARVELL-UDLD-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:20:28 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class UdldPortBidirectionalState(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))
-    namedValues = NamedValues(("shutdown", 1), ("idle", 2), ("detection", 3), ("undetermined", 4), ("bidirectional", 5))
+if 'mibBuilder' not in globals():
+    import sys
 
-class UdldNeighborCurrentState(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("disabled", 1), ("enabled", 2), ("undefined", 3), ("bidirectional", 4))
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-class UdldGlobalMode(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
-    namedValues = NamedValues(("normal", 1), ("aggressive", 2), ("disabled", 3))
+# Import base ASN.1 objects even if this MIB does not use it
 
-class UdldPortMode(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("normal", 1), ("aggressive", 2), ("disabled", 3), ("default", 4))
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
 
-rlUdld = ModuleIdentity((1, 3, 6, 1, 4, 1, 89, 218))
-rlUdld.setRevisions(('2012-08-01 00:00',))
-if mibBuilder.loadTexts: rlUdld.setLastUpdated('201208010000Z')
-if mibBuilder.loadTexts: rlUdld.setOrganization('Marvell Computer Communications Ltd.')
-rlUdldPortTable = MibTable((1, 3, 6, 1, 4, 1, 89, 218, 1), )
-if mibBuilder.loadTexts: rlUdldPortTable.setStatus('current')
-rlUdldPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 218, 1, 1), ).setIndexNames((0, "MARVELL-UDLD-MIB", "rlUdldPortIfIndex"))
-if mibBuilder.loadTexts: rlUdldPortEntry.setStatus('current')
-rlUdldPortIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 218, 1, 1, 1), InterfaceIndex())
-if mibBuilder.loadTexts: rlUdldPortIfIndex.setStatus('current')
-rlUdldPortAdminMode = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 218, 1, 1, 2), UdldPortMode()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlUdldPortAdminMode.setStatus('current')
-rlUdldPortOperMode = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 218, 1, 1, 3), UdldPortMode()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlUdldPortOperMode.setStatus('current')
-rlUdldPortDefaultConfiguration = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 218, 1, 1, 4), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlUdldPortDefaultConfiguration.setStatus('current')
-rlUdldBidirectionalState = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 218, 1, 1, 5), UdldPortBidirectionalState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlUdldBidirectionalState.setStatus('current')
-rlUdldNumberOfDetectedNeighbors = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 218, 1, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlUdldNumberOfDetectedNeighbors.setStatus('current')
-rlUdldNeighborTable = MibTable((1, 3, 6, 1, 4, 1, 89, 218, 2), )
-if mibBuilder.loadTexts: rlUdldNeighborTable.setStatus('current')
-rlUdldNeighborEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 218, 2, 1), ).setIndexNames((0, "MARVELL-UDLD-MIB", "rlUdldNeighborPortIfIndex"), (0, "MARVELL-UDLD-MIB", "rlUdldNeighborDeviceID"), (0, "MARVELL-UDLD-MIB", "rlUdldNeighborPortID"))
-if mibBuilder.loadTexts: rlUdldNeighborEntry.setStatus('current')
-rlUdldNeighborPortIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 218, 2, 1, 1), InterfaceIndex())
-if mibBuilder.loadTexts: rlUdldNeighborPortIfIndex.setStatus('current')
-rlUdldNeighborDeviceID = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 218, 2, 1, 2), UdldString())
-if mibBuilder.loadTexts: rlUdldNeighborDeviceID.setStatus('current')
-rlUdldNeighborPortID = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 218, 2, 1, 3), UdldString())
-if mibBuilder.loadTexts: rlUdldNeighborPortID.setStatus('current')
-rlUdldNeighborDeviceMACAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 218, 2, 1, 4), MacAddress())
-if mibBuilder.loadTexts: rlUdldNeighborDeviceMACAddress.setStatus('current')
-rlUdldNeighborDeviceName = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 218, 2, 1, 5), UdldString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlUdldNeighborDeviceName.setStatus('current')
-rlUdldNeighborMessageTime = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 218, 2, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlUdldNeighborMessageTime.setStatus('current')
-rlUdldNeighborLeftLifeTime = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 218, 2, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlUdldNeighborLeftLifeTime.setStatus('current')
-rlUdldNeighborCurrentState = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 218, 2, 1, 8), UdldNeighborCurrentState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlUdldNeighborCurrentState.setStatus('current')
-rlUdldGlobalUDLDMode = MibScalar((1, 3, 6, 1, 4, 1, 89, 218, 3), UdldGlobalMode()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlUdldGlobalUDLDMode.setStatus('current')
-rlUdldGlobalMessageTime = MibScalar((1, 3, 6, 1, 4, 1, 89, 218, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlUdldGlobalMessageTime.setStatus('current')
-mibBuilder.exportSymbols("MARVELL-UDLD-MIB", rlUdldNumberOfDetectedNeighbors=rlUdldNumberOfDetectedNeighbors, UdldNeighborCurrentState=UdldNeighborCurrentState, rlUdldNeighborMessageTime=rlUdldNeighborMessageTime, rlUdldNeighborEntry=rlUdldNeighborEntry, rlUdldGlobalMessageTime=rlUdldGlobalMessageTime, rlUdldNeighborDeviceID=rlUdldNeighborDeviceID, rlUdldPortOperMode=rlUdldPortOperMode, rlUdldNeighborTable=rlUdldNeighborTable, rlUdldNeighborDeviceMACAddress=rlUdldNeighborDeviceMACAddress, rlUdldNeighborDeviceName=rlUdldNeighborDeviceName, rlUdldNeighborCurrentState=rlUdldNeighborCurrentState, rlUdldPortTable=rlUdldPortTable, rlUdldPortAdminMode=rlUdldPortAdminMode, UdldGlobalMode=UdldGlobalMode, rlUdld=rlUdld, rlUdldBidirectionalState=rlUdldBidirectionalState, rlUdldNeighborPortID=rlUdldNeighborPortID, rlUdldNeighborLeftLifeTime=rlUdldNeighborLeftLifeTime, rlUdldNeighborPortIfIndex=rlUdldNeighborPortIfIndex, rlUdldPortDefaultConfiguration=rlUdldPortDefaultConfiguration, PYSNMP_MODULE_ID=rlUdld, UdldString=UdldString, rlUdldPortEntry=rlUdldPortEntry, UdldPortMode=UdldPortMode, rlUdldPortIfIndex=rlUdldPortIfIndex, UdldPortBidirectionalState=UdldPortBidirectionalState, rlUdldGlobalUDLDMode=rlUdldGlobalUDLDMode)
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InterfaceIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex")
+
+(rnd,
+ rndNotifications) = mibBuilder.importSymbols(
+    "RADLAN-MIB",
+    "rnd",
+    "rndNotifications")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+rlUdld = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 89, 218)
+)
+rlUdld.setRevisions(
+        ("2012-08-01 00:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class UdldString(SnmpAdminString, TextualConvention):
+    status = "current"
+
+
+class UdldPortBidirectionalState(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("bidirectional", 5),
+          ("detection", 3),
+          ("idle", 2),
+          ("shutdown", 1),
+          ("undetermined", 4))
+    )
+
+
+
+class UdldNeighborCurrentState(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("bidirectional", 4),
+          ("disabled", 1),
+          ("enabled", 2),
+          ("undefined", 3))
+    )
+
+
+
+class UdldGlobalMode(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("aggressive", 2),
+          ("disabled", 3),
+          ("normal", 1))
+    )
+
+
+
+class UdldPortMode(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("aggressive", 2),
+          ("default", 4),
+          ("disabled", 3),
+          ("normal", 1))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_RlUdldPortTable_Object = MibTable
+rlUdldPortTable = _RlUdldPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 89, 218, 1)
+)
+if mibBuilder.loadTexts:
+    rlUdldPortTable.setStatus("current")
+_RlUdldPortEntry_Object = MibTableRow
+rlUdldPortEntry = _RlUdldPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 89, 218, 1, 1)
+)
+rlUdldPortEntry.setIndexNames(
+    (0, "MARVELL-UDLD-MIB", "rlUdldPortIfIndex"),
+)
+if mibBuilder.loadTexts:
+    rlUdldPortEntry.setStatus("current")
+_RlUdldPortIfIndex_Type = InterfaceIndex
+_RlUdldPortIfIndex_Object = MibTableColumn
+rlUdldPortIfIndex = _RlUdldPortIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 89, 218, 1, 1, 1),
+    _RlUdldPortIfIndex_Type()
+)
+rlUdldPortIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlUdldPortIfIndex.setStatus("current")
+_RlUdldPortAdminMode_Type = UdldPortMode
+_RlUdldPortAdminMode_Object = MibTableColumn
+rlUdldPortAdminMode = _RlUdldPortAdminMode_Object(
+    (1, 3, 6, 1, 4, 1, 89, 218, 1, 1, 2),
+    _RlUdldPortAdminMode_Type()
+)
+rlUdldPortAdminMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlUdldPortAdminMode.setStatus("current")
+_RlUdldPortOperMode_Type = UdldPortMode
+_RlUdldPortOperMode_Object = MibTableColumn
+rlUdldPortOperMode = _RlUdldPortOperMode_Object(
+    (1, 3, 6, 1, 4, 1, 89, 218, 1, 1, 3),
+    _RlUdldPortOperMode_Type()
+)
+rlUdldPortOperMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlUdldPortOperMode.setStatus("current")
+_RlUdldPortDefaultConfiguration_Type = TruthValue
+_RlUdldPortDefaultConfiguration_Object = MibTableColumn
+rlUdldPortDefaultConfiguration = _RlUdldPortDefaultConfiguration_Object(
+    (1, 3, 6, 1, 4, 1, 89, 218, 1, 1, 4),
+    _RlUdldPortDefaultConfiguration_Type()
+)
+rlUdldPortDefaultConfiguration.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlUdldPortDefaultConfiguration.setStatus("current")
+_RlUdldBidirectionalState_Type = UdldPortBidirectionalState
+_RlUdldBidirectionalState_Object = MibTableColumn
+rlUdldBidirectionalState = _RlUdldBidirectionalState_Object(
+    (1, 3, 6, 1, 4, 1, 89, 218, 1, 1, 5),
+    _RlUdldBidirectionalState_Type()
+)
+rlUdldBidirectionalState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlUdldBidirectionalState.setStatus("current")
+_RlUdldNumberOfDetectedNeighbors_Type = Integer32
+_RlUdldNumberOfDetectedNeighbors_Object = MibTableColumn
+rlUdldNumberOfDetectedNeighbors = _RlUdldNumberOfDetectedNeighbors_Object(
+    (1, 3, 6, 1, 4, 1, 89, 218, 1, 1, 6),
+    _RlUdldNumberOfDetectedNeighbors_Type()
+)
+rlUdldNumberOfDetectedNeighbors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlUdldNumberOfDetectedNeighbors.setStatus("current")
+_RlUdldNeighborTable_Object = MibTable
+rlUdldNeighborTable = _RlUdldNeighborTable_Object(
+    (1, 3, 6, 1, 4, 1, 89, 218, 2)
+)
+if mibBuilder.loadTexts:
+    rlUdldNeighborTable.setStatus("current")
+_RlUdldNeighborEntry_Object = MibTableRow
+rlUdldNeighborEntry = _RlUdldNeighborEntry_Object(
+    (1, 3, 6, 1, 4, 1, 89, 218, 2, 1)
+)
+rlUdldNeighborEntry.setIndexNames(
+    (0, "MARVELL-UDLD-MIB", "rlUdldNeighborPortIfIndex"),
+    (0, "MARVELL-UDLD-MIB", "rlUdldNeighborDeviceID"),
+    (0, "MARVELL-UDLD-MIB", "rlUdldNeighborPortID"),
+)
+if mibBuilder.loadTexts:
+    rlUdldNeighborEntry.setStatus("current")
+_RlUdldNeighborPortIfIndex_Type = InterfaceIndex
+_RlUdldNeighborPortIfIndex_Object = MibTableColumn
+rlUdldNeighborPortIfIndex = _RlUdldNeighborPortIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 89, 218, 2, 1, 1),
+    _RlUdldNeighborPortIfIndex_Type()
+)
+rlUdldNeighborPortIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlUdldNeighborPortIfIndex.setStatus("current")
+_RlUdldNeighborDeviceID_Type = UdldString
+_RlUdldNeighborDeviceID_Object = MibTableColumn
+rlUdldNeighborDeviceID = _RlUdldNeighborDeviceID_Object(
+    (1, 3, 6, 1, 4, 1, 89, 218, 2, 1, 2),
+    _RlUdldNeighborDeviceID_Type()
+)
+rlUdldNeighborDeviceID.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlUdldNeighborDeviceID.setStatus("current")
+_RlUdldNeighborPortID_Type = UdldString
+_RlUdldNeighborPortID_Object = MibTableColumn
+rlUdldNeighborPortID = _RlUdldNeighborPortID_Object(
+    (1, 3, 6, 1, 4, 1, 89, 218, 2, 1, 3),
+    _RlUdldNeighborPortID_Type()
+)
+rlUdldNeighborPortID.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlUdldNeighborPortID.setStatus("current")
+_RlUdldNeighborDeviceMACAddress_Type = MacAddress
+_RlUdldNeighborDeviceMACAddress_Object = MibTableColumn
+rlUdldNeighborDeviceMACAddress = _RlUdldNeighborDeviceMACAddress_Object(
+    (1, 3, 6, 1, 4, 1, 89, 218, 2, 1, 4),
+    _RlUdldNeighborDeviceMACAddress_Type()
+)
+rlUdldNeighborDeviceMACAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlUdldNeighborDeviceMACAddress.setStatus("current")
+_RlUdldNeighborDeviceName_Type = UdldString
+_RlUdldNeighborDeviceName_Object = MibTableColumn
+rlUdldNeighborDeviceName = _RlUdldNeighborDeviceName_Object(
+    (1, 3, 6, 1, 4, 1, 89, 218, 2, 1, 5),
+    _RlUdldNeighborDeviceName_Type()
+)
+rlUdldNeighborDeviceName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlUdldNeighborDeviceName.setStatus("current")
+_RlUdldNeighborMessageTime_Type = Integer32
+_RlUdldNeighborMessageTime_Object = MibTableColumn
+rlUdldNeighborMessageTime = _RlUdldNeighborMessageTime_Object(
+    (1, 3, 6, 1, 4, 1, 89, 218, 2, 1, 6),
+    _RlUdldNeighborMessageTime_Type()
+)
+rlUdldNeighborMessageTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlUdldNeighborMessageTime.setStatus("current")
+_RlUdldNeighborLeftLifeTime_Type = Integer32
+_RlUdldNeighborLeftLifeTime_Object = MibTableColumn
+rlUdldNeighborLeftLifeTime = _RlUdldNeighborLeftLifeTime_Object(
+    (1, 3, 6, 1, 4, 1, 89, 218, 2, 1, 7),
+    _RlUdldNeighborLeftLifeTime_Type()
+)
+rlUdldNeighborLeftLifeTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlUdldNeighborLeftLifeTime.setStatus("current")
+_RlUdldNeighborCurrentState_Type = UdldNeighborCurrentState
+_RlUdldNeighborCurrentState_Object = MibTableColumn
+rlUdldNeighborCurrentState = _RlUdldNeighborCurrentState_Object(
+    (1, 3, 6, 1, 4, 1, 89, 218, 2, 1, 8),
+    _RlUdldNeighborCurrentState_Type()
+)
+rlUdldNeighborCurrentState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlUdldNeighborCurrentState.setStatus("current")
+_RlUdldGlobalUDLDMode_Type = UdldGlobalMode
+_RlUdldGlobalUDLDMode_Object = MibScalar
+rlUdldGlobalUDLDMode = _RlUdldGlobalUDLDMode_Object(
+    (1, 3, 6, 1, 4, 1, 89, 218, 3),
+    _RlUdldGlobalUDLDMode_Type()
+)
+rlUdldGlobalUDLDMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlUdldGlobalUDLDMode.setStatus("current")
+_RlUdldGlobalMessageTime_Type = Integer32
+_RlUdldGlobalMessageTime_Object = MibScalar
+rlUdldGlobalMessageTime = _RlUdldGlobalMessageTime_Object(
+    (1, 3, 6, 1, 4, 1, 89, 218, 4),
+    _RlUdldGlobalMessageTime_Type()
+)
+rlUdldGlobalMessageTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlUdldGlobalMessageTime.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "MARVELL-UDLD-MIB",
+    **{"UdldString": UdldString,
+       "UdldPortBidirectionalState": UdldPortBidirectionalState,
+       "UdldNeighborCurrentState": UdldNeighborCurrentState,
+       "UdldGlobalMode": UdldGlobalMode,
+       "UdldPortMode": UdldPortMode,
+       "rlUdld": rlUdld,
+       "rlUdldPortTable": rlUdldPortTable,
+       "rlUdldPortEntry": rlUdldPortEntry,
+       "rlUdldPortIfIndex": rlUdldPortIfIndex,
+       "rlUdldPortAdminMode": rlUdldPortAdminMode,
+       "rlUdldPortOperMode": rlUdldPortOperMode,
+       "rlUdldPortDefaultConfiguration": rlUdldPortDefaultConfiguration,
+       "rlUdldBidirectionalState": rlUdldBidirectionalState,
+       "rlUdldNumberOfDetectedNeighbors": rlUdldNumberOfDetectedNeighbors,
+       "rlUdldNeighborTable": rlUdldNeighborTable,
+       "rlUdldNeighborEntry": rlUdldNeighborEntry,
+       "rlUdldNeighborPortIfIndex": rlUdldNeighborPortIfIndex,
+       "rlUdldNeighborDeviceID": rlUdldNeighborDeviceID,
+       "rlUdldNeighborPortID": rlUdldNeighborPortID,
+       "rlUdldNeighborDeviceMACAddress": rlUdldNeighborDeviceMACAddress,
+       "rlUdldNeighborDeviceName": rlUdldNeighborDeviceName,
+       "rlUdldNeighborMessageTime": rlUdldNeighborMessageTime,
+       "rlUdldNeighborLeftLifeTime": rlUdldNeighborLeftLifeTime,
+       "rlUdldNeighborCurrentState": rlUdldNeighborCurrentState,
+       "rlUdldGlobalUDLDMode": rlUdldGlobalUDLDMode,
+       "rlUdldGlobalMessageTime": rlUdldGlobalMessageTime}
+)

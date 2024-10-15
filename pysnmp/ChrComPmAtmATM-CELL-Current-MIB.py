@@ -1,55 +1,478 @@
+# SNMP MIB module (ChrComPmAtmATM-CELL-Current-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ChrComPmAtmATM-CELL-Current-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/ChrComPmAtmATM-CELL-Current-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:19:31 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint")
-chrComIfifIndex, = mibBuilder.importSymbols("ChrComIfifTable-MIB", "chrComIfifIndex")
-TruthValue, = mibBuilder.importSymbols("ChrTyp-MIB", "TruthValue")
-chrComPmAtm, = mibBuilder.importSymbols("Chromatis-MIB", "chrComPmAtm")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Integer32, Bits, MibIdentifier, Unsigned32, NotificationType, iso, TimeTicks, IpAddress, Gauge32, Counter32, Counter64, ModuleIdentity, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Bits", "MibIdentifier", "Unsigned32", "NotificationType", "iso", "TimeTicks", "IpAddress", "Gauge32", "Counter32", "Counter64", "ModuleIdentity", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-chrComPmAtmATM_CELL_CurrentTable = MibTable((1, 3, 6, 1, 4, 1, 3695, 1, 10, 4, 1), ).setLabel("chrComPmAtmATM-CELL-CurrentTable")
-if mibBuilder.loadTexts: chrComPmAtmATM_CELL_CurrentTable.setStatus('current')
-chrComPmAtmATM_CELL_CurrentEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3695, 1, 10, 4, 1, 1), ).setLabel("chrComPmAtmATM-CELL-CurrentEntry").setIndexNames((0, "ChrComIfifTable-MIB", "chrComIfifIndex"))
-if mibBuilder.loadTexts: chrComPmAtmATM_CELL_CurrentEntry.setStatus('current')
-chrComPmAtmSuspectedInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 3695, 1, 10, 4, 1, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chrComPmAtmSuspectedInterval.setStatus('current')
-chrComPmAtmElapsedTime = MibTableColumn((1, 3, 6, 1, 4, 1, 3695, 1, 10, 4, 1, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chrComPmAtmElapsedTime.setStatus('current')
-chrComPmAtmSuppressedIntrvls = MibTableColumn((1, 3, 6, 1, 4, 1, 3695, 1, 10, 4, 1, 1, 3), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chrComPmAtmSuppressedIntrvls.setStatus('current')
-chrComPmAtmOCDS = MibTableColumn((1, 3, 6, 1, 4, 1, 3695, 1, 10, 4, 1, 1, 4), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chrComPmAtmOCDS.setStatus('current')
-chrComPmAtmHECCells = MibTableColumn((1, 3, 6, 1, 4, 1, 3695, 1, 10, 4, 1, 1, 5), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chrComPmAtmHECCells.setStatus('current')
-chrComPmAtmCorrectableHECCells = MibTableColumn((1, 3, 6, 1, 4, 1, 3695, 1, 10, 4, 1, 1, 6), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chrComPmAtmCorrectableHECCells.setStatus('current')
-chrComPmAtmDiscardedCells = MibTableColumn((1, 3, 6, 1, 4, 1, 3695, 1, 10, 4, 1, 1, 7), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chrComPmAtmDiscardedCells.setStatus('current')
-chrComPmAtmReceivedCells = MibTableColumn((1, 3, 6, 1, 4, 1, 3695, 1, 10, 4, 1, 1, 8), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chrComPmAtmReceivedCells.setStatus('current')
-chrComPmAtmTransmittedCells = MibTableColumn((1, 3, 6, 1, 4, 1, 3695, 1, 10, 4, 1, 1, 9), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chrComPmAtmTransmittedCells.setStatus('current')
-chrComPmAtmDiscardedIngCells = MibTableColumn((1, 3, 6, 1, 4, 1, 3695, 1, 10, 4, 1, 1, 10), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chrComPmAtmDiscardedIngCells.setStatus('current')
-chrComPmAtmDiscardedIngHighPrCells = MibTableColumn((1, 3, 6, 1, 4, 1, 3695, 1, 10, 4, 1, 1, 11), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chrComPmAtmDiscardedIngHighPrCells.setStatus('current')
-chrComPmAtmDiscardedEgCells = MibTableColumn((1, 3, 6, 1, 4, 1, 3695, 1, 10, 4, 1, 1, 12), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chrComPmAtmDiscardedEgCells.setStatus('current')
-chrComPmAtmDiscardedEgHighPrCells = MibTableColumn((1, 3, 6, 1, 4, 1, 3695, 1, 10, 4, 1, 1, 13), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chrComPmAtmDiscardedEgHighPrCells.setStatus('current')
-chrComPmAtmDiscardedUPC = MibTableColumn((1, 3, 6, 1, 4, 1, 3695, 1, 10, 4, 1, 1, 14), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chrComPmAtmDiscardedUPC.setStatus('current')
-chrComPmAtmTaggedUPC = MibTableColumn((1, 3, 6, 1, 4, 1, 3695, 1, 10, 4, 1, 1, 15), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chrComPmAtmTaggedUPC.setStatus('current')
-chrComPmAtmThresholdProfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3695, 1, 10, 4, 1, 1, 16), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: chrComPmAtmThresholdProfIndex.setStatus('current')
-chrComPmAtmResetPmCountersAction = MibTableColumn((1, 3, 6, 1, 4, 1, 3695, 1, 10, 4, 1, 1, 17), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: chrComPmAtmResetPmCountersAction.setStatus('current')
-mibBuilder.exportSymbols("ChrComPmAtmATM-CELL-Current-MIB", chrComPmAtmSuspectedInterval=chrComPmAtmSuspectedInterval, chrComPmAtmSuppressedIntrvls=chrComPmAtmSuppressedIntrvls, chrComPmAtmTransmittedCells=chrComPmAtmTransmittedCells, chrComPmAtmDiscardedEgCells=chrComPmAtmDiscardedEgCells, chrComPmAtmATM_CELL_CurrentEntry=chrComPmAtmATM_CELL_CurrentEntry, chrComPmAtmDiscardedUPC=chrComPmAtmDiscardedUPC, chrComPmAtmOCDS=chrComPmAtmOCDS, chrComPmAtmHECCells=chrComPmAtmHECCells, chrComPmAtmDiscardedEgHighPrCells=chrComPmAtmDiscardedEgHighPrCells, chrComPmAtmDiscardedCells=chrComPmAtmDiscardedCells, chrComPmAtmElapsedTime=chrComPmAtmElapsedTime, chrComPmAtmATM_CELL_CurrentTable=chrComPmAtmATM_CELL_CurrentTable, chrComPmAtmReceivedCells=chrComPmAtmReceivedCells, chrComPmAtmDiscardedIngHighPrCells=chrComPmAtmDiscardedIngHighPrCells, chrComPmAtmThresholdProfIndex=chrComPmAtmThresholdProfIndex, chrComPmAtmResetPmCountersAction=chrComPmAtmResetPmCountersAction, chrComPmAtmDiscardedIngCells=chrComPmAtmDiscardedIngCells, chrComPmAtmTaggedUPC=chrComPmAtmTaggedUPC, chrComPmAtmCorrectableHECCells=chrComPmAtmCorrectableHECCells)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/ChrComPmAtmATM-CELL-Current-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:21:59 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(chrComIfifIndex,) = mibBuilder.importSymbols(
+    "ChrComIfifTable-MIB",
+    "chrComIfifIndex")
+
+(TruthValue,) = mibBuilder.importSymbols(
+    "ChrTyp-MIB",
+    "TruthValue")
+
+(chrComPmAtm,) = mibBuilder.importSymbols(
+    "Chromatis-MIB",
+    "chrComPmAtm")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_ChrComPmAtmATM_CELL_CurrentTable_Object = MibTable
+chrComPmAtmATM_CELL_CurrentTable = _ChrComPmAtmATM_CELL_CurrentTable_Object(
+    (1, 3, 6, 1, 4, 1, 3695, 1, 10, 4, 1)
+)
+if mibBuilder.loadTexts:
+    chrComPmAtmATM_CELL_CurrentTable.setStatus("current")
+_ChrComPmAtmATM_CELL_CurrentEntry_Object = MibTableRow
+chrComPmAtmATM_CELL_CurrentEntry = _ChrComPmAtmATM_CELL_CurrentEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3695, 1, 10, 4, 1, 1)
+)
+chrComPmAtmATM_CELL_CurrentEntry.setIndexNames(
+    (0, "ChrComIfifTable-MIB", "chrComIfifIndex"),
+)
+if mibBuilder.loadTexts:
+    chrComPmAtmATM_CELL_CurrentEntry.setStatus("current")
+_ChrComPmAtmSuspectedInterval_Type = TruthValue
+_ChrComPmAtmSuspectedInterval_Object = MibTableColumn
+chrComPmAtmSuspectedInterval = _ChrComPmAtmSuspectedInterval_Object(
+    (1, 3, 6, 1, 4, 1, 3695, 1, 10, 4, 1, 1, 1),
+    _ChrComPmAtmSuspectedInterval_Type()
+)
+chrComPmAtmSuspectedInterval.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chrComPmAtmSuspectedInterval.setStatus("current")
+
+
+class _ChrComPmAtmElapsedTime_Type(Unsigned32):
+    """Custom type chrComPmAtmElapsedTime based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4294967295),
+    )
+
+
+_ChrComPmAtmElapsedTime_Type.__name__ = "Unsigned32"
+_ChrComPmAtmElapsedTime_Object = MibTableColumn
+chrComPmAtmElapsedTime = _ChrComPmAtmElapsedTime_Object(
+    (1, 3, 6, 1, 4, 1, 3695, 1, 10, 4, 1, 1, 2),
+    _ChrComPmAtmElapsedTime_Type()
+)
+chrComPmAtmElapsedTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chrComPmAtmElapsedTime.setStatus("current")
+
+
+class _ChrComPmAtmSuppressedIntrvls_Type(Gauge32):
+    """Custom type chrComPmAtmSuppressedIntrvls based on Gauge32"""
+    subtypeSpec = Gauge32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4294967295),
+    )
+
+
+_ChrComPmAtmSuppressedIntrvls_Type.__name__ = "Gauge32"
+_ChrComPmAtmSuppressedIntrvls_Object = MibTableColumn
+chrComPmAtmSuppressedIntrvls = _ChrComPmAtmSuppressedIntrvls_Object(
+    (1, 3, 6, 1, 4, 1, 3695, 1, 10, 4, 1, 1, 3),
+    _ChrComPmAtmSuppressedIntrvls_Type()
+)
+chrComPmAtmSuppressedIntrvls.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chrComPmAtmSuppressedIntrvls.setStatus("current")
+
+
+class _ChrComPmAtmOCDS_Type(Gauge32):
+    """Custom type chrComPmAtmOCDS based on Gauge32"""
+    subtypeSpec = Gauge32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4294967295),
+    )
+
+
+_ChrComPmAtmOCDS_Type.__name__ = "Gauge32"
+_ChrComPmAtmOCDS_Object = MibTableColumn
+chrComPmAtmOCDS = _ChrComPmAtmOCDS_Object(
+    (1, 3, 6, 1, 4, 1, 3695, 1, 10, 4, 1, 1, 4),
+    _ChrComPmAtmOCDS_Type()
+)
+chrComPmAtmOCDS.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chrComPmAtmOCDS.setStatus("current")
+
+
+class _ChrComPmAtmHECCells_Type(Gauge32):
+    """Custom type chrComPmAtmHECCells based on Gauge32"""
+    subtypeSpec = Gauge32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4294967295),
+    )
+
+
+_ChrComPmAtmHECCells_Type.__name__ = "Gauge32"
+_ChrComPmAtmHECCells_Object = MibTableColumn
+chrComPmAtmHECCells = _ChrComPmAtmHECCells_Object(
+    (1, 3, 6, 1, 4, 1, 3695, 1, 10, 4, 1, 1, 5),
+    _ChrComPmAtmHECCells_Type()
+)
+chrComPmAtmHECCells.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chrComPmAtmHECCells.setStatus("current")
+
+
+class _ChrComPmAtmCorrectableHECCells_Type(Gauge32):
+    """Custom type chrComPmAtmCorrectableHECCells based on Gauge32"""
+    subtypeSpec = Gauge32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4294967295),
+    )
+
+
+_ChrComPmAtmCorrectableHECCells_Type.__name__ = "Gauge32"
+_ChrComPmAtmCorrectableHECCells_Object = MibTableColumn
+chrComPmAtmCorrectableHECCells = _ChrComPmAtmCorrectableHECCells_Object(
+    (1, 3, 6, 1, 4, 1, 3695, 1, 10, 4, 1, 1, 6),
+    _ChrComPmAtmCorrectableHECCells_Type()
+)
+chrComPmAtmCorrectableHECCells.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chrComPmAtmCorrectableHECCells.setStatus("current")
+
+
+class _ChrComPmAtmDiscardedCells_Type(Gauge32):
+    """Custom type chrComPmAtmDiscardedCells based on Gauge32"""
+    subtypeSpec = Gauge32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4294967295),
+    )
+
+
+_ChrComPmAtmDiscardedCells_Type.__name__ = "Gauge32"
+_ChrComPmAtmDiscardedCells_Object = MibTableColumn
+chrComPmAtmDiscardedCells = _ChrComPmAtmDiscardedCells_Object(
+    (1, 3, 6, 1, 4, 1, 3695, 1, 10, 4, 1, 1, 7),
+    _ChrComPmAtmDiscardedCells_Type()
+)
+chrComPmAtmDiscardedCells.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chrComPmAtmDiscardedCells.setStatus("current")
+
+
+class _ChrComPmAtmReceivedCells_Type(Gauge32):
+    """Custom type chrComPmAtmReceivedCells based on Gauge32"""
+    subtypeSpec = Gauge32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4294967295),
+    )
+
+
+_ChrComPmAtmReceivedCells_Type.__name__ = "Gauge32"
+_ChrComPmAtmReceivedCells_Object = MibTableColumn
+chrComPmAtmReceivedCells = _ChrComPmAtmReceivedCells_Object(
+    (1, 3, 6, 1, 4, 1, 3695, 1, 10, 4, 1, 1, 8),
+    _ChrComPmAtmReceivedCells_Type()
+)
+chrComPmAtmReceivedCells.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chrComPmAtmReceivedCells.setStatus("current")
+
+
+class _ChrComPmAtmTransmittedCells_Type(Gauge32):
+    """Custom type chrComPmAtmTransmittedCells based on Gauge32"""
+    subtypeSpec = Gauge32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4294967295),
+    )
+
+
+_ChrComPmAtmTransmittedCells_Type.__name__ = "Gauge32"
+_ChrComPmAtmTransmittedCells_Object = MibTableColumn
+chrComPmAtmTransmittedCells = _ChrComPmAtmTransmittedCells_Object(
+    (1, 3, 6, 1, 4, 1, 3695, 1, 10, 4, 1, 1, 9),
+    _ChrComPmAtmTransmittedCells_Type()
+)
+chrComPmAtmTransmittedCells.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chrComPmAtmTransmittedCells.setStatus("current")
+
+
+class _ChrComPmAtmDiscardedIngCells_Type(Gauge32):
+    """Custom type chrComPmAtmDiscardedIngCells based on Gauge32"""
+    subtypeSpec = Gauge32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4294967295),
+    )
+
+
+_ChrComPmAtmDiscardedIngCells_Type.__name__ = "Gauge32"
+_ChrComPmAtmDiscardedIngCells_Object = MibTableColumn
+chrComPmAtmDiscardedIngCells = _ChrComPmAtmDiscardedIngCells_Object(
+    (1, 3, 6, 1, 4, 1, 3695, 1, 10, 4, 1, 1, 10),
+    _ChrComPmAtmDiscardedIngCells_Type()
+)
+chrComPmAtmDiscardedIngCells.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chrComPmAtmDiscardedIngCells.setStatus("current")
+
+
+class _ChrComPmAtmDiscardedIngHighPrCells_Type(Gauge32):
+    """Custom type chrComPmAtmDiscardedIngHighPrCells based on Gauge32"""
+    subtypeSpec = Gauge32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4294967295),
+    )
+
+
+_ChrComPmAtmDiscardedIngHighPrCells_Type.__name__ = "Gauge32"
+_ChrComPmAtmDiscardedIngHighPrCells_Object = MibTableColumn
+chrComPmAtmDiscardedIngHighPrCells = _ChrComPmAtmDiscardedIngHighPrCells_Object(
+    (1, 3, 6, 1, 4, 1, 3695, 1, 10, 4, 1, 1, 11),
+    _ChrComPmAtmDiscardedIngHighPrCells_Type()
+)
+chrComPmAtmDiscardedIngHighPrCells.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chrComPmAtmDiscardedIngHighPrCells.setStatus("current")
+
+
+class _ChrComPmAtmDiscardedEgCells_Type(Gauge32):
+    """Custom type chrComPmAtmDiscardedEgCells based on Gauge32"""
+    subtypeSpec = Gauge32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4294967295),
+    )
+
+
+_ChrComPmAtmDiscardedEgCells_Type.__name__ = "Gauge32"
+_ChrComPmAtmDiscardedEgCells_Object = MibTableColumn
+chrComPmAtmDiscardedEgCells = _ChrComPmAtmDiscardedEgCells_Object(
+    (1, 3, 6, 1, 4, 1, 3695, 1, 10, 4, 1, 1, 12),
+    _ChrComPmAtmDiscardedEgCells_Type()
+)
+chrComPmAtmDiscardedEgCells.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chrComPmAtmDiscardedEgCells.setStatus("current")
+
+
+class _ChrComPmAtmDiscardedEgHighPrCells_Type(Gauge32):
+    """Custom type chrComPmAtmDiscardedEgHighPrCells based on Gauge32"""
+    subtypeSpec = Gauge32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4294967295),
+    )
+
+
+_ChrComPmAtmDiscardedEgHighPrCells_Type.__name__ = "Gauge32"
+_ChrComPmAtmDiscardedEgHighPrCells_Object = MibTableColumn
+chrComPmAtmDiscardedEgHighPrCells = _ChrComPmAtmDiscardedEgHighPrCells_Object(
+    (1, 3, 6, 1, 4, 1, 3695, 1, 10, 4, 1, 1, 13),
+    _ChrComPmAtmDiscardedEgHighPrCells_Type()
+)
+chrComPmAtmDiscardedEgHighPrCells.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chrComPmAtmDiscardedEgHighPrCells.setStatus("current")
+
+
+class _ChrComPmAtmDiscardedUPC_Type(Gauge32):
+    """Custom type chrComPmAtmDiscardedUPC based on Gauge32"""
+    subtypeSpec = Gauge32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4294967295),
+    )
+
+
+_ChrComPmAtmDiscardedUPC_Type.__name__ = "Gauge32"
+_ChrComPmAtmDiscardedUPC_Object = MibTableColumn
+chrComPmAtmDiscardedUPC = _ChrComPmAtmDiscardedUPC_Object(
+    (1, 3, 6, 1, 4, 1, 3695, 1, 10, 4, 1, 1, 14),
+    _ChrComPmAtmDiscardedUPC_Type()
+)
+chrComPmAtmDiscardedUPC.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chrComPmAtmDiscardedUPC.setStatus("current")
+
+
+class _ChrComPmAtmTaggedUPC_Type(Gauge32):
+    """Custom type chrComPmAtmTaggedUPC based on Gauge32"""
+    subtypeSpec = Gauge32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4294967295),
+    )
+
+
+_ChrComPmAtmTaggedUPC_Type.__name__ = "Gauge32"
+_ChrComPmAtmTaggedUPC_Object = MibTableColumn
+chrComPmAtmTaggedUPC = _ChrComPmAtmTaggedUPC_Object(
+    (1, 3, 6, 1, 4, 1, 3695, 1, 10, 4, 1, 1, 15),
+    _ChrComPmAtmTaggedUPC_Type()
+)
+chrComPmAtmTaggedUPC.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chrComPmAtmTaggedUPC.setStatus("current")
+
+
+class _ChrComPmAtmThresholdProfIndex_Type(Unsigned32):
+    """Custom type chrComPmAtmThresholdProfIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4294967295),
+    )
+
+
+_ChrComPmAtmThresholdProfIndex_Type.__name__ = "Unsigned32"
+_ChrComPmAtmThresholdProfIndex_Object = MibTableColumn
+chrComPmAtmThresholdProfIndex = _ChrComPmAtmThresholdProfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3695, 1, 10, 4, 1, 1, 16),
+    _ChrComPmAtmThresholdProfIndex_Type()
+)
+chrComPmAtmThresholdProfIndex.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    chrComPmAtmThresholdProfIndex.setStatus("current")
+_ChrComPmAtmResetPmCountersAction_Type = TruthValue
+_ChrComPmAtmResetPmCountersAction_Object = MibTableColumn
+chrComPmAtmResetPmCountersAction = _ChrComPmAtmResetPmCountersAction_Object(
+    (1, 3, 6, 1, 4, 1, 3695, 1, 10, 4, 1, 1, 17),
+    _ChrComPmAtmResetPmCountersAction_Type()
+)
+chrComPmAtmResetPmCountersAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    chrComPmAtmResetPmCountersAction.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ChrComPmAtmATM-CELL-Current-MIB",
+    **{"chrComPmAtmATM-CELL-CurrentTable": chrComPmAtmATM_CELL_CurrentTable,
+       "chrComPmAtmATM-CELL-CurrentEntry": chrComPmAtmATM_CELL_CurrentEntry,
+       "chrComPmAtmSuspectedInterval": chrComPmAtmSuspectedInterval,
+       "chrComPmAtmElapsedTime": chrComPmAtmElapsedTime,
+       "chrComPmAtmSuppressedIntrvls": chrComPmAtmSuppressedIntrvls,
+       "chrComPmAtmOCDS": chrComPmAtmOCDS,
+       "chrComPmAtmHECCells": chrComPmAtmHECCells,
+       "chrComPmAtmCorrectableHECCells": chrComPmAtmCorrectableHECCells,
+       "chrComPmAtmDiscardedCells": chrComPmAtmDiscardedCells,
+       "chrComPmAtmReceivedCells": chrComPmAtmReceivedCells,
+       "chrComPmAtmTransmittedCells": chrComPmAtmTransmittedCells,
+       "chrComPmAtmDiscardedIngCells": chrComPmAtmDiscardedIngCells,
+       "chrComPmAtmDiscardedIngHighPrCells": chrComPmAtmDiscardedIngHighPrCells,
+       "chrComPmAtmDiscardedEgCells": chrComPmAtmDiscardedEgCells,
+       "chrComPmAtmDiscardedEgHighPrCells": chrComPmAtmDiscardedEgHighPrCells,
+       "chrComPmAtmDiscardedUPC": chrComPmAtmDiscardedUPC,
+       "chrComPmAtmTaggedUPC": chrComPmAtmTaggedUPC,
+       "chrComPmAtmThresholdProfIndex": chrComPmAtmThresholdProfIndex,
+       "chrComPmAtmResetPmCountersAction": chrComPmAtmResetPmCountersAction}
+)

@@ -1,54 +1,426 @@
+# SNMP MIB module (H3C-IPV6-ADDRESS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module H3C-IPV6-ADDRESS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/H3C-IPV6-ADDRESS-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:09:34 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-h3cCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cCommon")
-InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-IpAddress, Unsigned32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, TimeTicks, Counter64, Gauge32, Integer32, Bits, ObjectIdentity, MibIdentifier, Counter32, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Unsigned32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "TimeTicks", "Counter64", "Gauge32", "Integer32", "Bits", "ObjectIdentity", "MibIdentifier", "Counter32", "NotificationType")
-TextualConvention, DisplayString, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "RowStatus")
-h3cIpv6AddrMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 71))
-h3cIpv6AddrMIB.setRevisions(('2006-03-15 00:00',))
-if mibBuilder.loadTexts: h3cIpv6AddrMIB.setLastUpdated('200603150000Z')
-if mibBuilder.loadTexts: h3cIpv6AddrMIB.setOrganization('Huawei 3Com Technologies Co., Ltd.')
-h3cIpv6AddressObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 71, 1))
-h3cIpv6AddressConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 71, 1, 1))
-h3cIpv6AddrSetTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 71, 1, 1, 1), )
-if mibBuilder.loadTexts: h3cIpv6AddrSetTable.setStatus('current')
-h3cIpv6AddrSetEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 71, 1, 1, 1, 1), ).setIndexNames((0, "H3C-IPV6-ADDRESS-MIB", "h3cIpv6AddrSetIfIndex"), (0, "H3C-IPV6-ADDRESS-MIB", "h3cIpv6AddrSetAddrType"), (0, "H3C-IPV6-ADDRESS-MIB", "h3cIpv6AddrSetAddr"))
-if mibBuilder.loadTexts: h3cIpv6AddrSetEntry.setStatus('current')
-h3cIpv6AddrSetIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 71, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: h3cIpv6AddrSetIfIndex.setStatus('current')
-h3cIpv6AddrSetAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 71, 1, 1, 1, 1, 2), InetAddressType())
-if mibBuilder.loadTexts: h3cIpv6AddrSetAddrType.setStatus('current')
-h3cIpv6AddrSetAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 71, 1, 1, 1, 1, 3), InetAddress())
-if mibBuilder.loadTexts: h3cIpv6AddrSetAddr.setStatus('current')
-h3cIpv6AddrSetPfxLength = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 71, 1, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 128))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cIpv6AddrSetPfxLength.setStatus('current')
-h3cIpv6AddrSetSourceType = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 71, 1, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("assignedIp", 1), ("assignedEUI64Ip", 2), ("assignedLinklocalIp", 3)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cIpv6AddrSetSourceType.setStatus('current')
-h3cIpv6AddrSetRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 71, 1, 1, 1, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cIpv6AddrSetRowStatus.setStatus('current')
-h3cIpv6AddrReadTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 71, 1, 1, 2), )
-if mibBuilder.loadTexts: h3cIpv6AddrReadTable.setStatus('current')
-h3cIpv6AddrReadEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 71, 1, 1, 2, 1), ).setIndexNames((0, "H3C-IPV6-ADDRESS-MIB", "h3cIpv6AddrReadIfIndex"), (0, "H3C-IPV6-ADDRESS-MIB", "h3cIpv6AddrReadAddrType"), (0, "H3C-IPV6-ADDRESS-MIB", "h3cIpv6AddrReadAddr"))
-if mibBuilder.loadTexts: h3cIpv6AddrReadEntry.setStatus('current')
-h3cIpv6AddrReadIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 71, 1, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: h3cIpv6AddrReadIfIndex.setStatus('current')
-h3cIpv6AddrReadAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 71, 1, 1, 2, 1, 2), InetAddressType())
-if mibBuilder.loadTexts: h3cIpv6AddrReadAddrType.setStatus('current')
-h3cIpv6AddrReadAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 71, 1, 1, 2, 1, 3), InetAddress())
-if mibBuilder.loadTexts: h3cIpv6AddrReadAddr.setStatus('current')
-h3cIpv6AddrReadPfxLength = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 71, 1, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 128))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cIpv6AddrReadPfxLength.setStatus('current')
-h3cIpv6AddrReadSourceType = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 71, 1, 1, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("assignedIp", 1), ("assignedEUI64Ip", 2), ("assignedAutoIp", 3), ("autoIp", 4), ("dhcpv6", 5), ("negotiate", 6), ("cluster", 7)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cIpv6AddrReadSourceType.setStatus('current')
-h3cIpv6AddrReadCatalog = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 71, 1, 1, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("nodelocal", 1), ("linklocal", 2), ("sitelocal", 3), ("orglocal", 4), ("global", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cIpv6AddrReadCatalog.setStatus('current')
-mibBuilder.exportSymbols("H3C-IPV6-ADDRESS-MIB", h3cIpv6AddrReadTable=h3cIpv6AddrReadTable, h3cIpv6AddrReadEntry=h3cIpv6AddrReadEntry, h3cIpv6AddrReadIfIndex=h3cIpv6AddrReadIfIndex, h3cIpv6AddrReadPfxLength=h3cIpv6AddrReadPfxLength, PYSNMP_MODULE_ID=h3cIpv6AddrMIB, h3cIpv6AddrReadAddr=h3cIpv6AddrReadAddr, h3cIpv6AddrSetEntry=h3cIpv6AddrSetEntry, h3cIpv6AddrSetIfIndex=h3cIpv6AddrSetIfIndex, h3cIpv6AddrSetRowStatus=h3cIpv6AddrSetRowStatus, h3cIpv6AddrMIB=h3cIpv6AddrMIB, h3cIpv6AddrSetPfxLength=h3cIpv6AddrSetPfxLength, h3cIpv6AddrReadSourceType=h3cIpv6AddrReadSourceType, h3cIpv6AddrSetTable=h3cIpv6AddrSetTable, h3cIpv6AddressConfig=h3cIpv6AddressConfig, h3cIpv6AddrSetSourceType=h3cIpv6AddrSetSourceType, h3cIpv6AddrReadAddrType=h3cIpv6AddrReadAddrType, h3cIpv6AddressObjects=h3cIpv6AddressObjects, h3cIpv6AddrSetAddr=h3cIpv6AddrSetAddr, h3cIpv6AddrReadCatalog=h3cIpv6AddrReadCatalog, h3cIpv6AddrSetAddrType=h3cIpv6AddrSetAddrType)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/H3C-IPV6-ADDRESS-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:50:45 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(h3cCommon,) = mibBuilder.importSymbols(
+    "HUAWEI-3COM-OID-MIB",
+    "h3cCommon")
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+h3cIpv6AddrMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 71)
+)
+h3cIpv6AddrMIB.setRevisions(
+        ("2006-03-15 00:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_H3cIpv6AddressObjects_ObjectIdentity = ObjectIdentity
+h3cIpv6AddressObjects = _H3cIpv6AddressObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 71, 1)
+)
+_H3cIpv6AddressConfig_ObjectIdentity = ObjectIdentity
+h3cIpv6AddressConfig = _H3cIpv6AddressConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 71, 1, 1)
+)
+_H3cIpv6AddrSetTable_Object = MibTable
+h3cIpv6AddrSetTable = _H3cIpv6AddrSetTable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 71, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    h3cIpv6AddrSetTable.setStatus("current")
+_H3cIpv6AddrSetEntry_Object = MibTableRow
+h3cIpv6AddrSetEntry = _H3cIpv6AddrSetEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 71, 1, 1, 1, 1)
+)
+h3cIpv6AddrSetEntry.setIndexNames(
+    (0, "H3C-IPV6-ADDRESS-MIB", "h3cIpv6AddrSetIfIndex"),
+    (0, "H3C-IPV6-ADDRESS-MIB", "h3cIpv6AddrSetAddrType"),
+    (0, "H3C-IPV6-ADDRESS-MIB", "h3cIpv6AddrSetAddr"),
+)
+if mibBuilder.loadTexts:
+    h3cIpv6AddrSetEntry.setStatus("current")
+
+
+class _H3cIpv6AddrSetIfIndex_Type(Integer32):
+    """Custom type h3cIpv6AddrSetIfIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_H3cIpv6AddrSetIfIndex_Type.__name__ = "Integer32"
+_H3cIpv6AddrSetIfIndex_Object = MibTableColumn
+h3cIpv6AddrSetIfIndex = _H3cIpv6AddrSetIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 71, 1, 1, 1, 1, 1),
+    _H3cIpv6AddrSetIfIndex_Type()
+)
+h3cIpv6AddrSetIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cIpv6AddrSetIfIndex.setStatus("current")
+_H3cIpv6AddrSetAddrType_Type = InetAddressType
+_H3cIpv6AddrSetAddrType_Object = MibTableColumn
+h3cIpv6AddrSetAddrType = _H3cIpv6AddrSetAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 71, 1, 1, 1, 1, 2),
+    _H3cIpv6AddrSetAddrType_Type()
+)
+h3cIpv6AddrSetAddrType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cIpv6AddrSetAddrType.setStatus("current")
+_H3cIpv6AddrSetAddr_Type = InetAddress
+_H3cIpv6AddrSetAddr_Object = MibTableColumn
+h3cIpv6AddrSetAddr = _H3cIpv6AddrSetAddr_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 71, 1, 1, 1, 1, 3),
+    _H3cIpv6AddrSetAddr_Type()
+)
+h3cIpv6AddrSetAddr.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cIpv6AddrSetAddr.setStatus("current")
+
+
+class _H3cIpv6AddrSetPfxLength_Type(Integer32):
+    """Custom type h3cIpv6AddrSetPfxLength based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 128),
+    )
+
+
+_H3cIpv6AddrSetPfxLength_Type.__name__ = "Integer32"
+_H3cIpv6AddrSetPfxLength_Object = MibTableColumn
+h3cIpv6AddrSetPfxLength = _H3cIpv6AddrSetPfxLength_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 71, 1, 1, 1, 1, 4),
+    _H3cIpv6AddrSetPfxLength_Type()
+)
+h3cIpv6AddrSetPfxLength.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cIpv6AddrSetPfxLength.setStatus("current")
+
+
+class _H3cIpv6AddrSetSourceType_Type(Integer32):
+    """Custom type h3cIpv6AddrSetSourceType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("assignedEUI64Ip", 2),
+          ("assignedIp", 1),
+          ("assignedLinklocalIp", 3))
+    )
+
+
+_H3cIpv6AddrSetSourceType_Type.__name__ = "Integer32"
+_H3cIpv6AddrSetSourceType_Object = MibTableColumn
+h3cIpv6AddrSetSourceType = _H3cIpv6AddrSetSourceType_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 71, 1, 1, 1, 1, 5),
+    _H3cIpv6AddrSetSourceType_Type()
+)
+h3cIpv6AddrSetSourceType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cIpv6AddrSetSourceType.setStatus("current")
+_H3cIpv6AddrSetRowStatus_Type = RowStatus
+_H3cIpv6AddrSetRowStatus_Object = MibTableColumn
+h3cIpv6AddrSetRowStatus = _H3cIpv6AddrSetRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 71, 1, 1, 1, 1, 6),
+    _H3cIpv6AddrSetRowStatus_Type()
+)
+h3cIpv6AddrSetRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cIpv6AddrSetRowStatus.setStatus("current")
+_H3cIpv6AddrReadTable_Object = MibTable
+h3cIpv6AddrReadTable = _H3cIpv6AddrReadTable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 71, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    h3cIpv6AddrReadTable.setStatus("current")
+_H3cIpv6AddrReadEntry_Object = MibTableRow
+h3cIpv6AddrReadEntry = _H3cIpv6AddrReadEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 71, 1, 1, 2, 1)
+)
+h3cIpv6AddrReadEntry.setIndexNames(
+    (0, "H3C-IPV6-ADDRESS-MIB", "h3cIpv6AddrReadIfIndex"),
+    (0, "H3C-IPV6-ADDRESS-MIB", "h3cIpv6AddrReadAddrType"),
+    (0, "H3C-IPV6-ADDRESS-MIB", "h3cIpv6AddrReadAddr"),
+)
+if mibBuilder.loadTexts:
+    h3cIpv6AddrReadEntry.setStatus("current")
+
+
+class _H3cIpv6AddrReadIfIndex_Type(Integer32):
+    """Custom type h3cIpv6AddrReadIfIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_H3cIpv6AddrReadIfIndex_Type.__name__ = "Integer32"
+_H3cIpv6AddrReadIfIndex_Object = MibTableColumn
+h3cIpv6AddrReadIfIndex = _H3cIpv6AddrReadIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 71, 1, 1, 2, 1, 1),
+    _H3cIpv6AddrReadIfIndex_Type()
+)
+h3cIpv6AddrReadIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cIpv6AddrReadIfIndex.setStatus("current")
+_H3cIpv6AddrReadAddrType_Type = InetAddressType
+_H3cIpv6AddrReadAddrType_Object = MibTableColumn
+h3cIpv6AddrReadAddrType = _H3cIpv6AddrReadAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 71, 1, 1, 2, 1, 2),
+    _H3cIpv6AddrReadAddrType_Type()
+)
+h3cIpv6AddrReadAddrType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cIpv6AddrReadAddrType.setStatus("current")
+_H3cIpv6AddrReadAddr_Type = InetAddress
+_H3cIpv6AddrReadAddr_Object = MibTableColumn
+h3cIpv6AddrReadAddr = _H3cIpv6AddrReadAddr_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 71, 1, 1, 2, 1, 3),
+    _H3cIpv6AddrReadAddr_Type()
+)
+h3cIpv6AddrReadAddr.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cIpv6AddrReadAddr.setStatus("current")
+
+
+class _H3cIpv6AddrReadPfxLength_Type(Integer32):
+    """Custom type h3cIpv6AddrReadPfxLength based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 128),
+    )
+
+
+_H3cIpv6AddrReadPfxLength_Type.__name__ = "Integer32"
+_H3cIpv6AddrReadPfxLength_Object = MibTableColumn
+h3cIpv6AddrReadPfxLength = _H3cIpv6AddrReadPfxLength_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 71, 1, 1, 2, 1, 4),
+    _H3cIpv6AddrReadPfxLength_Type()
+)
+h3cIpv6AddrReadPfxLength.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cIpv6AddrReadPfxLength.setStatus("current")
+
+
+class _H3cIpv6AddrReadSourceType_Type(Integer32):
+    """Custom type h3cIpv6AddrReadSourceType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("assignedAutoIp", 3),
+          ("assignedEUI64Ip", 2),
+          ("assignedIp", 1),
+          ("autoIp", 4),
+          ("cluster", 7),
+          ("dhcpv6", 5),
+          ("negotiate", 6))
+    )
+
+
+_H3cIpv6AddrReadSourceType_Type.__name__ = "Integer32"
+_H3cIpv6AddrReadSourceType_Object = MibTableColumn
+h3cIpv6AddrReadSourceType = _H3cIpv6AddrReadSourceType_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 71, 1, 1, 2, 1, 5),
+    _H3cIpv6AddrReadSourceType_Type()
+)
+h3cIpv6AddrReadSourceType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cIpv6AddrReadSourceType.setStatus("current")
+
+
+class _H3cIpv6AddrReadCatalog_Type(Integer32):
+    """Custom type h3cIpv6AddrReadCatalog based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("global", 5),
+          ("linklocal", 2),
+          ("nodelocal", 1),
+          ("orglocal", 4),
+          ("sitelocal", 3))
+    )
+
+
+_H3cIpv6AddrReadCatalog_Type.__name__ = "Integer32"
+_H3cIpv6AddrReadCatalog_Object = MibTableColumn
+h3cIpv6AddrReadCatalog = _H3cIpv6AddrReadCatalog_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 71, 1, 1, 2, 1, 6),
+    _H3cIpv6AddrReadCatalog_Type()
+)
+h3cIpv6AddrReadCatalog.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cIpv6AddrReadCatalog.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "H3C-IPV6-ADDRESS-MIB",
+    **{"h3cIpv6AddrMIB": h3cIpv6AddrMIB,
+       "h3cIpv6AddressObjects": h3cIpv6AddressObjects,
+       "h3cIpv6AddressConfig": h3cIpv6AddressConfig,
+       "h3cIpv6AddrSetTable": h3cIpv6AddrSetTable,
+       "h3cIpv6AddrSetEntry": h3cIpv6AddrSetEntry,
+       "h3cIpv6AddrSetIfIndex": h3cIpv6AddrSetIfIndex,
+       "h3cIpv6AddrSetAddrType": h3cIpv6AddrSetAddrType,
+       "h3cIpv6AddrSetAddr": h3cIpv6AddrSetAddr,
+       "h3cIpv6AddrSetPfxLength": h3cIpv6AddrSetPfxLength,
+       "h3cIpv6AddrSetSourceType": h3cIpv6AddrSetSourceType,
+       "h3cIpv6AddrSetRowStatus": h3cIpv6AddrSetRowStatus,
+       "h3cIpv6AddrReadTable": h3cIpv6AddrReadTable,
+       "h3cIpv6AddrReadEntry": h3cIpv6AddrReadEntry,
+       "h3cIpv6AddrReadIfIndex": h3cIpv6AddrReadIfIndex,
+       "h3cIpv6AddrReadAddrType": h3cIpv6AddrReadAddrType,
+       "h3cIpv6AddrReadAddr": h3cIpv6AddrReadAddr,
+       "h3cIpv6AddrReadPfxLength": h3cIpv6AddrReadPfxLength,
+       "h3cIpv6AddrReadSourceType": h3cIpv6AddrReadSourceType,
+       "h3cIpv6AddrReadCatalog": h3cIpv6AddrReadCatalog}
+)

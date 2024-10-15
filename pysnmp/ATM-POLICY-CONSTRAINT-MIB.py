@@ -1,140 +1,792 @@
+# SNMP MIB module (ATM-POLICY-CONSTRAINT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ATM-POLICY-CONSTRAINT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/ATM-POLICY-CONSTRAINT-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:15:17 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-Unsigned32, ModuleIdentity, iso, TimeTicks, enterprises, Gauge32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, NotificationType, IpAddress, Bits, Counter32, Integer32, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "ModuleIdentity", "iso", "TimeTicks", "enterprises", "Gauge32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "NotificationType", "IpAddress", "Bits", "Counter32", "Integer32", "ObjectIdentity")
-TextualConvention, DisplayString, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "RowStatus")
-atmPolicyConstraintMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1))
-atmPolicyConstraintMIB.setRevisions(('2003-07-08 00:00',))
-if mibBuilder.loadTexts: atmPolicyConstraintMIB.setLastUpdated('200307080000Z')
-if mibBuilder.loadTexts: atmPolicyConstraintMIB.setOrganization('The ATM Forum.')
-atmForum = MibIdentifier((1, 3, 6, 1, 4, 1, 353))
-atmForumNetworkManagement = MibIdentifier((1, 3, 6, 1, 4, 1, 353, 5))
-atmfSignalling = MibIdentifier((1, 3, 6, 1, 4, 1, 353, 5, 9))
-atmfPolicyConstraint = MibIdentifier((1, 3, 6, 1, 4, 1, 353, 5, 9, 5))
-policyConstraintMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1))
-class NetworkEntityNetworkServiceCategory(TextualConvention, Integer32):
-    reference = 'ATMF Policy Routing Version 1.0'
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 65536)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/ATM-POLICY-CONSTRAINT-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 20:43:58 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class ResourcePartitionNetworkServiceCategory(TextualConvention, Integer32):
-    reference = 'ATMF Policy Routing Version 1.0'
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 65535)
+if 'mibBuilder' not in globals():
+    import sys
 
-class PolicyConstraintIndex(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 65535)
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-class PolicyConstraintPolicyIndex(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 6)
+# Import base ASN.1 objects even if this MIB does not use it
 
-class PolicyIndex(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 65535)
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
 
-class PolicyOperator(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("requires", 1), ("mustAvoid", 2))
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
 
-policyConstraintBaseGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 1))
-policyConstraintMaximum = MibScalar((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: policyConstraintMaximum.setStatus('current')
-policyMaximum = MibScalar((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: policyMaximum.setStatus('current')
-policyNeNSCListMaximum = MibScalar((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: policyNeNSCListMaximum.setStatus('current')
-policyRpNSCListMaximum = MibScalar((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: policyRpNSCListMaximum.setStatus('current')
-policyConstraintGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 2))
-policyNextPolicyConstraintIndex = MibScalar((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 2, 1), PolicyConstraintIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: policyNextPolicyConstraintIndex.setStatus('current')
-policyConstraintTable = MibTable((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 2, 2), )
-if mibBuilder.loadTexts: policyConstraintTable.setStatus('current')
-policyConstraintEntry = MibTableRow((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 2, 2, 1), ).setIndexNames((0, "ATM-POLICY-CONSTRAINT-MIB", "policyConstraintIndex"), (0, "ATM-POLICY-CONSTRAINT-MIB", "policyConstraintPolicyIndex"))
-if mibBuilder.loadTexts: policyConstraintEntry.setStatus('current')
-policyConstraintIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 2, 2, 1, 1), PolicyConstraintIndex())
-if mibBuilder.loadTexts: policyConstraintIndex.setStatus('current')
-policyConstraintPolicyIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 2, 2, 1, 2), PolicyConstraintPolicyIndex())
-if mibBuilder.loadTexts: policyConstraintPolicyIndex.setStatus('current')
-policyIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 2, 2, 1, 3), PolicyIndex()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: policyIndex.setStatus('current')
-policyConstraintRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 2, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: policyConstraintRowStatus.setStatus('current')
-policyConstraintNameTable = MibTable((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 2, 3), )
-if mibBuilder.loadTexts: policyConstraintNameTable.setStatus('current')
-policyConstraintNameEntry = MibTableRow((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 2, 3, 1), ).setIndexNames((0, "ATM-POLICY-CONSTRAINT-MIB", "policyConstraintIndex"))
-if mibBuilder.loadTexts: policyConstraintNameEntry.setStatus('current')
-policyConstraintName = MibTableColumn((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 2, 3, 1, 1), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: policyConstraintName.setStatus('current')
-policyConstraintNameRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 2, 3, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: policyConstraintNameRowStatus.setStatus('current')
-policyGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3))
-policyNextPolicyIndex = MibScalar((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 1), PolicyIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: policyNextPolicyIndex.setStatus('current')
-policyTable = MibTable((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 2), )
-if mibBuilder.loadTexts: policyTable.setStatus('current')
-policyEntry = MibTableRow((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 2, 1), ).setIndexNames((0, "ATM-POLICY-CONSTRAINT-MIB", "policyIndex"))
-if mibBuilder.loadTexts: policyEntry.setStatus('current')
-policyName = MibTableColumn((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 2, 1, 1), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: policyName.setStatus('current')
-requireNeNscOperator = MibTableColumn((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("noop", 1), ("logicalAND", 2), ("logicalOR", 3))).clone('noop')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: requireNeNscOperator.setStatus('current')
-requireRpNscOperator = MibTableColumn((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("noop", 1), ("logicalAND", 2), ("logicalOR", 3))).clone('noop')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: requireRpNscOperator.setStatus('current')
-mustAvoidNeNscOperator = MibTableColumn((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("noop", 1), ("logicalAND", 2), ("logicalOR", 3))).clone('noop')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mustAvoidNeNscOperator.setStatus('current')
-policyRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 2, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: policyRowStatus.setStatus('current')
-policyNeNscTable = MibTable((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 3), )
-if mibBuilder.loadTexts: policyNeNscTable.setStatus('current')
-policyNeNscEntry = MibTableRow((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 3, 1), ).setIndexNames((0, "ATM-POLICY-CONSTRAINT-MIB", "policyIndex"), (0, "ATM-POLICY-CONSTRAINT-MIB", "policyOperator"), (0, "ATM-POLICY-CONSTRAINT-MIB", "policyNeNscIndex"))
-if mibBuilder.loadTexts: policyNeNscEntry.setStatus('current')
-policyNeNscIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
-if mibBuilder.loadTexts: policyNeNscIndex.setStatus('current')
-policyOperator = MibTableColumn((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 3, 1, 2), PolicyOperator())
-if mibBuilder.loadTexts: policyOperator.setStatus('current')
-policyNeNsc = MibTableColumn((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 3, 1, 3), NetworkEntityNetworkServiceCategory()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: policyNeNsc.setStatus('current')
-policyNeNscRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 3, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: policyNeNscRowStatus.setStatus('current')
-policyRpNscTable = MibTable((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 4), )
-if mibBuilder.loadTexts: policyRpNscTable.setStatus('current')
-policyRpNscEntry = MibTableRow((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 4, 1), ).setIndexNames((0, "ATM-POLICY-CONSTRAINT-MIB", "policyIndex"), (0, "ATM-POLICY-CONSTRAINT-MIB", "policyRpNscIndex"))
-if mibBuilder.loadTexts: policyRpNscEntry.setStatus('current')
-policyRpNscIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
-if mibBuilder.loadTexts: policyRpNscIndex.setStatus('current')
-policyRpNsc = MibTableColumn((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 4, 1, 2), ResourcePartitionNetworkServiceCategory()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: policyRpNsc.setStatus('current')
-policyRpNscRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 4, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: policyRpNscRowStatus.setStatus('current')
-policyReferenceTable = MibTable((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 5), )
-if mibBuilder.loadTexts: policyReferenceTable.setStatus('current')
-policyReferenceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 5, 1), ).setIndexNames((0, "ATM-POLICY-CONSTRAINT-MIB", "policyIndex"), (0, "ATM-POLICY-CONSTRAINT-MIB", "policyConstraintIndex"))
-if mibBuilder.loadTexts: policyReferenceEntry.setStatus('current')
-policyReferencePCIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 5, 1, 1), PolicyConstraintIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: policyReferencePCIndex.setStatus('current')
-policyConstraintMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 4))
-policyConstraintMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 4, 1))
-policyConstraintMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 4, 2))
-policyConstraintMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 4, 1, 1)).setObjects(("ATM-POLICY-CONSTRAINT-MIB", "policyConstraintMIBMandatoryGroup"), ("ATM-POLICY-CONSTRAINT-MIB", "policyConstraintMIBOptionalGroup"))
+# Import SMI symbols from the MIBs this MIB depends on
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    policyConstraintMIBCompliance = policyConstraintMIBCompliance.setStatus('current')
-policyConstraintMIBMandatoryGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 4, 2, 1)).setObjects(("ATM-POLICY-CONSTRAINT-MIB", "policyConstraintMaximum"), ("ATM-POLICY-CONSTRAINT-MIB", "policyMaximum"), ("ATM-POLICY-CONSTRAINT-MIB", "policyNeNSCListMaximum"), ("ATM-POLICY-CONSTRAINT-MIB", "policyRpNSCListMaximum"), ("ATM-POLICY-CONSTRAINT-MIB", "policyIndex"), ("ATM-POLICY-CONSTRAINT-MIB", "policyConstraintRowStatus"), ("ATM-POLICY-CONSTRAINT-MIB", "requireNeNscOperator"), ("ATM-POLICY-CONSTRAINT-MIB", "requireRpNscOperator"), ("ATM-POLICY-CONSTRAINT-MIB", "mustAvoidNeNscOperator"), ("ATM-POLICY-CONSTRAINT-MIB", "policyRowStatus"), ("ATM-POLICY-CONSTRAINT-MIB", "policyNeNsc"), ("ATM-POLICY-CONSTRAINT-MIB", "policyNeNscRowStatus"), ("ATM-POLICY-CONSTRAINT-MIB", "policyRpNsc"), ("ATM-POLICY-CONSTRAINT-MIB", "policyRpNscRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    policyConstraintMIBMandatoryGroup = policyConstraintMIBMandatoryGroup.setStatus('current')
-policyConstraintMIBOptionalGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 4, 2, 2)).setObjects(("ATM-POLICY-CONSTRAINT-MIB", "policyNextPolicyConstraintIndex"), ("ATM-POLICY-CONSTRAINT-MIB", "policyConstraintName"), ("ATM-POLICY-CONSTRAINT-MIB", "policyConstraintNameRowStatus"), ("ATM-POLICY-CONSTRAINT-MIB", "policyNextPolicyIndex"), ("ATM-POLICY-CONSTRAINT-MIB", "policyName"), ("ATM-POLICY-CONSTRAINT-MIB", "policyReferencePCIndex"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    policyConstraintMIBOptionalGroup = policyConstraintMIBOptionalGroup.setStatus('current')
-mibBuilder.exportSymbols("ATM-POLICY-CONSTRAINT-MIB", policyConstraintName=policyConstraintName, NetworkEntityNetworkServiceCategory=NetworkEntityNetworkServiceCategory, policyConstraintNameTable=policyConstraintNameTable, policyConstraintNameRowStatus=policyConstraintNameRowStatus, policyConstraintEntry=policyConstraintEntry, policyReferenceTable=policyReferenceTable, policyRpNscEntry=policyRpNscEntry, PolicyConstraintIndex=PolicyConstraintIndex, policyConstraintGroup=policyConstraintGroup, atmfSignalling=atmfSignalling, policyEntry=policyEntry, policyConstraintMIBConformance=policyConstraintMIBConformance, PolicyIndex=PolicyIndex, policyConstraintMIBOptionalGroup=policyConstraintMIBOptionalGroup, atmfPolicyConstraint=atmfPolicyConstraint, policyConstraintTable=policyConstraintTable, policyName=policyName, PolicyOperator=PolicyOperator, policyConstraintIndex=policyConstraintIndex, policyConstraintMIBMandatoryGroup=policyConstraintMIBMandatoryGroup, policyIndex=policyIndex, PolicyConstraintPolicyIndex=PolicyConstraintPolicyIndex, policyReferencePCIndex=policyReferencePCIndex, policyNeNscRowStatus=policyNeNscRowStatus, policyConstraintBaseGroup=policyConstraintBaseGroup, policyNextPolicyConstraintIndex=policyNextPolicyConstraintIndex, requireNeNscOperator=requireNeNscOperator, ResourcePartitionNetworkServiceCategory=ResourcePartitionNetworkServiceCategory, policyRpNscRowStatus=policyRpNscRowStatus, policyConstraintMIBCompliances=policyConstraintMIBCompliances, policyRpNscTable=policyRpNscTable, policyNeNSCListMaximum=policyNeNSCListMaximum, policyMaximum=policyMaximum, atmPolicyConstraintMIB=atmPolicyConstraintMIB, policyConstraintRowStatus=policyConstraintRowStatus, policyNextPolicyIndex=policyNextPolicyIndex, policyNeNscEntry=policyNeNscEntry, policyReferenceEntry=policyReferenceEntry, policyConstraintMIBGroups=policyConstraintMIBGroups, policyConstraintMIBCompliance=policyConstraintMIBCompliance, policyConstraintPolicyIndex=policyConstraintPolicyIndex, policyRpNscIndex=policyRpNscIndex, PYSNMP_MODULE_ID=atmPolicyConstraintMIB, mustAvoidNeNscOperator=mustAvoidNeNscOperator, requireRpNscOperator=requireRpNscOperator, atmForum=atmForum, policyConstraintMaximum=policyConstraintMaximum, policyTable=policyTable, policyNeNsc=policyNeNsc, policyNeNscTable=policyNeNscTable, policyOperator=policyOperator, policyNeNscIndex=policyNeNscIndex, policyConstraintMIBObjects=policyConstraintMIBObjects, policyRpNSCListMaximum=policyRpNSCListMaximum, policyRowStatus=policyRowStatus, atmForumNetworkManagement=atmForumNetworkManagement, policyGroup=policyGroup, policyRpNsc=policyRpNsc, policyConstraintNameEntry=policyConstraintNameEntry)
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+atmPolicyConstraintMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1)
+)
+atmPolicyConstraintMIB.setRevisions(
+        ("2003-07-08 00:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class NetworkEntityNetworkServiceCategory(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65536),
+    )
+
+
+
+class ResourcePartitionNetworkServiceCategory(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+
+class PolicyConstraintIndex(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+
+class PolicyConstraintPolicyIndex(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 6),
+    )
+
+
+
+class PolicyIndex(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+
+class PolicyOperator(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("mustAvoid", 2),
+          ("requires", 1))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AtmForum_ObjectIdentity = ObjectIdentity
+atmForum = _AtmForum_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 353)
+)
+_AtmForumNetworkManagement_ObjectIdentity = ObjectIdentity
+atmForumNetworkManagement = _AtmForumNetworkManagement_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 353, 5)
+)
+_AtmfSignalling_ObjectIdentity = ObjectIdentity
+atmfSignalling = _AtmfSignalling_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9)
+)
+_AtmfPolicyConstraint_ObjectIdentity = ObjectIdentity
+atmfPolicyConstraint = _AtmfPolicyConstraint_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5)
+)
+_PolicyConstraintMIBObjects_ObjectIdentity = ObjectIdentity
+policyConstraintMIBObjects = _PolicyConstraintMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1)
+)
+_PolicyConstraintBaseGroup_ObjectIdentity = ObjectIdentity
+policyConstraintBaseGroup = _PolicyConstraintBaseGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 1)
+)
+
+
+class _PolicyConstraintMaximum_Type(Integer32):
+    """Custom type policyConstraintMaximum based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_PolicyConstraintMaximum_Type.__name__ = "Integer32"
+_PolicyConstraintMaximum_Object = MibScalar
+policyConstraintMaximum = _PolicyConstraintMaximum_Object(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 1, 1),
+    _PolicyConstraintMaximum_Type()
+)
+policyConstraintMaximum.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    policyConstraintMaximum.setStatus("current")
+
+
+class _PolicyMaximum_Type(Integer32):
+    """Custom type policyMaximum based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_PolicyMaximum_Type.__name__ = "Integer32"
+_PolicyMaximum_Object = MibScalar
+policyMaximum = _PolicyMaximum_Object(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 1, 2),
+    _PolicyMaximum_Type()
+)
+policyMaximum.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    policyMaximum.setStatus("current")
+
+
+class _PolicyNeNSCListMaximum_Type(Integer32):
+    """Custom type policyNeNSCListMaximum based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_PolicyNeNSCListMaximum_Type.__name__ = "Integer32"
+_PolicyNeNSCListMaximum_Object = MibScalar
+policyNeNSCListMaximum = _PolicyNeNSCListMaximum_Object(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 1, 3),
+    _PolicyNeNSCListMaximum_Type()
+)
+policyNeNSCListMaximum.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    policyNeNSCListMaximum.setStatus("current")
+
+
+class _PolicyRpNSCListMaximum_Type(Integer32):
+    """Custom type policyRpNSCListMaximum based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_PolicyRpNSCListMaximum_Type.__name__ = "Integer32"
+_PolicyRpNSCListMaximum_Object = MibScalar
+policyRpNSCListMaximum = _PolicyRpNSCListMaximum_Object(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 1, 4),
+    _PolicyRpNSCListMaximum_Type()
+)
+policyRpNSCListMaximum.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    policyRpNSCListMaximum.setStatus("current")
+_PolicyConstraintGroup_ObjectIdentity = ObjectIdentity
+policyConstraintGroup = _PolicyConstraintGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 2)
+)
+_PolicyNextPolicyConstraintIndex_Type = PolicyConstraintIndex
+_PolicyNextPolicyConstraintIndex_Object = MibScalar
+policyNextPolicyConstraintIndex = _PolicyNextPolicyConstraintIndex_Object(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 2, 1),
+    _PolicyNextPolicyConstraintIndex_Type()
+)
+policyNextPolicyConstraintIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    policyNextPolicyConstraintIndex.setStatus("current")
+_PolicyConstraintTable_Object = MibTable
+policyConstraintTable = _PolicyConstraintTable_Object(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 2, 2)
+)
+if mibBuilder.loadTexts:
+    policyConstraintTable.setStatus("current")
+_PolicyConstraintEntry_Object = MibTableRow
+policyConstraintEntry = _PolicyConstraintEntry_Object(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 2, 2, 1)
+)
+policyConstraintEntry.setIndexNames(
+    (0, "ATM-POLICY-CONSTRAINT-MIB", "policyConstraintIndex"),
+    (0, "ATM-POLICY-CONSTRAINT-MIB", "policyConstraintPolicyIndex"),
+)
+if mibBuilder.loadTexts:
+    policyConstraintEntry.setStatus("current")
+_PolicyConstraintIndex_Type = PolicyConstraintIndex
+_PolicyConstraintIndex_Object = MibTableColumn
+policyConstraintIndex = _PolicyConstraintIndex_Object(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 2, 2, 1, 1),
+    _PolicyConstraintIndex_Type()
+)
+policyConstraintIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    policyConstraintIndex.setStatus("current")
+_PolicyConstraintPolicyIndex_Type = PolicyConstraintPolicyIndex
+_PolicyConstraintPolicyIndex_Object = MibTableColumn
+policyConstraintPolicyIndex = _PolicyConstraintPolicyIndex_Object(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 2, 2, 1, 2),
+    _PolicyConstraintPolicyIndex_Type()
+)
+policyConstraintPolicyIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    policyConstraintPolicyIndex.setStatus("current")
+_PolicyIndex_Type = PolicyIndex
+_PolicyIndex_Object = MibTableColumn
+policyIndex = _PolicyIndex_Object(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 2, 2, 1, 3),
+    _PolicyIndex_Type()
+)
+policyIndex.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    policyIndex.setStatus("current")
+_PolicyConstraintRowStatus_Type = RowStatus
+_PolicyConstraintRowStatus_Object = MibTableColumn
+policyConstraintRowStatus = _PolicyConstraintRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 2, 2, 1, 4),
+    _PolicyConstraintRowStatus_Type()
+)
+policyConstraintRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    policyConstraintRowStatus.setStatus("current")
+_PolicyConstraintNameTable_Object = MibTable
+policyConstraintNameTable = _PolicyConstraintNameTable_Object(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 2, 3)
+)
+if mibBuilder.loadTexts:
+    policyConstraintNameTable.setStatus("current")
+_PolicyConstraintNameEntry_Object = MibTableRow
+policyConstraintNameEntry = _PolicyConstraintNameEntry_Object(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 2, 3, 1)
+)
+policyConstraintNameEntry.setIndexNames(
+    (0, "ATM-POLICY-CONSTRAINT-MIB", "policyConstraintIndex"),
+)
+if mibBuilder.loadTexts:
+    policyConstraintNameEntry.setStatus("current")
+_PolicyConstraintName_Type = DisplayString
+_PolicyConstraintName_Object = MibTableColumn
+policyConstraintName = _PolicyConstraintName_Object(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 2, 3, 1, 1),
+    _PolicyConstraintName_Type()
+)
+policyConstraintName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    policyConstraintName.setStatus("current")
+_PolicyConstraintNameRowStatus_Type = RowStatus
+_PolicyConstraintNameRowStatus_Object = MibTableColumn
+policyConstraintNameRowStatus = _PolicyConstraintNameRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 2, 3, 1, 2),
+    _PolicyConstraintNameRowStatus_Type()
+)
+policyConstraintNameRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    policyConstraintNameRowStatus.setStatus("current")
+_PolicyGroup_ObjectIdentity = ObjectIdentity
+policyGroup = _PolicyGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3)
+)
+_PolicyNextPolicyIndex_Type = PolicyIndex
+_PolicyNextPolicyIndex_Object = MibScalar
+policyNextPolicyIndex = _PolicyNextPolicyIndex_Object(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 1),
+    _PolicyNextPolicyIndex_Type()
+)
+policyNextPolicyIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    policyNextPolicyIndex.setStatus("current")
+_PolicyTable_Object = MibTable
+policyTable = _PolicyTable_Object(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 2)
+)
+if mibBuilder.loadTexts:
+    policyTable.setStatus("current")
+_PolicyEntry_Object = MibTableRow
+policyEntry = _PolicyEntry_Object(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 2, 1)
+)
+policyEntry.setIndexNames(
+    (0, "ATM-POLICY-CONSTRAINT-MIB", "policyIndex"),
+)
+if mibBuilder.loadTexts:
+    policyEntry.setStatus("current")
+_PolicyName_Type = DisplayString
+_PolicyName_Object = MibTableColumn
+policyName = _PolicyName_Object(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 2, 1, 1),
+    _PolicyName_Type()
+)
+policyName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    policyName.setStatus("current")
+
+
+class _RequireNeNscOperator_Type(Integer32):
+    """Custom type requireNeNscOperator based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("logicalAND", 2),
+          ("logicalOR", 3),
+          ("noop", 1))
+    )
+
+
+_RequireNeNscOperator_Type.__name__ = "Integer32"
+_RequireNeNscOperator_Object = MibTableColumn
+requireNeNscOperator = _RequireNeNscOperator_Object(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 2, 1, 2),
+    _RequireNeNscOperator_Type()
+)
+requireNeNscOperator.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    requireNeNscOperator.setStatus("current")
+
+
+class _RequireRpNscOperator_Type(Integer32):
+    """Custom type requireRpNscOperator based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("logicalAND", 2),
+          ("logicalOR", 3),
+          ("noop", 1))
+    )
+
+
+_RequireRpNscOperator_Type.__name__ = "Integer32"
+_RequireRpNscOperator_Object = MibTableColumn
+requireRpNscOperator = _RequireRpNscOperator_Object(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 2, 1, 3),
+    _RequireRpNscOperator_Type()
+)
+requireRpNscOperator.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    requireRpNscOperator.setStatus("current")
+
+
+class _MustAvoidNeNscOperator_Type(Integer32):
+    """Custom type mustAvoidNeNscOperator based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("logicalAND", 2),
+          ("logicalOR", 3),
+          ("noop", 1))
+    )
+
+
+_MustAvoidNeNscOperator_Type.__name__ = "Integer32"
+_MustAvoidNeNscOperator_Object = MibTableColumn
+mustAvoidNeNscOperator = _MustAvoidNeNscOperator_Object(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 2, 1, 4),
+    _MustAvoidNeNscOperator_Type()
+)
+mustAvoidNeNscOperator.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mustAvoidNeNscOperator.setStatus("current")
+_PolicyRowStatus_Type = RowStatus
+_PolicyRowStatus_Object = MibTableColumn
+policyRowStatus = _PolicyRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 2, 1, 5),
+    _PolicyRowStatus_Type()
+)
+policyRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    policyRowStatus.setStatus("current")
+_PolicyNeNscTable_Object = MibTable
+policyNeNscTable = _PolicyNeNscTable_Object(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 3)
+)
+if mibBuilder.loadTexts:
+    policyNeNscTable.setStatus("current")
+_PolicyNeNscEntry_Object = MibTableRow
+policyNeNscEntry = _PolicyNeNscEntry_Object(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 3, 1)
+)
+policyNeNscEntry.setIndexNames(
+    (0, "ATM-POLICY-CONSTRAINT-MIB", "policyIndex"),
+    (0, "ATM-POLICY-CONSTRAINT-MIB", "policyOperator"),
+    (0, "ATM-POLICY-CONSTRAINT-MIB", "policyNeNscIndex"),
+)
+if mibBuilder.loadTexts:
+    policyNeNscEntry.setStatus("current")
+
+
+class _PolicyNeNscIndex_Type(Integer32):
+    """Custom type policyNeNscIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_PolicyNeNscIndex_Type.__name__ = "Integer32"
+_PolicyNeNscIndex_Object = MibTableColumn
+policyNeNscIndex = _PolicyNeNscIndex_Object(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 3, 1, 1),
+    _PolicyNeNscIndex_Type()
+)
+policyNeNscIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    policyNeNscIndex.setStatus("current")
+_PolicyOperator_Type = PolicyOperator
+_PolicyOperator_Object = MibTableColumn
+policyOperator = _PolicyOperator_Object(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 3, 1, 2),
+    _PolicyOperator_Type()
+)
+policyOperator.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    policyOperator.setStatus("current")
+_PolicyNeNsc_Type = NetworkEntityNetworkServiceCategory
+_PolicyNeNsc_Object = MibTableColumn
+policyNeNsc = _PolicyNeNsc_Object(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 3, 1, 3),
+    _PolicyNeNsc_Type()
+)
+policyNeNsc.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    policyNeNsc.setStatus("current")
+_PolicyNeNscRowStatus_Type = RowStatus
+_PolicyNeNscRowStatus_Object = MibTableColumn
+policyNeNscRowStatus = _PolicyNeNscRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 3, 1, 4),
+    _PolicyNeNscRowStatus_Type()
+)
+policyNeNscRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    policyNeNscRowStatus.setStatus("current")
+_PolicyRpNscTable_Object = MibTable
+policyRpNscTable = _PolicyRpNscTable_Object(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 4)
+)
+if mibBuilder.loadTexts:
+    policyRpNscTable.setStatus("current")
+_PolicyRpNscEntry_Object = MibTableRow
+policyRpNscEntry = _PolicyRpNscEntry_Object(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 4, 1)
+)
+policyRpNscEntry.setIndexNames(
+    (0, "ATM-POLICY-CONSTRAINT-MIB", "policyIndex"),
+    (0, "ATM-POLICY-CONSTRAINT-MIB", "policyRpNscIndex"),
+)
+if mibBuilder.loadTexts:
+    policyRpNscEntry.setStatus("current")
+
+
+class _PolicyRpNscIndex_Type(Integer32):
+    """Custom type policyRpNscIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_PolicyRpNscIndex_Type.__name__ = "Integer32"
+_PolicyRpNscIndex_Object = MibTableColumn
+policyRpNscIndex = _PolicyRpNscIndex_Object(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 4, 1, 1),
+    _PolicyRpNscIndex_Type()
+)
+policyRpNscIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    policyRpNscIndex.setStatus("current")
+_PolicyRpNsc_Type = ResourcePartitionNetworkServiceCategory
+_PolicyRpNsc_Object = MibTableColumn
+policyRpNsc = _PolicyRpNsc_Object(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 4, 1, 2),
+    _PolicyRpNsc_Type()
+)
+policyRpNsc.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    policyRpNsc.setStatus("current")
+_PolicyRpNscRowStatus_Type = RowStatus
+_PolicyRpNscRowStatus_Object = MibTableColumn
+policyRpNscRowStatus = _PolicyRpNscRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 4, 1, 3),
+    _PolicyRpNscRowStatus_Type()
+)
+policyRpNscRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    policyRpNscRowStatus.setStatus("current")
+_PolicyReferenceTable_Object = MibTable
+policyReferenceTable = _PolicyReferenceTable_Object(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 5)
+)
+if mibBuilder.loadTexts:
+    policyReferenceTable.setStatus("current")
+_PolicyReferenceEntry_Object = MibTableRow
+policyReferenceEntry = _PolicyReferenceEntry_Object(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 5, 1)
+)
+policyReferenceEntry.setIndexNames(
+    (0, "ATM-POLICY-CONSTRAINT-MIB", "policyIndex"),
+    (0, "ATM-POLICY-CONSTRAINT-MIB", "policyConstraintIndex"),
+)
+if mibBuilder.loadTexts:
+    policyReferenceEntry.setStatus("current")
+_PolicyReferencePCIndex_Type = PolicyConstraintIndex
+_PolicyReferencePCIndex_Object = MibTableColumn
+policyReferencePCIndex = _PolicyReferencePCIndex_Object(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 3, 5, 1, 1),
+    _PolicyReferencePCIndex_Type()
+)
+policyReferencePCIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    policyReferencePCIndex.setStatus("current")
+_PolicyConstraintMIBConformance_ObjectIdentity = ObjectIdentity
+policyConstraintMIBConformance = _PolicyConstraintMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 4)
+)
+_PolicyConstraintMIBCompliances_ObjectIdentity = ObjectIdentity
+policyConstraintMIBCompliances = _PolicyConstraintMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 4, 1)
+)
+_PolicyConstraintMIBGroups_ObjectIdentity = ObjectIdentity
+policyConstraintMIBGroups = _PolicyConstraintMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 4, 2)
+)
+
+# Managed Objects groups
+
+policyConstraintMIBMandatoryGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 4, 2, 1)
+)
+policyConstraintMIBMandatoryGroup.setObjects(
+      *(("ATM-POLICY-CONSTRAINT-MIB", "policyConstraintMaximum"),
+        ("ATM-POLICY-CONSTRAINT-MIB", "policyMaximum"),
+        ("ATM-POLICY-CONSTRAINT-MIB", "policyNeNSCListMaximum"),
+        ("ATM-POLICY-CONSTRAINT-MIB", "policyRpNSCListMaximum"),
+        ("ATM-POLICY-CONSTRAINT-MIB", "policyIndex"),
+        ("ATM-POLICY-CONSTRAINT-MIB", "policyConstraintRowStatus"),
+        ("ATM-POLICY-CONSTRAINT-MIB", "requireNeNscOperator"),
+        ("ATM-POLICY-CONSTRAINT-MIB", "requireRpNscOperator"),
+        ("ATM-POLICY-CONSTRAINT-MIB", "mustAvoidNeNscOperator"),
+        ("ATM-POLICY-CONSTRAINT-MIB", "policyRowStatus"),
+        ("ATM-POLICY-CONSTRAINT-MIB", "policyNeNsc"),
+        ("ATM-POLICY-CONSTRAINT-MIB", "policyNeNscRowStatus"),
+        ("ATM-POLICY-CONSTRAINT-MIB", "policyRpNsc"),
+        ("ATM-POLICY-CONSTRAINT-MIB", "policyRpNscRowStatus"))
+)
+if mibBuilder.loadTexts:
+    policyConstraintMIBMandatoryGroup.setStatus("current")
+
+policyConstraintMIBOptionalGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 4, 2, 2)
+)
+policyConstraintMIBOptionalGroup.setObjects(
+      *(("ATM-POLICY-CONSTRAINT-MIB", "policyNextPolicyConstraintIndex"),
+        ("ATM-POLICY-CONSTRAINT-MIB", "policyConstraintName"),
+        ("ATM-POLICY-CONSTRAINT-MIB", "policyConstraintNameRowStatus"),
+        ("ATM-POLICY-CONSTRAINT-MIB", "policyNextPolicyIndex"),
+        ("ATM-POLICY-CONSTRAINT-MIB", "policyName"),
+        ("ATM-POLICY-CONSTRAINT-MIB", "policyReferencePCIndex"))
+)
+if mibBuilder.loadTexts:
+    policyConstraintMIBOptionalGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+policyConstraintMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 353, 5, 9, 5, 1, 1, 4, 1, 1)
+)
+if mibBuilder.loadTexts:
+    policyConstraintMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ATM-POLICY-CONSTRAINT-MIB",
+    **{"NetworkEntityNetworkServiceCategory": NetworkEntityNetworkServiceCategory,
+       "ResourcePartitionNetworkServiceCategory": ResourcePartitionNetworkServiceCategory,
+       "PolicyConstraintIndex": PolicyConstraintIndex,
+       "PolicyConstraintPolicyIndex": PolicyConstraintPolicyIndex,
+       "PolicyIndex": PolicyIndex,
+       "PolicyOperator": PolicyOperator,
+       "atmForum": atmForum,
+       "atmForumNetworkManagement": atmForumNetworkManagement,
+       "atmfSignalling": atmfSignalling,
+       "atmfPolicyConstraint": atmfPolicyConstraint,
+       "atmPolicyConstraintMIB": atmPolicyConstraintMIB,
+       "policyConstraintMIBObjects": policyConstraintMIBObjects,
+       "policyConstraintBaseGroup": policyConstraintBaseGroup,
+       "policyConstraintMaximum": policyConstraintMaximum,
+       "policyMaximum": policyMaximum,
+       "policyNeNSCListMaximum": policyNeNSCListMaximum,
+       "policyRpNSCListMaximum": policyRpNSCListMaximum,
+       "policyConstraintGroup": policyConstraintGroup,
+       "policyNextPolicyConstraintIndex": policyNextPolicyConstraintIndex,
+       "policyConstraintTable": policyConstraintTable,
+       "policyConstraintEntry": policyConstraintEntry,
+       "policyConstraintIndex": policyConstraintIndex,
+       "policyConstraintPolicyIndex": policyConstraintPolicyIndex,
+       "policyIndex": policyIndex,
+       "policyConstraintRowStatus": policyConstraintRowStatus,
+       "policyConstraintNameTable": policyConstraintNameTable,
+       "policyConstraintNameEntry": policyConstraintNameEntry,
+       "policyConstraintName": policyConstraintName,
+       "policyConstraintNameRowStatus": policyConstraintNameRowStatus,
+       "policyGroup": policyGroup,
+       "policyNextPolicyIndex": policyNextPolicyIndex,
+       "policyTable": policyTable,
+       "policyEntry": policyEntry,
+       "policyName": policyName,
+       "requireNeNscOperator": requireNeNscOperator,
+       "requireRpNscOperator": requireRpNscOperator,
+       "mustAvoidNeNscOperator": mustAvoidNeNscOperator,
+       "policyRowStatus": policyRowStatus,
+       "policyNeNscTable": policyNeNscTable,
+       "policyNeNscEntry": policyNeNscEntry,
+       "policyNeNscIndex": policyNeNscIndex,
+       "policyOperator": policyOperator,
+       "policyNeNsc": policyNeNsc,
+       "policyNeNscRowStatus": policyNeNscRowStatus,
+       "policyRpNscTable": policyRpNscTable,
+       "policyRpNscEntry": policyRpNscEntry,
+       "policyRpNscIndex": policyRpNscIndex,
+       "policyRpNsc": policyRpNsc,
+       "policyRpNscRowStatus": policyRpNscRowStatus,
+       "policyReferenceTable": policyReferenceTable,
+       "policyReferenceEntry": policyReferenceEntry,
+       "policyReferencePCIndex": policyReferencePCIndex,
+       "policyConstraintMIBConformance": policyConstraintMIBConformance,
+       "policyConstraintMIBCompliances": policyConstraintMIBCompliances,
+       "policyConstraintMIBCompliance": policyConstraintMIBCompliance,
+       "policyConstraintMIBGroups": policyConstraintMIBGroups,
+       "policyConstraintMIBMandatoryGroup": policyConstraintMIBMandatoryGroup,
+       "policyConstraintMIBOptionalGroup": policyConstraintMIBOptionalGroup}
+)

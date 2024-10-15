@@ -1,43 +1,259 @@
+# SNMP MIB module (ZYXEL-IGMP-FILTER-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ZYXEL-IGMP-FILTER-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/ZYXEL-IGMP-FILTER-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 21:44:09 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection")
-dot1dBasePort, = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dBasePort")
-EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Bits, MibIdentifier, TimeTicks, iso, Gauge32, IpAddress, Integer32, ObjectIdentity, NotificationType, Counter64, ModuleIdentity, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Bits", "MibIdentifier", "TimeTicks", "iso", "Gauge32", "IpAddress", "Integer32", "ObjectIdentity", "NotificationType", "Counter64", "ModuleIdentity", "Unsigned32")
-TextualConvention, DisplayString, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "RowStatus")
-esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
-zyxelIgmpFilter = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 30))
-if mibBuilder.loadTexts: zyxelIgmpFilter.setLastUpdated('201207010000Z')
-if mibBuilder.loadTexts: zyxelIgmpFilter.setOrganization('Enterprise Solution ZyXEL')
-zyxelIgmpFilteringSetup = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 30, 1))
-zyIgmpFilteringState = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 30, 1, 1), EnabledStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyIgmpFilteringState.setStatus('current')
-zyIgmpFilteringMaxNumberOfProfiles = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 30, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zyIgmpFilteringMaxNumberOfProfiles.setStatus('current')
-zyxelIgmpFilteringProfileTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 30, 1, 3), )
-if mibBuilder.loadTexts: zyxelIgmpFilteringProfileTable.setStatus('current')
-zyxelIgmpFilteringProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 30, 1, 3, 1), ).setIndexNames((0, "ZYXEL-IGMP-FILTER-MIB", "zyIgmpFilteringProfileName"), (0, "ZYXEL-IGMP-FILTER-MIB", "zyIgmpFilteringProfileStartIpAddress"), (0, "ZYXEL-IGMP-FILTER-MIB", "zyIgmpFilteringProfileEndIpAddress"))
-if mibBuilder.loadTexts: zyxelIgmpFilteringProfileEntry.setStatus('current')
-zyIgmpFilteringProfileName = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 30, 1, 3, 1, 1), DisplayString())
-if mibBuilder.loadTexts: zyIgmpFilteringProfileName.setStatus('current')
-zyIgmpFilteringProfileStartIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 30, 1, 3, 1, 2), IpAddress())
-if mibBuilder.loadTexts: zyIgmpFilteringProfileStartIpAddress.setStatus('current')
-zyIgmpFilteringProfileEndIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 30, 1, 3, 1, 3), IpAddress())
-if mibBuilder.loadTexts: zyIgmpFilteringProfileEndIpAddress.setStatus('current')
-zyIgmpFilteringProfileRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 30, 1, 3, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: zyIgmpFilteringProfileRowStatus.setStatus('current')
-zyxelIgmpFilteringPortTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 30, 1, 4), )
-if mibBuilder.loadTexts: zyxelIgmpFilteringPortTable.setStatus('current')
-zyxelIgmpFilteringPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 30, 1, 4, 1), ).setIndexNames((0, "BRIDGE-MIB", "dot1dBasePort"))
-if mibBuilder.loadTexts: zyxelIgmpFilteringPortEntry.setStatus('current')
-zyIgmpFilteringPortProfile = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 30, 1, 4, 1, 1), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyIgmpFilteringPortProfile.setStatus('current')
-mibBuilder.exportSymbols("ZYXEL-IGMP-FILTER-MIB", zyIgmpFilteringProfileStartIpAddress=zyIgmpFilteringProfileStartIpAddress, zyIgmpFilteringProfileEndIpAddress=zyIgmpFilteringProfileEndIpAddress, zyxelIgmpFilteringProfileEntry=zyxelIgmpFilteringProfileEntry, zyxelIgmpFilteringSetup=zyxelIgmpFilteringSetup, zyxelIgmpFilteringPortTable=zyxelIgmpFilteringPortTable, zyIgmpFilteringPortProfile=zyIgmpFilteringPortProfile, PYSNMP_MODULE_ID=zyxelIgmpFilter, zyIgmpFilteringState=zyIgmpFilteringState, zyxelIgmpFilteringPortEntry=zyxelIgmpFilteringPortEntry, zyIgmpFilteringProfileRowStatus=zyIgmpFilteringProfileRowStatus, zyIgmpFilteringProfileName=zyIgmpFilteringProfileName, zyxelIgmpFilter=zyxelIgmpFilter, zyxelIgmpFilteringProfileTable=zyxelIgmpFilteringProfileTable, zyIgmpFilteringMaxNumberOfProfiles=zyIgmpFilteringMaxNumberOfProfiles)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/ZYXEL-IGMP-FILTER-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:22:00 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(dot1dBasePort,) = mibBuilder.importSymbols(
+    "BRIDGE-MIB",
+    "dot1dBasePort")
+
+(EnabledStatus,) = mibBuilder.importSymbols(
+    "P-BRIDGE-MIB",
+    "EnabledStatus")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "RowStatus",
+    "TextualConvention")
+
+(esMgmt,) = mibBuilder.importSymbols(
+    "ZYXEL-ES-SMI",
+    "esMgmt")
+
+
+# MODULE-IDENTITY
+
+zyxelIgmpFilter = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 30)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_ZyxelIgmpFilteringSetup_ObjectIdentity = ObjectIdentity
+zyxelIgmpFilteringSetup = _ZyxelIgmpFilteringSetup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 30, 1)
+)
+_ZyIgmpFilteringState_Type = EnabledStatus
+_ZyIgmpFilteringState_Object = MibScalar
+zyIgmpFilteringState = _ZyIgmpFilteringState_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 30, 1, 1),
+    _ZyIgmpFilteringState_Type()
+)
+zyIgmpFilteringState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyIgmpFilteringState.setStatus("current")
+_ZyIgmpFilteringMaxNumberOfProfiles_Type = Integer32
+_ZyIgmpFilteringMaxNumberOfProfiles_Object = MibScalar
+zyIgmpFilteringMaxNumberOfProfiles = _ZyIgmpFilteringMaxNumberOfProfiles_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 30, 1, 2),
+    _ZyIgmpFilteringMaxNumberOfProfiles_Type()
+)
+zyIgmpFilteringMaxNumberOfProfiles.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zyIgmpFilteringMaxNumberOfProfiles.setStatus("current")
+_ZyxelIgmpFilteringProfileTable_Object = MibTable
+zyxelIgmpFilteringProfileTable = _ZyxelIgmpFilteringProfileTable_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 30, 1, 3)
+)
+if mibBuilder.loadTexts:
+    zyxelIgmpFilteringProfileTable.setStatus("current")
+_ZyxelIgmpFilteringProfileEntry_Object = MibTableRow
+zyxelIgmpFilteringProfileEntry = _ZyxelIgmpFilteringProfileEntry_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 30, 1, 3, 1)
+)
+zyxelIgmpFilteringProfileEntry.setIndexNames(
+    (0, "ZYXEL-IGMP-FILTER-MIB", "zyIgmpFilteringProfileName"),
+    (0, "ZYXEL-IGMP-FILTER-MIB", "zyIgmpFilteringProfileStartIpAddress"),
+    (0, "ZYXEL-IGMP-FILTER-MIB", "zyIgmpFilteringProfileEndIpAddress"),
+)
+if mibBuilder.loadTexts:
+    zyxelIgmpFilteringProfileEntry.setStatus("current")
+_ZyIgmpFilteringProfileName_Type = DisplayString
+_ZyIgmpFilteringProfileName_Object = MibTableColumn
+zyIgmpFilteringProfileName = _ZyIgmpFilteringProfileName_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 30, 1, 3, 1, 1),
+    _ZyIgmpFilteringProfileName_Type()
+)
+zyIgmpFilteringProfileName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    zyIgmpFilteringProfileName.setStatus("current")
+_ZyIgmpFilteringProfileStartIpAddress_Type = IpAddress
+_ZyIgmpFilteringProfileStartIpAddress_Object = MibTableColumn
+zyIgmpFilteringProfileStartIpAddress = _ZyIgmpFilteringProfileStartIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 30, 1, 3, 1, 2),
+    _ZyIgmpFilteringProfileStartIpAddress_Type()
+)
+zyIgmpFilteringProfileStartIpAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    zyIgmpFilteringProfileStartIpAddress.setStatus("current")
+_ZyIgmpFilteringProfileEndIpAddress_Type = IpAddress
+_ZyIgmpFilteringProfileEndIpAddress_Object = MibTableColumn
+zyIgmpFilteringProfileEndIpAddress = _ZyIgmpFilteringProfileEndIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 30, 1, 3, 1, 3),
+    _ZyIgmpFilteringProfileEndIpAddress_Type()
+)
+zyIgmpFilteringProfileEndIpAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    zyIgmpFilteringProfileEndIpAddress.setStatus("current")
+_ZyIgmpFilteringProfileRowStatus_Type = RowStatus
+_ZyIgmpFilteringProfileRowStatus_Object = MibTableColumn
+zyIgmpFilteringProfileRowStatus = _ZyIgmpFilteringProfileRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 30, 1, 3, 1, 4),
+    _ZyIgmpFilteringProfileRowStatus_Type()
+)
+zyIgmpFilteringProfileRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    zyIgmpFilteringProfileRowStatus.setStatus("current")
+_ZyxelIgmpFilteringPortTable_Object = MibTable
+zyxelIgmpFilteringPortTable = _ZyxelIgmpFilteringPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 30, 1, 4)
+)
+if mibBuilder.loadTexts:
+    zyxelIgmpFilteringPortTable.setStatus("current")
+_ZyxelIgmpFilteringPortEntry_Object = MibTableRow
+zyxelIgmpFilteringPortEntry = _ZyxelIgmpFilteringPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 30, 1, 4, 1)
+)
+zyxelIgmpFilteringPortEntry.setIndexNames(
+    (0, "BRIDGE-MIB", "dot1dBasePort"),
+)
+if mibBuilder.loadTexts:
+    zyxelIgmpFilteringPortEntry.setStatus("current")
+_ZyIgmpFilteringPortProfile_Type = DisplayString
+_ZyIgmpFilteringPortProfile_Object = MibTableColumn
+zyIgmpFilteringPortProfile = _ZyIgmpFilteringPortProfile_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 30, 1, 4, 1, 1),
+    _ZyIgmpFilteringPortProfile_Type()
+)
+zyIgmpFilteringPortProfile.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyIgmpFilteringPortProfile.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ZYXEL-IGMP-FILTER-MIB",
+    **{"zyxelIgmpFilter": zyxelIgmpFilter,
+       "zyxelIgmpFilteringSetup": zyxelIgmpFilteringSetup,
+       "zyIgmpFilteringState": zyIgmpFilteringState,
+       "zyIgmpFilteringMaxNumberOfProfiles": zyIgmpFilteringMaxNumberOfProfiles,
+       "zyxelIgmpFilteringProfileTable": zyxelIgmpFilteringProfileTable,
+       "zyxelIgmpFilteringProfileEntry": zyxelIgmpFilteringProfileEntry,
+       "zyIgmpFilteringProfileName": zyIgmpFilteringProfileName,
+       "zyIgmpFilteringProfileStartIpAddress": zyIgmpFilteringProfileStartIpAddress,
+       "zyIgmpFilteringProfileEndIpAddress": zyIgmpFilteringProfileEndIpAddress,
+       "zyIgmpFilteringProfileRowStatus": zyIgmpFilteringProfileRowStatus,
+       "zyxelIgmpFilteringPortTable": zyxelIgmpFilteringPortTable,
+       "zyxelIgmpFilteringPortEntry": zyxelIgmpFilteringPortEntry,
+       "zyIgmpFilteringPortProfile": zyIgmpFilteringPortProfile}
+)

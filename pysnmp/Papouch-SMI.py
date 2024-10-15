@@ -1,26 +1,167 @@
+# SNMP MIB module (Papouch-SMI) expressed in pysnmp data model.
 #
-# PySNMP MIB module Papouch-SMI (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/Papouch-SMI
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:34:23 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Gauge32, ObjectIdentity, ModuleIdentity, Counter32, IpAddress, enterprises, iso, Unsigned32, MibIdentifier, TimeTicks, Integer32, Bits, Counter64, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "ObjectIdentity", "ModuleIdentity", "Counter32", "IpAddress", "enterprises", "iso", "Unsigned32", "MibIdentifier", "TimeTicks", "Integer32", "Bits", "Counter64", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-papouchProjekt = ModuleIdentity((1, 3, 6, 1, 4, 1, 18248))
-papouchProjekt.setRevisions(('2006-04-07 00:00',))
-if mibBuilder.loadTexts: papouchProjekt.setLastUpdated('200604070000Z')
-if mibBuilder.loadTexts: papouchProjekt.setOrganization('PaPouch s.r.o')
-tme = ObjectIdentity((1, 3, 6, 1, 4, 1, 18248, 1))
-if mibBuilder.loadTexts: tme.setStatus('current')
-quido = ObjectIdentity((1, 3, 6, 1, 4, 1, 18248, 2))
-if mibBuilder.loadTexts: quido.setStatus('current')
-eccitace = ObjectIdentity((1, 3, 6, 1, 4, 1, 18248, 3))
-if mibBuilder.loadTexts: eccitace.setStatus('current')
-e_monitor = ObjectIdentity((1, 3, 6, 1, 4, 1, 18248, 4))
-if mibBuilder.loadTexts: e_monitor.setStatus('current')
-mibBuilder.exportSymbols("Papouch-SMI", papouchProjekt=papouchProjekt, PYSNMP_MODULE_ID=papouchProjekt, tme=tme, e_monitor=e_monitor, quido=quido, eccitace=eccitace)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/Papouch-SMI
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:40:28 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+papouchProjekt = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 18248)
+)
+papouchProjekt.setRevisions(
+        ("2006-04-07 00:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Tme_ObjectIdentity = ObjectIdentity
+tme = _Tme_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 18248, 1)
+)
+if mibBuilder.loadTexts:
+    tme.setStatus("current")
+_Quido_ObjectIdentity = ObjectIdentity
+quido = _Quido_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 18248, 2)
+)
+if mibBuilder.loadTexts:
+    quido.setStatus("current")
+_Eccitace_ObjectIdentity = ObjectIdentity
+eccitace = _Eccitace_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 18248, 3)
+)
+if mibBuilder.loadTexts:
+    eccitace.setStatus("current")
+_E_monitor_ObjectIdentity = ObjectIdentity
+e_monitor = _E_monitor_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 18248, 4)
+)
+if mibBuilder.loadTexts:
+    e_monitor.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "Papouch-SMI",
+    **{"papouchProjekt": papouchProjekt,
+       "tme": tme,
+       "quido": quido,
+       "eccitace": eccitace,
+       "e_monitor": e_monitor}
+)

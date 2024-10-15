@@ -1,107 +1,635 @@
+# SNMP MIB module (TUNNEL-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module TUNNEL-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/TUNNEL-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:07:58 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
-IANAtunnelType, = mibBuilder.importSymbols("IANAifType-MIB", "IANAtunnelType")
-ifIndex, InterfaceIndexOrZero = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndexOrZero")
-InetAddress, InetAddressType = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress", "InetAddressType")
-IPv6FlowLabelOrAny, = mibBuilder.importSymbols("IPV6-FLOW-LABEL-MIB", "IPv6FlowLabelOrAny")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, iso, NotificationType, Integer32, Counter32, Gauge32, Counter64, Unsigned32, IpAddress, TimeTicks, ObjectIdentity, MibIdentifier, Bits, transmission, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "iso", "NotificationType", "Integer32", "Counter32", "Gauge32", "Counter64", "Unsigned32", "IpAddress", "TimeTicks", "ObjectIdentity", "MibIdentifier", "Bits", "transmission", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-TextualConvention, RowStatus, DisplayString, StorageType = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "RowStatus", "DisplayString", "StorageType")
-tunnelMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 10, 131))
-tunnelMIB.setRevisions(('2005-05-16 00:00', '1999-08-24 12:00',))
-if mibBuilder.loadTexts: tunnelMIB.setLastUpdated('200505160000Z')
-if mibBuilder.loadTexts: tunnelMIB.setOrganization('IETF IP Version 6 (IPv6) Working Group')
-tunnelMIBObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 131, 1))
-tunnel = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 131, 1, 1))
-tunnelIfTable = MibTable((1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 1), )
-if mibBuilder.loadTexts: tunnelIfTable.setStatus('current')
-tunnelIfEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: tunnelIfEntry.setStatus('current')
-tunnelIfLocalAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 1, 1, 1), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tunnelIfLocalAddress.setStatus('deprecated')
-tunnelIfRemoteAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 1, 1, 2), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tunnelIfRemoteAddress.setStatus('deprecated')
-tunnelIfEncapsMethod = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 1, 1, 3), IANAtunnelType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tunnelIfEncapsMethod.setStatus('current')
-tunnelIfHopLimit = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 255), ))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tunnelIfHopLimit.setStatus('current')
-tunnelIfSecurity = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("none", 1), ("ipsec", 2), ("other", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tunnelIfSecurity.setStatus('current')
-tunnelIfTOS = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-2, 63))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tunnelIfTOS.setStatus('current')
-tunnelIfFlowLabel = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 1, 1, 7), IPv6FlowLabelOrAny()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tunnelIfFlowLabel.setStatus('current')
-tunnelIfAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 1, 1, 8), InetAddressType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tunnelIfAddressType.setStatus('current')
-tunnelIfLocalInetAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 1, 1, 9), InetAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tunnelIfLocalInetAddress.setStatus('current')
-tunnelIfRemoteInetAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 1, 1, 10), InetAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tunnelIfRemoteInetAddress.setStatus('current')
-tunnelIfEncapsLimit = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 1, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(-1, -1), ValueRangeConstraint(0, 255), ))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tunnelIfEncapsLimit.setStatus('current')
-tunnelConfigTable = MibTable((1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 2), )
-if mibBuilder.loadTexts: tunnelConfigTable.setStatus('deprecated')
-tunnelConfigEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 2, 1), ).setIndexNames((0, "TUNNEL-MIB", "tunnelConfigLocalAddress"), (0, "TUNNEL-MIB", "tunnelConfigRemoteAddress"), (0, "TUNNEL-MIB", "tunnelConfigEncapsMethod"), (0, "TUNNEL-MIB", "tunnelConfigID"))
-if mibBuilder.loadTexts: tunnelConfigEntry.setStatus('deprecated')
-tunnelConfigLocalAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 2, 1, 1), IpAddress())
-if mibBuilder.loadTexts: tunnelConfigLocalAddress.setStatus('deprecated')
-tunnelConfigRemoteAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 2, 1, 2), IpAddress())
-if mibBuilder.loadTexts: tunnelConfigRemoteAddress.setStatus('deprecated')
-tunnelConfigEncapsMethod = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 2, 1, 3), IANAtunnelType())
-if mibBuilder.loadTexts: tunnelConfigEncapsMethod.setStatus('deprecated')
-tunnelConfigID = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: tunnelConfigID.setStatus('deprecated')
-tunnelConfigIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 2, 1, 5), InterfaceIndexOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tunnelConfigIfIndex.setStatus('deprecated')
-tunnelConfigStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 2, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tunnelConfigStatus.setStatus('deprecated')
-tunnelInetConfigTable = MibTable((1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 3), )
-if mibBuilder.loadTexts: tunnelInetConfigTable.setStatus('current')
-tunnelInetConfigEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 3, 1), ).setIndexNames((0, "TUNNEL-MIB", "tunnelInetConfigAddressType"), (0, "TUNNEL-MIB", "tunnelInetConfigLocalAddress"), (0, "TUNNEL-MIB", "tunnelInetConfigRemoteAddress"), (0, "TUNNEL-MIB", "tunnelInetConfigEncapsMethod"), (0, "TUNNEL-MIB", "tunnelInetConfigID"))
-if mibBuilder.loadTexts: tunnelInetConfigEntry.setStatus('current')
-tunnelInetConfigAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 3, 1, 1), InetAddressType())
-if mibBuilder.loadTexts: tunnelInetConfigAddressType.setStatus('current')
-tunnelInetConfigLocalAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 3, 1, 2), InetAddress())
-if mibBuilder.loadTexts: tunnelInetConfigLocalAddress.setStatus('current')
-tunnelInetConfigRemoteAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 3, 1, 3), InetAddress())
-if mibBuilder.loadTexts: tunnelInetConfigRemoteAddress.setStatus('current')
-tunnelInetConfigEncapsMethod = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 3, 1, 4), IANAtunnelType())
-if mibBuilder.loadTexts: tunnelInetConfigEncapsMethod.setStatus('current')
-tunnelInetConfigID = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 3, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: tunnelInetConfigID.setStatus('current')
-tunnelInetConfigIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 3, 1, 6), InterfaceIndexOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tunnelInetConfigIfIndex.setStatus('current')
-tunnelInetConfigStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 3, 1, 7), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tunnelInetConfigStatus.setStatus('current')
-tunnelInetConfigStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 3, 1, 8), StorageType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tunnelInetConfigStorageType.setStatus('current')
-tunnelMIBConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 131, 2))
-tunnelMIBCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 131, 2, 1))
-tunnelMIBGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 131, 2, 2))
-tunnelMIBCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 131, 2, 1, 1)).setObjects(("TUNNEL-MIB", "tunnelMIBBasicGroup"))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/TUNNEL-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:15:07 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tunnelMIBCompliance = tunnelMIBCompliance.setStatus('deprecated')
-tunnelMIBInetFullCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 131, 2, 1, 2)).setObjects(("TUNNEL-MIB", "tunnelMIBInetGroup"))
+if 'mibBuilder' not in globals():
+    import sys
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tunnelMIBInetFullCompliance = tunnelMIBInetFullCompliance.setStatus('current')
-tunnelMIBInetReadOnlyCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 131, 2, 1, 3)).setObjects(("TUNNEL-MIB", "tunnelMIBInetGroup"))
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tunnelMIBInetReadOnlyCompliance = tunnelMIBInetReadOnlyCompliance.setStatus('current')
-tunnelMIBBasicGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 131, 2, 2, 1)).setObjects(("TUNNEL-MIB", "tunnelIfLocalAddress"), ("TUNNEL-MIB", "tunnelIfRemoteAddress"), ("TUNNEL-MIB", "tunnelIfEncapsMethod"), ("TUNNEL-MIB", "tunnelIfHopLimit"), ("TUNNEL-MIB", "tunnelIfTOS"), ("TUNNEL-MIB", "tunnelIfSecurity"), ("TUNNEL-MIB", "tunnelConfigIfIndex"), ("TUNNEL-MIB", "tunnelConfigStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tunnelMIBBasicGroup = tunnelMIBBasicGroup.setStatus('deprecated')
-tunnelMIBInetGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 131, 2, 2, 2)).setObjects(("TUNNEL-MIB", "tunnelIfAddressType"), ("TUNNEL-MIB", "tunnelIfLocalInetAddress"), ("TUNNEL-MIB", "tunnelIfRemoteInetAddress"), ("TUNNEL-MIB", "tunnelIfEncapsMethod"), ("TUNNEL-MIB", "tunnelIfEncapsLimit"), ("TUNNEL-MIB", "tunnelIfHopLimit"), ("TUNNEL-MIB", "tunnelIfTOS"), ("TUNNEL-MIB", "tunnelIfFlowLabel"), ("TUNNEL-MIB", "tunnelIfSecurity"), ("TUNNEL-MIB", "tunnelInetConfigIfIndex"), ("TUNNEL-MIB", "tunnelInetConfigStatus"), ("TUNNEL-MIB", "tunnelInetConfigStorageType"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tunnelMIBInetGroup = tunnelMIBInetGroup.setStatus('current')
-mibBuilder.exportSymbols("TUNNEL-MIB", tunnelInetConfigEncapsMethod=tunnelInetConfigEncapsMethod, tunnelIfAddressType=tunnelIfAddressType, tunnelConfigLocalAddress=tunnelConfigLocalAddress, tunnelMIBInetReadOnlyCompliance=tunnelMIBInetReadOnlyCompliance, tunnelIfHopLimit=tunnelIfHopLimit, tunnelInetConfigStorageType=tunnelInetConfigStorageType, tunnelIfLocalAddress=tunnelIfLocalAddress, tunnelIfLocalInetAddress=tunnelIfLocalInetAddress, tunnelInetConfigLocalAddress=tunnelInetConfigLocalAddress, tunnelInetConfigIfIndex=tunnelInetConfigIfIndex, tunnelInetConfigAddressType=tunnelInetConfigAddressType, tunnelMIBCompliances=tunnelMIBCompliances, tunnelMIB=tunnelMIB, tunnelConfigEncapsMethod=tunnelConfigEncapsMethod, tunnelConfigEntry=tunnelConfigEntry, tunnelIfFlowLabel=tunnelIfFlowLabel, tunnelMIBBasicGroup=tunnelMIBBasicGroup, tunnelMIBObjects=tunnelMIBObjects, tunnel=tunnel, tunnelIfEncapsMethod=tunnelIfEncapsMethod, tunnelConfigRemoteAddress=tunnelConfigRemoteAddress, tunnelInetConfigID=tunnelInetConfigID, tunnelInetConfigTable=tunnelInetConfigTable, tunnelInetConfigEntry=tunnelInetConfigEntry, tunnelInetConfigRemoteAddress=tunnelInetConfigRemoteAddress, tunnelMIBInetGroup=tunnelMIBInetGroup, tunnelConfigStatus=tunnelConfigStatus, tunnelIfSecurity=tunnelIfSecurity, tunnelIfTOS=tunnelIfTOS, tunnelIfRemoteInetAddress=tunnelIfRemoteInetAddress, tunnelMIBCompliance=tunnelMIBCompliance, tunnelConfigTable=tunnelConfigTable, tunnelIfTable=tunnelIfTable, tunnelMIBGroups=tunnelMIBGroups, tunnelIfEncapsLimit=tunnelIfEncapsLimit, tunnelConfigIfIndex=tunnelConfigIfIndex, tunnelMIBConformance=tunnelMIBConformance, tunnelInetConfigStatus=tunnelInetConfigStatus, tunnelIfRemoteAddress=tunnelIfRemoteAddress, tunnelMIBInetFullCompliance=tunnelMIBInetFullCompliance, tunnelConfigID=tunnelConfigID, tunnelIfEntry=tunnelIfEntry, PYSNMP_MODULE_ID=tunnelMIB)
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(IANAtunnelType,) = mibBuilder.importSymbols(
+    "IANAifType-MIB",
+    "IANAtunnelType")
+
+(InterfaceIndexOrZero,
+ ifIndex) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndexOrZero",
+    "ifIndex")
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(IPv6FlowLabelOrAny,) = mibBuilder.importSymbols(
+    "IPV6-FLOW-LABEL-MIB",
+    "IPv6FlowLabelOrAny")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso,
+ transmission) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso",
+    "transmission")
+
+(DisplayString,
+ RowStatus,
+ StorageType,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "RowStatus",
+    "StorageType",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+tunnelMIB = ModuleIdentity(
+    (1, 3, 6, 1, 2, 1, 10, 131)
+)
+tunnelMIB.setRevisions(
+        ("2005-05-16 00:00",
+         "1999-08-24 12:00")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_TunnelMIBObjects_ObjectIdentity = ObjectIdentity
+tunnelMIBObjects = _TunnelMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 10, 131, 1)
+)
+_Tunnel_ObjectIdentity = ObjectIdentity
+tunnel = _Tunnel_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 10, 131, 1, 1)
+)
+_TunnelIfTable_Object = MibTable
+tunnelIfTable = _TunnelIfTable_Object(
+    (1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    tunnelIfTable.setStatus("current")
+_TunnelIfEntry_Object = MibTableRow
+tunnelIfEntry = _TunnelIfEntry_Object(
+    (1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 1, 1)
+)
+tunnelIfEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    tunnelIfEntry.setStatus("current")
+_TunnelIfLocalAddress_Type = IpAddress
+_TunnelIfLocalAddress_Object = MibTableColumn
+tunnelIfLocalAddress = _TunnelIfLocalAddress_Object(
+    (1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 1, 1, 1),
+    _TunnelIfLocalAddress_Type()
+)
+tunnelIfLocalAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tunnelIfLocalAddress.setStatus("deprecated")
+_TunnelIfRemoteAddress_Type = IpAddress
+_TunnelIfRemoteAddress_Object = MibTableColumn
+tunnelIfRemoteAddress = _TunnelIfRemoteAddress_Object(
+    (1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 1, 1, 2),
+    _TunnelIfRemoteAddress_Type()
+)
+tunnelIfRemoteAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tunnelIfRemoteAddress.setStatus("deprecated")
+_TunnelIfEncapsMethod_Type = IANAtunnelType
+_TunnelIfEncapsMethod_Object = MibTableColumn
+tunnelIfEncapsMethod = _TunnelIfEncapsMethod_Object(
+    (1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 1, 1, 3),
+    _TunnelIfEncapsMethod_Type()
+)
+tunnelIfEncapsMethod.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tunnelIfEncapsMethod.setStatus("current")
+
+
+class _TunnelIfHopLimit_Type(Integer32):
+    """Custom type tunnelIfHopLimit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_TunnelIfHopLimit_Type.__name__ = "Integer32"
+_TunnelIfHopLimit_Object = MibTableColumn
+tunnelIfHopLimit = _TunnelIfHopLimit_Object(
+    (1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 1, 1, 4),
+    _TunnelIfHopLimit_Type()
+)
+tunnelIfHopLimit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tunnelIfHopLimit.setStatus("current")
+
+
+class _TunnelIfSecurity_Type(Integer32):
+    """Custom type tunnelIfSecurity based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ipsec", 2),
+          ("none", 1),
+          ("other", 3))
+    )
+
+
+_TunnelIfSecurity_Type.__name__ = "Integer32"
+_TunnelIfSecurity_Object = MibTableColumn
+tunnelIfSecurity = _TunnelIfSecurity_Object(
+    (1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 1, 1, 5),
+    _TunnelIfSecurity_Type()
+)
+tunnelIfSecurity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tunnelIfSecurity.setStatus("current")
+
+
+class _TunnelIfTOS_Type(Integer32):
+    """Custom type tunnelIfTOS based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-2, 63),
+    )
+
+
+_TunnelIfTOS_Type.__name__ = "Integer32"
+_TunnelIfTOS_Object = MibTableColumn
+tunnelIfTOS = _TunnelIfTOS_Object(
+    (1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 1, 1, 6),
+    _TunnelIfTOS_Type()
+)
+tunnelIfTOS.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tunnelIfTOS.setStatus("current")
+_TunnelIfFlowLabel_Type = IPv6FlowLabelOrAny
+_TunnelIfFlowLabel_Object = MibTableColumn
+tunnelIfFlowLabel = _TunnelIfFlowLabel_Object(
+    (1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 1, 1, 7),
+    _TunnelIfFlowLabel_Type()
+)
+tunnelIfFlowLabel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tunnelIfFlowLabel.setStatus("current")
+_TunnelIfAddressType_Type = InetAddressType
+_TunnelIfAddressType_Object = MibTableColumn
+tunnelIfAddressType = _TunnelIfAddressType_Object(
+    (1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 1, 1, 8),
+    _TunnelIfAddressType_Type()
+)
+tunnelIfAddressType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tunnelIfAddressType.setStatus("current")
+_TunnelIfLocalInetAddress_Type = InetAddress
+_TunnelIfLocalInetAddress_Object = MibTableColumn
+tunnelIfLocalInetAddress = _TunnelIfLocalInetAddress_Object(
+    (1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 1, 1, 9),
+    _TunnelIfLocalInetAddress_Type()
+)
+tunnelIfLocalInetAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tunnelIfLocalInetAddress.setStatus("current")
+_TunnelIfRemoteInetAddress_Type = InetAddress
+_TunnelIfRemoteInetAddress_Object = MibTableColumn
+tunnelIfRemoteInetAddress = _TunnelIfRemoteInetAddress_Object(
+    (1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 1, 1, 10),
+    _TunnelIfRemoteInetAddress_Type()
+)
+tunnelIfRemoteInetAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tunnelIfRemoteInetAddress.setStatus("current")
+
+
+class _TunnelIfEncapsLimit_Type(Integer32):
+    """Custom type tunnelIfEncapsLimit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-1, -1),
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_TunnelIfEncapsLimit_Type.__name__ = "Integer32"
+_TunnelIfEncapsLimit_Object = MibTableColumn
+tunnelIfEncapsLimit = _TunnelIfEncapsLimit_Object(
+    (1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 1, 1, 11),
+    _TunnelIfEncapsLimit_Type()
+)
+tunnelIfEncapsLimit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tunnelIfEncapsLimit.setStatus("current")
+_TunnelConfigTable_Object = MibTable
+tunnelConfigTable = _TunnelConfigTable_Object(
+    (1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    tunnelConfigTable.setStatus("deprecated")
+_TunnelConfigEntry_Object = MibTableRow
+tunnelConfigEntry = _TunnelConfigEntry_Object(
+    (1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 2, 1)
+)
+tunnelConfigEntry.setIndexNames(
+    (0, "TUNNEL-MIB", "tunnelConfigLocalAddress"),
+    (0, "TUNNEL-MIB", "tunnelConfigRemoteAddress"),
+    (0, "TUNNEL-MIB", "tunnelConfigEncapsMethod"),
+    (0, "TUNNEL-MIB", "tunnelConfigID"),
+)
+if mibBuilder.loadTexts:
+    tunnelConfigEntry.setStatus("deprecated")
+_TunnelConfigLocalAddress_Type = IpAddress
+_TunnelConfigLocalAddress_Object = MibTableColumn
+tunnelConfigLocalAddress = _TunnelConfigLocalAddress_Object(
+    (1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 2, 1, 1),
+    _TunnelConfigLocalAddress_Type()
+)
+tunnelConfigLocalAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tunnelConfigLocalAddress.setStatus("deprecated")
+_TunnelConfigRemoteAddress_Type = IpAddress
+_TunnelConfigRemoteAddress_Object = MibTableColumn
+tunnelConfigRemoteAddress = _TunnelConfigRemoteAddress_Object(
+    (1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 2, 1, 2),
+    _TunnelConfigRemoteAddress_Type()
+)
+tunnelConfigRemoteAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tunnelConfigRemoteAddress.setStatus("deprecated")
+_TunnelConfigEncapsMethod_Type = IANAtunnelType
+_TunnelConfigEncapsMethod_Object = MibTableColumn
+tunnelConfigEncapsMethod = _TunnelConfigEncapsMethod_Object(
+    (1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 2, 1, 3),
+    _TunnelConfigEncapsMethod_Type()
+)
+tunnelConfigEncapsMethod.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tunnelConfigEncapsMethod.setStatus("deprecated")
+
+
+class _TunnelConfigID_Type(Integer32):
+    """Custom type tunnelConfigID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_TunnelConfigID_Type.__name__ = "Integer32"
+_TunnelConfigID_Object = MibTableColumn
+tunnelConfigID = _TunnelConfigID_Object(
+    (1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 2, 1, 4),
+    _TunnelConfigID_Type()
+)
+tunnelConfigID.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tunnelConfigID.setStatus("deprecated")
+_TunnelConfigIfIndex_Type = InterfaceIndexOrZero
+_TunnelConfigIfIndex_Object = MibTableColumn
+tunnelConfigIfIndex = _TunnelConfigIfIndex_Object(
+    (1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 2, 1, 5),
+    _TunnelConfigIfIndex_Type()
+)
+tunnelConfigIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tunnelConfigIfIndex.setStatus("deprecated")
+_TunnelConfigStatus_Type = RowStatus
+_TunnelConfigStatus_Object = MibTableColumn
+tunnelConfigStatus = _TunnelConfigStatus_Object(
+    (1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 2, 1, 6),
+    _TunnelConfigStatus_Type()
+)
+tunnelConfigStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tunnelConfigStatus.setStatus("deprecated")
+_TunnelInetConfigTable_Object = MibTable
+tunnelInetConfigTable = _TunnelInetConfigTable_Object(
+    (1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 3)
+)
+if mibBuilder.loadTexts:
+    tunnelInetConfigTable.setStatus("current")
+_TunnelInetConfigEntry_Object = MibTableRow
+tunnelInetConfigEntry = _TunnelInetConfigEntry_Object(
+    (1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 3, 1)
+)
+tunnelInetConfigEntry.setIndexNames(
+    (0, "TUNNEL-MIB", "tunnelInetConfigAddressType"),
+    (0, "TUNNEL-MIB", "tunnelInetConfigLocalAddress"),
+    (0, "TUNNEL-MIB", "tunnelInetConfigRemoteAddress"),
+    (0, "TUNNEL-MIB", "tunnelInetConfigEncapsMethod"),
+    (0, "TUNNEL-MIB", "tunnelInetConfigID"),
+)
+if mibBuilder.loadTexts:
+    tunnelInetConfigEntry.setStatus("current")
+_TunnelInetConfigAddressType_Type = InetAddressType
+_TunnelInetConfigAddressType_Object = MibTableColumn
+tunnelInetConfigAddressType = _TunnelInetConfigAddressType_Object(
+    (1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 3, 1, 1),
+    _TunnelInetConfigAddressType_Type()
+)
+tunnelInetConfigAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tunnelInetConfigAddressType.setStatus("current")
+_TunnelInetConfigLocalAddress_Type = InetAddress
+_TunnelInetConfigLocalAddress_Object = MibTableColumn
+tunnelInetConfigLocalAddress = _TunnelInetConfigLocalAddress_Object(
+    (1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 3, 1, 2),
+    _TunnelInetConfigLocalAddress_Type()
+)
+tunnelInetConfigLocalAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tunnelInetConfigLocalAddress.setStatus("current")
+_TunnelInetConfigRemoteAddress_Type = InetAddress
+_TunnelInetConfigRemoteAddress_Object = MibTableColumn
+tunnelInetConfigRemoteAddress = _TunnelInetConfigRemoteAddress_Object(
+    (1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 3, 1, 3),
+    _TunnelInetConfigRemoteAddress_Type()
+)
+tunnelInetConfigRemoteAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tunnelInetConfigRemoteAddress.setStatus("current")
+_TunnelInetConfigEncapsMethod_Type = IANAtunnelType
+_TunnelInetConfigEncapsMethod_Object = MibTableColumn
+tunnelInetConfigEncapsMethod = _TunnelInetConfigEncapsMethod_Object(
+    (1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 3, 1, 4),
+    _TunnelInetConfigEncapsMethod_Type()
+)
+tunnelInetConfigEncapsMethod.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tunnelInetConfigEncapsMethod.setStatus("current")
+
+
+class _TunnelInetConfigID_Type(Integer32):
+    """Custom type tunnelInetConfigID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_TunnelInetConfigID_Type.__name__ = "Integer32"
+_TunnelInetConfigID_Object = MibTableColumn
+tunnelInetConfigID = _TunnelInetConfigID_Object(
+    (1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 3, 1, 5),
+    _TunnelInetConfigID_Type()
+)
+tunnelInetConfigID.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tunnelInetConfigID.setStatus("current")
+_TunnelInetConfigIfIndex_Type = InterfaceIndexOrZero
+_TunnelInetConfigIfIndex_Object = MibTableColumn
+tunnelInetConfigIfIndex = _TunnelInetConfigIfIndex_Object(
+    (1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 3, 1, 6),
+    _TunnelInetConfigIfIndex_Type()
+)
+tunnelInetConfigIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tunnelInetConfigIfIndex.setStatus("current")
+_TunnelInetConfigStatus_Type = RowStatus
+_TunnelInetConfigStatus_Object = MibTableColumn
+tunnelInetConfigStatus = _TunnelInetConfigStatus_Object(
+    (1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 3, 1, 7),
+    _TunnelInetConfigStatus_Type()
+)
+tunnelInetConfigStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tunnelInetConfigStatus.setStatus("current")
+_TunnelInetConfigStorageType_Type = StorageType
+_TunnelInetConfigStorageType_Object = MibTableColumn
+tunnelInetConfigStorageType = _TunnelInetConfigStorageType_Object(
+    (1, 3, 6, 1, 2, 1, 10, 131, 1, 1, 3, 1, 8),
+    _TunnelInetConfigStorageType_Type()
+)
+tunnelInetConfigStorageType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tunnelInetConfigStorageType.setStatus("current")
+_TunnelMIBConformance_ObjectIdentity = ObjectIdentity
+tunnelMIBConformance = _TunnelMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 10, 131, 2)
+)
+_TunnelMIBCompliances_ObjectIdentity = ObjectIdentity
+tunnelMIBCompliances = _TunnelMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 10, 131, 2, 1)
+)
+_TunnelMIBGroups_ObjectIdentity = ObjectIdentity
+tunnelMIBGroups = _TunnelMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 10, 131, 2, 2)
+)
+
+# Managed Objects groups
+
+tunnelMIBBasicGroup = ObjectGroup(
+    (1, 3, 6, 1, 2, 1, 10, 131, 2, 2, 1)
+)
+tunnelMIBBasicGroup.setObjects(
+      *(("TUNNEL-MIB", "tunnelIfLocalAddress"),
+        ("TUNNEL-MIB", "tunnelIfRemoteAddress"),
+        ("TUNNEL-MIB", "tunnelIfEncapsMethod"),
+        ("TUNNEL-MIB", "tunnelIfHopLimit"),
+        ("TUNNEL-MIB", "tunnelIfTOS"),
+        ("TUNNEL-MIB", "tunnelIfSecurity"),
+        ("TUNNEL-MIB", "tunnelConfigIfIndex"),
+        ("TUNNEL-MIB", "tunnelConfigStatus"))
+)
+if mibBuilder.loadTexts:
+    tunnelMIBBasicGroup.setStatus("deprecated")
+
+tunnelMIBInetGroup = ObjectGroup(
+    (1, 3, 6, 1, 2, 1, 10, 131, 2, 2, 2)
+)
+tunnelMIBInetGroup.setObjects(
+      *(("TUNNEL-MIB", "tunnelIfAddressType"),
+        ("TUNNEL-MIB", "tunnelIfLocalInetAddress"),
+        ("TUNNEL-MIB", "tunnelIfRemoteInetAddress"),
+        ("TUNNEL-MIB", "tunnelIfEncapsMethod"),
+        ("TUNNEL-MIB", "tunnelIfEncapsLimit"),
+        ("TUNNEL-MIB", "tunnelIfHopLimit"),
+        ("TUNNEL-MIB", "tunnelIfTOS"),
+        ("TUNNEL-MIB", "tunnelIfFlowLabel"),
+        ("TUNNEL-MIB", "tunnelIfSecurity"),
+        ("TUNNEL-MIB", "tunnelInetConfigIfIndex"),
+        ("TUNNEL-MIB", "tunnelInetConfigStatus"),
+        ("TUNNEL-MIB", "tunnelInetConfigStorageType"))
+)
+if mibBuilder.loadTexts:
+    tunnelMIBInetGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+tunnelMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 2, 1, 10, 131, 2, 1, 1)
+)
+if mibBuilder.loadTexts:
+    tunnelMIBCompliance.setStatus(
+        "deprecated"
+    )
+
+tunnelMIBInetFullCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 2, 1, 10, 131, 2, 1, 2)
+)
+if mibBuilder.loadTexts:
+    tunnelMIBInetFullCompliance.setStatus(
+        "current"
+    )
+
+tunnelMIBInetReadOnlyCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 2, 1, 10, 131, 2, 1, 3)
+)
+if mibBuilder.loadTexts:
+    tunnelMIBInetReadOnlyCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "TUNNEL-MIB",
+    **{"tunnelMIB": tunnelMIB,
+       "tunnelMIBObjects": tunnelMIBObjects,
+       "tunnel": tunnel,
+       "tunnelIfTable": tunnelIfTable,
+       "tunnelIfEntry": tunnelIfEntry,
+       "tunnelIfLocalAddress": tunnelIfLocalAddress,
+       "tunnelIfRemoteAddress": tunnelIfRemoteAddress,
+       "tunnelIfEncapsMethod": tunnelIfEncapsMethod,
+       "tunnelIfHopLimit": tunnelIfHopLimit,
+       "tunnelIfSecurity": tunnelIfSecurity,
+       "tunnelIfTOS": tunnelIfTOS,
+       "tunnelIfFlowLabel": tunnelIfFlowLabel,
+       "tunnelIfAddressType": tunnelIfAddressType,
+       "tunnelIfLocalInetAddress": tunnelIfLocalInetAddress,
+       "tunnelIfRemoteInetAddress": tunnelIfRemoteInetAddress,
+       "tunnelIfEncapsLimit": tunnelIfEncapsLimit,
+       "tunnelConfigTable": tunnelConfigTable,
+       "tunnelConfigEntry": tunnelConfigEntry,
+       "tunnelConfigLocalAddress": tunnelConfigLocalAddress,
+       "tunnelConfigRemoteAddress": tunnelConfigRemoteAddress,
+       "tunnelConfigEncapsMethod": tunnelConfigEncapsMethod,
+       "tunnelConfigID": tunnelConfigID,
+       "tunnelConfigIfIndex": tunnelConfigIfIndex,
+       "tunnelConfigStatus": tunnelConfigStatus,
+       "tunnelInetConfigTable": tunnelInetConfigTable,
+       "tunnelInetConfigEntry": tunnelInetConfigEntry,
+       "tunnelInetConfigAddressType": tunnelInetConfigAddressType,
+       "tunnelInetConfigLocalAddress": tunnelInetConfigLocalAddress,
+       "tunnelInetConfigRemoteAddress": tunnelInetConfigRemoteAddress,
+       "tunnelInetConfigEncapsMethod": tunnelInetConfigEncapsMethod,
+       "tunnelInetConfigID": tunnelInetConfigID,
+       "tunnelInetConfigIfIndex": tunnelInetConfigIfIndex,
+       "tunnelInetConfigStatus": tunnelInetConfigStatus,
+       "tunnelInetConfigStorageType": tunnelInetConfigStorageType,
+       "tunnelMIBConformance": tunnelMIBConformance,
+       "tunnelMIBCompliances": tunnelMIBCompliances,
+       "tunnelMIBCompliance": tunnelMIBCompliance,
+       "tunnelMIBInetFullCompliance": tunnelMIBInetFullCompliance,
+       "tunnelMIBInetReadOnlyCompliance": tunnelMIBInetReadOnlyCompliance,
+       "tunnelMIBGroups": tunnelMIBGroups,
+       "tunnelMIBBasicGroup": tunnelMIBBasicGroup,
+       "tunnelMIBInetGroup": tunnelMIBInetGroup}
+)

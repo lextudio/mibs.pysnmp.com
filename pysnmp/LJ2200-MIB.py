@@ -1,701 +1,5830 @@
+# SNMP MIB module (LJ2200-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module LJ2200-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/LJ2200-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:57:02 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Bits, MibIdentifier, Integer32, ObjectIdentity, ModuleIdentity, Counter32, NotificationType, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, TimeTicks, Gauge32, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "MibIdentifier", "Integer32", "ObjectIdentity", "ModuleIdentity", "Counter32", "NotificationType", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "TimeTicks", "Gauge32", "Unsigned32", "iso")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-hp = MibIdentifier((1, 3, 6, 1, 4, 1, 11))
-dm = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2))
-class DisplayString(OctetString):
-    pass
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/LJ2200-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:18:31 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-device = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1))
-system = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1))
-file_system = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 10)).setLabel("file-system")
-settings_file_system = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 10, 1)).setLabel("settings-file-system")
-hrm = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3))
-hrStorage = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 2))
-hrStorageTable = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 2, 3))
-hrStorageEntry = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 2, 3, 1))
-hrDevice = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3))
-hrDeviceTable = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 2))
-hrDeviceEntry = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 2, 1))
-hrDiskStorageTable = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 6))
-hrDiskStorageEntry = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 6, 1))
-hrPartitionTable = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 7))
-hrPartitionEntry = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 7, 1))
-hrFSTable = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 8))
-hrFSEntry = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 8, 1))
-hrPrinterTable = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 5))
-hrPrinterEntry = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 5, 1))
-settings_system = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 1)).setLabel("settings-system")
-status_system = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 2)).setLabel("status-system")
-id = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 3))
-interface = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 4))
-simm = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 4, 1))
-simm1 = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 4, 1, 1))
-simm2 = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 4, 1, 2))
-mio = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 4, 3))
-mio1 = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 4, 3, 1))
-test = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 5))
-job = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6))
-settings_job = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 1)).setLabel("settings-job")
-active_print_jobs = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 2)).setLabel("active-print-jobs")
-job_being_parsed = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 2, 1)).setLabel("job-being-parsed")
-job_info = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5)).setLabel("job-info")
-job_info_attribute = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 23)).setLabel("job-info-attribute")
-errorlog = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11))
-error1 = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 1))
-error2 = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 2))
-error3 = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 3))
-error4 = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 4))
-error5 = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 5))
-error6 = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 6))
-error7 = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 7))
-error8 = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 8))
-error9 = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 9))
-error10 = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 10))
-source_subsystem = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 2)).setLabel("source-subsystem")
-io = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 2, 1))
-settings_io = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 2, 1, 1)).setLabel("settings-io")
-processing_subsystem = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3)).setLabel("processing-subsystem")
-pdl = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3))
-settings_pdl = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 1)).setLabel("settings-pdl")
-status_pdl = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 2)).setLabel("status-pdl")
-pdl_pcl = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 3)).setLabel("pdl-pcl")
-pdl_postscript = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 4)).setLabel("pdl-postscript")
-pjl = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 5))
-destination_subsystem = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4)).setLabel("destination-subsystem")
-print_engine = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1)).setLabel("print-engine")
-settings_prt_eng = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 1)).setLabel("settings-prt-eng")
-status_prt_eng = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 2)).setLabel("status-prt-eng")
-intray = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 3))
-settings_intray = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 3, 1)).setLabel("settings-intray")
-intrays = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 3, 3))
-intray1 = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 3, 3, 1))
-intray2 = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 3, 3, 2))
-intray3 = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 3, 3, 3))
-imaging = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 6))
-channel = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 6))
-channelTable = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 6, 3))
-channelEntry = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 6, 3, 1))
-tables = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 7))
-channel_table = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 7, 2)).setLabel("channel-table")
-channel_entry = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 7, 2, 1)).setLabel("channel-entry")
-printmib = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2))
-prtGeneral = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5))
-prtStorageRefTable = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 2))
-prtStorageRefEntry = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 2, 1))
-prtDeviceRefTable = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 3))
-prtDeviceRefEntry = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 3, 1))
-prtGeneralTable = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 1))
-prtGeneralEntry = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 1, 1))
-prtCover = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 6))
-prtCoverTable = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 6, 1))
-prtCoverEntry = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 6, 1, 1))
-prtLocalization = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 7))
-prtLocalizationTable = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 7, 1))
-prtLocalizationEntry = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 7, 1, 1))
-prtInput = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8))
-prtInputTable = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2))
-prtInputEntry = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2, 1))
-prtOutput = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 9))
-prtOutputTable = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 9, 2))
-prtOutputEntry = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 9, 2, 1))
-prtMarker = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 10))
-prtMarkerTable = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 10, 2))
-prtMarkerEntry = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 10, 2, 1))
-prtMarkerSupplies = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 11))
-prtMarkerSuppliesTable = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 11, 1))
-prtMarkerSuppliesEntry = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 11, 1, 1))
-prtMediaPath = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 13))
-prtMediaPathTable = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 13, 4))
-prtMediaPathEntry = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 13, 4, 1))
-prtChannel = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 14))
-prtChannelTable = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 14, 1))
-prtChannelEntry = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 14, 1, 1))
-prtInterpreter = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 15))
-prtInterpreterTable = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 15, 1))
-prtInterpreterEntry = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 15, 1, 1))
-prtConsoleDisplayBuffer = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 16))
-prtConsoleDisplayBufferTable = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 16, 5))
-prtConsoleDisplayBufferEntry = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 16, 5, 1))
-prtConsoleLights = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 17))
-prtConsoleLightTable = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 17, 6))
-prtConsoleLightEntry = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 17, 6, 1))
-prtAlert = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 18))
-prtAlertTable = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 18, 1))
-prtAlertEntry = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 18, 1, 1))
-file_system_max_open_files = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 10, 1, 2), Integer32()).setLabel("file-system-max-open-files").setMaxAccess("readonly")
-if mibBuilder.loadTexts: file_system_max_open_files.setStatus('optional')
-file_system_set_system_partition_writeable = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 10, 1, 6), OctetString()).setLabel("file-system-set-system-partition-writeable").setMaxAccess("writeonly")
-if mibBuilder.loadTexts: file_system_set_system_partition_writeable.setStatus('optional')
-file_system_set_system_partition_readonly = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 10, 1, 7), Integer32()).setLabel("file-system-set-system-partition-readonly").setMaxAccess("writeonly")
-if mibBuilder.loadTexts: file_system_set_system_partition_readonly.setStatus('optional')
-hrstorageindex = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 2, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hrstorageindex.setStatus('mandatory')
-hrstorageused = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 2, 3, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hrstorageused.setStatus('mandatory')
-hrstorageallocationfailures = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 2, 3, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hrstorageallocationfailures.setStatus('mandatory')
-hrdevicedescr = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 2, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hrdevicedescr.setStatus('mandatory')
-hrdeviceerrors = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 2, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hrdeviceerrors.setStatus('mandatory')
-hrdiskstorageaccess = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 6, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("eHreadWrite", 1), ("eHReadOnly", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hrdiskstorageaccess.setStatus('mandatory')
-hrdiskstoragemedia = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 6, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("eHother", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hrdiskstoragemedia.setStatus('mandatory')
-hrdiskstorageremoveble = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 6, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2))).clone(namedValues=NamedValues(("eHfalse", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hrdiskstorageremoveble.setStatus('mandatory')
-hrdiskstoragecapacity = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 6, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hrdiskstoragecapacity.setStatus('mandatory')
-hrpartitionindex = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 7, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hrpartitionindex.setStatus('mandatory')
-hrpartitionlabel = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 7, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 11))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hrpartitionlabel.setStatus('mandatory')
-hrpartitionid = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 7, 1, 3), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hrpartitionid.setStatus('mandatory')
-hrpartitionsize = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 7, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hrpartitionsize.setStatus('mandatory')
-hrpartitionfsindex = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 7, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hrpartitionfsindex.setStatus('mandatory')
-hrfsindex = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 8, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hrfsindex.setStatus('mandatory')
-hrfsmountpoint = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 8, 1, 2), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hrfsmountpoint.setStatus('mandatory')
-hrfsremotemountpoint = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 8, 1, 3), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hrfsremotemountpoint.setStatus('mandatory')
-hrfstype = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 8, 1, 4), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hrfstype.setStatus('mandatory')
-hrfsaccess = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 8, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("eHreadWrite", 1), ("eHReadOnly", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hrfsaccess.setStatus('mandatory')
-hrfsbootable = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 8, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2))).clone(namedValues=NamedValues(("eHfalse", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hrfsbootable.setStatus('mandatory')
-hrfsstorageindex = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 8, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hrfsstorageindex.setStatus('mandatory')
-hrfslastfullbackupdate = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 8, 1, 8), OctetString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hrfslastfullbackupdate.setStatus('mandatory')
-hrfslastpartialbackupdate = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 8, 1, 9), OctetString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hrfslastpartialbackupdate.setStatus('mandatory')
-hrmemorysize = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 2, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hrmemorysize.setStatus('mandatory')
-hrstoragetype = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 2, 3, 1, 2), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hrstoragetype.setStatus('mandatory')
-hrstoragedescr = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 2, 3, 1, 3), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hrstoragedescr.setStatus('mandatory')
-hrstorageallocationunits = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 2, 3, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hrstorageallocationunits.setStatus('mandatory')
-hrstoragesize = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 2, 3, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hrstoragesize.setStatus('mandatory')
-hrdeviceindex = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hrdeviceindex.setStatus('mandatory')
-hrdevicetype = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 2, 1, 2), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hrdevicetype.setStatus('mandatory')
-hrdeviceid = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 2, 1, 4), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hrdeviceid.setStatus('mandatory')
-hrdevicestatus = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 3, 5))).clone(namedValues=NamedValues(("eHrunning", 2), ("eHwarning", 3), ("eHdown", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hrdevicestatus.setStatus('mandatory')
-hrprinterstatus = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 5, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 3, 4, 5))).clone(namedValues=NamedValues(("eHother", 1), ("eHidle", 3), ("eHprinting", 4), ("eHwarmup", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hrprinterstatus.setStatus('mandatory')
-hrprinterdetectederrorstate = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 5, 1, 2), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hrprinterdetectederrorstate.setStatus('mandatory')
-energy_star = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 1, 1), Integer32()).setLabel("energy-star").setMaxAccess("readonly")
-if mibBuilder.loadTexts: energy_star.setStatus('optional')
-sleep_mode = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("eFalse", 1), ("eTrue", 2)))).setLabel("sleep-mode").setMaxAccess("readonly")
-if mibBuilder.loadTexts: sleep_mode.setStatus('optional')
-service_password = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 1, 9), Integer32()).setLabel("service-password").setMaxAccess("writeonly")
-if mibBuilder.loadTexts: service_password.setStatus('optional')
-device_config_token = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 1, 28), OctetString().subtype(subtypeSpec=ValueSizeConstraint(128, 128)).setFixedLength(128)).setLabel("device-config-token").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: device_config_token.setStatus('optional')
-on_off_line = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 2, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("eOnline", 1), ("eOffline", 2)))).setLabel("on-off-line").setMaxAccess("readonly")
-if mibBuilder.loadTexts: on_off_line.setStatus('optional')
-pysmi_continue = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 2, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("eInitiateAction", 1)))).setLabel("continue").setMaxAccess("writeonly")
-if mibBuilder.loadTexts: pysmi_continue.setStatus('optional')
-auto_continue = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 2, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("eOff", 1), ("eOn", 2)))).setLabel("auto-continue").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: auto_continue.setStatus('optional')
-install_date = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 2, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 14))).setLabel("install-date").setMaxAccess("readonly")
-if mibBuilder.loadTexts: install_date.setStatus('optional')
-job_input_auto_continue_timeout = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 2, 35), Integer32()).setLabel("job-input-auto-continue-timeout").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: job_input_auto_continue_timeout.setStatus('optional')
-job_input_auto_continue_mode = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 2, 36), OctetString()).setLabel("job-input-auto-continue-mode").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: job_input_auto_continue_mode.setStatus('optional')
-error_log_clear = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 2, 38), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("eClearErrorLog", 1)))).setLabel("error-log-clear").setMaxAccess("writeonly")
-if mibBuilder.loadTexts: error_log_clear.setStatus('optional')
-model_name = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 3, 2), DisplayString()).setLabel("model-name").setMaxAccess("readonly")
-if mibBuilder.loadTexts: model_name.setStatus('optional')
-serial_number = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 3, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 10))).setLabel("serial-number").setMaxAccess("readonly")
-if mibBuilder.loadTexts: serial_number.setStatus('optional')
-fw_rom_datecode = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 3, 5), DisplayString()).setLabel("fw-rom-datecode").setMaxAccess("readonly")
-if mibBuilder.loadTexts: fw_rom_datecode.setStatus('optional')
-device_name = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 3, 10), DisplayString()).setLabel("device-name").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: device_name.setStatus('optional')
-device_location = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 3, 11), DisplayString()).setLabel("device-location").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: device_location.setStatus('optional')
-asset_number = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 3, 12), DisplayString()).setLabel("asset-number").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: asset_number.setStatus('optional')
-simm1_type = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 4, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 9))).clone(namedValues=NamedValues(("eEmpty", 1), ("eUnknown", 2), ("eUnSupported", 3), ("eReadOnlyMemory", 4), ("eVolatileRandomAccessMemory", 5), ("eRamRom", 9)))).setLabel("simm1-type").setMaxAccess("readonly")
-if mibBuilder.loadTexts: simm1_type.setStatus('optional')
-simm1_capacity = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 4, 1, 1, 5), Integer32()).setLabel("simm1-capacity").setMaxAccess("readonly")
-if mibBuilder.loadTexts: simm1_capacity.setStatus('optional')
-simm2_type = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 4, 1, 2, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 9))).clone(namedValues=NamedValues(("eEmpty", 1), ("eUnknown", 2), ("eUnSupported", 3), ("eReadOnlyMemory", 4), ("eVolatileRandomAccessMemory", 5), ("eRamRom", 9)))).setLabel("simm2-type").setMaxAccess("readonly")
-if mibBuilder.loadTexts: simm2_type.setStatus('optional')
-simm2_capacity = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 4, 1, 2, 5), Integer32()).setLabel("simm2-capacity").setMaxAccess("readonly")
-if mibBuilder.loadTexts: simm2_capacity.setStatus('optional')
-mio1_model_name = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 4, 3, 1, 2), DisplayString()).setLabel("mio1-model-name").setMaxAccess("readonly")
-if mibBuilder.loadTexts: mio1_model_name.setStatus('optional')
-mio1_manufacturing_info = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 4, 3, 1, 3), DisplayString()).setLabel("mio1-manufacturing-info").setMaxAccess("readonly")
-if mibBuilder.loadTexts: mio1_manufacturing_info.setStatus('optional')
-mio1_type = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 4, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 12))).clone(namedValues=NamedValues(("eEmpty", 1), ("eUnknown", 2), ("eIOCard", 12)))).setLabel("mio1-type").setMaxAccess("readonly")
-if mibBuilder.loadTexts: mio1_type.setStatus('optional')
-self_test = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 5, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 4))).clone(namedValues=NamedValues(("eNotInASelfTest", 1), ("eNonDestructiveSelfTest", 4)))).setLabel("self-test").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: self_test.setStatus('optional')
-print_internal_page = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 5, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 8, 350, 450))).clone(namedValues=NamedValues(("eNotPrintingAnInternalPage", 1), ("ePrintingAnUnknownInternalPage", 2), ("eDeviceDemoPage1ConfigurationPage", 3), ("eDeviceDemoPage2", 4), ("eFileSystemDirectoryListing", 8), ("ePCLFontList1", 350), ("ePostScriptFontList1", 450)))).setLabel("print-internal-page").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: print_internal_page.setStatus('optional')
-job_info_change_id = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(16, 16)).setFixedLength(16)).setLabel("job-info-change-id").setMaxAccess("readonly")
-if mibBuilder.loadTexts: job_info_change_id.setStatus('optional')
-current_job_parsing_id = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 32767))).setLabel("current-job-parsing-id").setMaxAccess("readonly")
-if mibBuilder.loadTexts: current_job_parsing_id.setStatus('optional')
-job_info_name1 = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 1), DisplayString()).setLabel("job-info-name1").setMaxAccess("readonly")
-if mibBuilder.loadTexts: job_info_name1.setStatus('optional')
-job_info_name2 = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 2), DisplayString()).setLabel("job-info-name2").setMaxAccess("readonly")
-if mibBuilder.loadTexts: job_info_name2.setStatus('optional')
-job_info_stage = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 10), OctetString()).setLabel("job-info-stage").setMaxAccess("readonly")
-if mibBuilder.loadTexts: job_info_stage.setStatus('optional')
-job_info_io_source = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 11), Integer32()).setLabel("job-info-io-source").setMaxAccess("readonly")
-if mibBuilder.loadTexts: job_info_io_source.setStatus('optional')
-job_info_pages_processed = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 12), Integer32()).setLabel("job-info-pages-processed").setMaxAccess("readonly")
-if mibBuilder.loadTexts: job_info_pages_processed.setStatus('optional')
-job_info_pages_printed = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 13), Integer32()).setLabel("job-info-pages-printed").setMaxAccess("readonly")
-if mibBuilder.loadTexts: job_info_pages_printed.setStatus('optional')
-job_info_size = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 14), Integer32()).setLabel("job-info-size").setMaxAccess("readonly")
-if mibBuilder.loadTexts: job_info_size.setStatus('optional')
-job_info_state = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(3, 4, 5, 7, 10, 11))).clone(namedValues=NamedValues(("eAborted", 3), ("eWaitingForResources", 4), ("ePrinted", 5), ("eTerminating", 7), ("eCancelled", 10), ("eProcessing", 11)))).setLabel("job-info-state").setMaxAccess("readonly")
-if mibBuilder.loadTexts: job_info_state.setStatus('optional')
-job_info_outcome = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(3))).clone(namedValues=NamedValues(("eOk", 3)))).setLabel("job-info-outcome").setMaxAccess("readonly")
-if mibBuilder.loadTexts: job_info_outcome.setStatus('optional')
-job_info_outbins_used = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 20), OctetString()).setLabel("job-info-outbins-used").setMaxAccess("readonly")
-if mibBuilder.loadTexts: job_info_outbins_used.setStatus('optional')
-job_info_physical_outbins_used = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 22), OctetString()).setLabel("job-info-physical-outbins-used").setMaxAccess("readonly")
-if mibBuilder.loadTexts: job_info_physical_outbins_used.setStatus('optional')
-job_info_attr_1 = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 23, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 80))).setLabel("job-info-attr-1").setMaxAccess("readonly")
-if mibBuilder.loadTexts: job_info_attr_1.setStatus('optional')
-job_info_attr_2 = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 23, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 80))).setLabel("job-info-attr-2").setMaxAccess("readonly")
-if mibBuilder.loadTexts: job_info_attr_2.setStatus('optional')
-job_info_attr_3 = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 23, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 80))).setLabel("job-info-attr-3").setMaxAccess("readonly")
-if mibBuilder.loadTexts: job_info_attr_3.setStatus('optional')
-job_info_attr_4 = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 23, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 80))).setLabel("job-info-attr-4").setMaxAccess("readonly")
-if mibBuilder.loadTexts: job_info_attr_4.setStatus('optional')
-job_info_attr_5 = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 23, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 80))).setLabel("job-info-attr-5").setMaxAccess("readonly")
-if mibBuilder.loadTexts: job_info_attr_5.setStatus('optional')
-job_info_attr_6 = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 23, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 80))).setLabel("job-info-attr-6").setMaxAccess("readonly")
-if mibBuilder.loadTexts: job_info_attr_6.setStatus('optional')
-job_info_attr_7 = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 23, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 80))).setLabel("job-info-attr-7").setMaxAccess("readonly")
-if mibBuilder.loadTexts: job_info_attr_7.setStatus('optional')
-job_info_attr_8 = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 23, 8), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 80))).setLabel("job-info-attr-8").setMaxAccess("readonly")
-if mibBuilder.loadTexts: job_info_attr_8.setStatus('optional')
-job_info_attr_9 = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 23, 9), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 80))).setLabel("job-info-attr-9").setMaxAccess("readonly")
-if mibBuilder.loadTexts: job_info_attr_9.setStatus('optional')
-job_info_attr_10 = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 23, 10), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 80))).setLabel("job-info-attr-10").setMaxAccess("readonly")
-if mibBuilder.loadTexts: job_info_attr_10.setStatus('optional')
-job_info_attr_11 = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 23, 11), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 80))).setLabel("job-info-attr-11").setMaxAccess("readonly")
-if mibBuilder.loadTexts: job_info_attr_11.setStatus('optional')
-job_info_attr_12 = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 23, 12), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 80))).setLabel("job-info-attr-12").setMaxAccess("readonly")
-if mibBuilder.loadTexts: job_info_attr_12.setStatus('optional')
-job_info_attr_13 = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 23, 13), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 80))).setLabel("job-info-attr-13").setMaxAccess("readonly")
-if mibBuilder.loadTexts: job_info_attr_13.setStatus('optional')
-job_info_attr_14 = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 23, 14), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 80))).setLabel("job-info-attr-14").setMaxAccess("readonly")
-if mibBuilder.loadTexts: job_info_attr_14.setStatus('optional')
-job_info_attr_15 = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 23, 15), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 80))).setLabel("job-info-attr-15").setMaxAccess("readonly")
-if mibBuilder.loadTexts: job_info_attr_15.setStatus('optional')
-job_info_attr_16 = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 23, 16), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 80))).setLabel("job-info-attr-16").setMaxAccess("readonly")
-if mibBuilder.loadTexts: job_info_attr_16.setStatus('optional')
-error1_time_stamp = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 1, 1), Integer32()).setLabel("error1-time-stamp").setMaxAccess("readonly")
-if mibBuilder.loadTexts: error1_time_stamp.setStatus('optional')
-error1_code = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 1, 2), Integer32()).setLabel("error1-code").setMaxAccess("readonly")
-if mibBuilder.loadTexts: error1_code.setStatus('optional')
-error2_time_stamp = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 2, 1), Integer32()).setLabel("error2-time-stamp").setMaxAccess("readonly")
-if mibBuilder.loadTexts: error2_time_stamp.setStatus('optional')
-error2_code = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 2, 2), Integer32()).setLabel("error2-code").setMaxAccess("readonly")
-if mibBuilder.loadTexts: error2_code.setStatus('optional')
-error3_time_stamp = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 3, 1), Integer32()).setLabel("error3-time-stamp").setMaxAccess("readonly")
-if mibBuilder.loadTexts: error3_time_stamp.setStatus('optional')
-error3_code = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 3, 2), Integer32()).setLabel("error3-code").setMaxAccess("readonly")
-if mibBuilder.loadTexts: error3_code.setStatus('optional')
-error4_time_stamp = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 4, 1), Integer32()).setLabel("error4-time-stamp").setMaxAccess("readonly")
-if mibBuilder.loadTexts: error4_time_stamp.setStatus('optional')
-error4_code = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 4, 2), Integer32()).setLabel("error4-code").setMaxAccess("readonly")
-if mibBuilder.loadTexts: error4_code.setStatus('optional')
-error5_time_stamp = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 5, 1), Integer32()).setLabel("error5-time-stamp").setMaxAccess("readonly")
-if mibBuilder.loadTexts: error5_time_stamp.setStatus('optional')
-error5_code = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 5, 2), Integer32()).setLabel("error5-code").setMaxAccess("readonly")
-if mibBuilder.loadTexts: error5_code.setStatus('optional')
-error6_time_stamp = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 6, 1), Integer32()).setLabel("error6-time-stamp").setMaxAccess("readonly")
-if mibBuilder.loadTexts: error6_time_stamp.setStatus('optional')
-error6_code = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 6, 2), Integer32()).setLabel("error6-code").setMaxAccess("readonly")
-if mibBuilder.loadTexts: error6_code.setStatus('optional')
-error7_time_stamp = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 7, 1), Integer32()).setLabel("error7-time-stamp").setMaxAccess("readonly")
-if mibBuilder.loadTexts: error7_time_stamp.setStatus('optional')
-error7_code = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 7, 2), Integer32()).setLabel("error7-code").setMaxAccess("readonly")
-if mibBuilder.loadTexts: error7_code.setStatus('optional')
-error8_time_stamp = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 8, 1), Integer32()).setLabel("error8-time-stamp").setMaxAccess("readonly")
-if mibBuilder.loadTexts: error8_time_stamp.setStatus('optional')
-error8_code = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 8, 2), Integer32()).setLabel("error8-code").setMaxAccess("readonly")
-if mibBuilder.loadTexts: error8_code.setStatus('optional')
-error9_time_stamp = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 9, 1), Integer32()).setLabel("error9-time-stamp").setMaxAccess("readonly")
-if mibBuilder.loadTexts: error9_time_stamp.setStatus('optional')
-error9_code = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 9, 2), Integer32()).setLabel("error9-code").setMaxAccess("readonly")
-if mibBuilder.loadTexts: error9_code.setStatus('optional')
-error10_time_stamp = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 10, 1), Integer32()).setLabel("error10-time-stamp").setMaxAccess("readonly")
-if mibBuilder.loadTexts: error10_time_stamp.setStatus('optional')
-error10_code = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 10, 2), Integer32()).setLabel("error10-code").setMaxAccess("readonly")
-if mibBuilder.loadTexts: error10_code.setStatus('optional')
-io_timeout = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(5, 300))).setLabel("io-timeout").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: io_timeout.setStatus('optional')
-io_switch = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("eYes", 1)))).setLabel("io-switch").setMaxAccess("readonly")
-if mibBuilder.loadTexts: io_switch.setStatus('optional')
-default_copies = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 999))).setLabel("default-copies").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: default_copies.setStatus('optional')
-form_feed = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("eInitiateAction", 1)))).setLabel("form-feed").setMaxAccess("writeonly")
-if mibBuilder.loadTexts: form_feed.setStatus('optional')
-resource_saving = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("eOff", 1), ("eOn", 2), ("eAuto", 3)))).setLabel("resource-saving").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: resource_saving.setStatus('optional')
-maximum_resource_saving_memory = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 1, 7), Integer32()).setLabel("maximum-resource-saving-memory").setMaxAccess("readonly")
-if mibBuilder.loadTexts: maximum_resource_saving_memory.setStatus('optional')
-default_vertical_black_resolution = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 1, 8), Integer32()).setLabel("default-vertical-black-resolution").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: default_vertical_black_resolution.setStatus('optional')
-default_horizontal_black_resolution = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 1, 9), Integer32()).setLabel("default-horizontal-black-resolution").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: default_horizontal_black_resolution.setStatus('optional')
-default_page_protect = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 3))).clone(namedValues=NamedValues(("eOn", 2), ("eAuto", 3)))).setLabel("default-page-protect").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: default_page_protect.setStatus('optional')
-default_lines_per_page = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 1, 11), Integer32()).setLabel("default-lines-per-page").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: default_lines_per_page.setStatus('optional')
-default_vmi = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 1, 12), Integer32()).setLabel("default-vmi").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: default_vmi.setStatus('optional')
-default_media_size = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 10, 17, 26, 25, 45, 71, 72, 80, 81, 90, 91, 100, 101))).clone(namedValues=NamedValues(("eUSExecutive", 1), ("eUSLetter", 2), ("eUSLegal", 3), ("eFoolscap", 10), ("eROC16K", 17), ("eISOandJISA4", 26), ("eISOandJISA5", 25), ("eJISB5", 45), ("eJapanesePostcardSingle", 71), ("eJapanesePostcardDouble", 72), ("eMonarch", 80), ("eCommercial10", 81), ("eInternationalDL", 90), ("eInternationalC5", 91), ("eInternationalB5", 100), ("eCustom", 101)))).setLabel("default-media-size").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: default_media_size.setStatus('optional')
-cold_reset_media_size = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 1, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 26))).clone(namedValues=NamedValues(("eUSLetter", 2), ("eISOandJISA4", 26)))).setLabel("cold-reset-media-size").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cold_reset_media_size.setStatus('optional')
-reprint = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 1, 36), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("eOff", 1), ("eOn", 2), ("eAuto", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: reprint.setStatus('optional')
-wide_a4 = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 1, 37), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("eOff", 1), ("eOn", 2)))).setLabel("wide-a4").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wide_a4.setStatus('optional')
-dark_courier = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 1, 38), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("eOff", 1), ("eOn", 2)))).setLabel("dark-courier").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dark_courier.setStatus('optional')
-default_bits_per_pixel = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 1, 39), Integer32()).setLabel("default-bits-per-pixel").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: default_bits_per_pixel.setStatus('optional')
-form_feed_needed = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 2, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("eFalse", 1), ("eTrue", 2)))).setLabel("form-feed-needed").setMaxAccess("readonly")
-if mibBuilder.loadTexts: form_feed_needed.setStatus('optional')
-pcl_resource_saving_memory_size = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 3, 2), Integer32()).setLabel("pcl-resource-saving-memory-size").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pcl_resource_saving_memory_size.setStatus('optional')
-pcl_default_font_height = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 3, 13), Integer32()).setLabel("pcl-default-font-height").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pcl_default_font_height.setStatus('optional')
-pcl_default_font_source = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 3, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 10, 11, 12))).clone(namedValues=NamedValues(("eInternal", 1), ("ePermanentSoft", 2), ("eRomSimm1", 10), ("eRomSimm2", 11), ("eRomSimm3", 12)))).setLabel("pcl-default-font-source").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pcl_default_font_source.setStatus('optional')
-pcl_default_font_number = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 3, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setLabel("pcl-default-font-number").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pcl_default_font_number.setStatus('optional')
-pcl_default_font_width = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 3, 16), Integer32()).setLabel("pcl-default-font-width").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pcl_default_font_width.setStatus('optional')
-postscript_resource_saving_memory_size = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 4, 2), Integer32()).setLabel("postscript-resource-saving-memory-size").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: postscript_resource_saving_memory_size.setStatus('optional')
-postscript_print_errors = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 4, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("eOff", 1), ("eOn", 2)))).setLabel("postscript-print-errors").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: postscript_print_errors.setStatus('optional')
-pjl_password = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 5, 1), Integer32()).setLabel("pjl-password").setMaxAccess("readonly")
-if mibBuilder.loadTexts: pjl_password.setStatus('optional')
-default_duplex_mode = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("eSimplex", 1), ("eDuplexVerticalBinding", 2), ("eDuplexHorizontalBinding", 3)))).setLabel("default-duplex-mode").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: default_duplex_mode.setStatus('optional')
-print_density = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 5))).setLabel("print-density").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: print_density.setStatus('optional')
-transfer_setting = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(100, 200))).setLabel("transfer-setting").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: transfer_setting.setStatus('optional')
-separation_setting = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 1, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(100, 200))).setLabel("separation-setting").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: separation_setting.setStatus('optional')
-total_engine_page_count = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 2, 5), Integer32()).setLabel("total-engine-page-count").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: total_engine_page_count.setStatus('optional')
-print_engine_jam_count = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 2, 34), Integer32()).setLabel("print-engine-jam-count").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: print_engine_jam_count.setStatus('optional')
-print_engine_mispick_count = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 2, 35), Integer32()).setLabel("print-engine-mispick-count").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: print_engine_mispick_count.setStatus('optional')
-duplex_page_count = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 2, 22), Integer32()).setLabel("duplex-page-count").setMaxAccess("readonly")
-if mibBuilder.loadTexts: duplex_page_count.setStatus('optional')
-mp_tray = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 3))).clone(namedValues=NamedValues(("eCassette", 2), ("eFirst", 3)))).setLabel("mp-tray").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mp_tray.setStatus('optional')
-tray_lock = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 3, 1, 6), OctetString()).setLabel("tray-lock").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tray_lock.setStatus('optional')
-custom_paper_dim_unit = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 3, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(3, 4))).clone(namedValues=NamedValues(("eTenThousandthsOfInches", 3), ("eMicrometers", 4)))).setLabel("custom-paper-dim-unit").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: custom_paper_dim_unit.setStatus('optional')
-custom_paper_feed_dim = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 3, 1, 8), Integer32()).setLabel("custom-paper-feed-dim").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: custom_paper_feed_dim.setStatus('optional')
-custom_paper_xfeed_dim = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 3, 1, 9), Integer32()).setLabel("custom-paper-xfeed-dim").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: custom_paper_xfeed_dim.setStatus('optional')
-tray1_media_size_loaded = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 3, 3, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 10, 17, 26, 25, 45, 71, 72, 80, 81, 90, 91, 100, 101, 32767))).clone(namedValues=NamedValues(("eUSExecutive", 1), ("eUSLetter", 2), ("eUSLegal", 3), ("eFoolscap", 10), ("eROC16K", 17), ("eISOandJISA4", 26), ("eISOandJISA5", 25), ("eJISB5", 45), ("eJapanesePostcardSingle", 71), ("eJapanesePostcardDouble", 72), ("eMonarch", 80), ("eCommercial10", 81), ("eInternationalDL", 90), ("eInternationalC5", 91), ("eInternationalB5", 100), ("eCustom", 101), ("eUnknownMediaSize", 32767)))).setLabel("tray1-media-size-loaded").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tray1_media_size_loaded.setStatus('optional')
-tray1_fuser_temperature = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 3, 3, 1, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 2))).setLabel("tray1-fuser-temperature").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tray1_fuser_temperature.setStatus('optional')
-tray2_media_size_loaded = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 3, 3, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 10, 26, 25, 45, 100, 32767))).clone(namedValues=NamedValues(("eUSExecutive", 1), ("eUSLetter", 2), ("eUSLegal", 3), ("eFoolscap", 10), ("eISOandJISA4", 26), ("eISOandJISA5", 25), ("eJISB5", 45), ("eInternationalB5", 100), ("eUnknownMediaSize", 32767)))).setLabel("tray2-media-size-loaded").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tray2_media_size_loaded.setStatus('optional')
-tray2_fuser_temperature = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 3, 3, 2, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 2))).setLabel("tray2-fuser-temperature").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tray2_fuser_temperature.setStatus('optional')
-tray3_media_size_loaded = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 3, 3, 3, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 10, 26, 25, 45, 100, 32767))).clone(namedValues=NamedValues(("eUSExecutive", 1), ("eUSLetter", 2), ("eUSLegal", 3), ("eFoolscap", 10), ("eISOandJISA4", 26), ("eISOandJISA5", 25), ("eJISB5", 45), ("eInternationalB5", 100), ("eUnknownMediaSize", 32767)))).setLabel("tray3-media-size-loaded").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tray3_media_size_loaded.setStatus('optional')
-tray3_fuser_temperature = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 3, 3, 3, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 2))).setLabel("tray3-fuser-temperature").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tray3_fuser_temperature.setStatus('optional')
-default_ret = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 6, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("eOff", 1), ("eLight", 2), ("eMedium", 3), ("eDark", 4)))).setLabel("default-ret").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: default_ret.setStatus('optional')
-default_print_quality = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 6, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setLabel("default-print-quality").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: default_print_quality.setStatus('optional')
-channelnumberofchannels = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 6, 1), Integer32()).setMaxAccess("writeonly")
-if mibBuilder.loadTexts: channelnumberofchannels.setStatus('optional')
-channelprinteralert = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 6, 2), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: channelprinteralert.setStatus('optional')
-channeltype = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 6, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 7, 8, 9, 10, 11, 15, 38))).clone(namedValues=NamedValues(("eChOther", 1), ("eChAppleTalkPAP", 7), ("eChLPDServer", 8), ("eChNetwareRPrinter", 9), ("eChNetwarePServer", 10), ("eChPort9100", 11), ("eChDLCLLCPort", 15), ("eChBidirPortTCP", 38)))).setMaxAccess("writeonly")
-if mibBuilder.loadTexts: channeltype.setStatus('optional')
-channelprotocolversion = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 6, 3, 1, 3), OctetString()).setMaxAccess("writeonly")
-if mibBuilder.loadTexts: channelprotocolversion.setStatus('optional')
-channelstate = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 6, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 3, 4))).clone(namedValues=NamedValues(("eChOther", 1), ("eChPrintDataAccecped", 3), ("eChNoDataAccepted", 4)))).setMaxAccess("writeonly")
-if mibBuilder.loadTexts: channelstate.setStatus('optional')
-channelifindex = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 6, 3, 1, 5), Integer32()).setMaxAccess("writeonly")
-if mibBuilder.loadTexts: channelifindex.setStatus('optional')
-channelstatus = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 6, 3, 1, 6), Integer32()).setMaxAccess("writeonly")
-if mibBuilder.loadTexts: channelstatus.setStatus('optional')
-channelinformation = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 6, 3, 1, 7), OctetString()).setMaxAccess("writeonly")
-if mibBuilder.loadTexts: channelinformation.setStatus('optional')
-channel_bytes_sent = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 7, 2, 1, 2), Integer32()).setLabel("channel-bytes-sent").setMaxAccess("readonly")
-if mibBuilder.loadTexts: channel_bytes_sent.setStatus('optional')
-channel_bytes_received = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 7, 2, 1, 3), Integer32()).setLabel("channel-bytes-received").setMaxAccess("readonly")
-if mibBuilder.loadTexts: channel_bytes_received.setStatus('optional')
-channel_io_errors = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 7, 2, 1, 4), Integer32()).setLabel("channel-io-errors").setMaxAccess("readonly")
-if mibBuilder.loadTexts: channel_io_errors.setStatus('optional')
-channel_jobs_received = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 7, 2, 1, 5), Integer32()).setLabel("channel-jobs-received").setMaxAccess("readonly")
-if mibBuilder.loadTexts: channel_jobs_received.setStatus('optional')
-prtstoragerefindex = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtstoragerefindex.setStatus('optional')
-prtdevicerefindex = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtdevicerefindex.setStatus('optional')
-prtgeneralconfigchanges = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtgeneralconfigchanges.setStatus('optional')
-prtgeneralcurrentlocalization = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtgeneralcurrentlocalization.setStatus('optional')
-prtgeneralreset = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(3, 5))).clone(namedValues=NamedValues(("ePnotResetting", 3), ("ePresetToNVRAM", 5)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtgeneralreset.setStatus('optional')
-prtgeneralcurrentoperator = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 1, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtgeneralcurrentoperator.setStatus('optional')
-prtgeneralserviceperson = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 1, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtgeneralserviceperson.setStatus('optional')
-prtinputdefaultindex = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 1, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtinputdefaultindex.setStatus('optional')
-prtoutputdefaultindex = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 1, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtoutputdefaultindex.setStatus('optional')
-prtmarkerdefaultindex = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 1, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtmarkerdefaultindex.setStatus('optional')
-prtmediapathdefaultindex = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 1, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 3))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtmediapathdefaultindex.setStatus('optional')
-prtconsolelocalization = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 1, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtconsolelocalization.setStatus('optional')
-prtconsolenumberofdisplaylines = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 1, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtconsolenumberofdisplaylines.setStatus('optional')
-prtconsolenumberofdisplaychars = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 1, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtconsolenumberofdisplaychars.setStatus('optional')
-prtconsoledisable = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 1, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("ePoperatorConsoleEnabled", 3), ("ePoperatorConsoleDisabled", 4), ("ePoperatorConsoleEnabledLevel1", 5), ("ePoperatorConsoleEnabledLevel2", 6), ("ePoperatorConsoleEnabledLevel3", 7)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtconsoledisable.setStatus('optional')
-prtgeneralprintername = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 1, 1, 16), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 31))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtgeneralprintername.setStatus('optional')
-prtgeneralserialnumber = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 1, 1, 17), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 11))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtgeneralserialnumber.setStatus('optional')
-prtalertcriticalevents = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 1, 1, 18), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtalertcriticalevents.setStatus('optional')
-prtalertallevents = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 1, 1, 19), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtalertallevents.setStatus('optional')
-prtcoverdescription = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 6, 1, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtcoverdescription.setStatus('optional')
-prtcoverstatus = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 6, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(3, 4))).clone(namedValues=NamedValues(("ePdoorOpen", 3), ("ePdoorClosed", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtcoverstatus.setStatus('optional')
-prtlocalizationlanguage = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 7, 1, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 2))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtlocalizationlanguage.setStatus('optional')
-prtlocalizationcountry = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 7, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 2))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtlocalizationcountry.setStatus('optional')
-prtlocalizationcharacterset = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 7, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2004, 5, 8, 12))).clone(namedValues=NamedValues(("ePcsHPRoman8", 2004), ("ePcsISOLatin2", 5), ("ePcsISOLatinCyrillic", 8), ("ePcsISOLatin5", 12)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtlocalizationcharacterset.setStatus('optional')
-prtinputtype = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(3, 4))).clone(namedValues=NamedValues(("ePsheetFeedAutoRemovableTray", 3), ("ePsheetFeedAutoNonRemovableTray", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtinputtype.setStatus('optional')
-prtinputdimunit = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(3, 4))).clone(namedValues=NamedValues(("ePtenThousandthsOfInches", 3), ("ePmicrometers", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtinputdimunit.setStatus('optional')
-prtinputmediadimfeeddirdeclared = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2, 1, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtinputmediadimfeeddirdeclared.setStatus('optional')
-prtinputmediadimxfeeddirdeclared = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2, 1, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtinputmediadimxfeeddirdeclared.setStatus('optional')
-prtinputmediadimfeeddirchosen = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtinputmediadimfeeddirchosen.setStatus('optional')
-prtinputmediadimxfeeddirchosen = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtinputmediadimxfeeddirchosen.setStatus('optional')
-prtinputcapacityunit = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(8))).clone(namedValues=NamedValues(("ePsheets", 8)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtinputcapacityunit.setStatus('optional')
-prtinputmaxcapacity = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2, 1, 9), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtinputmaxcapacity.setStatus('optional')
-prtinputcurrentlevel = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2, 1, 10), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtinputcurrentlevel.setStatus('optional')
-prtinputstatus = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2, 1, 11), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtinputstatus.setStatus('optional')
-prtinputmedianame = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2, 1, 12), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 63))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtinputmedianame.setStatus('optional')
-prtinputname = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2, 1, 13), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 63))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtinputname.setStatus('optional')
-prtinputvendorname = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2, 1, 14), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 63))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtinputvendorname.setStatus('optional')
-prtinputmodel = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2, 1, 15), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 63))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtinputmodel.setStatus('optional')
-prtinputversion = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2, 1, 16), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 63))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtinputversion.setStatus('optional')
-prtinputserialnumber = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2, 1, 17), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtinputserialnumber.setStatus('optional')
-prtinputdescription = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2, 1, 18), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtinputdescription.setStatus('optional')
-prtinputsecurity = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2, 1, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 3, 4, 5))).clone(namedValues=NamedValues(("ePother", 1), ("ePon", 3), ("ePoff", 4), ("ePnotPresent", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtinputsecurity.setStatus('optional')
-prtoutputtype = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 9, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("ePother", 1), ("ePunknown", 2), ("ePremovableBin", 3), ("ePunRemovableBin", 4), ("ePcontinuousRollDevice", 5), ("ePmailBox", 6), ("ePcontinousFanFold", 7)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtoutputtype.setStatus('optional')
-prtoutputcapacityunit = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 9, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(3, 4, 8, 16, 17))).clone(namedValues=NamedValues(("ePtenThousandthsOfInches", 3), ("ePmicrometers", 4), ("ePsheets", 8), ("ePfeet", 16), ("ePmeters", 17)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtoutputcapacityunit.setStatus('optional')
-prtoutputmaxcapacity = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 9, 2, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtoutputmaxcapacity.setStatus('optional')
-prtoutputremainingcapacity = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 9, 2, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtoutputremainingcapacity.setStatus('optional')
-prtoutputstatus = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 9, 2, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtoutputstatus.setStatus('optional')
-prtmarkermarktech = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 10, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(4))).clone(namedValues=NamedValues(("ePelectrophotographicLaser", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtmarkermarktech.setStatus('optional')
-prtmarkercounterunit = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 10, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(7))).clone(namedValues=NamedValues(("ePimpressions", 7)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtmarkercounterunit.setStatus('optional')
-prtmarkerlifecount = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 10, 2, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtmarkerlifecount.setStatus('optional')
-prtmarkerpoweroncount = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 10, 2, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtmarkerpoweroncount.setStatus('optional')
-prtmarkerprocesscolorants = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 10, 2, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtmarkerprocesscolorants.setStatus('optional')
-prtmarkerspotcolorants = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 10, 2, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtmarkerspotcolorants.setStatus('optional')
-prtmarkeraddressabilityunit = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 10, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(3))).clone(namedValues=NamedValues(("ePtenThousandthsOfInches", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtmarkeraddressabilityunit.setStatus('optional')
-prtmarkeraddressabilityfeeddir = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 10, 2, 1, 9), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtmarkeraddressabilityfeeddir.setStatus('optional')
-prtmarkeraddressabilityxfeeddir = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 10, 2, 1, 10), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtmarkeraddressabilityxfeeddir.setStatus('optional')
-prtmarkernorthmargin = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 10, 2, 1, 11), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtmarkernorthmargin.setStatus('optional')
-prtmarkersouthmargin = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 10, 2, 1, 12), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtmarkersouthmargin.setStatus('optional')
-prtmarkerwestmargin = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 10, 2, 1, 13), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtmarkerwestmargin.setStatus('optional')
-prtmarkereastmargin = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 10, 2, 1, 14), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtmarkereastmargin.setStatus('optional')
-prtmarkerstatus = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 10, 2, 1, 15), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtmarkerstatus.setStatus('optional')
-prtmarkersuppliesmarkerindex = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 11, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtmarkersuppliesmarkerindex.setStatus('optional')
-prtmarkersuppliescolorantindex = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 11, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtmarkersuppliescolorantindex.setStatus('optional')
-prtmarkersuppliesclass = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 11, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 3, 4))).clone(namedValues=NamedValues(("ePother", 1), ("ePsupplyThatIsConsumed", 3), ("ePreceptacleThatIsFilled", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtmarkersuppliesclass.setStatus('optional')
-prtmarkersuppliestype = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 11, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(3))).clone(namedValues=NamedValues(("ePtoner", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtmarkersuppliestype.setStatus('optional')
-prtmarkersuppliesdescription = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 11, 1, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtmarkersuppliesdescription.setStatus('optional')
-prtmarkersuppliessupplyunit = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 11, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(13))).clone(namedValues=NamedValues(("ePtenthsOfGrams", 13)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtmarkersuppliessupplyunit.setStatus('optional')
-prtmarkersuppliesmaxcapacity = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 11, 1, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtmarkersuppliesmaxcapacity.setStatus('optional')
-prtmarkersupplieslevel = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 11, 1, 1, 9), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtmarkersupplieslevel.setStatus('optional')
-prtmediapathmaxspeedprintunit = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 13, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(7))).clone(namedValues=NamedValues(("ePimpressionsPerHour", 7)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtmediapathmaxspeedprintunit.setStatus('optional')
-prtmediapathmediasizeunit = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 13, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(3, 4))).clone(namedValues=NamedValues(("ePtenThousandthsOfInches", 3), ("ePmicrometers", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtmediapathmediasizeunit.setStatus('optional')
-prtmediapathmaxspeed = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 13, 4, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtmediapathmaxspeed.setStatus('optional')
-prtmediapathmaxmediafeeddir = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 13, 4, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtmediapathmaxmediafeeddir.setStatus('optional')
-prtmediapathmaxmediaxfeeddir = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 13, 4, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtmediapathmaxmediaxfeeddir.setStatus('optional')
-prtmediapathminmediafeeddir = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 13, 4, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtmediapathminmediafeeddir.setStatus('optional')
-prtmediapathminmediaxfeeddir = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 13, 4, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtmediapathminmediaxfeeddir.setStatus('optional')
-prtmediapathtype = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 13, 4, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(5))).clone(namedValues=NamedValues(("ePsimplex", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtmediapathtype.setStatus('optional')
-prtmediapathdescription = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 13, 4, 1, 10), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtmediapathdescription.setStatus('optional')
-prtmediapathstatus = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 13, 4, 1, 11), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtmediapathstatus.setStatus('optional')
-prtchanneltype = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 14, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 5, 7, 10, 11, 13, 15, 34, 35, 38))).clone(namedValues=NamedValues(("ePother", 1), ("ePchIEEE1284Port", 5), ("ePchAppleTalkPAP", 7), ("ePchNetwarePServer", 10), ("ePchPort9100", 11), ("ePchFTP", 13), ("ePchDLCLLCPort", 15), ("ePchUSB", 34), ("ePchIrDA", 35), ("ePchBidirPortTCP", 38)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtchanneltype.setStatus('optional')
-prtchannelprotocolversion = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 14, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 63))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtchannelprotocolversion.setStatus('optional')
-prtchannelcurrentjobcntllangindex = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 14, 1, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtchannelcurrentjobcntllangindex.setStatus('optional')
-prtchanneldefaultpagedesclangindex = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 14, 1, 1, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtchanneldefaultpagedesclangindex.setStatus('optional')
-prtchannelstate = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 14, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 3, 4))).clone(namedValues=NamedValues(("ePother", 1), ("ePprintDataAccepted", 3), ("ePnoDataAccepted", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtchannelstate.setStatus('optional')
-prtchannelifindex = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 14, 1, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtchannelifindex.setStatus('optional')
-prtchannelstatus = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 14, 1, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtchannelstatus.setStatus('optional')
-prtchannelinformation = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 14, 1, 1, 9), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtchannelinformation.setStatus('optional')
-prtinterpreterlangfamily = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 15, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 3, 5, 6, 37, 47))).clone(namedValues=NamedValues(("ePother", 1), ("ePlangPCL", 3), ("ePlangPJL", 5), ("ePlangPS", 6), ("ePlangAutomatic", 37), ("ePlangPCLXL", 47)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtinterpreterlangfamily.setStatus('optional')
-prtinterpreterlanglevel = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 15, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 31))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtinterpreterlanglevel.setStatus('optional')
-prtinterpreterlangversion = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 15, 1, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 31))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtinterpreterlangversion.setStatus('optional')
-prtinterpreterdescription = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 15, 1, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtinterpreterdescription.setStatus('optional')
-prtinterpreterversion = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 15, 1, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 31))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtinterpreterversion.setStatus('optional')
-prtinterpreterdefaultorientation = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 15, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(3, 4))).clone(namedValues=NamedValues(("ePportrait", 3), ("ePlandscape", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtinterpreterdefaultorientation.setStatus('optional')
-prtinterpreterfeedaddressability = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 15, 1, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtinterpreterfeedaddressability.setStatus('optional')
-prtinterpreterxfeedaddressability = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 15, 1, 1, 9), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtinterpreterxfeedaddressability.setStatus('optional')
-prtinterpreterdefaultcharsetin = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 15, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 3, 4, 5, 12, 13, 20, 21, 22, 23, 24, 25, 26, 1004, 2000, 2001, 2002, 2003, 2004, 2005, 2009, 2010, 2011, 2012, 2014, 2017, 2021, 2027))).clone(namedValues=NamedValues(("ePother", 1), ("ePcsASCII", 3), ("ePcsISOLatin1", 4), ("ePcsISOLatin2", 5), ("ePcsISOLatin5", 12), ("ePcsISOLatin6", 13), ("ePcsISO4UnitedKingdom", 20), ("ePcsISO11SwedishforNames", 21), ("ePcsISO15Italian", 22), ("ePcsISO17Spanish", 23), ("ePcsISO21German", 24), ("ePcsISO60DanishNorwegian", 25), ("ePcsISO69French", 26), ("ePcsUnicodeIBM2039", 1004), ("ePcsWindows30Latin1", 2000), ("ePcsWindows31Latin1", 2001), ("ePcsWindows31Latin2", 2002), ("ePcsWindows31Latin5", 2003), ("ePcsHPRoman8", 2004), ("ePcsAdobeStandardEncoding", 2005), ("ePcsPC850Multilingual", 2009), ("ePcsPCp852", 2010), ("ePcsPC8CodePage437", 2011), ("ePcsPC8DNDanishNorwegian", 2012), ("ePcsHPPC8Turkish", 2014), ("ePcsHPLegal", 2017), ("ePcsHPDeskTop", 2021), ("ePcsMacintosh", 2027)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtinterpreterdefaultcharsetin.setStatus('optional')
-prtinterpreterdefaultcharsetout = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 15, 1, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 3, 2004, 2005))).clone(namedValues=NamedValues(("ePcsNoDefault", 2), ("ePcsASCII", 3), ("ePcsHPRoman8", 2004), ("ePcsAdobeStandardEncoding", 2005)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtinterpreterdefaultcharsetout.setStatus('optional')
-prtinterpretertwoway = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 15, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(3, 4))).clone(namedValues=NamedValues(("ePyes", 3), ("ePno", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtinterpretertwoway.setStatus('optional')
-prtconsoledisplaybuffertext = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 16, 5, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtconsoledisplaybuffertext.setStatus('optional')
-prtconsoleontime = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 17, 6, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtconsoleontime.setStatus('optional')
-prtconsoleofftime = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 17, 6, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtconsoleofftime.setStatus('optional')
-prtconsolecolor = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 17, 6, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9))).clone(namedValues=NamedValues(("ePother", 1), ("ePunknown", 2), ("ePwhite", 3), ("ePred", 4), ("ePgreen", 5), ("ePblue", 6), ("ePcyan", 7), ("ePmagenta", 8), ("ePyellow", 9)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtconsolecolor.setStatus('optional')
-prtconsoledescription = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 17, 6, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtconsoledescription.setStatus('optional')
-prtalertseveritylevel = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 18, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 3, 4, 5))).clone(namedValues=NamedValues(("ePother", 1), ("ePcriticalBinaryChangeEvent", 3), ("ePwarningUnaryChangeEvent", 4), ("ePwarningBinaryChangeEvent", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtalertseveritylevel.setStatus('optional')
-prtalerttraininglevel = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 18, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("ePother", 1), ("ePunknown", 2), ("ePuntrained", 3), ("ePtrained", 4), ("ePfieldService", 5), ("ePmanagement", 6), ("ePnoInterventionRequired", 7)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtalerttraininglevel.setStatus('optional')
-prtalertgroup = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 18, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(5, 6, 8, 9, 10, 14))).clone(namedValues=NamedValues(("ePgeneralPrinter", 5), ("ePcover", 6), ("ePinput", 8), ("ePoutput", 9), ("ePmarker", 10), ("ePchannel", 14)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtalertgroup.setStatus('optional')
-prtalertgroupindex = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 18, 1, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtalertgroupindex.setStatus('optional')
-prtalertlocation = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 18, 1, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtalertlocation.setStatus('optional')
-prtalertcode = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 18, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 3, 8, 801, 808))).clone(namedValues=NamedValues(("ePother", 1), ("ePcoverOpened", 3), ("ePjam", 8), ("ePinputMediaTrayMissing", 801), ("ePinputMediaSupplyEmpty", 808)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtalertcode.setStatus('optional')
-prtalertdescription = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 18, 1, 1, 8), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtalertdescription.setStatus('optional')
-prtalerttime = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 18, 1, 1, 9), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtalerttime.setStatus('optional')
-mibBuilder.exportSymbols("LJ2200-MIB", prtcoverstatus=prtcoverstatus, prtStorageRefTable=prtStorageRefTable, channelinformation=channelinformation, hrpartitionindex=hrpartitionindex, job_info_attr_13=job_info_attr_13, error7_time_stamp=error7_time_stamp, hrdevicetype=hrdevicetype, prtinputmediadimfeeddirchosen=prtinputmediadimfeeddirchosen, prtinputmediadimfeeddirdeclared=prtinputmediadimfeeddirdeclared, device=device, error8_time_stamp=error8_time_stamp, prtinputdescription=prtinputdescription, error5_code=error5_code, transfer_setting=transfer_setting, prtConsoleLightTable=prtConsoleLightTable, pdl_postscript=pdl_postscript, source_subsystem=source_subsystem, job_info_stage=job_info_stage, job_info_attr_12=job_info_attr_12, service_password=service_password, device_config_token=device_config_token, simm1=simm1, prtLocalization=prtLocalization, prtInputTable=prtInputTable, error4_time_stamp=error4_time_stamp, prtinputcurrentlevel=prtinputcurrentlevel, default_bits_per_pixel=default_bits_per_pixel, prtinterpreterlanglevel=prtinterpreterlanglevel, hrm=hrm, printmib=printmib, prtStorageRefEntry=prtStorageRefEntry, job_info_attr_8=job_info_attr_8, mp_tray=mp_tray, job_info_attr_15=job_info_attr_15, maximum_resource_saving_memory=maximum_resource_saving_memory, hrPrinterEntry=hrPrinterEntry, job_info_attr_14=job_info_attr_14, prtcoverdescription=prtcoverdescription, error7=error7, hrStorageEntry=hrStorageEntry, prtmarkersuppliesmarkerindex=prtmarkersuppliesmarkerindex, settings_pdl=settings_pdl, prtmediapathmaxmediafeeddir=prtmediapathmaxmediafeeddir, default_lines_per_page=default_lines_per_page, prtGeneralTable=prtGeneralTable, imaging=imaging, reprint=reprint, prtgeneralconfigchanges=prtgeneralconfigchanges, prtinputmaxcapacity=prtinputmaxcapacity, hrfsindex=hrfsindex, prtmarkerwestmargin=prtmarkerwestmargin, prtmarkernorthmargin=prtmarkernorthmargin, hrstoragetype=hrstoragetype, pcl_default_font_width=pcl_default_font_width, job_input_auto_continue_timeout=job_input_auto_continue_timeout, channelEntry=channelEntry, prtmarkercounterunit=prtmarkercounterunit, settings_job=settings_job, prtMarkerSupplies=prtMarkerSupplies, prtinputstatus=prtinputstatus, prtmediapathmaxspeed=prtmediapathmaxspeed, error6_time_stamp=error6_time_stamp, default_page_protect=default_page_protect, intray1=intray1, hrdevicestatus=hrdevicestatus, pcl_default_font_height=pcl_default_font_height, resource_saving=resource_saving, hrdeviceindex=hrdeviceindex, prtinterpreterfeedaddressability=prtinterpreterfeedaddressability, hrStorage=hrStorage, prtmarkersuppliesclass=prtmarkersuppliesclass, simm1_capacity=simm1_capacity, prtinterpreterxfeedaddressability=prtinterpreterxfeedaddressability, hrDevice=hrDevice, prtoutputtype=prtoutputtype, dm=dm, file_system_max_open_files=file_system_max_open_files, prtalerttraininglevel=prtalerttraininglevel, device_location=device_location, prtMediaPathEntry=prtMediaPathEntry, hrDeviceEntry=hrDeviceEntry, form_feed=form_feed, default_copies=default_copies, tray2_media_size_loaded=tray2_media_size_loaded, channelnumberofchannels=channelnumberofchannels, prtAlertTable=prtAlertTable, job_info_outcome=job_info_outcome, tables=tables, simm2_capacity=simm2_capacity, hrPrinterTable=hrPrinterTable, prtconsoleofftime=prtconsoleofftime, prtInterpreter=prtInterpreter, channelstatus=channelstatus, job_info_pages_processed=job_info_pages_processed, prtconsolelocalization=prtconsolelocalization, channelTable=channelTable, hrStorageTable=hrStorageTable, form_feed_needed=form_feed_needed, prtmarkereastmargin=prtmarkereastmargin, prtconsolenumberofdisplaylines=prtconsolenumberofdisplaylines, prtConsoleDisplayBufferEntry=prtConsoleDisplayBufferEntry, settings_file_system=settings_file_system, error3=error3, prtconsoledescription=prtconsoledescription, hrpartitionid=hrpartitionid, mio1_type=mio1_type, prtinterpreterdefaultcharsetin=prtinterpreterdefaultcharsetin, prtchannelprotocolversion=prtchannelprotocolversion, hrFSEntry=hrFSEntry, pdl=pdl, prtinterpreterdefaultorientation=prtinterpreterdefaultorientation, hrprinterstatus=hrprinterstatus, file_system_set_system_partition_writeable=file_system_set_system_partition_writeable, error1_code=error1_code, prtoutputdefaultindex=prtoutputdefaultindex, error6=error6, simm2_type=simm2_type, status_pdl=status_pdl, prtConsoleLights=prtConsoleLights, prtinputserialnumber=prtinputserialnumber, prtConsoleLightEntry=prtConsoleLightEntry, status_prt_eng=status_prt_eng, prtchannelinformation=prtchannelinformation, job_info_attr_2=job_info_attr_2, prtmediapathdefaultindex=prtmediapathdefaultindex, prtmarkerstatus=prtmarkerstatus, prtinputdefaultindex=prtinputdefaultindex, print_density=print_density, test=test, intray3=intray3, channelprinteralert=channelprinteralert, prtoutputcapacityunit=prtoutputcapacityunit, prtinputdimunit=prtinputdimunit, install_date=install_date, active_print_jobs=active_print_jobs, prtmediapathmaxmediaxfeeddir=prtmediapathmaxmediaxfeeddir, energy_star=energy_star, id=id, job_being_parsed=job_being_parsed, job_info_attr_5=job_info_attr_5, intray2=intray2, hrdeviceid=hrdeviceid, hrfstype=hrfstype, pcl_default_font_number=pcl_default_font_number, prtconsoleontime=prtconsoleontime, error2_code=error2_code, hrDeviceTable=hrDeviceTable, hrfslastfullbackupdate=hrfslastfullbackupdate, prtGeneral=prtGeneral, self_test=self_test, prtalertallevents=prtalertallevents, channelstate=channelstate, prtCover=prtCover, pjl=pjl, channel_jobs_received=channel_jobs_received, job=job, error9_time_stamp=error9_time_stamp, simm=simm, hrdiskstoragecapacity=hrdiskstoragecapacity, custom_paper_dim_unit=custom_paper_dim_unit, prtchannelstatus=prtchannelstatus, prtDeviceRefTable=prtDeviceRefTable, mio=mio, channeltype=channeltype, prtmarkerprocesscolorants=prtmarkerprocesscolorants, pjl_password=pjl_password, prtMarkerTable=prtMarkerTable, channelifindex=channelifindex, default_vertical_black_resolution=default_vertical_black_resolution, prtconsolenumberofdisplaychars=prtconsolenumberofdisplaychars, hrfsaccess=hrfsaccess, prtchanneldefaultpagedesclangindex=prtchanneldefaultpagedesclangindex, mio1_model_name=mio1_model_name, prtmarkersuppliessupplyunit=prtmarkersuppliessupplyunit, prtgeneralcurrentoperator=prtgeneralcurrentoperator, prtmarkersuppliesmaxcapacity=prtmarkersuppliesmaxcapacity, model_name=model_name, pcl_default_font_source=pcl_default_font_source, hrfsbootable=hrfsbootable, prtmarkersuppliestype=prtmarkersuppliestype, prtmarkeraddressabilityunit=prtmarkeraddressabilityunit, hrDiskStorageEntry=hrDiskStorageEntry, prtchannelcurrentjobcntllangindex=prtchannelcurrentjobcntllangindex, prtinputsecurity=prtinputsecurity, prtAlert=prtAlert, prtInterpreterTable=prtInterpreterTable, hrstoragedescr=hrstoragedescr, error8_code=error8_code, prtmarkersouthmargin=prtmarkersouthmargin, prtinputversion=prtinputversion, pdl_pcl=pdl_pcl, hrmemorysize=hrmemorysize, asset_number=asset_number, prtinputmediadimxfeeddirchosen=prtinputmediadimxfeeddirchosen, fw_rom_datecode=fw_rom_datecode, interface=interface, prtlocalizationlanguage=prtlocalizationlanguage, prtinputmedianame=prtinputmedianame, channelprotocolversion=channelprotocolversion, error2=error2, prtmarkermarktech=prtmarkermarktech, simm1_type=simm1_type, prtinputcapacityunit=prtinputcapacityunit, processing_subsystem=processing_subsystem, prtchanneltype=prtchanneltype, hrdevicedescr=hrdevicedescr, error6_code=error6_code, hrfslastpartialbackupdate=hrfslastpartialbackupdate, job_info_attr_1=job_info_attr_1, prtmediapathminmediafeeddir=prtmediapathminmediafeeddir, prtmarkerspotcolorants=prtmarkerspotcolorants, prtdevicerefindex=prtdevicerefindex, error8=error8, error3_code=error3_code, job_info_attr_6=job_info_attr_6, prtconsolecolor=prtconsolecolor, job_info_attr_4=job_info_attr_4, job_info_size=job_info_size, job_info_state=job_info_state, prtoutputmaxcapacity=prtoutputmaxcapacity, prtmarkeraddressabilityfeeddir=prtmarkeraddressabilityfeeddir, default_horizontal_black_resolution=default_horizontal_black_resolution, prtconsoledisplaybuffertext=prtconsoledisplaybuffertext, prtCoverEntry=prtCoverEntry, default_media_size=default_media_size, prtinterpretertwoway=prtinterpretertwoway, custom_paper_xfeed_dim=custom_paper_xfeed_dim, file_system=file_system, hrDiskStorageTable=hrDiskStorageTable, prtmarkersuppliesdescription=prtmarkersuppliesdescription, error9_code=error9_code, io_timeout=io_timeout, error9=error9, job_input_auto_continue_mode=job_input_auto_continue_mode, prtmarkersupplieslevel=prtmarkersupplieslevel, mio1_manufacturing_info=mio1_manufacturing_info, print_engine_mispick_count=print_engine_mispick_count, prtOutput=prtOutput, job_info_attr_7=job_info_attr_7, print_engine_jam_count=print_engine_jam_count, hrfsmountpoint=hrfsmountpoint, prtLocalizationEntry=prtLocalizationEntry, prtConsoleDisplayBuffer=prtConsoleDisplayBuffer, prtgeneralserviceperson=prtgeneralserviceperson, job_info_attr_10=job_info_attr_10, prtMediaPathTable=prtMediaPathTable, prtinterpreterdefaultcharsetout=prtinterpreterdefaultcharsetout, tray1_media_size_loaded=tray1_media_size_loaded, job_info_outbins_used=job_info_outbins_used, tray3_fuser_temperature=tray3_fuser_temperature, hrstorageindex=hrstorageindex, postscript_resource_saving_memory_size=postscript_resource_saving_memory_size, prtgeneralreset=prtgeneralreset, separation_setting=separation_setting)
-mibBuilder.exportSymbols("LJ2200-MIB", error7_code=error7_code, intrays=intrays, job_info_attr_11=job_info_attr_11, io=io, prtGeneralEntry=prtGeneralEntry, hrpartitionfsindex=hrpartitionfsindex, prtchannelstate=prtchannelstate, prtDeviceRefEntry=prtDeviceRefEntry, prtlocalizationcharacterset=prtlocalizationcharacterset, total_engine_page_count=total_engine_page_count, channel_entry=channel_entry, hrdiskstorageremoveble=hrdiskstorageremoveble, hrstorageused=hrstorageused, job_info_attr_16=job_info_attr_16, prtOutputTable=prtOutputTable, prtalertgroup=prtalertgroup, postscript_print_errors=postscript_print_errors, error2_time_stamp=error2_time_stamp, prtMarker=prtMarker, channel_bytes_received=channel_bytes_received, hrfsstorageindex=hrfsstorageindex, prtConsoleDisplayBufferTable=prtConsoleDisplayBufferTable, prtalertlocation=prtalertlocation, prtinterpreterversion=prtinterpreterversion, prtmarkersuppliescolorantindex=prtmarkersuppliescolorantindex, job_info_attr_3=job_info_attr_3, default_duplex_mode=default_duplex_mode, prtinputname=prtinputname, prtOutputEntry=prtOutputEntry, pysmi_continue=pysmi_continue, prtMarkerEntry=prtMarkerEntry, on_off_line=on_off_line, prtgeneralprintername=prtgeneralprintername, hrFSTable=hrFSTable, current_job_parsing_id=current_job_parsing_id, prtchannelifindex=prtchannelifindex, job_info_physical_outbins_used=job_info_physical_outbins_used, job_info_pages_printed=job_info_pages_printed, prtCoverTable=prtCoverTable, system=system, intray=intray, prtlocalizationcountry=prtlocalizationcountry, channel=channel, prtinputvendorname=prtinputvendorname, prtinterpreterlangversion=prtinterpreterlangversion, hrstoragesize=hrstoragesize, hrpartitionsize=hrpartitionsize, error10_code=error10_code, prtinputtype=prtinputtype, prtmediapathdescription=prtmediapathdescription, prtChannelEntry=prtChannelEntry, settings_intray=settings_intray, prtmediapathminmediaxfeeddir=prtmediapathminmediaxfeeddir, prtalertcode=prtalertcode, error4_code=error4_code, settings_system=settings_system, prtoutputstatus=prtoutputstatus, prtmediapathmediasizeunit=prtmediapathmediasizeunit, prtalertdescription=prtalertdescription, hrdiskstorageaccess=hrdiskstorageaccess, status_system=status_system, file_system_set_system_partition_readonly=file_system_set_system_partition_readonly, job_info_attribute=job_info_attribute, error10_time_stamp=error10_time_stamp, print_internal_page=print_internal_page, device_name=device_name, duplex_page_count=duplex_page_count, hrpartitionlabel=hrpartitionlabel, tray_lock=tray_lock, prtmarkerlifecount=prtmarkerlifecount, prtinterpreterlangfamily=prtinterpreterlangfamily, error1=error1, prtMarkerSuppliesTable=prtMarkerSuppliesTable, dark_courier=dark_courier, custom_paper_feed_dim=custom_paper_feed_dim, prtInputEntry=prtInputEntry, job_info_name2=job_info_name2, mio1=mio1, channel_io_errors=channel_io_errors, job_info_change_id=job_info_change_id, job_info=job_info, error5_time_stamp=error5_time_stamp, prtalertgroupindex=prtalertgroupindex, prtinputmediadimxfeeddirdeclared=prtinputmediadimxfeeddirdeclared, channel_table=channel_table, prtmediapathstatus=prtmediapathstatus, hp=hp, prtmediapathtype=prtmediapathtype, simm2=simm2, hrPartitionEntry=hrPartitionEntry, prtAlertEntry=prtAlertEntry, error1_time_stamp=error1_time_stamp, prtMarkerSuppliesEntry=prtMarkerSuppliesEntry, errorlog=errorlog, hrfsremotemountpoint=hrfsremotemountpoint, tray3_media_size_loaded=tray3_media_size_loaded, prtoutputremainingcapacity=prtoutputremainingcapacity, cold_reset_media_size=cold_reset_media_size, tray2_fuser_temperature=tray2_fuser_temperature, io_switch=io_switch, print_engine=print_engine, prtmarkerdefaultindex=prtmarkerdefaultindex, prtalerttime=prtalerttime, prtinterpreterdescription=prtinterpreterdescription, prtalertseveritylevel=prtalertseveritylevel, prtLocalizationTable=prtLocalizationTable, hrdeviceerrors=hrdeviceerrors, error10=error10, auto_continue=auto_continue, prtconsoledisable=prtconsoledisable, prtmarkeraddressabilityxfeeddir=prtmarkeraddressabilityxfeeddir, prtChannelTable=prtChannelTable, settings_prt_eng=settings_prt_eng, hrdiskstoragemedia=hrdiskstoragemedia, channel_bytes_sent=channel_bytes_sent, sleep_mode=sleep_mode, prtstoragerefindex=prtstoragerefindex, error_log_clear=error_log_clear, prtinputmodel=prtinputmodel, default_vmi=default_vmi, destination_subsystem=destination_subsystem, prtInput=prtInput, serial_number=serial_number, DisplayString=DisplayString, prtgeneralserialnumber=prtgeneralserialnumber, prtChannel=prtChannel, hrPartitionTable=hrPartitionTable, error4=error4, hrprinterdetectederrorstate=hrprinterdetectederrorstate, tray1_fuser_temperature=tray1_fuser_temperature, prtmediapathmaxspeedprintunit=prtmediapathmaxspeedprintunit, prtInterpreterEntry=prtInterpreterEntry, settings_io=settings_io, prtmarkerpoweroncount=prtmarkerpoweroncount, error5=error5, pcl_resource_saving_memory_size=pcl_resource_saving_memory_size, job_info_name1=job_info_name1, job_info_attr_9=job_info_attr_9, wide_a4=wide_a4, hrstorageallocationunits=hrstorageallocationunits, default_print_quality=default_print_quality, prtMediaPath=prtMediaPath, prtalertcriticalevents=prtalertcriticalevents, job_info_io_source=job_info_io_source, error3_time_stamp=error3_time_stamp, hrstorageallocationfailures=hrstorageallocationfailures, default_ret=default_ret, prtgeneralcurrentlocalization=prtgeneralcurrentlocalization)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+
+class DisplayString(OctetString):
+    """Custom type DisplayString based on OctetString"""
+
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Hp_ObjectIdentity = ObjectIdentity
+hp = _Hp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11)
+)
+_Dm_ObjectIdentity = ObjectIdentity
+dm = _Dm_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2)
+)
+_Device_ObjectIdentity = ObjectIdentity
+device = _Device_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1)
+)
+_System_ObjectIdentity = ObjectIdentity
+system = _System_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1)
+)
+_Settings_system_ObjectIdentity = ObjectIdentity
+settings_system = _Settings_system_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 1)
+)
+_Energy_star_Type = Integer32
+_Energy_star_Object = MibScalar
+energy_star = _Energy_star_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 1, 1),
+    _Energy_star_Type()
+)
+energy_star.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    energy_star.setStatus("optional")
+
+
+class _Sleep_mode_Type(Integer32):
+    """Custom type sleep_mode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eFalse", 1),
+          ("eTrue", 2))
+    )
+
+
+_Sleep_mode_Type.__name__ = "Integer32"
+_Sleep_mode_Object = MibScalar
+sleep_mode = _Sleep_mode_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 1, 2),
+    _Sleep_mode_Type()
+)
+sleep_mode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sleep_mode.setStatus("optional")
+_Service_password_Type = Integer32
+_Service_password_Object = MibScalar
+service_password = _Service_password_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 1, 9),
+    _Service_password_Type()
+)
+service_password.setMaxAccess("write-only")
+if mibBuilder.loadTexts:
+    service_password.setStatus("optional")
+
+
+class _Device_config_token_Type(OctetString):
+    """Custom type device_config_token based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(128, 128),
+    )
+
+
+_Device_config_token_Type.__name__ = "OctetString"
+_Device_config_token_Object = MibScalar
+device_config_token = _Device_config_token_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 1, 28),
+    _Device_config_token_Type()
+)
+device_config_token.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    device_config_token.setStatus("optional")
+_Status_system_ObjectIdentity = ObjectIdentity
+status_system = _Status_system_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 2)
+)
+
+
+class _On_off_line_Type(Integer32):
+    """Custom type on_off_line based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eOffline", 2),
+          ("eOnline", 1))
+    )
+
+
+_On_off_line_Type.__name__ = "Integer32"
+_On_off_line_Object = MibScalar
+on_off_line = _On_off_line_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 2, 5),
+    _On_off_line_Type()
+)
+on_off_line.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    on_off_line.setStatus("optional")
+
+
+class __pysmi_continue_Type(Integer32):
+    """Custom type _pysmi_continue based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            1
+        )
+    )
+    namedValues = NamedValues(
+        ("eInitiateAction", 1)
+    )
+
+
+__pysmi_continue_Type.__name__ = "Integer32"
+__pysmi_continue_Object = MibScalar
+_pysmi_continue = __pysmi_continue_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 2, 6),
+    __pysmi_continue_Type()
+)
+_pysmi_continue.setMaxAccess("write-only")
+if mibBuilder.loadTexts:
+    _pysmi_continue.setStatus("optional")
+
+
+class _Auto_continue_Type(Integer32):
+    """Custom type auto_continue based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eOff", 1),
+          ("eOn", 2))
+    )
+
+
+_Auto_continue_Type.__name__ = "Integer32"
+_Auto_continue_Object = MibScalar
+auto_continue = _Auto_continue_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 2, 7),
+    _Auto_continue_Type()
+)
+auto_continue.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    auto_continue.setStatus("optional")
+
+
+class _Install_date_Type(DisplayString):
+    """Custom type install_date based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 14),
+    )
+
+
+_Install_date_Type.__name__ = "DisplayString"
+_Install_date_Object = MibScalar
+install_date = _Install_date_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 2, 8),
+    _Install_date_Type()
+)
+install_date.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    install_date.setStatus("optional")
+_Job_input_auto_continue_timeout_Type = Integer32
+_Job_input_auto_continue_timeout_Object = MibScalar
+job_input_auto_continue_timeout = _Job_input_auto_continue_timeout_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 2, 35),
+    _Job_input_auto_continue_timeout_Type()
+)
+job_input_auto_continue_timeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    job_input_auto_continue_timeout.setStatus("optional")
+_Job_input_auto_continue_mode_Type = OctetString
+_Job_input_auto_continue_mode_Object = MibScalar
+job_input_auto_continue_mode = _Job_input_auto_continue_mode_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 2, 36),
+    _Job_input_auto_continue_mode_Type()
+)
+job_input_auto_continue_mode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    job_input_auto_continue_mode.setStatus("optional")
+
+
+class _Error_log_clear_Type(Integer32):
+    """Custom type error_log_clear based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            1
+        )
+    )
+    namedValues = NamedValues(
+        ("eClearErrorLog", 1)
+    )
+
+
+_Error_log_clear_Type.__name__ = "Integer32"
+_Error_log_clear_Object = MibScalar
+error_log_clear = _Error_log_clear_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 2, 38),
+    _Error_log_clear_Type()
+)
+error_log_clear.setMaxAccess("write-only")
+if mibBuilder.loadTexts:
+    error_log_clear.setStatus("optional")
+_Id_ObjectIdentity = ObjectIdentity
+id = _Id_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 3)
+)
+_Model_name_Type = DisplayString
+_Model_name_Object = MibScalar
+model_name = _Model_name_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 3, 2),
+    _Model_name_Type()
+)
+model_name.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    model_name.setStatus("optional")
+
+
+class _Serial_number_Type(DisplayString):
+    """Custom type serial_number based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 10),
+    )
+
+
+_Serial_number_Type.__name__ = "DisplayString"
+_Serial_number_Object = MibScalar
+serial_number = _Serial_number_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 3, 3),
+    _Serial_number_Type()
+)
+serial_number.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    serial_number.setStatus("optional")
+_Fw_rom_datecode_Type = DisplayString
+_Fw_rom_datecode_Object = MibScalar
+fw_rom_datecode = _Fw_rom_datecode_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 3, 5),
+    _Fw_rom_datecode_Type()
+)
+fw_rom_datecode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fw_rom_datecode.setStatus("optional")
+_Device_name_Type = DisplayString
+_Device_name_Object = MibScalar
+device_name = _Device_name_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 3, 10),
+    _Device_name_Type()
+)
+device_name.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    device_name.setStatus("optional")
+_Device_location_Type = DisplayString
+_Device_location_Object = MibScalar
+device_location = _Device_location_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 3, 11),
+    _Device_location_Type()
+)
+device_location.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    device_location.setStatus("optional")
+_Asset_number_Type = DisplayString
+_Asset_number_Object = MibScalar
+asset_number = _Asset_number_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 3, 12),
+    _Asset_number_Type()
+)
+asset_number.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    asset_number.setStatus("optional")
+_Interface_ObjectIdentity = ObjectIdentity
+interface = _Interface_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 4)
+)
+_Simm_ObjectIdentity = ObjectIdentity
+simm = _Simm_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 4, 1)
+)
+_Simm1_ObjectIdentity = ObjectIdentity
+simm1 = _Simm1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 4, 1, 1)
+)
+
+
+class _Simm1_type_Type(Integer32):
+    """Custom type simm1_type based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              9)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eEmpty", 1),
+          ("eRamRom", 9),
+          ("eReadOnlyMemory", 4),
+          ("eUnSupported", 3),
+          ("eUnknown", 2),
+          ("eVolatileRandomAccessMemory", 5))
+    )
+
+
+_Simm1_type_Type.__name__ = "Integer32"
+_Simm1_type_Object = MibScalar
+simm1_type = _Simm1_type_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 4, 1, 1, 4),
+    _Simm1_type_Type()
+)
+simm1_type.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    simm1_type.setStatus("optional")
+_Simm1_capacity_Type = Integer32
+_Simm1_capacity_Object = MibScalar
+simm1_capacity = _Simm1_capacity_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 4, 1, 1, 5),
+    _Simm1_capacity_Type()
+)
+simm1_capacity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    simm1_capacity.setStatus("optional")
+_Simm2_ObjectIdentity = ObjectIdentity
+simm2 = _Simm2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 4, 1, 2)
+)
+
+
+class _Simm2_type_Type(Integer32):
+    """Custom type simm2_type based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              9)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eEmpty", 1),
+          ("eRamRom", 9),
+          ("eReadOnlyMemory", 4),
+          ("eUnSupported", 3),
+          ("eUnknown", 2),
+          ("eVolatileRandomAccessMemory", 5))
+    )
+
+
+_Simm2_type_Type.__name__ = "Integer32"
+_Simm2_type_Object = MibScalar
+simm2_type = _Simm2_type_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 4, 1, 2, 4),
+    _Simm2_type_Type()
+)
+simm2_type.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    simm2_type.setStatus("optional")
+_Simm2_capacity_Type = Integer32
+_Simm2_capacity_Object = MibScalar
+simm2_capacity = _Simm2_capacity_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 4, 1, 2, 5),
+    _Simm2_capacity_Type()
+)
+simm2_capacity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    simm2_capacity.setStatus("optional")
+_Mio_ObjectIdentity = ObjectIdentity
+mio = _Mio_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 4, 3)
+)
+_Mio1_ObjectIdentity = ObjectIdentity
+mio1 = _Mio1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 4, 3, 1)
+)
+_Mio1_model_name_Type = DisplayString
+_Mio1_model_name_Object = MibScalar
+mio1_model_name = _Mio1_model_name_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 4, 3, 1, 2),
+    _Mio1_model_name_Type()
+)
+mio1_model_name.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mio1_model_name.setStatus("optional")
+_Mio1_manufacturing_info_Type = DisplayString
+_Mio1_manufacturing_info_Object = MibScalar
+mio1_manufacturing_info = _Mio1_manufacturing_info_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 4, 3, 1, 3),
+    _Mio1_manufacturing_info_Type()
+)
+mio1_manufacturing_info.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mio1_manufacturing_info.setStatus("optional")
+
+
+class _Mio1_type_Type(Integer32):
+    """Custom type mio1_type based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              12)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eEmpty", 1),
+          ("eIOCard", 12),
+          ("eUnknown", 2))
+    )
+
+
+_Mio1_type_Type.__name__ = "Integer32"
+_Mio1_type_Object = MibScalar
+mio1_type = _Mio1_type_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 4, 3, 1, 4),
+    _Mio1_type_Type()
+)
+mio1_type.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mio1_type.setStatus("optional")
+_Test_ObjectIdentity = ObjectIdentity
+test = _Test_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 5)
+)
+
+
+class _Self_test_Type(Integer32):
+    """Custom type self_test based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eNonDestructiveSelfTest", 4),
+          ("eNotInASelfTest", 1))
+    )
+
+
+_Self_test_Type.__name__ = "Integer32"
+_Self_test_Object = MibScalar
+self_test = _Self_test_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 5, 1),
+    _Self_test_Type()
+)
+self_test.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    self_test.setStatus("optional")
+
+
+class _Print_internal_page_Type(Integer32):
+    """Custom type print_internal_page based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              8,
+              350,
+              450)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eDeviceDemoPage1ConfigurationPage", 3),
+          ("eDeviceDemoPage2", 4),
+          ("eFileSystemDirectoryListing", 8),
+          ("eNotPrintingAnInternalPage", 1),
+          ("ePCLFontList1", 350),
+          ("ePostScriptFontList1", 450),
+          ("ePrintingAnUnknownInternalPage", 2))
+    )
+
+
+_Print_internal_page_Type.__name__ = "Integer32"
+_Print_internal_page_Object = MibScalar
+print_internal_page = _Print_internal_page_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 5, 2),
+    _Print_internal_page_Type()
+)
+print_internal_page.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    print_internal_page.setStatus("optional")
+_Job_ObjectIdentity = ObjectIdentity
+job = _Job_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6)
+)
+_Settings_job_ObjectIdentity = ObjectIdentity
+settings_job = _Settings_job_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 1)
+)
+
+
+class _Job_info_change_id_Type(OctetString):
+    """Custom type job_info_change_id based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_Job_info_change_id_Type.__name__ = "OctetString"
+_Job_info_change_id_Object = MibScalar
+job_info_change_id = _Job_info_change_id_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 1, 3),
+    _Job_info_change_id_Type()
+)
+job_info_change_id.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    job_info_change_id.setStatus("optional")
+_Active_print_jobs_ObjectIdentity = ObjectIdentity
+active_print_jobs = _Active_print_jobs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 2)
+)
+_Job_being_parsed_ObjectIdentity = ObjectIdentity
+job_being_parsed = _Job_being_parsed_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 2, 1)
+)
+
+
+class _Current_job_parsing_id_Type(Integer32):
+    """Custom type current_job_parsing_id based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-1, 32767),
+    )
+
+
+_Current_job_parsing_id_Type.__name__ = "Integer32"
+_Current_job_parsing_id_Object = MibScalar
+current_job_parsing_id = _Current_job_parsing_id_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 2, 1, 1),
+    _Current_job_parsing_id_Type()
+)
+current_job_parsing_id.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    current_job_parsing_id.setStatus("optional")
+_Job_info_ObjectIdentity = ObjectIdentity
+job_info = _Job_info_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5)
+)
+_Job_info_name1_Type = DisplayString
+_Job_info_name1_Object = MibScalar
+job_info_name1 = _Job_info_name1_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 1),
+    _Job_info_name1_Type()
+)
+job_info_name1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    job_info_name1.setStatus("optional")
+_Job_info_name2_Type = DisplayString
+_Job_info_name2_Object = MibScalar
+job_info_name2 = _Job_info_name2_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 2),
+    _Job_info_name2_Type()
+)
+job_info_name2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    job_info_name2.setStatus("optional")
+_Job_info_stage_Type = OctetString
+_Job_info_stage_Object = MibScalar
+job_info_stage = _Job_info_stage_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 10),
+    _Job_info_stage_Type()
+)
+job_info_stage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    job_info_stage.setStatus("optional")
+_Job_info_io_source_Type = Integer32
+_Job_info_io_source_Object = MibScalar
+job_info_io_source = _Job_info_io_source_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 11),
+    _Job_info_io_source_Type()
+)
+job_info_io_source.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    job_info_io_source.setStatus("optional")
+_Job_info_pages_processed_Type = Integer32
+_Job_info_pages_processed_Object = MibScalar
+job_info_pages_processed = _Job_info_pages_processed_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 12),
+    _Job_info_pages_processed_Type()
+)
+job_info_pages_processed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    job_info_pages_processed.setStatus("optional")
+_Job_info_pages_printed_Type = Integer32
+_Job_info_pages_printed_Object = MibScalar
+job_info_pages_printed = _Job_info_pages_printed_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 13),
+    _Job_info_pages_printed_Type()
+)
+job_info_pages_printed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    job_info_pages_printed.setStatus("optional")
+_Job_info_size_Type = Integer32
+_Job_info_size_Object = MibScalar
+job_info_size = _Job_info_size_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 14),
+    _Job_info_size_Type()
+)
+job_info_size.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    job_info_size.setStatus("optional")
+
+
+class _Job_info_state_Type(Integer32):
+    """Custom type job_info_state based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(3,
+              4,
+              5,
+              7,
+              10,
+              11)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eAborted", 3),
+          ("eCancelled", 10),
+          ("ePrinted", 5),
+          ("eProcessing", 11),
+          ("eTerminating", 7),
+          ("eWaitingForResources", 4))
+    )
+
+
+_Job_info_state_Type.__name__ = "Integer32"
+_Job_info_state_Object = MibScalar
+job_info_state = _Job_info_state_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 15),
+    _Job_info_state_Type()
+)
+job_info_state.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    job_info_state.setStatus("optional")
+
+
+class _Job_info_outcome_Type(Integer32):
+    """Custom type job_info_outcome based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            3
+        )
+    )
+    namedValues = NamedValues(
+        ("eOk", 3)
+    )
+
+
+_Job_info_outcome_Type.__name__ = "Integer32"
+_Job_info_outcome_Object = MibScalar
+job_info_outcome = _Job_info_outcome_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 19),
+    _Job_info_outcome_Type()
+)
+job_info_outcome.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    job_info_outcome.setStatus("optional")
+_Job_info_outbins_used_Type = OctetString
+_Job_info_outbins_used_Object = MibScalar
+job_info_outbins_used = _Job_info_outbins_used_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 20),
+    _Job_info_outbins_used_Type()
+)
+job_info_outbins_used.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    job_info_outbins_used.setStatus("optional")
+_Job_info_physical_outbins_used_Type = OctetString
+_Job_info_physical_outbins_used_Object = MibScalar
+job_info_physical_outbins_used = _Job_info_physical_outbins_used_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 22),
+    _Job_info_physical_outbins_used_Type()
+)
+job_info_physical_outbins_used.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    job_info_physical_outbins_used.setStatus("optional")
+_Job_info_attribute_ObjectIdentity = ObjectIdentity
+job_info_attribute = _Job_info_attribute_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 23)
+)
+
+
+class _Job_info_attr_1_Type(OctetString):
+    """Custom type job_info_attr_1 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 80),
+    )
+
+
+_Job_info_attr_1_Type.__name__ = "OctetString"
+_Job_info_attr_1_Object = MibScalar
+job_info_attr_1 = _Job_info_attr_1_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 23, 1),
+    _Job_info_attr_1_Type()
+)
+job_info_attr_1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    job_info_attr_1.setStatus("optional")
+
+
+class _Job_info_attr_2_Type(OctetString):
+    """Custom type job_info_attr_2 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 80),
+    )
+
+
+_Job_info_attr_2_Type.__name__ = "OctetString"
+_Job_info_attr_2_Object = MibScalar
+job_info_attr_2 = _Job_info_attr_2_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 23, 2),
+    _Job_info_attr_2_Type()
+)
+job_info_attr_2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    job_info_attr_2.setStatus("optional")
+
+
+class _Job_info_attr_3_Type(OctetString):
+    """Custom type job_info_attr_3 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 80),
+    )
+
+
+_Job_info_attr_3_Type.__name__ = "OctetString"
+_Job_info_attr_3_Object = MibScalar
+job_info_attr_3 = _Job_info_attr_3_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 23, 3),
+    _Job_info_attr_3_Type()
+)
+job_info_attr_3.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    job_info_attr_3.setStatus("optional")
+
+
+class _Job_info_attr_4_Type(OctetString):
+    """Custom type job_info_attr_4 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 80),
+    )
+
+
+_Job_info_attr_4_Type.__name__ = "OctetString"
+_Job_info_attr_4_Object = MibScalar
+job_info_attr_4 = _Job_info_attr_4_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 23, 4),
+    _Job_info_attr_4_Type()
+)
+job_info_attr_4.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    job_info_attr_4.setStatus("optional")
+
+
+class _Job_info_attr_5_Type(OctetString):
+    """Custom type job_info_attr_5 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 80),
+    )
+
+
+_Job_info_attr_5_Type.__name__ = "OctetString"
+_Job_info_attr_5_Object = MibScalar
+job_info_attr_5 = _Job_info_attr_5_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 23, 5),
+    _Job_info_attr_5_Type()
+)
+job_info_attr_5.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    job_info_attr_5.setStatus("optional")
+
+
+class _Job_info_attr_6_Type(OctetString):
+    """Custom type job_info_attr_6 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 80),
+    )
+
+
+_Job_info_attr_6_Type.__name__ = "OctetString"
+_Job_info_attr_6_Object = MibScalar
+job_info_attr_6 = _Job_info_attr_6_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 23, 6),
+    _Job_info_attr_6_Type()
+)
+job_info_attr_6.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    job_info_attr_6.setStatus("optional")
+
+
+class _Job_info_attr_7_Type(OctetString):
+    """Custom type job_info_attr_7 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 80),
+    )
+
+
+_Job_info_attr_7_Type.__name__ = "OctetString"
+_Job_info_attr_7_Object = MibScalar
+job_info_attr_7 = _Job_info_attr_7_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 23, 7),
+    _Job_info_attr_7_Type()
+)
+job_info_attr_7.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    job_info_attr_7.setStatus("optional")
+
+
+class _Job_info_attr_8_Type(OctetString):
+    """Custom type job_info_attr_8 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 80),
+    )
+
+
+_Job_info_attr_8_Type.__name__ = "OctetString"
+_Job_info_attr_8_Object = MibScalar
+job_info_attr_8 = _Job_info_attr_8_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 23, 8),
+    _Job_info_attr_8_Type()
+)
+job_info_attr_8.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    job_info_attr_8.setStatus("optional")
+
+
+class _Job_info_attr_9_Type(OctetString):
+    """Custom type job_info_attr_9 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 80),
+    )
+
+
+_Job_info_attr_9_Type.__name__ = "OctetString"
+_Job_info_attr_9_Object = MibScalar
+job_info_attr_9 = _Job_info_attr_9_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 23, 9),
+    _Job_info_attr_9_Type()
+)
+job_info_attr_9.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    job_info_attr_9.setStatus("optional")
+
+
+class _Job_info_attr_10_Type(OctetString):
+    """Custom type job_info_attr_10 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 80),
+    )
+
+
+_Job_info_attr_10_Type.__name__ = "OctetString"
+_Job_info_attr_10_Object = MibScalar
+job_info_attr_10 = _Job_info_attr_10_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 23, 10),
+    _Job_info_attr_10_Type()
+)
+job_info_attr_10.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    job_info_attr_10.setStatus("optional")
+
+
+class _Job_info_attr_11_Type(OctetString):
+    """Custom type job_info_attr_11 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 80),
+    )
+
+
+_Job_info_attr_11_Type.__name__ = "OctetString"
+_Job_info_attr_11_Object = MibScalar
+job_info_attr_11 = _Job_info_attr_11_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 23, 11),
+    _Job_info_attr_11_Type()
+)
+job_info_attr_11.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    job_info_attr_11.setStatus("optional")
+
+
+class _Job_info_attr_12_Type(OctetString):
+    """Custom type job_info_attr_12 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 80),
+    )
+
+
+_Job_info_attr_12_Type.__name__ = "OctetString"
+_Job_info_attr_12_Object = MibScalar
+job_info_attr_12 = _Job_info_attr_12_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 23, 12),
+    _Job_info_attr_12_Type()
+)
+job_info_attr_12.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    job_info_attr_12.setStatus("optional")
+
+
+class _Job_info_attr_13_Type(OctetString):
+    """Custom type job_info_attr_13 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 80),
+    )
+
+
+_Job_info_attr_13_Type.__name__ = "OctetString"
+_Job_info_attr_13_Object = MibScalar
+job_info_attr_13 = _Job_info_attr_13_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 23, 13),
+    _Job_info_attr_13_Type()
+)
+job_info_attr_13.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    job_info_attr_13.setStatus("optional")
+
+
+class _Job_info_attr_14_Type(OctetString):
+    """Custom type job_info_attr_14 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 80),
+    )
+
+
+_Job_info_attr_14_Type.__name__ = "OctetString"
+_Job_info_attr_14_Object = MibScalar
+job_info_attr_14 = _Job_info_attr_14_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 23, 14),
+    _Job_info_attr_14_Type()
+)
+job_info_attr_14.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    job_info_attr_14.setStatus("optional")
+
+
+class _Job_info_attr_15_Type(OctetString):
+    """Custom type job_info_attr_15 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 80),
+    )
+
+
+_Job_info_attr_15_Type.__name__ = "OctetString"
+_Job_info_attr_15_Object = MibScalar
+job_info_attr_15 = _Job_info_attr_15_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 23, 15),
+    _Job_info_attr_15_Type()
+)
+job_info_attr_15.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    job_info_attr_15.setStatus("optional")
+
+
+class _Job_info_attr_16_Type(OctetString):
+    """Custom type job_info_attr_16 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 80),
+    )
+
+
+_Job_info_attr_16_Type.__name__ = "OctetString"
+_Job_info_attr_16_Object = MibScalar
+job_info_attr_16 = _Job_info_attr_16_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 6, 5, 23, 16),
+    _Job_info_attr_16_Type()
+)
+job_info_attr_16.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    job_info_attr_16.setStatus("optional")
+_File_system_ObjectIdentity = ObjectIdentity
+file_system = _File_system_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 10)
+)
+_Settings_file_system_ObjectIdentity = ObjectIdentity
+settings_file_system = _Settings_file_system_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 10, 1)
+)
+_File_system_max_open_files_Type = Integer32
+_File_system_max_open_files_Object = MibScalar
+file_system_max_open_files = _File_system_max_open_files_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 10, 1, 2),
+    _File_system_max_open_files_Type()
+)
+file_system_max_open_files.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    file_system_max_open_files.setStatus("optional")
+_File_system_set_system_partition_writeable_Type = OctetString
+_File_system_set_system_partition_writeable_Object = MibScalar
+file_system_set_system_partition_writeable = _File_system_set_system_partition_writeable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 10, 1, 6),
+    _File_system_set_system_partition_writeable_Type()
+)
+file_system_set_system_partition_writeable.setMaxAccess("write-only")
+if mibBuilder.loadTexts:
+    file_system_set_system_partition_writeable.setStatus("optional")
+_File_system_set_system_partition_readonly_Type = Integer32
+_File_system_set_system_partition_readonly_Object = MibScalar
+file_system_set_system_partition_readonly = _File_system_set_system_partition_readonly_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 10, 1, 7),
+    _File_system_set_system_partition_readonly_Type()
+)
+file_system_set_system_partition_readonly.setMaxAccess("write-only")
+if mibBuilder.loadTexts:
+    file_system_set_system_partition_readonly.setStatus("optional")
+_Errorlog_ObjectIdentity = ObjectIdentity
+errorlog = _Errorlog_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11)
+)
+_Error1_ObjectIdentity = ObjectIdentity
+error1 = _Error1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 1)
+)
+_Error1_time_stamp_Type = Integer32
+_Error1_time_stamp_Object = MibScalar
+error1_time_stamp = _Error1_time_stamp_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 1, 1),
+    _Error1_time_stamp_Type()
+)
+error1_time_stamp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    error1_time_stamp.setStatus("optional")
+_Error1_code_Type = Integer32
+_Error1_code_Object = MibScalar
+error1_code = _Error1_code_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 1, 2),
+    _Error1_code_Type()
+)
+error1_code.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    error1_code.setStatus("optional")
+_Error2_ObjectIdentity = ObjectIdentity
+error2 = _Error2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 2)
+)
+_Error2_time_stamp_Type = Integer32
+_Error2_time_stamp_Object = MibScalar
+error2_time_stamp = _Error2_time_stamp_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 2, 1),
+    _Error2_time_stamp_Type()
+)
+error2_time_stamp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    error2_time_stamp.setStatus("optional")
+_Error2_code_Type = Integer32
+_Error2_code_Object = MibScalar
+error2_code = _Error2_code_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 2, 2),
+    _Error2_code_Type()
+)
+error2_code.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    error2_code.setStatus("optional")
+_Error3_ObjectIdentity = ObjectIdentity
+error3 = _Error3_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 3)
+)
+_Error3_time_stamp_Type = Integer32
+_Error3_time_stamp_Object = MibScalar
+error3_time_stamp = _Error3_time_stamp_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 3, 1),
+    _Error3_time_stamp_Type()
+)
+error3_time_stamp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    error3_time_stamp.setStatus("optional")
+_Error3_code_Type = Integer32
+_Error3_code_Object = MibScalar
+error3_code = _Error3_code_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 3, 2),
+    _Error3_code_Type()
+)
+error3_code.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    error3_code.setStatus("optional")
+_Error4_ObjectIdentity = ObjectIdentity
+error4 = _Error4_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 4)
+)
+_Error4_time_stamp_Type = Integer32
+_Error4_time_stamp_Object = MibScalar
+error4_time_stamp = _Error4_time_stamp_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 4, 1),
+    _Error4_time_stamp_Type()
+)
+error4_time_stamp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    error4_time_stamp.setStatus("optional")
+_Error4_code_Type = Integer32
+_Error4_code_Object = MibScalar
+error4_code = _Error4_code_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 4, 2),
+    _Error4_code_Type()
+)
+error4_code.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    error4_code.setStatus("optional")
+_Error5_ObjectIdentity = ObjectIdentity
+error5 = _Error5_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 5)
+)
+_Error5_time_stamp_Type = Integer32
+_Error5_time_stamp_Object = MibScalar
+error5_time_stamp = _Error5_time_stamp_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 5, 1),
+    _Error5_time_stamp_Type()
+)
+error5_time_stamp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    error5_time_stamp.setStatus("optional")
+_Error5_code_Type = Integer32
+_Error5_code_Object = MibScalar
+error5_code = _Error5_code_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 5, 2),
+    _Error5_code_Type()
+)
+error5_code.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    error5_code.setStatus("optional")
+_Error6_ObjectIdentity = ObjectIdentity
+error6 = _Error6_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 6)
+)
+_Error6_time_stamp_Type = Integer32
+_Error6_time_stamp_Object = MibScalar
+error6_time_stamp = _Error6_time_stamp_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 6, 1),
+    _Error6_time_stamp_Type()
+)
+error6_time_stamp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    error6_time_stamp.setStatus("optional")
+_Error6_code_Type = Integer32
+_Error6_code_Object = MibScalar
+error6_code = _Error6_code_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 6, 2),
+    _Error6_code_Type()
+)
+error6_code.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    error6_code.setStatus("optional")
+_Error7_ObjectIdentity = ObjectIdentity
+error7 = _Error7_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 7)
+)
+_Error7_time_stamp_Type = Integer32
+_Error7_time_stamp_Object = MibScalar
+error7_time_stamp = _Error7_time_stamp_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 7, 1),
+    _Error7_time_stamp_Type()
+)
+error7_time_stamp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    error7_time_stamp.setStatus("optional")
+_Error7_code_Type = Integer32
+_Error7_code_Object = MibScalar
+error7_code = _Error7_code_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 7, 2),
+    _Error7_code_Type()
+)
+error7_code.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    error7_code.setStatus("optional")
+_Error8_ObjectIdentity = ObjectIdentity
+error8 = _Error8_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 8)
+)
+_Error8_time_stamp_Type = Integer32
+_Error8_time_stamp_Object = MibScalar
+error8_time_stamp = _Error8_time_stamp_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 8, 1),
+    _Error8_time_stamp_Type()
+)
+error8_time_stamp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    error8_time_stamp.setStatus("optional")
+_Error8_code_Type = Integer32
+_Error8_code_Object = MibScalar
+error8_code = _Error8_code_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 8, 2),
+    _Error8_code_Type()
+)
+error8_code.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    error8_code.setStatus("optional")
+_Error9_ObjectIdentity = ObjectIdentity
+error9 = _Error9_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 9)
+)
+_Error9_time_stamp_Type = Integer32
+_Error9_time_stamp_Object = MibScalar
+error9_time_stamp = _Error9_time_stamp_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 9, 1),
+    _Error9_time_stamp_Type()
+)
+error9_time_stamp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    error9_time_stamp.setStatus("optional")
+_Error9_code_Type = Integer32
+_Error9_code_Object = MibScalar
+error9_code = _Error9_code_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 9, 2),
+    _Error9_code_Type()
+)
+error9_code.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    error9_code.setStatus("optional")
+_Error10_ObjectIdentity = ObjectIdentity
+error10 = _Error10_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 10)
+)
+_Error10_time_stamp_Type = Integer32
+_Error10_time_stamp_Object = MibScalar
+error10_time_stamp = _Error10_time_stamp_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 10, 1),
+    _Error10_time_stamp_Type()
+)
+error10_time_stamp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    error10_time_stamp.setStatus("optional")
+_Error10_code_Type = Integer32
+_Error10_code_Object = MibScalar
+error10_code = _Error10_code_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 1, 11, 10, 2),
+    _Error10_code_Type()
+)
+error10_code.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    error10_code.setStatus("optional")
+_Source_subsystem_ObjectIdentity = ObjectIdentity
+source_subsystem = _Source_subsystem_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 2)
+)
+_Io_ObjectIdentity = ObjectIdentity
+io = _Io_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 2, 1)
+)
+_Settings_io_ObjectIdentity = ObjectIdentity
+settings_io = _Settings_io_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 2, 1, 1)
+)
+
+
+class _Io_timeout_Type(Integer32):
+    """Custom type io_timeout based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(5, 300),
+    )
+
+
+_Io_timeout_Type.__name__ = "Integer32"
+_Io_timeout_Object = MibScalar
+io_timeout = _Io_timeout_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 2, 1, 1, 1),
+    _Io_timeout_Type()
+)
+io_timeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    io_timeout.setStatus("optional")
+
+
+class _Io_switch_Type(Integer32):
+    """Custom type io_switch based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            1
+        )
+    )
+    namedValues = NamedValues(
+        ("eYes", 1)
+    )
+
+
+_Io_switch_Type.__name__ = "Integer32"
+_Io_switch_Object = MibScalar
+io_switch = _Io_switch_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 2, 1, 1, 2),
+    _Io_switch_Type()
+)
+io_switch.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    io_switch.setStatus("optional")
+_Processing_subsystem_ObjectIdentity = ObjectIdentity
+processing_subsystem = _Processing_subsystem_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3)
+)
+_Pdl_ObjectIdentity = ObjectIdentity
+pdl = _Pdl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3)
+)
+_Settings_pdl_ObjectIdentity = ObjectIdentity
+settings_pdl = _Settings_pdl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 1)
+)
+
+
+class _Default_copies_Type(Integer32):
+    """Custom type default_copies based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 999),
+    )
+
+
+_Default_copies_Type.__name__ = "Integer32"
+_Default_copies_Object = MibScalar
+default_copies = _Default_copies_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 1, 4),
+    _Default_copies_Type()
+)
+default_copies.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    default_copies.setStatus("optional")
+
+
+class _Form_feed_Type(Integer32):
+    """Custom type form_feed based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            1
+        )
+    )
+    namedValues = NamedValues(
+        ("eInitiateAction", 1)
+    )
+
+
+_Form_feed_Type.__name__ = "Integer32"
+_Form_feed_Object = MibScalar
+form_feed = _Form_feed_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 1, 5),
+    _Form_feed_Type()
+)
+form_feed.setMaxAccess("write-only")
+if mibBuilder.loadTexts:
+    form_feed.setStatus("optional")
+
+
+class _Resource_saving_Type(Integer32):
+    """Custom type resource_saving based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eAuto", 3),
+          ("eOff", 1),
+          ("eOn", 2))
+    )
+
+
+_Resource_saving_Type.__name__ = "Integer32"
+_Resource_saving_Object = MibScalar
+resource_saving = _Resource_saving_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 1, 6),
+    _Resource_saving_Type()
+)
+resource_saving.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    resource_saving.setStatus("optional")
+_Maximum_resource_saving_memory_Type = Integer32
+_Maximum_resource_saving_memory_Object = MibScalar
+maximum_resource_saving_memory = _Maximum_resource_saving_memory_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 1, 7),
+    _Maximum_resource_saving_memory_Type()
+)
+maximum_resource_saving_memory.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    maximum_resource_saving_memory.setStatus("optional")
+_Default_vertical_black_resolution_Type = Integer32
+_Default_vertical_black_resolution_Object = MibScalar
+default_vertical_black_resolution = _Default_vertical_black_resolution_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 1, 8),
+    _Default_vertical_black_resolution_Type()
+)
+default_vertical_black_resolution.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    default_vertical_black_resolution.setStatus("optional")
+_Default_horizontal_black_resolution_Type = Integer32
+_Default_horizontal_black_resolution_Object = MibScalar
+default_horizontal_black_resolution = _Default_horizontal_black_resolution_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 1, 9),
+    _Default_horizontal_black_resolution_Type()
+)
+default_horizontal_black_resolution.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    default_horizontal_black_resolution.setStatus("optional")
+
+
+class _Default_page_protect_Type(Integer32):
+    """Custom type default_page_protect based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eAuto", 3),
+          ("eOn", 2))
+    )
+
+
+_Default_page_protect_Type.__name__ = "Integer32"
+_Default_page_protect_Object = MibScalar
+default_page_protect = _Default_page_protect_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 1, 10),
+    _Default_page_protect_Type()
+)
+default_page_protect.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    default_page_protect.setStatus("optional")
+_Default_lines_per_page_Type = Integer32
+_Default_lines_per_page_Object = MibScalar
+default_lines_per_page = _Default_lines_per_page_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 1, 11),
+    _Default_lines_per_page_Type()
+)
+default_lines_per_page.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    default_lines_per_page.setStatus("optional")
+_Default_vmi_Type = Integer32
+_Default_vmi_Object = MibScalar
+default_vmi = _Default_vmi_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 1, 12),
+    _Default_vmi_Type()
+)
+default_vmi.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    default_vmi.setStatus("optional")
+
+
+class _Default_media_size_Type(Integer32):
+    """Custom type default_media_size based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              10,
+              17,
+              25,
+              26,
+              45,
+              71,
+              72,
+              80,
+              81,
+              90,
+              91,
+              100,
+              101)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eCommercial10", 81),
+          ("eCustom", 101),
+          ("eFoolscap", 10),
+          ("eISOandJISA4", 26),
+          ("eISOandJISA5", 25),
+          ("eInternationalB5", 100),
+          ("eInternationalC5", 91),
+          ("eInternationalDL", 90),
+          ("eJISB5", 45),
+          ("eJapanesePostcardDouble", 72),
+          ("eJapanesePostcardSingle", 71),
+          ("eMonarch", 80),
+          ("eROC16K", 17),
+          ("eUSExecutive", 1),
+          ("eUSLegal", 3),
+          ("eUSLetter", 2))
+    )
+
+
+_Default_media_size_Type.__name__ = "Integer32"
+_Default_media_size_Object = MibScalar
+default_media_size = _Default_media_size_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 1, 13),
+    _Default_media_size_Type()
+)
+default_media_size.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    default_media_size.setStatus("optional")
+
+
+class _Cold_reset_media_size_Type(Integer32):
+    """Custom type cold_reset_media_size based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(2,
+              26)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eISOandJISA4", 26),
+          ("eUSLetter", 2))
+    )
+
+
+_Cold_reset_media_size_Type.__name__ = "Integer32"
+_Cold_reset_media_size_Object = MibScalar
+cold_reset_media_size = _Cold_reset_media_size_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 1, 19),
+    _Cold_reset_media_size_Type()
+)
+cold_reset_media_size.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cold_reset_media_size.setStatus("optional")
+
+
+class _Reprint_Type(Integer32):
+    """Custom type reprint based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eAuto", 3),
+          ("eOff", 1),
+          ("eOn", 2))
+    )
+
+
+_Reprint_Type.__name__ = "Integer32"
+_Reprint_Object = MibScalar
+reprint = _Reprint_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 1, 36),
+    _Reprint_Type()
+)
+reprint.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    reprint.setStatus("optional")
+
+
+class _Wide_a4_Type(Integer32):
+    """Custom type wide_a4 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eOff", 1),
+          ("eOn", 2))
+    )
+
+
+_Wide_a4_Type.__name__ = "Integer32"
+_Wide_a4_Object = MibScalar
+wide_a4 = _Wide_a4_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 1, 37),
+    _Wide_a4_Type()
+)
+wide_a4.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wide_a4.setStatus("optional")
+
+
+class _Dark_courier_Type(Integer32):
+    """Custom type dark_courier based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eOff", 1),
+          ("eOn", 2))
+    )
+
+
+_Dark_courier_Type.__name__ = "Integer32"
+_Dark_courier_Object = MibScalar
+dark_courier = _Dark_courier_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 1, 38),
+    _Dark_courier_Type()
+)
+dark_courier.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dark_courier.setStatus("optional")
+_Default_bits_per_pixel_Type = Integer32
+_Default_bits_per_pixel_Object = MibScalar
+default_bits_per_pixel = _Default_bits_per_pixel_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 1, 39),
+    _Default_bits_per_pixel_Type()
+)
+default_bits_per_pixel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    default_bits_per_pixel.setStatus("optional")
+_Status_pdl_ObjectIdentity = ObjectIdentity
+status_pdl = _Status_pdl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 2)
+)
+
+
+class _Form_feed_needed_Type(Integer32):
+    """Custom type form_feed_needed based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eFalse", 1),
+          ("eTrue", 2))
+    )
+
+
+_Form_feed_needed_Type.__name__ = "Integer32"
+_Form_feed_needed_Object = MibScalar
+form_feed_needed = _Form_feed_needed_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 2, 2),
+    _Form_feed_needed_Type()
+)
+form_feed_needed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    form_feed_needed.setStatus("optional")
+_Pdl_pcl_ObjectIdentity = ObjectIdentity
+pdl_pcl = _Pdl_pcl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 3)
+)
+_Pcl_resource_saving_memory_size_Type = Integer32
+_Pcl_resource_saving_memory_size_Object = MibScalar
+pcl_resource_saving_memory_size = _Pcl_resource_saving_memory_size_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 3, 2),
+    _Pcl_resource_saving_memory_size_Type()
+)
+pcl_resource_saving_memory_size.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pcl_resource_saving_memory_size.setStatus("optional")
+_Pcl_default_font_height_Type = Integer32
+_Pcl_default_font_height_Object = MibScalar
+pcl_default_font_height = _Pcl_default_font_height_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 3, 13),
+    _Pcl_default_font_height_Type()
+)
+pcl_default_font_height.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pcl_default_font_height.setStatus("optional")
+
+
+class _Pcl_default_font_source_Type(Integer32):
+    """Custom type pcl_default_font_source based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              10,
+              11,
+              12)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eInternal", 1),
+          ("ePermanentSoft", 2),
+          ("eRomSimm1", 10),
+          ("eRomSimm2", 11),
+          ("eRomSimm3", 12))
+    )
+
+
+_Pcl_default_font_source_Type.__name__ = "Integer32"
+_Pcl_default_font_source_Object = MibScalar
+pcl_default_font_source = _Pcl_default_font_source_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 3, 14),
+    _Pcl_default_font_source_Type()
+)
+pcl_default_font_source.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pcl_default_font_source.setStatus("optional")
+
+
+class _Pcl_default_font_number_Type(Integer32):
+    """Custom type pcl_default_font_number based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_Pcl_default_font_number_Type.__name__ = "Integer32"
+_Pcl_default_font_number_Object = MibScalar
+pcl_default_font_number = _Pcl_default_font_number_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 3, 15),
+    _Pcl_default_font_number_Type()
+)
+pcl_default_font_number.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pcl_default_font_number.setStatus("optional")
+_Pcl_default_font_width_Type = Integer32
+_Pcl_default_font_width_Object = MibScalar
+pcl_default_font_width = _Pcl_default_font_width_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 3, 16),
+    _Pcl_default_font_width_Type()
+)
+pcl_default_font_width.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pcl_default_font_width.setStatus("optional")
+_Pdl_postscript_ObjectIdentity = ObjectIdentity
+pdl_postscript = _Pdl_postscript_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 4)
+)
+_Postscript_resource_saving_memory_size_Type = Integer32
+_Postscript_resource_saving_memory_size_Object = MibScalar
+postscript_resource_saving_memory_size = _Postscript_resource_saving_memory_size_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 4, 2),
+    _Postscript_resource_saving_memory_size_Type()
+)
+postscript_resource_saving_memory_size.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    postscript_resource_saving_memory_size.setStatus("optional")
+
+
+class _Postscript_print_errors_Type(Integer32):
+    """Custom type postscript_print_errors based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eOff", 1),
+          ("eOn", 2))
+    )
+
+
+_Postscript_print_errors_Type.__name__ = "Integer32"
+_Postscript_print_errors_Object = MibScalar
+postscript_print_errors = _Postscript_print_errors_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 3, 4, 11),
+    _Postscript_print_errors_Type()
+)
+postscript_print_errors.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    postscript_print_errors.setStatus("optional")
+_Pjl_ObjectIdentity = ObjectIdentity
+pjl = _Pjl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 5)
+)
+_Pjl_password_Type = Integer32
+_Pjl_password_Object = MibScalar
+pjl_password = _Pjl_password_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 3, 5, 1),
+    _Pjl_password_Type()
+)
+pjl_password.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pjl_password.setStatus("optional")
+_Destination_subsystem_ObjectIdentity = ObjectIdentity
+destination_subsystem = _Destination_subsystem_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4)
+)
+_Print_engine_ObjectIdentity = ObjectIdentity
+print_engine = _Print_engine_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1)
+)
+_Settings_prt_eng_ObjectIdentity = ObjectIdentity
+settings_prt_eng = _Settings_prt_eng_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 1)
+)
+
+
+class _Default_duplex_mode_Type(Integer32):
+    """Custom type default_duplex_mode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eDuplexHorizontalBinding", 3),
+          ("eDuplexVerticalBinding", 2),
+          ("eSimplex", 1))
+    )
+
+
+_Default_duplex_mode_Type.__name__ = "Integer32"
+_Default_duplex_mode_Object = MibScalar
+default_duplex_mode = _Default_duplex_mode_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 1, 4),
+    _Default_duplex_mode_Type()
+)
+default_duplex_mode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    default_duplex_mode.setStatus("optional")
+
+
+class _Print_density_Type(Integer32):
+    """Custom type print_density based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 5),
+    )
+
+
+_Print_density_Type.__name__ = "Integer32"
+_Print_density_Object = MibScalar
+print_density = _Print_density_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 1, 5),
+    _Print_density_Type()
+)
+print_density.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    print_density.setStatus("optional")
+
+
+class _Transfer_setting_Type(Integer32):
+    """Custom type transfer_setting based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(100, 200),
+    )
+
+
+_Transfer_setting_Type.__name__ = "Integer32"
+_Transfer_setting_Object = MibScalar
+transfer_setting = _Transfer_setting_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 1, 8),
+    _Transfer_setting_Type()
+)
+transfer_setting.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    transfer_setting.setStatus("optional")
+
+
+class _Separation_setting_Type(Integer32):
+    """Custom type separation_setting based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(100, 200),
+    )
+
+
+_Separation_setting_Type.__name__ = "Integer32"
+_Separation_setting_Object = MibScalar
+separation_setting = _Separation_setting_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 1, 13),
+    _Separation_setting_Type()
+)
+separation_setting.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    separation_setting.setStatus("optional")
+_Status_prt_eng_ObjectIdentity = ObjectIdentity
+status_prt_eng = _Status_prt_eng_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 2)
+)
+_Total_engine_page_count_Type = Integer32
+_Total_engine_page_count_Object = MibScalar
+total_engine_page_count = _Total_engine_page_count_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 2, 5),
+    _Total_engine_page_count_Type()
+)
+total_engine_page_count.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    total_engine_page_count.setStatus("optional")
+_Duplex_page_count_Type = Integer32
+_Duplex_page_count_Object = MibScalar
+duplex_page_count = _Duplex_page_count_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 2, 22),
+    _Duplex_page_count_Type()
+)
+duplex_page_count.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    duplex_page_count.setStatus("optional")
+_Print_engine_jam_count_Type = Integer32
+_Print_engine_jam_count_Object = MibScalar
+print_engine_jam_count = _Print_engine_jam_count_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 2, 34),
+    _Print_engine_jam_count_Type()
+)
+print_engine_jam_count.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    print_engine_jam_count.setStatus("optional")
+_Print_engine_mispick_count_Type = Integer32
+_Print_engine_mispick_count_Object = MibScalar
+print_engine_mispick_count = _Print_engine_mispick_count_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 2, 35),
+    _Print_engine_mispick_count_Type()
+)
+print_engine_mispick_count.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    print_engine_mispick_count.setStatus("optional")
+_Intray_ObjectIdentity = ObjectIdentity
+intray = _Intray_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 3)
+)
+_Settings_intray_ObjectIdentity = ObjectIdentity
+settings_intray = _Settings_intray_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 3, 1)
+)
+
+
+class _Mp_tray_Type(Integer32):
+    """Custom type mp_tray based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eCassette", 2),
+          ("eFirst", 3))
+    )
+
+
+_Mp_tray_Type.__name__ = "Integer32"
+_Mp_tray_Object = MibScalar
+mp_tray = _Mp_tray_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 3, 1, 5),
+    _Mp_tray_Type()
+)
+mp_tray.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mp_tray.setStatus("optional")
+_Tray_lock_Type = OctetString
+_Tray_lock_Object = MibScalar
+tray_lock = _Tray_lock_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 3, 1, 6),
+    _Tray_lock_Type()
+)
+tray_lock.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tray_lock.setStatus("optional")
+
+
+class _Custom_paper_dim_unit_Type(Integer32):
+    """Custom type custom_paper_dim_unit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eMicrometers", 4),
+          ("eTenThousandthsOfInches", 3))
+    )
+
+
+_Custom_paper_dim_unit_Type.__name__ = "Integer32"
+_Custom_paper_dim_unit_Object = MibScalar
+custom_paper_dim_unit = _Custom_paper_dim_unit_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 3, 1, 7),
+    _Custom_paper_dim_unit_Type()
+)
+custom_paper_dim_unit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    custom_paper_dim_unit.setStatus("optional")
+_Custom_paper_feed_dim_Type = Integer32
+_Custom_paper_feed_dim_Object = MibScalar
+custom_paper_feed_dim = _Custom_paper_feed_dim_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 3, 1, 8),
+    _Custom_paper_feed_dim_Type()
+)
+custom_paper_feed_dim.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    custom_paper_feed_dim.setStatus("optional")
+_Custom_paper_xfeed_dim_Type = Integer32
+_Custom_paper_xfeed_dim_Object = MibScalar
+custom_paper_xfeed_dim = _Custom_paper_xfeed_dim_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 3, 1, 9),
+    _Custom_paper_xfeed_dim_Type()
+)
+custom_paper_xfeed_dim.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    custom_paper_xfeed_dim.setStatus("optional")
+_Intrays_ObjectIdentity = ObjectIdentity
+intrays = _Intrays_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 3, 3)
+)
+_Intray1_ObjectIdentity = ObjectIdentity
+intray1 = _Intray1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 3, 3, 1)
+)
+
+
+class _Tray1_media_size_loaded_Type(Integer32):
+    """Custom type tray1_media_size_loaded based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              10,
+              17,
+              25,
+              26,
+              45,
+              71,
+              72,
+              80,
+              81,
+              90,
+              91,
+              100,
+              101,
+              32767)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eCommercial10", 81),
+          ("eCustom", 101),
+          ("eFoolscap", 10),
+          ("eISOandJISA4", 26),
+          ("eISOandJISA5", 25),
+          ("eInternationalB5", 100),
+          ("eInternationalC5", 91),
+          ("eInternationalDL", 90),
+          ("eJISB5", 45),
+          ("eJapanesePostcardDouble", 72),
+          ("eJapanesePostcardSingle", 71),
+          ("eMonarch", 80),
+          ("eROC16K", 17),
+          ("eUSExecutive", 1),
+          ("eUSLegal", 3),
+          ("eUSLetter", 2),
+          ("eUnknownMediaSize", 32767))
+    )
+
+
+_Tray1_media_size_loaded_Type.__name__ = "Integer32"
+_Tray1_media_size_loaded_Object = MibScalar
+tray1_media_size_loaded = _Tray1_media_size_loaded_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 3, 3, 1, 1),
+    _Tray1_media_size_loaded_Type()
+)
+tray1_media_size_loaded.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tray1_media_size_loaded.setStatus("optional")
+
+
+class _Tray1_fuser_temperature_Type(Integer32):
+    """Custom type tray1_fuser_temperature based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-1, 2),
+    )
+
+
+_Tray1_fuser_temperature_Type.__name__ = "Integer32"
+_Tray1_fuser_temperature_Object = MibScalar
+tray1_fuser_temperature = _Tray1_fuser_temperature_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 3, 3, 1, 13),
+    _Tray1_fuser_temperature_Type()
+)
+tray1_fuser_temperature.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tray1_fuser_temperature.setStatus("optional")
+_Intray2_ObjectIdentity = ObjectIdentity
+intray2 = _Intray2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 3, 3, 2)
+)
+
+
+class _Tray2_media_size_loaded_Type(Integer32):
+    """Custom type tray2_media_size_loaded based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              10,
+              25,
+              26,
+              45,
+              100,
+              32767)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eFoolscap", 10),
+          ("eISOandJISA4", 26),
+          ("eISOandJISA5", 25),
+          ("eInternationalB5", 100),
+          ("eJISB5", 45),
+          ("eUSExecutive", 1),
+          ("eUSLegal", 3),
+          ("eUSLetter", 2),
+          ("eUnknownMediaSize", 32767))
+    )
+
+
+_Tray2_media_size_loaded_Type.__name__ = "Integer32"
+_Tray2_media_size_loaded_Object = MibScalar
+tray2_media_size_loaded = _Tray2_media_size_loaded_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 3, 3, 2, 1),
+    _Tray2_media_size_loaded_Type()
+)
+tray2_media_size_loaded.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tray2_media_size_loaded.setStatus("optional")
+
+
+class _Tray2_fuser_temperature_Type(Integer32):
+    """Custom type tray2_fuser_temperature based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-1, 2),
+    )
+
+
+_Tray2_fuser_temperature_Type.__name__ = "Integer32"
+_Tray2_fuser_temperature_Object = MibScalar
+tray2_fuser_temperature = _Tray2_fuser_temperature_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 3, 3, 2, 13),
+    _Tray2_fuser_temperature_Type()
+)
+tray2_fuser_temperature.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tray2_fuser_temperature.setStatus("optional")
+_Intray3_ObjectIdentity = ObjectIdentity
+intray3 = _Intray3_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 3, 3, 3)
+)
+
+
+class _Tray3_media_size_loaded_Type(Integer32):
+    """Custom type tray3_media_size_loaded based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              10,
+              25,
+              26,
+              45,
+              100,
+              32767)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eFoolscap", 10),
+          ("eISOandJISA4", 26),
+          ("eISOandJISA5", 25),
+          ("eInternationalB5", 100),
+          ("eJISB5", 45),
+          ("eUSExecutive", 1),
+          ("eUSLegal", 3),
+          ("eUSLetter", 2),
+          ("eUnknownMediaSize", 32767))
+    )
+
+
+_Tray3_media_size_loaded_Type.__name__ = "Integer32"
+_Tray3_media_size_loaded_Object = MibScalar
+tray3_media_size_loaded = _Tray3_media_size_loaded_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 3, 3, 3, 1),
+    _Tray3_media_size_loaded_Type()
+)
+tray3_media_size_loaded.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tray3_media_size_loaded.setStatus("optional")
+
+
+class _Tray3_fuser_temperature_Type(Integer32):
+    """Custom type tray3_fuser_temperature based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-1, 2),
+    )
+
+
+_Tray3_fuser_temperature_Type.__name__ = "Integer32"
+_Tray3_fuser_temperature_Object = MibScalar
+tray3_fuser_temperature = _Tray3_fuser_temperature_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 3, 3, 3, 13),
+    _Tray3_fuser_temperature_Type()
+)
+tray3_fuser_temperature.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tray3_fuser_temperature.setStatus("optional")
+_Imaging_ObjectIdentity = ObjectIdentity
+imaging = _Imaging_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 6)
+)
+
+
+class _Default_ret_Type(Integer32):
+    """Custom type default_ret based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eDark", 4),
+          ("eLight", 2),
+          ("eMedium", 3),
+          ("eOff", 1))
+    )
+
+
+_Default_ret_Type.__name__ = "Integer32"
+_Default_ret_Object = MibScalar
+default_ret = _Default_ret_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 6, 5),
+    _Default_ret_Type()
+)
+default_ret.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    default_ret.setStatus("optional")
+
+
+class _Default_print_quality_Type(Integer32):
+    """Custom type default_print_quality based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+_Default_print_quality_Type.__name__ = "Integer32"
+_Default_print_quality_Object = MibScalar
+default_print_quality = _Default_print_quality_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 4, 1, 6, 7),
+    _Default_print_quality_Type()
+)
+default_print_quality.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    default_print_quality.setStatus("optional")
+_Channel_ObjectIdentity = ObjectIdentity
+channel = _Channel_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 6)
+)
+_Channelnumberofchannels_Type = Integer32
+_Channelnumberofchannels_Object = MibScalar
+channelnumberofchannels = _Channelnumberofchannels_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 6, 1),
+    _Channelnumberofchannels_Type()
+)
+channelnumberofchannels.setMaxAccess("write-only")
+if mibBuilder.loadTexts:
+    channelnumberofchannels.setStatus("optional")
+_Channelprinteralert_Type = OctetString
+_Channelprinteralert_Object = MibScalar
+channelprinteralert = _Channelprinteralert_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 6, 2),
+    _Channelprinteralert_Type()
+)
+channelprinteralert.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    channelprinteralert.setStatus("optional")
+_ChannelTable_ObjectIdentity = ObjectIdentity
+channelTable = _ChannelTable_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 6, 3)
+)
+_ChannelEntry_ObjectIdentity = ObjectIdentity
+channelEntry = _ChannelEntry_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 6, 3, 1)
+)
+
+
+class _Channeltype_Type(Integer32):
+    """Custom type channeltype based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              7,
+              8,
+              9,
+              10,
+              11,
+              15,
+              38)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eChAppleTalkPAP", 7),
+          ("eChBidirPortTCP", 38),
+          ("eChDLCLLCPort", 15),
+          ("eChLPDServer", 8),
+          ("eChNetwarePServer", 10),
+          ("eChNetwareRPrinter", 9),
+          ("eChOther", 1),
+          ("eChPort9100", 11))
+    )
+
+
+_Channeltype_Type.__name__ = "Integer32"
+_Channeltype_Object = MibScalar
+channeltype = _Channeltype_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 6, 3, 1, 2),
+    _Channeltype_Type()
+)
+channeltype.setMaxAccess("write-only")
+if mibBuilder.loadTexts:
+    channeltype.setStatus("optional")
+_Channelprotocolversion_Type = OctetString
+_Channelprotocolversion_Object = MibScalar
+channelprotocolversion = _Channelprotocolversion_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 6, 3, 1, 3),
+    _Channelprotocolversion_Type()
+)
+channelprotocolversion.setMaxAccess("write-only")
+if mibBuilder.loadTexts:
+    channelprotocolversion.setStatus("optional")
+
+
+class _Channelstate_Type(Integer32):
+    """Custom type channelstate based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eChNoDataAccepted", 4),
+          ("eChOther", 1),
+          ("eChPrintDataAccecped", 3))
+    )
+
+
+_Channelstate_Type.__name__ = "Integer32"
+_Channelstate_Object = MibScalar
+channelstate = _Channelstate_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 6, 3, 1, 4),
+    _Channelstate_Type()
+)
+channelstate.setMaxAccess("write-only")
+if mibBuilder.loadTexts:
+    channelstate.setStatus("optional")
+_Channelifindex_Type = Integer32
+_Channelifindex_Object = MibScalar
+channelifindex = _Channelifindex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 6, 3, 1, 5),
+    _Channelifindex_Type()
+)
+channelifindex.setMaxAccess("write-only")
+if mibBuilder.loadTexts:
+    channelifindex.setStatus("optional")
+_Channelstatus_Type = Integer32
+_Channelstatus_Object = MibScalar
+channelstatus = _Channelstatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 6, 3, 1, 6),
+    _Channelstatus_Type()
+)
+channelstatus.setMaxAccess("write-only")
+if mibBuilder.loadTexts:
+    channelstatus.setStatus("optional")
+_Channelinformation_Type = OctetString
+_Channelinformation_Object = MibScalar
+channelinformation = _Channelinformation_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 6, 3, 1, 7),
+    _Channelinformation_Type()
+)
+channelinformation.setMaxAccess("write-only")
+if mibBuilder.loadTexts:
+    channelinformation.setStatus("optional")
+_Tables_ObjectIdentity = ObjectIdentity
+tables = _Tables_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 7)
+)
+_Channel_table_ObjectIdentity = ObjectIdentity
+channel_table = _Channel_table_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 7, 2)
+)
+_Channel_entry_ObjectIdentity = ObjectIdentity
+channel_entry = _Channel_entry_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 7, 2, 1)
+)
+_Channel_bytes_sent_Type = Integer32
+_Channel_bytes_sent_Object = MibScalar
+channel_bytes_sent = _Channel_bytes_sent_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 7, 2, 1, 2),
+    _Channel_bytes_sent_Type()
+)
+channel_bytes_sent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    channel_bytes_sent.setStatus("optional")
+_Channel_bytes_received_Type = Integer32
+_Channel_bytes_received_Object = MibScalar
+channel_bytes_received = _Channel_bytes_received_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 7, 2, 1, 3),
+    _Channel_bytes_received_Type()
+)
+channel_bytes_received.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    channel_bytes_received.setStatus("optional")
+_Channel_io_errors_Type = Integer32
+_Channel_io_errors_Object = MibScalar
+channel_io_errors = _Channel_io_errors_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 7, 2, 1, 4),
+    _Channel_io_errors_Type()
+)
+channel_io_errors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    channel_io_errors.setStatus("optional")
+_Channel_jobs_received_Type = Integer32
+_Channel_jobs_received_Object = MibScalar
+channel_jobs_received = _Channel_jobs_received_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 1, 7, 2, 1, 5),
+    _Channel_jobs_received_Type()
+)
+channel_jobs_received.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    channel_jobs_received.setStatus("optional")
+_Printmib_ObjectIdentity = ObjectIdentity
+printmib = _Printmib_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2)
+)
+_PrtGeneral_ObjectIdentity = ObjectIdentity
+prtGeneral = _PrtGeneral_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5)
+)
+_PrtGeneralTable_ObjectIdentity = ObjectIdentity
+prtGeneralTable = _PrtGeneralTable_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 1)
+)
+_PrtGeneralEntry_ObjectIdentity = ObjectIdentity
+prtGeneralEntry = _PrtGeneralEntry_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 1, 1)
+)
+_Prtgeneralconfigchanges_Type = Integer32
+_Prtgeneralconfigchanges_Object = MibScalar
+prtgeneralconfigchanges = _Prtgeneralconfigchanges_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 1, 1, 1),
+    _Prtgeneralconfigchanges_Type()
+)
+prtgeneralconfigchanges.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtgeneralconfigchanges.setStatus("optional")
+
+
+class _Prtgeneralcurrentlocalization_Type(Integer32):
+    """Custom type prtgeneralcurrentlocalization based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16),
+    )
+
+
+_Prtgeneralcurrentlocalization_Type.__name__ = "Integer32"
+_Prtgeneralcurrentlocalization_Object = MibScalar
+prtgeneralcurrentlocalization = _Prtgeneralcurrentlocalization_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 1, 1, 2),
+    _Prtgeneralcurrentlocalization_Type()
+)
+prtgeneralcurrentlocalization.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    prtgeneralcurrentlocalization.setStatus("optional")
+
+
+class _Prtgeneralreset_Type(Integer32):
+    """Custom type prtgeneralreset based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(3,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ePnotResetting", 3),
+          ("ePresetToNVRAM", 5))
+    )
+
+
+_Prtgeneralreset_Type.__name__ = "Integer32"
+_Prtgeneralreset_Object = MibScalar
+prtgeneralreset = _Prtgeneralreset_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 1, 1, 3),
+    _Prtgeneralreset_Type()
+)
+prtgeneralreset.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    prtgeneralreset.setStatus("optional")
+
+
+class _Prtgeneralcurrentoperator_Type(OctetString):
+    """Custom type prtgeneralcurrentoperator based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_Prtgeneralcurrentoperator_Type.__name__ = "OctetString"
+_Prtgeneralcurrentoperator_Object = MibScalar
+prtgeneralcurrentoperator = _Prtgeneralcurrentoperator_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 1, 1, 4),
+    _Prtgeneralcurrentoperator_Type()
+)
+prtgeneralcurrentoperator.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    prtgeneralcurrentoperator.setStatus("optional")
+
+
+class _Prtgeneralserviceperson_Type(OctetString):
+    """Custom type prtgeneralserviceperson based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_Prtgeneralserviceperson_Type.__name__ = "OctetString"
+_Prtgeneralserviceperson_Object = MibScalar
+prtgeneralserviceperson = _Prtgeneralserviceperson_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 1, 1, 5),
+    _Prtgeneralserviceperson_Type()
+)
+prtgeneralserviceperson.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    prtgeneralserviceperson.setStatus("optional")
+_Prtinputdefaultindex_Type = Integer32
+_Prtinputdefaultindex_Object = MibScalar
+prtinputdefaultindex = _Prtinputdefaultindex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 1, 1, 6),
+    _Prtinputdefaultindex_Type()
+)
+prtinputdefaultindex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtinputdefaultindex.setStatus("optional")
+_Prtoutputdefaultindex_Type = Integer32
+_Prtoutputdefaultindex_Object = MibScalar
+prtoutputdefaultindex = _Prtoutputdefaultindex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 1, 1, 7),
+    _Prtoutputdefaultindex_Type()
+)
+prtoutputdefaultindex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtoutputdefaultindex.setStatus("optional")
+
+
+class _Prtmarkerdefaultindex_Type(Integer32):
+    """Custom type prtmarkerdefaultindex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_Prtmarkerdefaultindex_Type.__name__ = "Integer32"
+_Prtmarkerdefaultindex_Object = MibScalar
+prtmarkerdefaultindex = _Prtmarkerdefaultindex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 1, 1, 8),
+    _Prtmarkerdefaultindex_Type()
+)
+prtmarkerdefaultindex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtmarkerdefaultindex.setStatus("optional")
+
+
+class _Prtmediapathdefaultindex_Type(Integer32):
+    """Custom type prtmediapathdefaultindex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 3),
+    )
+
+
+_Prtmediapathdefaultindex_Type.__name__ = "Integer32"
+_Prtmediapathdefaultindex_Object = MibScalar
+prtmediapathdefaultindex = _Prtmediapathdefaultindex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 1, 1, 9),
+    _Prtmediapathdefaultindex_Type()
+)
+prtmediapathdefaultindex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtmediapathdefaultindex.setStatus("optional")
+
+
+class _Prtconsolelocalization_Type(Integer32):
+    """Custom type prtconsolelocalization based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16),
+    )
+
+
+_Prtconsolelocalization_Type.__name__ = "Integer32"
+_Prtconsolelocalization_Object = MibScalar
+prtconsolelocalization = _Prtconsolelocalization_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 1, 1, 10),
+    _Prtconsolelocalization_Type()
+)
+prtconsolelocalization.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    prtconsolelocalization.setStatus("optional")
+
+
+class _Prtconsolenumberofdisplaylines_Type(Integer32):
+    """Custom type prtconsolenumberofdisplaylines based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_Prtconsolenumberofdisplaylines_Type.__name__ = "Integer32"
+_Prtconsolenumberofdisplaylines_Object = MibScalar
+prtconsolenumberofdisplaylines = _Prtconsolenumberofdisplaylines_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 1, 1, 11),
+    _Prtconsolenumberofdisplaylines_Type()
+)
+prtconsolenumberofdisplaylines.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtconsolenumberofdisplaylines.setStatus("optional")
+
+
+class _Prtconsolenumberofdisplaychars_Type(Integer32):
+    """Custom type prtconsolenumberofdisplaychars based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_Prtconsolenumberofdisplaychars_Type.__name__ = "Integer32"
+_Prtconsolenumberofdisplaychars_Object = MibScalar
+prtconsolenumberofdisplaychars = _Prtconsolenumberofdisplaychars_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 1, 1, 12),
+    _Prtconsolenumberofdisplaychars_Type()
+)
+prtconsolenumberofdisplaychars.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtconsolenumberofdisplaychars.setStatus("optional")
+
+
+class _Prtconsoledisable_Type(Integer32):
+    """Custom type prtconsoledisable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ePoperatorConsoleDisabled", 4),
+          ("ePoperatorConsoleEnabled", 3),
+          ("ePoperatorConsoleEnabledLevel1", 5),
+          ("ePoperatorConsoleEnabledLevel2", 6),
+          ("ePoperatorConsoleEnabledLevel3", 7))
+    )
+
+
+_Prtconsoledisable_Type.__name__ = "Integer32"
+_Prtconsoledisable_Object = MibScalar
+prtconsoledisable = _Prtconsoledisable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 1, 1, 13),
+    _Prtconsoledisable_Type()
+)
+prtconsoledisable.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtconsoledisable.setStatus("optional")
+
+
+class _Prtgeneralprintername_Type(OctetString):
+    """Custom type prtgeneralprintername based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 31),
+    )
+
+
+_Prtgeneralprintername_Type.__name__ = "OctetString"
+_Prtgeneralprintername_Object = MibScalar
+prtgeneralprintername = _Prtgeneralprintername_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 1, 1, 16),
+    _Prtgeneralprintername_Type()
+)
+prtgeneralprintername.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    prtgeneralprintername.setStatus("optional")
+
+
+class _Prtgeneralserialnumber_Type(OctetString):
+    """Custom type prtgeneralserialnumber based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 11),
+    )
+
+
+_Prtgeneralserialnumber_Type.__name__ = "OctetString"
+_Prtgeneralserialnumber_Object = MibScalar
+prtgeneralserialnumber = _Prtgeneralserialnumber_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 1, 1, 17),
+    _Prtgeneralserialnumber_Type()
+)
+prtgeneralserialnumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtgeneralserialnumber.setStatus("optional")
+_Prtalertcriticalevents_Type = Integer32
+_Prtalertcriticalevents_Object = MibScalar
+prtalertcriticalevents = _Prtalertcriticalevents_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 1, 1, 18),
+    _Prtalertcriticalevents_Type()
+)
+prtalertcriticalevents.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtalertcriticalevents.setStatus("optional")
+_Prtalertallevents_Type = Integer32
+_Prtalertallevents_Object = MibScalar
+prtalertallevents = _Prtalertallevents_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 1, 1, 19),
+    _Prtalertallevents_Type()
+)
+prtalertallevents.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtalertallevents.setStatus("optional")
+_PrtStorageRefTable_ObjectIdentity = ObjectIdentity
+prtStorageRefTable = _PrtStorageRefTable_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 2)
+)
+_PrtStorageRefEntry_ObjectIdentity = ObjectIdentity
+prtStorageRefEntry = _PrtStorageRefEntry_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 2, 1)
+)
+
+
+class _Prtstoragerefindex_Type(Integer32):
+    """Custom type prtstoragerefindex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_Prtstoragerefindex_Type.__name__ = "Integer32"
+_Prtstoragerefindex_Object = MibScalar
+prtstoragerefindex = _Prtstoragerefindex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 2, 1, 2),
+    _Prtstoragerefindex_Type()
+)
+prtstoragerefindex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtstoragerefindex.setStatus("optional")
+_PrtDeviceRefTable_ObjectIdentity = ObjectIdentity
+prtDeviceRefTable = _PrtDeviceRefTable_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 3)
+)
+_PrtDeviceRefEntry_ObjectIdentity = ObjectIdentity
+prtDeviceRefEntry = _PrtDeviceRefEntry_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 3, 1)
+)
+
+
+class _Prtdevicerefindex_Type(Integer32):
+    """Custom type prtdevicerefindex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_Prtdevicerefindex_Type.__name__ = "Integer32"
+_Prtdevicerefindex_Object = MibScalar
+prtdevicerefindex = _Prtdevicerefindex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 5, 3, 1, 2),
+    _Prtdevicerefindex_Type()
+)
+prtdevicerefindex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtdevicerefindex.setStatus("optional")
+_PrtCover_ObjectIdentity = ObjectIdentity
+prtCover = _PrtCover_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 6)
+)
+_PrtCoverTable_ObjectIdentity = ObjectIdentity
+prtCoverTable = _PrtCoverTable_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 6, 1)
+)
+_PrtCoverEntry_ObjectIdentity = ObjectIdentity
+prtCoverEntry = _PrtCoverEntry_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 6, 1, 1)
+)
+
+
+class _Prtcoverdescription_Type(OctetString):
+    """Custom type prtcoverdescription based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_Prtcoverdescription_Type.__name__ = "OctetString"
+_Prtcoverdescription_Object = MibScalar
+prtcoverdescription = _Prtcoverdescription_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 6, 1, 1, 2),
+    _Prtcoverdescription_Type()
+)
+prtcoverdescription.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtcoverdescription.setStatus("optional")
+
+
+class _Prtcoverstatus_Type(Integer32):
+    """Custom type prtcoverstatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ePdoorClosed", 4),
+          ("ePdoorOpen", 3))
+    )
+
+
+_Prtcoverstatus_Type.__name__ = "Integer32"
+_Prtcoverstatus_Object = MibScalar
+prtcoverstatus = _Prtcoverstatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 6, 1, 1, 3),
+    _Prtcoverstatus_Type()
+)
+prtcoverstatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtcoverstatus.setStatus("optional")
+_PrtLocalization_ObjectIdentity = ObjectIdentity
+prtLocalization = _PrtLocalization_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 7)
+)
+_PrtLocalizationTable_ObjectIdentity = ObjectIdentity
+prtLocalizationTable = _PrtLocalizationTable_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 7, 1)
+)
+_PrtLocalizationEntry_ObjectIdentity = ObjectIdentity
+prtLocalizationEntry = _PrtLocalizationEntry_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 7, 1, 1)
+)
+
+
+class _Prtlocalizationlanguage_Type(OctetString):
+    """Custom type prtlocalizationlanguage based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 2),
+    )
+
+
+_Prtlocalizationlanguage_Type.__name__ = "OctetString"
+_Prtlocalizationlanguage_Object = MibScalar
+prtlocalizationlanguage = _Prtlocalizationlanguage_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 7, 1, 1, 2),
+    _Prtlocalizationlanguage_Type()
+)
+prtlocalizationlanguage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtlocalizationlanguage.setStatus("optional")
+
+
+class _Prtlocalizationcountry_Type(OctetString):
+    """Custom type prtlocalizationcountry based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 2),
+    )
+
+
+_Prtlocalizationcountry_Type.__name__ = "OctetString"
+_Prtlocalizationcountry_Object = MibScalar
+prtlocalizationcountry = _Prtlocalizationcountry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 7, 1, 1, 3),
+    _Prtlocalizationcountry_Type()
+)
+prtlocalizationcountry.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtlocalizationcountry.setStatus("optional")
+
+
+class _Prtlocalizationcharacterset_Type(Integer32):
+    """Custom type prtlocalizationcharacterset based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(5,
+              8,
+              12,
+              2004)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ePcsHPRoman8", 2004),
+          ("ePcsISOLatin2", 5),
+          ("ePcsISOLatin5", 12),
+          ("ePcsISOLatinCyrillic", 8))
+    )
+
+
+_Prtlocalizationcharacterset_Type.__name__ = "Integer32"
+_Prtlocalizationcharacterset_Object = MibScalar
+prtlocalizationcharacterset = _Prtlocalizationcharacterset_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 7, 1, 1, 4),
+    _Prtlocalizationcharacterset_Type()
+)
+prtlocalizationcharacterset.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtlocalizationcharacterset.setStatus("optional")
+_PrtInput_ObjectIdentity = ObjectIdentity
+prtInput = _PrtInput_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8)
+)
+_PrtInputTable_ObjectIdentity = ObjectIdentity
+prtInputTable = _PrtInputTable_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2)
+)
+_PrtInputEntry_ObjectIdentity = ObjectIdentity
+prtInputEntry = _PrtInputEntry_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2, 1)
+)
+
+
+class _Prtinputtype_Type(Integer32):
+    """Custom type prtinputtype based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ePsheetFeedAutoNonRemovableTray", 4),
+          ("ePsheetFeedAutoRemovableTray", 3))
+    )
+
+
+_Prtinputtype_Type.__name__ = "Integer32"
+_Prtinputtype_Object = MibScalar
+prtinputtype = _Prtinputtype_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2, 1, 2),
+    _Prtinputtype_Type()
+)
+prtinputtype.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtinputtype.setStatus("optional")
+
+
+class _Prtinputdimunit_Type(Integer32):
+    """Custom type prtinputdimunit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ePmicrometers", 4),
+          ("ePtenThousandthsOfInches", 3))
+    )
+
+
+_Prtinputdimunit_Type.__name__ = "Integer32"
+_Prtinputdimunit_Object = MibScalar
+prtinputdimunit = _Prtinputdimunit_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2, 1, 3),
+    _Prtinputdimunit_Type()
+)
+prtinputdimunit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtinputdimunit.setStatus("optional")
+_Prtinputmediadimfeeddirdeclared_Type = Integer32
+_Prtinputmediadimfeeddirdeclared_Object = MibScalar
+prtinputmediadimfeeddirdeclared = _Prtinputmediadimfeeddirdeclared_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2, 1, 4),
+    _Prtinputmediadimfeeddirdeclared_Type()
+)
+prtinputmediadimfeeddirdeclared.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    prtinputmediadimfeeddirdeclared.setStatus("optional")
+_Prtinputmediadimxfeeddirdeclared_Type = Integer32
+_Prtinputmediadimxfeeddirdeclared_Object = MibScalar
+prtinputmediadimxfeeddirdeclared = _Prtinputmediadimxfeeddirdeclared_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2, 1, 5),
+    _Prtinputmediadimxfeeddirdeclared_Type()
+)
+prtinputmediadimxfeeddirdeclared.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    prtinputmediadimxfeeddirdeclared.setStatus("optional")
+_Prtinputmediadimfeeddirchosen_Type = Integer32
+_Prtinputmediadimfeeddirchosen_Object = MibScalar
+prtinputmediadimfeeddirchosen = _Prtinputmediadimfeeddirchosen_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2, 1, 6),
+    _Prtinputmediadimfeeddirchosen_Type()
+)
+prtinputmediadimfeeddirchosen.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtinputmediadimfeeddirchosen.setStatus("optional")
+_Prtinputmediadimxfeeddirchosen_Type = Integer32
+_Prtinputmediadimxfeeddirchosen_Object = MibScalar
+prtinputmediadimxfeeddirchosen = _Prtinputmediadimxfeeddirchosen_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2, 1, 7),
+    _Prtinputmediadimxfeeddirchosen_Type()
+)
+prtinputmediadimxfeeddirchosen.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtinputmediadimxfeeddirchosen.setStatus("optional")
+
+
+class _Prtinputcapacityunit_Type(Integer32):
+    """Custom type prtinputcapacityunit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            8
+        )
+    )
+    namedValues = NamedValues(
+        ("ePsheets", 8)
+    )
+
+
+_Prtinputcapacityunit_Type.__name__ = "Integer32"
+_Prtinputcapacityunit_Object = MibScalar
+prtinputcapacityunit = _Prtinputcapacityunit_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2, 1, 8),
+    _Prtinputcapacityunit_Type()
+)
+prtinputcapacityunit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtinputcapacityunit.setStatus("optional")
+_Prtinputmaxcapacity_Type = Integer32
+_Prtinputmaxcapacity_Object = MibScalar
+prtinputmaxcapacity = _Prtinputmaxcapacity_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2, 1, 9),
+    _Prtinputmaxcapacity_Type()
+)
+prtinputmaxcapacity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtinputmaxcapacity.setStatus("optional")
+_Prtinputcurrentlevel_Type = Integer32
+_Prtinputcurrentlevel_Object = MibScalar
+prtinputcurrentlevel = _Prtinputcurrentlevel_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2, 1, 10),
+    _Prtinputcurrentlevel_Type()
+)
+prtinputcurrentlevel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtinputcurrentlevel.setStatus("optional")
+_Prtinputstatus_Type = Integer32
+_Prtinputstatus_Object = MibScalar
+prtinputstatus = _Prtinputstatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2, 1, 11),
+    _Prtinputstatus_Type()
+)
+prtinputstatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtinputstatus.setStatus("optional")
+
+
+class _Prtinputmedianame_Type(OctetString):
+    """Custom type prtinputmedianame based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 63),
+    )
+
+
+_Prtinputmedianame_Type.__name__ = "OctetString"
+_Prtinputmedianame_Object = MibScalar
+prtinputmedianame = _Prtinputmedianame_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2, 1, 12),
+    _Prtinputmedianame_Type()
+)
+prtinputmedianame.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtinputmedianame.setStatus("optional")
+
+
+class _Prtinputname_Type(OctetString):
+    """Custom type prtinputname based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 63),
+    )
+
+
+_Prtinputname_Type.__name__ = "OctetString"
+_Prtinputname_Object = MibScalar
+prtinputname = _Prtinputname_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2, 1, 13),
+    _Prtinputname_Type()
+)
+prtinputname.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtinputname.setStatus("optional")
+
+
+class _Prtinputvendorname_Type(OctetString):
+    """Custom type prtinputvendorname based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 63),
+    )
+
+
+_Prtinputvendorname_Type.__name__ = "OctetString"
+_Prtinputvendorname_Object = MibScalar
+prtinputvendorname = _Prtinputvendorname_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2, 1, 14),
+    _Prtinputvendorname_Type()
+)
+prtinputvendorname.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtinputvendorname.setStatus("optional")
+
+
+class _Prtinputmodel_Type(OctetString):
+    """Custom type prtinputmodel based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 63),
+    )
+
+
+_Prtinputmodel_Type.__name__ = "OctetString"
+_Prtinputmodel_Object = MibScalar
+prtinputmodel = _Prtinputmodel_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2, 1, 15),
+    _Prtinputmodel_Type()
+)
+prtinputmodel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtinputmodel.setStatus("optional")
+
+
+class _Prtinputversion_Type(OctetString):
+    """Custom type prtinputversion based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 63),
+    )
+
+
+_Prtinputversion_Type.__name__ = "OctetString"
+_Prtinputversion_Object = MibScalar
+prtinputversion = _Prtinputversion_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2, 1, 16),
+    _Prtinputversion_Type()
+)
+prtinputversion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtinputversion.setStatus("optional")
+
+
+class _Prtinputserialnumber_Type(OctetString):
+    """Custom type prtinputserialnumber based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_Prtinputserialnumber_Type.__name__ = "OctetString"
+_Prtinputserialnumber_Object = MibScalar
+prtinputserialnumber = _Prtinputserialnumber_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2, 1, 17),
+    _Prtinputserialnumber_Type()
+)
+prtinputserialnumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtinputserialnumber.setStatus("optional")
+
+
+class _Prtinputdescription_Type(OctetString):
+    """Custom type prtinputdescription based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_Prtinputdescription_Type.__name__ = "OctetString"
+_Prtinputdescription_Object = MibScalar
+prtinputdescription = _Prtinputdescription_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2, 1, 18),
+    _Prtinputdescription_Type()
+)
+prtinputdescription.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtinputdescription.setStatus("optional")
+
+
+class _Prtinputsecurity_Type(Integer32):
+    """Custom type prtinputsecurity based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ePnotPresent", 5),
+          ("ePoff", 4),
+          ("ePon", 3),
+          ("ePother", 1))
+    )
+
+
+_Prtinputsecurity_Type.__name__ = "Integer32"
+_Prtinputsecurity_Object = MibScalar
+prtinputsecurity = _Prtinputsecurity_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 8, 2, 1, 19),
+    _Prtinputsecurity_Type()
+)
+prtinputsecurity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtinputsecurity.setStatus("optional")
+_PrtOutput_ObjectIdentity = ObjectIdentity
+prtOutput = _PrtOutput_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 9)
+)
+_PrtOutputTable_ObjectIdentity = ObjectIdentity
+prtOutputTable = _PrtOutputTable_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 9, 2)
+)
+_PrtOutputEntry_ObjectIdentity = ObjectIdentity
+prtOutputEntry = _PrtOutputEntry_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 9, 2, 1)
+)
+
+
+class _Prtoutputtype_Type(Integer32):
+    """Custom type prtoutputtype based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ePcontinousFanFold", 7),
+          ("ePcontinuousRollDevice", 5),
+          ("ePmailBox", 6),
+          ("ePother", 1),
+          ("ePremovableBin", 3),
+          ("ePunRemovableBin", 4),
+          ("ePunknown", 2))
+    )
+
+
+_Prtoutputtype_Type.__name__ = "Integer32"
+_Prtoutputtype_Object = MibScalar
+prtoutputtype = _Prtoutputtype_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 9, 2, 1, 2),
+    _Prtoutputtype_Type()
+)
+prtoutputtype.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtoutputtype.setStatus("optional")
+
+
+class _Prtoutputcapacityunit_Type(Integer32):
+    """Custom type prtoutputcapacityunit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(3,
+              4,
+              8,
+              16,
+              17)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ePfeet", 16),
+          ("ePmeters", 17),
+          ("ePmicrometers", 4),
+          ("ePsheets", 8),
+          ("ePtenThousandthsOfInches", 3))
+    )
+
+
+_Prtoutputcapacityunit_Type.__name__ = "Integer32"
+_Prtoutputcapacityunit_Object = MibScalar
+prtoutputcapacityunit = _Prtoutputcapacityunit_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 9, 2, 1, 3),
+    _Prtoutputcapacityunit_Type()
+)
+prtoutputcapacityunit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtoutputcapacityunit.setStatus("optional")
+_Prtoutputmaxcapacity_Type = Integer32
+_Prtoutputmaxcapacity_Object = MibScalar
+prtoutputmaxcapacity = _Prtoutputmaxcapacity_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 9, 2, 1, 4),
+    _Prtoutputmaxcapacity_Type()
+)
+prtoutputmaxcapacity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtoutputmaxcapacity.setStatus("optional")
+_Prtoutputremainingcapacity_Type = Integer32
+_Prtoutputremainingcapacity_Object = MibScalar
+prtoutputremainingcapacity = _Prtoutputremainingcapacity_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 9, 2, 1, 5),
+    _Prtoutputremainingcapacity_Type()
+)
+prtoutputremainingcapacity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtoutputremainingcapacity.setStatus("optional")
+_Prtoutputstatus_Type = Integer32
+_Prtoutputstatus_Object = MibScalar
+prtoutputstatus = _Prtoutputstatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 9, 2, 1, 6),
+    _Prtoutputstatus_Type()
+)
+prtoutputstatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtoutputstatus.setStatus("optional")
+_PrtMarker_ObjectIdentity = ObjectIdentity
+prtMarker = _PrtMarker_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 10)
+)
+_PrtMarkerTable_ObjectIdentity = ObjectIdentity
+prtMarkerTable = _PrtMarkerTable_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 10, 2)
+)
+_PrtMarkerEntry_ObjectIdentity = ObjectIdentity
+prtMarkerEntry = _PrtMarkerEntry_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 10, 2, 1)
+)
+
+
+class _Prtmarkermarktech_Type(Integer32):
+    """Custom type prtmarkermarktech based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            4
+        )
+    )
+    namedValues = NamedValues(
+        ("ePelectrophotographicLaser", 4)
+    )
+
+
+_Prtmarkermarktech_Type.__name__ = "Integer32"
+_Prtmarkermarktech_Object = MibScalar
+prtmarkermarktech = _Prtmarkermarktech_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 10, 2, 1, 2),
+    _Prtmarkermarktech_Type()
+)
+prtmarkermarktech.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtmarkermarktech.setStatus("optional")
+
+
+class _Prtmarkercounterunit_Type(Integer32):
+    """Custom type prtmarkercounterunit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            7
+        )
+    )
+    namedValues = NamedValues(
+        ("ePimpressions", 7)
+    )
+
+
+_Prtmarkercounterunit_Type.__name__ = "Integer32"
+_Prtmarkercounterunit_Object = MibScalar
+prtmarkercounterunit = _Prtmarkercounterunit_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 10, 2, 1, 3),
+    _Prtmarkercounterunit_Type()
+)
+prtmarkercounterunit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtmarkercounterunit.setStatus("optional")
+_Prtmarkerlifecount_Type = Integer32
+_Prtmarkerlifecount_Object = MibScalar
+prtmarkerlifecount = _Prtmarkerlifecount_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 10, 2, 1, 4),
+    _Prtmarkerlifecount_Type()
+)
+prtmarkerlifecount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtmarkerlifecount.setStatus("optional")
+_Prtmarkerpoweroncount_Type = Integer32
+_Prtmarkerpoweroncount_Object = MibScalar
+prtmarkerpoweroncount = _Prtmarkerpoweroncount_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 10, 2, 1, 5),
+    _Prtmarkerpoweroncount_Type()
+)
+prtmarkerpoweroncount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtmarkerpoweroncount.setStatus("optional")
+
+
+class _Prtmarkerprocesscolorants_Type(Integer32):
+    """Custom type prtmarkerprocesscolorants based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_Prtmarkerprocesscolorants_Type.__name__ = "Integer32"
+_Prtmarkerprocesscolorants_Object = MibScalar
+prtmarkerprocesscolorants = _Prtmarkerprocesscolorants_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 10, 2, 1, 6),
+    _Prtmarkerprocesscolorants_Type()
+)
+prtmarkerprocesscolorants.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtmarkerprocesscolorants.setStatus("optional")
+
+
+class _Prtmarkerspotcolorants_Type(Integer32):
+    """Custom type prtmarkerspotcolorants based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_Prtmarkerspotcolorants_Type.__name__ = "Integer32"
+_Prtmarkerspotcolorants_Object = MibScalar
+prtmarkerspotcolorants = _Prtmarkerspotcolorants_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 10, 2, 1, 7),
+    _Prtmarkerspotcolorants_Type()
+)
+prtmarkerspotcolorants.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtmarkerspotcolorants.setStatus("optional")
+
+
+class _Prtmarkeraddressabilityunit_Type(Integer32):
+    """Custom type prtmarkeraddressabilityunit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            3
+        )
+    )
+    namedValues = NamedValues(
+        ("ePtenThousandthsOfInches", 3)
+    )
+
+
+_Prtmarkeraddressabilityunit_Type.__name__ = "Integer32"
+_Prtmarkeraddressabilityunit_Object = MibScalar
+prtmarkeraddressabilityunit = _Prtmarkeraddressabilityunit_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 10, 2, 1, 8),
+    _Prtmarkeraddressabilityunit_Type()
+)
+prtmarkeraddressabilityunit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtmarkeraddressabilityunit.setStatus("optional")
+_Prtmarkeraddressabilityfeeddir_Type = Integer32
+_Prtmarkeraddressabilityfeeddir_Object = MibScalar
+prtmarkeraddressabilityfeeddir = _Prtmarkeraddressabilityfeeddir_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 10, 2, 1, 9),
+    _Prtmarkeraddressabilityfeeddir_Type()
+)
+prtmarkeraddressabilityfeeddir.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtmarkeraddressabilityfeeddir.setStatus("optional")
+_Prtmarkeraddressabilityxfeeddir_Type = Integer32
+_Prtmarkeraddressabilityxfeeddir_Object = MibScalar
+prtmarkeraddressabilityxfeeddir = _Prtmarkeraddressabilityxfeeddir_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 10, 2, 1, 10),
+    _Prtmarkeraddressabilityxfeeddir_Type()
+)
+prtmarkeraddressabilityxfeeddir.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtmarkeraddressabilityxfeeddir.setStatus("optional")
+_Prtmarkernorthmargin_Type = Integer32
+_Prtmarkernorthmargin_Object = MibScalar
+prtmarkernorthmargin = _Prtmarkernorthmargin_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 10, 2, 1, 11),
+    _Prtmarkernorthmargin_Type()
+)
+prtmarkernorthmargin.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtmarkernorthmargin.setStatus("optional")
+_Prtmarkersouthmargin_Type = Integer32
+_Prtmarkersouthmargin_Object = MibScalar
+prtmarkersouthmargin = _Prtmarkersouthmargin_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 10, 2, 1, 12),
+    _Prtmarkersouthmargin_Type()
+)
+prtmarkersouthmargin.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtmarkersouthmargin.setStatus("optional")
+_Prtmarkerwestmargin_Type = Integer32
+_Prtmarkerwestmargin_Object = MibScalar
+prtmarkerwestmargin = _Prtmarkerwestmargin_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 10, 2, 1, 13),
+    _Prtmarkerwestmargin_Type()
+)
+prtmarkerwestmargin.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtmarkerwestmargin.setStatus("optional")
+_Prtmarkereastmargin_Type = Integer32
+_Prtmarkereastmargin_Object = MibScalar
+prtmarkereastmargin = _Prtmarkereastmargin_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 10, 2, 1, 14),
+    _Prtmarkereastmargin_Type()
+)
+prtmarkereastmargin.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtmarkereastmargin.setStatus("optional")
+_Prtmarkerstatus_Type = Integer32
+_Prtmarkerstatus_Object = MibScalar
+prtmarkerstatus = _Prtmarkerstatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 10, 2, 1, 15),
+    _Prtmarkerstatus_Type()
+)
+prtmarkerstatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtmarkerstatus.setStatus("optional")
+_PrtMarkerSupplies_ObjectIdentity = ObjectIdentity
+prtMarkerSupplies = _PrtMarkerSupplies_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 11)
+)
+_PrtMarkerSuppliesTable_ObjectIdentity = ObjectIdentity
+prtMarkerSuppliesTable = _PrtMarkerSuppliesTable_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 11, 1)
+)
+_PrtMarkerSuppliesEntry_ObjectIdentity = ObjectIdentity
+prtMarkerSuppliesEntry = _PrtMarkerSuppliesEntry_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 11, 1, 1)
+)
+
+
+class _Prtmarkersuppliesmarkerindex_Type(Integer32):
+    """Custom type prtmarkersuppliesmarkerindex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_Prtmarkersuppliesmarkerindex_Type.__name__ = "Integer32"
+_Prtmarkersuppliesmarkerindex_Object = MibScalar
+prtmarkersuppliesmarkerindex = _Prtmarkersuppliesmarkerindex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 11, 1, 1, 2),
+    _Prtmarkersuppliesmarkerindex_Type()
+)
+prtmarkersuppliesmarkerindex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtmarkersuppliesmarkerindex.setStatus("optional")
+
+
+class _Prtmarkersuppliescolorantindex_Type(Integer32):
+    """Custom type prtmarkersuppliescolorantindex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_Prtmarkersuppliescolorantindex_Type.__name__ = "Integer32"
+_Prtmarkersuppliescolorantindex_Object = MibScalar
+prtmarkersuppliescolorantindex = _Prtmarkersuppliescolorantindex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 11, 1, 1, 3),
+    _Prtmarkersuppliescolorantindex_Type()
+)
+prtmarkersuppliescolorantindex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtmarkersuppliescolorantindex.setStatus("optional")
+
+
+class _Prtmarkersuppliesclass_Type(Integer32):
+    """Custom type prtmarkersuppliesclass based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ePother", 1),
+          ("ePreceptacleThatIsFilled", 4),
+          ("ePsupplyThatIsConsumed", 3))
+    )
+
+
+_Prtmarkersuppliesclass_Type.__name__ = "Integer32"
+_Prtmarkersuppliesclass_Object = MibScalar
+prtmarkersuppliesclass = _Prtmarkersuppliesclass_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 11, 1, 1, 4),
+    _Prtmarkersuppliesclass_Type()
+)
+prtmarkersuppliesclass.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtmarkersuppliesclass.setStatus("optional")
+
+
+class _Prtmarkersuppliestype_Type(Integer32):
+    """Custom type prtmarkersuppliestype based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            3
+        )
+    )
+    namedValues = NamedValues(
+        ("ePtoner", 3)
+    )
+
+
+_Prtmarkersuppliestype_Type.__name__ = "Integer32"
+_Prtmarkersuppliestype_Object = MibScalar
+prtmarkersuppliestype = _Prtmarkersuppliestype_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 11, 1, 1, 5),
+    _Prtmarkersuppliestype_Type()
+)
+prtmarkersuppliestype.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtmarkersuppliestype.setStatus("optional")
+
+
+class _Prtmarkersuppliesdescription_Type(OctetString):
+    """Custom type prtmarkersuppliesdescription based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_Prtmarkersuppliesdescription_Type.__name__ = "OctetString"
+_Prtmarkersuppliesdescription_Object = MibScalar
+prtmarkersuppliesdescription = _Prtmarkersuppliesdescription_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 11, 1, 1, 6),
+    _Prtmarkersuppliesdescription_Type()
+)
+prtmarkersuppliesdescription.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtmarkersuppliesdescription.setStatus("optional")
+
+
+class _Prtmarkersuppliessupplyunit_Type(Integer32):
+    """Custom type prtmarkersuppliessupplyunit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            13
+        )
+    )
+    namedValues = NamedValues(
+        ("ePtenthsOfGrams", 13)
+    )
+
+
+_Prtmarkersuppliessupplyunit_Type.__name__ = "Integer32"
+_Prtmarkersuppliessupplyunit_Object = MibScalar
+prtmarkersuppliessupplyunit = _Prtmarkersuppliessupplyunit_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 11, 1, 1, 7),
+    _Prtmarkersuppliessupplyunit_Type()
+)
+prtmarkersuppliessupplyunit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtmarkersuppliessupplyunit.setStatus("optional")
+_Prtmarkersuppliesmaxcapacity_Type = Integer32
+_Prtmarkersuppliesmaxcapacity_Object = MibScalar
+prtmarkersuppliesmaxcapacity = _Prtmarkersuppliesmaxcapacity_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 11, 1, 1, 8),
+    _Prtmarkersuppliesmaxcapacity_Type()
+)
+prtmarkersuppliesmaxcapacity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtmarkersuppliesmaxcapacity.setStatus("optional")
+_Prtmarkersupplieslevel_Type = Integer32
+_Prtmarkersupplieslevel_Object = MibScalar
+prtmarkersupplieslevel = _Prtmarkersupplieslevel_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 11, 1, 1, 9),
+    _Prtmarkersupplieslevel_Type()
+)
+prtmarkersupplieslevel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtmarkersupplieslevel.setStatus("optional")
+_PrtMediaPath_ObjectIdentity = ObjectIdentity
+prtMediaPath = _PrtMediaPath_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 13)
+)
+_PrtMediaPathTable_ObjectIdentity = ObjectIdentity
+prtMediaPathTable = _PrtMediaPathTable_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 13, 4)
+)
+_PrtMediaPathEntry_ObjectIdentity = ObjectIdentity
+prtMediaPathEntry = _PrtMediaPathEntry_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 13, 4, 1)
+)
+
+
+class _Prtmediapathmaxspeedprintunit_Type(Integer32):
+    """Custom type prtmediapathmaxspeedprintunit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            7
+        )
+    )
+    namedValues = NamedValues(
+        ("ePimpressionsPerHour", 7)
+    )
+
+
+_Prtmediapathmaxspeedprintunit_Type.__name__ = "Integer32"
+_Prtmediapathmaxspeedprintunit_Object = MibScalar
+prtmediapathmaxspeedprintunit = _Prtmediapathmaxspeedprintunit_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 13, 4, 1, 2),
+    _Prtmediapathmaxspeedprintunit_Type()
+)
+prtmediapathmaxspeedprintunit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtmediapathmaxspeedprintunit.setStatus("optional")
+
+
+class _Prtmediapathmediasizeunit_Type(Integer32):
+    """Custom type prtmediapathmediasizeunit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ePmicrometers", 4),
+          ("ePtenThousandthsOfInches", 3))
+    )
+
+
+_Prtmediapathmediasizeunit_Type.__name__ = "Integer32"
+_Prtmediapathmediasizeunit_Object = MibScalar
+prtmediapathmediasizeunit = _Prtmediapathmediasizeunit_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 13, 4, 1, 3),
+    _Prtmediapathmediasizeunit_Type()
+)
+prtmediapathmediasizeunit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtmediapathmediasizeunit.setStatus("optional")
+_Prtmediapathmaxspeed_Type = Integer32
+_Prtmediapathmaxspeed_Object = MibScalar
+prtmediapathmaxspeed = _Prtmediapathmaxspeed_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 13, 4, 1, 4),
+    _Prtmediapathmaxspeed_Type()
+)
+prtmediapathmaxspeed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtmediapathmaxspeed.setStatus("optional")
+_Prtmediapathmaxmediafeeddir_Type = Integer32
+_Prtmediapathmaxmediafeeddir_Object = MibScalar
+prtmediapathmaxmediafeeddir = _Prtmediapathmaxmediafeeddir_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 13, 4, 1, 5),
+    _Prtmediapathmaxmediafeeddir_Type()
+)
+prtmediapathmaxmediafeeddir.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtmediapathmaxmediafeeddir.setStatus("optional")
+_Prtmediapathmaxmediaxfeeddir_Type = Integer32
+_Prtmediapathmaxmediaxfeeddir_Object = MibScalar
+prtmediapathmaxmediaxfeeddir = _Prtmediapathmaxmediaxfeeddir_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 13, 4, 1, 6),
+    _Prtmediapathmaxmediaxfeeddir_Type()
+)
+prtmediapathmaxmediaxfeeddir.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtmediapathmaxmediaxfeeddir.setStatus("optional")
+_Prtmediapathminmediafeeddir_Type = Integer32
+_Prtmediapathminmediafeeddir_Object = MibScalar
+prtmediapathminmediafeeddir = _Prtmediapathminmediafeeddir_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 13, 4, 1, 7),
+    _Prtmediapathminmediafeeddir_Type()
+)
+prtmediapathminmediafeeddir.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtmediapathminmediafeeddir.setStatus("optional")
+_Prtmediapathminmediaxfeeddir_Type = Integer32
+_Prtmediapathminmediaxfeeddir_Object = MibScalar
+prtmediapathminmediaxfeeddir = _Prtmediapathminmediaxfeeddir_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 13, 4, 1, 8),
+    _Prtmediapathminmediaxfeeddir_Type()
+)
+prtmediapathminmediaxfeeddir.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtmediapathminmediaxfeeddir.setStatus("optional")
+
+
+class _Prtmediapathtype_Type(Integer32):
+    """Custom type prtmediapathtype based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            5
+        )
+    )
+    namedValues = NamedValues(
+        ("ePsimplex", 5)
+    )
+
+
+_Prtmediapathtype_Type.__name__ = "Integer32"
+_Prtmediapathtype_Object = MibScalar
+prtmediapathtype = _Prtmediapathtype_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 13, 4, 1, 9),
+    _Prtmediapathtype_Type()
+)
+prtmediapathtype.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtmediapathtype.setStatus("optional")
+
+
+class _Prtmediapathdescription_Type(OctetString):
+    """Custom type prtmediapathdescription based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_Prtmediapathdescription_Type.__name__ = "OctetString"
+_Prtmediapathdescription_Object = MibScalar
+prtmediapathdescription = _Prtmediapathdescription_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 13, 4, 1, 10),
+    _Prtmediapathdescription_Type()
+)
+prtmediapathdescription.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtmediapathdescription.setStatus("optional")
+_Prtmediapathstatus_Type = Integer32
+_Prtmediapathstatus_Object = MibScalar
+prtmediapathstatus = _Prtmediapathstatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 13, 4, 1, 11),
+    _Prtmediapathstatus_Type()
+)
+prtmediapathstatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtmediapathstatus.setStatus("optional")
+_PrtChannel_ObjectIdentity = ObjectIdentity
+prtChannel = _PrtChannel_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 14)
+)
+_PrtChannelTable_ObjectIdentity = ObjectIdentity
+prtChannelTable = _PrtChannelTable_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 14, 1)
+)
+_PrtChannelEntry_ObjectIdentity = ObjectIdentity
+prtChannelEntry = _PrtChannelEntry_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 14, 1, 1)
+)
+
+
+class _Prtchanneltype_Type(Integer32):
+    """Custom type prtchanneltype based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              5,
+              7,
+              10,
+              11,
+              13,
+              15,
+              34,
+              35,
+              38)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ePchAppleTalkPAP", 7),
+          ("ePchBidirPortTCP", 38),
+          ("ePchDLCLLCPort", 15),
+          ("ePchFTP", 13),
+          ("ePchIEEE1284Port", 5),
+          ("ePchIrDA", 35),
+          ("ePchNetwarePServer", 10),
+          ("ePchPort9100", 11),
+          ("ePchUSB", 34),
+          ("ePother", 1))
+    )
+
+
+_Prtchanneltype_Type.__name__ = "Integer32"
+_Prtchanneltype_Object = MibScalar
+prtchanneltype = _Prtchanneltype_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 14, 1, 1, 2),
+    _Prtchanneltype_Type()
+)
+prtchanneltype.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtchanneltype.setStatus("optional")
+
+
+class _Prtchannelprotocolversion_Type(OctetString):
+    """Custom type prtchannelprotocolversion based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 63),
+    )
+
+
+_Prtchannelprotocolversion_Type.__name__ = "OctetString"
+_Prtchannelprotocolversion_Object = MibScalar
+prtchannelprotocolversion = _Prtchannelprotocolversion_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 14, 1, 1, 3),
+    _Prtchannelprotocolversion_Type()
+)
+prtchannelprotocolversion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtchannelprotocolversion.setStatus("optional")
+_Prtchannelcurrentjobcntllangindex_Type = Integer32
+_Prtchannelcurrentjobcntllangindex_Object = MibScalar
+prtchannelcurrentjobcntllangindex = _Prtchannelcurrentjobcntllangindex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 14, 1, 1, 4),
+    _Prtchannelcurrentjobcntllangindex_Type()
+)
+prtchannelcurrentjobcntllangindex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtchannelcurrentjobcntllangindex.setStatus("optional")
+_Prtchanneldefaultpagedesclangindex_Type = Integer32
+_Prtchanneldefaultpagedesclangindex_Object = MibScalar
+prtchanneldefaultpagedesclangindex = _Prtchanneldefaultpagedesclangindex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 14, 1, 1, 5),
+    _Prtchanneldefaultpagedesclangindex_Type()
+)
+prtchanneldefaultpagedesclangindex.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    prtchanneldefaultpagedesclangindex.setStatus("optional")
+
+
+class _Prtchannelstate_Type(Integer32):
+    """Custom type prtchannelstate based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ePnoDataAccepted", 4),
+          ("ePother", 1),
+          ("ePprintDataAccepted", 3))
+    )
+
+
+_Prtchannelstate_Type.__name__ = "Integer32"
+_Prtchannelstate_Object = MibScalar
+prtchannelstate = _Prtchannelstate_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 14, 1, 1, 6),
+    _Prtchannelstate_Type()
+)
+prtchannelstate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtchannelstate.setStatus("optional")
+_Prtchannelifindex_Type = Integer32
+_Prtchannelifindex_Object = MibScalar
+prtchannelifindex = _Prtchannelifindex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 14, 1, 1, 7),
+    _Prtchannelifindex_Type()
+)
+prtchannelifindex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtchannelifindex.setStatus("optional")
+_Prtchannelstatus_Type = Integer32
+_Prtchannelstatus_Object = MibScalar
+prtchannelstatus = _Prtchannelstatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 14, 1, 1, 8),
+    _Prtchannelstatus_Type()
+)
+prtchannelstatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtchannelstatus.setStatus("optional")
+
+
+class _Prtchannelinformation_Type(OctetString):
+    """Custom type prtchannelinformation based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_Prtchannelinformation_Type.__name__ = "OctetString"
+_Prtchannelinformation_Object = MibScalar
+prtchannelinformation = _Prtchannelinformation_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 14, 1, 1, 9),
+    _Prtchannelinformation_Type()
+)
+prtchannelinformation.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtchannelinformation.setStatus("optional")
+_PrtInterpreter_ObjectIdentity = ObjectIdentity
+prtInterpreter = _PrtInterpreter_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 15)
+)
+_PrtInterpreterTable_ObjectIdentity = ObjectIdentity
+prtInterpreterTable = _PrtInterpreterTable_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 15, 1)
+)
+_PrtInterpreterEntry_ObjectIdentity = ObjectIdentity
+prtInterpreterEntry = _PrtInterpreterEntry_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 15, 1, 1)
+)
+
+
+class _Prtinterpreterlangfamily_Type(Integer32):
+    """Custom type prtinterpreterlangfamily based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              3,
+              5,
+              6,
+              37,
+              47)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ePlangAutomatic", 37),
+          ("ePlangPCL", 3),
+          ("ePlangPCLXL", 47),
+          ("ePlangPJL", 5),
+          ("ePlangPS", 6),
+          ("ePother", 1))
+    )
+
+
+_Prtinterpreterlangfamily_Type.__name__ = "Integer32"
+_Prtinterpreterlangfamily_Object = MibScalar
+prtinterpreterlangfamily = _Prtinterpreterlangfamily_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 15, 1, 1, 2),
+    _Prtinterpreterlangfamily_Type()
+)
+prtinterpreterlangfamily.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtinterpreterlangfamily.setStatus("optional")
+
+
+class _Prtinterpreterlanglevel_Type(OctetString):
+    """Custom type prtinterpreterlanglevel based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 31),
+    )
+
+
+_Prtinterpreterlanglevel_Type.__name__ = "OctetString"
+_Prtinterpreterlanglevel_Object = MibScalar
+prtinterpreterlanglevel = _Prtinterpreterlanglevel_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 15, 1, 1, 3),
+    _Prtinterpreterlanglevel_Type()
+)
+prtinterpreterlanglevel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtinterpreterlanglevel.setStatus("optional")
+
+
+class _Prtinterpreterlangversion_Type(OctetString):
+    """Custom type prtinterpreterlangversion based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 31),
+    )
+
+
+_Prtinterpreterlangversion_Type.__name__ = "OctetString"
+_Prtinterpreterlangversion_Object = MibScalar
+prtinterpreterlangversion = _Prtinterpreterlangversion_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 15, 1, 1, 4),
+    _Prtinterpreterlangversion_Type()
+)
+prtinterpreterlangversion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtinterpreterlangversion.setStatus("optional")
+
+
+class _Prtinterpreterdescription_Type(OctetString):
+    """Custom type prtinterpreterdescription based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_Prtinterpreterdescription_Type.__name__ = "OctetString"
+_Prtinterpreterdescription_Object = MibScalar
+prtinterpreterdescription = _Prtinterpreterdescription_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 15, 1, 1, 5),
+    _Prtinterpreterdescription_Type()
+)
+prtinterpreterdescription.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtinterpreterdescription.setStatus("optional")
+
+
+class _Prtinterpreterversion_Type(OctetString):
+    """Custom type prtinterpreterversion based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 31),
+    )
+
+
+_Prtinterpreterversion_Type.__name__ = "OctetString"
+_Prtinterpreterversion_Object = MibScalar
+prtinterpreterversion = _Prtinterpreterversion_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 15, 1, 1, 6),
+    _Prtinterpreterversion_Type()
+)
+prtinterpreterversion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtinterpreterversion.setStatus("optional")
+
+
+class _Prtinterpreterdefaultorientation_Type(Integer32):
+    """Custom type prtinterpreterdefaultorientation based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ePlandscape", 4),
+          ("ePportrait", 3))
+    )
+
+
+_Prtinterpreterdefaultorientation_Type.__name__ = "Integer32"
+_Prtinterpreterdefaultorientation_Object = MibScalar
+prtinterpreterdefaultorientation = _Prtinterpreterdefaultorientation_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 15, 1, 1, 7),
+    _Prtinterpreterdefaultorientation_Type()
+)
+prtinterpreterdefaultorientation.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    prtinterpreterdefaultorientation.setStatus("optional")
+_Prtinterpreterfeedaddressability_Type = Integer32
+_Prtinterpreterfeedaddressability_Object = MibScalar
+prtinterpreterfeedaddressability = _Prtinterpreterfeedaddressability_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 15, 1, 1, 8),
+    _Prtinterpreterfeedaddressability_Type()
+)
+prtinterpreterfeedaddressability.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtinterpreterfeedaddressability.setStatus("optional")
+_Prtinterpreterxfeedaddressability_Type = Integer32
+_Prtinterpreterxfeedaddressability_Object = MibScalar
+prtinterpreterxfeedaddressability = _Prtinterpreterxfeedaddressability_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 15, 1, 1, 9),
+    _Prtinterpreterxfeedaddressability_Type()
+)
+prtinterpreterxfeedaddressability.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtinterpreterxfeedaddressability.setStatus("optional")
+
+
+class _Prtinterpreterdefaultcharsetin_Type(Integer32):
+    """Custom type prtinterpreterdefaultcharsetin based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              3,
+              4,
+              5,
+              12,
+              13,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              1004,
+              2000,
+              2001,
+              2002,
+              2003,
+              2004,
+              2005,
+              2009,
+              2010,
+              2011,
+              2012,
+              2014,
+              2017,
+              2021,
+              2027)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ePcsASCII", 3),
+          ("ePcsAdobeStandardEncoding", 2005),
+          ("ePcsHPDeskTop", 2021),
+          ("ePcsHPLegal", 2017),
+          ("ePcsHPPC8Turkish", 2014),
+          ("ePcsHPRoman8", 2004),
+          ("ePcsISO11SwedishforNames", 21),
+          ("ePcsISO15Italian", 22),
+          ("ePcsISO17Spanish", 23),
+          ("ePcsISO21German", 24),
+          ("ePcsISO4UnitedKingdom", 20),
+          ("ePcsISO60DanishNorwegian", 25),
+          ("ePcsISO69French", 26),
+          ("ePcsISOLatin1", 4),
+          ("ePcsISOLatin2", 5),
+          ("ePcsISOLatin5", 12),
+          ("ePcsISOLatin6", 13),
+          ("ePcsMacintosh", 2027),
+          ("ePcsPC850Multilingual", 2009),
+          ("ePcsPC8CodePage437", 2011),
+          ("ePcsPC8DNDanishNorwegian", 2012),
+          ("ePcsPCp852", 2010),
+          ("ePcsUnicodeIBM2039", 1004),
+          ("ePcsWindows30Latin1", 2000),
+          ("ePcsWindows31Latin1", 2001),
+          ("ePcsWindows31Latin2", 2002),
+          ("ePcsWindows31Latin5", 2003),
+          ("ePother", 1))
+    )
+
+
+_Prtinterpreterdefaultcharsetin_Type.__name__ = "Integer32"
+_Prtinterpreterdefaultcharsetin_Object = MibScalar
+prtinterpreterdefaultcharsetin = _Prtinterpreterdefaultcharsetin_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 15, 1, 1, 10),
+    _Prtinterpreterdefaultcharsetin_Type()
+)
+prtinterpreterdefaultcharsetin.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    prtinterpreterdefaultcharsetin.setStatus("optional")
+
+
+class _Prtinterpreterdefaultcharsetout_Type(Integer32):
+    """Custom type prtinterpreterdefaultcharsetout based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(2,
+              3,
+              2004,
+              2005)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ePcsASCII", 3),
+          ("ePcsAdobeStandardEncoding", 2005),
+          ("ePcsHPRoman8", 2004),
+          ("ePcsNoDefault", 2))
+    )
+
+
+_Prtinterpreterdefaultcharsetout_Type.__name__ = "Integer32"
+_Prtinterpreterdefaultcharsetout_Object = MibScalar
+prtinterpreterdefaultcharsetout = _Prtinterpreterdefaultcharsetout_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 15, 1, 1, 11),
+    _Prtinterpreterdefaultcharsetout_Type()
+)
+prtinterpreterdefaultcharsetout.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtinterpreterdefaultcharsetout.setStatus("optional")
+
+
+class _Prtinterpretertwoway_Type(Integer32):
+    """Custom type prtinterpretertwoway based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ePno", 4),
+          ("ePyes", 3))
+    )
+
+
+_Prtinterpretertwoway_Type.__name__ = "Integer32"
+_Prtinterpretertwoway_Object = MibScalar
+prtinterpretertwoway = _Prtinterpretertwoway_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 15, 1, 1, 12),
+    _Prtinterpretertwoway_Type()
+)
+prtinterpretertwoway.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtinterpretertwoway.setStatus("optional")
+_PrtConsoleDisplayBuffer_ObjectIdentity = ObjectIdentity
+prtConsoleDisplayBuffer = _PrtConsoleDisplayBuffer_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 16)
+)
+_PrtConsoleDisplayBufferTable_ObjectIdentity = ObjectIdentity
+prtConsoleDisplayBufferTable = _PrtConsoleDisplayBufferTable_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 16, 5)
+)
+_PrtConsoleDisplayBufferEntry_ObjectIdentity = ObjectIdentity
+prtConsoleDisplayBufferEntry = _PrtConsoleDisplayBufferEntry_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 16, 5, 1)
+)
+
+
+class _Prtconsoledisplaybuffertext_Type(OctetString):
+    """Custom type prtconsoledisplaybuffertext based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_Prtconsoledisplaybuffertext_Type.__name__ = "OctetString"
+_Prtconsoledisplaybuffertext_Object = MibScalar
+prtconsoledisplaybuffertext = _Prtconsoledisplaybuffertext_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 16, 5, 1, 2),
+    _Prtconsoledisplaybuffertext_Type()
+)
+prtconsoledisplaybuffertext.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtconsoledisplaybuffertext.setStatus("optional")
+_PrtConsoleLights_ObjectIdentity = ObjectIdentity
+prtConsoleLights = _PrtConsoleLights_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 17)
+)
+_PrtConsoleLightTable_ObjectIdentity = ObjectIdentity
+prtConsoleLightTable = _PrtConsoleLightTable_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 17, 6)
+)
+_PrtConsoleLightEntry_ObjectIdentity = ObjectIdentity
+prtConsoleLightEntry = _PrtConsoleLightEntry_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 17, 6, 1)
+)
+_Prtconsoleontime_Type = Integer32
+_Prtconsoleontime_Object = MibScalar
+prtconsoleontime = _Prtconsoleontime_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 17, 6, 1, 2),
+    _Prtconsoleontime_Type()
+)
+prtconsoleontime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtconsoleontime.setStatus("optional")
+_Prtconsoleofftime_Type = Integer32
+_Prtconsoleofftime_Object = MibScalar
+prtconsoleofftime = _Prtconsoleofftime_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 17, 6, 1, 3),
+    _Prtconsoleofftime_Type()
+)
+prtconsoleofftime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtconsoleofftime.setStatus("optional")
+
+
+class _Prtconsolecolor_Type(Integer32):
+    """Custom type prtconsolecolor based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ePblue", 6),
+          ("ePcyan", 7),
+          ("ePgreen", 5),
+          ("ePmagenta", 8),
+          ("ePother", 1),
+          ("ePred", 4),
+          ("ePunknown", 2),
+          ("ePwhite", 3),
+          ("ePyellow", 9))
+    )
+
+
+_Prtconsolecolor_Type.__name__ = "Integer32"
+_Prtconsolecolor_Object = MibScalar
+prtconsolecolor = _Prtconsolecolor_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 17, 6, 1, 4),
+    _Prtconsolecolor_Type()
+)
+prtconsolecolor.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtconsolecolor.setStatus("optional")
+
+
+class _Prtconsoledescription_Type(OctetString):
+    """Custom type prtconsoledescription based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_Prtconsoledescription_Type.__name__ = "OctetString"
+_Prtconsoledescription_Object = MibScalar
+prtconsoledescription = _Prtconsoledescription_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 17, 6, 1, 5),
+    _Prtconsoledescription_Type()
+)
+prtconsoledescription.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtconsoledescription.setStatus("optional")
+_PrtAlert_ObjectIdentity = ObjectIdentity
+prtAlert = _PrtAlert_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 18)
+)
+_PrtAlertTable_ObjectIdentity = ObjectIdentity
+prtAlertTable = _PrtAlertTable_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 18, 1)
+)
+_PrtAlertEntry_ObjectIdentity = ObjectIdentity
+prtAlertEntry = _PrtAlertEntry_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 18, 1, 1)
+)
+
+
+class _Prtalertseveritylevel_Type(Integer32):
+    """Custom type prtalertseveritylevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ePcriticalBinaryChangeEvent", 3),
+          ("ePother", 1),
+          ("ePwarningBinaryChangeEvent", 5),
+          ("ePwarningUnaryChangeEvent", 4))
+    )
+
+
+_Prtalertseveritylevel_Type.__name__ = "Integer32"
+_Prtalertseveritylevel_Object = MibScalar
+prtalertseveritylevel = _Prtalertseveritylevel_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 18, 1, 1, 2),
+    _Prtalertseveritylevel_Type()
+)
+prtalertseveritylevel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtalertseveritylevel.setStatus("optional")
+
+
+class _Prtalerttraininglevel_Type(Integer32):
+    """Custom type prtalerttraininglevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ePfieldService", 5),
+          ("ePmanagement", 6),
+          ("ePnoInterventionRequired", 7),
+          ("ePother", 1),
+          ("ePtrained", 4),
+          ("ePunknown", 2),
+          ("ePuntrained", 3))
+    )
+
+
+_Prtalerttraininglevel_Type.__name__ = "Integer32"
+_Prtalerttraininglevel_Object = MibScalar
+prtalerttraininglevel = _Prtalerttraininglevel_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 18, 1, 1, 3),
+    _Prtalerttraininglevel_Type()
+)
+prtalerttraininglevel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtalerttraininglevel.setStatus("optional")
+
+
+class _Prtalertgroup_Type(Integer32):
+    """Custom type prtalertgroup based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(5,
+              6,
+              8,
+              9,
+              10,
+              14)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ePchannel", 14),
+          ("ePcover", 6),
+          ("ePgeneralPrinter", 5),
+          ("ePinput", 8),
+          ("ePmarker", 10),
+          ("ePoutput", 9))
+    )
+
+
+_Prtalertgroup_Type.__name__ = "Integer32"
+_Prtalertgroup_Object = MibScalar
+prtalertgroup = _Prtalertgroup_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 18, 1, 1, 4),
+    _Prtalertgroup_Type()
+)
+prtalertgroup.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtalertgroup.setStatus("optional")
+_Prtalertgroupindex_Type = Integer32
+_Prtalertgroupindex_Object = MibScalar
+prtalertgroupindex = _Prtalertgroupindex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 18, 1, 1, 5),
+    _Prtalertgroupindex_Type()
+)
+prtalertgroupindex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtalertgroupindex.setStatus("optional")
+_Prtalertlocation_Type = Integer32
+_Prtalertlocation_Object = MibScalar
+prtalertlocation = _Prtalertlocation_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 18, 1, 1, 6),
+    _Prtalertlocation_Type()
+)
+prtalertlocation.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtalertlocation.setStatus("optional")
+
+
+class _Prtalertcode_Type(Integer32):
+    """Custom type prtalertcode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              3,
+              8,
+              801,
+              808)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ePcoverOpened", 3),
+          ("ePinputMediaSupplyEmpty", 808),
+          ("ePinputMediaTrayMissing", 801),
+          ("ePjam", 8),
+          ("ePother", 1))
+    )
+
+
+_Prtalertcode_Type.__name__ = "Integer32"
+_Prtalertcode_Object = MibScalar
+prtalertcode = _Prtalertcode_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 18, 1, 1, 7),
+    _Prtalertcode_Type()
+)
+prtalertcode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtalertcode.setStatus("optional")
+
+
+class _Prtalertdescription_Type(OctetString):
+    """Custom type prtalertdescription based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_Prtalertdescription_Type.__name__ = "OctetString"
+_Prtalertdescription_Object = MibScalar
+prtalertdescription = _Prtalertdescription_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 18, 1, 1, 8),
+    _Prtalertdescription_Type()
+)
+prtalertdescription.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtalertdescription.setStatus("optional")
+_Prtalerttime_Type = Integer32
+_Prtalerttime_Object = MibScalar
+prtalerttime = _Prtalerttime_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 2, 18, 1, 1, 9),
+    _Prtalerttime_Type()
+)
+prtalerttime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prtalerttime.setStatus("optional")
+_Hrm_ObjectIdentity = ObjectIdentity
+hrm = _Hrm_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3)
+)
+_HrStorage_ObjectIdentity = ObjectIdentity
+hrStorage = _HrStorage_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 2)
+)
+_Hrmemorysize_Type = Integer32
+_Hrmemorysize_Object = MibScalar
+hrmemorysize = _Hrmemorysize_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 2, 2),
+    _Hrmemorysize_Type()
+)
+hrmemorysize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hrmemorysize.setStatus("mandatory")
+_HrStorageTable_ObjectIdentity = ObjectIdentity
+hrStorageTable = _HrStorageTable_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 2, 3)
+)
+_HrStorageEntry_ObjectIdentity = ObjectIdentity
+hrStorageEntry = _HrStorageEntry_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 2, 3, 1)
+)
+
+
+class _Hrstorageindex_Type(Integer32):
+    """Custom type hrstorageindex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_Hrstorageindex_Type.__name__ = "Integer32"
+_Hrstorageindex_Object = MibScalar
+hrstorageindex = _Hrstorageindex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 2, 3, 1, 1),
+    _Hrstorageindex_Type()
+)
+hrstorageindex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hrstorageindex.setStatus("mandatory")
+_Hrstoragetype_Type = ObjectIdentifier
+_Hrstoragetype_Object = MibScalar
+hrstoragetype = _Hrstoragetype_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 2, 3, 1, 2),
+    _Hrstoragetype_Type()
+)
+hrstoragetype.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hrstoragetype.setStatus("mandatory")
+_Hrstoragedescr_Type = OctetString
+_Hrstoragedescr_Object = MibScalar
+hrstoragedescr = _Hrstoragedescr_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 2, 3, 1, 3),
+    _Hrstoragedescr_Type()
+)
+hrstoragedescr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hrstoragedescr.setStatus("mandatory")
+
+
+class _Hrstorageallocationunits_Type(Integer32):
+    """Custom type hrstorageallocationunits based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_Hrstorageallocationunits_Type.__name__ = "Integer32"
+_Hrstorageallocationunits_Object = MibScalar
+hrstorageallocationunits = _Hrstorageallocationunits_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 2, 3, 1, 4),
+    _Hrstorageallocationunits_Type()
+)
+hrstorageallocationunits.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hrstorageallocationunits.setStatus("mandatory")
+
+
+class _Hrstoragesize_Type(Integer32):
+    """Custom type hrstoragesize based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_Hrstoragesize_Type.__name__ = "Integer32"
+_Hrstoragesize_Object = MibScalar
+hrstoragesize = _Hrstoragesize_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 2, 3, 1, 5),
+    _Hrstoragesize_Type()
+)
+hrstoragesize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hrstoragesize.setStatus("mandatory")
+
+
+class _Hrstorageused_Type(Integer32):
+    """Custom type hrstorageused based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_Hrstorageused_Type.__name__ = "Integer32"
+_Hrstorageused_Object = MibScalar
+hrstorageused = _Hrstorageused_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 2, 3, 1, 6),
+    _Hrstorageused_Type()
+)
+hrstorageused.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hrstorageused.setStatus("mandatory")
+_Hrstorageallocationfailures_Type = Integer32
+_Hrstorageallocationfailures_Object = MibScalar
+hrstorageallocationfailures = _Hrstorageallocationfailures_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 2, 3, 1, 7),
+    _Hrstorageallocationfailures_Type()
+)
+hrstorageallocationfailures.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hrstorageallocationfailures.setStatus("mandatory")
+_HrDevice_ObjectIdentity = ObjectIdentity
+hrDevice = _HrDevice_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3)
+)
+_HrDeviceTable_ObjectIdentity = ObjectIdentity
+hrDeviceTable = _HrDeviceTable_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 2)
+)
+_HrDeviceEntry_ObjectIdentity = ObjectIdentity
+hrDeviceEntry = _HrDeviceEntry_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 2, 1)
+)
+
+
+class _Hrdeviceindex_Type(Integer32):
+    """Custom type hrdeviceindex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_Hrdeviceindex_Type.__name__ = "Integer32"
+_Hrdeviceindex_Object = MibScalar
+hrdeviceindex = _Hrdeviceindex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 2, 1, 1),
+    _Hrdeviceindex_Type()
+)
+hrdeviceindex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hrdeviceindex.setStatus("mandatory")
+_Hrdevicetype_Type = ObjectIdentifier
+_Hrdevicetype_Object = MibScalar
+hrdevicetype = _Hrdevicetype_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 2, 1, 2),
+    _Hrdevicetype_Type()
+)
+hrdevicetype.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hrdevicetype.setStatus("mandatory")
+
+
+class _Hrdevicedescr_Type(OctetString):
+    """Custom type hrdevicedescr based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_Hrdevicedescr_Type.__name__ = "OctetString"
+_Hrdevicedescr_Object = MibScalar
+hrdevicedescr = _Hrdevicedescr_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 2, 1, 3),
+    _Hrdevicedescr_Type()
+)
+hrdevicedescr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hrdevicedescr.setStatus("mandatory")
+_Hrdeviceid_Type = ObjectIdentifier
+_Hrdeviceid_Object = MibScalar
+hrdeviceid = _Hrdeviceid_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 2, 1, 4),
+    _Hrdeviceid_Type()
+)
+hrdeviceid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hrdeviceid.setStatus("mandatory")
+
+
+class _Hrdevicestatus_Type(Integer32):
+    """Custom type hrdevicestatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(2,
+              3,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eHdown", 5),
+          ("eHrunning", 2),
+          ("eHwarning", 3))
+    )
+
+
+_Hrdevicestatus_Type.__name__ = "Integer32"
+_Hrdevicestatus_Object = MibScalar
+hrdevicestatus = _Hrdevicestatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 2, 1, 5),
+    _Hrdevicestatus_Type()
+)
+hrdevicestatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hrdevicestatus.setStatus("mandatory")
+_Hrdeviceerrors_Type = Integer32
+_Hrdeviceerrors_Object = MibScalar
+hrdeviceerrors = _Hrdeviceerrors_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 2, 1, 6),
+    _Hrdeviceerrors_Type()
+)
+hrdeviceerrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hrdeviceerrors.setStatus("mandatory")
+_HrPrinterTable_ObjectIdentity = ObjectIdentity
+hrPrinterTable = _HrPrinterTable_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 5)
+)
+_HrPrinterEntry_ObjectIdentity = ObjectIdentity
+hrPrinterEntry = _HrPrinterEntry_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 5, 1)
+)
+
+
+class _Hrprinterstatus_Type(Integer32):
+    """Custom type hrprinterstatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eHidle", 3),
+          ("eHother", 1),
+          ("eHprinting", 4),
+          ("eHwarmup", 5))
+    )
+
+
+_Hrprinterstatus_Type.__name__ = "Integer32"
+_Hrprinterstatus_Object = MibScalar
+hrprinterstatus = _Hrprinterstatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 5, 1, 1),
+    _Hrprinterstatus_Type()
+)
+hrprinterstatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hrprinterstatus.setStatus("mandatory")
+_Hrprinterdetectederrorstate_Type = OctetString
+_Hrprinterdetectederrorstate_Object = MibScalar
+hrprinterdetectederrorstate = _Hrprinterdetectederrorstate_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 5, 1, 2),
+    _Hrprinterdetectederrorstate_Type()
+)
+hrprinterdetectederrorstate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hrprinterdetectederrorstate.setStatus("mandatory")
+_HrDiskStorageTable_ObjectIdentity = ObjectIdentity
+hrDiskStorageTable = _HrDiskStorageTable_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 6)
+)
+_HrDiskStorageEntry_ObjectIdentity = ObjectIdentity
+hrDiskStorageEntry = _HrDiskStorageEntry_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 6, 1)
+)
+
+
+class _Hrdiskstorageaccess_Type(Integer32):
+    """Custom type hrdiskstorageaccess based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eHReadOnly", 2),
+          ("eHreadWrite", 1))
+    )
+
+
+_Hrdiskstorageaccess_Type.__name__ = "Integer32"
+_Hrdiskstorageaccess_Object = MibScalar
+hrdiskstorageaccess = _Hrdiskstorageaccess_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 6, 1, 1),
+    _Hrdiskstorageaccess_Type()
+)
+hrdiskstorageaccess.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hrdiskstorageaccess.setStatus("mandatory")
+
+
+class _Hrdiskstoragemedia_Type(Integer32):
+    """Custom type hrdiskstoragemedia based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            1
+        )
+    )
+    namedValues = NamedValues(
+        ("eHother", 1)
+    )
+
+
+_Hrdiskstoragemedia_Type.__name__ = "Integer32"
+_Hrdiskstoragemedia_Object = MibScalar
+hrdiskstoragemedia = _Hrdiskstoragemedia_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 6, 1, 2),
+    _Hrdiskstoragemedia_Type()
+)
+hrdiskstoragemedia.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hrdiskstoragemedia.setStatus("mandatory")
+
+
+class _Hrdiskstorageremoveble_Type(Integer32):
+    """Custom type hrdiskstorageremoveble based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            2
+        )
+    )
+    namedValues = NamedValues(
+        ("eHfalse", 2)
+    )
+
+
+_Hrdiskstorageremoveble_Type.__name__ = "Integer32"
+_Hrdiskstorageremoveble_Object = MibScalar
+hrdiskstorageremoveble = _Hrdiskstorageremoveble_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 6, 1, 3),
+    _Hrdiskstorageremoveble_Type()
+)
+hrdiskstorageremoveble.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hrdiskstorageremoveble.setStatus("mandatory")
+_Hrdiskstoragecapacity_Type = Integer32
+_Hrdiskstoragecapacity_Object = MibScalar
+hrdiskstoragecapacity = _Hrdiskstoragecapacity_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 6, 1, 4),
+    _Hrdiskstoragecapacity_Type()
+)
+hrdiskstoragecapacity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hrdiskstoragecapacity.setStatus("mandatory")
+_HrPartitionTable_ObjectIdentity = ObjectIdentity
+hrPartitionTable = _HrPartitionTable_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 7)
+)
+_HrPartitionEntry_ObjectIdentity = ObjectIdentity
+hrPartitionEntry = _HrPartitionEntry_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 7, 1)
+)
+
+
+class _Hrpartitionindex_Type(Integer32):
+    """Custom type hrpartitionindex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_Hrpartitionindex_Type.__name__ = "Integer32"
+_Hrpartitionindex_Object = MibScalar
+hrpartitionindex = _Hrpartitionindex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 7, 1, 1),
+    _Hrpartitionindex_Type()
+)
+hrpartitionindex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hrpartitionindex.setStatus("mandatory")
+
+
+class _Hrpartitionlabel_Type(OctetString):
+    """Custom type hrpartitionlabel based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 11),
+    )
+
+
+_Hrpartitionlabel_Type.__name__ = "OctetString"
+_Hrpartitionlabel_Object = MibScalar
+hrpartitionlabel = _Hrpartitionlabel_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 7, 1, 2),
+    _Hrpartitionlabel_Type()
+)
+hrpartitionlabel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hrpartitionlabel.setStatus("mandatory")
+_Hrpartitionid_Type = OctetString
+_Hrpartitionid_Object = MibScalar
+hrpartitionid = _Hrpartitionid_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 7, 1, 3),
+    _Hrpartitionid_Type()
+)
+hrpartitionid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hrpartitionid.setStatus("mandatory")
+_Hrpartitionsize_Type = Integer32
+_Hrpartitionsize_Object = MibScalar
+hrpartitionsize = _Hrpartitionsize_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 7, 1, 4),
+    _Hrpartitionsize_Type()
+)
+hrpartitionsize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hrpartitionsize.setStatus("mandatory")
+
+
+class _Hrpartitionfsindex_Type(Integer32):
+    """Custom type hrpartitionfsindex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_Hrpartitionfsindex_Type.__name__ = "Integer32"
+_Hrpartitionfsindex_Object = MibScalar
+hrpartitionfsindex = _Hrpartitionfsindex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 7, 1, 5),
+    _Hrpartitionfsindex_Type()
+)
+hrpartitionfsindex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hrpartitionfsindex.setStatus("mandatory")
+_HrFSTable_ObjectIdentity = ObjectIdentity
+hrFSTable = _HrFSTable_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 8)
+)
+_HrFSEntry_ObjectIdentity = ObjectIdentity
+hrFSEntry = _HrFSEntry_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 8, 1)
+)
+
+
+class _Hrfsindex_Type(Integer32):
+    """Custom type hrfsindex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_Hrfsindex_Type.__name__ = "Integer32"
+_Hrfsindex_Object = MibScalar
+hrfsindex = _Hrfsindex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 8, 1, 1),
+    _Hrfsindex_Type()
+)
+hrfsindex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hrfsindex.setStatus("mandatory")
+_Hrfsmountpoint_Type = OctetString
+_Hrfsmountpoint_Object = MibScalar
+hrfsmountpoint = _Hrfsmountpoint_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 8, 1, 2),
+    _Hrfsmountpoint_Type()
+)
+hrfsmountpoint.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hrfsmountpoint.setStatus("mandatory")
+_Hrfsremotemountpoint_Type = OctetString
+_Hrfsremotemountpoint_Object = MibScalar
+hrfsremotemountpoint = _Hrfsremotemountpoint_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 8, 1, 3),
+    _Hrfsremotemountpoint_Type()
+)
+hrfsremotemountpoint.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hrfsremotemountpoint.setStatus("mandatory")
+_Hrfstype_Type = ObjectIdentifier
+_Hrfstype_Object = MibScalar
+hrfstype = _Hrfstype_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 8, 1, 4),
+    _Hrfstype_Type()
+)
+hrfstype.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hrfstype.setStatus("mandatory")
+
+
+class _Hrfsaccess_Type(Integer32):
+    """Custom type hrfsaccess based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eHReadOnly", 2),
+          ("eHreadWrite", 1))
+    )
+
+
+_Hrfsaccess_Type.__name__ = "Integer32"
+_Hrfsaccess_Object = MibScalar
+hrfsaccess = _Hrfsaccess_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 8, 1, 5),
+    _Hrfsaccess_Type()
+)
+hrfsaccess.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hrfsaccess.setStatus("mandatory")
+
+
+class _Hrfsbootable_Type(Integer32):
+    """Custom type hrfsbootable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            2
+        )
+    )
+    namedValues = NamedValues(
+        ("eHfalse", 2)
+    )
+
+
+_Hrfsbootable_Type.__name__ = "Integer32"
+_Hrfsbootable_Object = MibScalar
+hrfsbootable = _Hrfsbootable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 8, 1, 6),
+    _Hrfsbootable_Type()
+)
+hrfsbootable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hrfsbootable.setStatus("mandatory")
+
+
+class _Hrfsstorageindex_Type(Integer32):
+    """Custom type hrfsstorageindex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_Hrfsstorageindex_Type.__name__ = "Integer32"
+_Hrfsstorageindex_Object = MibScalar
+hrfsstorageindex = _Hrfsstorageindex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 8, 1, 7),
+    _Hrfsstorageindex_Type()
+)
+hrfsstorageindex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hrfsstorageindex.setStatus("mandatory")
+_Hrfslastfullbackupdate_Type = OctetString
+_Hrfslastfullbackupdate_Object = MibScalar
+hrfslastfullbackupdate = _Hrfslastfullbackupdate_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 8, 1, 8),
+    _Hrfslastfullbackupdate_Type()
+)
+hrfslastfullbackupdate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hrfslastfullbackupdate.setStatus("mandatory")
+_Hrfslastpartialbackupdate_Type = OctetString
+_Hrfslastpartialbackupdate_Object = MibScalar
+hrfslastpartialbackupdate = _Hrfslastpartialbackupdate_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 3, 9, 4, 2, 3, 3, 8, 1, 9),
+    _Hrfslastpartialbackupdate_Type()
+)
+hrfslastpartialbackupdate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hrfslastpartialbackupdate.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "LJ2200-MIB",
+    **{"DisplayString": DisplayString,
+       "hp": hp,
+       "dm": dm,
+       "device": device,
+       "system": system,
+       "settings-system": settings_system,
+       "energy-star": energy_star,
+       "sleep-mode": sleep_mode,
+       "service-password": service_password,
+       "device-config-token": device_config_token,
+       "status-system": status_system,
+       "on-off-line": on_off_line,
+       "continue": _pysmi_continue,
+       "auto-continue": auto_continue,
+       "install-date": install_date,
+       "job-input-auto-continue-timeout": job_input_auto_continue_timeout,
+       "job-input-auto-continue-mode": job_input_auto_continue_mode,
+       "error-log-clear": error_log_clear,
+       "id": id,
+       "model-name": model_name,
+       "serial-number": serial_number,
+       "fw-rom-datecode": fw_rom_datecode,
+       "device-name": device_name,
+       "device-location": device_location,
+       "asset-number": asset_number,
+       "interface": interface,
+       "simm": simm,
+       "simm1": simm1,
+       "simm1-type": simm1_type,
+       "simm1-capacity": simm1_capacity,
+       "simm2": simm2,
+       "simm2-type": simm2_type,
+       "simm2-capacity": simm2_capacity,
+       "mio": mio,
+       "mio1": mio1,
+       "mio1-model-name": mio1_model_name,
+       "mio1-manufacturing-info": mio1_manufacturing_info,
+       "mio1-type": mio1_type,
+       "test": test,
+       "self-test": self_test,
+       "print-internal-page": print_internal_page,
+       "job": job,
+       "settings-job": settings_job,
+       "job-info-change-id": job_info_change_id,
+       "active-print-jobs": active_print_jobs,
+       "job-being-parsed": job_being_parsed,
+       "current-job-parsing-id": current_job_parsing_id,
+       "job-info": job_info,
+       "job-info-name1": job_info_name1,
+       "job-info-name2": job_info_name2,
+       "job-info-stage": job_info_stage,
+       "job-info-io-source": job_info_io_source,
+       "job-info-pages-processed": job_info_pages_processed,
+       "job-info-pages-printed": job_info_pages_printed,
+       "job-info-size": job_info_size,
+       "job-info-state": job_info_state,
+       "job-info-outcome": job_info_outcome,
+       "job-info-outbins-used": job_info_outbins_used,
+       "job-info-physical-outbins-used": job_info_physical_outbins_used,
+       "job-info-attribute": job_info_attribute,
+       "job-info-attr-1": job_info_attr_1,
+       "job-info-attr-2": job_info_attr_2,
+       "job-info-attr-3": job_info_attr_3,
+       "job-info-attr-4": job_info_attr_4,
+       "job-info-attr-5": job_info_attr_5,
+       "job-info-attr-6": job_info_attr_6,
+       "job-info-attr-7": job_info_attr_7,
+       "job-info-attr-8": job_info_attr_8,
+       "job-info-attr-9": job_info_attr_9,
+       "job-info-attr-10": job_info_attr_10,
+       "job-info-attr-11": job_info_attr_11,
+       "job-info-attr-12": job_info_attr_12,
+       "job-info-attr-13": job_info_attr_13,
+       "job-info-attr-14": job_info_attr_14,
+       "job-info-attr-15": job_info_attr_15,
+       "job-info-attr-16": job_info_attr_16,
+       "file-system": file_system,
+       "settings-file-system": settings_file_system,
+       "file-system-max-open-files": file_system_max_open_files,
+       "file-system-set-system-partition-writeable": file_system_set_system_partition_writeable,
+       "file-system-set-system-partition-readonly": file_system_set_system_partition_readonly,
+       "errorlog": errorlog,
+       "error1": error1,
+       "error1-time-stamp": error1_time_stamp,
+       "error1-code": error1_code,
+       "error2": error2,
+       "error2-time-stamp": error2_time_stamp,
+       "error2-code": error2_code,
+       "error3": error3,
+       "error3-time-stamp": error3_time_stamp,
+       "error3-code": error3_code,
+       "error4": error4,
+       "error4-time-stamp": error4_time_stamp,
+       "error4-code": error4_code,
+       "error5": error5,
+       "error5-time-stamp": error5_time_stamp,
+       "error5-code": error5_code,
+       "error6": error6,
+       "error6-time-stamp": error6_time_stamp,
+       "error6-code": error6_code,
+       "error7": error7,
+       "error7-time-stamp": error7_time_stamp,
+       "error7-code": error7_code,
+       "error8": error8,
+       "error8-time-stamp": error8_time_stamp,
+       "error8-code": error8_code,
+       "error9": error9,
+       "error9-time-stamp": error9_time_stamp,
+       "error9-code": error9_code,
+       "error10": error10,
+       "error10-time-stamp": error10_time_stamp,
+       "error10-code": error10_code,
+       "source-subsystem": source_subsystem,
+       "io": io,
+       "settings-io": settings_io,
+       "io-timeout": io_timeout,
+       "io-switch": io_switch,
+       "processing-subsystem": processing_subsystem,
+       "pdl": pdl,
+       "settings-pdl": settings_pdl,
+       "default-copies": default_copies,
+       "form-feed": form_feed,
+       "resource-saving": resource_saving,
+       "maximum-resource-saving-memory": maximum_resource_saving_memory,
+       "default-vertical-black-resolution": default_vertical_black_resolution,
+       "default-horizontal-black-resolution": default_horizontal_black_resolution,
+       "default-page-protect": default_page_protect,
+       "default-lines-per-page": default_lines_per_page,
+       "default-vmi": default_vmi,
+       "default-media-size": default_media_size,
+       "cold-reset-media-size": cold_reset_media_size,
+       "reprint": reprint,
+       "wide-a4": wide_a4,
+       "dark-courier": dark_courier,
+       "default-bits-per-pixel": default_bits_per_pixel,
+       "status-pdl": status_pdl,
+       "form-feed-needed": form_feed_needed,
+       "pdl-pcl": pdl_pcl,
+       "pcl-resource-saving-memory-size": pcl_resource_saving_memory_size,
+       "pcl-default-font-height": pcl_default_font_height,
+       "pcl-default-font-source": pcl_default_font_source,
+       "pcl-default-font-number": pcl_default_font_number,
+       "pcl-default-font-width": pcl_default_font_width,
+       "pdl-postscript": pdl_postscript,
+       "postscript-resource-saving-memory-size": postscript_resource_saving_memory_size,
+       "postscript-print-errors": postscript_print_errors,
+       "pjl": pjl,
+       "pjl-password": pjl_password,
+       "destination-subsystem": destination_subsystem,
+       "print-engine": print_engine,
+       "settings-prt-eng": settings_prt_eng,
+       "default-duplex-mode": default_duplex_mode,
+       "print-density": print_density,
+       "transfer-setting": transfer_setting,
+       "separation-setting": separation_setting,
+       "status-prt-eng": status_prt_eng,
+       "total-engine-page-count": total_engine_page_count,
+       "duplex-page-count": duplex_page_count,
+       "print-engine-jam-count": print_engine_jam_count,
+       "print-engine-mispick-count": print_engine_mispick_count,
+       "intray": intray,
+       "settings-intray": settings_intray,
+       "mp-tray": mp_tray,
+       "tray-lock": tray_lock,
+       "custom-paper-dim-unit": custom_paper_dim_unit,
+       "custom-paper-feed-dim": custom_paper_feed_dim,
+       "custom-paper-xfeed-dim": custom_paper_xfeed_dim,
+       "intrays": intrays,
+       "intray1": intray1,
+       "tray1-media-size-loaded": tray1_media_size_loaded,
+       "tray1-fuser-temperature": tray1_fuser_temperature,
+       "intray2": intray2,
+       "tray2-media-size-loaded": tray2_media_size_loaded,
+       "tray2-fuser-temperature": tray2_fuser_temperature,
+       "intray3": intray3,
+       "tray3-media-size-loaded": tray3_media_size_loaded,
+       "tray3-fuser-temperature": tray3_fuser_temperature,
+       "imaging": imaging,
+       "default-ret": default_ret,
+       "default-print-quality": default_print_quality,
+       "channel": channel,
+       "channelnumberofchannels": channelnumberofchannels,
+       "channelprinteralert": channelprinteralert,
+       "channelTable": channelTable,
+       "channelEntry": channelEntry,
+       "channeltype": channeltype,
+       "channelprotocolversion": channelprotocolversion,
+       "channelstate": channelstate,
+       "channelifindex": channelifindex,
+       "channelstatus": channelstatus,
+       "channelinformation": channelinformation,
+       "tables": tables,
+       "channel-table": channel_table,
+       "channel-entry": channel_entry,
+       "channel-bytes-sent": channel_bytes_sent,
+       "channel-bytes-received": channel_bytes_received,
+       "channel-io-errors": channel_io_errors,
+       "channel-jobs-received": channel_jobs_received,
+       "printmib": printmib,
+       "prtGeneral": prtGeneral,
+       "prtGeneralTable": prtGeneralTable,
+       "prtGeneralEntry": prtGeneralEntry,
+       "prtgeneralconfigchanges": prtgeneralconfigchanges,
+       "prtgeneralcurrentlocalization": prtgeneralcurrentlocalization,
+       "prtgeneralreset": prtgeneralreset,
+       "prtgeneralcurrentoperator": prtgeneralcurrentoperator,
+       "prtgeneralserviceperson": prtgeneralserviceperson,
+       "prtinputdefaultindex": prtinputdefaultindex,
+       "prtoutputdefaultindex": prtoutputdefaultindex,
+       "prtmarkerdefaultindex": prtmarkerdefaultindex,
+       "prtmediapathdefaultindex": prtmediapathdefaultindex,
+       "prtconsolelocalization": prtconsolelocalization,
+       "prtconsolenumberofdisplaylines": prtconsolenumberofdisplaylines,
+       "prtconsolenumberofdisplaychars": prtconsolenumberofdisplaychars,
+       "prtconsoledisable": prtconsoledisable,
+       "prtgeneralprintername": prtgeneralprintername,
+       "prtgeneralserialnumber": prtgeneralserialnumber,
+       "prtalertcriticalevents": prtalertcriticalevents,
+       "prtalertallevents": prtalertallevents,
+       "prtStorageRefTable": prtStorageRefTable,
+       "prtStorageRefEntry": prtStorageRefEntry,
+       "prtstoragerefindex": prtstoragerefindex,
+       "prtDeviceRefTable": prtDeviceRefTable,
+       "prtDeviceRefEntry": prtDeviceRefEntry,
+       "prtdevicerefindex": prtdevicerefindex,
+       "prtCover": prtCover,
+       "prtCoverTable": prtCoverTable,
+       "prtCoverEntry": prtCoverEntry,
+       "prtcoverdescription": prtcoverdescription,
+       "prtcoverstatus": prtcoverstatus,
+       "prtLocalization": prtLocalization,
+       "prtLocalizationTable": prtLocalizationTable,
+       "prtLocalizationEntry": prtLocalizationEntry,
+       "prtlocalizationlanguage": prtlocalizationlanguage,
+       "prtlocalizationcountry": prtlocalizationcountry,
+       "prtlocalizationcharacterset": prtlocalizationcharacterset,
+       "prtInput": prtInput,
+       "prtInputTable": prtInputTable,
+       "prtInputEntry": prtInputEntry,
+       "prtinputtype": prtinputtype,
+       "prtinputdimunit": prtinputdimunit,
+       "prtinputmediadimfeeddirdeclared": prtinputmediadimfeeddirdeclared,
+       "prtinputmediadimxfeeddirdeclared": prtinputmediadimxfeeddirdeclared,
+       "prtinputmediadimfeeddirchosen": prtinputmediadimfeeddirchosen,
+       "prtinputmediadimxfeeddirchosen": prtinputmediadimxfeeddirchosen,
+       "prtinputcapacityunit": prtinputcapacityunit,
+       "prtinputmaxcapacity": prtinputmaxcapacity,
+       "prtinputcurrentlevel": prtinputcurrentlevel,
+       "prtinputstatus": prtinputstatus,
+       "prtinputmedianame": prtinputmedianame,
+       "prtinputname": prtinputname,
+       "prtinputvendorname": prtinputvendorname,
+       "prtinputmodel": prtinputmodel,
+       "prtinputversion": prtinputversion,
+       "prtinputserialnumber": prtinputserialnumber,
+       "prtinputdescription": prtinputdescription,
+       "prtinputsecurity": prtinputsecurity,
+       "prtOutput": prtOutput,
+       "prtOutputTable": prtOutputTable,
+       "prtOutputEntry": prtOutputEntry,
+       "prtoutputtype": prtoutputtype,
+       "prtoutputcapacityunit": prtoutputcapacityunit,
+       "prtoutputmaxcapacity": prtoutputmaxcapacity,
+       "prtoutputremainingcapacity": prtoutputremainingcapacity,
+       "prtoutputstatus": prtoutputstatus,
+       "prtMarker": prtMarker,
+       "prtMarkerTable": prtMarkerTable,
+       "prtMarkerEntry": prtMarkerEntry,
+       "prtmarkermarktech": prtmarkermarktech,
+       "prtmarkercounterunit": prtmarkercounterunit,
+       "prtmarkerlifecount": prtmarkerlifecount,
+       "prtmarkerpoweroncount": prtmarkerpoweroncount,
+       "prtmarkerprocesscolorants": prtmarkerprocesscolorants,
+       "prtmarkerspotcolorants": prtmarkerspotcolorants,
+       "prtmarkeraddressabilityunit": prtmarkeraddressabilityunit,
+       "prtmarkeraddressabilityfeeddir": prtmarkeraddressabilityfeeddir,
+       "prtmarkeraddressabilityxfeeddir": prtmarkeraddressabilityxfeeddir,
+       "prtmarkernorthmargin": prtmarkernorthmargin,
+       "prtmarkersouthmargin": prtmarkersouthmargin,
+       "prtmarkerwestmargin": prtmarkerwestmargin,
+       "prtmarkereastmargin": prtmarkereastmargin,
+       "prtmarkerstatus": prtmarkerstatus,
+       "prtMarkerSupplies": prtMarkerSupplies,
+       "prtMarkerSuppliesTable": prtMarkerSuppliesTable,
+       "prtMarkerSuppliesEntry": prtMarkerSuppliesEntry,
+       "prtmarkersuppliesmarkerindex": prtmarkersuppliesmarkerindex,
+       "prtmarkersuppliescolorantindex": prtmarkersuppliescolorantindex,
+       "prtmarkersuppliesclass": prtmarkersuppliesclass,
+       "prtmarkersuppliestype": prtmarkersuppliestype,
+       "prtmarkersuppliesdescription": prtmarkersuppliesdescription,
+       "prtmarkersuppliessupplyunit": prtmarkersuppliessupplyunit,
+       "prtmarkersuppliesmaxcapacity": prtmarkersuppliesmaxcapacity,
+       "prtmarkersupplieslevel": prtmarkersupplieslevel,
+       "prtMediaPath": prtMediaPath,
+       "prtMediaPathTable": prtMediaPathTable,
+       "prtMediaPathEntry": prtMediaPathEntry,
+       "prtmediapathmaxspeedprintunit": prtmediapathmaxspeedprintunit,
+       "prtmediapathmediasizeunit": prtmediapathmediasizeunit,
+       "prtmediapathmaxspeed": prtmediapathmaxspeed,
+       "prtmediapathmaxmediafeeddir": prtmediapathmaxmediafeeddir,
+       "prtmediapathmaxmediaxfeeddir": prtmediapathmaxmediaxfeeddir,
+       "prtmediapathminmediafeeddir": prtmediapathminmediafeeddir,
+       "prtmediapathminmediaxfeeddir": prtmediapathminmediaxfeeddir,
+       "prtmediapathtype": prtmediapathtype,
+       "prtmediapathdescription": prtmediapathdescription,
+       "prtmediapathstatus": prtmediapathstatus,
+       "prtChannel": prtChannel,
+       "prtChannelTable": prtChannelTable,
+       "prtChannelEntry": prtChannelEntry,
+       "prtchanneltype": prtchanneltype,
+       "prtchannelprotocolversion": prtchannelprotocolversion,
+       "prtchannelcurrentjobcntllangindex": prtchannelcurrentjobcntllangindex,
+       "prtchanneldefaultpagedesclangindex": prtchanneldefaultpagedesclangindex,
+       "prtchannelstate": prtchannelstate,
+       "prtchannelifindex": prtchannelifindex,
+       "prtchannelstatus": prtchannelstatus,
+       "prtchannelinformation": prtchannelinformation,
+       "prtInterpreter": prtInterpreter,
+       "prtInterpreterTable": prtInterpreterTable,
+       "prtInterpreterEntry": prtInterpreterEntry,
+       "prtinterpreterlangfamily": prtinterpreterlangfamily,
+       "prtinterpreterlanglevel": prtinterpreterlanglevel,
+       "prtinterpreterlangversion": prtinterpreterlangversion,
+       "prtinterpreterdescription": prtinterpreterdescription,
+       "prtinterpreterversion": prtinterpreterversion,
+       "prtinterpreterdefaultorientation": prtinterpreterdefaultorientation,
+       "prtinterpreterfeedaddressability": prtinterpreterfeedaddressability,
+       "prtinterpreterxfeedaddressability": prtinterpreterxfeedaddressability,
+       "prtinterpreterdefaultcharsetin": prtinterpreterdefaultcharsetin,
+       "prtinterpreterdefaultcharsetout": prtinterpreterdefaultcharsetout,
+       "prtinterpretertwoway": prtinterpretertwoway,
+       "prtConsoleDisplayBuffer": prtConsoleDisplayBuffer,
+       "prtConsoleDisplayBufferTable": prtConsoleDisplayBufferTable,
+       "prtConsoleDisplayBufferEntry": prtConsoleDisplayBufferEntry,
+       "prtconsoledisplaybuffertext": prtconsoledisplaybuffertext,
+       "prtConsoleLights": prtConsoleLights,
+       "prtConsoleLightTable": prtConsoleLightTable,
+       "prtConsoleLightEntry": prtConsoleLightEntry,
+       "prtconsoleontime": prtconsoleontime,
+       "prtconsoleofftime": prtconsoleofftime,
+       "prtconsolecolor": prtconsolecolor,
+       "prtconsoledescription": prtconsoledescription,
+       "prtAlert": prtAlert,
+       "prtAlertTable": prtAlertTable,
+       "prtAlertEntry": prtAlertEntry,
+       "prtalertseveritylevel": prtalertseveritylevel,
+       "prtalerttraininglevel": prtalerttraininglevel,
+       "prtalertgroup": prtalertgroup,
+       "prtalertgroupindex": prtalertgroupindex,
+       "prtalertlocation": prtalertlocation,
+       "prtalertcode": prtalertcode,
+       "prtalertdescription": prtalertdescription,
+       "prtalerttime": prtalerttime,
+       "hrm": hrm,
+       "hrStorage": hrStorage,
+       "hrmemorysize": hrmemorysize,
+       "hrStorageTable": hrStorageTable,
+       "hrStorageEntry": hrStorageEntry,
+       "hrstorageindex": hrstorageindex,
+       "hrstoragetype": hrstoragetype,
+       "hrstoragedescr": hrstoragedescr,
+       "hrstorageallocationunits": hrstorageallocationunits,
+       "hrstoragesize": hrstoragesize,
+       "hrstorageused": hrstorageused,
+       "hrstorageallocationfailures": hrstorageallocationfailures,
+       "hrDevice": hrDevice,
+       "hrDeviceTable": hrDeviceTable,
+       "hrDeviceEntry": hrDeviceEntry,
+       "hrdeviceindex": hrdeviceindex,
+       "hrdevicetype": hrdevicetype,
+       "hrdevicedescr": hrdevicedescr,
+       "hrdeviceid": hrdeviceid,
+       "hrdevicestatus": hrdevicestatus,
+       "hrdeviceerrors": hrdeviceerrors,
+       "hrPrinterTable": hrPrinterTable,
+       "hrPrinterEntry": hrPrinterEntry,
+       "hrprinterstatus": hrprinterstatus,
+       "hrprinterdetectederrorstate": hrprinterdetectederrorstate,
+       "hrDiskStorageTable": hrDiskStorageTable,
+       "hrDiskStorageEntry": hrDiskStorageEntry,
+       "hrdiskstorageaccess": hrdiskstorageaccess,
+       "hrdiskstoragemedia": hrdiskstoragemedia,
+       "hrdiskstorageremoveble": hrdiskstorageremoveble,
+       "hrdiskstoragecapacity": hrdiskstoragecapacity,
+       "hrPartitionTable": hrPartitionTable,
+       "hrPartitionEntry": hrPartitionEntry,
+       "hrpartitionindex": hrpartitionindex,
+       "hrpartitionlabel": hrpartitionlabel,
+       "hrpartitionid": hrpartitionid,
+       "hrpartitionsize": hrpartitionsize,
+       "hrpartitionfsindex": hrpartitionfsindex,
+       "hrFSTable": hrFSTable,
+       "hrFSEntry": hrFSEntry,
+       "hrfsindex": hrfsindex,
+       "hrfsmountpoint": hrfsmountpoint,
+       "hrfsremotemountpoint": hrfsremotemountpoint,
+       "hrfstype": hrfstype,
+       "hrfsaccess": hrfsaccess,
+       "hrfsbootable": hrfsbootable,
+       "hrfsstorageindex": hrfsstorageindex,
+       "hrfslastfullbackupdate": hrfslastfullbackupdate,
+       "hrfslastpartialbackupdate": hrfslastpartialbackupdate}
+)

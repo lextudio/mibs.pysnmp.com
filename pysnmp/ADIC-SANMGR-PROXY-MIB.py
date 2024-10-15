@@ -1,808 +1,6904 @@
+# SNMP MIB module (ADIC-SANMGR-PROXY-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ADIC-SANMGR-PROXY-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/ADIC-SANMGR-PROXY-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 16:58:19 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-AdicAgentStatus, hardware, productAgentInfo, AdicGlobalId, sml, componentId, components, adic, globalData, network, software = mibBuilder.importSymbols("ADIC-INTELLIGENT-STORAGE-MIB", "AdicAgentStatus", "hardware", "productAgentInfo", "AdicGlobalId", "sml", "componentId", "components", "adic", "globalData", "network", "software")
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ModuleIdentity, MibIdentifier, experimental, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Bits, Integer32, IpAddress, enterprises, NotificationType, Counter32, TimeTicks, iso, Counter64, Unsigned32, NotificationType, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "MibIdentifier", "experimental", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Bits", "Integer32", "IpAddress", "enterprises", "NotificationType", "Counter32", "TimeTicks", "iso", "Counter64", "Unsigned32", "NotificationType", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-sanmgr_proxy = MibIdentifier((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10)).setLabel("sanmgr-proxy")
-pathlight = MibIdentifier((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10))
-agent = MibIdentifier((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2))
-devices = MibIdentifier((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3))
-controllers = MibIdentifier((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4))
-notification = MibIdentifier((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 5))
-panelLED = MibIdentifier((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 6))
-paHost = MibIdentifier((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 7))
-scsiMap = MibIdentifier((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 8))
-deviceMap = MibIdentifier((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 9))
-replication = MibIdentifier((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10))
-envData = MibIdentifier((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 11))
-portFailover = MibIdentifier((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12))
-utilityModule = MibIdentifier((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 13))
-trapDefinition = MibIdentifier((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/ADIC-SANMGR-PROXY-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 20:33:47 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(AdicAgentStatus,
+ AdicGlobalId,
+ adic,
+ componentId,
+ components,
+ globalData,
+ hardware,
+ network,
+ productAgentInfo,
+ sml,
+ software) = mibBuilder.importSymbols(
+    "ADIC-INTELLIGENT-STORAGE-MIB",
+    "AdicAgentStatus",
+    "AdicGlobalId",
+    "adic",
+    "componentId",
+    "components",
+    "globalData",
+    "hardware",
+    "network",
+    "productAgentInfo",
+    "sml",
+    "software")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ NotificationType,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ experimental,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "NotificationType",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "experimental",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+
 class PathlightProduct(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21))
-    namedValues = NamedValues(("sanGateway", 1), ("sanRouter", 2), ("sanBridge", 3), ("adicFCR2", 4), ("dellFCR2", 5), ("siemensFCR2", 6), ("sanHoneoye", 7), ("adicHoneoye", 8), ("dellHoneoye", 9), ("siemensHoneoye", 10), ("ibmGatewayModule", 11), ("ibmHoneoye", 12), ("adicPlt5000", 13), ("dellPlt5000", 14), ("ibmPlt5000", 15), ("adicSNC4000", 16), ("dellSNC4000", 17), ("adicSNC6101", 18), ("dellSNC6101", 19), ("adicSNC6404", 20), ("adicSNC6104", 21))
+    """Custom type PathlightProduct based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21)
+        )
+    )
+    namedValues = NamedValues(
+        *(("adicFCR2", 4),
+          ("adicHoneoye", 8),
+          ("adicPlt5000", 13),
+          ("adicSNC4000", 16),
+          ("adicSNC6101", 18),
+          ("adicSNC6104", 21),
+          ("adicSNC6404", 20),
+          ("dellFCR2", 5),
+          ("dellHoneoye", 9),
+          ("dellPlt5000", 14),
+          ("dellSNC4000", 17),
+          ("dellSNC6101", 19),
+          ("ibmGatewayModule", 11),
+          ("ibmHoneoye", 12),
+          ("ibmPlt5000", 15),
+          ("sanBridge", 3),
+          ("sanGateway", 1),
+          ("sanHoneoye", 7),
+          ("sanRouter", 2),
+          ("siemensFCR2", 6),
+          ("siemensHoneoye", 10))
+    )
+
+
+
+
 
 class Boolean(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("true", 1), ("false", 2))
+    """Custom type Boolean based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("false", 2),
+          ("true", 1))
+    )
+
+
+
+
 
 class RowStatus(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))
-    namedValues = NamedValues(("active", 1), ("notInService", 2), ("notReady", 3), ("createAndGo", 4), ("createAndWait", 5), ("destroy", 6))
+    """Custom type RowStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 1),
+          ("createAndGo", 4),
+          ("createAndWait", 5),
+          ("destroy", 6),
+          ("notInService", 2),
+          ("notReady", 3))
+    )
+
+
+
+
 
 class PltStatus(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("failed", 1), ("down", 2), ("testing", 3), ("up", 4))
+    """Custom type PltStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 2),
+          ("failed", 1),
+          ("testing", 3),
+          ("up", 4))
+    )
+
+
+
+
 
 class FcStatus(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8))
-    namedValues = NamedValues(("configWait", 0), ("loopInit", 1), ("login", 2), ("ready", 3), ("lostSync", 4), ("error", 5), ("reinit", 6), ("nonPart", 7), ("failed", 8))
+    """Custom type FcStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("configWait", 0),
+          ("error", 5),
+          ("failed", 8),
+          ("login", 2),
+          ("loopInit", 1),
+          ("lostSync", 4),
+          ("nonPart", 7),
+          ("ready", 3),
+          ("reinit", 6))
+    )
+
+
+
+
 
 class Interface(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))
-    namedValues = NamedValues(("none", 0), ("sanGateway", 1), ("ssa", 2), ("fibreChannel", 3), ("scsi", 4), ("ethernet", 5), ("unknown", 6), ("any", 7), ("sanReplication", 8), ("vLib", 9), ("soip", 10), ("soip2", 11))
+    """Custom type Interface based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11)
+        )
+    )
+    namedValues = NamedValues(
+        *(("any", 7),
+          ("ethernet", 5),
+          ("fibreChannel", 3),
+          ("none", 0),
+          ("sanGateway", 1),
+          ("sanReplication", 8),
+          ("scsi", 4),
+          ("soip", 10),
+          ("soip2", 11),
+          ("ssa", 2),
+          ("unknown", 6),
+          ("vLib", 9))
+    )
+
+
+
+
 
 class Reset(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
-    namedValues = NamedValues(("run", 0), ("reset", 1), ("reboot", 2))
+    """Custom type Reset based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("reboot", 2),
+          ("reset", 1),
+          ("run", 0))
+    )
+
+
+
+
 
 class DeviceType(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 31))
-    namedValues = NamedValues(("directAccess", 0), ("sequentialAccess", 1), ("printer", 2), ("processor", 3), ("worm", 4), ("cd", 5), ("scanner", 6), ("opticalMemory", 7), ("mediumChanger", 8), ("communications", 9), ("ascIt81", 10), ("ascIt82", 11), ("storageArrayController", 12), ("enclosure", 13), ("simplifiedDirectAccess", 14), ("opticalCardReader", 15), ("unknown", 31))
+    """Custom type DeviceType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              31)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ascIt81", 10),
+          ("ascIt82", 11),
+          ("cd", 5),
+          ("communications", 9),
+          ("directAccess", 0),
+          ("enclosure", 13),
+          ("mediumChanger", 8),
+          ("opticalCardReader", 15),
+          ("opticalMemory", 7),
+          ("printer", 2),
+          ("processor", 3),
+          ("scanner", 6),
+          ("sequentialAccess", 1),
+          ("simplifiedDirectAccess", 14),
+          ("storageArrayController", 12),
+          ("unknown", 31),
+          ("worm", 4))
+    )
+
+
+
+
 
 class VendorIDInt(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 4096, 4130, 4215, 4537))
-    namedValues = NamedValues(("unknown", 0), ("symbios", 4096), ("amd", 4130), ("qlogic", 4215), ("pathlight", 4537))
+    """Custom type VendorIDInt based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              4096,
+              4130,
+              4215,
+              4537)
+        )
+    )
+    namedValues = NamedValues(
+        *(("amd", 4130),
+          ("pathlight", 4537),
+          ("qlogic", 4215),
+          ("symbios", 4096),
+          ("unknown", 0))
+    )
+
+
+
+
 
 class FibreMedia(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21))
-    namedValues = NamedValues(("unknown", 0), ("copper", 1), ("shortWaveOptical", 2), ("longWaveOptical", 3), ("shortWaveOpticalDual", 4), ("longWaveOpticalDual", 5), ("shortWaveOpticalLongDistance", 6), ("longWaveOpticalLongDistance", 7), ("gbicSWOneGB", 8), ("gbicLW1300OneGB", 9), ("gbicLW1300HPOneGB", 10), ("gbicLW1550HPOneGB", 11), ("gbicCopperHSSDCOneGB", 12), ("gbicCopperDB9OneGB", 13), ("gbicSWTwoGB", 14), ("gbicLW1300TwoGB", 15), ("gbicLW1300HPTwoGB", 16), ("gbicLW1550HPTwoGB", 17), ("gbicCopperHSSDCTwoGB", 18), ("gbicCopperDB9TwoGB", 19), ("noGBIC", 20), ("sfpSWTwoGB", 21))
+    """Custom type FibreMedia based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21)
+        )
+    )
+    namedValues = NamedValues(
+        *(("copper", 1),
+          ("gbicCopperDB9OneGB", 13),
+          ("gbicCopperDB9TwoGB", 19),
+          ("gbicCopperHSSDCOneGB", 12),
+          ("gbicCopperHSSDCTwoGB", 18),
+          ("gbicLW1300HPOneGB", 10),
+          ("gbicLW1300HPTwoGB", 16),
+          ("gbicLW1300OneGB", 9),
+          ("gbicLW1300TwoGB", 15),
+          ("gbicLW1550HPOneGB", 11),
+          ("gbicLW1550HPTwoGB", 17),
+          ("gbicSWOneGB", 8),
+          ("gbicSWTwoGB", 14),
+          ("longWaveOptical", 3),
+          ("longWaveOpticalDual", 5),
+          ("longWaveOpticalLongDistance", 7),
+          ("noGBIC", 20),
+          ("sfpSWTwoGB", 21),
+          ("shortWaveOptical", 2),
+          ("shortWaveOpticalDual", 4),
+          ("shortWaveOpticalLongDistance", 6),
+          ("unknown", 0))
+    )
+
+
+
+
 
 class FibrePort(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 3, 4, 255))
-    namedValues = NamedValues(("nodeLoop", 0), ("node", 1), ("fabricLoop", 3), ("fabric", 4), ("none", 255))
+    """Custom type FibrePort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              3,
+              4,
+              255)
+        )
+    )
+    namedValues = NamedValues(
+        *(("fabric", 4),
+          ("fabricLoop", 3),
+          ("node", 1),
+          ("nodeLoop", 0),
+          ("none", 255))
+    )
+
+
+
+
 
 class FibreLoopIDMode(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
-    namedValues = NamedValues(("soft", 0), ("hard", 1))
+    """Custom type FibreLoopIDMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("hard", 1),
+          ("soft", 0))
+    )
+
+
+
+
 
 class FibrePortMode(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 17, 18, 19))
-    namedValues = NamedValues(("privateTargetOnly", 1), ("privateInitiatorOnly", 2), ("privateTargetAndInitiator", 3), ("publicTargetOnly", 17), ("publicInitiatorOnly", 18), ("publicTargetAndInitiator", 19))
+    """Custom type FibrePortMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              17,
+              18,
+              19)
+        )
+    )
+    namedValues = NamedValues(
+        *(("privateInitiatorOnly", 2),
+          ("privateTargetAndInitiator", 3),
+          ("privateTargetOnly", 1),
+          ("publicInitiatorOnly", 18),
+          ("publicTargetAndInitiator", 19),
+          ("publicTargetOnly", 17))
+    )
+
+
+
+
 
 class FibreConnOptions(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))
-    namedValues = NamedValues(("loopOnly", 0), ("pointToPointOnly", 1), ("loopPreferred", 2), ("pointToPointPreferred", 3))
+    """Custom type FibreConnOptions based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("loopOnly", 0),
+          ("loopPreferred", 2),
+          ("pointToPointOnly", 1),
+          ("pointToPointPreferred", 3))
+    )
+
+
+
+
 
 class ScsiSpeed(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))
-    namedValues = NamedValues(("async", 0), ("fast", 1), ("ultra", 2), ("ultra2", 3), ("ultra160", 4), ("ultra320", 5))
+    """Custom type ScsiSpeed based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("async", 0),
+          ("fast", 1),
+          ("ultra", 2),
+          ("ultra160", 4),
+          ("ultra2", 3),
+          ("ultra320", 5))
+    )
+
+
+
+
 
 class ScsiCardType(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8))
-    namedValues = NamedValues(("none", 0), ("differentialNoTermination", 1), ("differentialTerminated", 2), ("singleEndedNoTermination", 3), ("singleEndedTerminated", 4), ("unknown", 5), ("lowVoltageSingleEnded", 6), ("lowVoltageDifferential", 7), ("lowVoltageMultiFunction", 8))
+    """Custom type ScsiCardType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("differentialNoTermination", 1),
+          ("differentialTerminated", 2),
+          ("lowVoltageDifferential", 7),
+          ("lowVoltageMultiFunction", 8),
+          ("lowVoltageSingleEnded", 6),
+          ("none", 0),
+          ("singleEndedNoTermination", 3),
+          ("singleEndedTerminated", 4),
+          ("unknown", 5))
+    )
+
+
+
+
 
 class ScsiAnsiLevel(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))
-    namedValues = NamedValues(("notScsi", 0), ("scsi-1", 1), ("scsi-2", 2), ("scsi-3", 3))
+    """Custom type ScsiAnsiLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notScsi", 0),
+          ("scsi-1", 1),
+          ("scsi-2", 2),
+          ("scsi-3", 3))
+    )
+
+
+
+
 
 class HostLUNType(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
-    namedValues = NamedValues(("bit8", 0), ("bit16", 1), ("vsa", 2))
+    """Custom type HostLUNType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("bit16", 1),
+          ("bit8", 0),
+          ("vsa", 2))
+    )
+
+
+
+
 
 class FcHPFRecoveryType(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
-    namedValues = NamedValues(("returnToActive", 0), ("returnToStandby", 1), ("requiresIntervention", 2))
+    """Custom type FcHPFRecoveryType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("requiresIntervention", 2),
+          ("returnToActive", 0),
+          ("returnToStandby", 1))
+    )
+
+
+
+
 
 class FcHPFPortState(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
-    namedValues = NamedValues(("onLine", 0), ("offLine", 1))
+    """Custom type FcHPFPortState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("offLine", 1),
+          ("onLine", 0))
+    )
+
+
+
+
 
 class FcHPFPortFailType(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
-    namedValues = NamedValues(("none", 0), ("linkDown", 1), ("linkError", 2))
+    """Custom type FcHPFPortFailType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("linkDown", 1),
+          ("linkError", 2),
+          ("none", 0))
+    )
 
-agentScalarTable = MibTable((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1), )
-if mibBuilder.loadTexts: agentScalarTable.setStatus('mandatory')
-agentScalarEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1), ).setIndexNames((0, "ADIC-INTELLIGENT-STORAGE-MIB", "componentId"))
-if mibBuilder.loadTexts: agentScalarEntry.setStatus('mandatory')
-paIdentify = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: paIdentify.setStatus('mandatory')
-paReboot = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 2), Reset()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: paReboot.setStatus('mandatory')
-paHealthCheckValue = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 3), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: paHealthCheckValue.setStatus('mandatory')
-paHealthCheckLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("none", 0), ("system", 1), ("interface", 2), ("simpleDevice", 3), ("deviceReady", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: paHealthCheckLevel.setStatus('mandatory')
-paHealthCheckInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 5), Gauge32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: paHealthCheckInterval.setStatus('mandatory')
-paEvRptLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("private", 0), ("notice", 1), ("warning", 2), ("information", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: paEvRptLevel.setStatus('mandatory')
-paEventLogLevels = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(256, 256)).setFixedLength(256)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: paEventLogLevels.setStatus('mandatory')
-paTrapThresholds = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 8), OctetString().subtype(subtypeSpec=ValueSizeConstraint(256, 256)).setFixedLength(256)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: paTrapThresholds.setStatus('mandatory')
-paBaudRate = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("baud9600", 0), ("baud19200", 1), ("baud38400", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: paBaudRate.setStatus('mandatory')
-paLogSize = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 11), Gauge32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: paLogSize.setStatus('mandatory')
-paCommand = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("idle", 0), ("snapshot", 1), ("scroll", 2), ("save", 3), ("clear", 4), ("removeFile", 5), ("logModeCurrent", 6), ("logModeAbsolute", 7), ("doHealthCheck", 8)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: paCommand.setStatus('mandatory')
-paLogBoot = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 13), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: paLogBoot.setStatus('mandatory')
-paLogNCurrent = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 14), Gauge32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: paLogNCurrent.setStatus('mandatory')
-paLogChronFirst = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 15), Gauge32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: paLogChronFirst.setStatus('obsolete')
-paLogChronLast = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 16), Gauge32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: paLogChronLast.setStatus('obsolete')
-paLogScroll = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 17), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: paLogScroll.setStatus('obsolete')
-paLogFilename = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 18), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: paLogFilename.setStatus('mandatory')
-paEnvironmentState = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 19), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: paEnvironmentState.setStatus('mandatory')
-paGatewayFWRev = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 20), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: paGatewayFWRev.setStatus('mandatory')
-paGatewayHWRev = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 21), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: paGatewayHWRev.setStatus('mandatory')
-paSnmpFWRev = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 22), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: paSnmpFWRev.setStatus('mandatory')
-paRidTag = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 23), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: paRidTag.setStatus('mandatory')
-paSerialNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 24), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: paSerialNumber.setStatus('mandatory')
-paServerVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 25), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: paServerVersion.setStatus('mandatory')
-paProductType = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 26), PathlightProduct()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: paProductType.setStatus('mandatory')
-paVPSEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 27), Boolean()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: paVPSEnabled.setStatus('mandatory')
-paLicenseKey = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 28), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: paLicenseKey.setStatus('mandatory')
-paThirdPartyCopyEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 29), Boolean()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: paThirdPartyCopyEnabled.setStatus('mandatory')
-paVPSStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 30), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: paVPSStatus.setStatus('mandatory')
-paThirdPartyCopyStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 31), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: paThirdPartyCopyStatus.setStatus('mandatory')
-paCommandControlLUN = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 32), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: paCommandControlLUN.setStatus('mandatory')
-paSanDirectorEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 33), Boolean()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: paSanDirectorEnabled.setStatus('mandatory')
-paNodeName = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 34), OctetString().subtype(subtypeSpec=ValueSizeConstraint(8, 8)).setFixedLength(8)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: paNodeName.setStatus('mandatory')
-paVPMStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 35), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: paVPMStatus.setStatus('mandatory')
-paSRSStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 36), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: paSRSStatus.setStatus('mandatory')
-paEthernetType = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 37), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: paEthernetType.setStatus('mandatory')
-paTrapSequenceNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 38), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: paTrapSequenceNumber.setStatus('mandatory')
-paSysNodeNameMode = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 39), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("sameForEachPort", 0), ("differentForEachPort", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: paSysNodeNameMode.setStatus('mandatory')
-paGhostIOTimeToLive = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 40), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: paGhostIOTimeToLive.setStatus('mandatory')
-paMaxLun = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 41), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: paMaxLun.setStatus('mandatory')
-paEVPSEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 42), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: paEVPSEnabled.setStatus('mandatory')
-paMaxHostLun = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 43), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: paMaxHostLun.setStatus('mandatory')
-paAMPStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 44), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: paAMPStatus.setStatus('mandatory')
-paEnableAllScsiTargets = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 45), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: paEnableAllScsiTargets.setStatus('mandatory')
-paHPFStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 46), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: paHPFStatus.setStatus('mandatory')
-paSoip2iRescan = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 47), Boolean()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: paSoip2iRescan.setStatus('mandatory')
-paSoipiRescan = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 48), Boolean()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: paSoipiRescan.setStatus('mandatory')
-paFLBStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 49), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: paFLBStatus.setStatus('mandatory')
-paSoip2iScanPeriod = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 50), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: paSoip2iScanPeriod.setStatus('mandatory')
-paCommandFlowLogEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 51), Boolean()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: paCommandFlowLogEnabled.setStatus('mandatory')
-paEventLog = MibTable((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 500), )
-if mibBuilder.loadTexts: paEventLog.setStatus('mandatory')
-paEventLogEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 500, 1), ).setIndexNames((0, "ADIC-SANMGR-PROXY-MIB", "paIndex"))
-if mibBuilder.loadTexts: paEventLogEntry.setStatus('mandatory')
-paIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 500, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: paIndex.setStatus('mandatory')
-paTime = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 500, 1, 2), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: paTime.setStatus('mandatory')
-paProducer = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 500, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: paProducer.setStatus('mandatory')
-paEventClass = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 500, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: paEventClass.setStatus('mandatory')
-paEventCode = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 500, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: paEventCode.setStatus('mandatory')
-paSeq = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 500, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: paSeq.setStatus('mandatory')
-paEventVars = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 500, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 256))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: paEventVars.setStatus('mandatory')
-pdDevices = MibTable((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1), )
-if mibBuilder.loadTexts: pdDevices.setStatus('mandatory')
-pdDevEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1), ).setIndexNames((0, "ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), (0, "ADIC-SANMGR-PROXY-MIB", "pdIndex"))
-if mibBuilder.loadTexts: pdDevEntry.setStatus('mandatory')
-pdIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdIndex.setStatus('mandatory')
-pdUID = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(16, 16)).setFixedLength(16)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdUID.setStatus('mandatory')
-pdType = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 3), DeviceType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdType.setStatus('mandatory')
-pdVendor = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(8, 8)).setFixedLength(8)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdVendor.setStatus('mandatory')
-pdProduct = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(16, 16)).setFixedLength(16)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdProduct.setStatus('mandatory')
-pdBlockSize = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdBlockSize.setStatus('mandatory')
-pdCapacity = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 7), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdCapacity.setStatus('mandatory')
-pdAccess = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdAccess.setStatus('mandatory')
-pdRemovable = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 9), Boolean()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdRemovable.setStatus('mandatory')
-pdStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 10), PltStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdStatus.setStatus('mandatory')
-pdSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 11), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdSpeed.setStatus('mandatory')
-pdWidth = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 12), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdWidth.setStatus('mandatory')
-pdSerial = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 13), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdSerial.setStatus('mandatory')
-pdIdentify = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 14), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pdIdentify.setStatus('mandatory')
-pdInterfaceType = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 15), Interface()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdInterfaceType.setStatus('mandatory')
-pdBus = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 16), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdBus.setStatus('mandatory')
-pdId = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 17), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdId.setStatus('mandatory')
-pdLun = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 18), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdLun.setStatus('mandatory')
-pdCtlrIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 19), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdCtlrIndex.setStatus('mandatory')
-pdHWRev = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 20), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdHWRev.setStatus('mandatory')
-pdFWRev = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 21), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdFWRev.setStatus('mandatory')
-pdReset = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 22), Reset()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pdReset.setStatus('mandatory')
-pdStatusBits = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 23), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdStatusBits.setStatus('mandatory')
-pdScsiAnsiLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 24), ScsiAnsiLevel()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdScsiAnsiLevel.setStatus('mandatory')
-pdTargetLun = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 25), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdTargetLun.setStatus('mandatory')
-pdIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 26), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdIpAddress.setStatus('mandatory')
-pdAltVendor = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 27), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(8, 8)).setFixedLength(8)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdAltVendor.setStatus('mandatory')
-pdAltProduct = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 28), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(16, 16)).setFixedLength(16)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdAltProduct.setStatus('mandatory')
-pcControllers = MibTable((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1), )
-if mibBuilder.loadTexts: pcControllers.setStatus('mandatory')
-pcCtlrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1), ).setIndexNames((0, "ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), (0, "ADIC-SANMGR-PROXY-MIB", "pcIndex"))
-if mibBuilder.loadTexts: pcCtlrEntry.setStatus('mandatory')
-pcIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pcIndex.setStatus('mandatory')
-pcType = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 2), Interface()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pcType.setStatus('mandatory')
-pcVendorId = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 3), VendorIDInt()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pcVendorId.setStatus('mandatory')
-pcProductId = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pcProductId.setStatus('mandatory')
-pcRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pcRevision.setStatus('deprecated')
-pcSubVendor = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pcSubVendor.setStatus('mandatory')
-pcSubProduct = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pcSubProduct.setStatus('mandatory')
-pcMaxBurst = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 8), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pcMaxBurst.setStatus('mandatory')
-pcLatency = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pcLatency.setStatus('mandatory')
-pcIdentify = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 10), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pcIdentify.setStatus('mandatory')
-pcPCIBus = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 11), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pcPCIBus.setStatus('mandatory')
-pcPCIDev = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 12), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pcPCIDev.setStatus('mandatory')
-pcPCIFunc = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 13), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pcPCIFunc.setStatus('mandatory')
-pcReset = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 14), Reset()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pcReset.setStatus('mandatory')
-pcRescan = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 15), Boolean()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pcRescan.setStatus('mandatory')
-pcLED = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 16), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pcLED.setStatus('mandatory')
-pcHWRev = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 17), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pcHWRev.setStatus('mandatory')
-pcFWRev = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 18), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pcFWRev.setStatus('mandatory')
-pcPCISlot = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 19), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pcPCISlot.setStatus('mandatory')
-pcPMCSlot = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 20), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pcPMCSlot.setStatus('mandatory')
-pcPCIClass = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 21), OctetString().subtype(subtypeSpec=ValueSizeConstraint(3, 3)).setFixedLength(3)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pcPCIClass.setStatus('mandatory')
-pcSplitMode = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 22), Boolean()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pcSplitMode.setStatus('mandatory')
-pcChannelMask = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 23), Gauge32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pcChannelMask.setStatus('mandatory')
-pcPortHostType = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 24), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pcPortHostType.setStatus('mandatory')
-pcFCCtlrs = MibTable((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2), )
-if mibBuilder.loadTexts: pcFCCtlrs.setStatus('mandatory')
-fcCtlrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1), ).setIndexNames((0, "ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), (0, "ADIC-SANMGR-PROXY-MIB", "pcIndex"))
-if mibBuilder.loadTexts: fcCtlrEntry.setStatus('mandatory')
-fcStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 1), FcStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcStatus.setStatus('mandatory')
-fcMaxSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 2), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcMaxSpeed.setStatus('mandatory')
-fcWWID = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(17, 17)).setFixedLength(17)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcWWID.setStatus('mandatory')
-fcFWRev = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcFWRev.setStatus('mandatory')
-fcHWRev = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcHWRev.setStatus('mandatory')
-fcLoopID = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 127))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fcLoopID.setStatus('mandatory')
-fcFrameSize = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 7), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fcFrameSize.setStatus('mandatory')
-fcPortType = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 8), FibrePort()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fcPortType.setStatus('mandatory')
-fcMedia = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 9), FibreMedia()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcMedia.setStatus('mandatory')
-fcSerialNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 10), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcSerialNumber.setStatus('mandatory')
-fcLoopIDMode = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 11), FibreLoopIDMode()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcLoopIDMode.setStatus('mandatory')
-fcALPhysicalAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 12), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcALPhysicalAddress.setStatus('mandatory')
-fcPortMode = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 13), FibrePortMode()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fcPortMode.setStatus('mandatory')
-fcConnectionOptions = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 14), FibreConnOptions()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fcConnectionOptions.setStatus('mandatory')
-fcCtlrChipType = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 15), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcCtlrChipType.setStatus('mandatory')
-fcTapeFeature = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 16), Boolean()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcTapeFeature.setStatus('mandatory')
-fcHardID = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 17), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 256))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fcHardID.setStatus('mandatory')
-fcCurrentSpeedSetting = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 18), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fcCurrentSpeedSetting.setStatus('mandatory')
-fcCurrentSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 19), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcCurrentSpeed.setStatus('mandatory')
-fcFrameBufferSize = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 20), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcFrameBufferSize.setStatus('mandatory')
-fcLinkFailureCount = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 21), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcLinkFailureCount.setStatus('mandatory')
-fcLossSyncCount = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 22), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcLossSyncCount.setStatus('mandatory')
-fcLossSignalCount = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 23), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcLossSignalCount.setStatus('mandatory')
-fcProtocolErrorCount = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 24), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcProtocolErrorCount.setStatus('mandatory')
-fcInvalidTxWordCount = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 25), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcInvalidTxWordCount.setStatus('mandatory')
-fcInvalidCRCCount = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 26), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcInvalidCRCCount.setStatus('mandatory')
-fcWWNodeName = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 27), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(17, 17)).setFixedLength(17)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcWWNodeName.setStatus('mandatory')
-fcPortID = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 28), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcPortID.setStatus('mandatory')
-pcSSACtlrs = MibTable((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 3), )
-if mibBuilder.loadTexts: pcSSACtlrs.setStatus('obsolete')
-ssaCtlrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 3, 1), ).setIndexNames((0, "ADIC-SANMGR-PROXY-MIB", "pcIndex"))
-if mibBuilder.loadTexts: ssaCtlrEntry.setStatus('obsolete')
-ssaStatus1 = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 3, 1, 1), PltStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ssaStatus1.setStatus('mandatory')
-ssaStatus2 = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 3, 1, 2), PltStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ssaStatus2.setStatus('mandatory')
-ssaSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("ssa80", 1), ("ssa160", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ssaSpeed.setStatus('mandatory')
-ssaUID = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 3, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(16, 16)).setFixedLength(16)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ssaUID.setStatus('mandatory')
-ssaFWRev = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 3, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ssaFWRev.setStatus('mandatory')
-ssaMaxTarg = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 3, 1, 6), Gauge32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ssaMaxTarg.setStatus('mandatory')
-ssaMaxInit = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 3, 1, 7), Gauge32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ssaMaxInit.setStatus('mandatory')
-ssaPathAlg = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 3, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("default", 0), ("skipInitiators", 1), ("unknown", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ssaPathAlg.setStatus('mandatory')
-ssaHWRev = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 3, 1, 9), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ssaHWRev.setStatus('mandatory')
-ssaMasterPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 3, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ssaMasterPriority.setStatus('mandatory')
-ssaSATAQuota = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 3, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ssaSATAQuota.setStatus('mandatory')
-ssaSATBQuota = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 3, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ssaSATBQuota.setStatus('mandatory')
-ssaSATIQuota = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 3, 1, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ssaSATIQuota.setStatus('mandatory')
-pcSCSICtlrs = MibTable((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 4), )
-if mibBuilder.loadTexts: pcSCSICtlrs.setStatus('mandatory')
-scsiCtlrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 4, 1), ).setIndexNames((0, "ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), (0, "ADIC-SANMGR-PROXY-MIB", "pcIndex"))
-if mibBuilder.loadTexts: scsiCtlrEntry.setStatus('mandatory')
-scsiStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 4, 1, 1), PltStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiStatus.setStatus('mandatory')
-scsiSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 4, 1, 2), ScsiSpeed()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: scsiSpeed.setStatus('mandatory')
-scsiRole = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("target", 0), ("initiator", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: scsiRole.setStatus('mandatory')
-scsiHostId = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 4, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: scsiHostId.setStatus('mandatory')
-scsiMaxSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 4, 1, 5), ScsiSpeed()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: scsiMaxSpeed.setStatus('mandatory')
-scsiTerm = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 4, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1), ("notPresent", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: scsiTerm.setStatus('mandatory')
-scsiIoCard = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 4, 1, 7), ScsiCardType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiIoCard.setStatus('mandatory')
-scsiMaxIds = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 4, 1, 8), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: scsiMaxIds.setStatus('mandatory')
-scsiMaxLuns = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 4, 1, 9), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: scsiMaxLuns.setStatus('mandatory')
-scsiMaxWidth = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 4, 1, 10), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiMaxWidth.setStatus('mandatory')
-scsiHWRev = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 4, 1, 11), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiHWRev.setStatus('mandatory')
-scsiFWRev = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 4, 1, 12), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiFWRev.setStatus('mandatory')
-scsiResetOnPowerUp = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 4, 1, 13), Boolean()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: scsiResetOnPowerUp.setStatus('mandatory')
-scsiMultiInitEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 4, 1, 14), Boolean()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: scsiMultiInitEnabled.setStatus('mandatory')
-scsiAlternateHostId = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 4, 1, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: scsiAlternateHostId.setStatus('mandatory')
-scsiTargetEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 4, 1, 16), Boolean()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiTargetEnabled.setStatus('mandatory')
-pnTrapDest = MibTable((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 5, 1), )
-if mibBuilder.loadTexts: pnTrapDest.setStatus('obsolete')
-pnTrapDestEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 5, 1, 1), ).setIndexNames((0, "ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), (0, "ADIC-SANMGR-PROXY-MIB", "pnIPAddr"), (0, "ADIC-SANMGR-PROXY-MIB", "pnUdpPort"))
-if mibBuilder.loadTexts: pnTrapDestEntry.setStatus('obsolete')
-pnIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 5, 1, 1, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pnIndex.setStatus('obsolete')
-pnIPAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 5, 1, 1, 2), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pnIPAddr.setStatus('obsolete')
-pnUdpPort = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 5, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pnUdpPort.setStatus('obsolete')
-pnTrapStyle = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 5, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("proprietary", 1), ("rfc1215", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pnTrapStyle.setStatus('obsolete')
-pnTrapBroadcastMode = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 5, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pnTrapBroadcastMode.setStatus('mandatory')
-hostCommandTable = MibTable((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 7, 1), )
-if mibBuilder.loadTexts: hostCommandTable.setStatus('mandatory')
-hostCommandEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 7, 1, 1), ).setIndexNames((0, "ADIC-INTELLIGENT-STORAGE-MIB", "componentId"))
-if mibBuilder.loadTexts: hostCommandEntry.setStatus('mandatory')
-hostCommand = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 7, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("commitChanges", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hostCommand.setStatus('mandatory')
-hostInitiator = MibTable((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 7, 2), )
-if mibBuilder.loadTexts: hostInitiator.setStatus('mandatory')
-hostInitiatorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 7, 2, 1), ).setIndexNames((0, "ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), (0, "ADIC-SANMGR-PROXY-MIB", "hostIndex"))
-if mibBuilder.loadTexts: hostInitiatorEntry.setStatus('mandatory')
-hostIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 7, 2, 1, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hostIndex.setStatus('mandatory')
-hostRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 7, 2, 1, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hostRowStatus.setStatus('mandatory')
-hostWWName = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 7, 2, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hostWWName.setStatus('mandatory')
-hostName = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 7, 2, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hostName.setStatus('mandatory')
-hostType = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 7, 2, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hostType.setStatus('mandatory')
-hostPortID = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 7, 2, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hostPortID.setStatus('mandatory')
-hostSANConnection = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 7, 2, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hostSANConnection.setStatus('mandatory')
-hostConnectionType = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 7, 2, 1, 8), Interface()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hostConnectionType.setStatus('mandatory')
-hostITLData = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 7, 2, 1, 9), OctetString().subtype(subtypeSpec=ValueSizeConstraint(256, 256)).setFixedLength(256)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hostITLData.setStatus('mandatory')
-hostIPAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 7, 2, 1, 10), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hostIPAddr.setStatus('mandatory')
-hostLunType = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 7, 2, 1, 11), HostLUNType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hostLunType.setStatus('mandatory')
-hostLunMap = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 7, 2, 1, 12), OctetString().subtype(subtypeSpec=ValueSizeConstraint(512, 512)).setFixedLength(512)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hostLunMap.setStatus('mandatory')
-hostInbandAccess = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 7, 2, 1, 13), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hostInbandAccess.setStatus('mandatory')
-scsiMapCommandTable = MibTable((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 8, 1), )
-if mibBuilder.loadTexts: scsiMapCommandTable.setStatus('mandatory')
-scsiMapCommandEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 8, 1, 1), ).setIndexNames((0, "ADIC-INTELLIGENT-STORAGE-MIB", "componentId"))
-if mibBuilder.loadTexts: scsiMapCommandEntry.setStatus('mandatory')
-scsiMapCommand = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 8, 1, 1, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: scsiMapCommand.setStatus('mandatory')
-scsiChannelMap = MibTable((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 8, 2), )
-if mibBuilder.loadTexts: scsiChannelMap.setStatus('mandatory')
-scsiMapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 8, 2, 1), ).setIndexNames((0, "ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), (0, "ADIC-SANMGR-PROXY-MIB", "scsiMapPort"), (0, "ADIC-SANMGR-PROXY-MIB", "scsiMapTid"), (0, "ADIC-SANMGR-PROXY-MIB", "scsiMapLun"))
-if mibBuilder.loadTexts: scsiMapEntry.setStatus('mandatory')
-scsiMapRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 8, 2, 1, 1), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: scsiMapRowStatus.setStatus('mandatory')
-scsiMapPort = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 8, 2, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiMapPort.setStatus('mandatory')
-scsiMapTid = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 8, 2, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiMapTid.setStatus('mandatory')
-scsiMapLun = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 8, 2, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiMapLun.setStatus('mandatory')
-scsiMapAssignedLun = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 8, 2, 1, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: scsiMapAssignedLun.setStatus('mandatory')
-scsiMapComments = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 8, 2, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: scsiMapComments.setStatus('mandatory')
-scsiMapPdIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 8, 2, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiMapPdIndex.setStatus('mandatory')
-deviceMapCommandTable = MibTable((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 9, 1), )
-if mibBuilder.loadTexts: deviceMapCommandTable.setStatus('mandatory')
-deviceMapCommandEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 9, 1, 1), ).setIndexNames((0, "ADIC-INTELLIGENT-STORAGE-MIB", "componentId"))
-if mibBuilder.loadTexts: deviceMapCommandEntry.setStatus('mandatory')
-deviceMapCommand = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 9, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("clearCopy", 1), ("commit", 2), ("winnow", 3), ("mapClearDatabase", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: deviceMapCommand.setStatus('mandatory')
-deviceMapMultipathMode = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 9, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("single", 0), ("manual", 1), ("auto", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: deviceMapMultipathMode.setStatus('mandatory')
-deviceMapRemoveDevice = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 9, 1, 1, 3), Integer32()).setMaxAccess("writeonly")
-if mibBuilder.loadTexts: deviceMapRemoveDevice.setStatus('mandatory')
-deviceLoadBalancingMode = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 9, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: deviceLoadBalancingMode.setStatus('mandatory')
-dmDeviceMap = MibTable((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 9, 2), )
-if mibBuilder.loadTexts: dmDeviceMap.setStatus('mandatory')
-dmDevMapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 9, 2, 1), ).setIndexNames((0, "ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), (0, "ADIC-SANMGR-PROXY-MIB", "dmAssignedLun"))
-if mibBuilder.loadTexts: dmDevMapEntry.setStatus('mandatory')
-dmRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 9, 2, 1, 1), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dmRowStatus.setStatus('mandatory')
-dmAssignedLun = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 9, 2, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dmAssignedLun.setStatus('mandatory')
-dmType = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 9, 2, 1, 3), Interface()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dmType.setStatus('mandatory')
-dmPort = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 9, 2, 1, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dmPort.setStatus('mandatory')
-dmTargetId = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 9, 2, 1, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dmTargetId.setStatus('mandatory')
-dmTargetLun = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 9, 2, 1, 6), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dmTargetLun.setStatus('mandatory')
-dmUid = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 9, 2, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(8, 8)).setFixedLength(8)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dmUid.setStatus('mandatory')
-dmPath = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 9, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("single", 0), ("manual", 1), ("auto", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dmPath.setStatus('mandatory')
-dmSerialNum = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 9, 2, 1, 9), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dmSerialNum.setStatus('mandatory')
-srsDevTable = MibTable((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 1), )
-if mibBuilder.loadTexts: srsDevTable.setStatus('mandatory')
-srsDevEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 1, 1), ).setIndexNames((0, "ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), (0, "ADIC-SANMGR-PROXY-MIB", "srsDevId"))
-if mibBuilder.loadTexts: srsDevEntry.setStatus('mandatory')
-srsDevId = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: srsDevId.setStatus('mandatory')
-srsDevState = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("unknown", 0), ("initialized", 1), ("online", 2), ("error", 3), ("deleted", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: srsDevState.setStatus('mandatory')
-srsDevCommand = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("create", 1), ("remove", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: srsDevCommand.setStatus('mandatory')
-srsDevAssignedLun = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 1, 1, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: srsDevAssignedLun.setStatus('mandatory')
-srsDevMemberCount = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 1, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: srsDevMemberCount.setStatus('mandatory')
-srsDevMembersOnline = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 1, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: srsDevMembersOnline.setStatus('mandatory')
-srsDevFlags = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 1, 1, 7), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: srsDevFlags.setStatus('mandatory')
-srsDevSizeInBlocks = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 1, 1, 8), Gauge32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: srsDevSizeInBlocks.setStatus('mandatory')
-srsDevBlockSize = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 1, 1, 9), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: srsDevBlockSize.setStatus('mandatory')
-srsDevPrimary = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 1, 1, 10), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: srsDevPrimary.setStatus('mandatory')
-srsMemTable = MibTable((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 2), )
-if mibBuilder.loadTexts: srsMemTable.setStatus('mandatory')
-srsMemEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 2, 1), ).setIndexNames((0, "ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), (0, "ADIC-SANMGR-PROXY-MIB", "srsMemDeviceId"), (0, "ADIC-SANMGR-PROXY-MIB", "srsMemId"))
-if mibBuilder.loadTexts: srsMemEntry.setStatus('mandatory')
-srsMemDeviceId = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 2, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: srsMemDeviceId.setStatus('mandatory')
-srsMemId = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 2, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: srsMemId.setStatus('mandatory')
-srsMemState = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("unknown", 0), ("online", 1), ("synchronized", 2), ("synchronizing", 3), ("suspended", 4), ("readError", 5), ("writeError", 6), ("offline", 7)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: srsMemState.setStatus('mandatory')
-srsMemCommand = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("memberAdd", 1), ("suspend", 2), ("resume", 3), ("remove", 4), ("primarySet", 5), ("fullSynchronize", 6), ("quickSynchronize", 7), ("memberChange", 8)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: srsMemCommand.setStatus('mandatory')
-srsMemType = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("primary", 1), ("secondary", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: srsMemType.setStatus('mandatory')
-srsMemSyncPoint = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 2, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: srsMemSyncPoint.setStatus('mandatory')
-srsMemAssignedLun = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 2, 1, 7), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: srsMemAssignedLun.setStatus('mandatory')
-srsMemReadOptions = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("enabled", 0), ("disabled", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: srsMemReadOptions.setStatus('mandatory')
-srsMemWriteOptions = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 2, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("synchronous", 0), ("asynchronous", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: srsMemWriteOptions.setStatus('mandatory')
-envDataTable = MibTable((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 11, 1), )
-if mibBuilder.loadTexts: envDataTable.setStatus('mandatory')
-envDataEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 11, 1, 1), ).setIndexNames((0, "ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), (0, "ADIC-SANMGR-PROXY-MIB", "envDataId"))
-if mibBuilder.loadTexts: envDataEntry.setStatus('mandatory')
-envDataId = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 11, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: envDataId.setStatus('mandatory')
-envDataName = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 11, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: envDataName.setStatus('mandatory')
-envNominalLo = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 11, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: envNominalLo.setStatus('mandatory')
-envNominalHi = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 11, 1, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: envNominalHi.setStatus('mandatory')
-envWarningLo = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 11, 1, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: envWarningLo.setStatus('mandatory')
-envWarningHi = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 11, 1, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: envWarningHi.setStatus('mandatory')
-envCurValue = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 11, 1, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: envCurValue.setStatus('mandatory')
-envCurStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 11, 1, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: envCurStatus.setStatus('mandatory')
-envUnit = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 11, 1, 1, 9), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: envUnit.setStatus('mandatory')
-fcHostPortFailover = MibIdentifier((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1))
-fcHPFPortMappings = MibTable((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1, 1), )
-if mibBuilder.loadTexts: fcHPFPortMappings.setStatus('mandatory')
-fcHPFMapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1, 1, 1), ).setIndexNames((0, "ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), (0, "ADIC-SANMGR-PROXY-MIB", "fcHPFMapVirtualPort"))
-if mibBuilder.loadTexts: fcHPFMapEntry.setStatus('mandatory')
-fcHPFMapRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1, 1, 1, 1), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fcHPFMapRowStatus.setStatus('mandatory')
-fcHPFMapVirtualPort = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1, 1, 1, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fcHPFMapVirtualPort.setStatus('mandatory')
-fcHPFMapPrimaryPort = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1, 1, 1, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fcHPFMapPrimaryPort.setStatus('mandatory')
-fcHPFMapStandbyList = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1, 1, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(256, 256)).setFixedLength(256)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fcHPFMapStandbyList.setStatus('mandatory')
-fcHPFMapActivePort = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1, 1, 1, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fcHPFMapActivePort.setStatus('mandatory')
-fcHPFPhysicalPorts = MibTable((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1, 2), )
-if mibBuilder.loadTexts: fcHPFPhysicalPorts.setStatus('mandatory')
-fcHPFPhysicalPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1, 2, 1), ).setIndexNames((0, "ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), (0, "ADIC-SANMGR-PROXY-MIB", "fcHPFPhysicalPort"))
-if mibBuilder.loadTexts: fcHPFPhysicalPortEntry.setStatus('mandatory')
-fcHPFPhysicalPortRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1, 2, 1, 1), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fcHPFPhysicalPortRowStatus.setStatus('mandatory')
-fcHPFPhysicalPort = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1, 2, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcHPFPhysicalPort.setStatus('mandatory')
-fcHPFPhysicalPortFailureType = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1, 2, 1, 3), FcHPFPortFailType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcHPFPhysicalPortFailureType.setStatus('mandatory')
-fcHPFPhysicalPortCurrentState = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1, 2, 1, 4), FcHPFPortState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcHPFPhysicalPortCurrentState.setStatus('mandatory')
-fcHPFPhysicalPortIntervention = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1, 2, 1, 5), Boolean()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fcHPFPhysicalPortIntervention.setStatus('mandatory')
-fcHPFGlobalTable = MibTable((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1, 3), )
-if mibBuilder.loadTexts: fcHPFGlobalTable.setStatus('mandatory')
-fcHPFGlobalEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1, 3, 1), ).setIndexNames((0, "ADIC-INTELLIGENT-STORAGE-MIB", "componentId"))
-if mibBuilder.loadTexts: fcHPFGlobalEntry.setStatus('mandatory')
-fcHPFLinkDownThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1, 3, 1, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fcHPFLinkDownThreshold.setStatus('mandatory')
-fcHPFErrorRecoveryMode = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1, 3, 1, 2), FcHPFRecoveryType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fcHPFErrorRecoveryMode.setStatus('mandatory')
-fcHPFLinkDownRecoveryMode = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1, 3, 1, 3), FcHPFRecoveryType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fcHPFLinkDownRecoveryMode.setStatus('mandatory')
-utilityModuleTable = MibTable((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 13, 1), )
-if mibBuilder.loadTexts: utilityModuleTable.setStatus('mandatory')
-utilityModuleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 13, 1, 1), ).setIndexNames((0, "ADIC-SANMGR-PROXY-MIB", "utilityModuleId"))
-if mibBuilder.loadTexts: utilityModuleEntry.setStatus('mandatory')
-utilityModuleId = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 13, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: utilityModuleId.setStatus('mandatory')
-utilityModuleVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 13, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: utilityModuleVersion.setStatus('mandatory')
-ssaPortUpEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,1)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-ssaPortDownEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,2)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-ssaUidAddedEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,3)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-ssaUidRemovedEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,4)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-ssaWebReconfiguredEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,5)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-ssaAsyncErrorEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,6)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-ssaAdapterEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,7)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-senseDataEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,8)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-unitAttentionEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,9)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-ibfEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,10)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-temperatureChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,11)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-timeReferenceEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,12)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-shutdownEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,13)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-diagnosticEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,14)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-configurationEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,15)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-unexpectedScsiInterruptEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,16)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-lipResetEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,17)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-fcSystemErrorEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,18)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-fcRequestTransferErrorEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,19)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-fcResponseTransferErrorEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,20)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-memoryFaultEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,21)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-fcLipEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,22)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-fcLoopUpEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,23)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-fcLoopDownEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,24)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-pciBusParityErrorEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,25)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-pciInterfaceErrorEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,26)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-scsiDeviceAddedEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,27)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-scsiBusResetEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,28)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-deviceAddedEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,29)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-deviceRemovedEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,30)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-loggingStartedEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,31)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-loggingStoppedEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,32)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-interfaceBusFaultEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,33)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-interfaceDeviceFaultEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,34)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-scsiUnexpectedDisconnectEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,35)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-scsiParityErrorEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,36)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-fcPortDatabaseChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,37)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-ddfMemoryErrorEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,38)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-fcDirectoryServerChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,39)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-lunLimitExcededEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,40)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-fcTransferFailureEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,41)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-deviceLimitExcededEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,42)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-fcDebugDumpEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,43)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-excessiveScsiBusErrorsEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,44)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-memoryScrubberErrorEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,45)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-srsDeviceCreatedEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,46)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-srsDeviceOnlineEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,47)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-srsDeviceRemovedEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,48)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-srsDeviceFailedEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,49)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-srsMemberAddedEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,50)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-srsMemberSuspendedEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,51)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-srsMemberRemovedEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,52)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-srsMemberSyncStartedEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,53)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-srsMemberSyncDoneEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,54)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-srsMemberSyncErrorEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,55)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-srsMemberRetryEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,56)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-srsMemberErrorEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,57)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-envPowerNominalEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,58)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-envPowerWarningEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,59)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-envPowerAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,60)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-envTemperatureNominalEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,61)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-envInletTemperatureWarningEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,62)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-envInletTemperatureAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,63)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-envOutletTemperatureWarningEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,64)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-envOutletTemperatureAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,65)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-envFanNominalEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,66)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-envFanWarningEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,67)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-envFanAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,68)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-eccMemoryErrorEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,69)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-restartCompleteEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,70)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-firmwareUploadCompleteEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,71)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-maxInitiatorsExceededEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,72)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-dataPathFailoverEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,73)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-amemWarningEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,74)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-hostOfflineEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,75)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-hostOnlineEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,76)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-hostPortFailoverEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,77)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-hpfRequiresInterventionEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,78)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-controllerResetCompletedEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,79)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-controllerStatusChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,80)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-ethFailoverEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,81)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-memUsageWarningEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,82)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-taskSuspendedWarningEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,83)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-umTaskWatchdogWarningEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,84)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-dataPathTrespassEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,85)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-deviceListChangedEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,86)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-autoLevelStart = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,87)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-autoLevelEnd = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,88)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-autoLevelError = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,89)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-corruptNVRAMError = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,90)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-powerSupplyOutOfSpecEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,100)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-auxPowerOutOfSpecEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,101)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-newTemperatureChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,102)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-newPciErrorsEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,103)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-newMemoryParityErrorsEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,104)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-pciBusInterfaceErrorEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,105)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-fcInterfaceFailureEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,106)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-scsiInterfaceFailureEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,107)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-ssaInterfaceFailureEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,108)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-deviceFailureEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,109)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-fcLinkStatusChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,110)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-newFcTranferErrorsEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,111)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-envFanEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,112)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-envPowerEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,113)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-envTemperatureEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,114)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-eccMemoryHealthCheckEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,115)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-eccMemoryScrubberEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,116)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-deviceRecoverEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,118)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"), ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"), ("ADIC-SANMGR-PROXY-MIB", "paTime"), ("ADIC-SANMGR-PROXY-MIB", "paProducer"), ("ADIC-SANMGR-PROXY-MIB", "paEventClass"), ("ADIC-SANMGR-PROXY-MIB", "paEventCode"), ("ADIC-SANMGR-PROXY-MIB", "paSeq"), ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
-logWillOverwriteEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,150)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"))
-bootCompletedEvent = NotificationType((1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000) + (0,4444)).setObjects(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"))
-mibBuilder.exportSymbols("ADIC-SANMGR-PROXY-MIB", fcWWNodeName=fcWWNodeName, unexpectedScsiInterruptEvent=unexpectedScsiInterruptEvent, eccMemoryScrubberEvent=eccMemoryScrubberEvent, paVPSStatus=paVPSStatus, FcHPFPortState=FcHPFPortState, srsDevMembersOnline=srsDevMembersOnline, srsMemTable=srsMemTable, timeReferenceEvent=timeReferenceEvent, envNominalHi=envNominalHi, srsMemberAddedEvent=srsMemberAddedEvent, fcResponseTransferErrorEvent=fcResponseTransferErrorEvent, bootCompletedEvent=bootCompletedEvent, scsiMaxWidth=scsiMaxWidth, shutdownEvent=shutdownEvent, pdProduct=pdProduct, paLicenseKey=paLicenseKey, pcReset=pcReset, hostInitiatorEntry=hostInitiatorEntry, pcLED=pcLED, pdType=pdType, envTemperatureNominalEvent=envTemperatureNominalEvent, srsDevFlags=srsDevFlags, ssaPortDownEvent=ssaPortDownEvent, dmDeviceMap=dmDeviceMap, fcPortType=fcPortType, newTemperatureChangeEvent=newTemperatureChangeEvent, fcStatus=fcStatus, fcHPFLinkDownRecoveryMode=fcHPFLinkDownRecoveryMode, fcHPFPortMappings=fcHPFPortMappings, fcPortDatabaseChangeEvent=fcPortDatabaseChangeEvent, paSoip2iScanPeriod=paSoip2iScanPeriod, deviceLimitExcededEvent=deviceLimitExcededEvent, pdDevEntry=pdDevEntry, scsiMapCommandTable=scsiMapCommandTable, memUsageWarningEvent=memUsageWarningEvent, pnTrapStyle=pnTrapStyle, dmPath=dmPath, ssaPortUpEvent=ssaPortUpEvent, unitAttentionEvent=unitAttentionEvent, ssaSATIQuota=ssaSATIQuota, FcHPFPortFailType=FcHPFPortFailType, envDataName=envDataName, hostIndex=hostIndex, envDataId=envDataId, paEVPSEnabled=paEVPSEnabled, ssaMasterPriority=ssaMasterPriority, dmRowStatus=dmRowStatus, dmDevMapEntry=dmDevMapEntry, paSRSStatus=paSRSStatus, pcIdentify=pcIdentify, dmAssignedLun=dmAssignedLun, utilityModule=utilityModule, pciInterfaceErrorEvent=pciInterfaceErrorEvent, envInletTemperatureWarningEvent=envInletTemperatureWarningEvent, interfaceBusFaultEvent=interfaceBusFaultEvent, pdIdentify=pdIdentify, scsiStatus=scsiStatus, ScsiCardType=ScsiCardType, pcCtlrEntry=pcCtlrEntry, Reset=Reset, deviceMapCommand=deviceMapCommand, fcHPFPhysicalPortEntry=fcHPFPhysicalPortEntry, ssaAsyncErrorEvent=ssaAsyncErrorEvent, fcLinkStatusChangeEvent=fcLinkStatusChangeEvent, pdAltProduct=pdAltProduct, ScsiSpeed=ScsiSpeed, ssaWebReconfiguredEvent=ssaWebReconfiguredEvent, paLogBoot=paLogBoot, pcRescan=pcRescan, hostType=hostType, dmTargetLun=dmTargetLun, paThirdPartyCopyStatus=paThirdPartyCopyStatus, controllerStatusChangeEvent=controllerStatusChangeEvent, envPowerEvent=envPowerEvent, pdIndex=pdIndex, scsiInterfaceFailureEvent=scsiInterfaceFailureEvent, trapDefinition=trapDefinition, pcLatency=pcLatency, pciBusParityErrorEvent=pciBusParityErrorEvent, scsiHostId=scsiHostId, hostWWName=hostWWName, notification=notification, pcSubVendor=pcSubVendor, fcFWRev=fcFWRev, paSoipiRescan=paSoipiRescan, DeviceType=DeviceType, FibreLoopIDMode=FibreLoopIDMode, scsiMaxIds=scsiMaxIds, pcHWRev=pcHWRev, paTrapThresholds=paTrapThresholds, fcRequestTransferErrorEvent=fcRequestTransferErrorEvent, envOutletTemperatureWarningEvent=envOutletTemperatureWarningEvent, hostRowStatus=hostRowStatus, srsDeviceOnlineEvent=srsDeviceOnlineEvent, hostPortID=hostPortID, pnUdpPort=pnUdpPort, excessiveScsiBusErrorsEvent=excessiveScsiBusErrorsEvent, hostCommand=hostCommand, envWarningHi=envWarningHi, pnTrapDestEntry=pnTrapDestEntry, fcHPFPhysicalPortRowStatus=fcHPFPhysicalPortRowStatus, fcHWRev=fcHWRev, pcPCIClass=pcPCIClass, VendorIDInt=VendorIDInt, fcHPFMapRowStatus=fcHPFMapRowStatus, scsiParityErrorEvent=scsiParityErrorEvent, pdLun=pdLun, controllers=controllers, scsiMapRowStatus=scsiMapRowStatus, fcLinkFailureCount=fcLinkFailureCount, replication=replication, envPowerNominalEvent=envPowerNominalEvent, deviceLoadBalancingMode=deviceLoadBalancingMode, paFLBStatus=paFLBStatus, eccMemoryErrorEvent=eccMemoryErrorEvent, pdScsiAnsiLevel=pdScsiAnsiLevel, fcHPFLinkDownThreshold=fcHPFLinkDownThreshold, scsiMap=scsiMap, memoryFaultEvent=memoryFaultEvent, paVPMStatus=paVPMStatus, paRidTag=paRidTag, pcVendorId=pcVendorId, FcHPFRecoveryType=FcHPFRecoveryType, logWillOverwriteEvent=logWillOverwriteEvent, ssaUID=ssaUID, hostInbandAccess=hostInbandAccess, envUnit=envUnit, hostOnlineEvent=hostOnlineEvent, autoLevelEnd=autoLevelEnd, pcPortHostType=pcPortHostType, dmSerialNum=dmSerialNum, fcHPFPhysicalPortCurrentState=fcHPFPhysicalPortCurrentState, scsiUnexpectedDisconnectEvent=scsiUnexpectedDisconnectEvent, hostConnectionType=hostConnectionType, paMaxHostLun=paMaxHostLun, envCurValue=envCurValue, envFanAlarmEvent=envFanAlarmEvent, HostLUNType=HostLUNType, pcPCIBus=pcPCIBus, utilityModuleId=utilityModuleId, newPciErrorsEvent=newPciErrorsEvent, pcControllers=pcControllers, devices=devices, paReboot=paReboot, fcHPFPhysicalPort=fcHPFPhysicalPort, pcSCSICtlrs=pcSCSICtlrs, scsiChannelMap=scsiChannelMap, paSanDirectorEnabled=paSanDirectorEnabled, srsMemCommand=srsMemCommand, ddfMemoryErrorEvent=ddfMemoryErrorEvent, scsiCtlrEntry=scsiCtlrEntry, fcHardID=fcHardID, pdRemovable=pdRemovable, pdInterfaceType=pdInterfaceType, paHPFStatus=paHPFStatus, deviceFailureEvent=deviceFailureEvent, paSysNodeNameMode=paSysNodeNameMode, ibfEvent=ibfEvent, fcLoopID=fcLoopID, pdStatusBits=pdStatusBits, srsDeviceCreatedEvent=srsDeviceCreatedEvent, envPowerWarningEvent=envPowerWarningEvent, pcPCIDev=pcPCIDev, dataPathTrespassEvent=dataPathTrespassEvent, paEventClass=paEventClass, envData=envData, fcHPFPhysicalPortIntervention=fcHPFPhysicalPortIntervention, FcStatus=FcStatus, fcInvalidCRCCount=fcInvalidCRCCount, pnIndex=pnIndex, hostCommandEntry=hostCommandEntry, memoryScrubberErrorEvent=memoryScrubberErrorEvent, paLogScroll=paLogScroll, loggingStartedEvent=loggingStartedEvent, hostSANConnection=hostSANConnection, pdTargetLun=pdTargetLun, hpfRequiresInterventionEvent=hpfRequiresInterventionEvent, paGhostIOTimeToLive=paGhostIOTimeToLive, scsiDeviceAddedEvent=scsiDeviceAddedEvent, fcDirectoryServerChangeEvent=fcDirectoryServerChangeEvent, srsMemEntry=srsMemEntry, envFanNominalEvent=envFanNominalEvent, envTemperatureEvent=envTemperatureEvent, srsMemberErrorEvent=srsMemberErrorEvent, fcCurrentSpeedSetting=fcCurrentSpeedSetting, amemWarningEvent=amemWarningEvent, ScsiAnsiLevel=ScsiAnsiLevel, portFailover=portFailover, scsiAlternateHostId=scsiAlternateHostId, paEnableAllScsiTargets=paEnableAllScsiTargets, paSeq=paSeq, pdId=pdId, envFanEvent=envFanEvent, pnTrapDest=pnTrapDest, paEthernetType=paEthernetType, agentScalarEntry=agentScalarEntry, srsMemberRetryEvent=srsMemberRetryEvent, RowStatus=RowStatus, pdUID=pdUID, pcChannelMask=pcChannelMask, fcHPFMapStandbyList=fcHPFMapStandbyList, srsMemberSyncDoneEvent=srsMemberSyncDoneEvent, autoLevelError=autoLevelError, paEventVars=paEventVars, dmType=dmType, lunLimitExcededEvent=lunLimitExcededEvent, utilityModuleVersion=utilityModuleVersion, ssaHWRev=ssaHWRev, hostIPAddr=hostIPAddr, scsiMapComments=scsiMapComments, hostInitiator=hostInitiator, paThirdPartyCopyEnabled=paThirdPartyCopyEnabled, paEventCode=paEventCode, utilityModuleTable=utilityModuleTable, scsiMapPort=scsiMapPort, scsiMultiInitEnabled=scsiMultiInitEnabled, scsiMaxSpeed=scsiMaxSpeed, panelLED=panelLED, envInletTemperatureAlarmEvent=envInletTemperatureAlarmEvent, scsiMapCommand=scsiMapCommand, scsiMapEntry=scsiMapEntry, scsiMapAssignedLun=scsiMapAssignedLun, fcLipEvent=fcLipEvent, ssaSpeed=ssaSpeed, fcPortID=fcPortID, fcConnectionOptions=fcConnectionOptions, pnIPAddr=pnIPAddr, agentScalarTable=agentScalarTable, pdDevices=pdDevices, pcSSACtlrs=pcSSACtlrs, ssaFWRev=ssaFWRev, pdWidth=pdWidth, umTaskWatchdogWarningEvent=umTaskWatchdogWarningEvent, srsMemSyncPoint=srsMemSyncPoint, pathlight=pathlight, fcProtocolErrorCount=fcProtocolErrorCount, pdBus=pdBus, temperatureChangeEvent=temperatureChangeEvent, envWarningLo=envWarningLo, dataPathFailoverEvent=dataPathFailoverEvent, pcProductId=pcProductId, fcHPFGlobalEntry=fcHPFGlobalEntry, envDataTable=envDataTable, deviceMapCommandEntry=deviceMapCommandEntry, fcHPFMapPrimaryPort=fcHPFMapPrimaryPort, fcHostPortFailover=fcHostPortFailover, srsDevEntry=srsDevEntry, paEnvironmentState=paEnvironmentState, hostLunMap=hostLunMap, pdSerial=pdSerial, scsiRole=scsiRole, ssaMaxTarg=ssaMaxTarg, ssaStatus2=ssaStatus2, scsiFWRev=scsiFWRev)
-mibBuilder.exportSymbols("ADIC-SANMGR-PROXY-MIB", scsiSpeed=scsiSpeed, scsiMapLun=scsiMapLun, srsDevTable=srsDevTable, fcLoopDownEvent=fcLoopDownEvent, srsDevBlockSize=srsDevBlockSize, scsiMapCommandEntry=scsiMapCommandEntry, pdIpAddress=pdIpAddress, envFanWarningEvent=envFanWarningEvent, restartCompleteEvent=restartCompleteEvent, fcALPhysicalAddress=fcALPhysicalAddress, srsMemDeviceId=srsMemDeviceId, deviceListChangedEvent=deviceListChangedEvent, pcMaxBurst=pcMaxBurst, corruptNVRAMError=corruptNVRAMError, paMaxLun=paMaxLun, sanmgr_proxy=sanmgr_proxy, hostCommandTable=hostCommandTable, ssaMaxInit=ssaMaxInit, paEventLogEntry=paEventLogEntry, scsiMaxLuns=scsiMaxLuns, paCommandControlLUN=paCommandControlLUN, paIndex=paIndex, dmPort=dmPort, FibrePortMode=FibrePortMode, paNodeName=paNodeName, paProducer=paProducer, pcSplitMode=pcSplitMode, pdCapacity=pdCapacity, paSoip2iRescan=paSoip2iRescan, paHealthCheckValue=paHealthCheckValue, envCurStatus=envCurStatus, deviceMapMultipathMode=deviceMapMultipathMode, fcHPFMapActivePort=fcHPFMapActivePort, ethFailoverEvent=ethFailoverEvent, pdCtlrIndex=pdCtlrIndex, newFcTranferErrorsEvent=newFcTranferErrorsEvent, srsMemState=srsMemState, dmTargetId=dmTargetId, fcLoopIDMode=fcLoopIDMode, envNominalLo=envNominalLo, scsiIoCard=scsiIoCard, pdReset=pdReset, ssaPathAlg=ssaPathAlg, pdAltVendor=pdAltVendor, paLogChronLast=paLogChronLast, FibreConnOptions=FibreConnOptions, pdBlockSize=pdBlockSize, ssaCtlrEntry=ssaCtlrEntry, srsMemberSyncErrorEvent=srsMemberSyncErrorEvent, paLogSize=paLogSize, powerSupplyOutOfSpecEvent=powerSupplyOutOfSpecEvent, fcHPFPhysicalPortFailureType=fcHPFPhysicalPortFailureType, interfaceDeviceFaultEvent=interfaceDeviceFaultEvent, paHealthCheckLevel=paHealthCheckLevel, PathlightProduct=PathlightProduct, scsiTargetEnabled=scsiTargetEnabled, agent=agent, fcLossSyncCount=fcLossSyncCount, pcPCISlot=pcPCISlot, paLogFilename=paLogFilename, srsMemberRemovedEvent=srsMemberRemovedEvent, eccMemoryHealthCheckEvent=eccMemoryHealthCheckEvent, fcWWID=fcWWID, maxInitiatorsExceededEvent=maxInitiatorsExceededEvent, lipResetEvent=lipResetEvent, srsMemAssignedLun=srsMemAssignedLun, fcFrameBufferSize=fcFrameBufferSize, scsiResetOnPowerUp=scsiResetOnPowerUp, deviceAddedEvent=deviceAddedEvent, fcTransferFailureEvent=fcTransferFailureEvent, fcCtlrEntry=fcCtlrEntry, hostPortFailoverEvent=hostPortFailoverEvent, ssaStatus1=ssaStatus1, fcHPFPhysicalPorts=fcHPFPhysicalPorts, paIdentify=paIdentify, fcCurrentSpeed=fcCurrentSpeed, auxPowerOutOfSpecEvent=auxPowerOutOfSpecEvent, srsDevId=srsDevId, paEventLog=paEventLog, srsDevMemberCount=srsDevMemberCount, envDataEntry=envDataEntry, pcFCCtlrs=pcFCCtlrs, pnTrapBroadcastMode=pnTrapBroadcastMode, srsDevAssignedLun=srsDevAssignedLun, fcHPFErrorRecoveryMode=fcHPFErrorRecoveryMode, Boolean=Boolean, fcSystemErrorEvent=fcSystemErrorEvent, fcInvalidTxWordCount=fcInvalidTxWordCount, paEvRptLevel=paEvRptLevel, srsDeviceRemovedEvent=srsDeviceRemovedEvent, paSnmpFWRev=paSnmpFWRev, fcCtlrChipType=fcCtlrChipType, ssaInterfaceFailureEvent=ssaInterfaceFailureEvent, pciBusInterfaceErrorEvent=pciBusInterfaceErrorEvent, fcHPFGlobalTable=fcHPFGlobalTable, deviceRemovedEvent=deviceRemovedEvent, diagnosticEvent=diagnosticEvent, fcLossSignalCount=fcLossSignalCount, ssaUidRemovedEvent=ssaUidRemovedEvent, configurationEvent=configurationEvent, pcPMCSlot=pcPMCSlot, fcLoopUpEvent=fcLoopUpEvent, envPowerAlarmEvent=envPowerAlarmEvent, Interface=Interface, srsMemReadOptions=srsMemReadOptions, loggingStoppedEvent=loggingStoppedEvent, srsMemberSuspendedEvent=srsMemberSuspendedEvent, paEventLogLevels=paEventLogLevels, paHealthCheckInterval=paHealthCheckInterval, paTrapSequenceNumber=paTrapSequenceNumber, ssaSATBQuota=ssaSATBQuota, senseDataEvent=senseDataEvent, pdHWRev=pdHWRev, pcIndex=pcIndex, fcTapeFeature=fcTapeFeature, fcInterfaceFailureEvent=fcInterfaceFailureEvent, paLogChronFirst=paLogChronFirst, deviceRecoverEvent=deviceRecoverEvent, scsiBusResetEvent=scsiBusResetEvent, scsiMapPdIndex=scsiMapPdIndex, hostName=hostName, pcPCIFunc=pcPCIFunc, envOutletTemperatureAlarmEvent=envOutletTemperatureAlarmEvent, srsDevCommand=srsDevCommand, paHost=paHost, FibrePort=FibrePort, paTime=paTime, autoLevelStart=autoLevelStart, paProductType=paProductType, taskSuspendedWarningEvent=taskSuspendedWarningEvent, paSerialNumber=paSerialNumber, fcMaxSpeed=fcMaxSpeed, scsiMapTid=scsiMapTid, hostLunType=hostLunType, fcDebugDumpEvent=fcDebugDumpEvent, firmwareUploadCompleteEvent=firmwareUploadCompleteEvent, scsiTerm=scsiTerm, ssaAdapterEvent=ssaAdapterEvent, deviceMapCommandTable=deviceMapCommandTable, FibreMedia=FibreMedia, srsMemberSyncStartedEvent=srsMemberSyncStartedEvent, PltStatus=PltStatus, ssaUidAddedEvent=ssaUidAddedEvent, pcType=pcType, paVPSEnabled=paVPSEnabled, pdFWRev=pdFWRev, paCommandFlowLogEnabled=paCommandFlowLogEnabled, deviceMapRemoveDevice=deviceMapRemoveDevice, deviceMap=deviceMap, paCommand=paCommand, srsDeviceFailedEvent=srsDeviceFailedEvent, paAMPStatus=paAMPStatus, pdAccess=pdAccess, scsiHWRev=scsiHWRev, paLogNCurrent=paLogNCurrent, pcSubProduct=pcSubProduct, fcSerialNumber=fcSerialNumber, srsMemWriteOptions=srsMemWriteOptions, paGatewayFWRev=paGatewayFWRev, fcHPFMapEntry=fcHPFMapEntry, dmUid=dmUid, controllerResetCompletedEvent=controllerResetCompletedEvent, fcHPFMapVirtualPort=fcHPFMapVirtualPort, srsDevPrimary=srsDevPrimary, srsMemId=srsMemId, utilityModuleEntry=utilityModuleEntry, pcFWRev=pcFWRev, paBaudRate=paBaudRate, paGatewayHWRev=paGatewayHWRev, hostITLData=hostITLData, pcRevision=pcRevision, srsDevSizeInBlocks=srsDevSizeInBlocks, fcPortMode=fcPortMode, paServerVersion=paServerVersion, ssaSATAQuota=ssaSATAQuota, srsMemType=srsMemType, fcMedia=fcMedia, srsDevState=srsDevState, newMemoryParityErrorsEvent=newMemoryParityErrorsEvent, pdStatus=pdStatus, pdVendor=pdVendor, hostOfflineEvent=hostOfflineEvent, fcFrameSize=fcFrameSize, pdSpeed=pdSpeed)
+
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Sanmgr_proxy_ObjectIdentity = ObjectIdentity
+sanmgr_proxy = _Sanmgr_proxy_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10)
+)
+_Pathlight_ObjectIdentity = ObjectIdentity
+pathlight = _Pathlight_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10)
+)
+_Agent_ObjectIdentity = ObjectIdentity
+agent = _Agent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2)
+)
+_AgentScalarTable_Object = MibTable
+agentScalarTable = _AgentScalarTable_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1)
+)
+if mibBuilder.loadTexts:
+    agentScalarTable.setStatus("mandatory")
+_AgentScalarEntry_Object = MibTableRow
+agentScalarEntry = _AgentScalarEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1)
+)
+agentScalarEntry.setIndexNames(
+    (0, "ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+)
+if mibBuilder.loadTexts:
+    agentScalarEntry.setStatus("mandatory")
+_PaIdentify_Type = Integer32
+_PaIdentify_Object = MibTableColumn
+paIdentify = _PaIdentify_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 1),
+    _PaIdentify_Type()
+)
+paIdentify.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    paIdentify.setStatus("mandatory")
+_PaReboot_Type = Reset
+_PaReboot_Object = MibTableColumn
+paReboot = _PaReboot_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 2),
+    _PaReboot_Type()
+)
+paReboot.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    paReboot.setStatus("mandatory")
+_PaHealthCheckValue_Type = Gauge32
+_PaHealthCheckValue_Object = MibTableColumn
+paHealthCheckValue = _PaHealthCheckValue_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 3),
+    _PaHealthCheckValue_Type()
+)
+paHealthCheckValue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    paHealthCheckValue.setStatus("mandatory")
+
+
+class _PaHealthCheckLevel_Type(Integer32):
+    """Custom type paHealthCheckLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("deviceReady", 4),
+          ("interface", 2),
+          ("none", 0),
+          ("simpleDevice", 3),
+          ("system", 1))
+    )
+
+
+_PaHealthCheckLevel_Type.__name__ = "Integer32"
+_PaHealthCheckLevel_Object = MibTableColumn
+paHealthCheckLevel = _PaHealthCheckLevel_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 4),
+    _PaHealthCheckLevel_Type()
+)
+paHealthCheckLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    paHealthCheckLevel.setStatus("mandatory")
+_PaHealthCheckInterval_Type = Gauge32
+_PaHealthCheckInterval_Object = MibTableColumn
+paHealthCheckInterval = _PaHealthCheckInterval_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 5),
+    _PaHealthCheckInterval_Type()
+)
+paHealthCheckInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    paHealthCheckInterval.setStatus("mandatory")
+
+
+class _PaEvRptLevel_Type(Integer32):
+    """Custom type paEvRptLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("information", 3),
+          ("notice", 1),
+          ("private", 0),
+          ("warning", 2))
+    )
+
+
+_PaEvRptLevel_Type.__name__ = "Integer32"
+_PaEvRptLevel_Object = MibTableColumn
+paEvRptLevel = _PaEvRptLevel_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 6),
+    _PaEvRptLevel_Type()
+)
+paEvRptLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    paEvRptLevel.setStatus("mandatory")
+
+
+class _PaEventLogLevels_Type(OctetString):
+    """Custom type paEventLogLevels based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(256, 256),
+    )
+
+
+_PaEventLogLevels_Type.__name__ = "OctetString"
+_PaEventLogLevels_Object = MibTableColumn
+paEventLogLevels = _PaEventLogLevels_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 7),
+    _PaEventLogLevels_Type()
+)
+paEventLogLevels.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    paEventLogLevels.setStatus("mandatory")
+
+
+class _PaTrapThresholds_Type(OctetString):
+    """Custom type paTrapThresholds based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(256, 256),
+    )
+
+
+_PaTrapThresholds_Type.__name__ = "OctetString"
+_PaTrapThresholds_Object = MibTableColumn
+paTrapThresholds = _PaTrapThresholds_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 8),
+    _PaTrapThresholds_Type()
+)
+paTrapThresholds.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    paTrapThresholds.setStatus("mandatory")
+
+
+class _PaBaudRate_Type(Integer32):
+    """Custom type paBaudRate based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("baud19200", 1),
+          ("baud38400", 2),
+          ("baud9600", 0))
+    )
+
+
+_PaBaudRate_Type.__name__ = "Integer32"
+_PaBaudRate_Object = MibTableColumn
+paBaudRate = _PaBaudRate_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 9),
+    _PaBaudRate_Type()
+)
+paBaudRate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    paBaudRate.setStatus("mandatory")
+_PaLogSize_Type = Gauge32
+_PaLogSize_Object = MibTableColumn
+paLogSize = _PaLogSize_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 11),
+    _PaLogSize_Type()
+)
+paLogSize.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    paLogSize.setStatus("mandatory")
+
+
+class _PaCommand_Type(Integer32):
+    """Custom type paCommand based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("clear", 4),
+          ("doHealthCheck", 8),
+          ("idle", 0),
+          ("logModeAbsolute", 7),
+          ("logModeCurrent", 6),
+          ("removeFile", 5),
+          ("save", 3),
+          ("scroll", 2),
+          ("snapshot", 1))
+    )
+
+
+_PaCommand_Type.__name__ = "Integer32"
+_PaCommand_Object = MibTableColumn
+paCommand = _PaCommand_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 12),
+    _PaCommand_Type()
+)
+paCommand.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    paCommand.setStatus("mandatory")
+_PaLogBoot_Type = Gauge32
+_PaLogBoot_Object = MibTableColumn
+paLogBoot = _PaLogBoot_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 13),
+    _PaLogBoot_Type()
+)
+paLogBoot.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    paLogBoot.setStatus("mandatory")
+_PaLogNCurrent_Type = Gauge32
+_PaLogNCurrent_Object = MibTableColumn
+paLogNCurrent = _PaLogNCurrent_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 14),
+    _PaLogNCurrent_Type()
+)
+paLogNCurrent.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    paLogNCurrent.setStatus("mandatory")
+_PaLogChronFirst_Type = Gauge32
+_PaLogChronFirst_Object = MibTableColumn
+paLogChronFirst = _PaLogChronFirst_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 15),
+    _PaLogChronFirst_Type()
+)
+paLogChronFirst.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    paLogChronFirst.setStatus("obsolete")
+_PaLogChronLast_Type = Gauge32
+_PaLogChronLast_Object = MibTableColumn
+paLogChronLast = _PaLogChronLast_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 16),
+    _PaLogChronLast_Type()
+)
+paLogChronLast.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    paLogChronLast.setStatus("obsolete")
+_PaLogScroll_Type = Integer32
+_PaLogScroll_Object = MibTableColumn
+paLogScroll = _PaLogScroll_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 17),
+    _PaLogScroll_Type()
+)
+paLogScroll.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    paLogScroll.setStatus("obsolete")
+
+
+class _PaLogFilename_Type(DisplayString):
+    """Custom type paLogFilename based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 128),
+    )
+
+
+_PaLogFilename_Type.__name__ = "DisplayString"
+_PaLogFilename_Object = MibTableColumn
+paLogFilename = _PaLogFilename_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 18),
+    _PaLogFilename_Type()
+)
+paLogFilename.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    paLogFilename.setStatus("mandatory")
+_PaEnvironmentState_Type = Integer32
+_PaEnvironmentState_Object = MibTableColumn
+paEnvironmentState = _PaEnvironmentState_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 19),
+    _PaEnvironmentState_Type()
+)
+paEnvironmentState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    paEnvironmentState.setStatus("mandatory")
+
+
+class _PaGatewayFWRev_Type(DisplayString):
+    """Custom type paGatewayFWRev based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_PaGatewayFWRev_Type.__name__ = "DisplayString"
+_PaGatewayFWRev_Object = MibTableColumn
+paGatewayFWRev = _PaGatewayFWRev_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 20),
+    _PaGatewayFWRev_Type()
+)
+paGatewayFWRev.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    paGatewayFWRev.setStatus("mandatory")
+
+
+class _PaGatewayHWRev_Type(DisplayString):
+    """Custom type paGatewayHWRev based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_PaGatewayHWRev_Type.__name__ = "DisplayString"
+_PaGatewayHWRev_Object = MibTableColumn
+paGatewayHWRev = _PaGatewayHWRev_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 21),
+    _PaGatewayHWRev_Type()
+)
+paGatewayHWRev.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    paGatewayHWRev.setStatus("mandatory")
+
+
+class _PaSnmpFWRev_Type(DisplayString):
+    """Custom type paSnmpFWRev based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_PaSnmpFWRev_Type.__name__ = "DisplayString"
+_PaSnmpFWRev_Object = MibTableColumn
+paSnmpFWRev = _PaSnmpFWRev_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 22),
+    _PaSnmpFWRev_Type()
+)
+paSnmpFWRev.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    paSnmpFWRev.setStatus("mandatory")
+
+
+class _PaRidTag_Type(DisplayString):
+    """Custom type paRidTag based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 128),
+    )
+
+
+_PaRidTag_Type.__name__ = "DisplayString"
+_PaRidTag_Object = MibTableColumn
+paRidTag = _PaRidTag_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 23),
+    _PaRidTag_Type()
+)
+paRidTag.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    paRidTag.setStatus("mandatory")
+
+
+class _PaSerialNumber_Type(DisplayString):
+    """Custom type paSerialNumber based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_PaSerialNumber_Type.__name__ = "DisplayString"
+_PaSerialNumber_Object = MibTableColumn
+paSerialNumber = _PaSerialNumber_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 24),
+    _PaSerialNumber_Type()
+)
+paSerialNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    paSerialNumber.setStatus("mandatory")
+_PaServerVersion_Type = Integer32
+_PaServerVersion_Object = MibTableColumn
+paServerVersion = _PaServerVersion_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 25),
+    _PaServerVersion_Type()
+)
+paServerVersion.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    paServerVersion.setStatus("mandatory")
+_PaProductType_Type = PathlightProduct
+_PaProductType_Object = MibTableColumn
+paProductType = _PaProductType_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 26),
+    _PaProductType_Type()
+)
+paProductType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    paProductType.setStatus("mandatory")
+_PaVPSEnabled_Type = Boolean
+_PaVPSEnabled_Object = MibTableColumn
+paVPSEnabled = _PaVPSEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 27),
+    _PaVPSEnabled_Type()
+)
+paVPSEnabled.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    paVPSEnabled.setStatus("mandatory")
+
+
+class _PaLicenseKey_Type(DisplayString):
+    """Custom type paLicenseKey based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_PaLicenseKey_Type.__name__ = "DisplayString"
+_PaLicenseKey_Object = MibTableColumn
+paLicenseKey = _PaLicenseKey_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 28),
+    _PaLicenseKey_Type()
+)
+paLicenseKey.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    paLicenseKey.setStatus("mandatory")
+_PaThirdPartyCopyEnabled_Type = Boolean
+_PaThirdPartyCopyEnabled_Object = MibTableColumn
+paThirdPartyCopyEnabled = _PaThirdPartyCopyEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 29),
+    _PaThirdPartyCopyEnabled_Type()
+)
+paThirdPartyCopyEnabled.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    paThirdPartyCopyEnabled.setStatus("mandatory")
+_PaVPSStatus_Type = Integer32
+_PaVPSStatus_Object = MibTableColumn
+paVPSStatus = _PaVPSStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 30),
+    _PaVPSStatus_Type()
+)
+paVPSStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    paVPSStatus.setStatus("mandatory")
+_PaThirdPartyCopyStatus_Type = Integer32
+_PaThirdPartyCopyStatus_Object = MibTableColumn
+paThirdPartyCopyStatus = _PaThirdPartyCopyStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 31),
+    _PaThirdPartyCopyStatus_Type()
+)
+paThirdPartyCopyStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    paThirdPartyCopyStatus.setStatus("mandatory")
+_PaCommandControlLUN_Type = Integer32
+_PaCommandControlLUN_Object = MibTableColumn
+paCommandControlLUN = _PaCommandControlLUN_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 32),
+    _PaCommandControlLUN_Type()
+)
+paCommandControlLUN.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    paCommandControlLUN.setStatus("mandatory")
+_PaSanDirectorEnabled_Type = Boolean
+_PaSanDirectorEnabled_Object = MibTableColumn
+paSanDirectorEnabled = _PaSanDirectorEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 33),
+    _PaSanDirectorEnabled_Type()
+)
+paSanDirectorEnabled.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    paSanDirectorEnabled.setStatus("mandatory")
+
+
+class _PaNodeName_Type(OctetString):
+    """Custom type paNodeName based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(8, 8),
+    )
+
+
+_PaNodeName_Type.__name__ = "OctetString"
+_PaNodeName_Object = MibTableColumn
+paNodeName = _PaNodeName_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 34),
+    _PaNodeName_Type()
+)
+paNodeName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    paNodeName.setStatus("mandatory")
+_PaVPMStatus_Type = Integer32
+_PaVPMStatus_Object = MibTableColumn
+paVPMStatus = _PaVPMStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 35),
+    _PaVPMStatus_Type()
+)
+paVPMStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    paVPMStatus.setStatus("mandatory")
+_PaSRSStatus_Type = Integer32
+_PaSRSStatus_Object = MibTableColumn
+paSRSStatus = _PaSRSStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 36),
+    _PaSRSStatus_Type()
+)
+paSRSStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    paSRSStatus.setStatus("mandatory")
+_PaEthernetType_Type = DisplayString
+_PaEthernetType_Object = MibTableColumn
+paEthernetType = _PaEthernetType_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 37),
+    _PaEthernetType_Type()
+)
+paEthernetType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    paEthernetType.setStatus("mandatory")
+_PaTrapSequenceNumber_Type = Integer32
+_PaTrapSequenceNumber_Object = MibTableColumn
+paTrapSequenceNumber = _PaTrapSequenceNumber_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 38),
+    _PaTrapSequenceNumber_Type()
+)
+paTrapSequenceNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    paTrapSequenceNumber.setStatus("mandatory")
+
+
+class _PaSysNodeNameMode_Type(Integer32):
+    """Custom type paSysNodeNameMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("differentForEachPort", 1),
+          ("sameForEachPort", 0))
+    )
+
+
+_PaSysNodeNameMode_Type.__name__ = "Integer32"
+_PaSysNodeNameMode_Object = MibTableColumn
+paSysNodeNameMode = _PaSysNodeNameMode_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 39),
+    _PaSysNodeNameMode_Type()
+)
+paSysNodeNameMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    paSysNodeNameMode.setStatus("mandatory")
+_PaGhostIOTimeToLive_Type = Integer32
+_PaGhostIOTimeToLive_Object = MibTableColumn
+paGhostIOTimeToLive = _PaGhostIOTimeToLive_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 40),
+    _PaGhostIOTimeToLive_Type()
+)
+paGhostIOTimeToLive.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    paGhostIOTimeToLive.setStatus("mandatory")
+_PaMaxLun_Type = Integer32
+_PaMaxLun_Object = MibTableColumn
+paMaxLun = _PaMaxLun_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 41),
+    _PaMaxLun_Type()
+)
+paMaxLun.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    paMaxLun.setStatus("mandatory")
+_PaEVPSEnabled_Type = Integer32
+_PaEVPSEnabled_Object = MibTableColumn
+paEVPSEnabled = _PaEVPSEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 42),
+    _PaEVPSEnabled_Type()
+)
+paEVPSEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    paEVPSEnabled.setStatus("mandatory")
+_PaMaxHostLun_Type = Integer32
+_PaMaxHostLun_Object = MibTableColumn
+paMaxHostLun = _PaMaxHostLun_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 43),
+    _PaMaxHostLun_Type()
+)
+paMaxHostLun.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    paMaxHostLun.setStatus("mandatory")
+_PaAMPStatus_Type = Integer32
+_PaAMPStatus_Object = MibTableColumn
+paAMPStatus = _PaAMPStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 44),
+    _PaAMPStatus_Type()
+)
+paAMPStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    paAMPStatus.setStatus("mandatory")
+
+
+class _PaEnableAllScsiTargets_Type(Integer32):
+    """Custom type paEnableAllScsiTargets based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_PaEnableAllScsiTargets_Type.__name__ = "Integer32"
+_PaEnableAllScsiTargets_Object = MibTableColumn
+paEnableAllScsiTargets = _PaEnableAllScsiTargets_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 45),
+    _PaEnableAllScsiTargets_Type()
+)
+paEnableAllScsiTargets.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    paEnableAllScsiTargets.setStatus("mandatory")
+_PaHPFStatus_Type = Integer32
+_PaHPFStatus_Object = MibTableColumn
+paHPFStatus = _PaHPFStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 46),
+    _PaHPFStatus_Type()
+)
+paHPFStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    paHPFStatus.setStatus("mandatory")
+_PaSoip2iRescan_Type = Boolean
+_PaSoip2iRescan_Object = MibTableColumn
+paSoip2iRescan = _PaSoip2iRescan_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 47),
+    _PaSoip2iRescan_Type()
+)
+paSoip2iRescan.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    paSoip2iRescan.setStatus("mandatory")
+_PaSoipiRescan_Type = Boolean
+_PaSoipiRescan_Object = MibTableColumn
+paSoipiRescan = _PaSoipiRescan_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 48),
+    _PaSoipiRescan_Type()
+)
+paSoipiRescan.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    paSoipiRescan.setStatus("mandatory")
+_PaFLBStatus_Type = Integer32
+_PaFLBStatus_Object = MibTableColumn
+paFLBStatus = _PaFLBStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 49),
+    _PaFLBStatus_Type()
+)
+paFLBStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    paFLBStatus.setStatus("mandatory")
+_PaSoip2iScanPeriod_Type = Integer32
+_PaSoip2iScanPeriod_Object = MibTableColumn
+paSoip2iScanPeriod = _PaSoip2iScanPeriod_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 50),
+    _PaSoip2iScanPeriod_Type()
+)
+paSoip2iScanPeriod.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    paSoip2iScanPeriod.setStatus("mandatory")
+_PaCommandFlowLogEnabled_Type = Boolean
+_PaCommandFlowLogEnabled_Object = MibTableColumn
+paCommandFlowLogEnabled = _PaCommandFlowLogEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 1, 1, 51),
+    _PaCommandFlowLogEnabled_Type()
+)
+paCommandFlowLogEnabled.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    paCommandFlowLogEnabled.setStatus("mandatory")
+_PaEventLog_Object = MibTable
+paEventLog = _PaEventLog_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 500)
+)
+if mibBuilder.loadTexts:
+    paEventLog.setStatus("mandatory")
+_PaEventLogEntry_Object = MibTableRow
+paEventLogEntry = _PaEventLogEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 500, 1)
+)
+paEventLogEntry.setIndexNames(
+    (0, "ADIC-SANMGR-PROXY-MIB", "paIndex"),
+)
+if mibBuilder.loadTexts:
+    paEventLogEntry.setStatus("mandatory")
+_PaIndex_Type = Integer32
+_PaIndex_Object = MibTableColumn
+paIndex = _PaIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 500, 1, 1),
+    _PaIndex_Type()
+)
+paIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    paIndex.setStatus("mandatory")
+_PaTime_Type = TimeTicks
+_PaTime_Object = MibTableColumn
+paTime = _PaTime_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 500, 1, 2),
+    _PaTime_Type()
+)
+paTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    paTime.setStatus("mandatory")
+_PaProducer_Type = Integer32
+_PaProducer_Object = MibTableColumn
+paProducer = _PaProducer_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 500, 1, 3),
+    _PaProducer_Type()
+)
+paProducer.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    paProducer.setStatus("mandatory")
+_PaEventClass_Type = Integer32
+_PaEventClass_Object = MibTableColumn
+paEventClass = _PaEventClass_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 500, 1, 4),
+    _PaEventClass_Type()
+)
+paEventClass.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    paEventClass.setStatus("mandatory")
+_PaEventCode_Type = Integer32
+_PaEventCode_Object = MibTableColumn
+paEventCode = _PaEventCode_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 500, 1, 5),
+    _PaEventCode_Type()
+)
+paEventCode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    paEventCode.setStatus("mandatory")
+_PaSeq_Type = Integer32
+_PaSeq_Object = MibTableColumn
+paSeq = _PaSeq_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 500, 1, 6),
+    _PaSeq_Type()
+)
+paSeq.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    paSeq.setStatus("mandatory")
+
+
+class _PaEventVars_Type(DisplayString):
+    """Custom type paEventVars based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 256),
+    )
+
+
+_PaEventVars_Type.__name__ = "DisplayString"
+_PaEventVars_Object = MibTableColumn
+paEventVars = _PaEventVars_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 2, 500, 1, 7),
+    _PaEventVars_Type()
+)
+paEventVars.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    paEventVars.setStatus("mandatory")
+_Devices_ObjectIdentity = ObjectIdentity
+devices = _Devices_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3)
+)
+_PdDevices_Object = MibTable
+pdDevices = _PdDevices_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1)
+)
+if mibBuilder.loadTexts:
+    pdDevices.setStatus("mandatory")
+_PdDevEntry_Object = MibTableRow
+pdDevEntry = _PdDevEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1)
+)
+pdDevEntry.setIndexNames(
+    (0, "ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+    (0, "ADIC-SANMGR-PROXY-MIB", "pdIndex"),
+)
+if mibBuilder.loadTexts:
+    pdDevEntry.setStatus("mandatory")
+_PdIndex_Type = Integer32
+_PdIndex_Object = MibTableColumn
+pdIndex = _PdIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 1),
+    _PdIndex_Type()
+)
+pdIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdIndex.setStatus("mandatory")
+
+
+class _PdUID_Type(DisplayString):
+    """Custom type pdUID based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_PdUID_Type.__name__ = "DisplayString"
+_PdUID_Object = MibTableColumn
+pdUID = _PdUID_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 2),
+    _PdUID_Type()
+)
+pdUID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdUID.setStatus("mandatory")
+_PdType_Type = DeviceType
+_PdType_Object = MibTableColumn
+pdType = _PdType_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 3),
+    _PdType_Type()
+)
+pdType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdType.setStatus("mandatory")
+
+
+class _PdVendor_Type(DisplayString):
+    """Custom type pdVendor based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(8, 8),
+    )
+
+
+_PdVendor_Type.__name__ = "DisplayString"
+_PdVendor_Object = MibTableColumn
+pdVendor = _PdVendor_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 4),
+    _PdVendor_Type()
+)
+pdVendor.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdVendor.setStatus("mandatory")
+
+
+class _PdProduct_Type(DisplayString):
+    """Custom type pdProduct based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_PdProduct_Type.__name__ = "DisplayString"
+_PdProduct_Object = MibTableColumn
+pdProduct = _PdProduct_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 5),
+    _PdProduct_Type()
+)
+pdProduct.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdProduct.setStatus("mandatory")
+_PdBlockSize_Type = Integer32
+_PdBlockSize_Object = MibTableColumn
+pdBlockSize = _PdBlockSize_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 6),
+    _PdBlockSize_Type()
+)
+pdBlockSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdBlockSize.setStatus("mandatory")
+_PdCapacity_Type = Gauge32
+_PdCapacity_Object = MibTableColumn
+pdCapacity = _PdCapacity_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 7),
+    _PdCapacity_Type()
+)
+pdCapacity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdCapacity.setStatus("mandatory")
+_PdAccess_Type = Integer32
+_PdAccess_Object = MibTableColumn
+pdAccess = _PdAccess_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 8),
+    _PdAccess_Type()
+)
+pdAccess.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdAccess.setStatus("mandatory")
+_PdRemovable_Type = Boolean
+_PdRemovable_Object = MibTableColumn
+pdRemovable = _PdRemovable_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 9),
+    _PdRemovable_Type()
+)
+pdRemovable.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdRemovable.setStatus("mandatory")
+_PdStatus_Type = PltStatus
+_PdStatus_Object = MibTableColumn
+pdStatus = _PdStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 10),
+    _PdStatus_Type()
+)
+pdStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdStatus.setStatus("mandatory")
+_PdSpeed_Type = Integer32
+_PdSpeed_Object = MibTableColumn
+pdSpeed = _PdSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 11),
+    _PdSpeed_Type()
+)
+pdSpeed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdSpeed.setStatus("mandatory")
+_PdWidth_Type = Integer32
+_PdWidth_Object = MibTableColumn
+pdWidth = _PdWidth_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 12),
+    _PdWidth_Type()
+)
+pdWidth.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdWidth.setStatus("mandatory")
+
+
+class _PdSerial_Type(DisplayString):
+    """Custom type pdSerial based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_PdSerial_Type.__name__ = "DisplayString"
+_PdSerial_Object = MibTableColumn
+pdSerial = _PdSerial_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 13),
+    _PdSerial_Type()
+)
+pdSerial.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdSerial.setStatus("mandatory")
+_PdIdentify_Type = Integer32
+_PdIdentify_Object = MibTableColumn
+pdIdentify = _PdIdentify_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 14),
+    _PdIdentify_Type()
+)
+pdIdentify.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pdIdentify.setStatus("mandatory")
+_PdInterfaceType_Type = Interface
+_PdInterfaceType_Object = MibTableColumn
+pdInterfaceType = _PdInterfaceType_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 15),
+    _PdInterfaceType_Type()
+)
+pdInterfaceType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdInterfaceType.setStatus("mandatory")
+_PdBus_Type = Integer32
+_PdBus_Object = MibTableColumn
+pdBus = _PdBus_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 16),
+    _PdBus_Type()
+)
+pdBus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdBus.setStatus("mandatory")
+_PdId_Type = Integer32
+_PdId_Object = MibTableColumn
+pdId = _PdId_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 17),
+    _PdId_Type()
+)
+pdId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdId.setStatus("mandatory")
+_PdLun_Type = Integer32
+_PdLun_Object = MibTableColumn
+pdLun = _PdLun_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 18),
+    _PdLun_Type()
+)
+pdLun.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdLun.setStatus("mandatory")
+_PdCtlrIndex_Type = Integer32
+_PdCtlrIndex_Object = MibTableColumn
+pdCtlrIndex = _PdCtlrIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 19),
+    _PdCtlrIndex_Type()
+)
+pdCtlrIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdCtlrIndex.setStatus("mandatory")
+
+
+class _PdHWRev_Type(DisplayString):
+    """Custom type pdHWRev based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_PdHWRev_Type.__name__ = "DisplayString"
+_PdHWRev_Object = MibTableColumn
+pdHWRev = _PdHWRev_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 20),
+    _PdHWRev_Type()
+)
+pdHWRev.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdHWRev.setStatus("mandatory")
+
+
+class _PdFWRev_Type(DisplayString):
+    """Custom type pdFWRev based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_PdFWRev_Type.__name__ = "DisplayString"
+_PdFWRev_Object = MibTableColumn
+pdFWRev = _PdFWRev_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 21),
+    _PdFWRev_Type()
+)
+pdFWRev.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdFWRev.setStatus("mandatory")
+_PdReset_Type = Reset
+_PdReset_Object = MibTableColumn
+pdReset = _PdReset_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 22),
+    _PdReset_Type()
+)
+pdReset.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pdReset.setStatus("mandatory")
+_PdStatusBits_Type = Integer32
+_PdStatusBits_Object = MibTableColumn
+pdStatusBits = _PdStatusBits_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 23),
+    _PdStatusBits_Type()
+)
+pdStatusBits.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdStatusBits.setStatus("mandatory")
+_PdScsiAnsiLevel_Type = ScsiAnsiLevel
+_PdScsiAnsiLevel_Object = MibTableColumn
+pdScsiAnsiLevel = _PdScsiAnsiLevel_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 24),
+    _PdScsiAnsiLevel_Type()
+)
+pdScsiAnsiLevel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdScsiAnsiLevel.setStatus("mandatory")
+_PdTargetLun_Type = Integer32
+_PdTargetLun_Object = MibTableColumn
+pdTargetLun = _PdTargetLun_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 25),
+    _PdTargetLun_Type()
+)
+pdTargetLun.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdTargetLun.setStatus("mandatory")
+_PdIpAddress_Type = IpAddress
+_PdIpAddress_Object = MibTableColumn
+pdIpAddress = _PdIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 26),
+    _PdIpAddress_Type()
+)
+pdIpAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdIpAddress.setStatus("mandatory")
+
+
+class _PdAltVendor_Type(DisplayString):
+    """Custom type pdAltVendor based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(8, 8),
+    )
+
+
+_PdAltVendor_Type.__name__ = "DisplayString"
+_PdAltVendor_Object = MibTableColumn
+pdAltVendor = _PdAltVendor_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 27),
+    _PdAltVendor_Type()
+)
+pdAltVendor.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdAltVendor.setStatus("mandatory")
+
+
+class _PdAltProduct_Type(DisplayString):
+    """Custom type pdAltProduct based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_PdAltProduct_Type.__name__ = "DisplayString"
+_PdAltProduct_Object = MibTableColumn
+pdAltProduct = _PdAltProduct_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 3, 1, 1, 28),
+    _PdAltProduct_Type()
+)
+pdAltProduct.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdAltProduct.setStatus("mandatory")
+_Controllers_ObjectIdentity = ObjectIdentity
+controllers = _Controllers_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4)
+)
+_PcControllers_Object = MibTable
+pcControllers = _PcControllers_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1)
+)
+if mibBuilder.loadTexts:
+    pcControllers.setStatus("mandatory")
+_PcCtlrEntry_Object = MibTableRow
+pcCtlrEntry = _PcCtlrEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1)
+)
+pcCtlrEntry.setIndexNames(
+    (0, "ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+    (0, "ADIC-SANMGR-PROXY-MIB", "pcIndex"),
+)
+if mibBuilder.loadTexts:
+    pcCtlrEntry.setStatus("mandatory")
+_PcIndex_Type = Integer32
+_PcIndex_Object = MibTableColumn
+pcIndex = _PcIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 1),
+    _PcIndex_Type()
+)
+pcIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pcIndex.setStatus("mandatory")
+_PcType_Type = Interface
+_PcType_Object = MibTableColumn
+pcType = _PcType_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 2),
+    _PcType_Type()
+)
+pcType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pcType.setStatus("mandatory")
+_PcVendorId_Type = VendorIDInt
+_PcVendorId_Object = MibTableColumn
+pcVendorId = _PcVendorId_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 3),
+    _PcVendorId_Type()
+)
+pcVendorId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pcVendorId.setStatus("mandatory")
+_PcProductId_Type = Integer32
+_PcProductId_Object = MibTableColumn
+pcProductId = _PcProductId_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 4),
+    _PcProductId_Type()
+)
+pcProductId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pcProductId.setStatus("mandatory")
+
+
+class _PcRevision_Type(DisplayString):
+    """Custom type pcRevision based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_PcRevision_Type.__name__ = "DisplayString"
+_PcRevision_Object = MibTableColumn
+pcRevision = _PcRevision_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 5),
+    _PcRevision_Type()
+)
+pcRevision.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pcRevision.setStatus("deprecated")
+_PcSubVendor_Type = Integer32
+_PcSubVendor_Object = MibTableColumn
+pcSubVendor = _PcSubVendor_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 6),
+    _PcSubVendor_Type()
+)
+pcSubVendor.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pcSubVendor.setStatus("mandatory")
+_PcSubProduct_Type = Integer32
+_PcSubProduct_Object = MibTableColumn
+pcSubProduct = _PcSubProduct_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 7),
+    _PcSubProduct_Type()
+)
+pcSubProduct.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pcSubProduct.setStatus("mandatory")
+_PcMaxBurst_Type = Integer32
+_PcMaxBurst_Object = MibTableColumn
+pcMaxBurst = _PcMaxBurst_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 8),
+    _PcMaxBurst_Type()
+)
+pcMaxBurst.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pcMaxBurst.setStatus("mandatory")
+
+
+class _PcLatency_Type(Integer32):
+    """Custom type pcLatency based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_PcLatency_Type.__name__ = "Integer32"
+_PcLatency_Object = MibTableColumn
+pcLatency = _PcLatency_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 9),
+    _PcLatency_Type()
+)
+pcLatency.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pcLatency.setStatus("mandatory")
+_PcIdentify_Type = Integer32
+_PcIdentify_Object = MibTableColumn
+pcIdentify = _PcIdentify_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 10),
+    _PcIdentify_Type()
+)
+pcIdentify.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pcIdentify.setStatus("mandatory")
+_PcPCIBus_Type = Integer32
+_PcPCIBus_Object = MibTableColumn
+pcPCIBus = _PcPCIBus_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 11),
+    _PcPCIBus_Type()
+)
+pcPCIBus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pcPCIBus.setStatus("mandatory")
+_PcPCIDev_Type = Integer32
+_PcPCIDev_Object = MibTableColumn
+pcPCIDev = _PcPCIDev_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 12),
+    _PcPCIDev_Type()
+)
+pcPCIDev.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pcPCIDev.setStatus("mandatory")
+_PcPCIFunc_Type = Integer32
+_PcPCIFunc_Object = MibTableColumn
+pcPCIFunc = _PcPCIFunc_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 13),
+    _PcPCIFunc_Type()
+)
+pcPCIFunc.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pcPCIFunc.setStatus("mandatory")
+_PcReset_Type = Reset
+_PcReset_Object = MibTableColumn
+pcReset = _PcReset_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 14),
+    _PcReset_Type()
+)
+pcReset.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pcReset.setStatus("mandatory")
+_PcRescan_Type = Boolean
+_PcRescan_Object = MibTableColumn
+pcRescan = _PcRescan_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 15),
+    _PcRescan_Type()
+)
+pcRescan.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pcRescan.setStatus("mandatory")
+
+
+class _PcLED_Type(OctetString):
+    """Custom type pcLED based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 2),
+    )
+
+
+_PcLED_Type.__name__ = "OctetString"
+_PcLED_Object = MibTableColumn
+pcLED = _PcLED_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 16),
+    _PcLED_Type()
+)
+pcLED.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pcLED.setStatus("mandatory")
+
+
+class _PcHWRev_Type(DisplayString):
+    """Custom type pcHWRev based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_PcHWRev_Type.__name__ = "DisplayString"
+_PcHWRev_Object = MibTableColumn
+pcHWRev = _PcHWRev_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 17),
+    _PcHWRev_Type()
+)
+pcHWRev.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pcHWRev.setStatus("mandatory")
+
+
+class _PcFWRev_Type(DisplayString):
+    """Custom type pcFWRev based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_PcFWRev_Type.__name__ = "DisplayString"
+_PcFWRev_Object = MibTableColumn
+pcFWRev = _PcFWRev_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 18),
+    _PcFWRev_Type()
+)
+pcFWRev.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pcFWRev.setStatus("mandatory")
+_PcPCISlot_Type = Integer32
+_PcPCISlot_Object = MibTableColumn
+pcPCISlot = _PcPCISlot_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 19),
+    _PcPCISlot_Type()
+)
+pcPCISlot.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pcPCISlot.setStatus("mandatory")
+_PcPMCSlot_Type = Integer32
+_PcPMCSlot_Object = MibTableColumn
+pcPMCSlot = _PcPMCSlot_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 20),
+    _PcPMCSlot_Type()
+)
+pcPMCSlot.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pcPMCSlot.setStatus("mandatory")
+
+
+class _PcPCIClass_Type(OctetString):
+    """Custom type pcPCIClass based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(3, 3),
+    )
+
+
+_PcPCIClass_Type.__name__ = "OctetString"
+_PcPCIClass_Object = MibTableColumn
+pcPCIClass = _PcPCIClass_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 21),
+    _PcPCIClass_Type()
+)
+pcPCIClass.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pcPCIClass.setStatus("mandatory")
+_PcSplitMode_Type = Boolean
+_PcSplitMode_Object = MibTableColumn
+pcSplitMode = _PcSplitMode_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 22),
+    _PcSplitMode_Type()
+)
+pcSplitMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pcSplitMode.setStatus("mandatory")
+_PcChannelMask_Type = Gauge32
+_PcChannelMask_Object = MibTableColumn
+pcChannelMask = _PcChannelMask_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 23),
+    _PcChannelMask_Type()
+)
+pcChannelMask.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pcChannelMask.setStatus("mandatory")
+
+
+class _PcPortHostType_Type(DisplayString):
+    """Custom type pcPortHostType based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_PcPortHostType_Type.__name__ = "DisplayString"
+_PcPortHostType_Object = MibTableColumn
+pcPortHostType = _PcPortHostType_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 1, 1, 24),
+    _PcPortHostType_Type()
+)
+pcPortHostType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pcPortHostType.setStatus("mandatory")
+_PcFCCtlrs_Object = MibTable
+pcFCCtlrs = _PcFCCtlrs_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2)
+)
+if mibBuilder.loadTexts:
+    pcFCCtlrs.setStatus("mandatory")
+_FcCtlrEntry_Object = MibTableRow
+fcCtlrEntry = _FcCtlrEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1)
+)
+fcCtlrEntry.setIndexNames(
+    (0, "ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+    (0, "ADIC-SANMGR-PROXY-MIB", "pcIndex"),
+)
+if mibBuilder.loadTexts:
+    fcCtlrEntry.setStatus("mandatory")
+_FcStatus_Type = FcStatus
+_FcStatus_Object = MibTableColumn
+fcStatus = _FcStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 1),
+    _FcStatus_Type()
+)
+fcStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fcStatus.setStatus("mandatory")
+_FcMaxSpeed_Type = Gauge32
+_FcMaxSpeed_Object = MibTableColumn
+fcMaxSpeed = _FcMaxSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 2),
+    _FcMaxSpeed_Type()
+)
+fcMaxSpeed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fcMaxSpeed.setStatus("mandatory")
+
+
+class _FcWWID_Type(DisplayString):
+    """Custom type fcWWID based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(17, 17),
+    )
+
+
+_FcWWID_Type.__name__ = "DisplayString"
+_FcWWID_Object = MibTableColumn
+fcWWID = _FcWWID_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 3),
+    _FcWWID_Type()
+)
+fcWWID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fcWWID.setStatus("mandatory")
+
+
+class _FcFWRev_Type(DisplayString):
+    """Custom type fcFWRev based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_FcFWRev_Type.__name__ = "DisplayString"
+_FcFWRev_Object = MibTableColumn
+fcFWRev = _FcFWRev_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 4),
+    _FcFWRev_Type()
+)
+fcFWRev.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fcFWRev.setStatus("mandatory")
+
+
+class _FcHWRev_Type(DisplayString):
+    """Custom type fcHWRev based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_FcHWRev_Type.__name__ = "DisplayString"
+_FcHWRev_Object = MibTableColumn
+fcHWRev = _FcHWRev_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 5),
+    _FcHWRev_Type()
+)
+fcHWRev.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fcHWRev.setStatus("mandatory")
+
+
+class _FcLoopID_Type(Integer32):
+    """Custom type fcLoopID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-1, 127),
+    )
+
+
+_FcLoopID_Type.__name__ = "Integer32"
+_FcLoopID_Object = MibTableColumn
+fcLoopID = _FcLoopID_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 6),
+    _FcLoopID_Type()
+)
+fcLoopID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    fcLoopID.setStatus("mandatory")
+_FcFrameSize_Type = Integer32
+_FcFrameSize_Object = MibTableColumn
+fcFrameSize = _FcFrameSize_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 7),
+    _FcFrameSize_Type()
+)
+fcFrameSize.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    fcFrameSize.setStatus("mandatory")
+_FcPortType_Type = FibrePort
+_FcPortType_Object = MibTableColumn
+fcPortType = _FcPortType_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 8),
+    _FcPortType_Type()
+)
+fcPortType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    fcPortType.setStatus("mandatory")
+_FcMedia_Type = FibreMedia
+_FcMedia_Object = MibTableColumn
+fcMedia = _FcMedia_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 9),
+    _FcMedia_Type()
+)
+fcMedia.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fcMedia.setStatus("mandatory")
+
+
+class _FcSerialNumber_Type(DisplayString):
+    """Custom type fcSerialNumber based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_FcSerialNumber_Type.__name__ = "DisplayString"
+_FcSerialNumber_Object = MibTableColumn
+fcSerialNumber = _FcSerialNumber_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 10),
+    _FcSerialNumber_Type()
+)
+fcSerialNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fcSerialNumber.setStatus("mandatory")
+_FcLoopIDMode_Type = FibreLoopIDMode
+_FcLoopIDMode_Object = MibTableColumn
+fcLoopIDMode = _FcLoopIDMode_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 11),
+    _FcLoopIDMode_Type()
+)
+fcLoopIDMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fcLoopIDMode.setStatus("mandatory")
+_FcALPhysicalAddress_Type = Integer32
+_FcALPhysicalAddress_Object = MibTableColumn
+fcALPhysicalAddress = _FcALPhysicalAddress_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 12),
+    _FcALPhysicalAddress_Type()
+)
+fcALPhysicalAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fcALPhysicalAddress.setStatus("mandatory")
+_FcPortMode_Type = FibrePortMode
+_FcPortMode_Object = MibTableColumn
+fcPortMode = _FcPortMode_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 13),
+    _FcPortMode_Type()
+)
+fcPortMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    fcPortMode.setStatus("mandatory")
+_FcConnectionOptions_Type = FibreConnOptions
+_FcConnectionOptions_Object = MibTableColumn
+fcConnectionOptions = _FcConnectionOptions_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 14),
+    _FcConnectionOptions_Type()
+)
+fcConnectionOptions.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    fcConnectionOptions.setStatus("mandatory")
+_FcCtlrChipType_Type = Integer32
+_FcCtlrChipType_Object = MibTableColumn
+fcCtlrChipType = _FcCtlrChipType_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 15),
+    _FcCtlrChipType_Type()
+)
+fcCtlrChipType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fcCtlrChipType.setStatus("mandatory")
+_FcTapeFeature_Type = Boolean
+_FcTapeFeature_Object = MibTableColumn
+fcTapeFeature = _FcTapeFeature_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 16),
+    _FcTapeFeature_Type()
+)
+fcTapeFeature.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fcTapeFeature.setStatus("mandatory")
+
+
+class _FcHardID_Type(Integer32):
+    """Custom type fcHardID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-1, 256),
+    )
+
+
+_FcHardID_Type.__name__ = "Integer32"
+_FcHardID_Object = MibTableColumn
+fcHardID = _FcHardID_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 17),
+    _FcHardID_Type()
+)
+fcHardID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    fcHardID.setStatus("mandatory")
+_FcCurrentSpeedSetting_Type = Integer32
+_FcCurrentSpeedSetting_Object = MibTableColumn
+fcCurrentSpeedSetting = _FcCurrentSpeedSetting_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 18),
+    _FcCurrentSpeedSetting_Type()
+)
+fcCurrentSpeedSetting.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    fcCurrentSpeedSetting.setStatus("mandatory")
+_FcCurrentSpeed_Type = Integer32
+_FcCurrentSpeed_Object = MibTableColumn
+fcCurrentSpeed = _FcCurrentSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 19),
+    _FcCurrentSpeed_Type()
+)
+fcCurrentSpeed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fcCurrentSpeed.setStatus("mandatory")
+_FcFrameBufferSize_Type = Integer32
+_FcFrameBufferSize_Object = MibTableColumn
+fcFrameBufferSize = _FcFrameBufferSize_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 20),
+    _FcFrameBufferSize_Type()
+)
+fcFrameBufferSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fcFrameBufferSize.setStatus("mandatory")
+_FcLinkFailureCount_Type = Integer32
+_FcLinkFailureCount_Object = MibTableColumn
+fcLinkFailureCount = _FcLinkFailureCount_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 21),
+    _FcLinkFailureCount_Type()
+)
+fcLinkFailureCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fcLinkFailureCount.setStatus("mandatory")
+_FcLossSyncCount_Type = Integer32
+_FcLossSyncCount_Object = MibTableColumn
+fcLossSyncCount = _FcLossSyncCount_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 22),
+    _FcLossSyncCount_Type()
+)
+fcLossSyncCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fcLossSyncCount.setStatus("mandatory")
+_FcLossSignalCount_Type = Integer32
+_FcLossSignalCount_Object = MibTableColumn
+fcLossSignalCount = _FcLossSignalCount_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 23),
+    _FcLossSignalCount_Type()
+)
+fcLossSignalCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fcLossSignalCount.setStatus("mandatory")
+_FcProtocolErrorCount_Type = Integer32
+_FcProtocolErrorCount_Object = MibTableColumn
+fcProtocolErrorCount = _FcProtocolErrorCount_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 24),
+    _FcProtocolErrorCount_Type()
+)
+fcProtocolErrorCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fcProtocolErrorCount.setStatus("mandatory")
+_FcInvalidTxWordCount_Type = Integer32
+_FcInvalidTxWordCount_Object = MibTableColumn
+fcInvalidTxWordCount = _FcInvalidTxWordCount_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 25),
+    _FcInvalidTxWordCount_Type()
+)
+fcInvalidTxWordCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fcInvalidTxWordCount.setStatus("mandatory")
+_FcInvalidCRCCount_Type = Integer32
+_FcInvalidCRCCount_Object = MibTableColumn
+fcInvalidCRCCount = _FcInvalidCRCCount_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 26),
+    _FcInvalidCRCCount_Type()
+)
+fcInvalidCRCCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fcInvalidCRCCount.setStatus("mandatory")
+
+
+class _FcWWNodeName_Type(DisplayString):
+    """Custom type fcWWNodeName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(17, 17),
+    )
+
+
+_FcWWNodeName_Type.__name__ = "DisplayString"
+_FcWWNodeName_Object = MibTableColumn
+fcWWNodeName = _FcWWNodeName_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 27),
+    _FcWWNodeName_Type()
+)
+fcWWNodeName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fcWWNodeName.setStatus("mandatory")
+_FcPortID_Type = Integer32
+_FcPortID_Object = MibTableColumn
+fcPortID = _FcPortID_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 2, 1, 28),
+    _FcPortID_Type()
+)
+fcPortID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fcPortID.setStatus("mandatory")
+_PcSSACtlrs_Object = MibTable
+pcSSACtlrs = _PcSSACtlrs_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 3)
+)
+if mibBuilder.loadTexts:
+    pcSSACtlrs.setStatus("obsolete")
+_SsaCtlrEntry_Object = MibTableRow
+ssaCtlrEntry = _SsaCtlrEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 3, 1)
+)
+ssaCtlrEntry.setIndexNames(
+    (0, "ADIC-SANMGR-PROXY-MIB", "pcIndex"),
+)
+if mibBuilder.loadTexts:
+    ssaCtlrEntry.setStatus("obsolete")
+_SsaStatus1_Type = PltStatus
+_SsaStatus1_Object = MibTableColumn
+ssaStatus1 = _SsaStatus1_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 3, 1, 1),
+    _SsaStatus1_Type()
+)
+ssaStatus1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ssaStatus1.setStatus("mandatory")
+_SsaStatus2_Type = PltStatus
+_SsaStatus2_Object = MibTableColumn
+ssaStatus2 = _SsaStatus2_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 3, 1, 2),
+    _SsaStatus2_Type()
+)
+ssaStatus2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ssaStatus2.setStatus("mandatory")
+
+
+class _SsaSpeed_Type(Integer32):
+    """Custom type ssaSpeed based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ssa160", 2),
+          ("ssa80", 1))
+    )
+
+
+_SsaSpeed_Type.__name__ = "Integer32"
+_SsaSpeed_Object = MibTableColumn
+ssaSpeed = _SsaSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 3, 1, 3),
+    _SsaSpeed_Type()
+)
+ssaSpeed.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ssaSpeed.setStatus("mandatory")
+
+
+class _SsaUID_Type(DisplayString):
+    """Custom type ssaUID based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_SsaUID_Type.__name__ = "DisplayString"
+_SsaUID_Object = MibTableColumn
+ssaUID = _SsaUID_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 3, 1, 4),
+    _SsaUID_Type()
+)
+ssaUID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ssaUID.setStatus("mandatory")
+
+
+class _SsaFWRev_Type(DisplayString):
+    """Custom type ssaFWRev based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_SsaFWRev_Type.__name__ = "DisplayString"
+_SsaFWRev_Object = MibTableColumn
+ssaFWRev = _SsaFWRev_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 3, 1, 5),
+    _SsaFWRev_Type()
+)
+ssaFWRev.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ssaFWRev.setStatus("mandatory")
+_SsaMaxTarg_Type = Gauge32
+_SsaMaxTarg_Object = MibTableColumn
+ssaMaxTarg = _SsaMaxTarg_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 3, 1, 6),
+    _SsaMaxTarg_Type()
+)
+ssaMaxTarg.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ssaMaxTarg.setStatus("mandatory")
+_SsaMaxInit_Type = Gauge32
+_SsaMaxInit_Object = MibTableColumn
+ssaMaxInit = _SsaMaxInit_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 3, 1, 7),
+    _SsaMaxInit_Type()
+)
+ssaMaxInit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ssaMaxInit.setStatus("mandatory")
+
+
+class _SsaPathAlg_Type(Integer32):
+    """Custom type ssaPathAlg based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("default", 0),
+          ("skipInitiators", 1),
+          ("unknown", 2))
+    )
+
+
+_SsaPathAlg_Type.__name__ = "Integer32"
+_SsaPathAlg_Object = MibTableColumn
+ssaPathAlg = _SsaPathAlg_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 3, 1, 8),
+    _SsaPathAlg_Type()
+)
+ssaPathAlg.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ssaPathAlg.setStatus("mandatory")
+
+
+class _SsaHWRev_Type(DisplayString):
+    """Custom type ssaHWRev based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_SsaHWRev_Type.__name__ = "DisplayString"
+_SsaHWRev_Object = MibTableColumn
+ssaHWRev = _SsaHWRev_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 3, 1, 9),
+    _SsaHWRev_Type()
+)
+ssaHWRev.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ssaHWRev.setStatus("mandatory")
+
+
+class _SsaMasterPriority_Type(Integer32):
+    """Custom type ssaMasterPriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_SsaMasterPriority_Type.__name__ = "Integer32"
+_SsaMasterPriority_Object = MibTableColumn
+ssaMasterPriority = _SsaMasterPriority_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 3, 1, 10),
+    _SsaMasterPriority_Type()
+)
+ssaMasterPriority.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ssaMasterPriority.setStatus("mandatory")
+
+
+class _SsaSATAQuota_Type(Integer32):
+    """Custom type ssaSATAQuota based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_SsaSATAQuota_Type.__name__ = "Integer32"
+_SsaSATAQuota_Object = MibTableColumn
+ssaSATAQuota = _SsaSATAQuota_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 3, 1, 11),
+    _SsaSATAQuota_Type()
+)
+ssaSATAQuota.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ssaSATAQuota.setStatus("mandatory")
+
+
+class _SsaSATBQuota_Type(Integer32):
+    """Custom type ssaSATBQuota based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_SsaSATBQuota_Type.__name__ = "Integer32"
+_SsaSATBQuota_Object = MibTableColumn
+ssaSATBQuota = _SsaSATBQuota_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 3, 1, 12),
+    _SsaSATBQuota_Type()
+)
+ssaSATBQuota.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ssaSATBQuota.setStatus("mandatory")
+
+
+class _SsaSATIQuota_Type(Integer32):
+    """Custom type ssaSATIQuota based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_SsaSATIQuota_Type.__name__ = "Integer32"
+_SsaSATIQuota_Object = MibTableColumn
+ssaSATIQuota = _SsaSATIQuota_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 3, 1, 13),
+    _SsaSATIQuota_Type()
+)
+ssaSATIQuota.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ssaSATIQuota.setStatus("mandatory")
+_PcSCSICtlrs_Object = MibTable
+pcSCSICtlrs = _PcSCSICtlrs_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 4)
+)
+if mibBuilder.loadTexts:
+    pcSCSICtlrs.setStatus("mandatory")
+_ScsiCtlrEntry_Object = MibTableRow
+scsiCtlrEntry = _ScsiCtlrEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 4, 1)
+)
+scsiCtlrEntry.setIndexNames(
+    (0, "ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+    (0, "ADIC-SANMGR-PROXY-MIB", "pcIndex"),
+)
+if mibBuilder.loadTexts:
+    scsiCtlrEntry.setStatus("mandatory")
+_ScsiStatus_Type = PltStatus
+_ScsiStatus_Object = MibTableColumn
+scsiStatus = _ScsiStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 4, 1, 1),
+    _ScsiStatus_Type()
+)
+scsiStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    scsiStatus.setStatus("mandatory")
+_ScsiSpeed_Type = ScsiSpeed
+_ScsiSpeed_Object = MibTableColumn
+scsiSpeed = _ScsiSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 4, 1, 2),
+    _ScsiSpeed_Type()
+)
+scsiSpeed.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    scsiSpeed.setStatus("mandatory")
+
+
+class _ScsiRole_Type(Integer32):
+    """Custom type scsiRole based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("initiator", 1),
+          ("target", 0))
+    )
+
+
+_ScsiRole_Type.__name__ = "Integer32"
+_ScsiRole_Object = MibTableColumn
+scsiRole = _ScsiRole_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 4, 1, 3),
+    _ScsiRole_Type()
+)
+scsiRole.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    scsiRole.setStatus("mandatory")
+
+
+class _ScsiHostId_Type(Integer32):
+    """Custom type scsiHostId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 15),
+    )
+
+
+_ScsiHostId_Type.__name__ = "Integer32"
+_ScsiHostId_Object = MibTableColumn
+scsiHostId = _ScsiHostId_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 4, 1, 4),
+    _ScsiHostId_Type()
+)
+scsiHostId.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    scsiHostId.setStatus("mandatory")
+_ScsiMaxSpeed_Type = ScsiSpeed
+_ScsiMaxSpeed_Object = MibTableColumn
+scsiMaxSpeed = _ScsiMaxSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 4, 1, 5),
+    _ScsiMaxSpeed_Type()
+)
+scsiMaxSpeed.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    scsiMaxSpeed.setStatus("mandatory")
+
+
+class _ScsiTerm_Type(Integer32):
+    """Custom type scsiTerm based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 0),
+          ("enabled", 1),
+          ("notPresent", 2))
+    )
+
+
+_ScsiTerm_Type.__name__ = "Integer32"
+_ScsiTerm_Object = MibTableColumn
+scsiTerm = _ScsiTerm_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 4, 1, 6),
+    _ScsiTerm_Type()
+)
+scsiTerm.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    scsiTerm.setStatus("mandatory")
+_ScsiIoCard_Type = ScsiCardType
+_ScsiIoCard_Object = MibTableColumn
+scsiIoCard = _ScsiIoCard_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 4, 1, 7),
+    _ScsiIoCard_Type()
+)
+scsiIoCard.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    scsiIoCard.setStatus("mandatory")
+_ScsiMaxIds_Type = Integer32
+_ScsiMaxIds_Object = MibTableColumn
+scsiMaxIds = _ScsiMaxIds_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 4, 1, 8),
+    _ScsiMaxIds_Type()
+)
+scsiMaxIds.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    scsiMaxIds.setStatus("mandatory")
+_ScsiMaxLuns_Type = Integer32
+_ScsiMaxLuns_Object = MibTableColumn
+scsiMaxLuns = _ScsiMaxLuns_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 4, 1, 9),
+    _ScsiMaxLuns_Type()
+)
+scsiMaxLuns.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    scsiMaxLuns.setStatus("mandatory")
+_ScsiMaxWidth_Type = Integer32
+_ScsiMaxWidth_Object = MibTableColumn
+scsiMaxWidth = _ScsiMaxWidth_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 4, 1, 10),
+    _ScsiMaxWidth_Type()
+)
+scsiMaxWidth.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    scsiMaxWidth.setStatus("mandatory")
+
+
+class _ScsiHWRev_Type(DisplayString):
+    """Custom type scsiHWRev based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_ScsiHWRev_Type.__name__ = "DisplayString"
+_ScsiHWRev_Object = MibTableColumn
+scsiHWRev = _ScsiHWRev_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 4, 1, 11),
+    _ScsiHWRev_Type()
+)
+scsiHWRev.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    scsiHWRev.setStatus("mandatory")
+
+
+class _ScsiFWRev_Type(DisplayString):
+    """Custom type scsiFWRev based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_ScsiFWRev_Type.__name__ = "DisplayString"
+_ScsiFWRev_Object = MibTableColumn
+scsiFWRev = _ScsiFWRev_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 4, 1, 12),
+    _ScsiFWRev_Type()
+)
+scsiFWRev.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    scsiFWRev.setStatus("mandatory")
+_ScsiResetOnPowerUp_Type = Boolean
+_ScsiResetOnPowerUp_Object = MibTableColumn
+scsiResetOnPowerUp = _ScsiResetOnPowerUp_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 4, 1, 13),
+    _ScsiResetOnPowerUp_Type()
+)
+scsiResetOnPowerUp.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    scsiResetOnPowerUp.setStatus("mandatory")
+_ScsiMultiInitEnabled_Type = Boolean
+_ScsiMultiInitEnabled_Object = MibTableColumn
+scsiMultiInitEnabled = _ScsiMultiInitEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 4, 1, 14),
+    _ScsiMultiInitEnabled_Type()
+)
+scsiMultiInitEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    scsiMultiInitEnabled.setStatus("mandatory")
+
+
+class _ScsiAlternateHostId_Type(Integer32):
+    """Custom type scsiAlternateHostId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-1, 15),
+    )
+
+
+_ScsiAlternateHostId_Type.__name__ = "Integer32"
+_ScsiAlternateHostId_Object = MibTableColumn
+scsiAlternateHostId = _ScsiAlternateHostId_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 4, 1, 15),
+    _ScsiAlternateHostId_Type()
+)
+scsiAlternateHostId.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    scsiAlternateHostId.setStatus("mandatory")
+_ScsiTargetEnabled_Type = Boolean
+_ScsiTargetEnabled_Object = MibTableColumn
+scsiTargetEnabled = _ScsiTargetEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 4, 4, 1, 16),
+    _ScsiTargetEnabled_Type()
+)
+scsiTargetEnabled.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    scsiTargetEnabled.setStatus("mandatory")
+_Notification_ObjectIdentity = ObjectIdentity
+notification = _Notification_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 5)
+)
+_PnTrapDest_Object = MibTable
+pnTrapDest = _PnTrapDest_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 5, 1)
+)
+if mibBuilder.loadTexts:
+    pnTrapDest.setStatus("obsolete")
+_PnTrapDestEntry_Object = MibTableRow
+pnTrapDestEntry = _PnTrapDestEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 5, 1, 1)
+)
+pnTrapDestEntry.setIndexNames(
+    (0, "ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+    (0, "ADIC-SANMGR-PROXY-MIB", "pnIPAddr"),
+    (0, "ADIC-SANMGR-PROXY-MIB", "pnUdpPort"),
+)
+if mibBuilder.loadTexts:
+    pnTrapDestEntry.setStatus("obsolete")
+_PnIndex_Type = Integer32
+_PnIndex_Object = MibTableColumn
+pnIndex = _PnIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 5, 1, 1, 1),
+    _PnIndex_Type()
+)
+pnIndex.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pnIndex.setStatus("obsolete")
+_PnIPAddr_Type = IpAddress
+_PnIPAddr_Object = MibTableColumn
+pnIPAddr = _PnIPAddr_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 5, 1, 1, 2),
+    _PnIPAddr_Type()
+)
+pnIPAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pnIPAddr.setStatus("obsolete")
+
+
+class _PnUdpPort_Type(Integer32):
+    """Custom type pnUdpPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_PnUdpPort_Type.__name__ = "Integer32"
+_PnUdpPort_Object = MibTableColumn
+pnUdpPort = _PnUdpPort_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 5, 1, 1, 3),
+    _PnUdpPort_Type()
+)
+pnUdpPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pnUdpPort.setStatus("obsolete")
+
+
+class _PnTrapStyle_Type(Integer32):
+    """Custom type pnTrapStyle based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("proprietary", 1),
+          ("rfc1215", 2))
+    )
+
+
+_PnTrapStyle_Type.__name__ = "Integer32"
+_PnTrapStyle_Object = MibTableColumn
+pnTrapStyle = _PnTrapStyle_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 5, 1, 1, 4),
+    _PnTrapStyle_Type()
+)
+pnTrapStyle.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pnTrapStyle.setStatus("obsolete")
+
+
+class _PnTrapBroadcastMode_Type(Integer32):
+    """Custom type pnTrapBroadcastMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_PnTrapBroadcastMode_Type.__name__ = "Integer32"
+_PnTrapBroadcastMode_Object = MibTableColumn
+pnTrapBroadcastMode = _PnTrapBroadcastMode_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 5, 1, 1, 5),
+    _PnTrapBroadcastMode_Type()
+)
+pnTrapBroadcastMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pnTrapBroadcastMode.setStatus("mandatory")
+_PanelLED_ObjectIdentity = ObjectIdentity
+panelLED = _PanelLED_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 6)
+)
+_PaHost_ObjectIdentity = ObjectIdentity
+paHost = _PaHost_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 7)
+)
+_HostCommandTable_Object = MibTable
+hostCommandTable = _HostCommandTable_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 7, 1)
+)
+if mibBuilder.loadTexts:
+    hostCommandTable.setStatus("mandatory")
+_HostCommandEntry_Object = MibTableRow
+hostCommandEntry = _HostCommandEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 7, 1, 1)
+)
+hostCommandEntry.setIndexNames(
+    (0, "ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+)
+if mibBuilder.loadTexts:
+    hostCommandEntry.setStatus("mandatory")
+
+
+class _HostCommand_Type(Integer32):
+    """Custom type hostCommand based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            1
+        )
+    )
+    namedValues = NamedValues(
+        ("commitChanges", 1)
+    )
+
+
+_HostCommand_Type.__name__ = "Integer32"
+_HostCommand_Object = MibTableColumn
+hostCommand = _HostCommand_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 7, 1, 1, 1),
+    _HostCommand_Type()
+)
+hostCommand.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hostCommand.setStatus("mandatory")
+_HostInitiator_Object = MibTable
+hostInitiator = _HostInitiator_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 7, 2)
+)
+if mibBuilder.loadTexts:
+    hostInitiator.setStatus("mandatory")
+_HostInitiatorEntry_Object = MibTableRow
+hostInitiatorEntry = _HostInitiatorEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 7, 2, 1)
+)
+hostInitiatorEntry.setIndexNames(
+    (0, "ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+    (0, "ADIC-SANMGR-PROXY-MIB", "hostIndex"),
+)
+if mibBuilder.loadTexts:
+    hostInitiatorEntry.setStatus("mandatory")
+_HostIndex_Type = Integer32
+_HostIndex_Object = MibTableColumn
+hostIndex = _HostIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 7, 2, 1, 1),
+    _HostIndex_Type()
+)
+hostIndex.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hostIndex.setStatus("mandatory")
+_HostRowStatus_Type = Integer32
+_HostRowStatus_Object = MibTableColumn
+hostRowStatus = _HostRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 7, 2, 1, 2),
+    _HostRowStatus_Type()
+)
+hostRowStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hostRowStatus.setStatus("mandatory")
+
+
+class _HostWWName_Type(DisplayString):
+    """Custom type hostWWName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_HostWWName_Type.__name__ = "DisplayString"
+_HostWWName_Object = MibTableColumn
+hostWWName = _HostWWName_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 7, 2, 1, 3),
+    _HostWWName_Type()
+)
+hostWWName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hostWWName.setStatus("mandatory")
+
+
+class _HostName_Type(DisplayString):
+    """Custom type hostName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_HostName_Type.__name__ = "DisplayString"
+_HostName_Object = MibTableColumn
+hostName = _HostName_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 7, 2, 1, 4),
+    _HostName_Type()
+)
+hostName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hostName.setStatus("mandatory")
+
+
+class _HostType_Type(DisplayString):
+    """Custom type hostType based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_HostType_Type.__name__ = "DisplayString"
+_HostType_Object = MibTableColumn
+hostType = _HostType_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 7, 2, 1, 5),
+    _HostType_Type()
+)
+hostType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hostType.setStatus("mandatory")
+
+
+class _HostPortID_Type(DisplayString):
+    """Custom type hostPortID based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_HostPortID_Type.__name__ = "DisplayString"
+_HostPortID_Object = MibTableColumn
+hostPortID = _HostPortID_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 7, 2, 1, 6),
+    _HostPortID_Type()
+)
+hostPortID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hostPortID.setStatus("mandatory")
+_HostSANConnection_Type = Integer32
+_HostSANConnection_Object = MibTableColumn
+hostSANConnection = _HostSANConnection_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 7, 2, 1, 7),
+    _HostSANConnection_Type()
+)
+hostSANConnection.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hostSANConnection.setStatus("mandatory")
+_HostConnectionType_Type = Interface
+_HostConnectionType_Object = MibTableColumn
+hostConnectionType = _HostConnectionType_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 7, 2, 1, 8),
+    _HostConnectionType_Type()
+)
+hostConnectionType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hostConnectionType.setStatus("mandatory")
+
+
+class _HostITLData_Type(OctetString):
+    """Custom type hostITLData based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(256, 256),
+    )
+
+
+_HostITLData_Type.__name__ = "OctetString"
+_HostITLData_Object = MibTableColumn
+hostITLData = _HostITLData_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 7, 2, 1, 9),
+    _HostITLData_Type()
+)
+hostITLData.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hostITLData.setStatus("mandatory")
+_HostIPAddr_Type = IpAddress
+_HostIPAddr_Object = MibTableColumn
+hostIPAddr = _HostIPAddr_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 7, 2, 1, 10),
+    _HostIPAddr_Type()
+)
+hostIPAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hostIPAddr.setStatus("mandatory")
+_HostLunType_Type = HostLUNType
+_HostLunType_Object = MibTableColumn
+hostLunType = _HostLunType_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 7, 2, 1, 11),
+    _HostLunType_Type()
+)
+hostLunType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hostLunType.setStatus("mandatory")
+
+
+class _HostLunMap_Type(OctetString):
+    """Custom type hostLunMap based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(512, 512),
+    )
+
+
+_HostLunMap_Type.__name__ = "OctetString"
+_HostLunMap_Object = MibTableColumn
+hostLunMap = _HostLunMap_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 7, 2, 1, 12),
+    _HostLunMap_Type()
+)
+hostLunMap.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hostLunMap.setStatus("mandatory")
+_HostInbandAccess_Type = Integer32
+_HostInbandAccess_Object = MibTableColumn
+hostInbandAccess = _HostInbandAccess_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 7, 2, 1, 13),
+    _HostInbandAccess_Type()
+)
+hostInbandAccess.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hostInbandAccess.setStatus("mandatory")
+_ScsiMap_ObjectIdentity = ObjectIdentity
+scsiMap = _ScsiMap_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 8)
+)
+_ScsiMapCommandTable_Object = MibTable
+scsiMapCommandTable = _ScsiMapCommandTable_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 8, 1)
+)
+if mibBuilder.loadTexts:
+    scsiMapCommandTable.setStatus("mandatory")
+_ScsiMapCommandEntry_Object = MibTableRow
+scsiMapCommandEntry = _ScsiMapCommandEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 8, 1, 1)
+)
+scsiMapCommandEntry.setIndexNames(
+    (0, "ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+)
+if mibBuilder.loadTexts:
+    scsiMapCommandEntry.setStatus("mandatory")
+_ScsiMapCommand_Type = Integer32
+_ScsiMapCommand_Object = MibTableColumn
+scsiMapCommand = _ScsiMapCommand_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 8, 1, 1, 1),
+    _ScsiMapCommand_Type()
+)
+scsiMapCommand.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    scsiMapCommand.setStatus("mandatory")
+_ScsiChannelMap_Object = MibTable
+scsiChannelMap = _ScsiChannelMap_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 8, 2)
+)
+if mibBuilder.loadTexts:
+    scsiChannelMap.setStatus("mandatory")
+_ScsiMapEntry_Object = MibTableRow
+scsiMapEntry = _ScsiMapEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 8, 2, 1)
+)
+scsiMapEntry.setIndexNames(
+    (0, "ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+    (0, "ADIC-SANMGR-PROXY-MIB", "scsiMapPort"),
+    (0, "ADIC-SANMGR-PROXY-MIB", "scsiMapTid"),
+    (0, "ADIC-SANMGR-PROXY-MIB", "scsiMapLun"),
+)
+if mibBuilder.loadTexts:
+    scsiMapEntry.setStatus("mandatory")
+_ScsiMapRowStatus_Type = RowStatus
+_ScsiMapRowStatus_Object = MibTableColumn
+scsiMapRowStatus = _ScsiMapRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 8, 2, 1, 1),
+    _ScsiMapRowStatus_Type()
+)
+scsiMapRowStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    scsiMapRowStatus.setStatus("mandatory")
+_ScsiMapPort_Type = Integer32
+_ScsiMapPort_Object = MibTableColumn
+scsiMapPort = _ScsiMapPort_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 8, 2, 1, 2),
+    _ScsiMapPort_Type()
+)
+scsiMapPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    scsiMapPort.setStatus("mandatory")
+_ScsiMapTid_Type = Integer32
+_ScsiMapTid_Object = MibTableColumn
+scsiMapTid = _ScsiMapTid_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 8, 2, 1, 3),
+    _ScsiMapTid_Type()
+)
+scsiMapTid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    scsiMapTid.setStatus("mandatory")
+_ScsiMapLun_Type = Integer32
+_ScsiMapLun_Object = MibTableColumn
+scsiMapLun = _ScsiMapLun_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 8, 2, 1, 4),
+    _ScsiMapLun_Type()
+)
+scsiMapLun.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    scsiMapLun.setStatus("mandatory")
+_ScsiMapAssignedLun_Type = Integer32
+_ScsiMapAssignedLun_Object = MibTableColumn
+scsiMapAssignedLun = _ScsiMapAssignedLun_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 8, 2, 1, 5),
+    _ScsiMapAssignedLun_Type()
+)
+scsiMapAssignedLun.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    scsiMapAssignedLun.setStatus("mandatory")
+
+
+class _ScsiMapComments_Type(DisplayString):
+    """Custom type scsiMapComments based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 80),
+    )
+
+
+_ScsiMapComments_Type.__name__ = "DisplayString"
+_ScsiMapComments_Object = MibTableColumn
+scsiMapComments = _ScsiMapComments_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 8, 2, 1, 6),
+    _ScsiMapComments_Type()
+)
+scsiMapComments.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    scsiMapComments.setStatus("mandatory")
+_ScsiMapPdIndex_Type = Integer32
+_ScsiMapPdIndex_Object = MibTableColumn
+scsiMapPdIndex = _ScsiMapPdIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 8, 2, 1, 7),
+    _ScsiMapPdIndex_Type()
+)
+scsiMapPdIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    scsiMapPdIndex.setStatus("mandatory")
+_DeviceMap_ObjectIdentity = ObjectIdentity
+deviceMap = _DeviceMap_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 9)
+)
+_DeviceMapCommandTable_Object = MibTable
+deviceMapCommandTable = _DeviceMapCommandTable_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 9, 1)
+)
+if mibBuilder.loadTexts:
+    deviceMapCommandTable.setStatus("mandatory")
+_DeviceMapCommandEntry_Object = MibTableRow
+deviceMapCommandEntry = _DeviceMapCommandEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 9, 1, 1)
+)
+deviceMapCommandEntry.setIndexNames(
+    (0, "ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+)
+if mibBuilder.loadTexts:
+    deviceMapCommandEntry.setStatus("mandatory")
+
+
+class _DeviceMapCommand_Type(Integer32):
+    """Custom type deviceMapCommand based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("clearCopy", 1),
+          ("commit", 2),
+          ("mapClearDatabase", 4),
+          ("winnow", 3))
+    )
+
+
+_DeviceMapCommand_Type.__name__ = "Integer32"
+_DeviceMapCommand_Object = MibTableColumn
+deviceMapCommand = _DeviceMapCommand_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 9, 1, 1, 1),
+    _DeviceMapCommand_Type()
+)
+deviceMapCommand.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    deviceMapCommand.setStatus("mandatory")
+
+
+class _DeviceMapMultipathMode_Type(Integer32):
+    """Custom type deviceMapMultipathMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("auto", 2),
+          ("manual", 1),
+          ("single", 0))
+    )
+
+
+_DeviceMapMultipathMode_Type.__name__ = "Integer32"
+_DeviceMapMultipathMode_Object = MibTableColumn
+deviceMapMultipathMode = _DeviceMapMultipathMode_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 9, 1, 1, 2),
+    _DeviceMapMultipathMode_Type()
+)
+deviceMapMultipathMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    deviceMapMultipathMode.setStatus("mandatory")
+_DeviceMapRemoveDevice_Type = Integer32
+_DeviceMapRemoveDevice_Object = MibTableColumn
+deviceMapRemoveDevice = _DeviceMapRemoveDevice_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 9, 1, 1, 3),
+    _DeviceMapRemoveDevice_Type()
+)
+deviceMapRemoveDevice.setMaxAccess("write-only")
+if mibBuilder.loadTexts:
+    deviceMapRemoveDevice.setStatus("mandatory")
+
+
+class _DeviceLoadBalancingMode_Type(Integer32):
+    """Custom type deviceLoadBalancingMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_DeviceLoadBalancingMode_Type.__name__ = "Integer32"
+_DeviceLoadBalancingMode_Object = MibTableColumn
+deviceLoadBalancingMode = _DeviceLoadBalancingMode_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 9, 1, 1, 4),
+    _DeviceLoadBalancingMode_Type()
+)
+deviceLoadBalancingMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    deviceLoadBalancingMode.setStatus("mandatory")
+_DmDeviceMap_Object = MibTable
+dmDeviceMap = _DmDeviceMap_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 9, 2)
+)
+if mibBuilder.loadTexts:
+    dmDeviceMap.setStatus("mandatory")
+_DmDevMapEntry_Object = MibTableRow
+dmDevMapEntry = _DmDevMapEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 9, 2, 1)
+)
+dmDevMapEntry.setIndexNames(
+    (0, "ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+    (0, "ADIC-SANMGR-PROXY-MIB", "dmAssignedLun"),
+)
+if mibBuilder.loadTexts:
+    dmDevMapEntry.setStatus("mandatory")
+_DmRowStatus_Type = RowStatus
+_DmRowStatus_Object = MibTableColumn
+dmRowStatus = _DmRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 9, 2, 1, 1),
+    _DmRowStatus_Type()
+)
+dmRowStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dmRowStatus.setStatus("mandatory")
+_DmAssignedLun_Type = Integer32
+_DmAssignedLun_Object = MibTableColumn
+dmAssignedLun = _DmAssignedLun_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 9, 2, 1, 2),
+    _DmAssignedLun_Type()
+)
+dmAssignedLun.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dmAssignedLun.setStatus("mandatory")
+_DmType_Type = Interface
+_DmType_Object = MibTableColumn
+dmType = _DmType_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 9, 2, 1, 3),
+    _DmType_Type()
+)
+dmType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dmType.setStatus("mandatory")
+_DmPort_Type = Integer32
+_DmPort_Object = MibTableColumn
+dmPort = _DmPort_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 9, 2, 1, 4),
+    _DmPort_Type()
+)
+dmPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dmPort.setStatus("mandatory")
+_DmTargetId_Type = Integer32
+_DmTargetId_Object = MibTableColumn
+dmTargetId = _DmTargetId_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 9, 2, 1, 5),
+    _DmTargetId_Type()
+)
+dmTargetId.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dmTargetId.setStatus("mandatory")
+_DmTargetLun_Type = Integer32
+_DmTargetLun_Object = MibTableColumn
+dmTargetLun = _DmTargetLun_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 9, 2, 1, 6),
+    _DmTargetLun_Type()
+)
+dmTargetLun.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dmTargetLun.setStatus("mandatory")
+
+
+class _DmUid_Type(OctetString):
+    """Custom type dmUid based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(8, 8),
+    )
+
+
+_DmUid_Type.__name__ = "OctetString"
+_DmUid_Object = MibTableColumn
+dmUid = _DmUid_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 9, 2, 1, 7),
+    _DmUid_Type()
+)
+dmUid.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dmUid.setStatus("mandatory")
+
+
+class _DmPath_Type(Integer32):
+    """Custom type dmPath based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("auto", 2),
+          ("manual", 1),
+          ("single", 0))
+    )
+
+
+_DmPath_Type.__name__ = "Integer32"
+_DmPath_Object = MibTableColumn
+dmPath = _DmPath_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 9, 2, 1, 8),
+    _DmPath_Type()
+)
+dmPath.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dmPath.setStatus("mandatory")
+
+
+class _DmSerialNum_Type(DisplayString):
+    """Custom type dmSerialNum based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_DmSerialNum_Type.__name__ = "DisplayString"
+_DmSerialNum_Object = MibTableColumn
+dmSerialNum = _DmSerialNum_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 9, 2, 1, 9),
+    _DmSerialNum_Type()
+)
+dmSerialNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dmSerialNum.setStatus("mandatory")
+_Replication_ObjectIdentity = ObjectIdentity
+replication = _Replication_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10)
+)
+_SrsDevTable_Object = MibTable
+srsDevTable = _SrsDevTable_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 1)
+)
+if mibBuilder.loadTexts:
+    srsDevTable.setStatus("mandatory")
+_SrsDevEntry_Object = MibTableRow
+srsDevEntry = _SrsDevEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 1, 1)
+)
+srsDevEntry.setIndexNames(
+    (0, "ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+    (0, "ADIC-SANMGR-PROXY-MIB", "srsDevId"),
+)
+if mibBuilder.loadTexts:
+    srsDevEntry.setStatus("mandatory")
+_SrsDevId_Type = Integer32
+_SrsDevId_Object = MibTableColumn
+srsDevId = _SrsDevId_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 1, 1, 1),
+    _SrsDevId_Type()
+)
+srsDevId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    srsDevId.setStatus("mandatory")
+
+
+class _SrsDevState_Type(Integer32):
+    """Custom type srsDevState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("deleted", 4),
+          ("error", 3),
+          ("initialized", 1),
+          ("online", 2),
+          ("unknown", 0))
+    )
+
+
+_SrsDevState_Type.__name__ = "Integer32"
+_SrsDevState_Object = MibTableColumn
+srsDevState = _SrsDevState_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 1, 1, 2),
+    _SrsDevState_Type()
+)
+srsDevState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    srsDevState.setStatus("mandatory")
+
+
+class _SrsDevCommand_Type(Integer32):
+    """Custom type srsDevCommand based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("create", 1),
+          ("remove", 2))
+    )
+
+
+_SrsDevCommand_Type.__name__ = "Integer32"
+_SrsDevCommand_Object = MibTableColumn
+srsDevCommand = _SrsDevCommand_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 1, 1, 3),
+    _SrsDevCommand_Type()
+)
+srsDevCommand.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    srsDevCommand.setStatus("mandatory")
+_SrsDevAssignedLun_Type = Integer32
+_SrsDevAssignedLun_Object = MibTableColumn
+srsDevAssignedLun = _SrsDevAssignedLun_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 1, 1, 4),
+    _SrsDevAssignedLun_Type()
+)
+srsDevAssignedLun.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    srsDevAssignedLun.setStatus("mandatory")
+_SrsDevMemberCount_Type = Integer32
+_SrsDevMemberCount_Object = MibTableColumn
+srsDevMemberCount = _SrsDevMemberCount_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 1, 1, 5),
+    _SrsDevMemberCount_Type()
+)
+srsDevMemberCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    srsDevMemberCount.setStatus("mandatory")
+_SrsDevMembersOnline_Type = Integer32
+_SrsDevMembersOnline_Object = MibTableColumn
+srsDevMembersOnline = _SrsDevMembersOnline_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 1, 1, 6),
+    _SrsDevMembersOnline_Type()
+)
+srsDevMembersOnline.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    srsDevMembersOnline.setStatus("mandatory")
+_SrsDevFlags_Type = Integer32
+_SrsDevFlags_Object = MibTableColumn
+srsDevFlags = _SrsDevFlags_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 1, 1, 7),
+    _SrsDevFlags_Type()
+)
+srsDevFlags.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    srsDevFlags.setStatus("mandatory")
+_SrsDevSizeInBlocks_Type = Gauge32
+_SrsDevSizeInBlocks_Object = MibTableColumn
+srsDevSizeInBlocks = _SrsDevSizeInBlocks_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 1, 1, 8),
+    _SrsDevSizeInBlocks_Type()
+)
+srsDevSizeInBlocks.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    srsDevSizeInBlocks.setStatus("mandatory")
+_SrsDevBlockSize_Type = Integer32
+_SrsDevBlockSize_Object = MibTableColumn
+srsDevBlockSize = _SrsDevBlockSize_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 1, 1, 9),
+    _SrsDevBlockSize_Type()
+)
+srsDevBlockSize.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    srsDevBlockSize.setStatus("mandatory")
+_SrsDevPrimary_Type = Integer32
+_SrsDevPrimary_Object = MibTableColumn
+srsDevPrimary = _SrsDevPrimary_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 1, 1, 10),
+    _SrsDevPrimary_Type()
+)
+srsDevPrimary.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    srsDevPrimary.setStatus("mandatory")
+_SrsMemTable_Object = MibTable
+srsMemTable = _SrsMemTable_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 2)
+)
+if mibBuilder.loadTexts:
+    srsMemTable.setStatus("mandatory")
+_SrsMemEntry_Object = MibTableRow
+srsMemEntry = _SrsMemEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 2, 1)
+)
+srsMemEntry.setIndexNames(
+    (0, "ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+    (0, "ADIC-SANMGR-PROXY-MIB", "srsMemDeviceId"),
+    (0, "ADIC-SANMGR-PROXY-MIB", "srsMemId"),
+)
+if mibBuilder.loadTexts:
+    srsMemEntry.setStatus("mandatory")
+_SrsMemDeviceId_Type = Integer32
+_SrsMemDeviceId_Object = MibTableColumn
+srsMemDeviceId = _SrsMemDeviceId_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 2, 1, 1),
+    _SrsMemDeviceId_Type()
+)
+srsMemDeviceId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    srsMemDeviceId.setStatus("mandatory")
+_SrsMemId_Type = Integer32
+_SrsMemId_Object = MibTableColumn
+srsMemId = _SrsMemId_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 2, 1, 2),
+    _SrsMemId_Type()
+)
+srsMemId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    srsMemId.setStatus("mandatory")
+
+
+class _SrsMemState_Type(Integer32):
+    """Custom type srsMemState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("offline", 7),
+          ("online", 1),
+          ("readError", 5),
+          ("suspended", 4),
+          ("synchronized", 2),
+          ("synchronizing", 3),
+          ("unknown", 0),
+          ("writeError", 6))
+    )
+
+
+_SrsMemState_Type.__name__ = "Integer32"
+_SrsMemState_Object = MibTableColumn
+srsMemState = _SrsMemState_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 2, 1, 3),
+    _SrsMemState_Type()
+)
+srsMemState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    srsMemState.setStatus("mandatory")
+
+
+class _SrsMemCommand_Type(Integer32):
+    """Custom type srsMemCommand based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("fullSynchronize", 6),
+          ("memberAdd", 1),
+          ("memberChange", 8),
+          ("primarySet", 5),
+          ("quickSynchronize", 7),
+          ("remove", 4),
+          ("resume", 3),
+          ("suspend", 2))
+    )
+
+
+_SrsMemCommand_Type.__name__ = "Integer32"
+_SrsMemCommand_Object = MibTableColumn
+srsMemCommand = _SrsMemCommand_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 2, 1, 4),
+    _SrsMemCommand_Type()
+)
+srsMemCommand.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    srsMemCommand.setStatus("mandatory")
+
+
+class _SrsMemType_Type(Integer32):
+    """Custom type srsMemType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("primary", 1),
+          ("secondary", 2))
+    )
+
+
+_SrsMemType_Type.__name__ = "Integer32"
+_SrsMemType_Object = MibTableColumn
+srsMemType = _SrsMemType_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 2, 1, 5),
+    _SrsMemType_Type()
+)
+srsMemType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    srsMemType.setStatus("mandatory")
+_SrsMemSyncPoint_Type = Integer32
+_SrsMemSyncPoint_Object = MibTableColumn
+srsMemSyncPoint = _SrsMemSyncPoint_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 2, 1, 6),
+    _SrsMemSyncPoint_Type()
+)
+srsMemSyncPoint.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    srsMemSyncPoint.setStatus("mandatory")
+_SrsMemAssignedLun_Type = Integer32
+_SrsMemAssignedLun_Object = MibTableColumn
+srsMemAssignedLun = _SrsMemAssignedLun_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 2, 1, 7),
+    _SrsMemAssignedLun_Type()
+)
+srsMemAssignedLun.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    srsMemAssignedLun.setStatus("mandatory")
+
+
+class _SrsMemReadOptions_Type(Integer32):
+    """Custom type srsMemReadOptions based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 1),
+          ("enabled", 0))
+    )
+
+
+_SrsMemReadOptions_Type.__name__ = "Integer32"
+_SrsMemReadOptions_Object = MibTableColumn
+srsMemReadOptions = _SrsMemReadOptions_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 2, 1, 8),
+    _SrsMemReadOptions_Type()
+)
+srsMemReadOptions.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    srsMemReadOptions.setStatus("mandatory")
+
+
+class _SrsMemWriteOptions_Type(Integer32):
+    """Custom type srsMemWriteOptions based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("asynchronous", 1),
+          ("synchronous", 0))
+    )
+
+
+_SrsMemWriteOptions_Type.__name__ = "Integer32"
+_SrsMemWriteOptions_Object = MibTableColumn
+srsMemWriteOptions = _SrsMemWriteOptions_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 10, 2, 1, 9),
+    _SrsMemWriteOptions_Type()
+)
+srsMemWriteOptions.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    srsMemWriteOptions.setStatus("mandatory")
+_EnvData_ObjectIdentity = ObjectIdentity
+envData = _EnvData_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 11)
+)
+_EnvDataTable_Object = MibTable
+envDataTable = _EnvDataTable_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 11, 1)
+)
+if mibBuilder.loadTexts:
+    envDataTable.setStatus("mandatory")
+_EnvDataEntry_Object = MibTableRow
+envDataEntry = _EnvDataEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 11, 1, 1)
+)
+envDataEntry.setIndexNames(
+    (0, "ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+    (0, "ADIC-SANMGR-PROXY-MIB", "envDataId"),
+)
+if mibBuilder.loadTexts:
+    envDataEntry.setStatus("mandatory")
+_EnvDataId_Type = Integer32
+_EnvDataId_Object = MibTableColumn
+envDataId = _EnvDataId_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 11, 1, 1, 1),
+    _EnvDataId_Type()
+)
+envDataId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    envDataId.setStatus("mandatory")
+
+
+class _EnvDataName_Type(DisplayString):
+    """Custom type envDataName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_EnvDataName_Type.__name__ = "DisplayString"
+_EnvDataName_Object = MibTableColumn
+envDataName = _EnvDataName_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 11, 1, 1, 2),
+    _EnvDataName_Type()
+)
+envDataName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    envDataName.setStatus("mandatory")
+
+
+class _EnvNominalLo_Type(DisplayString):
+    """Custom type envNominalLo based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_EnvNominalLo_Type.__name__ = "DisplayString"
+_EnvNominalLo_Object = MibTableColumn
+envNominalLo = _EnvNominalLo_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 11, 1, 1, 3),
+    _EnvNominalLo_Type()
+)
+envNominalLo.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    envNominalLo.setStatus("mandatory")
+
+
+class _EnvNominalHi_Type(DisplayString):
+    """Custom type envNominalHi based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_EnvNominalHi_Type.__name__ = "DisplayString"
+_EnvNominalHi_Object = MibTableColumn
+envNominalHi = _EnvNominalHi_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 11, 1, 1, 4),
+    _EnvNominalHi_Type()
+)
+envNominalHi.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    envNominalHi.setStatus("mandatory")
+
+
+class _EnvWarningLo_Type(DisplayString):
+    """Custom type envWarningLo based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_EnvWarningLo_Type.__name__ = "DisplayString"
+_EnvWarningLo_Object = MibTableColumn
+envWarningLo = _EnvWarningLo_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 11, 1, 1, 5),
+    _EnvWarningLo_Type()
+)
+envWarningLo.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    envWarningLo.setStatus("mandatory")
+
+
+class _EnvWarningHi_Type(DisplayString):
+    """Custom type envWarningHi based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_EnvWarningHi_Type.__name__ = "DisplayString"
+_EnvWarningHi_Object = MibTableColumn
+envWarningHi = _EnvWarningHi_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 11, 1, 1, 6),
+    _EnvWarningHi_Type()
+)
+envWarningHi.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    envWarningHi.setStatus("mandatory")
+
+
+class _EnvCurValue_Type(DisplayString):
+    """Custom type envCurValue based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_EnvCurValue_Type.__name__ = "DisplayString"
+_EnvCurValue_Object = MibTableColumn
+envCurValue = _EnvCurValue_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 11, 1, 1, 7),
+    _EnvCurValue_Type()
+)
+envCurValue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    envCurValue.setStatus("mandatory")
+
+
+class _EnvCurStatus_Type(DisplayString):
+    """Custom type envCurStatus based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_EnvCurStatus_Type.__name__ = "DisplayString"
+_EnvCurStatus_Object = MibTableColumn
+envCurStatus = _EnvCurStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 11, 1, 1, 8),
+    _EnvCurStatus_Type()
+)
+envCurStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    envCurStatus.setStatus("mandatory")
+
+
+class _EnvUnit_Type(DisplayString):
+    """Custom type envUnit based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_EnvUnit_Type.__name__ = "DisplayString"
+_EnvUnit_Object = MibTableColumn
+envUnit = _EnvUnit_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 11, 1, 1, 9),
+    _EnvUnit_Type()
+)
+envUnit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    envUnit.setStatus("mandatory")
+_PortFailover_ObjectIdentity = ObjectIdentity
+portFailover = _PortFailover_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12)
+)
+_FcHostPortFailover_ObjectIdentity = ObjectIdentity
+fcHostPortFailover = _FcHostPortFailover_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1)
+)
+_FcHPFPortMappings_Object = MibTable
+fcHPFPortMappings = _FcHPFPortMappings_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1, 1)
+)
+if mibBuilder.loadTexts:
+    fcHPFPortMappings.setStatus("mandatory")
+_FcHPFMapEntry_Object = MibTableRow
+fcHPFMapEntry = _FcHPFMapEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1, 1, 1)
+)
+fcHPFMapEntry.setIndexNames(
+    (0, "ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+    (0, "ADIC-SANMGR-PROXY-MIB", "fcHPFMapVirtualPort"),
+)
+if mibBuilder.loadTexts:
+    fcHPFMapEntry.setStatus("mandatory")
+_FcHPFMapRowStatus_Type = RowStatus
+_FcHPFMapRowStatus_Object = MibTableColumn
+fcHPFMapRowStatus = _FcHPFMapRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1, 1, 1, 1),
+    _FcHPFMapRowStatus_Type()
+)
+fcHPFMapRowStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    fcHPFMapRowStatus.setStatus("mandatory")
+_FcHPFMapVirtualPort_Type = Integer32
+_FcHPFMapVirtualPort_Object = MibTableColumn
+fcHPFMapVirtualPort = _FcHPFMapVirtualPort_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1, 1, 1, 2),
+    _FcHPFMapVirtualPort_Type()
+)
+fcHPFMapVirtualPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    fcHPFMapVirtualPort.setStatus("mandatory")
+_FcHPFMapPrimaryPort_Type = Integer32
+_FcHPFMapPrimaryPort_Object = MibTableColumn
+fcHPFMapPrimaryPort = _FcHPFMapPrimaryPort_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1, 1, 1, 3),
+    _FcHPFMapPrimaryPort_Type()
+)
+fcHPFMapPrimaryPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    fcHPFMapPrimaryPort.setStatus("mandatory")
+
+
+class _FcHPFMapStandbyList_Type(OctetString):
+    """Custom type fcHPFMapStandbyList based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(256, 256),
+    )
+
+
+_FcHPFMapStandbyList_Type.__name__ = "OctetString"
+_FcHPFMapStandbyList_Object = MibTableColumn
+fcHPFMapStandbyList = _FcHPFMapStandbyList_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1, 1, 1, 4),
+    _FcHPFMapStandbyList_Type()
+)
+fcHPFMapStandbyList.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    fcHPFMapStandbyList.setStatus("mandatory")
+_FcHPFMapActivePort_Type = Integer32
+_FcHPFMapActivePort_Object = MibTableColumn
+fcHPFMapActivePort = _FcHPFMapActivePort_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1, 1, 1, 5),
+    _FcHPFMapActivePort_Type()
+)
+fcHPFMapActivePort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    fcHPFMapActivePort.setStatus("mandatory")
+_FcHPFPhysicalPorts_Object = MibTable
+fcHPFPhysicalPorts = _FcHPFPhysicalPorts_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1, 2)
+)
+if mibBuilder.loadTexts:
+    fcHPFPhysicalPorts.setStatus("mandatory")
+_FcHPFPhysicalPortEntry_Object = MibTableRow
+fcHPFPhysicalPortEntry = _FcHPFPhysicalPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1, 2, 1)
+)
+fcHPFPhysicalPortEntry.setIndexNames(
+    (0, "ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+    (0, "ADIC-SANMGR-PROXY-MIB", "fcHPFPhysicalPort"),
+)
+if mibBuilder.loadTexts:
+    fcHPFPhysicalPortEntry.setStatus("mandatory")
+_FcHPFPhysicalPortRowStatus_Type = RowStatus
+_FcHPFPhysicalPortRowStatus_Object = MibTableColumn
+fcHPFPhysicalPortRowStatus = _FcHPFPhysicalPortRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1, 2, 1, 1),
+    _FcHPFPhysicalPortRowStatus_Type()
+)
+fcHPFPhysicalPortRowStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    fcHPFPhysicalPortRowStatus.setStatus("mandatory")
+_FcHPFPhysicalPort_Type = Integer32
+_FcHPFPhysicalPort_Object = MibTableColumn
+fcHPFPhysicalPort = _FcHPFPhysicalPort_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1, 2, 1, 2),
+    _FcHPFPhysicalPort_Type()
+)
+fcHPFPhysicalPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fcHPFPhysicalPort.setStatus("mandatory")
+_FcHPFPhysicalPortFailureType_Type = FcHPFPortFailType
+_FcHPFPhysicalPortFailureType_Object = MibTableColumn
+fcHPFPhysicalPortFailureType = _FcHPFPhysicalPortFailureType_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1, 2, 1, 3),
+    _FcHPFPhysicalPortFailureType_Type()
+)
+fcHPFPhysicalPortFailureType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fcHPFPhysicalPortFailureType.setStatus("mandatory")
+_FcHPFPhysicalPortCurrentState_Type = FcHPFPortState
+_FcHPFPhysicalPortCurrentState_Object = MibTableColumn
+fcHPFPhysicalPortCurrentState = _FcHPFPhysicalPortCurrentState_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1, 2, 1, 4),
+    _FcHPFPhysicalPortCurrentState_Type()
+)
+fcHPFPhysicalPortCurrentState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fcHPFPhysicalPortCurrentState.setStatus("mandatory")
+_FcHPFPhysicalPortIntervention_Type = Boolean
+_FcHPFPhysicalPortIntervention_Object = MibTableColumn
+fcHPFPhysicalPortIntervention = _FcHPFPhysicalPortIntervention_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1, 2, 1, 5),
+    _FcHPFPhysicalPortIntervention_Type()
+)
+fcHPFPhysicalPortIntervention.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    fcHPFPhysicalPortIntervention.setStatus("mandatory")
+_FcHPFGlobalTable_Object = MibTable
+fcHPFGlobalTable = _FcHPFGlobalTable_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1, 3)
+)
+if mibBuilder.loadTexts:
+    fcHPFGlobalTable.setStatus("mandatory")
+_FcHPFGlobalEntry_Object = MibTableRow
+fcHPFGlobalEntry = _FcHPFGlobalEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1, 3, 1)
+)
+fcHPFGlobalEntry.setIndexNames(
+    (0, "ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+)
+if mibBuilder.loadTexts:
+    fcHPFGlobalEntry.setStatus("mandatory")
+_FcHPFLinkDownThreshold_Type = Integer32
+_FcHPFLinkDownThreshold_Object = MibTableColumn
+fcHPFLinkDownThreshold = _FcHPFLinkDownThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1, 3, 1, 1),
+    _FcHPFLinkDownThreshold_Type()
+)
+fcHPFLinkDownThreshold.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    fcHPFLinkDownThreshold.setStatus("mandatory")
+_FcHPFErrorRecoveryMode_Type = FcHPFRecoveryType
+_FcHPFErrorRecoveryMode_Object = MibTableColumn
+fcHPFErrorRecoveryMode = _FcHPFErrorRecoveryMode_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1, 3, 1, 2),
+    _FcHPFErrorRecoveryMode_Type()
+)
+fcHPFErrorRecoveryMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    fcHPFErrorRecoveryMode.setStatus("mandatory")
+_FcHPFLinkDownRecoveryMode_Type = FcHPFRecoveryType
+_FcHPFLinkDownRecoveryMode_Object = MibTableColumn
+fcHPFLinkDownRecoveryMode = _FcHPFLinkDownRecoveryMode_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 12, 1, 3, 1, 3),
+    _FcHPFLinkDownRecoveryMode_Type()
+)
+fcHPFLinkDownRecoveryMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    fcHPFLinkDownRecoveryMode.setStatus("mandatory")
+_UtilityModule_ObjectIdentity = ObjectIdentity
+utilityModule = _UtilityModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 13)
+)
+_UtilityModuleTable_Object = MibTable
+utilityModuleTable = _UtilityModuleTable_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 13, 1)
+)
+if mibBuilder.loadTexts:
+    utilityModuleTable.setStatus("mandatory")
+_UtilityModuleEntry_Object = MibTableRow
+utilityModuleEntry = _UtilityModuleEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 13, 1, 1)
+)
+utilityModuleEntry.setIndexNames(
+    (0, "ADIC-SANMGR-PROXY-MIB", "utilityModuleId"),
+)
+if mibBuilder.loadTexts:
+    utilityModuleEntry.setStatus("mandatory")
+_UtilityModuleId_Type = Integer32
+_UtilityModuleId_Object = MibTableColumn
+utilityModuleId = _UtilityModuleId_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 13, 1, 1, 1),
+    _UtilityModuleId_Type()
+)
+utilityModuleId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    utilityModuleId.setStatus("mandatory")
+
+
+class _UtilityModuleVersion_Type(DisplayString):
+    """Custom type utilityModuleVersion based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_UtilityModuleVersion_Type.__name__ = "DisplayString"
+_UtilityModuleVersion_Object = MibTableColumn
+utilityModuleVersion = _UtilityModuleVersion_Object(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 13, 1, 1, 2),
+    _UtilityModuleVersion_Type()
+)
+utilityModuleVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    utilityModuleVersion.setStatus("mandatory")
+_TrapDefinition_ObjectIdentity = ObjectIdentity
+trapDefinition = _TrapDefinition_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+ssaPortUpEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 1)
+)
+ssaPortUpEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    ssaPortUpEvent.setStatus(
+        ""
+    )
+
+ssaPortDownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 2)
+)
+ssaPortDownEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    ssaPortDownEvent.setStatus(
+        ""
+    )
+
+ssaUidAddedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 3)
+)
+ssaUidAddedEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    ssaUidAddedEvent.setStatus(
+        ""
+    )
+
+ssaUidRemovedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 4)
+)
+ssaUidRemovedEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    ssaUidRemovedEvent.setStatus(
+        ""
+    )
+
+ssaWebReconfiguredEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 5)
+)
+ssaWebReconfiguredEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    ssaWebReconfiguredEvent.setStatus(
+        ""
+    )
+
+ssaAsyncErrorEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 6)
+)
+ssaAsyncErrorEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    ssaAsyncErrorEvent.setStatus(
+        ""
+    )
+
+ssaAdapterEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 7)
+)
+ssaAdapterEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    ssaAdapterEvent.setStatus(
+        ""
+    )
+
+senseDataEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 8)
+)
+senseDataEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    senseDataEvent.setStatus(
+        ""
+    )
+
+unitAttentionEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 9)
+)
+unitAttentionEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    unitAttentionEvent.setStatus(
+        ""
+    )
+
+ibfEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 10)
+)
+ibfEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    ibfEvent.setStatus(
+        ""
+    )
+
+temperatureChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 11)
+)
+temperatureChangeEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    temperatureChangeEvent.setStatus(
+        ""
+    )
+
+timeReferenceEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 12)
+)
+timeReferenceEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    timeReferenceEvent.setStatus(
+        ""
+    )
+
+shutdownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 13)
+)
+shutdownEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    shutdownEvent.setStatus(
+        ""
+    )
+
+diagnosticEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 14)
+)
+diagnosticEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    diagnosticEvent.setStatus(
+        ""
+    )
+
+configurationEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 15)
+)
+configurationEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    configurationEvent.setStatus(
+        ""
+    )
+
+unexpectedScsiInterruptEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 16)
+)
+unexpectedScsiInterruptEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    unexpectedScsiInterruptEvent.setStatus(
+        ""
+    )
+
+lipResetEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 17)
+)
+lipResetEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    lipResetEvent.setStatus(
+        ""
+    )
+
+fcSystemErrorEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 18)
+)
+fcSystemErrorEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    fcSystemErrorEvent.setStatus(
+        ""
+    )
+
+fcRequestTransferErrorEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 19)
+)
+fcRequestTransferErrorEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    fcRequestTransferErrorEvent.setStatus(
+        ""
+    )
+
+fcResponseTransferErrorEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 20)
+)
+fcResponseTransferErrorEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    fcResponseTransferErrorEvent.setStatus(
+        ""
+    )
+
+memoryFaultEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 21)
+)
+memoryFaultEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    memoryFaultEvent.setStatus(
+        ""
+    )
+
+fcLipEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 22)
+)
+fcLipEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    fcLipEvent.setStatus(
+        ""
+    )
+
+fcLoopUpEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 23)
+)
+fcLoopUpEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    fcLoopUpEvent.setStatus(
+        ""
+    )
+
+fcLoopDownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 24)
+)
+fcLoopDownEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    fcLoopDownEvent.setStatus(
+        ""
+    )
+
+pciBusParityErrorEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 25)
+)
+pciBusParityErrorEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    pciBusParityErrorEvent.setStatus(
+        ""
+    )
+
+pciInterfaceErrorEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 26)
+)
+pciInterfaceErrorEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    pciInterfaceErrorEvent.setStatus(
+        ""
+    )
+
+scsiDeviceAddedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 27)
+)
+scsiDeviceAddedEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    scsiDeviceAddedEvent.setStatus(
+        ""
+    )
+
+scsiBusResetEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 28)
+)
+scsiBusResetEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    scsiBusResetEvent.setStatus(
+        ""
+    )
+
+deviceAddedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 29)
+)
+deviceAddedEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    deviceAddedEvent.setStatus(
+        ""
+    )
+
+deviceRemovedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 30)
+)
+deviceRemovedEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    deviceRemovedEvent.setStatus(
+        ""
+    )
+
+loggingStartedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 31)
+)
+loggingStartedEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    loggingStartedEvent.setStatus(
+        ""
+    )
+
+loggingStoppedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 32)
+)
+loggingStoppedEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    loggingStoppedEvent.setStatus(
+        ""
+    )
+
+interfaceBusFaultEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 33)
+)
+interfaceBusFaultEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    interfaceBusFaultEvent.setStatus(
+        ""
+    )
+
+interfaceDeviceFaultEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 34)
+)
+interfaceDeviceFaultEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    interfaceDeviceFaultEvent.setStatus(
+        ""
+    )
+
+scsiUnexpectedDisconnectEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 35)
+)
+scsiUnexpectedDisconnectEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    scsiUnexpectedDisconnectEvent.setStatus(
+        ""
+    )
+
+scsiParityErrorEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 36)
+)
+scsiParityErrorEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    scsiParityErrorEvent.setStatus(
+        ""
+    )
+
+fcPortDatabaseChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 37)
+)
+fcPortDatabaseChangeEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    fcPortDatabaseChangeEvent.setStatus(
+        ""
+    )
+
+ddfMemoryErrorEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 38)
+)
+ddfMemoryErrorEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    ddfMemoryErrorEvent.setStatus(
+        ""
+    )
+
+fcDirectoryServerChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 39)
+)
+fcDirectoryServerChangeEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    fcDirectoryServerChangeEvent.setStatus(
+        ""
+    )
+
+lunLimitExcededEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 40)
+)
+lunLimitExcededEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    lunLimitExcededEvent.setStatus(
+        ""
+    )
+
+fcTransferFailureEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 41)
+)
+fcTransferFailureEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    fcTransferFailureEvent.setStatus(
+        ""
+    )
+
+deviceLimitExcededEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 42)
+)
+deviceLimitExcededEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    deviceLimitExcededEvent.setStatus(
+        ""
+    )
+
+fcDebugDumpEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 43)
+)
+fcDebugDumpEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    fcDebugDumpEvent.setStatus(
+        ""
+    )
+
+excessiveScsiBusErrorsEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 44)
+)
+excessiveScsiBusErrorsEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    excessiveScsiBusErrorsEvent.setStatus(
+        ""
+    )
+
+memoryScrubberErrorEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 45)
+)
+memoryScrubberErrorEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    memoryScrubberErrorEvent.setStatus(
+        ""
+    )
+
+srsDeviceCreatedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 46)
+)
+srsDeviceCreatedEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    srsDeviceCreatedEvent.setStatus(
+        ""
+    )
+
+srsDeviceOnlineEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 47)
+)
+srsDeviceOnlineEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    srsDeviceOnlineEvent.setStatus(
+        ""
+    )
+
+srsDeviceRemovedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 48)
+)
+srsDeviceRemovedEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    srsDeviceRemovedEvent.setStatus(
+        ""
+    )
+
+srsDeviceFailedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 49)
+)
+srsDeviceFailedEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    srsDeviceFailedEvent.setStatus(
+        ""
+    )
+
+srsMemberAddedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 50)
+)
+srsMemberAddedEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    srsMemberAddedEvent.setStatus(
+        ""
+    )
+
+srsMemberSuspendedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 51)
+)
+srsMemberSuspendedEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    srsMemberSuspendedEvent.setStatus(
+        ""
+    )
+
+srsMemberRemovedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 52)
+)
+srsMemberRemovedEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    srsMemberRemovedEvent.setStatus(
+        ""
+    )
+
+srsMemberSyncStartedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 53)
+)
+srsMemberSyncStartedEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    srsMemberSyncStartedEvent.setStatus(
+        ""
+    )
+
+srsMemberSyncDoneEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 54)
+)
+srsMemberSyncDoneEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    srsMemberSyncDoneEvent.setStatus(
+        ""
+    )
+
+srsMemberSyncErrorEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 55)
+)
+srsMemberSyncErrorEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    srsMemberSyncErrorEvent.setStatus(
+        ""
+    )
+
+srsMemberRetryEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 56)
+)
+srsMemberRetryEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    srsMemberRetryEvent.setStatus(
+        ""
+    )
+
+srsMemberErrorEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 57)
+)
+srsMemberErrorEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    srsMemberErrorEvent.setStatus(
+        ""
+    )
+
+envPowerNominalEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 58)
+)
+envPowerNominalEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    envPowerNominalEvent.setStatus(
+        ""
+    )
+
+envPowerWarningEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 59)
+)
+envPowerWarningEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    envPowerWarningEvent.setStatus(
+        ""
+    )
+
+envPowerAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 60)
+)
+envPowerAlarmEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    envPowerAlarmEvent.setStatus(
+        ""
+    )
+
+envTemperatureNominalEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 61)
+)
+envTemperatureNominalEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    envTemperatureNominalEvent.setStatus(
+        ""
+    )
+
+envInletTemperatureWarningEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 62)
+)
+envInletTemperatureWarningEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    envInletTemperatureWarningEvent.setStatus(
+        ""
+    )
+
+envInletTemperatureAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 63)
+)
+envInletTemperatureAlarmEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    envInletTemperatureAlarmEvent.setStatus(
+        ""
+    )
+
+envOutletTemperatureWarningEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 64)
+)
+envOutletTemperatureWarningEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    envOutletTemperatureWarningEvent.setStatus(
+        ""
+    )
+
+envOutletTemperatureAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 65)
+)
+envOutletTemperatureAlarmEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    envOutletTemperatureAlarmEvent.setStatus(
+        ""
+    )
+
+envFanNominalEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 66)
+)
+envFanNominalEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    envFanNominalEvent.setStatus(
+        ""
+    )
+
+envFanWarningEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 67)
+)
+envFanWarningEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    envFanWarningEvent.setStatus(
+        ""
+    )
+
+envFanAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 68)
+)
+envFanAlarmEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    envFanAlarmEvent.setStatus(
+        ""
+    )
+
+eccMemoryErrorEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 69)
+)
+eccMemoryErrorEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    eccMemoryErrorEvent.setStatus(
+        ""
+    )
+
+restartCompleteEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 70)
+)
+restartCompleteEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    restartCompleteEvent.setStatus(
+        ""
+    )
+
+firmwareUploadCompleteEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 71)
+)
+firmwareUploadCompleteEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    firmwareUploadCompleteEvent.setStatus(
+        ""
+    )
+
+maxInitiatorsExceededEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 72)
+)
+maxInitiatorsExceededEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    maxInitiatorsExceededEvent.setStatus(
+        ""
+    )
+
+dataPathFailoverEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 73)
+)
+dataPathFailoverEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    dataPathFailoverEvent.setStatus(
+        ""
+    )
+
+amemWarningEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 74)
+)
+amemWarningEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    amemWarningEvent.setStatus(
+        ""
+    )
+
+hostOfflineEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 75)
+)
+hostOfflineEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    hostOfflineEvent.setStatus(
+        ""
+    )
+
+hostOnlineEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 76)
+)
+hostOnlineEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    hostOnlineEvent.setStatus(
+        ""
+    )
+
+hostPortFailoverEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 77)
+)
+hostPortFailoverEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    hostPortFailoverEvent.setStatus(
+        ""
+    )
+
+hpfRequiresInterventionEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 78)
+)
+hpfRequiresInterventionEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    hpfRequiresInterventionEvent.setStatus(
+        ""
+    )
+
+controllerResetCompletedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 79)
+)
+controllerResetCompletedEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    controllerResetCompletedEvent.setStatus(
+        ""
+    )
+
+controllerStatusChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 80)
+)
+controllerStatusChangeEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    controllerStatusChangeEvent.setStatus(
+        ""
+    )
+
+ethFailoverEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 81)
+)
+ethFailoverEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    ethFailoverEvent.setStatus(
+        ""
+    )
+
+memUsageWarningEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 82)
+)
+memUsageWarningEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    memUsageWarningEvent.setStatus(
+        ""
+    )
+
+taskSuspendedWarningEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 83)
+)
+taskSuspendedWarningEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    taskSuspendedWarningEvent.setStatus(
+        ""
+    )
+
+umTaskWatchdogWarningEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 84)
+)
+umTaskWatchdogWarningEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    umTaskWatchdogWarningEvent.setStatus(
+        ""
+    )
+
+dataPathTrespassEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 85)
+)
+dataPathTrespassEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    dataPathTrespassEvent.setStatus(
+        ""
+    )
+
+deviceListChangedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 86)
+)
+deviceListChangedEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    deviceListChangedEvent.setStatus(
+        ""
+    )
+
+autoLevelStart = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 87)
+)
+autoLevelStart.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    autoLevelStart.setStatus(
+        ""
+    )
+
+autoLevelEnd = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 88)
+)
+autoLevelEnd.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    autoLevelEnd.setStatus(
+        ""
+    )
+
+autoLevelError = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 89)
+)
+autoLevelError.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    autoLevelError.setStatus(
+        ""
+    )
+
+corruptNVRAMError = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 90)
+)
+corruptNVRAMError.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    corruptNVRAMError.setStatus(
+        ""
+    )
+
+powerSupplyOutOfSpecEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 100)
+)
+powerSupplyOutOfSpecEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    powerSupplyOutOfSpecEvent.setStatus(
+        ""
+    )
+
+auxPowerOutOfSpecEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 101)
+)
+auxPowerOutOfSpecEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    auxPowerOutOfSpecEvent.setStatus(
+        ""
+    )
+
+newTemperatureChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 102)
+)
+newTemperatureChangeEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    newTemperatureChangeEvent.setStatus(
+        ""
+    )
+
+newPciErrorsEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 103)
+)
+newPciErrorsEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    newPciErrorsEvent.setStatus(
+        ""
+    )
+
+newMemoryParityErrorsEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 104)
+)
+newMemoryParityErrorsEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    newMemoryParityErrorsEvent.setStatus(
+        ""
+    )
+
+pciBusInterfaceErrorEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 105)
+)
+pciBusInterfaceErrorEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    pciBusInterfaceErrorEvent.setStatus(
+        ""
+    )
+
+fcInterfaceFailureEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 106)
+)
+fcInterfaceFailureEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    fcInterfaceFailureEvent.setStatus(
+        ""
+    )
+
+scsiInterfaceFailureEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 107)
+)
+scsiInterfaceFailureEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    scsiInterfaceFailureEvent.setStatus(
+        ""
+    )
+
+ssaInterfaceFailureEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 108)
+)
+ssaInterfaceFailureEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    ssaInterfaceFailureEvent.setStatus(
+        ""
+    )
+
+deviceFailureEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 109)
+)
+deviceFailureEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    deviceFailureEvent.setStatus(
+        ""
+    )
+
+fcLinkStatusChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 110)
+)
+fcLinkStatusChangeEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    fcLinkStatusChangeEvent.setStatus(
+        ""
+    )
+
+newFcTranferErrorsEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 111)
+)
+newFcTranferErrorsEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    newFcTranferErrorsEvent.setStatus(
+        ""
+    )
+
+envFanEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 112)
+)
+envFanEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    envFanEvent.setStatus(
+        ""
+    )
+
+envPowerEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 113)
+)
+envPowerEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    envPowerEvent.setStatus(
+        ""
+    )
+
+envTemperatureEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 114)
+)
+envTemperatureEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    envTemperatureEvent.setStatus(
+        ""
+    )
+
+eccMemoryHealthCheckEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 115)
+)
+eccMemoryHealthCheckEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    eccMemoryHealthCheckEvent.setStatus(
+        ""
+    )
+
+eccMemoryScrubberEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 116)
+)
+eccMemoryScrubberEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    eccMemoryScrubberEvent.setStatus(
+        ""
+    )
+
+deviceRecoverEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 118)
+)
+deviceRecoverEvent.setObjects(
+      *(("ADIC-INTELLIGENT-STORAGE-MIB", "componentId"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTrapSequenceNumber"),
+        ("ADIC-SANMGR-PROXY-MIB", "paTime"),
+        ("ADIC-SANMGR-PROXY-MIB", "paProducer"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventClass"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventCode"),
+        ("ADIC-SANMGR-PROXY-MIB", "paSeq"),
+        ("ADIC-SANMGR-PROXY-MIB", "paEventVars"))
+)
+if mibBuilder.loadTexts:
+    deviceRecoverEvent.setStatus(
+        ""
+    )
+
+logWillOverwriteEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 150)
+)
+logWillOverwriteEvent.setObjects(
+    ("ADIC-INTELLIGENT-STORAGE-MIB", "componentId")
+)
+if mibBuilder.loadTexts:
+    logWillOverwriteEvent.setStatus(
+        ""
+    )
+
+bootCompletedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3764, 1, 1, 400, 10, 10, 1000, 0, 4444)
+)
+bootCompletedEvent.setObjects(
+    ("ADIC-INTELLIGENT-STORAGE-MIB", "componentId")
+)
+if mibBuilder.loadTexts:
+    bootCompletedEvent.setStatus(
+        ""
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ADIC-SANMGR-PROXY-MIB",
+    **{"PathlightProduct": PathlightProduct,
+       "Boolean": Boolean,
+       "RowStatus": RowStatus,
+       "PltStatus": PltStatus,
+       "FcStatus": FcStatus,
+       "Interface": Interface,
+       "Reset": Reset,
+       "DeviceType": DeviceType,
+       "VendorIDInt": VendorIDInt,
+       "FibreMedia": FibreMedia,
+       "FibrePort": FibrePort,
+       "FibreLoopIDMode": FibreLoopIDMode,
+       "FibrePortMode": FibrePortMode,
+       "FibreConnOptions": FibreConnOptions,
+       "ScsiSpeed": ScsiSpeed,
+       "ScsiCardType": ScsiCardType,
+       "ScsiAnsiLevel": ScsiAnsiLevel,
+       "HostLUNType": HostLUNType,
+       "FcHPFRecoveryType": FcHPFRecoveryType,
+       "FcHPFPortState": FcHPFPortState,
+       "FcHPFPortFailType": FcHPFPortFailType,
+       "sanmgr-proxy": sanmgr_proxy,
+       "pathlight": pathlight,
+       "agent": agent,
+       "agentScalarTable": agentScalarTable,
+       "agentScalarEntry": agentScalarEntry,
+       "paIdentify": paIdentify,
+       "paReboot": paReboot,
+       "paHealthCheckValue": paHealthCheckValue,
+       "paHealthCheckLevel": paHealthCheckLevel,
+       "paHealthCheckInterval": paHealthCheckInterval,
+       "paEvRptLevel": paEvRptLevel,
+       "paEventLogLevels": paEventLogLevels,
+       "paTrapThresholds": paTrapThresholds,
+       "paBaudRate": paBaudRate,
+       "paLogSize": paLogSize,
+       "paCommand": paCommand,
+       "paLogBoot": paLogBoot,
+       "paLogNCurrent": paLogNCurrent,
+       "paLogChronFirst": paLogChronFirst,
+       "paLogChronLast": paLogChronLast,
+       "paLogScroll": paLogScroll,
+       "paLogFilename": paLogFilename,
+       "paEnvironmentState": paEnvironmentState,
+       "paGatewayFWRev": paGatewayFWRev,
+       "paGatewayHWRev": paGatewayHWRev,
+       "paSnmpFWRev": paSnmpFWRev,
+       "paRidTag": paRidTag,
+       "paSerialNumber": paSerialNumber,
+       "paServerVersion": paServerVersion,
+       "paProductType": paProductType,
+       "paVPSEnabled": paVPSEnabled,
+       "paLicenseKey": paLicenseKey,
+       "paThirdPartyCopyEnabled": paThirdPartyCopyEnabled,
+       "paVPSStatus": paVPSStatus,
+       "paThirdPartyCopyStatus": paThirdPartyCopyStatus,
+       "paCommandControlLUN": paCommandControlLUN,
+       "paSanDirectorEnabled": paSanDirectorEnabled,
+       "paNodeName": paNodeName,
+       "paVPMStatus": paVPMStatus,
+       "paSRSStatus": paSRSStatus,
+       "paEthernetType": paEthernetType,
+       "paTrapSequenceNumber": paTrapSequenceNumber,
+       "paSysNodeNameMode": paSysNodeNameMode,
+       "paGhostIOTimeToLive": paGhostIOTimeToLive,
+       "paMaxLun": paMaxLun,
+       "paEVPSEnabled": paEVPSEnabled,
+       "paMaxHostLun": paMaxHostLun,
+       "paAMPStatus": paAMPStatus,
+       "paEnableAllScsiTargets": paEnableAllScsiTargets,
+       "paHPFStatus": paHPFStatus,
+       "paSoip2iRescan": paSoip2iRescan,
+       "paSoipiRescan": paSoipiRescan,
+       "paFLBStatus": paFLBStatus,
+       "paSoip2iScanPeriod": paSoip2iScanPeriod,
+       "paCommandFlowLogEnabled": paCommandFlowLogEnabled,
+       "paEventLog": paEventLog,
+       "paEventLogEntry": paEventLogEntry,
+       "paIndex": paIndex,
+       "paTime": paTime,
+       "paProducer": paProducer,
+       "paEventClass": paEventClass,
+       "paEventCode": paEventCode,
+       "paSeq": paSeq,
+       "paEventVars": paEventVars,
+       "devices": devices,
+       "pdDevices": pdDevices,
+       "pdDevEntry": pdDevEntry,
+       "pdIndex": pdIndex,
+       "pdUID": pdUID,
+       "pdType": pdType,
+       "pdVendor": pdVendor,
+       "pdProduct": pdProduct,
+       "pdBlockSize": pdBlockSize,
+       "pdCapacity": pdCapacity,
+       "pdAccess": pdAccess,
+       "pdRemovable": pdRemovable,
+       "pdStatus": pdStatus,
+       "pdSpeed": pdSpeed,
+       "pdWidth": pdWidth,
+       "pdSerial": pdSerial,
+       "pdIdentify": pdIdentify,
+       "pdInterfaceType": pdInterfaceType,
+       "pdBus": pdBus,
+       "pdId": pdId,
+       "pdLun": pdLun,
+       "pdCtlrIndex": pdCtlrIndex,
+       "pdHWRev": pdHWRev,
+       "pdFWRev": pdFWRev,
+       "pdReset": pdReset,
+       "pdStatusBits": pdStatusBits,
+       "pdScsiAnsiLevel": pdScsiAnsiLevel,
+       "pdTargetLun": pdTargetLun,
+       "pdIpAddress": pdIpAddress,
+       "pdAltVendor": pdAltVendor,
+       "pdAltProduct": pdAltProduct,
+       "controllers": controllers,
+       "pcControllers": pcControllers,
+       "pcCtlrEntry": pcCtlrEntry,
+       "pcIndex": pcIndex,
+       "pcType": pcType,
+       "pcVendorId": pcVendorId,
+       "pcProductId": pcProductId,
+       "pcRevision": pcRevision,
+       "pcSubVendor": pcSubVendor,
+       "pcSubProduct": pcSubProduct,
+       "pcMaxBurst": pcMaxBurst,
+       "pcLatency": pcLatency,
+       "pcIdentify": pcIdentify,
+       "pcPCIBus": pcPCIBus,
+       "pcPCIDev": pcPCIDev,
+       "pcPCIFunc": pcPCIFunc,
+       "pcReset": pcReset,
+       "pcRescan": pcRescan,
+       "pcLED": pcLED,
+       "pcHWRev": pcHWRev,
+       "pcFWRev": pcFWRev,
+       "pcPCISlot": pcPCISlot,
+       "pcPMCSlot": pcPMCSlot,
+       "pcPCIClass": pcPCIClass,
+       "pcSplitMode": pcSplitMode,
+       "pcChannelMask": pcChannelMask,
+       "pcPortHostType": pcPortHostType,
+       "pcFCCtlrs": pcFCCtlrs,
+       "fcCtlrEntry": fcCtlrEntry,
+       "fcStatus": fcStatus,
+       "fcMaxSpeed": fcMaxSpeed,
+       "fcWWID": fcWWID,
+       "fcFWRev": fcFWRev,
+       "fcHWRev": fcHWRev,
+       "fcLoopID": fcLoopID,
+       "fcFrameSize": fcFrameSize,
+       "fcPortType": fcPortType,
+       "fcMedia": fcMedia,
+       "fcSerialNumber": fcSerialNumber,
+       "fcLoopIDMode": fcLoopIDMode,
+       "fcALPhysicalAddress": fcALPhysicalAddress,
+       "fcPortMode": fcPortMode,
+       "fcConnectionOptions": fcConnectionOptions,
+       "fcCtlrChipType": fcCtlrChipType,
+       "fcTapeFeature": fcTapeFeature,
+       "fcHardID": fcHardID,
+       "fcCurrentSpeedSetting": fcCurrentSpeedSetting,
+       "fcCurrentSpeed": fcCurrentSpeed,
+       "fcFrameBufferSize": fcFrameBufferSize,
+       "fcLinkFailureCount": fcLinkFailureCount,
+       "fcLossSyncCount": fcLossSyncCount,
+       "fcLossSignalCount": fcLossSignalCount,
+       "fcProtocolErrorCount": fcProtocolErrorCount,
+       "fcInvalidTxWordCount": fcInvalidTxWordCount,
+       "fcInvalidCRCCount": fcInvalidCRCCount,
+       "fcWWNodeName": fcWWNodeName,
+       "fcPortID": fcPortID,
+       "pcSSACtlrs": pcSSACtlrs,
+       "ssaCtlrEntry": ssaCtlrEntry,
+       "ssaStatus1": ssaStatus1,
+       "ssaStatus2": ssaStatus2,
+       "ssaSpeed": ssaSpeed,
+       "ssaUID": ssaUID,
+       "ssaFWRev": ssaFWRev,
+       "ssaMaxTarg": ssaMaxTarg,
+       "ssaMaxInit": ssaMaxInit,
+       "ssaPathAlg": ssaPathAlg,
+       "ssaHWRev": ssaHWRev,
+       "ssaMasterPriority": ssaMasterPriority,
+       "ssaSATAQuota": ssaSATAQuota,
+       "ssaSATBQuota": ssaSATBQuota,
+       "ssaSATIQuota": ssaSATIQuota,
+       "pcSCSICtlrs": pcSCSICtlrs,
+       "scsiCtlrEntry": scsiCtlrEntry,
+       "scsiStatus": scsiStatus,
+       "scsiSpeed": scsiSpeed,
+       "scsiRole": scsiRole,
+       "scsiHostId": scsiHostId,
+       "scsiMaxSpeed": scsiMaxSpeed,
+       "scsiTerm": scsiTerm,
+       "scsiIoCard": scsiIoCard,
+       "scsiMaxIds": scsiMaxIds,
+       "scsiMaxLuns": scsiMaxLuns,
+       "scsiMaxWidth": scsiMaxWidth,
+       "scsiHWRev": scsiHWRev,
+       "scsiFWRev": scsiFWRev,
+       "scsiResetOnPowerUp": scsiResetOnPowerUp,
+       "scsiMultiInitEnabled": scsiMultiInitEnabled,
+       "scsiAlternateHostId": scsiAlternateHostId,
+       "scsiTargetEnabled": scsiTargetEnabled,
+       "notification": notification,
+       "pnTrapDest": pnTrapDest,
+       "pnTrapDestEntry": pnTrapDestEntry,
+       "pnIndex": pnIndex,
+       "pnIPAddr": pnIPAddr,
+       "pnUdpPort": pnUdpPort,
+       "pnTrapStyle": pnTrapStyle,
+       "pnTrapBroadcastMode": pnTrapBroadcastMode,
+       "panelLED": panelLED,
+       "paHost": paHost,
+       "hostCommandTable": hostCommandTable,
+       "hostCommandEntry": hostCommandEntry,
+       "hostCommand": hostCommand,
+       "hostInitiator": hostInitiator,
+       "hostInitiatorEntry": hostInitiatorEntry,
+       "hostIndex": hostIndex,
+       "hostRowStatus": hostRowStatus,
+       "hostWWName": hostWWName,
+       "hostName": hostName,
+       "hostType": hostType,
+       "hostPortID": hostPortID,
+       "hostSANConnection": hostSANConnection,
+       "hostConnectionType": hostConnectionType,
+       "hostITLData": hostITLData,
+       "hostIPAddr": hostIPAddr,
+       "hostLunType": hostLunType,
+       "hostLunMap": hostLunMap,
+       "hostInbandAccess": hostInbandAccess,
+       "scsiMap": scsiMap,
+       "scsiMapCommandTable": scsiMapCommandTable,
+       "scsiMapCommandEntry": scsiMapCommandEntry,
+       "scsiMapCommand": scsiMapCommand,
+       "scsiChannelMap": scsiChannelMap,
+       "scsiMapEntry": scsiMapEntry,
+       "scsiMapRowStatus": scsiMapRowStatus,
+       "scsiMapPort": scsiMapPort,
+       "scsiMapTid": scsiMapTid,
+       "scsiMapLun": scsiMapLun,
+       "scsiMapAssignedLun": scsiMapAssignedLun,
+       "scsiMapComments": scsiMapComments,
+       "scsiMapPdIndex": scsiMapPdIndex,
+       "deviceMap": deviceMap,
+       "deviceMapCommandTable": deviceMapCommandTable,
+       "deviceMapCommandEntry": deviceMapCommandEntry,
+       "deviceMapCommand": deviceMapCommand,
+       "deviceMapMultipathMode": deviceMapMultipathMode,
+       "deviceMapRemoveDevice": deviceMapRemoveDevice,
+       "deviceLoadBalancingMode": deviceLoadBalancingMode,
+       "dmDeviceMap": dmDeviceMap,
+       "dmDevMapEntry": dmDevMapEntry,
+       "dmRowStatus": dmRowStatus,
+       "dmAssignedLun": dmAssignedLun,
+       "dmType": dmType,
+       "dmPort": dmPort,
+       "dmTargetId": dmTargetId,
+       "dmTargetLun": dmTargetLun,
+       "dmUid": dmUid,
+       "dmPath": dmPath,
+       "dmSerialNum": dmSerialNum,
+       "replication": replication,
+       "srsDevTable": srsDevTable,
+       "srsDevEntry": srsDevEntry,
+       "srsDevId": srsDevId,
+       "srsDevState": srsDevState,
+       "srsDevCommand": srsDevCommand,
+       "srsDevAssignedLun": srsDevAssignedLun,
+       "srsDevMemberCount": srsDevMemberCount,
+       "srsDevMembersOnline": srsDevMembersOnline,
+       "srsDevFlags": srsDevFlags,
+       "srsDevSizeInBlocks": srsDevSizeInBlocks,
+       "srsDevBlockSize": srsDevBlockSize,
+       "srsDevPrimary": srsDevPrimary,
+       "srsMemTable": srsMemTable,
+       "srsMemEntry": srsMemEntry,
+       "srsMemDeviceId": srsMemDeviceId,
+       "srsMemId": srsMemId,
+       "srsMemState": srsMemState,
+       "srsMemCommand": srsMemCommand,
+       "srsMemType": srsMemType,
+       "srsMemSyncPoint": srsMemSyncPoint,
+       "srsMemAssignedLun": srsMemAssignedLun,
+       "srsMemReadOptions": srsMemReadOptions,
+       "srsMemWriteOptions": srsMemWriteOptions,
+       "envData": envData,
+       "envDataTable": envDataTable,
+       "envDataEntry": envDataEntry,
+       "envDataId": envDataId,
+       "envDataName": envDataName,
+       "envNominalLo": envNominalLo,
+       "envNominalHi": envNominalHi,
+       "envWarningLo": envWarningLo,
+       "envWarningHi": envWarningHi,
+       "envCurValue": envCurValue,
+       "envCurStatus": envCurStatus,
+       "envUnit": envUnit,
+       "portFailover": portFailover,
+       "fcHostPortFailover": fcHostPortFailover,
+       "fcHPFPortMappings": fcHPFPortMappings,
+       "fcHPFMapEntry": fcHPFMapEntry,
+       "fcHPFMapRowStatus": fcHPFMapRowStatus,
+       "fcHPFMapVirtualPort": fcHPFMapVirtualPort,
+       "fcHPFMapPrimaryPort": fcHPFMapPrimaryPort,
+       "fcHPFMapStandbyList": fcHPFMapStandbyList,
+       "fcHPFMapActivePort": fcHPFMapActivePort,
+       "fcHPFPhysicalPorts": fcHPFPhysicalPorts,
+       "fcHPFPhysicalPortEntry": fcHPFPhysicalPortEntry,
+       "fcHPFPhysicalPortRowStatus": fcHPFPhysicalPortRowStatus,
+       "fcHPFPhysicalPort": fcHPFPhysicalPort,
+       "fcHPFPhysicalPortFailureType": fcHPFPhysicalPortFailureType,
+       "fcHPFPhysicalPortCurrentState": fcHPFPhysicalPortCurrentState,
+       "fcHPFPhysicalPortIntervention": fcHPFPhysicalPortIntervention,
+       "fcHPFGlobalTable": fcHPFGlobalTable,
+       "fcHPFGlobalEntry": fcHPFGlobalEntry,
+       "fcHPFLinkDownThreshold": fcHPFLinkDownThreshold,
+       "fcHPFErrorRecoveryMode": fcHPFErrorRecoveryMode,
+       "fcHPFLinkDownRecoveryMode": fcHPFLinkDownRecoveryMode,
+       "utilityModule": utilityModule,
+       "utilityModuleTable": utilityModuleTable,
+       "utilityModuleEntry": utilityModuleEntry,
+       "utilityModuleId": utilityModuleId,
+       "utilityModuleVersion": utilityModuleVersion,
+       "trapDefinition": trapDefinition,
+       "ssaPortUpEvent": ssaPortUpEvent,
+       "ssaPortDownEvent": ssaPortDownEvent,
+       "ssaUidAddedEvent": ssaUidAddedEvent,
+       "ssaUidRemovedEvent": ssaUidRemovedEvent,
+       "ssaWebReconfiguredEvent": ssaWebReconfiguredEvent,
+       "ssaAsyncErrorEvent": ssaAsyncErrorEvent,
+       "ssaAdapterEvent": ssaAdapterEvent,
+       "senseDataEvent": senseDataEvent,
+       "unitAttentionEvent": unitAttentionEvent,
+       "ibfEvent": ibfEvent,
+       "temperatureChangeEvent": temperatureChangeEvent,
+       "timeReferenceEvent": timeReferenceEvent,
+       "shutdownEvent": shutdownEvent,
+       "diagnosticEvent": diagnosticEvent,
+       "configurationEvent": configurationEvent,
+       "unexpectedScsiInterruptEvent": unexpectedScsiInterruptEvent,
+       "lipResetEvent": lipResetEvent,
+       "fcSystemErrorEvent": fcSystemErrorEvent,
+       "fcRequestTransferErrorEvent": fcRequestTransferErrorEvent,
+       "fcResponseTransferErrorEvent": fcResponseTransferErrorEvent,
+       "memoryFaultEvent": memoryFaultEvent,
+       "fcLipEvent": fcLipEvent,
+       "fcLoopUpEvent": fcLoopUpEvent,
+       "fcLoopDownEvent": fcLoopDownEvent,
+       "pciBusParityErrorEvent": pciBusParityErrorEvent,
+       "pciInterfaceErrorEvent": pciInterfaceErrorEvent,
+       "scsiDeviceAddedEvent": scsiDeviceAddedEvent,
+       "scsiBusResetEvent": scsiBusResetEvent,
+       "deviceAddedEvent": deviceAddedEvent,
+       "deviceRemovedEvent": deviceRemovedEvent,
+       "loggingStartedEvent": loggingStartedEvent,
+       "loggingStoppedEvent": loggingStoppedEvent,
+       "interfaceBusFaultEvent": interfaceBusFaultEvent,
+       "interfaceDeviceFaultEvent": interfaceDeviceFaultEvent,
+       "scsiUnexpectedDisconnectEvent": scsiUnexpectedDisconnectEvent,
+       "scsiParityErrorEvent": scsiParityErrorEvent,
+       "fcPortDatabaseChangeEvent": fcPortDatabaseChangeEvent,
+       "ddfMemoryErrorEvent": ddfMemoryErrorEvent,
+       "fcDirectoryServerChangeEvent": fcDirectoryServerChangeEvent,
+       "lunLimitExcededEvent": lunLimitExcededEvent,
+       "fcTransferFailureEvent": fcTransferFailureEvent,
+       "deviceLimitExcededEvent": deviceLimitExcededEvent,
+       "fcDebugDumpEvent": fcDebugDumpEvent,
+       "excessiveScsiBusErrorsEvent": excessiveScsiBusErrorsEvent,
+       "memoryScrubberErrorEvent": memoryScrubberErrorEvent,
+       "srsDeviceCreatedEvent": srsDeviceCreatedEvent,
+       "srsDeviceOnlineEvent": srsDeviceOnlineEvent,
+       "srsDeviceRemovedEvent": srsDeviceRemovedEvent,
+       "srsDeviceFailedEvent": srsDeviceFailedEvent,
+       "srsMemberAddedEvent": srsMemberAddedEvent,
+       "srsMemberSuspendedEvent": srsMemberSuspendedEvent,
+       "srsMemberRemovedEvent": srsMemberRemovedEvent,
+       "srsMemberSyncStartedEvent": srsMemberSyncStartedEvent,
+       "srsMemberSyncDoneEvent": srsMemberSyncDoneEvent,
+       "srsMemberSyncErrorEvent": srsMemberSyncErrorEvent,
+       "srsMemberRetryEvent": srsMemberRetryEvent,
+       "srsMemberErrorEvent": srsMemberErrorEvent,
+       "envPowerNominalEvent": envPowerNominalEvent,
+       "envPowerWarningEvent": envPowerWarningEvent,
+       "envPowerAlarmEvent": envPowerAlarmEvent,
+       "envTemperatureNominalEvent": envTemperatureNominalEvent,
+       "envInletTemperatureWarningEvent": envInletTemperatureWarningEvent,
+       "envInletTemperatureAlarmEvent": envInletTemperatureAlarmEvent,
+       "envOutletTemperatureWarningEvent": envOutletTemperatureWarningEvent,
+       "envOutletTemperatureAlarmEvent": envOutletTemperatureAlarmEvent,
+       "envFanNominalEvent": envFanNominalEvent,
+       "envFanWarningEvent": envFanWarningEvent,
+       "envFanAlarmEvent": envFanAlarmEvent,
+       "eccMemoryErrorEvent": eccMemoryErrorEvent,
+       "restartCompleteEvent": restartCompleteEvent,
+       "firmwareUploadCompleteEvent": firmwareUploadCompleteEvent,
+       "maxInitiatorsExceededEvent": maxInitiatorsExceededEvent,
+       "dataPathFailoverEvent": dataPathFailoverEvent,
+       "amemWarningEvent": amemWarningEvent,
+       "hostOfflineEvent": hostOfflineEvent,
+       "hostOnlineEvent": hostOnlineEvent,
+       "hostPortFailoverEvent": hostPortFailoverEvent,
+       "hpfRequiresInterventionEvent": hpfRequiresInterventionEvent,
+       "controllerResetCompletedEvent": controllerResetCompletedEvent,
+       "controllerStatusChangeEvent": controllerStatusChangeEvent,
+       "ethFailoverEvent": ethFailoverEvent,
+       "memUsageWarningEvent": memUsageWarningEvent,
+       "taskSuspendedWarningEvent": taskSuspendedWarningEvent,
+       "umTaskWatchdogWarningEvent": umTaskWatchdogWarningEvent,
+       "dataPathTrespassEvent": dataPathTrespassEvent,
+       "deviceListChangedEvent": deviceListChangedEvent,
+       "autoLevelStart": autoLevelStart,
+       "autoLevelEnd": autoLevelEnd,
+       "autoLevelError": autoLevelError,
+       "corruptNVRAMError": corruptNVRAMError,
+       "powerSupplyOutOfSpecEvent": powerSupplyOutOfSpecEvent,
+       "auxPowerOutOfSpecEvent": auxPowerOutOfSpecEvent,
+       "newTemperatureChangeEvent": newTemperatureChangeEvent,
+       "newPciErrorsEvent": newPciErrorsEvent,
+       "newMemoryParityErrorsEvent": newMemoryParityErrorsEvent,
+       "pciBusInterfaceErrorEvent": pciBusInterfaceErrorEvent,
+       "fcInterfaceFailureEvent": fcInterfaceFailureEvent,
+       "scsiInterfaceFailureEvent": scsiInterfaceFailureEvent,
+       "ssaInterfaceFailureEvent": ssaInterfaceFailureEvent,
+       "deviceFailureEvent": deviceFailureEvent,
+       "fcLinkStatusChangeEvent": fcLinkStatusChangeEvent,
+       "newFcTranferErrorsEvent": newFcTranferErrorsEvent,
+       "envFanEvent": envFanEvent,
+       "envPowerEvent": envPowerEvent,
+       "envTemperatureEvent": envTemperatureEvent,
+       "eccMemoryHealthCheckEvent": eccMemoryHealthCheckEvent,
+       "eccMemoryScrubberEvent": eccMemoryScrubberEvent,
+       "deviceRecoverEvent": deviceRecoverEvent,
+       "logWillOverwriteEvent": logWillOverwriteEvent,
+       "bootCompletedEvent": bootCompletedEvent}
+)

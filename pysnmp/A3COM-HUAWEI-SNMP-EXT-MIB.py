@@ -1,55 +1,418 @@
+# SNMP MIB module (A3COM-HUAWEI-SNMP-EXT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module A3COM-HUAWEI-SNMP-EXT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/A3COM-HUAWEI-SNMP-EXT-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 16:52:18 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-h3cCommon, = mibBuilder.importSymbols("A3COM-HUAWEI-OID-MIB", "h3cCommon")
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint")
-SnmpSecurityModel, SnmpAdminString, SnmpSecurityLevel = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpSecurityModel", "SnmpAdminString", "SnmpSecurityLevel")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-iso, Gauge32, ModuleIdentity, NotificationType, Integer32, IpAddress, Unsigned32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Counter64, TimeTicks, Bits, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Gauge32", "ModuleIdentity", "NotificationType", "Integer32", "IpAddress", "Unsigned32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Counter64", "TimeTicks", "Bits", "ObjectIdentity")
-DisplayString, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TruthValue", "TextualConvention")
-h3cSnmpExt = ModuleIdentity((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104))
-h3cSnmpExt.setRevisions(('2009-04-07 17:00',))
-if mibBuilder.loadTexts: h3cSnmpExt.setLastUpdated('200904071700Z')
-if mibBuilder.loadTexts: h3cSnmpExt.setOrganization('Hangzhou H3C Technologies Co., Ltd.')
-h3cSnmpExtScalarObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104, 1))
-h3cSnmpExtTables = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104, 2))
-h3cSnmpExtNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104, 3))
-h3cSnmpExtSnmpChannel = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(161)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cSnmpExtSnmpChannel.setStatus('current')
-h3cSnmpExtReadCommunitySingle = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cSnmpExtReadCommunitySingle.setStatus('current')
-h3cSnmpExtWriteCommunitySingle = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104, 1, 3), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cSnmpExtWriteCommunitySingle.setStatus('current')
-h3cSnmpExtCommunityTable = MibTable((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104, 2, 1), )
-if mibBuilder.loadTexts: h3cSnmpExtCommunityTable.setStatus('current')
-h3cSnmpExtCommunityEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104, 2, 1, 1), ).setIndexNames((0, "A3COM-HUAWEI-SNMP-EXT-MIB", "h3cSnmpExtCommunitySecurityLevel"), (0, "A3COM-HUAWEI-SNMP-EXT-MIB", "h3cSnmpExtCommunitySecurityName"))
-if mibBuilder.loadTexts: h3cSnmpExtCommunityEntry.setStatus('current')
-h3cSnmpExtCommunitySecurityLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104, 2, 1, 1, 1), SnmpSecurityModel())
-if mibBuilder.loadTexts: h3cSnmpExtCommunitySecurityLevel.setStatus('current')
-h3cSnmpExtCommunitySecurityName = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104, 2, 1, 1, 2), SnmpAdminString())
-if mibBuilder.loadTexts: h3cSnmpExtCommunitySecurityName.setStatus('current')
-h3cSnmpExtCommunityName = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104, 2, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSnmpExtCommunityName.setStatus('current')
-h3cSnmpExtCommunityAclNum = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(2000, 2999), ))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cSnmpExtCommunityAclNum.setStatus('current')
-h3cSnmpCommunityExTable = MibTable((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104, 2, 2), )
-if mibBuilder.loadTexts: h3cSnmpCommunityExTable.setStatus('current')
-h3cSnmpCommunityExEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104, 2, 2, 1), ).setIndexNames((0, "A3COM-HUAWEI-SNMP-EXT-MIB", "h3cSnmpCommunityExName"))
-if mibBuilder.loadTexts: h3cSnmpCommunityExEntry.setStatus('current')
-h3cSnmpCommunityExName = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104, 2, 2, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cSnmpCommunityExName.setStatus('current')
-h3cSnmpCommunityExWrite = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104, 2, 2, 1, 2), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cSnmpCommunityExWrite.setStatus('current')
-h3cSnmpCommunityExViewName = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104, 2, 2, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cSnmpCommunityExViewName.setStatus('current')
-h3cSnmpCommunityExAclNum = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104, 2, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(2000, 2999), ))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cSnmpCommunityExAclNum.setStatus('current')
-h3cSnmpCommunityExRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104, 2, 2, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cSnmpCommunityExRowStatus.setStatus('current')
-mibBuilder.exportSymbols("A3COM-HUAWEI-SNMP-EXT-MIB", h3cSnmpExtCommunityTable=h3cSnmpExtCommunityTable, h3cSnmpCommunityExEntry=h3cSnmpCommunityExEntry, h3cSnmpCommunityExName=h3cSnmpCommunityExName, h3cSnmpExt=h3cSnmpExt, h3cSnmpExtSnmpChannel=h3cSnmpExtSnmpChannel, h3cSnmpExtCommunitySecurityLevel=h3cSnmpExtCommunitySecurityLevel, h3cSnmpExtCommunitySecurityName=h3cSnmpExtCommunitySecurityName, h3cSnmpExtTables=h3cSnmpExtTables, PYSNMP_MODULE_ID=h3cSnmpExt, h3cSnmpExtReadCommunitySingle=h3cSnmpExtReadCommunitySingle, h3cSnmpCommunityExTable=h3cSnmpCommunityExTable, h3cSnmpCommunityExRowStatus=h3cSnmpCommunityExRowStatus, h3cSnmpCommunityExWrite=h3cSnmpCommunityExWrite, h3cSnmpExtWriteCommunitySingle=h3cSnmpExtWriteCommunitySingle, h3cSnmpExtCommunityName=h3cSnmpExtCommunityName, h3cSnmpExtCommunityEntry=h3cSnmpExtCommunityEntry, h3cSnmpCommunityExAclNum=h3cSnmpCommunityExAclNum, h3cSnmpExtCommunityAclNum=h3cSnmpExtCommunityAclNum, h3cSnmpExtScalarObjects=h3cSnmpExtScalarObjects, h3cSnmpCommunityExViewName=h3cSnmpCommunityExViewName, h3cSnmpExtNotifications=h3cSnmpExtNotifications)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/A3COM-HUAWEI-SNMP-EXT-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 20:29:04 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(h3cCommon,) = mibBuilder.importSymbols(
+    "A3COM-HUAWEI-OID-MIB",
+    "h3cCommon")
+
+(SnmpAdminString,
+ SnmpSecurityLevel,
+ SnmpSecurityModel) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString",
+    "SnmpSecurityLevel",
+    "SnmpSecurityModel")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+h3cSnmpExt = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104)
+)
+h3cSnmpExt.setRevisions(
+        ("2009-04-07 17:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_H3cSnmpExtScalarObjects_ObjectIdentity = ObjectIdentity
+h3cSnmpExtScalarObjects = _H3cSnmpExtScalarObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104, 1)
+)
+
+
+class _H3cSnmpExtSnmpChannel_Type(Integer32):
+    """Custom type h3cSnmpExtSnmpChannel based on Integer32"""
+    defaultValue = 161
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_H3cSnmpExtSnmpChannel_Type.__name__ = "Integer32"
+_H3cSnmpExtSnmpChannel_Object = MibScalar
+h3cSnmpExtSnmpChannel = _H3cSnmpExtSnmpChannel_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104, 1, 1),
+    _H3cSnmpExtSnmpChannel_Type()
+)
+h3cSnmpExtSnmpChannel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cSnmpExtSnmpChannel.setStatus("current")
+
+
+class _H3cSnmpExtReadCommunitySingle_Type(SnmpAdminString):
+    """Custom type h3cSnmpExtReadCommunitySingle based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_H3cSnmpExtReadCommunitySingle_Type.__name__ = "SnmpAdminString"
+_H3cSnmpExtReadCommunitySingle_Object = MibScalar
+h3cSnmpExtReadCommunitySingle = _H3cSnmpExtReadCommunitySingle_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104, 1, 2),
+    _H3cSnmpExtReadCommunitySingle_Type()
+)
+h3cSnmpExtReadCommunitySingle.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cSnmpExtReadCommunitySingle.setStatus("current")
+
+
+class _H3cSnmpExtWriteCommunitySingle_Type(SnmpAdminString):
+    """Custom type h3cSnmpExtWriteCommunitySingle based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_H3cSnmpExtWriteCommunitySingle_Type.__name__ = "SnmpAdminString"
+_H3cSnmpExtWriteCommunitySingle_Object = MibScalar
+h3cSnmpExtWriteCommunitySingle = _H3cSnmpExtWriteCommunitySingle_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104, 1, 3),
+    _H3cSnmpExtWriteCommunitySingle_Type()
+)
+h3cSnmpExtWriteCommunitySingle.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cSnmpExtWriteCommunitySingle.setStatus("current")
+_H3cSnmpExtTables_ObjectIdentity = ObjectIdentity
+h3cSnmpExtTables = _H3cSnmpExtTables_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104, 2)
+)
+_H3cSnmpExtCommunityTable_Object = MibTable
+h3cSnmpExtCommunityTable = _H3cSnmpExtCommunityTable_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104, 2, 1)
+)
+if mibBuilder.loadTexts:
+    h3cSnmpExtCommunityTable.setStatus("current")
+_H3cSnmpExtCommunityEntry_Object = MibTableRow
+h3cSnmpExtCommunityEntry = _H3cSnmpExtCommunityEntry_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104, 2, 1, 1)
+)
+h3cSnmpExtCommunityEntry.setIndexNames(
+    (0, "A3COM-HUAWEI-SNMP-EXT-MIB", "h3cSnmpExtCommunitySecurityLevel"),
+    (0, "A3COM-HUAWEI-SNMP-EXT-MIB", "h3cSnmpExtCommunitySecurityName"),
+)
+if mibBuilder.loadTexts:
+    h3cSnmpExtCommunityEntry.setStatus("current")
+_H3cSnmpExtCommunitySecurityLevel_Type = SnmpSecurityModel
+_H3cSnmpExtCommunitySecurityLevel_Object = MibTableColumn
+h3cSnmpExtCommunitySecurityLevel = _H3cSnmpExtCommunitySecurityLevel_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104, 2, 1, 1, 1),
+    _H3cSnmpExtCommunitySecurityLevel_Type()
+)
+h3cSnmpExtCommunitySecurityLevel.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cSnmpExtCommunitySecurityLevel.setStatus("current")
+_H3cSnmpExtCommunitySecurityName_Type = SnmpAdminString
+_H3cSnmpExtCommunitySecurityName_Object = MibTableColumn
+h3cSnmpExtCommunitySecurityName = _H3cSnmpExtCommunitySecurityName_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104, 2, 1, 1, 2),
+    _H3cSnmpExtCommunitySecurityName_Type()
+)
+h3cSnmpExtCommunitySecurityName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cSnmpExtCommunitySecurityName.setStatus("current")
+
+
+class _H3cSnmpExtCommunityName_Type(OctetString):
+    """Custom type h3cSnmpExtCommunityName based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_H3cSnmpExtCommunityName_Type.__name__ = "OctetString"
+_H3cSnmpExtCommunityName_Object = MibTableColumn
+h3cSnmpExtCommunityName = _H3cSnmpExtCommunityName_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104, 2, 1, 1, 3),
+    _H3cSnmpExtCommunityName_Type()
+)
+h3cSnmpExtCommunityName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSnmpExtCommunityName.setStatus("current")
+
+
+class _H3cSnmpExtCommunityAclNum_Type(Integer32):
+    """Custom type h3cSnmpExtCommunityAclNum based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(2000, 2999),
+    )
+
+
+_H3cSnmpExtCommunityAclNum_Type.__name__ = "Integer32"
+_H3cSnmpExtCommunityAclNum_Object = MibTableColumn
+h3cSnmpExtCommunityAclNum = _H3cSnmpExtCommunityAclNum_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104, 2, 1, 1, 4),
+    _H3cSnmpExtCommunityAclNum_Type()
+)
+h3cSnmpExtCommunityAclNum.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cSnmpExtCommunityAclNum.setStatus("current")
+_H3cSnmpCommunityExTable_Object = MibTable
+h3cSnmpCommunityExTable = _H3cSnmpCommunityExTable_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104, 2, 2)
+)
+if mibBuilder.loadTexts:
+    h3cSnmpCommunityExTable.setStatus("current")
+_H3cSnmpCommunityExEntry_Object = MibTableRow
+h3cSnmpCommunityExEntry = _H3cSnmpCommunityExEntry_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104, 2, 2, 1)
+)
+h3cSnmpCommunityExEntry.setIndexNames(
+    (0, "A3COM-HUAWEI-SNMP-EXT-MIB", "h3cSnmpCommunityExName"),
+)
+if mibBuilder.loadTexts:
+    h3cSnmpCommunityExEntry.setStatus("current")
+
+
+class _H3cSnmpCommunityExName_Type(OctetString):
+    """Custom type h3cSnmpCommunityExName based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_H3cSnmpCommunityExName_Type.__name__ = "OctetString"
+_H3cSnmpCommunityExName_Object = MibTableColumn
+h3cSnmpCommunityExName = _H3cSnmpCommunityExName_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104, 2, 2, 1, 1),
+    _H3cSnmpCommunityExName_Type()
+)
+h3cSnmpCommunityExName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cSnmpCommunityExName.setStatus("current")
+
+
+class _H3cSnmpCommunityExWrite_Type(TruthValue):
+    """Custom type h3cSnmpCommunityExWrite based on TruthValue"""
+
+
+_H3cSnmpCommunityExWrite_Object = MibTableColumn
+h3cSnmpCommunityExWrite = _H3cSnmpCommunityExWrite_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104, 2, 2, 1, 2),
+    _H3cSnmpCommunityExWrite_Type()
+)
+h3cSnmpCommunityExWrite.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cSnmpCommunityExWrite.setStatus("current")
+
+
+class _H3cSnmpCommunityExViewName_Type(OctetString):
+    """Custom type h3cSnmpCommunityExViewName based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_H3cSnmpCommunityExViewName_Type.__name__ = "OctetString"
+_H3cSnmpCommunityExViewName_Object = MibTableColumn
+h3cSnmpCommunityExViewName = _H3cSnmpCommunityExViewName_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104, 2, 2, 1, 3),
+    _H3cSnmpCommunityExViewName_Type()
+)
+h3cSnmpCommunityExViewName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cSnmpCommunityExViewName.setStatus("current")
+
+
+class _H3cSnmpCommunityExAclNum_Type(Integer32):
+    """Custom type h3cSnmpCommunityExAclNum based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(2000, 2999),
+    )
+
+
+_H3cSnmpCommunityExAclNum_Type.__name__ = "Integer32"
+_H3cSnmpCommunityExAclNum_Object = MibTableColumn
+h3cSnmpCommunityExAclNum = _H3cSnmpCommunityExAclNum_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104, 2, 2, 1, 4),
+    _H3cSnmpCommunityExAclNum_Type()
+)
+h3cSnmpCommunityExAclNum.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cSnmpCommunityExAclNum.setStatus("current")
+_H3cSnmpCommunityExRowStatus_Type = RowStatus
+_H3cSnmpCommunityExRowStatus_Object = MibTableColumn
+h3cSnmpCommunityExRowStatus = _H3cSnmpCommunityExRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104, 2, 2, 1, 5),
+    _H3cSnmpCommunityExRowStatus_Type()
+)
+h3cSnmpCommunityExRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cSnmpCommunityExRowStatus.setStatus("current")
+_H3cSnmpExtNotifications_ObjectIdentity = ObjectIdentity
+h3cSnmpExtNotifications = _H3cSnmpExtNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 104, 3)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "A3COM-HUAWEI-SNMP-EXT-MIB",
+    **{"h3cSnmpExt": h3cSnmpExt,
+       "h3cSnmpExtScalarObjects": h3cSnmpExtScalarObjects,
+       "h3cSnmpExtSnmpChannel": h3cSnmpExtSnmpChannel,
+       "h3cSnmpExtReadCommunitySingle": h3cSnmpExtReadCommunitySingle,
+       "h3cSnmpExtWriteCommunitySingle": h3cSnmpExtWriteCommunitySingle,
+       "h3cSnmpExtTables": h3cSnmpExtTables,
+       "h3cSnmpExtCommunityTable": h3cSnmpExtCommunityTable,
+       "h3cSnmpExtCommunityEntry": h3cSnmpExtCommunityEntry,
+       "h3cSnmpExtCommunitySecurityLevel": h3cSnmpExtCommunitySecurityLevel,
+       "h3cSnmpExtCommunitySecurityName": h3cSnmpExtCommunitySecurityName,
+       "h3cSnmpExtCommunityName": h3cSnmpExtCommunityName,
+       "h3cSnmpExtCommunityAclNum": h3cSnmpExtCommunityAclNum,
+       "h3cSnmpCommunityExTable": h3cSnmpCommunityExTable,
+       "h3cSnmpCommunityExEntry": h3cSnmpCommunityExEntry,
+       "h3cSnmpCommunityExName": h3cSnmpCommunityExName,
+       "h3cSnmpCommunityExWrite": h3cSnmpCommunityExWrite,
+       "h3cSnmpCommunityExViewName": h3cSnmpCommunityExViewName,
+       "h3cSnmpCommunityExAclNum": h3cSnmpCommunityExAclNum,
+       "h3cSnmpCommunityExRowStatus": h3cSnmpCommunityExRowStatus,
+       "h3cSnmpExtNotifications": h3cSnmpExtNotifications}
+)

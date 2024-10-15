@@ -1,54 +1,415 @@
+# SNMP MIB module (RM-TRAP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module RM-TRAP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/RM-TRAP-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:49:37 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-host, curSize, memUsage, load, cpuUsage, percentage, processID, disk, processName, file, maxSize, status = mibBuilder.importSymbols("AGGREGATED-EXT-MIB", "host", "curSize", "memUsage", "load", "cpuUsage", "percentage", "processID", "disk", "processName", "file", "maxSize", "status")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-TimeTicks, Counter64, NotificationType, iso, IpAddress, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, snmpModules, Bits, ObjectIdentity, ObjectName, MibIdentifier, enterprises, Gauge32, Integer32, ModuleIdentity, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Counter64", "NotificationType", "iso", "IpAddress", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "snmpModules", "Bits", "ObjectIdentity", "ObjectName", "MibIdentifier", "enterprises", "Gauge32", "Integer32", "ModuleIdentity", "Unsigned32")
-TruthValue, TestAndIncr, DisplayString, TextualConvention, RowStatus, TimeStamp = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TestAndIncr", "DisplayString", "TextualConvention", "RowStatus", "TimeStamp")
-lucent = MibIdentifier((1, 3, 6, 1, 4, 1, 1751))
-products = MibIdentifier((1, 3, 6, 1, 4, 1, 1751, 1))
-softSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 1751, 1, 1198))
-resourceMonitor = MibIdentifier((1, 3, 6, 1, 4, 1, 1751, 1, 1198, 4))
-rmTraps = ModuleIdentity((1, 3, 6, 1, 4, 1, 1751, 1, 1198, 4, 0))
-if mibBuilder.loadTexts: rmTraps.setLastUpdated('240701')
-if mibBuilder.loadTexts: rmTraps.setOrganization('Lucent Technologies')
-cpuUtilWarning = NotificationType((1, 3, 6, 1, 4, 1, 1751, 1, 1198, 4, 0, 0)).setObjects(("AGGREGATED-EXT-MIB", "host"), ("AGGREGATED-EXT-MIB", "percentage"))
-if mibBuilder.loadTexts: cpuUtilWarning.setStatus('current')
-cpuUtilAlarm = NotificationType((1, 3, 6, 1, 4, 1, 1751, 1, 1198, 4, 0, 1)).setObjects(("AGGREGATED-EXT-MIB", "host"), ("AGGREGATED-EXT-MIB", "percentage"))
-if mibBuilder.loadTexts: cpuUtilAlarm.setStatus('current')
-cpuUtilInform = NotificationType((1, 3, 6, 1, 4, 1, 1751, 1, 1198, 4, 0, 2)).setObjects(("AGGREGATED-EXT-MIB", "host"), ("AGGREGATED-EXT-MIB", "percentage"), ("AGGREGATED-EXT-MIB", "status"))
-if mibBuilder.loadTexts: cpuUtilInform.setStatus('current')
-cpuLoadWarning = NotificationType((1, 3, 6, 1, 4, 1, 1751, 1, 1198, 4, 0, 3)).setObjects(("AGGREGATED-EXT-MIB", "host"), ("AGGREGATED-EXT-MIB", "load"))
-if mibBuilder.loadTexts: cpuLoadWarning.setStatus('current')
-cpuLoadAlarm = NotificationType((1, 3, 6, 1, 4, 1, 1751, 1, 1198, 4, 0, 4)).setObjects(("AGGREGATED-EXT-MIB", "host"), ("AGGREGATED-EXT-MIB", "load"))
-if mibBuilder.loadTexts: cpuLoadAlarm.setStatus('current')
-cpuLoadInform = NotificationType((1, 3, 6, 1, 4, 1, 1751, 1, 1198, 4, 0, 5)).setObjects(("AGGREGATED-EXT-MIB", "host"), ("AGGREGATED-EXT-MIB", "load"), ("AGGREGATED-EXT-MIB", "status"))
-if mibBuilder.loadTexts: cpuLoadInform.setStatus('current')
-diskUsageWarning = NotificationType((1, 3, 6, 1, 4, 1, 1751, 1, 1198, 4, 0, 6)).setObjects(("AGGREGATED-EXT-MIB", "disk"), ("AGGREGATED-EXT-MIB", "percentage"))
-if mibBuilder.loadTexts: diskUsageWarning.setStatus('current')
-diskUsageAlarm = NotificationType((1, 3, 6, 1, 4, 1, 1751, 1, 1198, 4, 0, 7)).setObjects(("AGGREGATED-EXT-MIB", "disk"), ("AGGREGATED-EXT-MIB", "percentage"))
-if mibBuilder.loadTexts: diskUsageAlarm.setStatus('current')
-diskUsageInform = NotificationType((1, 3, 6, 1, 4, 1, 1751, 1, 1198, 4, 0, 8)).setObjects(("AGGREGATED-EXT-MIB", "disk"), ("AGGREGATED-EXT-MIB", "percentage"), ("AGGREGATED-EXT-MIB", "status"))
-if mibBuilder.loadTexts: diskUsageInform.setStatus('current')
-fileSizeEvent = NotificationType((1, 3, 6, 1, 4, 1, 1751, 1, 1198, 4, 0, 9)).setObjects(("AGGREGATED-EXT-MIB", "file"), ("AGGREGATED-EXT-MIB", "curSize"), ("AGGREGATED-EXT-MIB", "maxSize"))
-if mibBuilder.loadTexts: fileSizeEvent.setStatus('current')
-unixProcessDied = NotificationType((1, 3, 6, 1, 4, 1, 1751, 1, 1198, 4, 0, 10)).setObjects(("AGGREGATED-EXT-MIB", "host"), ("AGGREGATED-EXT-MIB", "processName"), ("AGGREGATED-EXT-MIB", "processID"))
-if mibBuilder.loadTexts: unixProcessDied.setStatus('current')
-procCpuAlarm = NotificationType((1, 3, 6, 1, 4, 1, 1751, 1, 1198, 4, 0, 11)).setObjects(("AGGREGATED-EXT-MIB", "host"), ("AGGREGATED-EXT-MIB", "processName"), ("AGGREGATED-EXT-MIB", "processID"), ("AGGREGATED-EXT-MIB", "cpuUsage"))
-if mibBuilder.loadTexts: procCpuAlarm.setStatus('current')
-procCpuWarn = NotificationType((1, 3, 6, 1, 4, 1, 1751, 1, 1198, 4, 0, 12)).setObjects(("AGGREGATED-EXT-MIB", "host"), ("AGGREGATED-EXT-MIB", "processName"), ("AGGREGATED-EXT-MIB", "processID"), ("AGGREGATED-EXT-MIB", "cpuUsage"))
-if mibBuilder.loadTexts: procCpuWarn.setStatus('current')
-procMemAlarm = NotificationType((1, 3, 6, 1, 4, 1, 1751, 1, 1198, 4, 0, 13)).setObjects(("AGGREGATED-EXT-MIB", "host"), ("AGGREGATED-EXT-MIB", "processName"), ("AGGREGATED-EXT-MIB", "processID"), ("AGGREGATED-EXT-MIB", "memUsage"))
-if mibBuilder.loadTexts: procMemAlarm.setStatus('current')
-procCpuInform = NotificationType((1, 3, 6, 1, 4, 1, 1751, 1, 1198, 4, 0, 14)).setObjects(("AGGREGATED-EXT-MIB", "host"), ("AGGREGATED-EXT-MIB", "processName"), ("AGGREGATED-EXT-MIB", "processID"))
-if mibBuilder.loadTexts: procCpuInform.setStatus('current')
-procMemInform = NotificationType((1, 3, 6, 1, 4, 1, 1751, 1, 1198, 4, 0, 15)).setObjects(("AGGREGATED-EXT-MIB", "host"), ("AGGREGATED-EXT-MIB", "processName"), ("AGGREGATED-EXT-MIB", "processID"))
-if mibBuilder.loadTexts: procMemInform.setStatus('current')
-mibBuilder.exportSymbols("RM-TRAP-MIB", rmTraps=rmTraps, cpuUtilAlarm=cpuUtilAlarm, cpuUtilInform=cpuUtilInform, lucent=lucent, PYSNMP_MODULE_ID=rmTraps, diskUsageInform=diskUsageInform, fileSizeEvent=fileSizeEvent, cpuLoadAlarm=cpuLoadAlarm, cpuLoadWarning=cpuLoadWarning, procMemAlarm=procMemAlarm, procMemInform=procMemInform, procCpuInform=procCpuInform, unixProcessDied=unixProcessDied, diskUsageWarning=diskUsageWarning, cpuUtilWarning=cpuUtilWarning, softSwitch=softSwitch, resourceMonitor=resourceMonitor, cpuLoadInform=cpuLoadInform, diskUsageAlarm=diskUsageAlarm, products=products, procCpuWarn=procCpuWarn, procCpuAlarm=procCpuAlarm)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/RM-TRAP-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:48:01 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(cpuUsage,
+ curSize,
+ disk,
+ file,
+ host,
+ load,
+ maxSize,
+ memUsage,
+ percentage,
+ processID,
+ processName,
+ status) = mibBuilder.importSymbols(
+    "AGGREGATED-EXT-MIB",
+    "cpuUsage",
+    "curSize",
+    "disk",
+    "file",
+    "host",
+    "load",
+    "maxSize",
+    "memUsage",
+    "percentage",
+    "processID",
+    "processName",
+    "status")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ ObjectName,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso,
+ snmpModules) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "ObjectName",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso",
+    "snmpModules")
+
+(DisplayString,
+ RowStatus,
+ TextualConvention,
+ TestAndIncr,
+ TimeStamp,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "RowStatus",
+    "TextualConvention",
+    "TestAndIncr",
+    "TimeStamp",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+rmTraps = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198, 4, 0)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Lucent_ObjectIdentity = ObjectIdentity
+lucent = _Lucent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751)
+)
+_Products_ObjectIdentity = ObjectIdentity
+products = _Products_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 1)
+)
+_SoftSwitch_ObjectIdentity = ObjectIdentity
+softSwitch = _SoftSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198)
+)
+_ResourceMonitor_ObjectIdentity = ObjectIdentity
+resourceMonitor = _ResourceMonitor_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198, 4)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+cpuUtilWarning = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198, 4, 0, 0)
+)
+cpuUtilWarning.setObjects(
+      *(("AGGREGATED-EXT-MIB", "host"),
+        ("AGGREGATED-EXT-MIB", "percentage"))
+)
+if mibBuilder.loadTexts:
+    cpuUtilWarning.setStatus(
+        "current"
+    )
+
+cpuUtilAlarm = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198, 4, 0, 1)
+)
+cpuUtilAlarm.setObjects(
+      *(("AGGREGATED-EXT-MIB", "host"),
+        ("AGGREGATED-EXT-MIB", "percentage"))
+)
+if mibBuilder.loadTexts:
+    cpuUtilAlarm.setStatus(
+        "current"
+    )
+
+cpuUtilInform = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198, 4, 0, 2)
+)
+cpuUtilInform.setObjects(
+      *(("AGGREGATED-EXT-MIB", "host"),
+        ("AGGREGATED-EXT-MIB", "percentage"),
+        ("AGGREGATED-EXT-MIB", "status"))
+)
+if mibBuilder.loadTexts:
+    cpuUtilInform.setStatus(
+        "current"
+    )
+
+cpuLoadWarning = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198, 4, 0, 3)
+)
+cpuLoadWarning.setObjects(
+      *(("AGGREGATED-EXT-MIB", "host"),
+        ("AGGREGATED-EXT-MIB", "load"))
+)
+if mibBuilder.loadTexts:
+    cpuLoadWarning.setStatus(
+        "current"
+    )
+
+cpuLoadAlarm = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198, 4, 0, 4)
+)
+cpuLoadAlarm.setObjects(
+      *(("AGGREGATED-EXT-MIB", "host"),
+        ("AGGREGATED-EXT-MIB", "load"))
+)
+if mibBuilder.loadTexts:
+    cpuLoadAlarm.setStatus(
+        "current"
+    )
+
+cpuLoadInform = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198, 4, 0, 5)
+)
+cpuLoadInform.setObjects(
+      *(("AGGREGATED-EXT-MIB", "host"),
+        ("AGGREGATED-EXT-MIB", "load"),
+        ("AGGREGATED-EXT-MIB", "status"))
+)
+if mibBuilder.loadTexts:
+    cpuLoadInform.setStatus(
+        "current"
+    )
+
+diskUsageWarning = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198, 4, 0, 6)
+)
+diskUsageWarning.setObjects(
+      *(("AGGREGATED-EXT-MIB", "disk"),
+        ("AGGREGATED-EXT-MIB", "percentage"))
+)
+if mibBuilder.loadTexts:
+    diskUsageWarning.setStatus(
+        "current"
+    )
+
+diskUsageAlarm = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198, 4, 0, 7)
+)
+diskUsageAlarm.setObjects(
+      *(("AGGREGATED-EXT-MIB", "disk"),
+        ("AGGREGATED-EXT-MIB", "percentage"))
+)
+if mibBuilder.loadTexts:
+    diskUsageAlarm.setStatus(
+        "current"
+    )
+
+diskUsageInform = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198, 4, 0, 8)
+)
+diskUsageInform.setObjects(
+      *(("AGGREGATED-EXT-MIB", "disk"),
+        ("AGGREGATED-EXT-MIB", "percentage"),
+        ("AGGREGATED-EXT-MIB", "status"))
+)
+if mibBuilder.loadTexts:
+    diskUsageInform.setStatus(
+        "current"
+    )
+
+fileSizeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198, 4, 0, 9)
+)
+fileSizeEvent.setObjects(
+      *(("AGGREGATED-EXT-MIB", "file"),
+        ("AGGREGATED-EXT-MIB", "curSize"),
+        ("AGGREGATED-EXT-MIB", "maxSize"))
+)
+if mibBuilder.loadTexts:
+    fileSizeEvent.setStatus(
+        "current"
+    )
+
+unixProcessDied = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198, 4, 0, 10)
+)
+unixProcessDied.setObjects(
+      *(("AGGREGATED-EXT-MIB", "host"),
+        ("AGGREGATED-EXT-MIB", "processName"),
+        ("AGGREGATED-EXT-MIB", "processID"))
+)
+if mibBuilder.loadTexts:
+    unixProcessDied.setStatus(
+        "current"
+    )
+
+procCpuAlarm = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198, 4, 0, 11)
+)
+procCpuAlarm.setObjects(
+      *(("AGGREGATED-EXT-MIB", "host"),
+        ("AGGREGATED-EXT-MIB", "processName"),
+        ("AGGREGATED-EXT-MIB", "processID"),
+        ("AGGREGATED-EXT-MIB", "cpuUsage"))
+)
+if mibBuilder.loadTexts:
+    procCpuAlarm.setStatus(
+        "current"
+    )
+
+procCpuWarn = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198, 4, 0, 12)
+)
+procCpuWarn.setObjects(
+      *(("AGGREGATED-EXT-MIB", "host"),
+        ("AGGREGATED-EXT-MIB", "processName"),
+        ("AGGREGATED-EXT-MIB", "processID"),
+        ("AGGREGATED-EXT-MIB", "cpuUsage"))
+)
+if mibBuilder.loadTexts:
+    procCpuWarn.setStatus(
+        "current"
+    )
+
+procMemAlarm = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198, 4, 0, 13)
+)
+procMemAlarm.setObjects(
+      *(("AGGREGATED-EXT-MIB", "host"),
+        ("AGGREGATED-EXT-MIB", "processName"),
+        ("AGGREGATED-EXT-MIB", "processID"),
+        ("AGGREGATED-EXT-MIB", "memUsage"))
+)
+if mibBuilder.loadTexts:
+    procMemAlarm.setStatus(
+        "current"
+    )
+
+procCpuInform = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198, 4, 0, 14)
+)
+procCpuInform.setObjects(
+      *(("AGGREGATED-EXT-MIB", "host"),
+        ("AGGREGATED-EXT-MIB", "processName"),
+        ("AGGREGATED-EXT-MIB", "processID"))
+)
+if mibBuilder.loadTexts:
+    procCpuInform.setStatus(
+        "current"
+    )
+
+procMemInform = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1751, 1, 1198, 4, 0, 15)
+)
+procMemInform.setObjects(
+      *(("AGGREGATED-EXT-MIB", "host"),
+        ("AGGREGATED-EXT-MIB", "processName"),
+        ("AGGREGATED-EXT-MIB", "processID"))
+)
+if mibBuilder.loadTexts:
+    procMemInform.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "RM-TRAP-MIB",
+    **{"lucent": lucent,
+       "products": products,
+       "softSwitch": softSwitch,
+       "resourceMonitor": resourceMonitor,
+       "rmTraps": rmTraps,
+       "cpuUtilWarning": cpuUtilWarning,
+       "cpuUtilAlarm": cpuUtilAlarm,
+       "cpuUtilInform": cpuUtilInform,
+       "cpuLoadWarning": cpuLoadWarning,
+       "cpuLoadAlarm": cpuLoadAlarm,
+       "cpuLoadInform": cpuLoadInform,
+       "diskUsageWarning": diskUsageWarning,
+       "diskUsageAlarm": diskUsageAlarm,
+       "diskUsageInform": diskUsageInform,
+       "fileSizeEvent": fileSizeEvent,
+       "unixProcessDied": unixProcessDied,
+       "procCpuAlarm": procCpuAlarm,
+       "procCpuWarn": procCpuWarn,
+       "procMemAlarm": procMemAlarm,
+       "procCpuInform": procCpuInform,
+       "procMemInform": procMemInform}
+)

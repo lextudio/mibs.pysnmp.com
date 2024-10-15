@@ -1,126 +1,935 @@
+# SNMP MIB module (HH3C-RRPP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HH3C-RRPP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/HH3C-RRPP-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:16:42 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint")
-hh3cCommon, = mibBuilder.importSymbols("HH3C-OID-MIB", "hh3cCommon")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Gauge32, Unsigned32, ObjectIdentity, TimeTicks, IpAddress, Integer32, iso, MibIdentifier, Counter32, ModuleIdentity, NotificationType, Bits, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Unsigned32", "ObjectIdentity", "TimeTicks", "IpAddress", "Integer32", "iso", "MibIdentifier", "Counter32", "ModuleIdentity", "NotificationType", "Bits", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-TextualConvention, RowStatus, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "RowStatus", "DisplayString")
-hh3cRrpp = ModuleIdentity((1, 3, 6, 1, 4, 1, 25506, 2, 45))
-if mibBuilder.loadTexts: hh3cRrpp.setLastUpdated('200412020000Z')
-if mibBuilder.loadTexts: hh3cRrpp.setOrganization('Hangzhou H3C Tech. Co., Ltd.')
-class EnabledStatus(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("enabled", 1), ("disabled", 2))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HH3C-RRPP-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:54:47 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-hh3cRrppScalarGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 25506, 2, 45, 1))
-hh3cRrppEnableStatus = MibScalar((1, 3, 6, 1, 4, 1, 25506, 2, 45, 1, 1), EnabledStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hh3cRrppEnableStatus.setStatus('current')
-hh3cRrppPassword = MibScalar((1, 3, 6, 1, 4, 1, 25506, 2, 45, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 16)).clone(hexValue="303030464532303346443735")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hh3cRrppPassword.setStatus('current')
-hh3cRrppPasswordType = MibScalar((1, 3, 6, 1, 4, 1, 25506, 2, 45, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("simple", 1), ("cipher", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hh3cRrppPasswordType.setStatus('current')
-hh3cRrppProtectVlanConfigMode = MibScalar((1, 3, 6, 1, 4, 1, 25506, 2, 45, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("vlan", 1), ("instance", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hh3cRrppProtectVlanConfigMode.setStatus('current')
-hh3cRrppTable = MibIdentifier((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2))
-hh3cRrppDomainTable = MibTable((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 1), )
-if mibBuilder.loadTexts: hh3cRrppDomainTable.setStatus('current')
-hh3cRrppDomainEntry = MibTableRow((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 1, 1), ).setIndexNames((0, "HH3C-RRPP-MIB", "hh3cRrppDomainID"))
-if mibBuilder.loadTexts: hh3cRrppDomainEntry.setStatus('current')
-hh3cRrppDomainID = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: hh3cRrppDomainID.setStatus('current')
-hh3cRrppDomainControlVlanID = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(2, 4094), ValueRangeConstraint(65535, 65535), ))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hh3cRrppDomainControlVlanID.setStatus('current')
-hh3cRrppDomainHelloTime = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 10)).clone(1)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hh3cRrppDomainHelloTime.setStatus('current')
-hh3cRrppDomainFailTime = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(3, 30)).clone(3)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hh3cRrppDomainFailTime.setStatus('current')
-hh3cRrppDomainRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 1, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hh3cRrppDomainRowStatus.setStatus('current')
-hh3cRrppDomainInstanceListLow = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 1, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(256, 256)).setFixedLength(256)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hh3cRrppDomainInstanceListLow.setStatus('current')
-hh3cRrppDomainInstanceListHigh = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 1, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(256, 256)).setFixedLength(256)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hh3cRrppDomainInstanceListHigh.setStatus('current')
-hh3cRrppDomainProtectVlanListLow = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 1, 1, 8), OctetString().subtype(subtypeSpec=ValueSizeConstraint(256, 256)).setFixedLength(256)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hh3cRrppDomainProtectVlanListLow.setStatus('current')
-hh3cRrppDomainProtectVlanListHigh = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 1, 1, 9), OctetString().subtype(subtypeSpec=ValueSizeConstraint(256, 256)).setFixedLength(256)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hh3cRrppDomainProtectVlanListHigh.setStatus('current')
-hh3cRrppRingTable = MibTable((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 2), )
-if mibBuilder.loadTexts: hh3cRrppRingTable.setStatus('current')
-hh3cRrppRingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 2, 1), ).setIndexNames((0, "HH3C-RRPP-MIB", "hh3cRrppDomainID"), (0, "HH3C-RRPP-MIB", "hh3cRrppRingID"))
-if mibBuilder.loadTexts: hh3cRrppRingEntry.setStatus('current')
-hh3cRrppRingID = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 64))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: hh3cRrppRingID.setStatus('current')
-hh3cRrppRingEnableStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 2, 1, 2), EnabledStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hh3cRrppRingEnableStatus.setStatus('current')
-hh3cRrppRingActive = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("active", 1), ("inactive", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hh3cRrppRingActive.setStatus('current')
-hh3cRrppRingState = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("health", 2), ("fault", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hh3cRrppRingState.setStatus('current')
-hh3cRrppRingNodeMode = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("master", 1), ("transit", 2), ("edge", 3), ("assistantEdge", 4)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hh3cRrppRingNodeMode.setStatus('current')
-hh3cRrppRingPrimaryPort = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 2, 1, 6), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hh3cRrppRingPrimaryPort.setStatus('current')
-hh3cRrppRingSecondaryPort = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 2, 1, 7), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hh3cRrppRingSecondaryPort.setStatus('current')
-hh3cRrppRingLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("majorRing", 1), ("subRing", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hh3cRrppRingLevel.setStatus('current')
-hh3cRrppRingRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 2, 1, 9), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hh3cRrppRingRowStatus.setStatus('current')
-hh3cRrppPortTable = MibTable((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3), )
-if mibBuilder.loadTexts: hh3cRrppPortTable.setStatus('current')
-hh3cRrppPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3, 1), ).setIndexNames((0, "HH3C-RRPP-MIB", "hh3cRrppDomainID"), (0, "HH3C-RRPP-MIB", "hh3cRrppRingID"), (0, "HH3C-RRPP-MIB", "hh3cRrppPortID"))
-if mibBuilder.loadTexts: hh3cRrppPortEntry.setStatus('current')
-hh3cRrppPortID = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3, 1, 1), Integer32())
-if mibBuilder.loadTexts: hh3cRrppPortID.setStatus('current')
-hh3cRrppPortRole = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("primary", 1), ("secondary", 2), ("common", 3), ("edge", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hh3cRrppPortRole.setStatus('current')
-hh3cRrppPortState = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("unknown", 1), ("unblocked", 2), ("blocked", 3), ("down", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hh3cRrppPortState.setStatus('current')
-hh3cRrppPortRXError = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hh3cRrppPortRXError.setStatus('current')
-hh3cRrppPortRXHello = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hh3cRrppPortRXHello.setStatus('current')
-hh3cRrppPortRXLinkUp = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hh3cRrppPortRXLinkUp.setStatus('current')
-hh3cRrppPortRXLinkDown = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hh3cRrppPortRXLinkDown.setStatus('current')
-hh3cRrppPortRXCommonFlush = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hh3cRrppPortRXCommonFlush.setStatus('current')
-hh3cRrppPortRXCompleteFlush = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hh3cRrppPortRXCompleteFlush.setStatus('current')
-hh3cRrppPortTXHello = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hh3cRrppPortTXHello.setStatus('current')
-hh3cRrppPortTXLinkUp = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hh3cRrppPortTXLinkUp.setStatus('current')
-hh3cRrppPortTXLinkDown = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hh3cRrppPortTXLinkDown.setStatus('current')
-hh3cRrppPortTXCommonFlush = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hh3cRrppPortTXCommonFlush.setStatus('current')
-hh3cRrppPortTXCompleteFlush = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hh3cRrppPortTXCompleteFlush.setStatus('current')
-hh3cRrppPortRXEdgeHello = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3, 1, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hh3cRrppPortRXEdgeHello.setStatus('current')
-hh3cRrppPortRXMajorFault = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3, 1, 16), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hh3cRrppPortRXMajorFault.setStatus('current')
-hh3cRrppPortTXEdgeHello = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3, 1, 17), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hh3cRrppPortTXEdgeHello.setStatus('current')
-hh3cRrppPortTXMajorFault = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3, 1, 18), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hh3cRrppPortTXMajorFault.setStatus('current')
-hh3cRrppNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 25506, 2, 45, 3))
-hh3cRrppRingRecover = NotificationType((1, 3, 6, 1, 4, 1, 25506, 2, 45, 3, 1)).setObjects(("HH3C-RRPP-MIB", "hh3cRrppDomainID"), ("HH3C-RRPP-MIB", "hh3cRrppRingID"))
-if mibBuilder.loadTexts: hh3cRrppRingRecover.setStatus('current')
-hh3cRrppRingFail = NotificationType((1, 3, 6, 1, 4, 1, 25506, 2, 45, 3, 2)).setObjects(("HH3C-RRPP-MIB", "hh3cRrppDomainID"), ("HH3C-RRPP-MIB", "hh3cRrppRingID"))
-if mibBuilder.loadTexts: hh3cRrppRingFail.setStatus('current')
-hh3cRrppMultiMaster = NotificationType((1, 3, 6, 1, 4, 1, 25506, 2, 45, 3, 3)).setObjects(("HH3C-RRPP-MIB", "hh3cRrppDomainID"), ("HH3C-RRPP-MIB", "hh3cRrppRingID"))
-if mibBuilder.loadTexts: hh3cRrppMultiMaster.setStatus('current')
-hh3cRrppMajorFault = NotificationType((1, 3, 6, 1, 4, 1, 25506, 2, 45, 3, 4)).setObjects(("HH3C-RRPP-MIB", "hh3cRrppDomainID"), ("HH3C-RRPP-MIB", "hh3cRrppRingID"))
-if mibBuilder.loadTexts: hh3cRrppMajorFault.setStatus('current')
-mibBuilder.exportSymbols("HH3C-RRPP-MIB", hh3cRrppDomainTable=hh3cRrppDomainTable, hh3cRrppRingLevel=hh3cRrppRingLevel, hh3cRrppDomainInstanceListLow=hh3cRrppDomainInstanceListLow, hh3cRrppPortTXLinkDown=hh3cRrppPortTXLinkDown, hh3cRrppPortID=hh3cRrppPortID, hh3cRrppDomainProtectVlanListLow=hh3cRrppDomainProtectVlanListLow, EnabledStatus=EnabledStatus, hh3cRrppPortTXEdgeHello=hh3cRrppPortTXEdgeHello, hh3cRrppDomainInstanceListHigh=hh3cRrppDomainInstanceListHigh, hh3cRrppRingEnableStatus=hh3cRrppRingEnableStatus, hh3cRrppRingRowStatus=hh3cRrppRingRowStatus, hh3cRrppPortRXCompleteFlush=hh3cRrppPortRXCompleteFlush, hh3cRrppPortRXLinkDown=hh3cRrppPortRXLinkDown, hh3cRrppPortTXCommonFlush=hh3cRrppPortTXCommonFlush, hh3cRrpp=hh3cRrpp, hh3cRrppMajorFault=hh3cRrppMajorFault, hh3cRrppRingFail=hh3cRrppRingFail, hh3cRrppRingRecover=hh3cRrppRingRecover, hh3cRrppRingID=hh3cRrppRingID, hh3cRrppProtectVlanConfigMode=hh3cRrppProtectVlanConfigMode, hh3cRrppPortRXMajorFault=hh3cRrppPortRXMajorFault, hh3cRrppPortTXLinkUp=hh3cRrppPortTXLinkUp, hh3cRrppTable=hh3cRrppTable, hh3cRrppPortRXCommonFlush=hh3cRrppPortRXCommonFlush, hh3cRrppScalarGroup=hh3cRrppScalarGroup, hh3cRrppPortRXError=hh3cRrppPortRXError, hh3cRrppPortTXCompleteFlush=hh3cRrppPortTXCompleteFlush, hh3cRrppRingActive=hh3cRrppRingActive, hh3cRrppPortRXHello=hh3cRrppPortRXHello, hh3cRrppPortRXEdgeHello=hh3cRrppPortRXEdgeHello, hh3cRrppPortTable=hh3cRrppPortTable, hh3cRrppDomainProtectVlanListHigh=hh3cRrppDomainProtectVlanListHigh, hh3cRrppDomainID=hh3cRrppDomainID, hh3cRrppDomainFailTime=hh3cRrppDomainFailTime, hh3cRrppPortEntry=hh3cRrppPortEntry, hh3cRrppPassword=hh3cRrppPassword, hh3cRrppPortRole=hh3cRrppPortRole, hh3cRrppNotifications=hh3cRrppNotifications, hh3cRrppRingNodeMode=hh3cRrppRingNodeMode, hh3cRrppDomainEntry=hh3cRrppDomainEntry, hh3cRrppRingTable=hh3cRrppRingTable, hh3cRrppRingPrimaryPort=hh3cRrppRingPrimaryPort, hh3cRrppDomainHelloTime=hh3cRrppDomainHelloTime, hh3cRrppRingEntry=hh3cRrppRingEntry, hh3cRrppPortTXMajorFault=hh3cRrppPortTXMajorFault, hh3cRrppMultiMaster=hh3cRrppMultiMaster, hh3cRrppRingSecondaryPort=hh3cRrppRingSecondaryPort, hh3cRrppDomainRowStatus=hh3cRrppDomainRowStatus, hh3cRrppPortTXHello=hh3cRrppPortTXHello, hh3cRrppEnableStatus=hh3cRrppEnableStatus, hh3cRrppDomainControlVlanID=hh3cRrppDomainControlVlanID, hh3cRrppPasswordType=hh3cRrppPasswordType, hh3cRrppPortState=hh3cRrppPortState, hh3cRrppPortRXLinkUp=hh3cRrppPortRXLinkUp, PYSNMP_MODULE_ID=hh3cRrpp, hh3cRrppRingState=hh3cRrppRingState)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(hh3cCommon,) = mibBuilder.importSymbols(
+    "HH3C-OID-MIB",
+    "hh3cCommon")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+hh3cRrpp = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class EnabledStatus(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Hh3cRrppScalarGroup_ObjectIdentity = ObjectIdentity
+hh3cRrppScalarGroup = _Hh3cRrppScalarGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 1)
+)
+_Hh3cRrppEnableStatus_Type = EnabledStatus
+_Hh3cRrppEnableStatus_Object = MibScalar
+hh3cRrppEnableStatus = _Hh3cRrppEnableStatus_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 1, 1),
+    _Hh3cRrppEnableStatus_Type()
+)
+hh3cRrppEnableStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hh3cRrppEnableStatus.setStatus("current")
+
+
+class _Hh3cRrppPassword_Type(OctetString):
+    """Custom type hh3cRrppPassword based on OctetString"""
+    defaultHexValue = "303030464532303346443735"
+
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 16),
+    )
+
+
+_Hh3cRrppPassword_Type.__name__ = "OctetString"
+_Hh3cRrppPassword_Object = MibScalar
+hh3cRrppPassword = _Hh3cRrppPassword_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 1, 2),
+    _Hh3cRrppPassword_Type()
+)
+hh3cRrppPassword.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hh3cRrppPassword.setStatus("current")
+
+
+class _Hh3cRrppPasswordType_Type(Integer32):
+    """Custom type hh3cRrppPasswordType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("cipher", 2),
+          ("simple", 1))
+    )
+
+
+_Hh3cRrppPasswordType_Type.__name__ = "Integer32"
+_Hh3cRrppPasswordType_Object = MibScalar
+hh3cRrppPasswordType = _Hh3cRrppPasswordType_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 1, 3),
+    _Hh3cRrppPasswordType_Type()
+)
+hh3cRrppPasswordType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hh3cRrppPasswordType.setStatus("current")
+
+
+class _Hh3cRrppProtectVlanConfigMode_Type(Integer32):
+    """Custom type hh3cRrppProtectVlanConfigMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("instance", 2),
+          ("vlan", 1))
+    )
+
+
+_Hh3cRrppProtectVlanConfigMode_Type.__name__ = "Integer32"
+_Hh3cRrppProtectVlanConfigMode_Object = MibScalar
+hh3cRrppProtectVlanConfigMode = _Hh3cRrppProtectVlanConfigMode_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 1, 4),
+    _Hh3cRrppProtectVlanConfigMode_Type()
+)
+hh3cRrppProtectVlanConfigMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hh3cRrppProtectVlanConfigMode.setStatus("current")
+_Hh3cRrppTable_ObjectIdentity = ObjectIdentity
+hh3cRrppTable = _Hh3cRrppTable_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2)
+)
+_Hh3cRrppDomainTable_Object = MibTable
+hh3cRrppDomainTable = _Hh3cRrppDomainTable_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 1)
+)
+if mibBuilder.loadTexts:
+    hh3cRrppDomainTable.setStatus("current")
+_Hh3cRrppDomainEntry_Object = MibTableRow
+hh3cRrppDomainEntry = _Hh3cRrppDomainEntry_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 1, 1)
+)
+hh3cRrppDomainEntry.setIndexNames(
+    (0, "HH3C-RRPP-MIB", "hh3cRrppDomainID"),
+)
+if mibBuilder.loadTexts:
+    hh3cRrppDomainEntry.setStatus("current")
+
+
+class _Hh3cRrppDomainID_Type(Integer32):
+    """Custom type hh3cRrppDomainID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16),
+    )
+
+
+_Hh3cRrppDomainID_Type.__name__ = "Integer32"
+_Hh3cRrppDomainID_Object = MibTableColumn
+hh3cRrppDomainID = _Hh3cRrppDomainID_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 1, 1, 1),
+    _Hh3cRrppDomainID_Type()
+)
+hh3cRrppDomainID.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    hh3cRrppDomainID.setStatus("current")
+
+
+class _Hh3cRrppDomainControlVlanID_Type(Integer32):
+    """Custom type hh3cRrppDomainControlVlanID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(2, 4094),
+        ValueRangeConstraint(65535, 65535),
+    )
+
+
+_Hh3cRrppDomainControlVlanID_Type.__name__ = "Integer32"
+_Hh3cRrppDomainControlVlanID_Object = MibTableColumn
+hh3cRrppDomainControlVlanID = _Hh3cRrppDomainControlVlanID_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 1, 1, 2),
+    _Hh3cRrppDomainControlVlanID_Type()
+)
+hh3cRrppDomainControlVlanID.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hh3cRrppDomainControlVlanID.setStatus("current")
+
+
+class _Hh3cRrppDomainHelloTime_Type(Integer32):
+    """Custom type hh3cRrppDomainHelloTime based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 10),
+    )
+
+
+_Hh3cRrppDomainHelloTime_Type.__name__ = "Integer32"
+_Hh3cRrppDomainHelloTime_Object = MibTableColumn
+hh3cRrppDomainHelloTime = _Hh3cRrppDomainHelloTime_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 1, 1, 3),
+    _Hh3cRrppDomainHelloTime_Type()
+)
+hh3cRrppDomainHelloTime.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hh3cRrppDomainHelloTime.setStatus("current")
+
+
+class _Hh3cRrppDomainFailTime_Type(Integer32):
+    """Custom type hh3cRrppDomainFailTime based on Integer32"""
+    defaultValue = 3
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(3, 30),
+    )
+
+
+_Hh3cRrppDomainFailTime_Type.__name__ = "Integer32"
+_Hh3cRrppDomainFailTime_Object = MibTableColumn
+hh3cRrppDomainFailTime = _Hh3cRrppDomainFailTime_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 1, 1, 4),
+    _Hh3cRrppDomainFailTime_Type()
+)
+hh3cRrppDomainFailTime.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hh3cRrppDomainFailTime.setStatus("current")
+_Hh3cRrppDomainRowStatus_Type = RowStatus
+_Hh3cRrppDomainRowStatus_Object = MibTableColumn
+hh3cRrppDomainRowStatus = _Hh3cRrppDomainRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 1, 1, 5),
+    _Hh3cRrppDomainRowStatus_Type()
+)
+hh3cRrppDomainRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hh3cRrppDomainRowStatus.setStatus("current")
+
+
+class _Hh3cRrppDomainInstanceListLow_Type(OctetString):
+    """Custom type hh3cRrppDomainInstanceListLow based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(256, 256),
+    )
+
+
+_Hh3cRrppDomainInstanceListLow_Type.__name__ = "OctetString"
+_Hh3cRrppDomainInstanceListLow_Object = MibTableColumn
+hh3cRrppDomainInstanceListLow = _Hh3cRrppDomainInstanceListLow_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 1, 1, 6),
+    _Hh3cRrppDomainInstanceListLow_Type()
+)
+hh3cRrppDomainInstanceListLow.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hh3cRrppDomainInstanceListLow.setStatus("current")
+
+
+class _Hh3cRrppDomainInstanceListHigh_Type(OctetString):
+    """Custom type hh3cRrppDomainInstanceListHigh based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(256, 256),
+    )
+
+
+_Hh3cRrppDomainInstanceListHigh_Type.__name__ = "OctetString"
+_Hh3cRrppDomainInstanceListHigh_Object = MibTableColumn
+hh3cRrppDomainInstanceListHigh = _Hh3cRrppDomainInstanceListHigh_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 1, 1, 7),
+    _Hh3cRrppDomainInstanceListHigh_Type()
+)
+hh3cRrppDomainInstanceListHigh.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hh3cRrppDomainInstanceListHigh.setStatus("current")
+
+
+class _Hh3cRrppDomainProtectVlanListLow_Type(OctetString):
+    """Custom type hh3cRrppDomainProtectVlanListLow based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(256, 256),
+    )
+
+
+_Hh3cRrppDomainProtectVlanListLow_Type.__name__ = "OctetString"
+_Hh3cRrppDomainProtectVlanListLow_Object = MibTableColumn
+hh3cRrppDomainProtectVlanListLow = _Hh3cRrppDomainProtectVlanListLow_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 1, 1, 8),
+    _Hh3cRrppDomainProtectVlanListLow_Type()
+)
+hh3cRrppDomainProtectVlanListLow.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hh3cRrppDomainProtectVlanListLow.setStatus("current")
+
+
+class _Hh3cRrppDomainProtectVlanListHigh_Type(OctetString):
+    """Custom type hh3cRrppDomainProtectVlanListHigh based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(256, 256),
+    )
+
+
+_Hh3cRrppDomainProtectVlanListHigh_Type.__name__ = "OctetString"
+_Hh3cRrppDomainProtectVlanListHigh_Object = MibTableColumn
+hh3cRrppDomainProtectVlanListHigh = _Hh3cRrppDomainProtectVlanListHigh_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 1, 1, 9),
+    _Hh3cRrppDomainProtectVlanListHigh_Type()
+)
+hh3cRrppDomainProtectVlanListHigh.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hh3cRrppDomainProtectVlanListHigh.setStatus("current")
+_Hh3cRrppRingTable_Object = MibTable
+hh3cRrppRingTable = _Hh3cRrppRingTable_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 2)
+)
+if mibBuilder.loadTexts:
+    hh3cRrppRingTable.setStatus("current")
+_Hh3cRrppRingEntry_Object = MibTableRow
+hh3cRrppRingEntry = _Hh3cRrppRingEntry_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 2, 1)
+)
+hh3cRrppRingEntry.setIndexNames(
+    (0, "HH3C-RRPP-MIB", "hh3cRrppDomainID"),
+    (0, "HH3C-RRPP-MIB", "hh3cRrppRingID"),
+)
+if mibBuilder.loadTexts:
+    hh3cRrppRingEntry.setStatus("current")
+
+
+class _Hh3cRrppRingID_Type(Integer32):
+    """Custom type hh3cRrppRingID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 64),
+    )
+
+
+_Hh3cRrppRingID_Type.__name__ = "Integer32"
+_Hh3cRrppRingID_Object = MibTableColumn
+hh3cRrppRingID = _Hh3cRrppRingID_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 2, 1, 1),
+    _Hh3cRrppRingID_Type()
+)
+hh3cRrppRingID.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    hh3cRrppRingID.setStatus("current")
+_Hh3cRrppRingEnableStatus_Type = EnabledStatus
+_Hh3cRrppRingEnableStatus_Object = MibTableColumn
+hh3cRrppRingEnableStatus = _Hh3cRrppRingEnableStatus_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 2, 1, 2),
+    _Hh3cRrppRingEnableStatus_Type()
+)
+hh3cRrppRingEnableStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hh3cRrppRingEnableStatus.setStatus("current")
+
+
+class _Hh3cRrppRingActive_Type(Integer32):
+    """Custom type hh3cRrppRingActive based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 1),
+          ("inactive", 2))
+    )
+
+
+_Hh3cRrppRingActive_Type.__name__ = "Integer32"
+_Hh3cRrppRingActive_Object = MibTableColumn
+hh3cRrppRingActive = _Hh3cRrppRingActive_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 2, 1, 3),
+    _Hh3cRrppRingActive_Type()
+)
+hh3cRrppRingActive.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hh3cRrppRingActive.setStatus("current")
+
+
+class _Hh3cRrppRingState_Type(Integer32):
+    """Custom type hh3cRrppRingState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("fault", 3),
+          ("health", 2),
+          ("unknown", 1))
+    )
+
+
+_Hh3cRrppRingState_Type.__name__ = "Integer32"
+_Hh3cRrppRingState_Object = MibTableColumn
+hh3cRrppRingState = _Hh3cRrppRingState_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 2, 1, 4),
+    _Hh3cRrppRingState_Type()
+)
+hh3cRrppRingState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hh3cRrppRingState.setStatus("current")
+
+
+class _Hh3cRrppRingNodeMode_Type(Integer32):
+    """Custom type hh3cRrppRingNodeMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("assistantEdge", 4),
+          ("edge", 3),
+          ("master", 1),
+          ("transit", 2))
+    )
+
+
+_Hh3cRrppRingNodeMode_Type.__name__ = "Integer32"
+_Hh3cRrppRingNodeMode_Object = MibTableColumn
+hh3cRrppRingNodeMode = _Hh3cRrppRingNodeMode_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 2, 1, 5),
+    _Hh3cRrppRingNodeMode_Type()
+)
+hh3cRrppRingNodeMode.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hh3cRrppRingNodeMode.setStatus("current")
+_Hh3cRrppRingPrimaryPort_Type = Integer32
+_Hh3cRrppRingPrimaryPort_Object = MibTableColumn
+hh3cRrppRingPrimaryPort = _Hh3cRrppRingPrimaryPort_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 2, 1, 6),
+    _Hh3cRrppRingPrimaryPort_Type()
+)
+hh3cRrppRingPrimaryPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hh3cRrppRingPrimaryPort.setStatus("current")
+_Hh3cRrppRingSecondaryPort_Type = Integer32
+_Hh3cRrppRingSecondaryPort_Object = MibTableColumn
+hh3cRrppRingSecondaryPort = _Hh3cRrppRingSecondaryPort_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 2, 1, 7),
+    _Hh3cRrppRingSecondaryPort_Type()
+)
+hh3cRrppRingSecondaryPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hh3cRrppRingSecondaryPort.setStatus("current")
+
+
+class _Hh3cRrppRingLevel_Type(Integer32):
+    """Custom type hh3cRrppRingLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("majorRing", 1),
+          ("subRing", 2))
+    )
+
+
+_Hh3cRrppRingLevel_Type.__name__ = "Integer32"
+_Hh3cRrppRingLevel_Object = MibTableColumn
+hh3cRrppRingLevel = _Hh3cRrppRingLevel_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 2, 1, 8),
+    _Hh3cRrppRingLevel_Type()
+)
+hh3cRrppRingLevel.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hh3cRrppRingLevel.setStatus("current")
+_Hh3cRrppRingRowStatus_Type = RowStatus
+_Hh3cRrppRingRowStatus_Object = MibTableColumn
+hh3cRrppRingRowStatus = _Hh3cRrppRingRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 2, 1, 9),
+    _Hh3cRrppRingRowStatus_Type()
+)
+hh3cRrppRingRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hh3cRrppRingRowStatus.setStatus("current")
+_Hh3cRrppPortTable_Object = MibTable
+hh3cRrppPortTable = _Hh3cRrppPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3)
+)
+if mibBuilder.loadTexts:
+    hh3cRrppPortTable.setStatus("current")
+_Hh3cRrppPortEntry_Object = MibTableRow
+hh3cRrppPortEntry = _Hh3cRrppPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3, 1)
+)
+hh3cRrppPortEntry.setIndexNames(
+    (0, "HH3C-RRPP-MIB", "hh3cRrppDomainID"),
+    (0, "HH3C-RRPP-MIB", "hh3cRrppRingID"),
+    (0, "HH3C-RRPP-MIB", "hh3cRrppPortID"),
+)
+if mibBuilder.loadTexts:
+    hh3cRrppPortEntry.setStatus("current")
+_Hh3cRrppPortID_Type = Integer32
+_Hh3cRrppPortID_Object = MibTableColumn
+hh3cRrppPortID = _Hh3cRrppPortID_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3, 1, 1),
+    _Hh3cRrppPortID_Type()
+)
+hh3cRrppPortID.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hh3cRrppPortID.setStatus("current")
+
+
+class _Hh3cRrppPortRole_Type(Integer32):
+    """Custom type hh3cRrppPortRole based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("common", 3),
+          ("edge", 4),
+          ("primary", 1),
+          ("secondary", 2))
+    )
+
+
+_Hh3cRrppPortRole_Type.__name__ = "Integer32"
+_Hh3cRrppPortRole_Object = MibTableColumn
+hh3cRrppPortRole = _Hh3cRrppPortRole_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3, 1, 2),
+    _Hh3cRrppPortRole_Type()
+)
+hh3cRrppPortRole.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hh3cRrppPortRole.setStatus("current")
+
+
+class _Hh3cRrppPortState_Type(Integer32):
+    """Custom type hh3cRrppPortState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("blocked", 3),
+          ("down", 4),
+          ("unblocked", 2),
+          ("unknown", 1))
+    )
+
+
+_Hh3cRrppPortState_Type.__name__ = "Integer32"
+_Hh3cRrppPortState_Object = MibTableColumn
+hh3cRrppPortState = _Hh3cRrppPortState_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3, 1, 3),
+    _Hh3cRrppPortState_Type()
+)
+hh3cRrppPortState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hh3cRrppPortState.setStatus("current")
+_Hh3cRrppPortRXError_Type = Counter32
+_Hh3cRrppPortRXError_Object = MibTableColumn
+hh3cRrppPortRXError = _Hh3cRrppPortRXError_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3, 1, 4),
+    _Hh3cRrppPortRXError_Type()
+)
+hh3cRrppPortRXError.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hh3cRrppPortRXError.setStatus("current")
+_Hh3cRrppPortRXHello_Type = Counter32
+_Hh3cRrppPortRXHello_Object = MibTableColumn
+hh3cRrppPortRXHello = _Hh3cRrppPortRXHello_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3, 1, 5),
+    _Hh3cRrppPortRXHello_Type()
+)
+hh3cRrppPortRXHello.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hh3cRrppPortRXHello.setStatus("current")
+_Hh3cRrppPortRXLinkUp_Type = Counter32
+_Hh3cRrppPortRXLinkUp_Object = MibTableColumn
+hh3cRrppPortRXLinkUp = _Hh3cRrppPortRXLinkUp_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3, 1, 6),
+    _Hh3cRrppPortRXLinkUp_Type()
+)
+hh3cRrppPortRXLinkUp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hh3cRrppPortRXLinkUp.setStatus("current")
+_Hh3cRrppPortRXLinkDown_Type = Counter32
+_Hh3cRrppPortRXLinkDown_Object = MibTableColumn
+hh3cRrppPortRXLinkDown = _Hh3cRrppPortRXLinkDown_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3, 1, 7),
+    _Hh3cRrppPortRXLinkDown_Type()
+)
+hh3cRrppPortRXLinkDown.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hh3cRrppPortRXLinkDown.setStatus("current")
+_Hh3cRrppPortRXCommonFlush_Type = Counter32
+_Hh3cRrppPortRXCommonFlush_Object = MibTableColumn
+hh3cRrppPortRXCommonFlush = _Hh3cRrppPortRXCommonFlush_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3, 1, 8),
+    _Hh3cRrppPortRXCommonFlush_Type()
+)
+hh3cRrppPortRXCommonFlush.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hh3cRrppPortRXCommonFlush.setStatus("current")
+_Hh3cRrppPortRXCompleteFlush_Type = Counter32
+_Hh3cRrppPortRXCompleteFlush_Object = MibTableColumn
+hh3cRrppPortRXCompleteFlush = _Hh3cRrppPortRXCompleteFlush_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3, 1, 9),
+    _Hh3cRrppPortRXCompleteFlush_Type()
+)
+hh3cRrppPortRXCompleteFlush.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hh3cRrppPortRXCompleteFlush.setStatus("current")
+_Hh3cRrppPortTXHello_Type = Counter32
+_Hh3cRrppPortTXHello_Object = MibTableColumn
+hh3cRrppPortTXHello = _Hh3cRrppPortTXHello_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3, 1, 10),
+    _Hh3cRrppPortTXHello_Type()
+)
+hh3cRrppPortTXHello.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hh3cRrppPortTXHello.setStatus("current")
+_Hh3cRrppPortTXLinkUp_Type = Counter32
+_Hh3cRrppPortTXLinkUp_Object = MibTableColumn
+hh3cRrppPortTXLinkUp = _Hh3cRrppPortTXLinkUp_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3, 1, 11),
+    _Hh3cRrppPortTXLinkUp_Type()
+)
+hh3cRrppPortTXLinkUp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hh3cRrppPortTXLinkUp.setStatus("current")
+_Hh3cRrppPortTXLinkDown_Type = Counter32
+_Hh3cRrppPortTXLinkDown_Object = MibTableColumn
+hh3cRrppPortTXLinkDown = _Hh3cRrppPortTXLinkDown_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3, 1, 12),
+    _Hh3cRrppPortTXLinkDown_Type()
+)
+hh3cRrppPortTXLinkDown.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hh3cRrppPortTXLinkDown.setStatus("current")
+_Hh3cRrppPortTXCommonFlush_Type = Counter32
+_Hh3cRrppPortTXCommonFlush_Object = MibTableColumn
+hh3cRrppPortTXCommonFlush = _Hh3cRrppPortTXCommonFlush_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3, 1, 13),
+    _Hh3cRrppPortTXCommonFlush_Type()
+)
+hh3cRrppPortTXCommonFlush.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hh3cRrppPortTXCommonFlush.setStatus("current")
+_Hh3cRrppPortTXCompleteFlush_Type = Counter32
+_Hh3cRrppPortTXCompleteFlush_Object = MibTableColumn
+hh3cRrppPortTXCompleteFlush = _Hh3cRrppPortTXCompleteFlush_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3, 1, 14),
+    _Hh3cRrppPortTXCompleteFlush_Type()
+)
+hh3cRrppPortTXCompleteFlush.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hh3cRrppPortTXCompleteFlush.setStatus("current")
+_Hh3cRrppPortRXEdgeHello_Type = Counter32
+_Hh3cRrppPortRXEdgeHello_Object = MibTableColumn
+hh3cRrppPortRXEdgeHello = _Hh3cRrppPortRXEdgeHello_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3, 1, 15),
+    _Hh3cRrppPortRXEdgeHello_Type()
+)
+hh3cRrppPortRXEdgeHello.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hh3cRrppPortRXEdgeHello.setStatus("current")
+_Hh3cRrppPortRXMajorFault_Type = Counter32
+_Hh3cRrppPortRXMajorFault_Object = MibTableColumn
+hh3cRrppPortRXMajorFault = _Hh3cRrppPortRXMajorFault_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3, 1, 16),
+    _Hh3cRrppPortRXMajorFault_Type()
+)
+hh3cRrppPortRXMajorFault.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hh3cRrppPortRXMajorFault.setStatus("current")
+_Hh3cRrppPortTXEdgeHello_Type = Counter32
+_Hh3cRrppPortTXEdgeHello_Object = MibTableColumn
+hh3cRrppPortTXEdgeHello = _Hh3cRrppPortTXEdgeHello_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3, 1, 17),
+    _Hh3cRrppPortTXEdgeHello_Type()
+)
+hh3cRrppPortTXEdgeHello.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hh3cRrppPortTXEdgeHello.setStatus("current")
+_Hh3cRrppPortTXMajorFault_Type = Counter32
+_Hh3cRrppPortTXMajorFault_Object = MibTableColumn
+hh3cRrppPortTXMajorFault = _Hh3cRrppPortTXMajorFault_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 2, 3, 1, 18),
+    _Hh3cRrppPortTXMajorFault_Type()
+)
+hh3cRrppPortTXMajorFault.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hh3cRrppPortTXMajorFault.setStatus("current")
+_Hh3cRrppNotifications_ObjectIdentity = ObjectIdentity
+hh3cRrppNotifications = _Hh3cRrppNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 3)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+hh3cRrppRingRecover = NotificationType(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 3, 1)
+)
+hh3cRrppRingRecover.setObjects(
+      *(("HH3C-RRPP-MIB", "hh3cRrppDomainID"),
+        ("HH3C-RRPP-MIB", "hh3cRrppRingID"))
+)
+if mibBuilder.loadTexts:
+    hh3cRrppRingRecover.setStatus(
+        "current"
+    )
+
+hh3cRrppRingFail = NotificationType(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 3, 2)
+)
+hh3cRrppRingFail.setObjects(
+      *(("HH3C-RRPP-MIB", "hh3cRrppDomainID"),
+        ("HH3C-RRPP-MIB", "hh3cRrppRingID"))
+)
+if mibBuilder.loadTexts:
+    hh3cRrppRingFail.setStatus(
+        "current"
+    )
+
+hh3cRrppMultiMaster = NotificationType(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 3, 3)
+)
+hh3cRrppMultiMaster.setObjects(
+      *(("HH3C-RRPP-MIB", "hh3cRrppDomainID"),
+        ("HH3C-RRPP-MIB", "hh3cRrppRingID"))
+)
+if mibBuilder.loadTexts:
+    hh3cRrppMultiMaster.setStatus(
+        "current"
+    )
+
+hh3cRrppMajorFault = NotificationType(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 45, 3, 4)
+)
+hh3cRrppMajorFault.setObjects(
+      *(("HH3C-RRPP-MIB", "hh3cRrppDomainID"),
+        ("HH3C-RRPP-MIB", "hh3cRrppRingID"))
+)
+if mibBuilder.loadTexts:
+    hh3cRrppMajorFault.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HH3C-RRPP-MIB",
+    **{"EnabledStatus": EnabledStatus,
+       "hh3cRrpp": hh3cRrpp,
+       "hh3cRrppScalarGroup": hh3cRrppScalarGroup,
+       "hh3cRrppEnableStatus": hh3cRrppEnableStatus,
+       "hh3cRrppPassword": hh3cRrppPassword,
+       "hh3cRrppPasswordType": hh3cRrppPasswordType,
+       "hh3cRrppProtectVlanConfigMode": hh3cRrppProtectVlanConfigMode,
+       "hh3cRrppTable": hh3cRrppTable,
+       "hh3cRrppDomainTable": hh3cRrppDomainTable,
+       "hh3cRrppDomainEntry": hh3cRrppDomainEntry,
+       "hh3cRrppDomainID": hh3cRrppDomainID,
+       "hh3cRrppDomainControlVlanID": hh3cRrppDomainControlVlanID,
+       "hh3cRrppDomainHelloTime": hh3cRrppDomainHelloTime,
+       "hh3cRrppDomainFailTime": hh3cRrppDomainFailTime,
+       "hh3cRrppDomainRowStatus": hh3cRrppDomainRowStatus,
+       "hh3cRrppDomainInstanceListLow": hh3cRrppDomainInstanceListLow,
+       "hh3cRrppDomainInstanceListHigh": hh3cRrppDomainInstanceListHigh,
+       "hh3cRrppDomainProtectVlanListLow": hh3cRrppDomainProtectVlanListLow,
+       "hh3cRrppDomainProtectVlanListHigh": hh3cRrppDomainProtectVlanListHigh,
+       "hh3cRrppRingTable": hh3cRrppRingTable,
+       "hh3cRrppRingEntry": hh3cRrppRingEntry,
+       "hh3cRrppRingID": hh3cRrppRingID,
+       "hh3cRrppRingEnableStatus": hh3cRrppRingEnableStatus,
+       "hh3cRrppRingActive": hh3cRrppRingActive,
+       "hh3cRrppRingState": hh3cRrppRingState,
+       "hh3cRrppRingNodeMode": hh3cRrppRingNodeMode,
+       "hh3cRrppRingPrimaryPort": hh3cRrppRingPrimaryPort,
+       "hh3cRrppRingSecondaryPort": hh3cRrppRingSecondaryPort,
+       "hh3cRrppRingLevel": hh3cRrppRingLevel,
+       "hh3cRrppRingRowStatus": hh3cRrppRingRowStatus,
+       "hh3cRrppPortTable": hh3cRrppPortTable,
+       "hh3cRrppPortEntry": hh3cRrppPortEntry,
+       "hh3cRrppPortID": hh3cRrppPortID,
+       "hh3cRrppPortRole": hh3cRrppPortRole,
+       "hh3cRrppPortState": hh3cRrppPortState,
+       "hh3cRrppPortRXError": hh3cRrppPortRXError,
+       "hh3cRrppPortRXHello": hh3cRrppPortRXHello,
+       "hh3cRrppPortRXLinkUp": hh3cRrppPortRXLinkUp,
+       "hh3cRrppPortRXLinkDown": hh3cRrppPortRXLinkDown,
+       "hh3cRrppPortRXCommonFlush": hh3cRrppPortRXCommonFlush,
+       "hh3cRrppPortRXCompleteFlush": hh3cRrppPortRXCompleteFlush,
+       "hh3cRrppPortTXHello": hh3cRrppPortTXHello,
+       "hh3cRrppPortTXLinkUp": hh3cRrppPortTXLinkUp,
+       "hh3cRrppPortTXLinkDown": hh3cRrppPortTXLinkDown,
+       "hh3cRrppPortTXCommonFlush": hh3cRrppPortTXCommonFlush,
+       "hh3cRrppPortTXCompleteFlush": hh3cRrppPortTXCompleteFlush,
+       "hh3cRrppPortRXEdgeHello": hh3cRrppPortRXEdgeHello,
+       "hh3cRrppPortRXMajorFault": hh3cRrppPortRXMajorFault,
+       "hh3cRrppPortTXEdgeHello": hh3cRrppPortTXEdgeHello,
+       "hh3cRrppPortTXMajorFault": hh3cRrppPortTXMajorFault,
+       "hh3cRrppNotifications": hh3cRrppNotifications,
+       "hh3cRrppRingRecover": hh3cRrppRingRecover,
+       "hh3cRrppRingFail": hh3cRrppRingFail,
+       "hh3cRrppMultiMaster": hh3cRrppMultiMaster,
+       "hh3cRrppMajorFault": hh3cRrppMajorFault}
+)

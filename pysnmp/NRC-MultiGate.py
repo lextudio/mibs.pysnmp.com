@@ -1,219 +1,1716 @@
+# SNMP MIB module (NRC-MultiGate) expressed in pysnmp data model.
 #
-# PySNMP MIB module NRC-MultiGate (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/NRC-MultiGate
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:14:47 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-iso, IpAddress, TimeTicks, Bits, Counter32, NotificationType, Integer32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, MibIdentifier, experimental, Unsigned32, ModuleIdentity, ObjectIdentity, mgmt = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "IpAddress", "TimeTicks", "Bits", "Counter32", "NotificationType", "Integer32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "MibIdentifier", "experimental", "Unsigned32", "ModuleIdentity", "ObjectIdentity", "mgmt")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-mib_2 = MibIdentifier((1, 3, 6, 1, 2, 1)).setLabel("mib-2")
-enterprises = MibIdentifier((1, 3, 6, 1, 4, 1))
-nrc = MibIdentifier((1, 3, 6, 1, 4, 1, 315))
-hub1 = MibIdentifier((1, 3, 6, 1, 4, 1, 315, 1))
-snmpDot3RptrMgt = MibIdentifier((1, 3, 6, 1, 3, 29))
-dot1dBridge = MibIdentifier((1, 3, 6, 1, 2, 1, 17))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/NRC-MultiGate
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:29:10 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ experimental,
+ iso,
+ mgmt) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "experimental",
+    "iso",
+    "mgmt")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+
 class MacAddress(OctetString):
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(6, 6)
-    fixedLength = 6
+    """Custom type MacAddress based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(6, 6),
+    )
+
+
+
+
 
 class BridgeId(OctetString):
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(8, 8)
-    fixedLength = 8
+    """Custom type BridgeId based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(8, 8),
+    )
+
+
+
+
 
 class Timeout(Integer32):
-    pass
+    """Custom type Timeout based on Integer32"""
 
-hub1AutoPartition = MibScalar((1, 3, 6, 1, 4, 1, 315, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hub1AutoPartition.setStatus('mandatory')
-hub1ReconnectOnTransmission = MibScalar((1, 3, 6, 1, 4, 1, 315, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hub1ReconnectOnTransmission.setStatus('mandatory')
-hub1IncludeOutOfWinColl = MibScalar((1, 3, 6, 1, 4, 1, 315, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hub1IncludeOutOfWinColl.setStatus('mandatory')
-hub1LoopbackPartition = MibScalar((1, 3, 6, 1, 4, 1, 315, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hub1LoopbackPartition.setStatus('mandatory')
-hub1CollisionLimit = MibScalar((1, 3, 6, 1, 4, 1, 315, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(31, 63))).clone(namedValues=NamedValues(("low", 31), ("high", 63)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hub1CollisionLimit.setStatus('mandatory')
-hub1CarrierRecoverTime = MibScalar((1, 3, 6, 1, 4, 1, 315, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(3, 5))).clone(namedValues=NamedValues(("short", 3), ("long", 5)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hub1CarrierRecoverTime.setStatus('mandatory')
-hub1EventCounterFlags = MibScalar((1, 3, 6, 1, 4, 1, 315, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hub1EventCounterFlags.setStatus('mandatory')
-hub1EventRecordFlags = MibScalar((1, 3, 6, 1, 4, 1, 315, 1, 8), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 1)).setFixedLength(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hub1EventRecordFlags.setStatus('mandatory')
-hub1BridgingMode = MibScalar((1, 3, 6, 1, 4, 1, 315, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("bridging", 1), ("bypass", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hub1BridgingMode.setStatus('mandatory')
-hub1ProtocolFilterMode = MibScalar((1, 3, 6, 1, 4, 1, 315, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("off", 1), ("filter", 2), ("pass", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hub1ProtocolFilterMode.setStatus('mandatory')
-hub1FilterProtocols = MibScalar((1, 3, 6, 1, 4, 1, 315, 1, 11), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hub1FilterProtocols.setStatus('mandatory')
-hub1ConsoleBaudRate = MibScalar((1, 3, 6, 1, 4, 1, 315, 1, 12), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hub1ConsoleBaudRate.setStatus('mandatory')
-hub1Reset = MibScalar((1, 3, 6, 1, 4, 1, 315, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("no-reset", 1), ("reset", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hub1Reset.setStatus('mandatory')
-hub1SoftwareVersion = MibScalar((1, 3, 6, 1, 4, 1, 315, 1, 14), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hub1SoftwareVersion.setStatus('mandatory')
-hub1PortTable = MibTable((1, 3, 6, 1, 4, 1, 315, 1, 15), )
-if mibBuilder.loadTexts: hub1PortTable.setStatus('mandatory')
-hub1PortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 315, 1, 15, 1), ).setIndexNames((0, "NRC-MultiGate", "hub1PortIndex"))
-if mibBuilder.loadTexts: hub1PortEntry.setStatus('mandatory')
-hub1PortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 315, 1, 15, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 24))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hub1PortIndex.setStatus('mandatory')
-hub1PortForceReconnect = MibTableColumn((1, 3, 6, 1, 4, 1, 315, 1, 15, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("idle", 1), ("force-reconnect", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hub1PortForceReconnect.setStatus('mandatory')
-hub1PortPartitionReason = MibTableColumn((1, 3, 6, 1, 4, 1, 315, 1, 15, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("not-partitioned", 1), ("other", 2), ("consecutive-collision-limit", 3), ("excessive-len-of-collision-limit", 4), ("data-loopback-failure", 5), ("process-forced-reconnection", 6)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hub1PortPartitionReason.setStatus('mandatory')
-hub1PortLinkState = MibTableColumn((1, 3, 6, 1, 4, 1, 315, 1, 15, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("up", 2), ("down", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hub1PortLinkState.setStatus('mandatory')
-hub1PortLinkEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 315, 1, 15, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hub1PortLinkEnable.setStatus('mandatory')
-hub1PortPolarityStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 315, 1, 15, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("ok", 1), ("reversed", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hub1PortPolarityStatus.setStatus('mandatory')
-hub1PortName = MibTableColumn((1, 3, 6, 1, 4, 1, 315, 1, 15, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hub1PortName.setStatus('mandatory')
-hub1PortEventCount = MibTableColumn((1, 3, 6, 1, 4, 1, 315, 1, 15, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hub1PortEventCount.setStatus('mandatory')
-hub1PortRecordValue = MibScalar((1, 3, 6, 1, 4, 1, 315, 1, 15, 1, 9), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 1)).setFixedLength(1)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hub1PortRecordValue.setStatus('mandatory')
-hub1PortType = MibTableColumn((1, 3, 6, 1, 4, 1, 315, 1, 15, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("twistedPair-10BaseT", 2), ("thinNet-10Base2", 3), ("fiber-FOIRL", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hub1PortType.setStatus('mandatory')
-hub1IFTable = MibTable((1, 3, 6, 1, 4, 1, 315, 1, 16), )
-if mibBuilder.loadTexts: hub1IFTable.setStatus('mandatory')
-hub1IFEntry = MibTableRow((1, 3, 6, 1, 4, 1, 315, 1, 16, 1), ).setIndexNames((0, "NRC-MultiGate", "hub1IFIndex"))
-if mibBuilder.loadTexts: hub1IFEntry.setStatus('mandatory')
-hub1IFIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 315, 1, 16, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hub1IFIndex.setStatus('mandatory')
-hub1IFInAlignmentErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 315, 1, 16, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hub1IFInAlignmentErrors.setStatus('mandatory')
-hub1IFInCrcErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 315, 1, 16, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hub1IFInCrcErrors.setStatus('mandatory')
-hub1IFInCollisions = MibTableColumn((1, 3, 6, 1, 4, 1, 315, 1, 16, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hub1IFInCollisions.setStatus('mandatory')
-hub1IFInMtuExceededDiscards = MibTableColumn((1, 3, 6, 1, 4, 1, 315, 1, 16, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hub1IFInMtuExceededDiscards.setStatus('mandatory')
-hub1IFInShortErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 315, 1, 16, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hub1IFInShortErrors.setStatus('mandatory')
-hub1IFInOverrunDiscards = MibTableColumn((1, 3, 6, 1, 4, 1, 315, 1, 16, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hub1IFInOverrunDiscards.setStatus('mandatory')
-hub1IFOutUnderruns = MibTableColumn((1, 3, 6, 1, 4, 1, 315, 1, 16, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hub1IFOutUnderruns.setStatus('mandatory')
-hub1IFOutLostCts = MibTableColumn((1, 3, 6, 1, 4, 1, 315, 1, 16, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hub1IFOutLostCts.setStatus('mandatory')
-hub1IFOutLostCrs = MibTableColumn((1, 3, 6, 1, 4, 1, 315, 1, 16, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hub1IFOutLostCrs.setStatus('mandatory')
-hub1IFOutMtuExceededDiscards = MibTableColumn((1, 3, 6, 1, 4, 1, 315, 1, 16, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hub1IFOutMtuExceededDiscards.setStatus('mandatory')
-hub1IFOutCollisions = MibTableColumn((1, 3, 6, 1, 4, 1, 315, 1, 16, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hub1IFOutCollisions.setStatus('mandatory')
-hub1IFChannelUtilization = MibTableColumn((1, 3, 6, 1, 4, 1, 315, 1, 16, 1, 13), OctetString().subtype(subtypeSpec=ValueSizeConstraint(90, 90)).setFixedLength(90)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hub1IFChannelUtilization.setStatus('mandatory')
-hub1LastFailureReason = MibScalar((1, 3, 6, 1, 4, 1, 315, 1, 17), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hub1LastFailureReason.setStatus('mandatory')
-rptrBasicPackage = MibIdentifier((1, 3, 6, 1, 3, 29, 1))
-rptrMonitorPackage = MibIdentifier((1, 3, 6, 1, 3, 29, 2))
-rptrAddrTrackPackage = MibIdentifier((1, 3, 6, 1, 3, 29, 3))
-rptrRptrInfo = MibIdentifier((1, 3, 6, 1, 3, 29, 1, 1))
-rptrGroupInfo = MibIdentifier((1, 3, 6, 1, 3, 29, 1, 2))
-rptrPortInfo = MibIdentifier((1, 3, 6, 1, 3, 29, 1, 3))
-rptrMonitorRptrInfo = MibIdentifier((1, 3, 6, 1, 3, 29, 2, 1))
-rptrMonitorGroupInfo = MibIdentifier((1, 3, 6, 1, 3, 29, 2, 2))
-rptrMonitorPortInfo = MibIdentifier((1, 3, 6, 1, 3, 29, 2, 3))
-rptrAddrTrackRptrInfo = MibIdentifier((1, 3, 6, 1, 3, 29, 3, 1))
-rptrAddrTrackGroupInfo = MibIdentifier((1, 3, 6, 1, 3, 29, 3, 2))
-rptrAddrTrackPortInfo = MibIdentifier((1, 3, 6, 1, 3, 29, 3, 3))
-rptrGroupCapacity = MibScalar((1, 3, 6, 1, 3, 29, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1024))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rptrGroupCapacity.setStatus('mandatory')
-rptrOperStatus = MibScalar((1, 3, 6, 1, 3, 29, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("other", 1), ("ok", 2), ("rptrFailure", 3), ("groupFailure", 4), ("portFailure", 5), ("generalFailure", 6)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rptrOperStatus.setStatus('mandatory')
-rptrHealthText = MibScalar((1, 3, 6, 1, 3, 29, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rptrHealthText.setStatus('mandatory')
-rptrReset = MibScalar((1, 3, 6, 1, 3, 29, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("noReset", 1), ("reset", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rptrReset.setStatus('mandatory')
-rptrNonDisruptTest = MibScalar((1, 3, 6, 1, 3, 29, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("noSelfTest", 1), ("selfTest", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rptrNonDisruptTest.setStatus('mandatory')
-rptrTotalPartitionedPorts = MibScalar((1, 3, 6, 1, 3, 29, 1, 1, 6), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rptrTotalPartitionedPorts.setStatus('mandatory')
-rptrGroupTable = MibTable((1, 3, 6, 1, 3, 29, 1, 2, 1), )
-if mibBuilder.loadTexts: rptrGroupTable.setStatus('mandatory')
-rptrGroupEntry = MibTableRow((1, 3, 6, 1, 3, 29, 1, 2, 1, 1), ).setIndexNames((0, "NRC-MultiGate", "rptrGroupIndex"))
-if mibBuilder.loadTexts: rptrGroupEntry.setStatus('mandatory')
-rptrGroupIndex = MibTableColumn((1, 3, 6, 1, 3, 29, 1, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1024))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rptrGroupIndex.setStatus('mandatory')
-rptrGroupDescr = MibTableColumn((1, 3, 6, 1, 3, 29, 1, 2, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rptrGroupDescr.setStatus('mandatory')
-rptrGroupObjectID = MibTableColumn((1, 3, 6, 1, 3, 29, 1, 2, 1, 1, 3), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rptrGroupObjectID.setStatus('mandatory')
-rptrGroupOperStatus = MibTableColumn((1, 3, 6, 1, 3, 29, 1, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("other", 1), ("operational", 2), ("malfunctioning", 3), ("notPresent", 4), ("underTest", 5), ("resetInProgress", 6)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rptrGroupOperStatus.setStatus('mandatory')
-rptrGroupLastOperStatusChange = MibTableColumn((1, 3, 6, 1, 3, 29, 1, 2, 1, 1, 5), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rptrGroupLastOperStatusChange.setStatus('mandatory')
-rptrGroupPortCapacity = MibTableColumn((1, 3, 6, 1, 3, 29, 1, 2, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1024))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rptrGroupPortCapacity.setStatus('mandatory')
-rptrPortTable = MibTable((1, 3, 6, 1, 3, 29, 1, 3, 1), )
-if mibBuilder.loadTexts: rptrPortTable.setStatus('mandatory')
-rptrPortEntry = MibTableRow((1, 3, 6, 1, 3, 29, 1, 3, 1, 1), ).setIndexNames((0, "NRC-MultiGate", "rptrPortGroupIndex"), (0, "NRC-MultiGate", "rptrPortIndex"))
-if mibBuilder.loadTexts: rptrPortEntry.setStatus('mandatory')
-rptrPortGroupIndex = MibTableColumn((1, 3, 6, 1, 3, 29, 1, 3, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1024))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rptrPortGroupIndex.setStatus('mandatory')
-rptrPortIndex = MibTableColumn((1, 3, 6, 1, 3, 29, 1, 3, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1024))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rptrPortIndex.setStatus('mandatory')
-rptrPortAdminStatus = MibTableColumn((1, 3, 6, 1, 3, 29, 1, 3, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rptrPortAdminStatus.setStatus('mandatory')
-rptrPortAutoPartitionState = MibTableColumn((1, 3, 6, 1, 3, 29, 1, 3, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("notAutoPartitioned", 1), ("autoPartitioned", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rptrPortAutoPartitionState.setStatus('mandatory')
-rptrPortOperStatus = MibTableColumn((1, 3, 6, 1, 3, 29, 1, 3, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("operational", 1), ("notOperational", 2), ("notPresent", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rptrPortOperStatus.setStatus('mandatory')
-dot1dBase = MibIdentifier((1, 3, 6, 1, 2, 1, 17, 1))
-dot1dTp = MibIdentifier((1, 3, 6, 1, 2, 1, 17, 4))
-dot1dBaseBridgeAddress = MibScalar((1, 3, 6, 1, 2, 1, 17, 1, 1), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot1dBaseBridgeAddress.setStatus('mandatory')
-dot1dBaseNumPorts = MibScalar((1, 3, 6, 1, 2, 1, 17, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot1dBaseNumPorts.setStatus('mandatory')
-dot1dBaseType = MibScalar((1, 3, 6, 1, 2, 1, 17, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("unknown", 1), ("transparent-only", 2), ("sourceroute-only", 3), ("srt", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot1dBaseType.setStatus('mandatory')
-dot1dBasePortTable = MibTable((1, 3, 6, 1, 2, 1, 17, 1, 4), )
-if mibBuilder.loadTexts: dot1dBasePortTable.setStatus('mandatory')
-dot1dBasePortEntry = MibTableRow((1, 3, 6, 1, 2, 1, 17, 1, 4, 1), ).setIndexNames((0, "NRC-MultiGate", "dot1dBasePort"))
-if mibBuilder.loadTexts: dot1dBasePortEntry.setStatus('mandatory')
-dot1dBasePort = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 1, 4, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot1dBasePort.setStatus('mandatory')
-dot1dBasePortIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 1, 4, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot1dBasePortIfIndex.setStatus('mandatory')
-dot1dBasePortCircuit = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 1, 4, 1, 3), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot1dBasePortCircuit.setStatus('mandatory')
-dot1dBasePortDelayExceededDiscards = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 1, 4, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot1dBasePortDelayExceededDiscards.setStatus('mandatory')
-dot1dBasePortMtuExceededDiscards = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 1, 4, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot1dBasePortMtuExceededDiscards.setStatus('mandatory')
-dot1dTpLearnedEntryDiscards = MibScalar((1, 3, 6, 1, 2, 1, 17, 4, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot1dTpLearnedEntryDiscards.setStatus('mandatory')
-dot1dTpAgingTime = MibScalar((1, 3, 6, 1, 2, 1, 17, 4, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1dTpAgingTime.setStatus('mandatory')
-dot1dTpFdbTable = MibTable((1, 3, 6, 1, 2, 1, 17, 4, 3), )
-if mibBuilder.loadTexts: dot1dTpFdbTable.setStatus('mandatory')
-dot1dTpFdbEntry = MibTableRow((1, 3, 6, 1, 2, 1, 17, 4, 3, 1), ).setIndexNames((0, "NRC-MultiGate", "dot1dTpFdbAddress"))
-if mibBuilder.loadTexts: dot1dTpFdbEntry.setStatus('mandatory')
-dot1dTpFdbAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 4, 3, 1, 1), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot1dTpFdbAddress.setStatus('mandatory')
-dot1dTpFdbPort = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 4, 3, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot1dTpFdbPort.setStatus('mandatory')
-dot1dTpFdbStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 4, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("other", 1), ("invalid", 2), ("learned", 3), ("self", 4), ("mgmt", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot1dTpFdbStatus.setStatus('mandatory')
-dot1dTpPortTable = MibTable((1, 3, 6, 1, 2, 1, 17, 4, 4), )
-if mibBuilder.loadTexts: dot1dTpPortTable.setStatus('mandatory')
-dot1dTpPortEntry = MibTableRow((1, 3, 6, 1, 2, 1, 17, 4, 4, 1), ).setIndexNames((0, "NRC-MultiGate", "dot1dTpPort"))
-if mibBuilder.loadTexts: dot1dTpPortEntry.setStatus('mandatory')
-dot1dTpPort = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 4, 4, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot1dTpPort.setStatus('mandatory')
-dot1dTpPortMaxInfo = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 4, 4, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot1dTpPortMaxInfo.setStatus('mandatory')
-dot1dTpPortInFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 4, 4, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot1dTpPortInFrames.setStatus('mandatory')
-dot1dTpPortOutFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 4, 4, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot1dTpPortOutFrames.setStatus('mandatory')
-dot1dTpPortInDiscards = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 4, 4, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot1dTpPortInDiscards.setStatus('mandatory')
-mibBuilder.exportSymbols("NRC-MultiGate", dot1dBasePort=dot1dBasePort, rptrMonitorGroupInfo=rptrMonitorGroupInfo, rptrTotalPartitionedPorts=rptrTotalPartitionedPorts, hub1IFInCrcErrors=hub1IFInCrcErrors, rptrNonDisruptTest=rptrNonDisruptTest, hub1IFEntry=hub1IFEntry, hub1ProtocolFilterMode=hub1ProtocolFilterMode, dot1dTpAgingTime=dot1dTpAgingTime, rptrGroupDescr=rptrGroupDescr, hub1IFInMtuExceededDiscards=hub1IFInMtuExceededDiscards, hub1IFTable=hub1IFTable, enterprises=enterprises, MacAddress=MacAddress, hub1SoftwareVersion=hub1SoftwareVersion, dot1dTpFdbTable=dot1dTpFdbTable, hub1PortPolarityStatus=hub1PortPolarityStatus, rptrPortInfo=rptrPortInfo, dot1dTp=dot1dTp, hub1PortName=hub1PortName, rptrGroupPortCapacity=rptrGroupPortCapacity, hub1PortPartitionReason=hub1PortPartitionReason, dot1dTpFdbStatus=dot1dTpFdbStatus, hub1EventRecordFlags=hub1EventRecordFlags, dot1dBaseType=dot1dBaseType, hub1AutoPartition=hub1AutoPartition, rptrAddrTrackPortInfo=rptrAddrTrackPortInfo, hub1PortTable=hub1PortTable, dot1dTpPortInDiscards=dot1dTpPortInDiscards, rptrRptrInfo=rptrRptrInfo, hub1IFOutUnderruns=hub1IFOutUnderruns, dot1dBasePortDelayExceededDiscards=dot1dBasePortDelayExceededDiscards, hub1PortType=hub1PortType, rptrMonitorRptrInfo=rptrMonitorRptrInfo, rptrReset=rptrReset, rptrPortAutoPartitionState=rptrPortAutoPartitionState, dot1dTpFdbEntry=dot1dTpFdbEntry, Timeout=Timeout, hub1PortIndex=hub1PortIndex, mib_2=mib_2, hub1ConsoleBaudRate=hub1ConsoleBaudRate, hub1CarrierRecoverTime=hub1CarrierRecoverTime, rptrGroupLastOperStatusChange=rptrGroupLastOperStatusChange, rptrPortGroupIndex=rptrPortGroupIndex, dot1dBasePortMtuExceededDiscards=dot1dBasePortMtuExceededDiscards, hub1IFInCollisions=hub1IFInCollisions, hub1IFOutMtuExceededDiscards=hub1IFOutMtuExceededDiscards, hub1IFOutLostCts=hub1IFOutLostCts, hub1PortEntry=hub1PortEntry, dot1dBasePortEntry=dot1dBasePortEntry, dot1dBasePortIfIndex=dot1dBasePortIfIndex, dot1dTpPortInFrames=dot1dTpPortInFrames, dot1dBaseBridgeAddress=dot1dBaseBridgeAddress, hub1IFInOverrunDiscards=hub1IFInOverrunDiscards, hub1IFIndex=hub1IFIndex, dot1dTpPort=dot1dTpPort, hub1PortForceReconnect=hub1PortForceReconnect, dot1dTpPortOutFrames=dot1dTpPortOutFrames, hub1LastFailureReason=hub1LastFailureReason, rptrAddrTrackPackage=rptrAddrTrackPackage, hub1IFOutCollisions=hub1IFOutCollisions, rptrAddrTrackGroupInfo=rptrAddrTrackGroupInfo, nrc=nrc, dot1dTpPortEntry=dot1dTpPortEntry, hub1IFInShortErrors=hub1IFInShortErrors, rptrPortEntry=rptrPortEntry, rptrMonitorPackage=rptrMonitorPackage, dot1dTpFdbAddress=dot1dTpFdbAddress, hub1IFChannelUtilization=hub1IFChannelUtilization, hub1IFInAlignmentErrors=hub1IFInAlignmentErrors, hub1PortRecordValue=hub1PortRecordValue, rptrPortIndex=rptrPortIndex, rptrPortOperStatus=rptrPortOperStatus, hub1=hub1, snmpDot3RptrMgt=snmpDot3RptrMgt, hub1LoopbackPartition=hub1LoopbackPartition, hub1PortLinkState=hub1PortLinkState, rptrGroupInfo=rptrGroupInfo, rptrAddrTrackRptrInfo=rptrAddrTrackRptrInfo, rptrGroupCapacity=rptrGroupCapacity, dot1dBase=dot1dBase, rptrGroupOperStatus=rptrGroupOperStatus, hub1IncludeOutOfWinColl=hub1IncludeOutOfWinColl, dot1dTpPortTable=dot1dTpPortTable, rptrHealthText=rptrHealthText, BridgeId=BridgeId, dot1dBasePortCircuit=dot1dBasePortCircuit, dot1dBasePortTable=dot1dBasePortTable, rptrPortAdminStatus=rptrPortAdminStatus, rptrBasicPackage=rptrBasicPackage, hub1PortEventCount=hub1PortEventCount, rptrMonitorPortInfo=rptrMonitorPortInfo, rptrGroupIndex=rptrGroupIndex, hub1PortLinkEnable=hub1PortLinkEnable, hub1IFOutLostCrs=hub1IFOutLostCrs, rptrGroupEntry=rptrGroupEntry, hub1FilterProtocols=hub1FilterProtocols, dot1dBaseNumPorts=dot1dBaseNumPorts, hub1EventCounterFlags=hub1EventCounterFlags, rptrPortTable=rptrPortTable, hub1ReconnectOnTransmission=hub1ReconnectOnTransmission, hub1Reset=hub1Reset, dot1dTpFdbPort=dot1dTpFdbPort, rptrGroupTable=rptrGroupTable, dot1dTpLearnedEntryDiscards=dot1dTpLearnedEntryDiscards, dot1dBridge=dot1dBridge, hub1BridgingMode=hub1BridgingMode, dot1dTpPortMaxInfo=dot1dTpPortMaxInfo, rptrOperStatus=rptrOperStatus, hub1CollisionLimit=hub1CollisionLimit, rptrGroupObjectID=rptrGroupObjectID)
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Mib_2_ObjectIdentity = ObjectIdentity
+mib_2 = _Mib_2_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1)
+)
+_Dot1dBridge_ObjectIdentity = ObjectIdentity
+dot1dBridge = _Dot1dBridge_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 17)
+)
+_Dot1dBase_ObjectIdentity = ObjectIdentity
+dot1dBase = _Dot1dBase_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 17, 1)
+)
+_Dot1dBaseBridgeAddress_Type = MacAddress
+_Dot1dBaseBridgeAddress_Object = MibScalar
+dot1dBaseBridgeAddress = _Dot1dBaseBridgeAddress_Object(
+    (1, 3, 6, 1, 2, 1, 17, 1, 1),
+    _Dot1dBaseBridgeAddress_Type()
+)
+dot1dBaseBridgeAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dot1dBaseBridgeAddress.setStatus("mandatory")
+_Dot1dBaseNumPorts_Type = Integer32
+_Dot1dBaseNumPorts_Object = MibScalar
+dot1dBaseNumPorts = _Dot1dBaseNumPorts_Object(
+    (1, 3, 6, 1, 2, 1, 17, 1, 2),
+    _Dot1dBaseNumPorts_Type()
+)
+dot1dBaseNumPorts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dot1dBaseNumPorts.setStatus("mandatory")
+
+
+class _Dot1dBaseType_Type(Integer32):
+    """Custom type dot1dBaseType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("sourceroute-only", 3),
+          ("srt", 4),
+          ("transparent-only", 2),
+          ("unknown", 1))
+    )
+
+
+_Dot1dBaseType_Type.__name__ = "Integer32"
+_Dot1dBaseType_Object = MibScalar
+dot1dBaseType = _Dot1dBaseType_Object(
+    (1, 3, 6, 1, 2, 1, 17, 1, 3),
+    _Dot1dBaseType_Type()
+)
+dot1dBaseType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dot1dBaseType.setStatus("mandatory")
+_Dot1dBasePortTable_Object = MibTable
+dot1dBasePortTable = _Dot1dBasePortTable_Object(
+    (1, 3, 6, 1, 2, 1, 17, 1, 4)
+)
+if mibBuilder.loadTexts:
+    dot1dBasePortTable.setStatus("mandatory")
+_Dot1dBasePortEntry_Object = MibTableRow
+dot1dBasePortEntry = _Dot1dBasePortEntry_Object(
+    (1, 3, 6, 1, 2, 1, 17, 1, 4, 1)
+)
+dot1dBasePortEntry.setIndexNames(
+    (0, "NRC-MultiGate", "dot1dBasePort"),
+)
+if mibBuilder.loadTexts:
+    dot1dBasePortEntry.setStatus("mandatory")
+_Dot1dBasePort_Type = Integer32
+_Dot1dBasePort_Object = MibTableColumn
+dot1dBasePort = _Dot1dBasePort_Object(
+    (1, 3, 6, 1, 2, 1, 17, 1, 4, 1, 1),
+    _Dot1dBasePort_Type()
+)
+dot1dBasePort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dot1dBasePort.setStatus("mandatory")
+_Dot1dBasePortIfIndex_Type = Integer32
+_Dot1dBasePortIfIndex_Object = MibTableColumn
+dot1dBasePortIfIndex = _Dot1dBasePortIfIndex_Object(
+    (1, 3, 6, 1, 2, 1, 17, 1, 4, 1, 2),
+    _Dot1dBasePortIfIndex_Type()
+)
+dot1dBasePortIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dot1dBasePortIfIndex.setStatus("mandatory")
+_Dot1dBasePortCircuit_Type = ObjectIdentifier
+_Dot1dBasePortCircuit_Object = MibTableColumn
+dot1dBasePortCircuit = _Dot1dBasePortCircuit_Object(
+    (1, 3, 6, 1, 2, 1, 17, 1, 4, 1, 3),
+    _Dot1dBasePortCircuit_Type()
+)
+dot1dBasePortCircuit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dot1dBasePortCircuit.setStatus("mandatory")
+_Dot1dBasePortDelayExceededDiscards_Type = Counter32
+_Dot1dBasePortDelayExceededDiscards_Object = MibTableColumn
+dot1dBasePortDelayExceededDiscards = _Dot1dBasePortDelayExceededDiscards_Object(
+    (1, 3, 6, 1, 2, 1, 17, 1, 4, 1, 4),
+    _Dot1dBasePortDelayExceededDiscards_Type()
+)
+dot1dBasePortDelayExceededDiscards.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dot1dBasePortDelayExceededDiscards.setStatus("mandatory")
+_Dot1dBasePortMtuExceededDiscards_Type = Counter32
+_Dot1dBasePortMtuExceededDiscards_Object = MibTableColumn
+dot1dBasePortMtuExceededDiscards = _Dot1dBasePortMtuExceededDiscards_Object(
+    (1, 3, 6, 1, 2, 1, 17, 1, 4, 1, 5),
+    _Dot1dBasePortMtuExceededDiscards_Type()
+)
+dot1dBasePortMtuExceededDiscards.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dot1dBasePortMtuExceededDiscards.setStatus("mandatory")
+_Dot1dTp_ObjectIdentity = ObjectIdentity
+dot1dTp = _Dot1dTp_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 17, 4)
+)
+_Dot1dTpLearnedEntryDiscards_Type = Counter32
+_Dot1dTpLearnedEntryDiscards_Object = MibScalar
+dot1dTpLearnedEntryDiscards = _Dot1dTpLearnedEntryDiscards_Object(
+    (1, 3, 6, 1, 2, 1, 17, 4, 1),
+    _Dot1dTpLearnedEntryDiscards_Type()
+)
+dot1dTpLearnedEntryDiscards.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dot1dTpLearnedEntryDiscards.setStatus("mandatory")
+_Dot1dTpAgingTime_Type = Integer32
+_Dot1dTpAgingTime_Object = MibScalar
+dot1dTpAgingTime = _Dot1dTpAgingTime_Object(
+    (1, 3, 6, 1, 2, 1, 17, 4, 2),
+    _Dot1dTpAgingTime_Type()
+)
+dot1dTpAgingTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dot1dTpAgingTime.setStatus("mandatory")
+_Dot1dTpFdbTable_Object = MibTable
+dot1dTpFdbTable = _Dot1dTpFdbTable_Object(
+    (1, 3, 6, 1, 2, 1, 17, 4, 3)
+)
+if mibBuilder.loadTexts:
+    dot1dTpFdbTable.setStatus("mandatory")
+_Dot1dTpFdbEntry_Object = MibTableRow
+dot1dTpFdbEntry = _Dot1dTpFdbEntry_Object(
+    (1, 3, 6, 1, 2, 1, 17, 4, 3, 1)
+)
+dot1dTpFdbEntry.setIndexNames(
+    (0, "NRC-MultiGate", "dot1dTpFdbAddress"),
+)
+if mibBuilder.loadTexts:
+    dot1dTpFdbEntry.setStatus("mandatory")
+_Dot1dTpFdbAddress_Type = MacAddress
+_Dot1dTpFdbAddress_Object = MibTableColumn
+dot1dTpFdbAddress = _Dot1dTpFdbAddress_Object(
+    (1, 3, 6, 1, 2, 1, 17, 4, 3, 1, 1),
+    _Dot1dTpFdbAddress_Type()
+)
+dot1dTpFdbAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dot1dTpFdbAddress.setStatus("mandatory")
+_Dot1dTpFdbPort_Type = Integer32
+_Dot1dTpFdbPort_Object = MibTableColumn
+dot1dTpFdbPort = _Dot1dTpFdbPort_Object(
+    (1, 3, 6, 1, 2, 1, 17, 4, 3, 1, 2),
+    _Dot1dTpFdbPort_Type()
+)
+dot1dTpFdbPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dot1dTpFdbPort.setStatus("mandatory")
+
+
+class _Dot1dTpFdbStatus_Type(Integer32):
+    """Custom type dot1dTpFdbStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("invalid", 2),
+          ("learned", 3),
+          ("mgmt", 5),
+          ("other", 1),
+          ("self", 4))
+    )
+
+
+_Dot1dTpFdbStatus_Type.__name__ = "Integer32"
+_Dot1dTpFdbStatus_Object = MibTableColumn
+dot1dTpFdbStatus = _Dot1dTpFdbStatus_Object(
+    (1, 3, 6, 1, 2, 1, 17, 4, 3, 1, 3),
+    _Dot1dTpFdbStatus_Type()
+)
+dot1dTpFdbStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dot1dTpFdbStatus.setStatus("mandatory")
+_Dot1dTpPortTable_Object = MibTable
+dot1dTpPortTable = _Dot1dTpPortTable_Object(
+    (1, 3, 6, 1, 2, 1, 17, 4, 4)
+)
+if mibBuilder.loadTexts:
+    dot1dTpPortTable.setStatus("mandatory")
+_Dot1dTpPortEntry_Object = MibTableRow
+dot1dTpPortEntry = _Dot1dTpPortEntry_Object(
+    (1, 3, 6, 1, 2, 1, 17, 4, 4, 1)
+)
+dot1dTpPortEntry.setIndexNames(
+    (0, "NRC-MultiGate", "dot1dTpPort"),
+)
+if mibBuilder.loadTexts:
+    dot1dTpPortEntry.setStatus("mandatory")
+_Dot1dTpPort_Type = Integer32
+_Dot1dTpPort_Object = MibTableColumn
+dot1dTpPort = _Dot1dTpPort_Object(
+    (1, 3, 6, 1, 2, 1, 17, 4, 4, 1, 1),
+    _Dot1dTpPort_Type()
+)
+dot1dTpPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dot1dTpPort.setStatus("mandatory")
+_Dot1dTpPortMaxInfo_Type = Integer32
+_Dot1dTpPortMaxInfo_Object = MibTableColumn
+dot1dTpPortMaxInfo = _Dot1dTpPortMaxInfo_Object(
+    (1, 3, 6, 1, 2, 1, 17, 4, 4, 1, 2),
+    _Dot1dTpPortMaxInfo_Type()
+)
+dot1dTpPortMaxInfo.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dot1dTpPortMaxInfo.setStatus("mandatory")
+_Dot1dTpPortInFrames_Type = Counter32
+_Dot1dTpPortInFrames_Object = MibTableColumn
+dot1dTpPortInFrames = _Dot1dTpPortInFrames_Object(
+    (1, 3, 6, 1, 2, 1, 17, 4, 4, 1, 3),
+    _Dot1dTpPortInFrames_Type()
+)
+dot1dTpPortInFrames.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dot1dTpPortInFrames.setStatus("mandatory")
+_Dot1dTpPortOutFrames_Type = Counter32
+_Dot1dTpPortOutFrames_Object = MibTableColumn
+dot1dTpPortOutFrames = _Dot1dTpPortOutFrames_Object(
+    (1, 3, 6, 1, 2, 1, 17, 4, 4, 1, 4),
+    _Dot1dTpPortOutFrames_Type()
+)
+dot1dTpPortOutFrames.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dot1dTpPortOutFrames.setStatus("mandatory")
+_Dot1dTpPortInDiscards_Type = Counter32
+_Dot1dTpPortInDiscards_Object = MibTableColumn
+dot1dTpPortInDiscards = _Dot1dTpPortInDiscards_Object(
+    (1, 3, 6, 1, 2, 1, 17, 4, 4, 1, 5),
+    _Dot1dTpPortInDiscards_Type()
+)
+dot1dTpPortInDiscards.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dot1dTpPortInDiscards.setStatus("mandatory")
+_SnmpDot3RptrMgt_ObjectIdentity = ObjectIdentity
+snmpDot3RptrMgt = _SnmpDot3RptrMgt_ObjectIdentity(
+    (1, 3, 6, 1, 3, 29)
+)
+_RptrBasicPackage_ObjectIdentity = ObjectIdentity
+rptrBasicPackage = _RptrBasicPackage_ObjectIdentity(
+    (1, 3, 6, 1, 3, 29, 1)
+)
+_RptrRptrInfo_ObjectIdentity = ObjectIdentity
+rptrRptrInfo = _RptrRptrInfo_ObjectIdentity(
+    (1, 3, 6, 1, 3, 29, 1, 1)
+)
+
+
+class _RptrGroupCapacity_Type(Integer32):
+    """Custom type rptrGroupCapacity based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1024),
+    )
+
+
+_RptrGroupCapacity_Type.__name__ = "Integer32"
+_RptrGroupCapacity_Object = MibScalar
+rptrGroupCapacity = _RptrGroupCapacity_Object(
+    (1, 3, 6, 1, 3, 29, 1, 1, 1),
+    _RptrGroupCapacity_Type()
+)
+rptrGroupCapacity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rptrGroupCapacity.setStatus("mandatory")
+
+
+class _RptrOperStatus_Type(Integer32):
+    """Custom type rptrOperStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("generalFailure", 6),
+          ("groupFailure", 4),
+          ("ok", 2),
+          ("other", 1),
+          ("portFailure", 5),
+          ("rptrFailure", 3))
+    )
+
+
+_RptrOperStatus_Type.__name__ = "Integer32"
+_RptrOperStatus_Object = MibScalar
+rptrOperStatus = _RptrOperStatus_Object(
+    (1, 3, 6, 1, 3, 29, 1, 1, 2),
+    _RptrOperStatus_Type()
+)
+rptrOperStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rptrOperStatus.setStatus("mandatory")
+
+
+class _RptrHealthText_Type(DisplayString):
+    """Custom type rptrHealthText based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_RptrHealthText_Type.__name__ = "DisplayString"
+_RptrHealthText_Object = MibScalar
+rptrHealthText = _RptrHealthText_Object(
+    (1, 3, 6, 1, 3, 29, 1, 1, 3),
+    _RptrHealthText_Type()
+)
+rptrHealthText.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rptrHealthText.setStatus("mandatory")
+
+
+class _RptrReset_Type(Integer32):
+    """Custom type rptrReset based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("noReset", 1),
+          ("reset", 2))
+    )
+
+
+_RptrReset_Type.__name__ = "Integer32"
+_RptrReset_Object = MibScalar
+rptrReset = _RptrReset_Object(
+    (1, 3, 6, 1, 3, 29, 1, 1, 4),
+    _RptrReset_Type()
+)
+rptrReset.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rptrReset.setStatus("mandatory")
+
+
+class _RptrNonDisruptTest_Type(Integer32):
+    """Custom type rptrNonDisruptTest based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("noSelfTest", 1),
+          ("selfTest", 2))
+    )
+
+
+_RptrNonDisruptTest_Type.__name__ = "Integer32"
+_RptrNonDisruptTest_Object = MibScalar
+rptrNonDisruptTest = _RptrNonDisruptTest_Object(
+    (1, 3, 6, 1, 3, 29, 1, 1, 5),
+    _RptrNonDisruptTest_Type()
+)
+rptrNonDisruptTest.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rptrNonDisruptTest.setStatus("mandatory")
+_RptrTotalPartitionedPorts_Type = Gauge32
+_RptrTotalPartitionedPorts_Object = MibScalar
+rptrTotalPartitionedPorts = _RptrTotalPartitionedPorts_Object(
+    (1, 3, 6, 1, 3, 29, 1, 1, 6),
+    _RptrTotalPartitionedPorts_Type()
+)
+rptrTotalPartitionedPorts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rptrTotalPartitionedPorts.setStatus("mandatory")
+_RptrGroupInfo_ObjectIdentity = ObjectIdentity
+rptrGroupInfo = _RptrGroupInfo_ObjectIdentity(
+    (1, 3, 6, 1, 3, 29, 1, 2)
+)
+_RptrGroupTable_Object = MibTable
+rptrGroupTable = _RptrGroupTable_Object(
+    (1, 3, 6, 1, 3, 29, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    rptrGroupTable.setStatus("mandatory")
+_RptrGroupEntry_Object = MibTableRow
+rptrGroupEntry = _RptrGroupEntry_Object(
+    (1, 3, 6, 1, 3, 29, 1, 2, 1, 1)
+)
+rptrGroupEntry.setIndexNames(
+    (0, "NRC-MultiGate", "rptrGroupIndex"),
+)
+if mibBuilder.loadTexts:
+    rptrGroupEntry.setStatus("mandatory")
+
+
+class _RptrGroupIndex_Type(Integer32):
+    """Custom type rptrGroupIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1024),
+    )
+
+
+_RptrGroupIndex_Type.__name__ = "Integer32"
+_RptrGroupIndex_Object = MibTableColumn
+rptrGroupIndex = _RptrGroupIndex_Object(
+    (1, 3, 6, 1, 3, 29, 1, 2, 1, 1, 1),
+    _RptrGroupIndex_Type()
+)
+rptrGroupIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rptrGroupIndex.setStatus("mandatory")
+
+
+class _RptrGroupDescr_Type(DisplayString):
+    """Custom type rptrGroupDescr based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_RptrGroupDescr_Type.__name__ = "DisplayString"
+_RptrGroupDescr_Object = MibTableColumn
+rptrGroupDescr = _RptrGroupDescr_Object(
+    (1, 3, 6, 1, 3, 29, 1, 2, 1, 1, 2),
+    _RptrGroupDescr_Type()
+)
+rptrGroupDescr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rptrGroupDescr.setStatus("mandatory")
+_RptrGroupObjectID_Type = ObjectIdentifier
+_RptrGroupObjectID_Object = MibTableColumn
+rptrGroupObjectID = _RptrGroupObjectID_Object(
+    (1, 3, 6, 1, 3, 29, 1, 2, 1, 1, 3),
+    _RptrGroupObjectID_Type()
+)
+rptrGroupObjectID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rptrGroupObjectID.setStatus("mandatory")
+
+
+class _RptrGroupOperStatus_Type(Integer32):
+    """Custom type rptrGroupOperStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("malfunctioning", 3),
+          ("notPresent", 4),
+          ("operational", 2),
+          ("other", 1),
+          ("resetInProgress", 6),
+          ("underTest", 5))
+    )
+
+
+_RptrGroupOperStatus_Type.__name__ = "Integer32"
+_RptrGroupOperStatus_Object = MibTableColumn
+rptrGroupOperStatus = _RptrGroupOperStatus_Object(
+    (1, 3, 6, 1, 3, 29, 1, 2, 1, 1, 4),
+    _RptrGroupOperStatus_Type()
+)
+rptrGroupOperStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rptrGroupOperStatus.setStatus("mandatory")
+_RptrGroupLastOperStatusChange_Type = TimeTicks
+_RptrGroupLastOperStatusChange_Object = MibTableColumn
+rptrGroupLastOperStatusChange = _RptrGroupLastOperStatusChange_Object(
+    (1, 3, 6, 1, 3, 29, 1, 2, 1, 1, 5),
+    _RptrGroupLastOperStatusChange_Type()
+)
+rptrGroupLastOperStatusChange.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rptrGroupLastOperStatusChange.setStatus("mandatory")
+
+
+class _RptrGroupPortCapacity_Type(Integer32):
+    """Custom type rptrGroupPortCapacity based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1024),
+    )
+
+
+_RptrGroupPortCapacity_Type.__name__ = "Integer32"
+_RptrGroupPortCapacity_Object = MibTableColumn
+rptrGroupPortCapacity = _RptrGroupPortCapacity_Object(
+    (1, 3, 6, 1, 3, 29, 1, 2, 1, 1, 6),
+    _RptrGroupPortCapacity_Type()
+)
+rptrGroupPortCapacity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rptrGroupPortCapacity.setStatus("mandatory")
+_RptrPortInfo_ObjectIdentity = ObjectIdentity
+rptrPortInfo = _RptrPortInfo_ObjectIdentity(
+    (1, 3, 6, 1, 3, 29, 1, 3)
+)
+_RptrPortTable_Object = MibTable
+rptrPortTable = _RptrPortTable_Object(
+    (1, 3, 6, 1, 3, 29, 1, 3, 1)
+)
+if mibBuilder.loadTexts:
+    rptrPortTable.setStatus("mandatory")
+_RptrPortEntry_Object = MibTableRow
+rptrPortEntry = _RptrPortEntry_Object(
+    (1, 3, 6, 1, 3, 29, 1, 3, 1, 1)
+)
+rptrPortEntry.setIndexNames(
+    (0, "NRC-MultiGate", "rptrPortGroupIndex"),
+    (0, "NRC-MultiGate", "rptrPortIndex"),
+)
+if mibBuilder.loadTexts:
+    rptrPortEntry.setStatus("mandatory")
+
+
+class _RptrPortGroupIndex_Type(Integer32):
+    """Custom type rptrPortGroupIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1024),
+    )
+
+
+_RptrPortGroupIndex_Type.__name__ = "Integer32"
+_RptrPortGroupIndex_Object = MibTableColumn
+rptrPortGroupIndex = _RptrPortGroupIndex_Object(
+    (1, 3, 6, 1, 3, 29, 1, 3, 1, 1, 1),
+    _RptrPortGroupIndex_Type()
+)
+rptrPortGroupIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rptrPortGroupIndex.setStatus("mandatory")
+
+
+class _RptrPortIndex_Type(Integer32):
+    """Custom type rptrPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1024),
+    )
+
+
+_RptrPortIndex_Type.__name__ = "Integer32"
+_RptrPortIndex_Object = MibTableColumn
+rptrPortIndex = _RptrPortIndex_Object(
+    (1, 3, 6, 1, 3, 29, 1, 3, 1, 1, 2),
+    _RptrPortIndex_Type()
+)
+rptrPortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rptrPortIndex.setStatus("mandatory")
+
+
+class _RptrPortAdminStatus_Type(Integer32):
+    """Custom type rptrPortAdminStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_RptrPortAdminStatus_Type.__name__ = "Integer32"
+_RptrPortAdminStatus_Object = MibTableColumn
+rptrPortAdminStatus = _RptrPortAdminStatus_Object(
+    (1, 3, 6, 1, 3, 29, 1, 3, 1, 1, 3),
+    _RptrPortAdminStatus_Type()
+)
+rptrPortAdminStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rptrPortAdminStatus.setStatus("mandatory")
+
+
+class _RptrPortAutoPartitionState_Type(Integer32):
+    """Custom type rptrPortAutoPartitionState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("autoPartitioned", 2),
+          ("notAutoPartitioned", 1))
+    )
+
+
+_RptrPortAutoPartitionState_Type.__name__ = "Integer32"
+_RptrPortAutoPartitionState_Object = MibTableColumn
+rptrPortAutoPartitionState = _RptrPortAutoPartitionState_Object(
+    (1, 3, 6, 1, 3, 29, 1, 3, 1, 1, 4),
+    _RptrPortAutoPartitionState_Type()
+)
+rptrPortAutoPartitionState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rptrPortAutoPartitionState.setStatus("mandatory")
+
+
+class _RptrPortOperStatus_Type(Integer32):
+    """Custom type rptrPortOperStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notOperational", 2),
+          ("notPresent", 3),
+          ("operational", 1))
+    )
+
+
+_RptrPortOperStatus_Type.__name__ = "Integer32"
+_RptrPortOperStatus_Object = MibTableColumn
+rptrPortOperStatus = _RptrPortOperStatus_Object(
+    (1, 3, 6, 1, 3, 29, 1, 3, 1, 1, 5),
+    _RptrPortOperStatus_Type()
+)
+rptrPortOperStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rptrPortOperStatus.setStatus("mandatory")
+_RptrMonitorPackage_ObjectIdentity = ObjectIdentity
+rptrMonitorPackage = _RptrMonitorPackage_ObjectIdentity(
+    (1, 3, 6, 1, 3, 29, 2)
+)
+_RptrMonitorRptrInfo_ObjectIdentity = ObjectIdentity
+rptrMonitorRptrInfo = _RptrMonitorRptrInfo_ObjectIdentity(
+    (1, 3, 6, 1, 3, 29, 2, 1)
+)
+_RptrMonitorGroupInfo_ObjectIdentity = ObjectIdentity
+rptrMonitorGroupInfo = _RptrMonitorGroupInfo_ObjectIdentity(
+    (1, 3, 6, 1, 3, 29, 2, 2)
+)
+_RptrMonitorPortInfo_ObjectIdentity = ObjectIdentity
+rptrMonitorPortInfo = _RptrMonitorPortInfo_ObjectIdentity(
+    (1, 3, 6, 1, 3, 29, 2, 3)
+)
+_RptrAddrTrackPackage_ObjectIdentity = ObjectIdentity
+rptrAddrTrackPackage = _RptrAddrTrackPackage_ObjectIdentity(
+    (1, 3, 6, 1, 3, 29, 3)
+)
+_RptrAddrTrackRptrInfo_ObjectIdentity = ObjectIdentity
+rptrAddrTrackRptrInfo = _RptrAddrTrackRptrInfo_ObjectIdentity(
+    (1, 3, 6, 1, 3, 29, 3, 1)
+)
+_RptrAddrTrackGroupInfo_ObjectIdentity = ObjectIdentity
+rptrAddrTrackGroupInfo = _RptrAddrTrackGroupInfo_ObjectIdentity(
+    (1, 3, 6, 1, 3, 29, 3, 2)
+)
+_RptrAddrTrackPortInfo_ObjectIdentity = ObjectIdentity
+rptrAddrTrackPortInfo = _RptrAddrTrackPortInfo_ObjectIdentity(
+    (1, 3, 6, 1, 3, 29, 3, 3)
+)
+_Enterprises_ObjectIdentity = ObjectIdentity
+enterprises = _Enterprises_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1)
+)
+_Nrc_ObjectIdentity = ObjectIdentity
+nrc = _Nrc_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 315)
+)
+_Hub1_ObjectIdentity = ObjectIdentity
+hub1 = _Hub1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 315, 1)
+)
+
+
+class _Hub1AutoPartition_Type(Integer32):
+    """Custom type hub1AutoPartition based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_Hub1AutoPartition_Type.__name__ = "Integer32"
+_Hub1AutoPartition_Object = MibScalar
+hub1AutoPartition = _Hub1AutoPartition_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 1),
+    _Hub1AutoPartition_Type()
+)
+hub1AutoPartition.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hub1AutoPartition.setStatus("mandatory")
+
+
+class _Hub1ReconnectOnTransmission_Type(Integer32):
+    """Custom type hub1ReconnectOnTransmission based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_Hub1ReconnectOnTransmission_Type.__name__ = "Integer32"
+_Hub1ReconnectOnTransmission_Object = MibScalar
+hub1ReconnectOnTransmission = _Hub1ReconnectOnTransmission_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 2),
+    _Hub1ReconnectOnTransmission_Type()
+)
+hub1ReconnectOnTransmission.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hub1ReconnectOnTransmission.setStatus("mandatory")
+
+
+class _Hub1IncludeOutOfWinColl_Type(Integer32):
+    """Custom type hub1IncludeOutOfWinColl based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_Hub1IncludeOutOfWinColl_Type.__name__ = "Integer32"
+_Hub1IncludeOutOfWinColl_Object = MibScalar
+hub1IncludeOutOfWinColl = _Hub1IncludeOutOfWinColl_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 3),
+    _Hub1IncludeOutOfWinColl_Type()
+)
+hub1IncludeOutOfWinColl.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hub1IncludeOutOfWinColl.setStatus("mandatory")
+
+
+class _Hub1LoopbackPartition_Type(Integer32):
+    """Custom type hub1LoopbackPartition based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_Hub1LoopbackPartition_Type.__name__ = "Integer32"
+_Hub1LoopbackPartition_Object = MibScalar
+hub1LoopbackPartition = _Hub1LoopbackPartition_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 4),
+    _Hub1LoopbackPartition_Type()
+)
+hub1LoopbackPartition.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hub1LoopbackPartition.setStatus("mandatory")
+
+
+class _Hub1CollisionLimit_Type(Integer32):
+    """Custom type hub1CollisionLimit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(31,
+              63)
+        )
+    )
+    namedValues = NamedValues(
+        *(("high", 63),
+          ("low", 31))
+    )
+
+
+_Hub1CollisionLimit_Type.__name__ = "Integer32"
+_Hub1CollisionLimit_Object = MibScalar
+hub1CollisionLimit = _Hub1CollisionLimit_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 5),
+    _Hub1CollisionLimit_Type()
+)
+hub1CollisionLimit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hub1CollisionLimit.setStatus("mandatory")
+
+
+class _Hub1CarrierRecoverTime_Type(Integer32):
+    """Custom type hub1CarrierRecoverTime based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(3,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("long", 5),
+          ("short", 3))
+    )
+
+
+_Hub1CarrierRecoverTime_Type.__name__ = "Integer32"
+_Hub1CarrierRecoverTime_Object = MibScalar
+hub1CarrierRecoverTime = _Hub1CarrierRecoverTime_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 6),
+    _Hub1CarrierRecoverTime_Type()
+)
+hub1CarrierRecoverTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hub1CarrierRecoverTime.setStatus("mandatory")
+
+
+class _Hub1EventCounterFlags_Type(OctetString):
+    """Custom type hub1EventCounterFlags based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 2),
+    )
+
+
+_Hub1EventCounterFlags_Type.__name__ = "OctetString"
+_Hub1EventCounterFlags_Object = MibScalar
+hub1EventCounterFlags = _Hub1EventCounterFlags_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 7),
+    _Hub1EventCounterFlags_Type()
+)
+hub1EventCounterFlags.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hub1EventCounterFlags.setStatus("mandatory")
+
+
+class _Hub1EventRecordFlags_Type(OctetString):
+    """Custom type hub1EventRecordFlags based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 1),
+    )
+
+
+_Hub1EventRecordFlags_Type.__name__ = "OctetString"
+_Hub1EventRecordFlags_Object = MibScalar
+hub1EventRecordFlags = _Hub1EventRecordFlags_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 8),
+    _Hub1EventRecordFlags_Type()
+)
+hub1EventRecordFlags.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hub1EventRecordFlags.setStatus("mandatory")
+
+
+class _Hub1BridgingMode_Type(Integer32):
+    """Custom type hub1BridgingMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("bridging", 1),
+          ("bypass", 2))
+    )
+
+
+_Hub1BridgingMode_Type.__name__ = "Integer32"
+_Hub1BridgingMode_Object = MibScalar
+hub1BridgingMode = _Hub1BridgingMode_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 9),
+    _Hub1BridgingMode_Type()
+)
+hub1BridgingMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hub1BridgingMode.setStatus("mandatory")
+
+
+class _Hub1ProtocolFilterMode_Type(Integer32):
+    """Custom type hub1ProtocolFilterMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("filter", 2),
+          ("off", 1),
+          ("pass", 3))
+    )
+
+
+_Hub1ProtocolFilterMode_Type.__name__ = "Integer32"
+_Hub1ProtocolFilterMode_Object = MibScalar
+hub1ProtocolFilterMode = _Hub1ProtocolFilterMode_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 10),
+    _Hub1ProtocolFilterMode_Type()
+)
+hub1ProtocolFilterMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hub1ProtocolFilterMode.setStatus("mandatory")
+
+
+class _Hub1FilterProtocols_Type(OctetString):
+    """Custom type hub1FilterProtocols based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_Hub1FilterProtocols_Type.__name__ = "OctetString"
+_Hub1FilterProtocols_Object = MibScalar
+hub1FilterProtocols = _Hub1FilterProtocols_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 11),
+    _Hub1FilterProtocols_Type()
+)
+hub1FilterProtocols.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hub1FilterProtocols.setStatus("mandatory")
+_Hub1ConsoleBaudRate_Type = Integer32
+_Hub1ConsoleBaudRate_Object = MibScalar
+hub1ConsoleBaudRate = _Hub1ConsoleBaudRate_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 12),
+    _Hub1ConsoleBaudRate_Type()
+)
+hub1ConsoleBaudRate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hub1ConsoleBaudRate.setStatus("mandatory")
+
+
+class _Hub1Reset_Type(Integer32):
+    """Custom type hub1Reset based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no-reset", 1),
+          ("reset", 2))
+    )
+
+
+_Hub1Reset_Type.__name__ = "Integer32"
+_Hub1Reset_Object = MibScalar
+hub1Reset = _Hub1Reset_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 13),
+    _Hub1Reset_Type()
+)
+hub1Reset.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hub1Reset.setStatus("mandatory")
+
+
+class _Hub1SoftwareVersion_Type(DisplayString):
+    """Custom type hub1SoftwareVersion based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 15),
+    )
+
+
+_Hub1SoftwareVersion_Type.__name__ = "DisplayString"
+_Hub1SoftwareVersion_Object = MibScalar
+hub1SoftwareVersion = _Hub1SoftwareVersion_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 14),
+    _Hub1SoftwareVersion_Type()
+)
+hub1SoftwareVersion.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hub1SoftwareVersion.setStatus("mandatory")
+_Hub1PortTable_Object = MibTable
+hub1PortTable = _Hub1PortTable_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 15)
+)
+if mibBuilder.loadTexts:
+    hub1PortTable.setStatus("mandatory")
+_Hub1PortEntry_Object = MibTableRow
+hub1PortEntry = _Hub1PortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 15, 1)
+)
+hub1PortEntry.setIndexNames(
+    (0, "NRC-MultiGate", "hub1PortIndex"),
+)
+if mibBuilder.loadTexts:
+    hub1PortEntry.setStatus("mandatory")
+
+
+class _Hub1PortIndex_Type(Integer32):
+    """Custom type hub1PortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 24),
+    )
+
+
+_Hub1PortIndex_Type.__name__ = "Integer32"
+_Hub1PortIndex_Object = MibTableColumn
+hub1PortIndex = _Hub1PortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 15, 1, 1),
+    _Hub1PortIndex_Type()
+)
+hub1PortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hub1PortIndex.setStatus("mandatory")
+
+
+class _Hub1PortForceReconnect_Type(Integer32):
+    """Custom type hub1PortForceReconnect based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("force-reconnect", 2),
+          ("idle", 1))
+    )
+
+
+_Hub1PortForceReconnect_Type.__name__ = "Integer32"
+_Hub1PortForceReconnect_Object = MibTableColumn
+hub1PortForceReconnect = _Hub1PortForceReconnect_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 15, 1, 2),
+    _Hub1PortForceReconnect_Type()
+)
+hub1PortForceReconnect.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hub1PortForceReconnect.setStatus("mandatory")
+
+
+class _Hub1PortPartitionReason_Type(Integer32):
+    """Custom type hub1PortPartitionReason based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("consecutive-collision-limit", 3),
+          ("data-loopback-failure", 5),
+          ("excessive-len-of-collision-limit", 4),
+          ("not-partitioned", 1),
+          ("other", 2),
+          ("process-forced-reconnection", 6))
+    )
+
+
+_Hub1PortPartitionReason_Type.__name__ = "Integer32"
+_Hub1PortPartitionReason_Object = MibTableColumn
+hub1PortPartitionReason = _Hub1PortPartitionReason_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 15, 1, 3),
+    _Hub1PortPartitionReason_Type()
+)
+hub1PortPartitionReason.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hub1PortPartitionReason.setStatus("mandatory")
+
+
+class _Hub1PortLinkState_Type(Integer32):
+    """Custom type hub1PortLinkState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 3),
+          ("unknown", 1),
+          ("up", 2))
+    )
+
+
+_Hub1PortLinkState_Type.__name__ = "Integer32"
+_Hub1PortLinkState_Object = MibTableColumn
+hub1PortLinkState = _Hub1PortLinkState_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 15, 1, 4),
+    _Hub1PortLinkState_Type()
+)
+hub1PortLinkState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hub1PortLinkState.setStatus("mandatory")
+
+
+class _Hub1PortLinkEnable_Type(Integer32):
+    """Custom type hub1PortLinkEnable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_Hub1PortLinkEnable_Type.__name__ = "Integer32"
+_Hub1PortLinkEnable_Object = MibTableColumn
+hub1PortLinkEnable = _Hub1PortLinkEnable_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 15, 1, 5),
+    _Hub1PortLinkEnable_Type()
+)
+hub1PortLinkEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hub1PortLinkEnable.setStatus("mandatory")
+
+
+class _Hub1PortPolarityStatus_Type(Integer32):
+    """Custom type hub1PortPolarityStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ok", 1),
+          ("reversed", 2))
+    )
+
+
+_Hub1PortPolarityStatus_Type.__name__ = "Integer32"
+_Hub1PortPolarityStatus_Object = MibTableColumn
+hub1PortPolarityStatus = _Hub1PortPolarityStatus_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 15, 1, 6),
+    _Hub1PortPolarityStatus_Type()
+)
+hub1PortPolarityStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hub1PortPolarityStatus.setStatus("mandatory")
+
+
+class _Hub1PortName_Type(DisplayString):
+    """Custom type hub1PortName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_Hub1PortName_Type.__name__ = "DisplayString"
+_Hub1PortName_Object = MibTableColumn
+hub1PortName = _Hub1PortName_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 15, 1, 7),
+    _Hub1PortName_Type()
+)
+hub1PortName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hub1PortName.setStatus("mandatory")
+_Hub1PortEventCount_Type = Integer32
+_Hub1PortEventCount_Object = MibTableColumn
+hub1PortEventCount = _Hub1PortEventCount_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 15, 1, 8),
+    _Hub1PortEventCount_Type()
+)
+hub1PortEventCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hub1PortEventCount.setStatus("mandatory")
+
+
+class _Hub1PortRecordValue_Type(OctetString):
+    """Custom type hub1PortRecordValue based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 1),
+    )
+
+
+_Hub1PortRecordValue_Type.__name__ = "OctetString"
+_Hub1PortRecordValue_Object = MibScalar
+hub1PortRecordValue = _Hub1PortRecordValue_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 15, 1, 9),
+    _Hub1PortRecordValue_Type()
+)
+hub1PortRecordValue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hub1PortRecordValue.setStatus("mandatory")
+
+
+class _Hub1PortType_Type(Integer32):
+    """Custom type hub1PortType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("fiber-FOIRL", 4),
+          ("other", 1),
+          ("thinNet-10Base2", 3),
+          ("twistedPair-10BaseT", 2))
+    )
+
+
+_Hub1PortType_Type.__name__ = "Integer32"
+_Hub1PortType_Object = MibTableColumn
+hub1PortType = _Hub1PortType_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 15, 1, 10),
+    _Hub1PortType_Type()
+)
+hub1PortType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hub1PortType.setStatus("mandatory")
+_Hub1IFTable_Object = MibTable
+hub1IFTable = _Hub1IFTable_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 16)
+)
+if mibBuilder.loadTexts:
+    hub1IFTable.setStatus("mandatory")
+_Hub1IFEntry_Object = MibTableRow
+hub1IFEntry = _Hub1IFEntry_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 16, 1)
+)
+hub1IFEntry.setIndexNames(
+    (0, "NRC-MultiGate", "hub1IFIndex"),
+)
+if mibBuilder.loadTexts:
+    hub1IFEntry.setStatus("mandatory")
+_Hub1IFIndex_Type = Integer32
+_Hub1IFIndex_Object = MibTableColumn
+hub1IFIndex = _Hub1IFIndex_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 16, 1, 1),
+    _Hub1IFIndex_Type()
+)
+hub1IFIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hub1IFIndex.setStatus("mandatory")
+_Hub1IFInAlignmentErrors_Type = Counter32
+_Hub1IFInAlignmentErrors_Object = MibTableColumn
+hub1IFInAlignmentErrors = _Hub1IFInAlignmentErrors_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 16, 1, 2),
+    _Hub1IFInAlignmentErrors_Type()
+)
+hub1IFInAlignmentErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hub1IFInAlignmentErrors.setStatus("mandatory")
+_Hub1IFInCrcErrors_Type = Counter32
+_Hub1IFInCrcErrors_Object = MibTableColumn
+hub1IFInCrcErrors = _Hub1IFInCrcErrors_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 16, 1, 3),
+    _Hub1IFInCrcErrors_Type()
+)
+hub1IFInCrcErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hub1IFInCrcErrors.setStatus("mandatory")
+_Hub1IFInCollisions_Type = Counter32
+_Hub1IFInCollisions_Object = MibTableColumn
+hub1IFInCollisions = _Hub1IFInCollisions_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 16, 1, 4),
+    _Hub1IFInCollisions_Type()
+)
+hub1IFInCollisions.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hub1IFInCollisions.setStatus("mandatory")
+_Hub1IFInMtuExceededDiscards_Type = Counter32
+_Hub1IFInMtuExceededDiscards_Object = MibTableColumn
+hub1IFInMtuExceededDiscards = _Hub1IFInMtuExceededDiscards_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 16, 1, 5),
+    _Hub1IFInMtuExceededDiscards_Type()
+)
+hub1IFInMtuExceededDiscards.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hub1IFInMtuExceededDiscards.setStatus("mandatory")
+_Hub1IFInShortErrors_Type = Counter32
+_Hub1IFInShortErrors_Object = MibTableColumn
+hub1IFInShortErrors = _Hub1IFInShortErrors_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 16, 1, 6),
+    _Hub1IFInShortErrors_Type()
+)
+hub1IFInShortErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hub1IFInShortErrors.setStatus("mandatory")
+_Hub1IFInOverrunDiscards_Type = Counter32
+_Hub1IFInOverrunDiscards_Object = MibTableColumn
+hub1IFInOverrunDiscards = _Hub1IFInOverrunDiscards_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 16, 1, 7),
+    _Hub1IFInOverrunDiscards_Type()
+)
+hub1IFInOverrunDiscards.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hub1IFInOverrunDiscards.setStatus("mandatory")
+_Hub1IFOutUnderruns_Type = Counter32
+_Hub1IFOutUnderruns_Object = MibTableColumn
+hub1IFOutUnderruns = _Hub1IFOutUnderruns_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 16, 1, 8),
+    _Hub1IFOutUnderruns_Type()
+)
+hub1IFOutUnderruns.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hub1IFOutUnderruns.setStatus("mandatory")
+_Hub1IFOutLostCts_Type = Counter32
+_Hub1IFOutLostCts_Object = MibTableColumn
+hub1IFOutLostCts = _Hub1IFOutLostCts_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 16, 1, 9),
+    _Hub1IFOutLostCts_Type()
+)
+hub1IFOutLostCts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hub1IFOutLostCts.setStatus("mandatory")
+_Hub1IFOutLostCrs_Type = Counter32
+_Hub1IFOutLostCrs_Object = MibTableColumn
+hub1IFOutLostCrs = _Hub1IFOutLostCrs_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 16, 1, 10),
+    _Hub1IFOutLostCrs_Type()
+)
+hub1IFOutLostCrs.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hub1IFOutLostCrs.setStatus("mandatory")
+_Hub1IFOutMtuExceededDiscards_Type = Counter32
+_Hub1IFOutMtuExceededDiscards_Object = MibTableColumn
+hub1IFOutMtuExceededDiscards = _Hub1IFOutMtuExceededDiscards_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 16, 1, 11),
+    _Hub1IFOutMtuExceededDiscards_Type()
+)
+hub1IFOutMtuExceededDiscards.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hub1IFOutMtuExceededDiscards.setStatus("mandatory")
+_Hub1IFOutCollisions_Type = Counter32
+_Hub1IFOutCollisions_Object = MibTableColumn
+hub1IFOutCollisions = _Hub1IFOutCollisions_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 16, 1, 12),
+    _Hub1IFOutCollisions_Type()
+)
+hub1IFOutCollisions.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hub1IFOutCollisions.setStatus("mandatory")
+
+
+class _Hub1IFChannelUtilization_Type(OctetString):
+    """Custom type hub1IFChannelUtilization based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(90, 90),
+    )
+
+
+_Hub1IFChannelUtilization_Type.__name__ = "OctetString"
+_Hub1IFChannelUtilization_Object = MibTableColumn
+hub1IFChannelUtilization = _Hub1IFChannelUtilization_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 16, 1, 13),
+    _Hub1IFChannelUtilization_Type()
+)
+hub1IFChannelUtilization.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hub1IFChannelUtilization.setStatus("mandatory")
+_Hub1LastFailureReason_Type = Integer32
+_Hub1LastFailureReason_Object = MibScalar
+hub1LastFailureReason = _Hub1LastFailureReason_Object(
+    (1, 3, 6, 1, 4, 1, 315, 1, 17),
+    _Hub1LastFailureReason_Type()
+)
+hub1LastFailureReason.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hub1LastFailureReason.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "NRC-MultiGate",
+    **{"MacAddress": MacAddress,
+       "BridgeId": BridgeId,
+       "Timeout": Timeout,
+       "mib-2": mib_2,
+       "dot1dBridge": dot1dBridge,
+       "dot1dBase": dot1dBase,
+       "dot1dBaseBridgeAddress": dot1dBaseBridgeAddress,
+       "dot1dBaseNumPorts": dot1dBaseNumPorts,
+       "dot1dBaseType": dot1dBaseType,
+       "dot1dBasePortTable": dot1dBasePortTable,
+       "dot1dBasePortEntry": dot1dBasePortEntry,
+       "dot1dBasePort": dot1dBasePort,
+       "dot1dBasePortIfIndex": dot1dBasePortIfIndex,
+       "dot1dBasePortCircuit": dot1dBasePortCircuit,
+       "dot1dBasePortDelayExceededDiscards": dot1dBasePortDelayExceededDiscards,
+       "dot1dBasePortMtuExceededDiscards": dot1dBasePortMtuExceededDiscards,
+       "dot1dTp": dot1dTp,
+       "dot1dTpLearnedEntryDiscards": dot1dTpLearnedEntryDiscards,
+       "dot1dTpAgingTime": dot1dTpAgingTime,
+       "dot1dTpFdbTable": dot1dTpFdbTable,
+       "dot1dTpFdbEntry": dot1dTpFdbEntry,
+       "dot1dTpFdbAddress": dot1dTpFdbAddress,
+       "dot1dTpFdbPort": dot1dTpFdbPort,
+       "dot1dTpFdbStatus": dot1dTpFdbStatus,
+       "dot1dTpPortTable": dot1dTpPortTable,
+       "dot1dTpPortEntry": dot1dTpPortEntry,
+       "dot1dTpPort": dot1dTpPort,
+       "dot1dTpPortMaxInfo": dot1dTpPortMaxInfo,
+       "dot1dTpPortInFrames": dot1dTpPortInFrames,
+       "dot1dTpPortOutFrames": dot1dTpPortOutFrames,
+       "dot1dTpPortInDiscards": dot1dTpPortInDiscards,
+       "snmpDot3RptrMgt": snmpDot3RptrMgt,
+       "rptrBasicPackage": rptrBasicPackage,
+       "rptrRptrInfo": rptrRptrInfo,
+       "rptrGroupCapacity": rptrGroupCapacity,
+       "rptrOperStatus": rptrOperStatus,
+       "rptrHealthText": rptrHealthText,
+       "rptrReset": rptrReset,
+       "rptrNonDisruptTest": rptrNonDisruptTest,
+       "rptrTotalPartitionedPorts": rptrTotalPartitionedPorts,
+       "rptrGroupInfo": rptrGroupInfo,
+       "rptrGroupTable": rptrGroupTable,
+       "rptrGroupEntry": rptrGroupEntry,
+       "rptrGroupIndex": rptrGroupIndex,
+       "rptrGroupDescr": rptrGroupDescr,
+       "rptrGroupObjectID": rptrGroupObjectID,
+       "rptrGroupOperStatus": rptrGroupOperStatus,
+       "rptrGroupLastOperStatusChange": rptrGroupLastOperStatusChange,
+       "rptrGroupPortCapacity": rptrGroupPortCapacity,
+       "rptrPortInfo": rptrPortInfo,
+       "rptrPortTable": rptrPortTable,
+       "rptrPortEntry": rptrPortEntry,
+       "rptrPortGroupIndex": rptrPortGroupIndex,
+       "rptrPortIndex": rptrPortIndex,
+       "rptrPortAdminStatus": rptrPortAdminStatus,
+       "rptrPortAutoPartitionState": rptrPortAutoPartitionState,
+       "rptrPortOperStatus": rptrPortOperStatus,
+       "rptrMonitorPackage": rptrMonitorPackage,
+       "rptrMonitorRptrInfo": rptrMonitorRptrInfo,
+       "rptrMonitorGroupInfo": rptrMonitorGroupInfo,
+       "rptrMonitorPortInfo": rptrMonitorPortInfo,
+       "rptrAddrTrackPackage": rptrAddrTrackPackage,
+       "rptrAddrTrackRptrInfo": rptrAddrTrackRptrInfo,
+       "rptrAddrTrackGroupInfo": rptrAddrTrackGroupInfo,
+       "rptrAddrTrackPortInfo": rptrAddrTrackPortInfo,
+       "enterprises": enterprises,
+       "nrc": nrc,
+       "hub1": hub1,
+       "hub1AutoPartition": hub1AutoPartition,
+       "hub1ReconnectOnTransmission": hub1ReconnectOnTransmission,
+       "hub1IncludeOutOfWinColl": hub1IncludeOutOfWinColl,
+       "hub1LoopbackPartition": hub1LoopbackPartition,
+       "hub1CollisionLimit": hub1CollisionLimit,
+       "hub1CarrierRecoverTime": hub1CarrierRecoverTime,
+       "hub1EventCounterFlags": hub1EventCounterFlags,
+       "hub1EventRecordFlags": hub1EventRecordFlags,
+       "hub1BridgingMode": hub1BridgingMode,
+       "hub1ProtocolFilterMode": hub1ProtocolFilterMode,
+       "hub1FilterProtocols": hub1FilterProtocols,
+       "hub1ConsoleBaudRate": hub1ConsoleBaudRate,
+       "hub1Reset": hub1Reset,
+       "hub1SoftwareVersion": hub1SoftwareVersion,
+       "hub1PortTable": hub1PortTable,
+       "hub1PortEntry": hub1PortEntry,
+       "hub1PortIndex": hub1PortIndex,
+       "hub1PortForceReconnect": hub1PortForceReconnect,
+       "hub1PortPartitionReason": hub1PortPartitionReason,
+       "hub1PortLinkState": hub1PortLinkState,
+       "hub1PortLinkEnable": hub1PortLinkEnable,
+       "hub1PortPolarityStatus": hub1PortPolarityStatus,
+       "hub1PortName": hub1PortName,
+       "hub1PortEventCount": hub1PortEventCount,
+       "hub1PortRecordValue": hub1PortRecordValue,
+       "hub1PortType": hub1PortType,
+       "hub1IFTable": hub1IFTable,
+       "hub1IFEntry": hub1IFEntry,
+       "hub1IFIndex": hub1IFIndex,
+       "hub1IFInAlignmentErrors": hub1IFInAlignmentErrors,
+       "hub1IFInCrcErrors": hub1IFInCrcErrors,
+       "hub1IFInCollisions": hub1IFInCollisions,
+       "hub1IFInMtuExceededDiscards": hub1IFInMtuExceededDiscards,
+       "hub1IFInShortErrors": hub1IFInShortErrors,
+       "hub1IFInOverrunDiscards": hub1IFInOverrunDiscards,
+       "hub1IFOutUnderruns": hub1IFOutUnderruns,
+       "hub1IFOutLostCts": hub1IFOutLostCts,
+       "hub1IFOutLostCrs": hub1IFOutLostCrs,
+       "hub1IFOutMtuExceededDiscards": hub1IFOutMtuExceededDiscards,
+       "hub1IFOutCollisions": hub1IFOutCollisions,
+       "hub1IFChannelUtilization": hub1IFChannelUtilization,
+       "hub1LastFailureReason": hub1LastFailureReason}
+)

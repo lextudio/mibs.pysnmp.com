@@ -1,29 +1,193 @@
+# SNMP MIB module (EXTREME-OSPF-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module EXTREME-OSPF-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/EXTREME-BASE-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:53:03 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection")
-extremeAgent, = mibBuilder.importSymbols("EXTREME-BASE-MIB", "extremeAgent")
-extremeVlanIfIndex, = mibBuilder.importSymbols("EXTREME-VLAN-MIB", "extremeVlanIfIndex")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Unsigned32, iso, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, ObjectIdentity, Bits, MibIdentifier, ModuleIdentity, Counter64, Counter32, NotificationType, Integer32, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "iso", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "ObjectIdentity", "Bits", "MibIdentifier", "ModuleIdentity", "Counter64", "Counter32", "NotificationType", "Integer32", "IpAddress")
-RowStatus, TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TruthValue", "TextualConvention", "DisplayString")
-extremeOspf = ModuleIdentity((1, 3, 6, 1, 4, 1, 1916, 1, 15))
-if mibBuilder.loadTexts: extremeOspf.setLastUpdated('0006280000Z')
-if mibBuilder.loadTexts: extremeOspf.setOrganization('Extreme Networks, Inc.')
-extremeOspfInterfaceTable = MibTable((1, 3, 6, 1, 4, 1, 1916, 1, 15, 1), )
-if mibBuilder.loadTexts: extremeOspfInterfaceTable.setStatus('current')
-extremeOspfInterfaceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1916, 1, 15, 1, 1), ).setIndexNames((0, "EXTREME-VLAN-MIB", "extremeVlanIfIndex"))
-if mibBuilder.loadTexts: extremeOspfInterfaceEntry.setStatus('current')
-extremeOspfAreaId = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 15, 1, 1, 1), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: extremeOspfAreaId.setStatus('current')
-extremeOspfInterfacePassive = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 15, 1, 1, 2), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: extremeOspfInterfacePassive.setStatus('current')
-extremeOspfInterfaceStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 15, 1, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: extremeOspfInterfaceStatus.setStatus('current')
-mibBuilder.exportSymbols("EXTREME-OSPF-MIB", extremeOspfInterfacePassive=extremeOspfInterfacePassive, PYSNMP_MODULE_ID=extremeOspf, extremeOspf=extremeOspf, extremeOspfAreaId=extremeOspfAreaId, extremeOspfInterfaceEntry=extremeOspfInterfaceEntry, extremeOspfInterfaceStatus=extremeOspfInterfaceStatus, extremeOspfInterfaceTable=extremeOspfInterfaceTable)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/EXTREME-BASE-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:41:19 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(extremeAgent,) = mibBuilder.importSymbols(
+    "EXTREME-BASE-MIB",
+    "extremeAgent")
+
+(extremeVlanIfIndex,) = mibBuilder.importSymbols(
+    "EXTREME-VLAN-MIB",
+    "extremeVlanIfIndex")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+extremeOspf = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 1916, 1, 15)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_ExtremeOspfInterfaceTable_Object = MibTable
+extremeOspfInterfaceTable = _ExtremeOspfInterfaceTable_Object(
+    (1, 3, 6, 1, 4, 1, 1916, 1, 15, 1)
+)
+if mibBuilder.loadTexts:
+    extremeOspfInterfaceTable.setStatus("current")
+_ExtremeOspfInterfaceEntry_Object = MibTableRow
+extremeOspfInterfaceEntry = _ExtremeOspfInterfaceEntry_Object(
+    (1, 3, 6, 1, 4, 1, 1916, 1, 15, 1, 1)
+)
+extremeOspfInterfaceEntry.setIndexNames(
+    (0, "EXTREME-VLAN-MIB", "extremeVlanIfIndex"),
+)
+if mibBuilder.loadTexts:
+    extremeOspfInterfaceEntry.setStatus("current")
+_ExtremeOspfAreaId_Type = IpAddress
+_ExtremeOspfAreaId_Object = MibTableColumn
+extremeOspfAreaId = _ExtremeOspfAreaId_Object(
+    (1, 3, 6, 1, 4, 1, 1916, 1, 15, 1, 1, 1),
+    _ExtremeOspfAreaId_Type()
+)
+extremeOspfAreaId.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    extremeOspfAreaId.setStatus("current")
+_ExtremeOspfInterfacePassive_Type = TruthValue
+_ExtremeOspfInterfacePassive_Object = MibTableColumn
+extremeOspfInterfacePassive = _ExtremeOspfInterfacePassive_Object(
+    (1, 3, 6, 1, 4, 1, 1916, 1, 15, 1, 1, 2),
+    _ExtremeOspfInterfacePassive_Type()
+)
+extremeOspfInterfacePassive.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    extremeOspfInterfacePassive.setStatus("current")
+_ExtremeOspfInterfaceStatus_Type = RowStatus
+_ExtremeOspfInterfaceStatus_Object = MibTableColumn
+extremeOspfInterfaceStatus = _ExtremeOspfInterfaceStatus_Object(
+    (1, 3, 6, 1, 4, 1, 1916, 1, 15, 1, 1, 3),
+    _ExtremeOspfInterfaceStatus_Type()
+)
+extremeOspfInterfaceStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    extremeOspfInterfaceStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "EXTREME-OSPF-MIB",
+    **{"extremeOspf": extremeOspf,
+       "extremeOspfInterfaceTable": extremeOspfInterfaceTable,
+       "extremeOspfInterfaceEntry": extremeOspfInterfaceEntry,
+       "extremeOspfAreaId": extremeOspfAreaId,
+       "extremeOspfInterfacePassive": extremeOspfInterfacePassive,
+       "extremeOspfInterfaceStatus": extremeOspfInterfaceStatus}
+)

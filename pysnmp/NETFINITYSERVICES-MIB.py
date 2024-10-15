@@ -1,100 +1,517 @@
+# SNMP MIB module (NETFINITYSERVICES-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module NETFINITYSERVICES-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/NETFINITYSERVICES-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:08:55 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Unsigned32, IpAddress, TimeTicks, Gauge32, Integer32, iso, Counter32, ObjectIdentity, Counter64, Bits, enterprises, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "IpAddress", "TimeTicks", "Gauge32", "Integer32", "iso", "Counter32", "ObjectIdentity", "Counter64", "Bits", "enterprises", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "MibIdentifier")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/NETFINITYSERVICES-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:25:45 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+
 class DmiInteger(Integer32):
-    pass
+    """Custom type DmiInteger based on Integer32"""
+
+
+
 
 class DmiDisplaystring(OctetString):
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(100, 100)
-    fixedLength = 100
+    """Custom type DmiDisplaystring based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(100, 100),
+    )
+
+
+
+
 
 class DmiDate(OctetString):
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(28, 28)
-    fixedLength = 28
+    """Custom type DmiDate based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(28, 28),
+    )
+
+
+
+
 
 class DmiComponentIndex(Integer32):
-    pass
+    """Custom type DmiComponentIndex based on Integer32"""
 
-ibm = MibIdentifier((1, 3, 6, 1, 4, 1, 2))
-ibmProd = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6))
-netFinity = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6, 71))
-dmiMibs = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6, 71, 200))
-netFinityServicesMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2))
-dmtfGroups3 = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1))
-tComponentid3 = MibTable((1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 1), )
-if mibBuilder.loadTexts: tComponentid3.setStatus('mandatory')
-eComponentid3 = MibTableRow((1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 1, 1), ).setIndexNames((0, "NETFINITYSERVICES-MIB", "DmiComponentIndex"))
-if mibBuilder.loadTexts: eComponentid3.setStatus('mandatory')
-a1Manufacturer = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 1, 1, 1), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a1Manufacturer.setStatus('mandatory')
-a1Product = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 1, 1, 2), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a1Product.setStatus('mandatory')
-a1Version = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 1, 1, 3), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a1Version.setStatus('mandatory')
-a1SerialNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 1, 1, 4), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a1SerialNumber.setStatus('mandatory')
-tNetfinityAlert = MibTable((1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 2), )
-if mibBuilder.loadTexts: tNetfinityAlert.setStatus('mandatory')
-eNetfinityAlert = MibTableRow((1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 2, 1), ).setIndexNames((0, "NETFINITYSERVICES-MIB", "DmiComponentIndex"))
-if mibBuilder.loadTexts: eNetfinityAlert.setStatus('mandatory')
-a2AlertText = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 2, 1, 1), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a2AlertText.setStatus('mandatory')
-a2Severity = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 2, 1, 2), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a2Severity.setStatus('mandatory')
-a2AlertType = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 2, 1, 3), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a2AlertType.setStatus('mandatory')
-a2ApplicationId = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 2, 1, 4), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a2ApplicationId.setStatus('mandatory')
-a2ApplicationAlertType = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 2, 1, 5), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a2ApplicationAlertType.setStatus('mandatory')
-a2AlertTimeAndDate = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 2, 1, 6), DmiDate()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a2AlertTimeAndDate.setStatus('mandatory')
-a2AlertSender = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 2, 1, 7), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a2AlertSender.setStatus('mandatory')
-a2AlertSystemName = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 2, 1, 8), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a2AlertSystemName.setStatus('mandatory')
-tNetfinityMonitorAttributes = MibTable((1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 3), )
-if mibBuilder.loadTexts: tNetfinityMonitorAttributes.setStatus('mandatory')
-eNetfinityMonitorAttributes = MibTableRow((1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 3, 1), ).setIndexNames((0, "NETFINITYSERVICES-MIB", "DmiComponentIndex"), (0, "NETFINITYSERVICES-MIB", "a3AttributeId"))
-if mibBuilder.loadTexts: eNetfinityMonitorAttributes.setStatus('mandatory')
-a3AttributeId = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 3, 1, 1), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a3AttributeId.setStatus('mandatory')
-a3AttributeName = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 3, 1, 2), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a3AttributeName.setStatus('mandatory')
-a3CurrentValueInteger = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 3, 1, 3), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a3CurrentValueInteger.setStatus('mandatory')
-a3CurrentValueThousandths = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 3, 1, 4), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a3CurrentValueThousandths.setStatus('mandatory')
-a3CurrentValueString = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 3, 1, 5), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a3CurrentValueString.setStatus('mandatory')
-a3ValueUnits = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 3, 1, 6), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a3ValueUnits.setStatus('mandatory')
-a3NetfinityValueGroup = MibTable((1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 3, 1, 3, 1), )
-if mibBuilder.loadTexts: a3NetfinityValueGroup.setStatus('mandatory')
-tNetfinityAttributeGroups = MibTable((1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 4), )
-if mibBuilder.loadTexts: tNetfinityAttributeGroups.setStatus('mandatory')
-eNetfinityAttributeGroups = MibTableRow((1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 4, 1), ).setIndexNames((0, "NETFINITYSERVICES-MIB", "DmiComponentIndex"), (0, "NETFINITYSERVICES-MIB", "a4AttributeGroupId"), (0, "NETFINITYSERVICES-MIB", "a4AttributeId"))
-if mibBuilder.loadTexts: eNetfinityAttributeGroups.setStatus('mandatory')
-a4AttributeGroupId = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 4, 1, 1), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a4AttributeGroupId.setStatus('mandatory')
-a4AttributeId = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 4, 1, 2), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a4AttributeId.setStatus('mandatory')
-a4AttributeGroupName = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 4, 1, 3), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a4AttributeGroupName.setStatus('mandatory')
-a4AttributeName = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 4, 1, 4), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a4AttributeName.setStatus('mandatory')
-a4CurrentValueTextual = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 4, 1, 5), DmiDisplaystring()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a4CurrentValueTextual.setStatus('mandatory')
-a4CurrentValueIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 4, 1, 6), DmiInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a4CurrentValueIndex.setStatus('mandatory')
-mibBuilder.exportSymbols("NETFINITYSERVICES-MIB", a2AlertSender=a2AlertSender, a4AttributeName=a4AttributeName, a1Manufacturer=a1Manufacturer, netFinity=netFinity, DmiComponentIndex=DmiComponentIndex, tNetfinityAttributeGroups=tNetfinityAttributeGroups, DmiDisplaystring=DmiDisplaystring, a4AttributeId=a4AttributeId, dmiMibs=dmiMibs, ibmProd=ibmProd, a2ApplicationAlertType=a2ApplicationAlertType, a3CurrentValueInteger=a3CurrentValueInteger, tComponentid3=tComponentid3, a4AttributeGroupId=a4AttributeGroupId, a2Severity=a2Severity, a2ApplicationId=a2ApplicationId, a1Version=a1Version, a2AlertTimeAndDate=a2AlertTimeAndDate, tNetfinityAlert=tNetfinityAlert, a3AttributeName=a3AttributeName, netFinityServicesMIB=netFinityServicesMIB, a3ValueUnits=a3ValueUnits, eNetfinityAttributeGroups=eNetfinityAttributeGroups, a4CurrentValueIndex=a4CurrentValueIndex, a4AttributeGroupName=a4AttributeGroupName, eNetfinityAlert=eNetfinityAlert, a3CurrentValueString=a3CurrentValueString, eComponentid3=eComponentid3, DmiInteger=DmiInteger, a2AlertText=a2AlertText, eNetfinityMonitorAttributes=eNetfinityMonitorAttributes, a3NetfinityValueGroup=a3NetfinityValueGroup, a4CurrentValueTextual=a4CurrentValueTextual, a3CurrentValueThousandths=a3CurrentValueThousandths, DmiDate=DmiDate, dmtfGroups3=dmtfGroups3, a2AlertSystemName=a2AlertSystemName, tNetfinityMonitorAttributes=tNetfinityMonitorAttributes, a2AlertType=a2AlertType, a3AttributeId=a3AttributeId, a1Product=a1Product, a1SerialNumber=a1SerialNumber, ibm=ibm)
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Ibm_ObjectIdentity = ObjectIdentity
+ibm = _Ibm_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2)
+)
+_IbmProd_ObjectIdentity = ObjectIdentity
+ibmProd = _IbmProd_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2, 6)
+)
+_NetFinity_ObjectIdentity = ObjectIdentity
+netFinity = _NetFinity_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2, 6, 71)
+)
+_DmiMibs_ObjectIdentity = ObjectIdentity
+dmiMibs = _DmiMibs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2, 6, 71, 200)
+)
+_NetFinityServicesMIB_ObjectIdentity = ObjectIdentity
+netFinityServicesMIB = _NetFinityServicesMIB_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2)
+)
+_DmtfGroups3_ObjectIdentity = ObjectIdentity
+dmtfGroups3 = _DmtfGroups3_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1)
+)
+_TComponentid3_Object = MibTable
+tComponentid3 = _TComponentid3_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 1)
+)
+if mibBuilder.loadTexts:
+    tComponentid3.setStatus("mandatory")
+_EComponentid3_Object = MibTableRow
+eComponentid3 = _EComponentid3_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 1, 1)
+)
+eComponentid3.setIndexNames(
+    (0, "NETFINITYSERVICES-MIB", "DmiComponentIndex"),
+)
+if mibBuilder.loadTexts:
+    eComponentid3.setStatus("mandatory")
+_A1Manufacturer_Type = DmiDisplaystring
+_A1Manufacturer_Object = MibTableColumn
+a1Manufacturer = _A1Manufacturer_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 1, 1, 1),
+    _A1Manufacturer_Type()
+)
+a1Manufacturer.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a1Manufacturer.setStatus("mandatory")
+_A1Product_Type = DmiDisplaystring
+_A1Product_Object = MibTableColumn
+a1Product = _A1Product_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 1, 1, 2),
+    _A1Product_Type()
+)
+a1Product.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a1Product.setStatus("mandatory")
+_A1Version_Type = DmiDisplaystring
+_A1Version_Object = MibTableColumn
+a1Version = _A1Version_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 1, 1, 3),
+    _A1Version_Type()
+)
+a1Version.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a1Version.setStatus("mandatory")
+_A1SerialNumber_Type = DmiDisplaystring
+_A1SerialNumber_Object = MibTableColumn
+a1SerialNumber = _A1SerialNumber_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 1, 1, 4),
+    _A1SerialNumber_Type()
+)
+a1SerialNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a1SerialNumber.setStatus("mandatory")
+_TNetfinityAlert_Object = MibTable
+tNetfinityAlert = _TNetfinityAlert_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 2)
+)
+if mibBuilder.loadTexts:
+    tNetfinityAlert.setStatus("mandatory")
+_ENetfinityAlert_Object = MibTableRow
+eNetfinityAlert = _ENetfinityAlert_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 2, 1)
+)
+eNetfinityAlert.setIndexNames(
+    (0, "NETFINITYSERVICES-MIB", "DmiComponentIndex"),
+)
+if mibBuilder.loadTexts:
+    eNetfinityAlert.setStatus("mandatory")
+_A2AlertText_Type = DmiDisplaystring
+_A2AlertText_Object = MibTableColumn
+a2AlertText = _A2AlertText_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 2, 1, 1),
+    _A2AlertText_Type()
+)
+a2AlertText.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a2AlertText.setStatus("mandatory")
+_A2Severity_Type = DmiInteger
+_A2Severity_Object = MibTableColumn
+a2Severity = _A2Severity_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 2, 1, 2),
+    _A2Severity_Type()
+)
+a2Severity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a2Severity.setStatus("mandatory")
+_A2AlertType_Type = DmiDisplaystring
+_A2AlertType_Object = MibTableColumn
+a2AlertType = _A2AlertType_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 2, 1, 3),
+    _A2AlertType_Type()
+)
+a2AlertType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a2AlertType.setStatus("mandatory")
+_A2ApplicationId_Type = DmiDisplaystring
+_A2ApplicationId_Object = MibTableColumn
+a2ApplicationId = _A2ApplicationId_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 2, 1, 4),
+    _A2ApplicationId_Type()
+)
+a2ApplicationId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a2ApplicationId.setStatus("mandatory")
+_A2ApplicationAlertType_Type = DmiInteger
+_A2ApplicationAlertType_Object = MibTableColumn
+a2ApplicationAlertType = _A2ApplicationAlertType_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 2, 1, 5),
+    _A2ApplicationAlertType_Type()
+)
+a2ApplicationAlertType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a2ApplicationAlertType.setStatus("mandatory")
+_A2AlertTimeAndDate_Type = DmiDate
+_A2AlertTimeAndDate_Object = MibTableColumn
+a2AlertTimeAndDate = _A2AlertTimeAndDate_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 2, 1, 6),
+    _A2AlertTimeAndDate_Type()
+)
+a2AlertTimeAndDate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a2AlertTimeAndDate.setStatus("mandatory")
+_A2AlertSender_Type = DmiDisplaystring
+_A2AlertSender_Object = MibTableColumn
+a2AlertSender = _A2AlertSender_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 2, 1, 7),
+    _A2AlertSender_Type()
+)
+a2AlertSender.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a2AlertSender.setStatus("mandatory")
+_A2AlertSystemName_Type = DmiDisplaystring
+_A2AlertSystemName_Object = MibTableColumn
+a2AlertSystemName = _A2AlertSystemName_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 2, 1, 8),
+    _A2AlertSystemName_Type()
+)
+a2AlertSystemName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a2AlertSystemName.setStatus("mandatory")
+_TNetfinityMonitorAttributes_Object = MibTable
+tNetfinityMonitorAttributes = _TNetfinityMonitorAttributes_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 3)
+)
+if mibBuilder.loadTexts:
+    tNetfinityMonitorAttributes.setStatus("mandatory")
+_ENetfinityMonitorAttributes_Object = MibTableRow
+eNetfinityMonitorAttributes = _ENetfinityMonitorAttributes_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 3, 1)
+)
+eNetfinityMonitorAttributes.setIndexNames(
+    (0, "NETFINITYSERVICES-MIB", "DmiComponentIndex"),
+    (0, "NETFINITYSERVICES-MIB", "a3AttributeId"),
+)
+if mibBuilder.loadTexts:
+    eNetfinityMonitorAttributes.setStatus("mandatory")
+_A3AttributeId_Type = DmiInteger
+_A3AttributeId_Object = MibTableColumn
+a3AttributeId = _A3AttributeId_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 3, 1, 1),
+    _A3AttributeId_Type()
+)
+a3AttributeId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a3AttributeId.setStatus("mandatory")
+_A3AttributeName_Type = DmiDisplaystring
+_A3AttributeName_Object = MibTableColumn
+a3AttributeName = _A3AttributeName_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 3, 1, 2),
+    _A3AttributeName_Type()
+)
+a3AttributeName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a3AttributeName.setStatus("mandatory")
+_A3CurrentValueInteger_Type = DmiInteger
+_A3CurrentValueInteger_Object = MibTableColumn
+a3CurrentValueInteger = _A3CurrentValueInteger_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 3, 1, 3),
+    _A3CurrentValueInteger_Type()
+)
+a3CurrentValueInteger.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a3CurrentValueInteger.setStatus("mandatory")
+_A3NetfinityValueGroup_Object = MibTable
+a3NetfinityValueGroup = _A3NetfinityValueGroup_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 3, 1, 3, 1)
+)
+if mibBuilder.loadTexts:
+    a3NetfinityValueGroup.setStatus("mandatory")
+_A3CurrentValueThousandths_Type = DmiInteger
+_A3CurrentValueThousandths_Object = MibTableColumn
+a3CurrentValueThousandths = _A3CurrentValueThousandths_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 3, 1, 4),
+    _A3CurrentValueThousandths_Type()
+)
+a3CurrentValueThousandths.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a3CurrentValueThousandths.setStatus("mandatory")
+_A3CurrentValueString_Type = DmiDisplaystring
+_A3CurrentValueString_Object = MibTableColumn
+a3CurrentValueString = _A3CurrentValueString_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 3, 1, 5),
+    _A3CurrentValueString_Type()
+)
+a3CurrentValueString.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a3CurrentValueString.setStatus("mandatory")
+_A3ValueUnits_Type = DmiDisplaystring
+_A3ValueUnits_Object = MibTableColumn
+a3ValueUnits = _A3ValueUnits_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 3, 1, 6),
+    _A3ValueUnits_Type()
+)
+a3ValueUnits.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a3ValueUnits.setStatus("mandatory")
+_TNetfinityAttributeGroups_Object = MibTable
+tNetfinityAttributeGroups = _TNetfinityAttributeGroups_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 4)
+)
+if mibBuilder.loadTexts:
+    tNetfinityAttributeGroups.setStatus("mandatory")
+_ENetfinityAttributeGroups_Object = MibTableRow
+eNetfinityAttributeGroups = _ENetfinityAttributeGroups_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 4, 1)
+)
+eNetfinityAttributeGroups.setIndexNames(
+    (0, "NETFINITYSERVICES-MIB", "DmiComponentIndex"),
+    (0, "NETFINITYSERVICES-MIB", "a4AttributeGroupId"),
+    (0, "NETFINITYSERVICES-MIB", "a4AttributeId"),
+)
+if mibBuilder.loadTexts:
+    eNetfinityAttributeGroups.setStatus("mandatory")
+_A4AttributeGroupId_Type = DmiInteger
+_A4AttributeGroupId_Object = MibTableColumn
+a4AttributeGroupId = _A4AttributeGroupId_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 4, 1, 1),
+    _A4AttributeGroupId_Type()
+)
+a4AttributeGroupId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a4AttributeGroupId.setStatus("mandatory")
+_A4AttributeId_Type = DmiInteger
+_A4AttributeId_Object = MibTableColumn
+a4AttributeId = _A4AttributeId_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 4, 1, 2),
+    _A4AttributeId_Type()
+)
+a4AttributeId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a4AttributeId.setStatus("mandatory")
+_A4AttributeGroupName_Type = DmiDisplaystring
+_A4AttributeGroupName_Object = MibTableColumn
+a4AttributeGroupName = _A4AttributeGroupName_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 4, 1, 3),
+    _A4AttributeGroupName_Type()
+)
+a4AttributeGroupName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a4AttributeGroupName.setStatus("mandatory")
+_A4AttributeName_Type = DmiDisplaystring
+_A4AttributeName_Object = MibTableColumn
+a4AttributeName = _A4AttributeName_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 4, 1, 4),
+    _A4AttributeName_Type()
+)
+a4AttributeName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a4AttributeName.setStatus("mandatory")
+_A4CurrentValueTextual_Type = DmiDisplaystring
+_A4CurrentValueTextual_Object = MibTableColumn
+a4CurrentValueTextual = _A4CurrentValueTextual_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 4, 1, 5),
+    _A4CurrentValueTextual_Type()
+)
+a4CurrentValueTextual.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a4CurrentValueTextual.setStatus("mandatory")
+_A4CurrentValueIndex_Type = DmiInteger
+_A4CurrentValueIndex_Object = MibTableColumn
+a4CurrentValueIndex = _A4CurrentValueIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 71, 200, 2, 1, 4, 1, 6),
+    _A4CurrentValueIndex_Type()
+)
+a4CurrentValueIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a4CurrentValueIndex.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "NETFINITYSERVICES-MIB",
+    **{"DmiInteger": DmiInteger,
+       "DmiDisplaystring": DmiDisplaystring,
+       "DmiDate": DmiDate,
+       "DmiComponentIndex": DmiComponentIndex,
+       "ibm": ibm,
+       "ibmProd": ibmProd,
+       "netFinity": netFinity,
+       "dmiMibs": dmiMibs,
+       "netFinityServicesMIB": netFinityServicesMIB,
+       "dmtfGroups3": dmtfGroups3,
+       "tComponentid3": tComponentid3,
+       "eComponentid3": eComponentid3,
+       "a1Manufacturer": a1Manufacturer,
+       "a1Product": a1Product,
+       "a1Version": a1Version,
+       "a1SerialNumber": a1SerialNumber,
+       "tNetfinityAlert": tNetfinityAlert,
+       "eNetfinityAlert": eNetfinityAlert,
+       "a2AlertText": a2AlertText,
+       "a2Severity": a2Severity,
+       "a2AlertType": a2AlertType,
+       "a2ApplicationId": a2ApplicationId,
+       "a2ApplicationAlertType": a2ApplicationAlertType,
+       "a2AlertTimeAndDate": a2AlertTimeAndDate,
+       "a2AlertSender": a2AlertSender,
+       "a2AlertSystemName": a2AlertSystemName,
+       "tNetfinityMonitorAttributes": tNetfinityMonitorAttributes,
+       "eNetfinityMonitorAttributes": eNetfinityMonitorAttributes,
+       "a3AttributeId": a3AttributeId,
+       "a3AttributeName": a3AttributeName,
+       "a3CurrentValueInteger": a3CurrentValueInteger,
+       "a3NetfinityValueGroup": a3NetfinityValueGroup,
+       "a3CurrentValueThousandths": a3CurrentValueThousandths,
+       "a3CurrentValueString": a3CurrentValueString,
+       "a3ValueUnits": a3ValueUnits,
+       "tNetfinityAttributeGroups": tNetfinityAttributeGroups,
+       "eNetfinityAttributeGroups": eNetfinityAttributeGroups,
+       "a4AttributeGroupId": a4AttributeGroupId,
+       "a4AttributeId": a4AttributeId,
+       "a4AttributeGroupName": a4AttributeGroupName,
+       "a4AttributeName": a4AttributeName,
+       "a4CurrentValueTextual": a4CurrentValueTextual,
+       "a4CurrentValueIndex": a4CurrentValueIndex}
+)

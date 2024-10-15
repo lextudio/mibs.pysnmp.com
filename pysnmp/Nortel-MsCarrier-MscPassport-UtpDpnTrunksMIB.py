@@ -1,191 +1,1421 @@
+# SNMP MIB module (Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:22:12 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion")
-mscDpnGateIndex, mscDpnGate = mibBuilder.importSymbols("Nortel-MsCarrier-MscPassport-DpnTrunksMIB", "mscDpnGateIndex", "mscDpnGate")
-Unsigned32, Gauge32, RowStatus, Counter32, DisplayString, StorageType = mibBuilder.importSymbols("Nortel-MsCarrier-MscPassport-StandardTextualConventionsMIB", "Unsigned32", "Gauge32", "RowStatus", "Counter32", "DisplayString", "StorageType")
-PassportCounter64, Link, NonReplicated = mibBuilder.importSymbols("Nortel-MsCarrier-MscPassport-TextualConventionsMIB", "PassportCounter64", "Link", "NonReplicated")
-mscPassportMIBs, = mibBuilder.importSymbols("Nortel-MsCarrier-MscPassport-UsefulDefinitionsMIB", "mscPassportMIBs")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ModuleIdentity, iso, Gauge32, Unsigned32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, ObjectIdentity, Counter64, MibIdentifier, Counter32, Bits, NotificationType, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "iso", "Gauge32", "Unsigned32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "ObjectIdentity", "Counter64", "MibIdentifier", "Counter32", "Bits", "NotificationType", "TimeTicks")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-utpDpnTrunksMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 67))
-mscDpnGateUtp = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2))
-mscDpnGateUtpRowStatusTable = MibTable((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 1), )
-if mibBuilder.loadTexts: mscDpnGateUtpRowStatusTable.setStatus('mandatory')
-mscDpnGateUtpRowStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 1, 1), ).setIndexNames((0, "Nortel-MsCarrier-MscPassport-DpnTrunksMIB", "mscDpnGateIndex"), (0, "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", "mscDpnGateUtpIndex"))
-if mibBuilder.loadTexts: mscDpnGateUtpRowStatusEntry.setStatus('mandatory')
-mscDpnGateUtpRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 1, 1, 1), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mscDpnGateUtpRowStatus.setStatus('mandatory')
-mscDpnGateUtpComponentName = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpComponentName.setStatus('mandatory')
-mscDpnGateUtpStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 1, 1, 4), StorageType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpStorageType.setStatus('mandatory')
-mscDpnGateUtpIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 1, 1, 10), NonReplicated())
-if mibBuilder.loadTexts: mscDpnGateUtpIndex.setStatus('mandatory')
-mscDpnGateUtpProvTable = MibTable((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 10), )
-if mibBuilder.loadTexts: mscDpnGateUtpProvTable.setStatus('mandatory')
-mscDpnGateUtpProvEntry = MibTableRow((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 10, 1), ).setIndexNames((0, "Nortel-MsCarrier-MscPassport-DpnTrunksMIB", "mscDpnGateIndex"), (0, "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", "mscDpnGateUtpIndex"))
-if mibBuilder.loadTexts: mscDpnGateUtpProvEntry.setStatus('mandatory')
-mscDpnGateUtpMaximumErroredInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 10, 1, 1), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 15), ))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mscDpnGateUtpMaximumErroredInterval.setStatus('mandatory')
-mscDpnGateUtpReceiveErrorSensitivity = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 10, 1, 2), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 10), )).clone(3)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mscDpnGateUtpReceiveErrorSensitivity.setStatus('mandatory')
-mscDpnGateUtpStateTable = MibTable((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 11), )
-if mibBuilder.loadTexts: mscDpnGateUtpStateTable.setStatus('mandatory')
-mscDpnGateUtpStateEntry = MibTableRow((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 11, 1), ).setIndexNames((0, "Nortel-MsCarrier-MscPassport-DpnTrunksMIB", "mscDpnGateIndex"), (0, "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", "mscDpnGateUtpIndex"))
-if mibBuilder.loadTexts: mscDpnGateUtpStateEntry.setStatus('mandatory')
-mscDpnGateUtpAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 11, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("locked", 0), ("unlocked", 1), ("shuttingDown", 2))).clone('unlocked')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpAdminState.setStatus('mandatory')
-mscDpnGateUtpOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 11, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1))).clone('disabled')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpOperationalState.setStatus('mandatory')
-mscDpnGateUtpUsageState = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 11, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("idle", 0), ("active", 1), ("busy", 2))).clone('idle')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpUsageState.setStatus('mandatory')
-mscDpnGateUtpAvailabilityStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 11, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpAvailabilityStatus.setStatus('mandatory')
-mscDpnGateUtpProceduralStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 11, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 1)).setFixedLength(1)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpProceduralStatus.setStatus('mandatory')
-mscDpnGateUtpControlStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 11, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 1)).setFixedLength(1)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpControlStatus.setStatus('mandatory')
-mscDpnGateUtpAlarmStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 11, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 1)).setFixedLength(1)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpAlarmStatus.setStatus('mandatory')
-mscDpnGateUtpStandbyStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 11, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 15))).clone(namedValues=NamedValues(("hotStandby", 0), ("coldStandby", 1), ("providingService", 2), ("notSet", 15))).clone('notSet')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpStandbyStatus.setStatus('mandatory')
-mscDpnGateUtpUnknownStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 11, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("false", 0), ("true", 1))).clone('false')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpUnknownStatus.setStatus('mandatory')
-mscDpnGateUtpOpTable = MibTable((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 12), )
-if mibBuilder.loadTexts: mscDpnGateUtpOpTable.setStatus('mandatory')
-mscDpnGateUtpOpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 12, 1), ).setIndexNames((0, "Nortel-MsCarrier-MscPassport-DpnTrunksMIB", "mscDpnGateIndex"), (0, "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", "mscDpnGateUtpIndex"))
-if mibBuilder.loadTexts: mscDpnGateUtpOpEntry.setStatus('mandatory')
-mscDpnGateUtpRoundTripDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 12, 1, 1), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 1500))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpRoundTripDelay.setStatus('mandatory')
-mscDpnGateUtpStatsTable = MibTable((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 13), )
-if mibBuilder.loadTexts: mscDpnGateUtpStatsTable.setStatus('mandatory')
-mscDpnGateUtpStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 13, 1), ).setIndexNames((0, "Nortel-MsCarrier-MscPassport-DpnTrunksMIB", "mscDpnGateIndex"), (0, "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", "mscDpnGateUtpIndex"))
-if mibBuilder.loadTexts: mscDpnGateUtpStatsEntry.setStatus('mandatory')
-mscDpnGateUtpDiscardBadFromIf = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 13, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpDiscardBadFromIf.setStatus('mandatory')
-mscDpnGateUtpDiscardExcessToIf = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 13, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpDiscardExcessToIf.setStatus('mandatory')
-mscDpnGateUtpFrmRexmtToIf = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 13, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpFrmRexmtToIf.setStatus('mandatory')
-mscDpnGateUtpAreYouThereModeEntries = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 13, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpAreYouThereModeEntries.setStatus('mandatory')
-mscDpnGateUtpWindowClosures = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 13, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpWindowClosures.setStatus('mandatory')
-mscDpnGateUtpFramer = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2))
-mscDpnGateUtpFramerRowStatusTable = MibTable((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 1), )
-if mibBuilder.loadTexts: mscDpnGateUtpFramerRowStatusTable.setStatus('mandatory')
-mscDpnGateUtpFramerRowStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 1, 1), ).setIndexNames((0, "Nortel-MsCarrier-MscPassport-DpnTrunksMIB", "mscDpnGateIndex"), (0, "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", "mscDpnGateUtpIndex"), (0, "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", "mscDpnGateUtpFramerIndex"))
-if mibBuilder.loadTexts: mscDpnGateUtpFramerRowStatusEntry.setStatus('mandatory')
-mscDpnGateUtpFramerRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 1, 1, 1), RowStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpFramerRowStatus.setStatus('mandatory')
-mscDpnGateUtpFramerComponentName = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpFramerComponentName.setStatus('mandatory')
-mscDpnGateUtpFramerStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 1, 1, 4), StorageType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpFramerStorageType.setStatus('mandatory')
-mscDpnGateUtpFramerIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 1, 1, 10), NonReplicated())
-if mibBuilder.loadTexts: mscDpnGateUtpFramerIndex.setStatus('mandatory')
-mscDpnGateUtpFramerProvTable = MibTable((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 10), )
-if mibBuilder.loadTexts: mscDpnGateUtpFramerProvTable.setStatus('mandatory')
-mscDpnGateUtpFramerProvEntry = MibTableRow((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 10, 1), ).setIndexNames((0, "Nortel-MsCarrier-MscPassport-DpnTrunksMIB", "mscDpnGateIndex"), (0, "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", "mscDpnGateUtpIndex"), (0, "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", "mscDpnGateUtpFramerIndex"))
-if mibBuilder.loadTexts: mscDpnGateUtpFramerProvEntry.setStatus('mandatory')
-mscDpnGateUtpFramerInterfaceName = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 10, 1, 1), Link()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mscDpnGateUtpFramerInterfaceName.setStatus('mandatory')
-mscDpnGateUtpFramerLinkTable = MibTable((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 11), )
-if mibBuilder.loadTexts: mscDpnGateUtpFramerLinkTable.setStatus('mandatory')
-mscDpnGateUtpFramerLinkEntry = MibTableRow((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 11, 1), ).setIndexNames((0, "Nortel-MsCarrier-MscPassport-DpnTrunksMIB", "mscDpnGateIndex"), (0, "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", "mscDpnGateUtpIndex"), (0, "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", "mscDpnGateUtpFramerIndex"))
-if mibBuilder.loadTexts: mscDpnGateUtpFramerLinkEntry.setStatus('mandatory')
-mscDpnGateUtpFramerFramingType = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 11, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0))).clone(namedValues=NamedValues(("hdlc", 0))).clone('hdlc')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mscDpnGateUtpFramerFramingType.setStatus('mandatory')
-mscDpnGateUtpFramerDataInversion = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 11, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 16))).clone(namedValues=NamedValues(("off", 0), ("on", 16))).clone('off')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mscDpnGateUtpFramerDataInversion.setStatus('mandatory')
-mscDpnGateUtpFramerFrameCrcType = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 11, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("crc16", 0), ("crc32", 1), ("noCrc", 2))).clone('crc16')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mscDpnGateUtpFramerFrameCrcType.setStatus('mandatory')
-mscDpnGateUtpFramerFlagsBetweenFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 11, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 16)).clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mscDpnGateUtpFramerFlagsBetweenFrames.setStatus('mandatory')
-mscDpnGateUtpFramerStateTable = MibTable((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 12), )
-if mibBuilder.loadTexts: mscDpnGateUtpFramerStateTable.setStatus('mandatory')
-mscDpnGateUtpFramerStateEntry = MibTableRow((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 12, 1), ).setIndexNames((0, "Nortel-MsCarrier-MscPassport-DpnTrunksMIB", "mscDpnGateIndex"), (0, "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", "mscDpnGateUtpIndex"), (0, "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", "mscDpnGateUtpFramerIndex"))
-if mibBuilder.loadTexts: mscDpnGateUtpFramerStateEntry.setStatus('mandatory')
-mscDpnGateUtpFramerAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 12, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("locked", 0), ("unlocked", 1), ("shuttingDown", 2))).clone('unlocked')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpFramerAdminState.setStatus('mandatory')
-mscDpnGateUtpFramerOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 12, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1))).clone('disabled')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpFramerOperationalState.setStatus('mandatory')
-mscDpnGateUtpFramerUsageState = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 12, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("idle", 0), ("active", 1), ("busy", 2))).clone('idle')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpFramerUsageState.setStatus('mandatory')
-mscDpnGateUtpFramerStatsTable = MibTable((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 13), )
-if mibBuilder.loadTexts: mscDpnGateUtpFramerStatsTable.setStatus('mandatory')
-mscDpnGateUtpFramerStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 13, 1), ).setIndexNames((0, "Nortel-MsCarrier-MscPassport-DpnTrunksMIB", "mscDpnGateIndex"), (0, "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", "mscDpnGateUtpIndex"), (0, "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", "mscDpnGateUtpFramerIndex"))
-if mibBuilder.loadTexts: mscDpnGateUtpFramerStatsEntry.setStatus('mandatory')
-mscDpnGateUtpFramerFrmToIf = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 13, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpFramerFrmToIf.setStatus('obsolete')
-mscDpnGateUtpFramerFrmFromIf = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 13, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpFramerFrmFromIf.setStatus('obsolete')
-mscDpnGateUtpFramerOctetFromIf = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 13, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpFramerOctetFromIf.setStatus('obsolete')
-mscDpnGateUtpFramerAborts = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 13, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpFramerAborts.setStatus('mandatory')
-mscDpnGateUtpFramerCrcErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 13, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpFramerCrcErrors.setStatus('mandatory')
-mscDpnGateUtpFramerLrcErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 13, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpFramerLrcErrors.setStatus('mandatory')
-mscDpnGateUtpFramerNonOctetErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 13, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpFramerNonOctetErrors.setStatus('mandatory')
-mscDpnGateUtpFramerOverruns = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 13, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpFramerOverruns.setStatus('mandatory')
-mscDpnGateUtpFramerUnderruns = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 13, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpFramerUnderruns.setStatus('mandatory')
-mscDpnGateUtpFramerLargeFrmErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 13, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpFramerLargeFrmErrors.setStatus('mandatory')
-mscDpnGateUtpFramerFrmModeErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 13, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpFramerFrmModeErrors.setStatus('mandatory')
-mscDpnGateUtpFramerOutOfSequenceFrm = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 13, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpFramerOutOfSequenceFrm.setStatus('mandatory')
-mscDpnGateUtpFramerRepeatedFrm = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 13, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpFramerRepeatedFrm.setStatus('mandatory')
-mscDpnGateUtpFramerFrmToIf64 = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 13, 1, 14), PassportCounter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpFramerFrmToIf64.setStatus('mandatory')
-mscDpnGateUtpFramerFrmFromIf64 = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 13, 1, 15), PassportCounter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpFramerFrmFromIf64.setStatus('mandatory')
-mscDpnGateUtpFramerOctetFromIf64 = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 13, 1, 16), PassportCounter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpFramerOctetFromIf64.setStatus('mandatory')
-mscDpnGateUtpFramerUtilTable = MibTable((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 14), )
-if mibBuilder.loadTexts: mscDpnGateUtpFramerUtilTable.setStatus('mandatory')
-mscDpnGateUtpFramerUtilEntry = MibTableRow((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 14, 1), ).setIndexNames((0, "Nortel-MsCarrier-MscPassport-DpnTrunksMIB", "mscDpnGateIndex"), (0, "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", "mscDpnGateUtpIndex"), (0, "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", "mscDpnGateUtpFramerIndex"))
-if mibBuilder.loadTexts: mscDpnGateUtpFramerUtilEntry.setStatus('mandatory')
-mscDpnGateUtpFramerNormPrioLinkUtilToIf = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 14, 1, 1), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpFramerNormPrioLinkUtilToIf.setStatus('mandatory')
-mscDpnGateUtpFramerHighPrioLinkUtilToIf = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 14, 1, 2), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpFramerHighPrioLinkUtilToIf.setStatus('mandatory')
-mscDpnGateUtpFramerNormPrioLinkUtilFromIf = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 14, 1, 3), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpFramerNormPrioLinkUtilFromIf.setStatus('mandatory')
-mscDpnGateUtpFramerHighPrioLinkUtilFromIf = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 14, 1, 4), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscDpnGateUtpFramerHighPrioLinkUtilFromIf.setStatus('mandatory')
-mscDpnGateUtpFramerUtilThresholdTable = MibTable((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 15), )
-if mibBuilder.loadTexts: mscDpnGateUtpFramerUtilThresholdTable.setStatus('mandatory')
-mscDpnGateUtpFramerUtilThresholdEntry = MibTableRow((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 15, 1), ).setIndexNames((0, "Nortel-MsCarrier-MscPassport-DpnTrunksMIB", "mscDpnGateIndex"), (0, "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", "mscDpnGateUtpIndex"), (0, "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", "mscDpnGateUtpFramerIndex"))
-if mibBuilder.loadTexts: mscDpnGateUtpFramerUtilThresholdEntry.setStatus('mandatory')
-mscDpnGateUtpFramerMinorLinkUtilAlarmThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 15, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 100)).clone(75)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mscDpnGateUtpFramerMinorLinkUtilAlarmThreshold.setStatus('mandatory')
-mscDpnGateUtpFramerMajorLinkUtilAlarmThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 15, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 100)).clone(85)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mscDpnGateUtpFramerMajorLinkUtilAlarmThreshold.setStatus('mandatory')
-mscDpnGateUtpFramerCriticalLinkUtilAlarmThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 15, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 100)).clone(95)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mscDpnGateUtpFramerCriticalLinkUtilAlarmThreshold.setStatus('mandatory')
-mscDpnGateUtpFramerLinkUtilAlarmStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 15, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1))).clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mscDpnGateUtpFramerLinkUtilAlarmStatus.setStatus('mandatory')
-utpDpnTrunksGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 67, 1))
-utpDpnTrunksGroupCA = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 67, 1, 1))
-utpDpnTrunksGroupCA02 = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 67, 1, 1, 3))
-utpDpnTrunksGroupCA02A = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 67, 1, 1, 3, 2))
-utpDpnTrunksCapabilities = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 67, 3))
-utpDpnTrunksCapabilitiesCA = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 67, 3, 1))
-utpDpnTrunksCapabilitiesCA02 = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 67, 3, 1, 3))
-utpDpnTrunksCapabilitiesCA02A = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 67, 3, 1, 3, 2))
-mibBuilder.exportSymbols("Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", mscDpnGateUtpFramerStateEntry=mscDpnGateUtpFramerStateEntry, mscDpnGateUtpFramerUtilTable=mscDpnGateUtpFramerUtilTable, mscDpnGateUtpFramerRepeatedFrm=mscDpnGateUtpFramerRepeatedFrm, mscDpnGateUtpFramerCriticalLinkUtilAlarmThreshold=mscDpnGateUtpFramerCriticalLinkUtilAlarmThreshold, mscDpnGateUtpFramerOperationalState=mscDpnGateUtpFramerOperationalState, mscDpnGateUtpFrmRexmtToIf=mscDpnGateUtpFrmRexmtToIf, mscDpnGateUtpFramerAborts=mscDpnGateUtpFramerAborts, mscDpnGateUtpFramerCrcErrors=mscDpnGateUtpFramerCrcErrors, mscDpnGateUtpFramerUtilThresholdEntry=mscDpnGateUtpFramerUtilThresholdEntry, utpDpnTrunksGroup=utpDpnTrunksGroup, mscDpnGateUtpFramerRowStatusEntry=mscDpnGateUtpFramerRowStatusEntry, mscDpnGateUtpFramerFrmToIf64=mscDpnGateUtpFramerFrmToIf64, mscDpnGateUtpRoundTripDelay=mscDpnGateUtpRoundTripDelay, mscDpnGateUtpAvailabilityStatus=mscDpnGateUtpAvailabilityStatus, mscDpnGateUtpUsageState=mscDpnGateUtpUsageState, mscDpnGateUtpFramerComponentName=mscDpnGateUtpFramerComponentName, utpDpnTrunksGroupCA=utpDpnTrunksGroupCA, mscDpnGateUtpFramerUtilEntry=mscDpnGateUtpFramerUtilEntry, mscDpnGateUtpFramerProvTable=mscDpnGateUtpFramerProvTable, mscDpnGateUtpFramerStatsTable=mscDpnGateUtpFramerStatsTable, mscDpnGateUtpAreYouThereModeEntries=mscDpnGateUtpAreYouThereModeEntries, mscDpnGateUtpMaximumErroredInterval=mscDpnGateUtpMaximumErroredInterval, mscDpnGateUtpStandbyStatus=mscDpnGateUtpStandbyStatus, mscDpnGateUtpFramerInterfaceName=mscDpnGateUtpFramerInterfaceName, mscDpnGateUtpFramerFrameCrcType=mscDpnGateUtpFramerFrameCrcType, mscDpnGateUtpFramerStatsEntry=mscDpnGateUtpFramerStatsEntry, mscDpnGateUtpFramerIndex=mscDpnGateUtpFramerIndex, mscDpnGateUtpOpTable=mscDpnGateUtpOpTable, mscDpnGateUtpComponentName=mscDpnGateUtpComponentName, mscDpnGateUtpFramerRowStatusTable=mscDpnGateUtpFramerRowStatusTable, utpDpnTrunksCapabilitiesCA=utpDpnTrunksCapabilitiesCA, utpDpnTrunksGroupCA02A=utpDpnTrunksGroupCA02A, mscDpnGateUtpFramerFrmFromIf=mscDpnGateUtpFramerFrmFromIf, mscDpnGateUtpRowStatusEntry=mscDpnGateUtpRowStatusEntry, mscDpnGateUtpFramerNormPrioLinkUtilFromIf=mscDpnGateUtpFramerNormPrioLinkUtilFromIf, mscDpnGateUtpFramerStateTable=mscDpnGateUtpFramerStateTable, mscDpnGateUtpFramerFrmToIf=mscDpnGateUtpFramerFrmToIf, mscDpnGateUtpStatsEntry=mscDpnGateUtpStatsEntry, mscDpnGateUtpFramerProvEntry=mscDpnGateUtpFramerProvEntry, mscDpnGateUtpFramerFramingType=mscDpnGateUtpFramerFramingType, utpDpnTrunksCapabilitiesCA02A=utpDpnTrunksCapabilitiesCA02A, mscDpnGateUtpAlarmStatus=mscDpnGateUtpAlarmStatus, mscDpnGateUtpDiscardExcessToIf=mscDpnGateUtpDiscardExcessToIf, mscDpnGateUtpFramerLinkTable=mscDpnGateUtpFramerLinkTable, mscDpnGateUtpFramerLargeFrmErrors=mscDpnGateUtpFramerLargeFrmErrors, mscDpnGateUtpRowStatusTable=mscDpnGateUtpRowStatusTable, mscDpnGateUtpFramerDataInversion=mscDpnGateUtpFramerDataInversion, mscDpnGateUtp=mscDpnGateUtp, mscDpnGateUtpFramerHighPrioLinkUtilToIf=mscDpnGateUtpFramerHighPrioLinkUtilToIf, mscDpnGateUtpControlStatus=mscDpnGateUtpControlStatus, mscDpnGateUtpFramer=mscDpnGateUtpFramer, mscDpnGateUtpFramerOverruns=mscDpnGateUtpFramerOverruns, mscDpnGateUtpDiscardBadFromIf=mscDpnGateUtpDiscardBadFromIf, mscDpnGateUtpFramerStorageType=mscDpnGateUtpFramerStorageType, mscDpnGateUtpUnknownStatus=mscDpnGateUtpUnknownStatus, mscDpnGateUtpStatsTable=mscDpnGateUtpStatsTable, mscDpnGateUtpFramerLinkUtilAlarmStatus=mscDpnGateUtpFramerLinkUtilAlarmStatus, mscDpnGateUtpFramerFrmFromIf64=mscDpnGateUtpFramerFrmFromIf64, mscDpnGateUtpProvEntry=mscDpnGateUtpProvEntry, mscDpnGateUtpFramerOctetFromIf64=mscDpnGateUtpFramerOctetFromIf64, mscDpnGateUtpFramerHighPrioLinkUtilFromIf=mscDpnGateUtpFramerHighPrioLinkUtilFromIf, mscDpnGateUtpFramerNonOctetErrors=mscDpnGateUtpFramerNonOctetErrors, mscDpnGateUtpFramerMinorLinkUtilAlarmThreshold=mscDpnGateUtpFramerMinorLinkUtilAlarmThreshold, mscDpnGateUtpFramerMajorLinkUtilAlarmThreshold=mscDpnGateUtpFramerMajorLinkUtilAlarmThreshold, mscDpnGateUtpFramerFrmModeErrors=mscDpnGateUtpFramerFrmModeErrors, mscDpnGateUtpAdminState=mscDpnGateUtpAdminState, mscDpnGateUtpProvTable=mscDpnGateUtpProvTable, utpDpnTrunksCapabilitiesCA02=utpDpnTrunksCapabilitiesCA02, mscDpnGateUtpOperationalState=mscDpnGateUtpOperationalState, utpDpnTrunksGroupCA02=utpDpnTrunksGroupCA02, mscDpnGateUtpIndex=mscDpnGateUtpIndex, mscDpnGateUtpFramerOctetFromIf=mscDpnGateUtpFramerOctetFromIf, mscDpnGateUtpFramerFlagsBetweenFrames=mscDpnGateUtpFramerFlagsBetweenFrames, mscDpnGateUtpFramerRowStatus=mscDpnGateUtpFramerRowStatus, mscDpnGateUtpFramerUtilThresholdTable=mscDpnGateUtpFramerUtilThresholdTable, mscDpnGateUtpRowStatus=mscDpnGateUtpRowStatus, mscDpnGateUtpProceduralStatus=mscDpnGateUtpProceduralStatus, mscDpnGateUtpWindowClosures=mscDpnGateUtpWindowClosures, mscDpnGateUtpFramerLinkEntry=mscDpnGateUtpFramerLinkEntry, mscDpnGateUtpFramerUsageState=mscDpnGateUtpFramerUsageState, mscDpnGateUtpFramerLrcErrors=mscDpnGateUtpFramerLrcErrors, mscDpnGateUtpStateEntry=mscDpnGateUtpStateEntry, mscDpnGateUtpFramerOutOfSequenceFrm=mscDpnGateUtpFramerOutOfSequenceFrm, mscDpnGateUtpFramerAdminState=mscDpnGateUtpFramerAdminState, mscDpnGateUtpFramerNormPrioLinkUtilToIf=mscDpnGateUtpFramerNormPrioLinkUtilToIf, mscDpnGateUtpOpEntry=mscDpnGateUtpOpEntry, utpDpnTrunksCapabilities=utpDpnTrunksCapabilities, mscDpnGateUtpFramerUnderruns=mscDpnGateUtpFramerUnderruns, mscDpnGateUtpReceiveErrorSensitivity=mscDpnGateUtpReceiveErrorSensitivity, mscDpnGateUtpStateTable=mscDpnGateUtpStateTable, utpDpnTrunksMIB=utpDpnTrunksMIB, mscDpnGateUtpStorageType=mscDpnGateUtpStorageType)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:33:12 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(mscDpnGate,
+ mscDpnGateIndex) = mibBuilder.importSymbols(
+    "Nortel-MsCarrier-MscPassport-DpnTrunksMIB",
+    "mscDpnGate",
+    "mscDpnGateIndex")
+
+(Counter32,
+ DisplayString,
+ Gauge32,
+ RowStatus,
+ StorageType,
+ Unsigned32) = mibBuilder.importSymbols(
+    "Nortel-MsCarrier-MscPassport-StandardTextualConventionsMIB",
+    "Counter32",
+    "DisplayString",
+    "Gauge32",
+    "RowStatus",
+    "StorageType",
+    "Unsigned32")
+
+(Link,
+ NonReplicated,
+ PassportCounter64) = mibBuilder.importSymbols(
+    "Nortel-MsCarrier-MscPassport-TextualConventionsMIB",
+    "Link",
+    "NonReplicated",
+    "PassportCounter64")
+
+(mscPassportMIBs,) = mibBuilder.importSymbols(
+    "Nortel-MsCarrier-MscPassport-UsefulDefinitionsMIB",
+    "mscPassportMIBs")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_MscDpnGateUtp_ObjectIdentity = ObjectIdentity
+mscDpnGateUtp = _MscDpnGateUtp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2)
+)
+_MscDpnGateUtpRowStatusTable_Object = MibTable
+mscDpnGateUtpRowStatusTable = _MscDpnGateUtpRowStatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 1)
+)
+if mibBuilder.loadTexts:
+    mscDpnGateUtpRowStatusTable.setStatus("mandatory")
+_MscDpnGateUtpRowStatusEntry_Object = MibTableRow
+mscDpnGateUtpRowStatusEntry = _MscDpnGateUtpRowStatusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 1, 1)
+)
+mscDpnGateUtpRowStatusEntry.setIndexNames(
+    (0, "Nortel-MsCarrier-MscPassport-DpnTrunksMIB", "mscDpnGateIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", "mscDpnGateUtpIndex"),
+)
+if mibBuilder.loadTexts:
+    mscDpnGateUtpRowStatusEntry.setStatus("mandatory")
+_MscDpnGateUtpRowStatus_Type = RowStatus
+_MscDpnGateUtpRowStatus_Object = MibTableColumn
+mscDpnGateUtpRowStatus = _MscDpnGateUtpRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 1, 1, 1),
+    _MscDpnGateUtpRowStatus_Type()
+)
+mscDpnGateUtpRowStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpRowStatus.setStatus("mandatory")
+_MscDpnGateUtpComponentName_Type = DisplayString
+_MscDpnGateUtpComponentName_Object = MibTableColumn
+mscDpnGateUtpComponentName = _MscDpnGateUtpComponentName_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 1, 1, 2),
+    _MscDpnGateUtpComponentName_Type()
+)
+mscDpnGateUtpComponentName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpComponentName.setStatus("mandatory")
+_MscDpnGateUtpStorageType_Type = StorageType
+_MscDpnGateUtpStorageType_Object = MibTableColumn
+mscDpnGateUtpStorageType = _MscDpnGateUtpStorageType_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 1, 1, 4),
+    _MscDpnGateUtpStorageType_Type()
+)
+mscDpnGateUtpStorageType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpStorageType.setStatus("mandatory")
+_MscDpnGateUtpIndex_Type = NonReplicated
+_MscDpnGateUtpIndex_Object = MibTableColumn
+mscDpnGateUtpIndex = _MscDpnGateUtpIndex_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 1, 1, 10),
+    _MscDpnGateUtpIndex_Type()
+)
+mscDpnGateUtpIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpIndex.setStatus("mandatory")
+_MscDpnGateUtpFramer_ObjectIdentity = ObjectIdentity
+mscDpnGateUtpFramer = _MscDpnGateUtpFramer_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2)
+)
+_MscDpnGateUtpFramerRowStatusTable_Object = MibTable
+mscDpnGateUtpFramerRowStatusTable = _MscDpnGateUtpFramerRowStatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 1)
+)
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerRowStatusTable.setStatus("mandatory")
+_MscDpnGateUtpFramerRowStatusEntry_Object = MibTableRow
+mscDpnGateUtpFramerRowStatusEntry = _MscDpnGateUtpFramerRowStatusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 1, 1)
+)
+mscDpnGateUtpFramerRowStatusEntry.setIndexNames(
+    (0, "Nortel-MsCarrier-MscPassport-DpnTrunksMIB", "mscDpnGateIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", "mscDpnGateUtpIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", "mscDpnGateUtpFramerIndex"),
+)
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerRowStatusEntry.setStatus("mandatory")
+_MscDpnGateUtpFramerRowStatus_Type = RowStatus
+_MscDpnGateUtpFramerRowStatus_Object = MibTableColumn
+mscDpnGateUtpFramerRowStatus = _MscDpnGateUtpFramerRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 1, 1, 1),
+    _MscDpnGateUtpFramerRowStatus_Type()
+)
+mscDpnGateUtpFramerRowStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerRowStatus.setStatus("mandatory")
+_MscDpnGateUtpFramerComponentName_Type = DisplayString
+_MscDpnGateUtpFramerComponentName_Object = MibTableColumn
+mscDpnGateUtpFramerComponentName = _MscDpnGateUtpFramerComponentName_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 1, 1, 2),
+    _MscDpnGateUtpFramerComponentName_Type()
+)
+mscDpnGateUtpFramerComponentName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerComponentName.setStatus("mandatory")
+_MscDpnGateUtpFramerStorageType_Type = StorageType
+_MscDpnGateUtpFramerStorageType_Object = MibTableColumn
+mscDpnGateUtpFramerStorageType = _MscDpnGateUtpFramerStorageType_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 1, 1, 4),
+    _MscDpnGateUtpFramerStorageType_Type()
+)
+mscDpnGateUtpFramerStorageType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerStorageType.setStatus("mandatory")
+_MscDpnGateUtpFramerIndex_Type = NonReplicated
+_MscDpnGateUtpFramerIndex_Object = MibTableColumn
+mscDpnGateUtpFramerIndex = _MscDpnGateUtpFramerIndex_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 1, 1, 10),
+    _MscDpnGateUtpFramerIndex_Type()
+)
+mscDpnGateUtpFramerIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerIndex.setStatus("mandatory")
+_MscDpnGateUtpFramerProvTable_Object = MibTable
+mscDpnGateUtpFramerProvTable = _MscDpnGateUtpFramerProvTable_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 10)
+)
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerProvTable.setStatus("mandatory")
+_MscDpnGateUtpFramerProvEntry_Object = MibTableRow
+mscDpnGateUtpFramerProvEntry = _MscDpnGateUtpFramerProvEntry_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 10, 1)
+)
+mscDpnGateUtpFramerProvEntry.setIndexNames(
+    (0, "Nortel-MsCarrier-MscPassport-DpnTrunksMIB", "mscDpnGateIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", "mscDpnGateUtpIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", "mscDpnGateUtpFramerIndex"),
+)
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerProvEntry.setStatus("mandatory")
+_MscDpnGateUtpFramerInterfaceName_Type = Link
+_MscDpnGateUtpFramerInterfaceName_Object = MibTableColumn
+mscDpnGateUtpFramerInterfaceName = _MscDpnGateUtpFramerInterfaceName_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 10, 1, 1),
+    _MscDpnGateUtpFramerInterfaceName_Type()
+)
+mscDpnGateUtpFramerInterfaceName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerInterfaceName.setStatus("mandatory")
+_MscDpnGateUtpFramerLinkTable_Object = MibTable
+mscDpnGateUtpFramerLinkTable = _MscDpnGateUtpFramerLinkTable_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 11)
+)
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerLinkTable.setStatus("mandatory")
+_MscDpnGateUtpFramerLinkEntry_Object = MibTableRow
+mscDpnGateUtpFramerLinkEntry = _MscDpnGateUtpFramerLinkEntry_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 11, 1)
+)
+mscDpnGateUtpFramerLinkEntry.setIndexNames(
+    (0, "Nortel-MsCarrier-MscPassport-DpnTrunksMIB", "mscDpnGateIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", "mscDpnGateUtpIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", "mscDpnGateUtpFramerIndex"),
+)
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerLinkEntry.setStatus("mandatory")
+
+
+class _MscDpnGateUtpFramerFramingType_Type(Integer32):
+    """Custom type mscDpnGateUtpFramerFramingType based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            0
+        )
+    )
+    namedValues = NamedValues(
+        ("hdlc", 0)
+    )
+
+
+_MscDpnGateUtpFramerFramingType_Type.__name__ = "Integer32"
+_MscDpnGateUtpFramerFramingType_Object = MibTableColumn
+mscDpnGateUtpFramerFramingType = _MscDpnGateUtpFramerFramingType_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 11, 1, 1),
+    _MscDpnGateUtpFramerFramingType_Type()
+)
+mscDpnGateUtpFramerFramingType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerFramingType.setStatus("mandatory")
+
+
+class _MscDpnGateUtpFramerDataInversion_Type(Integer32):
+    """Custom type mscDpnGateUtpFramerDataInversion based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              16)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 0),
+          ("on", 16))
+    )
+
+
+_MscDpnGateUtpFramerDataInversion_Type.__name__ = "Integer32"
+_MscDpnGateUtpFramerDataInversion_Object = MibTableColumn
+mscDpnGateUtpFramerDataInversion = _MscDpnGateUtpFramerDataInversion_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 11, 1, 2),
+    _MscDpnGateUtpFramerDataInversion_Type()
+)
+mscDpnGateUtpFramerDataInversion.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerDataInversion.setStatus("mandatory")
+
+
+class _MscDpnGateUtpFramerFrameCrcType_Type(Integer32):
+    """Custom type mscDpnGateUtpFramerFrameCrcType based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("crc16", 0),
+          ("crc32", 1),
+          ("noCrc", 2))
+    )
+
+
+_MscDpnGateUtpFramerFrameCrcType_Type.__name__ = "Integer32"
+_MscDpnGateUtpFramerFrameCrcType_Object = MibTableColumn
+mscDpnGateUtpFramerFrameCrcType = _MscDpnGateUtpFramerFrameCrcType_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 11, 1, 3),
+    _MscDpnGateUtpFramerFrameCrcType_Type()
+)
+mscDpnGateUtpFramerFrameCrcType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerFrameCrcType.setStatus("mandatory")
+
+
+class _MscDpnGateUtpFramerFlagsBetweenFrames_Type(Unsigned32):
+    """Custom type mscDpnGateUtpFramerFlagsBetweenFrames based on Unsigned32"""
+    defaultValue = 1
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16),
+    )
+
+
+_MscDpnGateUtpFramerFlagsBetweenFrames_Type.__name__ = "Unsigned32"
+_MscDpnGateUtpFramerFlagsBetweenFrames_Object = MibTableColumn
+mscDpnGateUtpFramerFlagsBetweenFrames = _MscDpnGateUtpFramerFlagsBetweenFrames_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 11, 1, 4),
+    _MscDpnGateUtpFramerFlagsBetweenFrames_Type()
+)
+mscDpnGateUtpFramerFlagsBetweenFrames.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerFlagsBetweenFrames.setStatus("mandatory")
+_MscDpnGateUtpFramerStateTable_Object = MibTable
+mscDpnGateUtpFramerStateTable = _MscDpnGateUtpFramerStateTable_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 12)
+)
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerStateTable.setStatus("mandatory")
+_MscDpnGateUtpFramerStateEntry_Object = MibTableRow
+mscDpnGateUtpFramerStateEntry = _MscDpnGateUtpFramerStateEntry_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 12, 1)
+)
+mscDpnGateUtpFramerStateEntry.setIndexNames(
+    (0, "Nortel-MsCarrier-MscPassport-DpnTrunksMIB", "mscDpnGateIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", "mscDpnGateUtpIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", "mscDpnGateUtpFramerIndex"),
+)
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerStateEntry.setStatus("mandatory")
+
+
+class _MscDpnGateUtpFramerAdminState_Type(Integer32):
+    """Custom type mscDpnGateUtpFramerAdminState based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("locked", 0),
+          ("shuttingDown", 2),
+          ("unlocked", 1))
+    )
+
+
+_MscDpnGateUtpFramerAdminState_Type.__name__ = "Integer32"
+_MscDpnGateUtpFramerAdminState_Object = MibTableColumn
+mscDpnGateUtpFramerAdminState = _MscDpnGateUtpFramerAdminState_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 12, 1, 1),
+    _MscDpnGateUtpFramerAdminState_Type()
+)
+mscDpnGateUtpFramerAdminState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerAdminState.setStatus("mandatory")
+
+
+class _MscDpnGateUtpFramerOperationalState_Type(Integer32):
+    """Custom type mscDpnGateUtpFramerOperationalState based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 0),
+          ("enabled", 1))
+    )
+
+
+_MscDpnGateUtpFramerOperationalState_Type.__name__ = "Integer32"
+_MscDpnGateUtpFramerOperationalState_Object = MibTableColumn
+mscDpnGateUtpFramerOperationalState = _MscDpnGateUtpFramerOperationalState_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 12, 1, 2),
+    _MscDpnGateUtpFramerOperationalState_Type()
+)
+mscDpnGateUtpFramerOperationalState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerOperationalState.setStatus("mandatory")
+
+
+class _MscDpnGateUtpFramerUsageState_Type(Integer32):
+    """Custom type mscDpnGateUtpFramerUsageState based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 1),
+          ("busy", 2),
+          ("idle", 0))
+    )
+
+
+_MscDpnGateUtpFramerUsageState_Type.__name__ = "Integer32"
+_MscDpnGateUtpFramerUsageState_Object = MibTableColumn
+mscDpnGateUtpFramerUsageState = _MscDpnGateUtpFramerUsageState_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 12, 1, 3),
+    _MscDpnGateUtpFramerUsageState_Type()
+)
+mscDpnGateUtpFramerUsageState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerUsageState.setStatus("mandatory")
+_MscDpnGateUtpFramerStatsTable_Object = MibTable
+mscDpnGateUtpFramerStatsTable = _MscDpnGateUtpFramerStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 13)
+)
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerStatsTable.setStatus("mandatory")
+_MscDpnGateUtpFramerStatsEntry_Object = MibTableRow
+mscDpnGateUtpFramerStatsEntry = _MscDpnGateUtpFramerStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 13, 1)
+)
+mscDpnGateUtpFramerStatsEntry.setIndexNames(
+    (0, "Nortel-MsCarrier-MscPassport-DpnTrunksMIB", "mscDpnGateIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", "mscDpnGateUtpIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", "mscDpnGateUtpFramerIndex"),
+)
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerStatsEntry.setStatus("mandatory")
+_MscDpnGateUtpFramerFrmToIf_Type = Counter32
+_MscDpnGateUtpFramerFrmToIf_Object = MibTableColumn
+mscDpnGateUtpFramerFrmToIf = _MscDpnGateUtpFramerFrmToIf_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 13, 1, 1),
+    _MscDpnGateUtpFramerFrmToIf_Type()
+)
+mscDpnGateUtpFramerFrmToIf.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerFrmToIf.setStatus("obsolete")
+_MscDpnGateUtpFramerFrmFromIf_Type = Counter32
+_MscDpnGateUtpFramerFrmFromIf_Object = MibTableColumn
+mscDpnGateUtpFramerFrmFromIf = _MscDpnGateUtpFramerFrmFromIf_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 13, 1, 2),
+    _MscDpnGateUtpFramerFrmFromIf_Type()
+)
+mscDpnGateUtpFramerFrmFromIf.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerFrmFromIf.setStatus("obsolete")
+_MscDpnGateUtpFramerOctetFromIf_Type = Counter32
+_MscDpnGateUtpFramerOctetFromIf_Object = MibTableColumn
+mscDpnGateUtpFramerOctetFromIf = _MscDpnGateUtpFramerOctetFromIf_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 13, 1, 3),
+    _MscDpnGateUtpFramerOctetFromIf_Type()
+)
+mscDpnGateUtpFramerOctetFromIf.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerOctetFromIf.setStatus("obsolete")
+_MscDpnGateUtpFramerAborts_Type = Counter32
+_MscDpnGateUtpFramerAborts_Object = MibTableColumn
+mscDpnGateUtpFramerAborts = _MscDpnGateUtpFramerAborts_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 13, 1, 4),
+    _MscDpnGateUtpFramerAborts_Type()
+)
+mscDpnGateUtpFramerAborts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerAborts.setStatus("mandatory")
+_MscDpnGateUtpFramerCrcErrors_Type = Counter32
+_MscDpnGateUtpFramerCrcErrors_Object = MibTableColumn
+mscDpnGateUtpFramerCrcErrors = _MscDpnGateUtpFramerCrcErrors_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 13, 1, 5),
+    _MscDpnGateUtpFramerCrcErrors_Type()
+)
+mscDpnGateUtpFramerCrcErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerCrcErrors.setStatus("mandatory")
+_MscDpnGateUtpFramerLrcErrors_Type = Counter32
+_MscDpnGateUtpFramerLrcErrors_Object = MibTableColumn
+mscDpnGateUtpFramerLrcErrors = _MscDpnGateUtpFramerLrcErrors_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 13, 1, 6),
+    _MscDpnGateUtpFramerLrcErrors_Type()
+)
+mscDpnGateUtpFramerLrcErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerLrcErrors.setStatus("mandatory")
+_MscDpnGateUtpFramerNonOctetErrors_Type = Counter32
+_MscDpnGateUtpFramerNonOctetErrors_Object = MibTableColumn
+mscDpnGateUtpFramerNonOctetErrors = _MscDpnGateUtpFramerNonOctetErrors_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 13, 1, 7),
+    _MscDpnGateUtpFramerNonOctetErrors_Type()
+)
+mscDpnGateUtpFramerNonOctetErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerNonOctetErrors.setStatus("mandatory")
+_MscDpnGateUtpFramerOverruns_Type = Counter32
+_MscDpnGateUtpFramerOverruns_Object = MibTableColumn
+mscDpnGateUtpFramerOverruns = _MscDpnGateUtpFramerOverruns_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 13, 1, 8),
+    _MscDpnGateUtpFramerOverruns_Type()
+)
+mscDpnGateUtpFramerOverruns.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerOverruns.setStatus("mandatory")
+_MscDpnGateUtpFramerUnderruns_Type = Counter32
+_MscDpnGateUtpFramerUnderruns_Object = MibTableColumn
+mscDpnGateUtpFramerUnderruns = _MscDpnGateUtpFramerUnderruns_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 13, 1, 9),
+    _MscDpnGateUtpFramerUnderruns_Type()
+)
+mscDpnGateUtpFramerUnderruns.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerUnderruns.setStatus("mandatory")
+_MscDpnGateUtpFramerLargeFrmErrors_Type = Counter32
+_MscDpnGateUtpFramerLargeFrmErrors_Object = MibTableColumn
+mscDpnGateUtpFramerLargeFrmErrors = _MscDpnGateUtpFramerLargeFrmErrors_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 13, 1, 10),
+    _MscDpnGateUtpFramerLargeFrmErrors_Type()
+)
+mscDpnGateUtpFramerLargeFrmErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerLargeFrmErrors.setStatus("mandatory")
+_MscDpnGateUtpFramerFrmModeErrors_Type = Counter32
+_MscDpnGateUtpFramerFrmModeErrors_Object = MibTableColumn
+mscDpnGateUtpFramerFrmModeErrors = _MscDpnGateUtpFramerFrmModeErrors_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 13, 1, 11),
+    _MscDpnGateUtpFramerFrmModeErrors_Type()
+)
+mscDpnGateUtpFramerFrmModeErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerFrmModeErrors.setStatus("mandatory")
+_MscDpnGateUtpFramerOutOfSequenceFrm_Type = Counter32
+_MscDpnGateUtpFramerOutOfSequenceFrm_Object = MibTableColumn
+mscDpnGateUtpFramerOutOfSequenceFrm = _MscDpnGateUtpFramerOutOfSequenceFrm_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 13, 1, 12),
+    _MscDpnGateUtpFramerOutOfSequenceFrm_Type()
+)
+mscDpnGateUtpFramerOutOfSequenceFrm.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerOutOfSequenceFrm.setStatus("mandatory")
+_MscDpnGateUtpFramerRepeatedFrm_Type = Counter32
+_MscDpnGateUtpFramerRepeatedFrm_Object = MibTableColumn
+mscDpnGateUtpFramerRepeatedFrm = _MscDpnGateUtpFramerRepeatedFrm_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 13, 1, 13),
+    _MscDpnGateUtpFramerRepeatedFrm_Type()
+)
+mscDpnGateUtpFramerRepeatedFrm.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerRepeatedFrm.setStatus("mandatory")
+_MscDpnGateUtpFramerFrmToIf64_Type = PassportCounter64
+_MscDpnGateUtpFramerFrmToIf64_Object = MibTableColumn
+mscDpnGateUtpFramerFrmToIf64 = _MscDpnGateUtpFramerFrmToIf64_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 13, 1, 14),
+    _MscDpnGateUtpFramerFrmToIf64_Type()
+)
+mscDpnGateUtpFramerFrmToIf64.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerFrmToIf64.setStatus("mandatory")
+_MscDpnGateUtpFramerFrmFromIf64_Type = PassportCounter64
+_MscDpnGateUtpFramerFrmFromIf64_Object = MibTableColumn
+mscDpnGateUtpFramerFrmFromIf64 = _MscDpnGateUtpFramerFrmFromIf64_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 13, 1, 15),
+    _MscDpnGateUtpFramerFrmFromIf64_Type()
+)
+mscDpnGateUtpFramerFrmFromIf64.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerFrmFromIf64.setStatus("mandatory")
+_MscDpnGateUtpFramerOctetFromIf64_Type = PassportCounter64
+_MscDpnGateUtpFramerOctetFromIf64_Object = MibTableColumn
+mscDpnGateUtpFramerOctetFromIf64 = _MscDpnGateUtpFramerOctetFromIf64_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 13, 1, 16),
+    _MscDpnGateUtpFramerOctetFromIf64_Type()
+)
+mscDpnGateUtpFramerOctetFromIf64.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerOctetFromIf64.setStatus("mandatory")
+_MscDpnGateUtpFramerUtilTable_Object = MibTable
+mscDpnGateUtpFramerUtilTable = _MscDpnGateUtpFramerUtilTable_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 14)
+)
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerUtilTable.setStatus("mandatory")
+_MscDpnGateUtpFramerUtilEntry_Object = MibTableRow
+mscDpnGateUtpFramerUtilEntry = _MscDpnGateUtpFramerUtilEntry_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 14, 1)
+)
+mscDpnGateUtpFramerUtilEntry.setIndexNames(
+    (0, "Nortel-MsCarrier-MscPassport-DpnTrunksMIB", "mscDpnGateIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", "mscDpnGateUtpIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", "mscDpnGateUtpFramerIndex"),
+)
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerUtilEntry.setStatus("mandatory")
+
+
+class _MscDpnGateUtpFramerNormPrioLinkUtilToIf_Type(Gauge32):
+    """Custom type mscDpnGateUtpFramerNormPrioLinkUtilToIf based on Gauge32"""
+    defaultValue = 0
+
+    subtypeSpec = Gauge32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+_MscDpnGateUtpFramerNormPrioLinkUtilToIf_Type.__name__ = "Gauge32"
+_MscDpnGateUtpFramerNormPrioLinkUtilToIf_Object = MibTableColumn
+mscDpnGateUtpFramerNormPrioLinkUtilToIf = _MscDpnGateUtpFramerNormPrioLinkUtilToIf_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 14, 1, 1),
+    _MscDpnGateUtpFramerNormPrioLinkUtilToIf_Type()
+)
+mscDpnGateUtpFramerNormPrioLinkUtilToIf.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerNormPrioLinkUtilToIf.setStatus("mandatory")
+
+
+class _MscDpnGateUtpFramerHighPrioLinkUtilToIf_Type(Gauge32):
+    """Custom type mscDpnGateUtpFramerHighPrioLinkUtilToIf based on Gauge32"""
+    defaultValue = 0
+
+    subtypeSpec = Gauge32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+_MscDpnGateUtpFramerHighPrioLinkUtilToIf_Type.__name__ = "Gauge32"
+_MscDpnGateUtpFramerHighPrioLinkUtilToIf_Object = MibTableColumn
+mscDpnGateUtpFramerHighPrioLinkUtilToIf = _MscDpnGateUtpFramerHighPrioLinkUtilToIf_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 14, 1, 2),
+    _MscDpnGateUtpFramerHighPrioLinkUtilToIf_Type()
+)
+mscDpnGateUtpFramerHighPrioLinkUtilToIf.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerHighPrioLinkUtilToIf.setStatus("mandatory")
+
+
+class _MscDpnGateUtpFramerNormPrioLinkUtilFromIf_Type(Gauge32):
+    """Custom type mscDpnGateUtpFramerNormPrioLinkUtilFromIf based on Gauge32"""
+    defaultValue = 0
+
+    subtypeSpec = Gauge32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+_MscDpnGateUtpFramerNormPrioLinkUtilFromIf_Type.__name__ = "Gauge32"
+_MscDpnGateUtpFramerNormPrioLinkUtilFromIf_Object = MibTableColumn
+mscDpnGateUtpFramerNormPrioLinkUtilFromIf = _MscDpnGateUtpFramerNormPrioLinkUtilFromIf_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 14, 1, 3),
+    _MscDpnGateUtpFramerNormPrioLinkUtilFromIf_Type()
+)
+mscDpnGateUtpFramerNormPrioLinkUtilFromIf.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerNormPrioLinkUtilFromIf.setStatus("mandatory")
+
+
+class _MscDpnGateUtpFramerHighPrioLinkUtilFromIf_Type(Gauge32):
+    """Custom type mscDpnGateUtpFramerHighPrioLinkUtilFromIf based on Gauge32"""
+    defaultValue = 0
+
+    subtypeSpec = Gauge32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+_MscDpnGateUtpFramerHighPrioLinkUtilFromIf_Type.__name__ = "Gauge32"
+_MscDpnGateUtpFramerHighPrioLinkUtilFromIf_Object = MibTableColumn
+mscDpnGateUtpFramerHighPrioLinkUtilFromIf = _MscDpnGateUtpFramerHighPrioLinkUtilFromIf_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 14, 1, 4),
+    _MscDpnGateUtpFramerHighPrioLinkUtilFromIf_Type()
+)
+mscDpnGateUtpFramerHighPrioLinkUtilFromIf.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerHighPrioLinkUtilFromIf.setStatus("mandatory")
+_MscDpnGateUtpFramerUtilThresholdTable_Object = MibTable
+mscDpnGateUtpFramerUtilThresholdTable = _MscDpnGateUtpFramerUtilThresholdTable_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 15)
+)
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerUtilThresholdTable.setStatus("mandatory")
+_MscDpnGateUtpFramerUtilThresholdEntry_Object = MibTableRow
+mscDpnGateUtpFramerUtilThresholdEntry = _MscDpnGateUtpFramerUtilThresholdEntry_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 15, 1)
+)
+mscDpnGateUtpFramerUtilThresholdEntry.setIndexNames(
+    (0, "Nortel-MsCarrier-MscPassport-DpnTrunksMIB", "mscDpnGateIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", "mscDpnGateUtpIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", "mscDpnGateUtpFramerIndex"),
+)
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerUtilThresholdEntry.setStatus("mandatory")
+
+
+class _MscDpnGateUtpFramerMinorLinkUtilAlarmThreshold_Type(Unsigned32):
+    """Custom type mscDpnGateUtpFramerMinorLinkUtilAlarmThreshold based on Unsigned32"""
+    defaultValue = 75
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+_MscDpnGateUtpFramerMinorLinkUtilAlarmThreshold_Type.__name__ = "Unsigned32"
+_MscDpnGateUtpFramerMinorLinkUtilAlarmThreshold_Object = MibTableColumn
+mscDpnGateUtpFramerMinorLinkUtilAlarmThreshold = _MscDpnGateUtpFramerMinorLinkUtilAlarmThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 15, 1, 1),
+    _MscDpnGateUtpFramerMinorLinkUtilAlarmThreshold_Type()
+)
+mscDpnGateUtpFramerMinorLinkUtilAlarmThreshold.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerMinorLinkUtilAlarmThreshold.setStatus("mandatory")
+
+
+class _MscDpnGateUtpFramerMajorLinkUtilAlarmThreshold_Type(Unsigned32):
+    """Custom type mscDpnGateUtpFramerMajorLinkUtilAlarmThreshold based on Unsigned32"""
+    defaultValue = 85
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+_MscDpnGateUtpFramerMajorLinkUtilAlarmThreshold_Type.__name__ = "Unsigned32"
+_MscDpnGateUtpFramerMajorLinkUtilAlarmThreshold_Object = MibTableColumn
+mscDpnGateUtpFramerMajorLinkUtilAlarmThreshold = _MscDpnGateUtpFramerMajorLinkUtilAlarmThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 15, 1, 2),
+    _MscDpnGateUtpFramerMajorLinkUtilAlarmThreshold_Type()
+)
+mscDpnGateUtpFramerMajorLinkUtilAlarmThreshold.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerMajorLinkUtilAlarmThreshold.setStatus("mandatory")
+
+
+class _MscDpnGateUtpFramerCriticalLinkUtilAlarmThreshold_Type(Unsigned32):
+    """Custom type mscDpnGateUtpFramerCriticalLinkUtilAlarmThreshold based on Unsigned32"""
+    defaultValue = 95
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+_MscDpnGateUtpFramerCriticalLinkUtilAlarmThreshold_Type.__name__ = "Unsigned32"
+_MscDpnGateUtpFramerCriticalLinkUtilAlarmThreshold_Object = MibTableColumn
+mscDpnGateUtpFramerCriticalLinkUtilAlarmThreshold = _MscDpnGateUtpFramerCriticalLinkUtilAlarmThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 15, 1, 3),
+    _MscDpnGateUtpFramerCriticalLinkUtilAlarmThreshold_Type()
+)
+mscDpnGateUtpFramerCriticalLinkUtilAlarmThreshold.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerCriticalLinkUtilAlarmThreshold.setStatus("mandatory")
+
+
+class _MscDpnGateUtpFramerLinkUtilAlarmStatus_Type(Integer32):
+    """Custom type mscDpnGateUtpFramerLinkUtilAlarmStatus based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 0),
+          ("enabled", 1))
+    )
+
+
+_MscDpnGateUtpFramerLinkUtilAlarmStatus_Type.__name__ = "Integer32"
+_MscDpnGateUtpFramerLinkUtilAlarmStatus_Object = MibTableColumn
+mscDpnGateUtpFramerLinkUtilAlarmStatus = _MscDpnGateUtpFramerLinkUtilAlarmStatus_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 2, 15, 1, 4),
+    _MscDpnGateUtpFramerLinkUtilAlarmStatus_Type()
+)
+mscDpnGateUtpFramerLinkUtilAlarmStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFramerLinkUtilAlarmStatus.setStatus("mandatory")
+_MscDpnGateUtpProvTable_Object = MibTable
+mscDpnGateUtpProvTable = _MscDpnGateUtpProvTable_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 10)
+)
+if mibBuilder.loadTexts:
+    mscDpnGateUtpProvTable.setStatus("mandatory")
+_MscDpnGateUtpProvEntry_Object = MibTableRow
+mscDpnGateUtpProvEntry = _MscDpnGateUtpProvEntry_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 10, 1)
+)
+mscDpnGateUtpProvEntry.setIndexNames(
+    (0, "Nortel-MsCarrier-MscPassport-DpnTrunksMIB", "mscDpnGateIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", "mscDpnGateUtpIndex"),
+)
+if mibBuilder.loadTexts:
+    mscDpnGateUtpProvEntry.setStatus("mandatory")
+
+
+class _MscDpnGateUtpMaximumErroredInterval_Type(Unsigned32):
+    """Custom type mscDpnGateUtpMaximumErroredInterval based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(1, 15),
+    )
+
+
+_MscDpnGateUtpMaximumErroredInterval_Type.__name__ = "Unsigned32"
+_MscDpnGateUtpMaximumErroredInterval_Object = MibTableColumn
+mscDpnGateUtpMaximumErroredInterval = _MscDpnGateUtpMaximumErroredInterval_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 10, 1, 1),
+    _MscDpnGateUtpMaximumErroredInterval_Type()
+)
+mscDpnGateUtpMaximumErroredInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpMaximumErroredInterval.setStatus("mandatory")
+
+
+class _MscDpnGateUtpReceiveErrorSensitivity_Type(Unsigned32):
+    """Custom type mscDpnGateUtpReceiveErrorSensitivity based on Unsigned32"""
+    defaultValue = 3
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(1, 10),
+    )
+
+
+_MscDpnGateUtpReceiveErrorSensitivity_Type.__name__ = "Unsigned32"
+_MscDpnGateUtpReceiveErrorSensitivity_Object = MibTableColumn
+mscDpnGateUtpReceiveErrorSensitivity = _MscDpnGateUtpReceiveErrorSensitivity_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 10, 1, 2),
+    _MscDpnGateUtpReceiveErrorSensitivity_Type()
+)
+mscDpnGateUtpReceiveErrorSensitivity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpReceiveErrorSensitivity.setStatus("mandatory")
+_MscDpnGateUtpStateTable_Object = MibTable
+mscDpnGateUtpStateTable = _MscDpnGateUtpStateTable_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 11)
+)
+if mibBuilder.loadTexts:
+    mscDpnGateUtpStateTable.setStatus("mandatory")
+_MscDpnGateUtpStateEntry_Object = MibTableRow
+mscDpnGateUtpStateEntry = _MscDpnGateUtpStateEntry_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 11, 1)
+)
+mscDpnGateUtpStateEntry.setIndexNames(
+    (0, "Nortel-MsCarrier-MscPassport-DpnTrunksMIB", "mscDpnGateIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", "mscDpnGateUtpIndex"),
+)
+if mibBuilder.loadTexts:
+    mscDpnGateUtpStateEntry.setStatus("mandatory")
+
+
+class _MscDpnGateUtpAdminState_Type(Integer32):
+    """Custom type mscDpnGateUtpAdminState based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("locked", 0),
+          ("shuttingDown", 2),
+          ("unlocked", 1))
+    )
+
+
+_MscDpnGateUtpAdminState_Type.__name__ = "Integer32"
+_MscDpnGateUtpAdminState_Object = MibTableColumn
+mscDpnGateUtpAdminState = _MscDpnGateUtpAdminState_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 11, 1, 1),
+    _MscDpnGateUtpAdminState_Type()
+)
+mscDpnGateUtpAdminState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpAdminState.setStatus("mandatory")
+
+
+class _MscDpnGateUtpOperationalState_Type(Integer32):
+    """Custom type mscDpnGateUtpOperationalState based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 0),
+          ("enabled", 1))
+    )
+
+
+_MscDpnGateUtpOperationalState_Type.__name__ = "Integer32"
+_MscDpnGateUtpOperationalState_Object = MibTableColumn
+mscDpnGateUtpOperationalState = _MscDpnGateUtpOperationalState_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 11, 1, 2),
+    _MscDpnGateUtpOperationalState_Type()
+)
+mscDpnGateUtpOperationalState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpOperationalState.setStatus("mandatory")
+
+
+class _MscDpnGateUtpUsageState_Type(Integer32):
+    """Custom type mscDpnGateUtpUsageState based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 1),
+          ("busy", 2),
+          ("idle", 0))
+    )
+
+
+_MscDpnGateUtpUsageState_Type.__name__ = "Integer32"
+_MscDpnGateUtpUsageState_Object = MibTableColumn
+mscDpnGateUtpUsageState = _MscDpnGateUtpUsageState_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 11, 1, 3),
+    _MscDpnGateUtpUsageState_Type()
+)
+mscDpnGateUtpUsageState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpUsageState.setStatus("mandatory")
+
+
+class _MscDpnGateUtpAvailabilityStatus_Type(OctetString):
+    """Custom type mscDpnGateUtpAvailabilityStatus based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 2),
+    )
+
+
+_MscDpnGateUtpAvailabilityStatus_Type.__name__ = "OctetString"
+_MscDpnGateUtpAvailabilityStatus_Object = MibTableColumn
+mscDpnGateUtpAvailabilityStatus = _MscDpnGateUtpAvailabilityStatus_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 11, 1, 4),
+    _MscDpnGateUtpAvailabilityStatus_Type()
+)
+mscDpnGateUtpAvailabilityStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpAvailabilityStatus.setStatus("mandatory")
+
+
+class _MscDpnGateUtpProceduralStatus_Type(OctetString):
+    """Custom type mscDpnGateUtpProceduralStatus based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 1),
+    )
+
+
+_MscDpnGateUtpProceduralStatus_Type.__name__ = "OctetString"
+_MscDpnGateUtpProceduralStatus_Object = MibTableColumn
+mscDpnGateUtpProceduralStatus = _MscDpnGateUtpProceduralStatus_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 11, 1, 5),
+    _MscDpnGateUtpProceduralStatus_Type()
+)
+mscDpnGateUtpProceduralStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpProceduralStatus.setStatus("mandatory")
+
+
+class _MscDpnGateUtpControlStatus_Type(OctetString):
+    """Custom type mscDpnGateUtpControlStatus based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 1),
+    )
+
+
+_MscDpnGateUtpControlStatus_Type.__name__ = "OctetString"
+_MscDpnGateUtpControlStatus_Object = MibTableColumn
+mscDpnGateUtpControlStatus = _MscDpnGateUtpControlStatus_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 11, 1, 6),
+    _MscDpnGateUtpControlStatus_Type()
+)
+mscDpnGateUtpControlStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpControlStatus.setStatus("mandatory")
+
+
+class _MscDpnGateUtpAlarmStatus_Type(OctetString):
+    """Custom type mscDpnGateUtpAlarmStatus based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 1),
+    )
+
+
+_MscDpnGateUtpAlarmStatus_Type.__name__ = "OctetString"
+_MscDpnGateUtpAlarmStatus_Object = MibTableColumn
+mscDpnGateUtpAlarmStatus = _MscDpnGateUtpAlarmStatus_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 11, 1, 7),
+    _MscDpnGateUtpAlarmStatus_Type()
+)
+mscDpnGateUtpAlarmStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpAlarmStatus.setStatus("mandatory")
+
+
+class _MscDpnGateUtpStandbyStatus_Type(Integer32):
+    """Custom type mscDpnGateUtpStandbyStatus based on Integer32"""
+    defaultValue = 15
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              15)
+        )
+    )
+    namedValues = NamedValues(
+        *(("coldStandby", 1),
+          ("hotStandby", 0),
+          ("notSet", 15),
+          ("providingService", 2))
+    )
+
+
+_MscDpnGateUtpStandbyStatus_Type.__name__ = "Integer32"
+_MscDpnGateUtpStandbyStatus_Object = MibTableColumn
+mscDpnGateUtpStandbyStatus = _MscDpnGateUtpStandbyStatus_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 11, 1, 8),
+    _MscDpnGateUtpStandbyStatus_Type()
+)
+mscDpnGateUtpStandbyStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpStandbyStatus.setStatus("mandatory")
+
+
+class _MscDpnGateUtpUnknownStatus_Type(Integer32):
+    """Custom type mscDpnGateUtpUnknownStatus based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("false", 0),
+          ("true", 1))
+    )
+
+
+_MscDpnGateUtpUnknownStatus_Type.__name__ = "Integer32"
+_MscDpnGateUtpUnknownStatus_Object = MibTableColumn
+mscDpnGateUtpUnknownStatus = _MscDpnGateUtpUnknownStatus_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 11, 1, 9),
+    _MscDpnGateUtpUnknownStatus_Type()
+)
+mscDpnGateUtpUnknownStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpUnknownStatus.setStatus("mandatory")
+_MscDpnGateUtpOpTable_Object = MibTable
+mscDpnGateUtpOpTable = _MscDpnGateUtpOpTable_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 12)
+)
+if mibBuilder.loadTexts:
+    mscDpnGateUtpOpTable.setStatus("mandatory")
+_MscDpnGateUtpOpEntry_Object = MibTableRow
+mscDpnGateUtpOpEntry = _MscDpnGateUtpOpEntry_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 12, 1)
+)
+mscDpnGateUtpOpEntry.setIndexNames(
+    (0, "Nortel-MsCarrier-MscPassport-DpnTrunksMIB", "mscDpnGateIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", "mscDpnGateUtpIndex"),
+)
+if mibBuilder.loadTexts:
+    mscDpnGateUtpOpEntry.setStatus("mandatory")
+
+
+class _MscDpnGateUtpRoundTripDelay_Type(Gauge32):
+    """Custom type mscDpnGateUtpRoundTripDelay based on Gauge32"""
+    subtypeSpec = Gauge32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1500),
+    )
+
+
+_MscDpnGateUtpRoundTripDelay_Type.__name__ = "Gauge32"
+_MscDpnGateUtpRoundTripDelay_Object = MibTableColumn
+mscDpnGateUtpRoundTripDelay = _MscDpnGateUtpRoundTripDelay_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 12, 1, 1),
+    _MscDpnGateUtpRoundTripDelay_Type()
+)
+mscDpnGateUtpRoundTripDelay.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpRoundTripDelay.setStatus("mandatory")
+_MscDpnGateUtpStatsTable_Object = MibTable
+mscDpnGateUtpStatsTable = _MscDpnGateUtpStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 13)
+)
+if mibBuilder.loadTexts:
+    mscDpnGateUtpStatsTable.setStatus("mandatory")
+_MscDpnGateUtpStatsEntry_Object = MibTableRow
+mscDpnGateUtpStatsEntry = _MscDpnGateUtpStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 13, 1)
+)
+mscDpnGateUtpStatsEntry.setIndexNames(
+    (0, "Nortel-MsCarrier-MscPassport-DpnTrunksMIB", "mscDpnGateIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB", "mscDpnGateUtpIndex"),
+)
+if mibBuilder.loadTexts:
+    mscDpnGateUtpStatsEntry.setStatus("mandatory")
+_MscDpnGateUtpDiscardBadFromIf_Type = Counter32
+_MscDpnGateUtpDiscardBadFromIf_Object = MibTableColumn
+mscDpnGateUtpDiscardBadFromIf = _MscDpnGateUtpDiscardBadFromIf_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 13, 1, 1),
+    _MscDpnGateUtpDiscardBadFromIf_Type()
+)
+mscDpnGateUtpDiscardBadFromIf.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpDiscardBadFromIf.setStatus("mandatory")
+_MscDpnGateUtpDiscardExcessToIf_Type = Counter32
+_MscDpnGateUtpDiscardExcessToIf_Object = MibTableColumn
+mscDpnGateUtpDiscardExcessToIf = _MscDpnGateUtpDiscardExcessToIf_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 13, 1, 2),
+    _MscDpnGateUtpDiscardExcessToIf_Type()
+)
+mscDpnGateUtpDiscardExcessToIf.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpDiscardExcessToIf.setStatus("mandatory")
+_MscDpnGateUtpFrmRexmtToIf_Type = Counter32
+_MscDpnGateUtpFrmRexmtToIf_Object = MibTableColumn
+mscDpnGateUtpFrmRexmtToIf = _MscDpnGateUtpFrmRexmtToIf_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 13, 1, 3),
+    _MscDpnGateUtpFrmRexmtToIf_Type()
+)
+mscDpnGateUtpFrmRexmtToIf.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpFrmRexmtToIf.setStatus("mandatory")
+_MscDpnGateUtpAreYouThereModeEntries_Type = Counter32
+_MscDpnGateUtpAreYouThereModeEntries_Object = MibTableColumn
+mscDpnGateUtpAreYouThereModeEntries = _MscDpnGateUtpAreYouThereModeEntries_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 13, 1, 4),
+    _MscDpnGateUtpAreYouThereModeEntries_Type()
+)
+mscDpnGateUtpAreYouThereModeEntries.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpAreYouThereModeEntries.setStatus("mandatory")
+_MscDpnGateUtpWindowClosures_Type = Counter32
+_MscDpnGateUtpWindowClosures_Object = MibTableColumn
+mscDpnGateUtpWindowClosures = _MscDpnGateUtpWindowClosures_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 61, 2, 13, 1, 5),
+    _MscDpnGateUtpWindowClosures_Type()
+)
+mscDpnGateUtpWindowClosures.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscDpnGateUtpWindowClosures.setStatus("mandatory")
+_UtpDpnTrunksMIB_ObjectIdentity = ObjectIdentity
+utpDpnTrunksMIB = _UtpDpnTrunksMIB_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 67)
+)
+_UtpDpnTrunksGroup_ObjectIdentity = ObjectIdentity
+utpDpnTrunksGroup = _UtpDpnTrunksGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 67, 1)
+)
+_UtpDpnTrunksGroupCA_ObjectIdentity = ObjectIdentity
+utpDpnTrunksGroupCA = _UtpDpnTrunksGroupCA_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 67, 1, 1)
+)
+_UtpDpnTrunksGroupCA02_ObjectIdentity = ObjectIdentity
+utpDpnTrunksGroupCA02 = _UtpDpnTrunksGroupCA02_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 67, 1, 1, 3)
+)
+_UtpDpnTrunksGroupCA02A_ObjectIdentity = ObjectIdentity
+utpDpnTrunksGroupCA02A = _UtpDpnTrunksGroupCA02A_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 67, 1, 1, 3, 2)
+)
+_UtpDpnTrunksCapabilities_ObjectIdentity = ObjectIdentity
+utpDpnTrunksCapabilities = _UtpDpnTrunksCapabilities_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 67, 3)
+)
+_UtpDpnTrunksCapabilitiesCA_ObjectIdentity = ObjectIdentity
+utpDpnTrunksCapabilitiesCA = _UtpDpnTrunksCapabilitiesCA_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 67, 3, 1)
+)
+_UtpDpnTrunksCapabilitiesCA02_ObjectIdentity = ObjectIdentity
+utpDpnTrunksCapabilitiesCA02 = _UtpDpnTrunksCapabilitiesCA02_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 67, 3, 1, 3)
+)
+_UtpDpnTrunksCapabilitiesCA02A_ObjectIdentity = ObjectIdentity
+utpDpnTrunksCapabilitiesCA02A = _UtpDpnTrunksCapabilitiesCA02A_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 67, 3, 1, 3, 2)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "Nortel-MsCarrier-MscPassport-UtpDpnTrunksMIB",
+    **{"mscDpnGateUtp": mscDpnGateUtp,
+       "mscDpnGateUtpRowStatusTable": mscDpnGateUtpRowStatusTable,
+       "mscDpnGateUtpRowStatusEntry": mscDpnGateUtpRowStatusEntry,
+       "mscDpnGateUtpRowStatus": mscDpnGateUtpRowStatus,
+       "mscDpnGateUtpComponentName": mscDpnGateUtpComponentName,
+       "mscDpnGateUtpStorageType": mscDpnGateUtpStorageType,
+       "mscDpnGateUtpIndex": mscDpnGateUtpIndex,
+       "mscDpnGateUtpFramer": mscDpnGateUtpFramer,
+       "mscDpnGateUtpFramerRowStatusTable": mscDpnGateUtpFramerRowStatusTable,
+       "mscDpnGateUtpFramerRowStatusEntry": mscDpnGateUtpFramerRowStatusEntry,
+       "mscDpnGateUtpFramerRowStatus": mscDpnGateUtpFramerRowStatus,
+       "mscDpnGateUtpFramerComponentName": mscDpnGateUtpFramerComponentName,
+       "mscDpnGateUtpFramerStorageType": mscDpnGateUtpFramerStorageType,
+       "mscDpnGateUtpFramerIndex": mscDpnGateUtpFramerIndex,
+       "mscDpnGateUtpFramerProvTable": mscDpnGateUtpFramerProvTable,
+       "mscDpnGateUtpFramerProvEntry": mscDpnGateUtpFramerProvEntry,
+       "mscDpnGateUtpFramerInterfaceName": mscDpnGateUtpFramerInterfaceName,
+       "mscDpnGateUtpFramerLinkTable": mscDpnGateUtpFramerLinkTable,
+       "mscDpnGateUtpFramerLinkEntry": mscDpnGateUtpFramerLinkEntry,
+       "mscDpnGateUtpFramerFramingType": mscDpnGateUtpFramerFramingType,
+       "mscDpnGateUtpFramerDataInversion": mscDpnGateUtpFramerDataInversion,
+       "mscDpnGateUtpFramerFrameCrcType": mscDpnGateUtpFramerFrameCrcType,
+       "mscDpnGateUtpFramerFlagsBetweenFrames": mscDpnGateUtpFramerFlagsBetweenFrames,
+       "mscDpnGateUtpFramerStateTable": mscDpnGateUtpFramerStateTable,
+       "mscDpnGateUtpFramerStateEntry": mscDpnGateUtpFramerStateEntry,
+       "mscDpnGateUtpFramerAdminState": mscDpnGateUtpFramerAdminState,
+       "mscDpnGateUtpFramerOperationalState": mscDpnGateUtpFramerOperationalState,
+       "mscDpnGateUtpFramerUsageState": mscDpnGateUtpFramerUsageState,
+       "mscDpnGateUtpFramerStatsTable": mscDpnGateUtpFramerStatsTable,
+       "mscDpnGateUtpFramerStatsEntry": mscDpnGateUtpFramerStatsEntry,
+       "mscDpnGateUtpFramerFrmToIf": mscDpnGateUtpFramerFrmToIf,
+       "mscDpnGateUtpFramerFrmFromIf": mscDpnGateUtpFramerFrmFromIf,
+       "mscDpnGateUtpFramerOctetFromIf": mscDpnGateUtpFramerOctetFromIf,
+       "mscDpnGateUtpFramerAborts": mscDpnGateUtpFramerAborts,
+       "mscDpnGateUtpFramerCrcErrors": mscDpnGateUtpFramerCrcErrors,
+       "mscDpnGateUtpFramerLrcErrors": mscDpnGateUtpFramerLrcErrors,
+       "mscDpnGateUtpFramerNonOctetErrors": mscDpnGateUtpFramerNonOctetErrors,
+       "mscDpnGateUtpFramerOverruns": mscDpnGateUtpFramerOverruns,
+       "mscDpnGateUtpFramerUnderruns": mscDpnGateUtpFramerUnderruns,
+       "mscDpnGateUtpFramerLargeFrmErrors": mscDpnGateUtpFramerLargeFrmErrors,
+       "mscDpnGateUtpFramerFrmModeErrors": mscDpnGateUtpFramerFrmModeErrors,
+       "mscDpnGateUtpFramerOutOfSequenceFrm": mscDpnGateUtpFramerOutOfSequenceFrm,
+       "mscDpnGateUtpFramerRepeatedFrm": mscDpnGateUtpFramerRepeatedFrm,
+       "mscDpnGateUtpFramerFrmToIf64": mscDpnGateUtpFramerFrmToIf64,
+       "mscDpnGateUtpFramerFrmFromIf64": mscDpnGateUtpFramerFrmFromIf64,
+       "mscDpnGateUtpFramerOctetFromIf64": mscDpnGateUtpFramerOctetFromIf64,
+       "mscDpnGateUtpFramerUtilTable": mscDpnGateUtpFramerUtilTable,
+       "mscDpnGateUtpFramerUtilEntry": mscDpnGateUtpFramerUtilEntry,
+       "mscDpnGateUtpFramerNormPrioLinkUtilToIf": mscDpnGateUtpFramerNormPrioLinkUtilToIf,
+       "mscDpnGateUtpFramerHighPrioLinkUtilToIf": mscDpnGateUtpFramerHighPrioLinkUtilToIf,
+       "mscDpnGateUtpFramerNormPrioLinkUtilFromIf": mscDpnGateUtpFramerNormPrioLinkUtilFromIf,
+       "mscDpnGateUtpFramerHighPrioLinkUtilFromIf": mscDpnGateUtpFramerHighPrioLinkUtilFromIf,
+       "mscDpnGateUtpFramerUtilThresholdTable": mscDpnGateUtpFramerUtilThresholdTable,
+       "mscDpnGateUtpFramerUtilThresholdEntry": mscDpnGateUtpFramerUtilThresholdEntry,
+       "mscDpnGateUtpFramerMinorLinkUtilAlarmThreshold": mscDpnGateUtpFramerMinorLinkUtilAlarmThreshold,
+       "mscDpnGateUtpFramerMajorLinkUtilAlarmThreshold": mscDpnGateUtpFramerMajorLinkUtilAlarmThreshold,
+       "mscDpnGateUtpFramerCriticalLinkUtilAlarmThreshold": mscDpnGateUtpFramerCriticalLinkUtilAlarmThreshold,
+       "mscDpnGateUtpFramerLinkUtilAlarmStatus": mscDpnGateUtpFramerLinkUtilAlarmStatus,
+       "mscDpnGateUtpProvTable": mscDpnGateUtpProvTable,
+       "mscDpnGateUtpProvEntry": mscDpnGateUtpProvEntry,
+       "mscDpnGateUtpMaximumErroredInterval": mscDpnGateUtpMaximumErroredInterval,
+       "mscDpnGateUtpReceiveErrorSensitivity": mscDpnGateUtpReceiveErrorSensitivity,
+       "mscDpnGateUtpStateTable": mscDpnGateUtpStateTable,
+       "mscDpnGateUtpStateEntry": mscDpnGateUtpStateEntry,
+       "mscDpnGateUtpAdminState": mscDpnGateUtpAdminState,
+       "mscDpnGateUtpOperationalState": mscDpnGateUtpOperationalState,
+       "mscDpnGateUtpUsageState": mscDpnGateUtpUsageState,
+       "mscDpnGateUtpAvailabilityStatus": mscDpnGateUtpAvailabilityStatus,
+       "mscDpnGateUtpProceduralStatus": mscDpnGateUtpProceduralStatus,
+       "mscDpnGateUtpControlStatus": mscDpnGateUtpControlStatus,
+       "mscDpnGateUtpAlarmStatus": mscDpnGateUtpAlarmStatus,
+       "mscDpnGateUtpStandbyStatus": mscDpnGateUtpStandbyStatus,
+       "mscDpnGateUtpUnknownStatus": mscDpnGateUtpUnknownStatus,
+       "mscDpnGateUtpOpTable": mscDpnGateUtpOpTable,
+       "mscDpnGateUtpOpEntry": mscDpnGateUtpOpEntry,
+       "mscDpnGateUtpRoundTripDelay": mscDpnGateUtpRoundTripDelay,
+       "mscDpnGateUtpStatsTable": mscDpnGateUtpStatsTable,
+       "mscDpnGateUtpStatsEntry": mscDpnGateUtpStatsEntry,
+       "mscDpnGateUtpDiscardBadFromIf": mscDpnGateUtpDiscardBadFromIf,
+       "mscDpnGateUtpDiscardExcessToIf": mscDpnGateUtpDiscardExcessToIf,
+       "mscDpnGateUtpFrmRexmtToIf": mscDpnGateUtpFrmRexmtToIf,
+       "mscDpnGateUtpAreYouThereModeEntries": mscDpnGateUtpAreYouThereModeEntries,
+       "mscDpnGateUtpWindowClosures": mscDpnGateUtpWindowClosures,
+       "utpDpnTrunksMIB": utpDpnTrunksMIB,
+       "utpDpnTrunksGroup": utpDpnTrunksGroup,
+       "utpDpnTrunksGroupCA": utpDpnTrunksGroupCA,
+       "utpDpnTrunksGroupCA02": utpDpnTrunksGroupCA02,
+       "utpDpnTrunksGroupCA02A": utpDpnTrunksGroupCA02A,
+       "utpDpnTrunksCapabilities": utpDpnTrunksCapabilities,
+       "utpDpnTrunksCapabilitiesCA": utpDpnTrunksCapabilitiesCA,
+       "utpDpnTrunksCapabilitiesCA02": utpDpnTrunksCapabilitiesCA02,
+       "utpDpnTrunksCapabilitiesCA02A": utpDpnTrunksCapabilitiesCA02A}
+)

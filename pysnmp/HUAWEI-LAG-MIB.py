@@ -1,74 +1,477 @@
+# SNMP MIB module (HUAWEI-LAG-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HUAWEI-LAG-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/HUAWEI-LAG-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:34:07 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
-huaweiMgmt, huaweiDatacomm = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "huaweiMgmt", "huaweiDatacomm")
-PortList, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "PortList")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-Counter32, Bits, Integer32, ModuleIdentity, ObjectIdentity, Gauge32, Unsigned32, Counter64, IpAddress, iso, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Bits", "Integer32", "ModuleIdentity", "ObjectIdentity", "Gauge32", "Unsigned32", "Counter64", "IpAddress", "iso", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "NotificationType")
-RowStatus, DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TruthValue", "TextualConvention")
-hwLAG = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 5, 25, 25))
-if mibBuilder.loadTexts: hwLAG.setLastUpdated('200310091942Z')
-if mibBuilder.loadTexts: hwLAG.setOrganization('Hangzhou H3C Tech. Co., Ltd.')
-hwLAGMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 1))
-hwAggLinkTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 1, 1), )
-if mibBuilder.loadTexts: hwAggLinkTable.setStatus('current')
-hwAggLinkEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 1, 1, 1), ).setIndexNames((0, "HUAWEI-LAG-MIB", "hwAggLinkNumber"))
-if mibBuilder.loadTexts: hwAggLinkEntry.setStatus('current')
-hwAggLinkNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 1, 1, 1, 1), Integer32()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: hwAggLinkNumber.setStatus('current')
-hwAggLinkName = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 1, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hwAggLinkName.setStatus('current')
-hwAggLinkMode = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("manual", 1), ("static", 2), ("dynamic", 3)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hwAggLinkMode.setStatus('current')
-hwAggLinkPortList = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 1, 1, 1, 4), PortList()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hwAggLinkPortList.setStatus('current')
-hwAggLinkState = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 1, 1, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hwAggLinkState.setStatus('current')
-hwAggPortListSelectedPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 1, 1, 1, 6), PortList()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwAggPortListSelectedPorts.setStatus('current')
-hwAggPortListSamePartnerPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 1, 1, 1, 7), PortList()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwAggPortListSamePartnerPorts.setStatus('current')
-hwAggPortTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 1, 2), )
-if mibBuilder.loadTexts: hwAggPortTable.setStatus('current')
-hwAggPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 1, 2, 1), ).setIndexNames((0, "HUAWEI-LAG-MIB", "hwAggPortIndex"))
-if mibBuilder.loadTexts: hwAggPortEntry.setStatus('current')
-hwAggPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 1, 2, 1, 1), Gauge32()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: hwAggPortIndex.setStatus('current')
-hwAggPortNotAttachedReason = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwAggPortNotAttachedReason.setStatus('current')
-hwAggPortLacpState = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 1, 2, 1, 3), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwAggPortLacpState.setStatus('current')
-hwAggPortNotAttachedString = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 1, 2, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwAggPortNotAttachedString.setStatus('current')
-hwAggResourceAllocationValue = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 1, 3), PortList().clone('0')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwAggResourceAllocationValue.setStatus('current')
-hwLAGMibNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 2))
-hwAggSpeedChangedNotification = NotificationType((1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 2, 1)).setObjects(("HUAWEI-LAG-MIB", "hwAggLinkNumber"))
-if mibBuilder.loadTexts: hwAggSpeedChangedNotification.setStatus('current')
-hwAggPortInactiveNotification = NotificationType((1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 2, 2)).setObjects(("HUAWEI-LAG-MIB", "hwAggLinkNumber"))
-if mibBuilder.loadTexts: hwAggPortInactiveNotification.setStatus('current')
-hwAggPortInactiveNotification2 = NotificationType((1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 2, 3)).setObjects(("HUAWEI-LAG-MIB", "hwAggLinkNumber"), ("HUAWEI-LAG-MIB", "hwAggPortIndex"))
-if mibBuilder.loadTexts: hwAggPortInactiveNotification2.setStatus('current')
-hwAggPortActiveNotification = NotificationType((1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 2, 4)).setObjects(("HUAWEI-LAG-MIB", "hwAggLinkNumber"), ("HUAWEI-LAG-MIB", "hwAggPortIndex"))
-if mibBuilder.loadTexts: hwAggPortActiveNotification.setStatus('current')
-hwLAGMibConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 3))
-hwLAGMibCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 3, 1))
-hwLAGMibCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 3, 1, 1)).setObjects(("HUAWEI-LAG-MIB", "hwLAGMibObjectGroup"), ("HUAWEI-LAG-MIB", "hwLAGMibNotificationGroup"))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-LAG-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:04:31 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hwLAGMibCompliance = hwLAGMibCompliance.setStatus('current')
-hwLAGMibGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 3, 2))
-hwLAGMibObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 3, 2, 1)).setObjects(("HUAWEI-LAG-MIB", "hwAggLinkName"), ("HUAWEI-LAG-MIB", "hwAggLinkMode"), ("HUAWEI-LAG-MIB", "hwAggLinkPortList"), ("HUAWEI-LAG-MIB", "hwAggLinkState"), ("HUAWEI-LAG-MIB", "hwAggPortListSelectedPorts"), ("HUAWEI-LAG-MIB", "hwAggPortListSamePartnerPorts"), ("HUAWEI-LAG-MIB", "hwAggPortNotAttachedReason"), ("HUAWEI-LAG-MIB", "hwAggPortLacpState"), ("HUAWEI-LAG-MIB", "hwAggPortNotAttachedString"), ("HUAWEI-LAG-MIB", "hwAggResourceAllocationValue"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hwLAGMibObjectGroup = hwLAGMibObjectGroup.setStatus('current')
-hwLAGMibNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 3, 2, 2)).setObjects(("HUAWEI-LAG-MIB", "hwAggSpeedChangedNotification"), ("HUAWEI-LAG-MIB", "hwAggPortInactiveNotification"), ("HUAWEI-LAG-MIB", "hwAggPortInactiveNotification2"), ("HUAWEI-LAG-MIB", "hwAggPortActiveNotification"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hwLAGMibNotificationGroup = hwLAGMibNotificationGroup.setStatus('current')
-mibBuilder.exportSymbols("HUAWEI-LAG-MIB", hwAggLinkTable=hwAggLinkTable, hwAggPortActiveNotification=hwAggPortActiveNotification, hwAggLinkEntry=hwAggLinkEntry, hwAggPortNotAttachedString=hwAggPortNotAttachedString, hwLAGMibGroup=hwLAGMibGroup, hwAggLinkState=hwAggLinkState, hwLAGMibConformance=hwLAGMibConformance, hwLAGMibNotificationGroup=hwLAGMibNotificationGroup, hwAggPortInactiveNotification=hwAggPortInactiveNotification, hwLAGMibNotifications=hwLAGMibNotifications, hwAggLinkPortList=hwAggLinkPortList, hwLAGMibObjectGroup=hwLAGMibObjectGroup, hwAggLinkMode=hwAggLinkMode, hwAggPortNotAttachedReason=hwAggPortNotAttachedReason, hwLAGMibCompliance=hwLAGMibCompliance, hwLAGMibObjects=hwLAGMibObjects, hwAggLinkNumber=hwAggLinkNumber, hwAggPortTable=hwAggPortTable, hwAggResourceAllocationValue=hwAggResourceAllocationValue, hwLAGMibCompliances=hwLAGMibCompliances, hwAggPortIndex=hwAggPortIndex, hwAggLinkName=hwAggLinkName, hwAggPortListSamePartnerPorts=hwAggPortListSamePartnerPorts, hwAggPortLacpState=hwAggPortLacpState, hwAggSpeedChangedNotification=hwAggSpeedChangedNotification, hwAggPortInactiveNotification2=hwAggPortInactiveNotification2, hwLAG=hwLAG, hwAggPortEntry=hwAggPortEntry, PYSNMP_MODULE_ID=hwLAG, hwAggPortListSelectedPorts=hwAggPortListSelectedPorts)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(huaweiDatacomm,
+ huaweiMgmt) = mibBuilder.importSymbols(
+    "HUAWEI-3COM-OID-MIB",
+    "huaweiDatacomm",
+    "huaweiMgmt")
+
+(PortList,) = mibBuilder.importSymbols(
+    "Q-BRIDGE-MIB",
+    "PortList")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+hwLAG = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 25)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_HwLAGMibObjects_ObjectIdentity = ObjectIdentity
+hwLAGMibObjects = _HwLAGMibObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 1)
+)
+_HwAggLinkTable_Object = MibTable
+hwAggLinkTable = _HwAggLinkTable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 1, 1)
+)
+if mibBuilder.loadTexts:
+    hwAggLinkTable.setStatus("current")
+_HwAggLinkEntry_Object = MibTableRow
+hwAggLinkEntry = _HwAggLinkEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 1, 1, 1)
+)
+hwAggLinkEntry.setIndexNames(
+    (0, "HUAWEI-LAG-MIB", "hwAggLinkNumber"),
+)
+if mibBuilder.loadTexts:
+    hwAggLinkEntry.setStatus("current")
+_HwAggLinkNumber_Type = Integer32
+_HwAggLinkNumber_Object = MibTableColumn
+hwAggLinkNumber = _HwAggLinkNumber_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 1, 1, 1, 1),
+    _HwAggLinkNumber_Type()
+)
+hwAggLinkNumber.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    hwAggLinkNumber.setStatus("current")
+
+
+class _HwAggLinkName_Type(DisplayString):
+    """Custom type hwAggLinkName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_HwAggLinkName_Type.__name__ = "DisplayString"
+_HwAggLinkName_Object = MibTableColumn
+hwAggLinkName = _HwAggLinkName_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 1, 1, 1, 2),
+    _HwAggLinkName_Type()
+)
+hwAggLinkName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hwAggLinkName.setStatus("current")
+
+
+class _HwAggLinkMode_Type(Integer32):
+    """Custom type hwAggLinkMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dynamic", 3),
+          ("manual", 1),
+          ("static", 2))
+    )
+
+
+_HwAggLinkMode_Type.__name__ = "Integer32"
+_HwAggLinkMode_Object = MibTableColumn
+hwAggLinkMode = _HwAggLinkMode_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 1, 1, 1, 3),
+    _HwAggLinkMode_Type()
+)
+hwAggLinkMode.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hwAggLinkMode.setStatus("current")
+_HwAggLinkPortList_Type = PortList
+_HwAggLinkPortList_Object = MibTableColumn
+hwAggLinkPortList = _HwAggLinkPortList_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 1, 1, 1, 4),
+    _HwAggLinkPortList_Type()
+)
+hwAggLinkPortList.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hwAggLinkPortList.setStatus("current")
+_HwAggLinkState_Type = RowStatus
+_HwAggLinkState_Object = MibTableColumn
+hwAggLinkState = _HwAggLinkState_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 1, 1, 1, 5),
+    _HwAggLinkState_Type()
+)
+hwAggLinkState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hwAggLinkState.setStatus("current")
+_HwAggPortListSelectedPorts_Type = PortList
+_HwAggPortListSelectedPorts_Object = MibTableColumn
+hwAggPortListSelectedPorts = _HwAggPortListSelectedPorts_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 1, 1, 1, 6),
+    _HwAggPortListSelectedPorts_Type()
+)
+hwAggPortListSelectedPorts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwAggPortListSelectedPorts.setStatus("current")
+_HwAggPortListSamePartnerPorts_Type = PortList
+_HwAggPortListSamePartnerPorts_Object = MibTableColumn
+hwAggPortListSamePartnerPorts = _HwAggPortListSamePartnerPorts_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 1, 1, 1, 7),
+    _HwAggPortListSamePartnerPorts_Type()
+)
+hwAggPortListSamePartnerPorts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwAggPortListSamePartnerPorts.setStatus("current")
+_HwAggPortTable_Object = MibTable
+hwAggPortTable = _HwAggPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 1, 2)
+)
+if mibBuilder.loadTexts:
+    hwAggPortTable.setStatus("current")
+_HwAggPortEntry_Object = MibTableRow
+hwAggPortEntry = _HwAggPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 1, 2, 1)
+)
+hwAggPortEntry.setIndexNames(
+    (0, "HUAWEI-LAG-MIB", "hwAggPortIndex"),
+)
+if mibBuilder.loadTexts:
+    hwAggPortEntry.setStatus("current")
+_HwAggPortIndex_Type = Gauge32
+_HwAggPortIndex_Object = MibTableColumn
+hwAggPortIndex = _HwAggPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 1, 2, 1, 1),
+    _HwAggPortIndex_Type()
+)
+hwAggPortIndex.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    hwAggPortIndex.setStatus("current")
+
+
+class _HwAggPortNotAttachedReason_Type(Integer32):
+    """Custom type hwAggPortNotAttachedReason based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 10),
+    )
+
+
+_HwAggPortNotAttachedReason_Type.__name__ = "Integer32"
+_HwAggPortNotAttachedReason_Object = MibTableColumn
+hwAggPortNotAttachedReason = _HwAggPortNotAttachedReason_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 1, 2, 1, 2),
+    _HwAggPortNotAttachedReason_Type()
+)
+hwAggPortNotAttachedReason.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwAggPortNotAttachedReason.setStatus("current")
+_HwAggPortLacpState_Type = TruthValue
+_HwAggPortLacpState_Object = MibTableColumn
+hwAggPortLacpState = _HwAggPortLacpState_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 1, 2, 1, 3),
+    _HwAggPortLacpState_Type()
+)
+hwAggPortLacpState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwAggPortLacpState.setStatus("current")
+
+
+class _HwAggPortNotAttachedString_Type(DisplayString):
+    """Custom type hwAggPortNotAttachedString based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_HwAggPortNotAttachedString_Type.__name__ = "DisplayString"
+_HwAggPortNotAttachedString_Object = MibTableColumn
+hwAggPortNotAttachedString = _HwAggPortNotAttachedString_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 1, 2, 1, 4),
+    _HwAggPortNotAttachedString_Type()
+)
+hwAggPortNotAttachedString.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwAggPortNotAttachedString.setStatus("current")
+
+
+class _HwAggResourceAllocationValue_Type(PortList):
+    """Custom type hwAggResourceAllocationValue based on PortList"""
+    defaultValue = OctetString("0")
+
+
+_HwAggResourceAllocationValue_Object = MibScalar
+hwAggResourceAllocationValue = _HwAggResourceAllocationValue_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 1, 3),
+    _HwAggResourceAllocationValue_Type()
+)
+hwAggResourceAllocationValue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwAggResourceAllocationValue.setStatus("current")
+_HwLAGMibNotifications_ObjectIdentity = ObjectIdentity
+hwLAGMibNotifications = _HwLAGMibNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 2)
+)
+_HwLAGMibConformance_ObjectIdentity = ObjectIdentity
+hwLAGMibConformance = _HwLAGMibConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 3)
+)
+_HwLAGMibCompliances_ObjectIdentity = ObjectIdentity
+hwLAGMibCompliances = _HwLAGMibCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 3, 1)
+)
+_HwLAGMibGroup_ObjectIdentity = ObjectIdentity
+hwLAGMibGroup = _HwLAGMibGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 3, 2)
+)
+
+# Managed Objects groups
+
+hwLAGMibObjectGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 3, 2, 1)
+)
+hwLAGMibObjectGroup.setObjects(
+      *(("HUAWEI-LAG-MIB", "hwAggLinkName"),
+        ("HUAWEI-LAG-MIB", "hwAggLinkMode"),
+        ("HUAWEI-LAG-MIB", "hwAggLinkPortList"),
+        ("HUAWEI-LAG-MIB", "hwAggLinkState"),
+        ("HUAWEI-LAG-MIB", "hwAggPortListSelectedPorts"),
+        ("HUAWEI-LAG-MIB", "hwAggPortListSamePartnerPorts"),
+        ("HUAWEI-LAG-MIB", "hwAggPortNotAttachedReason"),
+        ("HUAWEI-LAG-MIB", "hwAggPortLacpState"),
+        ("HUAWEI-LAG-MIB", "hwAggPortNotAttachedString"),
+        ("HUAWEI-LAG-MIB", "hwAggResourceAllocationValue"))
+)
+if mibBuilder.loadTexts:
+    hwLAGMibObjectGroup.setStatus("current")
+
+
+# Notification objects
+
+hwAggSpeedChangedNotification = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 2, 1)
+)
+hwAggSpeedChangedNotification.setObjects(
+    ("HUAWEI-LAG-MIB", "hwAggLinkNumber")
+)
+if mibBuilder.loadTexts:
+    hwAggSpeedChangedNotification.setStatus(
+        "current"
+    )
+
+hwAggPortInactiveNotification = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 2, 2)
+)
+hwAggPortInactiveNotification.setObjects(
+    ("HUAWEI-LAG-MIB", "hwAggLinkNumber")
+)
+if mibBuilder.loadTexts:
+    hwAggPortInactiveNotification.setStatus(
+        "current"
+    )
+
+hwAggPortInactiveNotification2 = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 2, 3)
+)
+hwAggPortInactiveNotification2.setObjects(
+      *(("HUAWEI-LAG-MIB", "hwAggLinkNumber"),
+        ("HUAWEI-LAG-MIB", "hwAggPortIndex"))
+)
+if mibBuilder.loadTexts:
+    hwAggPortInactiveNotification2.setStatus(
+        "current"
+    )
+
+hwAggPortActiveNotification = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 2, 4)
+)
+hwAggPortActiveNotification.setObjects(
+      *(("HUAWEI-LAG-MIB", "hwAggLinkNumber"),
+        ("HUAWEI-LAG-MIB", "hwAggPortIndex"))
+)
+if mibBuilder.loadTexts:
+    hwAggPortActiveNotification.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+hwLAGMibNotificationGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 3, 2, 2)
+)
+hwLAGMibNotificationGroup.setObjects(
+      *(("HUAWEI-LAG-MIB", "hwAggSpeedChangedNotification"),
+        ("HUAWEI-LAG-MIB", "hwAggPortInactiveNotification"),
+        ("HUAWEI-LAG-MIB", "hwAggPortInactiveNotification2"),
+        ("HUAWEI-LAG-MIB", "hwAggPortActiveNotification"))
+)
+if mibBuilder.loadTexts:
+    hwLAGMibNotificationGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+hwLAGMibCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 25, 3, 1, 1)
+)
+if mibBuilder.loadTexts:
+    hwLAGMibCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HUAWEI-LAG-MIB",
+    **{"hwLAG": hwLAG,
+       "hwLAGMibObjects": hwLAGMibObjects,
+       "hwAggLinkTable": hwAggLinkTable,
+       "hwAggLinkEntry": hwAggLinkEntry,
+       "hwAggLinkNumber": hwAggLinkNumber,
+       "hwAggLinkName": hwAggLinkName,
+       "hwAggLinkMode": hwAggLinkMode,
+       "hwAggLinkPortList": hwAggLinkPortList,
+       "hwAggLinkState": hwAggLinkState,
+       "hwAggPortListSelectedPorts": hwAggPortListSelectedPorts,
+       "hwAggPortListSamePartnerPorts": hwAggPortListSamePartnerPorts,
+       "hwAggPortTable": hwAggPortTable,
+       "hwAggPortEntry": hwAggPortEntry,
+       "hwAggPortIndex": hwAggPortIndex,
+       "hwAggPortNotAttachedReason": hwAggPortNotAttachedReason,
+       "hwAggPortLacpState": hwAggPortLacpState,
+       "hwAggPortNotAttachedString": hwAggPortNotAttachedString,
+       "hwAggResourceAllocationValue": hwAggResourceAllocationValue,
+       "hwLAGMibNotifications": hwLAGMibNotifications,
+       "hwAggSpeedChangedNotification": hwAggSpeedChangedNotification,
+       "hwAggPortInactiveNotification": hwAggPortInactiveNotification,
+       "hwAggPortInactiveNotification2": hwAggPortInactiveNotification2,
+       "hwAggPortActiveNotification": hwAggPortActiveNotification,
+       "hwLAGMibConformance": hwLAGMibConformance,
+       "hwLAGMibCompliances": hwLAGMibCompliances,
+       "hwLAGMibCompliance": hwLAGMibCompliance,
+       "hwLAGMibGroup": hwLAGMibGroup,
+       "hwLAGMibObjectGroup": hwLAGMibObjectGroup,
+       "hwLAGMibNotificationGroup": hwLAGMibNotificationGroup}
+)

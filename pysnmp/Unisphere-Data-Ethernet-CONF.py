@@ -1,36 +1,204 @@
+# SNMP MIB module (Unisphere-Data-Ethernet-CONF) expressed in pysnmp data model.
 #
-# PySNMP MIB module Unisphere-Data-Ethernet-CONF (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/Unisphere-Data-Ethernet-CONF
-# Produced by pysmi-0.3.4 at Mon Apr 29 21:23:54 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint")
-etherStatsGroup, etherStats100MbsGroup = mibBuilder.importSymbols("EtherLike-MIB", "etherStatsGroup", "etherStats100MbsGroup")
-ModuleCompliance, AgentCapabilities, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "AgentCapabilities", "NotificationGroup")
-IpAddress, TimeTicks, iso, Gauge32, NotificationType, MibIdentifier, Counter32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Integer32, ModuleIdentity, Counter64, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "TimeTicks", "iso", "Gauge32", "NotificationType", "MibIdentifier", "Counter32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Integer32", "ModuleIdentity", "Counter64", "Bits")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-usDataAgents, = mibBuilder.importSymbols("Unisphere-Data-Agents", "usDataAgents")
-usdVlanGroup, usdEthernetGroup, usdVlanSubIfGroup2, usdEthernetSubIfGroup, usdVlanSubIfGroup = mibBuilder.importSymbols("Unisphere-Data-ETHERNET-MIB", "usdVlanGroup", "usdEthernetGroup", "usdVlanSubIfGroup2", "usdEthernetSubIfGroup", "usdVlanSubIfGroup")
-usdEthernetAgent = ModuleIdentity((1, 3, 6, 1, 4, 1, 4874, 5, 2, 14))
-usdEthernetAgent.setRevisions(('2002-04-05 20:33', '2001-10-25 21:36',))
-if mibBuilder.loadTexts: usdEthernetAgent.setLastUpdated('200204052033Z')
-if mibBuilder.loadTexts: usdEthernetAgent.setOrganization('Unisphere Networks, Inc.')
-usdEthernetAgentV1 = AgentCapabilities((1, 3, 6, 1, 4, 1, 4874, 5, 2, 14, 1))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    usdEthernetAgentV1 = usdEthernetAgentV1.setProductRelease('Version 1 of the Ethernet component of the Unisphere Routing Switch\n        SNMP agent.  This version of the Ethernet component was supported in the\n        Unisphere RX 2.x system releases.')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    usdEthernetAgentV1 = usdEthernetAgentV1.setStatus('obsolete')
-usdEthernetAgentV2 = AgentCapabilities((1, 3, 6, 1, 4, 1, 4874, 5, 2, 14, 2))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    usdEthernetAgentV2 = usdEthernetAgentV2.setProductRelease('Version 2 of the Ethernet component of the Unisphere Routing Switch\n        SNMP agent.  This version of the Ethernet component was supported in the\n        Unisphere RX 3.x system releases.')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    usdEthernetAgentV2 = usdEthernetAgentV2.setStatus('obsolete')
-usdEthernetAgentV3 = AgentCapabilities((1, 3, 6, 1, 4, 1, 4874, 5, 2, 14, 3))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    usdEthernetAgentV3 = usdEthernetAgentV3.setProductRelease('Version 3 of the Ethernet component of the Unisphere Routing Switch\n        SNMP agent.  This version of the Ethernet component is supported in the\n        Unisphere RX 4.0 and subsequent system releases.')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    usdEthernetAgentV3 = usdEthernetAgentV3.setStatus('current')
-mibBuilder.exportSymbols("Unisphere-Data-Ethernet-CONF", usdEthernetAgentV3=usdEthernetAgentV3, usdEthernetAgentV2=usdEthernetAgentV2, usdEthernetAgent=usdEthernetAgent, PYSNMP_MODULE_ID=usdEthernetAgent, usdEthernetAgentV1=usdEthernetAgentV1)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/Unisphere-Data-Ethernet-CONF
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:10:41 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(etherStats100MbsGroup,
+ etherStatsGroup) = mibBuilder.importSymbols(
+    "EtherLike-MIB",
+    "etherStats100MbsGroup",
+    "etherStatsGroup")
+
+(AgentCapabilities,
+ ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "AgentCapabilities",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+(usDataAgents,) = mibBuilder.importSymbols(
+    "Unisphere-Data-Agents",
+    "usDataAgents")
+
+(usdEthernetGroup,
+ usdEthernetSubIfGroup,
+ usdVlanGroup,
+ usdVlanSubIfGroup,
+ usdVlanSubIfGroup2) = mibBuilder.importSymbols(
+    "Unisphere-Data-ETHERNET-MIB",
+    "usdEthernetGroup",
+    "usdEthernetSubIfGroup",
+    "usdVlanGroup",
+    "usdVlanSubIfGroup",
+    "usdVlanSubIfGroup2")
+
+
+# MODULE-IDENTITY
+
+usdEthernetAgent = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 14)
+)
+usdEthernetAgent.setRevisions(
+        ("2002-04-05 20:33",
+         "2001-10-25 21:36")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+usdEthernetAgentV1 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 14, 1)
+)
+if mibBuilder.loadTexts:
+    usdEthernetAgentV1.setProductRelease("""\
+Version 1 of the Ethernet component of the Unisphere Routing Switch
+        SNMP agent.  This version of the Ethernet component was supported in the
+        Unisphere RX 2.x system releases.""")
+if mibBuilder.loadTexts:
+    usdEthernetAgentV1.setStatus(
+        "obsolete"
+    )
+
+usdEthernetAgentV2 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 14, 2)
+)
+if mibBuilder.loadTexts:
+    usdEthernetAgentV2.setProductRelease("""\
+Version 2 of the Ethernet component of the Unisphere Routing Switch
+        SNMP agent.  This version of the Ethernet component was supported in the
+        Unisphere RX 3.x system releases.""")
+if mibBuilder.loadTexts:
+    usdEthernetAgentV2.setStatus(
+        "obsolete"
+    )
+
+usdEthernetAgentV3 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 14, 3)
+)
+if mibBuilder.loadTexts:
+    usdEthernetAgentV3.setProductRelease("""\
+Version 3 of the Ethernet component of the Unisphere Routing Switch
+        SNMP agent.  This version of the Ethernet component is supported in the
+        Unisphere RX 4.0 and subsequent system releases.""")
+if mibBuilder.loadTexts:
+    usdEthernetAgentV3.setStatus(
+        "current"
+    )
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "Unisphere-Data-Ethernet-CONF",
+    **{"usdEthernetAgent": usdEthernetAgent,
+       "usdEthernetAgentV1": usdEthernetAgentV1,
+       "usdEthernetAgentV2": usdEthernetAgentV2,
+       "usdEthernetAgentV3": usdEthernetAgentV3}
+)

@@ -1,53 +1,326 @@
+# SNMP MIB module (CMU-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CMU-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/CMU-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:09:18 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, iso, TimeTicks, Bits, Gauge32, ModuleIdentity, Counter32, NotificationType, ObjectIdentity, Counter64, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, enterprises, Unsigned32, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "iso", "TimeTicks", "Bits", "Gauge32", "ModuleIdentity", "Counter32", "NotificationType", "ObjectIdentity", "Counter64", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "enterprises", "Unsigned32", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-proteon = MibIdentifier((1, 3, 6, 1, 4, 1, 1))
-ibm = MibIdentifier((1, 3, 6, 1, 4, 1, 2))
-cmu = MibIdentifier((1, 3, 6, 1, 4, 1, 3))
-unix = MibIdentifier((1, 3, 6, 1, 4, 1, 4))
-acc = MibIdentifier((1, 3, 6, 1, 4, 1, 5))
-twg = MibIdentifier((1, 3, 6, 1, 4, 1, 6))
-cayman = MibIdentifier((1, 3, 6, 1, 4, 1, 7))
-psi = MibIdentifier((1, 3, 6, 1, 4, 1, 8))
-cisco = MibIdentifier((1, 3, 6, 1, 4, 1, 9))
-nsc = MibIdentifier((1, 3, 6, 1, 4, 1, 10))
-hp = MibIdentifier((1, 3, 6, 1, 4, 1, 11))
-epilogue = MibIdentifier((1, 3, 6, 1, 4, 1, 12))
-utk = MibIdentifier((1, 3, 6, 1, 4, 1, 13))
-bbn = MibIdentifier((1, 3, 6, 1, 4, 1, 14))
-xylogics = MibIdentifier((1, 3, 6, 1, 4, 1, 15))
-timeplex = MibIdentifier((1, 3, 6, 1, 4, 1, 16))
-canstar = MibIdentifier((1, 3, 6, 1, 4, 1, 17))
-wellfleet = MibIdentifier((1, 3, 6, 1, 4, 1, 18))
-trw = MibIdentifier((1, 3, 6, 1, 4, 1, 19))
-mit = MibIdentifier((1, 3, 6, 1, 4, 1, 20))
-eon = MibIdentifier((1, 3, 6, 1, 4, 1, 21))
-spartacus = MibIdentifier((1, 3, 6, 1, 4, 1, 22))
-excelan = MibIdentifier((1, 3, 6, 1, 4, 1, 23))
-spider = MibIdentifier((1, 3, 6, 1, 4, 1, 24))
-nsfnet = MibIdentifier((1, 3, 6, 1, 4, 1, 25))
-hls = MibIdentifier((1, 3, 6, 1, 4, 1, 26))
-xyplex = MibIdentifier((1, 3, 6, 1, 4, 1, 33))
-cray = MibIdentifier((1, 3, 6, 1, 4, 1, 34))
-sun = MibIdentifier((1, 3, 6, 1, 4, 1, 42))
-synoptics = MibIdentifier((1, 3, 6, 1, 4, 1, 45))
-dec = MibIdentifier((1, 3, 6, 1, 4, 1, 36))
-tgv = MibIdentifier((1, 3, 6, 1, 4, 1, 58))
-apple = MibIdentifier((1, 3, 6, 1, 4, 1, 63))
-nat = MibIdentifier((1, 3, 6, 1, 4, 1, 86))
-snmp_research = MibIdentifier((1, 3, 6, 1, 4, 1, 99)).setLabel("snmp-research")
-ftp = MibIdentifier((1, 3, 6, 1, 4, 1, 121))
-shiva = MibIdentifier((1, 3, 6, 1, 4, 1, 166))
-transarc = MibIdentifier((1, 3, 6, 1, 4, 1, 257))
-lexcel = MibIdentifier((1, 3, 6, 1, 4, 1, 379))
-mibBuilder.exportSymbols("CMU-MIB", synoptics=synoptics, spider=spider, acc=acc, cray=cray, lexcel=lexcel, nsfnet=nsfnet, hls=hls, proteon=proteon, utk=utk, canstar=canstar, shiva=shiva, wellfleet=wellfleet, nsc=nsc, cayman=cayman, twg=twg, snmp_research=snmp_research, ftp=ftp, unix=unix, psi=psi, cmu=cmu, cisco=cisco, bbn=bbn, epilogue=epilogue, tgv=tgv, ibm=ibm, transarc=transarc, mit=mit, apple=apple, excelan=excelan, dec=dec, xylogics=xylogics, spartacus=spartacus, trw=trw, hp=hp, xyplex=xyplex, sun=sun, nat=nat, timeplex=timeplex, eon=eon)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CMU-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:15:53 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Proteon_ObjectIdentity = ObjectIdentity
+proteon = _Proteon_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1)
+)
+_Ibm_ObjectIdentity = ObjectIdentity
+ibm = _Ibm_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2)
+)
+_Cmu_ObjectIdentity = ObjectIdentity
+cmu = _Cmu_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3)
+)
+_Unix_ObjectIdentity = ObjectIdentity
+unix = _Unix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4)
+)
+_Acc_ObjectIdentity = ObjectIdentity
+acc = _Acc_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5)
+)
+_Twg_ObjectIdentity = ObjectIdentity
+twg = _Twg_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6)
+)
+_Cayman_ObjectIdentity = ObjectIdentity
+cayman = _Cayman_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 7)
+)
+_Psi_ObjectIdentity = ObjectIdentity
+psi = _Psi_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8)
+)
+_Cisco_ObjectIdentity = ObjectIdentity
+cisco = _Cisco_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9)
+)
+_Nsc_ObjectIdentity = ObjectIdentity
+nsc = _Nsc_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 10)
+)
+_Hp_ObjectIdentity = ObjectIdentity
+hp = _Hp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11)
+)
+_Epilogue_ObjectIdentity = ObjectIdentity
+epilogue = _Epilogue_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12)
+)
+_Utk_ObjectIdentity = ObjectIdentity
+utk = _Utk_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 13)
+)
+_Bbn_ObjectIdentity = ObjectIdentity
+bbn = _Bbn_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 14)
+)
+_Xylogics_ObjectIdentity = ObjectIdentity
+xylogics = _Xylogics_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 15)
+)
+_Timeplex_ObjectIdentity = ObjectIdentity
+timeplex = _Timeplex_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 16)
+)
+_Canstar_ObjectIdentity = ObjectIdentity
+canstar = _Canstar_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17)
+)
+_Wellfleet_ObjectIdentity = ObjectIdentity
+wellfleet = _Wellfleet_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 18)
+)
+_Trw_ObjectIdentity = ObjectIdentity
+trw = _Trw_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 19)
+)
+_Mit_ObjectIdentity = ObjectIdentity
+mit = _Mit_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 20)
+)
+_Eon_ObjectIdentity = ObjectIdentity
+eon = _Eon_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21)
+)
+_Spartacus_ObjectIdentity = ObjectIdentity
+spartacus = _Spartacus_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22)
+)
+_Excelan_ObjectIdentity = ObjectIdentity
+excelan = _Excelan_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 23)
+)
+_Spider_ObjectIdentity = ObjectIdentity
+spider = _Spider_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 24)
+)
+_Nsfnet_ObjectIdentity = ObjectIdentity
+nsfnet = _Nsfnet_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 25)
+)
+_Hls_ObjectIdentity = ObjectIdentity
+hls = _Hls_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 26)
+)
+_Xyplex_ObjectIdentity = ObjectIdentity
+xyplex = _Xyplex_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 33)
+)
+_Cray_ObjectIdentity = ObjectIdentity
+cray = _Cray_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 34)
+)
+_Dec_ObjectIdentity = ObjectIdentity
+dec = _Dec_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 36)
+)
+_Sun_ObjectIdentity = ObjectIdentity
+sun = _Sun_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42)
+)
+_Synoptics_ObjectIdentity = ObjectIdentity
+synoptics = _Synoptics_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 45)
+)
+_Tgv_ObjectIdentity = ObjectIdentity
+tgv = _Tgv_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 58)
+)
+_Apple_ObjectIdentity = ObjectIdentity
+apple = _Apple_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 63)
+)
+_Nat_ObjectIdentity = ObjectIdentity
+nat = _Nat_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 86)
+)
+_Snmp_research_ObjectIdentity = ObjectIdentity
+snmp_research = _Snmp_research_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 99)
+)
+_Ftp_ObjectIdentity = ObjectIdentity
+ftp = _Ftp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 121)
+)
+_Shiva_ObjectIdentity = ObjectIdentity
+shiva = _Shiva_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 166)
+)
+_Transarc_ObjectIdentity = ObjectIdentity
+transarc = _Transarc_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 257)
+)
+_Lexcel_ObjectIdentity = ObjectIdentity
+lexcel = _Lexcel_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 379)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CMU-MIB",
+    **{"proteon": proteon,
+       "ibm": ibm,
+       "cmu": cmu,
+       "unix": unix,
+       "acc": acc,
+       "twg": twg,
+       "cayman": cayman,
+       "psi": psi,
+       "cisco": cisco,
+       "nsc": nsc,
+       "hp": hp,
+       "epilogue": epilogue,
+       "utk": utk,
+       "bbn": bbn,
+       "xylogics": xylogics,
+       "timeplex": timeplex,
+       "canstar": canstar,
+       "wellfleet": wellfleet,
+       "trw": trw,
+       "mit": mit,
+       "eon": eon,
+       "spartacus": spartacus,
+       "excelan": excelan,
+       "spider": spider,
+       "nsfnet": nsfnet,
+       "hls": hls,
+       "xyplex": xyplex,
+       "cray": cray,
+       "dec": dec,
+       "sun": sun,
+       "synoptics": synoptics,
+       "tgv": tgv,
+       "apple": apple,
+       "nat": nat,
+       "snmp-research": snmp_research,
+       "ftp": ftp,
+       "shiva": shiva,
+       "transarc": transarc,
+       "lexcel": lexcel}
+)

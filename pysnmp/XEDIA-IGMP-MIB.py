@@ -1,45 +1,288 @@
+# SNMP MIB module (XEDIA-IGMP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module XEDIA-IGMP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/XEDIA-IGMP-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 21:36:20 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
-InterfaceIndexOrZero, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero", "InterfaceIndex")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Bits, IpAddress, Counter64, Counter32, Integer32, MibIdentifier, Gauge32, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, ObjectIdentity, ModuleIdentity, Unsigned32, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "IpAddress", "Counter64", "Counter32", "Integer32", "MibIdentifier", "Gauge32", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "ObjectIdentity", "ModuleIdentity", "Unsigned32", "NotificationType")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-xediaMibs, = mibBuilder.importSymbols("XEDIA-REG", "xediaMibs")
-xigmpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 838, 3, 33))
-if mibBuilder.loadTexts: xigmpMIB.setLastUpdated('9904151600Z')
-if mibBuilder.loadTexts: xigmpMIB.setOrganization('Xedia Corp.')
-xigmpMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 838, 3, 33, 1))
-xigmp = MibIdentifier((1, 3, 6, 1, 4, 1, 838, 3, 33, 1, 1))
-xigmpInMsgs = MibScalar((1, 3, 6, 1, 4, 1, 838, 3, 33, 1, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: xigmpInMsgs.setStatus('current')
-xigmpInErrors = MibScalar((1, 3, 6, 1, 4, 1, 838, 3, 33, 1, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: xigmpInErrors.setStatus('current')
-xigmpInReports = MibScalar((1, 3, 6, 1, 4, 1, 838, 3, 33, 1, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: xigmpInReports.setStatus('current')
-xigmpInV1Reports = MibScalar((1, 3, 6, 1, 4, 1, 838, 3, 33, 1, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: xigmpInV1Reports.setStatus('current')
-xigmpInLeaves = MibScalar((1, 3, 6, 1, 4, 1, 838, 3, 33, 1, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: xigmpInLeaves.setStatus('current')
-xigmpInQueries = MibScalar((1, 3, 6, 1, 4, 1, 838, 3, 33, 1, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: xigmpInQueries.setStatus('current')
-xigmpInUnknowns = MibScalar((1, 3, 6, 1, 4, 1, 838, 3, 33, 1, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: xigmpInUnknowns.setStatus('current')
-xigmpOutMsgs = MibScalar((1, 3, 6, 1, 4, 1, 838, 3, 33, 1, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: xigmpOutMsgs.setStatus('current')
-xigmpInterfaceTable = MibTable((1, 3, 6, 1, 4, 1, 838, 3, 33, 1, 1, 9), )
-if mibBuilder.loadTexts: xigmpInterfaceTable.setStatus('current')
-xigmpInterfaceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 838, 3, 33, 1, 1, 9, 1), ).setIndexNames((0, "XEDIA-IGMP-MIB", "xigmpInterfaceIfIndex"))
-if mibBuilder.loadTexts: xigmpInterfaceEntry.setStatus('current')
-xigmpInterfaceIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 838, 3, 33, 1, 1, 9, 1, 1), InterfaceIndex())
-if mibBuilder.loadTexts: xigmpInterfaceIfIndex.setStatus('current')
-xigmpInterfaceState = MibTableColumn((1, 3, 6, 1, 4, 1, 838, 3, 33, 1, 1, 9, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: xigmpInterfaceState.setStatus('current')
-mibBuilder.exportSymbols("XEDIA-IGMP-MIB", xigmpMIBObjects=xigmpMIBObjects, xigmpOutMsgs=xigmpOutMsgs, PYSNMP_MODULE_ID=xigmpMIB, xigmp=xigmp, xigmpInterfaceIfIndex=xigmpInterfaceIfIndex, xigmpInUnknowns=xigmpInUnknowns, xigmpInReports=xigmpInReports, xigmpInErrors=xigmpInErrors, xigmpMIB=xigmpMIB, xigmpInLeaves=xigmpInLeaves, xigmpInterfaceEntry=xigmpInterfaceEntry, xigmpInterfaceState=xigmpInterfaceState, xigmpInQueries=xigmpInQueries, xigmpInterfaceTable=xigmpInterfaceTable, xigmpInV1Reports=xigmpInV1Reports, xigmpInMsgs=xigmpInMsgs)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/XEDIA-IGMP-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:17:53 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InterfaceIndex,
+ InterfaceIndexOrZero) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex",
+    "InterfaceIndexOrZero")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+(xediaMibs,) = mibBuilder.importSymbols(
+    "XEDIA-REG",
+    "xediaMibs")
+
+
+# MODULE-IDENTITY
+
+xigmpMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 838, 3, 33)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_XigmpMIBObjects_ObjectIdentity = ObjectIdentity
+xigmpMIBObjects = _XigmpMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 838, 3, 33, 1)
+)
+_Xigmp_ObjectIdentity = ObjectIdentity
+xigmp = _Xigmp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 838, 3, 33, 1, 1)
+)
+_XigmpInMsgs_Type = Counter32
+_XigmpInMsgs_Object = MibScalar
+xigmpInMsgs = _XigmpInMsgs_Object(
+    (1, 3, 6, 1, 4, 1, 838, 3, 33, 1, 1, 1),
+    _XigmpInMsgs_Type()
+)
+xigmpInMsgs.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    xigmpInMsgs.setStatus("current")
+_XigmpInErrors_Type = Counter32
+_XigmpInErrors_Object = MibScalar
+xigmpInErrors = _XigmpInErrors_Object(
+    (1, 3, 6, 1, 4, 1, 838, 3, 33, 1, 1, 2),
+    _XigmpInErrors_Type()
+)
+xigmpInErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    xigmpInErrors.setStatus("current")
+_XigmpInReports_Type = Counter32
+_XigmpInReports_Object = MibScalar
+xigmpInReports = _XigmpInReports_Object(
+    (1, 3, 6, 1, 4, 1, 838, 3, 33, 1, 1, 3),
+    _XigmpInReports_Type()
+)
+xigmpInReports.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    xigmpInReports.setStatus("current")
+_XigmpInV1Reports_Type = Counter32
+_XigmpInV1Reports_Object = MibScalar
+xigmpInV1Reports = _XigmpInV1Reports_Object(
+    (1, 3, 6, 1, 4, 1, 838, 3, 33, 1, 1, 4),
+    _XigmpInV1Reports_Type()
+)
+xigmpInV1Reports.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    xigmpInV1Reports.setStatus("current")
+_XigmpInLeaves_Type = Counter32
+_XigmpInLeaves_Object = MibScalar
+xigmpInLeaves = _XigmpInLeaves_Object(
+    (1, 3, 6, 1, 4, 1, 838, 3, 33, 1, 1, 5),
+    _XigmpInLeaves_Type()
+)
+xigmpInLeaves.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    xigmpInLeaves.setStatus("current")
+_XigmpInQueries_Type = Counter32
+_XigmpInQueries_Object = MibScalar
+xigmpInQueries = _XigmpInQueries_Object(
+    (1, 3, 6, 1, 4, 1, 838, 3, 33, 1, 1, 6),
+    _XigmpInQueries_Type()
+)
+xigmpInQueries.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    xigmpInQueries.setStatus("current")
+_XigmpInUnknowns_Type = Counter32
+_XigmpInUnknowns_Object = MibScalar
+xigmpInUnknowns = _XigmpInUnknowns_Object(
+    (1, 3, 6, 1, 4, 1, 838, 3, 33, 1, 1, 7),
+    _XigmpInUnknowns_Type()
+)
+xigmpInUnknowns.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    xigmpInUnknowns.setStatus("current")
+_XigmpOutMsgs_Type = Counter32
+_XigmpOutMsgs_Object = MibScalar
+xigmpOutMsgs = _XigmpOutMsgs_Object(
+    (1, 3, 6, 1, 4, 1, 838, 3, 33, 1, 1, 8),
+    _XigmpOutMsgs_Type()
+)
+xigmpOutMsgs.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    xigmpOutMsgs.setStatus("current")
+_XigmpInterfaceTable_Object = MibTable
+xigmpInterfaceTable = _XigmpInterfaceTable_Object(
+    (1, 3, 6, 1, 4, 1, 838, 3, 33, 1, 1, 9)
+)
+if mibBuilder.loadTexts:
+    xigmpInterfaceTable.setStatus("current")
+_XigmpInterfaceEntry_Object = MibTableRow
+xigmpInterfaceEntry = _XigmpInterfaceEntry_Object(
+    (1, 3, 6, 1, 4, 1, 838, 3, 33, 1, 1, 9, 1)
+)
+xigmpInterfaceEntry.setIndexNames(
+    (0, "XEDIA-IGMP-MIB", "xigmpInterfaceIfIndex"),
+)
+if mibBuilder.loadTexts:
+    xigmpInterfaceEntry.setStatus("current")
+_XigmpInterfaceIfIndex_Type = InterfaceIndex
+_XigmpInterfaceIfIndex_Object = MibTableColumn
+xigmpInterfaceIfIndex = _XigmpInterfaceIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 838, 3, 33, 1, 1, 9, 1, 1),
+    _XigmpInterfaceIfIndex_Type()
+)
+xigmpInterfaceIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    xigmpInterfaceIfIndex.setStatus("current")
+
+
+class _XigmpInterfaceState_Type(Integer32):
+    """Custom type xigmpInterfaceState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 2),
+          ("up", 1))
+    )
+
+
+_XigmpInterfaceState_Type.__name__ = "Integer32"
+_XigmpInterfaceState_Object = MibTableColumn
+xigmpInterfaceState = _XigmpInterfaceState_Object(
+    (1, 3, 6, 1, 4, 1, 838, 3, 33, 1, 1, 9, 1, 2),
+    _XigmpInterfaceState_Type()
+)
+xigmpInterfaceState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    xigmpInterfaceState.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "XEDIA-IGMP-MIB",
+    **{"xigmpMIB": xigmpMIB,
+       "xigmpMIBObjects": xigmpMIBObjects,
+       "xigmp": xigmp,
+       "xigmpInMsgs": xigmpInMsgs,
+       "xigmpInErrors": xigmpInErrors,
+       "xigmpInReports": xigmpInReports,
+       "xigmpInV1Reports": xigmpInV1Reports,
+       "xigmpInLeaves": xigmpInLeaves,
+       "xigmpInQueries": xigmpInQueries,
+       "xigmpInUnknowns": xigmpInUnknowns,
+       "xigmpOutMsgs": xigmpOutMsgs,
+       "xigmpInterfaceTable": xigmpInterfaceTable,
+       "xigmpInterfaceEntry": xigmpInterfaceEntry,
+       "xigmpInterfaceIfIndex": xigmpInterfaceIfIndex,
+       "xigmpInterfaceState": xigmpInterfaceState}
+)

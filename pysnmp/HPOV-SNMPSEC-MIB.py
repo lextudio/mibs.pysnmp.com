@@ -1,25 +1,173 @@
+# SNMP MIB module (HPOV-SNMPSEC-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HPOV-SNMPSEC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/HPOV-SNMPSEC-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:30:21 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-Unsigned32, NotificationType, enterprises, ObjectIdentity, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, iso, Integer32, Counter32, TimeTicks, IpAddress, Counter64, MibIdentifier, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "NotificationType", "enterprises", "ObjectIdentity", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "iso", "Integer32", "Counter32", "TimeTicks", "IpAddress", "Counter64", "MibIdentifier", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-hp = MibIdentifier((1, 3, 6, 1, 4, 1, 11))
-nm = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2))
-openView = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 17))
-class OVTDAddress(TextualConvention, OctetString):
-    reference = 'RFC 1906, Transport Mappings for SNMP Version 2'
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(1, 255)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HPOV-SNMPSEC-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:02:30 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-hpOVSNMPSecurity = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 17, 5))
-hpOVSecureTarget = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 17, 5, 1), OVTDAddress())
-if mibBuilder.loadTexts: hpOVSecureTarget.setStatus('current')
-mibBuilder.exportSymbols("HPOV-SNMPSEC-MIB", hpOVSNMPSecurity=hpOVSNMPSecurity, hpOVSecureTarget=hpOVSecureTarget, OVTDAddress=OVTDAddress, nm=nm, hp=hp, openView=openView)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class OVTDAddress(OctetString, TextualConvention):
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 255),
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Hp_ObjectIdentity = ObjectIdentity
+hp = _Hp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11)
+)
+_Nm_ObjectIdentity = ObjectIdentity
+nm = _Nm_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2)
+)
+_OpenView_ObjectIdentity = ObjectIdentity
+openView = _OpenView_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 17)
+)
+_HpOVSNMPSecurity_ObjectIdentity = ObjectIdentity
+hpOVSNMPSecurity = _HpOVSNMPSecurity_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 17, 5)
+)
+_HpOVSecureTarget_Type = OVTDAddress
+_HpOVSecureTarget_Object = MibScalar
+hpOVSecureTarget = _HpOVSecureTarget_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 17, 5, 1),
+    _HpOVSecureTarget_Type()
+)
+hpOVSecureTarget.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hpOVSecureTarget.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HPOV-SNMPSEC-MIB",
+    **{"OVTDAddress": OVTDAddress,
+       "hp": hp,
+       "nm": nm,
+       "openView": openView,
+       "hpOVSNMPSecurity": hpOVSNMPSecurity,
+       "hpOVSecureTarget": hpOVSecureTarget}
+)

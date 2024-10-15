@@ -1,41 +1,271 @@
+# SNMP MIB module (ASCEND-MIBTHRESHHDSL2SHDSL-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ASCEND-MIBTHRESHHDSL2SHDSL-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/ASCEND-MIBTHRESHHDSL2SHDSL-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:12:41 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-configuration, = mibBuilder.importSymbols("ASCEND-MIB", "configuration")
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Unsigned32, ObjectIdentity, ModuleIdentity, Counter64, TimeTicks, Integer32, MibIdentifier, NotificationType, iso, IpAddress, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "ObjectIdentity", "ModuleIdentity", "Counter64", "TimeTicks", "Integer32", "MibIdentifier", "NotificationType", "iso", "IpAddress", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Counter32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-class DisplayString(OctetString):
-    pass
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/ASCEND-MIBTHRESHHDSL2SHDSL-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 20:42:27 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-mibthreshHdsl2ShdslProfile = MibIdentifier((1, 3, 6, 1, 4, 1, 529, 23, 160))
-mibthreshHdsl2ShdslProfileTable = MibTable((1, 3, 6, 1, 4, 1, 529, 23, 160, 1), )
-if mibBuilder.loadTexts: mibthreshHdsl2ShdslProfileTable.setStatus('mandatory')
-mibthreshHdsl2ShdslProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 529, 23, 160, 1, 1), ).setIndexNames((0, "ASCEND-MIBTHRESHHDSL2SHDSL-MIB", "threshHdsl2ShdslProfile-Name"))
-if mibBuilder.loadTexts: mibthreshHdsl2ShdslProfileEntry.setStatus('mandatory')
-threshHdsl2ShdslProfile_Name = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 160, 1, 1, 1), DisplayString()).setLabel("threshHdsl2ShdslProfile-Name").setMaxAccess("readonly")
-if mibBuilder.loadTexts: threshHdsl2ShdslProfile_Name.setStatus('mandatory')
-threshHdsl2ShdslProfile_LoopAttenuationThresh = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 160, 1, 1, 2), Integer32()).setLabel("threshHdsl2ShdslProfile-LoopAttenuationThresh").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: threshHdsl2ShdslProfile_LoopAttenuationThresh.setStatus('mandatory')
-threshHdsl2ShdslProfile_SnrMgnThresh = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 160, 1, 1, 3), Integer32()).setLabel("threshHdsl2ShdslProfile-SnrMgnThresh").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: threshHdsl2ShdslProfile_SnrMgnThresh.setStatus('mandatory')
-threshHdsl2ShdslProfile_ErroredSecondsThresh = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 160, 1, 1, 4), Integer32()).setLabel("threshHdsl2ShdslProfile-ErroredSecondsThresh").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: threshHdsl2ShdslProfile_ErroredSecondsThresh.setStatus('mandatory')
-threshHdsl2ShdslProfile_SeverelyErroredSecondsThresh = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 160, 1, 1, 5), Integer32()).setLabel("threshHdsl2ShdslProfile-SeverelyErroredSecondsThresh").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: threshHdsl2ShdslProfile_SeverelyErroredSecondsThresh.setStatus('mandatory')
-threshHdsl2ShdslProfile_CrcThresh = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 160, 1, 1, 6), Integer32()).setLabel("threshHdsl2ShdslProfile-CrcThresh").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: threshHdsl2ShdslProfile_CrcThresh.setStatus('mandatory')
-threshHdsl2ShdslProfile_LoswsThresh = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 160, 1, 1, 7), Integer32()).setLabel("threshHdsl2ShdslProfile-LoswsThresh").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: threshHdsl2ShdslProfile_LoswsThresh.setStatus('mandatory')
-threshHdsl2ShdslProfile_UasThresh = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 160, 1, 1, 8), Integer32()).setLabel("threshHdsl2ShdslProfile-UasThresh").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: threshHdsl2ShdslProfile_UasThresh.setStatus('mandatory')
-threshHdsl2ShdslProfile_Action_o = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 160, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("noAction", 1), ("createProfile", 2), ("deleteProfile", 3)))).setLabel("threshHdsl2ShdslProfile-Action-o").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: threshHdsl2ShdslProfile_Action_o.setStatus('mandatory')
-mibBuilder.exportSymbols("ASCEND-MIBTHRESHHDSL2SHDSL-MIB", threshHdsl2ShdslProfile_ErroredSecondsThresh=threshHdsl2ShdslProfile_ErroredSecondsThresh, mibthreshHdsl2ShdslProfile=mibthreshHdsl2ShdslProfile, threshHdsl2ShdslProfile_LoopAttenuationThresh=threshHdsl2ShdslProfile_LoopAttenuationThresh, threshHdsl2ShdslProfile_CrcThresh=threshHdsl2ShdslProfile_CrcThresh, threshHdsl2ShdslProfile_Name=threshHdsl2ShdslProfile_Name, threshHdsl2ShdslProfile_LoswsThresh=threshHdsl2ShdslProfile_LoswsThresh, mibthreshHdsl2ShdslProfileEntry=mibthreshHdsl2ShdslProfileEntry, threshHdsl2ShdslProfile_SnrMgnThresh=threshHdsl2ShdslProfile_SnrMgnThresh, mibthreshHdsl2ShdslProfileTable=mibthreshHdsl2ShdslProfileTable, threshHdsl2ShdslProfile_Action_o=threshHdsl2ShdslProfile_Action_o, DisplayString=DisplayString, threshHdsl2ShdslProfile_SeverelyErroredSecondsThresh=threshHdsl2ShdslProfile_SeverelyErroredSecondsThresh, threshHdsl2ShdslProfile_UasThresh=threshHdsl2ShdslProfile_UasThresh)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(configuration,) = mibBuilder.importSymbols(
+    "ASCEND-MIB",
+    "configuration")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+
+class DisplayString(OctetString):
+    """Custom type DisplayString based on OctetString"""
+
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_MibthreshHdsl2ShdslProfile_ObjectIdentity = ObjectIdentity
+mibthreshHdsl2ShdslProfile = _MibthreshHdsl2ShdslProfile_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 529, 23, 160)
+)
+_MibthreshHdsl2ShdslProfileTable_Object = MibTable
+mibthreshHdsl2ShdslProfileTable = _MibthreshHdsl2ShdslProfileTable_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 160, 1)
+)
+if mibBuilder.loadTexts:
+    mibthreshHdsl2ShdslProfileTable.setStatus("mandatory")
+_MibthreshHdsl2ShdslProfileEntry_Object = MibTableRow
+mibthreshHdsl2ShdslProfileEntry = _MibthreshHdsl2ShdslProfileEntry_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 160, 1, 1)
+)
+mibthreshHdsl2ShdslProfileEntry.setIndexNames(
+    (0, "ASCEND-MIBTHRESHHDSL2SHDSL-MIB", "threshHdsl2ShdslProfile-Name"),
+)
+if mibBuilder.loadTexts:
+    mibthreshHdsl2ShdslProfileEntry.setStatus("mandatory")
+_ThreshHdsl2ShdslProfile_Name_Type = DisplayString
+_ThreshHdsl2ShdslProfile_Name_Object = MibScalar
+threshHdsl2ShdslProfile_Name = _ThreshHdsl2ShdslProfile_Name_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 160, 1, 1, 1),
+    _ThreshHdsl2ShdslProfile_Name_Type()
+)
+threshHdsl2ShdslProfile_Name.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    threshHdsl2ShdslProfile_Name.setStatus("mandatory")
+_ThreshHdsl2ShdslProfile_LoopAttenuationThresh_Type = Integer32
+_ThreshHdsl2ShdslProfile_LoopAttenuationThresh_Object = MibScalar
+threshHdsl2ShdslProfile_LoopAttenuationThresh = _ThreshHdsl2ShdslProfile_LoopAttenuationThresh_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 160, 1, 1, 2),
+    _ThreshHdsl2ShdslProfile_LoopAttenuationThresh_Type()
+)
+threshHdsl2ShdslProfile_LoopAttenuationThresh.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    threshHdsl2ShdslProfile_LoopAttenuationThresh.setStatus("mandatory")
+_ThreshHdsl2ShdslProfile_SnrMgnThresh_Type = Integer32
+_ThreshHdsl2ShdslProfile_SnrMgnThresh_Object = MibScalar
+threshHdsl2ShdslProfile_SnrMgnThresh = _ThreshHdsl2ShdslProfile_SnrMgnThresh_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 160, 1, 1, 3),
+    _ThreshHdsl2ShdslProfile_SnrMgnThresh_Type()
+)
+threshHdsl2ShdslProfile_SnrMgnThresh.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    threshHdsl2ShdslProfile_SnrMgnThresh.setStatus("mandatory")
+_ThreshHdsl2ShdslProfile_ErroredSecondsThresh_Type = Integer32
+_ThreshHdsl2ShdslProfile_ErroredSecondsThresh_Object = MibScalar
+threshHdsl2ShdslProfile_ErroredSecondsThresh = _ThreshHdsl2ShdslProfile_ErroredSecondsThresh_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 160, 1, 1, 4),
+    _ThreshHdsl2ShdslProfile_ErroredSecondsThresh_Type()
+)
+threshHdsl2ShdslProfile_ErroredSecondsThresh.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    threshHdsl2ShdslProfile_ErroredSecondsThresh.setStatus("mandatory")
+_ThreshHdsl2ShdslProfile_SeverelyErroredSecondsThresh_Type = Integer32
+_ThreshHdsl2ShdslProfile_SeverelyErroredSecondsThresh_Object = MibScalar
+threshHdsl2ShdslProfile_SeverelyErroredSecondsThresh = _ThreshHdsl2ShdslProfile_SeverelyErroredSecondsThresh_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 160, 1, 1, 5),
+    _ThreshHdsl2ShdslProfile_SeverelyErroredSecondsThresh_Type()
+)
+threshHdsl2ShdslProfile_SeverelyErroredSecondsThresh.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    threshHdsl2ShdslProfile_SeverelyErroredSecondsThresh.setStatus("mandatory")
+_ThreshHdsl2ShdslProfile_CrcThresh_Type = Integer32
+_ThreshHdsl2ShdslProfile_CrcThresh_Object = MibScalar
+threshHdsl2ShdslProfile_CrcThresh = _ThreshHdsl2ShdslProfile_CrcThresh_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 160, 1, 1, 6),
+    _ThreshHdsl2ShdslProfile_CrcThresh_Type()
+)
+threshHdsl2ShdslProfile_CrcThresh.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    threshHdsl2ShdslProfile_CrcThresh.setStatus("mandatory")
+_ThreshHdsl2ShdslProfile_LoswsThresh_Type = Integer32
+_ThreshHdsl2ShdslProfile_LoswsThresh_Object = MibScalar
+threshHdsl2ShdslProfile_LoswsThresh = _ThreshHdsl2ShdslProfile_LoswsThresh_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 160, 1, 1, 7),
+    _ThreshHdsl2ShdslProfile_LoswsThresh_Type()
+)
+threshHdsl2ShdslProfile_LoswsThresh.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    threshHdsl2ShdslProfile_LoswsThresh.setStatus("mandatory")
+_ThreshHdsl2ShdslProfile_UasThresh_Type = Integer32
+_ThreshHdsl2ShdslProfile_UasThresh_Object = MibScalar
+threshHdsl2ShdslProfile_UasThresh = _ThreshHdsl2ShdslProfile_UasThresh_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 160, 1, 1, 8),
+    _ThreshHdsl2ShdslProfile_UasThresh_Type()
+)
+threshHdsl2ShdslProfile_UasThresh.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    threshHdsl2ShdslProfile_UasThresh.setStatus("mandatory")
+
+
+class _ThreshHdsl2ShdslProfile_Action_o_Type(Integer32):
+    """Custom type threshHdsl2ShdslProfile_Action_o based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("createProfile", 2),
+          ("deleteProfile", 3),
+          ("noAction", 1))
+    )
+
+
+_ThreshHdsl2ShdslProfile_Action_o_Type.__name__ = "Integer32"
+_ThreshHdsl2ShdslProfile_Action_o_Object = MibScalar
+threshHdsl2ShdslProfile_Action_o = _ThreshHdsl2ShdslProfile_Action_o_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 160, 1, 1, 9),
+    _ThreshHdsl2ShdslProfile_Action_o_Type()
+)
+threshHdsl2ShdslProfile_Action_o.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    threshHdsl2ShdslProfile_Action_o.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ASCEND-MIBTHRESHHDSL2SHDSL-MIB",
+    **{"DisplayString": DisplayString,
+       "mibthreshHdsl2ShdslProfile": mibthreshHdsl2ShdslProfile,
+       "mibthreshHdsl2ShdslProfileTable": mibthreshHdsl2ShdslProfileTable,
+       "mibthreshHdsl2ShdslProfileEntry": mibthreshHdsl2ShdslProfileEntry,
+       "threshHdsl2ShdslProfile-Name": threshHdsl2ShdslProfile_Name,
+       "threshHdsl2ShdslProfile-LoopAttenuationThresh": threshHdsl2ShdslProfile_LoopAttenuationThresh,
+       "threshHdsl2ShdslProfile-SnrMgnThresh": threshHdsl2ShdslProfile_SnrMgnThresh,
+       "threshHdsl2ShdslProfile-ErroredSecondsThresh": threshHdsl2ShdslProfile_ErroredSecondsThresh,
+       "threshHdsl2ShdslProfile-SeverelyErroredSecondsThresh": threshHdsl2ShdslProfile_SeverelyErroredSecondsThresh,
+       "threshHdsl2ShdslProfile-CrcThresh": threshHdsl2ShdslProfile_CrcThresh,
+       "threshHdsl2ShdslProfile-LoswsThresh": threshHdsl2ShdslProfile_LoswsThresh,
+       "threshHdsl2ShdslProfile-UasThresh": threshHdsl2ShdslProfile_UasThresh,
+       "threshHdsl2ShdslProfile-Action-o": threshHdsl2ShdslProfile_Action_o}
+)

@@ -1,139 +1,668 @@
+# SNMP MIB module (DC-MASTER-TC) expressed in pysnmp data model.
 #
-# PySNMP MIB module DC-MASTER-TC (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/DC-MASTER-TC
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:26:56 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, ModuleIdentity, TimeTicks, Integer32, ObjectIdentity, Unsigned32, Counter64, Gauge32, IpAddress, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "ModuleIdentity", "TimeTicks", "Integer32", "ObjectIdentity", "Unsigned32", "Counter64", "Gauge32", "IpAddress", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-dcMasterTc = ModuleIdentity((1, 2, 826, 0, 1, 1578918, 5, 41, 1))
-dcMasterTc.setRevisions(('2014-04-22 00:00',))
-if mibBuilder.loadTexts: dcMasterTc.setLastUpdated('201404220000Z')
-if mibBuilder.loadTexts: dcMasterTc.setOrganization('Data Connection Ltd.')
-class AdminStatus(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("adminStatusUp", 1), ("adminStatusDown", 2))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/DC-MASTER-TC
+# Produced by pysmi-1.5.4 at Mon Oct 14 20:52:22 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class OperStatus(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))
-    namedValues = NamedValues(("operStatusUp", 1), ("operStatusDown", 2), ("operStatusGoingUp", 3), ("operStatusGoingDown", 4), ("operStatusActFailed", 5))
+if 'mibBuilder' not in globals():
+    import sys
 
-class BaseOperStatus(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))
-    namedValues = NamedValues(("operStatusUp", 1), ("operStatusDown", 2), ("operStatusGoingUp", 3), ("operStatusGoingDown", 4), ("operStatusActFailed", 5), ("operStatusQuiescing", 6), ("operStatusNotReady", 7), ("operStatusFailed", 8), ("operStatusPrntFailed", 9), ("operStatusFailedPerm", 10), ("operStatusFailing", 11))
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-class NpgOperStatus(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 8, 10, 11))
-    namedValues = NamedValues(("operStatusUp", 1), ("operStatusDown", 2), ("operStatusGoingUp", 3), ("operStatusGoingDown", 4), ("operStatusActFailed", 5), ("operStatusFailed", 8), ("operStatusFailedPerm", 10), ("operStatusFailing", 11))
+# Import base ASN.1 objects even if this MIB does not use it
 
-class Unsigned32NonZero(TextualConvention, Unsigned32):
-    status = 'current'
-    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 4294967295)
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
 
-class NumericIndex(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 2147483647)
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
 
-class NumericIndexOrZero(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 2147483647)
+# Import SMI symbols from the MIBs this MIB depends on
 
-class EntityIndex(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 2147483647)
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
 
-class EntityIndexOrZero(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 2147483647)
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
 
-class AuthUserDataString(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 17)
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
 
-class StdAccessListListIndex(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 2147483647)
 
-class StdAccessListListIndexOrZero(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 2147483647)
+# MODULE-IDENTITY
 
-class StdAccessListRuleIndex(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 2147483647)
+dcMasterTc = ModuleIdentity(
+    (1, 2, 826, 0, 1, 1578918, 5, 41, 1)
+)
+dcMasterTc.setRevisions(
+        ("2014-04-22 00:00",)
+)
 
-class ExtAccessListListIndex(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 2147483647)
 
-class ExtAccessListListIndexOrZero(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 2147483647)
+# Types definitions
 
-class ExtAccessListRuleIndex(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 2147483647)
 
-class RouteAction(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))
-    namedValues = NamedValues(("routeActionLocal", 1), ("routeActionForward", 2), ("routeActionReject", 3), ("routeActionDiscard", 4), ("routeActionTunnel", 5))
+# TEXTUAL-CONVENTIONS
 
-class AdminDistance(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 255)
 
-class PathType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 65536, 131072, 131073, 131074, 196608, 262144, 327680, 393216, 458752, 524288, 589824, 589825, 589826, 589827, 655360, 720896, 786432, 851968, 851969, 851970, 851971, 917504, 917505, 917506, 983040, 1048576, 1048577, 1048578, 1114112))
-    namedValues = NamedValues(("pathTypeNone", 0), ("pathTypeOther", 65536), ("pathTypeConnected", 131072), ("pathTypeConfiguredLocal", 131073), ("pathTypeConfiguredConnected", 131074), ("pathTypeStatic", 196608), ("pathTypeIcmp", 262144), ("pathTypeEgp", 327680), ("pathTypePd", 393216), ("pathTypeHello", 458752), ("pathTypeRip", 524288), ("pathTypeIsisLevel1Int", 589824), ("pathTypeIsisLevel2Int", 589825), ("pathTypeIsisLevel1Ext", 589826), ("pathTypeIsisLevel2Ext", 589827), ("pathTypeEsis", 655360), ("pathTypeIgrp", 720896), ("pathTypeBbnspfigp", 786432), ("pathTypeOspfIntraArea", 851968), ("pathTypeOspfInterArea", 851969), ("pathTypeOspfType1Ext", 851970), ("pathTypeOspfType2Ext", 851971), ("pathTypeBgpInt", 917504), ("pathTypeBgpExt", 917505), ("pathTypeBgpVpn", 917506), ("pathTypeIdpr", 983040), ("pathTypeEigrp", 1048576), ("pathTypeEigrpInt", 1048577), ("pathTypeEigrpExt", 1048578), ("pathTypeDvmrp", 1114112))
 
-class EntityProcType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(553779200, 587268096, 1023475712, 1040252928, 1040318464, 1057030144, 1057095680, 1090584576, 1090650112, 1174470656, 1241579520, 1241645056))
-    namedValues = NamedValues(("entityRsvp", 553779200), ("entityLdpSc", 587268096), ("entityRtm", 1023475712), ("entityOspfPm", 1040252928), ("entityOspfNm", 1040318464), ("entityIsisPm", 1057030144), ("entityIsisSdc", 1057095680), ("entityBgpRm", 1090584576), ("entityBgpNm", 1090650112), ("entityRipPm", 1174470656), ("entityOspfv3Pm", 1241579520), ("entityOspfv3Nm", 1241645056))
+class AdminStatus(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("adminStatusDown", 2),
+          ("adminStatusUp", 1))
+    )
 
-class InetSubAddressType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
-    namedValues = NamedValues(("none", 0), ("unicast", 1), ("multicast", 2))
 
-class BfdSessionStatus(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))
-    namedValues = NamedValues(("bfdSessNotRequired", 0), ("bfdSessInitial", 1), ("bfdSessActivating", 2), ("bfdSessActive", 3), ("bfdSessInactive", 4), ("bfdSessAdminDown", 5), ("bfdSessNoContact", 6))
 
-class IgpShortcutMetricType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("metricTypeAbsolute", 1), ("metricTypeRelative", 2))
+class OperStatus(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("operStatusActFailed", 5),
+          ("operStatusDown", 2),
+          ("operStatusGoingDown", 4),
+          ("operStatusGoingUp", 3),
+          ("operStatusUp", 1))
+    )
 
-class IfOperStatus(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))
-    namedValues = NamedValues(("up", 1), ("down", 2), ("testing", 3), ("unknown", 4), ("dormant", 5), ("notPresent", 6), ("lowerLayerDown", 7))
 
-class MjStatus(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))
-    namedValues = NamedValues(("mjNotJoined", 1), ("mjSentAddJoin", 2), ("mjSentRegister", 3), ("mjJoinActive", 4), ("mjSentUnregister", 5), ("mjSentDelJoin", 6), ("mjFailedToAdd", 7), ("mjFailedToRegister", 8), ("mjFailingOver", 9), ("mjFailed", 10), ("mjUnavailable", 11))
 
-class SjStatus(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))
-    namedValues = NamedValues(("sjNotJoined", 1), ("sjJoined", 2), ("sjRcvdRegister", 3), ("sjJoinActive", 4), ("sjFailingOver", 5), ("sjFailed", 6), ("sjRcvdUnregister", 7), ("sjUnregDone", 8))
+class BaseOperStatus(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11)
+        )
+    )
+    namedValues = NamedValues(
+        *(("operStatusActFailed", 5),
+          ("operStatusDown", 2),
+          ("operStatusFailed", 8),
+          ("operStatusFailedPerm", 10),
+          ("operStatusFailing", 11),
+          ("operStatusGoingDown", 4),
+          ("operStatusGoingUp", 3),
+          ("operStatusNotReady", 7),
+          ("operStatusPrntFailed", 9),
+          ("operStatusQuiescing", 6),
+          ("operStatusUp", 1))
+    )
 
-class InterfaceScope(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 3)
 
-mibBuilder.exportSymbols("DC-MASTER-TC", EntityProcType=EntityProcType, IgpShortcutMetricType=IgpShortcutMetricType, ExtAccessListListIndexOrZero=ExtAccessListListIndexOrZero, NumericIndexOrZero=NumericIndexOrZero, NumericIndex=NumericIndex, InetSubAddressType=InetSubAddressType, StdAccessListRuleIndex=StdAccessListRuleIndex, OperStatus=OperStatus, BfdSessionStatus=BfdSessionStatus, RouteAction=RouteAction, NpgOperStatus=NpgOperStatus, MjStatus=MjStatus, InterfaceScope=InterfaceScope, BaseOperStatus=BaseOperStatus, ExtAccessListRuleIndex=ExtAccessListRuleIndex, StdAccessListListIndex=StdAccessListListIndex, AdminStatus=AdminStatus, SjStatus=SjStatus, dcMasterTc=dcMasterTc, EntityIndexOrZero=EntityIndexOrZero, Unsigned32NonZero=Unsigned32NonZero, ExtAccessListListIndex=ExtAccessListListIndex, StdAccessListListIndexOrZero=StdAccessListListIndexOrZero, AuthUserDataString=AuthUserDataString, EntityIndex=EntityIndex, AdminDistance=AdminDistance, PathType=PathType, IfOperStatus=IfOperStatus, PYSNMP_MODULE_ID=dcMasterTc)
+
+class NpgOperStatus(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              8,
+              10,
+              11)
+        )
+    )
+    namedValues = NamedValues(
+        *(("operStatusActFailed", 5),
+          ("operStatusDown", 2),
+          ("operStatusFailed", 8),
+          ("operStatusFailedPerm", 10),
+          ("operStatusFailing", 11),
+          ("operStatusGoingDown", 4),
+          ("operStatusGoingUp", 3),
+          ("operStatusUp", 1))
+    )
+
+
+
+class Unsigned32NonZero(Unsigned32, TextualConvention):
+    status = "current"
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4294967295),
+    )
+
+
+
+class NumericIndex(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+
+class NumericIndexOrZero(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+
+class EntityIndex(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+
+class EntityIndexOrZero(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+
+class AuthUserDataString(OctetString, TextualConvention):
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 17),
+    )
+
+
+
+class StdAccessListListIndex(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+
+class StdAccessListListIndexOrZero(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+
+class StdAccessListRuleIndex(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+
+class ExtAccessListListIndex(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+
+class ExtAccessListListIndexOrZero(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+
+class ExtAccessListRuleIndex(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+
+class RouteAction(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("routeActionDiscard", 4),
+          ("routeActionForward", 2),
+          ("routeActionLocal", 1),
+          ("routeActionReject", 3),
+          ("routeActionTunnel", 5))
+    )
+
+
+
+class AdminDistance(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+
+class PathType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              65536,
+              131072,
+              131073,
+              131074,
+              196608,
+              262144,
+              327680,
+              393216,
+              458752,
+              524288,
+              589824,
+              589825,
+              589826,
+              589827,
+              655360,
+              720896,
+              786432,
+              851968,
+              851969,
+              851970,
+              851971,
+              917504,
+              917505,
+              917506,
+              983040,
+              1048576,
+              1048577,
+              1048578,
+              1114112)
+        )
+    )
+    namedValues = NamedValues(
+        *(("pathTypeBbnspfigp", 786432),
+          ("pathTypeBgpExt", 917505),
+          ("pathTypeBgpInt", 917504),
+          ("pathTypeBgpVpn", 917506),
+          ("pathTypeConfiguredConnected", 131074),
+          ("pathTypeConfiguredLocal", 131073),
+          ("pathTypeConnected", 131072),
+          ("pathTypeDvmrp", 1114112),
+          ("pathTypeEgp", 327680),
+          ("pathTypeEigrp", 1048576),
+          ("pathTypeEigrpExt", 1048578),
+          ("pathTypeEigrpInt", 1048577),
+          ("pathTypeEsis", 655360),
+          ("pathTypeHello", 458752),
+          ("pathTypeIcmp", 262144),
+          ("pathTypeIdpr", 983040),
+          ("pathTypeIgrp", 720896),
+          ("pathTypeIsisLevel1Ext", 589826),
+          ("pathTypeIsisLevel1Int", 589824),
+          ("pathTypeIsisLevel2Ext", 589827),
+          ("pathTypeIsisLevel2Int", 589825),
+          ("pathTypeNone", 0),
+          ("pathTypeOspfInterArea", 851969),
+          ("pathTypeOspfIntraArea", 851968),
+          ("pathTypeOspfType1Ext", 851970),
+          ("pathTypeOspfType2Ext", 851971),
+          ("pathTypeOther", 65536),
+          ("pathTypePd", 393216),
+          ("pathTypeRip", 524288),
+          ("pathTypeStatic", 196608))
+    )
+
+
+
+class EntityProcType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(553779200,
+              587268096,
+              1023475712,
+              1040252928,
+              1040318464,
+              1057030144,
+              1057095680,
+              1090584576,
+              1090650112,
+              1174470656,
+              1241579520,
+              1241645056)
+        )
+    )
+    namedValues = NamedValues(
+        *(("entityBgpNm", 1090650112),
+          ("entityBgpRm", 1090584576),
+          ("entityIsisPm", 1057030144),
+          ("entityIsisSdc", 1057095680),
+          ("entityLdpSc", 587268096),
+          ("entityOspfNm", 1040318464),
+          ("entityOspfPm", 1040252928),
+          ("entityOspfv3Nm", 1241645056),
+          ("entityOspfv3Pm", 1241579520),
+          ("entityRipPm", 1174470656),
+          ("entityRsvp", 553779200),
+          ("entityRtm", 1023475712))
+    )
+
+
+
+class InetSubAddressType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("multicast", 2),
+          ("none", 0),
+          ("unicast", 1))
+    )
+
+
+
+class BfdSessionStatus(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("bfdSessActivating", 2),
+          ("bfdSessActive", 3),
+          ("bfdSessAdminDown", 5),
+          ("bfdSessInactive", 4),
+          ("bfdSessInitial", 1),
+          ("bfdSessNoContact", 6),
+          ("bfdSessNotRequired", 0))
+    )
+
+
+
+class IgpShortcutMetricType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("metricTypeAbsolute", 1),
+          ("metricTypeRelative", 2))
+    )
+
+
+
+class IfOperStatus(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dormant", 5),
+          ("down", 2),
+          ("lowerLayerDown", 7),
+          ("notPresent", 6),
+          ("testing", 3),
+          ("unknown", 4),
+          ("up", 1))
+    )
+
+
+
+class MjStatus(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11)
+        )
+    )
+    namedValues = NamedValues(
+        *(("mjFailed", 10),
+          ("mjFailedToAdd", 7),
+          ("mjFailedToRegister", 8),
+          ("mjFailingOver", 9),
+          ("mjJoinActive", 4),
+          ("mjNotJoined", 1),
+          ("mjSentAddJoin", 2),
+          ("mjSentDelJoin", 6),
+          ("mjSentRegister", 3),
+          ("mjSentUnregister", 5),
+          ("mjUnavailable", 11))
+    )
+
+
+
+class SjStatus(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("sjFailed", 6),
+          ("sjFailingOver", 5),
+          ("sjJoinActive", 4),
+          ("sjJoined", 2),
+          ("sjNotJoined", 1),
+          ("sjRcvdRegister", 3),
+          ("sjRcvdUnregister", 7),
+          ("sjUnregDone", 8))
+    )
+
+
+
+class InterfaceScope(OctetString, TextualConvention):
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 3),
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "DC-MASTER-TC",
+    **{"AdminStatus": AdminStatus,
+       "OperStatus": OperStatus,
+       "BaseOperStatus": BaseOperStatus,
+       "NpgOperStatus": NpgOperStatus,
+       "Unsigned32NonZero": Unsigned32NonZero,
+       "NumericIndex": NumericIndex,
+       "NumericIndexOrZero": NumericIndexOrZero,
+       "EntityIndex": EntityIndex,
+       "EntityIndexOrZero": EntityIndexOrZero,
+       "AuthUserDataString": AuthUserDataString,
+       "StdAccessListListIndex": StdAccessListListIndex,
+       "StdAccessListListIndexOrZero": StdAccessListListIndexOrZero,
+       "StdAccessListRuleIndex": StdAccessListRuleIndex,
+       "ExtAccessListListIndex": ExtAccessListListIndex,
+       "ExtAccessListListIndexOrZero": ExtAccessListListIndexOrZero,
+       "ExtAccessListRuleIndex": ExtAccessListRuleIndex,
+       "RouteAction": RouteAction,
+       "AdminDistance": AdminDistance,
+       "PathType": PathType,
+       "EntityProcType": EntityProcType,
+       "InetSubAddressType": InetSubAddressType,
+       "BfdSessionStatus": BfdSessionStatus,
+       "IgpShortcutMetricType": IgpShortcutMetricType,
+       "IfOperStatus": IfOperStatus,
+       "MjStatus": MjStatus,
+       "SjStatus": SjStatus,
+       "InterfaceScope": InterfaceScope,
+       "dcMasterTc": dcMasterTc}
+)

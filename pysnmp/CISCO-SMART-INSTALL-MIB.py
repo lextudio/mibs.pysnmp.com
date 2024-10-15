@@ -1,189 +1,1173 @@
+# SNMP MIB module (CISCO-SMART-INSTALL-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-SMART-INSTALL-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/CISCO-SMART-INSTALL-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:55:35 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint")
-ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-Cisco2KVlanList, CiscoURLStringOrEmpty, TimeIntervalMin = mibBuilder.importSymbols("CISCO-TC", "Cisco2KVlanList", "CiscoURLStringOrEmpty", "TimeIntervalMin")
-InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-ModuleIdentity, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, MibIdentifier, Integer32, NotificationType, Bits, Counter64, ObjectIdentity, iso, TimeTicks, Counter32, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "MibIdentifier", "Integer32", "NotificationType", "Bits", "Counter64", "ObjectIdentity", "iso", "TimeTicks", "Counter32", "Unsigned32")
-DateAndTime, TruthValue, TextualConvention, StorageType, RowStatus, DisplayString, MacAddress = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TruthValue", "TextualConvention", "StorageType", "RowStatus", "DisplayString", "MacAddress")
-ciscoSmartInstallMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 725))
-ciscoSmartInstallMIB.setRevisions(('2010-04-30 00:00',))
-if mibBuilder.loadTexts: ciscoSmartInstallMIB.setLastUpdated('201004300000Z')
-if mibBuilder.loadTexts: ciscoSmartInstallMIB.setOrganization('Cisco Systems, Inc.')
-ciscoSmartInstallMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 725, 0))
-ciscoSmartInstallMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 725, 1))
-ciscoSmartInstallMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 725, 2))
-csiGlobalConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1))
-csiProfile = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2))
-csiDeviceInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 3))
-csiNotifObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 4))
-csiOperationMode = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disabled", 1), ("basic", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: csiOperationMode.setStatus('current')
-csiDirectorIpAddressType = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 2), InetAddressType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: csiDirectorIpAddressType.setStatus('current')
-csiDirectorIpAddress = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 3), InetAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: csiDirectorIpAddress.setStatus('current')
-csiManagementVlan = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 4), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: csiManagementVlan.setStatus('current')
-csiManagementVlansFirst2K = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 5), Cisco2KVlanList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: csiManagementVlansFirst2K.setStatus('current')
-csiManagementVlansSecond2K = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 6), Cisco2KVlanList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: csiManagementVlansSecond2K.setStatus('current')
-csiBackup = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 7))
-csiJoinWindow = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 8))
-csiBackupHostUrl = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 7, 1), CiscoURLStringOrEmpty()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: csiBackupHostUrl.setStatus('current')
-csiBackupEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 7, 2), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: csiBackupEnable.setStatus('current')
-csiJoinWindowConfigOperationMode = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 8, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("closed", 1), ("auto", 2), ("manual", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: csiJoinWindowConfigOperationMode.setStatus('current')
-csiJoinWindowPeriodNextFreeIndex = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 8, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: csiJoinWindowPeriodNextFreeIndex.setStatus('current')
-csiJoinWindowPeriodTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 8, 3), )
-if mibBuilder.loadTexts: csiJoinWindowPeriodTable.setStatus('current')
-csiJoinWindowPeriodEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 8, 3, 1), ).setIndexNames((0, "CISCO-SMART-INSTALL-MIB", "csiJoinWindowPeriodIndex"))
-if mibBuilder.loadTexts: csiJoinWindowPeriodEntry.setStatus('current')
-csiJoinWindowPeriodIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 8, 3, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: csiJoinWindowPeriodIndex.setStatus('current')
-csiJoinWindowPeriodStartTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 8, 3, 1, 2), DateAndTime()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: csiJoinWindowPeriodStartTime.setStatus('current')
-csiJoinWindowPeriodInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 8, 3, 1, 3), TimeIntervalMin()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: csiJoinWindowPeriodInterval.setStatus('current')
-csiJoinWindowPeriodRecurrencePattern = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 8, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("none", 1), ("daily", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: csiJoinWindowPeriodRecurrencePattern.setStatus('current')
-csiJoinWindowPeriodExpirationDate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 8, 3, 1, 5), DateAndTime()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: csiJoinWindowPeriodExpirationDate.setStatus('current')
-csiJoinWindowPeriodStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 8, 3, 1, 6), StorageType().clone('volatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: csiJoinWindowPeriodStorageType.setStatus('current')
-csiJoinWindowPeriodRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 8, 3, 1, 7), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: csiJoinWindowPeriodRowStatus.setStatus('current')
-csiImageFileUrl = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 1), CiscoURLStringOrEmpty()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: csiImageFileUrl.setStatus('current')
-csiConfigFileUrl = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 2), CiscoURLStringOrEmpty()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: csiConfigFileUrl.setStatus('current')
-csiHostnamePrefix = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 3), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 40))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: csiHostnamePrefix.setStatus('current')
-csiProfileNextFreeIndex = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 4), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(2, 4294967295), ))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: csiProfileNextFreeIndex.setStatus('current')
-csiProfileTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 5), )
-if mibBuilder.loadTexts: csiProfileTable.setStatus('current')
-csiProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 5, 1), ).setIndexNames((0, "CISCO-SMART-INSTALL-MIB", "csiProfileIndex"))
-if mibBuilder.loadTexts: csiProfileEntry.setStatus('current')
-csiProfileIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 5, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: csiProfileIndex.setStatus('current')
-csiProfileGroupName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 5, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: csiProfileGroupName.setStatus('current')
-csiProfileImageUrl = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 5, 1, 3), CiscoURLStringOrEmpty()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: csiProfileImageUrl.setStatus('current')
-csiProfileImageTwoUrl = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 5, 1, 4), CiscoURLStringOrEmpty()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: csiProfileImageTwoUrl.setStatus('current')
-csiProfileConfigUrl = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 5, 1, 5), CiscoURLStringOrEmpty()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: csiProfileConfigUrl.setStatus('current')
-csiProfileStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 5, 1, 6), StorageType().clone('volatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: csiProfileStorageType.setStatus('current')
-csiProfileRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 5, 1, 7), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: csiProfileRowStatus.setStatus('current')
-csiMatchTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 6), )
-if mibBuilder.loadTexts: csiMatchTable.setStatus('current')
-csiMatchEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 6, 1), ).setIndexNames((0, "CISCO-SMART-INSTALL-MIB", "csiProfileIndex"), (0, "CISCO-SMART-INSTALL-MIB", "csiMatchIndex"))
-if mibBuilder.loadTexts: csiMatchEntry.setStatus('current')
-csiMatchIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 6, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: csiMatchIndex.setStatus('current')
-csiMatchGroupType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 6, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("unknown", 1), ("mac", 2), ("connectivity", 3), ("product", 4), ("stack", 5)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: csiMatchGroupType.setStatus('current')
-csiMatchMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 6, 1, 3), MacAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: csiMatchMacAddress.setStatus('current')
-csiMatchHostAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 6, 1, 4), InetAddressType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: csiMatchHostAddressType.setStatus('current')
-csiMatchHostAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 6, 1, 5), InetAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: csiMatchHostAddress.setStatus('current')
-csiMatchHostInterface = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 6, 1, 6), SnmpAdminString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: csiMatchHostInterface.setStatus('current')
-csiMatchProductId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 6, 1, 7), SnmpAdminString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: csiMatchProductId.setStatus('current')
-csiMatchSwitchNum = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 6, 1, 8), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: csiMatchSwitchNum.setStatus('current')
-csiMatchSwitchProductId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 6, 1, 9), SnmpAdminString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: csiMatchSwitchProductId.setStatus('current')
-csiMatchStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 6, 1, 10), StorageType().clone('volatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: csiMatchStorageType.setStatus('current')
-csiMatchRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 6, 1, 11), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: csiMatchRowStatus.setStatus('current')
-csiDeviceTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 3, 1), )
-if mibBuilder.loadTexts: csiDeviceTable.setStatus('current')
-csiDeviceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 3, 1, 1), ).setIndexNames((0, "CISCO-SMART-INSTALL-MIB", "csiDeviceNum"))
-if mibBuilder.loadTexts: csiDeviceEntry.setStatus('current')
-csiDeviceNum = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 3, 1, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: csiDeviceNum.setStatus('current')
-csiDeviceMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 3, 1, 1, 2), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: csiDeviceMacAddress.setStatus('current')
-csiDeviceAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 3, 1, 1, 3), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: csiDeviceAddressType.setStatus('current')
-csiDeviceAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 3, 1, 1, 4), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: csiDeviceAddress.setStatus('current')
-csiDeviceName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 3, 1, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: csiDeviceName.setStatus('current')
-csiDeviceBackupConfigFileName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 3, 1, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: csiDeviceBackupConfigFileName.setStatus('current')
-csiDeviceImageVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 3, 1, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: csiDeviceImageVersion.setStatus('current')
-csiDevicePlatform = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 3, 1, 1, 8), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: csiDevicePlatform.setStatus('current')
-csiDeviceSerialNum = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 3, 1, 1, 9), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: csiDeviceSerialNum.setStatus('current')
-csiDeviceStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 3, 1, 1, 10), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: csiDeviceStatus.setStatus('current')
-csiNotifEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 4, 1), Bits().clone(namedValues=NamedValues(("operationModeChange", 0), ("deviceAdded", 1), ("deviceLost", 2), ("fileLoadFailed", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: csiNotifEnable.setStatus('current')
-csiNotifOperationType = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 4, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("downloadConfig", 2), ("downloadImage", 3), ("uploadConfig", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: csiNotifOperationType.setStatus('current')
-csiNotifOperationResult = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 4, 3), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: csiNotifOperationResult.setStatus('current')
-csiOperationModeChange = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 725, 0, 1)).setObjects(("CISCO-SMART-INSTALL-MIB", "csiOperationMode"))
-if mibBuilder.loadTexts: csiOperationModeChange.setStatus('current')
-csiDeviceAdded = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 725, 0, 2)).setObjects(("CISCO-SMART-INSTALL-MIB", "csiDeviceName"), ("CISCO-SMART-INSTALL-MIB", "csiDeviceAddressType"), ("CISCO-SMART-INSTALL-MIB", "csiDeviceAddress"), ("CISCO-SMART-INSTALL-MIB", "csiDeviceMacAddress"))
-if mibBuilder.loadTexts: csiDeviceAdded.setStatus('current')
-csiDeviceLost = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 725, 0, 3)).setObjects(("CISCO-SMART-INSTALL-MIB", "csiDeviceName"), ("CISCO-SMART-INSTALL-MIB", "csiDeviceAddressType"), ("CISCO-SMART-INSTALL-MIB", "csiDeviceAddress"), ("CISCO-SMART-INSTALL-MIB", "csiDeviceMacAddress"))
-if mibBuilder.loadTexts: csiDeviceLost.setStatus('current')
-csiFileLoadFailed = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 725, 0, 4)).setObjects(("CISCO-SMART-INSTALL-MIB", "csiDeviceName"), ("CISCO-SMART-INSTALL-MIB", "csiDeviceAddressType"), ("CISCO-SMART-INSTALL-MIB", "csiDeviceAddress"), ("CISCO-SMART-INSTALL-MIB", "csiDeviceMacAddress"), ("CISCO-SMART-INSTALL-MIB", "csiNotifOperationType"), ("CISCO-SMART-INSTALL-MIB", "csiNotifOperationResult"))
-if mibBuilder.loadTexts: csiFileLoadFailed.setStatus('current')
-ciscoSmartInstallCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 725, 2, 1))
-ciscoSmartInstallGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 725, 2, 2))
-ciscoSmartInstallCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 725, 2, 1, 1)).setObjects(("CISCO-SMART-INSTALL-MIB", "ciscoSmartInstallGlobalConfigGroup"), ("CISCO-SMART-INSTALL-MIB", "ciscoSmartInstallDeviceInformationGroup"), ("CISCO-SMART-INSTALL-MIB", "ciscoSmartInstallConfigBackupGroup"), ("CISCO-SMART-INSTALL-MIB", "ciscoSmartInstallJoinWindowGroup"), ("CISCO-SMART-INSTALL-MIB", "ciscoSmartInstallProfileGroup"), ("CISCO-SMART-INSTALL-MIB", "ciscoSmartInstallNotificationEnableGroup"), ("CISCO-SMART-INSTALL-MIB", "ciscoSmartInstallNotificationsGroup"), ("CISCO-SMART-INSTALL-MIB", "ciscoSmartInstallNotifyVarsGroup"))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CISCO-SMART-INSTALL-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:08:25 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoSmartInstallCompliance = ciscoSmartInstallCompliance.setStatus('current')
-ciscoSmartInstallGlobalConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 725, 2, 2, 1)).setObjects(("CISCO-SMART-INSTALL-MIB", "csiOperationMode"), ("CISCO-SMART-INSTALL-MIB", "csiDirectorIpAddressType"), ("CISCO-SMART-INSTALL-MIB", "csiDirectorIpAddress"), ("CISCO-SMART-INSTALL-MIB", "csiManagementVlan"), ("CISCO-SMART-INSTALL-MIB", "csiManagementVlansFirst2K"), ("CISCO-SMART-INSTALL-MIB", "csiManagementVlansSecond2K"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoSmartInstallGlobalConfigGroup = ciscoSmartInstallGlobalConfigGroup.setStatus('current')
-ciscoSmartInstallConfigBackupGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 725, 2, 2, 2)).setObjects(("CISCO-SMART-INSTALL-MIB", "csiBackupEnable"), ("CISCO-SMART-INSTALL-MIB", "csiBackupHostUrl"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoSmartInstallConfigBackupGroup = ciscoSmartInstallConfigBackupGroup.setStatus('current')
-ciscoSmartInstallJoinWindowGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 725, 2, 2, 3)).setObjects(("CISCO-SMART-INSTALL-MIB", "csiJoinWindowConfigOperationMode"), ("CISCO-SMART-INSTALL-MIB", "csiJoinWindowPeriodNextFreeIndex"), ("CISCO-SMART-INSTALL-MIB", "csiJoinWindowPeriodStartTime"), ("CISCO-SMART-INSTALL-MIB", "csiJoinWindowPeriodInterval"), ("CISCO-SMART-INSTALL-MIB", "csiJoinWindowPeriodRecurrencePattern"), ("CISCO-SMART-INSTALL-MIB", "csiJoinWindowPeriodExpirationDate"), ("CISCO-SMART-INSTALL-MIB", "csiJoinWindowPeriodRowStatus"), ("CISCO-SMART-INSTALL-MIB", "csiJoinWindowPeriodStorageType"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoSmartInstallJoinWindowGroup = ciscoSmartInstallJoinWindowGroup.setStatus('current')
-ciscoSmartInstallProfileGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 725, 2, 2, 4)).setObjects(("CISCO-SMART-INSTALL-MIB", "csiImageFileUrl"), ("CISCO-SMART-INSTALL-MIB", "csiConfigFileUrl"), ("CISCO-SMART-INSTALL-MIB", "csiHostnamePrefix"), ("CISCO-SMART-INSTALL-MIB", "csiProfileNextFreeIndex"), ("CISCO-SMART-INSTALL-MIB", "csiProfileGroupName"), ("CISCO-SMART-INSTALL-MIB", "csiProfileImageUrl"), ("CISCO-SMART-INSTALL-MIB", "csiProfileImageTwoUrl"), ("CISCO-SMART-INSTALL-MIB", "csiProfileConfigUrl"), ("CISCO-SMART-INSTALL-MIB", "csiProfileStorageType"), ("CISCO-SMART-INSTALL-MIB", "csiProfileRowStatus"), ("CISCO-SMART-INSTALL-MIB", "csiMatchGroupType"), ("CISCO-SMART-INSTALL-MIB", "csiMatchProductId"), ("CISCO-SMART-INSTALL-MIB", "csiMatchSwitchNum"), ("CISCO-SMART-INSTALL-MIB", "csiMatchSwitchProductId"), ("CISCO-SMART-INSTALL-MIB", "csiMatchHostAddressType"), ("CISCO-SMART-INSTALL-MIB", "csiMatchHostAddress"), ("CISCO-SMART-INSTALL-MIB", "csiMatchHostInterface"), ("CISCO-SMART-INSTALL-MIB", "csiMatchMacAddress"), ("CISCO-SMART-INSTALL-MIB", "csiMatchStorageType"), ("CISCO-SMART-INSTALL-MIB", "csiMatchRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoSmartInstallProfileGroup = ciscoSmartInstallProfileGroup.setStatus('current')
-ciscoSmartInstallDeviceInformationGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 725, 2, 2, 5)).setObjects(("CISCO-SMART-INSTALL-MIB", "csiDeviceMacAddress"), ("CISCO-SMART-INSTALL-MIB", "csiDeviceAddressType"), ("CISCO-SMART-INSTALL-MIB", "csiDeviceAddress"), ("CISCO-SMART-INSTALL-MIB", "csiDeviceName"), ("CISCO-SMART-INSTALL-MIB", "csiDeviceBackupConfigFileName"), ("CISCO-SMART-INSTALL-MIB", "csiDeviceImageVersion"), ("CISCO-SMART-INSTALL-MIB", "csiDevicePlatform"), ("CISCO-SMART-INSTALL-MIB", "csiDeviceSerialNum"), ("CISCO-SMART-INSTALL-MIB", "csiDeviceStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoSmartInstallDeviceInformationGroup = ciscoSmartInstallDeviceInformationGroup.setStatus('current')
-ciscoSmartInstallNotificationEnableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 725, 2, 2, 6)).setObjects(("CISCO-SMART-INSTALL-MIB", "csiNotifEnable"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoSmartInstallNotificationEnableGroup = ciscoSmartInstallNotificationEnableGroup.setStatus('current')
-ciscoSmartInstallNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 725, 2, 2, 7)).setObjects(("CISCO-SMART-INSTALL-MIB", "csiOperationModeChange"), ("CISCO-SMART-INSTALL-MIB", "csiDeviceAdded"), ("CISCO-SMART-INSTALL-MIB", "csiDeviceLost"), ("CISCO-SMART-INSTALL-MIB", "csiFileLoadFailed"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoSmartInstallNotificationsGroup = ciscoSmartInstallNotificationsGroup.setStatus('current')
-ciscoSmartInstallNotifyVarsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 725, 2, 2, 8)).setObjects(("CISCO-SMART-INSTALL-MIB", "csiNotifOperationType"), ("CISCO-SMART-INSTALL-MIB", "csiNotifOperationResult"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoSmartInstallNotifyVarsGroup = ciscoSmartInstallNotifyVarsGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-SMART-INSTALL-MIB", ciscoSmartInstallDeviceInformationGroup=ciscoSmartInstallDeviceInformationGroup, csiMatchHostAddress=csiMatchHostAddress, ciscoSmartInstallMIBNotifs=ciscoSmartInstallMIBNotifs, csiDeviceInfo=csiDeviceInfo, csiGlobalConfig=csiGlobalConfig, csiMatchProductId=csiMatchProductId, csiMatchHostInterface=csiMatchHostInterface, ciscoSmartInstallCompliance=ciscoSmartInstallCompliance, csiMatchMacAddress=csiMatchMacAddress, csiProfileConfigUrl=csiProfileConfigUrl, csiJoinWindowPeriodStorageType=csiJoinWindowPeriodStorageType, csiJoinWindowConfigOperationMode=csiJoinWindowConfigOperationMode, csiProfileTable=csiProfileTable, csiProfileRowStatus=csiProfileRowStatus, csiDeviceMacAddress=csiDeviceMacAddress, csiImageFileUrl=csiImageFileUrl, csiDeviceAddressType=csiDeviceAddressType, csiMatchSwitchProductId=csiMatchSwitchProductId, ciscoSmartInstallNotificationEnableGroup=ciscoSmartInstallNotificationEnableGroup, csiDeviceBackupConfigFileName=csiDeviceBackupConfigFileName, csiNotifOperationType=csiNotifOperationType, csiMatchHostAddressType=csiMatchHostAddressType, csiHostnamePrefix=csiHostnamePrefix, csiOperationModeChange=csiOperationModeChange, csiMatchEntry=csiMatchEntry, csiJoinWindowPeriodInterval=csiJoinWindowPeriodInterval, csiBackupHostUrl=csiBackupHostUrl, csiMatchRowStatus=csiMatchRowStatus, csiJoinWindowPeriodEntry=csiJoinWindowPeriodEntry, ciscoSmartInstallNotificationsGroup=ciscoSmartInstallNotificationsGroup, csiMatchIndex=csiMatchIndex, csiDeviceName=csiDeviceName, csiMatchStorageType=csiMatchStorageType, ciscoSmartInstallMIB=ciscoSmartInstallMIB, PYSNMP_MODULE_ID=ciscoSmartInstallMIB, csiDeviceAddress=csiDeviceAddress, csiNotifOperationResult=csiNotifOperationResult, csiProfileStorageType=csiProfileStorageType, csiProfileImageUrl=csiProfileImageUrl, csiNotifEnable=csiNotifEnable, csiDirectorIpAddress=csiDirectorIpAddress, csiDeviceEntry=csiDeviceEntry, csiJoinWindow=csiJoinWindow, ciscoSmartInstallMIBConform=ciscoSmartInstallMIBConform, ciscoSmartInstallConfigBackupGroup=ciscoSmartInstallConfigBackupGroup, csiDeviceAdded=csiDeviceAdded, ciscoSmartInstallJoinWindowGroup=ciscoSmartInstallJoinWindowGroup, csiProfileNextFreeIndex=csiProfileNextFreeIndex, csiProfileImageTwoUrl=csiProfileImageTwoUrl, csiJoinWindowPeriodRecurrencePattern=csiJoinWindowPeriodRecurrencePattern, csiMatchSwitchNum=csiMatchSwitchNum, csiManagementVlansSecond2K=csiManagementVlansSecond2K, csiProfileIndex=csiProfileIndex, csiNotifObjects=csiNotifObjects, csiBackupEnable=csiBackupEnable, csiJoinWindowPeriodRowStatus=csiJoinWindowPeriodRowStatus, csiJoinWindowPeriodNextFreeIndex=csiJoinWindowPeriodNextFreeIndex, csiJoinWindowPeriodIndex=csiJoinWindowPeriodIndex, csiProfileGroupName=csiProfileGroupName, csiMatchGroupType=csiMatchGroupType, ciscoSmartInstallProfileGroup=ciscoSmartInstallProfileGroup, csiDeviceNum=csiDeviceNum, csiDeviceStatus=csiDeviceStatus, csiJoinWindowPeriodStartTime=csiJoinWindowPeriodStartTime, csiProfile=csiProfile, csiMatchTable=csiMatchTable, csiOperationMode=csiOperationMode, csiDeviceImageVersion=csiDeviceImageVersion, ciscoSmartInstallNotifyVarsGroup=ciscoSmartInstallNotifyVarsGroup, csiManagementVlan=csiManagementVlan, ciscoSmartInstallGlobalConfigGroup=ciscoSmartInstallGlobalConfigGroup, ciscoSmartInstallMIBObjects=ciscoSmartInstallMIBObjects, csiConfigFileUrl=csiConfigFileUrl, csiBackup=csiBackup, csiProfileEntry=csiProfileEntry, csiJoinWindowPeriodExpirationDate=csiJoinWindowPeriodExpirationDate, csiDeviceSerialNum=csiDeviceSerialNum, csiJoinWindowPeriodTable=csiJoinWindowPeriodTable, csiDeviceTable=csiDeviceTable, csiFileLoadFailed=csiFileLoadFailed, ciscoSmartInstallCompliances=ciscoSmartInstallCompliances, csiDirectorIpAddressType=csiDirectorIpAddressType, ciscoSmartInstallGroups=ciscoSmartInstallGroups, csiDevicePlatform=csiDevicePlatform, csiManagementVlansFirst2K=csiManagementVlansFirst2K, csiDeviceLost=csiDeviceLost)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ciscoMgmt,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoMgmt")
+
+(Cisco2KVlanList,
+ CiscoURLStringOrEmpty,
+ TimeIntervalMin) = mibBuilder.importSymbols(
+    "CISCO-TC",
+    "Cisco2KVlanList",
+    "CiscoURLStringOrEmpty",
+    "TimeIntervalMin")
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ MacAddress,
+ RowStatus,
+ StorageType,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "MacAddress",
+    "RowStatus",
+    "StorageType",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+ciscoSmartInstallMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725)
+)
+ciscoSmartInstallMIB.setRevisions(
+        ("2010-04-30 00:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CiscoSmartInstallMIBNotifs_ObjectIdentity = ObjectIdentity
+ciscoSmartInstallMIBNotifs = _CiscoSmartInstallMIBNotifs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 0)
+)
+_CiscoSmartInstallMIBObjects_ObjectIdentity = ObjectIdentity
+ciscoSmartInstallMIBObjects = _CiscoSmartInstallMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1)
+)
+_CsiGlobalConfig_ObjectIdentity = ObjectIdentity
+csiGlobalConfig = _CsiGlobalConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1)
+)
+
+
+class _CsiOperationMode_Type(Integer32):
+    """Custom type csiOperationMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("basic", 2),
+          ("disabled", 1))
+    )
+
+
+_CsiOperationMode_Type.__name__ = "Integer32"
+_CsiOperationMode_Object = MibScalar
+csiOperationMode = _CsiOperationMode_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 1),
+    _CsiOperationMode_Type()
+)
+csiOperationMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    csiOperationMode.setStatus("current")
+_CsiDirectorIpAddressType_Type = InetAddressType
+_CsiDirectorIpAddressType_Object = MibScalar
+csiDirectorIpAddressType = _CsiDirectorIpAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 2),
+    _CsiDirectorIpAddressType_Type()
+)
+csiDirectorIpAddressType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    csiDirectorIpAddressType.setStatus("current")
+_CsiDirectorIpAddress_Type = InetAddress
+_CsiDirectorIpAddress_Object = MibScalar
+csiDirectorIpAddress = _CsiDirectorIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 3),
+    _CsiDirectorIpAddress_Type()
+)
+csiDirectorIpAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    csiDirectorIpAddress.setStatus("current")
+_CsiManagementVlan_Type = TruthValue
+_CsiManagementVlan_Object = MibScalar
+csiManagementVlan = _CsiManagementVlan_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 4),
+    _CsiManagementVlan_Type()
+)
+csiManagementVlan.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    csiManagementVlan.setStatus("current")
+_CsiManagementVlansFirst2K_Type = Cisco2KVlanList
+_CsiManagementVlansFirst2K_Object = MibScalar
+csiManagementVlansFirst2K = _CsiManagementVlansFirst2K_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 5),
+    _CsiManagementVlansFirst2K_Type()
+)
+csiManagementVlansFirst2K.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    csiManagementVlansFirst2K.setStatus("current")
+_CsiManagementVlansSecond2K_Type = Cisco2KVlanList
+_CsiManagementVlansSecond2K_Object = MibScalar
+csiManagementVlansSecond2K = _CsiManagementVlansSecond2K_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 6),
+    _CsiManagementVlansSecond2K_Type()
+)
+csiManagementVlansSecond2K.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    csiManagementVlansSecond2K.setStatus("current")
+_CsiBackup_ObjectIdentity = ObjectIdentity
+csiBackup = _CsiBackup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 7)
+)
+_CsiBackupHostUrl_Type = CiscoURLStringOrEmpty
+_CsiBackupHostUrl_Object = MibScalar
+csiBackupHostUrl = _CsiBackupHostUrl_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 7, 1),
+    _CsiBackupHostUrl_Type()
+)
+csiBackupHostUrl.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    csiBackupHostUrl.setStatus("current")
+_CsiBackupEnable_Type = TruthValue
+_CsiBackupEnable_Object = MibScalar
+csiBackupEnable = _CsiBackupEnable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 7, 2),
+    _CsiBackupEnable_Type()
+)
+csiBackupEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    csiBackupEnable.setStatus("current")
+_CsiJoinWindow_ObjectIdentity = ObjectIdentity
+csiJoinWindow = _CsiJoinWindow_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 8)
+)
+
+
+class _CsiJoinWindowConfigOperationMode_Type(Integer32):
+    """Custom type csiJoinWindowConfigOperationMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("auto", 2),
+          ("closed", 1),
+          ("manual", 3))
+    )
+
+
+_CsiJoinWindowConfigOperationMode_Type.__name__ = "Integer32"
+_CsiJoinWindowConfigOperationMode_Object = MibScalar
+csiJoinWindowConfigOperationMode = _CsiJoinWindowConfigOperationMode_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 8, 1),
+    _CsiJoinWindowConfigOperationMode_Type()
+)
+csiJoinWindowConfigOperationMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    csiJoinWindowConfigOperationMode.setStatus("current")
+
+
+class _CsiJoinWindowPeriodNextFreeIndex_Type(Unsigned32):
+    """Custom type csiJoinWindowPeriodNextFreeIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4294967295),
+    )
+
+
+_CsiJoinWindowPeriodNextFreeIndex_Type.__name__ = "Unsigned32"
+_CsiJoinWindowPeriodNextFreeIndex_Object = MibScalar
+csiJoinWindowPeriodNextFreeIndex = _CsiJoinWindowPeriodNextFreeIndex_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 8, 2),
+    _CsiJoinWindowPeriodNextFreeIndex_Type()
+)
+csiJoinWindowPeriodNextFreeIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    csiJoinWindowPeriodNextFreeIndex.setStatus("current")
+_CsiJoinWindowPeriodTable_Object = MibTable
+csiJoinWindowPeriodTable = _CsiJoinWindowPeriodTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 8, 3)
+)
+if mibBuilder.loadTexts:
+    csiJoinWindowPeriodTable.setStatus("current")
+_CsiJoinWindowPeriodEntry_Object = MibTableRow
+csiJoinWindowPeriodEntry = _CsiJoinWindowPeriodEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 8, 3, 1)
+)
+csiJoinWindowPeriodEntry.setIndexNames(
+    (0, "CISCO-SMART-INSTALL-MIB", "csiJoinWindowPeriodIndex"),
+)
+if mibBuilder.loadTexts:
+    csiJoinWindowPeriodEntry.setStatus("current")
+_CsiJoinWindowPeriodIndex_Type = Unsigned32
+_CsiJoinWindowPeriodIndex_Object = MibTableColumn
+csiJoinWindowPeriodIndex = _CsiJoinWindowPeriodIndex_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 8, 3, 1, 1),
+    _CsiJoinWindowPeriodIndex_Type()
+)
+csiJoinWindowPeriodIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    csiJoinWindowPeriodIndex.setStatus("current")
+_CsiJoinWindowPeriodStartTime_Type = DateAndTime
+_CsiJoinWindowPeriodStartTime_Object = MibTableColumn
+csiJoinWindowPeriodStartTime = _CsiJoinWindowPeriodStartTime_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 8, 3, 1, 2),
+    _CsiJoinWindowPeriodStartTime_Type()
+)
+csiJoinWindowPeriodStartTime.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    csiJoinWindowPeriodStartTime.setStatus("current")
+_CsiJoinWindowPeriodInterval_Type = TimeIntervalMin
+_CsiJoinWindowPeriodInterval_Object = MibTableColumn
+csiJoinWindowPeriodInterval = _CsiJoinWindowPeriodInterval_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 8, 3, 1, 3),
+    _CsiJoinWindowPeriodInterval_Type()
+)
+csiJoinWindowPeriodInterval.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    csiJoinWindowPeriodInterval.setStatus("current")
+
+
+class _CsiJoinWindowPeriodRecurrencePattern_Type(Integer32):
+    """Custom type csiJoinWindowPeriodRecurrencePattern based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("daily", 2),
+          ("none", 1))
+    )
+
+
+_CsiJoinWindowPeriodRecurrencePattern_Type.__name__ = "Integer32"
+_CsiJoinWindowPeriodRecurrencePattern_Object = MibTableColumn
+csiJoinWindowPeriodRecurrencePattern = _CsiJoinWindowPeriodRecurrencePattern_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 8, 3, 1, 4),
+    _CsiJoinWindowPeriodRecurrencePattern_Type()
+)
+csiJoinWindowPeriodRecurrencePattern.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    csiJoinWindowPeriodRecurrencePattern.setStatus("current")
+_CsiJoinWindowPeriodExpirationDate_Type = DateAndTime
+_CsiJoinWindowPeriodExpirationDate_Object = MibTableColumn
+csiJoinWindowPeriodExpirationDate = _CsiJoinWindowPeriodExpirationDate_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 8, 3, 1, 5),
+    _CsiJoinWindowPeriodExpirationDate_Type()
+)
+csiJoinWindowPeriodExpirationDate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    csiJoinWindowPeriodExpirationDate.setStatus("current")
+
+
+class _CsiJoinWindowPeriodStorageType_Type(StorageType):
+    """Custom type csiJoinWindowPeriodStorageType based on StorageType"""
+
+
+_CsiJoinWindowPeriodStorageType_Object = MibTableColumn
+csiJoinWindowPeriodStorageType = _CsiJoinWindowPeriodStorageType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 8, 3, 1, 6),
+    _CsiJoinWindowPeriodStorageType_Type()
+)
+csiJoinWindowPeriodStorageType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    csiJoinWindowPeriodStorageType.setStatus("current")
+_CsiJoinWindowPeriodRowStatus_Type = RowStatus
+_CsiJoinWindowPeriodRowStatus_Object = MibTableColumn
+csiJoinWindowPeriodRowStatus = _CsiJoinWindowPeriodRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 1, 8, 3, 1, 7),
+    _CsiJoinWindowPeriodRowStatus_Type()
+)
+csiJoinWindowPeriodRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    csiJoinWindowPeriodRowStatus.setStatus("current")
+_CsiProfile_ObjectIdentity = ObjectIdentity
+csiProfile = _CsiProfile_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2)
+)
+_CsiImageFileUrl_Type = CiscoURLStringOrEmpty
+_CsiImageFileUrl_Object = MibScalar
+csiImageFileUrl = _CsiImageFileUrl_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 1),
+    _CsiImageFileUrl_Type()
+)
+csiImageFileUrl.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    csiImageFileUrl.setStatus("current")
+_CsiConfigFileUrl_Type = CiscoURLStringOrEmpty
+_CsiConfigFileUrl_Object = MibScalar
+csiConfigFileUrl = _CsiConfigFileUrl_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 2),
+    _CsiConfigFileUrl_Type()
+)
+csiConfigFileUrl.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    csiConfigFileUrl.setStatus("current")
+
+
+class _CsiHostnamePrefix_Type(SnmpAdminString):
+    """Custom type csiHostnamePrefix based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 40),
+    )
+
+
+_CsiHostnamePrefix_Type.__name__ = "SnmpAdminString"
+_CsiHostnamePrefix_Object = MibScalar
+csiHostnamePrefix = _CsiHostnamePrefix_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 3),
+    _CsiHostnamePrefix_Type()
+)
+csiHostnamePrefix.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    csiHostnamePrefix.setStatus("current")
+
+
+class _CsiProfileNextFreeIndex_Type(Unsigned32):
+    """Custom type csiProfileNextFreeIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(2, 4294967295),
+    )
+
+
+_CsiProfileNextFreeIndex_Type.__name__ = "Unsigned32"
+_CsiProfileNextFreeIndex_Object = MibScalar
+csiProfileNextFreeIndex = _CsiProfileNextFreeIndex_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 4),
+    _CsiProfileNextFreeIndex_Type()
+)
+csiProfileNextFreeIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    csiProfileNextFreeIndex.setStatus("current")
+_CsiProfileTable_Object = MibTable
+csiProfileTable = _CsiProfileTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 5)
+)
+if mibBuilder.loadTexts:
+    csiProfileTable.setStatus("current")
+_CsiProfileEntry_Object = MibTableRow
+csiProfileEntry = _CsiProfileEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 5, 1)
+)
+csiProfileEntry.setIndexNames(
+    (0, "CISCO-SMART-INSTALL-MIB", "csiProfileIndex"),
+)
+if mibBuilder.loadTexts:
+    csiProfileEntry.setStatus("current")
+_CsiProfileIndex_Type = Unsigned32
+_CsiProfileIndex_Object = MibTableColumn
+csiProfileIndex = _CsiProfileIndex_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 5, 1, 1),
+    _CsiProfileIndex_Type()
+)
+csiProfileIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    csiProfileIndex.setStatus("current")
+
+
+class _CsiProfileGroupName_Type(SnmpAdminString):
+    """Custom type csiProfileGroupName based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_CsiProfileGroupName_Type.__name__ = "SnmpAdminString"
+_CsiProfileGroupName_Object = MibTableColumn
+csiProfileGroupName = _CsiProfileGroupName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 5, 1, 2),
+    _CsiProfileGroupName_Type()
+)
+csiProfileGroupName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    csiProfileGroupName.setStatus("current")
+_CsiProfileImageUrl_Type = CiscoURLStringOrEmpty
+_CsiProfileImageUrl_Object = MibTableColumn
+csiProfileImageUrl = _CsiProfileImageUrl_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 5, 1, 3),
+    _CsiProfileImageUrl_Type()
+)
+csiProfileImageUrl.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    csiProfileImageUrl.setStatus("current")
+_CsiProfileImageTwoUrl_Type = CiscoURLStringOrEmpty
+_CsiProfileImageTwoUrl_Object = MibTableColumn
+csiProfileImageTwoUrl = _CsiProfileImageTwoUrl_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 5, 1, 4),
+    _CsiProfileImageTwoUrl_Type()
+)
+csiProfileImageTwoUrl.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    csiProfileImageTwoUrl.setStatus("current")
+_CsiProfileConfigUrl_Type = CiscoURLStringOrEmpty
+_CsiProfileConfigUrl_Object = MibTableColumn
+csiProfileConfigUrl = _CsiProfileConfigUrl_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 5, 1, 5),
+    _CsiProfileConfigUrl_Type()
+)
+csiProfileConfigUrl.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    csiProfileConfigUrl.setStatus("current")
+
+
+class _CsiProfileStorageType_Type(StorageType):
+    """Custom type csiProfileStorageType based on StorageType"""
+
+
+_CsiProfileStorageType_Object = MibTableColumn
+csiProfileStorageType = _CsiProfileStorageType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 5, 1, 6),
+    _CsiProfileStorageType_Type()
+)
+csiProfileStorageType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    csiProfileStorageType.setStatus("current")
+_CsiProfileRowStatus_Type = RowStatus
+_CsiProfileRowStatus_Object = MibTableColumn
+csiProfileRowStatus = _CsiProfileRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 5, 1, 7),
+    _CsiProfileRowStatus_Type()
+)
+csiProfileRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    csiProfileRowStatus.setStatus("current")
+_CsiMatchTable_Object = MibTable
+csiMatchTable = _CsiMatchTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 6)
+)
+if mibBuilder.loadTexts:
+    csiMatchTable.setStatus("current")
+_CsiMatchEntry_Object = MibTableRow
+csiMatchEntry = _CsiMatchEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 6, 1)
+)
+csiMatchEntry.setIndexNames(
+    (0, "CISCO-SMART-INSTALL-MIB", "csiProfileIndex"),
+    (0, "CISCO-SMART-INSTALL-MIB", "csiMatchIndex"),
+)
+if mibBuilder.loadTexts:
+    csiMatchEntry.setStatus("current")
+_CsiMatchIndex_Type = Unsigned32
+_CsiMatchIndex_Object = MibTableColumn
+csiMatchIndex = _CsiMatchIndex_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 6, 1, 1),
+    _CsiMatchIndex_Type()
+)
+csiMatchIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    csiMatchIndex.setStatus("current")
+
+
+class _CsiMatchGroupType_Type(Integer32):
+    """Custom type csiMatchGroupType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("connectivity", 3),
+          ("mac", 2),
+          ("product", 4),
+          ("stack", 5),
+          ("unknown", 1))
+    )
+
+
+_CsiMatchGroupType_Type.__name__ = "Integer32"
+_CsiMatchGroupType_Object = MibTableColumn
+csiMatchGroupType = _CsiMatchGroupType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 6, 1, 2),
+    _CsiMatchGroupType_Type()
+)
+csiMatchGroupType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    csiMatchGroupType.setStatus("current")
+_CsiMatchMacAddress_Type = MacAddress
+_CsiMatchMacAddress_Object = MibTableColumn
+csiMatchMacAddress = _CsiMatchMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 6, 1, 3),
+    _CsiMatchMacAddress_Type()
+)
+csiMatchMacAddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    csiMatchMacAddress.setStatus("current")
+_CsiMatchHostAddressType_Type = InetAddressType
+_CsiMatchHostAddressType_Object = MibTableColumn
+csiMatchHostAddressType = _CsiMatchHostAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 6, 1, 4),
+    _CsiMatchHostAddressType_Type()
+)
+csiMatchHostAddressType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    csiMatchHostAddressType.setStatus("current")
+_CsiMatchHostAddress_Type = InetAddress
+_CsiMatchHostAddress_Object = MibTableColumn
+csiMatchHostAddress = _CsiMatchHostAddress_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 6, 1, 5),
+    _CsiMatchHostAddress_Type()
+)
+csiMatchHostAddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    csiMatchHostAddress.setStatus("current")
+_CsiMatchHostInterface_Type = SnmpAdminString
+_CsiMatchHostInterface_Object = MibTableColumn
+csiMatchHostInterface = _CsiMatchHostInterface_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 6, 1, 6),
+    _CsiMatchHostInterface_Type()
+)
+csiMatchHostInterface.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    csiMatchHostInterface.setStatus("current")
+_CsiMatchProductId_Type = SnmpAdminString
+_CsiMatchProductId_Object = MibTableColumn
+csiMatchProductId = _CsiMatchProductId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 6, 1, 7),
+    _CsiMatchProductId_Type()
+)
+csiMatchProductId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    csiMatchProductId.setStatus("current")
+_CsiMatchSwitchNum_Type = Unsigned32
+_CsiMatchSwitchNum_Object = MibTableColumn
+csiMatchSwitchNum = _CsiMatchSwitchNum_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 6, 1, 8),
+    _CsiMatchSwitchNum_Type()
+)
+csiMatchSwitchNum.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    csiMatchSwitchNum.setStatus("current")
+_CsiMatchSwitchProductId_Type = SnmpAdminString
+_CsiMatchSwitchProductId_Object = MibTableColumn
+csiMatchSwitchProductId = _CsiMatchSwitchProductId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 6, 1, 9),
+    _CsiMatchSwitchProductId_Type()
+)
+csiMatchSwitchProductId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    csiMatchSwitchProductId.setStatus("current")
+
+
+class _CsiMatchStorageType_Type(StorageType):
+    """Custom type csiMatchStorageType based on StorageType"""
+
+
+_CsiMatchStorageType_Object = MibTableColumn
+csiMatchStorageType = _CsiMatchStorageType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 6, 1, 10),
+    _CsiMatchStorageType_Type()
+)
+csiMatchStorageType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    csiMatchStorageType.setStatus("current")
+_CsiMatchRowStatus_Type = RowStatus
+_CsiMatchRowStatus_Object = MibTableColumn
+csiMatchRowStatus = _CsiMatchRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 2, 6, 1, 11),
+    _CsiMatchRowStatus_Type()
+)
+csiMatchRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    csiMatchRowStatus.setStatus("current")
+_CsiDeviceInfo_ObjectIdentity = ObjectIdentity
+csiDeviceInfo = _CsiDeviceInfo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 3)
+)
+_CsiDeviceTable_Object = MibTable
+csiDeviceTable = _CsiDeviceTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 3, 1)
+)
+if mibBuilder.loadTexts:
+    csiDeviceTable.setStatus("current")
+_CsiDeviceEntry_Object = MibTableRow
+csiDeviceEntry = _CsiDeviceEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 3, 1, 1)
+)
+csiDeviceEntry.setIndexNames(
+    (0, "CISCO-SMART-INSTALL-MIB", "csiDeviceNum"),
+)
+if mibBuilder.loadTexts:
+    csiDeviceEntry.setStatus("current")
+_CsiDeviceNum_Type = Unsigned32
+_CsiDeviceNum_Object = MibTableColumn
+csiDeviceNum = _CsiDeviceNum_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 3, 1, 1, 1),
+    _CsiDeviceNum_Type()
+)
+csiDeviceNum.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    csiDeviceNum.setStatus("current")
+_CsiDeviceMacAddress_Type = MacAddress
+_CsiDeviceMacAddress_Object = MibTableColumn
+csiDeviceMacAddress = _CsiDeviceMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 3, 1, 1, 2),
+    _CsiDeviceMacAddress_Type()
+)
+csiDeviceMacAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    csiDeviceMacAddress.setStatus("current")
+_CsiDeviceAddressType_Type = InetAddressType
+_CsiDeviceAddressType_Object = MibTableColumn
+csiDeviceAddressType = _CsiDeviceAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 3, 1, 1, 3),
+    _CsiDeviceAddressType_Type()
+)
+csiDeviceAddressType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    csiDeviceAddressType.setStatus("current")
+_CsiDeviceAddress_Type = InetAddress
+_CsiDeviceAddress_Object = MibTableColumn
+csiDeviceAddress = _CsiDeviceAddress_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 3, 1, 1, 4),
+    _CsiDeviceAddress_Type()
+)
+csiDeviceAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    csiDeviceAddress.setStatus("current")
+_CsiDeviceName_Type = SnmpAdminString
+_CsiDeviceName_Object = MibTableColumn
+csiDeviceName = _CsiDeviceName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 3, 1, 1, 5),
+    _CsiDeviceName_Type()
+)
+csiDeviceName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    csiDeviceName.setStatus("current")
+_CsiDeviceBackupConfigFileName_Type = SnmpAdminString
+_CsiDeviceBackupConfigFileName_Object = MibTableColumn
+csiDeviceBackupConfigFileName = _CsiDeviceBackupConfigFileName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 3, 1, 1, 6),
+    _CsiDeviceBackupConfigFileName_Type()
+)
+csiDeviceBackupConfigFileName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    csiDeviceBackupConfigFileName.setStatus("current")
+_CsiDeviceImageVersion_Type = SnmpAdminString
+_CsiDeviceImageVersion_Object = MibTableColumn
+csiDeviceImageVersion = _CsiDeviceImageVersion_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 3, 1, 1, 7),
+    _CsiDeviceImageVersion_Type()
+)
+csiDeviceImageVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    csiDeviceImageVersion.setStatus("current")
+_CsiDevicePlatform_Type = SnmpAdminString
+_CsiDevicePlatform_Object = MibTableColumn
+csiDevicePlatform = _CsiDevicePlatform_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 3, 1, 1, 8),
+    _CsiDevicePlatform_Type()
+)
+csiDevicePlatform.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    csiDevicePlatform.setStatus("current")
+_CsiDeviceSerialNum_Type = SnmpAdminString
+_CsiDeviceSerialNum_Object = MibTableColumn
+csiDeviceSerialNum = _CsiDeviceSerialNum_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 3, 1, 1, 9),
+    _CsiDeviceSerialNum_Type()
+)
+csiDeviceSerialNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    csiDeviceSerialNum.setStatus("current")
+_CsiDeviceStatus_Type = SnmpAdminString
+_CsiDeviceStatus_Object = MibTableColumn
+csiDeviceStatus = _CsiDeviceStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 3, 1, 1, 10),
+    _CsiDeviceStatus_Type()
+)
+csiDeviceStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    csiDeviceStatus.setStatus("current")
+_CsiNotifObjects_ObjectIdentity = ObjectIdentity
+csiNotifObjects = _CsiNotifObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 4)
+)
+
+
+class _CsiNotifEnable_Type(Bits):
+    """Custom type csiNotifEnable based on Bits"""
+    namedValues = NamedValues(
+        *(("deviceAdded", 1),
+          ("deviceLost", 2),
+          ("fileLoadFailed", 3),
+          ("operationModeChange", 0))
+    )
+
+_CsiNotifEnable_Type.__name__ = "Bits"
+_CsiNotifEnable_Object = MibScalar
+csiNotifEnable = _CsiNotifEnable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 4, 1),
+    _CsiNotifEnable_Type()
+)
+csiNotifEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    csiNotifEnable.setStatus("current")
+
+
+class _CsiNotifOperationType_Type(Integer32):
+    """Custom type csiNotifOperationType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("downloadConfig", 2),
+          ("downloadImage", 3),
+          ("other", 1),
+          ("uploadConfig", 4))
+    )
+
+
+_CsiNotifOperationType_Type.__name__ = "Integer32"
+_CsiNotifOperationType_Object = MibScalar
+csiNotifOperationType = _CsiNotifOperationType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 4, 2),
+    _CsiNotifOperationType_Type()
+)
+csiNotifOperationType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    csiNotifOperationType.setStatus("current")
+_CsiNotifOperationResult_Type = SnmpAdminString
+_CsiNotifOperationResult_Object = MibScalar
+csiNotifOperationResult = _CsiNotifOperationResult_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 1, 4, 3),
+    _CsiNotifOperationResult_Type()
+)
+csiNotifOperationResult.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    csiNotifOperationResult.setStatus("current")
+_CiscoSmartInstallMIBConform_ObjectIdentity = ObjectIdentity
+ciscoSmartInstallMIBConform = _CiscoSmartInstallMIBConform_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 2)
+)
+_CiscoSmartInstallCompliances_ObjectIdentity = ObjectIdentity
+ciscoSmartInstallCompliances = _CiscoSmartInstallCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 2, 1)
+)
+_CiscoSmartInstallGroups_ObjectIdentity = ObjectIdentity
+ciscoSmartInstallGroups = _CiscoSmartInstallGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 2, 2)
+)
+
+# Managed Objects groups
+
+ciscoSmartInstallGlobalConfigGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 2, 2, 1)
+)
+ciscoSmartInstallGlobalConfigGroup.setObjects(
+      *(("CISCO-SMART-INSTALL-MIB", "csiOperationMode"),
+        ("CISCO-SMART-INSTALL-MIB", "csiDirectorIpAddressType"),
+        ("CISCO-SMART-INSTALL-MIB", "csiDirectorIpAddress"),
+        ("CISCO-SMART-INSTALL-MIB", "csiManagementVlan"),
+        ("CISCO-SMART-INSTALL-MIB", "csiManagementVlansFirst2K"),
+        ("CISCO-SMART-INSTALL-MIB", "csiManagementVlansSecond2K"))
+)
+if mibBuilder.loadTexts:
+    ciscoSmartInstallGlobalConfigGroup.setStatus("current")
+
+ciscoSmartInstallConfigBackupGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 2, 2, 2)
+)
+ciscoSmartInstallConfigBackupGroup.setObjects(
+      *(("CISCO-SMART-INSTALL-MIB", "csiBackupEnable"),
+        ("CISCO-SMART-INSTALL-MIB", "csiBackupHostUrl"))
+)
+if mibBuilder.loadTexts:
+    ciscoSmartInstallConfigBackupGroup.setStatus("current")
+
+ciscoSmartInstallJoinWindowGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 2, 2, 3)
+)
+ciscoSmartInstallJoinWindowGroup.setObjects(
+      *(("CISCO-SMART-INSTALL-MIB", "csiJoinWindowConfigOperationMode"),
+        ("CISCO-SMART-INSTALL-MIB", "csiJoinWindowPeriodNextFreeIndex"),
+        ("CISCO-SMART-INSTALL-MIB", "csiJoinWindowPeriodStartTime"),
+        ("CISCO-SMART-INSTALL-MIB", "csiJoinWindowPeriodInterval"),
+        ("CISCO-SMART-INSTALL-MIB", "csiJoinWindowPeriodRecurrencePattern"),
+        ("CISCO-SMART-INSTALL-MIB", "csiJoinWindowPeriodExpirationDate"),
+        ("CISCO-SMART-INSTALL-MIB", "csiJoinWindowPeriodRowStatus"),
+        ("CISCO-SMART-INSTALL-MIB", "csiJoinWindowPeriodStorageType"))
+)
+if mibBuilder.loadTexts:
+    ciscoSmartInstallJoinWindowGroup.setStatus("current")
+
+ciscoSmartInstallProfileGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 2, 2, 4)
+)
+ciscoSmartInstallProfileGroup.setObjects(
+      *(("CISCO-SMART-INSTALL-MIB", "csiImageFileUrl"),
+        ("CISCO-SMART-INSTALL-MIB", "csiConfigFileUrl"),
+        ("CISCO-SMART-INSTALL-MIB", "csiHostnamePrefix"),
+        ("CISCO-SMART-INSTALL-MIB", "csiProfileNextFreeIndex"),
+        ("CISCO-SMART-INSTALL-MIB", "csiProfileGroupName"),
+        ("CISCO-SMART-INSTALL-MIB", "csiProfileImageUrl"),
+        ("CISCO-SMART-INSTALL-MIB", "csiProfileImageTwoUrl"),
+        ("CISCO-SMART-INSTALL-MIB", "csiProfileConfigUrl"),
+        ("CISCO-SMART-INSTALL-MIB", "csiProfileStorageType"),
+        ("CISCO-SMART-INSTALL-MIB", "csiProfileRowStatus"),
+        ("CISCO-SMART-INSTALL-MIB", "csiMatchGroupType"),
+        ("CISCO-SMART-INSTALL-MIB", "csiMatchProductId"),
+        ("CISCO-SMART-INSTALL-MIB", "csiMatchSwitchNum"),
+        ("CISCO-SMART-INSTALL-MIB", "csiMatchSwitchProductId"),
+        ("CISCO-SMART-INSTALL-MIB", "csiMatchHostAddressType"),
+        ("CISCO-SMART-INSTALL-MIB", "csiMatchHostAddress"),
+        ("CISCO-SMART-INSTALL-MIB", "csiMatchHostInterface"),
+        ("CISCO-SMART-INSTALL-MIB", "csiMatchMacAddress"),
+        ("CISCO-SMART-INSTALL-MIB", "csiMatchStorageType"),
+        ("CISCO-SMART-INSTALL-MIB", "csiMatchRowStatus"))
+)
+if mibBuilder.loadTexts:
+    ciscoSmartInstallProfileGroup.setStatus("current")
+
+ciscoSmartInstallDeviceInformationGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 2, 2, 5)
+)
+ciscoSmartInstallDeviceInformationGroup.setObjects(
+      *(("CISCO-SMART-INSTALL-MIB", "csiDeviceMacAddress"),
+        ("CISCO-SMART-INSTALL-MIB", "csiDeviceAddressType"),
+        ("CISCO-SMART-INSTALL-MIB", "csiDeviceAddress"),
+        ("CISCO-SMART-INSTALL-MIB", "csiDeviceName"),
+        ("CISCO-SMART-INSTALL-MIB", "csiDeviceBackupConfigFileName"),
+        ("CISCO-SMART-INSTALL-MIB", "csiDeviceImageVersion"),
+        ("CISCO-SMART-INSTALL-MIB", "csiDevicePlatform"),
+        ("CISCO-SMART-INSTALL-MIB", "csiDeviceSerialNum"),
+        ("CISCO-SMART-INSTALL-MIB", "csiDeviceStatus"))
+)
+if mibBuilder.loadTexts:
+    ciscoSmartInstallDeviceInformationGroup.setStatus("current")
+
+ciscoSmartInstallNotificationEnableGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 2, 2, 6)
+)
+ciscoSmartInstallNotificationEnableGroup.setObjects(
+    ("CISCO-SMART-INSTALL-MIB", "csiNotifEnable")
+)
+if mibBuilder.loadTexts:
+    ciscoSmartInstallNotificationEnableGroup.setStatus("current")
+
+ciscoSmartInstallNotifyVarsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 2, 2, 8)
+)
+ciscoSmartInstallNotifyVarsGroup.setObjects(
+      *(("CISCO-SMART-INSTALL-MIB", "csiNotifOperationType"),
+        ("CISCO-SMART-INSTALL-MIB", "csiNotifOperationResult"))
+)
+if mibBuilder.loadTexts:
+    ciscoSmartInstallNotifyVarsGroup.setStatus("current")
+
+
+# Notification objects
+
+csiOperationModeChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 0, 1)
+)
+csiOperationModeChange.setObjects(
+    ("CISCO-SMART-INSTALL-MIB", "csiOperationMode")
+)
+if mibBuilder.loadTexts:
+    csiOperationModeChange.setStatus(
+        "current"
+    )
+
+csiDeviceAdded = NotificationType(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 0, 2)
+)
+csiDeviceAdded.setObjects(
+      *(("CISCO-SMART-INSTALL-MIB", "csiDeviceName"),
+        ("CISCO-SMART-INSTALL-MIB", "csiDeviceAddressType"),
+        ("CISCO-SMART-INSTALL-MIB", "csiDeviceAddress"),
+        ("CISCO-SMART-INSTALL-MIB", "csiDeviceMacAddress"))
+)
+if mibBuilder.loadTexts:
+    csiDeviceAdded.setStatus(
+        "current"
+    )
+
+csiDeviceLost = NotificationType(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 0, 3)
+)
+csiDeviceLost.setObjects(
+      *(("CISCO-SMART-INSTALL-MIB", "csiDeviceName"),
+        ("CISCO-SMART-INSTALL-MIB", "csiDeviceAddressType"),
+        ("CISCO-SMART-INSTALL-MIB", "csiDeviceAddress"),
+        ("CISCO-SMART-INSTALL-MIB", "csiDeviceMacAddress"))
+)
+if mibBuilder.loadTexts:
+    csiDeviceLost.setStatus(
+        "current"
+    )
+
+csiFileLoadFailed = NotificationType(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 0, 4)
+)
+csiFileLoadFailed.setObjects(
+      *(("CISCO-SMART-INSTALL-MIB", "csiDeviceName"),
+        ("CISCO-SMART-INSTALL-MIB", "csiDeviceAddressType"),
+        ("CISCO-SMART-INSTALL-MIB", "csiDeviceAddress"),
+        ("CISCO-SMART-INSTALL-MIB", "csiDeviceMacAddress"),
+        ("CISCO-SMART-INSTALL-MIB", "csiNotifOperationType"),
+        ("CISCO-SMART-INSTALL-MIB", "csiNotifOperationResult"))
+)
+if mibBuilder.loadTexts:
+    csiFileLoadFailed.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+ciscoSmartInstallNotificationsGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 2, 2, 7)
+)
+ciscoSmartInstallNotificationsGroup.setObjects(
+      *(("CISCO-SMART-INSTALL-MIB", "csiOperationModeChange"),
+        ("CISCO-SMART-INSTALL-MIB", "csiDeviceAdded"),
+        ("CISCO-SMART-INSTALL-MIB", "csiDeviceLost"),
+        ("CISCO-SMART-INSTALL-MIB", "csiFileLoadFailed"))
+)
+if mibBuilder.loadTexts:
+    ciscoSmartInstallNotificationsGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+ciscoSmartInstallCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 725, 2, 1, 1)
+)
+if mibBuilder.loadTexts:
+    ciscoSmartInstallCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-SMART-INSTALL-MIB",
+    **{"ciscoSmartInstallMIB": ciscoSmartInstallMIB,
+       "ciscoSmartInstallMIBNotifs": ciscoSmartInstallMIBNotifs,
+       "csiOperationModeChange": csiOperationModeChange,
+       "csiDeviceAdded": csiDeviceAdded,
+       "csiDeviceLost": csiDeviceLost,
+       "csiFileLoadFailed": csiFileLoadFailed,
+       "ciscoSmartInstallMIBObjects": ciscoSmartInstallMIBObjects,
+       "csiGlobalConfig": csiGlobalConfig,
+       "csiOperationMode": csiOperationMode,
+       "csiDirectorIpAddressType": csiDirectorIpAddressType,
+       "csiDirectorIpAddress": csiDirectorIpAddress,
+       "csiManagementVlan": csiManagementVlan,
+       "csiManagementVlansFirst2K": csiManagementVlansFirst2K,
+       "csiManagementVlansSecond2K": csiManagementVlansSecond2K,
+       "csiBackup": csiBackup,
+       "csiBackupHostUrl": csiBackupHostUrl,
+       "csiBackupEnable": csiBackupEnable,
+       "csiJoinWindow": csiJoinWindow,
+       "csiJoinWindowConfigOperationMode": csiJoinWindowConfigOperationMode,
+       "csiJoinWindowPeriodNextFreeIndex": csiJoinWindowPeriodNextFreeIndex,
+       "csiJoinWindowPeriodTable": csiJoinWindowPeriodTable,
+       "csiJoinWindowPeriodEntry": csiJoinWindowPeriodEntry,
+       "csiJoinWindowPeriodIndex": csiJoinWindowPeriodIndex,
+       "csiJoinWindowPeriodStartTime": csiJoinWindowPeriodStartTime,
+       "csiJoinWindowPeriodInterval": csiJoinWindowPeriodInterval,
+       "csiJoinWindowPeriodRecurrencePattern": csiJoinWindowPeriodRecurrencePattern,
+       "csiJoinWindowPeriodExpirationDate": csiJoinWindowPeriodExpirationDate,
+       "csiJoinWindowPeriodStorageType": csiJoinWindowPeriodStorageType,
+       "csiJoinWindowPeriodRowStatus": csiJoinWindowPeriodRowStatus,
+       "csiProfile": csiProfile,
+       "csiImageFileUrl": csiImageFileUrl,
+       "csiConfigFileUrl": csiConfigFileUrl,
+       "csiHostnamePrefix": csiHostnamePrefix,
+       "csiProfileNextFreeIndex": csiProfileNextFreeIndex,
+       "csiProfileTable": csiProfileTable,
+       "csiProfileEntry": csiProfileEntry,
+       "csiProfileIndex": csiProfileIndex,
+       "csiProfileGroupName": csiProfileGroupName,
+       "csiProfileImageUrl": csiProfileImageUrl,
+       "csiProfileImageTwoUrl": csiProfileImageTwoUrl,
+       "csiProfileConfigUrl": csiProfileConfigUrl,
+       "csiProfileStorageType": csiProfileStorageType,
+       "csiProfileRowStatus": csiProfileRowStatus,
+       "csiMatchTable": csiMatchTable,
+       "csiMatchEntry": csiMatchEntry,
+       "csiMatchIndex": csiMatchIndex,
+       "csiMatchGroupType": csiMatchGroupType,
+       "csiMatchMacAddress": csiMatchMacAddress,
+       "csiMatchHostAddressType": csiMatchHostAddressType,
+       "csiMatchHostAddress": csiMatchHostAddress,
+       "csiMatchHostInterface": csiMatchHostInterface,
+       "csiMatchProductId": csiMatchProductId,
+       "csiMatchSwitchNum": csiMatchSwitchNum,
+       "csiMatchSwitchProductId": csiMatchSwitchProductId,
+       "csiMatchStorageType": csiMatchStorageType,
+       "csiMatchRowStatus": csiMatchRowStatus,
+       "csiDeviceInfo": csiDeviceInfo,
+       "csiDeviceTable": csiDeviceTable,
+       "csiDeviceEntry": csiDeviceEntry,
+       "csiDeviceNum": csiDeviceNum,
+       "csiDeviceMacAddress": csiDeviceMacAddress,
+       "csiDeviceAddressType": csiDeviceAddressType,
+       "csiDeviceAddress": csiDeviceAddress,
+       "csiDeviceName": csiDeviceName,
+       "csiDeviceBackupConfigFileName": csiDeviceBackupConfigFileName,
+       "csiDeviceImageVersion": csiDeviceImageVersion,
+       "csiDevicePlatform": csiDevicePlatform,
+       "csiDeviceSerialNum": csiDeviceSerialNum,
+       "csiDeviceStatus": csiDeviceStatus,
+       "csiNotifObjects": csiNotifObjects,
+       "csiNotifEnable": csiNotifEnable,
+       "csiNotifOperationType": csiNotifOperationType,
+       "csiNotifOperationResult": csiNotifOperationResult,
+       "ciscoSmartInstallMIBConform": ciscoSmartInstallMIBConform,
+       "ciscoSmartInstallCompliances": ciscoSmartInstallCompliances,
+       "ciscoSmartInstallCompliance": ciscoSmartInstallCompliance,
+       "ciscoSmartInstallGroups": ciscoSmartInstallGroups,
+       "ciscoSmartInstallGlobalConfigGroup": ciscoSmartInstallGlobalConfigGroup,
+       "ciscoSmartInstallConfigBackupGroup": ciscoSmartInstallConfigBackupGroup,
+       "ciscoSmartInstallJoinWindowGroup": ciscoSmartInstallJoinWindowGroup,
+       "ciscoSmartInstallProfileGroup": ciscoSmartInstallProfileGroup,
+       "ciscoSmartInstallDeviceInformationGroup": ciscoSmartInstallDeviceInformationGroup,
+       "ciscoSmartInstallNotificationEnableGroup": ciscoSmartInstallNotificationEnableGroup,
+       "ciscoSmartInstallNotificationsGroup": ciscoSmartInstallNotificationsGroup,
+       "ciscoSmartInstallNotifyVarsGroup": ciscoSmartInstallNotifyVarsGroup}
+)

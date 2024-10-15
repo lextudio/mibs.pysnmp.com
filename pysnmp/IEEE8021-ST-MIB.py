@@ -1,104 +1,587 @@
+# SNMP MIB module (IEEE8021-ST-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module IEEE8021-ST-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///home/tin/Dev/mibs.snmplabs.com/asn1/IEEE8021-ST-MIB
-# Produced by pysmi-0.3.4 at Fri Jan 31 21:31:58 2020
-# On host bier platform Linux version 5.4.0-3-amd64 by user tin
-# Using Python version 3.7.6 (default, Jan 19 2020, 22:34:52) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint")
-ieee8021BridgeBasePort, ieee8021BridgeBaseComponentId = mibBuilder.importSymbols("IEEE8021-BRIDGE-MIB", "ieee8021BridgeBasePort", "ieee8021BridgeBaseComponentId")
-ieee802dot1mibs, = mibBuilder.importSymbols("IEEE8021-TC-MIB", "ieee802dot1mibs")
-NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-NotificationType, Bits, Counter32, iso, Unsigned32, Integer32, TimeTicks, Gauge32, ModuleIdentity, IpAddress, MibIdentifier, ObjectIdentity, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Bits", "Counter32", "iso", "Unsigned32", "Integer32", "TimeTicks", "Gauge32", "ModuleIdentity", "IpAddress", "MibIdentifier", "ObjectIdentity", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
-ieee8021STMib = ModuleIdentity((1, 3, 111, 2, 802, 1, 1, 30))
-ieee8021STMib.setRevisions(('2018-06-21 00:00', '2016-08-15 00:00', '2016-02-19 00:00',))
-if mibBuilder.loadTexts: ieee8021STMib.setLastUpdated('201806210000Z')
-if mibBuilder.loadTexts: ieee8021STMib.setOrganization('IEEE 802.1 Working Group')
-class IEEE8021STTrafficClassValue(TextualConvention, Unsigned32):
-    reference = '12.29.1'
-    status = 'current'
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 7)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/IEEE8021-ST-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:08:35 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class IEEE8021STPTPtimeValue(TextualConvention, OctetString):
-    reference = '8.6.8.4, 8.6.9.4, 12.29.1'
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(10, 10)
-    fixedLength = 10
+if 'mibBuilder' not in globals():
+    import sys
 
-ieee8021STNotifications = MibIdentifier((1, 3, 111, 2, 802, 1, 1, 30, 0))
-ieee8021STObjects = MibIdentifier((1, 3, 111, 2, 802, 1, 1, 30, 1))
-ieee8021STConformance = MibIdentifier((1, 3, 111, 2, 802, 1, 1, 30, 2))
-ieee8021STMaxSDUSubtree = MibIdentifier((1, 3, 111, 2, 802, 1, 1, 30, 1, 1))
-ieee8021STParameters = MibIdentifier((1, 3, 111, 2, 802, 1, 1, 30, 1, 2))
-ieee8021STMaxSDUTable = MibTable((1, 3, 111, 2, 802, 1, 1, 30, 1, 1, 1), )
-if mibBuilder.loadTexts: ieee8021STMaxSDUTable.setStatus('current')
-ieee8021STMaxSDUEntry = MibTableRow((1, 3, 111, 2, 802, 1, 1, 30, 1, 1, 1, 1), ).setIndexNames((0, "IEEE8021-BRIDGE-MIB", "ieee8021BridgeBaseComponentId"), (0, "IEEE8021-BRIDGE-MIB", "ieee8021BridgeBasePort"), (0, "IEEE8021-ST-MIB", "ieee8021STTrafficClass"))
-if mibBuilder.loadTexts: ieee8021STMaxSDUEntry.setStatus('current')
-ieee8021STTrafficClass = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 30, 1, 1, 1, 1, 1), IEEE8021STTrafficClassValue())
-if mibBuilder.loadTexts: ieee8021STTrafficClass.setStatus('current')
-ieee8021STMaxSDU = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 30, 1, 1, 1, 1, 2), Unsigned32()).setUnits('octets').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ieee8021STMaxSDU.setStatus('current')
-ieee8021TransmissionOverrun = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 30, 1, 1, 1, 1, 3), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ieee8021TransmissionOverrun.setStatus('current')
-ieee8021STParametersTable = MibTable((1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1), )
-if mibBuilder.loadTexts: ieee8021STParametersTable.setStatus('current')
-ieee8021STParametersEntry = MibTableRow((1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1), ).setIndexNames((0, "IEEE8021-BRIDGE-MIB", "ieee8021BridgeBaseComponentId"), (0, "IEEE8021-BRIDGE-MIB", "ieee8021BridgeBasePort"))
-if mibBuilder.loadTexts: ieee8021STParametersEntry.setStatus('current')
-ieee8021STGateEnabled = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ieee8021STGateEnabled.setStatus('current')
-ieee8021STAdminGateStates = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 1)).setFixedLength(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ieee8021STAdminGateStates.setStatus('current')
-ieee8021STOperGateStates = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 1)).setFixedLength(1)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ieee8021STOperGateStates.setStatus('current')
-ieee8021STAdminControlListLength = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 4), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ieee8021STAdminControlListLength.setStatus('current')
-ieee8021STOperControlListLength = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 5), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ieee8021STOperControlListLength.setStatus('current')
-ieee8021STAdminControlList = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 6), OctetString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ieee8021STAdminControlList.setStatus('current')
-ieee8021STOperControlList = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 7), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ieee8021STOperControlList.setStatus('current')
-ieee8021STAdminCycleTimeNumerator = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 8), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ieee8021STAdminCycleTimeNumerator.setStatus('current')
-ieee8021STAdminCycleTimeDenominator = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 9), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ieee8021STAdminCycleTimeDenominator.setStatus('current')
-ieee8021STOperCycleTimeNumerator = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 10), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ieee8021STOperCycleTimeNumerator.setStatus('current')
-ieee8021STOperCycleTimeDenominator = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 11), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ieee8021STOperCycleTimeDenominator.setStatus('current')
-ieee8021STAdminCycleTimeExtension = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 12), Unsigned32()).setUnits('nanoseconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ieee8021STAdminCycleTimeExtension.setStatus('current')
-ieee8021STOperCycleTimeExtension = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 13), Unsigned32()).setUnits('nanoseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: ieee8021STOperCycleTimeExtension.setStatus('current')
-ieee8021STAdminBaseTime = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 14), IEEE8021STPTPtimeValue()).setUnits('PTP time').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ieee8021STAdminBaseTime.setStatus('current')
-ieee8021STOperBaseTime = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 15), IEEE8021STPTPtimeValue()).setUnits('PTP time').setMaxAccess("readonly")
-if mibBuilder.loadTexts: ieee8021STOperBaseTime.setStatus('current')
-ieee8021STConfigChange = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 16), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ieee8021STConfigChange.setStatus('current')
-ieee8021STConfigChangeTime = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 17), IEEE8021STPTPtimeValue()).setUnits('PTP time').setMaxAccess("readonly")
-if mibBuilder.loadTexts: ieee8021STConfigChangeTime.setStatus('current')
-ieee8021STTickGranularity = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 18), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ieee8021STTickGranularity.setStatus('current')
-ieee8021STCurrentTime = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 19), IEEE8021STPTPtimeValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ieee8021STCurrentTime.setStatus('current')
-ieee8021STConfigPending = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 20), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ieee8021STConfigPending.setStatus('current')
-ieee8021STConfigChangeError = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 21), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ieee8021STConfigChangeError.setStatus('current')
-ieee8021STSupportedListMax = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 22), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ieee8021STSupportedListMax.setStatus('current')
-ieee8021STCompliances = MibIdentifier((1, 3, 111, 2, 802, 1, 1, 30, 2, 1))
-ieee8021STGroups = MibIdentifier((1, 3, 111, 2, 802, 1, 1, 30, 2, 2))
-ieee8021STObjectsGroup = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 30, 2, 2, 1)).setObjects(("IEEE8021-ST-MIB", "ieee8021STMaxSDU"), ("IEEE8021-ST-MIB", "ieee8021TransmissionOverrun"), ("IEEE8021-ST-MIB", "ieee8021STGateEnabled"), ("IEEE8021-ST-MIB", "ieee8021STAdminGateStates"), ("IEEE8021-ST-MIB", "ieee8021STOperGateStates"), ("IEEE8021-ST-MIB", "ieee8021STAdminControlListLength"), ("IEEE8021-ST-MIB", "ieee8021STOperControlListLength"), ("IEEE8021-ST-MIB", "ieee8021STAdminControlList"), ("IEEE8021-ST-MIB", "ieee8021STOperControlList"), ("IEEE8021-ST-MIB", "ieee8021STAdminCycleTimeNumerator"), ("IEEE8021-ST-MIB", "ieee8021STAdminCycleTimeDenominator"), ("IEEE8021-ST-MIB", "ieee8021STOperCycleTimeNumerator"), ("IEEE8021-ST-MIB", "ieee8021STOperCycleTimeDenominator"), ("IEEE8021-ST-MIB", "ieee8021STAdminCycleTimeExtension"), ("IEEE8021-ST-MIB", "ieee8021STOperCycleTimeExtension"), ("IEEE8021-ST-MIB", "ieee8021STAdminBaseTime"), ("IEEE8021-ST-MIB", "ieee8021STOperBaseTime"), ("IEEE8021-ST-MIB", "ieee8021STConfigChange"), ("IEEE8021-ST-MIB", "ieee8021STConfigChangeTime"), ("IEEE8021-ST-MIB", "ieee8021STTickGranularity"), ("IEEE8021-ST-MIB", "ieee8021STCurrentTime"), ("IEEE8021-ST-MIB", "ieee8021STConfigPending"), ("IEEE8021-ST-MIB", "ieee8021STConfigChangeError"), ("IEEE8021-ST-MIB", "ieee8021STSupportedListMax"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ieee8021STObjectsGroup = ieee8021STObjectsGroup.setStatus('current')
-ieee8021STCompliance = ModuleCompliance((1, 3, 111, 2, 802, 1, 1, 30, 2, 1, 1)).setObjects(("IEEE8021-ST-MIB", "ieee8021STObjectsGroup"))
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ieee8021STCompliance = ieee8021STCompliance.setStatus('current')
-mibBuilder.exportSymbols("IEEE8021-ST-MIB", ieee8021STAdminGateStates=ieee8021STAdminGateStates, ieee8021STMaxSDUSubtree=ieee8021STMaxSDUSubtree, ieee8021STGroups=ieee8021STGroups, IEEE8021STTrafficClassValue=IEEE8021STTrafficClassValue, ieee8021STParameters=ieee8021STParameters, ieee8021STOperControlListLength=ieee8021STOperControlListLength, ieee8021STCompliances=ieee8021STCompliances, ieee8021STMaxSDUTable=ieee8021STMaxSDUTable, ieee8021STTickGranularity=ieee8021STTickGranularity, ieee8021STOperCycleTimeNumerator=ieee8021STOperCycleTimeNumerator, ieee8021STOperGateStates=ieee8021STOperGateStates, ieee8021STAdminCycleTimeExtension=ieee8021STAdminCycleTimeExtension, ieee8021STAdminControlListLength=ieee8021STAdminControlListLength, ieee8021STParametersTable=ieee8021STParametersTable, ieee8021STAdminBaseTime=ieee8021STAdminBaseTime, ieee8021STParametersEntry=ieee8021STParametersEntry, ieee8021STOperCycleTimeDenominator=ieee8021STOperCycleTimeDenominator, ieee8021STConfigPending=ieee8021STConfigPending, ieee8021STConfigChangeError=ieee8021STConfigChangeError, ieee8021STOperBaseTime=ieee8021STOperBaseTime, ieee8021STConformance=ieee8021STConformance, PYSNMP_MODULE_ID=ieee8021STMib, ieee8021STSupportedListMax=ieee8021STSupportedListMax, ieee8021STOperControlList=ieee8021STOperControlList, ieee8021STMaxSDUEntry=ieee8021STMaxSDUEntry, ieee8021STNotifications=ieee8021STNotifications, ieee8021STAdminCycleTimeDenominator=ieee8021STAdminCycleTimeDenominator, ieee8021STAdminControlList=ieee8021STAdminControlList, ieee8021STOperCycleTimeExtension=ieee8021STOperCycleTimeExtension, ieee8021STObjects=ieee8021STObjects, ieee8021STCurrentTime=ieee8021STCurrentTime, ieee8021STObjectsGroup=ieee8021STObjectsGroup, ieee8021STTrafficClass=ieee8021STTrafficClass, ieee8021STGateEnabled=ieee8021STGateEnabled, IEEE8021STPTPtimeValue=IEEE8021STPTPtimeValue, ieee8021STConfigChangeTime=ieee8021STConfigChangeTime, ieee8021STMib=ieee8021STMib, ieee8021STMaxSDU=ieee8021STMaxSDU, ieee8021STConfigChange=ieee8021STConfigChange, ieee8021TransmissionOverrun=ieee8021TransmissionOverrun, ieee8021STCompliance=ieee8021STCompliance, ieee8021STAdminCycleTimeNumerator=ieee8021STAdminCycleTimeNumerator)
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ieee8021BridgeBaseComponentId,
+ ieee8021BridgeBasePort) = mibBuilder.importSymbols(
+    "IEEE8021-BRIDGE-MIB",
+    "ieee8021BridgeBaseComponentId",
+    "ieee8021BridgeBasePort")
+
+(ieee802dot1mibs,) = mibBuilder.importSymbols(
+    "IEEE8021-TC-MIB",
+    "ieee802dot1mibs")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+ieee8021STMib = ModuleIdentity(
+    (1, 3, 111, 2, 802, 1, 1, 30)
+)
+ieee8021STMib.setRevisions(
+        ("2018-06-21 00:00",
+         "2016-08-15 00:00",
+         "2016-02-19 00:00")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class IEEE8021STTrafficClassValue(Unsigned32, TextualConvention):
+    status = "current"
+    displayHint = "d"
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+
+class IEEE8021STPTPtimeValue(OctetString, TextualConvention):
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(10, 10),
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Ieee8021STNotifications_ObjectIdentity = ObjectIdentity
+ieee8021STNotifications = _Ieee8021STNotifications_ObjectIdentity(
+    (1, 3, 111, 2, 802, 1, 1, 30, 0)
+)
+_Ieee8021STObjects_ObjectIdentity = ObjectIdentity
+ieee8021STObjects = _Ieee8021STObjects_ObjectIdentity(
+    (1, 3, 111, 2, 802, 1, 1, 30, 1)
+)
+_Ieee8021STMaxSDUSubtree_ObjectIdentity = ObjectIdentity
+ieee8021STMaxSDUSubtree = _Ieee8021STMaxSDUSubtree_ObjectIdentity(
+    (1, 3, 111, 2, 802, 1, 1, 30, 1, 1)
+)
+_Ieee8021STMaxSDUTable_Object = MibTable
+ieee8021STMaxSDUTable = _Ieee8021STMaxSDUTable_Object(
+    (1, 3, 111, 2, 802, 1, 1, 30, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    ieee8021STMaxSDUTable.setStatus("current")
+_Ieee8021STMaxSDUEntry_Object = MibTableRow
+ieee8021STMaxSDUEntry = _Ieee8021STMaxSDUEntry_Object(
+    (1, 3, 111, 2, 802, 1, 1, 30, 1, 1, 1, 1)
+)
+ieee8021STMaxSDUEntry.setIndexNames(
+    (0, "IEEE8021-BRIDGE-MIB", "ieee8021BridgeBaseComponentId"),
+    (0, "IEEE8021-BRIDGE-MIB", "ieee8021BridgeBasePort"),
+    (0, "IEEE8021-ST-MIB", "ieee8021STTrafficClass"),
+)
+if mibBuilder.loadTexts:
+    ieee8021STMaxSDUEntry.setStatus("current")
+_Ieee8021STTrafficClass_Type = IEEE8021STTrafficClassValue
+_Ieee8021STTrafficClass_Object = MibTableColumn
+ieee8021STTrafficClass = _Ieee8021STTrafficClass_Object(
+    (1, 3, 111, 2, 802, 1, 1, 30, 1, 1, 1, 1, 1),
+    _Ieee8021STTrafficClass_Type()
+)
+ieee8021STTrafficClass.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    ieee8021STTrafficClass.setStatus("current")
+
+
+class _Ieee8021STMaxSDU_Type(Unsigned32):
+    """Custom type ieee8021STMaxSDU based on Unsigned32"""
+    defaultValue = 0
+
+
+_Ieee8021STMaxSDU_Object = MibTableColumn
+ieee8021STMaxSDU = _Ieee8021STMaxSDU_Object(
+    (1, 3, 111, 2, 802, 1, 1, 30, 1, 1, 1, 1, 2),
+    _Ieee8021STMaxSDU_Type()
+)
+ieee8021STMaxSDU.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ieee8021STMaxSDU.setStatus("current")
+if mibBuilder.loadTexts:
+    ieee8021STMaxSDU.setUnits("octets")
+
+
+class _Ieee8021TransmissionOverrun_Type(Counter64):
+    """Custom type ieee8021TransmissionOverrun based on Counter64"""
+    defaultValue = 0
+
+
+_Ieee8021TransmissionOverrun_Object = MibTableColumn
+ieee8021TransmissionOverrun = _Ieee8021TransmissionOverrun_Object(
+    (1, 3, 111, 2, 802, 1, 1, 30, 1, 1, 1, 1, 3),
+    _Ieee8021TransmissionOverrun_Type()
+)
+ieee8021TransmissionOverrun.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ieee8021TransmissionOverrun.setStatus("current")
+_Ieee8021STParameters_ObjectIdentity = ObjectIdentity
+ieee8021STParameters = _Ieee8021STParameters_ObjectIdentity(
+    (1, 3, 111, 2, 802, 1, 1, 30, 1, 2)
+)
+_Ieee8021STParametersTable_Object = MibTable
+ieee8021STParametersTable = _Ieee8021STParametersTable_Object(
+    (1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    ieee8021STParametersTable.setStatus("current")
+_Ieee8021STParametersEntry_Object = MibTableRow
+ieee8021STParametersEntry = _Ieee8021STParametersEntry_Object(
+    (1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1)
+)
+ieee8021STParametersEntry.setIndexNames(
+    (0, "IEEE8021-BRIDGE-MIB", "ieee8021BridgeBaseComponentId"),
+    (0, "IEEE8021-BRIDGE-MIB", "ieee8021BridgeBasePort"),
+)
+if mibBuilder.loadTexts:
+    ieee8021STParametersEntry.setStatus("current")
+
+
+class _Ieee8021STGateEnabled_Type(TruthValue):
+    """Custom type ieee8021STGateEnabled based on TruthValue"""
+
+
+_Ieee8021STGateEnabled_Object = MibTableColumn
+ieee8021STGateEnabled = _Ieee8021STGateEnabled_Object(
+    (1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 1),
+    _Ieee8021STGateEnabled_Type()
+)
+ieee8021STGateEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ieee8021STGateEnabled.setStatus("current")
+
+
+class _Ieee8021STAdminGateStates_Type(OctetString):
+    """Custom type ieee8021STAdminGateStates based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 1),
+    )
+
+
+_Ieee8021STAdminGateStates_Type.__name__ = "OctetString"
+_Ieee8021STAdminGateStates_Object = MibTableColumn
+ieee8021STAdminGateStates = _Ieee8021STAdminGateStates_Object(
+    (1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 2),
+    _Ieee8021STAdminGateStates_Type()
+)
+ieee8021STAdminGateStates.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ieee8021STAdminGateStates.setStatus("current")
+
+
+class _Ieee8021STOperGateStates_Type(OctetString):
+    """Custom type ieee8021STOperGateStates based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 1),
+    )
+
+
+_Ieee8021STOperGateStates_Type.__name__ = "OctetString"
+_Ieee8021STOperGateStates_Object = MibTableColumn
+ieee8021STOperGateStates = _Ieee8021STOperGateStates_Object(
+    (1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 3),
+    _Ieee8021STOperGateStates_Type()
+)
+ieee8021STOperGateStates.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ieee8021STOperGateStates.setStatus("current")
+_Ieee8021STAdminControlListLength_Type = Unsigned32
+_Ieee8021STAdminControlListLength_Object = MibTableColumn
+ieee8021STAdminControlListLength = _Ieee8021STAdminControlListLength_Object(
+    (1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 4),
+    _Ieee8021STAdminControlListLength_Type()
+)
+ieee8021STAdminControlListLength.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ieee8021STAdminControlListLength.setStatus("current")
+_Ieee8021STOperControlListLength_Type = Unsigned32
+_Ieee8021STOperControlListLength_Object = MibTableColumn
+ieee8021STOperControlListLength = _Ieee8021STOperControlListLength_Object(
+    (1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 5),
+    _Ieee8021STOperControlListLength_Type()
+)
+ieee8021STOperControlListLength.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ieee8021STOperControlListLength.setStatus("current")
+_Ieee8021STAdminControlList_Type = OctetString
+_Ieee8021STAdminControlList_Object = MibTableColumn
+ieee8021STAdminControlList = _Ieee8021STAdminControlList_Object(
+    (1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 6),
+    _Ieee8021STAdminControlList_Type()
+)
+ieee8021STAdminControlList.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ieee8021STAdminControlList.setStatus("current")
+_Ieee8021STOperControlList_Type = OctetString
+_Ieee8021STOperControlList_Object = MibTableColumn
+ieee8021STOperControlList = _Ieee8021STOperControlList_Object(
+    (1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 7),
+    _Ieee8021STOperControlList_Type()
+)
+ieee8021STOperControlList.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ieee8021STOperControlList.setStatus("current")
+_Ieee8021STAdminCycleTimeNumerator_Type = Unsigned32
+_Ieee8021STAdminCycleTimeNumerator_Object = MibTableColumn
+ieee8021STAdminCycleTimeNumerator = _Ieee8021STAdminCycleTimeNumerator_Object(
+    (1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 8),
+    _Ieee8021STAdminCycleTimeNumerator_Type()
+)
+ieee8021STAdminCycleTimeNumerator.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ieee8021STAdminCycleTimeNumerator.setStatus("current")
+_Ieee8021STAdminCycleTimeDenominator_Type = Unsigned32
+_Ieee8021STAdminCycleTimeDenominator_Object = MibTableColumn
+ieee8021STAdminCycleTimeDenominator = _Ieee8021STAdminCycleTimeDenominator_Object(
+    (1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 9),
+    _Ieee8021STAdminCycleTimeDenominator_Type()
+)
+ieee8021STAdminCycleTimeDenominator.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ieee8021STAdminCycleTimeDenominator.setStatus("current")
+_Ieee8021STOperCycleTimeNumerator_Type = Unsigned32
+_Ieee8021STOperCycleTimeNumerator_Object = MibTableColumn
+ieee8021STOperCycleTimeNumerator = _Ieee8021STOperCycleTimeNumerator_Object(
+    (1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 10),
+    _Ieee8021STOperCycleTimeNumerator_Type()
+)
+ieee8021STOperCycleTimeNumerator.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ieee8021STOperCycleTimeNumerator.setStatus("current")
+_Ieee8021STOperCycleTimeDenominator_Type = Unsigned32
+_Ieee8021STOperCycleTimeDenominator_Object = MibTableColumn
+ieee8021STOperCycleTimeDenominator = _Ieee8021STOperCycleTimeDenominator_Object(
+    (1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 11),
+    _Ieee8021STOperCycleTimeDenominator_Type()
+)
+ieee8021STOperCycleTimeDenominator.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ieee8021STOperCycleTimeDenominator.setStatus("current")
+_Ieee8021STAdminCycleTimeExtension_Type = Unsigned32
+_Ieee8021STAdminCycleTimeExtension_Object = MibTableColumn
+ieee8021STAdminCycleTimeExtension = _Ieee8021STAdminCycleTimeExtension_Object(
+    (1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 12),
+    _Ieee8021STAdminCycleTimeExtension_Type()
+)
+ieee8021STAdminCycleTimeExtension.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ieee8021STAdminCycleTimeExtension.setStatus("current")
+if mibBuilder.loadTexts:
+    ieee8021STAdminCycleTimeExtension.setUnits("nanoseconds")
+_Ieee8021STOperCycleTimeExtension_Type = Unsigned32
+_Ieee8021STOperCycleTimeExtension_Object = MibTableColumn
+ieee8021STOperCycleTimeExtension = _Ieee8021STOperCycleTimeExtension_Object(
+    (1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 13),
+    _Ieee8021STOperCycleTimeExtension_Type()
+)
+ieee8021STOperCycleTimeExtension.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ieee8021STOperCycleTimeExtension.setStatus("current")
+if mibBuilder.loadTexts:
+    ieee8021STOperCycleTimeExtension.setUnits("nanoseconds")
+_Ieee8021STAdminBaseTime_Type = IEEE8021STPTPtimeValue
+_Ieee8021STAdminBaseTime_Object = MibTableColumn
+ieee8021STAdminBaseTime = _Ieee8021STAdminBaseTime_Object(
+    (1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 14),
+    _Ieee8021STAdminBaseTime_Type()
+)
+ieee8021STAdminBaseTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ieee8021STAdminBaseTime.setStatus("current")
+if mibBuilder.loadTexts:
+    ieee8021STAdminBaseTime.setUnits("PTP time")
+_Ieee8021STOperBaseTime_Type = IEEE8021STPTPtimeValue
+_Ieee8021STOperBaseTime_Object = MibTableColumn
+ieee8021STOperBaseTime = _Ieee8021STOperBaseTime_Object(
+    (1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 15),
+    _Ieee8021STOperBaseTime_Type()
+)
+ieee8021STOperBaseTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ieee8021STOperBaseTime.setStatus("current")
+if mibBuilder.loadTexts:
+    ieee8021STOperBaseTime.setUnits("PTP time")
+_Ieee8021STConfigChange_Type = TruthValue
+_Ieee8021STConfigChange_Object = MibTableColumn
+ieee8021STConfigChange = _Ieee8021STConfigChange_Object(
+    (1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 16),
+    _Ieee8021STConfigChange_Type()
+)
+ieee8021STConfigChange.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ieee8021STConfigChange.setStatus("current")
+_Ieee8021STConfigChangeTime_Type = IEEE8021STPTPtimeValue
+_Ieee8021STConfigChangeTime_Object = MibTableColumn
+ieee8021STConfigChangeTime = _Ieee8021STConfigChangeTime_Object(
+    (1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 17),
+    _Ieee8021STConfigChangeTime_Type()
+)
+ieee8021STConfigChangeTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ieee8021STConfigChangeTime.setStatus("current")
+if mibBuilder.loadTexts:
+    ieee8021STConfigChangeTime.setUnits("PTP time")
+_Ieee8021STTickGranularity_Type = Unsigned32
+_Ieee8021STTickGranularity_Object = MibTableColumn
+ieee8021STTickGranularity = _Ieee8021STTickGranularity_Object(
+    (1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 18),
+    _Ieee8021STTickGranularity_Type()
+)
+ieee8021STTickGranularity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ieee8021STTickGranularity.setStatus("current")
+_Ieee8021STCurrentTime_Type = IEEE8021STPTPtimeValue
+_Ieee8021STCurrentTime_Object = MibTableColumn
+ieee8021STCurrentTime = _Ieee8021STCurrentTime_Object(
+    (1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 19),
+    _Ieee8021STCurrentTime_Type()
+)
+ieee8021STCurrentTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ieee8021STCurrentTime.setStatus("current")
+_Ieee8021STConfigPending_Type = TruthValue
+_Ieee8021STConfigPending_Object = MibTableColumn
+ieee8021STConfigPending = _Ieee8021STConfigPending_Object(
+    (1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 20),
+    _Ieee8021STConfigPending_Type()
+)
+ieee8021STConfigPending.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ieee8021STConfigPending.setStatus("current")
+_Ieee8021STConfigChangeError_Type = Counter64
+_Ieee8021STConfigChangeError_Object = MibTableColumn
+ieee8021STConfigChangeError = _Ieee8021STConfigChangeError_Object(
+    (1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 21),
+    _Ieee8021STConfigChangeError_Type()
+)
+ieee8021STConfigChangeError.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ieee8021STConfigChangeError.setStatus("current")
+_Ieee8021STSupportedListMax_Type = Unsigned32
+_Ieee8021STSupportedListMax_Object = MibTableColumn
+ieee8021STSupportedListMax = _Ieee8021STSupportedListMax_Object(
+    (1, 3, 111, 2, 802, 1, 1, 30, 1, 2, 1, 1, 22),
+    _Ieee8021STSupportedListMax_Type()
+)
+ieee8021STSupportedListMax.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ieee8021STSupportedListMax.setStatus("current")
+_Ieee8021STConformance_ObjectIdentity = ObjectIdentity
+ieee8021STConformance = _Ieee8021STConformance_ObjectIdentity(
+    (1, 3, 111, 2, 802, 1, 1, 30, 2)
+)
+_Ieee8021STCompliances_ObjectIdentity = ObjectIdentity
+ieee8021STCompliances = _Ieee8021STCompliances_ObjectIdentity(
+    (1, 3, 111, 2, 802, 1, 1, 30, 2, 1)
+)
+_Ieee8021STGroups_ObjectIdentity = ObjectIdentity
+ieee8021STGroups = _Ieee8021STGroups_ObjectIdentity(
+    (1, 3, 111, 2, 802, 1, 1, 30, 2, 2)
+)
+
+# Managed Objects groups
+
+ieee8021STObjectsGroup = ObjectGroup(
+    (1, 3, 111, 2, 802, 1, 1, 30, 2, 2, 1)
+)
+ieee8021STObjectsGroup.setObjects(
+      *(("IEEE8021-ST-MIB", "ieee8021STMaxSDU"),
+        ("IEEE8021-ST-MIB", "ieee8021TransmissionOverrun"),
+        ("IEEE8021-ST-MIB", "ieee8021STGateEnabled"),
+        ("IEEE8021-ST-MIB", "ieee8021STAdminGateStates"),
+        ("IEEE8021-ST-MIB", "ieee8021STOperGateStates"),
+        ("IEEE8021-ST-MIB", "ieee8021STAdminControlListLength"),
+        ("IEEE8021-ST-MIB", "ieee8021STOperControlListLength"),
+        ("IEEE8021-ST-MIB", "ieee8021STAdminControlList"),
+        ("IEEE8021-ST-MIB", "ieee8021STOperControlList"),
+        ("IEEE8021-ST-MIB", "ieee8021STAdminCycleTimeNumerator"),
+        ("IEEE8021-ST-MIB", "ieee8021STAdminCycleTimeDenominator"),
+        ("IEEE8021-ST-MIB", "ieee8021STOperCycleTimeNumerator"),
+        ("IEEE8021-ST-MIB", "ieee8021STOperCycleTimeDenominator"),
+        ("IEEE8021-ST-MIB", "ieee8021STAdminCycleTimeExtension"),
+        ("IEEE8021-ST-MIB", "ieee8021STOperCycleTimeExtension"),
+        ("IEEE8021-ST-MIB", "ieee8021STAdminBaseTime"),
+        ("IEEE8021-ST-MIB", "ieee8021STOperBaseTime"),
+        ("IEEE8021-ST-MIB", "ieee8021STConfigChange"),
+        ("IEEE8021-ST-MIB", "ieee8021STConfigChangeTime"),
+        ("IEEE8021-ST-MIB", "ieee8021STTickGranularity"),
+        ("IEEE8021-ST-MIB", "ieee8021STCurrentTime"),
+        ("IEEE8021-ST-MIB", "ieee8021STConfigPending"),
+        ("IEEE8021-ST-MIB", "ieee8021STConfigChangeError"),
+        ("IEEE8021-ST-MIB", "ieee8021STSupportedListMax"))
+)
+if mibBuilder.loadTexts:
+    ieee8021STObjectsGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+ieee8021STCompliance = ModuleCompliance(
+    (1, 3, 111, 2, 802, 1, 1, 30, 2, 1, 1)
+)
+if mibBuilder.loadTexts:
+    ieee8021STCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "IEEE8021-ST-MIB",
+    **{"IEEE8021STTrafficClassValue": IEEE8021STTrafficClassValue,
+       "IEEE8021STPTPtimeValue": IEEE8021STPTPtimeValue,
+       "ieee8021STMib": ieee8021STMib,
+       "ieee8021STNotifications": ieee8021STNotifications,
+       "ieee8021STObjects": ieee8021STObjects,
+       "ieee8021STMaxSDUSubtree": ieee8021STMaxSDUSubtree,
+       "ieee8021STMaxSDUTable": ieee8021STMaxSDUTable,
+       "ieee8021STMaxSDUEntry": ieee8021STMaxSDUEntry,
+       "ieee8021STTrafficClass": ieee8021STTrafficClass,
+       "ieee8021STMaxSDU": ieee8021STMaxSDU,
+       "ieee8021TransmissionOverrun": ieee8021TransmissionOverrun,
+       "ieee8021STParameters": ieee8021STParameters,
+       "ieee8021STParametersTable": ieee8021STParametersTable,
+       "ieee8021STParametersEntry": ieee8021STParametersEntry,
+       "ieee8021STGateEnabled": ieee8021STGateEnabled,
+       "ieee8021STAdminGateStates": ieee8021STAdminGateStates,
+       "ieee8021STOperGateStates": ieee8021STOperGateStates,
+       "ieee8021STAdminControlListLength": ieee8021STAdminControlListLength,
+       "ieee8021STOperControlListLength": ieee8021STOperControlListLength,
+       "ieee8021STAdminControlList": ieee8021STAdminControlList,
+       "ieee8021STOperControlList": ieee8021STOperControlList,
+       "ieee8021STAdminCycleTimeNumerator": ieee8021STAdminCycleTimeNumerator,
+       "ieee8021STAdminCycleTimeDenominator": ieee8021STAdminCycleTimeDenominator,
+       "ieee8021STOperCycleTimeNumerator": ieee8021STOperCycleTimeNumerator,
+       "ieee8021STOperCycleTimeDenominator": ieee8021STOperCycleTimeDenominator,
+       "ieee8021STAdminCycleTimeExtension": ieee8021STAdminCycleTimeExtension,
+       "ieee8021STOperCycleTimeExtension": ieee8021STOperCycleTimeExtension,
+       "ieee8021STAdminBaseTime": ieee8021STAdminBaseTime,
+       "ieee8021STOperBaseTime": ieee8021STOperBaseTime,
+       "ieee8021STConfigChange": ieee8021STConfigChange,
+       "ieee8021STConfigChangeTime": ieee8021STConfigChangeTime,
+       "ieee8021STTickGranularity": ieee8021STTickGranularity,
+       "ieee8021STCurrentTime": ieee8021STCurrentTime,
+       "ieee8021STConfigPending": ieee8021STConfigPending,
+       "ieee8021STConfigChangeError": ieee8021STConfigChangeError,
+       "ieee8021STSupportedListMax": ieee8021STSupportedListMax,
+       "ieee8021STConformance": ieee8021STConformance,
+       "ieee8021STCompliances": ieee8021STCompliances,
+       "ieee8021STCompliance": ieee8021STCompliance,
+       "ieee8021STGroups": ieee8021STGroups,
+       "ieee8021STObjectsGroup": ieee8021STObjectsGroup}
+)

@@ -1,52 +1,260 @@
+# SNMP MIB module (ENTERASYS-IF-MIB-EXT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ENTERASYS-IF-MIB-EXT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/ENTERASYS-IF-MIB-EXT-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:49:18 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
-etsysModules, = mibBuilder.importSymbols("ENTERASYS-MIB-NAMES", "etsysModules")
-ifEntry, = mibBuilder.importSymbols("IF-MIB", "ifEntry")
-EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-NotificationType, Integer32, ModuleIdentity, Gauge32, ObjectIdentity, Unsigned32, MibIdentifier, IpAddress, TimeTicks, iso, Bits, Counter64, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Integer32", "ModuleIdentity", "Gauge32", "ObjectIdentity", "Unsigned32", "MibIdentifier", "IpAddress", "TimeTicks", "iso", "Bits", "Counter64", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-etsysIfMibExtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 5624, 1, 2, 57))
-etsysIfMibExtMIB.setRevisions(('2011-05-12 14:15', '2005-01-13 21:35',))
-if mibBuilder.loadTexts: etsysIfMibExtMIB.setLastUpdated('201105121415Z')
-if mibBuilder.loadTexts: etsysIfMibExtMIB.setOrganization('Enterasys Networks, Inc.')
-class EtsysIfOperStatusCauses(TextualConvention, Bits):
-    reference = "RFC 2863, 'The Interfaces Group MIB' ENTERASYS-LINK-FLAP-MIB ENTERASYS-FLOW-LIMITING-MIB ENTERASYS-POLICY-PROFILE-MIB ENTERASYS-CLASS-OF-SERVICE-MIB ENTERASYS-ETH-OAM-EXT-MIB IEEE Std. 802.1X-2001 IEEE Std. 802.3-2002"
-    status = 'current'
-    namedValues = NamedValues(("adminStatus", 0), ("linkLoss", 1), ("linkFlap", 2), ("self", 3), ("initialization", 4), ("flowLimiting", 5), ("policy", 6), ("classOfService", 7), ("ieee8021x", 8), ("ieee8023lag", 9), ("enetOam", 10), ("enetOamLb", 11))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/ENTERASYS-IF-MIB-EXT-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:38:59 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-etsysIfMibExtObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 57, 1))
-etsysIfMibExtSystem = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 57, 1, 1))
-etsysIfMibExtInterface = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 57, 1, 2))
-etsysIfOperStateLinkChange = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 57, 1, 1, 1), EnabledStatus().clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: etsysIfOperStateLinkChange.setStatus('current')
-etsysInterfaceExtTable = MibTable((1, 3, 6, 1, 4, 1, 5624, 1, 2, 57, 1, 2, 1), )
-if mibBuilder.loadTexts: etsysInterfaceExtTable.setStatus('current')
-etsysInterfaceExtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5624, 1, 2, 57, 1, 2, 1, 1), )
-ifEntry.registerAugmentions(("ENTERASYS-IF-MIB-EXT-MIB", "etsysInterfaceExtEntry"))
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(etsysModules,) = mibBuilder.importSymbols(
+    "ENTERASYS-MIB-NAMES",
+    "etsysModules")
+
+(ifEntry,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifEntry")
+
+(EnabledStatus,) = mibBuilder.importSymbols(
+    "P-BRIDGE-MIB",
+    "EnabledStatus")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+etsysIfMibExtMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 57)
+)
+etsysIfMibExtMIB.setRevisions(
+        ("2011-05-12 14:15",
+         "2005-01-13 21:35")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class EtsysIfOperStatusCauses(Bits, TextualConvention):
+    status = "current"
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_EtsysIfMibExtObjects_ObjectIdentity = ObjectIdentity
+etsysIfMibExtObjects = _EtsysIfMibExtObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 57, 1)
+)
+_EtsysIfMibExtSystem_ObjectIdentity = ObjectIdentity
+etsysIfMibExtSystem = _EtsysIfMibExtSystem_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 57, 1, 1)
+)
+
+
+class _EtsysIfOperStateLinkChange_Type(EnabledStatus):
+    """Custom type etsysIfOperStateLinkChange based on EnabledStatus"""
+
+
+_EtsysIfOperStateLinkChange_Object = MibScalar
+etsysIfOperStateLinkChange = _EtsysIfOperStateLinkChange_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 57, 1, 1, 1),
+    _EtsysIfOperStateLinkChange_Type()
+)
+etsysIfOperStateLinkChange.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    etsysIfOperStateLinkChange.setStatus("current")
+_EtsysIfMibExtInterface_ObjectIdentity = ObjectIdentity
+etsysIfMibExtInterface = _EtsysIfMibExtInterface_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 57, 1, 2)
+)
+_EtsysInterfaceExtTable_Object = MibTable
+etsysInterfaceExtTable = _EtsysInterfaceExtTable_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 57, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    etsysInterfaceExtTable.setStatus("current")
+_EtsysInterfaceExtEntry_Object = MibTableRow
+etsysInterfaceExtEntry = _EtsysInterfaceExtEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 57, 1, 2, 1, 1)
+)
+if mibBuilder.loadTexts:
+    etsysInterfaceExtEntry.setStatus("current")
+_EtsysIfOperStatusCause_Type = EtsysIfOperStatusCauses
+_EtsysIfOperStatusCause_Object = MibTableColumn
+etsysIfOperStatusCause = _EtsysIfOperStatusCause_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 57, 1, 2, 1, 1, 1),
+    _EtsysIfOperStatusCause_Type()
+)
+etsysIfOperStatusCause.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    etsysIfOperStatusCause.setStatus("current")
+_EtsysIfMibExtConformance_ObjectIdentity = ObjectIdentity
+etsysIfMibExtConformance = _EtsysIfMibExtConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 57, 2)
+)
+_EtsysIfMibExtGroups_ObjectIdentity = ObjectIdentity
+etsysIfMibExtGroups = _EtsysIfMibExtGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 57, 2, 1)
+)
+_EtsysIfMibExtCompliances_ObjectIdentity = ObjectIdentity
+etsysIfMibExtCompliances = _EtsysIfMibExtCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 57, 2, 2)
+)
+ifEntry.registerAugmentions(
+    ("ENTERASYS-IF-MIB-EXT-MIB",
+     "etsysInterfaceExtEntry")
+)
 etsysInterfaceExtEntry.setIndexNames(*ifEntry.getIndexNames())
-if mibBuilder.loadTexts: etsysInterfaceExtEntry.setStatus('current')
-etsysIfOperStatusCause = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 57, 1, 2, 1, 1, 1), EtsysIfOperStatusCauses()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: etsysIfOperStatusCause.setStatus('current')
-etsysIfMibExtConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 57, 2))
-etsysIfMibExtGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 57, 2, 1))
-etsysIfMibExtCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 57, 2, 2))
-etsysIfMibExtOperLinkGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 57, 2, 1, 1)).setObjects(("ENTERASYS-IF-MIB-EXT-MIB", "etsysIfOperStateLinkChange"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    etsysIfMibExtOperLinkGroup = etsysIfMibExtOperLinkGroup.setStatus('current')
-etsysIfMibExtOperStatusGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 57, 2, 1, 2)).setObjects(("ENTERASYS-IF-MIB-EXT-MIB", "etsysIfOperStatusCause"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    etsysIfMibExtOperStatusGroup = etsysIfMibExtOperStatusGroup.setStatus('current')
-etsysIfMibExtCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 5624, 1, 2, 57, 2, 2, 1)).setObjects(("ENTERASYS-IF-MIB-EXT-MIB", "etsysIfMibExtOperLinkGroup"), ("ENTERASYS-IF-MIB-EXT-MIB", "etsysIfMibExtOperStatusGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    etsysIfMibExtCompliance = etsysIfMibExtCompliance.setStatus('current')
-mibBuilder.exportSymbols("ENTERASYS-IF-MIB-EXT-MIB", etsysIfMibExtObjects=etsysIfMibExtObjects, etsysIfMibExtInterface=etsysIfMibExtInterface, etsysIfMibExtOperLinkGroup=etsysIfMibExtOperLinkGroup, etsysIfMibExtGroups=etsysIfMibExtGroups, PYSNMP_MODULE_ID=etsysIfMibExtMIB, etsysInterfaceExtTable=etsysInterfaceExtTable, etsysIfOperStatusCause=etsysIfOperStatusCause, EtsysIfOperStatusCauses=EtsysIfOperStatusCauses, etsysIfMibExtOperStatusGroup=etsysIfMibExtOperStatusGroup, etsysInterfaceExtEntry=etsysInterfaceExtEntry, etsysIfMibExtCompliance=etsysIfMibExtCompliance, etsysIfOperStateLinkChange=etsysIfOperStateLinkChange, etsysIfMibExtConformance=etsysIfMibExtConformance, etsysIfMibExtMIB=etsysIfMibExtMIB, etsysIfMibExtSystem=etsysIfMibExtSystem, etsysIfMibExtCompliances=etsysIfMibExtCompliances)
+# Managed Objects groups
+
+etsysIfMibExtOperLinkGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 57, 2, 1, 1)
+)
+etsysIfMibExtOperLinkGroup.setObjects(
+    ("ENTERASYS-IF-MIB-EXT-MIB", "etsysIfOperStateLinkChange")
+)
+if mibBuilder.loadTexts:
+    etsysIfMibExtOperLinkGroup.setStatus("current")
+
+etsysIfMibExtOperStatusGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 57, 2, 1, 2)
+)
+etsysIfMibExtOperStatusGroup.setObjects(
+    ("ENTERASYS-IF-MIB-EXT-MIB", "etsysIfOperStatusCause")
+)
+if mibBuilder.loadTexts:
+    etsysIfMibExtOperStatusGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+etsysIfMibExtCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 57, 2, 2, 1)
+)
+if mibBuilder.loadTexts:
+    etsysIfMibExtCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ENTERASYS-IF-MIB-EXT-MIB",
+    **{"EtsysIfOperStatusCauses": EtsysIfOperStatusCauses,
+       "etsysIfMibExtMIB": etsysIfMibExtMIB,
+       "etsysIfMibExtObjects": etsysIfMibExtObjects,
+       "etsysIfMibExtSystem": etsysIfMibExtSystem,
+       "etsysIfOperStateLinkChange": etsysIfOperStateLinkChange,
+       "etsysIfMibExtInterface": etsysIfMibExtInterface,
+       "etsysInterfaceExtTable": etsysInterfaceExtTable,
+       "etsysInterfaceExtEntry": etsysInterfaceExtEntry,
+       "etsysIfOperStatusCause": etsysIfOperStatusCause,
+       "etsysIfMibExtConformance": etsysIfMibExtConformance,
+       "etsysIfMibExtGroups": etsysIfMibExtGroups,
+       "etsysIfMibExtOperLinkGroup": etsysIfMibExtOperLinkGroup,
+       "etsysIfMibExtOperStatusGroup": etsysIfMibExtOperStatusGroup,
+       "etsysIfMibExtCompliances": etsysIfMibExtCompliances,
+       "etsysIfMibExtCompliance": etsysIfMibExtCompliance}
+)

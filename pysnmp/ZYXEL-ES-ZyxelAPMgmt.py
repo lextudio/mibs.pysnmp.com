@@ -1,26 +1,199 @@
+# SNMP MIB module (ZYXEL-ES-ZyxelAPMgmt) expressed in pysnmp data model.
 #
-# PySNMP MIB module ZYXEL-ES-ZyxelAPMgmt (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/ZYXEL-ES-ZyxelAPMgmt
-# Produced by pysmi-0.3.4 at Mon Apr 29 21:43:32 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-iso, Unsigned32, IpAddress, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, MibIdentifier, Bits, Counter64, NotificationType, Counter32, TimeTicks, ModuleIdentity, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Unsigned32", "IpAddress", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "MibIdentifier", "Bits", "Counter64", "NotificationType", "Counter32", "TimeTicks", "ModuleIdentity", "Integer32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
-zyxelAPMgmt = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 4))
-if mibBuilder.loadTexts: zyxelAPMgmt.setLastUpdated('201403100000Z')
-if mibBuilder.loadTexts: zyxelAPMgmt.setOrganization('Enterprise Solution Zyxel')
-operationMode = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 4, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("standalone", 1), ("controller", 2), ("managed", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: operationMode.setStatus('current')
-wlanAPTx = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 4, 2), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wlanAPTx.setStatus('current')
-wlanAPRx = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 4, 3), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wlanAPRx.setStatus('current')
-wlanAPDescription = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 4, 4), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wlanAPDescription.setStatus('current')
-mibBuilder.exportSymbols("ZYXEL-ES-ZyxelAPMgmt", PYSNMP_MODULE_ID=zyxelAPMgmt, operationMode=operationMode, wlanAPRx=wlanAPRx, wlanAPTx=wlanAPTx, zyxelAPMgmt=zyxelAPMgmt, wlanAPDescription=wlanAPDescription)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/ZYXEL-ES-ZyxelAPMgmt
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:21:42 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+(esMgmt,) = mibBuilder.importSymbols(
+    "ZYXEL-ES-SMI",
+    "esMgmt")
+
+
+# MODULE-IDENTITY
+
+zyxelAPMgmt = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 4)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+
+class _OperationMode_Type(Integer32):
+    """Custom type operationMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("controller", 2),
+          ("managed", 3),
+          ("standalone", 1))
+    )
+
+
+_OperationMode_Type.__name__ = "Integer32"
+_OperationMode_Object = MibScalar
+operationMode = _OperationMode_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 4, 1),
+    _OperationMode_Type()
+)
+operationMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    operationMode.setStatus("current")
+_WlanAPTx_Type = Counter64
+_WlanAPTx_Object = MibScalar
+wlanAPTx = _WlanAPTx_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 4, 2),
+    _WlanAPTx_Type()
+)
+wlanAPTx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wlanAPTx.setStatus("current")
+_WlanAPRx_Type = Counter64
+_WlanAPRx_Object = MibScalar
+wlanAPRx = _WlanAPRx_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 4, 3),
+    _WlanAPRx_Type()
+)
+wlanAPRx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wlanAPRx.setStatus("current")
+_WlanAPDescription_Type = DisplayString
+_WlanAPDescription_Object = MibScalar
+wlanAPDescription = _WlanAPDescription_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 4, 4),
+    _WlanAPDescription_Type()
+)
+wlanAPDescription.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wlanAPDescription.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ZYXEL-ES-ZyxelAPMgmt",
+    **{"zyxelAPMgmt": zyxelAPMgmt,
+       "operationMode": operationMode,
+       "wlanAPTx": wlanAPTx,
+       "wlanAPRx": wlanAPRx,
+       "wlanAPDescription": wlanAPDescription}
+)

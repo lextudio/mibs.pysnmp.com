@@ -1,27 +1,162 @@
+# SNMP MIB module (PCE-TC-STD-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module PCE-TC-STD-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/PCE-TC-STD-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:28:51 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter32, Counter64, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Unsigned32, ObjectIdentity, MibIdentifier, IpAddress, experimental, iso, Gauge32, Bits, NotificationType, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Counter64", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Unsigned32", "ObjectIdentity", "MibIdentifier", "IpAddress", "experimental", "iso", "Gauge32", "Bits", "NotificationType", "Integer32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-pceTCDraftMIB = ModuleIdentity((1, 3, 6, 1, 3, 9999, 1))
-if mibBuilder.loadTexts: pceTCDraftMIB.setLastUpdated('200709250000Z')
-if mibBuilder.loadTexts: pceTCDraftMIB.setOrganization('Path Computation Element (PCE) Working Group')
-pceStdMIB = MibIdentifier((1, 3, 6, 1, 3, 9999))
-class PcePcepIdentifier(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '1d.1d.1d.1d:1d:1d'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 6)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/PCE-TC-STD-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:37:08 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class PceRoutingDomainID(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 20)
+if 'mibBuilder' not in globals():
+    import sys
 
-mibBuilder.exportSymbols("PCE-TC-STD-MIB", pceTCDraftMIB=pceTCDraftMIB, PYSNMP_MODULE_ID=pceTCDraftMIB, PcePcepIdentifier=PcePcepIdentifier, pceStdMIB=pceStdMIB, PceRoutingDomainID=PceRoutingDomainID)
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ experimental,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "experimental",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+pceTCDraftMIB = ModuleIdentity(
+    (1, 3, 6, 1, 3, 9999, 1)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class PcePcepIdentifier(OctetString, TextualConvention):
+    status = "current"
+    displayHint = "1d.1d.1d.1d:1d:1d"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 6),
+    )
+
+
+
+class PceRoutingDomainID(OctetString, TextualConvention):
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 20),
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_PceStdMIB_ObjectIdentity = ObjectIdentity
+pceStdMIB = _PceStdMIB_ObjectIdentity(
+    (1, 3, 6, 1, 3, 9999)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "PCE-TC-STD-MIB",
+    **{"PcePcepIdentifier": PcePcepIdentifier,
+       "PceRoutingDomainID": PceRoutingDomainID,
+       "pceStdMIB": pceStdMIB,
+       "pceTCDraftMIB": pceTCDraftMIB}
+)

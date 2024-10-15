@@ -1,17 +1,17 @@
-"""SNMP MIB module (QB-ETHERNET-MIB) expressed in pysnmp data model.
+# SNMP MIB module (QB-ETHERNET-MIB) expressed in pysnmp data model.
+#
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/QB-ETHERNET-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:40:43 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-This Python module is designed to be imported and executed by the
-pysnmp library.
-
-See https://www.pysnmp.com/pysnmp for further information.
-
-Notes
------
-ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/QB-ETHERNET-MIB
-Produced by pysmi-1.3.3 at Sun Mar 10 05:35:14 2024
-On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm
-Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
-"""
 if 'mibBuilder' not in globals():
     import sys
 
@@ -61,55 +61,55 @@ if 'mibBuilder' not in globals():
     "QUANTUMBRIDGE-REG",
     "qbMibs")
 
-(ObjectGroup,
+(ModuleCompliance,
  NotificationGroup,
- ModuleCompliance) = mibBuilder.importSymbols(
+ ObjectGroup) = mibBuilder.importSymbols(
     "SNMPv2-CONF",
-    "ObjectGroup",
+    "ModuleCompliance",
     "NotificationGroup",
-    "ModuleCompliance")
+    "ObjectGroup")
 
-(Unsigned32,
- iso,
- Bits,
+(Bits,
  Counter32,
- TimeTicks,
- NotificationType,
  Counter64,
+ Gauge32,
+ Integer32,
  IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
  MibScalar,
  MibTable,
  MibTableRow,
  MibTableColumn,
- Integer32,
- Gauge32,
- ModuleIdentity,
- MibIdentifier,
- ObjectIdentity) = mibBuilder.importSymbols(
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
     "SNMPv2-SMI",
-    "Unsigned32",
-    "iso",
     "Bits",
     "Counter32",
-    "TimeTicks",
-    "NotificationType",
     "Counter64",
+    "Gauge32",
+    "Integer32",
     "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
     "MibScalar",
     "MibTable",
     "MibTableRow",
     "MibTableColumn",
-    "Integer32",
-    "Gauge32",
-    "ModuleIdentity",
-    "MibIdentifier",
-    "ObjectIdentity")
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
 
-(TextualConvention,
- DisplayString) = mibBuilder.importSymbols(
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
     "SNMPv2-TC",
-    "TextualConvention",
-    "DisplayString")
+    "DisplayString",
+    "TextualConvention")
 
 
 # MODULE-IDENTITY
@@ -126,7 +126,7 @@ qbEthernetMIB = ModuleIdentity(
 
 
 
-class QbDot3LoopbackType(TextualConvention, Integer32):
+class QbDot3LoopbackType(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -160,11 +160,6 @@ _QbDot3ConfigEntry_Object = MibTableRow
 qbDot3ConfigEntry = _QbDot3ConfigEntry_Object(
     (1, 3, 6, 1, 4, 1, 4323, 2, 5, 1, 2, 1)
 )
-dot3StatsEntry.registerAugmentions(
-    ("QB-ETHERNET-MIB",
-     "qbDot3ConfigEntry")
-)
-qbDot3ConfigEntry.setIndexNames(*dot3StatsEntry.getIndexNames())
 if mibBuilder.loadTexts:
     qbDot3ConfigEntry.setStatus("current")
 
@@ -315,6 +310,11 @@ _QbDot3Groups_ObjectIdentity = ObjectIdentity
 qbDot3Groups = _QbDot3Groups_ObjectIdentity(
     (1, 3, 6, 1, 4, 1, 4323, 2, 5, 2, 2)
 )
+dot3StatsEntry.registerAugmentions(
+    ("QB-ETHERNET-MIB",
+     "qbDot3ConfigEntry")
+)
+qbDot3ConfigEntry.setIndexNames(*dot3StatsEntry.getIndexNames())
 
 # Managed Objects groups
 

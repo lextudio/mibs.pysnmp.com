@@ -1,29 +1,173 @@
+# SNMP MIB module (Juniper-CLI-CONF) expressed in pysnmp data model.
 #
-# PySNMP MIB module Juniper-CLI-CONF (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/Juniper-CLI-CONF
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:51:14 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection")
-juniAgents, = mibBuilder.importSymbols("Juniper-Agents", "juniAgents")
-ModuleCompliance, AgentCapabilities, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "AgentCapabilities", "NotificationGroup")
-Gauge32, MibIdentifier, ObjectIdentity, Unsigned32, ModuleIdentity, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, TimeTicks, NotificationType, Counter32, Counter64, Bits, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "MibIdentifier", "ObjectIdentity", "Unsigned32", "ModuleIdentity", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "TimeTicks", "NotificationType", "Counter32", "Counter64", "Bits", "Integer32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-juniCliAgent = ModuleIdentity((1, 3, 6, 1, 4, 1, 4874, 5, 2, 6))
-juniCliAgent.setRevisions(('2007-10-10 09:22', '2002-09-06 16:54', '2001-03-27 22:30',))
-if mibBuilder.loadTexts: juniCliAgent.setLastUpdated('200710100922Z')
-if mibBuilder.loadTexts: juniCliAgent.setOrganization('Juniper Networks, Inc.')
-juniCliAgentV1 = AgentCapabilities((1, 3, 6, 1, 4, 1, 4874, 5, 2, 6, 1))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    juniCliAgentV1 = juniCliAgentV1.setProductRelease('Version 1 of the CLI Security Management component of JUNOSe SNMP\n        agent.  This version of the CLI Security Management component is\n        supported in JUNOSe 1.3 and subsequent system releases.')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    juniCliAgentV1 = juniCliAgentV1.setStatus('obsolete')
-juniCliAgentV2 = AgentCapabilities((1, 3, 6, 1, 4, 1, 4874, 5, 2, 6, 2))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    juniCliAgentV2 = juniCliAgentV2.setProductRelease('Version 2 of the CLI component of JUNOSe SNMP agent.\n        This version of the CLI component is supported in JUNOSe 9.1\n        and subsequent system releases.')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    juniCliAgentV2 = juniCliAgentV2.setStatus('current')
-mibBuilder.exportSymbols("Juniper-CLI-CONF", juniCliAgent=juniCliAgent, juniCliAgentV1=juniCliAgentV1, juniCliAgentV2=juniCliAgentV2, PYSNMP_MODULE_ID=juniCliAgent)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/Juniper-CLI-CONF
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:14:52 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(juniAgents,) = mibBuilder.importSymbols(
+    "Juniper-Agents",
+    "juniAgents")
+
+(AgentCapabilities,
+ ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "AgentCapabilities",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+juniCliAgent = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 6)
+)
+juniCliAgent.setRevisions(
+        ("2007-10-10 09:22",
+         "2002-09-06 16:54",
+         "2001-03-27 22:30")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+juniCliAgentV1 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 6, 1)
+)
+if mibBuilder.loadTexts:
+    juniCliAgentV1.setProductRelease("""\
+Version 1 of the CLI Security Management component of JUNOSe SNMP
+        agent.  This version of the CLI Security Management component is
+        supported in JUNOSe 1.3 and subsequent system releases.""")
+if mibBuilder.loadTexts:
+    juniCliAgentV1.setStatus(
+        "obsolete"
+    )
+
+juniCliAgentV2 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 6, 2)
+)
+if mibBuilder.loadTexts:
+    juniCliAgentV2.setProductRelease("""\
+Version 2 of the CLI component of JUNOSe SNMP agent.
+        This version of the CLI component is supported in JUNOSe 9.1
+        and subsequent system releases.""")
+if mibBuilder.loadTexts:
+    juniCliAgentV2.setStatus(
+        "current"
+    )
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "Juniper-CLI-CONF",
+    **{"juniCliAgent": juniCliAgent,
+       "juniCliAgentV1": juniCliAgentV1,
+       "juniCliAgentV2": juniCliAgentV2}
+)

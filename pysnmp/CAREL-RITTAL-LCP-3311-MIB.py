@@ -1,17 +1,17 @@
-"""SNMP MIB module (CAREL-RITTAL-LCP-3311-MIB) expressed in pysnmp data model.
+# SNMP MIB module (CAREL-RITTAL-LCP-3311-MIB) expressed in pysnmp data model.
+#
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CAREL-RITTAL-LCP-3311-MIB.txt
+# Produced by pysmi-1.5.4 at Mon Oct 14 20:53:34 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-This Python module is designed to be imported and executed by the
-pysnmp library.
-
-See https://www.pysnmp.com/pysnmp for further information.
-
-Notes
------
-ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CAREL-RITTAL-LCP-3311-MIB.txt
-Produced by pysmi-1.3.3 at Sun Mar 10 03:07:41 2024
-On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm
-Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
-"""
 if 'mibBuilder' not in globals():
     import sys
 
@@ -53,43 +53,43 @@ if 'mibBuilder' not in globals():
     "NotificationGroup",
     "ObjectGroup")
 
-(NotificationType,
- Unsigned32,
- Bits,
+(Bits,
+ Counter32,
  Counter64,
+ Gauge32,
  Integer32,
- TimeTicks,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
  MibScalar,
  MibTable,
  MibTableRow,
  MibTableColumn,
- IpAddress,
+ TimeTicks,
+ Unsigned32,
  enterprises,
- Gauge32,
- MibIdentifier,
- ObjectIdentity,
- iso,
- Counter32,
- ModuleIdentity) = mibBuilder.importSymbols(
+ iso) = mibBuilder.importSymbols(
     "SNMPv2-SMI",
-    "NotificationType",
-    "Unsigned32",
     "Bits",
+    "Counter32",
     "Counter64",
+    "Gauge32",
     "Integer32",
-    "TimeTicks",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
     "MibScalar",
     "MibTable",
     "MibTableRow",
     "MibTableColumn",
-    "IpAddress",
+    "TimeTicks",
+    "Unsigned32",
     "enterprises",
-    "Gauge32",
-    "MibIdentifier",
-    "ObjectIdentity",
-    "iso",
-    "Counter32",
-    "ModuleIdentity")
+    "iso")
 
 (DisplayString,
  TextualConvention) = mibBuilder.importSymbols(
@@ -115,7 +115,7 @@ carel.setRevisions(
 
 
 
-class DivBy10(TextualConvention, Integer32):
+class DivBy10(Integer32, TextualConvention):
     status = "current"
     displayHint = "d-1"
 

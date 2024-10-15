@@ -1,17 +1,17 @@
-"""SNMP MIB module (XEROX-PRINTER-EXT-MIB) expressed in pysnmp data model.
+# SNMP MIB module (XEROX-PRINTER-EXT-MIB) expressed in pysnmp data model.
+#
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/XEROX-PRINTER-EXT-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:18:28 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-This Python module is designed to be imported and executed by the
-pysnmp library.
-
-See https://www.pysnmp.com/pysnmp for further information.
-
-Notes
------
-ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/XEROX-PRINTER-EXT-MIB
-Produced by pysmi-1.3.3 at Sun Mar 10 06:00:37 2024
-On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm
-Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
-"""
 if 'mibBuilder' not in globals():
     import sys
 
@@ -49,29 +49,29 @@ if 'mibBuilder' not in globals():
     "HOST-RESOURCES-MIB",
     "hrDeviceIndex")
 
-(prtChannelEntry,
- PresentOnOff,
- prtLocalizationLanguage,
- prtInterpreterIndex,
- prtLocalizationCountry,
- prtLocalizationCharacterSet,
- prtGeneralEntry,
+(PresentOnOff,
+ prtChannelEntry,
  prtConsoleLocalization,
- prtOutputEntry,
+ prtGeneralEntry,
  prtInputEntry,
- prtInterpreterEntry) = mibBuilder.importSymbols(
+ prtInterpreterEntry,
+ prtInterpreterIndex,
+ prtLocalizationCharacterSet,
+ prtLocalizationCountry,
+ prtLocalizationLanguage,
+ prtOutputEntry) = mibBuilder.importSymbols(
     "Printer-MIB",
-    "prtChannelEntry",
     "PresentOnOff",
-    "prtLocalizationLanguage",
-    "prtInterpreterIndex",
-    "prtLocalizationCountry",
-    "prtLocalizationCharacterSet",
-    "prtGeneralEntry",
+    "prtChannelEntry",
     "prtConsoleLocalization",
-    "prtOutputEntry",
+    "prtGeneralEntry",
     "prtInputEntry",
-    "prtInterpreterEntry")
+    "prtInterpreterEntry",
+    "prtInterpreterIndex",
+    "prtLocalizationCharacterSet",
+    "prtLocalizationCountry",
+    "prtLocalizationLanguage",
+    "prtOutputEntry")
 
 (ModuleCompliance,
  NotificationGroup,
@@ -81,123 +81,123 @@ if 'mibBuilder' not in globals():
     "NotificationGroup",
     "ObjectGroup")
 
-(ModuleIdentity,
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
  MibScalar,
  MibTable,
  MibTableRow,
  MibTableColumn,
- Counter64,
- IpAddress,
- Integer32,
  TimeTicks,
- MibIdentifier,
- NotificationType,
- Bits,
  Unsigned32,
- ObjectIdentity,
- Counter32,
- Gauge32,
  iso) = mibBuilder.importSymbols(
     "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
     "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
     "MibScalar",
     "MibTable",
     "MibTableRow",
     "MibTableColumn",
-    "Counter64",
-    "IpAddress",
-    "Integer32",
     "TimeTicks",
-    "MibIdentifier",
-    "NotificationType",
-    "Bits",
     "Unsigned32",
-    "ObjectIdentity",
-    "Counter32",
-    "Gauge32",
     "iso")
 
 (DisplayString,
- TextualConvention,
  RowStatus,
+ TextualConvention,
  TruthValue) = mibBuilder.importSymbols(
     "SNMPv2-TC",
     "DisplayString",
-    "TextualConvention",
     "RowStatus",
+    "TextualConvention",
     "TruthValue")
 
 (xeroxCommonMIB,) = mibBuilder.importSymbols(
     "XEROX-COMMON-MIB",
     "xeroxCommonMIB")
 
-(XcmFixedLocaleDisplayString,
- Cardinal32,
+(Cardinal32,
  Ordinal32,
+ XcmFixedLocaleDisplayString,
  XcmGenRowPersistence) = mibBuilder.importSymbols(
     "XEROX-GENERAL-TC",
-    "XcmFixedLocaleDisplayString",
     "Cardinal32",
     "Ordinal32",
+    "XcmFixedLocaleDisplayString",
     "XcmGenRowPersistence")
 
-(XcmPrtGeneralMonoPrintOpt,
- XcmPrtAccountingSystemType,
- XcmPrtAuxSheetType,
- XcmPrtFinisherDFAType,
- XcmPrtMediaTypeErrorPolicy,
- XcmPrtPCLFontSource,
- XcmPrtIETFPrintMIBGroupSupport,
- XcmPrtMediumSize,
- XcmPrtPhaserModuleType,
+(XcmPrtAccountingSystemType,
+ XcmPrtAsciiJobTicketType,
  XcmPrtAuthenticationModeType,
- XcmPrtInputTraysConfiguration,
- XcmPrtOutputPunchPosition,
- XcmPrtGroupSupport,
- XcmPrtPrintEngineType,
+ XcmPrtAuxSheetContent,
+ XcmPrtAuxSheetType,
  XcmPrtFaxOutType,
+ XcmPrtFinisherDFAType,
+ XcmPrtGeneralMonoPrintOpt,
+ XcmPrtGroupSupport,
  XcmPrtHighCapacityFeederType,
  XcmPrtHoldForAuthenModeType,
- XcmPrtAuxSheetContent,
- XcmPrtPrintScreen,
  XcmPrtHolePunchUnitType,
+ XcmPrtIETFPrintMIBGroupSupport,
+ XcmPrtInputTraysConfiguration,
+ XcmPrtMediaTypeErrorPolicy,
  XcmPrtMediumClassType,
+ XcmPrtMediumSize,
  XcmPrtOutputOffsetStackingType,
- XcmPrtPageSizeErrorPolicy,
- XcmPrtTraySwitch,
- XcmPrtPlex,
- XcmPrtAsciiJobTicketType,
+ XcmPrtOutputPunchPosition,
  XcmPrtOutputStaplePosition,
- XcmPrtPrintQuality) = mibBuilder.importSymbols(
+ XcmPrtPCLFontSource,
+ XcmPrtPageSizeErrorPolicy,
+ XcmPrtPhaserModuleType,
+ XcmPrtPlex,
+ XcmPrtPrintEngineType,
+ XcmPrtPrintQuality,
+ XcmPrtPrintScreen,
+ XcmPrtTraySwitch) = mibBuilder.importSymbols(
     "XEROX-PRINTER-EXT-TC",
-    "XcmPrtGeneralMonoPrintOpt",
     "XcmPrtAccountingSystemType",
-    "XcmPrtAuxSheetType",
-    "XcmPrtFinisherDFAType",
-    "XcmPrtMediaTypeErrorPolicy",
-    "XcmPrtPCLFontSource",
-    "XcmPrtIETFPrintMIBGroupSupport",
-    "XcmPrtMediumSize",
-    "XcmPrtPhaserModuleType",
+    "XcmPrtAsciiJobTicketType",
     "XcmPrtAuthenticationModeType",
-    "XcmPrtInputTraysConfiguration",
-    "XcmPrtOutputPunchPosition",
-    "XcmPrtGroupSupport",
-    "XcmPrtPrintEngineType",
+    "XcmPrtAuxSheetContent",
+    "XcmPrtAuxSheetType",
     "XcmPrtFaxOutType",
+    "XcmPrtFinisherDFAType",
+    "XcmPrtGeneralMonoPrintOpt",
+    "XcmPrtGroupSupport",
     "XcmPrtHighCapacityFeederType",
     "XcmPrtHoldForAuthenModeType",
-    "XcmPrtAuxSheetContent",
-    "XcmPrtPrintScreen",
     "XcmPrtHolePunchUnitType",
+    "XcmPrtIETFPrintMIBGroupSupport",
+    "XcmPrtInputTraysConfiguration",
+    "XcmPrtMediaTypeErrorPolicy",
     "XcmPrtMediumClassType",
+    "XcmPrtMediumSize",
     "XcmPrtOutputOffsetStackingType",
-    "XcmPrtPageSizeErrorPolicy",
-    "XcmPrtTraySwitch",
-    "XcmPrtPlex",
-    "XcmPrtAsciiJobTicketType",
+    "XcmPrtOutputPunchPosition",
     "XcmPrtOutputStaplePosition",
-    "XcmPrtPrintQuality")
+    "XcmPrtPCLFontSource",
+    "XcmPrtPageSizeErrorPolicy",
+    "XcmPrtPhaserModuleType",
+    "XcmPrtPlex",
+    "XcmPrtPrintEngineType",
+    "XcmPrtPrintQuality",
+    "XcmPrtPrintScreen",
+    "XcmPrtTraySwitch")
 
 
 # MODULE-IDENTITY
@@ -253,7 +253,13 @@ xcmPrtBaseRowStatus = _XcmPrtBaseRowStatus_Object(
 xcmPrtBaseRowStatus.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmPrtBaseRowStatus.setStatus("current")
-_XcmPrtBaseGroupSupport_Type = XcmPrtGroupSupport
+
+
+class _XcmPrtBaseGroupSupport_Type(XcmPrtGroupSupport):
+    """Custom type xcmPrtBaseGroupSupport based on XcmPrtGroupSupport"""
+    defaultValue = 0
+
+
 _XcmPrtBaseGroupSupport_Object = MibTableColumn
 xcmPrtBaseGroupSupport = _XcmPrtBaseGroupSupport_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 1, 2, 1, 3),
@@ -262,7 +268,13 @@ xcmPrtBaseGroupSupport = _XcmPrtBaseGroupSupport_Object(
 xcmPrtBaseGroupSupport.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmPrtBaseGroupSupport.setStatus("current")
-_XcmPrtBaseUpdateSupport_Type = XcmPrtGroupSupport
+
+
+class _XcmPrtBaseUpdateSupport_Type(XcmPrtGroupSupport):
+    """Custom type xcmPrtBaseUpdateSupport based on XcmPrtGroupSupport"""
+    defaultValue = 0
+
+
 _XcmPrtBaseUpdateSupport_Object = MibTableColumn
 xcmPrtBaseUpdateSupport = _XcmPrtBaseUpdateSupport_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 1, 2, 1, 4),
@@ -271,7 +283,13 @@ xcmPrtBaseUpdateSupport = _XcmPrtBaseUpdateSupport_Object(
 xcmPrtBaseUpdateSupport.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmPrtBaseUpdateSupport.setStatus("current")
-_XcmPrtBaseCreateSupport_Type = XcmPrtGroupSupport
+
+
+class _XcmPrtBaseCreateSupport_Type(XcmPrtGroupSupport):
+    """Custom type xcmPrtBaseCreateSupport based on XcmPrtGroupSupport"""
+    defaultValue = 0
+
+
 _XcmPrtBaseCreateSupport_Object = MibTableColumn
 xcmPrtBaseCreateSupport = _XcmPrtBaseCreateSupport_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 1, 2, 1, 5),
@@ -295,7 +313,13 @@ xcmPrtBaseIETFMIBGroupSupport = _XcmPrtBaseIETFMIBGroupSupport_Object(
 xcmPrtBaseIETFMIBGroupSupport.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmPrtBaseIETFMIBGroupSupport.setStatus("current")
-_XcmPrtBaseIETFMIBUpdateSupport_Type = XcmPrtIETFPrintMIBGroupSupport
+
+
+class _XcmPrtBaseIETFMIBUpdateSupport_Type(XcmPrtIETFPrintMIBGroupSupport):
+    """Custom type xcmPrtBaseIETFMIBUpdateSupport based on XcmPrtIETFPrintMIBGroupSupport"""
+    defaultValue = 0
+
+
 _XcmPrtBaseIETFMIBUpdateSupport_Object = MibTableColumn
 xcmPrtBaseIETFMIBUpdateSupport = _XcmPrtBaseIETFMIBUpdateSupport_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 1, 2, 1, 7),
@@ -304,7 +328,13 @@ xcmPrtBaseIETFMIBUpdateSupport = _XcmPrtBaseIETFMIBUpdateSupport_Object(
 xcmPrtBaseIETFMIBUpdateSupport.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmPrtBaseIETFMIBUpdateSupport.setStatus("current")
-_XcmPrtBaseIETFMIBCreateSupport_Type = XcmPrtIETFPrintMIBGroupSupport
+
+
+class _XcmPrtBaseIETFMIBCreateSupport_Type(XcmPrtIETFPrintMIBGroupSupport):
+    """Custom type xcmPrtBaseIETFMIBCreateSupport based on XcmPrtIETFPrintMIBGroupSupport"""
+    defaultValue = 0
+
+
 _XcmPrtBaseIETFMIBCreateSupport_Object = MibTableColumn
 xcmPrtBaseIETFMIBCreateSupport = _XcmPrtBaseIETFMIBCreateSupport_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 1, 2, 1, 8),
@@ -335,11 +365,6 @@ _XcmPrtGeneralEntry_Object = MibTableRow
 xcmPrtGeneralEntry = _XcmPrtGeneralEntry_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 5, 1, 1)
 )
-prtGeneralEntry.registerAugmentions(
-    ("XEROX-PRINTER-EXT-MIB",
-     "xcmPrtGeneralEntry")
-)
-xcmPrtGeneralEntry.setIndexNames(*prtGeneralEntry.getIndexNames())
 if mibBuilder.loadTexts:
     xcmPrtGeneralEntry.setStatus("current")
 _XcmPrtGeneralRowStatus_Type = RowStatus
@@ -351,7 +376,13 @@ xcmPrtGeneralRowStatus = _XcmPrtGeneralRowStatus_Object(
 xcmPrtGeneralRowStatus.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmPrtGeneralRowStatus.setStatus("current")
-_XcmPrtGeneralAuxSheetPackage_Type = Cardinal32
+
+
+class _XcmPrtGeneralAuxSheetPackage_Type(Cardinal32):
+    """Custom type xcmPrtGeneralAuxSheetPackage based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmPrtGeneralAuxSheetPackage_Object = MibTableColumn
 xcmPrtGeneralAuxSheetPackage = _XcmPrtGeneralAuxSheetPackage_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 5, 1, 1, 2),
@@ -419,7 +450,13 @@ xcmPrtGeneralMediumClassDefault = _XcmPrtGeneralMediumClassDefault_Object(
 xcmPrtGeneralMediumClassDefault.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmPrtGeneralMediumClassDefault.setStatus("current")
-_XcmPrtGeneralDarknessLevels_Type = Cardinal32
+
+
+class _XcmPrtGeneralDarknessLevels_Type(Cardinal32):
+    """Custom type xcmPrtGeneralDarknessLevels based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmPrtGeneralDarknessLevels_Object = MibTableColumn
 xcmPrtGeneralDarknessLevels = _XcmPrtGeneralDarknessLevels_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 5, 1, 1, 7),
@@ -428,7 +465,13 @@ xcmPrtGeneralDarknessLevels = _XcmPrtGeneralDarknessLevels_Object(
 xcmPrtGeneralDarknessLevels.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmPrtGeneralDarknessLevels.setStatus("current")
-_XcmPrtGeneralDarknessLevelNorm_Type = Cardinal32
+
+
+class _XcmPrtGeneralDarknessLevelNorm_Type(Cardinal32):
+    """Custom type xcmPrtGeneralDarknessLevelNorm based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmPrtGeneralDarknessLevelNorm_Object = MibTableColumn
 xcmPrtGeneralDarknessLevelNorm = _XcmPrtGeneralDarknessLevelNorm_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 5, 1, 1, 8),
@@ -936,11 +979,6 @@ _XcmPrtInputEntry_Object = MibTableRow
 xcmPrtInputEntry = _XcmPrtInputEntry_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 8, 1, 1)
 )
-prtInputEntry.registerAugmentions(
-    ("XEROX-PRINTER-EXT-MIB",
-     "xcmPrtInputEntry")
-)
-xcmPrtInputEntry.setIndexNames(*prtInputEntry.getIndexNames())
 if mibBuilder.loadTexts:
     xcmPrtInputEntry.setStatus("current")
 _XcmPrtInputRowStatus_Type = RowStatus
@@ -952,7 +990,13 @@ xcmPrtInputRowStatus = _XcmPrtInputRowStatus_Object(
 xcmPrtInputRowStatus.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmPrtInputRowStatus.setStatus("current")
-_XcmPrtInputNextPrtInputIndex_Type = Integer32
+
+
+class _XcmPrtInputNextPrtInputIndex_Type(Integer32):
+    """Custom type xcmPrtInputNextPrtInputIndex based on Integer32"""
+    defaultValue = 0
+
+
 _XcmPrtInputNextPrtInputIndex_Object = MibTableColumn
 xcmPrtInputNextPrtInputIndex = _XcmPrtInputNextPrtInputIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 8, 1, 1, 2),
@@ -975,7 +1019,13 @@ xcmPrtInputUseCustomSize = _XcmPrtInputUseCustomSize_Object(
 xcmPrtInputUseCustomSize.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmPrtInputUseCustomSize.setStatus("current")
-_XcmPrtInputCustDimFeedDirDecl_Type = Integer32
+
+
+class _XcmPrtInputCustDimFeedDirDecl_Type(Integer32):
+    """Custom type xcmPrtInputCustDimFeedDirDecl based on Integer32"""
+    defaultValue = 0
+
+
 _XcmPrtInputCustDimFeedDirDecl_Object = MibTableColumn
 xcmPrtInputCustDimFeedDirDecl = _XcmPrtInputCustDimFeedDirDecl_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 8, 1, 1, 4),
@@ -984,7 +1034,13 @@ xcmPrtInputCustDimFeedDirDecl = _XcmPrtInputCustDimFeedDirDecl_Object(
 xcmPrtInputCustDimFeedDirDecl.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmPrtInputCustDimFeedDirDecl.setStatus("current")
-_XcmPrtInputCustDimXFeedDirDecl_Type = Integer32
+
+
+class _XcmPrtInputCustDimXFeedDirDecl_Type(Integer32):
+    """Custom type xcmPrtInputCustDimXFeedDirDecl based on Integer32"""
+    defaultValue = 0
+
+
 _XcmPrtInputCustDimXFeedDirDecl_Object = MibTableColumn
 xcmPrtInputCustDimXFeedDirDecl = _XcmPrtInputCustDimXFeedDirDecl_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 8, 1, 1, 5),
@@ -993,7 +1049,13 @@ xcmPrtInputCustDimXFeedDirDecl = _XcmPrtInputCustDimXFeedDirDecl_Object(
 xcmPrtInputCustDimXFeedDirDecl.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmPrtInputCustDimXFeedDirDecl.setStatus("current")
-_XcmPrtInputTrayPriority_Type = Integer32
+
+
+class _XcmPrtInputTrayPriority_Type(Integer32):
+    """Custom type xcmPrtInputTrayPriority based on Integer32"""
+    defaultValue = 0
+
+
 _XcmPrtInputTrayPriority_Object = MibTableColumn
 xcmPrtInputTrayPriority = _XcmPrtInputTrayPriority_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 8, 1, 1, 6),
@@ -1069,11 +1131,6 @@ _XcmPrtOutputEntry_Object = MibTableRow
 xcmPrtOutputEntry = _XcmPrtOutputEntry_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 9, 1, 1)
 )
-prtOutputEntry.registerAugmentions(
-    ("XEROX-PRINTER-EXT-MIB",
-     "xcmPrtOutputEntry")
-)
-xcmPrtOutputEntry.setIndexNames(*prtOutputEntry.getIndexNames())
 if mibBuilder.loadTexts:
     xcmPrtOutputEntry.setStatus("current")
 _XcmPrtOutputRowStatus_Type = RowStatus
@@ -1085,7 +1142,13 @@ xcmPrtOutputRowStatus = _XcmPrtOutputRowStatus_Object(
 xcmPrtOutputRowStatus.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmPrtOutputRowStatus.setStatus("current")
-_XcmPrtOutputNextIndex_Type = Integer32
+
+
+class _XcmPrtOutputNextIndex_Type(Integer32):
+    """Custom type xcmPrtOutputNextIndex based on Integer32"""
+    defaultValue = 0
+
+
 _XcmPrtOutputNextIndex_Object = MibTableColumn
 xcmPrtOutputNextIndex = _XcmPrtOutputNextIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 9, 1, 1, 2),
@@ -1143,7 +1206,13 @@ xcmPrtOutputTrayTimeoutSupport = _XcmPrtOutputTrayTimeoutSupport_Object(
 xcmPrtOutputTrayTimeoutSupport.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmPrtOutputTrayTimeoutSupport.setStatus("current")
-_XcmPrtOutputTrayTimeout_Type = Cardinal32
+
+
+class _XcmPrtOutputTrayTimeout_Type(Cardinal32):
+    """Custom type xcmPrtOutputTrayTimeout based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmPrtOutputTrayTimeout_Object = MibTableColumn
 xcmPrtOutputTrayTimeout = _XcmPrtOutputTrayTimeout_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 9, 1, 1, 6),
@@ -1168,7 +1237,13 @@ xcmPrtOutputStaple = _XcmPrtOutputStaple_Object(
 xcmPrtOutputStaple.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmPrtOutputStaple.setStatus("current")
-_XcmPrtOutputStaplePosSupported_Type = XcmPrtOutputStaplePosition
+
+
+class _XcmPrtOutputStaplePosSupported_Type(XcmPrtOutputStaplePosition):
+    """Custom type xcmPrtOutputStaplePosSupported based on XcmPrtOutputStaplePosition"""
+    defaultValue = 0
+
+
 _XcmPrtOutputStaplePosSupported_Object = MibTableColumn
 xcmPrtOutputStaplePosSupported = _XcmPrtOutputStaplePosSupported_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 9, 1, 1, 101),
@@ -1191,7 +1266,13 @@ xcmPrtOutputStapleDefault = _XcmPrtOutputStapleDefault_Object(
 xcmPrtOutputStapleDefault.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmPrtOutputStapleDefault.setStatus("current")
-_XcmPrtOutputStaplePosDefault_Type = XcmPrtOutputStaplePosition
+
+
+class _XcmPrtOutputStaplePosDefault_Type(XcmPrtOutputStaplePosition):
+    """Custom type xcmPrtOutputStaplePosDefault based on XcmPrtOutputStaplePosition"""
+    defaultValue = 0
+
+
 _XcmPrtOutputStaplePosDefault_Object = MibTableColumn
 xcmPrtOutputStaplePosDefault = _XcmPrtOutputStaplePosDefault_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 9, 1, 1, 103),
@@ -1228,7 +1309,13 @@ xcmPrtOutputPunchDefault = _XcmPrtOutputPunchDefault_Object(
 xcmPrtOutputPunchDefault.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmPrtOutputPunchDefault.setStatus("current")
-_XcmPrtOutputPunchPosSupported_Type = XcmPrtOutputPunchPosition
+
+
+class _XcmPrtOutputPunchPosSupported_Type(XcmPrtOutputPunchPosition):
+    """Custom type xcmPrtOutputPunchPosSupported based on XcmPrtOutputPunchPosition"""
+    defaultValue = 0
+
+
 _XcmPrtOutputPunchPosSupported_Object = MibTableColumn
 xcmPrtOutputPunchPosSupported = _XcmPrtOutputPunchPosSupported_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 9, 1, 1, 106),
@@ -1265,11 +1352,6 @@ _XcmPrtChannelEntry_Object = MibTableRow
 xcmPrtChannelEntry = _XcmPrtChannelEntry_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 14, 1, 1)
 )
-prtChannelEntry.registerAugmentions(
-    ("XEROX-PRINTER-EXT-MIB",
-     "xcmPrtChannelEntry")
-)
-xcmPrtChannelEntry.setIndexNames(*prtChannelEntry.getIndexNames())
 if mibBuilder.loadTexts:
     xcmPrtChannelEntry.setStatus("current")
 _XcmPrtChannelRowStatus_Type = RowStatus
@@ -1281,7 +1363,13 @@ xcmPrtChannelRowStatus = _XcmPrtChannelRowStatus_Object(
 xcmPrtChannelRowStatus.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmPrtChannelRowStatus.setStatus("current")
-_XcmPrtChannelEOJTimeout_Type = Cardinal32
+
+
+class _XcmPrtChannelEOJTimeout_Type(Cardinal32):
+    """Custom type xcmPrtChannelEOJTimeout based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmPrtChannelEOJTimeout_Object = MibTableColumn
 xcmPrtChannelEOJTimeout = _XcmPrtChannelEOJTimeout_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 14, 1, 1, 2),
@@ -1292,7 +1380,13 @@ if mibBuilder.loadTexts:
     xcmPrtChannelEOJTimeout.setStatus("current")
 if mibBuilder.loadTexts:
     xcmPrtChannelEOJTimeout.setUnits("Seconds")
-_XcmPrtChannelAuxSheetPackage_Type = Cardinal32
+
+
+class _XcmPrtChannelAuxSheetPackage_Type(Cardinal32):
+    """Custom type xcmPrtChannelAuxSheetPackage based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmPrtChannelAuxSheetPackage_Object = MibTableColumn
 xcmPrtChannelAuxSheetPackage = _XcmPrtChannelAuxSheetPackage_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 14, 1, 1, 3),
@@ -1385,11 +1479,6 @@ _XcmPrtInterpreterEntry_Object = MibTableRow
 xcmPrtInterpreterEntry = _XcmPrtInterpreterEntry_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 15, 1, 1)
 )
-prtInterpreterEntry.registerAugmentions(
-    ("XEROX-PRINTER-EXT-MIB",
-     "xcmPrtInterpreterEntry")
-)
-xcmPrtInterpreterEntry.setIndexNames(*prtInterpreterEntry.getIndexNames())
 if mibBuilder.loadTexts:
     xcmPrtInterpreterEntry.setStatus("current")
 _XcmPrtInterpRowStatus_Type = RowStatus
@@ -1401,7 +1490,13 @@ xcmPrtInterpRowStatus = _XcmPrtInterpRowStatus_Object(
 xcmPrtInterpRowStatus.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmPrtInterpRowStatus.setStatus("current")
-_XcmPrtInterpAuxSheetPackage_Type = Cardinal32
+
+
+class _XcmPrtInterpAuxSheetPackage_Type(Cardinal32):
+    """Custom type xcmPrtInterpAuxSheetPackage based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmPrtInterpAuxSheetPackage_Object = MibTableColumn
 xcmPrtInterpAuxSheetPackage = _XcmPrtInterpAuxSheetPackage_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 15, 1, 1, 2),
@@ -1453,7 +1548,13 @@ xcmPrtInterpFontIndexDefault = _XcmPrtInterpFontIndexDefault_Object(
 xcmPrtInterpFontIndexDefault.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmPrtInterpFontIndexDefault.setStatus("current")
-_XcmPrtInterpGrayLevels_Type = Cardinal32
+
+
+class _XcmPrtInterpGrayLevels_Type(Cardinal32):
+    """Custom type xcmPrtInterpGrayLevels based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmPrtInterpGrayLevels_Object = MibTableColumn
 xcmPrtInterpGrayLevels = _XcmPrtInterpGrayLevels_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 15, 1, 1, 6),
@@ -1462,7 +1563,13 @@ xcmPrtInterpGrayLevels = _XcmPrtInterpGrayLevels_Object(
 xcmPrtInterpGrayLevels.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmPrtInterpGrayLevels.setStatus("current")
-_XcmPrtInterpGrayLevelDefault_Type = Cardinal32
+
+
+class _XcmPrtInterpGrayLevelDefault_Type(Cardinal32):
+    """Custom type xcmPrtInterpGrayLevelDefault based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmPrtInterpGrayLevelDefault_Object = MibTableColumn
 xcmPrtInterpGrayLevelDefault = _XcmPrtInterpGrayLevelDefault_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 15, 1, 1, 7),
@@ -1570,7 +1677,13 @@ xcmPrtInterpPageSizeErrorPolicy = _XcmPrtInterpPageSizeErrorPolicy_Object(
 xcmPrtInterpPageSizeErrorPolicy.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmPrtInterpPageSizeErrorPolicy.setStatus("current")
-_XcmPrtInterpPlexSupported_Type = XcmPrtPlex
+
+
+class _XcmPrtInterpPlexSupported_Type(XcmPrtPlex):
+    """Custom type xcmPrtInterpPlexSupported based on XcmPrtPlex"""
+    defaultValue = 0
+
+
 _XcmPrtInterpPlexSupported_Object = MibTableColumn
 xcmPrtInterpPlexSupported = _XcmPrtInterpPlexSupported_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 15, 1, 1, 15),
@@ -1579,7 +1692,13 @@ xcmPrtInterpPlexSupported = _XcmPrtInterpPlexSupported_Object(
 xcmPrtInterpPlexSupported.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmPrtInterpPlexSupported.setStatus("current")
-_XcmPrtInterpPlexDefault_Type = XcmPrtPlex
+
+
+class _XcmPrtInterpPlexDefault_Type(XcmPrtPlex):
+    """Custom type xcmPrtInterpPlexDefault based on XcmPrtPlex"""
+    defaultValue = 0
+
+
 _XcmPrtInterpPlexDefault_Object = MibTableColumn
 xcmPrtInterpPlexDefault = _XcmPrtInterpPlexDefault_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 15, 1, 1, 16),
@@ -1616,7 +1735,13 @@ xcmPrtInterpPrintQuality = _XcmPrtInterpPrintQuality_Object(
 xcmPrtInterpPrintQuality.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmPrtInterpPrintQuality.setStatus("current")
-_XcmPrtInterpPrtInputIndexDflt_Type = Cardinal32
+
+
+class _XcmPrtInterpPrtInputIndexDflt_Type(Cardinal32):
+    """Custom type xcmPrtInterpPrtInputIndexDflt based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmPrtInterpPrtInputIndexDflt_Object = MibTableColumn
 xcmPrtInterpPrtInputIndexDflt = _XcmPrtInterpPrtInputIndexDflt_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 15, 1, 1, 19),
@@ -1625,7 +1750,13 @@ xcmPrtInterpPrtInputIndexDflt = _XcmPrtInterpPrtInputIndexDflt_Object(
 xcmPrtInterpPrtInputIndexDflt.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmPrtInterpPrtInputIndexDflt.setStatus("current")
-_XcmPrtInterpPrtOutputIndexDflt_Type = Cardinal32
+
+
+class _XcmPrtInterpPrtOutputIndexDflt_Type(Cardinal32):
+    """Custom type xcmPrtInterpPrtOutputIndexDflt based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmPrtInterpPrtOutputIndexDflt_Object = MibTableColumn
 xcmPrtInterpPrtOutputIndexDflt = _XcmPrtInterpPrtOutputIndexDflt_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 15, 1, 1, 20),
@@ -1634,7 +1765,13 @@ xcmPrtInterpPrtOutputIndexDflt = _XcmPrtInterpPrtOutputIndexDflt_Object(
 xcmPrtInterpPrtOutputIndexDflt.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmPrtInterpPrtOutputIndexDflt.setStatus("current")
-_XcmPrtInterpResFeedDirDefault_Type = Cardinal32
+
+
+class _XcmPrtInterpResFeedDirDefault_Type(Cardinal32):
+    """Custom type xcmPrtInterpResFeedDirDefault based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmPrtInterpResFeedDirDefault_Object = MibTableColumn
 xcmPrtInterpResFeedDirDefault = _XcmPrtInterpResFeedDirDefault_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 15, 1, 1, 21),
@@ -1643,7 +1780,13 @@ xcmPrtInterpResFeedDirDefault = _XcmPrtInterpResFeedDirDefault_Object(
 xcmPrtInterpResFeedDirDefault.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmPrtInterpResFeedDirDefault.setStatus("current")
-_XcmPrtInterpResXFeedDirDefault_Type = Cardinal32
+
+
+class _XcmPrtInterpResXFeedDirDefault_Type(Cardinal32):
+    """Custom type xcmPrtInterpResXFeedDirDefault based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmPrtInterpResXFeedDirDefault_Object = MibTableColumn
 xcmPrtInterpResXFeedDirDefault = _XcmPrtInterpResXFeedDirDefault_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 15, 1, 1, 22),
@@ -1652,7 +1795,13 @@ xcmPrtInterpResXFeedDirDefault = _XcmPrtInterpResXFeedDirDefault_Object(
 xcmPrtInterpResXFeedDirDefault.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmPrtInterpResXFeedDirDefault.setStatus("current")
-_XcmPrtInterpResIPResIndex_Type = Cardinal32
+
+
+class _XcmPrtInterpResIPResIndex_Type(Cardinal32):
+    """Custom type xcmPrtInterpResIPResIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmPrtInterpResIPResIndex_Object = MibTableColumn
 xcmPrtInterpResIPResIndex = _XcmPrtInterpResIPResIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 15, 1, 1, 23),
@@ -1661,7 +1810,13 @@ xcmPrtInterpResIPResIndex = _XcmPrtInterpResIPResIndex_Object(
 xcmPrtInterpResIPResIndex.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmPrtInterpResIPResIndex.setStatus("current")
-_XcmPrtInterpResIPResIndexDflt_Type = Cardinal32
+
+
+class _XcmPrtInterpResIPResIndexDflt_Type(Cardinal32):
+    """Custom type xcmPrtInterpResIPResIndexDflt based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmPrtInterpResIPResIndexDflt_Object = MibTableColumn
 xcmPrtInterpResIPResIndexDflt = _XcmPrtInterpResIPResIndexDflt_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 15, 1, 1, 24),
@@ -1670,7 +1825,13 @@ xcmPrtInterpResIPResIndexDflt = _XcmPrtInterpResIPResIndexDflt_Object(
 xcmPrtInterpResIPResIndexDflt.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmPrtInterpResIPResIndexDflt.setStatus("current")
-_XcmPrtInterpTextFormLength_Type = Cardinal32
+
+
+class _XcmPrtInterpTextFormLength_Type(Cardinal32):
+    """Custom type xcmPrtInterpTextFormLength based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmPrtInterpTextFormLength_Object = MibTableColumn
 xcmPrtInterpTextFormLength = _XcmPrtInterpTextFormLength_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 15, 1, 1, 25),
@@ -1679,7 +1840,13 @@ xcmPrtInterpTextFormLength = _XcmPrtInterpTextFormLength_Object(
 xcmPrtInterpTextFormLength.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmPrtInterpTextFormLength.setStatus("current")
-_XcmPrtInterpTimeoutJob_Type = Cardinal32
+
+
+class _XcmPrtInterpTimeoutJob_Type(Cardinal32):
+    """Custom type xcmPrtInterpTimeoutJob based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmPrtInterpTimeoutJob_Object = MibTableColumn
 xcmPrtInterpTimeoutJob = _XcmPrtInterpTimeoutJob_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 15, 1, 1, 26),
@@ -1690,7 +1857,13 @@ if mibBuilder.loadTexts:
     xcmPrtInterpTimeoutJob.setStatus("current")
 if mibBuilder.loadTexts:
     xcmPrtInterpTimeoutJob.setUnits("Seconds")
-_XcmPrtInterpTimeoutPage_Type = Cardinal32
+
+
+class _XcmPrtInterpTimeoutPage_Type(Cardinal32):
+    """Custom type xcmPrtInterpTimeoutPage based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmPrtInterpTimeoutPage_Object = MibTableColumn
 xcmPrtInterpTimeoutPage = _XcmPrtInterpTimeoutPage_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 15, 1, 1, 27),
@@ -1701,7 +1874,13 @@ if mibBuilder.loadTexts:
     xcmPrtInterpTimeoutPage.setStatus("current")
 if mibBuilder.loadTexts:
     xcmPrtInterpTimeoutPage.setUnits("Seconds")
-_XcmPrtInterpInputAliasIndexDflt_Type = Cardinal32
+
+
+class _XcmPrtInterpInputAliasIndexDflt_Type(Cardinal32):
+    """Custom type xcmPrtInterpInputAliasIndexDflt based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmPrtInterpInputAliasIndexDflt_Object = MibTableColumn
 xcmPrtInterpInputAliasIndexDflt = _XcmPrtInterpInputAliasIndexDflt_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 15, 1, 1, 28),
@@ -1759,7 +1938,13 @@ xcmPrtInterpMediaTypeErrPolicy = _XcmPrtInterpMediaTypeErrPolicy_Object(
 xcmPrtInterpMediaTypeErrPolicy.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmPrtInterpMediaTypeErrPolicy.setStatus("current")
-_XcmPrtInterpErrorPolicyTimeout_Type = Cardinal32
+
+
+class _XcmPrtInterpErrorPolicyTimeout_Type(Cardinal32):
+    """Custom type xcmPrtInterpErrorPolicyTimeout based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmPrtInterpErrorPolicyTimeout_Object = MibTableColumn
 xcmPrtInterpErrorPolicyTimeout = _XcmPrtInterpErrorPolicyTimeout_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 15, 1, 1, 32),
@@ -2014,7 +2199,13 @@ xcmPrtAuxPackageContent = _XcmPrtAuxPackageContent_Object(
 xcmPrtAuxPackageContent.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmPrtAuxPackageContent.setStatus("current")
-_XcmPrtAuxPackagePrtInputIndex_Type = Cardinal32
+
+
+class _XcmPrtAuxPackagePrtInputIndex_Type(Cardinal32):
+    """Custom type xcmPrtAuxPackagePrtInputIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmPrtAuxPackagePrtInputIndex_Object = MibTableColumn
 xcmPrtAuxPackagePrtInputIndex = _XcmPrtAuxPackagePrtInputIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 60, 1, 1, 5),
@@ -2023,7 +2214,13 @@ xcmPrtAuxPackagePrtInputIndex = _XcmPrtAuxPackagePrtInputIndex_Object(
 xcmPrtAuxPackagePrtInputIndex.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmPrtAuxPackagePrtInputIndex.setStatus("current")
-_XcmPrtAuxPackageNext_Type = Cardinal32
+
+
+class _XcmPrtAuxPackageNext_Type(Cardinal32):
+    """Custom type xcmPrtAuxPackageNext based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmPrtAuxPackageNext_Object = MibTableColumn
 xcmPrtAuxPackageNext = _XcmPrtAuxPackageNext_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 60, 1, 1, 6),
@@ -2075,7 +2272,13 @@ xcmPrtInterpPCLFontSourceDflt = _XcmPrtInterpPCLFontSourceDflt_Object(
 xcmPrtInterpPCLFontSourceDflt.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmPrtInterpPCLFontSourceDflt.setStatus("current")
-_XcmPrtInterpPCLFontNumberDflt_Type = Cardinal32
+
+
+class _XcmPrtInterpPCLFontNumberDflt_Type(Cardinal32):
+    """Custom type xcmPrtInterpPCLFontNumberDflt based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmPrtInterpPCLFontNumberDflt_Object = MibTableColumn
 xcmPrtInterpPCLFontNumberDflt = _XcmPrtInterpPCLFontNumberDflt_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 70, 1, 1, 3),
@@ -2084,7 +2287,13 @@ xcmPrtInterpPCLFontNumberDflt = _XcmPrtInterpPCLFontNumberDflt_Object(
 xcmPrtInterpPCLFontNumberDflt.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmPrtInterpPCLFontNumberDflt.setStatus("current")
-_XcmPrtInterpPCLPitchNumerator_Type = Cardinal32
+
+
+class _XcmPrtInterpPCLPitchNumerator_Type(Cardinal32):
+    """Custom type xcmPrtInterpPCLPitchNumerator based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmPrtInterpPCLPitchNumerator_Object = MibTableColumn
 xcmPrtInterpPCLPitchNumerator = _XcmPrtInterpPCLPitchNumerator_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 70, 1, 1, 4),
@@ -2108,7 +2317,13 @@ xcmPrtInterpPCLPitchDenominator = _XcmPrtInterpPCLPitchDenominator_Object(
 xcmPrtInterpPCLPitchDenominator.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmPrtInterpPCLPitchDenominator.setStatus("current")
-_XcmPrtInterpPCLPtSizeNumerator_Type = Cardinal32
+
+
+class _XcmPrtInterpPCLPtSizeNumerator_Type(Cardinal32):
+    """Custom type xcmPrtInterpPCLPtSizeNumerator based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmPrtInterpPCLPtSizeNumerator_Object = MibTableColumn
 xcmPrtInterpPCLPtSizeNumerator = _XcmPrtInterpPCLPtSizeNumerator_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 55, 70, 1, 1, 6),
@@ -2290,6 +2505,31 @@ xcmPrtMedmTypeSupFuserHide = _XcmPrtMedmTypeSupFuserHide_Object(
 xcmPrtMedmTypeSupFuserHide.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmPrtMedmTypeSupFuserHide.setStatus("current")
+prtGeneralEntry.registerAugmentions(
+    ("XEROX-PRINTER-EXT-MIB",
+     "xcmPrtGeneralEntry")
+)
+xcmPrtGeneralEntry.setIndexNames(*prtGeneralEntry.getIndexNames())
+prtInputEntry.registerAugmentions(
+    ("XEROX-PRINTER-EXT-MIB",
+     "xcmPrtInputEntry")
+)
+xcmPrtInputEntry.setIndexNames(*prtInputEntry.getIndexNames())
+prtOutputEntry.registerAugmentions(
+    ("XEROX-PRINTER-EXT-MIB",
+     "xcmPrtOutputEntry")
+)
+xcmPrtOutputEntry.setIndexNames(*prtOutputEntry.getIndexNames())
+prtChannelEntry.registerAugmentions(
+    ("XEROX-PRINTER-EXT-MIB",
+     "xcmPrtChannelEntry")
+)
+xcmPrtChannelEntry.setIndexNames(*prtChannelEntry.getIndexNames())
+prtInterpreterEntry.registerAugmentions(
+    ("XEROX-PRINTER-EXT-MIB",
+     "xcmPrtInterpreterEntry")
+)
+xcmPrtInterpreterEntry.setIndexNames(*prtInterpreterEntry.getIndexNames())
 
 # Managed Objects groups
 

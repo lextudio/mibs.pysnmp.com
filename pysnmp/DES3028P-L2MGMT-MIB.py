@@ -1,662 +1,5501 @@
+# SNMP MIB module (DES3028P-L2MGMT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module DES3028P-L2MGMT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/DES3028P-L2MGMT-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:24:51 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, Bits, Integer32, Counter64, TimeTicks, MibIdentifier, NotificationType, IpAddress, ObjectIdentity, ModuleIdentity, Unsigned32, Counter32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "Bits", "Integer32", "Counter64", "TimeTicks", "MibIdentifier", "NotificationType", "IpAddress", "ObjectIdentity", "ModuleIdentity", "Unsigned32", "Counter32", "iso")
-TextualConvention, TruthValue, RowStatus, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TruthValue", "RowStatus", "DisplayString")
-des3028p, = mibBuilder.importSymbols("SWPRIMGMT-DES30XXP-MIB", "des3028p")
-swL2MgmtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2))
-if mibBuilder.loadTexts: swL2MgmtMIB.setLastUpdated('1008030000Z')
-if mibBuilder.loadTexts: swL2MgmtMIB.setOrganization('D-Link, Inc.')
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/DES3028P-L2MGMT-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:25:07 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+(des3028p,) = mibBuilder.importSymbols(
+    "SWPRIMGMT-DES30XXP-MIB",
+    "des3028p")
+
+
+# MODULE-IDENTITY
+
+swL2MgmtMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2)
+)
+
+
+# Types definitions
+
+
+
 class VlanId(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 4094)
+    """Custom type VlanId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+
+
 
 class PortList(OctetString):
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 127)
+    """Custom type PortList based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 127),
+    )
+
+
+
+
 
 class MacAddress(OctetString):
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(6, 6)
-    fixedLength = 6
+    """Custom type MacAddress based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(6, 6),
+    )
 
-swL2DevMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1))
-swL2PortMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2))
-swL2QOSMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3))
-swL2TrunkMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4))
-swPortMirrorPackage = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 6))
-swIGMPPackage = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7))
-swL2TrafficSegMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 12))
-swL2PortSecurityMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 15))
-swL2CosMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17))
-swL2DhcpRelayMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 18))
-swL2MgmtMIBTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 20))
-swL2LoopDetectMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 21))
-swL2MultiFilter = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22))
-swL2VlanMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 23))
-swL2DhcpLocalRelayMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 24))
-swL2FloodMAC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25))
-swL2DevInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 1))
-swL2DevInfoFrontPanelLedStatus = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 127))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2DevInfoFrontPanelLedStatus.setStatus('current')
-swL2DevCtrl = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2))
-swL2DevCtrlSystemReboot = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("reboot", 2), ("save-config-and-reboot", 3), ("reboot-and-load-factory-default-config", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2DevCtrlSystemReboot.setStatus('current')
-swL2DevCtrlSystemIP = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 2), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2DevCtrlSystemIP.setStatus('current')
-swL2DevCtrlSubnetMask = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 3), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2DevCtrlSubnetMask.setStatus('current')
-swL2DevCtrlDefaultGateway = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 4), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2DevCtrlDefaultGateway.setStatus('current')
-swL2DevCtrlManagementVlanId = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 5), VlanId()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2DevCtrlManagementVlanId.setStatus('current')
-swL2DevCtrlIGMPSnooping = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2DevCtrlIGMPSnooping.setStatus('current')
-swL2DevCtrlCleanAllStatisticCounter = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("normal", 1), ("active", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2DevCtrlCleanAllStatisticCounter.setStatus('current')
-swL2DevCtrlSnmpEnableAuthenTraps = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2DevCtrlSnmpEnableAuthenTraps.setStatus('current')
-swL2DevCtrlRmonState = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2DevCtrlRmonState.setStatus('current')
-swL2DevCtrlIpAutoConfig = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2DevCtrlIpAutoConfig.setStatus('current')
-swL2MACNotifyState = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2MACNotifyState.setStatus('current')
-swL2MACNotifyHistorySize = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 20), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 500))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2MACNotifyHistorySize.setStatus('current')
-swL2MACNotifyInterval = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 21), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2MACNotifyInterval.setStatus('current')
-swL2DevCtrlLLDPState = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 22), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2DevCtrlLLDPState.setStatus('current')
-swL2DevCtrlLLDPForwardMessageState = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 23), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2DevCtrlLLDPForwardMessageState.setStatus('current')
-swL2DevCtrlAsymVlanState = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 24), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2DevCtrlAsymVlanState.setStatus('current')
-swL2IGMPSnoopingMulticastVlanState = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 25), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2IGMPSnoopingMulticastVlanState.setStatus('current')
-swL2DevCtrlVLANTrunkState = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 26), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2DevCtrlVLANTrunkState.setStatus('current')
-swL2DevCtrlWeb = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 27))
-swL2DevCtrlWebState = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 27, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2DevCtrlWebState.setStatus('current')
-swL2DevCtrlTelnet = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 28))
-swL2DevCtrlTelnetState = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 28, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2DevCtrlTelnetState.setStatus('current')
-swL2DevAlarm = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 3))
-swL2DevAlarmNewRoot = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 3, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2DevAlarmNewRoot.setStatus('current')
-swL2DevAlarmTopologyChange = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 3, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2DevAlarmTopologyChange.setStatus('current')
-swL2DevAlarmLinkChange = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 3, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2DevAlarmLinkChange.setStatus('current')
-swL2PortInfoTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 1), )
-if mibBuilder.loadTexts: swL2PortInfoTable.setStatus('current')
-swL2PortInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 1, 1), ).setIndexNames((0, "DES3028P-L2MGMT-MIB", "swL2PortInfoPortIndex"), (0, "DES3028P-L2MGMT-MIB", "swL2PortInfoMediumType"))
-if mibBuilder.loadTexts: swL2PortInfoEntry.setStatus('current')
-swL2PortInfoPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2PortInfoPortIndex.setStatus('current')
-swL2PortInfoMediumType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(100, 101))).clone(namedValues=NamedValues(("copper", 100), ("fiber", 101)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2PortInfoMediumType.setStatus('current')
-swL2PortInfoLinkStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("link-pass", 2), ("link-fail", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2PortInfoLinkStatus.setStatus('current')
-swL2PortInfoNwayStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("auto", 1), ("half-10Mbps", 2), ("full-10Mbps", 3), ("half-100Mbps", 4), ("full-100Mbps", 5), ("half-1Gigabps", 6), ("full-1Gigabps", 7)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2PortInfoNwayStatus.setStatus('current')
-swL2PortCtrlTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 2), )
-if mibBuilder.loadTexts: swL2PortCtrlTable.setStatus('current')
-swL2PortCtrlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 2, 1), ).setIndexNames((0, "DES3028P-L2MGMT-MIB", "swL2PortCtrlPortIndex"), (0, "DES3028P-L2MGMT-MIB", "swL2PortCtrlPortMediumType"))
-if mibBuilder.loadTexts: swL2PortCtrlEntry.setStatus('current')
-swL2PortCtrlPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2PortCtrlPortIndex.setStatus('current')
-swL2PortCtrlPortMediumType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(100, 101))).clone(namedValues=NamedValues(("copper", 100), ("fiber", 101)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2PortCtrlPortMediumType.setStatus('current')
-swL2PortCtrlAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2PortCtrlAdminState.setStatus('current')
-swL2PortCtrlNwayState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 7, 8, 9))).clone(namedValues=NamedValues(("nway-auto", 1), ("nway-disabled-10Mbps-Half", 2), ("nway-disabled-10Mbps-Full", 3), ("nway-disabled-100Mbps-Half", 4), ("nway-disabled-100Mbps-Full", 5), ("nway-disabled-1Gigabps-Full", 7), ("nway-disabled-1Gigabps-Full-Master", 8), ("nway-disabled-1Gigabps-Full-Slave", 9)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2PortCtrlNwayState.setStatus('current')
-swL2PortCtrlFlowCtrlState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2PortCtrlFlowCtrlState.setStatus('current')
-swL2PortCtrlDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 2, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2PortCtrlDescription.setStatus('current')
-swL2PortCtrlAddressLearning = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2PortCtrlAddressLearning.setStatus('current')
-swL2PortCtrlMACNotifyState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2PortCtrlMACNotifyState.setStatus('current')
-swL2PortCtrlMulticastfilter = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 2, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 3))).clone(namedValues=NamedValues(("forward-unregistered-groups", 2), ("filter-unregistered-groups", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2PortCtrlMulticastfilter.setStatus('current')
-swL2PortCtrlMDIXState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 2, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("auto", 1), ("normal", 2), ("cross", 3), ("other", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2PortCtrlMDIXState.setStatus('current')
-swL2PortErrTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 3), )
-if mibBuilder.loadTexts: swL2PortErrTable.setStatus('current')
-swL2PortErrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 3, 1), ).setIndexNames((0, "DES3028P-L2MGMT-MIB", "swL2PortErrPortIndex"))
-if mibBuilder.loadTexts: swL2PortErrEntry.setStatus('current')
-swL2PortErrPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2PortErrPortIndex.setStatus('current')
-swL2PortErrPortState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disabled", 1), ("enabled", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2PortErrPortState.setStatus('current')
-swL2PortErrPortStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("other", 1), ("err-disabled", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2PortErrPortStatus.setStatus('current')
-swL2PortErrPortReason = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("stp-lbd", 1), ("storm-control", 2), ("ddm", 3), ("duld", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2PortErrPortReason.setStatus('current')
-swL2PortErrDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 3, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2PortErrDescription.setStatus('current')
-swL2QOSBandwidthControlTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 1), )
-if mibBuilder.loadTexts: swL2QOSBandwidthControlTable.setStatus('current')
-swL2QOSBandwidthControlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 1, 1), ).setIndexNames((0, "DES3028P-L2MGMT-MIB", "swL2QOSBandwidthPortIndex"))
-if mibBuilder.loadTexts: swL2QOSBandwidthControlEntry.setStatus('current')
-swL2QOSBandwidthPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 650))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2QOSBandwidthPortIndex.setStatus('current')
-swL2QOSBandwidthRxRate = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(64, 1024000))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2QOSBandwidthRxRate.setStatus('current')
-swL2QOSBandwidthTxRate = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(64, 1024000))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2QOSBandwidthTxRate.setStatus('current')
-swL2QOSBandwidthRadiusRxRate = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 1, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2QOSBandwidthRadiusRxRate.setStatus('current')
-swL2QOSBandwidthRadiusTxRate = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 1, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2QOSBandwidthRadiusTxRate.setStatus('current')
-swL2QOSSchedulingTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 2), )
-if mibBuilder.loadTexts: swL2QOSSchedulingTable.setStatus('current')
-swL2QOSSchedulingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 2, 1), ).setIndexNames((0, "DES3028P-L2MGMT-MIB", "swL2QOSSchedulingClassIndex"))
-if mibBuilder.loadTexts: swL2QOSSchedulingEntry.setStatus('current')
-swL2QOSSchedulingClassIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 3))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2QOSSchedulingClassIndex.setStatus('current')
-swL2QOSSchedulingMaxWeight = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 55))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2QOSSchedulingMaxWeight.setStatus('current')
-swL2QOSSchedulingMechanism = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("strict", 1), ("roundrobin", 2), ("weightfair", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2QOSSchedulingMechanism.setStatus('current')
-swL2QOSSchedulingMechanismCtrl = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("strict", 1), ("weightfair", 2), ("none", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2QOSSchedulingMechanismCtrl.setStatus('current')
-swL2QOS8021pUserPriorityTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 3), )
-if mibBuilder.loadTexts: swL2QOS8021pUserPriorityTable.setStatus('current')
-swL2QOS8021pUserPriorityEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 3, 1), ).setIndexNames((0, "DES3028P-L2MGMT-MIB", "swL2QOS8021pUserPriorityIndex"))
-if mibBuilder.loadTexts: swL2QOS8021pUserPriorityEntry.setStatus('current')
-swL2QOS8021pUserPriorityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2QOS8021pUserPriorityIndex.setStatus('current')
-swL2QOS8021pUserPriorityClass = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 3))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2QOS8021pUserPriorityClass.setStatus('current')
-swL2QOS8021pDefaultPriorityTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 4), )
-if mibBuilder.loadTexts: swL2QOS8021pDefaultPriorityTable.setStatus('current')
-swL2QOS8021pDefaultPriorityEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 4, 1), ).setIndexNames((0, "DES3028P-L2MGMT-MIB", "swL2QOS8021pDefaultPriorityIndex"))
-if mibBuilder.loadTexts: swL2QOS8021pDefaultPriorityEntry.setStatus('current')
-swL2QOS8021pDefaultPriorityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 650))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2QOS8021pDefaultPriorityIndex.setStatus('current')
-swL2QOS8021pDefaultPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 4, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2QOS8021pDefaultPriority.setStatus('current')
-swL2QOS8021pRadiusPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 4, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2QOS8021pRadiusPriority.setStatus('current')
-swPortTrunkMaxEntries = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swPortTrunkMaxEntries.setStatus('current')
-swPortTrunkMaxPortMembers = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swPortTrunkMaxPortMembers.setStatus('current')
-swPortTrunkTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 3), )
-if mibBuilder.loadTexts: swPortTrunkTable.setStatus('current')
-swPortTrunkEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 3, 1), ).setIndexNames((0, "DES3028P-L2MGMT-MIB", "swPortTrunkIndex"))
-if mibBuilder.loadTexts: swPortTrunkEntry.setStatus('current')
-swPortTrunkIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 3))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swPortTrunkIndex.setStatus('current')
-swPortTrunkMasterPort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 3, 1, 2), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swPortTrunkMasterPort.setStatus('current')
-swPortTrunkPortList = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 3, 1, 3), PortList()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swPortTrunkPortList.setStatus('current')
-swPortTrunkType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("static", 1), ("lacp", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swPortTrunkType.setStatus('current')
-swPortTrunkActivePort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 3, 1, 5), PortList()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swPortTrunkActivePort.setStatus('current')
-swPortTrunkState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 3, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swPortTrunkState.setStatus('current')
-swPortTrunkFloodingPort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 3, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swPortTrunkFloodingPort.setStatus('current')
-swL2TrunkAlgorithm = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("mac-source", 2), ("mac-destination", 3), ("mac-source-dest", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2TrunkAlgorithm.setStatus('current')
-swL2TrunkLACPPortTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 5), )
-if mibBuilder.loadTexts: swL2TrunkLACPPortTable.setStatus('current')
-swL2TrunkLACPPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 5, 1), ).setIndexNames((0, "DES3028P-L2MGMT-MIB", "swL2TrunkLACPPortIndex"))
-if mibBuilder.loadTexts: swL2TrunkLACPPortEntry.setStatus('current')
-swL2TrunkLACPPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2TrunkLACPPortIndex.setStatus('current')
-swL2TrunkLACPPortState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 5, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("active", 1), ("passive", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2TrunkLACPPortState.setStatus('current')
-swL2TrunkVLANTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 6), )
-if mibBuilder.loadTexts: swL2TrunkVLANTable.setStatus('current')
-swL2TrunkVLANEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 6, 1), ).setIndexNames((0, "DES3028P-L2MGMT-MIB", "swL2TrunkVLANPort"))
-if mibBuilder.loadTexts: swL2TrunkVLANEntry.setStatus('current')
-swL2TrunkVLANPort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 6, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2TrunkVLANPort.setStatus('current')
-swL2TrunkVLANState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 6, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2TrunkVLANState.setStatus('current')
-swPortMirrorRxPortList = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 6, 2), PortList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swPortMirrorRxPortList.setStatus('current')
-swPortMirrorTxPortList = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 6, 3), PortList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swPortMirrorTxPortList.setStatus('current')
-swPortMirrorTargetPort = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 6, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swPortMirrorTargetPort.setStatus('current')
-swPortMirrorState = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 6, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swPortMirrorState.setStatus('current')
-swL2IGMPMaxSupportedVlans = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2IGMPMaxSupportedVlans.setStatus('current')
-swL2IGMPMaxIpGroupNumPerVlan = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2IGMPMaxIpGroupNumPerVlan.setStatus('current')
-swL2IGMPCtrlTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 3), )
-if mibBuilder.loadTexts: swL2IGMPCtrlTable.setStatus('current')
-swL2IGMPCtrlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 3, 1), ).setIndexNames((0, "DES3028P-L2MGMT-MIB", "swL2IGMPCtrlVid"))
-if mibBuilder.loadTexts: swL2IGMPCtrlEntry.setStatus('current')
-swL2IGMPCtrlVid = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2IGMPCtrlVid.setStatus('current')
-swL2IGMPQueryInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(125)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2IGMPQueryInterval.setStatus('current')
-swL2IGMPMaxResponseTime = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 3, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 25)).clone(10)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2IGMPMaxResponseTime.setStatus('current')
-swL2IGMPRobustness = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 3, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255)).clone(2)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2IGMPRobustness.setStatus('current')
-swL2IGMPLastMemberQueryInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 3, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 25)).clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2IGMPLastMemberQueryInterval.setStatus('current')
-swL2IGMPHostTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 3, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16711450)).clone(260)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2IGMPHostTimeout.setStatus('current')
-swL2IGMPRouteTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 3, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16711450)).clone(260)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2IGMPRouteTimeout.setStatus('current')
-swL2IGMPLeaveTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 3, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16711450)).clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2IGMPLeaveTimer.setStatus('current')
-swL2IGMPQueryState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 3, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2IGMPQueryState.setStatus('current')
-swL2IGMPCurrentState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 3, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("querier", 2), ("non-querier", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2IGMPCurrentState.setStatus('current')
-swL2IGMPCtrlState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 3, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disable", 2), ("enable", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2IGMPCtrlState.setStatus('current')
-swL2IGMPFastLeave = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 3, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disable", 2), ("enable", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2IGMPFastLeave.setStatus('current')
-swL2IGMPDynIPMultVlanState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 3, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2IGMPDynIPMultVlanState.setStatus('current')
-swL2IGMPDynIPMultVlanAge = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 3, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2IGMPDynIPMultVlanAge.setStatus('current')
-swL2IGMPQueryInfoTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 4), )
-if mibBuilder.loadTexts: swL2IGMPQueryInfoTable.setStatus('current')
-swL2IGMPQueryInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 4, 1), ).setIndexNames((0, "DES3028P-L2MGMT-MIB", "swL2IGMPInfoVid"))
-if mibBuilder.loadTexts: swL2IGMPQueryInfoEntry.setStatus('current')
-swL2IGMPInfoVid = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2IGMPInfoVid.setStatus('current')
-swL2IGMPInfoQueryCount = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 4, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2IGMPInfoQueryCount.setStatus('current')
-swL2IGMPInfoTxQueryCount = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 4, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2IGMPInfoTxQueryCount.setStatus('current')
-swL2IGMPInfoTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 5), )
-if mibBuilder.loadTexts: swL2IGMPInfoTable.setStatus('current')
-swL2IGMPInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 5, 1), ).setIndexNames((0, "DES3028P-L2MGMT-MIB", "swL2IGMPVid"), (0, "DES3028P-L2MGMT-MIB", "swL2IGMPGroupIpAddr"))
-if mibBuilder.loadTexts: swL2IGMPInfoEntry.setStatus('current')
-swL2IGMPVid = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2IGMPVid.setStatus('current')
-swL2IGMPGroupIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 5, 1, 2), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2IGMPGroupIpAddr.setStatus('current')
-swL2IGMPMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 5, 1, 3), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2IGMPMacAddr.setStatus('current')
-swL2IGMPPortMap = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 5, 1, 4), PortList()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2IGMPPortMap.setStatus('current')
-swL2IGMPIpGroupReportCount = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 5, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2IGMPIpGroupReportCount.setStatus('current')
-swL2IGMPRouterPortTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 6), )
-if mibBuilder.loadTexts: swL2IGMPRouterPortTable.setStatus('current')
-swL2IGMPRouterPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 6, 1), ).setIndexNames((0, "DES3028P-L2MGMT-MIB", "swL2IGMPRouterPortVlanid"))
-if mibBuilder.loadTexts: swL2IGMPRouterPortEntry.setStatus('current')
-swL2IGMPRouterPortVlanid = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 6, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2IGMPRouterPortVlanid.setStatus('current')
-swL2IGMPRouterPortVlanName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 6, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2IGMPRouterPortVlanName.setStatus('current')
-swL2IGMPRouterPortStaticPortList = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 6, 1, 3), PortList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2IGMPRouterPortStaticPortList.setStatus('current')
-swL2IGMPRouterPortDynamicPortList = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 6, 1, 4), PortList()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2IGMPRouterPortDynamicPortList.setStatus('current')
-swL2IGMPRouterPortForbiddenPortList = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 6, 1, 5), PortList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2IGMPRouterPortForbiddenPortList.setStatus('current')
-swL2IGMPAccessAuthTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 7), )
-if mibBuilder.loadTexts: swL2IGMPAccessAuthTable.setStatus('current')
-swL2IGMPAccessAuthEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 7, 1), ).setIndexNames((0, "DES3028P-L2MGMT-MIB", "swL2IGMPAccessAuthPort"))
-if mibBuilder.loadTexts: swL2IGMPAccessAuthEntry.setStatus('current')
-swL2IGMPAccessAuthPort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 7, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2IGMPAccessAuthPort.setStatus('current')
-swL2IGMPAccessAuthState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 7, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disabled", 1), ("enabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2IGMPAccessAuthState.setStatus('current')
-swL2IGMPMulticastVlanTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 8), )
-if mibBuilder.loadTexts: swL2IGMPMulticastVlanTable.setStatus('current')
-swL2IGMPMulticastVlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 8, 1), ).setIndexNames((0, "DES3028P-L2MGMT-MIB", "swL2IGMPMulticastVlanid"))
-if mibBuilder.loadTexts: swL2IGMPMulticastVlanEntry.setStatus('current')
-swL2IGMPMulticastVlanid = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 8, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(2, 4094))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2IGMPMulticastVlanid.setStatus('current')
-swL2IGMPMulticastVlanName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 8, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL2IGMPMulticastVlanName.setStatus('current')
-swL2IGMPMulticastVlanSourcePort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 8, 1, 3), PortList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2IGMPMulticastVlanSourcePort.setStatus('current')
-swL2IGMPMulticastVlanMemberPort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 8, 1, 4), PortList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2IGMPMulticastVlanMemberPort.setStatus('current')
-swL2IGMPMulticastVlanTagMemberPort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 8, 1, 5), PortList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2IGMPMulticastVlanTagMemberPort.setStatus('current')
-swL2IGMPMulticastVlanState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 8, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2IGMPMulticastVlanState.setStatus('current')
-swL2IGMPMulticastVlanReplaceSourceIp = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 8, 1, 7), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2IGMPMulticastVlanReplaceSourceIp.setStatus('current')
-swL2IGMPMulticastVlanRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 8, 1, 8), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL2IGMPMulticastVlanRowStatus.setStatus('current')
-swL2IGMPMulticastVlanRemoveAllMcastAddrListAction = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 8, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("other", 1), ("start", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2IGMPMulticastVlanRemoveAllMcastAddrListAction.setStatus('current')
-swL2IGMPMulticastVlanUntagSourcePort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 8, 1, 10), PortList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2IGMPMulticastVlanUntagSourcePort.setStatus('current')
-swL2IGMPMulticastVlanRemapPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 8, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 8)).clone(8)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL2IGMPMulticastVlanRemapPriority.setStatus('current')
-swL2IGMPMulticastVlanReplacePriority = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 8, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("true", 1), ("false", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL2IGMPMulticastVlanReplacePriority.setStatus('current')
-swL2IGMPMulticastVlanGroupTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 9), )
-if mibBuilder.loadTexts: swL2IGMPMulticastVlanGroupTable.setStatus('current')
-swL2IGMPMulticastVlanGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 9, 1), ).setIndexNames((0, "DES3028P-L2MGMT-MIB", "swL2IGMPMulticastVlanGroupVid"), (0, "DES3028P-L2MGMT-MIB", "swL2IGMPMulticastVlanGroupFromIp"), (0, "DES3028P-L2MGMT-MIB", "swL2IGMPMulticastVlanGroupToIp"))
-if mibBuilder.loadTexts: swL2IGMPMulticastVlanGroupEntry.setStatus('current')
-swL2IGMPMulticastVlanGroupVid = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 9, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2IGMPMulticastVlanGroupVid.setStatus('current')
-swL2IGMPMulticastVlanGroupFromIp = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 9, 1, 2), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2IGMPMulticastVlanGroupFromIp.setStatus('current')
-swL2IGMPMulticastVlanGroupToIp = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 9, 1, 3), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2IGMPMulticastVlanGroupToIp.setStatus('current')
-swL2IGMPMulticastVlanGroupStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 9, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL2IGMPMulticastVlanGroupStatus.setStatus('current')
-swL2IGMPv3Table = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 10), )
-if mibBuilder.loadTexts: swL2IGMPv3Table.setStatus('current')
-swL2IGMPv3Entry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 10, 1), ).setIndexNames((0, "DES3028P-L2MGMT-MIB", "swL2IGMPVid"), (0, "DES3028P-L2MGMT-MIB", "swL2IGMPGroupIpAddr"), (0, "DES3028P-L2MGMT-MIB", "swL2IGMPv3SourceIPAddr"))
-if mibBuilder.loadTexts: swL2IGMPv3Entry.setStatus('current')
-swL2IGMPv3SourceIPAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 10, 1, 1), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2IGMPv3SourceIPAddr.setStatus('current')
-swL2IGMPv3Forwarding = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 10, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2IGMPv3Forwarding.setStatus('current')
-swL2IGMPv3ExpireTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 10, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2IGMPv3ExpireTimer.setStatus('current')
-swIGMPSnoopingGroupTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 11), )
-if mibBuilder.loadTexts: swIGMPSnoopingGroupTable.setStatus('current')
-swIGMPSnoopingGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 11, 1), ).setIndexNames((0, "DES3028P-L2MGMT-MIB", "swIGMPSnoopingGroupVid"), (0, "DES3028P-L2MGMT-MIB", "swIGMPSnoopingGroupGroupAddr"), (0, "DES3028P-L2MGMT-MIB", "swIGMPSnoopingGroupSourceAddr"))
-if mibBuilder.loadTexts: swIGMPSnoopingGroupEntry.setStatus('current')
-swIGMPSnoopingGroupVid = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 11, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIGMPSnoopingGroupVid.setStatus('current')
-swIGMPSnoopingGroupGroupAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 11, 1, 2), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIGMPSnoopingGroupGroupAddr.setStatus('current')
-swIGMPSnoopingGroupSourceAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 11, 1, 3), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIGMPSnoopingGroupSourceAddr.setStatus('current')
-swIGMPSnoopingGroupIncludePortMap = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 11, 1, 4), PortList()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIGMPSnoopingGroupIncludePortMap.setStatus('current')
-swIGMPSnoopingGroupExcludePortMap = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 11, 1, 5), PortList()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIGMPSnoopingGroupExcludePortMap.setStatus('current')
-swIGMPSnoopingGroupReportCount = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 11, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIGMPSnoopingGroupReportCount.setStatus('current')
-swIGMPSnoopingGroupUpTime = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 11, 1, 7), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIGMPSnoopingGroupUpTime.setStatus('current')
-swIGMPSnoopingGroupExpiryTime = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 11, 1, 8), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIGMPSnoopingGroupExpiryTime.setStatus('current')
-swIGMPSnoopingGroupRouterPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 11, 1, 9), PortList()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIGMPSnoopingGroupRouterPorts.setStatus('current')
-swL2IGMPDynIpMultMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 12))
-swL2IGMPDynIPMultMaxEntry = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 12, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2IGMPDynIPMultMaxEntry.setStatus('current')
-swL2IGMPSnoopingClearDynIpMult = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 12, 2))
-swL2IGMPSnoopingClearDynIpMultVID = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 12, 2, 1), VlanId()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2IGMPSnoopingClearDynIpMultVID.setStatus('current')
-swL2IGMPSnoopingClearDynIpMultIP = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 12, 2, 2), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2IGMPSnoopingClearDynIpMultIP.setStatus('current')
-swL2IGMPSnoopingClearDynIpMultAction = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 12, 2, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("all", 1), ("vlan", 2), ("group", 3), ("other", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2IGMPSnoopingClearDynIpMultAction.setStatus('current')
-swL2TrafficSegTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 12, 1), )
-if mibBuilder.loadTexts: swL2TrafficSegTable.setStatus('current')
-swL2TrafficSegEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 12, 1, 1), ).setIndexNames((0, "DES3028P-L2MGMT-MIB", "swL2TrafficSegPort"))
-if mibBuilder.loadTexts: swL2TrafficSegEntry.setStatus('current')
-swL2TrafficSegPort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 12, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2TrafficSegPort.setStatus('current')
-swL2TrafficSegForwardPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 12, 1, 1, 2), PortList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2TrafficSegForwardPorts.setStatus('current')
-swL2PortSecurityControlTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 15, 1), )
-if mibBuilder.loadTexts: swL2PortSecurityControlTable.setStatus('current')
-swL2PortSecurityControlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 15, 1, 1), ).setIndexNames((0, "DES3028P-L2MGMT-MIB", "swL2PortSecurityPortIndex"))
-if mibBuilder.loadTexts: swL2PortSecurityControlEntry.setStatus('current')
-swL2PortSecurityPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 15, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2PortSecurityPortIndex.setStatus('current')
-swL2PortSecurityMaxLernAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 15, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 16))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2PortSecurityMaxLernAddr.setStatus('current')
-swL2PortSecurityMode = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 15, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("permanent", 2), ("deleteOnTimeout", 3), ("deleteOnReset", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2PortSecurityMode.setStatus('current')
-swL2PortSecurityAdmState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 15, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("enable", 2), ("disable", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2PortSecurityAdmState.setStatus('current')
-swL2PortSecurityTrapLogState = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 15, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("enable", 2), ("disable", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2PortSecurityTrapLogState.setStatus('current')
-swL2PortSecurityDelCtrl = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 15, 3))
-swL2PortSecurityDelVlanName = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 15, 3, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2PortSecurityDelVlanName.setStatus('current')
-swL2PortSecurityDelPort = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 15, 3, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 768))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2PortSecurityDelPort.setStatus('current')
-swL2PortSecurityDelMacAddress = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 15, 3, 3), MacAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2PortSecurityDelMacAddress.setStatus('current')
-swL2PortSecurityDelActivity = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 15, 3, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("none", 1), ("start", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2PortSecurityDelActivity.setStatus('current')
-swL2CosPriorityCtrl = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3))
-swL2CosPriorityTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 1), )
-if mibBuilder.loadTexts: swL2CosPriorityTable.setStatus('current')
-swL2CosPriorityEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 1, 1), ).setIndexNames((0, "DES3028P-L2MGMT-MIB", "swL2CosPriorityPort"))
-if mibBuilder.loadTexts: swL2CosPriorityEntry.setStatus('current')
-swL2CosPriorityPort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2CosPriorityPort.setStatus('current')
-swL2CosPriorityPortPRI = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disable", 2), ("enable", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2CosPriorityPortPRI.setStatus('current')
-swL2CosPriorityEtherPRI = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("disable", 1), ("ether8021p", 2), ("macBase", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2CosPriorityEtherPRI.setStatus('current')
-swL2CosPriorityIpPRI = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("disable", 1), ("tos", 2), ("dscp", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2CosPriorityIpPRI.setStatus('current')
-swL2CosPriorityNone = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("valid", 1), ("invalid", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2CosPriorityNone.setStatus('current')
-swL2CosPortPRITable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 2), )
-if mibBuilder.loadTexts: swL2CosPortPRITable.setStatus('current')
-swL2CosPortPRIEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 2, 1), ).setIndexNames((0, "DES3028P-L2MGMT-MIB", "swL2CosPortPRIIndex"))
-if mibBuilder.loadTexts: swL2CosPortPRIEntry.setStatus('current')
-swL2CosPortPRIIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2CosPortPRIIndex.setStatus('current')
-swL2CosPortPRIClass = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 3))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2CosPortPRIClass.setStatus('current')
-swL2CosMacBasePRITable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 3), )
-if mibBuilder.loadTexts: swL2CosMacBasePRITable.setStatus('current')
-swL2CosMacBasePRIEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 3, 1), ).setIndexNames((0, "DES3028P-L2MGMT-MIB", "swL2CosMacBasePRIIndex"))
-if mibBuilder.loadTexts: swL2CosMacBasePRIEntry.setStatus('current')
-swL2CosMacBasePRIIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 3, 1, 1), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2CosMacBasePRIIndex.setStatus('current')
-swL2CosMacBasePRIClass = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 3))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2CosMacBasePRIClass.setStatus('current')
-swL2CosTosPRITable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 4), )
-if mibBuilder.loadTexts: swL2CosTosPRITable.setStatus('current')
-swL2CosTosPRIEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 4, 1), ).setIndexNames((0, "DES3028P-L2MGMT-MIB", "swL2CosTosPRIIndex"))
-if mibBuilder.loadTexts: swL2CosTosPRIEntry.setStatus('current')
-swL2CosTosPRIIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2CosTosPRIIndex.setStatus('current')
-swL2CosTosPRIClass = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 4, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 3))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2CosTosPRIClass.setStatus('current')
-swL2CosDscpPRITable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 5), )
-if mibBuilder.loadTexts: swL2CosDscpPRITable.setStatus('current')
-swL2CosDscpPRIEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 5, 1), ).setIndexNames((0, "DES3028P-L2MGMT-MIB", "swL2CosDscpPRIIndex"))
-if mibBuilder.loadTexts: swL2CosDscpPRIEntry.setStatus('current')
-swL2CosDscpPRIIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 63))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2CosDscpPRIIndex.setStatus('current')
-swL2CosDscpPRIClass = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 5, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 3))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2CosDscpPRIClass.setStatus('current')
-swL2DhcpRelayState = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 18, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2DhcpRelayState.setStatus('obsolete')
-swL2DhcpRelayHopCount = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 18, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2DhcpRelayHopCount.setStatus('obsolete')
-swL2DhcpRelayTimeThreshold = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 18, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2DhcpRelayTimeThreshold.setStatus('obsolete')
-swL2DhcpRelayOption82State = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 18, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2DhcpRelayOption82State.setStatus('obsolete')
-swL2DhcpRelayOption82Check = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 18, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2DhcpRelayOption82Check.setStatus('obsolete')
-swL2DhcpRelayOption82Policy = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 18, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("replace", 1), ("drop", 2), ("keep", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2DhcpRelayOption82Policy.setStatus('obsolete')
-swL2DhcpRelayCtrlTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 18, 7), )
-if mibBuilder.loadTexts: swL2DhcpRelayCtrlTable.setStatus('obsolete')
-swL2DhcpRelayCtrlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 18, 7, 1), ).setIndexNames((0, "DES3028P-L2MGMT-MIB", "swL2DhcpRelayCtrlInterfaceName"), (0, "DES3028P-L2MGMT-MIB", "swL2DhcpRelayCtrlServer"))
-if mibBuilder.loadTexts: swL2DhcpRelayCtrlEntry.setStatus('obsolete')
-swL2DhcpRelayCtrlInterfaceName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 18, 7, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 12))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2DhcpRelayCtrlInterfaceName.setStatus('obsolete')
-swL2DhcpRelayCtrlServer = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 18, 7, 1, 2), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2DhcpRelayCtrlServer.setStatus('current')
-swL2DhcpRelayCtrlState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 18, 7, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("invalid", 2), ("valid", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2DhcpRelayCtrlState.setStatus('obsolete')
-swL2MgmtMIBTrapPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 20, 0))
-swL2PortSecurityViolationTrap = NotificationType((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 20, 0, 1)).setObjects(("DES3028P-L2MGMT-MIB", "swL2PortSecurityPortIndex"), ("DES3028P-L2MGMT-MIB", "swL2PortSecurityViolationMac"))
-if mibBuilder.loadTexts: swL2PortSecurityViolationTrap.setStatus('current')
-swL2macNotification = NotificationType((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 20, 0, 2)).setObjects(("DES3028P-L2MGMT-MIB", "swL2macNotifyInfo"))
-if mibBuilder.loadTexts: swL2macNotification.setStatus('current')
-swL2FloodMacDetectedTrap = NotificationType((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 20, 0, 3)).setObjects(("DES3028P-L2MGMT-MIB", "swL2FloodMacDetectedMacVid"), ("DES3028P-L2MGMT-MIB", "swL2FloodMacDetectedMacAddress"))
-if mibBuilder.loadTexts: swL2FloodMacDetectedTrap.setStatus('current')
-swL2PortLoopOccurred = NotificationType((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 20, 0, 4)).setObjects(("DES3028P-L2MGMT-MIB", "swL2LoopDetectPortIndex"))
-if mibBuilder.loadTexts: swL2PortLoopOccurred.setStatus('current')
-swL2PortLoopRestart = NotificationType((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 20, 0, 5)).setObjects(("DES3028P-L2MGMT-MIB", "swL2LoopDetectPortIndex"))
-if mibBuilder.loadTexts: swL2PortLoopRestart.setStatus('current')
-swl2PortSecurityBindings = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 20, 1))
-swL2PortSecurityViolationMac = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 20, 1, 1), MacAddress()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: swL2PortSecurityViolationMac.setStatus('current')
-swl2NotificationBindings = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 20, 2))
-swL2macNotifyInfo = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 20, 2, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 1024))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2macNotifyInfo.setStatus('current')
-swL2FloodMacDetectedMacVid = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 20, 2, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2FloodMacDetectedMacVid.setStatus('current')
-swL2FloodMacDetectedMacAddress = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 20, 2, 3), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2FloodMacDetectedMacAddress.setStatus('current')
-swL2LoopDetectCtrl = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 21, 1))
-swL2LoopDetectAdminState = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 21, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2LoopDetectAdminState.setStatus('current')
-swL2LoopDetectInterval = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 21, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 32767))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2LoopDetectInterval.setStatus('current')
-swL2LoopDetectRecoverTime = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 21, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1000000))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2LoopDetectRecoverTime.setStatus('current')
-swL2LoopDetectTrapMode = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 21, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("none", 1), ("loop_detected", 2), ("loop_cleared", 3), ("both", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2LoopDetectTrapMode.setStatus('current')
-swL2LoopDetectPortMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 21, 2))
-swL2LoopDetectPortTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 21, 2, 1), )
-if mibBuilder.loadTexts: swL2LoopDetectPortTable.setStatus('current')
-swL2LoopDetectPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 21, 2, 1, 1), ).setIndexNames((0, "DES3028P-L2MGMT-MIB", "swL2LoopDetectPortIndex"))
-if mibBuilder.loadTexts: swL2LoopDetectPortEntry.setStatus('current')
-swL2LoopDetectPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 21, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2LoopDetectPortIndex.setStatus('current')
-swL2LoopDetectPortState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 21, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2LoopDetectPortState.setStatus('current')
-swL2LoopDetectPortLoopStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 21, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("normal", 1), ("loop", 2), ("error", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2LoopDetectPortLoopStatus.setStatus('current')
-swL2McastFilterTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 2), )
-if mibBuilder.loadTexts: swL2McastFilterTable.setStatus('current')
-swL2McastFilterEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 2, 1), ).setIndexNames((0, "DES3028P-L2MGMT-MIB", "swL2McastFilterProfileIndex"))
-if mibBuilder.loadTexts: swL2McastFilterEntry.setStatus('current')
-swL2McastFilterProfileIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 24))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2McastFilterProfileIndex.setStatus('current')
-swL2McastFilterProfileName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2McastFilterProfileName.setStatus('current')
-swL2McastFilterAddOrDelState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("none", 1), ("add", 2), ("delete", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2McastFilterAddOrDelState.setStatus('current')
-swL2McastFilterGroupList = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 2, 1, 4), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2McastFilterGroupList.setStatus('current')
-swL2McastFilterStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 2, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL2McastFilterStatus.setStatus('current')
-swL2McastFilterPortTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 3), )
-if mibBuilder.loadTexts: swL2McastFilterPortTable.setStatus('current')
-swL2McastFilterPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 3, 1), ).setIndexNames((0, "DES3028P-L2MGMT-MIB", "swL2McastFilterPortGroupPortIndex"))
-if mibBuilder.loadTexts: swL2McastFilterPortEntry.setStatus('current')
-swL2McastFilterPortGroupPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 3, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2McastFilterPortGroupPortIndex.setStatus('current')
-swL2McastFilterPortProfileAddOrDelState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("none", 1), ("add", 2), ("delete", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2McastFilterPortProfileAddOrDelState.setStatus('current')
-swL2McastFilterPortProfileID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 3, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 24))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2McastFilterPortProfileID.setStatus('current')
-swL2McastFilterPortMaxGroupTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 4), )
-if mibBuilder.loadTexts: swL2McastFilterPortMaxGroupTable.setStatus('current')
-swL2McastFilterPortMaxGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 4, 1), ).setIndexNames((0, "DES3028P-L2MGMT-MIB", "swL2McastFilterPortMaxGroupPortIndex"))
-if mibBuilder.loadTexts: swL2McastFilterPortMaxGroupEntry.setStatus('current')
-swL2McastFilterPortMaxGroupPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 4, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2McastFilterPortMaxGroupPortIndex.setStatus('current')
-swL2McastFilterPortMaxGroup = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 4, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 256))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2McastFilterPortMaxGroup.setStatus('current')
-swL2McastFilterPortInfoTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 5), )
-if mibBuilder.loadTexts: swL2McastFilterPortInfoTable.setStatus('current')
-swL2McastFilterPortInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 5, 1), ).setIndexNames((0, "DES3028P-L2MGMT-MIB", "swL2McastFilterPortInfoPortIndex"))
-if mibBuilder.loadTexts: swL2McastFilterPortInfoEntry.setStatus('current')
-swL2McastFilterPortInfoPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 5, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2McastFilterPortInfoPortIndex.setStatus('current')
-swL2McastFilterPortInfoProfileName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 5, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2McastFilterPortInfoProfileName.setStatus('current')
-swL2VlanAdvertisementTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 23, 1), )
-if mibBuilder.loadTexts: swL2VlanAdvertisementTable.setStatus('current')
-swL2VlanAdvertisementEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 23, 1, 1), ).setIndexNames((0, "DES3028P-L2MGMT-MIB", "swL2VlanIndex"))
-if mibBuilder.loadTexts: swL2VlanAdvertisementEntry.setStatus('current')
-swL2VlanIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 23, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2VlanIndex.setStatus('current')
-swL2VlanName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 23, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2VlanName.setStatus('current')
-swL2VlanAdvertiseState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 23, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2VlanAdvertiseState.setStatus('current')
-swL2VlanMultiplyMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 23, 2))
-swL2VlanMultiplyVlanList = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 23, 2, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2VlanMultiplyVlanList.setStatus('current')
-swL2VlanMultiplyAdvertisement = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 23, 2, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("enabled", 2), ("disabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2VlanMultiplyAdvertisement.setStatus('current')
-swL2VlanMultiplyPortList = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 23, 2, 3), PortList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2VlanMultiplyPortList.setStatus('current')
-swL2VlanMultiplyPortListAction = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 23, 2, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("other", 1), ("add-tagged", 2), ("add-untagged", 3), ("add-forbidden", 4), ("delete", 5)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2VlanMultiplyPortListAction.setStatus('current')
-swL2VlanMultiplyAction = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 23, 2, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("create", 2), ("configure", 3), ("delete", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2VlanMultiplyAction.setStatus('current')
-swL2DhcpLocalRelayState = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 24, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2DhcpLocalRelayState.setStatus('current')
-swL2DhcpLocalRelayVLANTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 24, 2), )
-if mibBuilder.loadTexts: swL2DhcpLocalRelayVLANTable.setStatus('current')
-swL2DhcpLocalRelayVLANEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 24, 2, 1), ).setIndexNames((0, "DES3028P-L2MGMT-MIB", "swL2DhcpLocalRelayVLANID"))
-if mibBuilder.loadTexts: swL2DhcpLocalRelayVLANEntry.setStatus('current')
-swL2DhcpLocalRelayVLANID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 24, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2DhcpLocalRelayVLANID.setStatus('current')
-swL2DhcpLocalRelayVLANState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 24, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2DhcpLocalRelayVLANState.setStatus('current')
-swL2FloodMACMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 1))
-swL2FloodMACGlobalSettings = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 1, 1))
-swL2FloodMACState = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2FloodMACState.setStatus('current')
-swL2FloodMACLogState = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2FloodMACLogState.setStatus('current')
-swL2FloodMACTrapState = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2FloodMACTrapState.setStatus('current')
-swL2FloodMACClearFDB = MibScalar((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("no-action", 1), ("start", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swL2FloodMACClearFDB.setStatus('current')
-swL2FloodMACAutoFDBCtrlTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 1, 2), )
-if mibBuilder.loadTexts: swL2FloodMACAutoFDBCtrlTable.setStatus('current')
-swL2FloodMACAutoFDBCtrlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 1, 2, 1), ).setIndexNames((0, "DES3028P-L2MGMT-MIB", "swL2FloodMACAutoFDBIPAddress"))
-if mibBuilder.loadTexts: swL2FloodMACAutoFDBCtrlEntry.setStatus('current')
-swL2FloodMACAutoFDBIPAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 1, 2, 1, 1), IpAddress())
-if mibBuilder.loadTexts: swL2FloodMACAutoFDBIPAddress.setStatus('current')
-swL2FloodMACAutoFDBRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 1, 2, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swL2FloodMACAutoFDBRowStatus.setStatus('current')
-swL2FloodMACInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 2))
-swL2FloodMACFDBTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 2, 1), )
-if mibBuilder.loadTexts: swL2FloodMACFDBTable.setStatus('current')
-swL2FloodMACFDBEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 2, 1, 1), ).setIndexNames((0, "DES3028P-L2MGMT-MIB", "swL2FloodMACFDBIndex"), (0, "DES3028P-L2MGMT-MIB", "swL2FloodMACFDBVID"), (0, "DES3028P-L2MGMT-MIB", "swL2FloodMACFDBMacAddress"))
-if mibBuilder.loadTexts: swL2FloodMACFDBEntry.setStatus('current')
-swL2FloodMACFDBIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 2, 1, 1, 1), Integer32())
-if mibBuilder.loadTexts: swL2FloodMACFDBIndex.setStatus('current')
-swL2FloodMACFDBVID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094)))
-if mibBuilder.loadTexts: swL2FloodMACFDBVID.setStatus('current')
-swL2FloodMACFDBMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 2, 1, 1, 3), MacAddress())
-if mibBuilder.loadTexts: swL2FloodMACFDBMacAddress.setStatus('current')
-swL2FloodMACFDBStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("active", 1), ("inactive", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2FloodMACFDBStatus.setStatus('current')
-swL2FloodMACFDBTimestamp = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 2, 1, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2FloodMACFDBTimestamp.setStatus('current')
-swL2FloodMACAutoFDBTable = MibTable((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 2, 2), )
-if mibBuilder.loadTexts: swL2FloodMACAutoFDBTable.setStatus('current')
-swL2FloodMACAutoFDBEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 2, 2, 1), ).setIndexNames((0, "DES3028P-L2MGMT-MIB", "swL2FloodMACAutoFDBIPAddress"))
-if mibBuilder.loadTexts: swL2FloodMACAutoFDBEntry.setStatus('current')
-swL2FloodMACAutoFDBVID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 2, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2FloodMACAutoFDBVID.setStatus('current')
-swL2FloodMACAutoFDBMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 2, 2, 1, 2), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2FloodMACAutoFDBMacAddress.setStatus('current')
-swL2FloodMACAutoFDBPort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 2, 2, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2FloodMACAutoFDBPort.setStatus('current')
-swL2FloodMACAutoFDBTimestamp = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 2, 2, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swL2FloodMACAutoFDBTimestamp.setStatus('current')
-mibBuilder.exportSymbols("DES3028P-L2MGMT-MIB", swL2PortCtrlNwayState=swL2PortCtrlNwayState, swL2IGMPMulticastVlanTable=swL2IGMPMulticastVlanTable, swL2CosPortPRIIndex=swL2CosPortPRIIndex, swL2FloodMACClearFDB=swL2FloodMACClearFDB, PortList=PortList, swL2FloodMacDetectedMacAddress=swL2FloodMacDetectedMacAddress, swL2IGMPSnoopingClearDynIpMultAction=swL2IGMPSnoopingClearDynIpMultAction, swL2CosDscpPRITable=swL2CosDscpPRITable, MacAddress=MacAddress, swL2TrunkVLANState=swL2TrunkVLANState, swL2VlanMultiplyAdvertisement=swL2VlanMultiplyAdvertisement, swL2McastFilterPortProfileAddOrDelState=swL2McastFilterPortProfileAddOrDelState, swL2FloodMACAutoFDBVID=swL2FloodMACAutoFDBVID, swL2DevAlarm=swL2DevAlarm, swL2McastFilterPortEntry=swL2McastFilterPortEntry, swL2IGMPPortMap=swL2IGMPPortMap, PYSNMP_MODULE_ID=swL2MgmtMIB, VlanId=VlanId, swL2DevInfoFrontPanelLedStatus=swL2DevInfoFrontPanelLedStatus, swL2TrunkLACPPortState=swL2TrunkLACPPortState, swL2IGMPAccessAuthEntry=swL2IGMPAccessAuthEntry, swL2CosDscpPRIClass=swL2CosDscpPRIClass, swL2IGMPMulticastVlanGroupStatus=swL2IGMPMulticastVlanGroupStatus, swL2CosMacBasePRIEntry=swL2CosMacBasePRIEntry, swL2DevCtrl=swL2DevCtrl, swIGMPSnoopingGroupGroupAddr=swIGMPSnoopingGroupGroupAddr, swL2FloodMACFDBIndex=swL2FloodMACFDBIndex, swL2DevCtrlSystemReboot=swL2DevCtrlSystemReboot, swL2MACNotifyInterval=swL2MACNotifyInterval, swL2macNotification=swL2macNotification, swL2DevCtrlRmonState=swL2DevCtrlRmonState, swL2QOSBandwidthControlEntry=swL2QOSBandwidthControlEntry, swL2IGMPMulticastVlanReplaceSourceIp=swL2IGMPMulticastVlanReplaceSourceIp, swL2FloodMACLogState=swL2FloodMACLogState, swL2QOS8021pUserPriorityClass=swL2QOS8021pUserPriorityClass, swL2PortSecurityMgmt=swL2PortSecurityMgmt, swL2QOS8021pDefaultPriorityTable=swL2QOS8021pDefaultPriorityTable, swL2IGMPv3Table=swL2IGMPv3Table, swL2VlanMgmt=swL2VlanMgmt, swL2IGMPMulticastVlanMemberPort=swL2IGMPMulticastVlanMemberPort, swL2PortSecurityDelVlanName=swL2PortSecurityDelVlanName, swL2QOS8021pDefaultPriority=swL2QOS8021pDefaultPriority, swL2IGMPMulticastVlanGroupTable=swL2IGMPMulticastVlanGroupTable, swL2PortSecurityMode=swL2PortSecurityMode, swL2IGMPMulticastVlanSourcePort=swL2IGMPMulticastVlanSourcePort, swL2LoopDetectPortEntry=swL2LoopDetectPortEntry, swL2IGMPCtrlState=swL2IGMPCtrlState, swL2FloodMACAutoFDBIPAddress=swL2FloodMACAutoFDBIPAddress, swL2IGMPv3Entry=swL2IGMPv3Entry, swL2LoopDetectTrapMode=swL2LoopDetectTrapMode, swL2PortInfoNwayStatus=swL2PortInfoNwayStatus, swL2LoopDetectPortTable=swL2LoopDetectPortTable, swL2CosPriorityNone=swL2CosPriorityNone, swL2CosTosPRITable=swL2CosTosPRITable, swL2DevCtrlSystemIP=swL2DevCtrlSystemIP, swL2DhcpRelayOption82Check=swL2DhcpRelayOption82Check, swL2DhcpRelayCtrlTable=swL2DhcpRelayCtrlTable, swPortTrunkState=swPortTrunkState, swL2FloodMacDetectedTrap=swL2FloodMacDetectedTrap, swL2LoopDetectPortMgmt=swL2LoopDetectPortMgmt, swL2IGMPMulticastVlanRowStatus=swL2IGMPMulticastVlanRowStatus, swL2VlanMultiplyAction=swL2VlanMultiplyAction, swL2TrunkAlgorithm=swL2TrunkAlgorithm, swL2IGMPMulticastVlanGroupEntry=swL2IGMPMulticastVlanGroupEntry, swL2FloodMACGlobalSettings=swL2FloodMACGlobalSettings, swL2IGMPDynIPMultVlanAge=swL2IGMPDynIPMultVlanAge, swL2McastFilterGroupList=swL2McastFilterGroupList, swL2PortErrPortState=swL2PortErrPortState, swL2McastFilterPortMaxGroup=swL2McastFilterPortMaxGroup, swL2PortSecurityPortIndex=swL2PortSecurityPortIndex, swL2FloodMACFDBVID=swL2FloodMACFDBVID, swL2TrunkMgmt=swL2TrunkMgmt, swL2FloodMACAutoFDBTimestamp=swL2FloodMACAutoFDBTimestamp, swL2TrunkLACPPortIndex=swL2TrunkLACPPortIndex, swL2DhcpRelayOption82State=swL2DhcpRelayOption82State, swL2McastFilterPortInfoPortIndex=swL2McastFilterPortInfoPortIndex, swL2VlanName=swL2VlanName, swL2IGMPFastLeave=swL2IGMPFastLeave, swIGMPPackage=swIGMPPackage, swL2DevCtrlSubnetMask=swL2DevCtrlSubnetMask, swL2DevCtrlIGMPSnooping=swL2DevCtrlIGMPSnooping, swL2McastFilterPortMaxGroupTable=swL2McastFilterPortMaxGroupTable, swL2IGMPDynIPMultMaxEntry=swL2IGMPDynIPMultMaxEntry, swL2IGMPRouterPortTable=swL2IGMPRouterPortTable, swPortTrunkEntry=swPortTrunkEntry, swL2IGMPRobustness=swL2IGMPRobustness, swL2FloodMACFDBTimestamp=swL2FloodMACFDBTimestamp, swIGMPSnoopingGroupEntry=swIGMPSnoopingGroupEntry, swL2McastFilterPortInfoTable=swL2McastFilterPortInfoTable, swL2QOSMgmt=swL2QOSMgmt, swL2CosDscpPRIEntry=swL2CosDscpPRIEntry, swL2MACNotifyHistorySize=swL2MACNotifyHistorySize, swL2IGMPCurrentState=swL2IGMPCurrentState, swL2McastFilterPortProfileID=swL2McastFilterPortProfileID, swL2DhcpRelayOption82Policy=swL2DhcpRelayOption82Policy, swL2FloodMACAutoFDBRowStatus=swL2FloodMACAutoFDBRowStatus, swL2CosPriorityPort=swL2CosPriorityPort, swL2IGMPRouterPortStaticPortList=swL2IGMPRouterPortStaticPortList, swL2VlanMultiplyPortListAction=swL2VlanMultiplyPortListAction, swL2IGMPLeaveTimer=swL2IGMPLeaveTimer, swL2IGMPAccessAuthTable=swL2IGMPAccessAuthTable, swL2McastFilterTable=swL2McastFilterTable, swL2PortMgmt=swL2PortMgmt, swL2TrunkVLANPort=swL2TrunkVLANPort, swL2IGMPMulticastVlanEntry=swL2IGMPMulticastVlanEntry, swL2IGMPAccessAuthState=swL2IGMPAccessAuthState, swL2CosMacBasePRIIndex=swL2CosMacBasePRIIndex, swL2DevCtrlTelnet=swL2DevCtrlTelnet, swL2DhcpLocalRelayVLANState=swL2DhcpLocalRelayVLANState, swL2DevCtrlAsymVlanState=swL2DevCtrlAsymVlanState, swL2PortCtrlPortMediumType=swL2PortCtrlPortMediumType, swL2DhcpLocalRelayVLANEntry=swL2DhcpLocalRelayVLANEntry, swl2PortSecurityBindings=swl2PortSecurityBindings, swL2DhcpRelayCtrlServer=swL2DhcpRelayCtrlServer, swl2NotificationBindings=swl2NotificationBindings, swL2QOSSchedulingMechanism=swL2QOSSchedulingMechanism, swL2DhcpRelayCtrlState=swL2DhcpRelayCtrlState, swL2QOSSchedulingEntry=swL2QOSSchedulingEntry, swL2DhcpLocalRelayState=swL2DhcpLocalRelayState, swL2IGMPMaxSupportedVlans=swL2IGMPMaxSupportedVlans, swL2FloodMACFDBStatus=swL2FloodMACFDBStatus, swL2DhcpRelayHopCount=swL2DhcpRelayHopCount, swL2McastFilterPortGroupPortIndex=swL2McastFilterPortGroupPortIndex, swL2PortCtrlAddressLearning=swL2PortCtrlAddressLearning, swIGMPSnoopingGroupExpiryTime=swIGMPSnoopingGroupExpiryTime, swL2TrafficSegEntry=swL2TrafficSegEntry, swL2IGMPMulticastVlanGroupFromIp=swL2IGMPMulticastVlanGroupFromIp, swL2DevCtrlCleanAllStatisticCounter=swL2DevCtrlCleanAllStatisticCounter, swL2CosMacBasePRIClass=swL2CosMacBasePRIClass, swL2QOS8021pDefaultPriorityIndex=swL2QOS8021pDefaultPriorityIndex, swL2TrafficSegPort=swL2TrafficSegPort, swL2DevCtrlWebState=swL2DevCtrlWebState, swL2VlanAdvertiseState=swL2VlanAdvertiseState, swL2DevCtrlLLDPState=swL2DevCtrlLLDPState, swL2FloodMACTrapState=swL2FloodMACTrapState, swL2IGMPMulticastVlanRemoveAllMcastAddrListAction=swL2IGMPMulticastVlanRemoveAllMcastAddrListAction, swL2CosPortPRIClass=swL2CosPortPRIClass, swL2FloodMACAutoFDBMacAddress=swL2FloodMACAutoFDBMacAddress, swPortMirrorTargetPort=swPortMirrorTargetPort, swL2CosPortPRIEntry=swL2CosPortPRIEntry, swPortTrunkIndex=swPortTrunkIndex, swL2CosDscpPRIIndex=swL2CosDscpPRIIndex, swIGMPSnoopingGroupUpTime=swIGMPSnoopingGroupUpTime, swL2VlanMultiplyPortList=swL2VlanMultiplyPortList, swIGMPSnoopingGroupSourceAddr=swIGMPSnoopingGroupSourceAddr, swL2PortLoopOccurred=swL2PortLoopOccurred, swL2QOS8021pUserPriorityEntry=swL2QOS8021pUserPriorityEntry, swL2IGMPAccessAuthPort=swL2IGMPAccessAuthPort, swL2QOSBandwidthPortIndex=swL2QOSBandwidthPortIndex, swL2IGMPMulticastVlanid=swL2IGMPMulticastVlanid, swL2IGMPMaxIpGroupNumPerVlan=swL2IGMPMaxIpGroupNumPerVlan, swL2QOSSchedulingClassIndex=swL2QOSSchedulingClassIndex, swL2QOSSchedulingMaxWeight=swL2QOSSchedulingMaxWeight, swL2IGMPInfoVid=swL2IGMPInfoVid, swL2IGMPv3Forwarding=swL2IGMPv3Forwarding, swL2FloodMAC=swL2FloodMAC, swPortTrunkPortList=swPortTrunkPortList, swL2DevMgmt=swL2DevMgmt, swL2IGMPv3SourceIPAddr=swL2IGMPv3SourceIPAddr, swL2QOSSchedulingTable=swL2QOSSchedulingTable, swPortMirrorRxPortList=swPortMirrorRxPortList, swL2IGMPDynIpMultMgmt=swL2IGMPDynIpMultMgmt, swL2QOS8021pUserPriorityTable=swL2QOS8021pUserPriorityTable, swL2FloodMACAutoFDBEntry=swL2FloodMACAutoFDBEntry, swL2IGMPRouterPortEntry=swL2IGMPRouterPortEntry, swL2DhcpRelayState=swL2DhcpRelayState, swL2PortInfoLinkStatus=swL2PortInfoLinkStatus, swL2IGMPIpGroupReportCount=swL2IGMPIpGroupReportCount, swL2PortLoopRestart=swL2PortLoopRestart, swL2IGMPMulticastVlanGroupVid=swL2IGMPMulticastVlanGroupVid, swL2IGMPGroupIpAddr=swL2IGMPGroupIpAddr, swL2IGMPQueryState=swL2IGMPQueryState, swL2CosPriorityEntry=swL2CosPriorityEntry, swPortMirrorTxPortList=swPortMirrorTxPortList, swL2IGMPCtrlEntry=swL2IGMPCtrlEntry, swL2PortCtrlMulticastfilter=swL2PortCtrlMulticastfilter, swL2IGMPMulticastVlanState=swL2IGMPMulticastVlanState, swL2DevCtrlLLDPForwardMessageState=swL2DevCtrlLLDPForwardMessageState, swIGMPSnoopingGroupRouterPorts=swIGMPSnoopingGroupRouterPorts, swL2QOSSchedulingMechanismCtrl=swL2QOSSchedulingMechanismCtrl, swL2IGMPInfoTable=swL2IGMPInfoTable, swL2VlanAdvertisementTable=swL2VlanAdvertisementTable, swL2macNotifyInfo=swL2macNotifyInfo, swL2TrafficSegTable=swL2TrafficSegTable, swL2IGMPRouterPortVlanName=swL2IGMPRouterPortVlanName, swL2PortInfoEntry=swL2PortInfoEntry, swL2PortErrTable=swL2PortErrTable, swL2PortCtrlPortIndex=swL2PortCtrlPortIndex, swL2DevInfo=swL2DevInfo, swL2MgmtMIB=swL2MgmtMIB, swL2IGMPRouterPortDynamicPortList=swL2IGMPRouterPortDynamicPortList, swL2CosTosPRIIndex=swL2CosTosPRIIndex, swL2QOSBandwidthControlTable=swL2QOSBandwidthControlTable, swL2PortCtrlMDIXState=swL2PortCtrlMDIXState, swL2DevCtrlIpAutoConfig=swL2DevCtrlIpAutoConfig, swL2PortCtrlAdminState=swL2PortCtrlAdminState, swL2MgmtMIBTraps=swL2MgmtMIBTraps, swL2McastFilterEntry=swL2McastFilterEntry, swL2MultiFilter=swL2MultiFilter, swL2VlanAdvertisementEntry=swL2VlanAdvertisementEntry, swIGMPSnoopingGroupReportCount=swIGMPSnoopingGroupReportCount, swL2DevAlarmLinkChange=swL2DevAlarmLinkChange, swL2LoopDetectPortIndex=swL2LoopDetectPortIndex, swL2PortInfoTable=swL2PortInfoTable, swL2PortErrPortIndex=swL2PortErrPortIndex, swL2QOS8021pDefaultPriorityEntry=swL2QOS8021pDefaultPriorityEntry, swL2PortSecurityTrapLogState=swL2PortSecurityTrapLogState, swPortTrunkType=swPortTrunkType, swL2MACNotifyState=swL2MACNotifyState, swPortMirrorState=swPortMirrorState, swIGMPSnoopingGroupTable=swIGMPSnoopingGroupTable, swL2DhcpRelayCtrlEntry=swL2DhcpRelayCtrlEntry, swL2PortSecurityDelCtrl=swL2PortSecurityDelCtrl, swL2PortErrDescription=swL2PortErrDescription, swL2DhcpRelayTimeThreshold=swL2DhcpRelayTimeThreshold, swL2PortSecurityMaxLernAddr=swL2PortSecurityMaxLernAddr, swL2FloodMACFDBMacAddress=swL2FloodMACFDBMacAddress, swL2IGMPLastMemberQueryInterval=swL2IGMPLastMemberQueryInterval, swL2McastFilterAddOrDelState=swL2McastFilterAddOrDelState, swL2DhcpRelayMgmt=swL2DhcpRelayMgmt, swL2LoopDetectPortState=swL2LoopDetectPortState, swL2CosMacBasePRITable=swL2CosMacBasePRITable, swL2PortSecurityViolationTrap=swL2PortSecurityViolationTrap, swIGMPSnoopingGroupVid=swIGMPSnoopingGroupVid, swL2McastFilterProfileName=swL2McastFilterProfileName, swL2IGMPMulticastVlanRemapPriority=swL2IGMPMulticastVlanRemapPriority, swL2FloodMACState=swL2FloodMACState, swL2QOS8021pRadiusPriority=swL2QOS8021pRadiusPriority, swL2IGMPRouterPortForbiddenPortList=swL2IGMPRouterPortForbiddenPortList, swL2TrunkVLANTable=swL2TrunkVLANTable, swL2QOSBandwidthRadiusRxRate=swL2QOSBandwidthRadiusRxRate, swL2PortErrPortReason=swL2PortErrPortReason, swL2PortSecurityDelPort=swL2PortSecurityDelPort, swL2DhcpLocalRelayMgmt=swL2DhcpLocalRelayMgmt, swL2PortCtrlEntry=swL2PortCtrlEntry, swL2PortErrPortStatus=swL2PortErrPortStatus, swL2PortInfoPortIndex=swL2PortInfoPortIndex, swL2LoopDetectPortLoopStatus=swL2LoopDetectPortLoopStatus, swL2IGMPMacAddr=swL2IGMPMacAddr, swL2TrafficSegForwardPorts=swL2TrafficSegForwardPorts, swL2IGMPDynIPMultVlanState=swL2IGMPDynIPMultVlanState, swIGMPSnoopingGroupIncludePortMap=swIGMPSnoopingGroupIncludePortMap, swL2TrunkLACPPortEntry=swL2TrunkLACPPortEntry, swL2VlanIndex=swL2VlanIndex, swL2CosPriorityTable=swL2CosPriorityTable, swL2CosMgmt=swL2CosMgmt, swL2IGMPMulticastVlanTagMemberPort=swL2IGMPMulticastVlanTagMemberPort, swPortTrunkMaxPortMembers=swPortTrunkMaxPortMembers, swL2McastFilterPortInfoEntry=swL2McastFilterPortInfoEntry, swPortTrunkActivePort=swPortTrunkActivePort, swL2IGMPQueryInfoEntry=swL2IGMPQueryInfoEntry, swL2CosTosPRIEntry=swL2CosTosPRIEntry, swL2FloodMACAutoFDBPort=swL2FloodMACAutoFDBPort, swL2PortInfoMediumType=swL2PortInfoMediumType)
-mibBuilder.exportSymbols("DES3028P-L2MGMT-MIB", swL2IGMPQueryInfoTable=swL2IGMPQueryInfoTable, swL2IGMPInfoEntry=swL2IGMPInfoEntry, swL2DevAlarmNewRoot=swL2DevAlarmNewRoot, swL2IGMPQueryInterval=swL2IGMPQueryInterval, swL2PortCtrlDescription=swL2PortCtrlDescription, swL2PortSecurityViolationMac=swL2PortSecurityViolationMac, swL2DhcpLocalRelayVLANID=swL2DhcpLocalRelayVLANID, swL2TrunkVLANEntry=swL2TrunkVLANEntry, swL2IGMPSnoopingClearDynIpMultVID=swL2IGMPSnoopingClearDynIpMultVID, swL2IGMPMulticastVlanGroupToIp=swL2IGMPMulticastVlanGroupToIp, swL2IGMPRouteTimeout=swL2IGMPRouteTimeout, swL2IGMPInfoTxQueryCount=swL2IGMPInfoTxQueryCount, swL2McastFilterStatus=swL2McastFilterStatus, swL2PortSecurityDelActivity=swL2PortSecurityDelActivity, swL2DevCtrlSnmpEnableAuthenTraps=swL2DevCtrlSnmpEnableAuthenTraps, swL2IGMPVid=swL2IGMPVid, swL2QOSBandwidthRxRate=swL2QOSBandwidthRxRate, swL2VlanMultiplyMgmt=swL2VlanMultiplyMgmt, swL2PortSecurityAdmState=swL2PortSecurityAdmState, swL2DhcpRelayCtrlInterfaceName=swL2DhcpRelayCtrlInterfaceName, swL2DevAlarmTopologyChange=swL2DevAlarmTopologyChange, swL2TrunkLACPPortTable=swL2TrunkLACPPortTable, swL2IGMPSnoopingClearDynIpMult=swL2IGMPSnoopingClearDynIpMult, swL2IGMPMulticastVlanName=swL2IGMPMulticastVlanName, swL2IGMPSnoopingClearDynIpMultIP=swL2IGMPSnoopingClearDynIpMultIP, swL2McastFilterPortTable=swL2McastFilterPortTable, swL2McastFilterPortMaxGroupPortIndex=swL2McastFilterPortMaxGroupPortIndex, swL2IGMPCtrlVid=swL2IGMPCtrlVid, swL2DhcpLocalRelayVLANTable=swL2DhcpLocalRelayVLANTable, swL2FloodMACAutoFDBTable=swL2FloodMACAutoFDBTable, swL2TrafficSegMgmt=swL2TrafficSegMgmt, swL2IGMPCtrlTable=swL2IGMPCtrlTable, swL2DevCtrlDefaultGateway=swL2DevCtrlDefaultGateway, swPortTrunkFloodingPort=swPortTrunkFloodingPort, swPortMirrorPackage=swPortMirrorPackage, swPortTrunkMasterPort=swPortTrunkMasterPort, swL2FloodMACAutoFDBCtrlTable=swL2FloodMACAutoFDBCtrlTable, swIGMPSnoopingGroupExcludePortMap=swIGMPSnoopingGroupExcludePortMap, swL2LoopDetectAdminState=swL2LoopDetectAdminState, swL2FloodMACInfo=swL2FloodMACInfo, swL2DevCtrlManagementVlanId=swL2DevCtrlManagementVlanId, swL2CosPortPRITable=swL2CosPortPRITable, swL2LoopDetectRecoverTime=swL2LoopDetectRecoverTime, swL2PortErrEntry=swL2PortErrEntry, swL2PortCtrlMACNotifyState=swL2PortCtrlMACNotifyState, swL2PortSecurityControlEntry=swL2PortSecurityControlEntry, swL2McastFilterPortMaxGroupEntry=swL2McastFilterPortMaxGroupEntry, swL2CosPriorityIpPRI=swL2CosPriorityIpPRI, swL2FloodMACFDBEntry=swL2FloodMACFDBEntry, swL2DevCtrlWeb=swL2DevCtrlWeb, swPortTrunkMaxEntries=swPortTrunkMaxEntries, swL2IGMPHostTimeout=swL2IGMPHostTimeout, swL2McastFilterPortInfoProfileName=swL2McastFilterPortInfoProfileName, swL2FloodMACAutoFDBCtrlEntry=swL2FloodMACAutoFDBCtrlEntry, swL2PortSecurityControlTable=swL2PortSecurityControlTable, swL2CosPriorityPortPRI=swL2CosPriorityPortPRI, swL2VlanMultiplyVlanList=swL2VlanMultiplyVlanList, swL2IGMPMulticastVlanUntagSourcePort=swL2IGMPMulticastVlanUntagSourcePort, swL2FloodMACFDBTable=swL2FloodMACFDBTable, swL2PortCtrlTable=swL2PortCtrlTable, swL2DevCtrlTelnetState=swL2DevCtrlTelnetState, swL2IGMPSnoopingMulticastVlanState=swL2IGMPSnoopingMulticastVlanState, swL2IGMPRouterPortVlanid=swL2IGMPRouterPortVlanid, swL2CosTosPRIClass=swL2CosTosPRIClass, swL2QOSBandwidthTxRate=swL2QOSBandwidthTxRate, swPortTrunkTable=swPortTrunkTable, swL2QOSBandwidthRadiusTxRate=swL2QOSBandwidthRadiusTxRate, swL2MgmtMIBTrapPrefix=swL2MgmtMIBTrapPrefix, swL2PortSecurityDelMacAddress=swL2PortSecurityDelMacAddress, swL2FloodMACMgmt=swL2FloodMACMgmt, swL2IGMPInfoQueryCount=swL2IGMPInfoQueryCount, swL2PortCtrlFlowCtrlState=swL2PortCtrlFlowCtrlState, swL2DevCtrlVLANTrunkState=swL2DevCtrlVLANTrunkState, swL2IGMPMaxResponseTime=swL2IGMPMaxResponseTime, swL2LoopDetectCtrl=swL2LoopDetectCtrl, swL2CosPriorityCtrl=swL2CosPriorityCtrl, swL2McastFilterProfileIndex=swL2McastFilterProfileIndex, swL2LoopDetectMgmt=swL2LoopDetectMgmt, swL2IGMPMulticastVlanReplacePriority=swL2IGMPMulticastVlanReplacePriority, swL2IGMPv3ExpireTimer=swL2IGMPv3ExpireTimer, swL2LoopDetectInterval=swL2LoopDetectInterval, swL2CosPriorityEtherPRI=swL2CosPriorityEtherPRI, swL2QOS8021pUserPriorityIndex=swL2QOS8021pUserPriorityIndex, swL2FloodMacDetectedMacVid=swL2FloodMacDetectedMacVid)
+
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_SwL2DevMgmt_ObjectIdentity = ObjectIdentity
+swL2DevMgmt = _SwL2DevMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1)
+)
+_SwL2DevInfo_ObjectIdentity = ObjectIdentity
+swL2DevInfo = _SwL2DevInfo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 1)
+)
+
+
+class _SwL2DevInfoFrontPanelLedStatus_Type(OctetString):
+    """Custom type swL2DevInfoFrontPanelLedStatus based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 127),
+    )
+
+
+_SwL2DevInfoFrontPanelLedStatus_Type.__name__ = "OctetString"
+_SwL2DevInfoFrontPanelLedStatus_Object = MibScalar
+swL2DevInfoFrontPanelLedStatus = _SwL2DevInfoFrontPanelLedStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 1, 5),
+    _SwL2DevInfoFrontPanelLedStatus_Type()
+)
+swL2DevInfoFrontPanelLedStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2DevInfoFrontPanelLedStatus.setStatus("current")
+_SwL2DevCtrl_ObjectIdentity = ObjectIdentity
+swL2DevCtrl = _SwL2DevCtrl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2)
+)
+
+
+class _SwL2DevCtrlSystemReboot_Type(Integer32):
+    """Custom type swL2DevCtrlSystemReboot based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("reboot", 2),
+          ("reboot-and-load-factory-default-config", 4),
+          ("save-config-and-reboot", 3))
+    )
+
+
+_SwL2DevCtrlSystemReboot_Type.__name__ = "Integer32"
+_SwL2DevCtrlSystemReboot_Object = MibScalar
+swL2DevCtrlSystemReboot = _SwL2DevCtrlSystemReboot_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 1),
+    _SwL2DevCtrlSystemReboot_Type()
+)
+swL2DevCtrlSystemReboot.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2DevCtrlSystemReboot.setStatus("current")
+_SwL2DevCtrlSystemIP_Type = IpAddress
+_SwL2DevCtrlSystemIP_Object = MibScalar
+swL2DevCtrlSystemIP = _SwL2DevCtrlSystemIP_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 2),
+    _SwL2DevCtrlSystemIP_Type()
+)
+swL2DevCtrlSystemIP.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2DevCtrlSystemIP.setStatus("current")
+_SwL2DevCtrlSubnetMask_Type = IpAddress
+_SwL2DevCtrlSubnetMask_Object = MibScalar
+swL2DevCtrlSubnetMask = _SwL2DevCtrlSubnetMask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 3),
+    _SwL2DevCtrlSubnetMask_Type()
+)
+swL2DevCtrlSubnetMask.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2DevCtrlSubnetMask.setStatus("current")
+_SwL2DevCtrlDefaultGateway_Type = IpAddress
+_SwL2DevCtrlDefaultGateway_Object = MibScalar
+swL2DevCtrlDefaultGateway = _SwL2DevCtrlDefaultGateway_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 4),
+    _SwL2DevCtrlDefaultGateway_Type()
+)
+swL2DevCtrlDefaultGateway.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2DevCtrlDefaultGateway.setStatus("current")
+_SwL2DevCtrlManagementVlanId_Type = VlanId
+_SwL2DevCtrlManagementVlanId_Object = MibScalar
+swL2DevCtrlManagementVlanId = _SwL2DevCtrlManagementVlanId_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 5),
+    _SwL2DevCtrlManagementVlanId_Type()
+)
+swL2DevCtrlManagementVlanId.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2DevCtrlManagementVlanId.setStatus("current")
+
+
+class _SwL2DevCtrlIGMPSnooping_Type(Integer32):
+    """Custom type swL2DevCtrlIGMPSnooping based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 3),
+          ("other", 1))
+    )
+
+
+_SwL2DevCtrlIGMPSnooping_Type.__name__ = "Integer32"
+_SwL2DevCtrlIGMPSnooping_Object = MibScalar
+swL2DevCtrlIGMPSnooping = _SwL2DevCtrlIGMPSnooping_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 7),
+    _SwL2DevCtrlIGMPSnooping_Type()
+)
+swL2DevCtrlIGMPSnooping.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2DevCtrlIGMPSnooping.setStatus("current")
+
+
+class _SwL2DevCtrlCleanAllStatisticCounter_Type(Integer32):
+    """Custom type swL2DevCtrlCleanAllStatisticCounter based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 2),
+          ("normal", 1))
+    )
+
+
+_SwL2DevCtrlCleanAllStatisticCounter_Type.__name__ = "Integer32"
+_SwL2DevCtrlCleanAllStatisticCounter_Object = MibScalar
+swL2DevCtrlCleanAllStatisticCounter = _SwL2DevCtrlCleanAllStatisticCounter_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 12),
+    _SwL2DevCtrlCleanAllStatisticCounter_Type()
+)
+swL2DevCtrlCleanAllStatisticCounter.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2DevCtrlCleanAllStatisticCounter.setStatus("current")
+
+
+class _SwL2DevCtrlSnmpEnableAuthenTraps_Type(Integer32):
+    """Custom type swL2DevCtrlSnmpEnableAuthenTraps based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_SwL2DevCtrlSnmpEnableAuthenTraps_Type.__name__ = "Integer32"
+_SwL2DevCtrlSnmpEnableAuthenTraps_Object = MibScalar
+swL2DevCtrlSnmpEnableAuthenTraps = _SwL2DevCtrlSnmpEnableAuthenTraps_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 13),
+    _SwL2DevCtrlSnmpEnableAuthenTraps_Type()
+)
+swL2DevCtrlSnmpEnableAuthenTraps.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2DevCtrlSnmpEnableAuthenTraps.setStatus("current")
+
+
+class _SwL2DevCtrlRmonState_Type(Integer32):
+    """Custom type swL2DevCtrlRmonState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 3),
+          ("other", 1))
+    )
+
+
+_SwL2DevCtrlRmonState_Type.__name__ = "Integer32"
+_SwL2DevCtrlRmonState_Object = MibScalar
+swL2DevCtrlRmonState = _SwL2DevCtrlRmonState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 16),
+    _SwL2DevCtrlRmonState_Type()
+)
+swL2DevCtrlRmonState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2DevCtrlRmonState.setStatus("current")
+
+
+class _SwL2DevCtrlIpAutoConfig_Type(Integer32):
+    """Custom type swL2DevCtrlIpAutoConfig based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 3),
+          ("other", 1))
+    )
+
+
+_SwL2DevCtrlIpAutoConfig_Type.__name__ = "Integer32"
+_SwL2DevCtrlIpAutoConfig_Object = MibScalar
+swL2DevCtrlIpAutoConfig = _SwL2DevCtrlIpAutoConfig_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 17),
+    _SwL2DevCtrlIpAutoConfig_Type()
+)
+swL2DevCtrlIpAutoConfig.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2DevCtrlIpAutoConfig.setStatus("current")
+
+
+class _SwL2MACNotifyState_Type(Integer32):
+    """Custom type swL2MACNotifyState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 3),
+          ("other", 1))
+    )
+
+
+_SwL2MACNotifyState_Type.__name__ = "Integer32"
+_SwL2MACNotifyState_Object = MibScalar
+swL2MACNotifyState = _SwL2MACNotifyState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 19),
+    _SwL2MACNotifyState_Type()
+)
+swL2MACNotifyState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2MACNotifyState.setStatus("current")
+
+
+class _SwL2MACNotifyHistorySize_Type(Integer32):
+    """Custom type swL2MACNotifyHistorySize based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 500),
+    )
+
+
+_SwL2MACNotifyHistorySize_Type.__name__ = "Integer32"
+_SwL2MACNotifyHistorySize_Object = MibScalar
+swL2MACNotifyHistorySize = _SwL2MACNotifyHistorySize_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 20),
+    _SwL2MACNotifyHistorySize_Type()
+)
+swL2MACNotifyHistorySize.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2MACNotifyHistorySize.setStatus("current")
+
+
+class _SwL2MACNotifyInterval_Type(Integer32):
+    """Custom type swL2MACNotifyInterval based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_SwL2MACNotifyInterval_Type.__name__ = "Integer32"
+_SwL2MACNotifyInterval_Object = MibScalar
+swL2MACNotifyInterval = _SwL2MACNotifyInterval_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 21),
+    _SwL2MACNotifyInterval_Type()
+)
+swL2MACNotifyInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2MACNotifyInterval.setStatus("current")
+
+
+class _SwL2DevCtrlLLDPState_Type(Integer32):
+    """Custom type swL2DevCtrlLLDPState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_SwL2DevCtrlLLDPState_Type.__name__ = "Integer32"
+_SwL2DevCtrlLLDPState_Object = MibScalar
+swL2DevCtrlLLDPState = _SwL2DevCtrlLLDPState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 22),
+    _SwL2DevCtrlLLDPState_Type()
+)
+swL2DevCtrlLLDPState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2DevCtrlLLDPState.setStatus("current")
+
+
+class _SwL2DevCtrlLLDPForwardMessageState_Type(Integer32):
+    """Custom type swL2DevCtrlLLDPForwardMessageState based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_SwL2DevCtrlLLDPForwardMessageState_Type.__name__ = "Integer32"
+_SwL2DevCtrlLLDPForwardMessageState_Object = MibScalar
+swL2DevCtrlLLDPForwardMessageState = _SwL2DevCtrlLLDPForwardMessageState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 23),
+    _SwL2DevCtrlLLDPForwardMessageState_Type()
+)
+swL2DevCtrlLLDPForwardMessageState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2DevCtrlLLDPForwardMessageState.setStatus("current")
+
+
+class _SwL2DevCtrlAsymVlanState_Type(Integer32):
+    """Custom type swL2DevCtrlAsymVlanState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 3),
+          ("other", 1))
+    )
+
+
+_SwL2DevCtrlAsymVlanState_Type.__name__ = "Integer32"
+_SwL2DevCtrlAsymVlanState_Object = MibScalar
+swL2DevCtrlAsymVlanState = _SwL2DevCtrlAsymVlanState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 24),
+    _SwL2DevCtrlAsymVlanState_Type()
+)
+swL2DevCtrlAsymVlanState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2DevCtrlAsymVlanState.setStatus("current")
+
+
+class _SwL2IGMPSnoopingMulticastVlanState_Type(Integer32):
+    """Custom type swL2IGMPSnoopingMulticastVlanState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_SwL2IGMPSnoopingMulticastVlanState_Type.__name__ = "Integer32"
+_SwL2IGMPSnoopingMulticastVlanState_Object = MibScalar
+swL2IGMPSnoopingMulticastVlanState = _SwL2IGMPSnoopingMulticastVlanState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 25),
+    _SwL2IGMPSnoopingMulticastVlanState_Type()
+)
+swL2IGMPSnoopingMulticastVlanState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2IGMPSnoopingMulticastVlanState.setStatus("current")
+
+
+class _SwL2DevCtrlVLANTrunkState_Type(Integer32):
+    """Custom type swL2DevCtrlVLANTrunkState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_SwL2DevCtrlVLANTrunkState_Type.__name__ = "Integer32"
+_SwL2DevCtrlVLANTrunkState_Object = MibScalar
+swL2DevCtrlVLANTrunkState = _SwL2DevCtrlVLANTrunkState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 26),
+    _SwL2DevCtrlVLANTrunkState_Type()
+)
+swL2DevCtrlVLANTrunkState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2DevCtrlVLANTrunkState.setStatus("current")
+_SwL2DevCtrlWeb_ObjectIdentity = ObjectIdentity
+swL2DevCtrlWeb = _SwL2DevCtrlWeb_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 27)
+)
+
+
+class _SwL2DevCtrlWebState_Type(Integer32):
+    """Custom type swL2DevCtrlWebState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 3),
+          ("other", 1))
+    )
+
+
+_SwL2DevCtrlWebState_Type.__name__ = "Integer32"
+_SwL2DevCtrlWebState_Object = MibScalar
+swL2DevCtrlWebState = _SwL2DevCtrlWebState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 27, 1),
+    _SwL2DevCtrlWebState_Type()
+)
+swL2DevCtrlWebState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2DevCtrlWebState.setStatus("current")
+_SwL2DevCtrlTelnet_ObjectIdentity = ObjectIdentity
+swL2DevCtrlTelnet = _SwL2DevCtrlTelnet_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 28)
+)
+
+
+class _SwL2DevCtrlTelnetState_Type(Integer32):
+    """Custom type swL2DevCtrlTelnetState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 3),
+          ("other", 1))
+    )
+
+
+_SwL2DevCtrlTelnetState_Type.__name__ = "Integer32"
+_SwL2DevCtrlTelnetState_Object = MibScalar
+swL2DevCtrlTelnetState = _SwL2DevCtrlTelnetState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 2, 28, 1),
+    _SwL2DevCtrlTelnetState_Type()
+)
+swL2DevCtrlTelnetState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2DevCtrlTelnetState.setStatus("current")
+_SwL2DevAlarm_ObjectIdentity = ObjectIdentity
+swL2DevAlarm = _SwL2DevAlarm_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 3)
+)
+
+
+class _SwL2DevAlarmNewRoot_Type(Integer32):
+    """Custom type swL2DevAlarmNewRoot based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 3),
+          ("other", 1))
+    )
+
+
+_SwL2DevAlarmNewRoot_Type.__name__ = "Integer32"
+_SwL2DevAlarmNewRoot_Object = MibScalar
+swL2DevAlarmNewRoot = _SwL2DevAlarmNewRoot_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 3, 1),
+    _SwL2DevAlarmNewRoot_Type()
+)
+swL2DevAlarmNewRoot.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2DevAlarmNewRoot.setStatus("current")
+
+
+class _SwL2DevAlarmTopologyChange_Type(Integer32):
+    """Custom type swL2DevAlarmTopologyChange based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 3),
+          ("other", 1))
+    )
+
+
+_SwL2DevAlarmTopologyChange_Type.__name__ = "Integer32"
+_SwL2DevAlarmTopologyChange_Object = MibScalar
+swL2DevAlarmTopologyChange = _SwL2DevAlarmTopologyChange_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 3, 2),
+    _SwL2DevAlarmTopologyChange_Type()
+)
+swL2DevAlarmTopologyChange.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2DevAlarmTopologyChange.setStatus("current")
+
+
+class _SwL2DevAlarmLinkChange_Type(Integer32):
+    """Custom type swL2DevAlarmLinkChange based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 3),
+          ("other", 1))
+    )
+
+
+_SwL2DevAlarmLinkChange_Type.__name__ = "Integer32"
+_SwL2DevAlarmLinkChange_Object = MibScalar
+swL2DevAlarmLinkChange = _SwL2DevAlarmLinkChange_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 1, 3, 3),
+    _SwL2DevAlarmLinkChange_Type()
+)
+swL2DevAlarmLinkChange.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2DevAlarmLinkChange.setStatus("current")
+_SwL2PortMgmt_ObjectIdentity = ObjectIdentity
+swL2PortMgmt = _SwL2PortMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2)
+)
+_SwL2PortInfoTable_Object = MibTable
+swL2PortInfoTable = _SwL2PortInfoTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 1)
+)
+if mibBuilder.loadTexts:
+    swL2PortInfoTable.setStatus("current")
+_SwL2PortInfoEntry_Object = MibTableRow
+swL2PortInfoEntry = _SwL2PortInfoEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 1, 1)
+)
+swL2PortInfoEntry.setIndexNames(
+    (0, "DES3028P-L2MGMT-MIB", "swL2PortInfoPortIndex"),
+    (0, "DES3028P-L2MGMT-MIB", "swL2PortInfoMediumType"),
+)
+if mibBuilder.loadTexts:
+    swL2PortInfoEntry.setStatus("current")
+
+
+class _SwL2PortInfoPortIndex_Type(Integer32):
+    """Custom type swL2PortInfoPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_SwL2PortInfoPortIndex_Type.__name__ = "Integer32"
+_SwL2PortInfoPortIndex_Object = MibTableColumn
+swL2PortInfoPortIndex = _SwL2PortInfoPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 1, 1, 1),
+    _SwL2PortInfoPortIndex_Type()
+)
+swL2PortInfoPortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2PortInfoPortIndex.setStatus("current")
+
+
+class _SwL2PortInfoMediumType_Type(Integer32):
+    """Custom type swL2PortInfoMediumType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(100,
+              101)
+        )
+    )
+    namedValues = NamedValues(
+        *(("copper", 100),
+          ("fiber", 101))
+    )
+
+
+_SwL2PortInfoMediumType_Type.__name__ = "Integer32"
+_SwL2PortInfoMediumType_Object = MibTableColumn
+swL2PortInfoMediumType = _SwL2PortInfoMediumType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 1, 1, 2),
+    _SwL2PortInfoMediumType_Type()
+)
+swL2PortInfoMediumType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2PortInfoMediumType.setStatus("current")
+
+
+class _SwL2PortInfoLinkStatus_Type(Integer32):
+    """Custom type swL2PortInfoLinkStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("link-fail", 3),
+          ("link-pass", 2),
+          ("other", 1))
+    )
+
+
+_SwL2PortInfoLinkStatus_Type.__name__ = "Integer32"
+_SwL2PortInfoLinkStatus_Object = MibTableColumn
+swL2PortInfoLinkStatus = _SwL2PortInfoLinkStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 1, 1, 4),
+    _SwL2PortInfoLinkStatus_Type()
+)
+swL2PortInfoLinkStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2PortInfoLinkStatus.setStatus("current")
+
+
+class _SwL2PortInfoNwayStatus_Type(Integer32):
+    """Custom type swL2PortInfoNwayStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("auto", 1),
+          ("full-100Mbps", 5),
+          ("full-10Mbps", 3),
+          ("full-1Gigabps", 7),
+          ("half-100Mbps", 4),
+          ("half-10Mbps", 2),
+          ("half-1Gigabps", 6))
+    )
+
+
+_SwL2PortInfoNwayStatus_Type.__name__ = "Integer32"
+_SwL2PortInfoNwayStatus_Object = MibTableColumn
+swL2PortInfoNwayStatus = _SwL2PortInfoNwayStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 1, 1, 5),
+    _SwL2PortInfoNwayStatus_Type()
+)
+swL2PortInfoNwayStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2PortInfoNwayStatus.setStatus("current")
+_SwL2PortCtrlTable_Object = MibTable
+swL2PortCtrlTable = _SwL2PortCtrlTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 2)
+)
+if mibBuilder.loadTexts:
+    swL2PortCtrlTable.setStatus("current")
+_SwL2PortCtrlEntry_Object = MibTableRow
+swL2PortCtrlEntry = _SwL2PortCtrlEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 2, 1)
+)
+swL2PortCtrlEntry.setIndexNames(
+    (0, "DES3028P-L2MGMT-MIB", "swL2PortCtrlPortIndex"),
+    (0, "DES3028P-L2MGMT-MIB", "swL2PortCtrlPortMediumType"),
+)
+if mibBuilder.loadTexts:
+    swL2PortCtrlEntry.setStatus("current")
+
+
+class _SwL2PortCtrlPortIndex_Type(Integer32):
+    """Custom type swL2PortCtrlPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_SwL2PortCtrlPortIndex_Type.__name__ = "Integer32"
+_SwL2PortCtrlPortIndex_Object = MibTableColumn
+swL2PortCtrlPortIndex = _SwL2PortCtrlPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 2, 1, 1),
+    _SwL2PortCtrlPortIndex_Type()
+)
+swL2PortCtrlPortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2PortCtrlPortIndex.setStatus("current")
+
+
+class _SwL2PortCtrlPortMediumType_Type(Integer32):
+    """Custom type swL2PortCtrlPortMediumType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(100,
+              101)
+        )
+    )
+    namedValues = NamedValues(
+        *(("copper", 100),
+          ("fiber", 101))
+    )
+
+
+_SwL2PortCtrlPortMediumType_Type.__name__ = "Integer32"
+_SwL2PortCtrlPortMediumType_Object = MibTableColumn
+swL2PortCtrlPortMediumType = _SwL2PortCtrlPortMediumType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 2, 1, 2),
+    _SwL2PortCtrlPortMediumType_Type()
+)
+swL2PortCtrlPortMediumType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2PortCtrlPortMediumType.setStatus("current")
+
+
+class _SwL2PortCtrlAdminState_Type(Integer32):
+    """Custom type swL2PortCtrlAdminState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 3),
+          ("other", 1))
+    )
+
+
+_SwL2PortCtrlAdminState_Type.__name__ = "Integer32"
+_SwL2PortCtrlAdminState_Object = MibTableColumn
+swL2PortCtrlAdminState = _SwL2PortCtrlAdminState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 2, 1, 3),
+    _SwL2PortCtrlAdminState_Type()
+)
+swL2PortCtrlAdminState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2PortCtrlAdminState.setStatus("current")
+
+
+class _SwL2PortCtrlNwayState_Type(Integer32):
+    """Custom type swL2PortCtrlNwayState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              7,
+              8,
+              9)
+        )
+    )
+    namedValues = NamedValues(
+        *(("nway-auto", 1),
+          ("nway-disabled-100Mbps-Full", 5),
+          ("nway-disabled-100Mbps-Half", 4),
+          ("nway-disabled-10Mbps-Full", 3),
+          ("nway-disabled-10Mbps-Half", 2),
+          ("nway-disabled-1Gigabps-Full", 7),
+          ("nway-disabled-1Gigabps-Full-Master", 8),
+          ("nway-disabled-1Gigabps-Full-Slave", 9))
+    )
+
+
+_SwL2PortCtrlNwayState_Type.__name__ = "Integer32"
+_SwL2PortCtrlNwayState_Object = MibTableColumn
+swL2PortCtrlNwayState = _SwL2PortCtrlNwayState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 2, 1, 4),
+    _SwL2PortCtrlNwayState_Type()
+)
+swL2PortCtrlNwayState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2PortCtrlNwayState.setStatus("current")
+
+
+class _SwL2PortCtrlFlowCtrlState_Type(Integer32):
+    """Custom type swL2PortCtrlFlowCtrlState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 3),
+          ("other", 1))
+    )
+
+
+_SwL2PortCtrlFlowCtrlState_Type.__name__ = "Integer32"
+_SwL2PortCtrlFlowCtrlState_Object = MibTableColumn
+swL2PortCtrlFlowCtrlState = _SwL2PortCtrlFlowCtrlState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 2, 1, 5),
+    _SwL2PortCtrlFlowCtrlState_Type()
+)
+swL2PortCtrlFlowCtrlState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2PortCtrlFlowCtrlState.setStatus("current")
+
+
+class _SwL2PortCtrlDescription_Type(DisplayString):
+    """Custom type swL2PortCtrlDescription based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_SwL2PortCtrlDescription_Type.__name__ = "DisplayString"
+_SwL2PortCtrlDescription_Object = MibTableColumn
+swL2PortCtrlDescription = _SwL2PortCtrlDescription_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 2, 1, 6),
+    _SwL2PortCtrlDescription_Type()
+)
+swL2PortCtrlDescription.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2PortCtrlDescription.setStatus("current")
+
+
+class _SwL2PortCtrlAddressLearning_Type(Integer32):
+    """Custom type swL2PortCtrlAddressLearning based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 3),
+          ("other", 1))
+    )
+
+
+_SwL2PortCtrlAddressLearning_Type.__name__ = "Integer32"
+_SwL2PortCtrlAddressLearning_Object = MibTableColumn
+swL2PortCtrlAddressLearning = _SwL2PortCtrlAddressLearning_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 2, 1, 7),
+    _SwL2PortCtrlAddressLearning_Type()
+)
+swL2PortCtrlAddressLearning.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2PortCtrlAddressLearning.setStatus("current")
+
+
+class _SwL2PortCtrlMACNotifyState_Type(Integer32):
+    """Custom type swL2PortCtrlMACNotifyState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 3),
+          ("other", 1))
+    )
+
+
+_SwL2PortCtrlMACNotifyState_Type.__name__ = "Integer32"
+_SwL2PortCtrlMACNotifyState_Object = MibTableColumn
+swL2PortCtrlMACNotifyState = _SwL2PortCtrlMACNotifyState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 2, 1, 8),
+    _SwL2PortCtrlMACNotifyState_Type()
+)
+swL2PortCtrlMACNotifyState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2PortCtrlMACNotifyState.setStatus("current")
+
+
+class _SwL2PortCtrlMulticastfilter_Type(Integer32):
+    """Custom type swL2PortCtrlMulticastfilter based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("filter-unregistered-groups", 3),
+          ("forward-unregistered-groups", 2))
+    )
+
+
+_SwL2PortCtrlMulticastfilter_Type.__name__ = "Integer32"
+_SwL2PortCtrlMulticastfilter_Object = MibTableColumn
+swL2PortCtrlMulticastfilter = _SwL2PortCtrlMulticastfilter_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 2, 1, 9),
+    _SwL2PortCtrlMulticastfilter_Type()
+)
+swL2PortCtrlMulticastfilter.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2PortCtrlMulticastfilter.setStatus("current")
+
+
+class _SwL2PortCtrlMDIXState_Type(Integer32):
+    """Custom type swL2PortCtrlMDIXState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("auto", 1),
+          ("cross", 3),
+          ("normal", 2),
+          ("other", 4))
+    )
+
+
+_SwL2PortCtrlMDIXState_Type.__name__ = "Integer32"
+_SwL2PortCtrlMDIXState_Object = MibTableColumn
+swL2PortCtrlMDIXState = _SwL2PortCtrlMDIXState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 2, 1, 10),
+    _SwL2PortCtrlMDIXState_Type()
+)
+swL2PortCtrlMDIXState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2PortCtrlMDIXState.setStatus("current")
+_SwL2PortErrTable_Object = MibTable
+swL2PortErrTable = _SwL2PortErrTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 3)
+)
+if mibBuilder.loadTexts:
+    swL2PortErrTable.setStatus("current")
+_SwL2PortErrEntry_Object = MibTableRow
+swL2PortErrEntry = _SwL2PortErrEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 3, 1)
+)
+swL2PortErrEntry.setIndexNames(
+    (0, "DES3028P-L2MGMT-MIB", "swL2PortErrPortIndex"),
+)
+if mibBuilder.loadTexts:
+    swL2PortErrEntry.setStatus("current")
+
+
+class _SwL2PortErrPortIndex_Type(Integer32):
+    """Custom type swL2PortErrPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_SwL2PortErrPortIndex_Type.__name__ = "Integer32"
+_SwL2PortErrPortIndex_Object = MibTableColumn
+swL2PortErrPortIndex = _SwL2PortErrPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 3, 1, 1),
+    _SwL2PortErrPortIndex_Type()
+)
+swL2PortErrPortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2PortErrPortIndex.setStatus("current")
+
+
+class _SwL2PortErrPortState_Type(Integer32):
+    """Custom type swL2PortErrPortState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 1),
+          ("enabled", 2))
+    )
+
+
+_SwL2PortErrPortState_Type.__name__ = "Integer32"
+_SwL2PortErrPortState_Object = MibTableColumn
+swL2PortErrPortState = _SwL2PortErrPortState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 3, 1, 2),
+    _SwL2PortErrPortState_Type()
+)
+swL2PortErrPortState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2PortErrPortState.setStatus("current")
+
+
+class _SwL2PortErrPortStatus_Type(Integer32):
+    """Custom type swL2PortErrPortStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("err-disabled", 2),
+          ("other", 1))
+    )
+
+
+_SwL2PortErrPortStatus_Type.__name__ = "Integer32"
+_SwL2PortErrPortStatus_Object = MibTableColumn
+swL2PortErrPortStatus = _SwL2PortErrPortStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 3, 1, 3),
+    _SwL2PortErrPortStatus_Type()
+)
+swL2PortErrPortStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2PortErrPortStatus.setStatus("current")
+
+
+class _SwL2PortErrPortReason_Type(Integer32):
+    """Custom type swL2PortErrPortReason based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ddm", 3),
+          ("duld", 4),
+          ("storm-control", 2),
+          ("stp-lbd", 1))
+    )
+
+
+_SwL2PortErrPortReason_Type.__name__ = "Integer32"
+_SwL2PortErrPortReason_Object = MibTableColumn
+swL2PortErrPortReason = _SwL2PortErrPortReason_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 3, 1, 4),
+    _SwL2PortErrPortReason_Type()
+)
+swL2PortErrPortReason.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2PortErrPortReason.setStatus("current")
+
+
+class _SwL2PortErrDescription_Type(DisplayString):
+    """Custom type swL2PortErrDescription based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_SwL2PortErrDescription_Type.__name__ = "DisplayString"
+_SwL2PortErrDescription_Object = MibTableColumn
+swL2PortErrDescription = _SwL2PortErrDescription_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 2, 3, 1, 5),
+    _SwL2PortErrDescription_Type()
+)
+swL2PortErrDescription.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2PortErrDescription.setStatus("current")
+_SwL2QOSMgmt_ObjectIdentity = ObjectIdentity
+swL2QOSMgmt = _SwL2QOSMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3)
+)
+_SwL2QOSBandwidthControlTable_Object = MibTable
+swL2QOSBandwidthControlTable = _SwL2QOSBandwidthControlTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 1)
+)
+if mibBuilder.loadTexts:
+    swL2QOSBandwidthControlTable.setStatus("current")
+_SwL2QOSBandwidthControlEntry_Object = MibTableRow
+swL2QOSBandwidthControlEntry = _SwL2QOSBandwidthControlEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 1, 1)
+)
+swL2QOSBandwidthControlEntry.setIndexNames(
+    (0, "DES3028P-L2MGMT-MIB", "swL2QOSBandwidthPortIndex"),
+)
+if mibBuilder.loadTexts:
+    swL2QOSBandwidthControlEntry.setStatus("current")
+
+
+class _SwL2QOSBandwidthPortIndex_Type(Integer32):
+    """Custom type swL2QOSBandwidthPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 650),
+    )
+
+
+_SwL2QOSBandwidthPortIndex_Type.__name__ = "Integer32"
+_SwL2QOSBandwidthPortIndex_Object = MibTableColumn
+swL2QOSBandwidthPortIndex = _SwL2QOSBandwidthPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 1, 1, 1),
+    _SwL2QOSBandwidthPortIndex_Type()
+)
+swL2QOSBandwidthPortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2QOSBandwidthPortIndex.setStatus("current")
+
+
+class _SwL2QOSBandwidthRxRate_Type(Integer32):
+    """Custom type swL2QOSBandwidthRxRate based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(64, 1024000),
+    )
+
+
+_SwL2QOSBandwidthRxRate_Type.__name__ = "Integer32"
+_SwL2QOSBandwidthRxRate_Object = MibTableColumn
+swL2QOSBandwidthRxRate = _SwL2QOSBandwidthRxRate_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 1, 1, 2),
+    _SwL2QOSBandwidthRxRate_Type()
+)
+swL2QOSBandwidthRxRate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2QOSBandwidthRxRate.setStatus("current")
+
+
+class _SwL2QOSBandwidthTxRate_Type(Integer32):
+    """Custom type swL2QOSBandwidthTxRate based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(64, 1024000),
+    )
+
+
+_SwL2QOSBandwidthTxRate_Type.__name__ = "Integer32"
+_SwL2QOSBandwidthTxRate_Object = MibTableColumn
+swL2QOSBandwidthTxRate = _SwL2QOSBandwidthTxRate_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 1, 1, 3),
+    _SwL2QOSBandwidthTxRate_Type()
+)
+swL2QOSBandwidthTxRate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2QOSBandwidthTxRate.setStatus("current")
+_SwL2QOSBandwidthRadiusRxRate_Type = Integer32
+_SwL2QOSBandwidthRadiusRxRate_Object = MibTableColumn
+swL2QOSBandwidthRadiusRxRate = _SwL2QOSBandwidthRadiusRxRate_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 1, 1, 4),
+    _SwL2QOSBandwidthRadiusRxRate_Type()
+)
+swL2QOSBandwidthRadiusRxRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2QOSBandwidthRadiusRxRate.setStatus("current")
+_SwL2QOSBandwidthRadiusTxRate_Type = Integer32
+_SwL2QOSBandwidthRadiusTxRate_Object = MibTableColumn
+swL2QOSBandwidthRadiusTxRate = _SwL2QOSBandwidthRadiusTxRate_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 1, 1, 5),
+    _SwL2QOSBandwidthRadiusTxRate_Type()
+)
+swL2QOSBandwidthRadiusTxRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2QOSBandwidthRadiusTxRate.setStatus("current")
+_SwL2QOSSchedulingTable_Object = MibTable
+swL2QOSSchedulingTable = _SwL2QOSSchedulingTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 2)
+)
+if mibBuilder.loadTexts:
+    swL2QOSSchedulingTable.setStatus("current")
+_SwL2QOSSchedulingEntry_Object = MibTableRow
+swL2QOSSchedulingEntry = _SwL2QOSSchedulingEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 2, 1)
+)
+swL2QOSSchedulingEntry.setIndexNames(
+    (0, "DES3028P-L2MGMT-MIB", "swL2QOSSchedulingClassIndex"),
+)
+if mibBuilder.loadTexts:
+    swL2QOSSchedulingEntry.setStatus("current")
+
+
+class _SwL2QOSSchedulingClassIndex_Type(Integer32):
+    """Custom type swL2QOSSchedulingClassIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 3),
+    )
+
+
+_SwL2QOSSchedulingClassIndex_Type.__name__ = "Integer32"
+_SwL2QOSSchedulingClassIndex_Object = MibTableColumn
+swL2QOSSchedulingClassIndex = _SwL2QOSSchedulingClassIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 2, 1, 1),
+    _SwL2QOSSchedulingClassIndex_Type()
+)
+swL2QOSSchedulingClassIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2QOSSchedulingClassIndex.setStatus("current")
+
+
+class _SwL2QOSSchedulingMaxWeight_Type(Integer32):
+    """Custom type swL2QOSSchedulingMaxWeight based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 55),
+    )
+
+
+_SwL2QOSSchedulingMaxWeight_Type.__name__ = "Integer32"
+_SwL2QOSSchedulingMaxWeight_Object = MibTableColumn
+swL2QOSSchedulingMaxWeight = _SwL2QOSSchedulingMaxWeight_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 2, 1, 4),
+    _SwL2QOSSchedulingMaxWeight_Type()
+)
+swL2QOSSchedulingMaxWeight.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2QOSSchedulingMaxWeight.setStatus("current")
+
+
+class _SwL2QOSSchedulingMechanism_Type(Integer32):
+    """Custom type swL2QOSSchedulingMechanism based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("roundrobin", 2),
+          ("strict", 1),
+          ("weightfair", 3))
+    )
+
+
+_SwL2QOSSchedulingMechanism_Type.__name__ = "Integer32"
+_SwL2QOSSchedulingMechanism_Object = MibTableColumn
+swL2QOSSchedulingMechanism = _SwL2QOSSchedulingMechanism_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 2, 1, 5),
+    _SwL2QOSSchedulingMechanism_Type()
+)
+swL2QOSSchedulingMechanism.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2QOSSchedulingMechanism.setStatus("current")
+_SwL2QOS8021pUserPriorityTable_Object = MibTable
+swL2QOS8021pUserPriorityTable = _SwL2QOS8021pUserPriorityTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 3)
+)
+if mibBuilder.loadTexts:
+    swL2QOS8021pUserPriorityTable.setStatus("current")
+_SwL2QOS8021pUserPriorityEntry_Object = MibTableRow
+swL2QOS8021pUserPriorityEntry = _SwL2QOS8021pUserPriorityEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 3, 1)
+)
+swL2QOS8021pUserPriorityEntry.setIndexNames(
+    (0, "DES3028P-L2MGMT-MIB", "swL2QOS8021pUserPriorityIndex"),
+)
+if mibBuilder.loadTexts:
+    swL2QOS8021pUserPriorityEntry.setStatus("current")
+
+
+class _SwL2QOS8021pUserPriorityIndex_Type(Integer32):
+    """Custom type swL2QOS8021pUserPriorityIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_SwL2QOS8021pUserPriorityIndex_Type.__name__ = "Integer32"
+_SwL2QOS8021pUserPriorityIndex_Object = MibTableColumn
+swL2QOS8021pUserPriorityIndex = _SwL2QOS8021pUserPriorityIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 3, 1, 1),
+    _SwL2QOS8021pUserPriorityIndex_Type()
+)
+swL2QOS8021pUserPriorityIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2QOS8021pUserPriorityIndex.setStatus("current")
+
+
+class _SwL2QOS8021pUserPriorityClass_Type(Integer32):
+    """Custom type swL2QOS8021pUserPriorityClass based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 3),
+    )
+
+
+_SwL2QOS8021pUserPriorityClass_Type.__name__ = "Integer32"
+_SwL2QOS8021pUserPriorityClass_Object = MibTableColumn
+swL2QOS8021pUserPriorityClass = _SwL2QOS8021pUserPriorityClass_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 3, 1, 2),
+    _SwL2QOS8021pUserPriorityClass_Type()
+)
+swL2QOS8021pUserPriorityClass.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2QOS8021pUserPriorityClass.setStatus("current")
+_SwL2QOS8021pDefaultPriorityTable_Object = MibTable
+swL2QOS8021pDefaultPriorityTable = _SwL2QOS8021pDefaultPriorityTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 4)
+)
+if mibBuilder.loadTexts:
+    swL2QOS8021pDefaultPriorityTable.setStatus("current")
+_SwL2QOS8021pDefaultPriorityEntry_Object = MibTableRow
+swL2QOS8021pDefaultPriorityEntry = _SwL2QOS8021pDefaultPriorityEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 4, 1)
+)
+swL2QOS8021pDefaultPriorityEntry.setIndexNames(
+    (0, "DES3028P-L2MGMT-MIB", "swL2QOS8021pDefaultPriorityIndex"),
+)
+if mibBuilder.loadTexts:
+    swL2QOS8021pDefaultPriorityEntry.setStatus("current")
+
+
+class _SwL2QOS8021pDefaultPriorityIndex_Type(Integer32):
+    """Custom type swL2QOS8021pDefaultPriorityIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 650),
+    )
+
+
+_SwL2QOS8021pDefaultPriorityIndex_Type.__name__ = "Integer32"
+_SwL2QOS8021pDefaultPriorityIndex_Object = MibTableColumn
+swL2QOS8021pDefaultPriorityIndex = _SwL2QOS8021pDefaultPriorityIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 4, 1, 1),
+    _SwL2QOS8021pDefaultPriorityIndex_Type()
+)
+swL2QOS8021pDefaultPriorityIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2QOS8021pDefaultPriorityIndex.setStatus("current")
+
+
+class _SwL2QOS8021pDefaultPriority_Type(Integer32):
+    """Custom type swL2QOS8021pDefaultPriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_SwL2QOS8021pDefaultPriority_Type.__name__ = "Integer32"
+_SwL2QOS8021pDefaultPriority_Object = MibTableColumn
+swL2QOS8021pDefaultPriority = _SwL2QOS8021pDefaultPriority_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 4, 1, 2),
+    _SwL2QOS8021pDefaultPriority_Type()
+)
+swL2QOS8021pDefaultPriority.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2QOS8021pDefaultPriority.setStatus("current")
+_SwL2QOS8021pRadiusPriority_Type = Integer32
+_SwL2QOS8021pRadiusPriority_Object = MibTableColumn
+swL2QOS8021pRadiusPriority = _SwL2QOS8021pRadiusPriority_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 4, 1, 3),
+    _SwL2QOS8021pRadiusPriority_Type()
+)
+swL2QOS8021pRadiusPriority.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2QOS8021pRadiusPriority.setStatus("current")
+
+
+class _SwL2QOSSchedulingMechanismCtrl_Type(Integer32):
+    """Custom type swL2QOSSchedulingMechanismCtrl based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 3),
+          ("strict", 1),
+          ("weightfair", 2))
+    )
+
+
+_SwL2QOSSchedulingMechanismCtrl_Type.__name__ = "Integer32"
+_SwL2QOSSchedulingMechanismCtrl_Object = MibScalar
+swL2QOSSchedulingMechanismCtrl = _SwL2QOSSchedulingMechanismCtrl_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 3, 5),
+    _SwL2QOSSchedulingMechanismCtrl_Type()
+)
+swL2QOSSchedulingMechanismCtrl.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2QOSSchedulingMechanismCtrl.setStatus("current")
+_SwL2TrunkMgmt_ObjectIdentity = ObjectIdentity
+swL2TrunkMgmt = _SwL2TrunkMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4)
+)
+_SwPortTrunkMaxEntries_Type = Integer32
+_SwPortTrunkMaxEntries_Object = MibScalar
+swPortTrunkMaxEntries = _SwPortTrunkMaxEntries_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 1),
+    _SwPortTrunkMaxEntries_Type()
+)
+swPortTrunkMaxEntries.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swPortTrunkMaxEntries.setStatus("current")
+_SwPortTrunkMaxPortMembers_Type = Integer32
+_SwPortTrunkMaxPortMembers_Object = MibScalar
+swPortTrunkMaxPortMembers = _SwPortTrunkMaxPortMembers_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 2),
+    _SwPortTrunkMaxPortMembers_Type()
+)
+swPortTrunkMaxPortMembers.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swPortTrunkMaxPortMembers.setStatus("current")
+_SwPortTrunkTable_Object = MibTable
+swPortTrunkTable = _SwPortTrunkTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 3)
+)
+if mibBuilder.loadTexts:
+    swPortTrunkTable.setStatus("current")
+_SwPortTrunkEntry_Object = MibTableRow
+swPortTrunkEntry = _SwPortTrunkEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 3, 1)
+)
+swPortTrunkEntry.setIndexNames(
+    (0, "DES3028P-L2MGMT-MIB", "swPortTrunkIndex"),
+)
+if mibBuilder.loadTexts:
+    swPortTrunkEntry.setStatus("current")
+
+
+class _SwPortTrunkIndex_Type(Integer32):
+    """Custom type swPortTrunkIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 3),
+    )
+
+
+_SwPortTrunkIndex_Type.__name__ = "Integer32"
+_SwPortTrunkIndex_Object = MibTableColumn
+swPortTrunkIndex = _SwPortTrunkIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 3, 1, 1),
+    _SwPortTrunkIndex_Type()
+)
+swPortTrunkIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swPortTrunkIndex.setStatus("current")
+_SwPortTrunkMasterPort_Type = Integer32
+_SwPortTrunkMasterPort_Object = MibTableColumn
+swPortTrunkMasterPort = _SwPortTrunkMasterPort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 3, 1, 2),
+    _SwPortTrunkMasterPort_Type()
+)
+swPortTrunkMasterPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swPortTrunkMasterPort.setStatus("current")
+_SwPortTrunkPortList_Type = PortList
+_SwPortTrunkPortList_Object = MibTableColumn
+swPortTrunkPortList = _SwPortTrunkPortList_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 3, 1, 3),
+    _SwPortTrunkPortList_Type()
+)
+swPortTrunkPortList.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swPortTrunkPortList.setStatus("current")
+
+
+class _SwPortTrunkType_Type(Integer32):
+    """Custom type swPortTrunkType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("lacp", 2),
+          ("static", 1))
+    )
+
+
+_SwPortTrunkType_Type.__name__ = "Integer32"
+_SwPortTrunkType_Object = MibTableColumn
+swPortTrunkType = _SwPortTrunkType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 3, 1, 4),
+    _SwPortTrunkType_Type()
+)
+swPortTrunkType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swPortTrunkType.setStatus("current")
+_SwPortTrunkActivePort_Type = PortList
+_SwPortTrunkActivePort_Object = MibTableColumn
+swPortTrunkActivePort = _SwPortTrunkActivePort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 3, 1, 5),
+    _SwPortTrunkActivePort_Type()
+)
+swPortTrunkActivePort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swPortTrunkActivePort.setStatus("current")
+_SwPortTrunkState_Type = RowStatus
+_SwPortTrunkState_Object = MibTableColumn
+swPortTrunkState = _SwPortTrunkState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 3, 1, 6),
+    _SwPortTrunkState_Type()
+)
+swPortTrunkState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swPortTrunkState.setStatus("current")
+_SwPortTrunkFloodingPort_Type = Integer32
+_SwPortTrunkFloodingPort_Object = MibTableColumn
+swPortTrunkFloodingPort = _SwPortTrunkFloodingPort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 3, 1, 7),
+    _SwPortTrunkFloodingPort_Type()
+)
+swPortTrunkFloodingPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swPortTrunkFloodingPort.setStatus("current")
+
+
+class _SwL2TrunkAlgorithm_Type(Integer32):
+    """Custom type swL2TrunkAlgorithm based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("mac-destination", 3),
+          ("mac-source", 2),
+          ("mac-source-dest", 4),
+          ("other", 1))
+    )
+
+
+_SwL2TrunkAlgorithm_Type.__name__ = "Integer32"
+_SwL2TrunkAlgorithm_Object = MibScalar
+swL2TrunkAlgorithm = _SwL2TrunkAlgorithm_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 4),
+    _SwL2TrunkAlgorithm_Type()
+)
+swL2TrunkAlgorithm.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2TrunkAlgorithm.setStatus("current")
+_SwL2TrunkLACPPortTable_Object = MibTable
+swL2TrunkLACPPortTable = _SwL2TrunkLACPPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 5)
+)
+if mibBuilder.loadTexts:
+    swL2TrunkLACPPortTable.setStatus("current")
+_SwL2TrunkLACPPortEntry_Object = MibTableRow
+swL2TrunkLACPPortEntry = _SwL2TrunkLACPPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 5, 1)
+)
+swL2TrunkLACPPortEntry.setIndexNames(
+    (0, "DES3028P-L2MGMT-MIB", "swL2TrunkLACPPortIndex"),
+)
+if mibBuilder.loadTexts:
+    swL2TrunkLACPPortEntry.setStatus("current")
+
+
+class _SwL2TrunkLACPPortIndex_Type(Integer32):
+    """Custom type swL2TrunkLACPPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SwL2TrunkLACPPortIndex_Type.__name__ = "Integer32"
+_SwL2TrunkLACPPortIndex_Object = MibTableColumn
+swL2TrunkLACPPortIndex = _SwL2TrunkLACPPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 5, 1, 1),
+    _SwL2TrunkLACPPortIndex_Type()
+)
+swL2TrunkLACPPortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2TrunkLACPPortIndex.setStatus("current")
+
+
+class _SwL2TrunkLACPPortState_Type(Integer32):
+    """Custom type swL2TrunkLACPPortState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 1),
+          ("passive", 2))
+    )
+
+
+_SwL2TrunkLACPPortState_Type.__name__ = "Integer32"
+_SwL2TrunkLACPPortState_Object = MibTableColumn
+swL2TrunkLACPPortState = _SwL2TrunkLACPPortState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 5, 1, 2),
+    _SwL2TrunkLACPPortState_Type()
+)
+swL2TrunkLACPPortState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2TrunkLACPPortState.setStatus("current")
+_SwL2TrunkVLANTable_Object = MibTable
+swL2TrunkVLANTable = _SwL2TrunkVLANTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 6)
+)
+if mibBuilder.loadTexts:
+    swL2TrunkVLANTable.setStatus("current")
+_SwL2TrunkVLANEntry_Object = MibTableRow
+swL2TrunkVLANEntry = _SwL2TrunkVLANEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 6, 1)
+)
+swL2TrunkVLANEntry.setIndexNames(
+    (0, "DES3028P-L2MGMT-MIB", "swL2TrunkVLANPort"),
+)
+if mibBuilder.loadTexts:
+    swL2TrunkVLANEntry.setStatus("current")
+
+
+class _SwL2TrunkVLANPort_Type(Integer32):
+    """Custom type swL2TrunkVLANPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SwL2TrunkVLANPort_Type.__name__ = "Integer32"
+_SwL2TrunkVLANPort_Object = MibTableColumn
+swL2TrunkVLANPort = _SwL2TrunkVLANPort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 6, 1, 1),
+    _SwL2TrunkVLANPort_Type()
+)
+swL2TrunkVLANPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2TrunkVLANPort.setStatus("current")
+
+
+class _SwL2TrunkVLANState_Type(Integer32):
+    """Custom type swL2TrunkVLANState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_SwL2TrunkVLANState_Type.__name__ = "Integer32"
+_SwL2TrunkVLANState_Object = MibTableColumn
+swL2TrunkVLANState = _SwL2TrunkVLANState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 4, 6, 1, 2),
+    _SwL2TrunkVLANState_Type()
+)
+swL2TrunkVLANState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2TrunkVLANState.setStatus("current")
+_SwPortMirrorPackage_ObjectIdentity = ObjectIdentity
+swPortMirrorPackage = _SwPortMirrorPackage_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 6)
+)
+_SwPortMirrorRxPortList_Type = PortList
+_SwPortMirrorRxPortList_Object = MibScalar
+swPortMirrorRxPortList = _SwPortMirrorRxPortList_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 6, 2),
+    _SwPortMirrorRxPortList_Type()
+)
+swPortMirrorRxPortList.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swPortMirrorRxPortList.setStatus("current")
+_SwPortMirrorTxPortList_Type = PortList
+_SwPortMirrorTxPortList_Object = MibScalar
+swPortMirrorTxPortList = _SwPortMirrorTxPortList_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 6, 3),
+    _SwPortMirrorTxPortList_Type()
+)
+swPortMirrorTxPortList.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swPortMirrorTxPortList.setStatus("current")
+_SwPortMirrorTargetPort_Type = Integer32
+_SwPortMirrorTargetPort_Object = MibScalar
+swPortMirrorTargetPort = _SwPortMirrorTargetPort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 6, 4),
+    _SwPortMirrorTargetPort_Type()
+)
+swPortMirrorTargetPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swPortMirrorTargetPort.setStatus("current")
+
+
+class _SwPortMirrorState_Type(Integer32):
+    """Custom type swPortMirrorState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 3),
+          ("other", 1))
+    )
+
+
+_SwPortMirrorState_Type.__name__ = "Integer32"
+_SwPortMirrorState_Object = MibScalar
+swPortMirrorState = _SwPortMirrorState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 6, 5),
+    _SwPortMirrorState_Type()
+)
+swPortMirrorState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swPortMirrorState.setStatus("current")
+_SwIGMPPackage_ObjectIdentity = ObjectIdentity
+swIGMPPackage = _SwIGMPPackage_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7)
+)
+
+
+class _SwL2IGMPMaxSupportedVlans_Type(Integer32):
+    """Custom type swL2IGMPMaxSupportedVlans based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SwL2IGMPMaxSupportedVlans_Type.__name__ = "Integer32"
+_SwL2IGMPMaxSupportedVlans_Object = MibScalar
+swL2IGMPMaxSupportedVlans = _SwL2IGMPMaxSupportedVlans_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 1),
+    _SwL2IGMPMaxSupportedVlans_Type()
+)
+swL2IGMPMaxSupportedVlans.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2IGMPMaxSupportedVlans.setStatus("current")
+
+
+class _SwL2IGMPMaxIpGroupNumPerVlan_Type(Integer32):
+    """Custom type swL2IGMPMaxIpGroupNumPerVlan based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SwL2IGMPMaxIpGroupNumPerVlan_Type.__name__ = "Integer32"
+_SwL2IGMPMaxIpGroupNumPerVlan_Object = MibScalar
+swL2IGMPMaxIpGroupNumPerVlan = _SwL2IGMPMaxIpGroupNumPerVlan_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 2),
+    _SwL2IGMPMaxIpGroupNumPerVlan_Type()
+)
+swL2IGMPMaxIpGroupNumPerVlan.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2IGMPMaxIpGroupNumPerVlan.setStatus("current")
+_SwL2IGMPCtrlTable_Object = MibTable
+swL2IGMPCtrlTable = _SwL2IGMPCtrlTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 3)
+)
+if mibBuilder.loadTexts:
+    swL2IGMPCtrlTable.setStatus("current")
+_SwL2IGMPCtrlEntry_Object = MibTableRow
+swL2IGMPCtrlEntry = _SwL2IGMPCtrlEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 3, 1)
+)
+swL2IGMPCtrlEntry.setIndexNames(
+    (0, "DES3028P-L2MGMT-MIB", "swL2IGMPCtrlVid"),
+)
+if mibBuilder.loadTexts:
+    swL2IGMPCtrlEntry.setStatus("current")
+
+
+class _SwL2IGMPCtrlVid_Type(Integer32):
+    """Custom type swL2IGMPCtrlVid based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SwL2IGMPCtrlVid_Type.__name__ = "Integer32"
+_SwL2IGMPCtrlVid_Object = MibTableColumn
+swL2IGMPCtrlVid = _SwL2IGMPCtrlVid_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 3, 1, 1),
+    _SwL2IGMPCtrlVid_Type()
+)
+swL2IGMPCtrlVid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2IGMPCtrlVid.setStatus("current")
+
+
+class _SwL2IGMPQueryInterval_Type(Integer32):
+    """Custom type swL2IGMPQueryInterval based on Integer32"""
+    defaultValue = 125
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_SwL2IGMPQueryInterval_Type.__name__ = "Integer32"
+_SwL2IGMPQueryInterval_Object = MibTableColumn
+swL2IGMPQueryInterval = _SwL2IGMPQueryInterval_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 3, 1, 2),
+    _SwL2IGMPQueryInterval_Type()
+)
+swL2IGMPQueryInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2IGMPQueryInterval.setStatus("current")
+
+
+class _SwL2IGMPMaxResponseTime_Type(Integer32):
+    """Custom type swL2IGMPMaxResponseTime based on Integer32"""
+    defaultValue = 10
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 25),
+    )
+
+
+_SwL2IGMPMaxResponseTime_Type.__name__ = "Integer32"
+_SwL2IGMPMaxResponseTime_Object = MibTableColumn
+swL2IGMPMaxResponseTime = _SwL2IGMPMaxResponseTime_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 3, 1, 3),
+    _SwL2IGMPMaxResponseTime_Type()
+)
+swL2IGMPMaxResponseTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2IGMPMaxResponseTime.setStatus("current")
+
+
+class _SwL2IGMPRobustness_Type(Integer32):
+    """Custom type swL2IGMPRobustness based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_SwL2IGMPRobustness_Type.__name__ = "Integer32"
+_SwL2IGMPRobustness_Object = MibTableColumn
+swL2IGMPRobustness = _SwL2IGMPRobustness_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 3, 1, 4),
+    _SwL2IGMPRobustness_Type()
+)
+swL2IGMPRobustness.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2IGMPRobustness.setStatus("current")
+
+
+class _SwL2IGMPLastMemberQueryInterval_Type(Integer32):
+    """Custom type swL2IGMPLastMemberQueryInterval based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 25),
+    )
+
+
+_SwL2IGMPLastMemberQueryInterval_Type.__name__ = "Integer32"
+_SwL2IGMPLastMemberQueryInterval_Object = MibTableColumn
+swL2IGMPLastMemberQueryInterval = _SwL2IGMPLastMemberQueryInterval_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 3, 1, 5),
+    _SwL2IGMPLastMemberQueryInterval_Type()
+)
+swL2IGMPLastMemberQueryInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2IGMPLastMemberQueryInterval.setStatus("current")
+
+
+class _SwL2IGMPHostTimeout_Type(Integer32):
+    """Custom type swL2IGMPHostTimeout based on Integer32"""
+    defaultValue = 260
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16711450),
+    )
+
+
+_SwL2IGMPHostTimeout_Type.__name__ = "Integer32"
+_SwL2IGMPHostTimeout_Object = MibTableColumn
+swL2IGMPHostTimeout = _SwL2IGMPHostTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 3, 1, 6),
+    _SwL2IGMPHostTimeout_Type()
+)
+swL2IGMPHostTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2IGMPHostTimeout.setStatus("current")
+
+
+class _SwL2IGMPRouteTimeout_Type(Integer32):
+    """Custom type swL2IGMPRouteTimeout based on Integer32"""
+    defaultValue = 260
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16711450),
+    )
+
+
+_SwL2IGMPRouteTimeout_Type.__name__ = "Integer32"
+_SwL2IGMPRouteTimeout_Object = MibTableColumn
+swL2IGMPRouteTimeout = _SwL2IGMPRouteTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 3, 1, 7),
+    _SwL2IGMPRouteTimeout_Type()
+)
+swL2IGMPRouteTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2IGMPRouteTimeout.setStatus("current")
+
+
+class _SwL2IGMPLeaveTimer_Type(Integer32):
+    """Custom type swL2IGMPLeaveTimer based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16711450),
+    )
+
+
+_SwL2IGMPLeaveTimer_Type.__name__ = "Integer32"
+_SwL2IGMPLeaveTimer_Object = MibTableColumn
+swL2IGMPLeaveTimer = _SwL2IGMPLeaveTimer_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 3, 1, 8),
+    _SwL2IGMPLeaveTimer_Type()
+)
+swL2IGMPLeaveTimer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2IGMPLeaveTimer.setStatus("current")
+
+
+class _SwL2IGMPQueryState_Type(Integer32):
+    """Custom type swL2IGMPQueryState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 3),
+          ("other", 1))
+    )
+
+
+_SwL2IGMPQueryState_Type.__name__ = "Integer32"
+_SwL2IGMPQueryState_Object = MibTableColumn
+swL2IGMPQueryState = _SwL2IGMPQueryState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 3, 1, 9),
+    _SwL2IGMPQueryState_Type()
+)
+swL2IGMPQueryState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2IGMPQueryState.setStatus("current")
+
+
+class _SwL2IGMPCurrentState_Type(Integer32):
+    """Custom type swL2IGMPCurrentState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("non-querier", 3),
+          ("other", 1),
+          ("querier", 2))
+    )
+
+
+_SwL2IGMPCurrentState_Type.__name__ = "Integer32"
+_SwL2IGMPCurrentState_Object = MibTableColumn
+swL2IGMPCurrentState = _SwL2IGMPCurrentState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 3, 1, 10),
+    _SwL2IGMPCurrentState_Type()
+)
+swL2IGMPCurrentState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2IGMPCurrentState.setStatus("current")
+
+
+class _SwL2IGMPCtrlState_Type(Integer32):
+    """Custom type swL2IGMPCtrlState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 2),
+          ("enable", 3),
+          ("other", 1))
+    )
+
+
+_SwL2IGMPCtrlState_Type.__name__ = "Integer32"
+_SwL2IGMPCtrlState_Object = MibTableColumn
+swL2IGMPCtrlState = _SwL2IGMPCtrlState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 3, 1, 11),
+    _SwL2IGMPCtrlState_Type()
+)
+swL2IGMPCtrlState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2IGMPCtrlState.setStatus("current")
+
+
+class _SwL2IGMPFastLeave_Type(Integer32):
+    """Custom type swL2IGMPFastLeave based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 2),
+          ("enable", 3),
+          ("other", 1))
+    )
+
+
+_SwL2IGMPFastLeave_Type.__name__ = "Integer32"
+_SwL2IGMPFastLeave_Object = MibTableColumn
+swL2IGMPFastLeave = _SwL2IGMPFastLeave_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 3, 1, 12),
+    _SwL2IGMPFastLeave_Type()
+)
+swL2IGMPFastLeave.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2IGMPFastLeave.setStatus("current")
+
+
+class _SwL2IGMPDynIPMultVlanState_Type(Integer32):
+    """Custom type swL2IGMPDynIPMultVlanState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_SwL2IGMPDynIPMultVlanState_Type.__name__ = "Integer32"
+_SwL2IGMPDynIPMultVlanState_Object = MibTableColumn
+swL2IGMPDynIPMultVlanState = _SwL2IGMPDynIPMultVlanState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 3, 1, 13),
+    _SwL2IGMPDynIPMultVlanState_Type()
+)
+swL2IGMPDynIPMultVlanState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2IGMPDynIPMultVlanState.setStatus("current")
+
+
+class _SwL2IGMPDynIPMultVlanAge_Type(Integer32):
+    """Custom type swL2IGMPDynIPMultVlanAge based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_SwL2IGMPDynIPMultVlanAge_Type.__name__ = "Integer32"
+_SwL2IGMPDynIPMultVlanAge_Object = MibTableColumn
+swL2IGMPDynIPMultVlanAge = _SwL2IGMPDynIPMultVlanAge_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 3, 1, 14),
+    _SwL2IGMPDynIPMultVlanAge_Type()
+)
+swL2IGMPDynIPMultVlanAge.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2IGMPDynIPMultVlanAge.setStatus("current")
+_SwL2IGMPQueryInfoTable_Object = MibTable
+swL2IGMPQueryInfoTable = _SwL2IGMPQueryInfoTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 4)
+)
+if mibBuilder.loadTexts:
+    swL2IGMPQueryInfoTable.setStatus("current")
+_SwL2IGMPQueryInfoEntry_Object = MibTableRow
+swL2IGMPQueryInfoEntry = _SwL2IGMPQueryInfoEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 4, 1)
+)
+swL2IGMPQueryInfoEntry.setIndexNames(
+    (0, "DES3028P-L2MGMT-MIB", "swL2IGMPInfoVid"),
+)
+if mibBuilder.loadTexts:
+    swL2IGMPQueryInfoEntry.setStatus("current")
+
+
+class _SwL2IGMPInfoVid_Type(Integer32):
+    """Custom type swL2IGMPInfoVid based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SwL2IGMPInfoVid_Type.__name__ = "Integer32"
+_SwL2IGMPInfoVid_Object = MibTableColumn
+swL2IGMPInfoVid = _SwL2IGMPInfoVid_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 4, 1, 1),
+    _SwL2IGMPInfoVid_Type()
+)
+swL2IGMPInfoVid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2IGMPInfoVid.setStatus("current")
+
+
+class _SwL2IGMPInfoQueryCount_Type(Integer32):
+    """Custom type swL2IGMPInfoQueryCount based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SwL2IGMPInfoQueryCount_Type.__name__ = "Integer32"
+_SwL2IGMPInfoQueryCount_Object = MibTableColumn
+swL2IGMPInfoQueryCount = _SwL2IGMPInfoQueryCount_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 4, 1, 2),
+    _SwL2IGMPInfoQueryCount_Type()
+)
+swL2IGMPInfoQueryCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2IGMPInfoQueryCount.setStatus("current")
+
+
+class _SwL2IGMPInfoTxQueryCount_Type(Integer32):
+    """Custom type swL2IGMPInfoTxQueryCount based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SwL2IGMPInfoTxQueryCount_Type.__name__ = "Integer32"
+_SwL2IGMPInfoTxQueryCount_Object = MibTableColumn
+swL2IGMPInfoTxQueryCount = _SwL2IGMPInfoTxQueryCount_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 4, 1, 3),
+    _SwL2IGMPInfoTxQueryCount_Type()
+)
+swL2IGMPInfoTxQueryCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2IGMPInfoTxQueryCount.setStatus("current")
+_SwL2IGMPInfoTable_Object = MibTable
+swL2IGMPInfoTable = _SwL2IGMPInfoTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 5)
+)
+if mibBuilder.loadTexts:
+    swL2IGMPInfoTable.setStatus("current")
+_SwL2IGMPInfoEntry_Object = MibTableRow
+swL2IGMPInfoEntry = _SwL2IGMPInfoEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 5, 1)
+)
+swL2IGMPInfoEntry.setIndexNames(
+    (0, "DES3028P-L2MGMT-MIB", "swL2IGMPVid"),
+    (0, "DES3028P-L2MGMT-MIB", "swL2IGMPGroupIpAddr"),
+)
+if mibBuilder.loadTexts:
+    swL2IGMPInfoEntry.setStatus("current")
+
+
+class _SwL2IGMPVid_Type(Integer32):
+    """Custom type swL2IGMPVid based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SwL2IGMPVid_Type.__name__ = "Integer32"
+_SwL2IGMPVid_Object = MibTableColumn
+swL2IGMPVid = _SwL2IGMPVid_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 5, 1, 1),
+    _SwL2IGMPVid_Type()
+)
+swL2IGMPVid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2IGMPVid.setStatus("current")
+_SwL2IGMPGroupIpAddr_Type = IpAddress
+_SwL2IGMPGroupIpAddr_Object = MibTableColumn
+swL2IGMPGroupIpAddr = _SwL2IGMPGroupIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 5, 1, 2),
+    _SwL2IGMPGroupIpAddr_Type()
+)
+swL2IGMPGroupIpAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2IGMPGroupIpAddr.setStatus("current")
+_SwL2IGMPMacAddr_Type = MacAddress
+_SwL2IGMPMacAddr_Object = MibTableColumn
+swL2IGMPMacAddr = _SwL2IGMPMacAddr_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 5, 1, 3),
+    _SwL2IGMPMacAddr_Type()
+)
+swL2IGMPMacAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2IGMPMacAddr.setStatus("current")
+_SwL2IGMPPortMap_Type = PortList
+_SwL2IGMPPortMap_Object = MibTableColumn
+swL2IGMPPortMap = _SwL2IGMPPortMap_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 5, 1, 4),
+    _SwL2IGMPPortMap_Type()
+)
+swL2IGMPPortMap.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2IGMPPortMap.setStatus("current")
+
+
+class _SwL2IGMPIpGroupReportCount_Type(Integer32):
+    """Custom type swL2IGMPIpGroupReportCount based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SwL2IGMPIpGroupReportCount_Type.__name__ = "Integer32"
+_SwL2IGMPIpGroupReportCount_Object = MibTableColumn
+swL2IGMPIpGroupReportCount = _SwL2IGMPIpGroupReportCount_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 5, 1, 5),
+    _SwL2IGMPIpGroupReportCount_Type()
+)
+swL2IGMPIpGroupReportCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2IGMPIpGroupReportCount.setStatus("current")
+_SwL2IGMPRouterPortTable_Object = MibTable
+swL2IGMPRouterPortTable = _SwL2IGMPRouterPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 6)
+)
+if mibBuilder.loadTexts:
+    swL2IGMPRouterPortTable.setStatus("current")
+_SwL2IGMPRouterPortEntry_Object = MibTableRow
+swL2IGMPRouterPortEntry = _SwL2IGMPRouterPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 6, 1)
+)
+swL2IGMPRouterPortEntry.setIndexNames(
+    (0, "DES3028P-L2MGMT-MIB", "swL2IGMPRouterPortVlanid"),
+)
+if mibBuilder.loadTexts:
+    swL2IGMPRouterPortEntry.setStatus("current")
+
+
+class _SwL2IGMPRouterPortVlanid_Type(Integer32):
+    """Custom type swL2IGMPRouterPortVlanid based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_SwL2IGMPRouterPortVlanid_Type.__name__ = "Integer32"
+_SwL2IGMPRouterPortVlanid_Object = MibTableColumn
+swL2IGMPRouterPortVlanid = _SwL2IGMPRouterPortVlanid_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 6, 1, 1),
+    _SwL2IGMPRouterPortVlanid_Type()
+)
+swL2IGMPRouterPortVlanid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2IGMPRouterPortVlanid.setStatus("current")
+
+
+class _SwL2IGMPRouterPortVlanName_Type(SnmpAdminString):
+    """Custom type swL2IGMPRouterPortVlanName based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_SwL2IGMPRouterPortVlanName_Type.__name__ = "SnmpAdminString"
+_SwL2IGMPRouterPortVlanName_Object = MibTableColumn
+swL2IGMPRouterPortVlanName = _SwL2IGMPRouterPortVlanName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 6, 1, 2),
+    _SwL2IGMPRouterPortVlanName_Type()
+)
+swL2IGMPRouterPortVlanName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2IGMPRouterPortVlanName.setStatus("current")
+_SwL2IGMPRouterPortStaticPortList_Type = PortList
+_SwL2IGMPRouterPortStaticPortList_Object = MibTableColumn
+swL2IGMPRouterPortStaticPortList = _SwL2IGMPRouterPortStaticPortList_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 6, 1, 3),
+    _SwL2IGMPRouterPortStaticPortList_Type()
+)
+swL2IGMPRouterPortStaticPortList.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2IGMPRouterPortStaticPortList.setStatus("current")
+_SwL2IGMPRouterPortDynamicPortList_Type = PortList
+_SwL2IGMPRouterPortDynamicPortList_Object = MibTableColumn
+swL2IGMPRouterPortDynamicPortList = _SwL2IGMPRouterPortDynamicPortList_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 6, 1, 4),
+    _SwL2IGMPRouterPortDynamicPortList_Type()
+)
+swL2IGMPRouterPortDynamicPortList.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2IGMPRouterPortDynamicPortList.setStatus("current")
+_SwL2IGMPRouterPortForbiddenPortList_Type = PortList
+_SwL2IGMPRouterPortForbiddenPortList_Object = MibTableColumn
+swL2IGMPRouterPortForbiddenPortList = _SwL2IGMPRouterPortForbiddenPortList_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 6, 1, 5),
+    _SwL2IGMPRouterPortForbiddenPortList_Type()
+)
+swL2IGMPRouterPortForbiddenPortList.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2IGMPRouterPortForbiddenPortList.setStatus("current")
+_SwL2IGMPAccessAuthTable_Object = MibTable
+swL2IGMPAccessAuthTable = _SwL2IGMPAccessAuthTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 7)
+)
+if mibBuilder.loadTexts:
+    swL2IGMPAccessAuthTable.setStatus("current")
+_SwL2IGMPAccessAuthEntry_Object = MibTableRow
+swL2IGMPAccessAuthEntry = _SwL2IGMPAccessAuthEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 7, 1)
+)
+swL2IGMPAccessAuthEntry.setIndexNames(
+    (0, "DES3028P-L2MGMT-MIB", "swL2IGMPAccessAuthPort"),
+)
+if mibBuilder.loadTexts:
+    swL2IGMPAccessAuthEntry.setStatus("current")
+_SwL2IGMPAccessAuthPort_Type = Integer32
+_SwL2IGMPAccessAuthPort_Object = MibTableColumn
+swL2IGMPAccessAuthPort = _SwL2IGMPAccessAuthPort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 7, 1, 1),
+    _SwL2IGMPAccessAuthPort_Type()
+)
+swL2IGMPAccessAuthPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2IGMPAccessAuthPort.setStatus("current")
+
+
+class _SwL2IGMPAccessAuthState_Type(Integer32):
+    """Custom type swL2IGMPAccessAuthState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 1),
+          ("enabled", 2))
+    )
+
+
+_SwL2IGMPAccessAuthState_Type.__name__ = "Integer32"
+_SwL2IGMPAccessAuthState_Object = MibTableColumn
+swL2IGMPAccessAuthState = _SwL2IGMPAccessAuthState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 7, 1, 2),
+    _SwL2IGMPAccessAuthState_Type()
+)
+swL2IGMPAccessAuthState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2IGMPAccessAuthState.setStatus("current")
+_SwL2IGMPMulticastVlanTable_Object = MibTable
+swL2IGMPMulticastVlanTable = _SwL2IGMPMulticastVlanTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 8)
+)
+if mibBuilder.loadTexts:
+    swL2IGMPMulticastVlanTable.setStatus("current")
+_SwL2IGMPMulticastVlanEntry_Object = MibTableRow
+swL2IGMPMulticastVlanEntry = _SwL2IGMPMulticastVlanEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 8, 1)
+)
+swL2IGMPMulticastVlanEntry.setIndexNames(
+    (0, "DES3028P-L2MGMT-MIB", "swL2IGMPMulticastVlanid"),
+)
+if mibBuilder.loadTexts:
+    swL2IGMPMulticastVlanEntry.setStatus("current")
+
+
+class _SwL2IGMPMulticastVlanid_Type(Integer32):
+    """Custom type swL2IGMPMulticastVlanid based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(2, 4094),
+    )
+
+
+_SwL2IGMPMulticastVlanid_Type.__name__ = "Integer32"
+_SwL2IGMPMulticastVlanid_Object = MibTableColumn
+swL2IGMPMulticastVlanid = _SwL2IGMPMulticastVlanid_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 8, 1, 1),
+    _SwL2IGMPMulticastVlanid_Type()
+)
+swL2IGMPMulticastVlanid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2IGMPMulticastVlanid.setStatus("current")
+
+
+class _SwL2IGMPMulticastVlanName_Type(DisplayString):
+    """Custom type swL2IGMPMulticastVlanName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_SwL2IGMPMulticastVlanName_Type.__name__ = "DisplayString"
+_SwL2IGMPMulticastVlanName_Object = MibTableColumn
+swL2IGMPMulticastVlanName = _SwL2IGMPMulticastVlanName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 8, 1, 2),
+    _SwL2IGMPMulticastVlanName_Type()
+)
+swL2IGMPMulticastVlanName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL2IGMPMulticastVlanName.setStatus("current")
+_SwL2IGMPMulticastVlanSourcePort_Type = PortList
+_SwL2IGMPMulticastVlanSourcePort_Object = MibTableColumn
+swL2IGMPMulticastVlanSourcePort = _SwL2IGMPMulticastVlanSourcePort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 8, 1, 3),
+    _SwL2IGMPMulticastVlanSourcePort_Type()
+)
+swL2IGMPMulticastVlanSourcePort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2IGMPMulticastVlanSourcePort.setStatus("current")
+_SwL2IGMPMulticastVlanMemberPort_Type = PortList
+_SwL2IGMPMulticastVlanMemberPort_Object = MibTableColumn
+swL2IGMPMulticastVlanMemberPort = _SwL2IGMPMulticastVlanMemberPort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 8, 1, 4),
+    _SwL2IGMPMulticastVlanMemberPort_Type()
+)
+swL2IGMPMulticastVlanMemberPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2IGMPMulticastVlanMemberPort.setStatus("current")
+_SwL2IGMPMulticastVlanTagMemberPort_Type = PortList
+_SwL2IGMPMulticastVlanTagMemberPort_Object = MibTableColumn
+swL2IGMPMulticastVlanTagMemberPort = _SwL2IGMPMulticastVlanTagMemberPort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 8, 1, 5),
+    _SwL2IGMPMulticastVlanTagMemberPort_Type()
+)
+swL2IGMPMulticastVlanTagMemberPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2IGMPMulticastVlanTagMemberPort.setStatus("current")
+
+
+class _SwL2IGMPMulticastVlanState_Type(Integer32):
+    """Custom type swL2IGMPMulticastVlanState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_SwL2IGMPMulticastVlanState_Type.__name__ = "Integer32"
+_SwL2IGMPMulticastVlanState_Object = MibTableColumn
+swL2IGMPMulticastVlanState = _SwL2IGMPMulticastVlanState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 8, 1, 6),
+    _SwL2IGMPMulticastVlanState_Type()
+)
+swL2IGMPMulticastVlanState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2IGMPMulticastVlanState.setStatus("current")
+_SwL2IGMPMulticastVlanReplaceSourceIp_Type = IpAddress
+_SwL2IGMPMulticastVlanReplaceSourceIp_Object = MibTableColumn
+swL2IGMPMulticastVlanReplaceSourceIp = _SwL2IGMPMulticastVlanReplaceSourceIp_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 8, 1, 7),
+    _SwL2IGMPMulticastVlanReplaceSourceIp_Type()
+)
+swL2IGMPMulticastVlanReplaceSourceIp.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2IGMPMulticastVlanReplaceSourceIp.setStatus("current")
+_SwL2IGMPMulticastVlanRowStatus_Type = RowStatus
+_SwL2IGMPMulticastVlanRowStatus_Object = MibTableColumn
+swL2IGMPMulticastVlanRowStatus = _SwL2IGMPMulticastVlanRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 8, 1, 8),
+    _SwL2IGMPMulticastVlanRowStatus_Type()
+)
+swL2IGMPMulticastVlanRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL2IGMPMulticastVlanRowStatus.setStatus("current")
+
+
+class _SwL2IGMPMulticastVlanRemoveAllMcastAddrListAction_Type(Integer32):
+    """Custom type swL2IGMPMulticastVlanRemoveAllMcastAddrListAction based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("start", 2))
+    )
+
+
+_SwL2IGMPMulticastVlanRemoveAllMcastAddrListAction_Type.__name__ = "Integer32"
+_SwL2IGMPMulticastVlanRemoveAllMcastAddrListAction_Object = MibTableColumn
+swL2IGMPMulticastVlanRemoveAllMcastAddrListAction = _SwL2IGMPMulticastVlanRemoveAllMcastAddrListAction_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 8, 1, 9),
+    _SwL2IGMPMulticastVlanRemoveAllMcastAddrListAction_Type()
+)
+swL2IGMPMulticastVlanRemoveAllMcastAddrListAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2IGMPMulticastVlanRemoveAllMcastAddrListAction.setStatus("current")
+_SwL2IGMPMulticastVlanUntagSourcePort_Type = PortList
+_SwL2IGMPMulticastVlanUntagSourcePort_Object = MibTableColumn
+swL2IGMPMulticastVlanUntagSourcePort = _SwL2IGMPMulticastVlanUntagSourcePort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 8, 1, 10),
+    _SwL2IGMPMulticastVlanUntagSourcePort_Type()
+)
+swL2IGMPMulticastVlanUntagSourcePort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2IGMPMulticastVlanUntagSourcePort.setStatus("current")
+
+
+class _SwL2IGMPMulticastVlanRemapPriority_Type(Integer32):
+    """Custom type swL2IGMPMulticastVlanRemapPriority based on Integer32"""
+    defaultValue = 8
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 8),
+    )
+
+
+_SwL2IGMPMulticastVlanRemapPriority_Type.__name__ = "Integer32"
+_SwL2IGMPMulticastVlanRemapPriority_Object = MibTableColumn
+swL2IGMPMulticastVlanRemapPriority = _SwL2IGMPMulticastVlanRemapPriority_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 8, 1, 11),
+    _SwL2IGMPMulticastVlanRemapPriority_Type()
+)
+swL2IGMPMulticastVlanRemapPriority.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL2IGMPMulticastVlanRemapPriority.setStatus("current")
+
+
+class _SwL2IGMPMulticastVlanReplacePriority_Type(Integer32):
+    """Custom type swL2IGMPMulticastVlanReplacePriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("false", 2),
+          ("true", 1))
+    )
+
+
+_SwL2IGMPMulticastVlanReplacePriority_Type.__name__ = "Integer32"
+_SwL2IGMPMulticastVlanReplacePriority_Object = MibTableColumn
+swL2IGMPMulticastVlanReplacePriority = _SwL2IGMPMulticastVlanReplacePriority_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 8, 1, 12),
+    _SwL2IGMPMulticastVlanReplacePriority_Type()
+)
+swL2IGMPMulticastVlanReplacePriority.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL2IGMPMulticastVlanReplacePriority.setStatus("current")
+_SwL2IGMPMulticastVlanGroupTable_Object = MibTable
+swL2IGMPMulticastVlanGroupTable = _SwL2IGMPMulticastVlanGroupTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 9)
+)
+if mibBuilder.loadTexts:
+    swL2IGMPMulticastVlanGroupTable.setStatus("current")
+_SwL2IGMPMulticastVlanGroupEntry_Object = MibTableRow
+swL2IGMPMulticastVlanGroupEntry = _SwL2IGMPMulticastVlanGroupEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 9, 1)
+)
+swL2IGMPMulticastVlanGroupEntry.setIndexNames(
+    (0, "DES3028P-L2MGMT-MIB", "swL2IGMPMulticastVlanGroupVid"),
+    (0, "DES3028P-L2MGMT-MIB", "swL2IGMPMulticastVlanGroupFromIp"),
+    (0, "DES3028P-L2MGMT-MIB", "swL2IGMPMulticastVlanGroupToIp"),
+)
+if mibBuilder.loadTexts:
+    swL2IGMPMulticastVlanGroupEntry.setStatus("current")
+
+
+class _SwL2IGMPMulticastVlanGroupVid_Type(Integer32):
+    """Custom type swL2IGMPMulticastVlanGroupVid based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_SwL2IGMPMulticastVlanGroupVid_Type.__name__ = "Integer32"
+_SwL2IGMPMulticastVlanGroupVid_Object = MibTableColumn
+swL2IGMPMulticastVlanGroupVid = _SwL2IGMPMulticastVlanGroupVid_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 9, 1, 1),
+    _SwL2IGMPMulticastVlanGroupVid_Type()
+)
+swL2IGMPMulticastVlanGroupVid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2IGMPMulticastVlanGroupVid.setStatus("current")
+_SwL2IGMPMulticastVlanGroupFromIp_Type = IpAddress
+_SwL2IGMPMulticastVlanGroupFromIp_Object = MibTableColumn
+swL2IGMPMulticastVlanGroupFromIp = _SwL2IGMPMulticastVlanGroupFromIp_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 9, 1, 2),
+    _SwL2IGMPMulticastVlanGroupFromIp_Type()
+)
+swL2IGMPMulticastVlanGroupFromIp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2IGMPMulticastVlanGroupFromIp.setStatus("current")
+_SwL2IGMPMulticastVlanGroupToIp_Type = IpAddress
+_SwL2IGMPMulticastVlanGroupToIp_Object = MibTableColumn
+swL2IGMPMulticastVlanGroupToIp = _SwL2IGMPMulticastVlanGroupToIp_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 9, 1, 3),
+    _SwL2IGMPMulticastVlanGroupToIp_Type()
+)
+swL2IGMPMulticastVlanGroupToIp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2IGMPMulticastVlanGroupToIp.setStatus("current")
+_SwL2IGMPMulticastVlanGroupStatus_Type = RowStatus
+_SwL2IGMPMulticastVlanGroupStatus_Object = MibTableColumn
+swL2IGMPMulticastVlanGroupStatus = _SwL2IGMPMulticastVlanGroupStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 9, 1, 4),
+    _SwL2IGMPMulticastVlanGroupStatus_Type()
+)
+swL2IGMPMulticastVlanGroupStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL2IGMPMulticastVlanGroupStatus.setStatus("current")
+_SwL2IGMPv3Table_Object = MibTable
+swL2IGMPv3Table = _SwL2IGMPv3Table_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 10)
+)
+if mibBuilder.loadTexts:
+    swL2IGMPv3Table.setStatus("current")
+_SwL2IGMPv3Entry_Object = MibTableRow
+swL2IGMPv3Entry = _SwL2IGMPv3Entry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 10, 1)
+)
+swL2IGMPv3Entry.setIndexNames(
+    (0, "DES3028P-L2MGMT-MIB", "swL2IGMPVid"),
+    (0, "DES3028P-L2MGMT-MIB", "swL2IGMPGroupIpAddr"),
+    (0, "DES3028P-L2MGMT-MIB", "swL2IGMPv3SourceIPAddr"),
+)
+if mibBuilder.loadTexts:
+    swL2IGMPv3Entry.setStatus("current")
+_SwL2IGMPv3SourceIPAddr_Type = IpAddress
+_SwL2IGMPv3SourceIPAddr_Object = MibTableColumn
+swL2IGMPv3SourceIPAddr = _SwL2IGMPv3SourceIPAddr_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 10, 1, 1),
+    _SwL2IGMPv3SourceIPAddr_Type()
+)
+swL2IGMPv3SourceIPAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2IGMPv3SourceIPAddr.setStatus("current")
+
+
+class _SwL2IGMPv3Forwarding_Type(Integer32):
+    """Custom type swL2IGMPv3Forwarding based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_SwL2IGMPv3Forwarding_Type.__name__ = "Integer32"
+_SwL2IGMPv3Forwarding_Object = MibTableColumn
+swL2IGMPv3Forwarding = _SwL2IGMPv3Forwarding_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 10, 1, 2),
+    _SwL2IGMPv3Forwarding_Type()
+)
+swL2IGMPv3Forwarding.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2IGMPv3Forwarding.setStatus("current")
+_SwL2IGMPv3ExpireTimer_Type = Integer32
+_SwL2IGMPv3ExpireTimer_Object = MibTableColumn
+swL2IGMPv3ExpireTimer = _SwL2IGMPv3ExpireTimer_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 10, 1, 3),
+    _SwL2IGMPv3ExpireTimer_Type()
+)
+swL2IGMPv3ExpireTimer.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2IGMPv3ExpireTimer.setStatus("current")
+_SwIGMPSnoopingGroupTable_Object = MibTable
+swIGMPSnoopingGroupTable = _SwIGMPSnoopingGroupTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 11)
+)
+if mibBuilder.loadTexts:
+    swIGMPSnoopingGroupTable.setStatus("current")
+_SwIGMPSnoopingGroupEntry_Object = MibTableRow
+swIGMPSnoopingGroupEntry = _SwIGMPSnoopingGroupEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 11, 1)
+)
+swIGMPSnoopingGroupEntry.setIndexNames(
+    (0, "DES3028P-L2MGMT-MIB", "swIGMPSnoopingGroupVid"),
+    (0, "DES3028P-L2MGMT-MIB", "swIGMPSnoopingGroupGroupAddr"),
+    (0, "DES3028P-L2MGMT-MIB", "swIGMPSnoopingGroupSourceAddr"),
+)
+if mibBuilder.loadTexts:
+    swIGMPSnoopingGroupEntry.setStatus("current")
+
+
+class _SwIGMPSnoopingGroupVid_Type(Integer32):
+    """Custom type swIGMPSnoopingGroupVid based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_SwIGMPSnoopingGroupVid_Type.__name__ = "Integer32"
+_SwIGMPSnoopingGroupVid_Object = MibTableColumn
+swIGMPSnoopingGroupVid = _SwIGMPSnoopingGroupVid_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 11, 1, 1),
+    _SwIGMPSnoopingGroupVid_Type()
+)
+swIGMPSnoopingGroupVid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIGMPSnoopingGroupVid.setStatus("current")
+_SwIGMPSnoopingGroupGroupAddr_Type = IpAddress
+_SwIGMPSnoopingGroupGroupAddr_Object = MibTableColumn
+swIGMPSnoopingGroupGroupAddr = _SwIGMPSnoopingGroupGroupAddr_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 11, 1, 2),
+    _SwIGMPSnoopingGroupGroupAddr_Type()
+)
+swIGMPSnoopingGroupGroupAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIGMPSnoopingGroupGroupAddr.setStatus("current")
+_SwIGMPSnoopingGroupSourceAddr_Type = IpAddress
+_SwIGMPSnoopingGroupSourceAddr_Object = MibTableColumn
+swIGMPSnoopingGroupSourceAddr = _SwIGMPSnoopingGroupSourceAddr_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 11, 1, 3),
+    _SwIGMPSnoopingGroupSourceAddr_Type()
+)
+swIGMPSnoopingGroupSourceAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIGMPSnoopingGroupSourceAddr.setStatus("current")
+_SwIGMPSnoopingGroupIncludePortMap_Type = PortList
+_SwIGMPSnoopingGroupIncludePortMap_Object = MibTableColumn
+swIGMPSnoopingGroupIncludePortMap = _SwIGMPSnoopingGroupIncludePortMap_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 11, 1, 4),
+    _SwIGMPSnoopingGroupIncludePortMap_Type()
+)
+swIGMPSnoopingGroupIncludePortMap.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIGMPSnoopingGroupIncludePortMap.setStatus("current")
+_SwIGMPSnoopingGroupExcludePortMap_Type = PortList
+_SwIGMPSnoopingGroupExcludePortMap_Object = MibTableColumn
+swIGMPSnoopingGroupExcludePortMap = _SwIGMPSnoopingGroupExcludePortMap_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 11, 1, 5),
+    _SwIGMPSnoopingGroupExcludePortMap_Type()
+)
+swIGMPSnoopingGroupExcludePortMap.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIGMPSnoopingGroupExcludePortMap.setStatus("current")
+_SwIGMPSnoopingGroupReportCount_Type = Integer32
+_SwIGMPSnoopingGroupReportCount_Object = MibTableColumn
+swIGMPSnoopingGroupReportCount = _SwIGMPSnoopingGroupReportCount_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 11, 1, 6),
+    _SwIGMPSnoopingGroupReportCount_Type()
+)
+swIGMPSnoopingGroupReportCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIGMPSnoopingGroupReportCount.setStatus("current")
+_SwIGMPSnoopingGroupUpTime_Type = TimeTicks
+_SwIGMPSnoopingGroupUpTime_Object = MibTableColumn
+swIGMPSnoopingGroupUpTime = _SwIGMPSnoopingGroupUpTime_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 11, 1, 7),
+    _SwIGMPSnoopingGroupUpTime_Type()
+)
+swIGMPSnoopingGroupUpTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIGMPSnoopingGroupUpTime.setStatus("current")
+_SwIGMPSnoopingGroupExpiryTime_Type = TimeTicks
+_SwIGMPSnoopingGroupExpiryTime_Object = MibTableColumn
+swIGMPSnoopingGroupExpiryTime = _SwIGMPSnoopingGroupExpiryTime_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 11, 1, 8),
+    _SwIGMPSnoopingGroupExpiryTime_Type()
+)
+swIGMPSnoopingGroupExpiryTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIGMPSnoopingGroupExpiryTime.setStatus("current")
+_SwIGMPSnoopingGroupRouterPorts_Type = PortList
+_SwIGMPSnoopingGroupRouterPorts_Object = MibTableColumn
+swIGMPSnoopingGroupRouterPorts = _SwIGMPSnoopingGroupRouterPorts_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 11, 1, 9),
+    _SwIGMPSnoopingGroupRouterPorts_Type()
+)
+swIGMPSnoopingGroupRouterPorts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIGMPSnoopingGroupRouterPorts.setStatus("current")
+_SwL2IGMPDynIpMultMgmt_ObjectIdentity = ObjectIdentity
+swL2IGMPDynIpMultMgmt = _SwL2IGMPDynIpMultMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 12)
+)
+_SwL2IGMPDynIPMultMaxEntry_Type = Integer32
+_SwL2IGMPDynIPMultMaxEntry_Object = MibScalar
+swL2IGMPDynIPMultMaxEntry = _SwL2IGMPDynIPMultMaxEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 12, 1),
+    _SwL2IGMPDynIPMultMaxEntry_Type()
+)
+swL2IGMPDynIPMultMaxEntry.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2IGMPDynIPMultMaxEntry.setStatus("current")
+_SwL2IGMPSnoopingClearDynIpMult_ObjectIdentity = ObjectIdentity
+swL2IGMPSnoopingClearDynIpMult = _SwL2IGMPSnoopingClearDynIpMult_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 12, 2)
+)
+_SwL2IGMPSnoopingClearDynIpMultVID_Type = VlanId
+_SwL2IGMPSnoopingClearDynIpMultVID_Object = MibScalar
+swL2IGMPSnoopingClearDynIpMultVID = _SwL2IGMPSnoopingClearDynIpMultVID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 12, 2, 1),
+    _SwL2IGMPSnoopingClearDynIpMultVID_Type()
+)
+swL2IGMPSnoopingClearDynIpMultVID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2IGMPSnoopingClearDynIpMultVID.setStatus("current")
+_SwL2IGMPSnoopingClearDynIpMultIP_Type = IpAddress
+_SwL2IGMPSnoopingClearDynIpMultIP_Object = MibScalar
+swL2IGMPSnoopingClearDynIpMultIP = _SwL2IGMPSnoopingClearDynIpMultIP_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 12, 2, 2),
+    _SwL2IGMPSnoopingClearDynIpMultIP_Type()
+)
+swL2IGMPSnoopingClearDynIpMultIP.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2IGMPSnoopingClearDynIpMultIP.setStatus("current")
+
+
+class _SwL2IGMPSnoopingClearDynIpMultAction_Type(Integer32):
+    """Custom type swL2IGMPSnoopingClearDynIpMultAction based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("all", 1),
+          ("group", 3),
+          ("other", 4),
+          ("vlan", 2))
+    )
+
+
+_SwL2IGMPSnoopingClearDynIpMultAction_Type.__name__ = "Integer32"
+_SwL2IGMPSnoopingClearDynIpMultAction_Object = MibScalar
+swL2IGMPSnoopingClearDynIpMultAction = _SwL2IGMPSnoopingClearDynIpMultAction_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 7, 12, 2, 3),
+    _SwL2IGMPSnoopingClearDynIpMultAction_Type()
+)
+swL2IGMPSnoopingClearDynIpMultAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2IGMPSnoopingClearDynIpMultAction.setStatus("current")
+_SwL2TrafficSegMgmt_ObjectIdentity = ObjectIdentity
+swL2TrafficSegMgmt = _SwL2TrafficSegMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 12)
+)
+_SwL2TrafficSegTable_Object = MibTable
+swL2TrafficSegTable = _SwL2TrafficSegTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 12, 1)
+)
+if mibBuilder.loadTexts:
+    swL2TrafficSegTable.setStatus("current")
+_SwL2TrafficSegEntry_Object = MibTableRow
+swL2TrafficSegEntry = _SwL2TrafficSegEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 12, 1, 1)
+)
+swL2TrafficSegEntry.setIndexNames(
+    (0, "DES3028P-L2MGMT-MIB", "swL2TrafficSegPort"),
+)
+if mibBuilder.loadTexts:
+    swL2TrafficSegEntry.setStatus("current")
+
+
+class _SwL2TrafficSegPort_Type(Integer32):
+    """Custom type swL2TrafficSegPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SwL2TrafficSegPort_Type.__name__ = "Integer32"
+_SwL2TrafficSegPort_Object = MibTableColumn
+swL2TrafficSegPort = _SwL2TrafficSegPort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 12, 1, 1, 1),
+    _SwL2TrafficSegPort_Type()
+)
+swL2TrafficSegPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2TrafficSegPort.setStatus("current")
+_SwL2TrafficSegForwardPorts_Type = PortList
+_SwL2TrafficSegForwardPorts_Object = MibTableColumn
+swL2TrafficSegForwardPorts = _SwL2TrafficSegForwardPorts_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 12, 1, 1, 2),
+    _SwL2TrafficSegForwardPorts_Type()
+)
+swL2TrafficSegForwardPorts.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2TrafficSegForwardPorts.setStatus("current")
+_SwL2PortSecurityMgmt_ObjectIdentity = ObjectIdentity
+swL2PortSecurityMgmt = _SwL2PortSecurityMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 15)
+)
+_SwL2PortSecurityControlTable_Object = MibTable
+swL2PortSecurityControlTable = _SwL2PortSecurityControlTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 15, 1)
+)
+if mibBuilder.loadTexts:
+    swL2PortSecurityControlTable.setStatus("current")
+_SwL2PortSecurityControlEntry_Object = MibTableRow
+swL2PortSecurityControlEntry = _SwL2PortSecurityControlEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 15, 1, 1)
+)
+swL2PortSecurityControlEntry.setIndexNames(
+    (0, "DES3028P-L2MGMT-MIB", "swL2PortSecurityPortIndex"),
+)
+if mibBuilder.loadTexts:
+    swL2PortSecurityControlEntry.setStatus("current")
+
+
+class _SwL2PortSecurityPortIndex_Type(Integer32):
+    """Custom type swL2PortSecurityPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_SwL2PortSecurityPortIndex_Type.__name__ = "Integer32"
+_SwL2PortSecurityPortIndex_Object = MibTableColumn
+swL2PortSecurityPortIndex = _SwL2PortSecurityPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 15, 1, 1, 1),
+    _SwL2PortSecurityPortIndex_Type()
+)
+swL2PortSecurityPortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2PortSecurityPortIndex.setStatus("current")
+
+
+class _SwL2PortSecurityMaxLernAddr_Type(Integer32):
+    """Custom type swL2PortSecurityMaxLernAddr based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 16),
+    )
+
+
+_SwL2PortSecurityMaxLernAddr_Type.__name__ = "Integer32"
+_SwL2PortSecurityMaxLernAddr_Object = MibTableColumn
+swL2PortSecurityMaxLernAddr = _SwL2PortSecurityMaxLernAddr_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 15, 1, 1, 2),
+    _SwL2PortSecurityMaxLernAddr_Type()
+)
+swL2PortSecurityMaxLernAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2PortSecurityMaxLernAddr.setStatus("current")
+
+
+class _SwL2PortSecurityMode_Type(Integer32):
+    """Custom type swL2PortSecurityMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("deleteOnReset", 4),
+          ("deleteOnTimeout", 3),
+          ("other", 1),
+          ("permanent", 2))
+    )
+
+
+_SwL2PortSecurityMode_Type.__name__ = "Integer32"
+_SwL2PortSecurityMode_Object = MibTableColumn
+swL2PortSecurityMode = _SwL2PortSecurityMode_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 15, 1, 1, 3),
+    _SwL2PortSecurityMode_Type()
+)
+swL2PortSecurityMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2PortSecurityMode.setStatus("current")
+
+
+class _SwL2PortSecurityAdmState_Type(Integer32):
+    """Custom type swL2PortSecurityAdmState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 3),
+          ("enable", 2),
+          ("other", 1))
+    )
+
+
+_SwL2PortSecurityAdmState_Type.__name__ = "Integer32"
+_SwL2PortSecurityAdmState_Object = MibTableColumn
+swL2PortSecurityAdmState = _SwL2PortSecurityAdmState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 15, 1, 1, 4),
+    _SwL2PortSecurityAdmState_Type()
+)
+swL2PortSecurityAdmState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2PortSecurityAdmState.setStatus("current")
+
+
+class _SwL2PortSecurityTrapLogState_Type(Integer32):
+    """Custom type swL2PortSecurityTrapLogState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 3),
+          ("enable", 2),
+          ("other", 1))
+    )
+
+
+_SwL2PortSecurityTrapLogState_Type.__name__ = "Integer32"
+_SwL2PortSecurityTrapLogState_Object = MibScalar
+swL2PortSecurityTrapLogState = _SwL2PortSecurityTrapLogState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 15, 2),
+    _SwL2PortSecurityTrapLogState_Type()
+)
+swL2PortSecurityTrapLogState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2PortSecurityTrapLogState.setStatus("current")
+_SwL2PortSecurityDelCtrl_ObjectIdentity = ObjectIdentity
+swL2PortSecurityDelCtrl = _SwL2PortSecurityDelCtrl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 15, 3)
+)
+
+
+class _SwL2PortSecurityDelVlanName_Type(DisplayString):
+    """Custom type swL2PortSecurityDelVlanName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_SwL2PortSecurityDelVlanName_Type.__name__ = "DisplayString"
+_SwL2PortSecurityDelVlanName_Object = MibScalar
+swL2PortSecurityDelVlanName = _SwL2PortSecurityDelVlanName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 15, 3, 1),
+    _SwL2PortSecurityDelVlanName_Type()
+)
+swL2PortSecurityDelVlanName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2PortSecurityDelVlanName.setStatus("current")
+
+
+class _SwL2PortSecurityDelPort_Type(Integer32):
+    """Custom type swL2PortSecurityDelPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 768),
+    )
+
+
+_SwL2PortSecurityDelPort_Type.__name__ = "Integer32"
+_SwL2PortSecurityDelPort_Object = MibScalar
+swL2PortSecurityDelPort = _SwL2PortSecurityDelPort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 15, 3, 2),
+    _SwL2PortSecurityDelPort_Type()
+)
+swL2PortSecurityDelPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2PortSecurityDelPort.setStatus("current")
+_SwL2PortSecurityDelMacAddress_Type = MacAddress
+_SwL2PortSecurityDelMacAddress_Object = MibScalar
+swL2PortSecurityDelMacAddress = _SwL2PortSecurityDelMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 15, 3, 3),
+    _SwL2PortSecurityDelMacAddress_Type()
+)
+swL2PortSecurityDelMacAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2PortSecurityDelMacAddress.setStatus("current")
+
+
+class _SwL2PortSecurityDelActivity_Type(Integer32):
+    """Custom type swL2PortSecurityDelActivity based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("start", 2))
+    )
+
+
+_SwL2PortSecurityDelActivity_Type.__name__ = "Integer32"
+_SwL2PortSecurityDelActivity_Object = MibScalar
+swL2PortSecurityDelActivity = _SwL2PortSecurityDelActivity_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 15, 3, 4),
+    _SwL2PortSecurityDelActivity_Type()
+)
+swL2PortSecurityDelActivity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2PortSecurityDelActivity.setStatus("current")
+_SwL2CosMgmt_ObjectIdentity = ObjectIdentity
+swL2CosMgmt = _SwL2CosMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17)
+)
+_SwL2CosPriorityCtrl_ObjectIdentity = ObjectIdentity
+swL2CosPriorityCtrl = _SwL2CosPriorityCtrl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3)
+)
+_SwL2CosPriorityTable_Object = MibTable
+swL2CosPriorityTable = _SwL2CosPriorityTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 1)
+)
+if mibBuilder.loadTexts:
+    swL2CosPriorityTable.setStatus("current")
+_SwL2CosPriorityEntry_Object = MibTableRow
+swL2CosPriorityEntry = _SwL2CosPriorityEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 1, 1)
+)
+swL2CosPriorityEntry.setIndexNames(
+    (0, "DES3028P-L2MGMT-MIB", "swL2CosPriorityPort"),
+)
+if mibBuilder.loadTexts:
+    swL2CosPriorityEntry.setStatus("current")
+
+
+class _SwL2CosPriorityPort_Type(Integer32):
+    """Custom type swL2CosPriorityPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_SwL2CosPriorityPort_Type.__name__ = "Integer32"
+_SwL2CosPriorityPort_Object = MibTableColumn
+swL2CosPriorityPort = _SwL2CosPriorityPort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 1, 1, 1),
+    _SwL2CosPriorityPort_Type()
+)
+swL2CosPriorityPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2CosPriorityPort.setStatus("current")
+
+
+class _SwL2CosPriorityPortPRI_Type(Integer32):
+    """Custom type swL2CosPriorityPortPRI based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 2),
+          ("enable", 3),
+          ("other", 1))
+    )
+
+
+_SwL2CosPriorityPortPRI_Type.__name__ = "Integer32"
+_SwL2CosPriorityPortPRI_Object = MibTableColumn
+swL2CosPriorityPortPRI = _SwL2CosPriorityPortPRI_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 1, 1, 2),
+    _SwL2CosPriorityPortPRI_Type()
+)
+swL2CosPriorityPortPRI.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2CosPriorityPortPRI.setStatus("current")
+
+
+class _SwL2CosPriorityEtherPRI_Type(Integer32):
+    """Custom type swL2CosPriorityEtherPRI based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 1),
+          ("ether8021p", 2),
+          ("macBase", 3))
+    )
+
+
+_SwL2CosPriorityEtherPRI_Type.__name__ = "Integer32"
+_SwL2CosPriorityEtherPRI_Object = MibTableColumn
+swL2CosPriorityEtherPRI = _SwL2CosPriorityEtherPRI_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 1, 1, 3),
+    _SwL2CosPriorityEtherPRI_Type()
+)
+swL2CosPriorityEtherPRI.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2CosPriorityEtherPRI.setStatus("current")
+
+
+class _SwL2CosPriorityIpPRI_Type(Integer32):
+    """Custom type swL2CosPriorityIpPRI based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 1),
+          ("dscp", 3),
+          ("tos", 2))
+    )
+
+
+_SwL2CosPriorityIpPRI_Type.__name__ = "Integer32"
+_SwL2CosPriorityIpPRI_Object = MibTableColumn
+swL2CosPriorityIpPRI = _SwL2CosPriorityIpPRI_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 1, 1, 4),
+    _SwL2CosPriorityIpPRI_Type()
+)
+swL2CosPriorityIpPRI.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2CosPriorityIpPRI.setStatus("current")
+
+
+class _SwL2CosPriorityNone_Type(Integer32):
+    """Custom type swL2CosPriorityNone based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("invalid", 2),
+          ("valid", 1))
+    )
+
+
+_SwL2CosPriorityNone_Type.__name__ = "Integer32"
+_SwL2CosPriorityNone_Object = MibTableColumn
+swL2CosPriorityNone = _SwL2CosPriorityNone_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 1, 1, 5),
+    _SwL2CosPriorityNone_Type()
+)
+swL2CosPriorityNone.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2CosPriorityNone.setStatus("current")
+_SwL2CosPortPRITable_Object = MibTable
+swL2CosPortPRITable = _SwL2CosPortPRITable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 2)
+)
+if mibBuilder.loadTexts:
+    swL2CosPortPRITable.setStatus("current")
+_SwL2CosPortPRIEntry_Object = MibTableRow
+swL2CosPortPRIEntry = _SwL2CosPortPRIEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 2, 1)
+)
+swL2CosPortPRIEntry.setIndexNames(
+    (0, "DES3028P-L2MGMT-MIB", "swL2CosPortPRIIndex"),
+)
+if mibBuilder.loadTexts:
+    swL2CosPortPRIEntry.setStatus("current")
+
+
+class _SwL2CosPortPRIIndex_Type(Integer32):
+    """Custom type swL2CosPortPRIIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_SwL2CosPortPRIIndex_Type.__name__ = "Integer32"
+_SwL2CosPortPRIIndex_Object = MibTableColumn
+swL2CosPortPRIIndex = _SwL2CosPortPRIIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 2, 1, 1),
+    _SwL2CosPortPRIIndex_Type()
+)
+swL2CosPortPRIIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2CosPortPRIIndex.setStatus("current")
+
+
+class _SwL2CosPortPRIClass_Type(Integer32):
+    """Custom type swL2CosPortPRIClass based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 3),
+    )
+
+
+_SwL2CosPortPRIClass_Type.__name__ = "Integer32"
+_SwL2CosPortPRIClass_Object = MibTableColumn
+swL2CosPortPRIClass = _SwL2CosPortPRIClass_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 2, 1, 2),
+    _SwL2CosPortPRIClass_Type()
+)
+swL2CosPortPRIClass.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2CosPortPRIClass.setStatus("current")
+_SwL2CosMacBasePRITable_Object = MibTable
+swL2CosMacBasePRITable = _SwL2CosMacBasePRITable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 3)
+)
+if mibBuilder.loadTexts:
+    swL2CosMacBasePRITable.setStatus("current")
+_SwL2CosMacBasePRIEntry_Object = MibTableRow
+swL2CosMacBasePRIEntry = _SwL2CosMacBasePRIEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 3, 1)
+)
+swL2CosMacBasePRIEntry.setIndexNames(
+    (0, "DES3028P-L2MGMT-MIB", "swL2CosMacBasePRIIndex"),
+)
+if mibBuilder.loadTexts:
+    swL2CosMacBasePRIEntry.setStatus("current")
+_SwL2CosMacBasePRIIndex_Type = MacAddress
+_SwL2CosMacBasePRIIndex_Object = MibTableColumn
+swL2CosMacBasePRIIndex = _SwL2CosMacBasePRIIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 3, 1, 1),
+    _SwL2CosMacBasePRIIndex_Type()
+)
+swL2CosMacBasePRIIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2CosMacBasePRIIndex.setStatus("current")
+
+
+class _SwL2CosMacBasePRIClass_Type(Integer32):
+    """Custom type swL2CosMacBasePRIClass based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 3),
+    )
+
+
+_SwL2CosMacBasePRIClass_Type.__name__ = "Integer32"
+_SwL2CosMacBasePRIClass_Object = MibTableColumn
+swL2CosMacBasePRIClass = _SwL2CosMacBasePRIClass_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 3, 1, 2),
+    _SwL2CosMacBasePRIClass_Type()
+)
+swL2CosMacBasePRIClass.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2CosMacBasePRIClass.setStatus("current")
+_SwL2CosTosPRITable_Object = MibTable
+swL2CosTosPRITable = _SwL2CosTosPRITable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 4)
+)
+if mibBuilder.loadTexts:
+    swL2CosTosPRITable.setStatus("current")
+_SwL2CosTosPRIEntry_Object = MibTableRow
+swL2CosTosPRIEntry = _SwL2CosTosPRIEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 4, 1)
+)
+swL2CosTosPRIEntry.setIndexNames(
+    (0, "DES3028P-L2MGMT-MIB", "swL2CosTosPRIIndex"),
+)
+if mibBuilder.loadTexts:
+    swL2CosTosPRIEntry.setStatus("current")
+
+
+class _SwL2CosTosPRIIndex_Type(Integer32):
+    """Custom type swL2CosTosPRIIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_SwL2CosTosPRIIndex_Type.__name__ = "Integer32"
+_SwL2CosTosPRIIndex_Object = MibTableColumn
+swL2CosTosPRIIndex = _SwL2CosTosPRIIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 4, 1, 1),
+    _SwL2CosTosPRIIndex_Type()
+)
+swL2CosTosPRIIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2CosTosPRIIndex.setStatus("current")
+
+
+class _SwL2CosTosPRIClass_Type(Integer32):
+    """Custom type swL2CosTosPRIClass based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 3),
+    )
+
+
+_SwL2CosTosPRIClass_Type.__name__ = "Integer32"
+_SwL2CosTosPRIClass_Object = MibTableColumn
+swL2CosTosPRIClass = _SwL2CosTosPRIClass_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 4, 1, 2),
+    _SwL2CosTosPRIClass_Type()
+)
+swL2CosTosPRIClass.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2CosTosPRIClass.setStatus("current")
+_SwL2CosDscpPRITable_Object = MibTable
+swL2CosDscpPRITable = _SwL2CosDscpPRITable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 5)
+)
+if mibBuilder.loadTexts:
+    swL2CosDscpPRITable.setStatus("current")
+_SwL2CosDscpPRIEntry_Object = MibTableRow
+swL2CosDscpPRIEntry = _SwL2CosDscpPRIEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 5, 1)
+)
+swL2CosDscpPRIEntry.setIndexNames(
+    (0, "DES3028P-L2MGMT-MIB", "swL2CosDscpPRIIndex"),
+)
+if mibBuilder.loadTexts:
+    swL2CosDscpPRIEntry.setStatus("current")
+
+
+class _SwL2CosDscpPRIIndex_Type(Integer32):
+    """Custom type swL2CosDscpPRIIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 63),
+    )
+
+
+_SwL2CosDscpPRIIndex_Type.__name__ = "Integer32"
+_SwL2CosDscpPRIIndex_Object = MibTableColumn
+swL2CosDscpPRIIndex = _SwL2CosDscpPRIIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 5, 1, 1),
+    _SwL2CosDscpPRIIndex_Type()
+)
+swL2CosDscpPRIIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2CosDscpPRIIndex.setStatus("current")
+
+
+class _SwL2CosDscpPRIClass_Type(Integer32):
+    """Custom type swL2CosDscpPRIClass based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 3),
+    )
+
+
+_SwL2CosDscpPRIClass_Type.__name__ = "Integer32"
+_SwL2CosDscpPRIClass_Object = MibTableColumn
+swL2CosDscpPRIClass = _SwL2CosDscpPRIClass_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 17, 3, 5, 1, 2),
+    _SwL2CosDscpPRIClass_Type()
+)
+swL2CosDscpPRIClass.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2CosDscpPRIClass.setStatus("current")
+_SwL2DhcpRelayMgmt_ObjectIdentity = ObjectIdentity
+swL2DhcpRelayMgmt = _SwL2DhcpRelayMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 18)
+)
+
+
+class _SwL2DhcpRelayState_Type(Integer32):
+    """Custom type swL2DhcpRelayState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 3),
+          ("other", 1))
+    )
+
+
+_SwL2DhcpRelayState_Type.__name__ = "Integer32"
+_SwL2DhcpRelayState_Object = MibScalar
+swL2DhcpRelayState = _SwL2DhcpRelayState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 18, 1),
+    _SwL2DhcpRelayState_Type()
+)
+swL2DhcpRelayState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2DhcpRelayState.setStatus("obsolete")
+
+
+class _SwL2DhcpRelayHopCount_Type(Integer32):
+    """Custom type swL2DhcpRelayHopCount based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16),
+    )
+
+
+_SwL2DhcpRelayHopCount_Type.__name__ = "Integer32"
+_SwL2DhcpRelayHopCount_Object = MibScalar
+swL2DhcpRelayHopCount = _SwL2DhcpRelayHopCount_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 18, 2),
+    _SwL2DhcpRelayHopCount_Type()
+)
+swL2DhcpRelayHopCount.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2DhcpRelayHopCount.setStatus("obsolete")
+
+
+class _SwL2DhcpRelayTimeThreshold_Type(Integer32):
+    """Custom type swL2DhcpRelayTimeThreshold based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SwL2DhcpRelayTimeThreshold_Type.__name__ = "Integer32"
+_SwL2DhcpRelayTimeThreshold_Object = MibScalar
+swL2DhcpRelayTimeThreshold = _SwL2DhcpRelayTimeThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 18, 3),
+    _SwL2DhcpRelayTimeThreshold_Type()
+)
+swL2DhcpRelayTimeThreshold.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2DhcpRelayTimeThreshold.setStatus("obsolete")
+
+
+class _SwL2DhcpRelayOption82State_Type(Integer32):
+    """Custom type swL2DhcpRelayOption82State based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 3),
+          ("other", 1))
+    )
+
+
+_SwL2DhcpRelayOption82State_Type.__name__ = "Integer32"
+_SwL2DhcpRelayOption82State_Object = MibScalar
+swL2DhcpRelayOption82State = _SwL2DhcpRelayOption82State_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 18, 4),
+    _SwL2DhcpRelayOption82State_Type()
+)
+swL2DhcpRelayOption82State.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2DhcpRelayOption82State.setStatus("obsolete")
+
+
+class _SwL2DhcpRelayOption82Check_Type(Integer32):
+    """Custom type swL2DhcpRelayOption82Check based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 3),
+          ("other", 1))
+    )
+
+
+_SwL2DhcpRelayOption82Check_Type.__name__ = "Integer32"
+_SwL2DhcpRelayOption82Check_Object = MibScalar
+swL2DhcpRelayOption82Check = _SwL2DhcpRelayOption82Check_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 18, 5),
+    _SwL2DhcpRelayOption82Check_Type()
+)
+swL2DhcpRelayOption82Check.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2DhcpRelayOption82Check.setStatus("obsolete")
+
+
+class _SwL2DhcpRelayOption82Policy_Type(Integer32):
+    """Custom type swL2DhcpRelayOption82Policy based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("drop", 2),
+          ("keep", 3),
+          ("replace", 1))
+    )
+
+
+_SwL2DhcpRelayOption82Policy_Type.__name__ = "Integer32"
+_SwL2DhcpRelayOption82Policy_Object = MibScalar
+swL2DhcpRelayOption82Policy = _SwL2DhcpRelayOption82Policy_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 18, 6),
+    _SwL2DhcpRelayOption82Policy_Type()
+)
+swL2DhcpRelayOption82Policy.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2DhcpRelayOption82Policy.setStatus("obsolete")
+_SwL2DhcpRelayCtrlTable_Object = MibTable
+swL2DhcpRelayCtrlTable = _SwL2DhcpRelayCtrlTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 18, 7)
+)
+if mibBuilder.loadTexts:
+    swL2DhcpRelayCtrlTable.setStatus("obsolete")
+_SwL2DhcpRelayCtrlEntry_Object = MibTableRow
+swL2DhcpRelayCtrlEntry = _SwL2DhcpRelayCtrlEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 18, 7, 1)
+)
+swL2DhcpRelayCtrlEntry.setIndexNames(
+    (0, "DES3028P-L2MGMT-MIB", "swL2DhcpRelayCtrlInterfaceName"),
+    (0, "DES3028P-L2MGMT-MIB", "swL2DhcpRelayCtrlServer"),
+)
+if mibBuilder.loadTexts:
+    swL2DhcpRelayCtrlEntry.setStatus("obsolete")
+
+
+class _SwL2DhcpRelayCtrlInterfaceName_Type(DisplayString):
+    """Custom type swL2DhcpRelayCtrlInterfaceName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 12),
+    )
+
+
+_SwL2DhcpRelayCtrlInterfaceName_Type.__name__ = "DisplayString"
+_SwL2DhcpRelayCtrlInterfaceName_Object = MibTableColumn
+swL2DhcpRelayCtrlInterfaceName = _SwL2DhcpRelayCtrlInterfaceName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 18, 7, 1, 1),
+    _SwL2DhcpRelayCtrlInterfaceName_Type()
+)
+swL2DhcpRelayCtrlInterfaceName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2DhcpRelayCtrlInterfaceName.setStatus("obsolete")
+_SwL2DhcpRelayCtrlServer_Type = IpAddress
+_SwL2DhcpRelayCtrlServer_Object = MibTableColumn
+swL2DhcpRelayCtrlServer = _SwL2DhcpRelayCtrlServer_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 18, 7, 1, 2),
+    _SwL2DhcpRelayCtrlServer_Type()
+)
+swL2DhcpRelayCtrlServer.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2DhcpRelayCtrlServer.setStatus("current")
+
+
+class _SwL2DhcpRelayCtrlState_Type(Integer32):
+    """Custom type swL2DhcpRelayCtrlState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("invalid", 2),
+          ("other", 1),
+          ("valid", 3))
+    )
+
+
+_SwL2DhcpRelayCtrlState_Type.__name__ = "Integer32"
+_SwL2DhcpRelayCtrlState_Object = MibTableColumn
+swL2DhcpRelayCtrlState = _SwL2DhcpRelayCtrlState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 18, 7, 1, 3),
+    _SwL2DhcpRelayCtrlState_Type()
+)
+swL2DhcpRelayCtrlState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2DhcpRelayCtrlState.setStatus("obsolete")
+_SwL2MgmtMIBTraps_ObjectIdentity = ObjectIdentity
+swL2MgmtMIBTraps = _SwL2MgmtMIBTraps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 20)
+)
+_SwL2MgmtMIBTrapPrefix_ObjectIdentity = ObjectIdentity
+swL2MgmtMIBTrapPrefix = _SwL2MgmtMIBTrapPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 20, 0)
+)
+_Swl2PortSecurityBindings_ObjectIdentity = ObjectIdentity
+swl2PortSecurityBindings = _Swl2PortSecurityBindings_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 20, 1)
+)
+_SwL2PortSecurityViolationMac_Type = MacAddress
+_SwL2PortSecurityViolationMac_Object = MibScalar
+swL2PortSecurityViolationMac = _SwL2PortSecurityViolationMac_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 20, 1, 1),
+    _SwL2PortSecurityViolationMac_Type()
+)
+swL2PortSecurityViolationMac.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    swL2PortSecurityViolationMac.setStatus("current")
+_Swl2NotificationBindings_ObjectIdentity = ObjectIdentity
+swl2NotificationBindings = _Swl2NotificationBindings_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 20, 2)
+)
+
+
+class _SwL2macNotifyInfo_Type(OctetString):
+    """Custom type swL2macNotifyInfo based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 1024),
+    )
+
+
+_SwL2macNotifyInfo_Type.__name__ = "OctetString"
+_SwL2macNotifyInfo_Object = MibScalar
+swL2macNotifyInfo = _SwL2macNotifyInfo_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 20, 2, 1),
+    _SwL2macNotifyInfo_Type()
+)
+swL2macNotifyInfo.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2macNotifyInfo.setStatus("current")
+
+
+class _SwL2FloodMacDetectedMacVid_Type(Integer32):
+    """Custom type swL2FloodMacDetectedMacVid based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_SwL2FloodMacDetectedMacVid_Type.__name__ = "Integer32"
+_SwL2FloodMacDetectedMacVid_Object = MibScalar
+swL2FloodMacDetectedMacVid = _SwL2FloodMacDetectedMacVid_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 20, 2, 2),
+    _SwL2FloodMacDetectedMacVid_Type()
+)
+swL2FloodMacDetectedMacVid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2FloodMacDetectedMacVid.setStatus("current")
+_SwL2FloodMacDetectedMacAddress_Type = MacAddress
+_SwL2FloodMacDetectedMacAddress_Object = MibScalar
+swL2FloodMacDetectedMacAddress = _SwL2FloodMacDetectedMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 20, 2, 3),
+    _SwL2FloodMacDetectedMacAddress_Type()
+)
+swL2FloodMacDetectedMacAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2FloodMacDetectedMacAddress.setStatus("current")
+_SwL2LoopDetectMgmt_ObjectIdentity = ObjectIdentity
+swL2LoopDetectMgmt = _SwL2LoopDetectMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 21)
+)
+_SwL2LoopDetectCtrl_ObjectIdentity = ObjectIdentity
+swL2LoopDetectCtrl = _SwL2LoopDetectCtrl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 21, 1)
+)
+
+
+class _SwL2LoopDetectAdminState_Type(Integer32):
+    """Custom type swL2LoopDetectAdminState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_SwL2LoopDetectAdminState_Type.__name__ = "Integer32"
+_SwL2LoopDetectAdminState_Object = MibScalar
+swL2LoopDetectAdminState = _SwL2LoopDetectAdminState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 21, 1, 1),
+    _SwL2LoopDetectAdminState_Type()
+)
+swL2LoopDetectAdminState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2LoopDetectAdminState.setStatus("current")
+
+
+class _SwL2LoopDetectInterval_Type(Integer32):
+    """Custom type swL2LoopDetectInterval based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 32767),
+    )
+
+
+_SwL2LoopDetectInterval_Type.__name__ = "Integer32"
+_SwL2LoopDetectInterval_Object = MibScalar
+swL2LoopDetectInterval = _SwL2LoopDetectInterval_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 21, 1, 2),
+    _SwL2LoopDetectInterval_Type()
+)
+swL2LoopDetectInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2LoopDetectInterval.setStatus("current")
+
+
+class _SwL2LoopDetectRecoverTime_Type(Integer32):
+    """Custom type swL2LoopDetectRecoverTime based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1000000),
+    )
+
+
+_SwL2LoopDetectRecoverTime_Type.__name__ = "Integer32"
+_SwL2LoopDetectRecoverTime_Object = MibScalar
+swL2LoopDetectRecoverTime = _SwL2LoopDetectRecoverTime_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 21, 1, 3),
+    _SwL2LoopDetectRecoverTime_Type()
+)
+swL2LoopDetectRecoverTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2LoopDetectRecoverTime.setStatus("current")
+
+
+class _SwL2LoopDetectTrapMode_Type(Integer32):
+    """Custom type swL2LoopDetectTrapMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("both", 4),
+          ("loop_cleared", 3),
+          ("loop_detected", 2),
+          ("none", 1))
+    )
+
+
+_SwL2LoopDetectTrapMode_Type.__name__ = "Integer32"
+_SwL2LoopDetectTrapMode_Object = MibScalar
+swL2LoopDetectTrapMode = _SwL2LoopDetectTrapMode_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 21, 1, 5),
+    _SwL2LoopDetectTrapMode_Type()
+)
+swL2LoopDetectTrapMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2LoopDetectTrapMode.setStatus("current")
+_SwL2LoopDetectPortMgmt_ObjectIdentity = ObjectIdentity
+swL2LoopDetectPortMgmt = _SwL2LoopDetectPortMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 21, 2)
+)
+_SwL2LoopDetectPortTable_Object = MibTable
+swL2LoopDetectPortTable = _SwL2LoopDetectPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 21, 2, 1)
+)
+if mibBuilder.loadTexts:
+    swL2LoopDetectPortTable.setStatus("current")
+_SwL2LoopDetectPortEntry_Object = MibTableRow
+swL2LoopDetectPortEntry = _SwL2LoopDetectPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 21, 2, 1, 1)
+)
+swL2LoopDetectPortEntry.setIndexNames(
+    (0, "DES3028P-L2MGMT-MIB", "swL2LoopDetectPortIndex"),
+)
+if mibBuilder.loadTexts:
+    swL2LoopDetectPortEntry.setStatus("current")
+
+
+class _SwL2LoopDetectPortIndex_Type(Integer32):
+    """Custom type swL2LoopDetectPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_SwL2LoopDetectPortIndex_Type.__name__ = "Integer32"
+_SwL2LoopDetectPortIndex_Object = MibTableColumn
+swL2LoopDetectPortIndex = _SwL2LoopDetectPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 21, 2, 1, 1, 1),
+    _SwL2LoopDetectPortIndex_Type()
+)
+swL2LoopDetectPortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2LoopDetectPortIndex.setStatus("current")
+
+
+class _SwL2LoopDetectPortState_Type(Integer32):
+    """Custom type swL2LoopDetectPortState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_SwL2LoopDetectPortState_Type.__name__ = "Integer32"
+_SwL2LoopDetectPortState_Object = MibTableColumn
+swL2LoopDetectPortState = _SwL2LoopDetectPortState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 21, 2, 1, 1, 2),
+    _SwL2LoopDetectPortState_Type()
+)
+swL2LoopDetectPortState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2LoopDetectPortState.setStatus("current")
+
+
+class _SwL2LoopDetectPortLoopStatus_Type(Integer32):
+    """Custom type swL2LoopDetectPortLoopStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("error", 3),
+          ("loop", 2),
+          ("normal", 1))
+    )
+
+
+_SwL2LoopDetectPortLoopStatus_Type.__name__ = "Integer32"
+_SwL2LoopDetectPortLoopStatus_Object = MibTableColumn
+swL2LoopDetectPortLoopStatus = _SwL2LoopDetectPortLoopStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 21, 2, 1, 1, 4),
+    _SwL2LoopDetectPortLoopStatus_Type()
+)
+swL2LoopDetectPortLoopStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2LoopDetectPortLoopStatus.setStatus("current")
+_SwL2MultiFilter_ObjectIdentity = ObjectIdentity
+swL2MultiFilter = _SwL2MultiFilter_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22)
+)
+_SwL2McastFilterTable_Object = MibTable
+swL2McastFilterTable = _SwL2McastFilterTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 2)
+)
+if mibBuilder.loadTexts:
+    swL2McastFilterTable.setStatus("current")
+_SwL2McastFilterEntry_Object = MibTableRow
+swL2McastFilterEntry = _SwL2McastFilterEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 2, 1)
+)
+swL2McastFilterEntry.setIndexNames(
+    (0, "DES3028P-L2MGMT-MIB", "swL2McastFilterProfileIndex"),
+)
+if mibBuilder.loadTexts:
+    swL2McastFilterEntry.setStatus("current")
+
+
+class _SwL2McastFilterProfileIndex_Type(Integer32):
+    """Custom type swL2McastFilterProfileIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 24),
+    )
+
+
+_SwL2McastFilterProfileIndex_Type.__name__ = "Integer32"
+_SwL2McastFilterProfileIndex_Object = MibTableColumn
+swL2McastFilterProfileIndex = _SwL2McastFilterProfileIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 2, 1, 1),
+    _SwL2McastFilterProfileIndex_Type()
+)
+swL2McastFilterProfileIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2McastFilterProfileIndex.setStatus("current")
+
+
+class _SwL2McastFilterProfileName_Type(DisplayString):
+    """Custom type swL2McastFilterProfileName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_SwL2McastFilterProfileName_Type.__name__ = "DisplayString"
+_SwL2McastFilterProfileName_Object = MibTableColumn
+swL2McastFilterProfileName = _SwL2McastFilterProfileName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 2, 1, 2),
+    _SwL2McastFilterProfileName_Type()
+)
+swL2McastFilterProfileName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2McastFilterProfileName.setStatus("current")
+
+
+class _SwL2McastFilterAddOrDelState_Type(Integer32):
+    """Custom type swL2McastFilterAddOrDelState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("add", 2),
+          ("delete", 3),
+          ("none", 1))
+    )
+
+
+_SwL2McastFilterAddOrDelState_Type.__name__ = "Integer32"
+_SwL2McastFilterAddOrDelState_Object = MibTableColumn
+swL2McastFilterAddOrDelState = _SwL2McastFilterAddOrDelState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 2, 1, 3),
+    _SwL2McastFilterAddOrDelState_Type()
+)
+swL2McastFilterAddOrDelState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2McastFilterAddOrDelState.setStatus("current")
+_SwL2McastFilterGroupList_Type = DisplayString
+_SwL2McastFilterGroupList_Object = MibTableColumn
+swL2McastFilterGroupList = _SwL2McastFilterGroupList_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 2, 1, 4),
+    _SwL2McastFilterGroupList_Type()
+)
+swL2McastFilterGroupList.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2McastFilterGroupList.setStatus("current")
+_SwL2McastFilterStatus_Type = RowStatus
+_SwL2McastFilterStatus_Object = MibTableColumn
+swL2McastFilterStatus = _SwL2McastFilterStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 2, 1, 5),
+    _SwL2McastFilterStatus_Type()
+)
+swL2McastFilterStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL2McastFilterStatus.setStatus("current")
+_SwL2McastFilterPortTable_Object = MibTable
+swL2McastFilterPortTable = _SwL2McastFilterPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 3)
+)
+if mibBuilder.loadTexts:
+    swL2McastFilterPortTable.setStatus("current")
+_SwL2McastFilterPortEntry_Object = MibTableRow
+swL2McastFilterPortEntry = _SwL2McastFilterPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 3, 1)
+)
+swL2McastFilterPortEntry.setIndexNames(
+    (0, "DES3028P-L2MGMT-MIB", "swL2McastFilterPortGroupPortIndex"),
+)
+if mibBuilder.loadTexts:
+    swL2McastFilterPortEntry.setStatus("current")
+_SwL2McastFilterPortGroupPortIndex_Type = Integer32
+_SwL2McastFilterPortGroupPortIndex_Object = MibTableColumn
+swL2McastFilterPortGroupPortIndex = _SwL2McastFilterPortGroupPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 3, 1, 1),
+    _SwL2McastFilterPortGroupPortIndex_Type()
+)
+swL2McastFilterPortGroupPortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2McastFilterPortGroupPortIndex.setStatus("current")
+
+
+class _SwL2McastFilterPortProfileAddOrDelState_Type(Integer32):
+    """Custom type swL2McastFilterPortProfileAddOrDelState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("add", 2),
+          ("delete", 3),
+          ("none", 1))
+    )
+
+
+_SwL2McastFilterPortProfileAddOrDelState_Type.__name__ = "Integer32"
+_SwL2McastFilterPortProfileAddOrDelState_Object = MibTableColumn
+swL2McastFilterPortProfileAddOrDelState = _SwL2McastFilterPortProfileAddOrDelState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 3, 1, 2),
+    _SwL2McastFilterPortProfileAddOrDelState_Type()
+)
+swL2McastFilterPortProfileAddOrDelState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2McastFilterPortProfileAddOrDelState.setStatus("current")
+
+
+class _SwL2McastFilterPortProfileID_Type(Integer32):
+    """Custom type swL2McastFilterPortProfileID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 24),
+    )
+
+
+_SwL2McastFilterPortProfileID_Type.__name__ = "Integer32"
+_SwL2McastFilterPortProfileID_Object = MibTableColumn
+swL2McastFilterPortProfileID = _SwL2McastFilterPortProfileID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 3, 1, 3),
+    _SwL2McastFilterPortProfileID_Type()
+)
+swL2McastFilterPortProfileID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2McastFilterPortProfileID.setStatus("current")
+_SwL2McastFilterPortMaxGroupTable_Object = MibTable
+swL2McastFilterPortMaxGroupTable = _SwL2McastFilterPortMaxGroupTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 4)
+)
+if mibBuilder.loadTexts:
+    swL2McastFilterPortMaxGroupTable.setStatus("current")
+_SwL2McastFilterPortMaxGroupEntry_Object = MibTableRow
+swL2McastFilterPortMaxGroupEntry = _SwL2McastFilterPortMaxGroupEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 4, 1)
+)
+swL2McastFilterPortMaxGroupEntry.setIndexNames(
+    (0, "DES3028P-L2MGMT-MIB", "swL2McastFilterPortMaxGroupPortIndex"),
+)
+if mibBuilder.loadTexts:
+    swL2McastFilterPortMaxGroupEntry.setStatus("current")
+_SwL2McastFilterPortMaxGroupPortIndex_Type = Integer32
+_SwL2McastFilterPortMaxGroupPortIndex_Object = MibTableColumn
+swL2McastFilterPortMaxGroupPortIndex = _SwL2McastFilterPortMaxGroupPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 4, 1, 1),
+    _SwL2McastFilterPortMaxGroupPortIndex_Type()
+)
+swL2McastFilterPortMaxGroupPortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2McastFilterPortMaxGroupPortIndex.setStatus("current")
+
+
+class _SwL2McastFilterPortMaxGroup_Type(Integer32):
+    """Custom type swL2McastFilterPortMaxGroup based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 256),
+    )
+
+
+_SwL2McastFilterPortMaxGroup_Type.__name__ = "Integer32"
+_SwL2McastFilterPortMaxGroup_Object = MibTableColumn
+swL2McastFilterPortMaxGroup = _SwL2McastFilterPortMaxGroup_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 4, 1, 2),
+    _SwL2McastFilterPortMaxGroup_Type()
+)
+swL2McastFilterPortMaxGroup.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2McastFilterPortMaxGroup.setStatus("current")
+_SwL2McastFilterPortInfoTable_Object = MibTable
+swL2McastFilterPortInfoTable = _SwL2McastFilterPortInfoTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 5)
+)
+if mibBuilder.loadTexts:
+    swL2McastFilterPortInfoTable.setStatus("current")
+_SwL2McastFilterPortInfoEntry_Object = MibTableRow
+swL2McastFilterPortInfoEntry = _SwL2McastFilterPortInfoEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 5, 1)
+)
+swL2McastFilterPortInfoEntry.setIndexNames(
+    (0, "DES3028P-L2MGMT-MIB", "swL2McastFilterPortInfoPortIndex"),
+)
+if mibBuilder.loadTexts:
+    swL2McastFilterPortInfoEntry.setStatus("current")
+_SwL2McastFilterPortInfoPortIndex_Type = Integer32
+_SwL2McastFilterPortInfoPortIndex_Object = MibTableColumn
+swL2McastFilterPortInfoPortIndex = _SwL2McastFilterPortInfoPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 5, 1, 1),
+    _SwL2McastFilterPortInfoPortIndex_Type()
+)
+swL2McastFilterPortInfoPortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2McastFilterPortInfoPortIndex.setStatus("current")
+_SwL2McastFilterPortInfoProfileName_Type = DisplayString
+_SwL2McastFilterPortInfoProfileName_Object = MibTableColumn
+swL2McastFilterPortInfoProfileName = _SwL2McastFilterPortInfoProfileName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 22, 5, 1, 2),
+    _SwL2McastFilterPortInfoProfileName_Type()
+)
+swL2McastFilterPortInfoProfileName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2McastFilterPortInfoProfileName.setStatus("current")
+_SwL2VlanMgmt_ObjectIdentity = ObjectIdentity
+swL2VlanMgmt = _SwL2VlanMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 23)
+)
+_SwL2VlanAdvertisementTable_Object = MibTable
+swL2VlanAdvertisementTable = _SwL2VlanAdvertisementTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 23, 1)
+)
+if mibBuilder.loadTexts:
+    swL2VlanAdvertisementTable.setStatus("current")
+_SwL2VlanAdvertisementEntry_Object = MibTableRow
+swL2VlanAdvertisementEntry = _SwL2VlanAdvertisementEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 23, 1, 1)
+)
+swL2VlanAdvertisementEntry.setIndexNames(
+    (0, "DES3028P-L2MGMT-MIB", "swL2VlanIndex"),
+)
+if mibBuilder.loadTexts:
+    swL2VlanAdvertisementEntry.setStatus("current")
+
+
+class _SwL2VlanIndex_Type(Integer32):
+    """Custom type swL2VlanIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_SwL2VlanIndex_Type.__name__ = "Integer32"
+_SwL2VlanIndex_Object = MibTableColumn
+swL2VlanIndex = _SwL2VlanIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 23, 1, 1, 1),
+    _SwL2VlanIndex_Type()
+)
+swL2VlanIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2VlanIndex.setStatus("current")
+
+
+class _SwL2VlanName_Type(DisplayString):
+    """Custom type swL2VlanName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_SwL2VlanName_Type.__name__ = "DisplayString"
+_SwL2VlanName_Object = MibTableColumn
+swL2VlanName = _SwL2VlanName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 23, 1, 1, 2),
+    _SwL2VlanName_Type()
+)
+swL2VlanName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2VlanName.setStatus("current")
+
+
+class _SwL2VlanAdvertiseState_Type(Integer32):
+    """Custom type swL2VlanAdvertiseState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 3),
+          ("other", 1))
+    )
+
+
+_SwL2VlanAdvertiseState_Type.__name__ = "Integer32"
+_SwL2VlanAdvertiseState_Object = MibTableColumn
+swL2VlanAdvertiseState = _SwL2VlanAdvertiseState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 23, 1, 1, 3),
+    _SwL2VlanAdvertiseState_Type()
+)
+swL2VlanAdvertiseState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2VlanAdvertiseState.setStatus("current")
+_SwL2VlanMultiplyMgmt_ObjectIdentity = ObjectIdentity
+swL2VlanMultiplyMgmt = _SwL2VlanMultiplyMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 23, 2)
+)
+
+
+class _SwL2VlanMultiplyVlanList_Type(DisplayString):
+    """Custom type swL2VlanMultiplyVlanList based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_SwL2VlanMultiplyVlanList_Type.__name__ = "DisplayString"
+_SwL2VlanMultiplyVlanList_Object = MibScalar
+swL2VlanMultiplyVlanList = _SwL2VlanMultiplyVlanList_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 23, 2, 1),
+    _SwL2VlanMultiplyVlanList_Type()
+)
+swL2VlanMultiplyVlanList.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2VlanMultiplyVlanList.setStatus("current")
+
+
+class _SwL2VlanMultiplyAdvertisement_Type(Integer32):
+    """Custom type swL2VlanMultiplyAdvertisement based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 3),
+          ("enabled", 2),
+          ("other", 1))
+    )
+
+
+_SwL2VlanMultiplyAdvertisement_Type.__name__ = "Integer32"
+_SwL2VlanMultiplyAdvertisement_Object = MibScalar
+swL2VlanMultiplyAdvertisement = _SwL2VlanMultiplyAdvertisement_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 23, 2, 2),
+    _SwL2VlanMultiplyAdvertisement_Type()
+)
+swL2VlanMultiplyAdvertisement.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2VlanMultiplyAdvertisement.setStatus("current")
+_SwL2VlanMultiplyPortList_Type = PortList
+_SwL2VlanMultiplyPortList_Object = MibScalar
+swL2VlanMultiplyPortList = _SwL2VlanMultiplyPortList_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 23, 2, 3),
+    _SwL2VlanMultiplyPortList_Type()
+)
+swL2VlanMultiplyPortList.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2VlanMultiplyPortList.setStatus("current")
+
+
+class _SwL2VlanMultiplyPortListAction_Type(Integer32):
+    """Custom type swL2VlanMultiplyPortListAction based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("add-forbidden", 4),
+          ("add-tagged", 2),
+          ("add-untagged", 3),
+          ("delete", 5),
+          ("other", 1))
+    )
+
+
+_SwL2VlanMultiplyPortListAction_Type.__name__ = "Integer32"
+_SwL2VlanMultiplyPortListAction_Object = MibScalar
+swL2VlanMultiplyPortListAction = _SwL2VlanMultiplyPortListAction_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 23, 2, 4),
+    _SwL2VlanMultiplyPortListAction_Type()
+)
+swL2VlanMultiplyPortListAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2VlanMultiplyPortListAction.setStatus("current")
+
+
+class _SwL2VlanMultiplyAction_Type(Integer32):
+    """Custom type swL2VlanMultiplyAction based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("configure", 3),
+          ("create", 2),
+          ("delete", 4),
+          ("other", 1))
+    )
+
+
+_SwL2VlanMultiplyAction_Type.__name__ = "Integer32"
+_SwL2VlanMultiplyAction_Object = MibScalar
+swL2VlanMultiplyAction = _SwL2VlanMultiplyAction_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 23, 2, 5),
+    _SwL2VlanMultiplyAction_Type()
+)
+swL2VlanMultiplyAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2VlanMultiplyAction.setStatus("current")
+_SwL2DhcpLocalRelayMgmt_ObjectIdentity = ObjectIdentity
+swL2DhcpLocalRelayMgmt = _SwL2DhcpLocalRelayMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 24)
+)
+
+
+class _SwL2DhcpLocalRelayState_Type(Integer32):
+    """Custom type swL2DhcpLocalRelayState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 3),
+          ("other", 1))
+    )
+
+
+_SwL2DhcpLocalRelayState_Type.__name__ = "Integer32"
+_SwL2DhcpLocalRelayState_Object = MibScalar
+swL2DhcpLocalRelayState = _SwL2DhcpLocalRelayState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 24, 1),
+    _SwL2DhcpLocalRelayState_Type()
+)
+swL2DhcpLocalRelayState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2DhcpLocalRelayState.setStatus("current")
+_SwL2DhcpLocalRelayVLANTable_Object = MibTable
+swL2DhcpLocalRelayVLANTable = _SwL2DhcpLocalRelayVLANTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 24, 2)
+)
+if mibBuilder.loadTexts:
+    swL2DhcpLocalRelayVLANTable.setStatus("current")
+_SwL2DhcpLocalRelayVLANEntry_Object = MibTableRow
+swL2DhcpLocalRelayVLANEntry = _SwL2DhcpLocalRelayVLANEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 24, 2, 1)
+)
+swL2DhcpLocalRelayVLANEntry.setIndexNames(
+    (0, "DES3028P-L2MGMT-MIB", "swL2DhcpLocalRelayVLANID"),
+)
+if mibBuilder.loadTexts:
+    swL2DhcpLocalRelayVLANEntry.setStatus("current")
+
+
+class _SwL2DhcpLocalRelayVLANID_Type(Integer32):
+    """Custom type swL2DhcpLocalRelayVLANID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_SwL2DhcpLocalRelayVLANID_Type.__name__ = "Integer32"
+_SwL2DhcpLocalRelayVLANID_Object = MibTableColumn
+swL2DhcpLocalRelayVLANID = _SwL2DhcpLocalRelayVLANID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 24, 2, 1, 1),
+    _SwL2DhcpLocalRelayVLANID_Type()
+)
+swL2DhcpLocalRelayVLANID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2DhcpLocalRelayVLANID.setStatus("current")
+
+
+class _SwL2DhcpLocalRelayVLANState_Type(Integer32):
+    """Custom type swL2DhcpLocalRelayVLANState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 3),
+          ("other", 1))
+    )
+
+
+_SwL2DhcpLocalRelayVLANState_Type.__name__ = "Integer32"
+_SwL2DhcpLocalRelayVLANState_Object = MibTableColumn
+swL2DhcpLocalRelayVLANState = _SwL2DhcpLocalRelayVLANState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 24, 2, 1, 2),
+    _SwL2DhcpLocalRelayVLANState_Type()
+)
+swL2DhcpLocalRelayVLANState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2DhcpLocalRelayVLANState.setStatus("current")
+_SwL2FloodMAC_ObjectIdentity = ObjectIdentity
+swL2FloodMAC = _SwL2FloodMAC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25)
+)
+_SwL2FloodMACMgmt_ObjectIdentity = ObjectIdentity
+swL2FloodMACMgmt = _SwL2FloodMACMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 1)
+)
+_SwL2FloodMACGlobalSettings_ObjectIdentity = ObjectIdentity
+swL2FloodMACGlobalSettings = _SwL2FloodMACGlobalSettings_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 1, 1)
+)
+
+
+class _SwL2FloodMACState_Type(Integer32):
+    """Custom type swL2FloodMACState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_SwL2FloodMACState_Type.__name__ = "Integer32"
+_SwL2FloodMACState_Object = MibScalar
+swL2FloodMACState = _SwL2FloodMACState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 1, 1, 1),
+    _SwL2FloodMACState_Type()
+)
+swL2FloodMACState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2FloodMACState.setStatus("current")
+
+
+class _SwL2FloodMACLogState_Type(Integer32):
+    """Custom type swL2FloodMACLogState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_SwL2FloodMACLogState_Type.__name__ = "Integer32"
+_SwL2FloodMACLogState_Object = MibScalar
+swL2FloodMACLogState = _SwL2FloodMACLogState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 1, 1, 2),
+    _SwL2FloodMACLogState_Type()
+)
+swL2FloodMACLogState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2FloodMACLogState.setStatus("current")
+
+
+class _SwL2FloodMACTrapState_Type(Integer32):
+    """Custom type swL2FloodMACTrapState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_SwL2FloodMACTrapState_Type.__name__ = "Integer32"
+_SwL2FloodMACTrapState_Object = MibScalar
+swL2FloodMACTrapState = _SwL2FloodMACTrapState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 1, 1, 3),
+    _SwL2FloodMACTrapState_Type()
+)
+swL2FloodMACTrapState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2FloodMACTrapState.setStatus("current")
+
+
+class _SwL2FloodMACClearFDB_Type(Integer32):
+    """Custom type swL2FloodMACClearFDB based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no-action", 1),
+          ("start", 2))
+    )
+
+
+_SwL2FloodMACClearFDB_Type.__name__ = "Integer32"
+_SwL2FloodMACClearFDB_Object = MibScalar
+swL2FloodMACClearFDB = _SwL2FloodMACClearFDB_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 1, 1, 4),
+    _SwL2FloodMACClearFDB_Type()
+)
+swL2FloodMACClearFDB.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swL2FloodMACClearFDB.setStatus("current")
+_SwL2FloodMACAutoFDBCtrlTable_Object = MibTable
+swL2FloodMACAutoFDBCtrlTable = _SwL2FloodMACAutoFDBCtrlTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 1, 2)
+)
+if mibBuilder.loadTexts:
+    swL2FloodMACAutoFDBCtrlTable.setStatus("current")
+_SwL2FloodMACAutoFDBCtrlEntry_Object = MibTableRow
+swL2FloodMACAutoFDBCtrlEntry = _SwL2FloodMACAutoFDBCtrlEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 1, 2, 1)
+)
+swL2FloodMACAutoFDBCtrlEntry.setIndexNames(
+    (0, "DES3028P-L2MGMT-MIB", "swL2FloodMACAutoFDBIPAddress"),
+)
+if mibBuilder.loadTexts:
+    swL2FloodMACAutoFDBCtrlEntry.setStatus("current")
+_SwL2FloodMACAutoFDBIPAddress_Type = IpAddress
+_SwL2FloodMACAutoFDBIPAddress_Object = MibTableColumn
+swL2FloodMACAutoFDBIPAddress = _SwL2FloodMACAutoFDBIPAddress_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 1, 2, 1, 1),
+    _SwL2FloodMACAutoFDBIPAddress_Type()
+)
+swL2FloodMACAutoFDBIPAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    swL2FloodMACAutoFDBIPAddress.setStatus("current")
+_SwL2FloodMACAutoFDBRowStatus_Type = RowStatus
+_SwL2FloodMACAutoFDBRowStatus_Object = MibTableColumn
+swL2FloodMACAutoFDBRowStatus = _SwL2FloodMACAutoFDBRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 1, 2, 1, 2),
+    _SwL2FloodMACAutoFDBRowStatus_Type()
+)
+swL2FloodMACAutoFDBRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swL2FloodMACAutoFDBRowStatus.setStatus("current")
+_SwL2FloodMACInfo_ObjectIdentity = ObjectIdentity
+swL2FloodMACInfo = _SwL2FloodMACInfo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 2)
+)
+_SwL2FloodMACFDBTable_Object = MibTable
+swL2FloodMACFDBTable = _SwL2FloodMACFDBTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 2, 1)
+)
+if mibBuilder.loadTexts:
+    swL2FloodMACFDBTable.setStatus("current")
+_SwL2FloodMACFDBEntry_Object = MibTableRow
+swL2FloodMACFDBEntry = _SwL2FloodMACFDBEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 2, 1, 1)
+)
+swL2FloodMACFDBEntry.setIndexNames(
+    (0, "DES3028P-L2MGMT-MIB", "swL2FloodMACFDBIndex"),
+    (0, "DES3028P-L2MGMT-MIB", "swL2FloodMACFDBVID"),
+    (0, "DES3028P-L2MGMT-MIB", "swL2FloodMACFDBMacAddress"),
+)
+if mibBuilder.loadTexts:
+    swL2FloodMACFDBEntry.setStatus("current")
+_SwL2FloodMACFDBIndex_Type = Integer32
+_SwL2FloodMACFDBIndex_Object = MibTableColumn
+swL2FloodMACFDBIndex = _SwL2FloodMACFDBIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 2, 1, 1, 1),
+    _SwL2FloodMACFDBIndex_Type()
+)
+swL2FloodMACFDBIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    swL2FloodMACFDBIndex.setStatus("current")
+
+
+class _SwL2FloodMACFDBVID_Type(Integer32):
+    """Custom type swL2FloodMACFDBVID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_SwL2FloodMACFDBVID_Type.__name__ = "Integer32"
+_SwL2FloodMACFDBVID_Object = MibTableColumn
+swL2FloodMACFDBVID = _SwL2FloodMACFDBVID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 2, 1, 1, 2),
+    _SwL2FloodMACFDBVID_Type()
+)
+swL2FloodMACFDBVID.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    swL2FloodMACFDBVID.setStatus("current")
+_SwL2FloodMACFDBMacAddress_Type = MacAddress
+_SwL2FloodMACFDBMacAddress_Object = MibTableColumn
+swL2FloodMACFDBMacAddress = _SwL2FloodMACFDBMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 2, 1, 1, 3),
+    _SwL2FloodMACFDBMacAddress_Type()
+)
+swL2FloodMACFDBMacAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    swL2FloodMACFDBMacAddress.setStatus("current")
+
+
+class _SwL2FloodMACFDBStatus_Type(Integer32):
+    """Custom type swL2FloodMACFDBStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 1),
+          ("inactive", 2))
+    )
+
+
+_SwL2FloodMACFDBStatus_Type.__name__ = "Integer32"
+_SwL2FloodMACFDBStatus_Object = MibTableColumn
+swL2FloodMACFDBStatus = _SwL2FloodMACFDBStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 2, 1, 1, 4),
+    _SwL2FloodMACFDBStatus_Type()
+)
+swL2FloodMACFDBStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2FloodMACFDBStatus.setStatus("current")
+_SwL2FloodMACFDBTimestamp_Type = Integer32
+_SwL2FloodMACFDBTimestamp_Object = MibTableColumn
+swL2FloodMACFDBTimestamp = _SwL2FloodMACFDBTimestamp_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 2, 1, 1, 5),
+    _SwL2FloodMACFDBTimestamp_Type()
+)
+swL2FloodMACFDBTimestamp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2FloodMACFDBTimestamp.setStatus("current")
+_SwL2FloodMACAutoFDBTable_Object = MibTable
+swL2FloodMACAutoFDBTable = _SwL2FloodMACAutoFDBTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 2, 2)
+)
+if mibBuilder.loadTexts:
+    swL2FloodMACAutoFDBTable.setStatus("current")
+_SwL2FloodMACAutoFDBEntry_Object = MibTableRow
+swL2FloodMACAutoFDBEntry = _SwL2FloodMACAutoFDBEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 2, 2, 1)
+)
+swL2FloodMACAutoFDBEntry.setIndexNames(
+    (0, "DES3028P-L2MGMT-MIB", "swL2FloodMACAutoFDBIPAddress"),
+)
+if mibBuilder.loadTexts:
+    swL2FloodMACAutoFDBEntry.setStatus("current")
+
+
+class _SwL2FloodMACAutoFDBVID_Type(Integer32):
+    """Custom type swL2FloodMACAutoFDBVID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_SwL2FloodMACAutoFDBVID_Type.__name__ = "Integer32"
+_SwL2FloodMACAutoFDBVID_Object = MibTableColumn
+swL2FloodMACAutoFDBVID = _SwL2FloodMACAutoFDBVID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 2, 2, 1, 1),
+    _SwL2FloodMACAutoFDBVID_Type()
+)
+swL2FloodMACAutoFDBVID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2FloodMACAutoFDBVID.setStatus("current")
+_SwL2FloodMACAutoFDBMacAddress_Type = MacAddress
+_SwL2FloodMACAutoFDBMacAddress_Object = MibTableColumn
+swL2FloodMACAutoFDBMacAddress = _SwL2FloodMACAutoFDBMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 2, 2, 1, 2),
+    _SwL2FloodMACAutoFDBMacAddress_Type()
+)
+swL2FloodMACAutoFDBMacAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2FloodMACAutoFDBMacAddress.setStatus("current")
+_SwL2FloodMACAutoFDBPort_Type = Integer32
+_SwL2FloodMACAutoFDBPort_Object = MibTableColumn
+swL2FloodMACAutoFDBPort = _SwL2FloodMACAutoFDBPort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 2, 2, 1, 3),
+    _SwL2FloodMACAutoFDBPort_Type()
+)
+swL2FloodMACAutoFDBPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2FloodMACAutoFDBPort.setStatus("current")
+_SwL2FloodMACAutoFDBTimestamp_Type = Integer32
+_SwL2FloodMACAutoFDBTimestamp_Object = MibTableColumn
+swL2FloodMACAutoFDBTimestamp = _SwL2FloodMACAutoFDBTimestamp_Object(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 25, 2, 2, 1, 4),
+    _SwL2FloodMACAutoFDBTimestamp_Type()
+)
+swL2FloodMACAutoFDBTimestamp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swL2FloodMACAutoFDBTimestamp.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+swL2PortSecurityViolationTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 20, 0, 1)
+)
+swL2PortSecurityViolationTrap.setObjects(
+      *(("DES3028P-L2MGMT-MIB", "swL2PortSecurityPortIndex"),
+        ("DES3028P-L2MGMT-MIB", "swL2PortSecurityViolationMac"))
+)
+if mibBuilder.loadTexts:
+    swL2PortSecurityViolationTrap.setStatus(
+        "current"
+    )
+
+swL2macNotification = NotificationType(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 20, 0, 2)
+)
+swL2macNotification.setObjects(
+    ("DES3028P-L2MGMT-MIB", "swL2macNotifyInfo")
+)
+if mibBuilder.loadTexts:
+    swL2macNotification.setStatus(
+        "current"
+    )
+
+swL2FloodMacDetectedTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 20, 0, 3)
+)
+swL2FloodMacDetectedTrap.setObjects(
+      *(("DES3028P-L2MGMT-MIB", "swL2FloodMacDetectedMacVid"),
+        ("DES3028P-L2MGMT-MIB", "swL2FloodMacDetectedMacAddress"))
+)
+if mibBuilder.loadTexts:
+    swL2FloodMacDetectedTrap.setStatus(
+        "current"
+    )
+
+swL2PortLoopOccurred = NotificationType(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 20, 0, 4)
+)
+swL2PortLoopOccurred.setObjects(
+    ("DES3028P-L2MGMT-MIB", "swL2LoopDetectPortIndex")
+)
+if mibBuilder.loadTexts:
+    swL2PortLoopOccurred.setStatus(
+        "current"
+    )
+
+swL2PortLoopRestart = NotificationType(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7, 2, 20, 0, 5)
+)
+swL2PortLoopRestart.setObjects(
+    ("DES3028P-L2MGMT-MIB", "swL2LoopDetectPortIndex")
+)
+if mibBuilder.loadTexts:
+    swL2PortLoopRestart.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "DES3028P-L2MGMT-MIB",
+    **{"VlanId": VlanId,
+       "PortList": PortList,
+       "MacAddress": MacAddress,
+       "swL2MgmtMIB": swL2MgmtMIB,
+       "swL2DevMgmt": swL2DevMgmt,
+       "swL2DevInfo": swL2DevInfo,
+       "swL2DevInfoFrontPanelLedStatus": swL2DevInfoFrontPanelLedStatus,
+       "swL2DevCtrl": swL2DevCtrl,
+       "swL2DevCtrlSystemReboot": swL2DevCtrlSystemReboot,
+       "swL2DevCtrlSystemIP": swL2DevCtrlSystemIP,
+       "swL2DevCtrlSubnetMask": swL2DevCtrlSubnetMask,
+       "swL2DevCtrlDefaultGateway": swL2DevCtrlDefaultGateway,
+       "swL2DevCtrlManagementVlanId": swL2DevCtrlManagementVlanId,
+       "swL2DevCtrlIGMPSnooping": swL2DevCtrlIGMPSnooping,
+       "swL2DevCtrlCleanAllStatisticCounter": swL2DevCtrlCleanAllStatisticCounter,
+       "swL2DevCtrlSnmpEnableAuthenTraps": swL2DevCtrlSnmpEnableAuthenTraps,
+       "swL2DevCtrlRmonState": swL2DevCtrlRmonState,
+       "swL2DevCtrlIpAutoConfig": swL2DevCtrlIpAutoConfig,
+       "swL2MACNotifyState": swL2MACNotifyState,
+       "swL2MACNotifyHistorySize": swL2MACNotifyHistorySize,
+       "swL2MACNotifyInterval": swL2MACNotifyInterval,
+       "swL2DevCtrlLLDPState": swL2DevCtrlLLDPState,
+       "swL2DevCtrlLLDPForwardMessageState": swL2DevCtrlLLDPForwardMessageState,
+       "swL2DevCtrlAsymVlanState": swL2DevCtrlAsymVlanState,
+       "swL2IGMPSnoopingMulticastVlanState": swL2IGMPSnoopingMulticastVlanState,
+       "swL2DevCtrlVLANTrunkState": swL2DevCtrlVLANTrunkState,
+       "swL2DevCtrlWeb": swL2DevCtrlWeb,
+       "swL2DevCtrlWebState": swL2DevCtrlWebState,
+       "swL2DevCtrlTelnet": swL2DevCtrlTelnet,
+       "swL2DevCtrlTelnetState": swL2DevCtrlTelnetState,
+       "swL2DevAlarm": swL2DevAlarm,
+       "swL2DevAlarmNewRoot": swL2DevAlarmNewRoot,
+       "swL2DevAlarmTopologyChange": swL2DevAlarmTopologyChange,
+       "swL2DevAlarmLinkChange": swL2DevAlarmLinkChange,
+       "swL2PortMgmt": swL2PortMgmt,
+       "swL2PortInfoTable": swL2PortInfoTable,
+       "swL2PortInfoEntry": swL2PortInfoEntry,
+       "swL2PortInfoPortIndex": swL2PortInfoPortIndex,
+       "swL2PortInfoMediumType": swL2PortInfoMediumType,
+       "swL2PortInfoLinkStatus": swL2PortInfoLinkStatus,
+       "swL2PortInfoNwayStatus": swL2PortInfoNwayStatus,
+       "swL2PortCtrlTable": swL2PortCtrlTable,
+       "swL2PortCtrlEntry": swL2PortCtrlEntry,
+       "swL2PortCtrlPortIndex": swL2PortCtrlPortIndex,
+       "swL2PortCtrlPortMediumType": swL2PortCtrlPortMediumType,
+       "swL2PortCtrlAdminState": swL2PortCtrlAdminState,
+       "swL2PortCtrlNwayState": swL2PortCtrlNwayState,
+       "swL2PortCtrlFlowCtrlState": swL2PortCtrlFlowCtrlState,
+       "swL2PortCtrlDescription": swL2PortCtrlDescription,
+       "swL2PortCtrlAddressLearning": swL2PortCtrlAddressLearning,
+       "swL2PortCtrlMACNotifyState": swL2PortCtrlMACNotifyState,
+       "swL2PortCtrlMulticastfilter": swL2PortCtrlMulticastfilter,
+       "swL2PortCtrlMDIXState": swL2PortCtrlMDIXState,
+       "swL2PortErrTable": swL2PortErrTable,
+       "swL2PortErrEntry": swL2PortErrEntry,
+       "swL2PortErrPortIndex": swL2PortErrPortIndex,
+       "swL2PortErrPortState": swL2PortErrPortState,
+       "swL2PortErrPortStatus": swL2PortErrPortStatus,
+       "swL2PortErrPortReason": swL2PortErrPortReason,
+       "swL2PortErrDescription": swL2PortErrDescription,
+       "swL2QOSMgmt": swL2QOSMgmt,
+       "swL2QOSBandwidthControlTable": swL2QOSBandwidthControlTable,
+       "swL2QOSBandwidthControlEntry": swL2QOSBandwidthControlEntry,
+       "swL2QOSBandwidthPortIndex": swL2QOSBandwidthPortIndex,
+       "swL2QOSBandwidthRxRate": swL2QOSBandwidthRxRate,
+       "swL2QOSBandwidthTxRate": swL2QOSBandwidthTxRate,
+       "swL2QOSBandwidthRadiusRxRate": swL2QOSBandwidthRadiusRxRate,
+       "swL2QOSBandwidthRadiusTxRate": swL2QOSBandwidthRadiusTxRate,
+       "swL2QOSSchedulingTable": swL2QOSSchedulingTable,
+       "swL2QOSSchedulingEntry": swL2QOSSchedulingEntry,
+       "swL2QOSSchedulingClassIndex": swL2QOSSchedulingClassIndex,
+       "swL2QOSSchedulingMaxWeight": swL2QOSSchedulingMaxWeight,
+       "swL2QOSSchedulingMechanism": swL2QOSSchedulingMechanism,
+       "swL2QOS8021pUserPriorityTable": swL2QOS8021pUserPriorityTable,
+       "swL2QOS8021pUserPriorityEntry": swL2QOS8021pUserPriorityEntry,
+       "swL2QOS8021pUserPriorityIndex": swL2QOS8021pUserPriorityIndex,
+       "swL2QOS8021pUserPriorityClass": swL2QOS8021pUserPriorityClass,
+       "swL2QOS8021pDefaultPriorityTable": swL2QOS8021pDefaultPriorityTable,
+       "swL2QOS8021pDefaultPriorityEntry": swL2QOS8021pDefaultPriorityEntry,
+       "swL2QOS8021pDefaultPriorityIndex": swL2QOS8021pDefaultPriorityIndex,
+       "swL2QOS8021pDefaultPriority": swL2QOS8021pDefaultPriority,
+       "swL2QOS8021pRadiusPriority": swL2QOS8021pRadiusPriority,
+       "swL2QOSSchedulingMechanismCtrl": swL2QOSSchedulingMechanismCtrl,
+       "swL2TrunkMgmt": swL2TrunkMgmt,
+       "swPortTrunkMaxEntries": swPortTrunkMaxEntries,
+       "swPortTrunkMaxPortMembers": swPortTrunkMaxPortMembers,
+       "swPortTrunkTable": swPortTrunkTable,
+       "swPortTrunkEntry": swPortTrunkEntry,
+       "swPortTrunkIndex": swPortTrunkIndex,
+       "swPortTrunkMasterPort": swPortTrunkMasterPort,
+       "swPortTrunkPortList": swPortTrunkPortList,
+       "swPortTrunkType": swPortTrunkType,
+       "swPortTrunkActivePort": swPortTrunkActivePort,
+       "swPortTrunkState": swPortTrunkState,
+       "swPortTrunkFloodingPort": swPortTrunkFloodingPort,
+       "swL2TrunkAlgorithm": swL2TrunkAlgorithm,
+       "swL2TrunkLACPPortTable": swL2TrunkLACPPortTable,
+       "swL2TrunkLACPPortEntry": swL2TrunkLACPPortEntry,
+       "swL2TrunkLACPPortIndex": swL2TrunkLACPPortIndex,
+       "swL2TrunkLACPPortState": swL2TrunkLACPPortState,
+       "swL2TrunkVLANTable": swL2TrunkVLANTable,
+       "swL2TrunkVLANEntry": swL2TrunkVLANEntry,
+       "swL2TrunkVLANPort": swL2TrunkVLANPort,
+       "swL2TrunkVLANState": swL2TrunkVLANState,
+       "swPortMirrorPackage": swPortMirrorPackage,
+       "swPortMirrorRxPortList": swPortMirrorRxPortList,
+       "swPortMirrorTxPortList": swPortMirrorTxPortList,
+       "swPortMirrorTargetPort": swPortMirrorTargetPort,
+       "swPortMirrorState": swPortMirrorState,
+       "swIGMPPackage": swIGMPPackage,
+       "swL2IGMPMaxSupportedVlans": swL2IGMPMaxSupportedVlans,
+       "swL2IGMPMaxIpGroupNumPerVlan": swL2IGMPMaxIpGroupNumPerVlan,
+       "swL2IGMPCtrlTable": swL2IGMPCtrlTable,
+       "swL2IGMPCtrlEntry": swL2IGMPCtrlEntry,
+       "swL2IGMPCtrlVid": swL2IGMPCtrlVid,
+       "swL2IGMPQueryInterval": swL2IGMPQueryInterval,
+       "swL2IGMPMaxResponseTime": swL2IGMPMaxResponseTime,
+       "swL2IGMPRobustness": swL2IGMPRobustness,
+       "swL2IGMPLastMemberQueryInterval": swL2IGMPLastMemberQueryInterval,
+       "swL2IGMPHostTimeout": swL2IGMPHostTimeout,
+       "swL2IGMPRouteTimeout": swL2IGMPRouteTimeout,
+       "swL2IGMPLeaveTimer": swL2IGMPLeaveTimer,
+       "swL2IGMPQueryState": swL2IGMPQueryState,
+       "swL2IGMPCurrentState": swL2IGMPCurrentState,
+       "swL2IGMPCtrlState": swL2IGMPCtrlState,
+       "swL2IGMPFastLeave": swL2IGMPFastLeave,
+       "swL2IGMPDynIPMultVlanState": swL2IGMPDynIPMultVlanState,
+       "swL2IGMPDynIPMultVlanAge": swL2IGMPDynIPMultVlanAge,
+       "swL2IGMPQueryInfoTable": swL2IGMPQueryInfoTable,
+       "swL2IGMPQueryInfoEntry": swL2IGMPQueryInfoEntry,
+       "swL2IGMPInfoVid": swL2IGMPInfoVid,
+       "swL2IGMPInfoQueryCount": swL2IGMPInfoQueryCount,
+       "swL2IGMPInfoTxQueryCount": swL2IGMPInfoTxQueryCount,
+       "swL2IGMPInfoTable": swL2IGMPInfoTable,
+       "swL2IGMPInfoEntry": swL2IGMPInfoEntry,
+       "swL2IGMPVid": swL2IGMPVid,
+       "swL2IGMPGroupIpAddr": swL2IGMPGroupIpAddr,
+       "swL2IGMPMacAddr": swL2IGMPMacAddr,
+       "swL2IGMPPortMap": swL2IGMPPortMap,
+       "swL2IGMPIpGroupReportCount": swL2IGMPIpGroupReportCount,
+       "swL2IGMPRouterPortTable": swL2IGMPRouterPortTable,
+       "swL2IGMPRouterPortEntry": swL2IGMPRouterPortEntry,
+       "swL2IGMPRouterPortVlanid": swL2IGMPRouterPortVlanid,
+       "swL2IGMPRouterPortVlanName": swL2IGMPRouterPortVlanName,
+       "swL2IGMPRouterPortStaticPortList": swL2IGMPRouterPortStaticPortList,
+       "swL2IGMPRouterPortDynamicPortList": swL2IGMPRouterPortDynamicPortList,
+       "swL2IGMPRouterPortForbiddenPortList": swL2IGMPRouterPortForbiddenPortList,
+       "swL2IGMPAccessAuthTable": swL2IGMPAccessAuthTable,
+       "swL2IGMPAccessAuthEntry": swL2IGMPAccessAuthEntry,
+       "swL2IGMPAccessAuthPort": swL2IGMPAccessAuthPort,
+       "swL2IGMPAccessAuthState": swL2IGMPAccessAuthState,
+       "swL2IGMPMulticastVlanTable": swL2IGMPMulticastVlanTable,
+       "swL2IGMPMulticastVlanEntry": swL2IGMPMulticastVlanEntry,
+       "swL2IGMPMulticastVlanid": swL2IGMPMulticastVlanid,
+       "swL2IGMPMulticastVlanName": swL2IGMPMulticastVlanName,
+       "swL2IGMPMulticastVlanSourcePort": swL2IGMPMulticastVlanSourcePort,
+       "swL2IGMPMulticastVlanMemberPort": swL2IGMPMulticastVlanMemberPort,
+       "swL2IGMPMulticastVlanTagMemberPort": swL2IGMPMulticastVlanTagMemberPort,
+       "swL2IGMPMulticastVlanState": swL2IGMPMulticastVlanState,
+       "swL2IGMPMulticastVlanReplaceSourceIp": swL2IGMPMulticastVlanReplaceSourceIp,
+       "swL2IGMPMulticastVlanRowStatus": swL2IGMPMulticastVlanRowStatus,
+       "swL2IGMPMulticastVlanRemoveAllMcastAddrListAction": swL2IGMPMulticastVlanRemoveAllMcastAddrListAction,
+       "swL2IGMPMulticastVlanUntagSourcePort": swL2IGMPMulticastVlanUntagSourcePort,
+       "swL2IGMPMulticastVlanRemapPriority": swL2IGMPMulticastVlanRemapPriority,
+       "swL2IGMPMulticastVlanReplacePriority": swL2IGMPMulticastVlanReplacePriority,
+       "swL2IGMPMulticastVlanGroupTable": swL2IGMPMulticastVlanGroupTable,
+       "swL2IGMPMulticastVlanGroupEntry": swL2IGMPMulticastVlanGroupEntry,
+       "swL2IGMPMulticastVlanGroupVid": swL2IGMPMulticastVlanGroupVid,
+       "swL2IGMPMulticastVlanGroupFromIp": swL2IGMPMulticastVlanGroupFromIp,
+       "swL2IGMPMulticastVlanGroupToIp": swL2IGMPMulticastVlanGroupToIp,
+       "swL2IGMPMulticastVlanGroupStatus": swL2IGMPMulticastVlanGroupStatus,
+       "swL2IGMPv3Table": swL2IGMPv3Table,
+       "swL2IGMPv3Entry": swL2IGMPv3Entry,
+       "swL2IGMPv3SourceIPAddr": swL2IGMPv3SourceIPAddr,
+       "swL2IGMPv3Forwarding": swL2IGMPv3Forwarding,
+       "swL2IGMPv3ExpireTimer": swL2IGMPv3ExpireTimer,
+       "swIGMPSnoopingGroupTable": swIGMPSnoopingGroupTable,
+       "swIGMPSnoopingGroupEntry": swIGMPSnoopingGroupEntry,
+       "swIGMPSnoopingGroupVid": swIGMPSnoopingGroupVid,
+       "swIGMPSnoopingGroupGroupAddr": swIGMPSnoopingGroupGroupAddr,
+       "swIGMPSnoopingGroupSourceAddr": swIGMPSnoopingGroupSourceAddr,
+       "swIGMPSnoopingGroupIncludePortMap": swIGMPSnoopingGroupIncludePortMap,
+       "swIGMPSnoopingGroupExcludePortMap": swIGMPSnoopingGroupExcludePortMap,
+       "swIGMPSnoopingGroupReportCount": swIGMPSnoopingGroupReportCount,
+       "swIGMPSnoopingGroupUpTime": swIGMPSnoopingGroupUpTime,
+       "swIGMPSnoopingGroupExpiryTime": swIGMPSnoopingGroupExpiryTime,
+       "swIGMPSnoopingGroupRouterPorts": swIGMPSnoopingGroupRouterPorts,
+       "swL2IGMPDynIpMultMgmt": swL2IGMPDynIpMultMgmt,
+       "swL2IGMPDynIPMultMaxEntry": swL2IGMPDynIPMultMaxEntry,
+       "swL2IGMPSnoopingClearDynIpMult": swL2IGMPSnoopingClearDynIpMult,
+       "swL2IGMPSnoopingClearDynIpMultVID": swL2IGMPSnoopingClearDynIpMultVID,
+       "swL2IGMPSnoopingClearDynIpMultIP": swL2IGMPSnoopingClearDynIpMultIP,
+       "swL2IGMPSnoopingClearDynIpMultAction": swL2IGMPSnoopingClearDynIpMultAction,
+       "swL2TrafficSegMgmt": swL2TrafficSegMgmt,
+       "swL2TrafficSegTable": swL2TrafficSegTable,
+       "swL2TrafficSegEntry": swL2TrafficSegEntry,
+       "swL2TrafficSegPort": swL2TrafficSegPort,
+       "swL2TrafficSegForwardPorts": swL2TrafficSegForwardPorts,
+       "swL2PortSecurityMgmt": swL2PortSecurityMgmt,
+       "swL2PortSecurityControlTable": swL2PortSecurityControlTable,
+       "swL2PortSecurityControlEntry": swL2PortSecurityControlEntry,
+       "swL2PortSecurityPortIndex": swL2PortSecurityPortIndex,
+       "swL2PortSecurityMaxLernAddr": swL2PortSecurityMaxLernAddr,
+       "swL2PortSecurityMode": swL2PortSecurityMode,
+       "swL2PortSecurityAdmState": swL2PortSecurityAdmState,
+       "swL2PortSecurityTrapLogState": swL2PortSecurityTrapLogState,
+       "swL2PortSecurityDelCtrl": swL2PortSecurityDelCtrl,
+       "swL2PortSecurityDelVlanName": swL2PortSecurityDelVlanName,
+       "swL2PortSecurityDelPort": swL2PortSecurityDelPort,
+       "swL2PortSecurityDelMacAddress": swL2PortSecurityDelMacAddress,
+       "swL2PortSecurityDelActivity": swL2PortSecurityDelActivity,
+       "swL2CosMgmt": swL2CosMgmt,
+       "swL2CosPriorityCtrl": swL2CosPriorityCtrl,
+       "swL2CosPriorityTable": swL2CosPriorityTable,
+       "swL2CosPriorityEntry": swL2CosPriorityEntry,
+       "swL2CosPriorityPort": swL2CosPriorityPort,
+       "swL2CosPriorityPortPRI": swL2CosPriorityPortPRI,
+       "swL2CosPriorityEtherPRI": swL2CosPriorityEtherPRI,
+       "swL2CosPriorityIpPRI": swL2CosPriorityIpPRI,
+       "swL2CosPriorityNone": swL2CosPriorityNone,
+       "swL2CosPortPRITable": swL2CosPortPRITable,
+       "swL2CosPortPRIEntry": swL2CosPortPRIEntry,
+       "swL2CosPortPRIIndex": swL2CosPortPRIIndex,
+       "swL2CosPortPRIClass": swL2CosPortPRIClass,
+       "swL2CosMacBasePRITable": swL2CosMacBasePRITable,
+       "swL2CosMacBasePRIEntry": swL2CosMacBasePRIEntry,
+       "swL2CosMacBasePRIIndex": swL2CosMacBasePRIIndex,
+       "swL2CosMacBasePRIClass": swL2CosMacBasePRIClass,
+       "swL2CosTosPRITable": swL2CosTosPRITable,
+       "swL2CosTosPRIEntry": swL2CosTosPRIEntry,
+       "swL2CosTosPRIIndex": swL2CosTosPRIIndex,
+       "swL2CosTosPRIClass": swL2CosTosPRIClass,
+       "swL2CosDscpPRITable": swL2CosDscpPRITable,
+       "swL2CosDscpPRIEntry": swL2CosDscpPRIEntry,
+       "swL2CosDscpPRIIndex": swL2CosDscpPRIIndex,
+       "swL2CosDscpPRIClass": swL2CosDscpPRIClass,
+       "swL2DhcpRelayMgmt": swL2DhcpRelayMgmt,
+       "swL2DhcpRelayState": swL2DhcpRelayState,
+       "swL2DhcpRelayHopCount": swL2DhcpRelayHopCount,
+       "swL2DhcpRelayTimeThreshold": swL2DhcpRelayTimeThreshold,
+       "swL2DhcpRelayOption82State": swL2DhcpRelayOption82State,
+       "swL2DhcpRelayOption82Check": swL2DhcpRelayOption82Check,
+       "swL2DhcpRelayOption82Policy": swL2DhcpRelayOption82Policy,
+       "swL2DhcpRelayCtrlTable": swL2DhcpRelayCtrlTable,
+       "swL2DhcpRelayCtrlEntry": swL2DhcpRelayCtrlEntry,
+       "swL2DhcpRelayCtrlInterfaceName": swL2DhcpRelayCtrlInterfaceName,
+       "swL2DhcpRelayCtrlServer": swL2DhcpRelayCtrlServer,
+       "swL2DhcpRelayCtrlState": swL2DhcpRelayCtrlState,
+       "swL2MgmtMIBTraps": swL2MgmtMIBTraps,
+       "swL2MgmtMIBTrapPrefix": swL2MgmtMIBTrapPrefix,
+       "swL2PortSecurityViolationTrap": swL2PortSecurityViolationTrap,
+       "swL2macNotification": swL2macNotification,
+       "swL2FloodMacDetectedTrap": swL2FloodMacDetectedTrap,
+       "swL2PortLoopOccurred": swL2PortLoopOccurred,
+       "swL2PortLoopRestart": swL2PortLoopRestart,
+       "swl2PortSecurityBindings": swl2PortSecurityBindings,
+       "swL2PortSecurityViolationMac": swL2PortSecurityViolationMac,
+       "swl2NotificationBindings": swl2NotificationBindings,
+       "swL2macNotifyInfo": swL2macNotifyInfo,
+       "swL2FloodMacDetectedMacVid": swL2FloodMacDetectedMacVid,
+       "swL2FloodMacDetectedMacAddress": swL2FloodMacDetectedMacAddress,
+       "swL2LoopDetectMgmt": swL2LoopDetectMgmt,
+       "swL2LoopDetectCtrl": swL2LoopDetectCtrl,
+       "swL2LoopDetectAdminState": swL2LoopDetectAdminState,
+       "swL2LoopDetectInterval": swL2LoopDetectInterval,
+       "swL2LoopDetectRecoverTime": swL2LoopDetectRecoverTime,
+       "swL2LoopDetectTrapMode": swL2LoopDetectTrapMode,
+       "swL2LoopDetectPortMgmt": swL2LoopDetectPortMgmt,
+       "swL2LoopDetectPortTable": swL2LoopDetectPortTable,
+       "swL2LoopDetectPortEntry": swL2LoopDetectPortEntry,
+       "swL2LoopDetectPortIndex": swL2LoopDetectPortIndex,
+       "swL2LoopDetectPortState": swL2LoopDetectPortState,
+       "swL2LoopDetectPortLoopStatus": swL2LoopDetectPortLoopStatus,
+       "swL2MultiFilter": swL2MultiFilter,
+       "swL2McastFilterTable": swL2McastFilterTable,
+       "swL2McastFilterEntry": swL2McastFilterEntry,
+       "swL2McastFilterProfileIndex": swL2McastFilterProfileIndex,
+       "swL2McastFilterProfileName": swL2McastFilterProfileName,
+       "swL2McastFilterAddOrDelState": swL2McastFilterAddOrDelState,
+       "swL2McastFilterGroupList": swL2McastFilterGroupList,
+       "swL2McastFilterStatus": swL2McastFilterStatus,
+       "swL2McastFilterPortTable": swL2McastFilterPortTable,
+       "swL2McastFilterPortEntry": swL2McastFilterPortEntry,
+       "swL2McastFilterPortGroupPortIndex": swL2McastFilterPortGroupPortIndex,
+       "swL2McastFilterPortProfileAddOrDelState": swL2McastFilterPortProfileAddOrDelState,
+       "swL2McastFilterPortProfileID": swL2McastFilterPortProfileID,
+       "swL2McastFilterPortMaxGroupTable": swL2McastFilterPortMaxGroupTable,
+       "swL2McastFilterPortMaxGroupEntry": swL2McastFilterPortMaxGroupEntry,
+       "swL2McastFilterPortMaxGroupPortIndex": swL2McastFilterPortMaxGroupPortIndex,
+       "swL2McastFilterPortMaxGroup": swL2McastFilterPortMaxGroup,
+       "swL2McastFilterPortInfoTable": swL2McastFilterPortInfoTable,
+       "swL2McastFilterPortInfoEntry": swL2McastFilterPortInfoEntry,
+       "swL2McastFilterPortInfoPortIndex": swL2McastFilterPortInfoPortIndex,
+       "swL2McastFilterPortInfoProfileName": swL2McastFilterPortInfoProfileName,
+       "swL2VlanMgmt": swL2VlanMgmt,
+       "swL2VlanAdvertisementTable": swL2VlanAdvertisementTable,
+       "swL2VlanAdvertisementEntry": swL2VlanAdvertisementEntry,
+       "swL2VlanIndex": swL2VlanIndex,
+       "swL2VlanName": swL2VlanName,
+       "swL2VlanAdvertiseState": swL2VlanAdvertiseState,
+       "swL2VlanMultiplyMgmt": swL2VlanMultiplyMgmt,
+       "swL2VlanMultiplyVlanList": swL2VlanMultiplyVlanList,
+       "swL2VlanMultiplyAdvertisement": swL2VlanMultiplyAdvertisement,
+       "swL2VlanMultiplyPortList": swL2VlanMultiplyPortList,
+       "swL2VlanMultiplyPortListAction": swL2VlanMultiplyPortListAction,
+       "swL2VlanMultiplyAction": swL2VlanMultiplyAction,
+       "swL2DhcpLocalRelayMgmt": swL2DhcpLocalRelayMgmt,
+       "swL2DhcpLocalRelayState": swL2DhcpLocalRelayState,
+       "swL2DhcpLocalRelayVLANTable": swL2DhcpLocalRelayVLANTable,
+       "swL2DhcpLocalRelayVLANEntry": swL2DhcpLocalRelayVLANEntry,
+       "swL2DhcpLocalRelayVLANID": swL2DhcpLocalRelayVLANID,
+       "swL2DhcpLocalRelayVLANState": swL2DhcpLocalRelayVLANState,
+       "swL2FloodMAC": swL2FloodMAC,
+       "swL2FloodMACMgmt": swL2FloodMACMgmt,
+       "swL2FloodMACGlobalSettings": swL2FloodMACGlobalSettings,
+       "swL2FloodMACState": swL2FloodMACState,
+       "swL2FloodMACLogState": swL2FloodMACLogState,
+       "swL2FloodMACTrapState": swL2FloodMACTrapState,
+       "swL2FloodMACClearFDB": swL2FloodMACClearFDB,
+       "swL2FloodMACAutoFDBCtrlTable": swL2FloodMACAutoFDBCtrlTable,
+       "swL2FloodMACAutoFDBCtrlEntry": swL2FloodMACAutoFDBCtrlEntry,
+       "swL2FloodMACAutoFDBIPAddress": swL2FloodMACAutoFDBIPAddress,
+       "swL2FloodMACAutoFDBRowStatus": swL2FloodMACAutoFDBRowStatus,
+       "swL2FloodMACInfo": swL2FloodMACInfo,
+       "swL2FloodMACFDBTable": swL2FloodMACFDBTable,
+       "swL2FloodMACFDBEntry": swL2FloodMACFDBEntry,
+       "swL2FloodMACFDBIndex": swL2FloodMACFDBIndex,
+       "swL2FloodMACFDBVID": swL2FloodMACFDBVID,
+       "swL2FloodMACFDBMacAddress": swL2FloodMACFDBMacAddress,
+       "swL2FloodMACFDBStatus": swL2FloodMACFDBStatus,
+       "swL2FloodMACFDBTimestamp": swL2FloodMACFDBTimestamp,
+       "swL2FloodMACAutoFDBTable": swL2FloodMACAutoFDBTable,
+       "swL2FloodMACAutoFDBEntry": swL2FloodMACAutoFDBEntry,
+       "swL2FloodMACAutoFDBVID": swL2FloodMACAutoFDBVID,
+       "swL2FloodMACAutoFDBMacAddress": swL2FloodMACAutoFDBMacAddress,
+       "swL2FloodMACAutoFDBPort": swL2FloodMACAutoFDBPort,
+       "swL2FloodMACAutoFDBTimestamp": swL2FloodMACAutoFDBTimestamp}
+)

@@ -1,41 +1,227 @@
+# SNMP MIB module (REDSTONE-SMI) expressed in pysnmp data model.
 #
-# PySNMP MIB module REDSTONE-SMI (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/REDSTONE-SMI
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:46:57 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter32, MibIdentifier, ObjectIdentity, Gauge32, TimeTicks, IpAddress, enterprises, NotificationType, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, ModuleIdentity, Unsigned32, iso, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "MibIdentifier", "ObjectIdentity", "Gauge32", "TimeTicks", "IpAddress", "enterprises", "NotificationType", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "ModuleIdentity", "Unsigned32", "iso", "Bits")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-redstone = ModuleIdentity((1, 3, 6, 1, 4, 1, 2773))
-redstone.setRevisions(('1998-01-01 00:00',))
-if mibBuilder.loadTexts: redstone.setLastUpdated('9801010000Z')
-if mibBuilder.loadTexts: redstone.setOrganization('Redstone Communications, Inc.')
-rsRegistration = ObjectIdentity((1, 3, 6, 1, 4, 1, 2773, 1))
-if mibBuilder.loadTexts: rsRegistration.setStatus('current')
-rsRegGeneric = ObjectIdentity((1, 3, 6, 1, 4, 1, 2773, 1, 1))
-if mibBuilder.loadTexts: rsRegGeneric.setStatus('current')
-rsRegGenericOther = MibIdentifier((1, 3, 6, 1, 4, 1, 2773, 1, 1, 1))
-rsRegGenericNone = MibIdentifier((1, 3, 6, 1, 4, 1, 2773, 1, 1, 2))
-rsRegGenericUnknown = MibIdentifier((1, 3, 6, 1, 4, 1, 2773, 1, 1, 3))
-rsRegHardware = ObjectIdentity((1, 3, 6, 1, 4, 1, 2773, 1, 2))
-if mibBuilder.loadTexts: rsRegHardware.setStatus('current')
-rsRegHwPlatform = ObjectIdentity((1, 3, 6, 1, 4, 1, 2773, 1, 2, 1))
-if mibBuilder.loadTexts: rsRegHwPlatform.setStatus('current')
-rsRegHwPlatformRX1400 = MibIdentifier((1, 3, 6, 1, 4, 1, 2773, 1, 2, 1, 1))
-rsRegHwPlatformRX700 = MibIdentifier((1, 3, 6, 1, 4, 1, 2773, 1, 2, 1, 2))
-rsRegHwModule = ObjectIdentity((1, 3, 6, 1, 4, 1, 2773, 1, 2, 2))
-if mibBuilder.loadTexts: rsRegHwModule.setStatus('current')
-rsRegHwChip = ObjectIdentity((1, 3, 6, 1, 4, 1, 2773, 1, 2, 3))
-if mibBuilder.loadTexts: rsRegHwChip.setStatus('current')
-rsMgmt = ObjectIdentity((1, 3, 6, 1, 4, 1, 2773, 2))
-if mibBuilder.loadTexts: rsMgmt.setStatus('current')
-rsRegAgentCapabilities = ObjectIdentity((1, 3, 6, 1, 4, 1, 2773, 3))
-if mibBuilder.loadTexts: rsRegAgentCapabilities.setStatus('current')
-rsExperiment = ObjectIdentity((1, 3, 6, 1, 4, 1, 2773, 4))
-if mibBuilder.loadTexts: rsExperiment.setStatus('current')
-mibBuilder.exportSymbols("REDSTONE-SMI", rsMgmt=rsMgmt, rsRegHardware=rsRegHardware, rsRegGenericNone=rsRegGenericNone, rsRegGenericOther=rsRegGenericOther, rsRegGeneric=rsRegGeneric, PYSNMP_MODULE_ID=redstone, redstone=redstone, rsRegHwPlatformRX700=rsRegHwPlatformRX700, rsRegHwModule=rsRegHwModule, rsRegHwChip=rsRegHwChip, rsRegHwPlatformRX1400=rsRegHwPlatformRX1400, rsRegGenericUnknown=rsRegGenericUnknown, rsExperiment=rsExperiment, rsRegAgentCapabilities=rsRegAgentCapabilities, rsRegistration=rsRegistration, rsRegHwPlatform=rsRegHwPlatform)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/REDSTONE-SMI
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:46:31 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+redstone = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2773)
+)
+redstone.setRevisions(
+        ("1998-01-01 00:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_RsRegistration_ObjectIdentity = ObjectIdentity
+rsRegistration = _RsRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2773, 1)
+)
+if mibBuilder.loadTexts:
+    rsRegistration.setStatus("current")
+_RsRegGeneric_ObjectIdentity = ObjectIdentity
+rsRegGeneric = _RsRegGeneric_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2773, 1, 1)
+)
+if mibBuilder.loadTexts:
+    rsRegGeneric.setStatus("current")
+_RsRegGenericOther_ObjectIdentity = ObjectIdentity
+rsRegGenericOther = _RsRegGenericOther_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2773, 1, 1, 1)
+)
+_RsRegGenericNone_ObjectIdentity = ObjectIdentity
+rsRegGenericNone = _RsRegGenericNone_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2773, 1, 1, 2)
+)
+_RsRegGenericUnknown_ObjectIdentity = ObjectIdentity
+rsRegGenericUnknown = _RsRegGenericUnknown_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2773, 1, 1, 3)
+)
+_RsRegHardware_ObjectIdentity = ObjectIdentity
+rsRegHardware = _RsRegHardware_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2773, 1, 2)
+)
+if mibBuilder.loadTexts:
+    rsRegHardware.setStatus("current")
+_RsRegHwPlatform_ObjectIdentity = ObjectIdentity
+rsRegHwPlatform = _RsRegHwPlatform_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2773, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    rsRegHwPlatform.setStatus("current")
+_RsRegHwPlatformRX1400_ObjectIdentity = ObjectIdentity
+rsRegHwPlatformRX1400 = _RsRegHwPlatformRX1400_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2773, 1, 2, 1, 1)
+)
+_RsRegHwPlatformRX700_ObjectIdentity = ObjectIdentity
+rsRegHwPlatformRX700 = _RsRegHwPlatformRX700_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2773, 1, 2, 1, 2)
+)
+_RsRegHwModule_ObjectIdentity = ObjectIdentity
+rsRegHwModule = _RsRegHwModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2773, 1, 2, 2)
+)
+if mibBuilder.loadTexts:
+    rsRegHwModule.setStatus("current")
+_RsRegHwChip_ObjectIdentity = ObjectIdentity
+rsRegHwChip = _RsRegHwChip_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2773, 1, 2, 3)
+)
+if mibBuilder.loadTexts:
+    rsRegHwChip.setStatus("current")
+_RsMgmt_ObjectIdentity = ObjectIdentity
+rsMgmt = _RsMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2773, 2)
+)
+if mibBuilder.loadTexts:
+    rsMgmt.setStatus("current")
+_RsRegAgentCapabilities_ObjectIdentity = ObjectIdentity
+rsRegAgentCapabilities = _RsRegAgentCapabilities_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2773, 3)
+)
+if mibBuilder.loadTexts:
+    rsRegAgentCapabilities.setStatus("current")
+_RsExperiment_ObjectIdentity = ObjectIdentity
+rsExperiment = _RsExperiment_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2773, 4)
+)
+if mibBuilder.loadTexts:
+    rsExperiment.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "REDSTONE-SMI",
+    **{"redstone": redstone,
+       "rsRegistration": rsRegistration,
+       "rsRegGeneric": rsRegGeneric,
+       "rsRegGenericOther": rsRegGenericOther,
+       "rsRegGenericNone": rsRegGenericNone,
+       "rsRegGenericUnknown": rsRegGenericUnknown,
+       "rsRegHardware": rsRegHardware,
+       "rsRegHwPlatform": rsRegHwPlatform,
+       "rsRegHwPlatformRX1400": rsRegHwPlatformRX1400,
+       "rsRegHwPlatformRX700": rsRegHwPlatformRX700,
+       "rsRegHwModule": rsRegHwModule,
+       "rsRegHwChip": rsRegHwChip,
+       "rsMgmt": rsMgmt,
+       "rsRegAgentCapabilities": rsRegAgentCapabilities,
+       "rsExperiment": rsExperiment}
+)

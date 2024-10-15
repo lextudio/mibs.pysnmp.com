@@ -7,6 +7,7 @@ fetch:  ## Download all mibs from the source
 	rm -rf asn1/index.html*
 
 compile:  ## Compile all MIBs into .py files
+	rm -rf ./pysnmp/*.py
 	@total_files=$$(ls asn1 | wc -l); \
 	finished_files=0; \
 	for f in $$(ls asn1); do \

@@ -1,22 +1,159 @@
+# SNMP MIB module (PANASAS-ROOT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module PANASAS-ROOT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/PANASAS-ROOT-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:27:54 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Bits, enterprises, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Integer32, Unsigned32, MibIdentifier, NotificationType, ModuleIdentity, TimeTicks, Counter64, Gauge32, Counter32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "enterprises", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Integer32", "Unsigned32", "MibIdentifier", "NotificationType", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32", "Counter32", "iso")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-panasas = ModuleIdentity((1, 3, 6, 1, 4, 1, 10159))
-panasas.setRevisions(('2011-04-07 00:00',))
-if mibBuilder.loadTexts: panasas.setLastUpdated('201104070000Z')
-if mibBuilder.loadTexts: panasas.setOrganization('Panasas, Inc')
-panProducts = MibIdentifier((1, 3, 6, 1, 4, 1, 10159, 1))
-panNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 10159, 1, 1))
-panHw = MibIdentifier((1, 3, 6, 1, 4, 1, 10159, 1, 2))
-panFs = MibIdentifier((1, 3, 6, 1, 4, 1, 10159, 1, 3))
-mibBuilder.exportSymbols("PANASAS-ROOT-MIB", panProducts=panProducts, panFs=panFs, panasas=panasas, panHw=panHw, PYSNMP_MODULE_ID=panasas, panNotifications=panNotifications)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/PANASAS-ROOT-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:36:35 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+panasas = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 10159)
+)
+panasas.setRevisions(
+        ("2011-04-07 00:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_PanProducts_ObjectIdentity = ObjectIdentity
+panProducts = _PanProducts_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 10159, 1)
+)
+_PanNotifications_ObjectIdentity = ObjectIdentity
+panNotifications = _PanNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 10159, 1, 1)
+)
+_PanHw_ObjectIdentity = ObjectIdentity
+panHw = _PanHw_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 10159, 1, 2)
+)
+_PanFs_ObjectIdentity = ObjectIdentity
+panFs = _PanFs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 10159, 1, 3)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "PANASAS-ROOT-MIB",
+    **{"panasas": panasas,
+       "panProducts": panProducts,
+       "panNotifications": panNotifications,
+       "panHw": panHw,
+       "panFs": panFs}
+)

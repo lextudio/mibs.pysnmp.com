@@ -1,27 +1,198 @@
+# SNMP MIB module (NMS-L2-PROTOCOL-TUNNEL-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module NMS-L2-PROTOCOL-TUNNEL-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/NMS-L2-PROTOCOL-TUNNEL-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:12:32 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-nmsMgmt, = mibBuilder.importSymbols("NMS-SMI", "nmsMgmt")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-iso, Counter32, Integer32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Bits, ObjectIdentity, ModuleIdentity, IpAddress, NotificationType, Counter64, Unsigned32, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Counter32", "Integer32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Bits", "ObjectIdentity", "ModuleIdentity", "IpAddress", "NotificationType", "Counter64", "Unsigned32", "TimeTicks")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-nmsL2ProtocolTunnelMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11606, 10, 9, 357))
-if mibBuilder.loadTexts: nmsL2ProtocolTunnelMIB.setLastUpdated('201302210000Z')
-if mibBuilder.loadTexts: nmsL2ProtocolTunnelMIB.setOrganization('')
-l2ptMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11606, 10, 9, 357, 1))
-l2ptGlobal = MibIdentifier((1, 3, 6, 1, 4, 1, 11606, 10, 9, 357, 1, 1))
-l2ptIntfTable = MibTable((1, 3, 6, 1, 4, 1, 11606, 10, 9, 357, 1, 2), )
-if mibBuilder.loadTexts: l2ptIntfTable.setStatus('current')
-l2ptIntfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11606, 10, 9, 357, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: l2ptIntfEntry.setStatus('current')
-l2ptIntfStpTnl = MibTableColumn((1, 3, 6, 1, 4, 1, 11606, 10, 9, 357, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: l2ptIntfStpTnl.setStatus('current')
-mibBuilder.exportSymbols("NMS-L2-PROTOCOL-TUNNEL-MIB", PYSNMP_MODULE_ID=nmsL2ProtocolTunnelMIB, l2ptIntfTable=l2ptIntfTable, nmsL2ProtocolTunnelMIB=nmsL2ProtocolTunnelMIB, l2ptIntfStpTnl=l2ptIntfStpTnl, l2ptMIBObjects=l2ptMIBObjects, l2ptIntfEntry=l2ptIntfEntry, l2ptGlobal=l2ptGlobal)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/NMS-L2-PROTOCOL-TUNNEL-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:28:00 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(nmsMgmt,) = mibBuilder.importSymbols(
+    "NMS-SMI",
+    "nmsMgmt")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+nmsL2ProtocolTunnelMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 11606, 10, 9, 357)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_L2ptMIBObjects_ObjectIdentity = ObjectIdentity
+l2ptMIBObjects = _L2ptMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11606, 10, 9, 357, 1)
+)
+_L2ptGlobal_ObjectIdentity = ObjectIdentity
+l2ptGlobal = _L2ptGlobal_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11606, 10, 9, 357, 1, 1)
+)
+_L2ptIntfTable_Object = MibTable
+l2ptIntfTable = _L2ptIntfTable_Object(
+    (1, 3, 6, 1, 4, 1, 11606, 10, 9, 357, 1, 2)
+)
+if mibBuilder.loadTexts:
+    l2ptIntfTable.setStatus("current")
+_L2ptIntfEntry_Object = MibTableRow
+l2ptIntfEntry = _L2ptIntfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11606, 10, 9, 357, 1, 2, 1)
+)
+l2ptIntfEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    l2ptIntfEntry.setStatus("current")
+
+
+class _L2ptIntfStpTnl_Type(Integer32):
+    """Custom type l2ptIntfStpTnl based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_L2ptIntfStpTnl_Type.__name__ = "Integer32"
+_L2ptIntfStpTnl_Object = MibTableColumn
+l2ptIntfStpTnl = _L2ptIntfStpTnl_Object(
+    (1, 3, 6, 1, 4, 1, 11606, 10, 9, 357, 1, 2, 1, 1),
+    _L2ptIntfStpTnl_Type()
+)
+l2ptIntfStpTnl.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    l2ptIntfStpTnl.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "NMS-L2-PROTOCOL-TUNNEL-MIB",
+    **{"nmsL2ProtocolTunnelMIB": nmsL2ProtocolTunnelMIB,
+       "l2ptMIBObjects": l2ptMIBObjects,
+       "l2ptGlobal": l2ptGlobal,
+       "l2ptIntfTable": l2ptIntfTable,
+       "l2ptIntfEntry": l2ptIntfEntry,
+       "l2ptIntfStpTnl": l2ptIntfStpTnl}
+)

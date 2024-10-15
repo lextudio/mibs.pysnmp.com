@@ -1,41 +1,399 @@
+# SNMP MIB module (PANDATEL-GMS-MODEM-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module PANDATEL-GMS-MODEM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/PANDATEL-GMS-MODEM-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:28:25 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
-mdmSpecifics, device_id = mibBuilder.importSymbols("PANDATEL-MODEM-MIB", "mdmSpecifics", "device-id")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-NotificationType, Unsigned32, Counter32, MibIdentifier, ModuleIdentity, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, enterprises, Bits, Gauge32, iso, TimeTicks, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Unsigned32", "Counter32", "MibIdentifier", "ModuleIdentity", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "enterprises", "Bits", "Gauge32", "iso", "TimeTicks", "Counter64")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-gms_modem = MibIdentifier((1, 3, 6, 1, 4, 1, 760, 1, 1, 2, 1, 10, 10000, 2, 204)).setLabel("gms-modem")
-gms = MibIdentifier((1, 3, 6, 1, 4, 1, 760, 1, 1, 2, 1, 10, 204))
-gmsModemTable = MibTable((1, 3, 6, 1, 4, 1, 760, 1, 1, 2, 1, 10, 204, 1), )
-if mibBuilder.loadTexts: gmsModemTable.setStatus('mandatory')
-gmsTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 760, 1, 1, 2, 1, 10, 204, 1, 1), ).setIndexNames((0, "PANDATEL-GMS-MODEM-MIB", "mdmRack"), (0, "PANDATEL-GMS-MODEM-MIB", "mdmModem"), (0, "PANDATEL-GMS-MODEM-MIB", "mdmPosition"))
-if mibBuilder.loadTexts: gmsTableEntry.setStatus('mandatory')
-mdmRack = MibTableColumn((1, 3, 6, 1, 4, 1, 760, 1, 1, 2, 1, 10, 204, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmRack.setStatus('mandatory')
-mdmModem = MibTableColumn((1, 3, 6, 1, 4, 1, 760, 1, 1, 2, 1, 10, 204, 1, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmModem.setStatus('mandatory')
-mdmPosition = MibTableColumn((1, 3, 6, 1, 4, 1, 760, 1, 1, 2, 1, 10, 204, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("local", 1), ("remote", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmPosition.setStatus('mandatory')
-mdmModemName = MibTableColumn((1, 3, 6, 1, 4, 1, 760, 1, 1, 2, 1, 10, 204, 1, 1, 5), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmModemName.setStatus('mandatory')
-mdmDataEquipmentEmulation = MibTableColumn((1, 3, 6, 1, 4, 1, 760, 1, 1, 2, 1, 10, 204, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 99))).clone(namedValues=NamedValues(("other", 1), ("dte", 2), ("dce", 3), ("unknown", 99)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmDataEquipmentEmulation.setStatus('mandatory')
-mdmModemProperty = MibTableColumn((1, 3, 6, 1, 4, 1, 760, 1, 1, 2, 1, 10, 204, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 99))).clone(namedValues=NamedValues(("other", 1), ("e1", 2), ("t1", 3), ("unknown", 99)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmModemProperty.setStatus('mandatory')
-mdmHDSLUnit = MibTableColumn((1, 3, 6, 1, 4, 1, 760, 1, 1, 2, 1, 10, 204, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("ntu", 2), ("ltu", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmHDSLUnit.setStatus('mandatory')
-mdmClockSystem = MibTableColumn((1, 3, 6, 1, 4, 1, 760, 1, 1, 2, 1, 10, 204, 1, 1, 23), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("dual", 2), ("single", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mdmClockSystem.setStatus('mandatory')
-mdmClockSource = MibTableColumn((1, 3, 6, 1, 4, 1, 760, 1, 1, 2, 1, 10, 204, 1, 1, 24), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("internal", 2), ("remote", 3), ("external", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mdmClockSource.setStatus('mandatory')
-mdmDataRate = MibTableColumn((1, 3, 6, 1, 4, 1, 760, 1, 1, 2, 1, 10, 204, 1, 1, 25), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("other", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mdmDataRate.setStatus('mandatory')
-mibBuilder.exportSymbols("PANDATEL-GMS-MODEM-MIB", mdmModemProperty=mdmModemProperty, mdmClockSystem=mdmClockSystem, mdmClockSource=mdmClockSource, mdmModemName=mdmModemName, mdmHDSLUnit=mdmHDSLUnit, mdmPosition=mdmPosition, mdmRack=mdmRack, mdmDataRate=mdmDataRate, gms=gms, gmsTableEntry=gmsTableEntry, mdmDataEquipmentEmulation=mdmDataEquipmentEmulation, gmsModemTable=gmsModemTable, mdmModem=mdmModem, gms_modem=gms_modem)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/PANDATEL-GMS-MODEM-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:36:52 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(device_id,
+ mdmSpecifics) = mibBuilder.importSymbols(
+    "PANDATEL-MODEM-MIB",
+    "device-id",
+    "mdmSpecifics")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Gms_ObjectIdentity = ObjectIdentity
+gms = _Gms_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 760, 1, 1, 2, 1, 10, 204)
+)
+_GmsModemTable_Object = MibTable
+gmsModemTable = _GmsModemTable_Object(
+    (1, 3, 6, 1, 4, 1, 760, 1, 1, 2, 1, 10, 204, 1)
+)
+if mibBuilder.loadTexts:
+    gmsModemTable.setStatus("mandatory")
+_GmsTableEntry_Object = MibTableRow
+gmsTableEntry = _GmsTableEntry_Object(
+    (1, 3, 6, 1, 4, 1, 760, 1, 1, 2, 1, 10, 204, 1, 1)
+)
+gmsTableEntry.setIndexNames(
+    (0, "PANDATEL-GMS-MODEM-MIB", "mdmRack"),
+    (0, "PANDATEL-GMS-MODEM-MIB", "mdmModem"),
+    (0, "PANDATEL-GMS-MODEM-MIB", "mdmPosition"),
+)
+if mibBuilder.loadTexts:
+    gmsTableEntry.setStatus("mandatory")
+_MdmRack_Type = Integer32
+_MdmRack_Object = MibTableColumn
+mdmRack = _MdmRack_Object(
+    (1, 3, 6, 1, 4, 1, 760, 1, 1, 2, 1, 10, 204, 1, 1, 1),
+    _MdmRack_Type()
+)
+mdmRack.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mdmRack.setStatus("mandatory")
+_MdmModem_Type = Integer32
+_MdmModem_Object = MibTableColumn
+mdmModem = _MdmModem_Object(
+    (1, 3, 6, 1, 4, 1, 760, 1, 1, 2, 1, 10, 204, 1, 1, 2),
+    _MdmModem_Type()
+)
+mdmModem.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mdmModem.setStatus("mandatory")
+
+
+class _MdmPosition_Type(Integer32):
+    """Custom type mdmPosition based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("local", 1),
+          ("remote", 2))
+    )
+
+
+_MdmPosition_Type.__name__ = "Integer32"
+_MdmPosition_Object = MibTableColumn
+mdmPosition = _MdmPosition_Object(
+    (1, 3, 6, 1, 4, 1, 760, 1, 1, 2, 1, 10, 204, 1, 1, 3),
+    _MdmPosition_Type()
+)
+mdmPosition.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mdmPosition.setStatus("mandatory")
+_MdmModemName_Type = DisplayString
+_MdmModemName_Object = MibTableColumn
+mdmModemName = _MdmModemName_Object(
+    (1, 3, 6, 1, 4, 1, 760, 1, 1, 2, 1, 10, 204, 1, 1, 5),
+    _MdmModemName_Type()
+)
+mdmModemName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mdmModemName.setStatus("mandatory")
+
+
+class _MdmDataEquipmentEmulation_Type(Integer32):
+    """Custom type mdmDataEquipmentEmulation based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              99)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dce", 3),
+          ("dte", 2),
+          ("other", 1),
+          ("unknown", 99))
+    )
+
+
+_MdmDataEquipmentEmulation_Type.__name__ = "Integer32"
+_MdmDataEquipmentEmulation_Object = MibTableColumn
+mdmDataEquipmentEmulation = _MdmDataEquipmentEmulation_Object(
+    (1, 3, 6, 1, 4, 1, 760, 1, 1, 2, 1, 10, 204, 1, 1, 6),
+    _MdmDataEquipmentEmulation_Type()
+)
+mdmDataEquipmentEmulation.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mdmDataEquipmentEmulation.setStatus("mandatory")
+
+
+class _MdmModemProperty_Type(Integer32):
+    """Custom type mdmModemProperty based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              99)
+        )
+    )
+    namedValues = NamedValues(
+        *(("e1", 2),
+          ("other", 1),
+          ("t1", 3),
+          ("unknown", 99))
+    )
+
+
+_MdmModemProperty_Type.__name__ = "Integer32"
+_MdmModemProperty_Object = MibTableColumn
+mdmModemProperty = _MdmModemProperty_Object(
+    (1, 3, 6, 1, 4, 1, 760, 1, 1, 2, 1, 10, 204, 1, 1, 7),
+    _MdmModemProperty_Type()
+)
+mdmModemProperty.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mdmModemProperty.setStatus("mandatory")
+
+
+class _MdmHDSLUnit_Type(Integer32):
+    """Custom type mdmHDSLUnit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ltu", 3),
+          ("ntu", 2),
+          ("other", 1))
+    )
+
+
+_MdmHDSLUnit_Type.__name__ = "Integer32"
+_MdmHDSLUnit_Object = MibTableColumn
+mdmHDSLUnit = _MdmHDSLUnit_Object(
+    (1, 3, 6, 1, 4, 1, 760, 1, 1, 2, 1, 10, 204, 1, 1, 10),
+    _MdmHDSLUnit_Type()
+)
+mdmHDSLUnit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mdmHDSLUnit.setStatus("mandatory")
+
+
+class _MdmClockSystem_Type(Integer32):
+    """Custom type mdmClockSystem based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dual", 2),
+          ("other", 1),
+          ("single", 3))
+    )
+
+
+_MdmClockSystem_Type.__name__ = "Integer32"
+_MdmClockSystem_Object = MibTableColumn
+mdmClockSystem = _MdmClockSystem_Object(
+    (1, 3, 6, 1, 4, 1, 760, 1, 1, 2, 1, 10, 204, 1, 1, 23),
+    _MdmClockSystem_Type()
+)
+mdmClockSystem.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mdmClockSystem.setStatus("mandatory")
+
+
+class _MdmClockSource_Type(Integer32):
+    """Custom type mdmClockSource based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("external", 4),
+          ("internal", 2),
+          ("other", 1),
+          ("remote", 3))
+    )
+
+
+_MdmClockSource_Type.__name__ = "Integer32"
+_MdmClockSource_Object = MibTableColumn
+mdmClockSource = _MdmClockSource_Object(
+    (1, 3, 6, 1, 4, 1, 760, 1, 1, 2, 1, 10, 204, 1, 1, 24),
+    _MdmClockSource_Type()
+)
+mdmClockSource.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mdmClockSource.setStatus("mandatory")
+
+
+class _MdmDataRate_Type(Integer32):
+    """Custom type mdmDataRate based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            1
+        )
+    )
+    namedValues = NamedValues(
+        ("other", 1)
+    )
+
+
+_MdmDataRate_Type.__name__ = "Integer32"
+_MdmDataRate_Object = MibTableColumn
+mdmDataRate = _MdmDataRate_Object(
+    (1, 3, 6, 1, 4, 1, 760, 1, 1, 2, 1, 10, 204, 1, 1, 25),
+    _MdmDataRate_Type()
+)
+mdmDataRate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mdmDataRate.setStatus("mandatory")
+_Gms_modem_ObjectIdentity = ObjectIdentity
+gms_modem = _Gms_modem_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 760, 1, 1, 2, 1, 10, 10000, 2, 204)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "PANDATEL-GMS-MODEM-MIB",
+    **{"gms": gms,
+       "gmsModemTable": gmsModemTable,
+       "gmsTableEntry": gmsTableEntry,
+       "mdmRack": mdmRack,
+       "mdmModem": mdmModem,
+       "mdmPosition": mdmPosition,
+       "mdmModemName": mdmModemName,
+       "mdmDataEquipmentEmulation": mdmDataEquipmentEmulation,
+       "mdmModemProperty": mdmModemProperty,
+       "mdmHDSLUnit": mdmHDSLUnit,
+       "mdmClockSystem": mdmClockSystem,
+       "mdmClockSource": mdmClockSource,
+       "mdmDataRate": mdmDataRate,
+       "gms-modem": gms_modem}
+)

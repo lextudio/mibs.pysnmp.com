@@ -1,85 +1,1557 @@
+# SNMP MIB module (CERENT-TC) expressed in pysnmp data model.
 #
-# PySNMP MIB module CERENT-TC (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/CERENT-TC
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:30:42 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
-cerentModules, cerentGenericDummyObjects = mibBuilder.importSymbols("CERENT-GLOBAL-REGISTRY", "cerentModules", "cerentGenericDummyObjects")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-Integer32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, TimeTicks, Counter32, NotificationType, ObjectIdentity, MibIdentifier, Gauge32, Unsigned32, Bits, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "TimeTicks", "Counter32", "NotificationType", "ObjectIdentity", "MibIdentifier", "Gauge32", "Unsigned32", "Bits", "Counter64")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-cerentTextualConventions = ModuleIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 10, 30))
-cerentTextualConventions.setRevisions(('1903-07-22 00:00', '1902-11-11 00:00', '1902-06-07 00:00', '1902-01-17 00:00', '1900-12-22 00:00', '1900-05-17 00:00', '1900-02-21 00:00', '1900-02-20 00:00', '1900-01-14 00:00', '1900-01-07 00:00',))
-if mibBuilder.loadTexts: cerentTextualConventions.setLastUpdated('0307220000Z')
-if mibBuilder.loadTexts: cerentTextualConventions.setOrganization('Cisco Systems')
-class CerentNotificationClass(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 10, 20, 30, 31, 32, 40, 50, 60, 70, 80, 90, 100))
-    namedValues = NamedValues(("other", 1), ("notReported", 10), ("administrative", 20), ("notAlarmed", 30), ("notAlarmedNonServiceAffecting", 31), ("notAlarmedServiceAffecting", 32), ("cleared", 40), ("minorNonServiceAffecting", 50), ("majorNonServiceAffecting", 60), ("criticalNonServiceAffecting", 70), ("minorServiceAffecting", 80), ("majorServiceAffecting", 90), ("criticalServiceAffecting", 100))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CERENT-TC
+# Produced by pysmi-1.5.4 at Mon Oct 14 20:54:21 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class CerentAlarmSeverity(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(10, 20, 30, 40, 50))
-    namedValues = NamedValues(("notReported", 10), ("notAlarmed", 20), ("minor", 30), ("major", 40), ("critical", 50))
+if 'mibBuilder' not in globals():
+    import sys
 
-class CerentAlarmStatus(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(10, 20, 30))
-    namedValues = NamedValues(("raised", 10), ("cleared", 20), ("transient", 30))
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-class CerentAlarmServiceAffecting(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(10, 20))
-    namedValues = NamedValues(("serviceAffecting", 10), ("nonServiceAffecting", 20))
+# Import base ASN.1 objects even if this MIB does not use it
 
-class CerentMonitorType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250, 260, 270, 280, 290, 300, 310, 320, 330, 340, 350, 360, 370, 380, 390, 400, 410, 420, 430, 440, 450, 460, 470, 480, 490, 500, 510, 520, 530, 540, 550, 560, 570, 580, 590, 600, 620, 630, 640, 650, 660, 670, 680, 690, 700, 710, 720, 730, 740, 750, 760, 770, 780, 790, 800, 810, 820, 830, 840, 850, 860, 870, 880, 890, 900, 910, 920, 930, 940, 950, 960, 970, 980, 990, 1000, 1010, 1020, 1030, 1040, 1050, 1060, 1070, 1080, 1090, 1100, 1110, 1120, 1130, 1140, 1150, 1160, 1170, 1180, 1190, 1200, 1210, 1220, 1230, 1250, 1260, 1270, 1280, 1290, 1300, 1310, 1320, 1330, 1340, 1350, 1360, 1370, 1380, 1390, 1400, 1410, 1420, 1430, 1440, 1450, 1460, 1470, 1480, 1490, 1500, 1510, 1520, 1530, 1540, 1550, 1560, 1570, 1580, 1590, 1600, 1710, 1720, 1730, 1740, 1750, 1760, 1770, 1780, 1790, 1800, 1810, 1820, 1830, 1840, 1850, 1860, 1870, 1880, 1890, 1900, 1910, 1920, 1930, 1940, 1950, 1960, 1970, 1980, 1990, 2000, 2010, 2020, 2030, 2040, 2050, 2060, 2070, 2080, 2090, 2100, 2110, 2120, 2130, 2140, 2150, 2160, 2170, 2180, 2190, 2200, 2210, 2220, 2230, 2240, 2250, 2260, 2270, 2280, 2290, 2300, 2310, 2320, 2330, 2340, 2350, 2360, 2370, 2380, 2390, 2400, 2410, 2420, 2430, 2440, 2450, 2460, 2470, 2480, 2490, 2500, 2510, 2520, 2530, 2540, 2550, 2560, 2570, 2580, 2590, 2600, 2610, 2620, 2630, 2640, 2650, 2660), SingleValueConstraint(2670, 2680, 2690, 2700, 2710, 2720, 2740, 2750, 2760, 2770, 2780, 3025, 3030, 3035, 3090, 3095, 3100, 3105, 3110, 3115, 3120, 3125, 3130, 3135, 3140, 3145, 3150, 3155, 3160, 3165, 3170, 3175, 3180, 3185, 3190, 3195, 3200, 3205, 3210, 3215, 3220, 3225, 3230, 3235, 3240, 3245, 3250, 3255, 3260, 3265, 3270, 3275, 3280, 3285, 3290, 3295, 3300, 3305, 3310, 3315, 3320, 3380, 3385, 3390, 3395, 3400, 3405, 3410, 3415, 3420, 3425, 3430, 3435, 3440, 3445, 3450, 3455, 3460, 3465, 3470, 3475, 3480, 3485, 3490, 3495, 3500, 3505, 3510, 3515, 3520, 3525, 3530, 3535, 3540, 3545, 3550, 3555, 3560, 3565, 3570, 3575, 3580, 3585, 3590, 3595, 3600, 3605, 3610, 3615, 3620, 3625, 3630, 3635, 3640, 3645, 3650, 3655, 3660, 3665, 3670, 3675, 3680, 3685, 3690, 3695, 3700, 3705, 3710, 3715, 3720, 3725, 3730, 3735, 3740, 3745, 3750, 3755, 3760, 3765, 3770, 3775, 3780, 3785, 3790, 3795, 3800, 3805, 3810, 3815, 3820, 3825, 3830, 3835, 3840, 3845, 3850, 3870, 3875, 3880, 3885, 3900, 3905, 3910, 3915, 3920, 3925, 3930, 3935, 3940, 3945, 3950, 3955, 3960, 3965, 3970, 3975, 3980, 3985, 3990, 3995, 4000, 4005, 4010, 4015, 4020, 4025, 4030, 4035, 4036, 4037, 4038, 4039, 4040, 4041, 4045, 4050, 4051, 4055, 4056, 4060, 4065, 4070, 4075, 4080, 4085, 4090, 4095, 9992, 9993, 9994, 9995, 9996, 9997, 9998, 9999, 10000, 10001, 4100, 4105, 4110, 4115, 4120, 4125, 4130, 4135, 4140, 4145, 4150, 4155))
-    namedValues = NamedValues(("unknown", 1), ("cvl", 10), ("cvp", 20), ("cvs", 30), ("cvv", 40), ("esl", 50), ("esp", 60), ("ess", 70), ("esv", 80), ("fcp", 90), ("fcl", 100), ("npjcPdet", 110), ("ppjcPdet", 120), ("psc", 130), ("pscR", 140), ("pscS", 150), ("pscW", 160), ("psd", 170), ("psdR", 180), ("psdS", 190), ("psdW", 200), ("sasp", 210), ("sefs", 220), ("sesl", 230), ("sesp", 240), ("sess", 250), ("sesv", 260), ("uasl", 270), ("uasp", 280), ("uasv", 290), ("bbers", 300), ("bbel", 310), ("bbehp", 320), ("bbelp", 330), ("aissp", 340), ("cvcpp", 350), ("escpp", 360), ("lossl", 370), ("sascpp", 380), ("sescpp", 390), ("uascpp", 400), ("npjcPgen", 410), ("ppjcPgen", 420), ("ebms", 430), ("ebrs", 440), ("ebhp", 450), ("eblp", 460), ("esms", 470), ("esrs", 480), ("eshp", 490), ("eslp", 500), ("sesms", 510), ("sesrs", 520), ("seshp", 530), ("seslp", 540), ("uasms", 550), ("uashp", 560), ("uaslp", 570), ("fcms", 580), ("fchp", 590), ("fclp", 600), ("cssp", 620), ("esap", 630), ("esbp", 640), ("sefsp", 650), ("ebp", 660), ("bbems", 670), ("bbep", 680), ("bbev", 690), ("pjcsPdet", 700), ("pjcsPgen", 710), ("pjcdiff", 720), ("css", 730), ("uass", 740), ("sessr", 750), ("bbesr", 760), ("uasrs", 770), ("ebl", 780), ("eslr", 790), ("seslr", 800), ("bbelr", 810), ("bbepr", 820), ("txPwrMin", 830), ("rxPwrMin", 840), ("laserBiasMin", 850), ("laserTempMin", 860), ("xcvaMin", 870), ("validPackets", 880), ("invalidPackets", 890), ("cgv", 900), ("idleOs", 910), ("nidleOs", 920), ("dgc", 930), ("bitEc", 940), ("byteEc", 950), ("bit0Ed", 960), ("bit1Ed", 970), ("uncWord", 980), ("rxTempMin", 990), ("voaMin", 1000), ("gainMin", 1010), ("txPwrMax", 1020), ("rxPwrMax", 1030), ("rxTempMax", 1040), ("laserBiasMax", 1050), ("laserTempMax", 1060), ("xcvaMax", 1070), ("voaMax", 1080), ("gainMax", 1090), ("bbeSm", 1100), ("bbePm", 1110), ("bbeTcm1", 1120), ("bbeTcm2", 1130), ("bberSm", 1140), ("bberPm", 1150), ("bberTcm1", 1160), ("bberTcm2", 1170), ("biec", 1180), ("ipc", 1190), ("byec", 1200), ("dcg", 1210), ("bbes", 1220), ("feCssP", 1230), ("opwrAvg", 1250), ("opwrMax", 1260), ("opwrMin", 1270), ("essr", 1280), ("esrp", 1290), ("sesrp", 1300), ("esrhp", 1310), ("sesrhp", 1320), ("bberhp", 1330), ("esrlp", 1340), ("sesrlp", 1350), ("bberlp", 1360), ("lossms", 1370), ("npjcPdethp", 1380), ("ppjcPdethp", 1390), ("npjcPgenhp", 1400), ("ppjcPgenhp", 1410), ("pjcsPdethp", 1420), ("pjcsPgenhp", 1430), ("pjcdiffhp", 1440), ("pscms", 1450), ("pscRms", 1460), ("pscSms", 1470), ("pscWms", 1480), ("psdms", 1490), ("psdRms", 1500), ("psdSms", 1510), ("psdWms", 1520), ("lbcn", 1530), ("oprn", 1540), ("optn", 1550), ("optnLwt", 1560), ("optnHwt", 1570), ("oprnLwt", 1580), ("oprnHwt", 1590), ("lbcnHwt", 1600), ("ifInOctets", 1710), ("ifInUcastPkts", 1720), ("ifInMulticastPkts", 1730), ("ifInBroadcastPkts", 1740), ("ifInDiscards", 1750), ("ifInErrors", 1760), ("ifOutOctets", 1770), ("ifOutUcastPkts", 1780), ("ifOutMulticastPkts", 1790), ("ifOutBroadcastPkts", 1800), ("ifOutDiscards", 1810), ("dot3StatsAlignmentErrors", 1820), ("dot3StatsFCSErrors", 1830), ("dot3StatsSingleCollisionFrames", 1840), ("dot3StatsMultipleCollisionFrames", 1850), ("dot3StatsDeferredTransmissions", 1860), ("dot3StatsLateCollisions", 1870), ("dot3StatsExcessiveCollisions", 1880), ("dot3StatsFrameTooLong", 1890), ("dot3StatsCarrierSenseErrors", 1900), ("dot3StatsSQETestErrors", 1910), ("etherStatsUndersizePkts", 1920), ("etherStatsFragments", 1930), ("etherStatsPkts64Octets", 1940), ("etherStatsPkts65to127Octets", 1950), ("etherStatsPkts128to255Octets", 1960), ("etherStatsPkts256to511Octets", 1970), ("etherStatsPkts512to1023Octets", 1980), ("etherStatsPkts1024to1518Octets", 1990), ("etherStatsBroadcastPkts", 2000), ("etherStatsMulticastPkts", 2010), ("etherStatsOversizePkts", 2020), ("etherStatsJabbers", 2030), ("etherStatsOctets", 2040), ("etherStatsCollisions", 2050), ("etherStatsCollisionFrames", 2060), ("etherStatsCRCAlignErrors", 2070), ("etherStatsDropEvents", 2080), ("rxPauseFrames", 2090), ("txPauseFrames", 2100), ("rxPktsDroppedInternalCongestion", 2110), ("txPktsDroppedInternalCongestion", 2120), ("txTotalPkts", 2130), ("rxTotalPkts", 2140), ("hdlcPktDrops", 2150), ("rxControlFrames", 2160), ("rxUnknownOpcodeFrames", 2170), ("ifInErrorBytePkts", 2180), ("ifInFramingErrorPkts", 2190), ("ifInJunkInterPkts", 2200), ("gfpStatsRxSBitErrors", 2210), ("gfpStatsRxMBitErrors", 2220), ("gfpStatsRxTypeInvalid", 2230), ("gfpStatsRxCRCErrors", 2240), ("gfpStatsRxCIDInvalid", 2250), ("gfpStatsLFDRaised", 2260), ("gfpStatsCSFRaised", 2270), ("gfpStatsRxFrame", 2280), ("gfpStatsTxFrame", 2290), ("gfpStatsRxOctets", 2300), ("gfpStatsTxOctets", 2310), ("gfpStatsRoundTripLatencyUSec", 2320), ("mediaIndStatsRxFramesTruncated", 2330), ("mediaIndStatsRxFramesTooLong", 2340), ("mediaIndStatsRxFramesBadCRC", 2350), ("mediaIndStatsTxFramesBadCRC", 2360), ("gfpStatsRxDistanceExtBuffers", 2370), ("gfpStatsTxDistanceExtBuffers", 2380), ("fcStatsLinkRecoveries", 2390), ("fcStatsRxCredits", 2400), ("fcStatsTxCredits", 2410), ("fcStatsZeroTxCredits", 2420), ("cmt8b10bInvalidOrderedSets", 2430), ("cmt8b10bStatsEncodingDispErrors", 2440), ("cmt8b10bIdleOrderedSets", 2450), ("esnp", 2460), ("sesnp", 2470), ("uasnp", 2480), ("esnpfe", 2490), ("sesnpfe", 2500), ("uasnpfe", 2510), ("cmt8b10bNonIdleOrderedSets", 2520), ("cmt8b10bDataOrderedSets", 2530), ("cmt8b10bLossOfSync", 2540), ("hdlcInOctets", 2550), ("hdlcRxAborts", 2560), ("hdlcOutOctets", 2570), ("mediaIndStatsRxShortPkts", 2580), ("mediaIndStatsOversizeDropped", 2590), ("fibreStatsRxFrames", 2600), ("fibreStatsTxFrames", 2610), ("etherStatsPkts", 2620), ("ifOutErrors", 2630), ("dot3StatsInternalMacTxErrors", 2640), ("dot3StatsInternalMacRxErrors", 2650), ("dot3StatsSymbolErrors", 2660)) + NamedValues(("ifOutOversizePkts", 2670), ("gfpStatsRxSblkCRCErrors", 2680), ("mediaIndStatsTxFramesTooLong", 2690), ("lbcnLwt", 2700), ("ifOutPayloadCrcErrors", 2710), ("ifInPayloadCrcErrors", 2720), ("ofsrs", 2740), ("fcv", 2750), ("fcStatsRxRecvrReady", 2760), ("fcStatsTxRecvrReady", 2770), ("cmt8b10bInvalidOrderedSetsDispErrorsSum", 2780), ("gainAvg", 3025), ("pwrAvg", 3030), ("voaAvg", 3035), ("pwrMax", 3090), ("pwrMin", 3095), ("esPm", 3100), ("sesSm", 3105), ("uasSm", 3110), ("fcSm", 3115), ("esrSm", 3120), ("sesrSm", 3125), ("sesPm", 3130), ("uasPm", 3135), ("fcPm", 3140), ("esrPm", 3145), ("sesrPm", 3150), ("esTcm1", 3155), ("sesTcm1", 3160), ("uasTcm1", 3165), ("fcTcm1", 3170), ("esrTcm1", 3175), ("sesrTcm1", 3180), ("esTcm2", 3185), ("sesTcm2", 3190), ("uasTcm2", 3195), ("fcTcm2", 3200), ("esrTcm2", 3205), ("sesrTcm2", 3210), ("vpc", 3215), ("ios", 3220), ("latAvg", 3225), ("latMax", 3230), ("latMin", 3235), ("lbclAvg", 3240), ("lbclMax", 3245), ("lbclMin", 3250), ("nios", 3255), ("obed", 3260), ("oprAvg", 3265), ("oprMax", 3270), ("oprMin", 3275), ("optAvg", 3280), ("optMax", 3285), ("optMin", 3290), ("ucw", 3295), ("xcvrAvg", 3300), ("xcvrMax", 3305), ("xcvrMin", 3310), ("zbed", 3315), ("esSm", 3320), ("rprSpanStatsInUcastClassCFrames", 3380), ("rprSpanStatsInUcastClassCOctets", 3385), ("rprSpanStatsInMcastClassCFrames", 3390), ("rprSpanStatsInMcastClassCOctets", 3395), ("rprSpanStatsInUcastClassBEirFrames", 3400), ("rprSpanStatsInUcastClassBEirOctets", 3405), ("rprSpanStatsInMcastClassBEirFrames", 3410), ("rprSpanStatsInMcastClassBEirOctets", 3415), ("rprSpanStatsInUcastClassBCirFrames", 3420), ("rprSpanStatsInUcastClassBCirOctets", 3425), ("rprSpanStatsInMcastClassBCirFrames", 3430), ("rprSpanStatsInMcastClassBCirOctets", 3435), ("rprSpanStatsInUcastClassAFrames", 3440), ("rprSpanStatsInUcastClassAOctets", 3445), ("rprSpanStatsInMcastClassAFrames", 3450), ("rprSpanStatsInMcastClassAOctets", 3455), ("rprSpanStatsInCtrlFrames", 3460), ("rprSpanStatsInOamEchoFrames", 3465), ("rprSpanStatsInOamFlushFrames", 3470), ("rprSpanStatsInOamOrgFrames", 3475), ("rprSpanStatsInTopoAtdFrames", 3480), ("rprSpanStatsInTopoChkSumFrames", 3485), ("rprSpanStatsInTopoTpFrames", 3490), ("rprSpanStatsOutUcastClassCFrames", 3495), ("rprSpanStatsOutUcastClassCOctets", 3500), ("rprSpanStatsOutMcastClassCFrames", 3505), ("rprSpanStatsOutMcastClassCOctets", 3510), ("rprSpanStatsOutUcastClassBEirFrames", 3515), ("rprSpanStatsOutUcastClassBEirOctets", 3520), ("rprSpanStatsTMcastClassBEirFrames", 3525), ("rprSpanStatsOutMcastClassBEirOctets", 3530), ("rprSpanStatsOutUcastClassBCirFrames", 3535), ("rprSpanStatsOutUcastClassBCirOctets", 3540), ("rprSpanStatsTMcastClassBCirFrames", 3545), ("rprSpanStatsOutMcastClassBCirOctets", 3550), ("rprSpanStatsOutUcastClassAFrames", 3555), ("rprSpanStatsOutUcastClassAOctets", 3560), ("rprSpanStatsOutMcastClassAFrames", 3565), ("rprSpanStatsOutMcastClassAOctets", 3570), ("rprSpanStatsOutCtrlFrames", 3575), ("rprSpanStatsOutOamEchoFrames", 3580), ("rprSpanStatsOutOamFlushFrames", 3585), ("rprSpanStatsOutOamOrgFrames", 3590), ("rprSpanStatsOutTopoAtdFrames", 3595), ("rprSpanStatsOutTopoChkSumFrames", 3600), ("rprSpanStatsOutTopoTpFrames", 3605), ("rprClientStatsInUcastClassCFrames", 3610), ("rprClientStatsInUcastClassCOctets", 3615), ("rprClientStatsInMcastClassCFrames", 3620), ("rprClientStatsInMcastClassCOctets", 3625), ("rprClientStatsInUcastClassBEirFrames", 3630), ("rprClientStatsInUcastClassBEirOctets", 3635), ("rprClientStatsInMcastClassBEirFrames", 3640), ("rprClientStatsInMcastClassBEirOctets", 3645), ("rprClientStatsInUcastClassBCirFrames", 3650), ("rprClientStatsInUcastClassBCirOctets", 3655), ("rprClientStatsInMcastClassBCirFrames", 3660), ("rprClientStatsInMcastClassBCirOctets", 3665), ("rprClientStatsInUcastClassAFrames", 3670), ("rprClientStatsInUcastClassAOctets", 3675), ("rprClientStatsInMcastClassAFrames", 3680), ("rprClientStatsInMcastClassAOctets", 3685), ("rprClientStatsInBcastFrames", 3690), ("rprClientStatsOutUcastClassCFrames", 3695), ("rprClientStatsOutUcastClassCOctets", 3700), ("rprClientStatsOutMcastClassCFrames", 3705), ("rprClientStatsOutMcastClassCOctets", 3710), ("rprClientStatsOutUcastClassBEirFrames", 3715), ("rprClientStatsOutUcastClassBEirOctets", 3720), ("rprClientStatsOutMcastClassBEirFrames", 3725), ("rprClientStatsOutMcastClassBEirOctets", 3730), ("rprClientStatsOutUcastClassBCirFrames", 3735), ("rprClientStatsOutUcastClassBCirOctets", 3740), ("rprClientStatsOutMcastClassBCirFrames", 3745), ("rprClientStatsOutMcastClassBCirOctets", 3750), ("rprClientStatsOutUcastClassAFrames", 3755), ("rprClientStatsOutUcastClassAOctets", 3760), ("rprClientStatsOutMcastClassAFrames", 3765), ("rprClientStatsOutMcastClassAOctets", 3770), ("rprClientStatsOutBcastFrames", 3775), ("rprIfStatsInOctets", 3780), ("rprIfStatsInFrames", 3785), ("rprIfStatsOutOctets", 3790), ("rprIfStatsOutFrames", 3795), ("rprErrorStatsBadParityFrames", 3800), ("rprErrorStatsBadHecFrames", 3805), ("rprErrorStatsTtlExpFrames", 3810), ("rprErrorStatsTooLongFrames", 3815), ("rprErrorStatsTooShortFrames", 3820), ("rprErrorStatsBadFcsFrames", 3825), ("rprErrorStatsSelfSrcUcastFrames", 3830), ("rprErrorStatsPmdAbortFrames", 3835), ("rprErrorStatsBadAddrFrames", 3840), ("rprErrorStatsContainedFrames", 3845), ("rprErrorStatsScffErrors", 3850), ("rprPortCounterError", 3870), ("etherStatsPkts1519to1522Octets", 3875), ("dot3StatsControlInUnknownOpCodes", 3880), ("dot3StatsInPauseFrames", 3885), ("dot3StatsOutPauseFrames", 3900), ("rprErrorOversizeFrames", 3905), ("etherStatsTxFifoOverflowEvents", 3910), ("ifHCInOctets", 3915), ("ifHCInUcastPkts", 3920), ("ifHCInMulticastPkts", 3925), ("ifHCInBroadcastPkts", 3930), ("ifHCOutOctets", 3935), ("ifHCOutMulticastPkts", 3940), ("ifHCOutBroadcastPkts", 3945), ("etherStatsHighCapacityPkts", 3950), ("etherStatsHighCapacityOctets", 3955), ("etherStatsHighCapacityPkts64Octets", 3960), ("etherStatsHighCapacityPkts65to127Octets", 3965), ("etherStatsHighCapacityPkts128to255Octets", 3970), ("etherStatsHighCapacityPkts256to511Octets", 3975), ("etherStatsHighCapacityPkts512to1023Octets", 3980), ("etherStatsHighCapacityPkts1024to1518Octets", 3985), ("cisRxReports", 3990), ("cisRxLeaves", 3995), ("cisTxReports", 4000), ("cisTxLeaves", 4005), ("cisTxGeneralQueries", 4010), ("cisTxGroupSpecificQueries", 4015), ("cisRxGeneralQueries", 4020), ("cisRxGroupSpecificQueries", 4025), ("cisRxValidPackets", 4030), ("cisRxInvalidPackets", 4035), ("dot3adAggPortStatsLACPDUsRx", 4036), ("dot3adAggPortStatsLACPDUsTx", 4037), ("crepHflRxPdus", 4038), ("crepHflTxPdus", 4039), ("crepLslRxPdus", 4040), ("crepLslTxPdus", 4041), ("mediaIndStatsTxFramesTruncated", 4045), ("oscPwrMin", 4050), ("gfpRxCmfFrame", 4051), ("oscPwrMax", 4055), ("gfpTxCmfFrame", 4056), ("oscPwrAvg", 4060), ("osnrMin", 4065), ("osnrMax", 4070), ("osnrAvg", 4075), ("pmdMin", 4080), ("pmdMax", 4085), ("pmdAvg", 4090), ("chromDisp", 4095), ("etherStatsPkts1519toMaxOctets", 9992), ("mediaIndStatsTxShortPkts", 9993), ("mediaIndStatsRxLcvErrors", 9994), ("mediaIndStatsTxLcvErrors", 9995), ("dot3StatsLcvErrors", 9996), ("dot3StatsLayer1Errors", 9997), ("gfpStatsCHecRxMBitErrors", 9998), ("gfpStatsTHecRxMBitErrors", 9999), ("rx8b10bWords", 10000), ("tx8b10bWords", 10001), ("cdpmMin", 4100), ("cdpmMax", 4105), ("cdpmAvg", 4110), ("sopmdmin", 4115), ("sopmdmax", 4120), ("sopmdavg", 4125), ("pcrmin", 4130), ("pcrmax", 4135), ("pcravg", 4140), ("pdlmin", 4145), ("pdlmax", 4150), ("pdlavg", 4155))
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
 
-class CerentLocation(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 10, 20))
-    namedValues = NamedValues(("unknown", 1), ("farEnd", 10), ("nearEnd", 20))
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
 
-class CerentPeriod(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 5, 10, 20, 30))
-    namedValues = NamedValues(("unknown", 1), ("minutes1", 5), ("minutes15", 10), ("hour1", 20), ("day1", 30))
+# Import SMI symbols from the MIBs this MIB depends on
 
-class CerentPortNumber(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250, 260, 270, 280, 290, 300, 310, 320, 330, 340, 350, 360, 370, 380, 390, 400, 410, 420, 430, 440, 450, 460, 470, 480, 490, 500, 510, 520, 530, 540, 550, 560, 570, 580, 590, 600, 610, 620, 630, 640, 10240))
-    namedValues = NamedValues(("unknown", 1), ("port0", 5), ("port1", 10), ("port2", 20), ("port3", 30), ("port4", 40), ("port5", 50), ("port6", 60), ("port7", 70), ("port8", 80), ("port9", 90), ("port10", 100), ("port11", 110), ("port12", 120), ("port13", 130), ("port14", 140), ("port15", 150), ("port16", 160), ("port17", 170), ("port18", 180), ("port19", 190), ("port20", 200), ("port21", 210), ("port22", 220), ("port23", 230), ("port24", 240), ("port25", 250), ("port26", 260), ("port27", 270), ("port28", 280), ("port29", 290), ("port30", 300), ("port31", 310), ("port32", 320), ("port33", 330), ("port34", 340), ("port35", 350), ("port36", 360), ("port37", 370), ("port38", 380), ("port39", 390), ("port40", 400), ("port41", 410), ("port42", 420), ("port43", 430), ("port44", 440), ("port45", 450), ("port46", 460), ("port47", 470), ("port48", 480), ("port49", 490), ("port50", 500), ("port51", 510), ("port52", 520), ("port53", 530), ("port54", 540), ("port55", 550), ("port56", 560), ("port57", 570), ("port58", 580), ("port59", 590), ("port60", 600), ("port61", 610), ("port62", 620), ("port63", 630), ("port64", 640), ("portAll", 10240))
+(cerentGenericDummyObjects,
+ cerentModules) = mibBuilder.importSymbols(
+    "CERENT-GLOBAL-REGISTRY",
+    "cerentGenericDummyObjects",
+    "cerentModules")
 
-class CerentAlarmThresholdMonitorType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 10, 20, 30, 40, 50, 60))
-    namedValues = NamedValues(("unknown", 1), ("lbcnMax", 10), ("lbcnMin", 20), ("optnMax", 30), ("optnMin", 40), ("oprnMax", 50), ("oprnMin", 60))
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
 
-cerentTcDummyGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 3607, 2, 1, 1)).setObjects(("CERENT-TC", "cerentTcDummyMonType"), ("CERENT-TC", "cerentTcDummyLoc"), ("CERENT-TC", "cerentTcDummyPeriod"), ("CERENT-TC", "cerentTcDummyPortNumber"), ("CERENT-TC", "cerentTcDummyNotifClass"), ("CERENT-TC", "cerentTcDummyAlarmThresholdMonType"), ("CERENT-TC", "cerentTcDummyAlarmSeverity"), ("CERENT-TC", "cerentTcDummyAlarmStatus"), ("CERENT-TC", "cerentTcDummyAlarmServiceAffecting"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cerentTcDummyGroup = cerentTcDummyGroup.setStatus('current')
-cerentTcDummyMonType = MibScalar((1, 3, 6, 1, 4, 1, 3607, 2, 1, 2), CerentMonitorType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cerentTcDummyMonType.setStatus('current')
-cerentTcDummyLoc = MibScalar((1, 3, 6, 1, 4, 1, 3607, 2, 1, 3), CerentLocation()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cerentTcDummyLoc.setStatus('current')
-cerentTcDummyPeriod = MibScalar((1, 3, 6, 1, 4, 1, 3607, 2, 1, 4), CerentPeriod()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cerentTcDummyPeriod.setStatus('current')
-cerentTcDummyPortNumber = MibScalar((1, 3, 6, 1, 4, 1, 3607, 2, 1, 5), CerentPortNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cerentTcDummyPortNumber.setStatus('current')
-cerentTcDummyNotifClass = MibScalar((1, 3, 6, 1, 4, 1, 3607, 2, 1, 6), CerentNotificationClass()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cerentTcDummyNotifClass.setStatus('current')
-cerentTcDummyAlarmThresholdMonType = MibScalar((1, 3, 6, 1, 4, 1, 3607, 2, 1, 7), CerentAlarmThresholdMonitorType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cerentTcDummyAlarmThresholdMonType.setStatus('current')
-cerentTcDummyAlarmSeverity = MibScalar((1, 3, 6, 1, 4, 1, 3607, 2, 1, 8), CerentAlarmSeverity()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cerentTcDummyAlarmSeverity.setStatus('current')
-cerentTcDummyAlarmStatus = MibScalar((1, 3, 6, 1, 4, 1, 3607, 2, 1, 9), CerentAlarmStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cerentTcDummyAlarmStatus.setStatus('current')
-cerentTcDummyAlarmServiceAffecting = MibScalar((1, 3, 6, 1, 4, 1, 3607, 2, 1, 10), CerentAlarmServiceAffecting()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cerentTcDummyAlarmServiceAffecting.setStatus('current')
-mibBuilder.exportSymbols("CERENT-TC", cerentTcDummyAlarmStatus=cerentTcDummyAlarmStatus, CerentNotificationClass=CerentNotificationClass, CerentMonitorType=CerentMonitorType, CerentPeriod=CerentPeriod, cerentTcDummyAlarmSeverity=cerentTcDummyAlarmSeverity, cerentTcDummyGroup=cerentTcDummyGroup, cerentTcDummyMonType=cerentTcDummyMonType, cerentTcDummyAlarmServiceAffecting=cerentTcDummyAlarmServiceAffecting, CerentPortNumber=CerentPortNumber, CerentAlarmStatus=CerentAlarmStatus, CerentAlarmThresholdMonitorType=CerentAlarmThresholdMonitorType, cerentTcDummyAlarmThresholdMonType=cerentTcDummyAlarmThresholdMonType, cerentTcDummyPortNumber=cerentTcDummyPortNumber, cerentTcDummyPeriod=cerentTcDummyPeriod, CerentAlarmServiceAffecting=CerentAlarmServiceAffecting, cerentTextualConventions=cerentTextualConventions, CerentAlarmSeverity=CerentAlarmSeverity, PYSNMP_MODULE_ID=cerentTextualConventions, CerentLocation=CerentLocation, cerentTcDummyNotifClass=cerentTcDummyNotifClass, cerentTcDummyLoc=cerentTcDummyLoc)
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+cerentTextualConventions = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 3607, 1, 10, 30)
+)
+cerentTextualConventions.setRevisions(
+        ("1903-07-22 00:00",
+         "1902-11-11 00:00",
+         "1902-06-07 00:00",
+         "1902-01-17 00:00",
+         "1900-12-22 00:00",
+         "1900-05-17 00:00",
+         "1900-02-21 00:00",
+         "1900-02-20 00:00",
+         "1900-01-14 00:00",
+         "1900-01-07 00:00")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class CerentNotificationClass(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              10,
+              20,
+              30,
+              31,
+              32,
+              40,
+              50,
+              60,
+              70,
+              80,
+              90,
+              100)
+        )
+    )
+    namedValues = NamedValues(
+        *(("administrative", 20),
+          ("cleared", 40),
+          ("criticalNonServiceAffecting", 70),
+          ("criticalServiceAffecting", 100),
+          ("majorNonServiceAffecting", 60),
+          ("majorServiceAffecting", 90),
+          ("minorNonServiceAffecting", 50),
+          ("minorServiceAffecting", 80),
+          ("notAlarmed", 30),
+          ("notAlarmedNonServiceAffecting", 31),
+          ("notAlarmedServiceAffecting", 32),
+          ("notReported", 10),
+          ("other", 1))
+    )
+
+
+
+class CerentAlarmSeverity(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(10,
+              20,
+              30,
+              40,
+              50)
+        )
+    )
+    namedValues = NamedValues(
+        *(("critical", 50),
+          ("major", 40),
+          ("minor", 30),
+          ("notAlarmed", 20),
+          ("notReported", 10))
+    )
+
+
+
+class CerentAlarmStatus(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(10,
+              20,
+              30)
+        )
+    )
+    namedValues = NamedValues(
+        *(("cleared", 20),
+          ("raised", 10),
+          ("transient", 30))
+    )
+
+
+
+class CerentAlarmServiceAffecting(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(10,
+              20)
+        )
+    )
+    namedValues = NamedValues(
+        *(("nonServiceAffecting", 20),
+          ("serviceAffecting", 10))
+    )
+
+
+
+class CerentMonitorType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              10,
+              20,
+              30,
+              40,
+              50,
+              60,
+              70,
+              80,
+              90,
+              100,
+              110,
+              120,
+              130,
+              140,
+              150,
+              160,
+              170,
+              180,
+              190,
+              200,
+              210,
+              220,
+              230,
+              240,
+              250,
+              260,
+              270,
+              280,
+              290,
+              300,
+              310,
+              320,
+              330,
+              340,
+              350,
+              360,
+              370,
+              380,
+              390,
+              400,
+              410,
+              420,
+              430,
+              440,
+              450,
+              460,
+              470,
+              480,
+              490,
+              500,
+              510,
+              520,
+              530,
+              540,
+              550,
+              560,
+              570,
+              580,
+              590,
+              600,
+              620,
+              630,
+              640,
+              650,
+              660,
+              670,
+              680,
+              690,
+              700,
+              710,
+              720,
+              730,
+              740,
+              750,
+              760,
+              770,
+              780,
+              790,
+              800,
+              810,
+              820,
+              830,
+              840,
+              850,
+              860,
+              870,
+              880,
+              890,
+              900,
+              910,
+              920,
+              930,
+              940,
+              950,
+              960,
+              970,
+              980,
+              990,
+              1000,
+              1010,
+              1020,
+              1030,
+              1040,
+              1050,
+              1060,
+              1070,
+              1080,
+              1090,
+              1100,
+              1110,
+              1120,
+              1130,
+              1140,
+              1150,
+              1160,
+              1170,
+              1180,
+              1190,
+              1200,
+              1210,
+              1220,
+              1230,
+              1250,
+              1260,
+              1270,
+              1280,
+              1290,
+              1300,
+              1310,
+              1320,
+              1330,
+              1340,
+              1350,
+              1360,
+              1370,
+              1380,
+              1390,
+              1400,
+              1410,
+              1420,
+              1430,
+              1440,
+              1450,
+              1460,
+              1470,
+              1480,
+              1490,
+              1500,
+              1510,
+              1520,
+              1530,
+              1540,
+              1550,
+              1560,
+              1570,
+              1580,
+              1590,
+              1600,
+              1710,
+              1720,
+              1730,
+              1740,
+              1750,
+              1760,
+              1770,
+              1780,
+              1790,
+              1800,
+              1810,
+              1820,
+              1830,
+              1840,
+              1850,
+              1860,
+              1870,
+              1880,
+              1890,
+              1900,
+              1910,
+              1920,
+              1930,
+              1940,
+              1950,
+              1960,
+              1970,
+              1980,
+              1990,
+              2000,
+              2010,
+              2020,
+              2030,
+              2040,
+              2050,
+              2060,
+              2070,
+              2080,
+              2090,
+              2100,
+              2110,
+              2120,
+              2130,
+              2140,
+              2150,
+              2160,
+              2170,
+              2180,
+              2190,
+              2200,
+              2210,
+              2220,
+              2230,
+              2240,
+              2250,
+              2260,
+              2270,
+              2280,
+              2290,
+              2300,
+              2310,
+              2320,
+              2330,
+              2340,
+              2350,
+              2360,
+              2370,
+              2380,
+              2390,
+              2400,
+              2410,
+              2420,
+              2430,
+              2440,
+              2450,
+              2460,
+              2470,
+              2480,
+              2490,
+              2500,
+              2510,
+              2520,
+              2530,
+              2540,
+              2550,
+              2560,
+              2570,
+              2580,
+              2590,
+              2600,
+              2610,
+              2620,
+              2630,
+              2640,
+              2650,
+              2660,
+              2670,
+              2680,
+              2690,
+              2700,
+              2710,
+              2720,
+              2740,
+              2750,
+              2760,
+              2770,
+              2780,
+              3025,
+              3030,
+              3035,
+              3090,
+              3095,
+              3100,
+              3105,
+              3110,
+              3115,
+              3120,
+              3125,
+              3130,
+              3135,
+              3140,
+              3145,
+              3150,
+              3155,
+              3160,
+              3165,
+              3170,
+              3175,
+              3180,
+              3185,
+              3190,
+              3195,
+              3200,
+              3205,
+              3210,
+              3215,
+              3220,
+              3225,
+              3230,
+              3235,
+              3240,
+              3245,
+              3250,
+              3255,
+              3260,
+              3265,
+              3270,
+              3275,
+              3280,
+              3285,
+              3290,
+              3295,
+              3300,
+              3305,
+              3310,
+              3315,
+              3320,
+              3380,
+              3385,
+              3390,
+              3395,
+              3400,
+              3405,
+              3410,
+              3415,
+              3420,
+              3425,
+              3430,
+              3435,
+              3440,
+              3445,
+              3450,
+              3455,
+              3460,
+              3465,
+              3470,
+              3475,
+              3480,
+              3485,
+              3490,
+              3495,
+              3500,
+              3505,
+              3510,
+              3515,
+              3520,
+              3525,
+              3530,
+              3535,
+              3540,
+              3545,
+              3550,
+              3555,
+              3560,
+              3565,
+              3570,
+              3575,
+              3580,
+              3585,
+              3590,
+              3595,
+              3600,
+              3605,
+              3610,
+              3615,
+              3620,
+              3625,
+              3630,
+              3635,
+              3640,
+              3645,
+              3650,
+              3655,
+              3660,
+              3665,
+              3670,
+              3675,
+              3680,
+              3685,
+              3690,
+              3695,
+              3700,
+              3705,
+              3710,
+              3715,
+              3720,
+              3725,
+              3730,
+              3735,
+              3740,
+              3745,
+              3750,
+              3755,
+              3760,
+              3765,
+              3770,
+              3775,
+              3780,
+              3785,
+              3790,
+              3795,
+              3800,
+              3805,
+              3810,
+              3815,
+              3820,
+              3825,
+              3830,
+              3835,
+              3840,
+              3845,
+              3850,
+              3870,
+              3875,
+              3880,
+              3885,
+              3900,
+              3905,
+              3910,
+              3915,
+              3920,
+              3925,
+              3930,
+              3935,
+              3940,
+              3945,
+              3950,
+              3955,
+              3960,
+              3965,
+              3970,
+              3975,
+              3980,
+              3985,
+              3990,
+              3995,
+              4000,
+              4005,
+              4010,
+              4015,
+              4020,
+              4025,
+              4030,
+              4035,
+              4036,
+              4037,
+              4038,
+              4039,
+              4040,
+              4041,
+              4045,
+              4050,
+              4051,
+              4055,
+              4056,
+              4060,
+              4065,
+              4070,
+              4075,
+              4080,
+              4085,
+              4090,
+              4095,
+              4100,
+              4105,
+              4110,
+              4115,
+              4120,
+              4125,
+              4130,
+              4135,
+              4140,
+              4145,
+              4150,
+              4155,
+              9992,
+              9993,
+              9994,
+              9995,
+              9996,
+              9997,
+              9998,
+              9999,
+              10000,
+              10001)
+        )
+    )
+    namedValues = NamedValues(
+        *(("aissp", 340),
+          ("bbePm", 1110),
+          ("bbeSm", 1100),
+          ("bbeTcm1", 1120),
+          ("bbeTcm2", 1130),
+          ("bbehp", 320),
+          ("bbel", 310),
+          ("bbelp", 330),
+          ("bbelr", 810),
+          ("bbems", 670),
+          ("bbep", 680),
+          ("bbepr", 820),
+          ("bberPm", 1150),
+          ("bberSm", 1140),
+          ("bberTcm1", 1160),
+          ("bberTcm2", 1170),
+          ("bberhp", 1330),
+          ("bberlp", 1360),
+          ("bbers", 300),
+          ("bbes", 1220),
+          ("bbesr", 760),
+          ("bbev", 690),
+          ("biec", 1180),
+          ("bit0Ed", 960),
+          ("bit1Ed", 970),
+          ("bitEc", 940),
+          ("byec", 1200),
+          ("byteEc", 950),
+          ("cdpmAvg", 4110),
+          ("cdpmMax", 4105),
+          ("cdpmMin", 4100),
+          ("cgv", 900),
+          ("chromDisp", 4095),
+          ("cisRxGeneralQueries", 4020),
+          ("cisRxGroupSpecificQueries", 4025),
+          ("cisRxInvalidPackets", 4035),
+          ("cisRxLeaves", 3995),
+          ("cisRxReports", 3990),
+          ("cisRxValidPackets", 4030),
+          ("cisTxGeneralQueries", 4010),
+          ("cisTxGroupSpecificQueries", 4015),
+          ("cisTxLeaves", 4005),
+          ("cisTxReports", 4000),
+          ("cmt8b10bDataOrderedSets", 2530),
+          ("cmt8b10bIdleOrderedSets", 2450),
+          ("cmt8b10bInvalidOrderedSets", 2430),
+          ("cmt8b10bInvalidOrderedSetsDispErrorsSum", 2780),
+          ("cmt8b10bLossOfSync", 2540),
+          ("cmt8b10bNonIdleOrderedSets", 2520),
+          ("cmt8b10bStatsEncodingDispErrors", 2440),
+          ("crepHflRxPdus", 4038),
+          ("crepHflTxPdus", 4039),
+          ("crepLslRxPdus", 4040),
+          ("crepLslTxPdus", 4041),
+          ("css", 730),
+          ("cssp", 620),
+          ("cvcpp", 350),
+          ("cvl", 10),
+          ("cvp", 20),
+          ("cvs", 30),
+          ("cvv", 40),
+          ("dcg", 1210),
+          ("dgc", 930),
+          ("dot3StatsAlignmentErrors", 1820),
+          ("dot3StatsCarrierSenseErrors", 1900),
+          ("dot3StatsControlInUnknownOpCodes", 3880),
+          ("dot3StatsDeferredTransmissions", 1860),
+          ("dot3StatsExcessiveCollisions", 1880),
+          ("dot3StatsFCSErrors", 1830),
+          ("dot3StatsFrameTooLong", 1890),
+          ("dot3StatsInPauseFrames", 3885),
+          ("dot3StatsInternalMacRxErrors", 2650),
+          ("dot3StatsInternalMacTxErrors", 2640),
+          ("dot3StatsLateCollisions", 1870),
+          ("dot3StatsLayer1Errors", 9997),
+          ("dot3StatsLcvErrors", 9996),
+          ("dot3StatsMultipleCollisionFrames", 1850),
+          ("dot3StatsOutPauseFrames", 3900),
+          ("dot3StatsSQETestErrors", 1910),
+          ("dot3StatsSingleCollisionFrames", 1840),
+          ("dot3StatsSymbolErrors", 2660),
+          ("dot3adAggPortStatsLACPDUsRx", 4036),
+          ("dot3adAggPortStatsLACPDUsTx", 4037),
+          ("ebhp", 450),
+          ("ebl", 780),
+          ("eblp", 460),
+          ("ebms", 430),
+          ("ebp", 660),
+          ("ebrs", 440),
+          ("esPm", 3100),
+          ("esSm", 3320),
+          ("esTcm1", 3155),
+          ("esTcm2", 3185),
+          ("esap", 630),
+          ("esbp", 640),
+          ("escpp", 360),
+          ("eshp", 490),
+          ("esl", 50),
+          ("eslp", 500),
+          ("eslr", 790),
+          ("esms", 470),
+          ("esnp", 2460),
+          ("esnpfe", 2490),
+          ("esp", 60),
+          ("esrPm", 3145),
+          ("esrSm", 3120),
+          ("esrTcm1", 3175),
+          ("esrTcm2", 3205),
+          ("esrhp", 1310),
+          ("esrlp", 1340),
+          ("esrp", 1290),
+          ("esrs", 480),
+          ("ess", 70),
+          ("essr", 1280),
+          ("esv", 80),
+          ("etherStatsBroadcastPkts", 2000),
+          ("etherStatsCRCAlignErrors", 2070),
+          ("etherStatsCollisionFrames", 2060),
+          ("etherStatsCollisions", 2050),
+          ("etherStatsDropEvents", 2080),
+          ("etherStatsFragments", 1930),
+          ("etherStatsHighCapacityOctets", 3955),
+          ("etherStatsHighCapacityPkts", 3950),
+          ("etherStatsHighCapacityPkts1024to1518Octets", 3985),
+          ("etherStatsHighCapacityPkts128to255Octets", 3970),
+          ("etherStatsHighCapacityPkts256to511Octets", 3975),
+          ("etherStatsHighCapacityPkts512to1023Octets", 3980),
+          ("etherStatsHighCapacityPkts64Octets", 3960),
+          ("etherStatsHighCapacityPkts65to127Octets", 3965),
+          ("etherStatsJabbers", 2030),
+          ("etherStatsMulticastPkts", 2010),
+          ("etherStatsOctets", 2040),
+          ("etherStatsOversizePkts", 2020),
+          ("etherStatsPkts", 2620),
+          ("etherStatsPkts1024to1518Octets", 1990),
+          ("etherStatsPkts128to255Octets", 1960),
+          ("etherStatsPkts1519to1522Octets", 3875),
+          ("etherStatsPkts1519toMaxOctets", 9992),
+          ("etherStatsPkts256to511Octets", 1970),
+          ("etherStatsPkts512to1023Octets", 1980),
+          ("etherStatsPkts64Octets", 1940),
+          ("etherStatsPkts65to127Octets", 1950),
+          ("etherStatsTxFifoOverflowEvents", 3910),
+          ("etherStatsUndersizePkts", 1920),
+          ("fcPm", 3140),
+          ("fcSm", 3115),
+          ("fcStatsLinkRecoveries", 2390),
+          ("fcStatsRxCredits", 2400),
+          ("fcStatsRxRecvrReady", 2760),
+          ("fcStatsTxCredits", 2410),
+          ("fcStatsTxRecvrReady", 2770),
+          ("fcStatsZeroTxCredits", 2420),
+          ("fcTcm1", 3170),
+          ("fcTcm2", 3200),
+          ("fchp", 590),
+          ("fcl", 100),
+          ("fclp", 600),
+          ("fcms", 580),
+          ("fcp", 90),
+          ("fcv", 2750),
+          ("feCssP", 1230),
+          ("fibreStatsRxFrames", 2600),
+          ("fibreStatsTxFrames", 2610),
+          ("gainAvg", 3025),
+          ("gainMax", 1090),
+          ("gainMin", 1010),
+          ("gfpRxCmfFrame", 4051),
+          ("gfpStatsCHecRxMBitErrors", 9998),
+          ("gfpStatsCSFRaised", 2270),
+          ("gfpStatsLFDRaised", 2260),
+          ("gfpStatsRoundTripLatencyUSec", 2320),
+          ("gfpStatsRxCIDInvalid", 2250),
+          ("gfpStatsRxCRCErrors", 2240),
+          ("gfpStatsRxDistanceExtBuffers", 2370),
+          ("gfpStatsRxFrame", 2280),
+          ("gfpStatsRxMBitErrors", 2220),
+          ("gfpStatsRxOctets", 2300),
+          ("gfpStatsRxSBitErrors", 2210),
+          ("gfpStatsRxSblkCRCErrors", 2680),
+          ("gfpStatsRxTypeInvalid", 2230),
+          ("gfpStatsTHecRxMBitErrors", 9999),
+          ("gfpStatsTxDistanceExtBuffers", 2380),
+          ("gfpStatsTxFrame", 2290),
+          ("gfpStatsTxOctets", 2310),
+          ("gfpTxCmfFrame", 4056),
+          ("hdlcInOctets", 2550),
+          ("hdlcOutOctets", 2570),
+          ("hdlcPktDrops", 2150),
+          ("hdlcRxAborts", 2560),
+          ("idleOs", 910),
+          ("ifHCInBroadcastPkts", 3930),
+          ("ifHCInMulticastPkts", 3925),
+          ("ifHCInOctets", 3915),
+          ("ifHCInUcastPkts", 3920),
+          ("ifHCOutBroadcastPkts", 3945),
+          ("ifHCOutMulticastPkts", 3940),
+          ("ifHCOutOctets", 3935),
+          ("ifInBroadcastPkts", 1740),
+          ("ifInDiscards", 1750),
+          ("ifInErrorBytePkts", 2180),
+          ("ifInErrors", 1760),
+          ("ifInFramingErrorPkts", 2190),
+          ("ifInJunkInterPkts", 2200),
+          ("ifInMulticastPkts", 1730),
+          ("ifInOctets", 1710),
+          ("ifInPayloadCrcErrors", 2720),
+          ("ifInUcastPkts", 1720),
+          ("ifOutBroadcastPkts", 1800),
+          ("ifOutDiscards", 1810),
+          ("ifOutErrors", 2630),
+          ("ifOutMulticastPkts", 1790),
+          ("ifOutOctets", 1770),
+          ("ifOutOversizePkts", 2670),
+          ("ifOutPayloadCrcErrors", 2710),
+          ("ifOutUcastPkts", 1780),
+          ("invalidPackets", 890),
+          ("ios", 3220),
+          ("ipc", 1190),
+          ("laserBiasMax", 1050),
+          ("laserBiasMin", 850),
+          ("laserTempMax", 1060),
+          ("laserTempMin", 860),
+          ("latAvg", 3225),
+          ("latMax", 3230),
+          ("latMin", 3235),
+          ("lbclAvg", 3240),
+          ("lbclMax", 3245),
+          ("lbclMin", 3250),
+          ("lbcn", 1530),
+          ("lbcnHwt", 1600),
+          ("lbcnLwt", 2700),
+          ("lossl", 370),
+          ("lossms", 1370),
+          ("mediaIndStatsOversizeDropped", 2590),
+          ("mediaIndStatsRxFramesBadCRC", 2350),
+          ("mediaIndStatsRxFramesTooLong", 2340),
+          ("mediaIndStatsRxFramesTruncated", 2330),
+          ("mediaIndStatsRxLcvErrors", 9994),
+          ("mediaIndStatsRxShortPkts", 2580),
+          ("mediaIndStatsTxFramesBadCRC", 2360),
+          ("mediaIndStatsTxFramesTooLong", 2690),
+          ("mediaIndStatsTxFramesTruncated", 4045),
+          ("mediaIndStatsTxLcvErrors", 9995),
+          ("mediaIndStatsTxShortPkts", 9993),
+          ("nidleOs", 920),
+          ("nios", 3255),
+          ("npjcPdet", 110),
+          ("npjcPdethp", 1380),
+          ("npjcPgen", 410),
+          ("npjcPgenhp", 1400),
+          ("obed", 3260),
+          ("ofsrs", 2740),
+          ("oprAvg", 3265),
+          ("oprMax", 3270),
+          ("oprMin", 3275),
+          ("oprn", 1540),
+          ("oprnHwt", 1590),
+          ("oprnLwt", 1580),
+          ("optAvg", 3280),
+          ("optMax", 3285),
+          ("optMin", 3290),
+          ("optn", 1550),
+          ("optnHwt", 1570),
+          ("optnLwt", 1560),
+          ("opwrAvg", 1250),
+          ("opwrMax", 1260),
+          ("opwrMin", 1270),
+          ("oscPwrAvg", 4060),
+          ("oscPwrMax", 4055),
+          ("oscPwrMin", 4050),
+          ("osnrAvg", 4075),
+          ("osnrMax", 4070),
+          ("osnrMin", 4065),
+          ("pcravg", 4140),
+          ("pcrmax", 4135),
+          ("pcrmin", 4130),
+          ("pdlavg", 4155),
+          ("pdlmax", 4150),
+          ("pdlmin", 4145),
+          ("pjcdiff", 720),
+          ("pjcdiffhp", 1440),
+          ("pjcsPdet", 700),
+          ("pjcsPdethp", 1420),
+          ("pjcsPgen", 710),
+          ("pjcsPgenhp", 1430),
+          ("pmdAvg", 4090),
+          ("pmdMax", 4085),
+          ("pmdMin", 4080),
+          ("ppjcPdet", 120),
+          ("ppjcPdethp", 1390),
+          ("ppjcPgen", 420),
+          ("ppjcPgenhp", 1410),
+          ("psc", 130),
+          ("pscR", 140),
+          ("pscRms", 1460),
+          ("pscS", 150),
+          ("pscSms", 1470),
+          ("pscW", 160),
+          ("pscWms", 1480),
+          ("pscms", 1450),
+          ("psd", 170),
+          ("psdR", 180),
+          ("psdRms", 1500),
+          ("psdS", 190),
+          ("psdSms", 1510),
+          ("psdW", 200),
+          ("psdWms", 1520),
+          ("psdms", 1490),
+          ("pwrAvg", 3030),
+          ("pwrMax", 3090),
+          ("pwrMin", 3095),
+          ("rprClientStatsInBcastFrames", 3690),
+          ("rprClientStatsInMcastClassAFrames", 3680),
+          ("rprClientStatsInMcastClassAOctets", 3685),
+          ("rprClientStatsInMcastClassBCirFrames", 3660),
+          ("rprClientStatsInMcastClassBCirOctets", 3665),
+          ("rprClientStatsInMcastClassBEirFrames", 3640),
+          ("rprClientStatsInMcastClassBEirOctets", 3645),
+          ("rprClientStatsInMcastClassCFrames", 3620),
+          ("rprClientStatsInMcastClassCOctets", 3625),
+          ("rprClientStatsInUcastClassAFrames", 3670),
+          ("rprClientStatsInUcastClassAOctets", 3675),
+          ("rprClientStatsInUcastClassBCirFrames", 3650),
+          ("rprClientStatsInUcastClassBCirOctets", 3655),
+          ("rprClientStatsInUcastClassBEirFrames", 3630),
+          ("rprClientStatsInUcastClassBEirOctets", 3635),
+          ("rprClientStatsInUcastClassCFrames", 3610),
+          ("rprClientStatsInUcastClassCOctets", 3615),
+          ("rprClientStatsOutBcastFrames", 3775),
+          ("rprClientStatsOutMcastClassAFrames", 3765),
+          ("rprClientStatsOutMcastClassAOctets", 3770),
+          ("rprClientStatsOutMcastClassBCirFrames", 3745),
+          ("rprClientStatsOutMcastClassBCirOctets", 3750),
+          ("rprClientStatsOutMcastClassBEirFrames", 3725),
+          ("rprClientStatsOutMcastClassBEirOctets", 3730),
+          ("rprClientStatsOutMcastClassCFrames", 3705),
+          ("rprClientStatsOutMcastClassCOctets", 3710),
+          ("rprClientStatsOutUcastClassAFrames", 3755),
+          ("rprClientStatsOutUcastClassAOctets", 3760),
+          ("rprClientStatsOutUcastClassBCirFrames", 3735),
+          ("rprClientStatsOutUcastClassBCirOctets", 3740),
+          ("rprClientStatsOutUcastClassBEirFrames", 3715),
+          ("rprClientStatsOutUcastClassBEirOctets", 3720),
+          ("rprClientStatsOutUcastClassCFrames", 3695),
+          ("rprClientStatsOutUcastClassCOctets", 3700),
+          ("rprErrorOversizeFrames", 3905),
+          ("rprErrorStatsBadAddrFrames", 3840),
+          ("rprErrorStatsBadFcsFrames", 3825),
+          ("rprErrorStatsBadHecFrames", 3805),
+          ("rprErrorStatsBadParityFrames", 3800),
+          ("rprErrorStatsContainedFrames", 3845),
+          ("rprErrorStatsPmdAbortFrames", 3835),
+          ("rprErrorStatsScffErrors", 3850),
+          ("rprErrorStatsSelfSrcUcastFrames", 3830),
+          ("rprErrorStatsTooLongFrames", 3815),
+          ("rprErrorStatsTooShortFrames", 3820),
+          ("rprErrorStatsTtlExpFrames", 3810),
+          ("rprIfStatsInFrames", 3785),
+          ("rprIfStatsInOctets", 3780),
+          ("rprIfStatsOutFrames", 3795),
+          ("rprIfStatsOutOctets", 3790),
+          ("rprPortCounterError", 3870),
+          ("rprSpanStatsInCtrlFrames", 3460),
+          ("rprSpanStatsInMcastClassAFrames", 3450),
+          ("rprSpanStatsInMcastClassAOctets", 3455),
+          ("rprSpanStatsInMcastClassBCirFrames", 3430),
+          ("rprSpanStatsInMcastClassBCirOctets", 3435),
+          ("rprSpanStatsInMcastClassBEirFrames", 3410),
+          ("rprSpanStatsInMcastClassBEirOctets", 3415),
+          ("rprSpanStatsInMcastClassCFrames", 3390),
+          ("rprSpanStatsInMcastClassCOctets", 3395),
+          ("rprSpanStatsInOamEchoFrames", 3465),
+          ("rprSpanStatsInOamFlushFrames", 3470),
+          ("rprSpanStatsInOamOrgFrames", 3475),
+          ("rprSpanStatsInTopoAtdFrames", 3480),
+          ("rprSpanStatsInTopoChkSumFrames", 3485),
+          ("rprSpanStatsInTopoTpFrames", 3490),
+          ("rprSpanStatsInUcastClassAFrames", 3440),
+          ("rprSpanStatsInUcastClassAOctets", 3445),
+          ("rprSpanStatsInUcastClassBCirFrames", 3420),
+          ("rprSpanStatsInUcastClassBCirOctets", 3425),
+          ("rprSpanStatsInUcastClassBEirFrames", 3400),
+          ("rprSpanStatsInUcastClassBEirOctets", 3405),
+          ("rprSpanStatsInUcastClassCFrames", 3380),
+          ("rprSpanStatsInUcastClassCOctets", 3385),
+          ("rprSpanStatsOutCtrlFrames", 3575),
+          ("rprSpanStatsOutMcastClassAFrames", 3565),
+          ("rprSpanStatsOutMcastClassAOctets", 3570),
+          ("rprSpanStatsOutMcastClassBCirOctets", 3550),
+          ("rprSpanStatsOutMcastClassBEirOctets", 3530),
+          ("rprSpanStatsOutMcastClassCFrames", 3505),
+          ("rprSpanStatsOutMcastClassCOctets", 3510),
+          ("rprSpanStatsOutOamEchoFrames", 3580),
+          ("rprSpanStatsOutOamFlushFrames", 3585),
+          ("rprSpanStatsOutOamOrgFrames", 3590),
+          ("rprSpanStatsOutTopoAtdFrames", 3595),
+          ("rprSpanStatsOutTopoChkSumFrames", 3600),
+          ("rprSpanStatsOutTopoTpFrames", 3605),
+          ("rprSpanStatsOutUcastClassAFrames", 3555),
+          ("rprSpanStatsOutUcastClassAOctets", 3560),
+          ("rprSpanStatsOutUcastClassBCirFrames", 3535),
+          ("rprSpanStatsOutUcastClassBCirOctets", 3540),
+          ("rprSpanStatsOutUcastClassBEirFrames", 3515),
+          ("rprSpanStatsOutUcastClassBEirOctets", 3520),
+          ("rprSpanStatsOutUcastClassCFrames", 3495),
+          ("rprSpanStatsOutUcastClassCOctets", 3500),
+          ("rprSpanStatsTMcastClassBCirFrames", 3545),
+          ("rprSpanStatsTMcastClassBEirFrames", 3525),
+          ("rx8b10bWords", 10000),
+          ("rxControlFrames", 2160),
+          ("rxPauseFrames", 2090),
+          ("rxPktsDroppedInternalCongestion", 2110),
+          ("rxPwrMax", 1030),
+          ("rxPwrMin", 840),
+          ("rxTempMax", 1040),
+          ("rxTempMin", 990),
+          ("rxTotalPkts", 2140),
+          ("rxUnknownOpcodeFrames", 2170),
+          ("sascpp", 380),
+          ("sasp", 210),
+          ("sefs", 220),
+          ("sefsp", 650),
+          ("sesPm", 3130),
+          ("sesSm", 3105),
+          ("sesTcm1", 3160),
+          ("sesTcm2", 3190),
+          ("sescpp", 390),
+          ("seshp", 530),
+          ("sesl", 230),
+          ("seslp", 540),
+          ("seslr", 800),
+          ("sesms", 510),
+          ("sesnp", 2470),
+          ("sesnpfe", 2500),
+          ("sesp", 240),
+          ("sesrPm", 3150),
+          ("sesrSm", 3125),
+          ("sesrTcm1", 3180),
+          ("sesrTcm2", 3210),
+          ("sesrhp", 1320),
+          ("sesrlp", 1350),
+          ("sesrp", 1300),
+          ("sesrs", 520),
+          ("sess", 250),
+          ("sessr", 750),
+          ("sesv", 260),
+          ("sopmdavg", 4125),
+          ("sopmdmax", 4120),
+          ("sopmdmin", 4115),
+          ("tx8b10bWords", 10001),
+          ("txPauseFrames", 2100),
+          ("txPktsDroppedInternalCongestion", 2120),
+          ("txPwrMax", 1020),
+          ("txPwrMin", 830),
+          ("txTotalPkts", 2130),
+          ("uasPm", 3135),
+          ("uasSm", 3110),
+          ("uasTcm1", 3165),
+          ("uasTcm2", 3195),
+          ("uascpp", 400),
+          ("uashp", 560),
+          ("uasl", 270),
+          ("uaslp", 570),
+          ("uasms", 550),
+          ("uasnp", 2480),
+          ("uasnpfe", 2510),
+          ("uasp", 280),
+          ("uasrs", 770),
+          ("uass", 740),
+          ("uasv", 290),
+          ("ucw", 3295),
+          ("uncWord", 980),
+          ("unknown", 1),
+          ("validPackets", 880),
+          ("voaAvg", 3035),
+          ("voaMax", 1080),
+          ("voaMin", 1000),
+          ("vpc", 3215),
+          ("xcvaMax", 1070),
+          ("xcvaMin", 870),
+          ("xcvrAvg", 3300),
+          ("xcvrMax", 3305),
+          ("xcvrMin", 3310),
+          ("zbed", 3315))
+    )
+
+
+
+class CerentLocation(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              10,
+              20)
+        )
+    )
+    namedValues = NamedValues(
+        *(("farEnd", 10),
+          ("nearEnd", 20),
+          ("unknown", 1))
+    )
+
+
+
+class CerentPeriod(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              5,
+              10,
+              20,
+              30)
+        )
+    )
+    namedValues = NamedValues(
+        *(("day1", 30),
+          ("hour1", 20),
+          ("minutes1", 5),
+          ("minutes15", 10),
+          ("unknown", 1))
+    )
+
+
+
+class CerentPortNumber(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              5,
+              10,
+              20,
+              30,
+              40,
+              50,
+              60,
+              70,
+              80,
+              90,
+              100,
+              110,
+              120,
+              130,
+              140,
+              150,
+              160,
+              170,
+              180,
+              190,
+              200,
+              210,
+              220,
+              230,
+              240,
+              250,
+              260,
+              270,
+              280,
+              290,
+              300,
+              310,
+              320,
+              330,
+              340,
+              350,
+              360,
+              370,
+              380,
+              390,
+              400,
+              410,
+              420,
+              430,
+              440,
+              450,
+              460,
+              470,
+              480,
+              490,
+              500,
+              510,
+              520,
+              530,
+              540,
+              550,
+              560,
+              570,
+              580,
+              590,
+              600,
+              610,
+              620,
+              630,
+              640,
+              10240)
+        )
+    )
+    namedValues = NamedValues(
+        *(("port0", 5),
+          ("port1", 10),
+          ("port10", 100),
+          ("port11", 110),
+          ("port12", 120),
+          ("port13", 130),
+          ("port14", 140),
+          ("port15", 150),
+          ("port16", 160),
+          ("port17", 170),
+          ("port18", 180),
+          ("port19", 190),
+          ("port2", 20),
+          ("port20", 200),
+          ("port21", 210),
+          ("port22", 220),
+          ("port23", 230),
+          ("port24", 240),
+          ("port25", 250),
+          ("port26", 260),
+          ("port27", 270),
+          ("port28", 280),
+          ("port29", 290),
+          ("port3", 30),
+          ("port30", 300),
+          ("port31", 310),
+          ("port32", 320),
+          ("port33", 330),
+          ("port34", 340),
+          ("port35", 350),
+          ("port36", 360),
+          ("port37", 370),
+          ("port38", 380),
+          ("port39", 390),
+          ("port4", 40),
+          ("port40", 400),
+          ("port41", 410),
+          ("port42", 420),
+          ("port43", 430),
+          ("port44", 440),
+          ("port45", 450),
+          ("port46", 460),
+          ("port47", 470),
+          ("port48", 480),
+          ("port49", 490),
+          ("port5", 50),
+          ("port50", 500),
+          ("port51", 510),
+          ("port52", 520),
+          ("port53", 530),
+          ("port54", 540),
+          ("port55", 550),
+          ("port56", 560),
+          ("port57", 570),
+          ("port58", 580),
+          ("port59", 590),
+          ("port6", 60),
+          ("port60", 600),
+          ("port61", 610),
+          ("port62", 620),
+          ("port63", 630),
+          ("port64", 640),
+          ("port7", 70),
+          ("port8", 80),
+          ("port9", 90),
+          ("portAll", 10240),
+          ("unknown", 1))
+    )
+
+
+
+class CerentAlarmThresholdMonitorType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              10,
+              20,
+              30,
+              40,
+              50,
+              60)
+        )
+    )
+    namedValues = NamedValues(
+        *(("lbcnMax", 10),
+          ("lbcnMin", 20),
+          ("oprnMax", 50),
+          ("oprnMin", 60),
+          ("optnMax", 30),
+          ("optnMin", 40),
+          ("unknown", 1))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CerentTcDummyMonType_Type = CerentMonitorType
+_CerentTcDummyMonType_Object = MibScalar
+cerentTcDummyMonType = _CerentTcDummyMonType_Object(
+    (1, 3, 6, 1, 4, 1, 3607, 2, 1, 2),
+    _CerentTcDummyMonType_Type()
+)
+cerentTcDummyMonType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cerentTcDummyMonType.setStatus("current")
+_CerentTcDummyLoc_Type = CerentLocation
+_CerentTcDummyLoc_Object = MibScalar
+cerentTcDummyLoc = _CerentTcDummyLoc_Object(
+    (1, 3, 6, 1, 4, 1, 3607, 2, 1, 3),
+    _CerentTcDummyLoc_Type()
+)
+cerentTcDummyLoc.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cerentTcDummyLoc.setStatus("current")
+_CerentTcDummyPeriod_Type = CerentPeriod
+_CerentTcDummyPeriod_Object = MibScalar
+cerentTcDummyPeriod = _CerentTcDummyPeriod_Object(
+    (1, 3, 6, 1, 4, 1, 3607, 2, 1, 4),
+    _CerentTcDummyPeriod_Type()
+)
+cerentTcDummyPeriod.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cerentTcDummyPeriod.setStatus("current")
+_CerentTcDummyPortNumber_Type = CerentPortNumber
+_CerentTcDummyPortNumber_Object = MibScalar
+cerentTcDummyPortNumber = _CerentTcDummyPortNumber_Object(
+    (1, 3, 6, 1, 4, 1, 3607, 2, 1, 5),
+    _CerentTcDummyPortNumber_Type()
+)
+cerentTcDummyPortNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cerentTcDummyPortNumber.setStatus("current")
+_CerentTcDummyNotifClass_Type = CerentNotificationClass
+_CerentTcDummyNotifClass_Object = MibScalar
+cerentTcDummyNotifClass = _CerentTcDummyNotifClass_Object(
+    (1, 3, 6, 1, 4, 1, 3607, 2, 1, 6),
+    _CerentTcDummyNotifClass_Type()
+)
+cerentTcDummyNotifClass.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cerentTcDummyNotifClass.setStatus("current")
+_CerentTcDummyAlarmThresholdMonType_Type = CerentAlarmThresholdMonitorType
+_CerentTcDummyAlarmThresholdMonType_Object = MibScalar
+cerentTcDummyAlarmThresholdMonType = _CerentTcDummyAlarmThresholdMonType_Object(
+    (1, 3, 6, 1, 4, 1, 3607, 2, 1, 7),
+    _CerentTcDummyAlarmThresholdMonType_Type()
+)
+cerentTcDummyAlarmThresholdMonType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cerentTcDummyAlarmThresholdMonType.setStatus("current")
+_CerentTcDummyAlarmSeverity_Type = CerentAlarmSeverity
+_CerentTcDummyAlarmSeverity_Object = MibScalar
+cerentTcDummyAlarmSeverity = _CerentTcDummyAlarmSeverity_Object(
+    (1, 3, 6, 1, 4, 1, 3607, 2, 1, 8),
+    _CerentTcDummyAlarmSeverity_Type()
+)
+cerentTcDummyAlarmSeverity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cerentTcDummyAlarmSeverity.setStatus("current")
+_CerentTcDummyAlarmStatus_Type = CerentAlarmStatus
+_CerentTcDummyAlarmStatus_Object = MibScalar
+cerentTcDummyAlarmStatus = _CerentTcDummyAlarmStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3607, 2, 1, 9),
+    _CerentTcDummyAlarmStatus_Type()
+)
+cerentTcDummyAlarmStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cerentTcDummyAlarmStatus.setStatus("current")
+_CerentTcDummyAlarmServiceAffecting_Type = CerentAlarmServiceAffecting
+_CerentTcDummyAlarmServiceAffecting_Object = MibScalar
+cerentTcDummyAlarmServiceAffecting = _CerentTcDummyAlarmServiceAffecting_Object(
+    (1, 3, 6, 1, 4, 1, 3607, 2, 1, 10),
+    _CerentTcDummyAlarmServiceAffecting_Type()
+)
+cerentTcDummyAlarmServiceAffecting.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cerentTcDummyAlarmServiceAffecting.setStatus("current")
+
+# Managed Objects groups
+
+cerentTcDummyGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 3607, 2, 1, 1)
+)
+cerentTcDummyGroup.setObjects(
+      *(("CERENT-TC", "cerentTcDummyMonType"),
+        ("CERENT-TC", "cerentTcDummyLoc"),
+        ("CERENT-TC", "cerentTcDummyPeriod"),
+        ("CERENT-TC", "cerentTcDummyPortNumber"),
+        ("CERENT-TC", "cerentTcDummyNotifClass"),
+        ("CERENT-TC", "cerentTcDummyAlarmThresholdMonType"),
+        ("CERENT-TC", "cerentTcDummyAlarmSeverity"),
+        ("CERENT-TC", "cerentTcDummyAlarmStatus"),
+        ("CERENT-TC", "cerentTcDummyAlarmServiceAffecting"))
+)
+if mibBuilder.loadTexts:
+    cerentTcDummyGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CERENT-TC",
+    **{"CerentNotificationClass": CerentNotificationClass,
+       "CerentAlarmSeverity": CerentAlarmSeverity,
+       "CerentAlarmStatus": CerentAlarmStatus,
+       "CerentAlarmServiceAffecting": CerentAlarmServiceAffecting,
+       "CerentMonitorType": CerentMonitorType,
+       "CerentLocation": CerentLocation,
+       "CerentPeriod": CerentPeriod,
+       "CerentPortNumber": CerentPortNumber,
+       "CerentAlarmThresholdMonitorType": CerentAlarmThresholdMonitorType,
+       "cerentTextualConventions": cerentTextualConventions,
+       "cerentTcDummyGroup": cerentTcDummyGroup,
+       "cerentTcDummyMonType": cerentTcDummyMonType,
+       "cerentTcDummyLoc": cerentTcDummyLoc,
+       "cerentTcDummyPeriod": cerentTcDummyPeriod,
+       "cerentTcDummyPortNumber": cerentTcDummyPortNumber,
+       "cerentTcDummyNotifClass": cerentTcDummyNotifClass,
+       "cerentTcDummyAlarmThresholdMonType": cerentTcDummyAlarmThresholdMonType,
+       "cerentTcDummyAlarmSeverity": cerentTcDummyAlarmSeverity,
+       "cerentTcDummyAlarmStatus": cerentTcDummyAlarmStatus,
+       "cerentTcDummyAlarmServiceAffecting": cerentTcDummyAlarmServiceAffecting}
+)

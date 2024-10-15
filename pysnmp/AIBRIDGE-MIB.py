@@ -1,17 +1,17 @@
-"""SNMP MIB module (AIBRIDGE-MIB) expressed in pysnmp data model.
+# SNMP MIB module (AIBRIDGE-MIB) expressed in pysnmp data model.
+#
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/AIBRIDGE-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 20:35:07 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-This Python module is designed to be imported and executed by the
-pysnmp library.
-
-See https://www.pysnmp.com/pysnmp for further information.
-
-Notes
------
-ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/AIBRIDGE-MIB
-Produced by pysmi-1.3.3 at Sun Mar 10 01:53:40 2024
-On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm
-Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
-"""
 if 'mibBuilder' not in globals():
     import sys
 
@@ -55,45 +55,45 @@ if 'mibBuilder' not in globals():
     "ModuleCompliance",
     "NotificationGroup")
 
-(IpAddress,
- iso,
- ModuleIdentity,
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
  Integer32,
- NotificationType,
+ IpAddress,
+ ModuleIdentity,
  MibIdentifier,
+ NotificationType,
  ObjectIdentity,
  MibScalar,
  MibTable,
  MibTableRow,
  MibTableColumn,
- Bits,
- Counter64,
- mib_2,
- Counter32,
- Gauge32,
+ NotificationType,
  TimeTicks,
  Unsigned32,
- NotificationType) = mibBuilder.importSymbols(
+ iso,
+ mib_2) = mibBuilder.importSymbols(
     "SNMPv2-SMI",
-    "IpAddress",
-    "iso",
-    "ModuleIdentity",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
     "Integer32",
-    "NotificationType",
+    "IpAddress",
+    "ModuleIdentity",
     "MibIdentifier",
+    "NotificationType",
     "ObjectIdentity",
     "MibScalar",
     "MibTable",
     "MibTableRow",
     "MibTableColumn",
-    "Bits",
-    "Counter64",
-    "mib-2",
-    "Counter32",
-    "Gauge32",
+    "NotificationType",
     "TimeTicks",
     "Unsigned32",
-    "NotificationType")
+    "iso",
+    "mib-2")
 
 (DisplayString,
  TextualConvention) = mibBuilder.importSymbols(
@@ -810,7 +810,10 @@ aiDot1dStatic = _AiDot1dStatic_ObjectIdentity(
 
 mibBuilder.exportSymbols(
     "AIBRIDGE-MIB",
-    **{"aiDot1dBridge": aiDot1dBridge,
+    **{"MacAddress": MacAddress,
+       "BridgeId": BridgeId,
+       "Timeout": Timeout,
+       "aiDot1dBridge": aiDot1dBridge,
        "aiDot1dBase": aiDot1dBase,
        "aiDot1dBaseInfoTable": aiDot1dBaseInfoTable,
        "aiDot1dBaseInfoEntry": aiDot1dBaseInfoEntry,

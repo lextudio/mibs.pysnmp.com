@@ -1,135 +1,982 @@
+# SNMP MIB module (SONUS-SONET-APS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module SONUS-SONET-APS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/SONUS-SONET-APS-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 21:02:12 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
-ifIndex, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndex")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Unsigned32, MibIdentifier, IpAddress, TimeTicks, iso, Bits, NotificationType, Integer32, ObjectIdentity, Gauge32, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Unsigned32", "MibIdentifier", "IpAddress", "TimeTicks", "iso", "Bits", "NotificationType", "Integer32", "ObjectIdentity", "Gauge32", "Counter64")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
-sonusServicesMIBs, = mibBuilder.importSymbols("SONUS-SMI", "sonusServicesMIBs")
-sonusSonetApsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9))
-if mibBuilder.loadTexts: sonusSonetApsMIB.setLastUpdated('200102030000Z')
-if mibBuilder.loadTexts: sonusSonetApsMIB.setOrganization('Sonus Networks, Inc.')
-class ApsK1K2(TextualConvention, Integer32):
-    reference = 'This Textual Convention describes an object that contains the K1 and K2 bytes in the SONET APS channel protocol message field. K1 is located in the first octet. Bits 1-4 of the K1 byte indicate a request. 1111 Lockout of Protection 1110 Forced Switch 1101 SF - High Priority 1100 SF - Low Priority 1011 SD - High Priority 1010 SD - Low Priority 1001 not used 1000 Manual Switch 0111 not used 0110 Wait-to-Restore 0101 not used 0100 Exercise 0011 not used 0010 Reverse Request 0001 Do Not Revert 0000 No Request Bits 5-8 of the K1 byte indicate the channel associated with the request defined in bits 1-4. 0 is the Null channel 1-14 are working channels. 15 is the extra traffic channel K2 is located in the second octet. Bits 1-4 of the K2 byte indicate a channel. The channel is defined with the same syntax as K1 Bits 5-8. Bits 5 of the K2 byte indicates the architecture. 0 if the architecture is 1+1 1 if the architecture is 1:n Bits 6-8 of the K2 byte indicates the mode. 000 - 011 are reserved for future use 100 indicates the mode is unidirectional 101 indicates the mode is bidirectional 110 RDI-L 111 AIS-L '
-    status = 'current'
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/SONUS-SONET-APS-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:57:10 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-sonusSonetApsMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1))
-sonusApsGroupCount = MibScalar((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 1), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sonusApsGroupCount.setStatus('current')
-sonusApsGroupTable = MibTable((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2), )
-if mibBuilder.loadTexts: sonusApsGroupTable.setStatus('current')
-sonusApsGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1), ).setIndexNames((0, "SONUS-SONET-APS-MIB", "sonusApsGroupId"))
-if mibBuilder.loadTexts: sonusApsGroupEntry.setStatus('current')
-sonusApsGroupId = MibTableColumn((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1, 1), InterfaceIndex())
-if mibBuilder.loadTexts: sonusApsGroupId.setStatus('current')
-sonusApsGroupStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sonusApsGroupStatus.setStatus('current')
-sonusApsGroupArchitecture = MibTableColumn((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("onePlusOne", 1), ("oneToN", 2), ("resilientUNI", 3))).clone('onePlusOne')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sonusApsGroupArchitecture.setStatus('current')
-sonusApsGroupAdminDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("unidirectional", 1), ("bidirectional", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sonusApsGroupAdminDirection.setStatus('current')
-sonusApsGroupAdminSwitching = MibTableColumn((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("nonrevertive", 1), ("revertive", 2))).clone('nonrevertive')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sonusApsGroupAdminSwitching.setStatus('current')
-sonusApsGroupExtraTraffic = MibTableColumn((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('enabled')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sonusApsGroupExtraTraffic.setStatus('current')
-sonusApsGroupSignalFailBerThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(3, 5)).clone(5)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sonusApsGroupSignalFailBerThreshold.setStatus('current')
-sonusApsGroupSignalDegradeBerThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(5, 9)).clone(9)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sonusApsGroupSignalDegradeBerThreshold.setStatus('current')
-sonusApsGroupWaitToRestoreTime = MibTableColumn((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(5, 12)).clone(5)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sonusApsGroupWaitToRestoreTime.setStatus('current')
-sonusApsGroupName = MibTableColumn((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1, 10), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sonusApsGroupName.setStatus('current')
-sonusApsGroupSwitchedChannel = MibTableColumn((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 15))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sonusApsGroupSwitchedChannel.setStatus('current')
-sonusApsGroupOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1, 12), Bits().clone(namedValues=NamedValues(("extraTraffic", 0), ("protectionSwitchingByteDefect", 1), ("channelMismatch", 2), ("apsModeMismatch", 3), ("farEndProtectionLineDefect", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sonusApsGroupOperStatus.setStatus('current')
-sonusApsGroupK1K2Received = MibTableColumn((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1, 13), ApsK1K2()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sonusApsGroupK1K2Received.setStatus('current')
-sonusApsGroupK1K2Transmitted = MibTableColumn((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1, 14), ApsK1K2()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sonusApsGroupK1K2Transmitted.setStatus('current')
-sonusApsGroupProtectionSwitchingByteFailures = MibTableColumn((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sonusApsGroupProtectionSwitchingByteFailures.setStatus('current')
-sonusApsGroupChannelMismatches = MibTableColumn((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1, 16), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sonusApsGroupChannelMismatches.setStatus('current')
-sonusApsGroupModeMismatches = MibTableColumn((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1, 17), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sonusApsGroupModeMismatches.setStatus('current')
-sonusApsGroupFarEndProtectionLineFailures = MibTableColumn((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1, 18), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sonusApsGroupFarEndProtectionLineFailures.setStatus('current')
-sonusApsGroupCreationTime = MibTableColumn((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1, 19), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sonusApsGroupCreationTime.setStatus('current')
-sonusApsChannelTable = MibTable((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 3), )
-if mibBuilder.loadTexts: sonusApsChannelTable.setStatus('current')
-sonusApsChannelEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 3, 1), ).setIndexNames((0, "SONUS-SONET-APS-MIB", "sonusApsGroupId"), (0, "SONUS-SONET-APS-MIB", "sonusApsChannelNumber"))
-if mibBuilder.loadTexts: sonusApsChannelEntry.setStatus('current')
-sonusApsChannelNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 15)))
-if mibBuilder.loadTexts: sonusApsChannelNumber.setStatus('current')
-sonusApsChannelLineId = MibTableColumn((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 3, 1, 2), InterfaceIndex()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sonusApsChannelLineId.setStatus('current')
-sonusApsChannelPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("low", 1), ("high", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sonusApsChannelPriority.setStatus('current')
-sonusApsChannelSwitchCommand = MibTableColumn((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("clear", 1), ("lockoutOfProtection", 2), ("forcedSwitchOfWorking", 3), ("forcedSwitchOfProtection", 4), ("manualSwitchOfWorking", 5), ("manualSwitchOfProtection", 6), ("exercise", 7))).clone('clear')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sonusApsChannelSwitchCommand.setStatus('current')
-sonusApsChannelControlCommand = MibTableColumn((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("lockoutWorkingChannel", 1), ("clearLockout", 2))).clone('clearLockout')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sonusApsChannelControlCommand.setStatus('current')
-sonusApsChannelStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 3, 1, 6), Bits().clone(namedValues=NamedValues(("sdCondition", 0), ("sfCondition", 1), ("lockedOut", 2), ("switched", 3), ("bothLinesFailed", 4), ("protectionLineBusy", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sonusApsChannelStatus.setStatus('current')
-sonusApsChannelOperDirectionMode = MibTableColumn((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 3, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("unidirectional", 1), ("bidirectional", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sonusApsChannelOperDirectionMode.setStatus('current')
-sonusApsChannelSignalDegrades = MibTableColumn((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 3, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sonusApsChannelSignalDegrades.setStatus('current')
-sonusApsChannelSignalFails = MibTableColumn((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 3, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sonusApsChannelSignalFails.setStatus('current')
-sonusApsChannelSwitchovers = MibTableColumn((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 3, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sonusApsChannelSwitchovers.setStatus('current')
-sonusApsChannelLastSwitchover = MibTableColumn((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 3, 1, 11), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sonusApsChannelLastSwitchover.setStatus('current')
-sonusApsChannelRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 3, 1, 12), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sonusApsChannelRowStatus.setStatus('current')
-sonusApsLineTable = MibTable((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 4), )
-if mibBuilder.loadTexts: sonusApsLineTable.setStatus('current')
-sonusApsLineEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 4, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: sonusApsLineEntry.setStatus('current')
-sonusApsLineGroupId = MibTableColumn((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 4, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sonusApsLineGroupId.setStatus('current')
-sonusApsLineChannelNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 4, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 15))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sonusApsLineChannelNumber.setStatus('current')
-sonusSonetApsMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 2))
-sonusSonetApsMIBNotificationsPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 2, 0))
-sonusSonetApsConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 3))
-sonusSonetApsGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 3, 1))
-sonusSonetApsCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 3, 2))
-sonusApsTrapProtectionSwitchingByteFailure = NotificationType((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 2, 0, 1)).setObjects(("SONUS-SONET-APS-MIB", "sonusApsGroupProtectionSwitchingByteFailures"), ("SONUS-SONET-APS-MIB", "sonusApsGroupOperStatus"))
-if mibBuilder.loadTexts: sonusApsTrapProtectionSwitchingByteFailure.setStatus('current')
-sonusApsTrapChannelMismatch = NotificationType((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 2, 0, 2)).setObjects(("SONUS-SONET-APS-MIB", "sonusApsGroupChannelMismatches"), ("SONUS-SONET-APS-MIB", "sonusApsGroupOperStatus"))
-if mibBuilder.loadTexts: sonusApsTrapChannelMismatch.setStatus('current')
-sonusApsTrapModeMismatch = NotificationType((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 2, 0, 3)).setObjects(("SONUS-SONET-APS-MIB", "sonusApsGroupModeMismatches"), ("SONUS-SONET-APS-MIB", "sonusApsGroupOperStatus"))
-if mibBuilder.loadTexts: sonusApsTrapModeMismatch.setStatus('current')
-sonusApsTrapFarEndProtectionLineFailure = NotificationType((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 2, 0, 4)).setObjects(("SONUS-SONET-APS-MIB", "sonusApsGroupFarEndProtectionLineFailures"), ("SONUS-SONET-APS-MIB", "sonusApsGroupOperStatus"))
-if mibBuilder.loadTexts: sonusApsTrapFarEndProtectionLineFailure.setStatus('current')
-sonusApsTrapSwitchover = NotificationType((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 2, 0, 5)).setObjects(("SONUS-SONET-APS-MIB", "sonusApsChannelSwitchovers"), ("SONUS-SONET-APS-MIB", "sonusApsChannelStatus"))
-if mibBuilder.loadTexts: sonusApsTrapSwitchover.setStatus('current')
-sonusApsGroupGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 3, 1, 1)).setObjects(("SONUS-SONET-APS-MIB", "sonusApsGroupCount"), ("SONUS-SONET-APS-MIB", "sonusApsGroupStatus"), ("SONUS-SONET-APS-MIB", "sonusApsGroupArchitecture"), ("SONUS-SONET-APS-MIB", "sonusApsGroupAdminDirection"), ("SONUS-SONET-APS-MIB", "sonusApsGroupAdminSwitching"), ("SONUS-SONET-APS-MIB", "sonusApsGroupExtraTraffic"), ("SONUS-SONET-APS-MIB", "sonusApsGroupSignalFailBerThreshold"), ("SONUS-SONET-APS-MIB", "sonusApsGroupSignalDegradeBerThreshold"), ("SONUS-SONET-APS-MIB", "sonusApsGroupWaitToRestoreTime"), ("SONUS-SONET-APS-MIB", "sonusApsGroupName"), ("SONUS-SONET-APS-MIB", "sonusApsGroupSwitchedChannel"), ("SONUS-SONET-APS-MIB", "sonusApsGroupOperStatus"), ("SONUS-SONET-APS-MIB", "sonusApsGroupK1K2Received"), ("SONUS-SONET-APS-MIB", "sonusApsGroupK1K2Transmitted"), ("SONUS-SONET-APS-MIB", "sonusApsGroupProtectionSwitchingByteFailures"), ("SONUS-SONET-APS-MIB", "sonusApsGroupChannelMismatches"), ("SONUS-SONET-APS-MIB", "sonusApsGroupModeMismatches"), ("SONUS-SONET-APS-MIB", "sonusApsGroupFarEndProtectionLineFailures"), ("SONUS-SONET-APS-MIB", "sonusApsGroupCreationTime"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    sonusApsGroupGroup = sonusApsGroupGroup.setStatus('current')
-sonusApsChannelGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 3, 1, 2)).setObjects(("SONUS-SONET-APS-MIB", "sonusApsChannelLineId"), ("SONUS-SONET-APS-MIB", "sonusApsChannelPriority"), ("SONUS-SONET-APS-MIB", "sonusApsChannelSwitchCommand"), ("SONUS-SONET-APS-MIB", "sonusApsChannelControlCommand"), ("SONUS-SONET-APS-MIB", "sonusApsChannelStatus"), ("SONUS-SONET-APS-MIB", "sonusApsChannelOperDirectionMode"), ("SONUS-SONET-APS-MIB", "sonusApsChannelSignalDegrades"), ("SONUS-SONET-APS-MIB", "sonusApsChannelSignalFails"), ("SONUS-SONET-APS-MIB", "sonusApsChannelSwitchovers"), ("SONUS-SONET-APS-MIB", "sonusApsChannelLastSwitchover"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    sonusApsChannelGroup = sonusApsChannelGroup.setStatus('current')
-sonusApsLineGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 3, 1, 3)).setObjects(("SONUS-SONET-APS-MIB", "sonusApsLineGroupId"), ("SONUS-SONET-APS-MIB", "sonusApsLineChannelNumber"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    sonusApsLineGroup = sonusApsLineGroup.setStatus('current')
-sonusApsNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 3, 1, 4)).setObjects(("SONUS-SONET-APS-MIB", "sonusApsTrapProtectionSwitchingByteFailure"), ("SONUS-SONET-APS-MIB", "sonusApsTrapChannelMismatch"), ("SONUS-SONET-APS-MIB", "sonusApsTrapModeMismatch"), ("SONUS-SONET-APS-MIB", "sonusApsTrapFarEndProtectionLineFailure"), ("SONUS-SONET-APS-MIB", "sonusApsTrapSwitchover"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    sonusApsNotificationGroup = sonusApsNotificationGroup.setStatus('current')
-sonusSonetApsCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 3, 2, 1)).setObjects(("SONUS-SONET-APS-MIB", "sonusApsGroupGroup"), ("SONUS-SONET-APS-MIB", "sonusApsChannelGroup"), ("SONUS-SONET-APS-MIB", "sonusApsLineGroup"), ("SONUS-SONET-APS-MIB", "sonusApsNotificationGroup"))
+if 'mibBuilder' not in globals():
+    import sys
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    sonusSonetApsCompliance = sonusSonetApsCompliance.setStatus('current')
-mibBuilder.exportSymbols("SONUS-SONET-APS-MIB", sonusApsChannelEntry=sonusApsChannelEntry, sonusApsChannelSignalFails=sonusApsChannelSignalFails, sonusApsTrapProtectionSwitchingByteFailure=sonusApsTrapProtectionSwitchingByteFailure, sonusApsGroupK1K2Received=sonusApsGroupK1K2Received, sonusApsGroupModeMismatches=sonusApsGroupModeMismatches, sonusApsChannelSwitchCommand=sonusApsChannelSwitchCommand, sonusApsGroupOperStatus=sonusApsGroupOperStatus, sonusApsChannelOperDirectionMode=sonusApsChannelOperDirectionMode, sonusApsGroupCount=sonusApsGroupCount, sonusSonetApsMIBNotifications=sonusSonetApsMIBNotifications, sonusApsTrapFarEndProtectionLineFailure=sonusApsTrapFarEndProtectionLineFailure, sonusApsGroupCreationTime=sonusApsGroupCreationTime, sonusApsLineGroupId=sonusApsLineGroupId, sonusSonetApsCompliances=sonusSonetApsCompliances, sonusSonetApsCompliance=sonusSonetApsCompliance, sonusApsGroupAdminDirection=sonusApsGroupAdminDirection, sonusApsGroupSignalFailBerThreshold=sonusApsGroupSignalFailBerThreshold, sonusApsGroupFarEndProtectionLineFailures=sonusApsGroupFarEndProtectionLineFailures, sonusApsChannelLineId=sonusApsChannelLineId, ApsK1K2=ApsK1K2, sonusSonetApsGroups=sonusSonetApsGroups, sonusApsChannelLastSwitchover=sonusApsChannelLastSwitchover, sonusApsGroupSwitchedChannel=sonusApsGroupSwitchedChannel, sonusApsChannelPriority=sonusApsChannelPriority, sonusApsGroupSignalDegradeBerThreshold=sonusApsGroupSignalDegradeBerThreshold, sonusSonetApsConformance=sonusSonetApsConformance, sonusApsChannelGroup=sonusApsChannelGroup, sonusApsLineGroup=sonusApsLineGroup, sonusApsLineEntry=sonusApsLineEntry, sonusApsLineTable=sonusApsLineTable, sonusApsGroupId=sonusApsGroupId, PYSNMP_MODULE_ID=sonusSonetApsMIB, sonusApsGroupGroup=sonusApsGroupGroup, sonusApsGroupEntry=sonusApsGroupEntry, sonusApsTrapChannelMismatch=sonusApsTrapChannelMismatch, sonusApsGroupArchitecture=sonusApsGroupArchitecture, sonusApsGroupProtectionSwitchingByteFailures=sonusApsGroupProtectionSwitchingByteFailures, sonusApsGroupStatus=sonusApsGroupStatus, sonusApsChannelTable=sonusApsChannelTable, sonusApsChannelSignalDegrades=sonusApsChannelSignalDegrades, sonusSonetApsMIBNotificationsPrefix=sonusSonetApsMIBNotificationsPrefix, sonusApsChannelStatus=sonusApsChannelStatus, sonusApsChannelRowStatus=sonusApsChannelRowStatus, sonusApsTrapSwitchover=sonusApsTrapSwitchover, sonusApsLineChannelNumber=sonusApsLineChannelNumber, sonusApsTrapModeMismatch=sonusApsTrapModeMismatch, sonusApsGroupAdminSwitching=sonusApsGroupAdminSwitching, sonusApsChannelNumber=sonusApsChannelNumber, sonusApsGroupK1K2Transmitted=sonusApsGroupK1K2Transmitted, sonusApsChannelControlCommand=sonusApsChannelControlCommand, sonusSonetApsMIBObjects=sonusSonetApsMIBObjects, sonusApsNotificationGroup=sonusApsNotificationGroup, sonusApsGroupName=sonusApsGroupName, sonusSonetApsMIB=sonusSonetApsMIB, sonusApsGroupWaitToRestoreTime=sonusApsGroupWaitToRestoreTime, sonusApsChannelSwitchovers=sonusApsChannelSwitchovers, sonusApsGroupTable=sonusApsGroupTable, sonusApsGroupExtraTraffic=sonusApsGroupExtraTraffic, sonusApsGroupChannelMismatches=sonusApsGroupChannelMismatches)
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InterfaceIndex,
+ ifIndex) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "RowStatus",
+    "TextualConvention")
+
+(sonusServicesMIBs,) = mibBuilder.importSymbols(
+    "SONUS-SMI",
+    "sonusServicesMIBs")
+
+
+# MODULE-IDENTITY
+
+sonusSonetApsMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class ApsK1K2(Integer32, TextualConvention):
+    status = "current"
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_SonusSonetApsMIBObjects_ObjectIdentity = ObjectIdentity
+sonusSonetApsMIBObjects = _SonusSonetApsMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1)
+)
+_SonusApsGroupCount_Type = Gauge32
+_SonusApsGroupCount_Object = MibScalar
+sonusApsGroupCount = _SonusApsGroupCount_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 1),
+    _SonusApsGroupCount_Type()
+)
+sonusApsGroupCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sonusApsGroupCount.setStatus("current")
+_SonusApsGroupTable_Object = MibTable
+sonusApsGroupTable = _SonusApsGroupTable_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2)
+)
+if mibBuilder.loadTexts:
+    sonusApsGroupTable.setStatus("current")
+_SonusApsGroupEntry_Object = MibTableRow
+sonusApsGroupEntry = _SonusApsGroupEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1)
+)
+sonusApsGroupEntry.setIndexNames(
+    (0, "SONUS-SONET-APS-MIB", "sonusApsGroupId"),
+)
+if mibBuilder.loadTexts:
+    sonusApsGroupEntry.setStatus("current")
+_SonusApsGroupId_Type = InterfaceIndex
+_SonusApsGroupId_Object = MibTableColumn
+sonusApsGroupId = _SonusApsGroupId_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1, 1),
+    _SonusApsGroupId_Type()
+)
+sonusApsGroupId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    sonusApsGroupId.setStatus("current")
+_SonusApsGroupStatus_Type = RowStatus
+_SonusApsGroupStatus_Object = MibTableColumn
+sonusApsGroupStatus = _SonusApsGroupStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1, 2),
+    _SonusApsGroupStatus_Type()
+)
+sonusApsGroupStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    sonusApsGroupStatus.setStatus("current")
+
+
+class _SonusApsGroupArchitecture_Type(Integer32):
+    """Custom type sonusApsGroupArchitecture based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("onePlusOne", 1),
+          ("oneToN", 2),
+          ("resilientUNI", 3))
+    )
+
+
+_SonusApsGroupArchitecture_Type.__name__ = "Integer32"
+_SonusApsGroupArchitecture_Object = MibTableColumn
+sonusApsGroupArchitecture = _SonusApsGroupArchitecture_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1, 3),
+    _SonusApsGroupArchitecture_Type()
+)
+sonusApsGroupArchitecture.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    sonusApsGroupArchitecture.setStatus("current")
+
+
+class _SonusApsGroupAdminDirection_Type(Integer32):
+    """Custom type sonusApsGroupAdminDirection based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("bidirectional", 2),
+          ("unidirectional", 1))
+    )
+
+
+_SonusApsGroupAdminDirection_Type.__name__ = "Integer32"
+_SonusApsGroupAdminDirection_Object = MibTableColumn
+sonusApsGroupAdminDirection = _SonusApsGroupAdminDirection_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1, 4),
+    _SonusApsGroupAdminDirection_Type()
+)
+sonusApsGroupAdminDirection.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    sonusApsGroupAdminDirection.setStatus("current")
+
+
+class _SonusApsGroupAdminSwitching_Type(Integer32):
+    """Custom type sonusApsGroupAdminSwitching based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("nonrevertive", 1),
+          ("revertive", 2))
+    )
+
+
+_SonusApsGroupAdminSwitching_Type.__name__ = "Integer32"
+_SonusApsGroupAdminSwitching_Object = MibTableColumn
+sonusApsGroupAdminSwitching = _SonusApsGroupAdminSwitching_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1, 5),
+    _SonusApsGroupAdminSwitching_Type()
+)
+sonusApsGroupAdminSwitching.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    sonusApsGroupAdminSwitching.setStatus("current")
+
+
+class _SonusApsGroupExtraTraffic_Type(Integer32):
+    """Custom type sonusApsGroupExtraTraffic based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_SonusApsGroupExtraTraffic_Type.__name__ = "Integer32"
+_SonusApsGroupExtraTraffic_Object = MibTableColumn
+sonusApsGroupExtraTraffic = _SonusApsGroupExtraTraffic_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1, 6),
+    _SonusApsGroupExtraTraffic_Type()
+)
+sonusApsGroupExtraTraffic.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    sonusApsGroupExtraTraffic.setStatus("current")
+
+
+class _SonusApsGroupSignalFailBerThreshold_Type(Integer32):
+    """Custom type sonusApsGroupSignalFailBerThreshold based on Integer32"""
+    defaultValue = 5
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(3, 5),
+    )
+
+
+_SonusApsGroupSignalFailBerThreshold_Type.__name__ = "Integer32"
+_SonusApsGroupSignalFailBerThreshold_Object = MibTableColumn
+sonusApsGroupSignalFailBerThreshold = _SonusApsGroupSignalFailBerThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1, 7),
+    _SonusApsGroupSignalFailBerThreshold_Type()
+)
+sonusApsGroupSignalFailBerThreshold.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    sonusApsGroupSignalFailBerThreshold.setStatus("current")
+
+
+class _SonusApsGroupSignalDegradeBerThreshold_Type(Integer32):
+    """Custom type sonusApsGroupSignalDegradeBerThreshold based on Integer32"""
+    defaultValue = 9
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(5, 9),
+    )
+
+
+_SonusApsGroupSignalDegradeBerThreshold_Type.__name__ = "Integer32"
+_SonusApsGroupSignalDegradeBerThreshold_Object = MibTableColumn
+sonusApsGroupSignalDegradeBerThreshold = _SonusApsGroupSignalDegradeBerThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1, 8),
+    _SonusApsGroupSignalDegradeBerThreshold_Type()
+)
+sonusApsGroupSignalDegradeBerThreshold.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    sonusApsGroupSignalDegradeBerThreshold.setStatus("current")
+
+
+class _SonusApsGroupWaitToRestoreTime_Type(Integer32):
+    """Custom type sonusApsGroupWaitToRestoreTime based on Integer32"""
+    defaultValue = 5
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(5, 12),
+    )
+
+
+_SonusApsGroupWaitToRestoreTime_Type.__name__ = "Integer32"
+_SonusApsGroupWaitToRestoreTime_Object = MibTableColumn
+sonusApsGroupWaitToRestoreTime = _SonusApsGroupWaitToRestoreTime_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1, 9),
+    _SonusApsGroupWaitToRestoreTime_Type()
+)
+sonusApsGroupWaitToRestoreTime.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    sonusApsGroupWaitToRestoreTime.setStatus("current")
+
+
+class _SonusApsGroupName_Type(DisplayString):
+    """Custom type sonusApsGroupName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_SonusApsGroupName_Type.__name__ = "DisplayString"
+_SonusApsGroupName_Object = MibTableColumn
+sonusApsGroupName = _SonusApsGroupName_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1, 10),
+    _SonusApsGroupName_Type()
+)
+sonusApsGroupName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    sonusApsGroupName.setStatus("current")
+
+
+class _SonusApsGroupSwitchedChannel_Type(Integer32):
+    """Custom type sonusApsGroupSwitchedChannel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 15),
+    )
+
+
+_SonusApsGroupSwitchedChannel_Type.__name__ = "Integer32"
+_SonusApsGroupSwitchedChannel_Object = MibTableColumn
+sonusApsGroupSwitchedChannel = _SonusApsGroupSwitchedChannel_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1, 11),
+    _SonusApsGroupSwitchedChannel_Type()
+)
+sonusApsGroupSwitchedChannel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sonusApsGroupSwitchedChannel.setStatus("current")
+
+
+class _SonusApsGroupOperStatus_Type(Bits):
+    """Custom type sonusApsGroupOperStatus based on Bits"""
+    namedValues = NamedValues(
+        *(("apsModeMismatch", 3),
+          ("channelMismatch", 2),
+          ("extraTraffic", 0),
+          ("farEndProtectionLineDefect", 4),
+          ("protectionSwitchingByteDefect", 1))
+    )
+
+_SonusApsGroupOperStatus_Type.__name__ = "Bits"
+_SonusApsGroupOperStatus_Object = MibTableColumn
+sonusApsGroupOperStatus = _SonusApsGroupOperStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1, 12),
+    _SonusApsGroupOperStatus_Type()
+)
+sonusApsGroupOperStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sonusApsGroupOperStatus.setStatus("current")
+_SonusApsGroupK1K2Received_Type = ApsK1K2
+_SonusApsGroupK1K2Received_Object = MibTableColumn
+sonusApsGroupK1K2Received = _SonusApsGroupK1K2Received_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1, 13),
+    _SonusApsGroupK1K2Received_Type()
+)
+sonusApsGroupK1K2Received.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sonusApsGroupK1K2Received.setStatus("current")
+_SonusApsGroupK1K2Transmitted_Type = ApsK1K2
+_SonusApsGroupK1K2Transmitted_Object = MibTableColumn
+sonusApsGroupK1K2Transmitted = _SonusApsGroupK1K2Transmitted_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1, 14),
+    _SonusApsGroupK1K2Transmitted_Type()
+)
+sonusApsGroupK1K2Transmitted.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sonusApsGroupK1K2Transmitted.setStatus("current")
+_SonusApsGroupProtectionSwitchingByteFailures_Type = Counter32
+_SonusApsGroupProtectionSwitchingByteFailures_Object = MibTableColumn
+sonusApsGroupProtectionSwitchingByteFailures = _SonusApsGroupProtectionSwitchingByteFailures_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1, 15),
+    _SonusApsGroupProtectionSwitchingByteFailures_Type()
+)
+sonusApsGroupProtectionSwitchingByteFailures.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sonusApsGroupProtectionSwitchingByteFailures.setStatus("current")
+_SonusApsGroupChannelMismatches_Type = Counter32
+_SonusApsGroupChannelMismatches_Object = MibTableColumn
+sonusApsGroupChannelMismatches = _SonusApsGroupChannelMismatches_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1, 16),
+    _SonusApsGroupChannelMismatches_Type()
+)
+sonusApsGroupChannelMismatches.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sonusApsGroupChannelMismatches.setStatus("current")
+_SonusApsGroupModeMismatches_Type = Counter32
+_SonusApsGroupModeMismatches_Object = MibTableColumn
+sonusApsGroupModeMismatches = _SonusApsGroupModeMismatches_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1, 17),
+    _SonusApsGroupModeMismatches_Type()
+)
+sonusApsGroupModeMismatches.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sonusApsGroupModeMismatches.setStatus("current")
+_SonusApsGroupFarEndProtectionLineFailures_Type = Counter32
+_SonusApsGroupFarEndProtectionLineFailures_Object = MibTableColumn
+sonusApsGroupFarEndProtectionLineFailures = _SonusApsGroupFarEndProtectionLineFailures_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1, 18),
+    _SonusApsGroupFarEndProtectionLineFailures_Type()
+)
+sonusApsGroupFarEndProtectionLineFailures.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sonusApsGroupFarEndProtectionLineFailures.setStatus("current")
+_SonusApsGroupCreationTime_Type = TimeTicks
+_SonusApsGroupCreationTime_Object = MibTableColumn
+sonusApsGroupCreationTime = _SonusApsGroupCreationTime_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 2, 1, 19),
+    _SonusApsGroupCreationTime_Type()
+)
+sonusApsGroupCreationTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sonusApsGroupCreationTime.setStatus("current")
+_SonusApsChannelTable_Object = MibTable
+sonusApsChannelTable = _SonusApsChannelTable_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 3)
+)
+if mibBuilder.loadTexts:
+    sonusApsChannelTable.setStatus("current")
+_SonusApsChannelEntry_Object = MibTableRow
+sonusApsChannelEntry = _SonusApsChannelEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 3, 1)
+)
+sonusApsChannelEntry.setIndexNames(
+    (0, "SONUS-SONET-APS-MIB", "sonusApsGroupId"),
+    (0, "SONUS-SONET-APS-MIB", "sonusApsChannelNumber"),
+)
+if mibBuilder.loadTexts:
+    sonusApsChannelEntry.setStatus("current")
+
+
+class _SonusApsChannelNumber_Type(Integer32):
+    """Custom type sonusApsChannelNumber based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 15),
+    )
+
+
+_SonusApsChannelNumber_Type.__name__ = "Integer32"
+_SonusApsChannelNumber_Object = MibTableColumn
+sonusApsChannelNumber = _SonusApsChannelNumber_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 3, 1, 1),
+    _SonusApsChannelNumber_Type()
+)
+sonusApsChannelNumber.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    sonusApsChannelNumber.setStatus("current")
+_SonusApsChannelLineId_Type = InterfaceIndex
+_SonusApsChannelLineId_Object = MibTableColumn
+sonusApsChannelLineId = _SonusApsChannelLineId_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 3, 1, 2),
+    _SonusApsChannelLineId_Type()
+)
+sonusApsChannelLineId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    sonusApsChannelLineId.setStatus("current")
+
+
+class _SonusApsChannelPriority_Type(Integer32):
+    """Custom type sonusApsChannelPriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("high", 2),
+          ("low", 1))
+    )
+
+
+_SonusApsChannelPriority_Type.__name__ = "Integer32"
+_SonusApsChannelPriority_Object = MibTableColumn
+sonusApsChannelPriority = _SonusApsChannelPriority_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 3, 1, 3),
+    _SonusApsChannelPriority_Type()
+)
+sonusApsChannelPriority.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    sonusApsChannelPriority.setStatus("current")
+
+
+class _SonusApsChannelSwitchCommand_Type(Integer32):
+    """Custom type sonusApsChannelSwitchCommand based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("clear", 1),
+          ("exercise", 7),
+          ("forcedSwitchOfProtection", 4),
+          ("forcedSwitchOfWorking", 3),
+          ("lockoutOfProtection", 2),
+          ("manualSwitchOfProtection", 6),
+          ("manualSwitchOfWorking", 5))
+    )
+
+
+_SonusApsChannelSwitchCommand_Type.__name__ = "Integer32"
+_SonusApsChannelSwitchCommand_Object = MibTableColumn
+sonusApsChannelSwitchCommand = _SonusApsChannelSwitchCommand_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 3, 1, 4),
+    _SonusApsChannelSwitchCommand_Type()
+)
+sonusApsChannelSwitchCommand.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    sonusApsChannelSwitchCommand.setStatus("current")
+
+
+class _SonusApsChannelControlCommand_Type(Integer32):
+    """Custom type sonusApsChannelControlCommand based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("clearLockout", 2),
+          ("lockoutWorkingChannel", 1))
+    )
+
+
+_SonusApsChannelControlCommand_Type.__name__ = "Integer32"
+_SonusApsChannelControlCommand_Object = MibTableColumn
+sonusApsChannelControlCommand = _SonusApsChannelControlCommand_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 3, 1, 5),
+    _SonusApsChannelControlCommand_Type()
+)
+sonusApsChannelControlCommand.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    sonusApsChannelControlCommand.setStatus("current")
+
+
+class _SonusApsChannelStatus_Type(Bits):
+    """Custom type sonusApsChannelStatus based on Bits"""
+    namedValues = NamedValues(
+        *(("bothLinesFailed", 4),
+          ("lockedOut", 2),
+          ("protectionLineBusy", 5),
+          ("sdCondition", 0),
+          ("sfCondition", 1),
+          ("switched", 3))
+    )
+
+_SonusApsChannelStatus_Type.__name__ = "Bits"
+_SonusApsChannelStatus_Object = MibTableColumn
+sonusApsChannelStatus = _SonusApsChannelStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 3, 1, 6),
+    _SonusApsChannelStatus_Type()
+)
+sonusApsChannelStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sonusApsChannelStatus.setStatus("current")
+
+
+class _SonusApsChannelOperDirectionMode_Type(Integer32):
+    """Custom type sonusApsChannelOperDirectionMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("bidirectional", 2),
+          ("unidirectional", 1))
+    )
+
+
+_SonusApsChannelOperDirectionMode_Type.__name__ = "Integer32"
+_SonusApsChannelOperDirectionMode_Object = MibTableColumn
+sonusApsChannelOperDirectionMode = _SonusApsChannelOperDirectionMode_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 3, 1, 7),
+    _SonusApsChannelOperDirectionMode_Type()
+)
+sonusApsChannelOperDirectionMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sonusApsChannelOperDirectionMode.setStatus("current")
+_SonusApsChannelSignalDegrades_Type = Counter32
+_SonusApsChannelSignalDegrades_Object = MibTableColumn
+sonusApsChannelSignalDegrades = _SonusApsChannelSignalDegrades_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 3, 1, 8),
+    _SonusApsChannelSignalDegrades_Type()
+)
+sonusApsChannelSignalDegrades.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sonusApsChannelSignalDegrades.setStatus("current")
+_SonusApsChannelSignalFails_Type = Counter32
+_SonusApsChannelSignalFails_Object = MibTableColumn
+sonusApsChannelSignalFails = _SonusApsChannelSignalFails_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 3, 1, 9),
+    _SonusApsChannelSignalFails_Type()
+)
+sonusApsChannelSignalFails.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sonusApsChannelSignalFails.setStatus("current")
+_SonusApsChannelSwitchovers_Type = Counter32
+_SonusApsChannelSwitchovers_Object = MibTableColumn
+sonusApsChannelSwitchovers = _SonusApsChannelSwitchovers_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 3, 1, 10),
+    _SonusApsChannelSwitchovers_Type()
+)
+sonusApsChannelSwitchovers.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sonusApsChannelSwitchovers.setStatus("current")
+_SonusApsChannelLastSwitchover_Type = TimeTicks
+_SonusApsChannelLastSwitchover_Object = MibTableColumn
+sonusApsChannelLastSwitchover = _SonusApsChannelLastSwitchover_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 3, 1, 11),
+    _SonusApsChannelLastSwitchover_Type()
+)
+sonusApsChannelLastSwitchover.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sonusApsChannelLastSwitchover.setStatus("current")
+_SonusApsChannelRowStatus_Type = RowStatus
+_SonusApsChannelRowStatus_Object = MibTableColumn
+sonusApsChannelRowStatus = _SonusApsChannelRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 3, 1, 12),
+    _SonusApsChannelRowStatus_Type()
+)
+sonusApsChannelRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    sonusApsChannelRowStatus.setStatus("current")
+_SonusApsLineTable_Object = MibTable
+sonusApsLineTable = _SonusApsLineTable_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 4)
+)
+if mibBuilder.loadTexts:
+    sonusApsLineTable.setStatus("current")
+_SonusApsLineEntry_Object = MibTableRow
+sonusApsLineEntry = _SonusApsLineEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 4, 1)
+)
+sonusApsLineEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    sonusApsLineEntry.setStatus("current")
+_SonusApsLineGroupId_Type = InterfaceIndex
+_SonusApsLineGroupId_Object = MibTableColumn
+sonusApsLineGroupId = _SonusApsLineGroupId_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 4, 1, 1),
+    _SonusApsLineGroupId_Type()
+)
+sonusApsLineGroupId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sonusApsLineGroupId.setStatus("current")
+
+
+class _SonusApsLineChannelNumber_Type(Integer32):
+    """Custom type sonusApsLineChannelNumber based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 15),
+    )
+
+
+_SonusApsLineChannelNumber_Type.__name__ = "Integer32"
+_SonusApsLineChannelNumber_Object = MibTableColumn
+sonusApsLineChannelNumber = _SonusApsLineChannelNumber_Object(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 1, 4, 1, 2),
+    _SonusApsLineChannelNumber_Type()
+)
+sonusApsLineChannelNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sonusApsLineChannelNumber.setStatus("current")
+_SonusSonetApsMIBNotifications_ObjectIdentity = ObjectIdentity
+sonusSonetApsMIBNotifications = _SonusSonetApsMIBNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 2)
+)
+_SonusSonetApsMIBNotificationsPrefix_ObjectIdentity = ObjectIdentity
+sonusSonetApsMIBNotificationsPrefix = _SonusSonetApsMIBNotificationsPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 2, 0)
+)
+_SonusSonetApsConformance_ObjectIdentity = ObjectIdentity
+sonusSonetApsConformance = _SonusSonetApsConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 3)
+)
+_SonusSonetApsGroups_ObjectIdentity = ObjectIdentity
+sonusSonetApsGroups = _SonusSonetApsGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 3, 1)
+)
+_SonusSonetApsCompliances_ObjectIdentity = ObjectIdentity
+sonusSonetApsCompliances = _SonusSonetApsCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 3, 2)
+)
+
+# Managed Objects groups
+
+sonusApsGroupGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 3, 1, 1)
+)
+sonusApsGroupGroup.setObjects(
+      *(("SONUS-SONET-APS-MIB", "sonusApsGroupCount"),
+        ("SONUS-SONET-APS-MIB", "sonusApsGroupStatus"),
+        ("SONUS-SONET-APS-MIB", "sonusApsGroupArchitecture"),
+        ("SONUS-SONET-APS-MIB", "sonusApsGroupAdminDirection"),
+        ("SONUS-SONET-APS-MIB", "sonusApsGroupAdminSwitching"),
+        ("SONUS-SONET-APS-MIB", "sonusApsGroupExtraTraffic"),
+        ("SONUS-SONET-APS-MIB", "sonusApsGroupSignalFailBerThreshold"),
+        ("SONUS-SONET-APS-MIB", "sonusApsGroupSignalDegradeBerThreshold"),
+        ("SONUS-SONET-APS-MIB", "sonusApsGroupWaitToRestoreTime"),
+        ("SONUS-SONET-APS-MIB", "sonusApsGroupName"),
+        ("SONUS-SONET-APS-MIB", "sonusApsGroupSwitchedChannel"),
+        ("SONUS-SONET-APS-MIB", "sonusApsGroupOperStatus"),
+        ("SONUS-SONET-APS-MIB", "sonusApsGroupK1K2Received"),
+        ("SONUS-SONET-APS-MIB", "sonusApsGroupK1K2Transmitted"),
+        ("SONUS-SONET-APS-MIB", "sonusApsGroupProtectionSwitchingByteFailures"),
+        ("SONUS-SONET-APS-MIB", "sonusApsGroupChannelMismatches"),
+        ("SONUS-SONET-APS-MIB", "sonusApsGroupModeMismatches"),
+        ("SONUS-SONET-APS-MIB", "sonusApsGroupFarEndProtectionLineFailures"),
+        ("SONUS-SONET-APS-MIB", "sonusApsGroupCreationTime"))
+)
+if mibBuilder.loadTexts:
+    sonusApsGroupGroup.setStatus("current")
+
+sonusApsChannelGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 3, 1, 2)
+)
+sonusApsChannelGroup.setObjects(
+      *(("SONUS-SONET-APS-MIB", "sonusApsChannelLineId"),
+        ("SONUS-SONET-APS-MIB", "sonusApsChannelPriority"),
+        ("SONUS-SONET-APS-MIB", "sonusApsChannelSwitchCommand"),
+        ("SONUS-SONET-APS-MIB", "sonusApsChannelControlCommand"),
+        ("SONUS-SONET-APS-MIB", "sonusApsChannelStatus"),
+        ("SONUS-SONET-APS-MIB", "sonusApsChannelOperDirectionMode"),
+        ("SONUS-SONET-APS-MIB", "sonusApsChannelSignalDegrades"),
+        ("SONUS-SONET-APS-MIB", "sonusApsChannelSignalFails"),
+        ("SONUS-SONET-APS-MIB", "sonusApsChannelSwitchovers"),
+        ("SONUS-SONET-APS-MIB", "sonusApsChannelLastSwitchover"))
+)
+if mibBuilder.loadTexts:
+    sonusApsChannelGroup.setStatus("current")
+
+sonusApsLineGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 3, 1, 3)
+)
+sonusApsLineGroup.setObjects(
+      *(("SONUS-SONET-APS-MIB", "sonusApsLineGroupId"),
+        ("SONUS-SONET-APS-MIB", "sonusApsLineChannelNumber"))
+)
+if mibBuilder.loadTexts:
+    sonusApsLineGroup.setStatus("current")
+
+
+# Notification objects
+
+sonusApsTrapProtectionSwitchingByteFailure = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 2, 0, 1)
+)
+sonusApsTrapProtectionSwitchingByteFailure.setObjects(
+      *(("SONUS-SONET-APS-MIB", "sonusApsGroupProtectionSwitchingByteFailures"),
+        ("SONUS-SONET-APS-MIB", "sonusApsGroupOperStatus"))
+)
+if mibBuilder.loadTexts:
+    sonusApsTrapProtectionSwitchingByteFailure.setStatus(
+        "current"
+    )
+
+sonusApsTrapChannelMismatch = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 2, 0, 2)
+)
+sonusApsTrapChannelMismatch.setObjects(
+      *(("SONUS-SONET-APS-MIB", "sonusApsGroupChannelMismatches"),
+        ("SONUS-SONET-APS-MIB", "sonusApsGroupOperStatus"))
+)
+if mibBuilder.loadTexts:
+    sonusApsTrapChannelMismatch.setStatus(
+        "current"
+    )
+
+sonusApsTrapModeMismatch = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 2, 0, 3)
+)
+sonusApsTrapModeMismatch.setObjects(
+      *(("SONUS-SONET-APS-MIB", "sonusApsGroupModeMismatches"),
+        ("SONUS-SONET-APS-MIB", "sonusApsGroupOperStatus"))
+)
+if mibBuilder.loadTexts:
+    sonusApsTrapModeMismatch.setStatus(
+        "current"
+    )
+
+sonusApsTrapFarEndProtectionLineFailure = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 2, 0, 4)
+)
+sonusApsTrapFarEndProtectionLineFailure.setObjects(
+      *(("SONUS-SONET-APS-MIB", "sonusApsGroupFarEndProtectionLineFailures"),
+        ("SONUS-SONET-APS-MIB", "sonusApsGroupOperStatus"))
+)
+if mibBuilder.loadTexts:
+    sonusApsTrapFarEndProtectionLineFailure.setStatus(
+        "current"
+    )
+
+sonusApsTrapSwitchover = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 2, 0, 5)
+)
+sonusApsTrapSwitchover.setObjects(
+      *(("SONUS-SONET-APS-MIB", "sonusApsChannelSwitchovers"),
+        ("SONUS-SONET-APS-MIB", "sonusApsChannelStatus"))
+)
+if mibBuilder.loadTexts:
+    sonusApsTrapSwitchover.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+sonusApsNotificationGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 3, 1, 4)
+)
+sonusApsNotificationGroup.setObjects(
+      *(("SONUS-SONET-APS-MIB", "sonusApsTrapProtectionSwitchingByteFailure"),
+        ("SONUS-SONET-APS-MIB", "sonusApsTrapChannelMismatch"),
+        ("SONUS-SONET-APS-MIB", "sonusApsTrapModeMismatch"),
+        ("SONUS-SONET-APS-MIB", "sonusApsTrapFarEndProtectionLineFailure"),
+        ("SONUS-SONET-APS-MIB", "sonusApsTrapSwitchover"))
+)
+if mibBuilder.loadTexts:
+    sonusApsNotificationGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+sonusSonetApsCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 2879, 2, 5, 9, 3, 2, 1)
+)
+if mibBuilder.loadTexts:
+    sonusSonetApsCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "SONUS-SONET-APS-MIB",
+    **{"ApsK1K2": ApsK1K2,
+       "sonusSonetApsMIB": sonusSonetApsMIB,
+       "sonusSonetApsMIBObjects": sonusSonetApsMIBObjects,
+       "sonusApsGroupCount": sonusApsGroupCount,
+       "sonusApsGroupTable": sonusApsGroupTable,
+       "sonusApsGroupEntry": sonusApsGroupEntry,
+       "sonusApsGroupId": sonusApsGroupId,
+       "sonusApsGroupStatus": sonusApsGroupStatus,
+       "sonusApsGroupArchitecture": sonusApsGroupArchitecture,
+       "sonusApsGroupAdminDirection": sonusApsGroupAdminDirection,
+       "sonusApsGroupAdminSwitching": sonusApsGroupAdminSwitching,
+       "sonusApsGroupExtraTraffic": sonusApsGroupExtraTraffic,
+       "sonusApsGroupSignalFailBerThreshold": sonusApsGroupSignalFailBerThreshold,
+       "sonusApsGroupSignalDegradeBerThreshold": sonusApsGroupSignalDegradeBerThreshold,
+       "sonusApsGroupWaitToRestoreTime": sonusApsGroupWaitToRestoreTime,
+       "sonusApsGroupName": sonusApsGroupName,
+       "sonusApsGroupSwitchedChannel": sonusApsGroupSwitchedChannel,
+       "sonusApsGroupOperStatus": sonusApsGroupOperStatus,
+       "sonusApsGroupK1K2Received": sonusApsGroupK1K2Received,
+       "sonusApsGroupK1K2Transmitted": sonusApsGroupK1K2Transmitted,
+       "sonusApsGroupProtectionSwitchingByteFailures": sonusApsGroupProtectionSwitchingByteFailures,
+       "sonusApsGroupChannelMismatches": sonusApsGroupChannelMismatches,
+       "sonusApsGroupModeMismatches": sonusApsGroupModeMismatches,
+       "sonusApsGroupFarEndProtectionLineFailures": sonusApsGroupFarEndProtectionLineFailures,
+       "sonusApsGroupCreationTime": sonusApsGroupCreationTime,
+       "sonusApsChannelTable": sonusApsChannelTable,
+       "sonusApsChannelEntry": sonusApsChannelEntry,
+       "sonusApsChannelNumber": sonusApsChannelNumber,
+       "sonusApsChannelLineId": sonusApsChannelLineId,
+       "sonusApsChannelPriority": sonusApsChannelPriority,
+       "sonusApsChannelSwitchCommand": sonusApsChannelSwitchCommand,
+       "sonusApsChannelControlCommand": sonusApsChannelControlCommand,
+       "sonusApsChannelStatus": sonusApsChannelStatus,
+       "sonusApsChannelOperDirectionMode": sonusApsChannelOperDirectionMode,
+       "sonusApsChannelSignalDegrades": sonusApsChannelSignalDegrades,
+       "sonusApsChannelSignalFails": sonusApsChannelSignalFails,
+       "sonusApsChannelSwitchovers": sonusApsChannelSwitchovers,
+       "sonusApsChannelLastSwitchover": sonusApsChannelLastSwitchover,
+       "sonusApsChannelRowStatus": sonusApsChannelRowStatus,
+       "sonusApsLineTable": sonusApsLineTable,
+       "sonusApsLineEntry": sonusApsLineEntry,
+       "sonusApsLineGroupId": sonusApsLineGroupId,
+       "sonusApsLineChannelNumber": sonusApsLineChannelNumber,
+       "sonusSonetApsMIBNotifications": sonusSonetApsMIBNotifications,
+       "sonusSonetApsMIBNotificationsPrefix": sonusSonetApsMIBNotificationsPrefix,
+       "sonusApsTrapProtectionSwitchingByteFailure": sonusApsTrapProtectionSwitchingByteFailure,
+       "sonusApsTrapChannelMismatch": sonusApsTrapChannelMismatch,
+       "sonusApsTrapModeMismatch": sonusApsTrapModeMismatch,
+       "sonusApsTrapFarEndProtectionLineFailure": sonusApsTrapFarEndProtectionLineFailure,
+       "sonusApsTrapSwitchover": sonusApsTrapSwitchover,
+       "sonusSonetApsConformance": sonusSonetApsConformance,
+       "sonusSonetApsGroups": sonusSonetApsGroups,
+       "sonusApsGroupGroup": sonusApsGroupGroup,
+       "sonusApsChannelGroup": sonusApsChannelGroup,
+       "sonusApsLineGroup": sonusApsLineGroup,
+       "sonusApsNotificationGroup": sonusApsNotificationGroup,
+       "sonusSonetApsCompliances": sonusSonetApsCompliances,
+       "sonusSonetApsCompliance": sonusSonetApsCompliance}
+)

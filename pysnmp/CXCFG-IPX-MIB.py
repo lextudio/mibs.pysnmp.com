@@ -1,72 +1,729 @@
+# SNMP MIB module (CXCFG-IPX-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CXCFG-IPX-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/CXCFG-IPX-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:16:47 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
-Alias, cxIpx = mibBuilder.importSymbols("CXProduct-SMI", "Alias", "cxIpx")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-IpAddress, Gauge32, ObjectIdentity, Unsigned32, TimeTicks, MibIdentifier, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, NotificationType, Counter32, Integer32, Counter64, iso = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Gauge32", "ObjectIdentity", "Unsigned32", "TimeTicks", "MibIdentifier", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "NotificationType", "Counter32", "Integer32", "Counter64", "iso")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-cxCfgIpx = MibIdentifier((1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1))
-class NetNumber(OctetString):
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(4, 4)
-    fixedLength = 4
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CXCFG-IPX-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:20:12 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-cxCfgIpxNumClockTicksPerSecond = MibScalar((1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cxCfgIpxNumClockTicksPerSecond.setStatus('mandatory')
-cxCfgIpxPortTable = MibTable((1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2), )
-if mibBuilder.loadTexts: cxCfgIpxPortTable.setStatus('mandatory')
-cxCfgIpxPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1), ).setIndexNames((0, "CXCFG-IPX-MIB", "cxCfgIpxPort"))
-if mibBuilder.loadTexts: cxCfgIpxPortEntry.setStatus('mandatory')
-cxCfgIpxPort = MibTableColumn((1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cxCfgIpxPort.setStatus('mandatory')
-cxCfgIpxPortIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cxCfgIpxPortIfIndex.setStatus('mandatory')
-cxCfgIpxPortSubnetworkSAPAlias = MibTableColumn((1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 3), Alias()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cxCfgIpxPortSubnetworkSAPAlias.setStatus('mandatory')
-cxCfgIpxPortState = MibTableColumn((1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("on", 1), ("off", 2))).clone('off')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cxCfgIpxPortState.setStatus('mandatory')
-cxCfgIpxPortRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("invalid", 1), ("valid", 2))).clone('valid')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cxCfgIpxPortRowStatus.setStatus('mandatory')
-cxCfgIpxPortTransportTime = MibTableColumn((1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 30)).clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cxCfgIpxPortTransportTime.setStatus('mandatory')
-cxCfgIpxPortMaxHops = MibTableColumn((1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16)).clone(16)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cxCfgIpxPortMaxHops.setStatus('mandatory')
-cxCfgIpxPortIntNetNum = MibTableColumn((1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 8), NetNumber()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cxCfgIpxPortIntNetNum.setStatus('mandatory')
-cxCfgIpxPortPerSapBcast = MibTableColumn((1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("on", 1), ("off", 2))).clone('on')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cxCfgIpxPortPerSapBcast.setStatus('mandatory')
-cxCfgIpxPortPerRipBcast = MibTableColumn((1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("on", 1), ("off", 2))).clone('on')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cxCfgIpxPortPerRipBcast.setStatus('mandatory')
-cxCfgIpxPortSapBcast = MibTableColumn((1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("on", 1), ("off", 2))).clone('on')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cxCfgIpxPortSapBcast.setStatus('mandatory')
-cxCfgIpxPortRipBcast = MibTableColumn((1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("on", 1), ("off", 2))).clone('on')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cxCfgIpxPortRipBcast.setStatus('mandatory')
-cxCfgIpxPortDiagPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("on", 1), ("off", 2))).clone('off')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cxCfgIpxPortDiagPackets.setStatus('mandatory')
-cxCfgIpxPortPerRipTxTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 14), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 3600)).clone(60)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cxCfgIpxPortPerRipTxTimer.setStatus('mandatory')
-cxCfgIpxPortPerSapTxTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 3600)).clone(60)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cxCfgIpxPortPerSapTxTimer.setStatus('mandatory')
-cxCfgIpxPortRipAgeTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 3600)).clone(180)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cxCfgIpxPortRipAgeTimer.setStatus('mandatory')
-cxCfgIpxPortSapAgeTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 17), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 3600)).clone(180)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cxCfgIpxPortSapAgeTimer.setStatus('mandatory')
-cxCfgIpxPortFrameType = MibTableColumn((1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("raw-802-3", 1), ("ethernet-II", 2), ("llc-802-2", 3), ("snap", 4))).clone('raw-802-3')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cxCfgIpxPortFrameType.setStatus('mandatory')
-cxCfgIpxPortWatchSpoof = MibTableColumn((1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("on", 1), ("off", 2))).clone('off')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cxCfgIpxPortWatchSpoof.setStatus('mandatory')
-cxCfgIpxPortSpxWatchSpoof = MibTableColumn((1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 20), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("on", 1), ("off", 2))).clone('off')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cxCfgIpxPortSpxWatchSpoof.setStatus('mandatory')
-cxCfgIpxPortSerialSpoof = MibTableColumn((1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 21), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("on", 1), ("off", 2))).clone('off')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cxCfgIpxPortSerialSpoof.setStatus('mandatory')
-cxCfgIpxPortSRSupport = MibTableColumn((1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 22), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cxCfgIpxPortSRSupport.setStatus('mandatory')
-cxCfgIpxMibLevel = MibScalar((1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 20), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cxCfgIpxMibLevel.setStatus('mandatory')
-mibBuilder.exportSymbols("CXCFG-IPX-MIB", cxCfgIpxPortSapBcast=cxCfgIpxPortSapBcast, NetNumber=NetNumber, cxCfgIpxPortSubnetworkSAPAlias=cxCfgIpxPortSubnetworkSAPAlias, cxCfgIpxNumClockTicksPerSecond=cxCfgIpxNumClockTicksPerSecond, cxCfgIpxPortFrameType=cxCfgIpxPortFrameType, cxCfgIpxPortTable=cxCfgIpxPortTable, cxCfgIpxPortSRSupport=cxCfgIpxPortSRSupport, cxCfgIpxPortPerRipBcast=cxCfgIpxPortPerRipBcast, cxCfgIpxMibLevel=cxCfgIpxMibLevel, cxCfgIpxPortRipAgeTimer=cxCfgIpxPortRipAgeTimer, cxCfgIpxPort=cxCfgIpxPort, cxCfgIpxPortRowStatus=cxCfgIpxPortRowStatus, cxCfgIpxPortWatchSpoof=cxCfgIpxPortWatchSpoof, cxCfgIpxPortPerSapTxTimer=cxCfgIpxPortPerSapTxTimer, cxCfgIpxPortDiagPackets=cxCfgIpxPortDiagPackets, cxCfgIpxPortTransportTime=cxCfgIpxPortTransportTime, cxCfgIpxPortIfIndex=cxCfgIpxPortIfIndex, cxCfgIpxPortSapAgeTimer=cxCfgIpxPortSapAgeTimer, cxCfgIpxPortPerRipTxTimer=cxCfgIpxPortPerRipTxTimer, cxCfgIpxPortPerSapBcast=cxCfgIpxPortPerSapBcast, cxCfgIpxPortState=cxCfgIpxPortState, cxCfgIpx=cxCfgIpx, cxCfgIpxPortEntry=cxCfgIpxPortEntry, cxCfgIpxPortRipBcast=cxCfgIpxPortRipBcast, cxCfgIpxPortSpxWatchSpoof=cxCfgIpxPortSpxWatchSpoof, cxCfgIpxPortMaxHops=cxCfgIpxPortMaxHops, cxCfgIpxPortSerialSpoof=cxCfgIpxPortSerialSpoof, cxCfgIpxPortIntNetNum=cxCfgIpxPortIntNetNum)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(Alias,
+ cxIpx) = mibBuilder.importSymbols(
+    "CXProduct-SMI",
+    "Alias",
+    "cxIpx")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+
+class NetNumber(OctetString):
+    """Custom type NetNumber based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+    )
+
+
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CxCfgIpx_ObjectIdentity = ObjectIdentity
+cxCfgIpx = _CxCfgIpx_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1)
+)
+_CxCfgIpxNumClockTicksPerSecond_Type = Integer32
+_CxCfgIpxNumClockTicksPerSecond_Object = MibScalar
+cxCfgIpxNumClockTicksPerSecond = _CxCfgIpxNumClockTicksPerSecond_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 1),
+    _CxCfgIpxNumClockTicksPerSecond_Type()
+)
+cxCfgIpxNumClockTicksPerSecond.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cxCfgIpxNumClockTicksPerSecond.setStatus("mandatory")
+_CxCfgIpxPortTable_Object = MibTable
+cxCfgIpxPortTable = _CxCfgIpxPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2)
+)
+if mibBuilder.loadTexts:
+    cxCfgIpxPortTable.setStatus("mandatory")
+_CxCfgIpxPortEntry_Object = MibTableRow
+cxCfgIpxPortEntry = _CxCfgIpxPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1)
+)
+cxCfgIpxPortEntry.setIndexNames(
+    (0, "CXCFG-IPX-MIB", "cxCfgIpxPort"),
+)
+if mibBuilder.loadTexts:
+    cxCfgIpxPortEntry.setStatus("mandatory")
+
+
+class _CxCfgIpxPort_Type(Integer32):
+    """Custom type cxCfgIpxPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_CxCfgIpxPort_Type.__name__ = "Integer32"
+_CxCfgIpxPort_Object = MibTableColumn
+cxCfgIpxPort = _CxCfgIpxPort_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 1),
+    _CxCfgIpxPort_Type()
+)
+cxCfgIpxPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cxCfgIpxPort.setStatus("mandatory")
+_CxCfgIpxPortIfIndex_Type = Integer32
+_CxCfgIpxPortIfIndex_Object = MibTableColumn
+cxCfgIpxPortIfIndex = _CxCfgIpxPortIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 2),
+    _CxCfgIpxPortIfIndex_Type()
+)
+cxCfgIpxPortIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cxCfgIpxPortIfIndex.setStatus("mandatory")
+_CxCfgIpxPortSubnetworkSAPAlias_Type = Alias
+_CxCfgIpxPortSubnetworkSAPAlias_Object = MibTableColumn
+cxCfgIpxPortSubnetworkSAPAlias = _CxCfgIpxPortSubnetworkSAPAlias_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 3),
+    _CxCfgIpxPortSubnetworkSAPAlias_Type()
+)
+cxCfgIpxPortSubnetworkSAPAlias.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cxCfgIpxPortSubnetworkSAPAlias.setStatus("mandatory")
+
+
+class _CxCfgIpxPortState_Type(Integer32):
+    """Custom type cxCfgIpxPortState based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 2),
+          ("on", 1))
+    )
+
+
+_CxCfgIpxPortState_Type.__name__ = "Integer32"
+_CxCfgIpxPortState_Object = MibTableColumn
+cxCfgIpxPortState = _CxCfgIpxPortState_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 4),
+    _CxCfgIpxPortState_Type()
+)
+cxCfgIpxPortState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cxCfgIpxPortState.setStatus("mandatory")
+
+
+class _CxCfgIpxPortRowStatus_Type(Integer32):
+    """Custom type cxCfgIpxPortRowStatus based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("invalid", 1),
+          ("valid", 2))
+    )
+
+
+_CxCfgIpxPortRowStatus_Type.__name__ = "Integer32"
+_CxCfgIpxPortRowStatus_Object = MibTableColumn
+cxCfgIpxPortRowStatus = _CxCfgIpxPortRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 5),
+    _CxCfgIpxPortRowStatus_Type()
+)
+cxCfgIpxPortRowStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cxCfgIpxPortRowStatus.setStatus("mandatory")
+
+
+class _CxCfgIpxPortTransportTime_Type(Integer32):
+    """Custom type cxCfgIpxPortTransportTime based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 30),
+    )
+
+
+_CxCfgIpxPortTransportTime_Type.__name__ = "Integer32"
+_CxCfgIpxPortTransportTime_Object = MibTableColumn
+cxCfgIpxPortTransportTime = _CxCfgIpxPortTransportTime_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 6),
+    _CxCfgIpxPortTransportTime_Type()
+)
+cxCfgIpxPortTransportTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cxCfgIpxPortTransportTime.setStatus("mandatory")
+
+
+class _CxCfgIpxPortMaxHops_Type(Integer32):
+    """Custom type cxCfgIpxPortMaxHops based on Integer32"""
+    defaultValue = 16
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16),
+    )
+
+
+_CxCfgIpxPortMaxHops_Type.__name__ = "Integer32"
+_CxCfgIpxPortMaxHops_Object = MibTableColumn
+cxCfgIpxPortMaxHops = _CxCfgIpxPortMaxHops_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 7),
+    _CxCfgIpxPortMaxHops_Type()
+)
+cxCfgIpxPortMaxHops.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cxCfgIpxPortMaxHops.setStatus("mandatory")
+_CxCfgIpxPortIntNetNum_Type = NetNumber
+_CxCfgIpxPortIntNetNum_Object = MibTableColumn
+cxCfgIpxPortIntNetNum = _CxCfgIpxPortIntNetNum_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 8),
+    _CxCfgIpxPortIntNetNum_Type()
+)
+cxCfgIpxPortIntNetNum.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cxCfgIpxPortIntNetNum.setStatus("mandatory")
+
+
+class _CxCfgIpxPortPerSapBcast_Type(Integer32):
+    """Custom type cxCfgIpxPortPerSapBcast based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 2),
+          ("on", 1))
+    )
+
+
+_CxCfgIpxPortPerSapBcast_Type.__name__ = "Integer32"
+_CxCfgIpxPortPerSapBcast_Object = MibTableColumn
+cxCfgIpxPortPerSapBcast = _CxCfgIpxPortPerSapBcast_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 9),
+    _CxCfgIpxPortPerSapBcast_Type()
+)
+cxCfgIpxPortPerSapBcast.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cxCfgIpxPortPerSapBcast.setStatus("mandatory")
+
+
+class _CxCfgIpxPortPerRipBcast_Type(Integer32):
+    """Custom type cxCfgIpxPortPerRipBcast based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 2),
+          ("on", 1))
+    )
+
+
+_CxCfgIpxPortPerRipBcast_Type.__name__ = "Integer32"
+_CxCfgIpxPortPerRipBcast_Object = MibTableColumn
+cxCfgIpxPortPerRipBcast = _CxCfgIpxPortPerRipBcast_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 10),
+    _CxCfgIpxPortPerRipBcast_Type()
+)
+cxCfgIpxPortPerRipBcast.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cxCfgIpxPortPerRipBcast.setStatus("mandatory")
+
+
+class _CxCfgIpxPortSapBcast_Type(Integer32):
+    """Custom type cxCfgIpxPortSapBcast based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 2),
+          ("on", 1))
+    )
+
+
+_CxCfgIpxPortSapBcast_Type.__name__ = "Integer32"
+_CxCfgIpxPortSapBcast_Object = MibTableColumn
+cxCfgIpxPortSapBcast = _CxCfgIpxPortSapBcast_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 11),
+    _CxCfgIpxPortSapBcast_Type()
+)
+cxCfgIpxPortSapBcast.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cxCfgIpxPortSapBcast.setStatus("mandatory")
+
+
+class _CxCfgIpxPortRipBcast_Type(Integer32):
+    """Custom type cxCfgIpxPortRipBcast based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 2),
+          ("on", 1))
+    )
+
+
+_CxCfgIpxPortRipBcast_Type.__name__ = "Integer32"
+_CxCfgIpxPortRipBcast_Object = MibTableColumn
+cxCfgIpxPortRipBcast = _CxCfgIpxPortRipBcast_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 12),
+    _CxCfgIpxPortRipBcast_Type()
+)
+cxCfgIpxPortRipBcast.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cxCfgIpxPortRipBcast.setStatus("mandatory")
+
+
+class _CxCfgIpxPortDiagPackets_Type(Integer32):
+    """Custom type cxCfgIpxPortDiagPackets based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 2),
+          ("on", 1))
+    )
+
+
+_CxCfgIpxPortDiagPackets_Type.__name__ = "Integer32"
+_CxCfgIpxPortDiagPackets_Object = MibTableColumn
+cxCfgIpxPortDiagPackets = _CxCfgIpxPortDiagPackets_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 13),
+    _CxCfgIpxPortDiagPackets_Type()
+)
+cxCfgIpxPortDiagPackets.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cxCfgIpxPortDiagPackets.setStatus("mandatory")
+
+
+class _CxCfgIpxPortPerRipTxTimer_Type(Integer32):
+    """Custom type cxCfgIpxPortPerRipTxTimer based on Integer32"""
+    defaultValue = 60
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 3600),
+    )
+
+
+_CxCfgIpxPortPerRipTxTimer_Type.__name__ = "Integer32"
+_CxCfgIpxPortPerRipTxTimer_Object = MibTableColumn
+cxCfgIpxPortPerRipTxTimer = _CxCfgIpxPortPerRipTxTimer_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 14),
+    _CxCfgIpxPortPerRipTxTimer_Type()
+)
+cxCfgIpxPortPerRipTxTimer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cxCfgIpxPortPerRipTxTimer.setStatus("mandatory")
+
+
+class _CxCfgIpxPortPerSapTxTimer_Type(Integer32):
+    """Custom type cxCfgIpxPortPerSapTxTimer based on Integer32"""
+    defaultValue = 60
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 3600),
+    )
+
+
+_CxCfgIpxPortPerSapTxTimer_Type.__name__ = "Integer32"
+_CxCfgIpxPortPerSapTxTimer_Object = MibTableColumn
+cxCfgIpxPortPerSapTxTimer = _CxCfgIpxPortPerSapTxTimer_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 15),
+    _CxCfgIpxPortPerSapTxTimer_Type()
+)
+cxCfgIpxPortPerSapTxTimer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cxCfgIpxPortPerSapTxTimer.setStatus("mandatory")
+
+
+class _CxCfgIpxPortRipAgeTimer_Type(Integer32):
+    """Custom type cxCfgIpxPortRipAgeTimer based on Integer32"""
+    defaultValue = 180
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 3600),
+    )
+
+
+_CxCfgIpxPortRipAgeTimer_Type.__name__ = "Integer32"
+_CxCfgIpxPortRipAgeTimer_Object = MibTableColumn
+cxCfgIpxPortRipAgeTimer = _CxCfgIpxPortRipAgeTimer_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 16),
+    _CxCfgIpxPortRipAgeTimer_Type()
+)
+cxCfgIpxPortRipAgeTimer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cxCfgIpxPortRipAgeTimer.setStatus("mandatory")
+
+
+class _CxCfgIpxPortSapAgeTimer_Type(Integer32):
+    """Custom type cxCfgIpxPortSapAgeTimer based on Integer32"""
+    defaultValue = 180
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 3600),
+    )
+
+
+_CxCfgIpxPortSapAgeTimer_Type.__name__ = "Integer32"
+_CxCfgIpxPortSapAgeTimer_Object = MibTableColumn
+cxCfgIpxPortSapAgeTimer = _CxCfgIpxPortSapAgeTimer_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 17),
+    _CxCfgIpxPortSapAgeTimer_Type()
+)
+cxCfgIpxPortSapAgeTimer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cxCfgIpxPortSapAgeTimer.setStatus("mandatory")
+
+
+class _CxCfgIpxPortFrameType_Type(Integer32):
+    """Custom type cxCfgIpxPortFrameType based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ethernet-II", 2),
+          ("llc-802-2", 3),
+          ("raw-802-3", 1),
+          ("snap", 4))
+    )
+
+
+_CxCfgIpxPortFrameType_Type.__name__ = "Integer32"
+_CxCfgIpxPortFrameType_Object = MibTableColumn
+cxCfgIpxPortFrameType = _CxCfgIpxPortFrameType_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 18),
+    _CxCfgIpxPortFrameType_Type()
+)
+cxCfgIpxPortFrameType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cxCfgIpxPortFrameType.setStatus("mandatory")
+
+
+class _CxCfgIpxPortWatchSpoof_Type(Integer32):
+    """Custom type cxCfgIpxPortWatchSpoof based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 2),
+          ("on", 1))
+    )
+
+
+_CxCfgIpxPortWatchSpoof_Type.__name__ = "Integer32"
+_CxCfgIpxPortWatchSpoof_Object = MibTableColumn
+cxCfgIpxPortWatchSpoof = _CxCfgIpxPortWatchSpoof_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 19),
+    _CxCfgIpxPortWatchSpoof_Type()
+)
+cxCfgIpxPortWatchSpoof.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cxCfgIpxPortWatchSpoof.setStatus("mandatory")
+
+
+class _CxCfgIpxPortSpxWatchSpoof_Type(Integer32):
+    """Custom type cxCfgIpxPortSpxWatchSpoof based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 2),
+          ("on", 1))
+    )
+
+
+_CxCfgIpxPortSpxWatchSpoof_Type.__name__ = "Integer32"
+_CxCfgIpxPortSpxWatchSpoof_Object = MibTableColumn
+cxCfgIpxPortSpxWatchSpoof = _CxCfgIpxPortSpxWatchSpoof_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 20),
+    _CxCfgIpxPortSpxWatchSpoof_Type()
+)
+cxCfgIpxPortSpxWatchSpoof.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cxCfgIpxPortSpxWatchSpoof.setStatus("mandatory")
+
+
+class _CxCfgIpxPortSerialSpoof_Type(Integer32):
+    """Custom type cxCfgIpxPortSerialSpoof based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 2),
+          ("on", 1))
+    )
+
+
+_CxCfgIpxPortSerialSpoof_Type.__name__ = "Integer32"
+_CxCfgIpxPortSerialSpoof_Object = MibTableColumn
+cxCfgIpxPortSerialSpoof = _CxCfgIpxPortSerialSpoof_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 21),
+    _CxCfgIpxPortSerialSpoof_Type()
+)
+cxCfgIpxPortSerialSpoof.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cxCfgIpxPortSerialSpoof.setStatus("mandatory")
+
+
+class _CxCfgIpxPortSRSupport_Type(Integer32):
+    """Custom type cxCfgIpxPortSRSupport based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_CxCfgIpxPortSRSupport_Type.__name__ = "Integer32"
+_CxCfgIpxPortSRSupport_Object = MibTableColumn
+cxCfgIpxPortSRSupport = _CxCfgIpxPortSRSupport_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 2, 1, 22),
+    _CxCfgIpxPortSRSupport_Type()
+)
+cxCfgIpxPortSRSupport.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cxCfgIpxPortSRSupport.setStatus("mandatory")
+
+
+class _CxCfgIpxMibLevel_Type(Integer32):
+    """Custom type cxCfgIpxMibLevel based on Integer32"""
+    defaultValue = 0
+
+
+_CxCfgIpxMibLevel_Object = MibScalar
+cxCfgIpxMibLevel = _CxCfgIpxMibLevel_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 13, 1, 20),
+    _CxCfgIpxMibLevel_Type()
+)
+cxCfgIpxMibLevel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cxCfgIpxMibLevel.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CXCFG-IPX-MIB",
+    **{"NetNumber": NetNumber,
+       "cxCfgIpx": cxCfgIpx,
+       "cxCfgIpxNumClockTicksPerSecond": cxCfgIpxNumClockTicksPerSecond,
+       "cxCfgIpxPortTable": cxCfgIpxPortTable,
+       "cxCfgIpxPortEntry": cxCfgIpxPortEntry,
+       "cxCfgIpxPort": cxCfgIpxPort,
+       "cxCfgIpxPortIfIndex": cxCfgIpxPortIfIndex,
+       "cxCfgIpxPortSubnetworkSAPAlias": cxCfgIpxPortSubnetworkSAPAlias,
+       "cxCfgIpxPortState": cxCfgIpxPortState,
+       "cxCfgIpxPortRowStatus": cxCfgIpxPortRowStatus,
+       "cxCfgIpxPortTransportTime": cxCfgIpxPortTransportTime,
+       "cxCfgIpxPortMaxHops": cxCfgIpxPortMaxHops,
+       "cxCfgIpxPortIntNetNum": cxCfgIpxPortIntNetNum,
+       "cxCfgIpxPortPerSapBcast": cxCfgIpxPortPerSapBcast,
+       "cxCfgIpxPortPerRipBcast": cxCfgIpxPortPerRipBcast,
+       "cxCfgIpxPortSapBcast": cxCfgIpxPortSapBcast,
+       "cxCfgIpxPortRipBcast": cxCfgIpxPortRipBcast,
+       "cxCfgIpxPortDiagPackets": cxCfgIpxPortDiagPackets,
+       "cxCfgIpxPortPerRipTxTimer": cxCfgIpxPortPerRipTxTimer,
+       "cxCfgIpxPortPerSapTxTimer": cxCfgIpxPortPerSapTxTimer,
+       "cxCfgIpxPortRipAgeTimer": cxCfgIpxPortRipAgeTimer,
+       "cxCfgIpxPortSapAgeTimer": cxCfgIpxPortSapAgeTimer,
+       "cxCfgIpxPortFrameType": cxCfgIpxPortFrameType,
+       "cxCfgIpxPortWatchSpoof": cxCfgIpxPortWatchSpoof,
+       "cxCfgIpxPortSpxWatchSpoof": cxCfgIpxPortSpxWatchSpoof,
+       "cxCfgIpxPortSerialSpoof": cxCfgIpxPortSerialSpoof,
+       "cxCfgIpxPortSRSupport": cxCfgIpxPortSRSupport,
+       "cxCfgIpxMibLevel": cxCfgIpxMibLevel}
+)

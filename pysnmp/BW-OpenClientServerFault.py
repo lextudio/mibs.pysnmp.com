@@ -1,49 +1,463 @@
+# SNMP MIB module (BW-OpenClientServerFault) expressed in pysnmp data model.
 #
-# PySNMP MIB module BW-OpenClientServerFault (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/BW-OpenClientServerFault
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:25:07 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
-alarmName, problemText, identifier, recommendedActionsText, faultFields, component, timeStamp, severity, alarmState, common, systemName, subcomponent = mibBuilder.importSymbols("BroadworksFault", "alarmName", "problemText", "identifier", "recommendedActionsText", "faultFields", "component", "timeStamp", "severity", "alarmState", "common", "systemName", "subcomponent")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, IpAddress, MibIdentifier, Unsigned32, Counter64, TimeTicks, ObjectIdentity, Integer32, Gauge32, NotificationType, iso, Counter32, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "IpAddress", "MibIdentifier", "Unsigned32", "Counter64", "TimeTicks", "ObjectIdentity", "Integer32", "Gauge32", "NotificationType", "iso", "Counter32", "ModuleIdentity")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-systemFaults = ModuleIdentity((1, 3, 6, 1, 4, 1, 6431, 1, 1, 1))
-systemFaults.setRevisions(('2000-09-19 14:31',))
-if mibBuilder.loadTexts: systemFaults.setLastUpdated('200201220000Z')
-if mibBuilder.loadTexts: systemFaults.setOrganization('Broadsoft, Inc')
-bwPMOpenClientServerLaunched = NotificationType((1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 501)).setObjects(("BroadworksFault", "identifier"), ("BroadworksFault", "timeStamp"), ("BroadworksFault", "alarmName"), ("BroadworksFault", "systemName"), ("BroadworksFault", "severity"), ("BroadworksFault", "component"), ("BroadworksFault", "subcomponent"), ("BroadworksFault", "problemText"), ("BroadworksFault", "recommendedActionsText"))
-if mibBuilder.loadTexts: bwPMOpenClientServerLaunched.setStatus('current')
-bwPMOpenClientServerShutDown = NotificationType((1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 502)).setObjects(("BroadworksFault", "identifier"), ("BroadworksFault", "timeStamp"), ("BroadworksFault", "alarmName"), ("BroadworksFault", "systemName"), ("BroadworksFault", "severity"), ("BroadworksFault", "component"), ("BroadworksFault", "subcomponent"), ("BroadworksFault", "problemText"), ("BroadworksFault", "recommendedActionsText"))
-if mibBuilder.loadTexts: bwPMOpenClientServerShutDown.setStatus('current')
-bwPMOpenClientServerRestarted = NotificationType((1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 503)).setObjects(("BroadworksFault", "identifier"), ("BroadworksFault", "timeStamp"), ("BroadworksFault", "alarmName"), ("BroadworksFault", "systemName"), ("BroadworksFault", "severity"), ("BroadworksFault", "component"), ("BroadworksFault", "subcomponent"), ("BroadworksFault", "problemText"), ("BroadworksFault", "recommendedActionsText"))
-if mibBuilder.loadTexts: bwPMOpenClientServerRestarted.setStatus('current')
-bwPMOpenClientServerDeath = NotificationType((1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 504)).setObjects(("BroadworksFault", "identifier"), ("BroadworksFault", "timeStamp"), ("BroadworksFault", "alarmName"), ("BroadworksFault", "systemName"), ("BroadworksFault", "severity"), ("BroadworksFault", "component"), ("BroadworksFault", "subcomponent"), ("BroadworksFault", "problemText"), ("BroadworksFault", "recommendedActionsText"))
-if mibBuilder.loadTexts: bwPMOpenClientServerDeath.setStatus('current')
-bwPMOpenClientServerStartupFailed = NotificationType((1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 505)).setObjects(("BroadworksFault", "identifier"), ("BroadworksFault", "timeStamp"), ("BroadworksFault", "alarmName"), ("BroadworksFault", "systemName"), ("BroadworksFault", "severity"), ("BroadworksFault", "component"), ("BroadworksFault", "subcomponent"), ("BroadworksFault", "problemText"), ("BroadworksFault", "recommendedActionsText"))
-if mibBuilder.loadTexts: bwPMOpenClientServerStartupFailed.setStatus('current')
-bwOpenClientServerNSConnFailed = NotificationType((1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 506)).setObjects(("BroadworksFault", "identifier"), ("BroadworksFault", "timeStamp"), ("BroadworksFault", "alarmName"), ("BroadworksFault", "systemName"), ("BroadworksFault", "severity"), ("BroadworksFault", "component"), ("BroadworksFault", "subcomponent"), ("BroadworksFault", "problemText"), ("BroadworksFault", "recommendedActionsText"))
-if mibBuilder.loadTexts: bwOpenClientServerNSConnFailed.setStatus('current')
-bwOpenClientServerASConnFailed = NotificationType((1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 507)).setObjects(("BroadworksFault", "identifier"), ("BroadworksFault", "timeStamp"), ("BroadworksFault", "alarmName"), ("BroadworksFault", "systemName"), ("BroadworksFault", "severity"), ("BroadworksFault", "component"), ("BroadworksFault", "subcomponent"), ("BroadworksFault", "problemText"), ("BroadworksFault", "recommendedActionsText"))
-if mibBuilder.loadTexts: bwOpenClientServerASConnFailed.setStatus('current')
-bwOpenClientServerClientConnTerminated = NotificationType((1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 508)).setObjects(("BroadworksFault", "identifier"), ("BroadworksFault", "timeStamp"), ("BroadworksFault", "alarmName"), ("BroadworksFault", "systemName"), ("BroadworksFault", "severity"), ("BroadworksFault", "component"), ("BroadworksFault", "subcomponent"), ("BroadworksFault", "problemText"), ("BroadworksFault", "recommendedActionsText"))
-if mibBuilder.loadTexts: bwOpenClientServerClientConnTerminated.setStatus('current')
-bwOpenClientServerASConnTerminated = NotificationType((1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 509)).setObjects(("BroadworksFault", "identifier"), ("BroadworksFault", "timeStamp"), ("BroadworksFault", "alarmName"), ("BroadworksFault", "systemName"), ("BroadworksFault", "severity"), ("BroadworksFault", "component"), ("BroadworksFault", "subcomponent"), ("BroadworksFault", "problemText"), ("BroadworksFault", "recommendedActionsText"))
-if mibBuilder.loadTexts: bwOpenClientServerASConnTerminated.setStatus('current')
-bwOpenClientServerNSConnTerminated = NotificationType((1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 510)).setObjects(("BroadworksFault", "identifier"), ("BroadworksFault", "timeStamp"), ("BroadworksFault", "alarmName"), ("BroadworksFault", "systemName"), ("BroadworksFault", "severity"), ("BroadworksFault", "component"), ("BroadworksFault", "subcomponent"), ("BroadworksFault", "problemText"), ("BroadworksFault", "recommendedActionsText"))
-if mibBuilder.loadTexts: bwOpenClientServerNSConnTerminated.setStatus('current')
-bwOpenClientServerExtAuthConnFailedRaise = NotificationType((1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 511)).setObjects(("BroadworksFault", "identifier"), ("BroadworksFault", "timeStamp"), ("BroadworksFault", "alarmName"), ("BroadworksFault", "systemName"), ("BroadworksFault", "severity"), ("BroadworksFault", "component"), ("BroadworksFault", "subcomponent"), ("BroadworksFault", "problemText"), ("BroadworksFault", "recommendedActionsText"))
-if mibBuilder.loadTexts: bwOpenClientServerExtAuthConnFailedRaise.setStatus('current')
-bwOpenClientServerExtAuthConnFailedClear = NotificationType((1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 512)).setObjects(("BroadworksFault", "identifier"), ("BroadworksFault", "timeStamp"), ("BroadworksFault", "alarmName"), ("BroadworksFault", "systemName"), ("BroadworksFault", "severity"), ("BroadworksFault", "component"), ("BroadworksFault", "subcomponent"), ("BroadworksFault", "problemText"), ("BroadworksFault", "recommendedActionsText"))
-if mibBuilder.loadTexts: bwOpenClientServerExtAuthConnFailedClear.setStatus('current')
-bwOpenClientServerExtAuthProcessingFailedRaise = NotificationType((1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 513)).setObjects(("BroadworksFault", "identifier"), ("BroadworksFault", "timeStamp"), ("BroadworksFault", "alarmName"), ("BroadworksFault", "systemName"), ("BroadworksFault", "severity"), ("BroadworksFault", "component"), ("BroadworksFault", "subcomponent"), ("BroadworksFault", "problemText"), ("BroadworksFault", "recommendedActionsText"))
-if mibBuilder.loadTexts: bwOpenClientServerExtAuthProcessingFailedRaise.setStatus('current')
-bwOpenClientServerExtAuthProcessingFailedClear = NotificationType((1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 514)).setObjects(("BroadworksFault", "identifier"), ("BroadworksFault", "timeStamp"), ("BroadworksFault", "alarmName"), ("BroadworksFault", "systemName"), ("BroadworksFault", "severity"), ("BroadworksFault", "component"), ("BroadworksFault", "subcomponent"), ("BroadworksFault", "problemText"), ("BroadworksFault", "recommendedActionsText"))
-if mibBuilder.loadTexts: bwOpenClientServerExtAuthProcessingFailedClear.setStatus('current')
-bwOpenClientServerUserIdForceLoggedOut = NotificationType((1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 515)).setObjects(("BroadworksFault", "identifier"), ("BroadworksFault", "timeStamp"), ("BroadworksFault", "alarmName"), ("BroadworksFault", "systemName"), ("BroadworksFault", "severity"), ("BroadworksFault", "component"), ("BroadworksFault", "subcomponent"), ("BroadworksFault", "problemText"), ("BroadworksFault", "recommendedActionsText"))
-if mibBuilder.loadTexts: bwOpenClientServerUserIdForceLoggedOut.setStatus('current')
-mibBuilder.exportSymbols("BW-OpenClientServerFault", bwPMOpenClientServerStartupFailed=bwPMOpenClientServerStartupFailed, bwOpenClientServerUserIdForceLoggedOut=bwOpenClientServerUserIdForceLoggedOut, bwOpenClientServerExtAuthConnFailedClear=bwOpenClientServerExtAuthConnFailedClear, bwPMOpenClientServerShutDown=bwPMOpenClientServerShutDown, systemFaults=systemFaults, bwOpenClientServerNSConnFailed=bwOpenClientServerNSConnFailed, bwOpenClientServerExtAuthProcessingFailedRaise=bwOpenClientServerExtAuthProcessingFailedRaise, bwPMOpenClientServerDeath=bwPMOpenClientServerDeath, bwPMOpenClientServerRestarted=bwPMOpenClientServerRestarted, bwPMOpenClientServerLaunched=bwPMOpenClientServerLaunched, bwOpenClientServerASConnFailed=bwOpenClientServerASConnFailed, bwOpenClientServerASConnTerminated=bwOpenClientServerASConnTerminated, bwOpenClientServerNSConnTerminated=bwOpenClientServerNSConnTerminated, bwOpenClientServerExtAuthConnFailedRaise=bwOpenClientServerExtAuthConnFailedRaise, bwOpenClientServerExtAuthProcessingFailedClear=bwOpenClientServerExtAuthProcessingFailedClear, bwOpenClientServerClientConnTerminated=bwOpenClientServerClientConnTerminated, PYSNMP_MODULE_ID=systemFaults)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/BW-OpenClientServerFault
+# Produced by pysmi-1.5.4 at Mon Oct 14 20:50:09 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(alarmName,
+ alarmState,
+ common,
+ component,
+ faultFields,
+ identifier,
+ problemText,
+ recommendedActionsText,
+ severity,
+ subcomponent,
+ systemName,
+ timeStamp) = mibBuilder.importSymbols(
+    "BroadworksFault",
+    "alarmName",
+    "alarmState",
+    "common",
+    "component",
+    "faultFields",
+    "identifier",
+    "problemText",
+    "recommendedActionsText",
+    "severity",
+    "subcomponent",
+    "systemName",
+    "timeStamp")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+systemFaults = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 1, 1)
+)
+systemFaults.setRevisions(
+        ("2000-09-19 14:31",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+bwPMOpenClientServerLaunched = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 501)
+)
+bwPMOpenClientServerLaunched.setObjects(
+      *(("BroadworksFault", "identifier"),
+        ("BroadworksFault", "timeStamp"),
+        ("BroadworksFault", "alarmName"),
+        ("BroadworksFault", "systemName"),
+        ("BroadworksFault", "severity"),
+        ("BroadworksFault", "component"),
+        ("BroadworksFault", "subcomponent"),
+        ("BroadworksFault", "problemText"),
+        ("BroadworksFault", "recommendedActionsText"))
+)
+if mibBuilder.loadTexts:
+    bwPMOpenClientServerLaunched.setStatus(
+        "current"
+    )
+
+bwPMOpenClientServerShutDown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 502)
+)
+bwPMOpenClientServerShutDown.setObjects(
+      *(("BroadworksFault", "identifier"),
+        ("BroadworksFault", "timeStamp"),
+        ("BroadworksFault", "alarmName"),
+        ("BroadworksFault", "systemName"),
+        ("BroadworksFault", "severity"),
+        ("BroadworksFault", "component"),
+        ("BroadworksFault", "subcomponent"),
+        ("BroadworksFault", "problemText"),
+        ("BroadworksFault", "recommendedActionsText"))
+)
+if mibBuilder.loadTexts:
+    bwPMOpenClientServerShutDown.setStatus(
+        "current"
+    )
+
+bwPMOpenClientServerRestarted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 503)
+)
+bwPMOpenClientServerRestarted.setObjects(
+      *(("BroadworksFault", "identifier"),
+        ("BroadworksFault", "timeStamp"),
+        ("BroadworksFault", "alarmName"),
+        ("BroadworksFault", "systemName"),
+        ("BroadworksFault", "severity"),
+        ("BroadworksFault", "component"),
+        ("BroadworksFault", "subcomponent"),
+        ("BroadworksFault", "problemText"),
+        ("BroadworksFault", "recommendedActionsText"))
+)
+if mibBuilder.loadTexts:
+    bwPMOpenClientServerRestarted.setStatus(
+        "current"
+    )
+
+bwPMOpenClientServerDeath = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 504)
+)
+bwPMOpenClientServerDeath.setObjects(
+      *(("BroadworksFault", "identifier"),
+        ("BroadworksFault", "timeStamp"),
+        ("BroadworksFault", "alarmName"),
+        ("BroadworksFault", "systemName"),
+        ("BroadworksFault", "severity"),
+        ("BroadworksFault", "component"),
+        ("BroadworksFault", "subcomponent"),
+        ("BroadworksFault", "problemText"),
+        ("BroadworksFault", "recommendedActionsText"))
+)
+if mibBuilder.loadTexts:
+    bwPMOpenClientServerDeath.setStatus(
+        "current"
+    )
+
+bwPMOpenClientServerStartupFailed = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 505)
+)
+bwPMOpenClientServerStartupFailed.setObjects(
+      *(("BroadworksFault", "identifier"),
+        ("BroadworksFault", "timeStamp"),
+        ("BroadworksFault", "alarmName"),
+        ("BroadworksFault", "systemName"),
+        ("BroadworksFault", "severity"),
+        ("BroadworksFault", "component"),
+        ("BroadworksFault", "subcomponent"),
+        ("BroadworksFault", "problemText"),
+        ("BroadworksFault", "recommendedActionsText"))
+)
+if mibBuilder.loadTexts:
+    bwPMOpenClientServerStartupFailed.setStatus(
+        "current"
+    )
+
+bwOpenClientServerNSConnFailed = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 506)
+)
+bwOpenClientServerNSConnFailed.setObjects(
+      *(("BroadworksFault", "identifier"),
+        ("BroadworksFault", "timeStamp"),
+        ("BroadworksFault", "alarmName"),
+        ("BroadworksFault", "systemName"),
+        ("BroadworksFault", "severity"),
+        ("BroadworksFault", "component"),
+        ("BroadworksFault", "subcomponent"),
+        ("BroadworksFault", "problemText"),
+        ("BroadworksFault", "recommendedActionsText"))
+)
+if mibBuilder.loadTexts:
+    bwOpenClientServerNSConnFailed.setStatus(
+        "current"
+    )
+
+bwOpenClientServerASConnFailed = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 507)
+)
+bwOpenClientServerASConnFailed.setObjects(
+      *(("BroadworksFault", "identifier"),
+        ("BroadworksFault", "timeStamp"),
+        ("BroadworksFault", "alarmName"),
+        ("BroadworksFault", "systemName"),
+        ("BroadworksFault", "severity"),
+        ("BroadworksFault", "component"),
+        ("BroadworksFault", "subcomponent"),
+        ("BroadworksFault", "problemText"),
+        ("BroadworksFault", "recommendedActionsText"))
+)
+if mibBuilder.loadTexts:
+    bwOpenClientServerASConnFailed.setStatus(
+        "current"
+    )
+
+bwOpenClientServerClientConnTerminated = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 508)
+)
+bwOpenClientServerClientConnTerminated.setObjects(
+      *(("BroadworksFault", "identifier"),
+        ("BroadworksFault", "timeStamp"),
+        ("BroadworksFault", "alarmName"),
+        ("BroadworksFault", "systemName"),
+        ("BroadworksFault", "severity"),
+        ("BroadworksFault", "component"),
+        ("BroadworksFault", "subcomponent"),
+        ("BroadworksFault", "problemText"),
+        ("BroadworksFault", "recommendedActionsText"))
+)
+if mibBuilder.loadTexts:
+    bwOpenClientServerClientConnTerminated.setStatus(
+        "current"
+    )
+
+bwOpenClientServerASConnTerminated = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 509)
+)
+bwOpenClientServerASConnTerminated.setObjects(
+      *(("BroadworksFault", "identifier"),
+        ("BroadworksFault", "timeStamp"),
+        ("BroadworksFault", "alarmName"),
+        ("BroadworksFault", "systemName"),
+        ("BroadworksFault", "severity"),
+        ("BroadworksFault", "component"),
+        ("BroadworksFault", "subcomponent"),
+        ("BroadworksFault", "problemText"),
+        ("BroadworksFault", "recommendedActionsText"))
+)
+if mibBuilder.loadTexts:
+    bwOpenClientServerASConnTerminated.setStatus(
+        "current"
+    )
+
+bwOpenClientServerNSConnTerminated = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 510)
+)
+bwOpenClientServerNSConnTerminated.setObjects(
+      *(("BroadworksFault", "identifier"),
+        ("BroadworksFault", "timeStamp"),
+        ("BroadworksFault", "alarmName"),
+        ("BroadworksFault", "systemName"),
+        ("BroadworksFault", "severity"),
+        ("BroadworksFault", "component"),
+        ("BroadworksFault", "subcomponent"),
+        ("BroadworksFault", "problemText"),
+        ("BroadworksFault", "recommendedActionsText"))
+)
+if mibBuilder.loadTexts:
+    bwOpenClientServerNSConnTerminated.setStatus(
+        "current"
+    )
+
+bwOpenClientServerExtAuthConnFailedRaise = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 511)
+)
+bwOpenClientServerExtAuthConnFailedRaise.setObjects(
+      *(("BroadworksFault", "identifier"),
+        ("BroadworksFault", "timeStamp"),
+        ("BroadworksFault", "alarmName"),
+        ("BroadworksFault", "systemName"),
+        ("BroadworksFault", "severity"),
+        ("BroadworksFault", "component"),
+        ("BroadworksFault", "subcomponent"),
+        ("BroadworksFault", "problemText"),
+        ("BroadworksFault", "recommendedActionsText"))
+)
+if mibBuilder.loadTexts:
+    bwOpenClientServerExtAuthConnFailedRaise.setStatus(
+        "current"
+    )
+
+bwOpenClientServerExtAuthConnFailedClear = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 512)
+)
+bwOpenClientServerExtAuthConnFailedClear.setObjects(
+      *(("BroadworksFault", "identifier"),
+        ("BroadworksFault", "timeStamp"),
+        ("BroadworksFault", "alarmName"),
+        ("BroadworksFault", "systemName"),
+        ("BroadworksFault", "severity"),
+        ("BroadworksFault", "component"),
+        ("BroadworksFault", "subcomponent"),
+        ("BroadworksFault", "problemText"),
+        ("BroadworksFault", "recommendedActionsText"))
+)
+if mibBuilder.loadTexts:
+    bwOpenClientServerExtAuthConnFailedClear.setStatus(
+        "current"
+    )
+
+bwOpenClientServerExtAuthProcessingFailedRaise = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 513)
+)
+bwOpenClientServerExtAuthProcessingFailedRaise.setObjects(
+      *(("BroadworksFault", "identifier"),
+        ("BroadworksFault", "timeStamp"),
+        ("BroadworksFault", "alarmName"),
+        ("BroadworksFault", "systemName"),
+        ("BroadworksFault", "severity"),
+        ("BroadworksFault", "component"),
+        ("BroadworksFault", "subcomponent"),
+        ("BroadworksFault", "problemText"),
+        ("BroadworksFault", "recommendedActionsText"))
+)
+if mibBuilder.loadTexts:
+    bwOpenClientServerExtAuthProcessingFailedRaise.setStatus(
+        "current"
+    )
+
+bwOpenClientServerExtAuthProcessingFailedClear = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 514)
+)
+bwOpenClientServerExtAuthProcessingFailedClear.setObjects(
+      *(("BroadworksFault", "identifier"),
+        ("BroadworksFault", "timeStamp"),
+        ("BroadworksFault", "alarmName"),
+        ("BroadworksFault", "systemName"),
+        ("BroadworksFault", "severity"),
+        ("BroadworksFault", "component"),
+        ("BroadworksFault", "subcomponent"),
+        ("BroadworksFault", "problemText"),
+        ("BroadworksFault", "recommendedActionsText"))
+)
+if mibBuilder.loadTexts:
+    bwOpenClientServerExtAuthProcessingFailedClear.setStatus(
+        "current"
+    )
+
+bwOpenClientServerUserIdForceLoggedOut = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 515)
+)
+bwOpenClientServerUserIdForceLoggedOut.setObjects(
+      *(("BroadworksFault", "identifier"),
+        ("BroadworksFault", "timeStamp"),
+        ("BroadworksFault", "alarmName"),
+        ("BroadworksFault", "systemName"),
+        ("BroadworksFault", "severity"),
+        ("BroadworksFault", "component"),
+        ("BroadworksFault", "subcomponent"),
+        ("BroadworksFault", "problemText"),
+        ("BroadworksFault", "recommendedActionsText"))
+)
+if mibBuilder.loadTexts:
+    bwOpenClientServerUserIdForceLoggedOut.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "BW-OpenClientServerFault",
+    **{"systemFaults": systemFaults,
+       "bwPMOpenClientServerLaunched": bwPMOpenClientServerLaunched,
+       "bwPMOpenClientServerShutDown": bwPMOpenClientServerShutDown,
+       "bwPMOpenClientServerRestarted": bwPMOpenClientServerRestarted,
+       "bwPMOpenClientServerDeath": bwPMOpenClientServerDeath,
+       "bwPMOpenClientServerStartupFailed": bwPMOpenClientServerStartupFailed,
+       "bwOpenClientServerNSConnFailed": bwOpenClientServerNSConnFailed,
+       "bwOpenClientServerASConnFailed": bwOpenClientServerASConnFailed,
+       "bwOpenClientServerClientConnTerminated": bwOpenClientServerClientConnTerminated,
+       "bwOpenClientServerASConnTerminated": bwOpenClientServerASConnTerminated,
+       "bwOpenClientServerNSConnTerminated": bwOpenClientServerNSConnTerminated,
+       "bwOpenClientServerExtAuthConnFailedRaise": bwOpenClientServerExtAuthConnFailedRaise,
+       "bwOpenClientServerExtAuthConnFailedClear": bwOpenClientServerExtAuthConnFailedClear,
+       "bwOpenClientServerExtAuthProcessingFailedRaise": bwOpenClientServerExtAuthProcessingFailedRaise,
+       "bwOpenClientServerExtAuthProcessingFailedClear": bwOpenClientServerExtAuthProcessingFailedClear,
+       "bwOpenClientServerUserIdForceLoggedOut": bwOpenClientServerUserIdForceLoggedOut}
+)

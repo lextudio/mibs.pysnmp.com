@@ -1,62 +1,414 @@
+# SNMP MIB module (Nortel-MsCarrier-MscPassport-ModIpCosToFrQosMIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module Nortel-MsCarrier-MscPassport-ModIpCosToFrQosMIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/Nortel-MsCarrier-MscPassport-ModIpCosToFrQosMIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:21:33 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
-mscModIndex, = mibBuilder.importSymbols("Nortel-MsCarrier-MscPassport-BaseShelfMIB", "mscModIndex")
-mscModFrs, mscModFrsIndex = mibBuilder.importSymbols("Nortel-MsCarrier-MscPassport-ModCommonMIB", "mscModFrs", "mscModFrsIndex")
-Unsigned32, DisplayString, StorageType, RowStatus, Integer32 = mibBuilder.importSymbols("Nortel-MsCarrier-MscPassport-StandardTextualConventionsMIB", "Unsigned32", "DisplayString", "StorageType", "RowStatus", "Integer32")
-NonReplicated, = mibBuilder.importSymbols("Nortel-MsCarrier-MscPassport-TextualConventionsMIB", "NonReplicated")
-mscPassportMIBs, = mibBuilder.importSymbols("Nortel-MsCarrier-MscPassport-UsefulDefinitionsMIB", "mscPassportMIBs")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Unsigned32, iso, Gauge32, MibIdentifier, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Counter64, ModuleIdentity, IpAddress, ObjectIdentity, Integer32, TimeTicks, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "iso", "Gauge32", "MibIdentifier", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Counter64", "ModuleIdentity", "IpAddress", "ObjectIdentity", "Integer32", "TimeTicks", "NotificationType")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-modIpCosToFrQosMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 81))
-mscModFrsIpCosToFrQos = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 16, 3, 4))
-mscModFrsIpCosToFrQosRowStatusTable = MibTable((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 16, 3, 4, 1), )
-if mibBuilder.loadTexts: mscModFrsIpCosToFrQosRowStatusTable.setStatus('mandatory')
-mscModFrsIpCosToFrQosRowStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 16, 3, 4, 1, 1), ).setIndexNames((0, "Nortel-MsCarrier-MscPassport-BaseShelfMIB", "mscModIndex"), (0, "Nortel-MsCarrier-MscPassport-ModCommonMIB", "mscModFrsIndex"), (0, "Nortel-MsCarrier-MscPassport-ModIpCosToFrQosMIB", "mscModFrsIpCosToFrQosIndex"))
-if mibBuilder.loadTexts: mscModFrsIpCosToFrQosRowStatusEntry.setStatus('mandatory')
-mscModFrsIpCosToFrQosRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 16, 3, 4, 1, 1, 1), RowStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscModFrsIpCosToFrQosRowStatus.setStatus('mandatory')
-mscModFrsIpCosToFrQosComponentName = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 16, 3, 4, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscModFrsIpCosToFrQosComponentName.setStatus('mandatory')
-mscModFrsIpCosToFrQosStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 16, 3, 4, 1, 1, 4), StorageType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscModFrsIpCosToFrQosStorageType.setStatus('mandatory')
-mscModFrsIpCosToFrQosIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 16, 3, 4, 1, 1, 10), NonReplicated())
-if mibBuilder.loadTexts: mscModFrsIpCosToFrQosIndex.setStatus('mandatory')
-mscModFrsIpCosToFrQosTosm = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 16, 3, 4, 2))
-mscModFrsIpCosToFrQosTosmRowStatusTable = MibTable((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 16, 3, 4, 2, 1), )
-if mibBuilder.loadTexts: mscModFrsIpCosToFrQosTosmRowStatusTable.setStatus('mandatory')
-mscModFrsIpCosToFrQosTosmRowStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 16, 3, 4, 2, 1, 1), ).setIndexNames((0, "Nortel-MsCarrier-MscPassport-BaseShelfMIB", "mscModIndex"), (0, "Nortel-MsCarrier-MscPassport-ModCommonMIB", "mscModFrsIndex"), (0, "Nortel-MsCarrier-MscPassport-ModIpCosToFrQosMIB", "mscModFrsIpCosToFrQosIndex"), (0, "Nortel-MsCarrier-MscPassport-ModIpCosToFrQosMIB", "mscModFrsIpCosToFrQosTosmIndex"))
-if mibBuilder.loadTexts: mscModFrsIpCosToFrQosTosmRowStatusEntry.setStatus('mandatory')
-mscModFrsIpCosToFrQosTosmRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 16, 3, 4, 2, 1, 1, 1), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mscModFrsIpCosToFrQosTosmRowStatus.setStatus('mandatory')
-mscModFrsIpCosToFrQosTosmComponentName = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 16, 3, 4, 2, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscModFrsIpCosToFrQosTosmComponentName.setStatus('mandatory')
-mscModFrsIpCosToFrQosTosmStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 16, 3, 4, 2, 1, 1, 4), StorageType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscModFrsIpCosToFrQosTosmStorageType.setStatus('mandatory')
-mscModFrsIpCosToFrQosTosmIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 16, 3, 4, 2, 1, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255)))
-if mibBuilder.loadTexts: mscModFrsIpCosToFrQosTosmIndex.setStatus('mandatory')
-mscModFrsIpCosToFrQosTosmProvTable = MibTable((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 16, 3, 4, 2, 10), )
-if mibBuilder.loadTexts: mscModFrsIpCosToFrQosTosmProvTable.setStatus('mandatory')
-mscModFrsIpCosToFrQosTosmProvEntry = MibTableRow((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 16, 3, 4, 2, 10, 1), ).setIndexNames((0, "Nortel-MsCarrier-MscPassport-BaseShelfMIB", "mscModIndex"), (0, "Nortel-MsCarrier-MscPassport-ModCommonMIB", "mscModFrsIndex"), (0, "Nortel-MsCarrier-MscPassport-ModIpCosToFrQosMIB", "mscModFrsIpCosToFrQosIndex"), (0, "Nortel-MsCarrier-MscPassport-ModIpCosToFrQosMIB", "mscModFrsIpCosToFrQosTosmIndex"))
-if mibBuilder.loadTexts: mscModFrsIpCosToFrQosTosmProvEntry.setStatus('mandatory')
-mscModFrsIpCosToFrQosTosmEmissionPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 16, 3, 4, 2, 10, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 3))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mscModFrsIpCosToFrQosTosmEmissionPriority.setStatus('mandatory')
-mscModFrsIpCosToFrQosTosmDiscardPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 16, 3, 4, 2, 10, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("normal", 0), ("high", 1))).clone('normal')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mscModFrsIpCosToFrQosTosmDiscardPriority.setStatus('mandatory')
-modIpCosToFrQosGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 81, 1))
-modIpCosToFrQosGroupCA = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 81, 1, 1))
-modIpCosToFrQosGroupCA02 = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 81, 1, 1, 3))
-modIpCosToFrQosGroupCA02A = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 81, 1, 1, 3, 2))
-modIpCosToFrQosCapabilities = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 81, 3))
-modIpCosToFrQosCapabilitiesCA = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 81, 3, 1))
-modIpCosToFrQosCapabilitiesCA02 = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 81, 3, 1, 3))
-modIpCosToFrQosCapabilitiesCA02A = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 81, 3, 1, 3, 2))
-mibBuilder.exportSymbols("Nortel-MsCarrier-MscPassport-ModIpCosToFrQosMIB", modIpCosToFrQosMIB=modIpCosToFrQosMIB, modIpCosToFrQosCapabilities=modIpCosToFrQosCapabilities, mscModFrsIpCosToFrQosTosmRowStatus=mscModFrsIpCosToFrQosTosmRowStatus, modIpCosToFrQosGroupCA02A=modIpCosToFrQosGroupCA02A, mscModFrsIpCosToFrQosTosmIndex=mscModFrsIpCosToFrQosTosmIndex, mscModFrsIpCosToFrQosStorageType=mscModFrsIpCosToFrQosStorageType, mscModFrsIpCosToFrQosTosmRowStatusTable=mscModFrsIpCosToFrQosTosmRowStatusTable, mscModFrsIpCosToFrQosTosmProvEntry=mscModFrsIpCosToFrQosTosmProvEntry, mscModFrsIpCosToFrQosTosmDiscardPriority=mscModFrsIpCosToFrQosTosmDiscardPriority, modIpCosToFrQosCapabilitiesCA=modIpCosToFrQosCapabilitiesCA, modIpCosToFrQosCapabilitiesCA02A=modIpCosToFrQosCapabilitiesCA02A, mscModFrsIpCosToFrQosTosmEmissionPriority=mscModFrsIpCosToFrQosTosmEmissionPriority, mscModFrsIpCosToFrQosIndex=mscModFrsIpCosToFrQosIndex, modIpCosToFrQosCapabilitiesCA02=modIpCosToFrQosCapabilitiesCA02, mscModFrsIpCosToFrQos=mscModFrsIpCosToFrQos, mscModFrsIpCosToFrQosComponentName=mscModFrsIpCosToFrQosComponentName, mscModFrsIpCosToFrQosRowStatusTable=mscModFrsIpCosToFrQosRowStatusTable, mscModFrsIpCosToFrQosTosm=mscModFrsIpCosToFrQosTosm, modIpCosToFrQosGroup=modIpCosToFrQosGroup, mscModFrsIpCosToFrQosTosmStorageType=mscModFrsIpCosToFrQosTosmStorageType, modIpCosToFrQosGroupCA=modIpCosToFrQosGroupCA, modIpCosToFrQosGroupCA02=modIpCosToFrQosGroupCA02, mscModFrsIpCosToFrQosTosmComponentName=mscModFrsIpCosToFrQosTosmComponentName, mscModFrsIpCosToFrQosRowStatus=mscModFrsIpCosToFrQosRowStatus, mscModFrsIpCosToFrQosTosmRowStatusEntry=mscModFrsIpCosToFrQosTosmRowStatusEntry, mscModFrsIpCosToFrQosRowStatusEntry=mscModFrsIpCosToFrQosRowStatusEntry, mscModFrsIpCosToFrQosTosmProvTable=mscModFrsIpCosToFrQosTosmProvTable)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/Nortel-MsCarrier-MscPassport-ModIpCosToFrQosMIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:32:51 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(mscModIndex,) = mibBuilder.importSymbols(
+    "Nortel-MsCarrier-MscPassport-BaseShelfMIB",
+    "mscModIndex")
+
+(mscModFrs,
+ mscModFrsIndex) = mibBuilder.importSymbols(
+    "Nortel-MsCarrier-MscPassport-ModCommonMIB",
+    "mscModFrs",
+    "mscModFrsIndex")
+
+(DisplayString,
+ Integer32,
+ RowStatus,
+ StorageType,
+ Unsigned32) = mibBuilder.importSymbols(
+    "Nortel-MsCarrier-MscPassport-StandardTextualConventionsMIB",
+    "DisplayString",
+    "Integer32",
+    "RowStatus",
+    "StorageType",
+    "Unsigned32")
+
+(NonReplicated,) = mibBuilder.importSymbols(
+    "Nortel-MsCarrier-MscPassport-TextualConventionsMIB",
+    "NonReplicated")
+
+(mscPassportMIBs,) = mibBuilder.importSymbols(
+    "Nortel-MsCarrier-MscPassport-UsefulDefinitionsMIB",
+    "mscPassportMIBs")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_MscModFrsIpCosToFrQos_ObjectIdentity = ObjectIdentity
+mscModFrsIpCosToFrQos = _MscModFrsIpCosToFrQos_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 16, 3, 4)
+)
+_MscModFrsIpCosToFrQosRowStatusTable_Object = MibTable
+mscModFrsIpCosToFrQosRowStatusTable = _MscModFrsIpCosToFrQosRowStatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 16, 3, 4, 1)
+)
+if mibBuilder.loadTexts:
+    mscModFrsIpCosToFrQosRowStatusTable.setStatus("mandatory")
+_MscModFrsIpCosToFrQosRowStatusEntry_Object = MibTableRow
+mscModFrsIpCosToFrQosRowStatusEntry = _MscModFrsIpCosToFrQosRowStatusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 16, 3, 4, 1, 1)
+)
+mscModFrsIpCosToFrQosRowStatusEntry.setIndexNames(
+    (0, "Nortel-MsCarrier-MscPassport-BaseShelfMIB", "mscModIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-ModCommonMIB", "mscModFrsIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-ModIpCosToFrQosMIB", "mscModFrsIpCosToFrQosIndex"),
+)
+if mibBuilder.loadTexts:
+    mscModFrsIpCosToFrQosRowStatusEntry.setStatus("mandatory")
+_MscModFrsIpCosToFrQosRowStatus_Type = RowStatus
+_MscModFrsIpCosToFrQosRowStatus_Object = MibTableColumn
+mscModFrsIpCosToFrQosRowStatus = _MscModFrsIpCosToFrQosRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 16, 3, 4, 1, 1, 1),
+    _MscModFrsIpCosToFrQosRowStatus_Type()
+)
+mscModFrsIpCosToFrQosRowStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscModFrsIpCosToFrQosRowStatus.setStatus("mandatory")
+_MscModFrsIpCosToFrQosComponentName_Type = DisplayString
+_MscModFrsIpCosToFrQosComponentName_Object = MibTableColumn
+mscModFrsIpCosToFrQosComponentName = _MscModFrsIpCosToFrQosComponentName_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 16, 3, 4, 1, 1, 2),
+    _MscModFrsIpCosToFrQosComponentName_Type()
+)
+mscModFrsIpCosToFrQosComponentName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscModFrsIpCosToFrQosComponentName.setStatus("mandatory")
+_MscModFrsIpCosToFrQosStorageType_Type = StorageType
+_MscModFrsIpCosToFrQosStorageType_Object = MibTableColumn
+mscModFrsIpCosToFrQosStorageType = _MscModFrsIpCosToFrQosStorageType_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 16, 3, 4, 1, 1, 4),
+    _MscModFrsIpCosToFrQosStorageType_Type()
+)
+mscModFrsIpCosToFrQosStorageType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscModFrsIpCosToFrQosStorageType.setStatus("mandatory")
+_MscModFrsIpCosToFrQosIndex_Type = NonReplicated
+_MscModFrsIpCosToFrQosIndex_Object = MibTableColumn
+mscModFrsIpCosToFrQosIndex = _MscModFrsIpCosToFrQosIndex_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 16, 3, 4, 1, 1, 10),
+    _MscModFrsIpCosToFrQosIndex_Type()
+)
+mscModFrsIpCosToFrQosIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    mscModFrsIpCosToFrQosIndex.setStatus("mandatory")
+_MscModFrsIpCosToFrQosTosm_ObjectIdentity = ObjectIdentity
+mscModFrsIpCosToFrQosTosm = _MscModFrsIpCosToFrQosTosm_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 16, 3, 4, 2)
+)
+_MscModFrsIpCosToFrQosTosmRowStatusTable_Object = MibTable
+mscModFrsIpCosToFrQosTosmRowStatusTable = _MscModFrsIpCosToFrQosTosmRowStatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 16, 3, 4, 2, 1)
+)
+if mibBuilder.loadTexts:
+    mscModFrsIpCosToFrQosTosmRowStatusTable.setStatus("mandatory")
+_MscModFrsIpCosToFrQosTosmRowStatusEntry_Object = MibTableRow
+mscModFrsIpCosToFrQosTosmRowStatusEntry = _MscModFrsIpCosToFrQosTosmRowStatusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 16, 3, 4, 2, 1, 1)
+)
+mscModFrsIpCosToFrQosTosmRowStatusEntry.setIndexNames(
+    (0, "Nortel-MsCarrier-MscPassport-BaseShelfMIB", "mscModIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-ModCommonMIB", "mscModFrsIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-ModIpCosToFrQosMIB", "mscModFrsIpCosToFrQosIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-ModIpCosToFrQosMIB", "mscModFrsIpCosToFrQosTosmIndex"),
+)
+if mibBuilder.loadTexts:
+    mscModFrsIpCosToFrQosTosmRowStatusEntry.setStatus("mandatory")
+_MscModFrsIpCosToFrQosTosmRowStatus_Type = RowStatus
+_MscModFrsIpCosToFrQosTosmRowStatus_Object = MibTableColumn
+mscModFrsIpCosToFrQosTosmRowStatus = _MscModFrsIpCosToFrQosTosmRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 16, 3, 4, 2, 1, 1, 1),
+    _MscModFrsIpCosToFrQosTosmRowStatus_Type()
+)
+mscModFrsIpCosToFrQosTosmRowStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mscModFrsIpCosToFrQosTosmRowStatus.setStatus("mandatory")
+_MscModFrsIpCosToFrQosTosmComponentName_Type = DisplayString
+_MscModFrsIpCosToFrQosTosmComponentName_Object = MibTableColumn
+mscModFrsIpCosToFrQosTosmComponentName = _MscModFrsIpCosToFrQosTosmComponentName_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 16, 3, 4, 2, 1, 1, 2),
+    _MscModFrsIpCosToFrQosTosmComponentName_Type()
+)
+mscModFrsIpCosToFrQosTosmComponentName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscModFrsIpCosToFrQosTosmComponentName.setStatus("mandatory")
+_MscModFrsIpCosToFrQosTosmStorageType_Type = StorageType
+_MscModFrsIpCosToFrQosTosmStorageType_Object = MibTableColumn
+mscModFrsIpCosToFrQosTosmStorageType = _MscModFrsIpCosToFrQosTosmStorageType_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 16, 3, 4, 2, 1, 1, 4),
+    _MscModFrsIpCosToFrQosTosmStorageType_Type()
+)
+mscModFrsIpCosToFrQosTosmStorageType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscModFrsIpCosToFrQosTosmStorageType.setStatus("mandatory")
+
+
+class _MscModFrsIpCosToFrQosTosmIndex_Type(Integer32):
+    """Custom type mscModFrsIpCosToFrQosTosmIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_MscModFrsIpCosToFrQosTosmIndex_Type.__name__ = "Integer32"
+_MscModFrsIpCosToFrQosTosmIndex_Object = MibTableColumn
+mscModFrsIpCosToFrQosTosmIndex = _MscModFrsIpCosToFrQosTosmIndex_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 16, 3, 4, 2, 1, 1, 10),
+    _MscModFrsIpCosToFrQosTosmIndex_Type()
+)
+mscModFrsIpCosToFrQosTosmIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    mscModFrsIpCosToFrQosTosmIndex.setStatus("mandatory")
+_MscModFrsIpCosToFrQosTosmProvTable_Object = MibTable
+mscModFrsIpCosToFrQosTosmProvTable = _MscModFrsIpCosToFrQosTosmProvTable_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 16, 3, 4, 2, 10)
+)
+if mibBuilder.loadTexts:
+    mscModFrsIpCosToFrQosTosmProvTable.setStatus("mandatory")
+_MscModFrsIpCosToFrQosTosmProvEntry_Object = MibTableRow
+mscModFrsIpCosToFrQosTosmProvEntry = _MscModFrsIpCosToFrQosTosmProvEntry_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 16, 3, 4, 2, 10, 1)
+)
+mscModFrsIpCosToFrQosTosmProvEntry.setIndexNames(
+    (0, "Nortel-MsCarrier-MscPassport-BaseShelfMIB", "mscModIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-ModCommonMIB", "mscModFrsIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-ModIpCosToFrQosMIB", "mscModFrsIpCosToFrQosIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-ModIpCosToFrQosMIB", "mscModFrsIpCosToFrQosTosmIndex"),
+)
+if mibBuilder.loadTexts:
+    mscModFrsIpCosToFrQosTosmProvEntry.setStatus("mandatory")
+
+
+class _MscModFrsIpCosToFrQosTosmEmissionPriority_Type(Unsigned32):
+    """Custom type mscModFrsIpCosToFrQosTosmEmissionPriority based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 3),
+    )
+
+
+_MscModFrsIpCosToFrQosTosmEmissionPriority_Type.__name__ = "Unsigned32"
+_MscModFrsIpCosToFrQosTosmEmissionPriority_Object = MibTableColumn
+mscModFrsIpCosToFrQosTosmEmissionPriority = _MscModFrsIpCosToFrQosTosmEmissionPriority_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 16, 3, 4, 2, 10, 1, 1),
+    _MscModFrsIpCosToFrQosTosmEmissionPriority_Type()
+)
+mscModFrsIpCosToFrQosTosmEmissionPriority.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mscModFrsIpCosToFrQosTosmEmissionPriority.setStatus("mandatory")
+
+
+class _MscModFrsIpCosToFrQosTosmDiscardPriority_Type(Integer32):
+    """Custom type mscModFrsIpCosToFrQosTosmDiscardPriority based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("high", 1),
+          ("normal", 0))
+    )
+
+
+_MscModFrsIpCosToFrQosTosmDiscardPriority_Type.__name__ = "Integer32"
+_MscModFrsIpCosToFrQosTosmDiscardPriority_Object = MibTableColumn
+mscModFrsIpCosToFrQosTosmDiscardPriority = _MscModFrsIpCosToFrQosTosmDiscardPriority_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 16, 3, 4, 2, 10, 1, 2),
+    _MscModFrsIpCosToFrQosTosmDiscardPriority_Type()
+)
+mscModFrsIpCosToFrQosTosmDiscardPriority.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mscModFrsIpCosToFrQosTosmDiscardPriority.setStatus("mandatory")
+_ModIpCosToFrQosMIB_ObjectIdentity = ObjectIdentity
+modIpCosToFrQosMIB = _ModIpCosToFrQosMIB_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 81)
+)
+_ModIpCosToFrQosGroup_ObjectIdentity = ObjectIdentity
+modIpCosToFrQosGroup = _ModIpCosToFrQosGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 81, 1)
+)
+_ModIpCosToFrQosGroupCA_ObjectIdentity = ObjectIdentity
+modIpCosToFrQosGroupCA = _ModIpCosToFrQosGroupCA_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 81, 1, 1)
+)
+_ModIpCosToFrQosGroupCA02_ObjectIdentity = ObjectIdentity
+modIpCosToFrQosGroupCA02 = _ModIpCosToFrQosGroupCA02_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 81, 1, 1, 3)
+)
+_ModIpCosToFrQosGroupCA02A_ObjectIdentity = ObjectIdentity
+modIpCosToFrQosGroupCA02A = _ModIpCosToFrQosGroupCA02A_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 81, 1, 1, 3, 2)
+)
+_ModIpCosToFrQosCapabilities_ObjectIdentity = ObjectIdentity
+modIpCosToFrQosCapabilities = _ModIpCosToFrQosCapabilities_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 81, 3)
+)
+_ModIpCosToFrQosCapabilitiesCA_ObjectIdentity = ObjectIdentity
+modIpCosToFrQosCapabilitiesCA = _ModIpCosToFrQosCapabilitiesCA_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 81, 3, 1)
+)
+_ModIpCosToFrQosCapabilitiesCA02_ObjectIdentity = ObjectIdentity
+modIpCosToFrQosCapabilitiesCA02 = _ModIpCosToFrQosCapabilitiesCA02_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 81, 3, 1, 3)
+)
+_ModIpCosToFrQosCapabilitiesCA02A_ObjectIdentity = ObjectIdentity
+modIpCosToFrQosCapabilitiesCA02A = _ModIpCosToFrQosCapabilitiesCA02A_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 81, 3, 1, 3, 2)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "Nortel-MsCarrier-MscPassport-ModIpCosToFrQosMIB",
+    **{"mscModFrsIpCosToFrQos": mscModFrsIpCosToFrQos,
+       "mscModFrsIpCosToFrQosRowStatusTable": mscModFrsIpCosToFrQosRowStatusTable,
+       "mscModFrsIpCosToFrQosRowStatusEntry": mscModFrsIpCosToFrQosRowStatusEntry,
+       "mscModFrsIpCosToFrQosRowStatus": mscModFrsIpCosToFrQosRowStatus,
+       "mscModFrsIpCosToFrQosComponentName": mscModFrsIpCosToFrQosComponentName,
+       "mscModFrsIpCosToFrQosStorageType": mscModFrsIpCosToFrQosStorageType,
+       "mscModFrsIpCosToFrQosIndex": mscModFrsIpCosToFrQosIndex,
+       "mscModFrsIpCosToFrQosTosm": mscModFrsIpCosToFrQosTosm,
+       "mscModFrsIpCosToFrQosTosmRowStatusTable": mscModFrsIpCosToFrQosTosmRowStatusTable,
+       "mscModFrsIpCosToFrQosTosmRowStatusEntry": mscModFrsIpCosToFrQosTosmRowStatusEntry,
+       "mscModFrsIpCosToFrQosTosmRowStatus": mscModFrsIpCosToFrQosTosmRowStatus,
+       "mscModFrsIpCosToFrQosTosmComponentName": mscModFrsIpCosToFrQosTosmComponentName,
+       "mscModFrsIpCosToFrQosTosmStorageType": mscModFrsIpCosToFrQosTosmStorageType,
+       "mscModFrsIpCosToFrQosTosmIndex": mscModFrsIpCosToFrQosTosmIndex,
+       "mscModFrsIpCosToFrQosTosmProvTable": mscModFrsIpCosToFrQosTosmProvTable,
+       "mscModFrsIpCosToFrQosTosmProvEntry": mscModFrsIpCosToFrQosTosmProvEntry,
+       "mscModFrsIpCosToFrQosTosmEmissionPriority": mscModFrsIpCosToFrQosTosmEmissionPriority,
+       "mscModFrsIpCosToFrQosTosmDiscardPriority": mscModFrsIpCosToFrQosTosmDiscardPriority,
+       "modIpCosToFrQosMIB": modIpCosToFrQosMIB,
+       "modIpCosToFrQosGroup": modIpCosToFrQosGroup,
+       "modIpCosToFrQosGroupCA": modIpCosToFrQosGroupCA,
+       "modIpCosToFrQosGroupCA02": modIpCosToFrQosGroupCA02,
+       "modIpCosToFrQosGroupCA02A": modIpCosToFrQosGroupCA02A,
+       "modIpCosToFrQosCapabilities": modIpCosToFrQosCapabilities,
+       "modIpCosToFrQosCapabilitiesCA": modIpCosToFrQosCapabilitiesCA,
+       "modIpCosToFrQosCapabilitiesCA02": modIpCosToFrQosCapabilitiesCA02,
+       "modIpCosToFrQosCapabilitiesCA02A": modIpCosToFrQosCapabilitiesCA02A}
+)

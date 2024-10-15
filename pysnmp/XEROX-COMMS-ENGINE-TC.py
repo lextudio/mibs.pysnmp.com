@@ -1,17 +1,17 @@
-"""SNMP MIB module (XEROX-COMMS-ENGINE-TC) expressed in pysnmp data model.
+# SNMP MIB module (XEROX-COMMS-ENGINE-TC) expressed in pysnmp data model.
+#
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/XEROX-COMMS-ENGINE-TC
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:18:14 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-This Python module is designed to be imported and executed by the
-pysnmp library.
-
-See https://www.pysnmp.com/pysnmp for further information.
-
-Notes
------
-ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/XEROX-COMMS-ENGINE-TC
-Produced by pysmi-1.3.3 at Sun Mar 10 06:00:23 2024
-On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm
-Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
-"""
 if 'mibBuilder' not in globals():
     import sys
 
@@ -51,47 +51,47 @@ if 'mibBuilder' not in globals():
     "ModuleCompliance",
     "NotificationGroup")
 
-(Counter32,
- IpAddress,
+(Bits,
+ Counter32,
  Counter64,
- ObjectIdentity,
- TimeTicks,
+ Gauge32,
  Integer32,
- iso,
+ IpAddress,
+ ModuleIdentity,
  MibIdentifier,
  NotificationType,
- Gauge32,
- ModuleIdentity,
- Unsigned32,
+ ObjectIdentity,
  MibScalar,
  MibTable,
  MibTableRow,
  MibTableColumn,
- Bits) = mibBuilder.importSymbols(
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
     "SNMPv2-SMI",
+    "Bits",
     "Counter32",
-    "IpAddress",
     "Counter64",
-    "ObjectIdentity",
-    "TimeTicks",
+    "Gauge32",
     "Integer32",
-    "iso",
+    "IpAddress",
+    "ModuleIdentity",
     "MibIdentifier",
     "NotificationType",
-    "Gauge32",
-    "ModuleIdentity",
-    "Unsigned32",
+    "ObjectIdentity",
     "MibScalar",
     "MibTable",
     "MibTableRow",
     "MibTableColumn",
-    "Bits")
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
 
-(TextualConvention,
- DisplayString) = mibBuilder.importSymbols(
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
     "SNMPv2-TC",
-    "TextualConvention",
-    "DisplayString")
+    "DisplayString",
+    "TextualConvention")
 
 (xeroxCommonMIB,) = mibBuilder.importSymbols(
     "XEROX-COMMON-MIB",
@@ -112,7 +112,7 @@ xcmCommsEngineTC = ModuleIdentity(
 
 
 
-class XcmCommsMgmtCommandRequest(TextualConvention, Integer32):
+class XcmCommsMgmtCommandRequest(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -204,7 +204,7 @@ class XcmCommsMgmtCommandRequest(TextualConvention, Integer32):
 
 
 
-class XcmCommsMgmtCommandData(TextualConvention, OctetString):
+class XcmCommsMgmtCommandData(OctetString, TextualConvention):
     status = "current"
     subtypeSpec = OctetString.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -213,7 +213,7 @@ class XcmCommsMgmtCommandData(TextualConvention, OctetString):
 
 
 
-class XcmCommsMgmtState(TextualConvention, Integer32):
+class XcmCommsMgmtState(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -243,7 +243,7 @@ class XcmCommsMgmtState(TextualConvention, Integer32):
 
 
 
-class XcmCommsMgmtConditions(TextualConvention, Integer32):
+class XcmCommsMgmtConditions(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -252,7 +252,7 @@ class XcmCommsMgmtConditions(TextualConvention, Integer32):
 
 
 
-class XcmCommsStackPosition(TextualConvention, Integer32):
+class XcmCommsStackPosition(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -294,7 +294,7 @@ class XcmCommsStackPosition(TextualConvention, Integer32):
 
 
 
-class XcmCommsStackExtPurpose(TextualConvention, Integer32):
+class XcmCommsStackExtPurpose(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -330,7 +330,7 @@ class XcmCommsStackExtPurpose(TextualConvention, Integer32):
 
 
 
-class XcmCommsStackExtRole(TextualConvention, Integer32):
+class XcmCommsStackExtRole(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -358,7 +358,7 @@ class XcmCommsStackExtRole(TextualConvention, Integer32):
 
 
 
-class XcmCommsStackExtSuite(TextualConvention, Integer32):
+class XcmCommsStackExtSuite(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -414,7 +414,7 @@ class XcmCommsStackExtSuite(TextualConvention, Integer32):
 
 
 
-class XcmCommsStackExtSuiteVersion(TextualConvention, Integer32):
+class XcmCommsStackExtSuiteVersion(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -480,7 +480,7 @@ class XcmCommsStackExtSuiteVersion(TextualConvention, Integer32):
 
 
 
-class XcmCommsStackExtLayer(TextualConvention, Integer32):
+class XcmCommsStackExtLayer(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -510,7 +510,7 @@ class XcmCommsStackExtLayer(TextualConvention, Integer32):
 
 
 
-class XcmCommsStackExtProtocol(TextualConvention, Integer32):
+class XcmCommsStackExtProtocol(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -970,7 +970,7 @@ class XcmCommsStackExtProtocol(TextualConvention, Integer32):
 
 
 
-class XcmCommsAddressExtForm(TextualConvention, Integer32):
+class XcmCommsAddressExtForm(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -1002,7 +1002,7 @@ class XcmCommsAddressExtForm(TextualConvention, Integer32):
 
 
 
-class XcmCommsAddressExtScope(TextualConvention, Integer32):
+class XcmCommsAddressExtScope(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -1026,7 +1026,7 @@ class XcmCommsAddressExtScope(TextualConvention, Integer32):
 
 
 
-class XcmCommsAddressExtFanout(TextualConvention, Integer32):
+class XcmCommsAddressExtFanout(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -1058,7 +1058,7 @@ class XcmCommsAddressExtFanout(TextualConvention, Integer32):
 
 
 
-class XcmCommsEngineGroupSupport(TextualConvention, Integer32):
+class XcmCommsEngineGroupSupport(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(

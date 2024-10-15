@@ -1,30 +1,182 @@
+# SNMP MIB module (CIENA-WS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CIENA-WS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/CIENA-WS-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:32:04 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ObjectIdentity, Counter32, MibIdentifier, Gauge32, Counter64, Integer32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, enterprises, Unsigned32, NotificationType, IpAddress, Bits, ModuleIdentity, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Counter32", "MibIdentifier", "Gauge32", "Counter64", "Integer32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "enterprises", "Unsigned32", "NotificationType", "IpAddress", "Bits", "ModuleIdentity", "TimeTicks")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-ciena = ModuleIdentity((1, 3, 6, 1, 4, 1, 1271))
-ciena.setRevisions(('2010-09-27 23:17', '2016-07-07 00:00',))
-if mibBuilder.loadTexts: ciena.setLastUpdated('201009272317Z')
-if mibBuilder.loadTexts: ciena.setOrganization('Ciena Corporation')
-waveserver = ObjectIdentity((1, 3, 6, 1, 4, 1, 1271, 3))
-if mibBuilder.loadTexts: waveserver.setStatus('current')
-cienaWsStatistics = ObjectIdentity((1, 3, 6, 1, 4, 1, 1271, 3, 3))
-if mibBuilder.loadTexts: cienaWsStatistics.setStatus('obsolete')
-cienaWsNotifications = ObjectIdentity((1, 3, 6, 1, 4, 1, 1271, 3, 2))
-if mibBuilder.loadTexts: cienaWsNotifications.setStatus('current')
-cienaWsNotificationsControlModule = ObjectIdentity((1, 3, 6, 1, 4, 1, 1271, 3, 2, 1))
-if mibBuilder.loadTexts: cienaWsNotificationsControlModule.setStatus('current')
-cienaWsConfigV1 = ObjectIdentity((1, 3, 6, 1, 4, 1, 1271, 3, 1))
-if mibBuilder.loadTexts: cienaWsConfigV1.setStatus('current')
-cienaWsConfig = ObjectIdentity((1, 3, 6, 1, 4, 1, 1271, 3, 4))
-if mibBuilder.loadTexts: cienaWsConfig.setStatus('current')
-mibBuilder.exportSymbols("CIENA-WS-MIB", cienaWsNotificationsControlModule=cienaWsNotificationsControlModule, cienaWsStatistics=cienaWsStatistics, cienaWsConfigV1=cienaWsConfigV1, cienaWsNotifications=cienaWsNotifications, PYSNMP_MODULE_ID=ciena, cienaWsConfig=cienaWsConfig, ciena=ciena, waveserver=waveserver)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CIENA-WS-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 20:55:10 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+ciena = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 1271)
+)
+ciena.setRevisions(
+        ("2010-09-27 23:17",
+         "2016-07-07 00:00")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Waveserver_ObjectIdentity = ObjectIdentity
+waveserver = _Waveserver_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1271, 3)
+)
+if mibBuilder.loadTexts:
+    waveserver.setStatus("current")
+_CienaWsConfigV1_ObjectIdentity = ObjectIdentity
+cienaWsConfigV1 = _CienaWsConfigV1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1271, 3, 1)
+)
+if mibBuilder.loadTexts:
+    cienaWsConfigV1.setStatus("current")
+_CienaWsNotifications_ObjectIdentity = ObjectIdentity
+cienaWsNotifications = _CienaWsNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1271, 3, 2)
+)
+if mibBuilder.loadTexts:
+    cienaWsNotifications.setStatus("current")
+_CienaWsNotificationsControlModule_ObjectIdentity = ObjectIdentity
+cienaWsNotificationsControlModule = _CienaWsNotificationsControlModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1271, 3, 2, 1)
+)
+if mibBuilder.loadTexts:
+    cienaWsNotificationsControlModule.setStatus("current")
+_CienaWsStatistics_ObjectIdentity = ObjectIdentity
+cienaWsStatistics = _CienaWsStatistics_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1271, 3, 3)
+)
+if mibBuilder.loadTexts:
+    cienaWsStatistics.setStatus("obsolete")
+_CienaWsConfig_ObjectIdentity = ObjectIdentity
+cienaWsConfig = _CienaWsConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1271, 3, 4)
+)
+if mibBuilder.loadTexts:
+    cienaWsConfig.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CIENA-WS-MIB",
+    **{"ciena": ciena,
+       "waveserver": waveserver,
+       "cienaWsConfigV1": cienaWsConfigV1,
+       "cienaWsNotifications": cienaWsNotifications,
+       "cienaWsNotificationsControlModule": cienaWsNotificationsControlModule,
+       "cienaWsStatistics": cienaWsStatistics,
+       "cienaWsConfig": cienaWsConfig}
+)

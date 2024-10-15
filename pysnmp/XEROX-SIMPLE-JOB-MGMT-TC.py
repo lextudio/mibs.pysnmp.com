@@ -1,17 +1,17 @@
-"""SNMP MIB module (XEROX-SIMPLE-JOB-MGMT-TC) expressed in pysnmp data model.
+# SNMP MIB module (XEROX-SIMPLE-JOB-MGMT-TC) expressed in pysnmp data model.
+#
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/XEROX-SIMPLE-JOB-MGMT-TC
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:18:37 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-This Python module is designed to be imported and executed by the
-pysnmp library.
-
-See https://www.pysnmp.com/pysnmp for further information.
-
-Notes
------
-ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/XEROX-SIMPLE-JOB-MGMT-TC
-Produced by pysmi-1.3.3 at Sun Mar 10 06:00:46 2024
-On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm
-Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
-"""
 if 'mibBuilder' not in globals():
     import sys
 
@@ -45,53 +45,53 @@ if 'mibBuilder' not in globals():
 
 # Import SMI symbols from the MIBs this MIB depends on
 
-(NotificationGroup,
- ModuleCompliance) = mibBuilder.importSymbols(
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
     "SNMPv2-CONF",
-    "NotificationGroup",
-    "ModuleCompliance")
+    "ModuleCompliance",
+    "NotificationGroup")
 
-(TimeTicks,
- ModuleIdentity,
+(Bits,
  Counter32,
- IpAddress,
  Counter64,
- ObjectIdentity,
- Bits,
- Unsigned32,
- iso,
  Gauge32,
  Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
  MibScalar,
  MibTable,
  MibTableRow,
  MibTableColumn,
- NotificationType,
- MibIdentifier) = mibBuilder.importSymbols(
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
     "SNMPv2-SMI",
-    "TimeTicks",
-    "ModuleIdentity",
-    "Counter32",
-    "IpAddress",
-    "Counter64",
-    "ObjectIdentity",
     "Bits",
-    "Unsigned32",
-    "iso",
+    "Counter32",
+    "Counter64",
     "Gauge32",
     "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
     "MibScalar",
     "MibTable",
     "MibTableRow",
     "MibTableColumn",
-    "NotificationType",
-    "MibIdentifier")
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
 
-(TextualConvention,
- DisplayString) = mibBuilder.importSymbols(
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
     "SNMPv2-TC",
-    "TextualConvention",
-    "DisplayString")
+    "DisplayString",
+    "TextualConvention")
 
 (xeroxCommonMIB,) = mibBuilder.importSymbols(
     "XEROX-COMMON-MIB",
@@ -112,7 +112,7 @@ xcmSimpleJobMgmtTC = ModuleIdentity(
 
 
 
-class XcmSimpleJobMgmtGroupSupport(TextualConvention, Integer32):
+class XcmSimpleJobMgmtGroupSupport(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -121,7 +121,7 @@ class XcmSimpleJobMgmtGroupSupport(TextualConvention, Integer32):
 
 
 
-class XcmSimpleJobMgmtOperation(TextualConvention, Integer32):
+class XcmSimpleJobMgmtOperation(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -175,7 +175,7 @@ class XcmSimpleJobMgmtOperation(TextualConvention, Integer32):
 
 
 
-class XcmSimpleJobMgmtData(TextualConvention, OctetString):
+class XcmSimpleJobMgmtData(OctetString, TextualConvention):
     status = "current"
     subtypeSpec = OctetString.subtypeSpec
     subtypeSpec += ConstraintsUnion(

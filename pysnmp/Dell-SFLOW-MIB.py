@@ -1,34 +1,248 @@
+# SNMP MIB module (Dell-SFLOW-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module Dell-SFLOW-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/Dell-SFLOW-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:41:49 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint")
-rnd, = mibBuilder.importSymbols("Dell-MIB", "rnd")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter64, Integer32, NotificationType, TimeTicks, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Gauge32, IpAddress, Bits, Counter32, ObjectIdentity, ModuleIdentity, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Integer32", "NotificationType", "TimeTicks", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Gauge32", "IpAddress", "Bits", "Counter32", "ObjectIdentity", "ModuleIdentity", "MibIdentifier")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-rlsFlowMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 89, 147))
-rlsFlowMib.setRevisions(('2009-10-27 00:00',))
-if mibBuilder.loadTexts: rlsFlowMib.setLastUpdated('200910270000Z')
-if mibBuilder.loadTexts: rlsFlowMib.setOrganization('Dell')
-rlsFlowStatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 89, 147, 1), ).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlsFlowStatisticsTable.setStatus('current')
-rlsFlowStatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 147, 1, 1), ).setMaxAccess("readonly").setIndexNames((0, "Dell-SFLOW-MIB", "rlsFlowDataSource"))
-if mibBuilder.loadTexts: rlsFlowStatisticsEntry.setStatus('current')
-rlsFlowDataSource = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 147, 1, 1, 1), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlsFlowDataSource.setStatus('current')
-rlsFlowStatisticsSampledPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 147, 1, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlsFlowStatisticsSampledPackets.setStatus('current')
-rlsFlowStatisticsDatagramSent = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 147, 1, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlsFlowStatisticsDatagramSent.setStatus('current')
-rlsFlowStatisticsAction = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 147, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("noaction", 1), ("clear", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlsFlowStatisticsAction.setStatus('current')
-rlsFlowStatisticsReset = MibScalar((1, 3, 6, 1, 4, 1, 89, 147, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("noaction", 1), ("clear", 2))).clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlsFlowStatisticsReset.setStatus('current')
-mibBuilder.exportSymbols("Dell-SFLOW-MIB", rlsFlowDataSource=rlsFlowDataSource, rlsFlowStatisticsTable=rlsFlowStatisticsTable, rlsFlowStatisticsReset=rlsFlowStatisticsReset, PYSNMP_MODULE_ID=rlsFlowMib, rlsFlowStatisticsAction=rlsFlowStatisticsAction, rlsFlowStatisticsEntry=rlsFlowStatisticsEntry, rlsFlowStatisticsSampledPackets=rlsFlowStatisticsSampledPackets, rlsFlowStatisticsDatagramSent=rlsFlowStatisticsDatagramSent, rlsFlowMib=rlsFlowMib)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/Dell-SFLOW-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:34:54 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(rnd,) = mibBuilder.importSymbols(
+    "Dell-MIB",
+    "rnd")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+rlsFlowMib = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 89, 147)
+)
+rlsFlowMib.setRevisions(
+        ("2009-10-27 00:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_RlsFlowStatisticsTable_Object = MibTable
+rlsFlowStatisticsTable = _RlsFlowStatisticsTable_Object(
+    (1, 3, 6, 1, 4, 1, 89, 147, 1)
+)
+if mibBuilder.loadTexts:
+    rlsFlowStatisticsTable.setStatus("current")
+_RlsFlowStatisticsEntry_Object = MibTableRow
+rlsFlowStatisticsEntry = _RlsFlowStatisticsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 89, 147, 1, 1)
+)
+rlsFlowStatisticsEntry.setIndexNames(
+    (0, "Dell-SFLOW-MIB", "rlsFlowDataSource"),
+)
+if mibBuilder.loadTexts:
+    rlsFlowStatisticsEntry.setStatus("current")
+_RlsFlowDataSource_Type = ObjectIdentifier
+_RlsFlowDataSource_Object = MibTableColumn
+rlsFlowDataSource = _RlsFlowDataSource_Object(
+    (1, 3, 6, 1, 4, 1, 89, 147, 1, 1, 1),
+    _RlsFlowDataSource_Type()
+)
+rlsFlowDataSource.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlsFlowDataSource.setStatus("current")
+_RlsFlowStatisticsSampledPackets_Type = Counter32
+_RlsFlowStatisticsSampledPackets_Object = MibTableColumn
+rlsFlowStatisticsSampledPackets = _RlsFlowStatisticsSampledPackets_Object(
+    (1, 3, 6, 1, 4, 1, 89, 147, 1, 1, 2),
+    _RlsFlowStatisticsSampledPackets_Type()
+)
+rlsFlowStatisticsSampledPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlsFlowStatisticsSampledPackets.setStatus("current")
+_RlsFlowStatisticsDatagramSent_Type = Counter32
+_RlsFlowStatisticsDatagramSent_Object = MibTableColumn
+rlsFlowStatisticsDatagramSent = _RlsFlowStatisticsDatagramSent_Object(
+    (1, 3, 6, 1, 4, 1, 89, 147, 1, 1, 3),
+    _RlsFlowStatisticsDatagramSent_Type()
+)
+rlsFlowStatisticsDatagramSent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlsFlowStatisticsDatagramSent.setStatus("current")
+
+
+class _RlsFlowStatisticsAction_Type(Integer32):
+    """Custom type rlsFlowStatisticsAction based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("clear", 2),
+          ("noaction", 1))
+    )
+
+
+_RlsFlowStatisticsAction_Type.__name__ = "Integer32"
+_RlsFlowStatisticsAction_Object = MibTableColumn
+rlsFlowStatisticsAction = _RlsFlowStatisticsAction_Object(
+    (1, 3, 6, 1, 4, 1, 89, 147, 1, 1, 4),
+    _RlsFlowStatisticsAction_Type()
+)
+rlsFlowStatisticsAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlsFlowStatisticsAction.setStatus("current")
+
+
+class _RlsFlowStatisticsReset_Type(Integer32):
+    """Custom type rlsFlowStatisticsReset based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("clear", 2),
+          ("noaction", 1))
+    )
+
+
+_RlsFlowStatisticsReset_Type.__name__ = "Integer32"
+_RlsFlowStatisticsReset_Object = MibScalar
+rlsFlowStatisticsReset = _RlsFlowStatisticsReset_Object(
+    (1, 3, 6, 1, 4, 1, 89, 147, 2),
+    _RlsFlowStatisticsReset_Type()
+)
+rlsFlowStatisticsReset.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlsFlowStatisticsReset.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "Dell-SFLOW-MIB",
+    **{"rlsFlowMib": rlsFlowMib,
+       "rlsFlowStatisticsTable": rlsFlowStatisticsTable,
+       "rlsFlowStatisticsEntry": rlsFlowStatisticsEntry,
+       "rlsFlowDataSource": rlsFlowDataSource,
+       "rlsFlowStatisticsSampledPackets": rlsFlowStatisticsSampledPackets,
+       "rlsFlowStatisticsDatagramSent": rlsFlowStatisticsDatagramSent,
+       "rlsFlowStatisticsAction": rlsFlowStatisticsAction,
+       "rlsFlowStatisticsReset": rlsFlowStatisticsReset}
+)

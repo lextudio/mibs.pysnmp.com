@@ -1,38 +1,190 @@
+# SNMP MIB module (FOUNDRY-BGP4V2-TC-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module FOUNDRY-BGP4V2-TC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/FOUNDRY-BGP4V2-TC-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:01:07 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
-bgp4V2Root, = mibBuilder.importSymbols("FOUNDRY-SN-ROOT-MIB", "bgp4V2Root")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-TimeTicks, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, mib_2, Integer32, MibIdentifier, ModuleIdentity, Counter32, Unsigned32, Bits, IpAddress, Gauge32, Counter64, ObjectIdentity, iso = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "mib-2", "Integer32", "MibIdentifier", "ModuleIdentity", "Counter32", "Unsigned32", "Bits", "IpAddress", "Gauge32", "Counter64", "ObjectIdentity", "iso")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-bgp4V2TC = ModuleIdentity((1, 3, 6, 1, 4, 1, 1991, 3, 5, 1))
-bgp4V2TC.setRevisions(('2014-01-23 00:00',))
-if mibBuilder.loadTexts: bgp4V2TC.setLastUpdated('201401230000Z')
-if mibBuilder.loadTexts: bgp4V2TC.setOrganization('IETF IDR Working Group')
-class Bgp4V2IdentifierTC(TextualConvention, OctetString):
-    reference = 'RFC 4273, Section 4.2'
-    status = 'current'
-    displayHint = '1d.'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(4, 4)
-    fixedLength = 4
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/FOUNDRY-BGP4V2-TC-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:45:40 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class Bgp4V2AddressFamilyIdentifierTC(TextualConvention, Integer32):
-    reference = 'RFC 4760, Section 3'
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("ipv4", 1), ("ipv6", 2))
+if 'mibBuilder' not in globals():
+    import sys
 
-class Bgp4V2SubsequentAddressFamilyIdentifierTC(TextualConvention, Integer32):
-    reference = 'RFC 4760, Section 3. The value of this object should be restricted to be between the values of 0 and 255.'
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 4))
-    namedValues = NamedValues(("unicast", 1), ("multicast", 2), ("mpls", 4))
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-mibBuilder.exportSymbols("FOUNDRY-BGP4V2-TC-MIB", bgp4V2TC=bgp4V2TC, PYSNMP_MODULE_ID=bgp4V2TC, Bgp4V2SubsequentAddressFamilyIdentifierTC=Bgp4V2SubsequentAddressFamilyIdentifierTC, Bgp4V2AddressFamilyIdentifierTC=Bgp4V2AddressFamilyIdentifierTC, Bgp4V2IdentifierTC=Bgp4V2IdentifierTC)
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(bgp4V2Root,) = mibBuilder.importSymbols(
+    "FOUNDRY-SN-ROOT-MIB",
+    "bgp4V2Root")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso,
+ mib_2) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso",
+    "mib-2")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+bgp4V2TC = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 3, 5, 1)
+)
+bgp4V2TC.setRevisions(
+        ("2014-01-23 00:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class Bgp4V2IdentifierTC(OctetString, TextualConvention):
+    status = "current"
+    displayHint = "1d."
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+    )
+
+
+
+class Bgp4V2AddressFamilyIdentifierTC(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ipv4", 1),
+          ("ipv6", 2))
+    )
+
+
+
+class Bgp4V2SubsequentAddressFamilyIdentifierTC(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("mpls", 4),
+          ("multicast", 2),
+          ("unicast", 1))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "FOUNDRY-BGP4V2-TC-MIB",
+    **{"Bgp4V2IdentifierTC": Bgp4V2IdentifierTC,
+       "Bgp4V2AddressFamilyIdentifierTC": Bgp4V2AddressFamilyIdentifierTC,
+       "Bgp4V2SubsequentAddressFamilyIdentifierTC": Bgp4V2SubsequentAddressFamilyIdentifierTC,
+       "bgp4V2TC": bgp4V2TC}
+)

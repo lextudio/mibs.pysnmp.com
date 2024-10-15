@@ -1,82 +1,484 @@
+# SNMP MIB module (Fore-PLCP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module Fore-PLCP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/Fore-PLCP-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:03:42 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion")
-asx, = mibBuilder.importSymbols("Fore-Common-MIB", "asx")
-trapLogIndex, = mibBuilder.importSymbols("Fore-TrapLog-MIB", "trapLogIndex")
-ifIndex, ifName = mibBuilder.importSymbols("IF-MIB", "ifIndex", "ifName")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Gauge32, NotificationType, Unsigned32, Integer32, Counter32, Bits, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, ModuleIdentity, IpAddress, MibIdentifier, Counter64, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "NotificationType", "Unsigned32", "Integer32", "Counter32", "Bits", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "ModuleIdentity", "IpAddress", "MibIdentifier", "Counter64", "iso")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-forePlcpMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13))
-if mibBuilder.loadTexts: forePlcpMib.setLastUpdated('9911050000Z')
-if mibBuilder.loadTexts: forePlcpMib.setOrganization('FORE')
-forePlcpConfigTable = MibTable((1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 1), )
-if mibBuilder.loadTexts: forePlcpConfigTable.setStatus('current')
-forePlcpConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: forePlcpConfigEntry.setStatus('current')
-forePlcpConfigFrameFormat = MibTableColumn((1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("forePlcpFrameFormatDs1", 1), ("forePlcpFrameFormatE1", 2), ("forePlcpFrameFormatDs3", 3), ("forePlcpFrameFormatE3", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: forePlcpConfigFrameFormat.setStatus('current')
-forePlcpTotalTable = MibTable((1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 2), )
-if mibBuilder.loadTexts: forePlcpTotalTable.setStatus('current')
-forePlcpTotalEntry = MibTableRow((1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: forePlcpTotalEntry.setStatus('current')
-forePlcpTotalFerrCount = MibTableColumn((1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 2, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: forePlcpTotalFerrCount.setStatus('current')
-forePlcpTotalLofSeconds = MibTableColumn((1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 2, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: forePlcpTotalLofSeconds.setStatus('current')
-forePlcpTotalBip8Count = MibTableColumn((1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 2, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: forePlcpTotalBip8Count.setStatus('current')
-forePlcpTotalFebeCount = MibTableColumn((1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 2, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: forePlcpTotalFebeCount.setStatus('current')
-forePlcpTotalYellowAlarmSeconds = MibTableColumn((1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 2, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: forePlcpTotalYellowAlarmSeconds.setStatus('current')
-forePlcpCurrentTable = MibTable((1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 3), )
-if mibBuilder.loadTexts: forePlcpCurrentTable.setStatus('current')
-forePlcpCurrentEntry = MibTableRow((1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: forePlcpCurrentEntry.setStatus('current')
-forePlcpCurrentFerrCount = MibTableColumn((1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 3, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: forePlcpCurrentFerrCount.setStatus('current')
-forePlcpCurrentBip8Count = MibTableColumn((1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 3, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: forePlcpCurrentBip8Count.setStatus('current')
-forePlcpCurrentFebeCount = MibTableColumn((1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 3, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: forePlcpCurrentFebeCount.setStatus('current')
-forePlcpCurrentErrSeconds = MibTableColumn((1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 3, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: forePlcpCurrentErrSeconds.setStatus('current')
-forePlcpCurrentSevErrSeconds = MibTableColumn((1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 3, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: forePlcpCurrentSevErrSeconds.setStatus('current')
-forePlcpCurrentUnavailSeconds = MibTableColumn((1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 3, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: forePlcpCurrentUnavailSeconds.setStatus('current')
-forePlcpIntervalTable = MibTable((1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 4), )
-if mibBuilder.loadTexts: forePlcpIntervalTable.setStatus('current')
-forePlcpIntervalEntry = MibTableRow((1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 4, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "Fore-PLCP-MIB", "forePlcpInterval"))
-if mibBuilder.loadTexts: forePlcpIntervalEntry.setStatus('current')
-forePlcpInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 4, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: forePlcpInterval.setStatus('current')
-forePlcpIntervalFerrCount = MibTableColumn((1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 4, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: forePlcpIntervalFerrCount.setStatus('current')
-forePlcpIntervalBip8Count = MibTableColumn((1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 4, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: forePlcpIntervalBip8Count.setStatus('current')
-forePlcpIntervalFebeCount = MibTableColumn((1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 4, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: forePlcpIntervalFebeCount.setStatus('current')
-forePlcpIntervalErrSeconds = MibTableColumn((1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 4, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: forePlcpIntervalErrSeconds.setStatus('current')
-forePlcpIntervalSevErrSeconds = MibTableColumn((1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 4, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: forePlcpIntervalSevErrSeconds.setStatus('current')
-forePlcpIntervalUnavailSeconds = MibTableColumn((1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 4, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: forePlcpIntervalUnavailSeconds.setStatus('current')
-forePlcpYellowDetected = NotificationType((1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 0, 1)).setObjects(("IF-MIB", "ifIndex"), ("IF-MIB", "ifName"), ("Fore-TrapLog-MIB", "trapLogIndex"))
-if mibBuilder.loadTexts: forePlcpYellowDetected.setStatus('current')
-forePlcpYellowCleared = NotificationType((1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 0, 2)).setObjects(("IF-MIB", "ifIndex"), ("IF-MIB", "ifName"), ("Fore-TrapLog-MIB", "trapLogIndex"))
-if mibBuilder.loadTexts: forePlcpYellowCleared.setStatus('current')
-forePlcpLOFDetected = NotificationType((1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 0, 3)).setObjects(("IF-MIB", "ifIndex"), ("IF-MIB", "ifName"), ("Fore-TrapLog-MIB", "trapLogIndex"))
-if mibBuilder.loadTexts: forePlcpLOFDetected.setStatus('current')
-forePlcpLOFCleared = NotificationType((1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 0, 4)).setObjects(("IF-MIB", "ifIndex"), ("IF-MIB", "ifName"), ("Fore-TrapLog-MIB", "trapLogIndex"))
-if mibBuilder.loadTexts: forePlcpLOFCleared.setStatus('current')
-mibBuilder.exportSymbols("Fore-PLCP-MIB", forePlcpCurrentErrSeconds=forePlcpCurrentErrSeconds, forePlcpIntervalFerrCount=forePlcpIntervalFerrCount, forePlcpTotalLofSeconds=forePlcpTotalLofSeconds, forePlcpMib=forePlcpMib, forePlcpConfigFrameFormat=forePlcpConfigFrameFormat, forePlcpTotalTable=forePlcpTotalTable, forePlcpCurrentUnavailSeconds=forePlcpCurrentUnavailSeconds, forePlcpYellowCleared=forePlcpYellowCleared, forePlcpIntervalSevErrSeconds=forePlcpIntervalSevErrSeconds, forePlcpTotalEntry=forePlcpTotalEntry, forePlcpCurrentSevErrSeconds=forePlcpCurrentSevErrSeconds, forePlcpYellowDetected=forePlcpYellowDetected, forePlcpTotalBip8Count=forePlcpTotalBip8Count, forePlcpInterval=forePlcpInterval, forePlcpIntervalFebeCount=forePlcpIntervalFebeCount, forePlcpCurrentFerrCount=forePlcpCurrentFerrCount, forePlcpIntervalTable=forePlcpIntervalTable, forePlcpIntervalEntry=forePlcpIntervalEntry, forePlcpIntervalUnavailSeconds=forePlcpIntervalUnavailSeconds, forePlcpTotalFerrCount=forePlcpTotalFerrCount, forePlcpCurrentEntry=forePlcpCurrentEntry, forePlcpTotalFebeCount=forePlcpTotalFebeCount, forePlcpCurrentTable=forePlcpCurrentTable, forePlcpLOFDetected=forePlcpLOFDetected, forePlcpIntervalBip8Count=forePlcpIntervalBip8Count, PYSNMP_MODULE_ID=forePlcpMib, forePlcpLOFCleared=forePlcpLOFCleared, forePlcpConfigEntry=forePlcpConfigEntry, forePlcpCurrentBip8Count=forePlcpCurrentBip8Count, forePlcpIntervalErrSeconds=forePlcpIntervalErrSeconds, forePlcpCurrentFebeCount=forePlcpCurrentFebeCount, forePlcpTotalYellowAlarmSeconds=forePlcpTotalYellowAlarmSeconds, forePlcpConfigTable=forePlcpConfigTable)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/Fore-PLCP-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:47:08 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(asx,) = mibBuilder.importSymbols(
+    "Fore-Common-MIB",
+    "asx")
+
+(trapLogIndex,) = mibBuilder.importSymbols(
+    "Fore-TrapLog-MIB",
+    "trapLogIndex")
+
+(ifIndex,
+ ifName) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex",
+    "ifName")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+forePlcpMib = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_ForePlcpConfigTable_Object = MibTable
+forePlcpConfigTable = _ForePlcpConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 1)
+)
+if mibBuilder.loadTexts:
+    forePlcpConfigTable.setStatus("current")
+_ForePlcpConfigEntry_Object = MibTableRow
+forePlcpConfigEntry = _ForePlcpConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 1, 1)
+)
+forePlcpConfigEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    forePlcpConfigEntry.setStatus("current")
+
+
+class _ForePlcpConfigFrameFormat_Type(Integer32):
+    """Custom type forePlcpConfigFrameFormat based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("forePlcpFrameFormatDs1", 1),
+          ("forePlcpFrameFormatDs3", 3),
+          ("forePlcpFrameFormatE1", 2),
+          ("forePlcpFrameFormatE3", 4))
+    )
+
+
+_ForePlcpConfigFrameFormat_Type.__name__ = "Integer32"
+_ForePlcpConfigFrameFormat_Object = MibTableColumn
+forePlcpConfigFrameFormat = _ForePlcpConfigFrameFormat_Object(
+    (1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 1, 1, 1),
+    _ForePlcpConfigFrameFormat_Type()
+)
+forePlcpConfigFrameFormat.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    forePlcpConfigFrameFormat.setStatus("current")
+_ForePlcpTotalTable_Object = MibTable
+forePlcpTotalTable = _ForePlcpTotalTable_Object(
+    (1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 2)
+)
+if mibBuilder.loadTexts:
+    forePlcpTotalTable.setStatus("current")
+_ForePlcpTotalEntry_Object = MibTableRow
+forePlcpTotalEntry = _ForePlcpTotalEntry_Object(
+    (1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 2, 1)
+)
+forePlcpTotalEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    forePlcpTotalEntry.setStatus("current")
+_ForePlcpTotalFerrCount_Type = Counter32
+_ForePlcpTotalFerrCount_Object = MibTableColumn
+forePlcpTotalFerrCount = _ForePlcpTotalFerrCount_Object(
+    (1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 2, 1, 1),
+    _ForePlcpTotalFerrCount_Type()
+)
+forePlcpTotalFerrCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    forePlcpTotalFerrCount.setStatus("current")
+_ForePlcpTotalLofSeconds_Type = Counter32
+_ForePlcpTotalLofSeconds_Object = MibTableColumn
+forePlcpTotalLofSeconds = _ForePlcpTotalLofSeconds_Object(
+    (1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 2, 1, 2),
+    _ForePlcpTotalLofSeconds_Type()
+)
+forePlcpTotalLofSeconds.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    forePlcpTotalLofSeconds.setStatus("current")
+_ForePlcpTotalBip8Count_Type = Counter32
+_ForePlcpTotalBip8Count_Object = MibTableColumn
+forePlcpTotalBip8Count = _ForePlcpTotalBip8Count_Object(
+    (1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 2, 1, 3),
+    _ForePlcpTotalBip8Count_Type()
+)
+forePlcpTotalBip8Count.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    forePlcpTotalBip8Count.setStatus("current")
+_ForePlcpTotalFebeCount_Type = Counter32
+_ForePlcpTotalFebeCount_Object = MibTableColumn
+forePlcpTotalFebeCount = _ForePlcpTotalFebeCount_Object(
+    (1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 2, 1, 4),
+    _ForePlcpTotalFebeCount_Type()
+)
+forePlcpTotalFebeCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    forePlcpTotalFebeCount.setStatus("current")
+_ForePlcpTotalYellowAlarmSeconds_Type = Counter32
+_ForePlcpTotalYellowAlarmSeconds_Object = MibTableColumn
+forePlcpTotalYellowAlarmSeconds = _ForePlcpTotalYellowAlarmSeconds_Object(
+    (1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 2, 1, 5),
+    _ForePlcpTotalYellowAlarmSeconds_Type()
+)
+forePlcpTotalYellowAlarmSeconds.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    forePlcpTotalYellowAlarmSeconds.setStatus("current")
+_ForePlcpCurrentTable_Object = MibTable
+forePlcpCurrentTable = _ForePlcpCurrentTable_Object(
+    (1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 3)
+)
+if mibBuilder.loadTexts:
+    forePlcpCurrentTable.setStatus("current")
+_ForePlcpCurrentEntry_Object = MibTableRow
+forePlcpCurrentEntry = _ForePlcpCurrentEntry_Object(
+    (1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 3, 1)
+)
+forePlcpCurrentEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    forePlcpCurrentEntry.setStatus("current")
+_ForePlcpCurrentFerrCount_Type = Counter32
+_ForePlcpCurrentFerrCount_Object = MibTableColumn
+forePlcpCurrentFerrCount = _ForePlcpCurrentFerrCount_Object(
+    (1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 3, 1, 1),
+    _ForePlcpCurrentFerrCount_Type()
+)
+forePlcpCurrentFerrCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    forePlcpCurrentFerrCount.setStatus("current")
+_ForePlcpCurrentBip8Count_Type = Counter32
+_ForePlcpCurrentBip8Count_Object = MibTableColumn
+forePlcpCurrentBip8Count = _ForePlcpCurrentBip8Count_Object(
+    (1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 3, 1, 2),
+    _ForePlcpCurrentBip8Count_Type()
+)
+forePlcpCurrentBip8Count.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    forePlcpCurrentBip8Count.setStatus("current")
+_ForePlcpCurrentFebeCount_Type = Counter32
+_ForePlcpCurrentFebeCount_Object = MibTableColumn
+forePlcpCurrentFebeCount = _ForePlcpCurrentFebeCount_Object(
+    (1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 3, 1, 3),
+    _ForePlcpCurrentFebeCount_Type()
+)
+forePlcpCurrentFebeCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    forePlcpCurrentFebeCount.setStatus("current")
+_ForePlcpCurrentErrSeconds_Type = Counter32
+_ForePlcpCurrentErrSeconds_Object = MibTableColumn
+forePlcpCurrentErrSeconds = _ForePlcpCurrentErrSeconds_Object(
+    (1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 3, 1, 4),
+    _ForePlcpCurrentErrSeconds_Type()
+)
+forePlcpCurrentErrSeconds.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    forePlcpCurrentErrSeconds.setStatus("current")
+_ForePlcpCurrentSevErrSeconds_Type = Counter32
+_ForePlcpCurrentSevErrSeconds_Object = MibTableColumn
+forePlcpCurrentSevErrSeconds = _ForePlcpCurrentSevErrSeconds_Object(
+    (1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 3, 1, 5),
+    _ForePlcpCurrentSevErrSeconds_Type()
+)
+forePlcpCurrentSevErrSeconds.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    forePlcpCurrentSevErrSeconds.setStatus("current")
+_ForePlcpCurrentUnavailSeconds_Type = Counter32
+_ForePlcpCurrentUnavailSeconds_Object = MibTableColumn
+forePlcpCurrentUnavailSeconds = _ForePlcpCurrentUnavailSeconds_Object(
+    (1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 3, 1, 6),
+    _ForePlcpCurrentUnavailSeconds_Type()
+)
+forePlcpCurrentUnavailSeconds.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    forePlcpCurrentUnavailSeconds.setStatus("current")
+_ForePlcpIntervalTable_Object = MibTable
+forePlcpIntervalTable = _ForePlcpIntervalTable_Object(
+    (1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 4)
+)
+if mibBuilder.loadTexts:
+    forePlcpIntervalTable.setStatus("current")
+_ForePlcpIntervalEntry_Object = MibTableRow
+forePlcpIntervalEntry = _ForePlcpIntervalEntry_Object(
+    (1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 4, 1)
+)
+forePlcpIntervalEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+    (0, "Fore-PLCP-MIB", "forePlcpInterval"),
+)
+if mibBuilder.loadTexts:
+    forePlcpIntervalEntry.setStatus("current")
+_ForePlcpInterval_Type = Integer32
+_ForePlcpInterval_Object = MibTableColumn
+forePlcpInterval = _ForePlcpInterval_Object(
+    (1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 4, 1, 1),
+    _ForePlcpInterval_Type()
+)
+forePlcpInterval.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    forePlcpInterval.setStatus("current")
+_ForePlcpIntervalFerrCount_Type = Counter32
+_ForePlcpIntervalFerrCount_Object = MibTableColumn
+forePlcpIntervalFerrCount = _ForePlcpIntervalFerrCount_Object(
+    (1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 4, 1, 2),
+    _ForePlcpIntervalFerrCount_Type()
+)
+forePlcpIntervalFerrCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    forePlcpIntervalFerrCount.setStatus("current")
+_ForePlcpIntervalBip8Count_Type = Counter32
+_ForePlcpIntervalBip8Count_Object = MibTableColumn
+forePlcpIntervalBip8Count = _ForePlcpIntervalBip8Count_Object(
+    (1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 4, 1, 3),
+    _ForePlcpIntervalBip8Count_Type()
+)
+forePlcpIntervalBip8Count.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    forePlcpIntervalBip8Count.setStatus("current")
+_ForePlcpIntervalFebeCount_Type = Counter32
+_ForePlcpIntervalFebeCount_Object = MibTableColumn
+forePlcpIntervalFebeCount = _ForePlcpIntervalFebeCount_Object(
+    (1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 4, 1, 4),
+    _ForePlcpIntervalFebeCount_Type()
+)
+forePlcpIntervalFebeCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    forePlcpIntervalFebeCount.setStatus("current")
+_ForePlcpIntervalErrSeconds_Type = Counter32
+_ForePlcpIntervalErrSeconds_Object = MibTableColumn
+forePlcpIntervalErrSeconds = _ForePlcpIntervalErrSeconds_Object(
+    (1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 4, 1, 5),
+    _ForePlcpIntervalErrSeconds_Type()
+)
+forePlcpIntervalErrSeconds.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    forePlcpIntervalErrSeconds.setStatus("current")
+_ForePlcpIntervalSevErrSeconds_Type = Counter32
+_ForePlcpIntervalSevErrSeconds_Object = MibTableColumn
+forePlcpIntervalSevErrSeconds = _ForePlcpIntervalSevErrSeconds_Object(
+    (1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 4, 1, 6),
+    _ForePlcpIntervalSevErrSeconds_Type()
+)
+forePlcpIntervalSevErrSeconds.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    forePlcpIntervalSevErrSeconds.setStatus("current")
+_ForePlcpIntervalUnavailSeconds_Type = Counter32
+_ForePlcpIntervalUnavailSeconds_Object = MibTableColumn
+forePlcpIntervalUnavailSeconds = _ForePlcpIntervalUnavailSeconds_Object(
+    (1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 4, 1, 7),
+    _ForePlcpIntervalUnavailSeconds_Type()
+)
+forePlcpIntervalUnavailSeconds.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    forePlcpIntervalUnavailSeconds.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+forePlcpYellowDetected = NotificationType(
+    (1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 0, 1)
+)
+forePlcpYellowDetected.setObjects(
+      *(("IF-MIB", "ifIndex"),
+        ("IF-MIB", "ifName"),
+        ("Fore-TrapLog-MIB", "trapLogIndex"))
+)
+if mibBuilder.loadTexts:
+    forePlcpYellowDetected.setStatus(
+        "current"
+    )
+
+forePlcpYellowCleared = NotificationType(
+    (1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 0, 2)
+)
+forePlcpYellowCleared.setObjects(
+      *(("IF-MIB", "ifIndex"),
+        ("IF-MIB", "ifName"),
+        ("Fore-TrapLog-MIB", "trapLogIndex"))
+)
+if mibBuilder.loadTexts:
+    forePlcpYellowCleared.setStatus(
+        "current"
+    )
+
+forePlcpLOFDetected = NotificationType(
+    (1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 0, 3)
+)
+forePlcpLOFDetected.setObjects(
+      *(("IF-MIB", "ifIndex"),
+        ("IF-MIB", "ifName"),
+        ("Fore-TrapLog-MIB", "trapLogIndex"))
+)
+if mibBuilder.loadTexts:
+    forePlcpLOFDetected.setStatus(
+        "current"
+    )
+
+forePlcpLOFCleared = NotificationType(
+    (1, 3, 6, 1, 4, 1, 326, 2, 2, 1, 1, 13, 0, 4)
+)
+forePlcpLOFCleared.setObjects(
+      *(("IF-MIB", "ifIndex"),
+        ("IF-MIB", "ifName"),
+        ("Fore-TrapLog-MIB", "trapLogIndex"))
+)
+if mibBuilder.loadTexts:
+    forePlcpLOFCleared.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "Fore-PLCP-MIB",
+    **{"forePlcpMib": forePlcpMib,
+       "forePlcpYellowDetected": forePlcpYellowDetected,
+       "forePlcpYellowCleared": forePlcpYellowCleared,
+       "forePlcpLOFDetected": forePlcpLOFDetected,
+       "forePlcpLOFCleared": forePlcpLOFCleared,
+       "forePlcpConfigTable": forePlcpConfigTable,
+       "forePlcpConfigEntry": forePlcpConfigEntry,
+       "forePlcpConfigFrameFormat": forePlcpConfigFrameFormat,
+       "forePlcpTotalTable": forePlcpTotalTable,
+       "forePlcpTotalEntry": forePlcpTotalEntry,
+       "forePlcpTotalFerrCount": forePlcpTotalFerrCount,
+       "forePlcpTotalLofSeconds": forePlcpTotalLofSeconds,
+       "forePlcpTotalBip8Count": forePlcpTotalBip8Count,
+       "forePlcpTotalFebeCount": forePlcpTotalFebeCount,
+       "forePlcpTotalYellowAlarmSeconds": forePlcpTotalYellowAlarmSeconds,
+       "forePlcpCurrentTable": forePlcpCurrentTable,
+       "forePlcpCurrentEntry": forePlcpCurrentEntry,
+       "forePlcpCurrentFerrCount": forePlcpCurrentFerrCount,
+       "forePlcpCurrentBip8Count": forePlcpCurrentBip8Count,
+       "forePlcpCurrentFebeCount": forePlcpCurrentFebeCount,
+       "forePlcpCurrentErrSeconds": forePlcpCurrentErrSeconds,
+       "forePlcpCurrentSevErrSeconds": forePlcpCurrentSevErrSeconds,
+       "forePlcpCurrentUnavailSeconds": forePlcpCurrentUnavailSeconds,
+       "forePlcpIntervalTable": forePlcpIntervalTable,
+       "forePlcpIntervalEntry": forePlcpIntervalEntry,
+       "forePlcpInterval": forePlcpInterval,
+       "forePlcpIntervalFerrCount": forePlcpIntervalFerrCount,
+       "forePlcpIntervalBip8Count": forePlcpIntervalBip8Count,
+       "forePlcpIntervalFebeCount": forePlcpIntervalFebeCount,
+       "forePlcpIntervalErrSeconds": forePlcpIntervalErrSeconds,
+       "forePlcpIntervalSevErrSeconds": forePlcpIntervalSevErrSeconds,
+       "forePlcpIntervalUnavailSeconds": forePlcpIntervalUnavailSeconds}
+)

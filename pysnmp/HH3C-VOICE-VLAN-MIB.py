@@ -1,57 +1,404 @@
+# SNMP MIB module (HH3C-VOICE-VLAN-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HH3C-VOICE-VLAN-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/HH3C-VOICE-VLAN-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:17:39 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
-hh3cCommon, = mibBuilder.importSymbols("HH3C-OID-MIB", "hh3cCommon")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-NotificationType, iso, TimeTicks, Integer32, ObjectIdentity, Counter64, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Bits, ModuleIdentity, IpAddress, Gauge32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "iso", "TimeTicks", "Integer32", "ObjectIdentity", "Counter64", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Bits", "ModuleIdentity", "IpAddress", "Gauge32", "MibIdentifier")
-TruthValue, DisplayString, RowStatus, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "RowStatus", "MacAddress", "TextualConvention")
-hh3cVoiceVlan = ModuleIdentity((1, 3, 6, 1, 4, 1, 25506, 2, 9))
-hh3cVoiceVlan.setRevisions(('2009-05-15 00:00', '2002-07-01 00:00',))
-if mibBuilder.loadTexts: hh3cVoiceVlan.setLastUpdated('200905150000Z')
-if mibBuilder.loadTexts: hh3cVoiceVlan.setOrganization('HH3C Tech, Inc.')
-class PortList(TextualConvention, OctetString):
-    status = 'current'
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HH3C-VOICE-VLAN-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:55:19 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-hh3cvoiceVlanOuiTable = MibTable((1, 3, 6, 1, 4, 1, 25506, 2, 9, 1), )
-if mibBuilder.loadTexts: hh3cvoiceVlanOuiTable.setStatus('current')
-hh3cvoiceVlanOuiEntry = MibTableRow((1, 3, 6, 1, 4, 1, 25506, 2, 9, 1, 1), ).setIndexNames((0, "HH3C-VOICE-VLAN-MIB", "hh3cVoiceVlanOuiAddress"))
-if mibBuilder.loadTexts: hh3cvoiceVlanOuiEntry.setStatus('current')
-hh3cVoiceVlanOuiAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 9, 1, 1, 1), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hh3cVoiceVlanOuiAddress.setStatus('current')
-hh3cVoiceVlanOuiMask = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 9, 1, 1, 2), MacAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hh3cVoiceVlanOuiMask.setStatus('current')
-hh3cVoiceVlanOuiDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 9, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 30))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hh3cVoiceVlanOuiDescription.setStatus('current')
-hh3cVoiceVlanOuiRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 9, 1, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hh3cVoiceVlanOuiRowStatus.setStatus('current')
-hh3cVoiceVlanEnabledId = MibScalar((1, 3, 6, 1, 4, 1, 25506, 2, 9, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hh3cVoiceVlanEnabledId.setStatus('current')
-hh3cVoiceVlanPortEnableList = MibScalar((1, 3, 6, 1, 4, 1, 25506, 2, 9, 3), PortList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hh3cVoiceVlanPortEnableList.setStatus('current')
-hh3cVoiceVlanAgingTime = MibScalar((1, 3, 6, 1, 4, 1, 25506, 2, 9, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(5, 43200)).clone(1440)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hh3cVoiceVlanAgingTime.setStatus('current')
-hh3cVoiceVlanConfigState = MibScalar((1, 3, 6, 1, 4, 1, 25506, 2, 9, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("auto", 1), ("manual", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hh3cVoiceVlanConfigState.setStatus('current')
-hh3cVoiceVlanSecurityState = MibScalar((1, 3, 6, 1, 4, 1, 25506, 2, 9, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("security", 1), ("normal", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hh3cVoiceVlanSecurityState.setStatus('current')
-hh3cvoiceVlanPortTable = MibTable((1, 3, 6, 1, 4, 1, 25506, 2, 9, 7), )
-if mibBuilder.loadTexts: hh3cvoiceVlanPortTable.setStatus('current')
-hh3cvoiceVlanPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 25506, 2, 9, 7, 1), ).setIndexNames((0, "HH3C-VOICE-VLAN-MIB", "hh3cVoiceVlanPortifIndex"))
-if mibBuilder.loadTexts: hh3cvoiceVlanPortEntry.setStatus('current')
-hh3cVoiceVlanPortifIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 9, 7, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: hh3cVoiceVlanPortifIndex.setStatus('current')
-hh3cVoiceVlanPortMode = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 9, 7, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("auto", 1), ("manual", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hh3cVoiceVlanPortMode.setStatus('current')
-hh3cVoiceVlanPortLegacy = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 9, 7, 1, 3), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hh3cVoiceVlanPortLegacy.setStatus('current')
-hh3cVoiceVlanPortQosTrust = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 9, 7, 1, 4), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hh3cVoiceVlanPortQosTrust.setStatus('current')
-mibBuilder.exportSymbols("HH3C-VOICE-VLAN-MIB", hh3cVoiceVlanPortEnableList=hh3cVoiceVlanPortEnableList, hh3cVoiceVlanConfigState=hh3cVoiceVlanConfigState, hh3cVoiceVlanOuiRowStatus=hh3cVoiceVlanOuiRowStatus, hh3cVoiceVlanEnabledId=hh3cVoiceVlanEnabledId, hh3cVoiceVlanSecurityState=hh3cVoiceVlanSecurityState, hh3cvoiceVlanPortEntry=hh3cvoiceVlanPortEntry, hh3cVoiceVlanPortLegacy=hh3cVoiceVlanPortLegacy, PortList=PortList, hh3cVoiceVlanPortMode=hh3cVoiceVlanPortMode, hh3cvoiceVlanOuiEntry=hh3cvoiceVlanOuiEntry, hh3cVoiceVlanPortQosTrust=hh3cVoiceVlanPortQosTrust, hh3cVoiceVlan=hh3cVoiceVlan, hh3cVoiceVlanOuiMask=hh3cVoiceVlanOuiMask, hh3cVoiceVlanPortifIndex=hh3cVoiceVlanPortifIndex, hh3cvoiceVlanOuiTable=hh3cvoiceVlanOuiTable, hh3cvoiceVlanPortTable=hh3cvoiceVlanPortTable, hh3cVoiceVlanOuiAddress=hh3cVoiceVlanOuiAddress, hh3cVoiceVlanAgingTime=hh3cVoiceVlanAgingTime, PYSNMP_MODULE_ID=hh3cVoiceVlan, hh3cVoiceVlanOuiDescription=hh3cVoiceVlanOuiDescription)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(hh3cCommon,) = mibBuilder.importSymbols(
+    "HH3C-OID-MIB",
+    "hh3cCommon")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+hh3cVoiceVlan = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 9)
+)
+hh3cVoiceVlan.setRevisions(
+        ("2009-05-15 00:00",
+         "2002-07-01 00:00")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class PortList(OctetString, TextualConvention):
+    status = "current"
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Hh3cvoiceVlanOuiTable_Object = MibTable
+hh3cvoiceVlanOuiTable = _Hh3cvoiceVlanOuiTable_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 9, 1)
+)
+if mibBuilder.loadTexts:
+    hh3cvoiceVlanOuiTable.setStatus("current")
+_Hh3cvoiceVlanOuiEntry_Object = MibTableRow
+hh3cvoiceVlanOuiEntry = _Hh3cvoiceVlanOuiEntry_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 9, 1, 1)
+)
+hh3cvoiceVlanOuiEntry.setIndexNames(
+    (0, "HH3C-VOICE-VLAN-MIB", "hh3cVoiceVlanOuiAddress"),
+)
+if mibBuilder.loadTexts:
+    hh3cvoiceVlanOuiEntry.setStatus("current")
+_Hh3cVoiceVlanOuiAddress_Type = MacAddress
+_Hh3cVoiceVlanOuiAddress_Object = MibTableColumn
+hh3cVoiceVlanOuiAddress = _Hh3cVoiceVlanOuiAddress_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 9, 1, 1, 1),
+    _Hh3cVoiceVlanOuiAddress_Type()
+)
+hh3cVoiceVlanOuiAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hh3cVoiceVlanOuiAddress.setStatus("current")
+_Hh3cVoiceVlanOuiMask_Type = MacAddress
+_Hh3cVoiceVlanOuiMask_Object = MibTableColumn
+hh3cVoiceVlanOuiMask = _Hh3cVoiceVlanOuiMask_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 9, 1, 1, 2),
+    _Hh3cVoiceVlanOuiMask_Type()
+)
+hh3cVoiceVlanOuiMask.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hh3cVoiceVlanOuiMask.setStatus("current")
+
+
+class _Hh3cVoiceVlanOuiDescription_Type(OctetString):
+    """Custom type hh3cVoiceVlanOuiDescription based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 30),
+    )
+
+
+_Hh3cVoiceVlanOuiDescription_Type.__name__ = "OctetString"
+_Hh3cVoiceVlanOuiDescription_Object = MibTableColumn
+hh3cVoiceVlanOuiDescription = _Hh3cVoiceVlanOuiDescription_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 9, 1, 1, 3),
+    _Hh3cVoiceVlanOuiDescription_Type()
+)
+hh3cVoiceVlanOuiDescription.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hh3cVoiceVlanOuiDescription.setStatus("current")
+_Hh3cVoiceVlanOuiRowStatus_Type = RowStatus
+_Hh3cVoiceVlanOuiRowStatus_Object = MibTableColumn
+hh3cVoiceVlanOuiRowStatus = _Hh3cVoiceVlanOuiRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 9, 1, 1, 4),
+    _Hh3cVoiceVlanOuiRowStatus_Type()
+)
+hh3cVoiceVlanOuiRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hh3cVoiceVlanOuiRowStatus.setStatus("current")
+_Hh3cVoiceVlanEnabledId_Type = Integer32
+_Hh3cVoiceVlanEnabledId_Object = MibScalar
+hh3cVoiceVlanEnabledId = _Hh3cVoiceVlanEnabledId_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 9, 2),
+    _Hh3cVoiceVlanEnabledId_Type()
+)
+hh3cVoiceVlanEnabledId.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hh3cVoiceVlanEnabledId.setStatus("current")
+_Hh3cVoiceVlanPortEnableList_Type = PortList
+_Hh3cVoiceVlanPortEnableList_Object = MibScalar
+hh3cVoiceVlanPortEnableList = _Hh3cVoiceVlanPortEnableList_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 9, 3),
+    _Hh3cVoiceVlanPortEnableList_Type()
+)
+hh3cVoiceVlanPortEnableList.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hh3cVoiceVlanPortEnableList.setStatus("current")
+
+
+class _Hh3cVoiceVlanAgingTime_Type(Integer32):
+    """Custom type hh3cVoiceVlanAgingTime based on Integer32"""
+    defaultValue = 1440
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(5, 43200),
+    )
+
+
+_Hh3cVoiceVlanAgingTime_Type.__name__ = "Integer32"
+_Hh3cVoiceVlanAgingTime_Object = MibScalar
+hh3cVoiceVlanAgingTime = _Hh3cVoiceVlanAgingTime_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 9, 4),
+    _Hh3cVoiceVlanAgingTime_Type()
+)
+hh3cVoiceVlanAgingTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hh3cVoiceVlanAgingTime.setStatus("current")
+
+
+class _Hh3cVoiceVlanConfigState_Type(Integer32):
+    """Custom type hh3cVoiceVlanConfigState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("auto", 1),
+          ("manual", 2))
+    )
+
+
+_Hh3cVoiceVlanConfigState_Type.__name__ = "Integer32"
+_Hh3cVoiceVlanConfigState_Object = MibScalar
+hh3cVoiceVlanConfigState = _Hh3cVoiceVlanConfigState_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 9, 5),
+    _Hh3cVoiceVlanConfigState_Type()
+)
+hh3cVoiceVlanConfigState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hh3cVoiceVlanConfigState.setStatus("current")
+
+
+class _Hh3cVoiceVlanSecurityState_Type(Integer32):
+    """Custom type hh3cVoiceVlanSecurityState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("normal", 2),
+          ("security", 1))
+    )
+
+
+_Hh3cVoiceVlanSecurityState_Type.__name__ = "Integer32"
+_Hh3cVoiceVlanSecurityState_Object = MibScalar
+hh3cVoiceVlanSecurityState = _Hh3cVoiceVlanSecurityState_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 9, 6),
+    _Hh3cVoiceVlanSecurityState_Type()
+)
+hh3cVoiceVlanSecurityState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hh3cVoiceVlanSecurityState.setStatus("current")
+_Hh3cvoiceVlanPortTable_Object = MibTable
+hh3cvoiceVlanPortTable = _Hh3cvoiceVlanPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 9, 7)
+)
+if mibBuilder.loadTexts:
+    hh3cvoiceVlanPortTable.setStatus("current")
+_Hh3cvoiceVlanPortEntry_Object = MibTableRow
+hh3cvoiceVlanPortEntry = _Hh3cvoiceVlanPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 9, 7, 1)
+)
+hh3cvoiceVlanPortEntry.setIndexNames(
+    (0, "HH3C-VOICE-VLAN-MIB", "hh3cVoiceVlanPortifIndex"),
+)
+if mibBuilder.loadTexts:
+    hh3cvoiceVlanPortEntry.setStatus("current")
+
+
+class _Hh3cVoiceVlanPortifIndex_Type(Integer32):
+    """Custom type hh3cVoiceVlanPortifIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_Hh3cVoiceVlanPortifIndex_Type.__name__ = "Integer32"
+_Hh3cVoiceVlanPortifIndex_Object = MibTableColumn
+hh3cVoiceVlanPortifIndex = _Hh3cVoiceVlanPortifIndex_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 9, 7, 1, 1),
+    _Hh3cVoiceVlanPortifIndex_Type()
+)
+hh3cVoiceVlanPortifIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hh3cVoiceVlanPortifIndex.setStatus("current")
+
+
+class _Hh3cVoiceVlanPortMode_Type(Integer32):
+    """Custom type hh3cVoiceVlanPortMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("auto", 1),
+          ("manual", 2))
+    )
+
+
+_Hh3cVoiceVlanPortMode_Type.__name__ = "Integer32"
+_Hh3cVoiceVlanPortMode_Object = MibTableColumn
+hh3cVoiceVlanPortMode = _Hh3cVoiceVlanPortMode_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 9, 7, 1, 2),
+    _Hh3cVoiceVlanPortMode_Type()
+)
+hh3cVoiceVlanPortMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hh3cVoiceVlanPortMode.setStatus("current")
+_Hh3cVoiceVlanPortLegacy_Type = TruthValue
+_Hh3cVoiceVlanPortLegacy_Object = MibTableColumn
+hh3cVoiceVlanPortLegacy = _Hh3cVoiceVlanPortLegacy_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 9, 7, 1, 3),
+    _Hh3cVoiceVlanPortLegacy_Type()
+)
+hh3cVoiceVlanPortLegacy.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hh3cVoiceVlanPortLegacy.setStatus("current")
+_Hh3cVoiceVlanPortQosTrust_Type = TruthValue
+_Hh3cVoiceVlanPortQosTrust_Object = MibTableColumn
+hh3cVoiceVlanPortQosTrust = _Hh3cVoiceVlanPortQosTrust_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 9, 7, 1, 4),
+    _Hh3cVoiceVlanPortQosTrust_Type()
+)
+hh3cVoiceVlanPortQosTrust.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hh3cVoiceVlanPortQosTrust.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HH3C-VOICE-VLAN-MIB",
+    **{"PortList": PortList,
+       "hh3cVoiceVlan": hh3cVoiceVlan,
+       "hh3cvoiceVlanOuiTable": hh3cvoiceVlanOuiTable,
+       "hh3cvoiceVlanOuiEntry": hh3cvoiceVlanOuiEntry,
+       "hh3cVoiceVlanOuiAddress": hh3cVoiceVlanOuiAddress,
+       "hh3cVoiceVlanOuiMask": hh3cVoiceVlanOuiMask,
+       "hh3cVoiceVlanOuiDescription": hh3cVoiceVlanOuiDescription,
+       "hh3cVoiceVlanOuiRowStatus": hh3cVoiceVlanOuiRowStatus,
+       "hh3cVoiceVlanEnabledId": hh3cVoiceVlanEnabledId,
+       "hh3cVoiceVlanPortEnableList": hh3cVoiceVlanPortEnableList,
+       "hh3cVoiceVlanAgingTime": hh3cVoiceVlanAgingTime,
+       "hh3cVoiceVlanConfigState": hh3cVoiceVlanConfigState,
+       "hh3cVoiceVlanSecurityState": hh3cVoiceVlanSecurityState,
+       "hh3cvoiceVlanPortTable": hh3cvoiceVlanPortTable,
+       "hh3cvoiceVlanPortEntry": hh3cvoiceVlanPortEntry,
+       "hh3cVoiceVlanPortifIndex": hh3cVoiceVlanPortifIndex,
+       "hh3cVoiceVlanPortMode": hh3cVoiceVlanPortMode,
+       "hh3cVoiceVlanPortLegacy": hh3cVoiceVlanPortLegacy,
+       "hh3cVoiceVlanPortQosTrust": hh3cVoiceVlanPortQosTrust}
+)

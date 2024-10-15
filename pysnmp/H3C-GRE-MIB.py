@@ -1,31 +1,231 @@
+# SNMP MIB module (H3C-GRE-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module H3C-GRE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/H3C-GRE-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:09:19 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
-h3cCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cCommon")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Gauge32, TimeTicks, iso, Unsigned32, NotificationType, ObjectIdentity, Counter64, ModuleIdentity, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, IpAddress, MibIdentifier, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "TimeTicks", "iso", "Unsigned32", "NotificationType", "ObjectIdentity", "Counter64", "ModuleIdentity", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "IpAddress", "MibIdentifier", "Integer32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-h3cGre = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 54))
-h3cGre.setRevisions(('2005-06-04 00:00',))
-if mibBuilder.loadTexts: h3cGre.setLastUpdated('200506040000Z')
-if mibBuilder.loadTexts: h3cGre.setOrganization('Huawei 3Com Technologies Co., Ltd. ')
-h3cGreObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 54, 1))
-h3cGreTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 54, 1, 1), )
-if mibBuilder.loadTexts: h3cGreTable.setStatus('current')
-h3cGreEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 54, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: h3cGreEntry.setStatus('current')
-h3cGreKeyValue = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 54, 1, 1, 1, 1), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cGreKeyValue.setStatus('current')
-h3cGreKey = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 54, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cGreKey.setStatus('current')
-h3cGreChecksum = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 54, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cGreChecksum.setStatus('current')
-mibBuilder.exportSymbols("H3C-GRE-MIB", h3cGreTable=h3cGreTable, h3cGreKey=h3cGreKey, h3cGre=h3cGre, h3cGreEntry=h3cGreEntry, h3cGreChecksum=h3cGreChecksum, h3cGreObjects=h3cGreObjects, h3cGreKeyValue=h3cGreKeyValue, PYSNMP_MODULE_ID=h3cGre)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/H3C-GRE-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:50:36 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(h3cCommon,) = mibBuilder.importSymbols(
+    "HUAWEI-3COM-OID-MIB",
+    "h3cCommon")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+h3cGre = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 54)
+)
+h3cGre.setRevisions(
+        ("2005-06-04 00:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_H3cGreObjects_ObjectIdentity = ObjectIdentity
+h3cGreObjects = _H3cGreObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 54, 1)
+)
+_H3cGreTable_Object = MibTable
+h3cGreTable = _H3cGreTable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 54, 1, 1)
+)
+if mibBuilder.loadTexts:
+    h3cGreTable.setStatus("current")
+_H3cGreEntry_Object = MibTableRow
+h3cGreEntry = _H3cGreEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 54, 1, 1, 1)
+)
+h3cGreEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    h3cGreEntry.setStatus("current")
+_H3cGreKeyValue_Type = Unsigned32
+_H3cGreKeyValue_Object = MibTableColumn
+h3cGreKeyValue = _H3cGreKeyValue_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 54, 1, 1, 1, 1),
+    _H3cGreKeyValue_Type()
+)
+h3cGreKeyValue.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cGreKeyValue.setStatus("current")
+
+
+class _H3cGreKey_Type(Integer32):
+    """Custom type h3cGreKey based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 2),
+          ("enable", 1))
+    )
+
+
+_H3cGreKey_Type.__name__ = "Integer32"
+_H3cGreKey_Object = MibTableColumn
+h3cGreKey = _H3cGreKey_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 54, 1, 1, 1, 2),
+    _H3cGreKey_Type()
+)
+h3cGreKey.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cGreKey.setStatus("current")
+
+
+class _H3cGreChecksum_Type(Integer32):
+    """Custom type h3cGreChecksum based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 2),
+          ("enable", 1))
+    )
+
+
+_H3cGreChecksum_Type.__name__ = "Integer32"
+_H3cGreChecksum_Object = MibTableColumn
+h3cGreChecksum = _H3cGreChecksum_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 54, 1, 1, 1, 3),
+    _H3cGreChecksum_Type()
+)
+h3cGreChecksum.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cGreChecksum.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "H3C-GRE-MIB",
+    **{"h3cGre": h3cGre,
+       "h3cGreObjects": h3cGreObjects,
+       "h3cGreTable": h3cGreTable,
+       "h3cGreEntry": h3cGreEntry,
+       "h3cGreKeyValue": h3cGreKeyValue,
+       "h3cGreKey": h3cGreKey,
+       "h3cGreChecksum": h3cGreChecksum}
+)

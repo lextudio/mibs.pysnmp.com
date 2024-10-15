@@ -1,142 +1,689 @@
+# SNMP MIB module (BAS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module BAS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/BAS-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:17:25 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, enterprises, Unsigned32, Bits, MibIdentifier, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, NotificationType, Counter32, Gauge32, iso, IpAddress, TimeTicks, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "enterprises", "Unsigned32", "Bits", "MibIdentifier", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "NotificationType", "Counter32", "Gauge32", "iso", "IpAddress", "TimeTicks", "Counter64")
-TextualConvention, DisplayString, MacAddress = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "MacAddress")
-basMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 3493))
-if mibBuilder.loadTexts: basMIB.setLastUpdated('9810071330Z')
-if mibBuilder.loadTexts: basMIB.setOrganization('Broadband Access Systems, Inc.')
-basProductId = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 1))
-basCudaChassMgr = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 4))
-basCuda10100Rs = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 5))
-basCuda1000Rs = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 6))
-basCudaOC12Rs = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 7))
-basCuda10100 = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 8))
-basCuda1000 = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 9))
-basCudaOC12 = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 10))
-basCudaCMTS1 = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 11))
-basCudaOC3Rs = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 12))
-basCudaOC48Rs = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 13))
-basCudaOC3 = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 14))
-basCudaOC48 = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 15))
-basMibGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2))
-basTrapGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 3))
-basExtSys = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2, 1))
-basExtIf = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2, 2))
-basExtIp = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2, 3))
-basExtCmts = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2, 4))
-basFtd = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2, 5))
-basRbp = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2, 6))
-basAlias = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2, 7))
-basExtEvent = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2, 8))
-basTopology = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2, 9))
-basAccessControl = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2, 10))
-basPbrfFilter = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2, 11))
-basCmConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2, 12))
-basTrafGen = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2, 13))
-basTrace = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2, 14))
-basDhcpRelay = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2, 15))
-basMcc = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2, 16))
-basAnalyzer = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2, 17))
-basCluster = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2, 18))
-basRip = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2, 19))
-basSonet = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2, 20))
-basStartup = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2, 1, 1))
-basCardInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2, 1, 2))
-basChassisInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2, 1, 3))
-basProvInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2, 1, 4))
-basHackedInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2, 1, 1000))
-basHackedAccessControl = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2, 1001))
-basAliasSnmp = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2, 7, 1))
-basAliasIp = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2, 7, 2))
-basAliasTcp = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2, 7, 3))
-basAliasUdp = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2, 7, 4))
-basAliasCidr = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2, 7, 5))
-basAliasRip = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2, 7, 6))
-basAliasOspf = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2, 7, 7))
-basAliasDocsIf = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2, 7, 8))
-basAliasDocsCd = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2, 7, 9))
-basAliasCmtsCfg = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2, 7, 10))
-basPbrfRIP = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2, 11, 1))
-basPbrfOSPF = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 2, 11, 2))
-class BasChassisId(TextualConvention, Integer32):
-    status = 'current'
-    displayHint = 'd'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 128)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/BAS-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 20:45:14 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class BasSlotId(TextualConvention, Integer32):
-    status = 'current'
-    displayHint = 'd'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 12)
+if 'mibBuilder' not in globals():
+    import sys
 
-class BasInterfaceId(TextualConvention, Integer32):
-    status = 'current'
-    displayHint = 'd'
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-class BasLogicalPortId(TextualConvention, Integer32):
-    status = 'current'
-    displayHint = 'd'
+# Import base ASN.1 objects even if this MIB does not use it
 
-class BasCardClass(TextualConvention, Integer32):
-    status = 'current'
-    displayHint = 'd'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16))
-    namedValues = NamedValues(("clusterManager", 1), ("routeServer", 2), ("forwarder", 3), ("cmts", 4), ("routeServerForwarder", 5), ("cmtsForwarder", 6), ("routeServer10100", 7), ("routeServer1000", 8), ("routeServerOC12", 9), ("forwarder10100", 10), ("forwarder1000", 11), ("forwarderOC12", 12), ("routeServerOC3", 13), ("routeServerOC48", 14), ("forwarderOC3", 15), ("forwarderOC48", 16))
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
 
-class BasIfClass(TextualConvention, Integer32):
-    status = 'current'
-    displayHint = 'd'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
-    namedValues = NamedValues(("icl", 1), ("ccl", 2), ("egress", 3))
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
 
-class BasChassisType(TextualConvention, Integer32):
-    status = 'current'
-    displayHint = 'd'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1))
-    namedValues = NamedValues(("cuda", 1))
+# Import SMI symbols from the MIBs this MIB depends on
 
-class BasSubnetClass(TextualConvention, Integer32):
-    status = 'current'
-    displayHint = 'd'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
-    namedValues = NamedValues(("unauthorized", 1), ("authorized", 2), ("cablemodem", 3))
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
 
-basTrapObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 3, 1))
-basTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 3493, 3, 2))
-basTrapChassis = MibScalar((1, 3, 6, 1, 4, 1, 3493, 3, 1, 1), BasChassisId()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: basTrapChassis.setStatus('current')
-basTrapSlot = MibScalar((1, 3, 6, 1, 4, 1, 3493, 3, 1, 2), BasSlotId()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: basTrapSlot.setStatus('current')
-basTrapIf = MibScalar((1, 3, 6, 1, 4, 1, 3493, 3, 1, 3), BasInterfaceId()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: basTrapIf.setStatus('current')
-basTrapLPort = MibScalar((1, 3, 6, 1, 4, 1, 3493, 3, 1, 4), BasLogicalPortId()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: basTrapLPort.setStatus('current')
-basTrapCmtsCmMacAddress = MibScalar((1, 3, 6, 1, 4, 1, 3493, 3, 1, 5), MacAddress()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: basTrapCmtsCmMacAddress.setStatus('current')
-basTrapCmtsCmIpAddress = MibScalar((1, 3, 6, 1, 4, 1, 3493, 3, 1, 6), IpAddress()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: basTrapCmtsCmIpAddress.setStatus('current')
-basTrapMgmtOneIpAddress = MibScalar((1, 3, 6, 1, 4, 1, 3493, 3, 1, 7), IpAddress()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: basTrapMgmtOneIpAddress.setStatus('current')
-basTrapMgmtTwoIpAddress = MibScalar((1, 3, 6, 1, 4, 1, 3493, 3, 1, 8), IpAddress()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: basTrapMgmtTwoIpAddress.setStatus('current')
-basTrapCraftIpAddress = MibScalar((1, 3, 6, 1, 4, 1, 3493, 3, 1, 9), IpAddress()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: basTrapCraftIpAddress.setStatus('current')
-basTrapIclClass = MibScalar((1, 3, 6, 1, 4, 1, 3493, 3, 1, 10), BasIfClass()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: basTrapIclClass.setStatus('current')
-basTrapChassisNumber = MibScalar((1, 3, 6, 1, 4, 1, 3493, 3, 1, 11), Integer32()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: basTrapChassisNumber.setStatus('current')
-basTrapCmtsCmGwAddress = MibScalar((1, 3, 6, 1, 4, 1, 3493, 3, 1, 12), IpAddress()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: basTrapCmtsCmGwAddress.setStatus('current')
-basTrapCardType = MibScalar((1, 3, 6, 1, 4, 1, 3493, 3, 1, 13), BasCardClass()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: basTrapCardType.setStatus('current')
-basTrapSubnetType = MibScalar((1, 3, 6, 1, 4, 1, 3493, 3, 1, 14), BasSubnetClass()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: basTrapSubnetType.setStatus('current')
-mibBuilder.exportSymbols("BAS-MIB", basCudaOC12=basCudaOC12, basExtSys=basExtSys, basChassisInfo=basChassisInfo, basRbp=basRbp, basExtCmts=basExtCmts, PYSNMP_MODULE_ID=basMIB, basSonet=basSonet, basTrapChassisNumber=basTrapChassisNumber, basAliasUdp=basAliasUdp, basTrapIf=basTrapIf, basAliasRip=basAliasRip, basAliasSnmp=basAliasSnmp, basMIB=basMIB, basExtEvent=basExtEvent, BasIfClass=BasIfClass, basAlias=basAlias, basMibGroup=basMibGroup, basHackedInfo=basHackedInfo, BasChassisType=BasChassisType, basTrapCmtsCmIpAddress=basTrapCmtsCmIpAddress, basProvInfo=basProvInfo, basTrapObjects=basTrapObjects, basPbrfFilter=basPbrfFilter, basCudaOC48Rs=basCudaOC48Rs, basTrapGroup=basTrapGroup, basStartup=basStartup, basAliasTcp=basAliasTcp, basCmConfig=basCmConfig, BasChassisId=BasChassisId, BasLogicalPortId=BasLogicalPortId, basExtIp=basExtIp, basCuda1000Rs=basCuda1000Rs, basCuda10100Rs=basCuda10100Rs, basTrapCraftIpAddress=basTrapCraftIpAddress, basAliasCmtsCfg=basAliasCmtsCfg, basCudaOC3=basCudaOC3, basCuda10100=basCuda10100, basTrapCardType=basTrapCardType, basCudaOC48=basCudaOC48, basCuda1000=basCuda1000, basAnalyzer=basAnalyzer, basCluster=basCluster, BasInterfaceId=BasInterfaceId, basProductId=basProductId, BasSubnetClass=BasSubnetClass, basHackedAccessControl=basHackedAccessControl, basAliasIp=basAliasIp, basCudaOC3Rs=basCudaOC3Rs, basPbrfOSPF=basPbrfOSPF, basTrace=basTrace, basTrapIclClass=basTrapIclClass, basExtIf=basExtIf, basCudaChassMgr=basCudaChassMgr, basTrapMgmtOneIpAddress=basTrapMgmtOneIpAddress, basTrapCmtsCmGwAddress=basTrapCmtsCmGwAddress, basTrapSubnetType=basTrapSubnetType, basTrafGen=basTrafGen, basRip=basRip, basTrapChassis=basTrapChassis, basTrapLPort=basTrapLPort, basTrapMgmtTwoIpAddress=basTrapMgmtTwoIpAddress, BasSlotId=BasSlotId, basAliasCidr=basAliasCidr, basTraps=basTraps, basCudaOC12Rs=basCudaOC12Rs, basFtd=basFtd, basPbrfRIP=basPbrfRIP, basTrapCmtsCmMacAddress=basTrapCmtsCmMacAddress, basCardInfo=basCardInfo, basMcc=basMcc, basAliasOspf=basAliasOspf, basDhcpRelay=basDhcpRelay, basTrapSlot=basTrapSlot, basAccessControl=basAccessControl, basAliasDocsCd=basAliasDocsCd, BasCardClass=BasCardClass, basAliasDocsIf=basAliasDocsIf, basTopology=basTopology, basCudaCMTS1=basCudaCMTS1)
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+basMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 3493)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class BasChassisId(Integer32, TextualConvention):
+    status = "current"
+    displayHint = "d"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 128),
+    )
+
+
+
+class BasSlotId(Integer32, TextualConvention):
+    status = "current"
+    displayHint = "d"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 12),
+    )
+
+
+
+class BasInterfaceId(Integer32, TextualConvention):
+    status = "current"
+    displayHint = "d"
+
+
+class BasLogicalPortId(Integer32, TextualConvention):
+    status = "current"
+    displayHint = "d"
+
+
+class BasCardClass(Integer32, TextualConvention):
+    status = "current"
+    displayHint = "d"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16)
+        )
+    )
+    namedValues = NamedValues(
+        *(("clusterManager", 1),
+          ("cmts", 4),
+          ("cmtsForwarder", 6),
+          ("forwarder", 3),
+          ("forwarder1000", 11),
+          ("forwarder10100", 10),
+          ("forwarderOC12", 12),
+          ("forwarderOC3", 15),
+          ("forwarderOC48", 16),
+          ("routeServer", 2),
+          ("routeServer1000", 8),
+          ("routeServer10100", 7),
+          ("routeServerForwarder", 5),
+          ("routeServerOC12", 9),
+          ("routeServerOC3", 13),
+          ("routeServerOC48", 14))
+    )
+
+
+
+class BasIfClass(Integer32, TextualConvention):
+    status = "current"
+    displayHint = "d"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ccl", 2),
+          ("egress", 3),
+          ("icl", 1))
+    )
+
+
+
+class BasChassisType(Integer32, TextualConvention):
+    status = "current"
+    displayHint = "d"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            1
+        )
+    )
+    namedValues = NamedValues(
+        ("cuda", 1)
+    )
+
+
+
+class BasSubnetClass(Integer32, TextualConvention):
+    status = "current"
+    displayHint = "d"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("authorized", 2),
+          ("cablemodem", 3),
+          ("unauthorized", 1))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_BasProductId_ObjectIdentity = ObjectIdentity
+basProductId = _BasProductId_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 1)
+)
+_BasMibGroup_ObjectIdentity = ObjectIdentity
+basMibGroup = _BasMibGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2)
+)
+_BasExtSys_ObjectIdentity = ObjectIdentity
+basExtSys = _BasExtSys_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2, 1)
+)
+_BasStartup_ObjectIdentity = ObjectIdentity
+basStartup = _BasStartup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2, 1, 1)
+)
+_BasCardInfo_ObjectIdentity = ObjectIdentity
+basCardInfo = _BasCardInfo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2, 1, 2)
+)
+_BasChassisInfo_ObjectIdentity = ObjectIdentity
+basChassisInfo = _BasChassisInfo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2, 1, 3)
+)
+_BasProvInfo_ObjectIdentity = ObjectIdentity
+basProvInfo = _BasProvInfo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2, 1, 4)
+)
+_BasHackedInfo_ObjectIdentity = ObjectIdentity
+basHackedInfo = _BasHackedInfo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2, 1, 1000)
+)
+_BasExtIf_ObjectIdentity = ObjectIdentity
+basExtIf = _BasExtIf_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2, 2)
+)
+_BasExtIp_ObjectIdentity = ObjectIdentity
+basExtIp = _BasExtIp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2, 3)
+)
+_BasExtCmts_ObjectIdentity = ObjectIdentity
+basExtCmts = _BasExtCmts_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2, 4)
+)
+_BasFtd_ObjectIdentity = ObjectIdentity
+basFtd = _BasFtd_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2, 5)
+)
+_BasRbp_ObjectIdentity = ObjectIdentity
+basRbp = _BasRbp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2, 6)
+)
+_BasAlias_ObjectIdentity = ObjectIdentity
+basAlias = _BasAlias_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2, 7)
+)
+_BasAliasSnmp_ObjectIdentity = ObjectIdentity
+basAliasSnmp = _BasAliasSnmp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2, 7, 1)
+)
+_BasAliasIp_ObjectIdentity = ObjectIdentity
+basAliasIp = _BasAliasIp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2, 7, 2)
+)
+_BasAliasTcp_ObjectIdentity = ObjectIdentity
+basAliasTcp = _BasAliasTcp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2, 7, 3)
+)
+_BasAliasUdp_ObjectIdentity = ObjectIdentity
+basAliasUdp = _BasAliasUdp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2, 7, 4)
+)
+_BasAliasCidr_ObjectIdentity = ObjectIdentity
+basAliasCidr = _BasAliasCidr_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2, 7, 5)
+)
+_BasAliasRip_ObjectIdentity = ObjectIdentity
+basAliasRip = _BasAliasRip_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2, 7, 6)
+)
+_BasAliasOspf_ObjectIdentity = ObjectIdentity
+basAliasOspf = _BasAliasOspf_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2, 7, 7)
+)
+_BasAliasDocsIf_ObjectIdentity = ObjectIdentity
+basAliasDocsIf = _BasAliasDocsIf_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2, 7, 8)
+)
+_BasAliasDocsCd_ObjectIdentity = ObjectIdentity
+basAliasDocsCd = _BasAliasDocsCd_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2, 7, 9)
+)
+_BasAliasCmtsCfg_ObjectIdentity = ObjectIdentity
+basAliasCmtsCfg = _BasAliasCmtsCfg_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2, 7, 10)
+)
+_BasExtEvent_ObjectIdentity = ObjectIdentity
+basExtEvent = _BasExtEvent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2, 8)
+)
+_BasTopology_ObjectIdentity = ObjectIdentity
+basTopology = _BasTopology_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2, 9)
+)
+_BasAccessControl_ObjectIdentity = ObjectIdentity
+basAccessControl = _BasAccessControl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2, 10)
+)
+_BasPbrfFilter_ObjectIdentity = ObjectIdentity
+basPbrfFilter = _BasPbrfFilter_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2, 11)
+)
+_BasPbrfRIP_ObjectIdentity = ObjectIdentity
+basPbrfRIP = _BasPbrfRIP_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2, 11, 1)
+)
+_BasPbrfOSPF_ObjectIdentity = ObjectIdentity
+basPbrfOSPF = _BasPbrfOSPF_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2, 11, 2)
+)
+_BasCmConfig_ObjectIdentity = ObjectIdentity
+basCmConfig = _BasCmConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2, 12)
+)
+_BasTrafGen_ObjectIdentity = ObjectIdentity
+basTrafGen = _BasTrafGen_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2, 13)
+)
+_BasTrace_ObjectIdentity = ObjectIdentity
+basTrace = _BasTrace_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2, 14)
+)
+_BasDhcpRelay_ObjectIdentity = ObjectIdentity
+basDhcpRelay = _BasDhcpRelay_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2, 15)
+)
+_BasMcc_ObjectIdentity = ObjectIdentity
+basMcc = _BasMcc_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2, 16)
+)
+_BasAnalyzer_ObjectIdentity = ObjectIdentity
+basAnalyzer = _BasAnalyzer_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2, 17)
+)
+_BasCluster_ObjectIdentity = ObjectIdentity
+basCluster = _BasCluster_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2, 18)
+)
+_BasRip_ObjectIdentity = ObjectIdentity
+basRip = _BasRip_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2, 19)
+)
+_BasSonet_ObjectIdentity = ObjectIdentity
+basSonet = _BasSonet_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2, 20)
+)
+_BasHackedAccessControl_ObjectIdentity = ObjectIdentity
+basHackedAccessControl = _BasHackedAccessControl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 2, 1001)
+)
+_BasTrapGroup_ObjectIdentity = ObjectIdentity
+basTrapGroup = _BasTrapGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 3)
+)
+_BasTrapObjects_ObjectIdentity = ObjectIdentity
+basTrapObjects = _BasTrapObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 3, 1)
+)
+_BasTrapChassis_Type = BasChassisId
+_BasTrapChassis_Object = MibScalar
+basTrapChassis = _BasTrapChassis_Object(
+    (1, 3, 6, 1, 4, 1, 3493, 3, 1, 1),
+    _BasTrapChassis_Type()
+)
+basTrapChassis.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    basTrapChassis.setStatus("current")
+_BasTrapSlot_Type = BasSlotId
+_BasTrapSlot_Object = MibScalar
+basTrapSlot = _BasTrapSlot_Object(
+    (1, 3, 6, 1, 4, 1, 3493, 3, 1, 2),
+    _BasTrapSlot_Type()
+)
+basTrapSlot.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    basTrapSlot.setStatus("current")
+_BasTrapIf_Type = BasInterfaceId
+_BasTrapIf_Object = MibScalar
+basTrapIf = _BasTrapIf_Object(
+    (1, 3, 6, 1, 4, 1, 3493, 3, 1, 3),
+    _BasTrapIf_Type()
+)
+basTrapIf.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    basTrapIf.setStatus("current")
+_BasTrapLPort_Type = BasLogicalPortId
+_BasTrapLPort_Object = MibScalar
+basTrapLPort = _BasTrapLPort_Object(
+    (1, 3, 6, 1, 4, 1, 3493, 3, 1, 4),
+    _BasTrapLPort_Type()
+)
+basTrapLPort.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    basTrapLPort.setStatus("current")
+_BasTrapCmtsCmMacAddress_Type = MacAddress
+_BasTrapCmtsCmMacAddress_Object = MibScalar
+basTrapCmtsCmMacAddress = _BasTrapCmtsCmMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 3493, 3, 1, 5),
+    _BasTrapCmtsCmMacAddress_Type()
+)
+basTrapCmtsCmMacAddress.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    basTrapCmtsCmMacAddress.setStatus("current")
+_BasTrapCmtsCmIpAddress_Type = IpAddress
+_BasTrapCmtsCmIpAddress_Object = MibScalar
+basTrapCmtsCmIpAddress = _BasTrapCmtsCmIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 3493, 3, 1, 6),
+    _BasTrapCmtsCmIpAddress_Type()
+)
+basTrapCmtsCmIpAddress.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    basTrapCmtsCmIpAddress.setStatus("current")
+_BasTrapMgmtOneIpAddress_Type = IpAddress
+_BasTrapMgmtOneIpAddress_Object = MibScalar
+basTrapMgmtOneIpAddress = _BasTrapMgmtOneIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 3493, 3, 1, 7),
+    _BasTrapMgmtOneIpAddress_Type()
+)
+basTrapMgmtOneIpAddress.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    basTrapMgmtOneIpAddress.setStatus("current")
+_BasTrapMgmtTwoIpAddress_Type = IpAddress
+_BasTrapMgmtTwoIpAddress_Object = MibScalar
+basTrapMgmtTwoIpAddress = _BasTrapMgmtTwoIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 3493, 3, 1, 8),
+    _BasTrapMgmtTwoIpAddress_Type()
+)
+basTrapMgmtTwoIpAddress.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    basTrapMgmtTwoIpAddress.setStatus("current")
+_BasTrapCraftIpAddress_Type = IpAddress
+_BasTrapCraftIpAddress_Object = MibScalar
+basTrapCraftIpAddress = _BasTrapCraftIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 3493, 3, 1, 9),
+    _BasTrapCraftIpAddress_Type()
+)
+basTrapCraftIpAddress.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    basTrapCraftIpAddress.setStatus("current")
+_BasTrapIclClass_Type = BasIfClass
+_BasTrapIclClass_Object = MibScalar
+basTrapIclClass = _BasTrapIclClass_Object(
+    (1, 3, 6, 1, 4, 1, 3493, 3, 1, 10),
+    _BasTrapIclClass_Type()
+)
+basTrapIclClass.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    basTrapIclClass.setStatus("current")
+_BasTrapChassisNumber_Type = Integer32
+_BasTrapChassisNumber_Object = MibScalar
+basTrapChassisNumber = _BasTrapChassisNumber_Object(
+    (1, 3, 6, 1, 4, 1, 3493, 3, 1, 11),
+    _BasTrapChassisNumber_Type()
+)
+basTrapChassisNumber.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    basTrapChassisNumber.setStatus("current")
+_BasTrapCmtsCmGwAddress_Type = IpAddress
+_BasTrapCmtsCmGwAddress_Object = MibScalar
+basTrapCmtsCmGwAddress = _BasTrapCmtsCmGwAddress_Object(
+    (1, 3, 6, 1, 4, 1, 3493, 3, 1, 12),
+    _BasTrapCmtsCmGwAddress_Type()
+)
+basTrapCmtsCmGwAddress.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    basTrapCmtsCmGwAddress.setStatus("current")
+_BasTrapCardType_Type = BasCardClass
+_BasTrapCardType_Object = MibScalar
+basTrapCardType = _BasTrapCardType_Object(
+    (1, 3, 6, 1, 4, 1, 3493, 3, 1, 13),
+    _BasTrapCardType_Type()
+)
+basTrapCardType.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    basTrapCardType.setStatus("current")
+_BasTrapSubnetType_Type = BasSubnetClass
+_BasTrapSubnetType_Object = MibScalar
+basTrapSubnetType = _BasTrapSubnetType_Object(
+    (1, 3, 6, 1, 4, 1, 3493, 3, 1, 14),
+    _BasTrapSubnetType_Type()
+)
+basTrapSubnetType.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    basTrapSubnetType.setStatus("current")
+_BasTraps_ObjectIdentity = ObjectIdentity
+basTraps = _BasTraps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 3, 2)
+)
+_BasCudaChassMgr_ObjectIdentity = ObjectIdentity
+basCudaChassMgr = _BasCudaChassMgr_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 4)
+)
+_BasCuda10100Rs_ObjectIdentity = ObjectIdentity
+basCuda10100Rs = _BasCuda10100Rs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 5)
+)
+_BasCuda1000Rs_ObjectIdentity = ObjectIdentity
+basCuda1000Rs = _BasCuda1000Rs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 6)
+)
+_BasCudaOC12Rs_ObjectIdentity = ObjectIdentity
+basCudaOC12Rs = _BasCudaOC12Rs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 7)
+)
+_BasCuda10100_ObjectIdentity = ObjectIdentity
+basCuda10100 = _BasCuda10100_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 8)
+)
+_BasCuda1000_ObjectIdentity = ObjectIdentity
+basCuda1000 = _BasCuda1000_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 9)
+)
+_BasCudaOC12_ObjectIdentity = ObjectIdentity
+basCudaOC12 = _BasCudaOC12_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 10)
+)
+_BasCudaCMTS1_ObjectIdentity = ObjectIdentity
+basCudaCMTS1 = _BasCudaCMTS1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 11)
+)
+_BasCudaOC3Rs_ObjectIdentity = ObjectIdentity
+basCudaOC3Rs = _BasCudaOC3Rs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 12)
+)
+_BasCudaOC48Rs_ObjectIdentity = ObjectIdentity
+basCudaOC48Rs = _BasCudaOC48Rs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 13)
+)
+_BasCudaOC3_ObjectIdentity = ObjectIdentity
+basCudaOC3 = _BasCudaOC3_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 14)
+)
+_BasCudaOC48_ObjectIdentity = ObjectIdentity
+basCudaOC48 = _BasCudaOC48_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3493, 15)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "BAS-MIB",
+    **{"BasChassisId": BasChassisId,
+       "BasSlotId": BasSlotId,
+       "BasInterfaceId": BasInterfaceId,
+       "BasLogicalPortId": BasLogicalPortId,
+       "BasCardClass": BasCardClass,
+       "BasIfClass": BasIfClass,
+       "BasChassisType": BasChassisType,
+       "BasSubnetClass": BasSubnetClass,
+       "basMIB": basMIB,
+       "basProductId": basProductId,
+       "basMibGroup": basMibGroup,
+       "basExtSys": basExtSys,
+       "basStartup": basStartup,
+       "basCardInfo": basCardInfo,
+       "basChassisInfo": basChassisInfo,
+       "basProvInfo": basProvInfo,
+       "basHackedInfo": basHackedInfo,
+       "basExtIf": basExtIf,
+       "basExtIp": basExtIp,
+       "basExtCmts": basExtCmts,
+       "basFtd": basFtd,
+       "basRbp": basRbp,
+       "basAlias": basAlias,
+       "basAliasSnmp": basAliasSnmp,
+       "basAliasIp": basAliasIp,
+       "basAliasTcp": basAliasTcp,
+       "basAliasUdp": basAliasUdp,
+       "basAliasCidr": basAliasCidr,
+       "basAliasRip": basAliasRip,
+       "basAliasOspf": basAliasOspf,
+       "basAliasDocsIf": basAliasDocsIf,
+       "basAliasDocsCd": basAliasDocsCd,
+       "basAliasCmtsCfg": basAliasCmtsCfg,
+       "basExtEvent": basExtEvent,
+       "basTopology": basTopology,
+       "basAccessControl": basAccessControl,
+       "basPbrfFilter": basPbrfFilter,
+       "basPbrfRIP": basPbrfRIP,
+       "basPbrfOSPF": basPbrfOSPF,
+       "basCmConfig": basCmConfig,
+       "basTrafGen": basTrafGen,
+       "basTrace": basTrace,
+       "basDhcpRelay": basDhcpRelay,
+       "basMcc": basMcc,
+       "basAnalyzer": basAnalyzer,
+       "basCluster": basCluster,
+       "basRip": basRip,
+       "basSonet": basSonet,
+       "basHackedAccessControl": basHackedAccessControl,
+       "basTrapGroup": basTrapGroup,
+       "basTrapObjects": basTrapObjects,
+       "basTrapChassis": basTrapChassis,
+       "basTrapSlot": basTrapSlot,
+       "basTrapIf": basTrapIf,
+       "basTrapLPort": basTrapLPort,
+       "basTrapCmtsCmMacAddress": basTrapCmtsCmMacAddress,
+       "basTrapCmtsCmIpAddress": basTrapCmtsCmIpAddress,
+       "basTrapMgmtOneIpAddress": basTrapMgmtOneIpAddress,
+       "basTrapMgmtTwoIpAddress": basTrapMgmtTwoIpAddress,
+       "basTrapCraftIpAddress": basTrapCraftIpAddress,
+       "basTrapIclClass": basTrapIclClass,
+       "basTrapChassisNumber": basTrapChassisNumber,
+       "basTrapCmtsCmGwAddress": basTrapCmtsCmGwAddress,
+       "basTrapCardType": basTrapCardType,
+       "basTrapSubnetType": basTrapSubnetType,
+       "basTraps": basTraps,
+       "basCudaChassMgr": basCudaChassMgr,
+       "basCuda10100Rs": basCuda10100Rs,
+       "basCuda1000Rs": basCuda1000Rs,
+       "basCudaOC12Rs": basCudaOC12Rs,
+       "basCuda10100": basCuda10100,
+       "basCuda1000": basCuda1000,
+       "basCudaOC12": basCudaOC12,
+       "basCudaCMTS1": basCudaCMTS1,
+       "basCudaOC3Rs": basCudaOC3Rs,
+       "basCudaOC48Rs": basCudaOC48Rs,
+       "basCudaOC3": basCudaOC3,
+       "basCudaOC48": basCudaOC48}
+)

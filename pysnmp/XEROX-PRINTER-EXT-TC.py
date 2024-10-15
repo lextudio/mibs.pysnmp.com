@@ -1,17 +1,17 @@
-"""SNMP MIB module (XEROX-PRINTER-EXT-TC) expressed in pysnmp data model.
+# SNMP MIB module (XEROX-PRINTER-EXT-TC) expressed in pysnmp data model.
+#
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/XEROX-PRINTER-EXT-TC
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:18:26 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-This Python module is designed to be imported and executed by the
-pysnmp library.
-
-See https://www.pysnmp.com/pysnmp for further information.
-
-Notes
------
-ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/XEROX-PRINTER-EXT-TC
-Produced by pysmi-1.3.3 at Sun Mar 10 06:00:34 2024
-On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm
-Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
-"""
 if 'mibBuilder' not in globals():
     import sys
 
@@ -45,46 +45,46 @@ if 'mibBuilder' not in globals():
 
 # Import SMI symbols from the MIBs this MIB depends on
 
-(NotificationGroup,
- ModuleCompliance) = mibBuilder.importSymbols(
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
     "SNMPv2-CONF",
-    "NotificationGroup",
-    "ModuleCompliance")
+    "ModuleCompliance",
+    "NotificationGroup")
 
-(Counter64,
- TimeTicks,
- ObjectIdentity,
+(Bits,
  Counter32,
- IpAddress,
- MibIdentifier,
+ Counter64,
  Gauge32,
- NotificationType,
- Bits,
+ Integer32,
+ IpAddress,
  ModuleIdentity,
- Unsigned32,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
  MibScalar,
  MibTable,
  MibTableRow,
  MibTableColumn,
- Integer32,
+ TimeTicks,
+ Unsigned32,
  iso) = mibBuilder.importSymbols(
     "SNMPv2-SMI",
-    "Counter64",
-    "TimeTicks",
-    "ObjectIdentity",
-    "Counter32",
-    "IpAddress",
-    "MibIdentifier",
-    "Gauge32",
-    "NotificationType",
     "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
     "ModuleIdentity",
-    "Unsigned32",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
     "MibScalar",
     "MibTable",
     "MibTableRow",
     "MibTableColumn",
-    "Integer32",
+    "TimeTicks",
+    "Unsigned32",
     "iso")
 
 (DisplayString,
@@ -112,7 +112,7 @@ xcmPrintTC = ModuleIdentity(
 
 
 
-class XcmPrtAuxSheetContent(TextualConvention, Integer32):
+class XcmPrtAuxSheetContent(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -134,7 +134,7 @@ class XcmPrtAuxSheetContent(TextualConvention, Integer32):
 
 
 
-class XcmPrtAuxSheetType(TextualConvention, Integer32):
+class XcmPrtAuxSheetType(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -160,7 +160,7 @@ class XcmPrtAuxSheetType(TextualConvention, Integer32):
 
 
 
-class XcmPrtChannelType(TextualConvention, Integer32):
+class XcmPrtChannelType(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -244,7 +244,7 @@ class XcmPrtChannelType(TextualConvention, Integer32):
 
 
 
-class XcmPrtGroupSupport(TextualConvention, Integer32):
+class XcmPrtGroupSupport(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -253,7 +253,7 @@ class XcmPrtGroupSupport(TextualConvention, Integer32):
 
 
 
-class XcmPrtIETFPrintMIBGroupSupport(TextualConvention, Integer32):
+class XcmPrtIETFPrintMIBGroupSupport(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -262,7 +262,7 @@ class XcmPrtIETFPrintMIBGroupSupport(TextualConvention, Integer32):
 
 
 
-class XcmPrtInterpreterLangFamily(TextualConvention, Integer32):
+class XcmPrtInterpreterLangFamily(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -390,7 +390,7 @@ class XcmPrtInterpreterLangFamily(TextualConvention, Integer32):
 
 
 
-class XcmPrtMediaTypeErrorPolicy(TextualConvention, Integer32):
+class XcmPrtMediaTypeErrorPolicy(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -416,7 +416,7 @@ class XcmPrtMediaTypeErrorPolicy(TextualConvention, Integer32):
 
 
 
-class XcmPrtMediumClassType(TextualConvention, Integer32):
+class XcmPrtMediumClassType(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -440,7 +440,7 @@ class XcmPrtMediumClassType(TextualConvention, Integer32):
 
 
 
-class XcmPrtMediumSize(TextualConvention, Integer32):
+class XcmPrtMediumSize(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -580,7 +580,7 @@ class XcmPrtMediumSize(TextualConvention, Integer32):
 
 
 
-class XcmPrtOutputOffsetStackingType(TextualConvention, Integer32):
+class XcmPrtOutputOffsetStackingType(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -604,7 +604,7 @@ class XcmPrtOutputOffsetStackingType(TextualConvention, Integer32):
 
 
 
-class XcmPrtOutputStaplePosition(TextualConvention, Integer32):
+class XcmPrtOutputStaplePosition(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -613,7 +613,7 @@ class XcmPrtOutputStaplePosition(TextualConvention, Integer32):
 
 
 
-class XcmPrtPageSizeErrorPolicy(TextualConvention, Integer32):
+class XcmPrtPageSizeErrorPolicy(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -647,7 +647,7 @@ class XcmPrtPageSizeErrorPolicy(TextualConvention, Integer32):
 
 
 
-class XcmPrtPCLFontSource(TextualConvention, Integer32):
+class XcmPrtPCLFontSource(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -705,7 +705,7 @@ class XcmPrtPCLFontSource(TextualConvention, Integer32):
 
 
 
-class XcmPrtPlex(TextualConvention, Integer32):
+class XcmPrtPlex(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -714,7 +714,7 @@ class XcmPrtPlex(TextualConvention, Integer32):
 
 
 
-class XcmPrtPrintQuality(TextualConvention, Integer32):
+class XcmPrtPrintQuality(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -738,7 +738,7 @@ class XcmPrtPrintQuality(TextualConvention, Integer32):
 
 
 
-class XcmPrtPrintScreen(TextualConvention, Integer32):
+class XcmPrtPrintScreen(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -762,7 +762,7 @@ class XcmPrtPrintScreen(TextualConvention, Integer32):
 
 
 
-class XcmPrtTraySwitch(TextualConvention, Integer32):
+class XcmPrtTraySwitch(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -786,7 +786,7 @@ class XcmPrtTraySwitch(TextualConvention, Integer32):
 
 
 
-class XcmPrtGeneralMonoPrintOpt(TextualConvention, Integer32):
+class XcmPrtGeneralMonoPrintOpt(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -806,7 +806,7 @@ class XcmPrtGeneralMonoPrintOpt(TextualConvention, Integer32):
 
 
 
-class XcmPrtOutputPunchPosition(TextualConvention, Integer32):
+class XcmPrtOutputPunchPosition(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -815,7 +815,7 @@ class XcmPrtOutputPunchPosition(TextualConvention, Integer32):
 
 
 
-class XcmPrtInputTraysConfiguration(TextualConvention, Integer32):
+class XcmPrtInputTraysConfiguration(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -867,7 +867,7 @@ class XcmPrtInputTraysConfiguration(TextualConvention, Integer32):
 
 
 
-class XcmPrtFinisherDFAType(TextualConvention, Integer32):
+class XcmPrtFinisherDFAType(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -887,7 +887,7 @@ class XcmPrtFinisherDFAType(TextualConvention, Integer32):
 
 
 
-class XcmPrtHighCapacityFeederType(TextualConvention, Integer32):
+class XcmPrtHighCapacityFeederType(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -909,7 +909,7 @@ class XcmPrtHighCapacityFeederType(TextualConvention, Integer32):
 
 
 
-class XcmPrtHolePunchUnitType(TextualConvention, Integer32):
+class XcmPrtHolePunchUnitType(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -969,7 +969,7 @@ class XcmPrtHolePunchUnitType(TextualConvention, Integer32):
 
 
 
-class XcmPrtFaxOutType(TextualConvention, Integer32):
+class XcmPrtFaxOutType(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -991,7 +991,7 @@ class XcmPrtFaxOutType(TextualConvention, Integer32):
 
 
 
-class XcmPrtPhaserModuleType(TextualConvention, Integer32):
+class XcmPrtPhaserModuleType(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -1023,7 +1023,7 @@ class XcmPrtPhaserModuleType(TextualConvention, Integer32):
 
 
 
-class XcmPrtPrintEngineType(TextualConvention, Integer32):
+class XcmPrtPrintEngineType(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -1041,7 +1041,7 @@ class XcmPrtPrintEngineType(TextualConvention, Integer32):
 
 
 
-class XcmPrtAsciiJobTicketType(TextualConvention, Integer32):
+class XcmPrtAsciiJobTicketType(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -1061,7 +1061,7 @@ class XcmPrtAsciiJobTicketType(TextualConvention, Integer32):
 
 
 
-class XcmPrtAuthenticationModeType(TextualConvention, Integer32):
+class XcmPrtAuthenticationModeType(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -1087,7 +1087,7 @@ class XcmPrtAuthenticationModeType(TextualConvention, Integer32):
 
 
 
-class XcmPrtHoldForAuthenModeType(TextualConvention, Integer32):
+class XcmPrtHoldForAuthenModeType(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -1107,7 +1107,7 @@ class XcmPrtHoldForAuthenModeType(TextualConvention, Integer32):
 
 
 
-class XcmPrtAccountingSystemType(TextualConvention, Integer32):
+class XcmPrtAccountingSystemType(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(

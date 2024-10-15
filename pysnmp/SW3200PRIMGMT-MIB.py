@@ -1,23 +1,175 @@
+# SNMP MIB module (SW3200PRIMGMT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module SW3200PRIMGMT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/SW3200PRIMGMT-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:31:00 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint")
-dlink_mgmt, dlink_products = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlink-mgmt", "dlink-products")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter32, ObjectIdentity, iso, Unsigned32, Gauge32, IpAddress, TimeTicks, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Integer32, Counter64, Bits, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "ObjectIdentity", "iso", "Unsigned32", "Gauge32", "IpAddress", "TimeTicks", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Integer32", "Counter64", "Bits", "NotificationType")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-dlink_Dgs3200Series = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 101)).setLabel("dlink-Dgs3200Series")
-dgs3200 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 101, 1))
-dgs3216 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 101, 2))
-dgs3224 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 101, 3))
-dlink_Dgs3200SeriesProd = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 101)).setLabel("dlink-Dgs3200SeriesProd")
-dgs3200_Prod = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 101, 1)).setLabel("dgs3200-Prod")
-dgs3216_Prod = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 101, 2)).setLabel("dgs3216-Prod")
-dgs3224_Prod = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 101, 3)).setLabel("dgs3224-Prod")
-mibBuilder.exportSymbols("SW3200PRIMGMT-MIB", dgs3224=dgs3224, dgs3216_Prod=dgs3216_Prod, dgs3200_Prod=dgs3200_Prod, dgs3216=dgs3216, dgs3200=dgs3200, dgs3224_Prod=dgs3224_Prod, dlink_Dgs3200SeriesProd=dlink_Dgs3200SeriesProd, dlink_Dgs3200Series=dlink_Dgs3200Series)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/SW3200PRIMGMT-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:28:32 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(dlink_mgmt,
+ dlink_products) = mibBuilder.importSymbols(
+    "DLINK-ID-REC-MIB",
+    "dlink-mgmt",
+    "dlink-products")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Dlink_Dgs3200SeriesProd_ObjectIdentity = ObjectIdentity
+dlink_Dgs3200SeriesProd = _Dlink_Dgs3200SeriesProd_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 101)
+)
+_Dgs3200_Prod_ObjectIdentity = ObjectIdentity
+dgs3200_Prod = _Dgs3200_Prod_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 101, 1)
+)
+_Dgs3216_Prod_ObjectIdentity = ObjectIdentity
+dgs3216_Prod = _Dgs3216_Prod_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 101, 2)
+)
+_Dgs3224_Prod_ObjectIdentity = ObjectIdentity
+dgs3224_Prod = _Dgs3224_Prod_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 101, 3)
+)
+_Dlink_Dgs3200Series_ObjectIdentity = ObjectIdentity
+dlink_Dgs3200Series = _Dlink_Dgs3200Series_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 101)
+)
+_Dgs3200_ObjectIdentity = ObjectIdentity
+dgs3200 = _Dgs3200_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 101, 1)
+)
+_Dgs3216_ObjectIdentity = ObjectIdentity
+dgs3216 = _Dgs3216_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 101, 2)
+)
+_Dgs3224_ObjectIdentity = ObjectIdentity
+dgs3224 = _Dgs3224_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 101, 3)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "SW3200PRIMGMT-MIB",
+    **{"dlink-Dgs3200SeriesProd": dlink_Dgs3200SeriesProd,
+       "dgs3200-Prod": dgs3200_Prod,
+       "dgs3216-Prod": dgs3216_Prod,
+       "dgs3224-Prod": dgs3224_Prod,
+       "dlink-Dgs3200Series": dlink_Dgs3200Series,
+       "dgs3200": dgs3200,
+       "dgs3216": dgs3216,
+       "dgs3224": dgs3224}
+)

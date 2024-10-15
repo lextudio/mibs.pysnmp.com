@@ -1,17 +1,17 @@
-"""SNMP MIB module (XEROX-JOB-MONITORING-MIB) expressed in pysnmp data model.
+# SNMP MIB module (XEROX-JOB-MONITORING-MIB) expressed in pysnmp data model.
+#
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/XEROX-JOB-MONITORING-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:18:25 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-This Python module is designed to be imported and executed by the
-pysnmp library.
-
-See https://www.pysnmp.com/pysnmp for further information.
-
-Notes
------
-ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/XEROX-JOB-MONITORING-MIB
-Produced by pysmi-1.3.3 at Sun Mar 10 06:00:34 2024
-On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm
-Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
-"""
 if 'mibBuilder' not in globals():
     import sys
 
@@ -45,66 +45,66 @@ if 'mibBuilder' not in globals():
 
 # Import SMI symbols from the MIBs this MIB depends on
 
-(hrDeviceIndex,
+(InternationalDisplayString,
  ProductID,
- InternationalDisplayString) = mibBuilder.importSymbols(
+ hrDeviceIndex) = mibBuilder.importSymbols(
     "HOST-RESOURCES-MIB",
-    "hrDeviceIndex",
+    "InternationalDisplayString",
     "ProductID",
-    "InternationalDisplayString")
+    "hrDeviceIndex")
 
-(NotificationGroup,
- ObjectGroup,
- ModuleCompliance) = mibBuilder.importSymbols(
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
     "SNMPv2-CONF",
+    "ModuleCompliance",
     "NotificationGroup",
-    "ObjectGroup",
-    "ModuleCompliance")
+    "ObjectGroup")
 
-(Counter64,
- TimeTicks,
+(Bits,
  Counter32,
- IpAddress,
- MibIdentifier,
+ Counter64,
  Gauge32,
- iso,
- NotificationType,
- Bits,
+ Integer32,
+ IpAddress,
  ModuleIdentity,
- Unsigned32,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
  MibScalar,
  MibTable,
  MibTableRow,
  MibTableColumn,
- Integer32,
- ObjectIdentity) = mibBuilder.importSymbols(
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
     "SNMPv2-SMI",
-    "Counter64",
-    "TimeTicks",
-    "Counter32",
-    "IpAddress",
-    "MibIdentifier",
-    "Gauge32",
-    "iso",
-    "NotificationType",
     "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
     "ModuleIdentity",
-    "Unsigned32",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
     "MibScalar",
     "MibTable",
     "MibTableRow",
     "MibTableColumn",
-    "Integer32",
-    "ObjectIdentity")
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
 
 (DateAndTime,
- RowStatus,
  DisplayString,
+ RowStatus,
  TextualConvention) = mibBuilder.importSymbols(
     "SNMPv2-TC",
     "DateAndTime",
-    "RowStatus",
     "DisplayString",
+    "RowStatus",
     "TextualConvention")
 
 (xeroxCommonMIB,) = mibBuilder.importSymbols(
@@ -112,64 +112,64 @@ if 'mibBuilder' not in globals():
     "xeroxCommonMIB")
 
 (Cardinal16,
- Cardinal64High,
- zeroDotZero,
- CodeIndexedStringIndex,
  Cardinal32,
- Ordinal16,
+ Cardinal64High,
  Cardinal64Low,
- Ordinal32) = mibBuilder.importSymbols(
+ CodeIndexedStringIndex,
+ Ordinal16,
+ Ordinal32,
+ zeroDotZero) = mibBuilder.importSymbols(
     "XEROX-GENERAL-TC",
     "Cardinal16",
-    "Cardinal64High",
-    "zeroDotZero",
-    "CodeIndexedStringIndex",
     "Cardinal32",
-    "Ordinal16",
+    "Cardinal64High",
     "Cardinal64Low",
-    "Ordinal32")
+    "CodeIndexedStringIndex",
+    "Ordinal16",
+    "Ordinal32",
+    "zeroDotZero")
 
-(XcmHrDevTrafficUnit,
- XcmHrDevInfoXStatus) = mibBuilder.importSymbols(
+(XcmHrDevInfoXStatus,
+ XcmHrDevTrafficUnit) = mibBuilder.importSymbols(
     "XEROX-HOST-RESOURCES-EXT-TC",
-    "XcmHrDevTrafficUnit",
-    "XcmHrDevInfoXStatus")
+    "XcmHrDevInfoXStatus",
+    "XcmHrDevTrafficUnit")
 
-(XcmJMMediumType,
+(XcmJMDocFileNameType,
  XcmJMDocOutputMethod,
- XcmJMJobX2StateReasons,
- XcmJMGroupSupport,
- XcmJMDocType,
- XcmJMJobState,
- XcmJMJobServiceTypeOID,
- XcmJMJobStateReasons,
- XcmJMDocFileNameType,
- XcmJMImpsCountType,
  XcmJMDocState,
- XcmJMJobXStateReasons) = mibBuilder.importSymbols(
+ XcmJMDocType,
+ XcmJMGroupSupport,
+ XcmJMImpsCountType,
+ XcmJMJobServiceTypeOID,
+ XcmJMJobState,
+ XcmJMJobStateReasons,
+ XcmJMJobX2StateReasons,
+ XcmJMJobXStateReasons,
+ XcmJMMediumType) = mibBuilder.importSymbols(
     "XEROX-JOB-MONITORING-TC",
-    "XcmJMMediumType",
-    "XcmJMDocOutputMethod",
-    "XcmJMJobX2StateReasons",
-    "XcmJMGroupSupport",
-    "XcmJMDocType",
-    "XcmJMJobState",
-    "XcmJMJobServiceTypeOID",
-    "XcmJMJobStateReasons",
     "XcmJMDocFileNameType",
-    "XcmJMImpsCountType",
+    "XcmJMDocOutputMethod",
     "XcmJMDocState",
-    "XcmJMJobXStateReasons")
+    "XcmJMDocType",
+    "XcmJMGroupSupport",
+    "XcmJMImpsCountType",
+    "XcmJMJobServiceTypeOID",
+    "XcmJMJobState",
+    "XcmJMJobStateReasons",
+    "XcmJMJobX2StateReasons",
+    "XcmJMJobXStateReasons",
+    "XcmJMMediumType")
 
 (XcmPrtChannelType,
  XcmPrtInterpreterLangFamily,
- XcmPrtPrintQuality,
- XcmPrtMediumSize) = mibBuilder.importSymbols(
+ XcmPrtMediumSize,
+ XcmPrtPrintQuality) = mibBuilder.importSymbols(
     "XEROX-PRINTER-EXT-TC",
     "XcmPrtChannelType",
     "XcmPrtInterpreterLangFamily",
-    "XcmPrtPrintQuality",
-    "XcmPrtMediumSize")
+    "XcmPrtMediumSize",
+    "XcmPrtPrintQuality")
 
 
 # MODULE-IDENTITY
@@ -233,7 +233,7 @@ if mibBuilder.loadTexts:
 
 class _XcmJobMonBaseVersionID_Type(ProductID):
     """Custom type xcmJobMonBaseVersionID based on ProductID"""
-    defaultValue = "(0, 0)"
+    defaultValue = (0, 0)
 
 
 _XcmJobMonBaseVersionID_Object = MibTableColumn
@@ -274,7 +274,13 @@ xcmJobMonBaseGroupSupport = _XcmJobMonBaseGroupSupport_Object(
 xcmJobMonBaseGroupSupport.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmJobMonBaseGroupSupport.setStatus("current")
-_XcmJobMonBaseCreateSupport_Type = XcmJMGroupSupport
+
+
+class _XcmJobMonBaseCreateSupport_Type(XcmJMGroupSupport):
+    """Custom type xcmJobMonBaseCreateSupport based on XcmJMGroupSupport"""
+    defaultValue = 0
+
+
 _XcmJobMonBaseCreateSupport_Object = MibTableColumn
 xcmJobMonBaseCreateSupport = _XcmJobMonBaseCreateSupport_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 59, 1, 2, 1, 6),
@@ -283,7 +289,13 @@ xcmJobMonBaseCreateSupport = _XcmJobMonBaseCreateSupport_Object(
 xcmJobMonBaseCreateSupport.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmJobMonBaseCreateSupport.setStatus("current")
-_XcmJobMonBaseUpdateSupport_Type = XcmJMGroupSupport
+
+
+class _XcmJobMonBaseUpdateSupport_Type(XcmJMGroupSupport):
+    """Custom type xcmJobMonBaseUpdateSupport based on XcmJMGroupSupport"""
+    defaultValue = 0
+
+
 _XcmJobMonBaseUpdateSupport_Object = MibTableColumn
 xcmJobMonBaseUpdateSupport = _XcmJobMonBaseUpdateSupport_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 59, 1, 2, 1, 7),
@@ -383,7 +395,7 @@ if mibBuilder.loadTexts:
 
 class _XcmJobServiceType_Type(XcmJMJobServiceTypeOID):
     """Custom type xcmJobServiceType based on XcmJMJobServiceTypeOID"""
-    defaultValue = "(0, 0)"
+    defaultValue = (0, 0)
 
 
 _XcmJobServiceType_Object = MibTableColumn
@@ -394,7 +406,13 @@ xcmJobServiceType = _XcmJobServiceType_Object(
 xcmJobServiceType.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmJobServiceType.setStatus("current")
-_XcmJobName_Type = CodeIndexedStringIndex
+
+
+class _XcmJobName_Type(CodeIndexedStringIndex):
+    """Custom type xcmJobName based on CodeIndexedStringIndex"""
+    defaultValue = 0
+
+
 _XcmJobName_Object = MibTableColumn
 xcmJobName = _XcmJobName_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 59, 6, 1, 1, 5),
@@ -403,7 +421,13 @@ xcmJobName = _XcmJobName_Object(
 xcmJobName.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmJobName.setStatus("current")
-_XcmJobOwner_Type = CodeIndexedStringIndex
+
+
+class _XcmJobOwner_Type(CodeIndexedStringIndex):
+    """Custom type xcmJobOwner based on CodeIndexedStringIndex"""
+    defaultValue = 0
+
+
 _XcmJobOwner_Object = MibTableColumn
 xcmJobOwner = _XcmJobOwner_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 59, 6, 1, 1, 6),
@@ -426,7 +450,13 @@ xcmJobSourceChannelType = _XcmJobSourceChannelType_Object(
 xcmJobSourceChannelType.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmJobSourceChannelType.setStatus("current")
-_XcmJobSubmittedLocaleIndex_Type = Cardinal32
+
+
+class _XcmJobSubmittedLocaleIndex_Type(Cardinal32):
+    """Custom type xcmJobSubmittedLocaleIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmJobSubmittedLocaleIndex_Object = MibTableColumn
 xcmJobSubmittedLocaleIndex = _XcmJobSubmittedLocaleIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 59, 6, 1, 1, 8),
@@ -449,7 +479,13 @@ xcmJobCurrentState = _XcmJobCurrentState_Object(
 xcmJobCurrentState.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmJobCurrentState.setStatus("current")
-_XcmJobStateReasons_Type = XcmJMJobStateReasons
+
+
+class _XcmJobStateReasons_Type(XcmJMJobStateReasons):
+    """Custom type xcmJobStateReasons based on XcmJMJobStateReasons"""
+    defaultValue = 0
+
+
 _XcmJobStateReasons_Object = MibTableColumn
 xcmJobStateReasons = _XcmJobStateReasons_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 59, 6, 1, 1, 10),
@@ -458,7 +494,13 @@ xcmJobStateReasons = _XcmJobStateReasons_Object(
 xcmJobStateReasons.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmJobStateReasons.setStatus("current")
-_XcmJobXStateReasons_Type = XcmJMJobXStateReasons
+
+
+class _XcmJobXStateReasons_Type(XcmJMJobXStateReasons):
+    """Custom type xcmJobXStateReasons based on XcmJMJobXStateReasons"""
+    defaultValue = 0
+
+
 _XcmJobXStateReasons_Object = MibTableColumn
 xcmJobXStateReasons = _XcmJobXStateReasons_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 59, 6, 1, 1, 11),
@@ -467,7 +509,13 @@ xcmJobXStateReasons = _XcmJobXStateReasons_Object(
 xcmJobXStateReasons.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmJobXStateReasons.setStatus("current")
-_XcmJobX2StateReasons_Type = XcmJMJobX2StateReasons
+
+
+class _XcmJobX2StateReasons_Type(XcmJMJobX2StateReasons):
+    """Custom type xcmJobX2StateReasons based on XcmJMJobX2StateReasons"""
+    defaultValue = 0
+
+
 _XcmJobX2StateReasons_Object = MibTableColumn
 xcmJobX2StateReasons = _XcmJobX2StateReasons_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 59, 6, 1, 1, 12),
@@ -579,14 +627,15 @@ _XcmJobGenExtEntry_Object = MibTableRow
 xcmJobGenExtEntry = _XcmJobGenExtEntry_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 59, 10, 1, 1)
 )
-xcmJobGenBasicEntry.registerAugmentions(
-    ("XEROX-JOB-MONITORING-MIB",
-     "xcmJobGenExtEntry")
-)
-xcmJobGenExtEntry.setIndexNames(*xcmJobGenBasicEntry.getIndexNames())
 if mibBuilder.loadTexts:
     xcmJobGenExtEntry.setStatus("current")
-_XcmJobOriginator_Type = CodeIndexedStringIndex
+
+
+class _XcmJobOriginator_Type(CodeIndexedStringIndex):
+    """Custom type xcmJobOriginator based on CodeIndexedStringIndex"""
+    defaultValue = 0
+
+
 _XcmJobOriginator_Object = MibTableColumn
 xcmJobOriginator = _XcmJobOriginator_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 59, 10, 1, 1, 1),
@@ -595,7 +644,13 @@ xcmJobOriginator = _XcmJobOriginator_Object(
 xcmJobOriginator.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmJobOriginator.setStatus("current")
-_XcmJobSubmittingApplication_Type = CodeIndexedStringIndex
+
+
+class _XcmJobSubmittingApplication_Type(CodeIndexedStringIndex):
+    """Custom type xcmJobSubmittingApplication based on CodeIndexedStringIndex"""
+    defaultValue = 0
+
+
 _XcmJobSubmittingApplication_Object = MibTableColumn
 xcmJobSubmittingApplication = _XcmJobSubmittingApplication_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 59, 10, 1, 1, 2),
@@ -604,7 +659,13 @@ xcmJobSubmittingApplication = _XcmJobSubmittingApplication_Object(
 xcmJobSubmittingApplication.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmJobSubmittingApplication.setStatus("current")
-_XcmJobComment_Type = CodeIndexedStringIndex
+
+
+class _XcmJobComment_Type(CodeIndexedStringIndex):
+    """Custom type xcmJobComment based on CodeIndexedStringIndex"""
+    defaultValue = 0
+
+
 _XcmJobComment_Object = MibTableColumn
 xcmJobComment = _XcmJobComment_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 59, 10, 1, 1, 3),
@@ -637,7 +698,13 @@ xcmJobCopiesCompleted = _XcmJobCopiesCompleted_Object(
 xcmJobCopiesCompleted.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmJobCopiesCompleted.setStatus("current")
-_XcmJobOutputBinIndex_Type = Integer32
+
+
+class _XcmJobOutputBinIndex_Type(Integer32):
+    """Custom type xcmJobOutputBinIndex based on Integer32"""
+    defaultValue = 0
+
+
 _XcmJobOutputBinIndex_Object = MibTableColumn
 xcmJobOutputBinIndex = _XcmJobOutputBinIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 59, 10, 1, 1, 6),
@@ -646,7 +713,13 @@ xcmJobOutputBinIndex = _XcmJobOutputBinIndex_Object(
 xcmJobOutputBinIndex.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmJobOutputBinIndex.setStatus("current")
-_XcmJobServiceNameRequested_Type = CodeIndexedStringIndex
+
+
+class _XcmJobServiceNameRequested_Type(CodeIndexedStringIndex):
+    """Custom type xcmJobServiceNameRequested based on CodeIndexedStringIndex"""
+    defaultValue = 0
+
+
 _XcmJobServiceNameRequested_Object = MibTableColumn
 xcmJobServiceNameRequested = _XcmJobServiceNameRequested_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 59, 10, 1, 1, 7),
@@ -708,7 +781,13 @@ xcmJobPagesCompleted = _XcmJobPagesCompleted_Object(
 xcmJobPagesCompleted.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmJobPagesCompleted.setStatus("current")
-_XcmJobOctetsCompletedHigh_Type = Cardinal64High
+
+
+class _XcmJobOctetsCompletedHigh_Type(Cardinal64High):
+    """Custom type xcmJobOctetsCompletedHigh based on Cardinal64High"""
+    defaultValue = 0
+
+
 _XcmJobOctetsCompletedHigh_Object = MibTableColumn
 xcmJobOctetsCompletedHigh = _XcmJobOctetsCompletedHigh_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 59, 10, 1, 1, 12),
@@ -717,7 +796,13 @@ xcmJobOctetsCompletedHigh = _XcmJobOctetsCompletedHigh_Object(
 xcmJobOctetsCompletedHigh.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmJobOctetsCompletedHigh.setStatus("current")
-_XcmJobOctetsCompletedLow_Type = Cardinal64Low
+
+
+class _XcmJobOctetsCompletedLow_Type(Cardinal64Low):
+    """Custom type xcmJobOctetsCompletedLow based on Cardinal64Low"""
+    defaultValue = 0
+
+
 _XcmJobOctetsCompletedLow_Object = MibTableColumn
 xcmJobOctetsCompletedLow = _XcmJobOctetsCompletedLow_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 59, 10, 1, 1, 13),
@@ -755,7 +840,13 @@ if mibBuilder.loadTexts:
     xcmJobProcessingTime.setStatus("current")
 if mibBuilder.loadTexts:
     xcmJobProcessingTime.setUnits("seconds")
-_XcmJobNumberOfDocuments_Type = Cardinal32
+
+
+class _XcmJobNumberOfDocuments_Type(Cardinal32):
+    """Custom type xcmJobNumberOfDocuments based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmJobNumberOfDocuments_Object = MibTableColumn
 xcmJobNumberOfDocuments = _XcmJobNumberOfDocuments_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 59, 10, 1, 1, 17),
@@ -764,7 +855,13 @@ xcmJobNumberOfDocuments = _XcmJobNumberOfDocuments_Object(
 xcmJobNumberOfDocuments.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmJobNumberOfDocuments.setStatus("current")
-_XcmJobAuthorizationUserName_Type = CodeIndexedStringIndex
+
+
+class _XcmJobAuthorizationUserName_Type(CodeIndexedStringIndex):
+    """Custom type xcmJobAuthorizationUserName based on CodeIndexedStringIndex"""
+    defaultValue = 0
+
+
 _XcmJobAuthorizationUserName_Object = MibTableColumn
 xcmJobAuthorizationUserName = _XcmJobAuthorizationUserName_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 59, 10, 1, 1, 18),
@@ -1031,11 +1128,6 @@ _XcmJobGenSpoolingBasicEntry_Object = MibTableRow
 xcmJobGenSpoolingBasicEntry = _XcmJobGenSpoolingBasicEntry_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 59, 14, 1, 1)
 )
-xcmJobGenBasicEntry.registerAugmentions(
-    ("XEROX-JOB-MONITORING-MIB",
-     "xcmJobGenSpoolingBasicEntry")
-)
-xcmJobGenSpoolingBasicEntry.setIndexNames(*xcmJobGenBasicEntry.getIndexNames())
 if mibBuilder.loadTexts:
     xcmJobGenSpoolingBasicEntry.setStatus("current")
 
@@ -1057,6 +1149,8 @@ if mibBuilder.loadTexts:
 
 class _XcmJobPriority_Type(Integer32):
     """Custom type xcmJobPriority based on Integer32"""
+    defaultValue = 0
+
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
         ValueRangeConstraint(0, 100),
@@ -1072,7 +1166,13 @@ xcmJobPriority = _XcmJobPriority_Object(
 xcmJobPriority.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmJobPriority.setStatus("current")
-_XcmJobTotalOctetsHigh_Type = Cardinal64High
+
+
+class _XcmJobTotalOctetsHigh_Type(Cardinal64High):
+    """Custom type xcmJobTotalOctetsHigh based on Cardinal64High"""
+    defaultValue = 0
+
+
 _XcmJobTotalOctetsHigh_Object = MibTableColumn
 xcmJobTotalOctetsHigh = _XcmJobTotalOctetsHigh_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 59, 14, 1, 1, 3),
@@ -1081,7 +1181,13 @@ xcmJobTotalOctetsHigh = _XcmJobTotalOctetsHigh_Object(
 xcmJobTotalOctetsHigh.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmJobTotalOctetsHigh.setStatus("current")
-_XcmJobTotalOctetsLow_Type = Cardinal64Low
+
+
+class _XcmJobTotalOctetsLow_Type(Cardinal64Low):
+    """Custom type xcmJobTotalOctetsLow based on Cardinal64Low"""
+    defaultValue = 0
+
+
 _XcmJobTotalOctetsLow_Object = MibTableColumn
 xcmJobTotalOctetsLow = _XcmJobTotalOctetsLow_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 59, 14, 1, 1, 4),
@@ -1119,11 +1225,6 @@ _XcmJobGenSpoolingExtEntry_Object = MibTableRow
 xcmJobGenSpoolingExtEntry = _XcmJobGenSpoolingExtEntry_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 59, 15, 1, 1)
 )
-xcmJobGenBasicEntry.registerAugmentions(
-    ("XEROX-JOB-MONITORING-MIB",
-     "xcmJobGenSpoolingExtEntry")
-)
-xcmJobGenSpoolingExtEntry.setIndexNames(*xcmJobGenBasicEntry.getIndexNames())
 if mibBuilder.loadTexts:
     xcmJobGenSpoolingExtEntry.setStatus("current")
 
@@ -1232,11 +1333,6 @@ _XcmJobGenAccountingBasicEntry_Object = MibTableRow
 xcmJobGenAccountingBasicEntry = _XcmJobGenAccountingBasicEntry_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 59, 16, 1, 1)
 )
-xcmJobGenBasicEntry.registerAugmentions(
-    ("XEROX-JOB-MONITORING-MIB",
-     "xcmJobGenAccountingBasicEntry")
-)
-xcmJobGenAccountingBasicEntry.setIndexNames(*xcmJobGenBasicEntry.getIndexNames())
 if mibBuilder.loadTexts:
     xcmJobGenAccountingBasicEntry.setStatus("current")
 _XcmJobAccountingBasicRowStatus_Type = RowStatus
@@ -1248,7 +1344,13 @@ xcmJobAccountingBasicRowStatus = _XcmJobAccountingBasicRowStatus_Object(
 xcmJobAccountingBasicRowStatus.setMaxAccess("read-write")
 if mibBuilder.loadTexts:
     xcmJobAccountingBasicRowStatus.setStatus("current")
-_XcmJobAccountingUserName_Type = CodeIndexedStringIndex
+
+
+class _XcmJobAccountingUserName_Type(CodeIndexedStringIndex):
+    """Custom type xcmJobAccountingUserName based on CodeIndexedStringIndex"""
+    defaultValue = 0
+
+
 _XcmJobAccountingUserName_Object = MibTableColumn
 xcmJobAccountingUserName = _XcmJobAccountingUserName_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 59, 16, 1, 1, 2),
@@ -1402,7 +1504,13 @@ xcmMediaConsumedType = _XcmMediaConsumedType_Object(
 xcmMediaConsumedType.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmMediaConsumedType.setStatus("current")
-_XcmMediaConsumedName_Type = CodeIndexedStringIndex
+
+
+class _XcmMediaConsumedName_Type(CodeIndexedStringIndex):
+    """Custom type xcmMediaConsumedName based on CodeIndexedStringIndex"""
+    defaultValue = 0
+
+
 _XcmMediaConsumedName_Object = MibTableColumn
 xcmMediaConsumedName = _XcmMediaConsumedName_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 59, 17, 1, 1, 4),
@@ -1595,6 +1703,26 @@ xcmJobImpsByMediumSizeCountQuality = _XcmJobImpsByMediumSizeCountQuality_Object(
 xcmJobImpsByMediumSizeCountQuality.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmJobImpsByMediumSizeCountQuality.setStatus("current")
+xcmJobGenBasicEntry.registerAugmentions(
+    ("XEROX-JOB-MONITORING-MIB",
+     "xcmJobGenExtEntry")
+)
+xcmJobGenExtEntry.setIndexNames(*xcmJobGenBasicEntry.getIndexNames())
+xcmJobGenBasicEntry.registerAugmentions(
+    ("XEROX-JOB-MONITORING-MIB",
+     "xcmJobGenSpoolingBasicEntry")
+)
+xcmJobGenSpoolingBasicEntry.setIndexNames(*xcmJobGenBasicEntry.getIndexNames())
+xcmJobGenBasicEntry.registerAugmentions(
+    ("XEROX-JOB-MONITORING-MIB",
+     "xcmJobGenSpoolingExtEntry")
+)
+xcmJobGenSpoolingExtEntry.setIndexNames(*xcmJobGenBasicEntry.getIndexNames())
+xcmJobGenBasicEntry.registerAugmentions(
+    ("XEROX-JOB-MONITORING-MIB",
+     "xcmJobGenAccountingBasicEntry")
+)
+xcmJobGenAccountingBasicEntry.setIndexNames(*xcmJobGenBasicEntry.getIndexNames())
 
 # Managed Objects groups
 

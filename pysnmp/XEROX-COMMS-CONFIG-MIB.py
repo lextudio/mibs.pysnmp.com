@@ -1,17 +1,17 @@
-"""SNMP MIB module (XEROX-COMMS-CONFIG-MIB) expressed in pysnmp data model.
+# SNMP MIB module (XEROX-COMMS-CONFIG-MIB) expressed in pysnmp data model.
+#
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/XEROX-COMMS-CONFIG-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:18:14 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-This Python module is designed to be imported and executed by the
-pysnmp library.
-
-See https://www.pysnmp.com/pysnmp for further information.
-
-Notes
------
-ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/XEROX-COMMS-CONFIG-MIB
-Produced by pysmi-1.3.3 at Sun Mar 10 06:00:23 2024
-On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm
-Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
-"""
 if 'mibBuilder' not in globals():
     import sys
 
@@ -53,49 +53,49 @@ if 'mibBuilder' not in globals():
     "IANA-CHARSET-MIB",
     "IANACharset")
 
-(ObjectGroup,
- ModuleCompliance,
- NotificationGroup) = mibBuilder.importSymbols(
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
     "SNMPv2-CONF",
-    "ObjectGroup",
     "ModuleCompliance",
-    "NotificationGroup")
+    "NotificationGroup",
+    "ObjectGroup")
 
-(Counter32,
- IpAddress,
+(Bits,
+ Counter32,
  Counter64,
- ObjectIdentity,
- TimeTicks,
+ Gauge32,
  Integer32,
- iso,
+ IpAddress,
+ ModuleIdentity,
  MibIdentifier,
  NotificationType,
- Gauge32,
- ModuleIdentity,
- Unsigned32,
+ ObjectIdentity,
  MibScalar,
  MibTable,
  MibTableRow,
  MibTableColumn,
- Bits) = mibBuilder.importSymbols(
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
     "SNMPv2-SMI",
+    "Bits",
     "Counter32",
-    "IpAddress",
     "Counter64",
-    "ObjectIdentity",
-    "TimeTicks",
+    "Gauge32",
     "Integer32",
-    "iso",
+    "IpAddress",
+    "ModuleIdentity",
     "MibIdentifier",
     "NotificationType",
-    "Gauge32",
-    "ModuleIdentity",
-    "Unsigned32",
+    "ObjectIdentity",
     "MibScalar",
     "MibTable",
     "MibTableRow",
     "MibTableColumn",
-    "Bits")
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
 
 (DisplayString,
  RowStatus,
@@ -109,29 +109,29 @@ if 'mibBuilder' not in globals():
     "XEROX-COMMON-MIB",
     "xeroxCommonMIB")
 
-(XcmCommsDirAttributeType,
- XcmCommsDirRecordType,
- XcmCommsConfigGroupSupport) = mibBuilder.importSymbols(
+(XcmCommsConfigGroupSupport,
+ XcmCommsDirAttributeType,
+ XcmCommsDirRecordType) = mibBuilder.importSymbols(
     "XEROX-COMMS-CONFIG-TC",
+    "XcmCommsConfigGroupSupport",
     "XcmCommsDirAttributeType",
-    "XcmCommsDirRecordType",
-    "XcmCommsConfigGroupSupport")
+    "XcmCommsDirRecordType")
 
 (XcmCommsStackExtProtocol,) = mibBuilder.importSymbols(
     "XEROX-COMMS-ENGINE-TC",
     "XcmCommsStackExtProtocol")
 
-(Ordinal32,
+(Cardinal32,
+ Ordinal32,
  XcmFixedLocaleUtf8String,
- Cardinal32,
- zeroDotZero,
- XcmGenOptionValueSyntax) = mibBuilder.importSymbols(
+ XcmGenOptionValueSyntax,
+ zeroDotZero) = mibBuilder.importSymbols(
     "XEROX-GENERAL-TC",
+    "Cardinal32",
     "Ordinal32",
     "XcmFixedLocaleUtf8String",
-    "Cardinal32",
-    "zeroDotZero",
-    "XcmGenOptionValueSyntax")
+    "XcmGenOptionValueSyntax",
+    "zeroDotZero")
 
 
 # MODULE-IDENTITY
@@ -190,7 +190,13 @@ xcmCommsConfigRowStatus = _XcmCommsConfigRowStatus_Object(
 xcmCommsConfigRowStatus.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsConfigRowStatus.setStatus("current")
-_XcmCommsConfigActiveOptionFirst_Type = Cardinal32
+
+
+class _XcmCommsConfigActiveOptionFirst_Type(Cardinal32):
+    """Custom type xcmCommsConfigActiveOptionFirst based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmCommsConfigActiveOptionFirst_Object = MibTableColumn
 xcmCommsConfigActiveOptionFirst = _XcmCommsConfigActiveOptionFirst_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 64, 3, 2, 1, 2),
@@ -199,7 +205,13 @@ xcmCommsConfigActiveOptionFirst = _XcmCommsConfigActiveOptionFirst_Object(
 xcmCommsConfigActiveOptionFirst.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsConfigActiveOptionFirst.setStatus("current")
-_XcmCommsConfigActiveOptionLast_Type = Cardinal32
+
+
+class _XcmCommsConfigActiveOptionLast_Type(Cardinal32):
+    """Custom type xcmCommsConfigActiveOptionLast based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmCommsConfigActiveOptionLast_Object = MibTableColumn
 xcmCommsConfigActiveOptionLast = _XcmCommsConfigActiveOptionLast_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 64, 3, 2, 1, 3),
@@ -223,7 +235,13 @@ xcmCommsConfigGroupSupport = _XcmCommsConfigGroupSupport_Object(
 xcmCommsConfigGroupSupport.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsConfigGroupSupport.setStatus("current")
-_XcmCommsConfigCreateSupport_Type = XcmCommsConfigGroupSupport
+
+
+class _XcmCommsConfigCreateSupport_Type(XcmCommsConfigGroupSupport):
+    """Custom type xcmCommsConfigCreateSupport based on XcmCommsConfigGroupSupport"""
+    defaultValue = 0
+
+
 _XcmCommsConfigCreateSupport_Object = MibTableColumn
 xcmCommsConfigCreateSupport = _XcmCommsConfigCreateSupport_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 64, 3, 2, 1, 5),
@@ -232,7 +250,13 @@ xcmCommsConfigCreateSupport = _XcmCommsConfigCreateSupport_Object(
 xcmCommsConfigCreateSupport.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsConfigCreateSupport.setStatus("current")
-_XcmCommsConfigUpdateSupport_Type = XcmCommsConfigGroupSupport
+
+
+class _XcmCommsConfigUpdateSupport_Type(XcmCommsConfigGroupSupport):
+    """Custom type xcmCommsConfigUpdateSupport based on XcmCommsConfigGroupSupport"""
+    defaultValue = 0
+
+
 _XcmCommsConfigUpdateSupport_Object = MibTableColumn
 xcmCommsConfigUpdateSupport = _XcmCommsConfigUpdateSupport_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 64, 3, 2, 1, 6),
@@ -283,7 +307,7 @@ if mibBuilder.loadTexts:
 
 class _XcmCommsOptionTypeOID_Type(ObjectIdentifier):
     """Custom type xcmCommsOptionTypeOID based on ObjectIdentifier"""
-    defaultValue = "(0, 0)"
+    defaultValue = (0, 0)
 
 
 _XcmCommsOptionTypeOID_Object = MibTableColumn
@@ -308,7 +332,13 @@ xcmCommsOptionValueSyntax = _XcmCommsOptionValueSyntax_Object(
 xcmCommsOptionValueSyntax.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsOptionValueSyntax.setStatus("current")
-_XcmCommsOptionValueInteger_Type = Integer32
+
+
+class _XcmCommsOptionValueInteger_Type(Integer32):
+    """Custom type xcmCommsOptionValueInteger based on Integer32"""
+    defaultValue = 0
+
+
 _XcmCommsOptionValueInteger_Object = MibTableColumn
 xcmCommsOptionValueInteger = _XcmCommsOptionValueInteger_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 64, 4, 2, 1, 5),
@@ -321,7 +351,7 @@ if mibBuilder.loadTexts:
 
 class _XcmCommsOptionValueOID_Type(ObjectIdentifier):
     """Custom type xcmCommsOptionValueOID based on ObjectIdentifier"""
-    defaultValue = "(0, 0)"
+    defaultValue = (0, 0)
 
 
 _XcmCommsOptionValueOID_Object = MibTableColumn
@@ -353,7 +383,13 @@ xcmCommsOptionValueString = _XcmCommsOptionValueString_Object(
 xcmCommsOptionValueString.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsOptionValueString.setStatus("current")
-_XcmCommsOptionValueLocalization_Type = Cardinal32
+
+
+class _XcmCommsOptionValueLocalization_Type(Cardinal32):
+    """Custom type xcmCommsOptionValueLocalization based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmCommsOptionValueLocalization_Object = MibTableColumn
 xcmCommsOptionValueLocalization = _XcmCommsOptionValueLocalization_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 64, 4, 2, 1, 8),
@@ -376,7 +412,13 @@ xcmCommsOptionValueCodedCharSet = _XcmCommsOptionValueCodedCharSet_Object(
 xcmCommsOptionValueCodedCharSet.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsOptionValueCodedCharSet.setStatus("current")
-_XcmCommsOptionNextIndex_Type = Cardinal32
+
+
+class _XcmCommsOptionNextIndex_Type(Cardinal32):
+    """Custom type xcmCommsOptionNextIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmCommsOptionNextIndex_Object = MibTableColumn
 xcmCommsOptionNextIndex = _XcmCommsOptionNextIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 64, 4, 2, 1, 10),
@@ -385,7 +427,13 @@ xcmCommsOptionNextIndex = _XcmCommsOptionNextIndex_Object(
 xcmCommsOptionNextIndex.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsOptionNextIndex.setStatus("current")
-_XcmCommsOptionPreviousIndex_Type = Cardinal32
+
+
+class _XcmCommsOptionPreviousIndex_Type(Cardinal32):
+    """Custom type xcmCommsOptionPreviousIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmCommsOptionPreviousIndex_Object = MibTableColumn
 xcmCommsOptionPreviousIndex = _XcmCommsOptionPreviousIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 64, 4, 2, 1, 11),
@@ -394,7 +442,13 @@ xcmCommsOptionPreviousIndex = _XcmCommsOptionPreviousIndex_Object(
 xcmCommsOptionPreviousIndex.setMaxAccess("read-only")
 if mibBuilder.loadTexts:
     xcmCommsOptionPreviousIndex.setStatus("current")
-_XcmCommsOptionFamilyIndex_Type = Cardinal32
+
+
+class _XcmCommsOptionFamilyIndex_Type(Cardinal32):
+    """Custom type xcmCommsOptionFamilyIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmCommsOptionFamilyIndex_Object = MibTableColumn
 xcmCommsOptionFamilyIndex = _XcmCommsOptionFamilyIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 64, 4, 2, 1, 12),
@@ -464,7 +518,13 @@ xcmCommsDirRecordKeyType = _XcmCommsDirRecordKeyType_Object(
 xcmCommsDirRecordKeyType.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmCommsDirRecordKeyType.setStatus("current")
-_XcmCommsDirRecordKeyInteger_Type = Integer32
+
+
+class _XcmCommsDirRecordKeyInteger_Type(Integer32):
+    """Custom type xcmCommsDirRecordKeyInteger based on Integer32"""
+    defaultValue = 0
+
+
 _XcmCommsDirRecordKeyInteger_Object = MibTableColumn
 xcmCommsDirRecordKeyInteger = _XcmCommsDirRecordKeyInteger_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 64, 5, 2, 1, 5),
@@ -508,7 +568,13 @@ xcmCommsDirRecordParentType = _XcmCommsDirRecordParentType_Object(
 xcmCommsDirRecordParentType.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmCommsDirRecordParentType.setStatus("current")
-_XcmCommsDirRecordParentIndex_Type = Cardinal32
+
+
+class _XcmCommsDirRecordParentIndex_Type(Cardinal32):
+    """Custom type xcmCommsDirRecordParentIndex based on Cardinal32"""
+    defaultValue = 0
+
+
 _XcmCommsDirRecordParentIndex_Object = MibTableColumn
 xcmCommsDirRecordParentIndex = _XcmCommsDirRecordParentIndex_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 64, 5, 2, 1, 8),
@@ -566,7 +632,13 @@ xcmCommsDirAttributeRowStatus = _XcmCommsDirAttributeRowStatus_Object(
 xcmCommsDirAttributeRowStatus.setMaxAccess("read-create")
 if mibBuilder.loadTexts:
     xcmCommsDirAttributeRowStatus.setStatus("current")
-_XcmCommsDirAttributeValue_Type = Integer32
+
+
+class _XcmCommsDirAttributeValue_Type(Integer32):
+    """Custom type xcmCommsDirAttributeValue based on Integer32"""
+    defaultValue = 0
+
+
 _XcmCommsDirAttributeValue_Object = MibTableColumn
 xcmCommsDirAttributeValue = _XcmCommsDirAttributeValue_Object(
     (1, 3, 6, 1, 4, 1, 253, 8, 64, 6, 2, 1, 4),

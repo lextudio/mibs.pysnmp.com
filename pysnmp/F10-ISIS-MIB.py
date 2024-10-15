@@ -1,63 +1,407 @@
+# SNMP MIB module (F10-ISIS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module F10-ISIS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/F10-ISIS-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:57:22 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
-f10Mgmt, = mibBuilder.importSymbols("FORCE10-SMI", "f10Mgmt")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-NotificationType, IpAddress, TimeTicks, ModuleIdentity, MibIdentifier, Gauge32, iso, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, Counter64, Bits, Counter32, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "IpAddress", "TimeTicks", "ModuleIdentity", "MibIdentifier", "Gauge32", "iso", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "Counter64", "Bits", "Counter32", "ObjectIdentity")
-TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
-f10IsisMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 6027, 3, 18))
-f10IsisMib.setRevisions(('2011-07-01 00:00',))
-if mibBuilder.loadTexts: f10IsisMib.setLastUpdated('201107010000Z')
-if mibBuilder.loadTexts: f10IsisMib.setOrganization('Dell Inc')
-class F10IsisISLevel(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("area", 1), ("domain", 2))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/F10-ISIS-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:43:24 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-f10IsisNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 6027, 3, 18, 0))
-f10IsisObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6027, 3, 18, 1))
-f10IsisConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6027, 3, 18, 2))
-f10IsisSysOloadSetOverload = MibScalar((1, 3, 6, 1, 4, 1, 6027, 3, 18, 1, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: f10IsisSysOloadSetOverload.setStatus('current')
-f10IsisSysOloadSetOloadOnStartupUntil = MibScalar((1, 3, 6, 1, 4, 1, 6027, 3, 18, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(5, 86400)).clone(600)).setUnits('Seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: f10IsisSysOloadSetOloadOnStartupUntil.setStatus('current')
-f10IsisSysOloadWaitForBgp = MibScalar((1, 3, 6, 1, 4, 1, 6027, 3, 18, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(5, 86400)).clone(600)).setUnits('Seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: f10IsisSysOloadWaitForBgp.setStatus('current')
-f10IsisSysOloadV6SetOverload = MibScalar((1, 3, 6, 1, 4, 1, 6027, 3, 18, 1, 4), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: f10IsisSysOloadV6SetOverload.setStatus('current')
-f10IsisSysOloadV6SetOloadOnStartupUntil = MibScalar((1, 3, 6, 1, 4, 1, 6027, 3, 18, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(5, 86400)).clone(600)).setUnits('Seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: f10IsisSysOloadV6SetOloadOnStartupUntil.setStatus('current')
-f10IsisSysOloadV6WaitForBgp = MibScalar((1, 3, 6, 1, 4, 1, 6027, 3, 18, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(5, 86400)).clone(600)).setUnits('Seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: f10IsisSysOloadV6WaitForBgp.setStatus('current')
-f10IsisSysLevelTable = MibTable((1, 3, 6, 1, 4, 1, 6027, 3, 18, 1, 7), )
-if mibBuilder.loadTexts: f10IsisSysLevelTable.setStatus('current')
-f10IsisSysLevelEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6027, 3, 18, 1, 7, 1), ).setIndexNames((0, "F10-ISIS-MIB", "f10IsisSysLevelIndex"))
-if mibBuilder.loadTexts: f10IsisSysLevelEntry.setStatus('current')
-f10IsisSysLevelIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 18, 1, 7, 1, 1), F10IsisISLevel())
-if mibBuilder.loadTexts: f10IsisSysLevelIndex.setStatus('current')
-f10IsisSysLevelOverloadState = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 18, 1, 7, 1, 2), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: f10IsisSysLevelOverloadState.setStatus('current')
-f10IsisSysLevelV6OverloadState = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 18, 1, 7, 1, 3), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: f10IsisSysLevelV6OverloadState.setStatus('current')
-f10IsisAdjChanges = NotificationType((1, 3, 6, 1, 4, 1, 6027, 3, 18, 0, 1))
-if mibBuilder.loadTexts: f10IsisAdjChanges.setStatus('current')
-f10IsisGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6027, 3, 18, 2, 1))
-f10IsisCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6027, 3, 18, 2, 2))
-f10IsisCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6027, 3, 18, 2, 2, 1)).setObjects(("F10-ISIS-MIB", "f10IsisSystemGroup"), ("F10-ISIS-MIB", "f10IsisNotificationGroup"))
+if 'mibBuilder' not in globals():
+    import sys
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    f10IsisCompliance = f10IsisCompliance.setStatus('current')
-f10IsisSystemGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6027, 3, 18, 2, 1, 1)).setObjects(("F10-ISIS-MIB", "f10IsisSysOloadSetOverload"), ("F10-ISIS-MIB", "f10IsisSysOloadSetOloadOnStartupUntil"), ("F10-ISIS-MIB", "f10IsisSysOloadWaitForBgp"), ("F10-ISIS-MIB", "f10IsisSysOloadV6SetOverload"), ("F10-ISIS-MIB", "f10IsisSysOloadV6SetOloadOnStartupUntil"), ("F10-ISIS-MIB", "f10IsisSysLevelOverloadState"), ("F10-ISIS-MIB", "f10IsisSysLevelV6OverloadState"), ("F10-ISIS-MIB", "f10IsisSysOloadV6WaitForBgp"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    f10IsisSystemGroup = f10IsisSystemGroup.setStatus('current')
-f10IsisNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6027, 3, 18, 2, 1, 2)).setObjects(("F10-ISIS-MIB", "f10IsisAdjChanges"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    f10IsisNotificationGroup = f10IsisNotificationGroup.setStatus('current')
-mibBuilder.exportSymbols("F10-ISIS-MIB", PYSNMP_MODULE_ID=f10IsisMib, f10IsisNotifications=f10IsisNotifications, f10IsisSysOloadWaitForBgp=f10IsisSysOloadWaitForBgp, f10IsisSysOloadV6SetOverload=f10IsisSysOloadV6SetOverload, f10IsisSysOloadSetOverload=f10IsisSysOloadSetOverload, f10IsisSysLevelTable=f10IsisSysLevelTable, f10IsisSysLevelEntry=f10IsisSysLevelEntry, f10IsisCompliance=f10IsisCompliance, f10IsisNotificationGroup=f10IsisNotificationGroup, f10IsisObjects=f10IsisObjects, f10IsisConformance=f10IsisConformance, f10IsisSysLevelV6OverloadState=f10IsisSysLevelV6OverloadState, f10IsisMib=f10IsisMib, f10IsisAdjChanges=f10IsisAdjChanges, f10IsisGroups=f10IsisGroups, f10IsisSysOloadV6SetOloadOnStartupUntil=f10IsisSysOloadV6SetOloadOnStartupUntil, f10IsisSystemGroup=f10IsisSystemGroup, f10IsisCompliances=f10IsisCompliances, F10IsisISLevel=F10IsisISLevel, f10IsisSysOloadV6WaitForBgp=f10IsisSysOloadV6WaitForBgp, f10IsisSysLevelOverloadState=f10IsisSysLevelOverloadState, f10IsisSysLevelIndex=f10IsisSysLevelIndex, f10IsisSysOloadSetOloadOnStartupUntil=f10IsisSysOloadSetOloadOnStartupUntil)
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(f10Mgmt,) = mibBuilder.importSymbols(
+    "FORCE10-SMI",
+    "f10Mgmt")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+f10IsisMib = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 18)
+)
+f10IsisMib.setRevisions(
+        ("2011-07-01 00:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class F10IsisISLevel(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("area", 1),
+          ("domain", 2))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_F10IsisNotifications_ObjectIdentity = ObjectIdentity
+f10IsisNotifications = _F10IsisNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 18, 0)
+)
+_F10IsisObjects_ObjectIdentity = ObjectIdentity
+f10IsisObjects = _F10IsisObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 18, 1)
+)
+
+
+class _F10IsisSysOloadSetOverload_Type(TruthValue):
+    """Custom type f10IsisSysOloadSetOverload based on TruthValue"""
+
+
+_F10IsisSysOloadSetOverload_Object = MibScalar
+f10IsisSysOloadSetOverload = _F10IsisSysOloadSetOverload_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 18, 1, 1),
+    _F10IsisSysOloadSetOverload_Type()
+)
+f10IsisSysOloadSetOverload.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    f10IsisSysOloadSetOverload.setStatus("current")
+
+
+class _F10IsisSysOloadSetOloadOnStartupUntil_Type(Unsigned32):
+    """Custom type f10IsisSysOloadSetOloadOnStartupUntil based on Unsigned32"""
+    defaultValue = 600
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(5, 86400),
+    )
+
+
+_F10IsisSysOloadSetOloadOnStartupUntil_Type.__name__ = "Unsigned32"
+_F10IsisSysOloadSetOloadOnStartupUntil_Object = MibScalar
+f10IsisSysOloadSetOloadOnStartupUntil = _F10IsisSysOloadSetOloadOnStartupUntil_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 18, 1, 2),
+    _F10IsisSysOloadSetOloadOnStartupUntil_Type()
+)
+f10IsisSysOloadSetOloadOnStartupUntil.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    f10IsisSysOloadSetOloadOnStartupUntil.setStatus("current")
+if mibBuilder.loadTexts:
+    f10IsisSysOloadSetOloadOnStartupUntil.setUnits("Seconds")
+
+
+class _F10IsisSysOloadWaitForBgp_Type(Unsigned32):
+    """Custom type f10IsisSysOloadWaitForBgp based on Unsigned32"""
+    defaultValue = 600
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(5, 86400),
+    )
+
+
+_F10IsisSysOloadWaitForBgp_Type.__name__ = "Unsigned32"
+_F10IsisSysOloadWaitForBgp_Object = MibScalar
+f10IsisSysOloadWaitForBgp = _F10IsisSysOloadWaitForBgp_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 18, 1, 3),
+    _F10IsisSysOloadWaitForBgp_Type()
+)
+f10IsisSysOloadWaitForBgp.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    f10IsisSysOloadWaitForBgp.setStatus("current")
+if mibBuilder.loadTexts:
+    f10IsisSysOloadWaitForBgp.setUnits("Seconds")
+
+
+class _F10IsisSysOloadV6SetOverload_Type(TruthValue):
+    """Custom type f10IsisSysOloadV6SetOverload based on TruthValue"""
+
+
+_F10IsisSysOloadV6SetOverload_Object = MibScalar
+f10IsisSysOloadV6SetOverload = _F10IsisSysOloadV6SetOverload_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 18, 1, 4),
+    _F10IsisSysOloadV6SetOverload_Type()
+)
+f10IsisSysOloadV6SetOverload.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    f10IsisSysOloadV6SetOverload.setStatus("current")
+
+
+class _F10IsisSysOloadV6SetOloadOnStartupUntil_Type(Unsigned32):
+    """Custom type f10IsisSysOloadV6SetOloadOnStartupUntil based on Unsigned32"""
+    defaultValue = 600
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(5, 86400),
+    )
+
+
+_F10IsisSysOloadV6SetOloadOnStartupUntil_Type.__name__ = "Unsigned32"
+_F10IsisSysOloadV6SetOloadOnStartupUntil_Object = MibScalar
+f10IsisSysOloadV6SetOloadOnStartupUntil = _F10IsisSysOloadV6SetOloadOnStartupUntil_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 18, 1, 5),
+    _F10IsisSysOloadV6SetOloadOnStartupUntil_Type()
+)
+f10IsisSysOloadV6SetOloadOnStartupUntil.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    f10IsisSysOloadV6SetOloadOnStartupUntil.setStatus("current")
+if mibBuilder.loadTexts:
+    f10IsisSysOloadV6SetOloadOnStartupUntil.setUnits("Seconds")
+
+
+class _F10IsisSysOloadV6WaitForBgp_Type(Unsigned32):
+    """Custom type f10IsisSysOloadV6WaitForBgp based on Unsigned32"""
+    defaultValue = 600
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(5, 86400),
+    )
+
+
+_F10IsisSysOloadV6WaitForBgp_Type.__name__ = "Unsigned32"
+_F10IsisSysOloadV6WaitForBgp_Object = MibScalar
+f10IsisSysOloadV6WaitForBgp = _F10IsisSysOloadV6WaitForBgp_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 18, 1, 6),
+    _F10IsisSysOloadV6WaitForBgp_Type()
+)
+f10IsisSysOloadV6WaitForBgp.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    f10IsisSysOloadV6WaitForBgp.setStatus("current")
+if mibBuilder.loadTexts:
+    f10IsisSysOloadV6WaitForBgp.setUnits("Seconds")
+_F10IsisSysLevelTable_Object = MibTable
+f10IsisSysLevelTable = _F10IsisSysLevelTable_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 18, 1, 7)
+)
+if mibBuilder.loadTexts:
+    f10IsisSysLevelTable.setStatus("current")
+_F10IsisSysLevelEntry_Object = MibTableRow
+f10IsisSysLevelEntry = _F10IsisSysLevelEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 18, 1, 7, 1)
+)
+f10IsisSysLevelEntry.setIndexNames(
+    (0, "F10-ISIS-MIB", "f10IsisSysLevelIndex"),
+)
+if mibBuilder.loadTexts:
+    f10IsisSysLevelEntry.setStatus("current")
+_F10IsisSysLevelIndex_Type = F10IsisISLevel
+_F10IsisSysLevelIndex_Object = MibTableColumn
+f10IsisSysLevelIndex = _F10IsisSysLevelIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 18, 1, 7, 1, 1),
+    _F10IsisSysLevelIndex_Type()
+)
+f10IsisSysLevelIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    f10IsisSysLevelIndex.setStatus("current")
+_F10IsisSysLevelOverloadState_Type = TruthValue
+_F10IsisSysLevelOverloadState_Object = MibTableColumn
+f10IsisSysLevelOverloadState = _F10IsisSysLevelOverloadState_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 18, 1, 7, 1, 2),
+    _F10IsisSysLevelOverloadState_Type()
+)
+f10IsisSysLevelOverloadState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    f10IsisSysLevelOverloadState.setStatus("current")
+_F10IsisSysLevelV6OverloadState_Type = TruthValue
+_F10IsisSysLevelV6OverloadState_Object = MibTableColumn
+f10IsisSysLevelV6OverloadState = _F10IsisSysLevelV6OverloadState_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 18, 1, 7, 1, 3),
+    _F10IsisSysLevelV6OverloadState_Type()
+)
+f10IsisSysLevelV6OverloadState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    f10IsisSysLevelV6OverloadState.setStatus("current")
+_F10IsisConformance_ObjectIdentity = ObjectIdentity
+f10IsisConformance = _F10IsisConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 18, 2)
+)
+_F10IsisGroups_ObjectIdentity = ObjectIdentity
+f10IsisGroups = _F10IsisGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 18, 2, 1)
+)
+_F10IsisCompliances_ObjectIdentity = ObjectIdentity
+f10IsisCompliances = _F10IsisCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 18, 2, 2)
+)
+
+# Managed Objects groups
+
+f10IsisSystemGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 18, 2, 1, 1)
+)
+f10IsisSystemGroup.setObjects(
+      *(("F10-ISIS-MIB", "f10IsisSysOloadSetOverload"),
+        ("F10-ISIS-MIB", "f10IsisSysOloadSetOloadOnStartupUntil"),
+        ("F10-ISIS-MIB", "f10IsisSysOloadWaitForBgp"),
+        ("F10-ISIS-MIB", "f10IsisSysOloadV6SetOverload"),
+        ("F10-ISIS-MIB", "f10IsisSysOloadV6SetOloadOnStartupUntil"),
+        ("F10-ISIS-MIB", "f10IsisSysLevelOverloadState"),
+        ("F10-ISIS-MIB", "f10IsisSysLevelV6OverloadState"),
+        ("F10-ISIS-MIB", "f10IsisSysOloadV6WaitForBgp"))
+)
+if mibBuilder.loadTexts:
+    f10IsisSystemGroup.setStatus("current")
+
+
+# Notification objects
+
+f10IsisAdjChanges = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 18, 0, 1)
+)
+if mibBuilder.loadTexts:
+    f10IsisAdjChanges.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+f10IsisNotificationGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 18, 2, 1, 2)
+)
+f10IsisNotificationGroup.setObjects(
+    ("F10-ISIS-MIB", "f10IsisAdjChanges")
+)
+if mibBuilder.loadTexts:
+    f10IsisNotificationGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+f10IsisCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 18, 2, 2, 1)
+)
+if mibBuilder.loadTexts:
+    f10IsisCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "F10-ISIS-MIB",
+    **{"F10IsisISLevel": F10IsisISLevel,
+       "f10IsisMib": f10IsisMib,
+       "f10IsisNotifications": f10IsisNotifications,
+       "f10IsisAdjChanges": f10IsisAdjChanges,
+       "f10IsisObjects": f10IsisObjects,
+       "f10IsisSysOloadSetOverload": f10IsisSysOloadSetOverload,
+       "f10IsisSysOloadSetOloadOnStartupUntil": f10IsisSysOloadSetOloadOnStartupUntil,
+       "f10IsisSysOloadWaitForBgp": f10IsisSysOloadWaitForBgp,
+       "f10IsisSysOloadV6SetOverload": f10IsisSysOloadV6SetOverload,
+       "f10IsisSysOloadV6SetOloadOnStartupUntil": f10IsisSysOloadV6SetOloadOnStartupUntil,
+       "f10IsisSysOloadV6WaitForBgp": f10IsisSysOloadV6WaitForBgp,
+       "f10IsisSysLevelTable": f10IsisSysLevelTable,
+       "f10IsisSysLevelEntry": f10IsisSysLevelEntry,
+       "f10IsisSysLevelIndex": f10IsisSysLevelIndex,
+       "f10IsisSysLevelOverloadState": f10IsisSysLevelOverloadState,
+       "f10IsisSysLevelV6OverloadState": f10IsisSysLevelV6OverloadState,
+       "f10IsisConformance": f10IsisConformance,
+       "f10IsisGroups": f10IsisGroups,
+       "f10IsisSystemGroup": f10IsisSystemGroup,
+       "f10IsisNotificationGroup": f10IsisNotificationGroup,
+       "f10IsisCompliances": f10IsisCompliances,
+       "f10IsisCompliance": f10IsisCompliance}
+)

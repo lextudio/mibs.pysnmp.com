@@ -1,97 +1,818 @@
+# SNMP MIB module (CISCO-CNO-SWITCH-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-CNO-SWITCH-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/CISCO-CNO-SWITCH-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:36:15 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
-ciscoExperiment, = mibBuilder.importSymbols("CISCO-SMI", "ciscoExperiment")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-Integer32, TimeTicks, Counter64, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter32, MibIdentifier, Unsigned32, ModuleIdentity, IpAddress, ObjectIdentity, Bits, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "TimeTicks", "Counter64", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter32", "MibIdentifier", "Unsigned32", "ModuleIdentity", "IpAddress", "ObjectIdentity", "Bits", "Gauge32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-ciscoCNOSwitchMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 10, 43))
-ciscoCNOSwitchMIB.setRevisions(('1998-10-23 00:00',))
-if mibBuilder.loadTexts: ciscoCNOSwitchMIB.setLastUpdated('9810230000Z')
-if mibBuilder.loadTexts: ciscoCNOSwitchMIB.setOrganization('Cisco System Inc.')
-ciscoCNOSwitchMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 43, 1))
-cnosSysInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 1))
-cnosSysConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 2))
-cnosPort = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 3))
-cnosVlan = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 4))
-cnosSysInfoSerialNo = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cnosSysInfoSerialNo.setStatus('current')
-cnosSysInfoBoardRevision = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cnosSysInfoBoardRevision.setStatus('current')
-cnosSysInfoBootVersion = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cnosSysInfoBootVersion.setStatus('current')
-cnosSysInfoAddrCapacity = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cnosSysInfoAddrCapacity.setStatus('current')
-cnosSysConfigReset = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("noReset", 1), ("reset", 2))).clone('noReset')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cnosSysConfigReset.setStatus('current')
-cnosSysConfigDefaultReset = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 2, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("noReset", 1), ("reset", 2))).clone('noReset')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cnosSysConfigDefaultReset.setStatus('current')
-cnosSysConfigMonitor = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 2, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cnosSysConfigMonitor.setStatus('current')
-cnosSysConfigMonitorPort = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 2, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 8))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cnosSysConfigMonitorPort.setStatus('current')
-cnosPortTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 3, 1), )
-if mibBuilder.loadTexts: cnosPortTable.setStatus('current')
-cnosPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 3, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: cnosPortEntry.setStatus('current')
-cnosPortControllerRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 3, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cnosPortControllerRevision.setStatus('current')
-cnosPortName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 3, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cnosPortName.setStatus('current')
-cnosPortDuplexAdmin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 3, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("fullDuplex", 1), ("halfDuplex", 2), ("autoNegotiate", 3))).clone('autoNegotiate')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cnosPortDuplexAdmin.setStatus('current')
-cnosPortDuplexStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 3, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("fullDuplex", 1), ("halfDuplex", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cnosPortDuplexStatus.setStatus('current')
-cnosPortSpeedAdmin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 3, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("tenMbps", 1), ("oneHundredMbps", 2), ("autoNegotiate", 3))).clone('autoNegotiate')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cnosPortSpeedAdmin.setStatus('current')
-cnosPortSpeedStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 3, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("tenMbps", 1), ("oneHundredMbps", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cnosPortSpeedStatus.setStatus('current')
-cnosPortMonitoring = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 3, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cnosPortMonitoring.setStatus('current')
-cnosPortLinkStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 3, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("link", 1), ("noLink", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cnosPortLinkStatus.setStatus('current')
-cnosPortSTPPortFastMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 3, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cnosPortSTPPortFastMode.setStatus('current')
-cnosPortVlanMember = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 3, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("vlan1", 1), ("vlan2", 2), ("vlan3", 3), ("vlan4", 4), ("all", 5))).clone('vlan1')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cnosPortVlanMember.setStatus('current')
-cnosVlanTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 4, 1), )
-if mibBuilder.loadTexts: cnosVlanTable.setStatus('current')
-cnosVlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 4, 1, 1), ).setIndexNames((0, "CISCO-CNO-SWITCH-MIB", "cnosVlanIndex"))
-if mibBuilder.loadTexts: cnosVlanEntry.setStatus('current')
-cnosVlanIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 4, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4)))
-if mibBuilder.loadTexts: cnosVlanIndex.setStatus('current')
-cnosVlanSTPState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 4, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('enabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cnosVlanSTPState.setStatus('current')
-ciscoCNOSwitchNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 43, 2))
-ciscoCNOSwitchNotificationsPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 43, 2, 0))
-ciscoCNOSwitchMIBComformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 43, 3))
-ciscoCNOSwitchMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 43, 3, 1))
-ciscoCNOSwitchMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 43, 3, 2))
-ciscoCNOSwitchCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 10, 43, 3, 1, 1)).setObjects(("CISCO-CNO-SWITCH-MIB", "ciscoCNOSwitchSysInfoGroup"), ("CISCO-CNO-SWITCH-MIB", "ciscoCNOSwitchConfigGroup"), ("CISCO-CNO-SWITCH-MIB", "ciscoCNOSwitchPortGroup"), ("CISCO-CNO-SWITCH-MIB", "ciscoCNOSwitchMonitorPortGroup"), ("CISCO-CNO-SWITCH-MIB", "ciscoCNOSwitchVlanGroup"))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CISCO-CNO-SWITCH-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 20:57:34 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoCNOSwitchCompliance = ciscoCNOSwitchCompliance.setStatus('current')
-ciscoCNOSwitchSysInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 43, 3, 2, 1)).setObjects(("CISCO-CNO-SWITCH-MIB", "cnosSysInfoSerialNo"), ("CISCO-CNO-SWITCH-MIB", "cnosSysInfoBoardRevision"), ("CISCO-CNO-SWITCH-MIB", "cnosSysInfoBootVersion"), ("CISCO-CNO-SWITCH-MIB", "cnosSysInfoAddrCapacity"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoCNOSwitchSysInfoGroup = ciscoCNOSwitchSysInfoGroup.setStatus('current')
-ciscoCNOSwitchConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 43, 3, 2, 2)).setObjects(("CISCO-CNO-SWITCH-MIB", "cnosSysConfigReset"), ("CISCO-CNO-SWITCH-MIB", "cnosSysConfigDefaultReset"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoCNOSwitchConfigGroup = ciscoCNOSwitchConfigGroup.setStatus('current')
-ciscoCNOSwitchPortGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 43, 3, 2, 3)).setObjects(("CISCO-CNO-SWITCH-MIB", "cnosPortName"), ("CISCO-CNO-SWITCH-MIB", "cnosPortControllerRevision"), ("CISCO-CNO-SWITCH-MIB", "cnosPortDuplexAdmin"), ("CISCO-CNO-SWITCH-MIB", "cnosPortDuplexStatus"), ("CISCO-CNO-SWITCH-MIB", "cnosPortSpeedAdmin"), ("CISCO-CNO-SWITCH-MIB", "cnosPortSpeedStatus"), ("CISCO-CNO-SWITCH-MIB", "cnosPortLinkStatus"), ("CISCO-CNO-SWITCH-MIB", "cnosPortSTPPortFastMode"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoCNOSwitchPortGroup = ciscoCNOSwitchPortGroup.setStatus('current')
-ciscoCNOSwitchMonitorPortGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 43, 3, 2, 4)).setObjects(("CISCO-CNO-SWITCH-MIB", "cnosSysConfigMonitor"), ("CISCO-CNO-SWITCH-MIB", "cnosSysConfigMonitorPort"), ("CISCO-CNO-SWITCH-MIB", "cnosPortMonitoring"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoCNOSwitchMonitorPortGroup = ciscoCNOSwitchMonitorPortGroup.setStatus('current')
-ciscoCNOSwitchVlanGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 43, 3, 2, 5)).setObjects(("CISCO-CNO-SWITCH-MIB", "cnosPortVlanMember"), ("CISCO-CNO-SWITCH-MIB", "cnosVlanSTPState"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoCNOSwitchVlanGroup = ciscoCNOSwitchVlanGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-CNO-SWITCH-MIB", cnosSysInfoSerialNo=cnosSysInfoSerialNo, cnosPortSTPPortFastMode=cnosPortSTPPortFastMode, cnosSysConfigMonitorPort=cnosSysConfigMonitorPort, ciscoCNOSwitchMIBComformance=ciscoCNOSwitchMIBComformance, ciscoCNOSwitchMonitorPortGroup=ciscoCNOSwitchMonitorPortGroup, ciscoCNOSwitchMIB=ciscoCNOSwitchMIB, ciscoCNOSwitchNotifications=ciscoCNOSwitchNotifications, cnosSysInfoBootVersion=cnosSysInfoBootVersion, cnosPortSpeedStatus=cnosPortSpeedStatus, cnosPortTable=cnosPortTable, cnosVlanSTPState=cnosVlanSTPState, cnosPort=cnosPort, ciscoCNOSwitchMIBObjects=ciscoCNOSwitchMIBObjects, ciscoCNOSwitchConfigGroup=ciscoCNOSwitchConfigGroup, cnosSysConfigMonitor=cnosSysConfigMonitor, cnosVlanTable=cnosVlanTable, cnosSysInfo=cnosSysInfo, cnosPortName=cnosPortName, ciscoCNOSwitchMIBCompliances=ciscoCNOSwitchMIBCompliances, cnosVlan=cnosVlan, cnosSysInfoBoardRevision=cnosSysInfoBoardRevision, cnosVlanIndex=cnosVlanIndex, cnosSysConfigReset=cnosSysConfigReset, ciscoCNOSwitchNotificationsPrefix=ciscoCNOSwitchNotificationsPrefix, cnosSysConfig=cnosSysConfig, ciscoCNOSwitchSysInfoGroup=ciscoCNOSwitchSysInfoGroup, PYSNMP_MODULE_ID=ciscoCNOSwitchMIB, cnosPortMonitoring=cnosPortMonitoring, cnosPortDuplexStatus=cnosPortDuplexStatus, cnosPortEntry=cnosPortEntry, ciscoCNOSwitchMIBGroups=ciscoCNOSwitchMIBGroups, cnosPortLinkStatus=cnosPortLinkStatus, cnosPortControllerRevision=cnosPortControllerRevision, ciscoCNOSwitchCompliance=ciscoCNOSwitchCompliance, cnosSysConfigDefaultReset=cnosSysConfigDefaultReset, cnosPortDuplexAdmin=cnosPortDuplexAdmin, cnosPortSpeedAdmin=cnosPortSpeedAdmin, cnosVlanEntry=cnosVlanEntry, cnosPortVlanMember=cnosPortVlanMember, ciscoCNOSwitchVlanGroup=ciscoCNOSwitchVlanGroup, cnosSysInfoAddrCapacity=cnosSysInfoAddrCapacity, ciscoCNOSwitchPortGroup=ciscoCNOSwitchPortGroup)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ciscoExperiment,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoExperiment")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+ciscoCNOSwitchMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43)
+)
+ciscoCNOSwitchMIB.setRevisions(
+        ("1998-10-23 00:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CiscoCNOSwitchMIBObjects_ObjectIdentity = ObjectIdentity
+ciscoCNOSwitchMIBObjects = _CiscoCNOSwitchMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 1)
+)
+_CnosSysInfo_ObjectIdentity = ObjectIdentity
+cnosSysInfo = _CnosSysInfo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 1)
+)
+
+
+class _CnosSysInfoSerialNo_Type(DisplayString):
+    """Custom type cnosSysInfoSerialNo based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_CnosSysInfoSerialNo_Type.__name__ = "DisplayString"
+_CnosSysInfoSerialNo_Object = MibScalar
+cnosSysInfoSerialNo = _CnosSysInfoSerialNo_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 1, 1),
+    _CnosSysInfoSerialNo_Type()
+)
+cnosSysInfoSerialNo.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cnosSysInfoSerialNo.setStatus("current")
+
+
+class _CnosSysInfoBoardRevision_Type(Integer32):
+    """Custom type cnosSysInfoBoardRevision based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_CnosSysInfoBoardRevision_Type.__name__ = "Integer32"
+_CnosSysInfoBoardRevision_Object = MibScalar
+cnosSysInfoBoardRevision = _CnosSysInfoBoardRevision_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 1, 2),
+    _CnosSysInfoBoardRevision_Type()
+)
+cnosSysInfoBoardRevision.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cnosSysInfoBoardRevision.setStatus("current")
+
+
+class _CnosSysInfoBootVersion_Type(DisplayString):
+    """Custom type cnosSysInfoBootVersion based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 8),
+    )
+
+
+_CnosSysInfoBootVersion_Type.__name__ = "DisplayString"
+_CnosSysInfoBootVersion_Object = MibScalar
+cnosSysInfoBootVersion = _CnosSysInfoBootVersion_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 1, 3),
+    _CnosSysInfoBootVersion_Type()
+)
+cnosSysInfoBootVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cnosSysInfoBootVersion.setStatus("current")
+
+
+class _CnosSysInfoAddrCapacity_Type(Integer32):
+    """Custom type cnosSysInfoAddrCapacity based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_CnosSysInfoAddrCapacity_Type.__name__ = "Integer32"
+_CnosSysInfoAddrCapacity_Object = MibScalar
+cnosSysInfoAddrCapacity = _CnosSysInfoAddrCapacity_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 1, 4),
+    _CnosSysInfoAddrCapacity_Type()
+)
+cnosSysInfoAddrCapacity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cnosSysInfoAddrCapacity.setStatus("current")
+_CnosSysConfig_ObjectIdentity = ObjectIdentity
+cnosSysConfig = _CnosSysConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 2)
+)
+
+
+class _CnosSysConfigReset_Type(Integer32):
+    """Custom type cnosSysConfigReset based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("noReset", 1),
+          ("reset", 2))
+    )
+
+
+_CnosSysConfigReset_Type.__name__ = "Integer32"
+_CnosSysConfigReset_Object = MibScalar
+cnosSysConfigReset = _CnosSysConfigReset_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 2, 1),
+    _CnosSysConfigReset_Type()
+)
+cnosSysConfigReset.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cnosSysConfigReset.setStatus("current")
+
+
+class _CnosSysConfigDefaultReset_Type(Integer32):
+    """Custom type cnosSysConfigDefaultReset based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("noReset", 1),
+          ("reset", 2))
+    )
+
+
+_CnosSysConfigDefaultReset_Type.__name__ = "Integer32"
+_CnosSysConfigDefaultReset_Object = MibScalar
+cnosSysConfigDefaultReset = _CnosSysConfigDefaultReset_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 2, 2),
+    _CnosSysConfigDefaultReset_Type()
+)
+cnosSysConfigDefaultReset.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cnosSysConfigDefaultReset.setStatus("current")
+
+
+class _CnosSysConfigMonitor_Type(Integer32):
+    """Custom type cnosSysConfigMonitor based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_CnosSysConfigMonitor_Type.__name__ = "Integer32"
+_CnosSysConfigMonitor_Object = MibScalar
+cnosSysConfigMonitor = _CnosSysConfigMonitor_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 2, 3),
+    _CnosSysConfigMonitor_Type()
+)
+cnosSysConfigMonitor.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cnosSysConfigMonitor.setStatus("current")
+
+
+class _CnosSysConfigMonitorPort_Type(Integer32):
+    """Custom type cnosSysConfigMonitorPort based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 8),
+    )
+
+
+_CnosSysConfigMonitorPort_Type.__name__ = "Integer32"
+_CnosSysConfigMonitorPort_Object = MibScalar
+cnosSysConfigMonitorPort = _CnosSysConfigMonitorPort_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 2, 4),
+    _CnosSysConfigMonitorPort_Type()
+)
+cnosSysConfigMonitorPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cnosSysConfigMonitorPort.setStatus("current")
+_CnosPort_ObjectIdentity = ObjectIdentity
+cnosPort = _CnosPort_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 3)
+)
+_CnosPortTable_Object = MibTable
+cnosPortTable = _CnosPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 3, 1)
+)
+if mibBuilder.loadTexts:
+    cnosPortTable.setStatus("current")
+_CnosPortEntry_Object = MibTableRow
+cnosPortEntry = _CnosPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 3, 1, 1)
+)
+cnosPortEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    cnosPortEntry.setStatus("current")
+
+
+class _CnosPortControllerRevision_Type(Integer32):
+    """Custom type cnosPortControllerRevision based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_CnosPortControllerRevision_Type.__name__ = "Integer32"
+_CnosPortControllerRevision_Object = MibTableColumn
+cnosPortControllerRevision = _CnosPortControllerRevision_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 3, 1, 1, 1),
+    _CnosPortControllerRevision_Type()
+)
+cnosPortControllerRevision.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cnosPortControllerRevision.setStatus("current")
+
+
+class _CnosPortName_Type(DisplayString):
+    """Custom type cnosPortName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 80),
+    )
+
+
+_CnosPortName_Type.__name__ = "DisplayString"
+_CnosPortName_Object = MibTableColumn
+cnosPortName = _CnosPortName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 3, 1, 1, 2),
+    _CnosPortName_Type()
+)
+cnosPortName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cnosPortName.setStatus("current")
+
+
+class _CnosPortDuplexAdmin_Type(Integer32):
+    """Custom type cnosPortDuplexAdmin based on Integer32"""
+    defaultValue = 3
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("autoNegotiate", 3),
+          ("fullDuplex", 1),
+          ("halfDuplex", 2))
+    )
+
+
+_CnosPortDuplexAdmin_Type.__name__ = "Integer32"
+_CnosPortDuplexAdmin_Object = MibTableColumn
+cnosPortDuplexAdmin = _CnosPortDuplexAdmin_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 3, 1, 1, 3),
+    _CnosPortDuplexAdmin_Type()
+)
+cnosPortDuplexAdmin.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cnosPortDuplexAdmin.setStatus("current")
+
+
+class _CnosPortDuplexStatus_Type(Integer32):
+    """Custom type cnosPortDuplexStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("fullDuplex", 1),
+          ("halfDuplex", 2))
+    )
+
+
+_CnosPortDuplexStatus_Type.__name__ = "Integer32"
+_CnosPortDuplexStatus_Object = MibTableColumn
+cnosPortDuplexStatus = _CnosPortDuplexStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 3, 1, 1, 4),
+    _CnosPortDuplexStatus_Type()
+)
+cnosPortDuplexStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cnosPortDuplexStatus.setStatus("current")
+
+
+class _CnosPortSpeedAdmin_Type(Integer32):
+    """Custom type cnosPortSpeedAdmin based on Integer32"""
+    defaultValue = 3
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("autoNegotiate", 3),
+          ("oneHundredMbps", 2),
+          ("tenMbps", 1))
+    )
+
+
+_CnosPortSpeedAdmin_Type.__name__ = "Integer32"
+_CnosPortSpeedAdmin_Object = MibTableColumn
+cnosPortSpeedAdmin = _CnosPortSpeedAdmin_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 3, 1, 1, 5),
+    _CnosPortSpeedAdmin_Type()
+)
+cnosPortSpeedAdmin.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cnosPortSpeedAdmin.setStatus("current")
+
+
+class _CnosPortSpeedStatus_Type(Integer32):
+    """Custom type cnosPortSpeedStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("oneHundredMbps", 2),
+          ("tenMbps", 1))
+    )
+
+
+_CnosPortSpeedStatus_Type.__name__ = "Integer32"
+_CnosPortSpeedStatus_Object = MibTableColumn
+cnosPortSpeedStatus = _CnosPortSpeedStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 3, 1, 1, 6),
+    _CnosPortSpeedStatus_Type()
+)
+cnosPortSpeedStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cnosPortSpeedStatus.setStatus("current")
+
+
+class _CnosPortMonitoring_Type(Integer32):
+    """Custom type cnosPortMonitoring based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_CnosPortMonitoring_Type.__name__ = "Integer32"
+_CnosPortMonitoring_Object = MibTableColumn
+cnosPortMonitoring = _CnosPortMonitoring_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 3, 1, 1, 7),
+    _CnosPortMonitoring_Type()
+)
+cnosPortMonitoring.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cnosPortMonitoring.setStatus("current")
+
+
+class _CnosPortLinkStatus_Type(Integer32):
+    """Custom type cnosPortLinkStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("link", 1),
+          ("noLink", 2))
+    )
+
+
+_CnosPortLinkStatus_Type.__name__ = "Integer32"
+_CnosPortLinkStatus_Object = MibTableColumn
+cnosPortLinkStatus = _CnosPortLinkStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 3, 1, 1, 8),
+    _CnosPortLinkStatus_Type()
+)
+cnosPortLinkStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cnosPortLinkStatus.setStatus("current")
+
+
+class _CnosPortSTPPortFastMode_Type(Integer32):
+    """Custom type cnosPortSTPPortFastMode based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_CnosPortSTPPortFastMode_Type.__name__ = "Integer32"
+_CnosPortSTPPortFastMode_Object = MibTableColumn
+cnosPortSTPPortFastMode = _CnosPortSTPPortFastMode_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 3, 1, 1, 9),
+    _CnosPortSTPPortFastMode_Type()
+)
+cnosPortSTPPortFastMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cnosPortSTPPortFastMode.setStatus("current")
+
+
+class _CnosPortVlanMember_Type(Integer32):
+    """Custom type cnosPortVlanMember based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("all", 5),
+          ("vlan1", 1),
+          ("vlan2", 2),
+          ("vlan3", 3),
+          ("vlan4", 4))
+    )
+
+
+_CnosPortVlanMember_Type.__name__ = "Integer32"
+_CnosPortVlanMember_Object = MibTableColumn
+cnosPortVlanMember = _CnosPortVlanMember_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 3, 1, 1, 10),
+    _CnosPortVlanMember_Type()
+)
+cnosPortVlanMember.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cnosPortVlanMember.setStatus("current")
+_CnosVlan_ObjectIdentity = ObjectIdentity
+cnosVlan = _CnosVlan_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 4)
+)
+_CnosVlanTable_Object = MibTable
+cnosVlanTable = _CnosVlanTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 4, 1)
+)
+if mibBuilder.loadTexts:
+    cnosVlanTable.setStatus("current")
+_CnosVlanEntry_Object = MibTableRow
+cnosVlanEntry = _CnosVlanEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 4, 1, 1)
+)
+cnosVlanEntry.setIndexNames(
+    (0, "CISCO-CNO-SWITCH-MIB", "cnosVlanIndex"),
+)
+if mibBuilder.loadTexts:
+    cnosVlanEntry.setStatus("current")
+
+
+class _CnosVlanIndex_Type(Integer32):
+    """Custom type cnosVlanIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4),
+    )
+
+
+_CnosVlanIndex_Type.__name__ = "Integer32"
+_CnosVlanIndex_Object = MibTableColumn
+cnosVlanIndex = _CnosVlanIndex_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 4, 1, 1, 1),
+    _CnosVlanIndex_Type()
+)
+cnosVlanIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cnosVlanIndex.setStatus("current")
+
+
+class _CnosVlanSTPState_Type(Integer32):
+    """Custom type cnosVlanSTPState based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_CnosVlanSTPState_Type.__name__ = "Integer32"
+_CnosVlanSTPState_Object = MibTableColumn
+cnosVlanSTPState = _CnosVlanSTPState_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 1, 4, 1, 1, 2),
+    _CnosVlanSTPState_Type()
+)
+cnosVlanSTPState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cnosVlanSTPState.setStatus("current")
+_CiscoCNOSwitchNotifications_ObjectIdentity = ObjectIdentity
+ciscoCNOSwitchNotifications = _CiscoCNOSwitchNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 2)
+)
+_CiscoCNOSwitchNotificationsPrefix_ObjectIdentity = ObjectIdentity
+ciscoCNOSwitchNotificationsPrefix = _CiscoCNOSwitchNotificationsPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 2, 0)
+)
+_CiscoCNOSwitchMIBComformance_ObjectIdentity = ObjectIdentity
+ciscoCNOSwitchMIBComformance = _CiscoCNOSwitchMIBComformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 3)
+)
+_CiscoCNOSwitchMIBCompliances_ObjectIdentity = ObjectIdentity
+ciscoCNOSwitchMIBCompliances = _CiscoCNOSwitchMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 3, 1)
+)
+_CiscoCNOSwitchMIBGroups_ObjectIdentity = ObjectIdentity
+ciscoCNOSwitchMIBGroups = _CiscoCNOSwitchMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 3, 2)
+)
+
+# Managed Objects groups
+
+ciscoCNOSwitchSysInfoGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 3, 2, 1)
+)
+ciscoCNOSwitchSysInfoGroup.setObjects(
+      *(("CISCO-CNO-SWITCH-MIB", "cnosSysInfoSerialNo"),
+        ("CISCO-CNO-SWITCH-MIB", "cnosSysInfoBoardRevision"),
+        ("CISCO-CNO-SWITCH-MIB", "cnosSysInfoBootVersion"),
+        ("CISCO-CNO-SWITCH-MIB", "cnosSysInfoAddrCapacity"))
+)
+if mibBuilder.loadTexts:
+    ciscoCNOSwitchSysInfoGroup.setStatus("current")
+
+ciscoCNOSwitchConfigGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 3, 2, 2)
+)
+ciscoCNOSwitchConfigGroup.setObjects(
+      *(("CISCO-CNO-SWITCH-MIB", "cnosSysConfigReset"),
+        ("CISCO-CNO-SWITCH-MIB", "cnosSysConfigDefaultReset"))
+)
+if mibBuilder.loadTexts:
+    ciscoCNOSwitchConfigGroup.setStatus("current")
+
+ciscoCNOSwitchPortGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 3, 2, 3)
+)
+ciscoCNOSwitchPortGroup.setObjects(
+      *(("CISCO-CNO-SWITCH-MIB", "cnosPortName"),
+        ("CISCO-CNO-SWITCH-MIB", "cnosPortControllerRevision"),
+        ("CISCO-CNO-SWITCH-MIB", "cnosPortDuplexAdmin"),
+        ("CISCO-CNO-SWITCH-MIB", "cnosPortDuplexStatus"),
+        ("CISCO-CNO-SWITCH-MIB", "cnosPortSpeedAdmin"),
+        ("CISCO-CNO-SWITCH-MIB", "cnosPortSpeedStatus"),
+        ("CISCO-CNO-SWITCH-MIB", "cnosPortLinkStatus"),
+        ("CISCO-CNO-SWITCH-MIB", "cnosPortSTPPortFastMode"))
+)
+if mibBuilder.loadTexts:
+    ciscoCNOSwitchPortGroup.setStatus("current")
+
+ciscoCNOSwitchMonitorPortGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 3, 2, 4)
+)
+ciscoCNOSwitchMonitorPortGroup.setObjects(
+      *(("CISCO-CNO-SWITCH-MIB", "cnosSysConfigMonitor"),
+        ("CISCO-CNO-SWITCH-MIB", "cnosSysConfigMonitorPort"),
+        ("CISCO-CNO-SWITCH-MIB", "cnosPortMonitoring"))
+)
+if mibBuilder.loadTexts:
+    ciscoCNOSwitchMonitorPortGroup.setStatus("current")
+
+ciscoCNOSwitchVlanGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 3, 2, 5)
+)
+ciscoCNOSwitchVlanGroup.setObjects(
+      *(("CISCO-CNO-SWITCH-MIB", "cnosPortVlanMember"),
+        ("CISCO-CNO-SWITCH-MIB", "cnosVlanSTPState"))
+)
+if mibBuilder.loadTexts:
+    ciscoCNOSwitchVlanGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+ciscoCNOSwitchCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 10, 43, 3, 1, 1)
+)
+if mibBuilder.loadTexts:
+    ciscoCNOSwitchCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-CNO-SWITCH-MIB",
+    **{"ciscoCNOSwitchMIB": ciscoCNOSwitchMIB,
+       "ciscoCNOSwitchMIBObjects": ciscoCNOSwitchMIBObjects,
+       "cnosSysInfo": cnosSysInfo,
+       "cnosSysInfoSerialNo": cnosSysInfoSerialNo,
+       "cnosSysInfoBoardRevision": cnosSysInfoBoardRevision,
+       "cnosSysInfoBootVersion": cnosSysInfoBootVersion,
+       "cnosSysInfoAddrCapacity": cnosSysInfoAddrCapacity,
+       "cnosSysConfig": cnosSysConfig,
+       "cnosSysConfigReset": cnosSysConfigReset,
+       "cnosSysConfigDefaultReset": cnosSysConfigDefaultReset,
+       "cnosSysConfigMonitor": cnosSysConfigMonitor,
+       "cnosSysConfigMonitorPort": cnosSysConfigMonitorPort,
+       "cnosPort": cnosPort,
+       "cnosPortTable": cnosPortTable,
+       "cnosPortEntry": cnosPortEntry,
+       "cnosPortControllerRevision": cnosPortControllerRevision,
+       "cnosPortName": cnosPortName,
+       "cnosPortDuplexAdmin": cnosPortDuplexAdmin,
+       "cnosPortDuplexStatus": cnosPortDuplexStatus,
+       "cnosPortSpeedAdmin": cnosPortSpeedAdmin,
+       "cnosPortSpeedStatus": cnosPortSpeedStatus,
+       "cnosPortMonitoring": cnosPortMonitoring,
+       "cnosPortLinkStatus": cnosPortLinkStatus,
+       "cnosPortSTPPortFastMode": cnosPortSTPPortFastMode,
+       "cnosPortVlanMember": cnosPortVlanMember,
+       "cnosVlan": cnosVlan,
+       "cnosVlanTable": cnosVlanTable,
+       "cnosVlanEntry": cnosVlanEntry,
+       "cnosVlanIndex": cnosVlanIndex,
+       "cnosVlanSTPState": cnosVlanSTPState,
+       "ciscoCNOSwitchNotifications": ciscoCNOSwitchNotifications,
+       "ciscoCNOSwitchNotificationsPrefix": ciscoCNOSwitchNotificationsPrefix,
+       "ciscoCNOSwitchMIBComformance": ciscoCNOSwitchMIBComformance,
+       "ciscoCNOSwitchMIBCompliances": ciscoCNOSwitchMIBCompliances,
+       "ciscoCNOSwitchCompliance": ciscoCNOSwitchCompliance,
+       "ciscoCNOSwitchMIBGroups": ciscoCNOSwitchMIBGroups,
+       "ciscoCNOSwitchSysInfoGroup": ciscoCNOSwitchSysInfoGroup,
+       "ciscoCNOSwitchConfigGroup": ciscoCNOSwitchConfigGroup,
+       "ciscoCNOSwitchPortGroup": ciscoCNOSwitchPortGroup,
+       "ciscoCNOSwitchMonitorPortGroup": ciscoCNOSwitchMonitorPortGroup,
+       "ciscoCNOSwitchVlanGroup": ciscoCNOSwitchVlanGroup}
+)

@@ -1,36 +1,347 @@
+# SNMP MIB module (DELL-NETWORKING-BMP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module DELL-NETWORKING-BMP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/DELL-NETWORKING-BMP-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:22:25 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection")
-dellNetMgmt, = mibBuilder.importSymbols("DELL-NETWORKING-SMI", "dellNetMgmt")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter32, ModuleIdentity, Integer32, NotificationType, Counter64, Bits, TimeTicks, ObjectIdentity, Unsigned32, Gauge32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "ModuleIdentity", "Integer32", "NotificationType", "Counter64", "Bits", "TimeTicks", "ObjectIdentity", "Unsigned32", "Gauge32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "IpAddress")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-dellNetBmpMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 6027, 3, 23))
-dellNetBmpMib.setRevisions(('2014-07-21 12:00', '2011-12-07 12:48',))
-if mibBuilder.loadTexts: dellNetBmpMib.setLastUpdated('201112071248Z')
-if mibBuilder.loadTexts: dellNetBmpMib.setOrganization('Dell Inc.')
-dellNetBmp = MibIdentifier((1, 3, 6, 1, 4, 1, 6027, 3, 23, 1))
-bmpReloadType = MibScalar((1, 3, 6, 1, 4, 1, 6027, 3, 23, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("normalReload", 1), ("bmpReload", 2))).clone('bmpReload')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: bmpReloadType.setStatus('current')
-bmpAutoSave = MibScalar((1, 3, 6, 1, 4, 1, 6027, 3, 23, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("bmpActionEnable", 1), ("bmpActionDisable", 2))).clone('bmpActionDisable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: bmpAutoSave.setStatus('current')
-bmpConfigDownload = MibScalar((1, 3, 6, 1, 4, 1, 6027, 3, 23, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("bmpActionEnable", 1), ("bmpActionDisable", 2))).clone('bmpActionDisable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: bmpConfigDownload.setStatus('current')
-bmpDhcpTimeout = MibScalar((1, 3, 6, 1, 4, 1, 6027, 3, 23, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 50))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: bmpDhcpTimeout.setStatus('current')
-bmpRetryCount = MibScalar((1, 3, 6, 1, 4, 1, 6027, 3, 23, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 6))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: bmpRetryCount.setStatus('current')
-bmpUserDefinedString = MibScalar((1, 3, 6, 1, 4, 1, 6027, 3, 23, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: bmpUserDefinedString.setStatus('current')
-bmpRelay = MibScalar((1, 3, 6, 1, 4, 1, 6027, 3, 23, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("bmpActionEnable", 1), ("bmpActionDisable", 2))).clone('bmpActionDisable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: bmpRelay.setStatus('current')
-bmpRelayRemoteId = MibScalar((1, 3, 6, 1, 4, 1, 6027, 3, 23, 1, 8), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: bmpRelayRemoteId.setStatus('current')
-mibBuilder.exportSymbols("DELL-NETWORKING-BMP-MIB", bmpRetryCount=bmpRetryCount, bmpReloadType=bmpReloadType, bmpConfigDownload=bmpConfigDownload, bmpAutoSave=bmpAutoSave, bmpUserDefinedString=bmpUserDefinedString, bmpRelayRemoteId=bmpRelayRemoteId, dellNetBmpMib=dellNetBmpMib, dellNetBmp=dellNetBmp, bmpDhcpTimeout=bmpDhcpTimeout, bmpRelay=bmpRelay, PYSNMP_MODULE_ID=dellNetBmpMib)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/DELL-NETWORKING-BMP-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:23:48 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(dellNetMgmt,) = mibBuilder.importSymbols(
+    "DELL-NETWORKING-SMI",
+    "dellNetMgmt")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+dellNetBmpMib = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 23)
+)
+dellNetBmpMib.setRevisions(
+        ("2014-07-21 12:00",
+         "2011-12-07 12:48")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_DellNetBmp_ObjectIdentity = ObjectIdentity
+dellNetBmp = _DellNetBmp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 23, 1)
+)
+
+
+class _BmpReloadType_Type(Integer32):
+    """Custom type bmpReloadType based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("bmpReload", 2),
+          ("normalReload", 1))
+    )
+
+
+_BmpReloadType_Type.__name__ = "Integer32"
+_BmpReloadType_Object = MibScalar
+bmpReloadType = _BmpReloadType_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 23, 1, 1),
+    _BmpReloadType_Type()
+)
+bmpReloadType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    bmpReloadType.setStatus("current")
+
+
+class _BmpAutoSave_Type(Integer32):
+    """Custom type bmpAutoSave based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("bmpActionDisable", 2),
+          ("bmpActionEnable", 1))
+    )
+
+
+_BmpAutoSave_Type.__name__ = "Integer32"
+_BmpAutoSave_Object = MibScalar
+bmpAutoSave = _BmpAutoSave_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 23, 1, 2),
+    _BmpAutoSave_Type()
+)
+bmpAutoSave.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    bmpAutoSave.setStatus("current")
+
+
+class _BmpConfigDownload_Type(Integer32):
+    """Custom type bmpConfigDownload based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("bmpActionDisable", 2),
+          ("bmpActionEnable", 1))
+    )
+
+
+_BmpConfigDownload_Type.__name__ = "Integer32"
+_BmpConfigDownload_Object = MibScalar
+bmpConfigDownload = _BmpConfigDownload_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 23, 1, 3),
+    _BmpConfigDownload_Type()
+)
+bmpConfigDownload.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    bmpConfigDownload.setStatus("current")
+
+
+class _BmpDhcpTimeout_Type(Integer32):
+    """Custom type bmpDhcpTimeout based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 50),
+    )
+
+
+_BmpDhcpTimeout_Type.__name__ = "Integer32"
+_BmpDhcpTimeout_Object = MibScalar
+bmpDhcpTimeout = _BmpDhcpTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 23, 1, 4),
+    _BmpDhcpTimeout_Type()
+)
+bmpDhcpTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    bmpDhcpTimeout.setStatus("current")
+
+
+class _BmpRetryCount_Type(Integer32):
+    """Custom type bmpRetryCount based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 6),
+    )
+
+
+_BmpRetryCount_Type.__name__ = "Integer32"
+_BmpRetryCount_Object = MibScalar
+bmpRetryCount = _BmpRetryCount_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 23, 1, 5),
+    _BmpRetryCount_Type()
+)
+bmpRetryCount.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    bmpRetryCount.setStatus("current")
+
+
+class _BmpUserDefinedString_Type(OctetString):
+    """Custom type bmpUserDefinedString based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_BmpUserDefinedString_Type.__name__ = "OctetString"
+_BmpUserDefinedString_Object = MibScalar
+bmpUserDefinedString = _BmpUserDefinedString_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 23, 1, 6),
+    _BmpUserDefinedString_Type()
+)
+bmpUserDefinedString.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    bmpUserDefinedString.setStatus("current")
+
+
+class _BmpRelay_Type(Integer32):
+    """Custom type bmpRelay based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("bmpActionDisable", 2),
+          ("bmpActionEnable", 1))
+    )
+
+
+_BmpRelay_Type.__name__ = "Integer32"
+_BmpRelay_Object = MibScalar
+bmpRelay = _BmpRelay_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 23, 1, 7),
+    _BmpRelay_Type()
+)
+bmpRelay.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    bmpRelay.setStatus("current")
+
+
+class _BmpRelayRemoteId_Type(OctetString):
+    """Custom type bmpRelayRemoteId based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_BmpRelayRemoteId_Type.__name__ = "OctetString"
+_BmpRelayRemoteId_Object = MibScalar
+bmpRelayRemoteId = _BmpRelayRemoteId_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 23, 1, 8),
+    _BmpRelayRemoteId_Type()
+)
+bmpRelayRemoteId.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    bmpRelayRemoteId.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "DELL-NETWORKING-BMP-MIB",
+    **{"dellNetBmpMib": dellNetBmpMib,
+       "dellNetBmp": dellNetBmp,
+       "bmpReloadType": bmpReloadType,
+       "bmpAutoSave": bmpAutoSave,
+       "bmpConfigDownload": bmpConfigDownload,
+       "bmpDhcpTimeout": bmpDhcpTimeout,
+       "bmpRetryCount": bmpRetryCount,
+       "bmpUserDefinedString": bmpUserDefinedString,
+       "bmpRelay": bmpRelay,
+       "bmpRelayRemoteId": bmpRelayRemoteId}
+)

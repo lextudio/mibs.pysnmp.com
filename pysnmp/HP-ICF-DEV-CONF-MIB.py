@@ -1,166 +1,1115 @@
+# SNMP MIB module (HP-ICF-DEV-CONF-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HP-ICF-DEV-CONF-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/HP-ICF-DEV-CONF-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:10:57 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
-hpSwitch, = mibBuilder.importSymbols("HP-ICF-OID", "hpSwitch")
-VidList, = mibBuilder.importSymbols("HP-ICF-TC", "VidList")
-InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-NotificationType, ObjectIdentity, Integer32, Counter64, ModuleIdentity, iso, TimeTicks, Gauge32, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, Bits, MibIdentifier, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "ObjectIdentity", "Integer32", "Counter64", "ModuleIdentity", "iso", "TimeTicks", "Gauge32", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "Bits", "MibIdentifier", "IpAddress")
-RowStatus, TruthValue, DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TruthValue", "DisplayString", "MacAddress", "TextualConvention")
-hpicfDevConf = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126))
-hpicfDevConf.setRevisions(('2017-05-02 00:00', '2016-11-02 00:00', '2016-06-07 00:00', '2016-02-01 00:00', '2016-01-28 00:00', '2015-12-18 00:00', '2015-12-04 00:00', '2015-09-08 00:00',))
-if mibBuilder.loadTexts: hpicfDevConf.setLastUpdated('201705020000Z')
-if mibBuilder.loadTexts: hpicfDevConf.setOrganization('HP Networking')
-hpSwitchDevNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 0))
-hpSwitchDevScalar = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 1))
-hpSwitchDevGlobals = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 2))
-hpSwitchDevConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 3))
-hpSwitchDevConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4))
-class HpPartnerDeviceType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))
-    namedValues = NamedValues(("none", 1), ("arubaAccessPoint", 2), ("arubaBridgeRouter", 3), ("hpBridgeRouter", 4), ("ciscoBridgeRouter", 5), ("ciscoPhone", 6), ("scsWanCpe", 7), ("deviceIdentity", 8))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HP-ICF-DEV-CONF-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:16:56 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class HpPartnerDeviceTypeList(TextualConvention, Bits):
-    status = 'current'
-    namedValues = NamedValues(("reserved", 0), ("none", 1), ("arubaAccessPoint", 2), ("arubaBridgeRouter", 3), ("hpBridgeRouter", 4), ("ciscoBridgeRouter", 5), ("ciscoPhone", 6), ("scsWanCpe", 7), ("deviceIdentity", 8))
+if 'mibBuilder' not in globals():
+    import sys
 
-hpSwitchDevProfTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 1), )
-if mibBuilder.loadTexts: hpSwitchDevProfTable.setStatus('current')
-hpSwitchDevProfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 1, 1), ).setIndexNames((0, "HP-ICF-DEV-CONF-MIB", "hpSwitchProfIndex"))
-if mibBuilder.loadTexts: hpSwitchDevProfEntry.setStatus('current')
-hpSwitchProfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: hpSwitchProfIndex.setStatus('current')
-hpSwitchProfRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 1, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpSwitchProfRowStatus.setStatus('current')
-hpSwitchProfName = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpSwitchProfName.setStatus('current')
-hpSwitchProfUntaggedVlanID = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 1, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4094))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpSwitchProfUntaggedVlanID.setStatus('current')
-hpSwitchProfTaggedVlanList = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 1, 1, 5), VidList()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpSwitchProfTaggedVlanList.setStatus('current')
-hpSwitchProfIngressBandwidth = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 1, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpSwitchProfIngressBandwidth.setStatus('current')
-hpSwitchProfEgressBandwidth = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 1, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpSwitchProfEgressBandwidth.setStatus('current')
-hpSwitchProfCosPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 1, 1, 8), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpSwitchProfCosPriority.setStatus('current')
-hpSwitchProfPortSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17))).clone(namedValues=NamedValues(("halfDuplex10Mbits", 1), ("halfDuplex100Mbits", 2), ("fullDuplex10Mbits", 3), ("fullDuplex100Mbits", 4), ("autoNeg", 5), ("fullDuplex1000Mbits", 6), ("auto10Mbits", 7), ("auto100Mbits", 8), ("auto1000Mbits", 9), ("auto10Gbits", 10), ("auto10or100Mbits", 11), ("auto40Gbits", 12), ("auto2500Mbits", 13), ("auto5000Mbits", 14), ("auto2500or5000Mbits", 15), ("auto1000or2500Mbits", 16), ("auto1000or2500or5000Mbits", 17)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpSwitchProfPortSpeed.setStatus('current')
-hpSwitchProfPoeMaxPower = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 1, 1, 10), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpSwitchProfPoeMaxPower.setStatus('current')
-hpSwitchProfPoePriority = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 1, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("critical", 1), ("high", 2), ("low", 3)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpSwitchProfPoePriority.setStatus('current')
-hpSwitchProfJumboFrameSupport = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpSwitchProfJumboFrameSupport.setStatus('current')
-hpSwitchProfTunneledNodeSupport = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 1, 1, 13), TruthValue().clone('true')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpSwitchProfTunneledNodeSupport.setStatus('current')
-hpSwitchDevAssociationTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 2), )
-if mibBuilder.loadTexts: hpSwitchDevAssociationTable.setStatus('deprecated')
-hpSwitchDevAssociationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 2, 1), ).setIndexNames((0, "HP-ICF-DEV-CONF-MIB", "hpSwitchDevAssociationType"))
-if mibBuilder.loadTexts: hpSwitchDevAssociationEntry.setStatus('deprecated')
-hpSwitchDevAssociationType = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 2, 1, 1), HpPartnerDeviceType())
-if mibBuilder.loadTexts: hpSwitchDevAssociationType.setStatus('deprecated')
-hpSwitchDevAssociationProfName = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 2, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpSwitchDevAssociationProfName.setStatus('deprecated')
-hpSwitchDevAssociationProfID = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 2, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpSwitchDevAssociationProfID.setStatus('deprecated')
-hpSwitchDevAssociationStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpSwitchDevAssociationStatus.setStatus('deprecated')
-hpSwitchRogueDevice = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 3))
-hpSwitchRogueDevStatus = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 3, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpSwitchRogueDevStatus.setStatus('current')
-hpSwitchRogueDevAction = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 3, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("block", 1), ("log", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpSwitchRogueDevAction.setStatus('current')
-hpSwitchRogueDevMacTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 3, 3), )
-if mibBuilder.loadTexts: hpSwitchRogueDevMacTable.setStatus('current')
-hpSwitchRogueDevMacEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 3, 3, 1), ).setIndexNames((0, "HP-ICF-DEV-CONF-MIB", "hpSwitchRogueDevMacAddress"))
-if mibBuilder.loadTexts: hpSwitchRogueDevMacEntry.setStatus('current')
-hpSwitchRogueDevMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 3, 3, 1, 1), MacAddress())
-if mibBuilder.loadTexts: hpSwitchRogueDevMacAddress.setStatus('current')
-hpSwitchNeighborDevMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 3, 3, 1, 2), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchNeighborDevMacAddress.setStatus('current')
-hpSwitchWhitelistMacTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 4), )
-if mibBuilder.loadTexts: hpSwitchWhitelistMacTable.setStatus('current')
-hpSwitchWhitelistMacEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 4, 1), ).setIndexNames((0, "HP-ICF-DEV-CONF-MIB", "hpSwitchWhitelistMacAddress"))
-if mibBuilder.loadTexts: hpSwitchWhitelistMacEntry.setStatus('current')
-hpSwitchWhitelistMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 4, 1, 1), MacAddress())
-if mibBuilder.loadTexts: hpSwitchWhitelistMacAddress.setStatus('current')
-hpSwitchWhitelistRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 4, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpSwitchWhitelistRowStatus.setStatus('current')
-hpSwitchDevPortTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 5), )
-if mibBuilder.loadTexts: hpSwitchDevPortTable.setStatus('current')
-hpSwitchDevPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 5, 1), ).setIndexNames((0, "HP-ICF-DEV-CONF-MIB", "hpSwitchDevPortIndex"))
-if mibBuilder.loadTexts: hpSwitchDevPortEntry.setStatus('current')
-hpSwitchDevPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 5, 1, 1), InterfaceIndex())
-if mibBuilder.loadTexts: hpSwitchDevPortIndex.setStatus('current')
-hpSwitchDevPortType = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 5, 1, 2), HpPartnerDeviceType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchDevPortType.setStatus('current')
-hpSwitchDevPortProfName = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 5, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchDevPortProfName.setStatus('current')
-hpSwitchDevPortDeviceName = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 5, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchDevPortDeviceName.setStatus('current')
-hpSwitchDevIdentAssociationTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 6), )
-if mibBuilder.loadTexts: hpSwitchDevIdentAssociationTable.setStatus('current')
-hpSwitchDevIdentAssociationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 6, 1), ).setIndexNames((0, "HP-ICF-DEV-CONF-MIB", "hpSwitchDevIdentAssociationType"), (0, "HP-ICF-DEV-CONF-MIB", "hpSwitchDevIdentAssociationSubType"))
-if mibBuilder.loadTexts: hpSwitchDevIdentAssociationEntry.setStatus('current')
-hpSwitchDevIdentAssociationType = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 6, 1, 1), HpPartnerDeviceType())
-if mibBuilder.loadTexts: hpSwitchDevIdentAssociationType.setStatus('current')
-hpSwitchDevIdentAssociationSubType = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 6, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 20)))
-if mibBuilder.loadTexts: hpSwitchDevIdentAssociationSubType.setStatus('current')
-hpSwitchDevIdentAssociationRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 6, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpSwitchDevIdentAssociationRowStatus.setStatus('current')
-hpSwitchDevIdentAssociationProfName = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 6, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpSwitchDevIdentAssociationProfName.setStatus('current')
-hpSwitchDevIdentAssociationProfID = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 6, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpSwitchDevIdentAssociationProfID.setStatus('current')
-hpSwitchDevIdentAssociationStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 6, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpSwitchDevIdentAssociationStatus.setStatus('current')
-hpSwitchDevIdentAssociationDeviceType = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 6, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchDevIdentAssociationDeviceType.setStatus('current')
-hpSwitchDevCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 3, 1))
-hpSwitchDevCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 3, 1, 1)).setObjects(("HP-ICF-DEV-CONF-MIB", "hpSwitchDevProfileGroup"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchDevAssociationGroup"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchRogueDevGroup"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchWhitelistGroup"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchDevPortGroup"))
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hpSwitchDevCompliance = hpSwitchDevCompliance.setStatus('deprecated')
-hpSwitchDevCompliance1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 3, 1, 2)).setObjects(("HP-ICF-DEV-CONF-MIB", "hpSwitchDevAssociationGroup"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchRogueDevGroup"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchWhitelistGroup"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchDevPortGroup"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchDevProfileGroupNew"))
+# Import base ASN.1 objects even if this MIB does not use it
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hpSwitchDevCompliance1 = hpSwitchDevCompliance1.setStatus('deprecated')
-hpSwitchDevCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 3, 1, 3)).setObjects(("HP-ICF-DEV-CONF-MIB", "hpSwitchRogueDevGroup"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchWhitelistGroup"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchDevProfileGroupNew"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchDevPortGroupNew"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchDevIdentAssociationGroup"))
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hpSwitchDevCompliance2 = hpSwitchDevCompliance2.setStatus('current')
-hpSwitchDevConfigGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 3, 2))
-hpSwitchDevProfileGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 3, 2, 1)).setObjects(("HP-ICF-DEV-CONF-MIB", "hpSwitchProfName"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfRowStatus"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfUntaggedVlanID"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfTaggedVlanList"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfIngressBandwidth"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfEgressBandwidth"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfCosPriority"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfPortSpeed"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfPoeMaxPower"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfPoePriority"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hpSwitchDevProfileGroup = hpSwitchDevProfileGroup.setStatus('deprecated')
-hpSwitchDevAssociationGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 3, 2, 2)).setObjects(("HP-ICF-DEV-CONF-MIB", "hpSwitchDevAssociationProfName"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchDevAssociationProfID"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchDevAssociationStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hpSwitchDevAssociationGroup = hpSwitchDevAssociationGroup.setStatus('deprecated')
-hpSwitchRogueDevGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 3, 2, 3)).setObjects(("HP-ICF-DEV-CONF-MIB", "hpSwitchRogueDevStatus"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchRogueDevAction"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchNeighborDevMacAddress"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hpSwitchRogueDevGroup = hpSwitchRogueDevGroup.setStatus('current')
-hpSwitchWhitelistGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 3, 2, 4)).setObjects(("HP-ICF-DEV-CONF-MIB", "hpSwitchWhitelistRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hpSwitchWhitelistGroup = hpSwitchWhitelistGroup.setStatus('current')
-hpSwitchDevPortGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 3, 2, 5)).setObjects(("HP-ICF-DEV-CONF-MIB", "hpSwitchDevPortType"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchDevPortProfName"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hpSwitchDevPortGroup = hpSwitchDevPortGroup.setStatus('deprecated')
-hpSwitchDevProfileGroupNew = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 3, 2, 6)).setObjects(("HP-ICF-DEV-CONF-MIB", "hpSwitchProfName"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfRowStatus"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfUntaggedVlanID"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfTaggedVlanList"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfIngressBandwidth"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfEgressBandwidth"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfCosPriority"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfPortSpeed"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfPoeMaxPower"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfPoePriority"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfJumboFrameSupport"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfTunneledNodeSupport"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hpSwitchDevProfileGroupNew = hpSwitchDevProfileGroupNew.setStatus('current')
-hpSwitchDevIdentAssociationGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 3, 2, 7)).setObjects(("HP-ICF-DEV-CONF-MIB", "hpSwitchDevIdentAssociationRowStatus"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchDevIdentAssociationProfName"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchDevIdentAssociationProfID"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchDevIdentAssociationStatus"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchDevIdentAssociationDeviceType"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hpSwitchDevIdentAssociationGroup = hpSwitchDevIdentAssociationGroup.setStatus('current')
-hpSwitchDevPortGroupNew = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 3, 2, 8)).setObjects(("HP-ICF-DEV-CONF-MIB", "hpSwitchDevPortType"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchDevPortProfName"), ("HP-ICF-DEV-CONF-MIB", "hpSwitchDevPortDeviceName"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hpSwitchDevPortGroupNew = hpSwitchDevPortGroupNew.setStatus('current')
-mibBuilder.exportSymbols("HP-ICF-DEV-CONF-MIB", hpSwitchProfPoeMaxPower=hpSwitchProfPoeMaxPower, hpSwitchDevCompliance1=hpSwitchDevCompliance1, hpSwitchDevAssociationTable=hpSwitchDevAssociationTable, hpSwitchNeighborDevMacAddress=hpSwitchNeighborDevMacAddress, hpSwitchDevCompliances=hpSwitchDevCompliances, hpSwitchDevIdentAssociationGroup=hpSwitchDevIdentAssociationGroup, HpPartnerDeviceType=HpPartnerDeviceType, hpSwitchDevPortIndex=hpSwitchDevPortIndex, hpSwitchProfTaggedVlanList=hpSwitchProfTaggedVlanList, hpSwitchDevIdentAssociationEntry=hpSwitchDevIdentAssociationEntry, hpSwitchRogueDevMacTable=hpSwitchRogueDevMacTable, hpSwitchDevIdentAssociationProfName=hpSwitchDevIdentAssociationProfName, hpSwitchDevPortTable=hpSwitchDevPortTable, hpSwitchProfPoePriority=hpSwitchProfPoePriority, hpSwitchDevCompliance2=hpSwitchDevCompliance2, hpSwitchDevConfigGroups=hpSwitchDevConfigGroups, hpSwitchDevProfileGroupNew=hpSwitchDevProfileGroupNew, hpSwitchDevIdentAssociationTable=hpSwitchDevIdentAssociationTable, hpSwitchDevAssociationType=hpSwitchDevAssociationType, hpSwitchDevConformance=hpSwitchDevConformance, hpSwitchDevGlobals=hpSwitchDevGlobals, hpSwitchDevPortDeviceName=hpSwitchDevPortDeviceName, hpSwitchWhitelistMacEntry=hpSwitchWhitelistMacEntry, hpSwitchDevPortType=hpSwitchDevPortType, hpSwitchProfUntaggedVlanID=hpSwitchProfUntaggedVlanID, PYSNMP_MODULE_ID=hpicfDevConf, hpSwitchDevIdentAssociationType=hpSwitchDevIdentAssociationType, hpSwitchDevPortProfName=hpSwitchDevPortProfName, hpSwitchDevProfTable=hpSwitchDevProfTable, hpSwitchDevIdentAssociationStatus=hpSwitchDevIdentAssociationStatus, hpSwitchDevConfig=hpSwitchDevConfig, hpSwitchDevIdentAssociationSubType=hpSwitchDevIdentAssociationSubType, hpSwitchDevIdentAssociationRowStatus=hpSwitchDevIdentAssociationRowStatus, hpSwitchDevPortEntry=hpSwitchDevPortEntry, hpSwitchDevAssociationStatus=hpSwitchDevAssociationStatus, hpSwitchRogueDevStatus=hpSwitchRogueDevStatus, hpSwitchDevProfEntry=hpSwitchDevProfEntry, hpSwitchRogueDevGroup=hpSwitchRogueDevGroup, hpSwitchProfIndex=hpSwitchProfIndex, hpSwitchDevIdentAssociationProfID=hpSwitchDevIdentAssociationProfID, hpSwitchProfPortSpeed=hpSwitchProfPortSpeed, hpSwitchWhitelistMacAddress=hpSwitchWhitelistMacAddress, hpSwitchDevAssociationGroup=hpSwitchDevAssociationGroup, hpSwitchProfCosPriority=hpSwitchProfCosPriority, hpSwitchProfEgressBandwidth=hpSwitchProfEgressBandwidth, hpSwitchProfJumboFrameSupport=hpSwitchProfJumboFrameSupport, hpSwitchDevAssociationEntry=hpSwitchDevAssociationEntry, hpSwitchRogueDevAction=hpSwitchRogueDevAction, hpSwitchProfTunneledNodeSupport=hpSwitchProfTunneledNodeSupport, hpSwitchProfRowStatus=hpSwitchProfRowStatus, hpSwitchDevAssociationProfName=hpSwitchDevAssociationProfName, hpSwitchDevAssociationProfID=hpSwitchDevAssociationProfID, hpSwitchWhitelistMacTable=hpSwitchWhitelistMacTable, hpSwitchDevIdentAssociationDeviceType=hpSwitchDevIdentAssociationDeviceType, hpSwitchWhitelistGroup=hpSwitchWhitelistGroup, hpSwitchDevScalar=hpSwitchDevScalar, hpSwitchRogueDevice=hpSwitchRogueDevice, hpicfDevConf=hpicfDevConf, hpSwitchRogueDevMacEntry=hpSwitchRogueDevMacEntry, hpSwitchRogueDevMacAddress=hpSwitchRogueDevMacAddress, hpSwitchDevProfileGroup=hpSwitchDevProfileGroup, hpSwitchProfName=hpSwitchProfName, hpSwitchWhitelistRowStatus=hpSwitchWhitelistRowStatus, hpSwitchDevPortGroupNew=hpSwitchDevPortGroupNew, hpSwitchDevPortGroup=hpSwitchDevPortGroup, hpSwitchDevCompliance=hpSwitchDevCompliance, hpSwitchDevNotifications=hpSwitchDevNotifications, HpPartnerDeviceTypeList=HpPartnerDeviceTypeList, hpSwitchProfIngressBandwidth=hpSwitchProfIngressBandwidth)
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(hpSwitch,) = mibBuilder.importSymbols(
+    "HP-ICF-OID",
+    "hpSwitch")
+
+(VidList,) = mibBuilder.importSymbols(
+    "HP-ICF-TC",
+    "VidList")
+
+(InterfaceIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+hpicfDevConf = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126)
+)
+hpicfDevConf.setRevisions(
+        ("2017-05-02 00:00",
+         "2016-11-02 00:00",
+         "2016-06-07 00:00",
+         "2016-02-01 00:00",
+         "2016-01-28 00:00",
+         "2015-12-18 00:00",
+         "2015-12-04 00:00",
+         "2015-09-08 00:00")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class HpPartnerDeviceType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("arubaAccessPoint", 2),
+          ("arubaBridgeRouter", 3),
+          ("ciscoBridgeRouter", 5),
+          ("ciscoPhone", 6),
+          ("deviceIdentity", 8),
+          ("hpBridgeRouter", 4),
+          ("none", 1),
+          ("scsWanCpe", 7))
+    )
+
+
+
+class HpPartnerDeviceTypeList(Bits, TextualConvention):
+    status = "current"
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_HpSwitchDevNotifications_ObjectIdentity = ObjectIdentity
+hpSwitchDevNotifications = _HpSwitchDevNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 0)
+)
+_HpSwitchDevScalar_ObjectIdentity = ObjectIdentity
+hpSwitchDevScalar = _HpSwitchDevScalar_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 1)
+)
+_HpSwitchDevGlobals_ObjectIdentity = ObjectIdentity
+hpSwitchDevGlobals = _HpSwitchDevGlobals_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 2)
+)
+_HpSwitchDevConformance_ObjectIdentity = ObjectIdentity
+hpSwitchDevConformance = _HpSwitchDevConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 3)
+)
+_HpSwitchDevCompliances_ObjectIdentity = ObjectIdentity
+hpSwitchDevCompliances = _HpSwitchDevCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 3, 1)
+)
+_HpSwitchDevConfigGroups_ObjectIdentity = ObjectIdentity
+hpSwitchDevConfigGroups = _HpSwitchDevConfigGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 3, 2)
+)
+_HpSwitchDevConfig_ObjectIdentity = ObjectIdentity
+hpSwitchDevConfig = _HpSwitchDevConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4)
+)
+_HpSwitchDevProfTable_Object = MibTable
+hpSwitchDevProfTable = _HpSwitchDevProfTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 1)
+)
+if mibBuilder.loadTexts:
+    hpSwitchDevProfTable.setStatus("current")
+_HpSwitchDevProfEntry_Object = MibTableRow
+hpSwitchDevProfEntry = _HpSwitchDevProfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 1, 1)
+)
+hpSwitchDevProfEntry.setIndexNames(
+    (0, "HP-ICF-DEV-CONF-MIB", "hpSwitchProfIndex"),
+)
+if mibBuilder.loadTexts:
+    hpSwitchDevProfEntry.setStatus("current")
+
+
+class _HpSwitchProfIndex_Type(Unsigned32):
+    """Custom type hpSwitchProfIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_HpSwitchProfIndex_Type.__name__ = "Unsigned32"
+_HpSwitchProfIndex_Object = MibTableColumn
+hpSwitchProfIndex = _HpSwitchProfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 1, 1, 1),
+    _HpSwitchProfIndex_Type()
+)
+hpSwitchProfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hpSwitchProfIndex.setStatus("current")
+_HpSwitchProfRowStatus_Type = RowStatus
+_HpSwitchProfRowStatus_Object = MibTableColumn
+hpSwitchProfRowStatus = _HpSwitchProfRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 1, 1, 2),
+    _HpSwitchProfRowStatus_Type()
+)
+hpSwitchProfRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpSwitchProfRowStatus.setStatus("current")
+
+
+class _HpSwitchProfName_Type(OctetString):
+    """Custom type hpSwitchProfName based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_HpSwitchProfName_Type.__name__ = "OctetString"
+_HpSwitchProfName_Object = MibTableColumn
+hpSwitchProfName = _HpSwitchProfName_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 1, 1, 3),
+    _HpSwitchProfName_Type()
+)
+hpSwitchProfName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpSwitchProfName.setStatus("current")
+
+
+class _HpSwitchProfUntaggedVlanID_Type(Unsigned32):
+    """Custom type hpSwitchProfUntaggedVlanID based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4094),
+    )
+
+
+_HpSwitchProfUntaggedVlanID_Type.__name__ = "Unsigned32"
+_HpSwitchProfUntaggedVlanID_Object = MibTableColumn
+hpSwitchProfUntaggedVlanID = _HpSwitchProfUntaggedVlanID_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 1, 1, 4),
+    _HpSwitchProfUntaggedVlanID_Type()
+)
+hpSwitchProfUntaggedVlanID.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpSwitchProfUntaggedVlanID.setStatus("current")
+_HpSwitchProfTaggedVlanList_Type = VidList
+_HpSwitchProfTaggedVlanList_Object = MibTableColumn
+hpSwitchProfTaggedVlanList = _HpSwitchProfTaggedVlanList_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 1, 1, 5),
+    _HpSwitchProfTaggedVlanList_Type()
+)
+hpSwitchProfTaggedVlanList.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpSwitchProfTaggedVlanList.setStatus("current")
+
+
+class _HpSwitchProfIngressBandwidth_Type(Unsigned32):
+    """Custom type hpSwitchProfIngressBandwidth based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+_HpSwitchProfIngressBandwidth_Type.__name__ = "Unsigned32"
+_HpSwitchProfIngressBandwidth_Object = MibTableColumn
+hpSwitchProfIngressBandwidth = _HpSwitchProfIngressBandwidth_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 1, 1, 6),
+    _HpSwitchProfIngressBandwidth_Type()
+)
+hpSwitchProfIngressBandwidth.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpSwitchProfIngressBandwidth.setStatus("current")
+
+
+class _HpSwitchProfEgressBandwidth_Type(Unsigned32):
+    """Custom type hpSwitchProfEgressBandwidth based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+_HpSwitchProfEgressBandwidth_Type.__name__ = "Unsigned32"
+_HpSwitchProfEgressBandwidth_Object = MibTableColumn
+hpSwitchProfEgressBandwidth = _HpSwitchProfEgressBandwidth_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 1, 1, 7),
+    _HpSwitchProfEgressBandwidth_Type()
+)
+hpSwitchProfEgressBandwidth.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpSwitchProfEgressBandwidth.setStatus("current")
+
+
+class _HpSwitchProfCosPriority_Type(Unsigned32):
+    """Custom type hpSwitchProfCosPriority based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_HpSwitchProfCosPriority_Type.__name__ = "Unsigned32"
+_HpSwitchProfCosPriority_Object = MibTableColumn
+hpSwitchProfCosPriority = _HpSwitchProfCosPriority_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 1, 1, 8),
+    _HpSwitchProfCosPriority_Type()
+)
+hpSwitchProfCosPriority.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpSwitchProfCosPriority.setStatus("current")
+
+
+class _HpSwitchProfPortSpeed_Type(Integer32):
+    """Custom type hpSwitchProfPortSpeed based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17)
+        )
+    )
+    namedValues = NamedValues(
+        *(("auto1000Mbits", 9),
+          ("auto1000or2500Mbits", 16),
+          ("auto1000or2500or5000Mbits", 17),
+          ("auto100Mbits", 8),
+          ("auto10Gbits", 10),
+          ("auto10Mbits", 7),
+          ("auto10or100Mbits", 11),
+          ("auto2500Mbits", 13),
+          ("auto2500or5000Mbits", 15),
+          ("auto40Gbits", 12),
+          ("auto5000Mbits", 14),
+          ("autoNeg", 5),
+          ("fullDuplex1000Mbits", 6),
+          ("fullDuplex100Mbits", 4),
+          ("fullDuplex10Mbits", 3),
+          ("halfDuplex100Mbits", 2),
+          ("halfDuplex10Mbits", 1))
+    )
+
+
+_HpSwitchProfPortSpeed_Type.__name__ = "Integer32"
+_HpSwitchProfPortSpeed_Object = MibTableColumn
+hpSwitchProfPortSpeed = _HpSwitchProfPortSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 1, 1, 9),
+    _HpSwitchProfPortSpeed_Type()
+)
+hpSwitchProfPortSpeed.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpSwitchProfPortSpeed.setStatus("current")
+_HpSwitchProfPoeMaxPower_Type = Unsigned32
+_HpSwitchProfPoeMaxPower_Object = MibTableColumn
+hpSwitchProfPoeMaxPower = _HpSwitchProfPoeMaxPower_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 1, 1, 10),
+    _HpSwitchProfPoeMaxPower_Type()
+)
+hpSwitchProfPoeMaxPower.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpSwitchProfPoeMaxPower.setStatus("current")
+
+
+class _HpSwitchProfPoePriority_Type(Integer32):
+    """Custom type hpSwitchProfPoePriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("critical", 1),
+          ("high", 2),
+          ("low", 3))
+    )
+
+
+_HpSwitchProfPoePriority_Type.__name__ = "Integer32"
+_HpSwitchProfPoePriority_Object = MibTableColumn
+hpSwitchProfPoePriority = _HpSwitchProfPoePriority_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 1, 1, 11),
+    _HpSwitchProfPoePriority_Type()
+)
+hpSwitchProfPoePriority.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpSwitchProfPoePriority.setStatus("current")
+
+
+class _HpSwitchProfJumboFrameSupport_Type(Integer32):
+    """Custom type hpSwitchProfJumboFrameSupport based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 2),
+          ("enable", 1))
+    )
+
+
+_HpSwitchProfJumboFrameSupport_Type.__name__ = "Integer32"
+_HpSwitchProfJumboFrameSupport_Object = MibTableColumn
+hpSwitchProfJumboFrameSupport = _HpSwitchProfJumboFrameSupport_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 1, 1, 12),
+    _HpSwitchProfJumboFrameSupport_Type()
+)
+hpSwitchProfJumboFrameSupport.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpSwitchProfJumboFrameSupport.setStatus("current")
+
+
+class _HpSwitchProfTunneledNodeSupport_Type(TruthValue):
+    """Custom type hpSwitchProfTunneledNodeSupport based on TruthValue"""
+
+
+_HpSwitchProfTunneledNodeSupport_Object = MibTableColumn
+hpSwitchProfTunneledNodeSupport = _HpSwitchProfTunneledNodeSupport_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 1, 1, 13),
+    _HpSwitchProfTunneledNodeSupport_Type()
+)
+hpSwitchProfTunneledNodeSupport.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpSwitchProfTunneledNodeSupport.setStatus("current")
+_HpSwitchDevAssociationTable_Object = MibTable
+hpSwitchDevAssociationTable = _HpSwitchDevAssociationTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 2)
+)
+if mibBuilder.loadTexts:
+    hpSwitchDevAssociationTable.setStatus("deprecated")
+_HpSwitchDevAssociationEntry_Object = MibTableRow
+hpSwitchDevAssociationEntry = _HpSwitchDevAssociationEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 2, 1)
+)
+hpSwitchDevAssociationEntry.setIndexNames(
+    (0, "HP-ICF-DEV-CONF-MIB", "hpSwitchDevAssociationType"),
+)
+if mibBuilder.loadTexts:
+    hpSwitchDevAssociationEntry.setStatus("deprecated")
+_HpSwitchDevAssociationType_Type = HpPartnerDeviceType
+_HpSwitchDevAssociationType_Object = MibTableColumn
+hpSwitchDevAssociationType = _HpSwitchDevAssociationType_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 2, 1, 1),
+    _HpSwitchDevAssociationType_Type()
+)
+hpSwitchDevAssociationType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hpSwitchDevAssociationType.setStatus("deprecated")
+
+
+class _HpSwitchDevAssociationProfName_Type(OctetString):
+    """Custom type hpSwitchDevAssociationProfName based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_HpSwitchDevAssociationProfName_Type.__name__ = "OctetString"
+_HpSwitchDevAssociationProfName_Object = MibTableColumn
+hpSwitchDevAssociationProfName = _HpSwitchDevAssociationProfName_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 2, 1, 2),
+    _HpSwitchDevAssociationProfName_Type()
+)
+hpSwitchDevAssociationProfName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpSwitchDevAssociationProfName.setStatus("deprecated")
+
+
+class _HpSwitchDevAssociationProfID_Type(Unsigned32):
+    """Custom type hpSwitchDevAssociationProfID based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_HpSwitchDevAssociationProfID_Type.__name__ = "Unsigned32"
+_HpSwitchDevAssociationProfID_Object = MibTableColumn
+hpSwitchDevAssociationProfID = _HpSwitchDevAssociationProfID_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 2, 1, 3),
+    _HpSwitchDevAssociationProfID_Type()
+)
+hpSwitchDevAssociationProfID.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpSwitchDevAssociationProfID.setStatus("deprecated")
+
+
+class _HpSwitchDevAssociationStatus_Type(Integer32):
+    """Custom type hpSwitchDevAssociationStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 2),
+          ("enable", 1))
+    )
+
+
+_HpSwitchDevAssociationStatus_Type.__name__ = "Integer32"
+_HpSwitchDevAssociationStatus_Object = MibTableColumn
+hpSwitchDevAssociationStatus = _HpSwitchDevAssociationStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 2, 1, 4),
+    _HpSwitchDevAssociationStatus_Type()
+)
+hpSwitchDevAssociationStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpSwitchDevAssociationStatus.setStatus("deprecated")
+_HpSwitchRogueDevice_ObjectIdentity = ObjectIdentity
+hpSwitchRogueDevice = _HpSwitchRogueDevice_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 3)
+)
+
+
+class _HpSwitchRogueDevStatus_Type(Integer32):
+    """Custom type hpSwitchRogueDevStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 2),
+          ("enable", 1))
+    )
+
+
+_HpSwitchRogueDevStatus_Type.__name__ = "Integer32"
+_HpSwitchRogueDevStatus_Object = MibScalar
+hpSwitchRogueDevStatus = _HpSwitchRogueDevStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 3, 1),
+    _HpSwitchRogueDevStatus_Type()
+)
+hpSwitchRogueDevStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpSwitchRogueDevStatus.setStatus("current")
+
+
+class _HpSwitchRogueDevAction_Type(Integer32):
+    """Custom type hpSwitchRogueDevAction based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("block", 1),
+          ("log", 2))
+    )
+
+
+_HpSwitchRogueDevAction_Type.__name__ = "Integer32"
+_HpSwitchRogueDevAction_Object = MibScalar
+hpSwitchRogueDevAction = _HpSwitchRogueDevAction_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 3, 2),
+    _HpSwitchRogueDevAction_Type()
+)
+hpSwitchRogueDevAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpSwitchRogueDevAction.setStatus("current")
+_HpSwitchRogueDevMacTable_Object = MibTable
+hpSwitchRogueDevMacTable = _HpSwitchRogueDevMacTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 3, 3)
+)
+if mibBuilder.loadTexts:
+    hpSwitchRogueDevMacTable.setStatus("current")
+_HpSwitchRogueDevMacEntry_Object = MibTableRow
+hpSwitchRogueDevMacEntry = _HpSwitchRogueDevMacEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 3, 3, 1)
+)
+hpSwitchRogueDevMacEntry.setIndexNames(
+    (0, "HP-ICF-DEV-CONF-MIB", "hpSwitchRogueDevMacAddress"),
+)
+if mibBuilder.loadTexts:
+    hpSwitchRogueDevMacEntry.setStatus("current")
+_HpSwitchRogueDevMacAddress_Type = MacAddress
+_HpSwitchRogueDevMacAddress_Object = MibTableColumn
+hpSwitchRogueDevMacAddress = _HpSwitchRogueDevMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 3, 3, 1, 1),
+    _HpSwitchRogueDevMacAddress_Type()
+)
+hpSwitchRogueDevMacAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hpSwitchRogueDevMacAddress.setStatus("current")
+_HpSwitchNeighborDevMacAddress_Type = MacAddress
+_HpSwitchNeighborDevMacAddress_Object = MibTableColumn
+hpSwitchNeighborDevMacAddress = _HpSwitchNeighborDevMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 3, 3, 1, 2),
+    _HpSwitchNeighborDevMacAddress_Type()
+)
+hpSwitchNeighborDevMacAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchNeighborDevMacAddress.setStatus("current")
+_HpSwitchWhitelistMacTable_Object = MibTable
+hpSwitchWhitelistMacTable = _HpSwitchWhitelistMacTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 4)
+)
+if mibBuilder.loadTexts:
+    hpSwitchWhitelistMacTable.setStatus("current")
+_HpSwitchWhitelistMacEntry_Object = MibTableRow
+hpSwitchWhitelistMacEntry = _HpSwitchWhitelistMacEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 4, 1)
+)
+hpSwitchWhitelistMacEntry.setIndexNames(
+    (0, "HP-ICF-DEV-CONF-MIB", "hpSwitchWhitelistMacAddress"),
+)
+if mibBuilder.loadTexts:
+    hpSwitchWhitelistMacEntry.setStatus("current")
+_HpSwitchWhitelistMacAddress_Type = MacAddress
+_HpSwitchWhitelistMacAddress_Object = MibTableColumn
+hpSwitchWhitelistMacAddress = _HpSwitchWhitelistMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 4, 1, 1),
+    _HpSwitchWhitelistMacAddress_Type()
+)
+hpSwitchWhitelistMacAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hpSwitchWhitelistMacAddress.setStatus("current")
+_HpSwitchWhitelistRowStatus_Type = RowStatus
+_HpSwitchWhitelistRowStatus_Object = MibTableColumn
+hpSwitchWhitelistRowStatus = _HpSwitchWhitelistRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 4, 1, 2),
+    _HpSwitchWhitelistRowStatus_Type()
+)
+hpSwitchWhitelistRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpSwitchWhitelistRowStatus.setStatus("current")
+_HpSwitchDevPortTable_Object = MibTable
+hpSwitchDevPortTable = _HpSwitchDevPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 5)
+)
+if mibBuilder.loadTexts:
+    hpSwitchDevPortTable.setStatus("current")
+_HpSwitchDevPortEntry_Object = MibTableRow
+hpSwitchDevPortEntry = _HpSwitchDevPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 5, 1)
+)
+hpSwitchDevPortEntry.setIndexNames(
+    (0, "HP-ICF-DEV-CONF-MIB", "hpSwitchDevPortIndex"),
+)
+if mibBuilder.loadTexts:
+    hpSwitchDevPortEntry.setStatus("current")
+_HpSwitchDevPortIndex_Type = InterfaceIndex
+_HpSwitchDevPortIndex_Object = MibTableColumn
+hpSwitchDevPortIndex = _HpSwitchDevPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 5, 1, 1),
+    _HpSwitchDevPortIndex_Type()
+)
+hpSwitchDevPortIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hpSwitchDevPortIndex.setStatus("current")
+_HpSwitchDevPortType_Type = HpPartnerDeviceType
+_HpSwitchDevPortType_Object = MibTableColumn
+hpSwitchDevPortType = _HpSwitchDevPortType_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 5, 1, 2),
+    _HpSwitchDevPortType_Type()
+)
+hpSwitchDevPortType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchDevPortType.setStatus("current")
+
+
+class _HpSwitchDevPortProfName_Type(OctetString):
+    """Custom type hpSwitchDevPortProfName based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 255),
+    )
+
+
+_HpSwitchDevPortProfName_Type.__name__ = "OctetString"
+_HpSwitchDevPortProfName_Object = MibTableColumn
+hpSwitchDevPortProfName = _HpSwitchDevPortProfName_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 5, 1, 3),
+    _HpSwitchDevPortProfName_Type()
+)
+hpSwitchDevPortProfName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchDevPortProfName.setStatus("current")
+
+
+class _HpSwitchDevPortDeviceName_Type(OctetString):
+    """Custom type hpSwitchDevPortDeviceName based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 255),
+    )
+
+
+_HpSwitchDevPortDeviceName_Type.__name__ = "OctetString"
+_HpSwitchDevPortDeviceName_Object = MibTableColumn
+hpSwitchDevPortDeviceName = _HpSwitchDevPortDeviceName_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 5, 1, 4),
+    _HpSwitchDevPortDeviceName_Type()
+)
+hpSwitchDevPortDeviceName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchDevPortDeviceName.setStatus("current")
+_HpSwitchDevIdentAssociationTable_Object = MibTable
+hpSwitchDevIdentAssociationTable = _HpSwitchDevIdentAssociationTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 6)
+)
+if mibBuilder.loadTexts:
+    hpSwitchDevIdentAssociationTable.setStatus("current")
+_HpSwitchDevIdentAssociationEntry_Object = MibTableRow
+hpSwitchDevIdentAssociationEntry = _HpSwitchDevIdentAssociationEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 6, 1)
+)
+hpSwitchDevIdentAssociationEntry.setIndexNames(
+    (0, "HP-ICF-DEV-CONF-MIB", "hpSwitchDevIdentAssociationType"),
+    (0, "HP-ICF-DEV-CONF-MIB", "hpSwitchDevIdentAssociationSubType"),
+)
+if mibBuilder.loadTexts:
+    hpSwitchDevIdentAssociationEntry.setStatus("current")
+_HpSwitchDevIdentAssociationType_Type = HpPartnerDeviceType
+_HpSwitchDevIdentAssociationType_Object = MibTableColumn
+hpSwitchDevIdentAssociationType = _HpSwitchDevIdentAssociationType_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 6, 1, 1),
+    _HpSwitchDevIdentAssociationType_Type()
+)
+hpSwitchDevIdentAssociationType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hpSwitchDevIdentAssociationType.setStatus("current")
+
+
+class _HpSwitchDevIdentAssociationSubType_Type(Unsigned32):
+    """Custom type hpSwitchDevIdentAssociationSubType based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 20),
+    )
+
+
+_HpSwitchDevIdentAssociationSubType_Type.__name__ = "Unsigned32"
+_HpSwitchDevIdentAssociationSubType_Object = MibTableColumn
+hpSwitchDevIdentAssociationSubType = _HpSwitchDevIdentAssociationSubType_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 6, 1, 2),
+    _HpSwitchDevIdentAssociationSubType_Type()
+)
+hpSwitchDevIdentAssociationSubType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hpSwitchDevIdentAssociationSubType.setStatus("current")
+_HpSwitchDevIdentAssociationRowStatus_Type = RowStatus
+_HpSwitchDevIdentAssociationRowStatus_Object = MibTableColumn
+hpSwitchDevIdentAssociationRowStatus = _HpSwitchDevIdentAssociationRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 6, 1, 3),
+    _HpSwitchDevIdentAssociationRowStatus_Type()
+)
+hpSwitchDevIdentAssociationRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpSwitchDevIdentAssociationRowStatus.setStatus("current")
+
+
+class _HpSwitchDevIdentAssociationProfName_Type(OctetString):
+    """Custom type hpSwitchDevIdentAssociationProfName based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_HpSwitchDevIdentAssociationProfName_Type.__name__ = "OctetString"
+_HpSwitchDevIdentAssociationProfName_Object = MibTableColumn
+hpSwitchDevIdentAssociationProfName = _HpSwitchDevIdentAssociationProfName_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 6, 1, 4),
+    _HpSwitchDevIdentAssociationProfName_Type()
+)
+hpSwitchDevIdentAssociationProfName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpSwitchDevIdentAssociationProfName.setStatus("current")
+
+
+class _HpSwitchDevIdentAssociationProfID_Type(Unsigned32):
+    """Custom type hpSwitchDevIdentAssociationProfID based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_HpSwitchDevIdentAssociationProfID_Type.__name__ = "Unsigned32"
+_HpSwitchDevIdentAssociationProfID_Object = MibTableColumn
+hpSwitchDevIdentAssociationProfID = _HpSwitchDevIdentAssociationProfID_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 6, 1, 5),
+    _HpSwitchDevIdentAssociationProfID_Type()
+)
+hpSwitchDevIdentAssociationProfID.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpSwitchDevIdentAssociationProfID.setStatus("current")
+
+
+class _HpSwitchDevIdentAssociationStatus_Type(Integer32):
+    """Custom type hpSwitchDevIdentAssociationStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 2),
+          ("enable", 1))
+    )
+
+
+_HpSwitchDevIdentAssociationStatus_Type.__name__ = "Integer32"
+_HpSwitchDevIdentAssociationStatus_Object = MibTableColumn
+hpSwitchDevIdentAssociationStatus = _HpSwitchDevIdentAssociationStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 6, 1, 6),
+    _HpSwitchDevIdentAssociationStatus_Type()
+)
+hpSwitchDevIdentAssociationStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpSwitchDevIdentAssociationStatus.setStatus("current")
+
+
+class _HpSwitchDevIdentAssociationDeviceType_Type(Unsigned32):
+    """Custom type hpSwitchDevIdentAssociationDeviceType based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_HpSwitchDevIdentAssociationDeviceType_Type.__name__ = "Unsigned32"
+_HpSwitchDevIdentAssociationDeviceType_Object = MibTableColumn
+hpSwitchDevIdentAssociationDeviceType = _HpSwitchDevIdentAssociationDeviceType_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 4, 6, 1, 7),
+    _HpSwitchDevIdentAssociationDeviceType_Type()
+)
+hpSwitchDevIdentAssociationDeviceType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchDevIdentAssociationDeviceType.setStatus("current")
+
+# Managed Objects groups
+
+hpSwitchDevProfileGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 3, 2, 1)
+)
+hpSwitchDevProfileGroup.setObjects(
+      *(("HP-ICF-DEV-CONF-MIB", "hpSwitchProfName"),
+        ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfRowStatus"),
+        ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfUntaggedVlanID"),
+        ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfTaggedVlanList"),
+        ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfIngressBandwidth"),
+        ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfEgressBandwidth"),
+        ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfCosPriority"),
+        ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfPortSpeed"),
+        ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfPoeMaxPower"),
+        ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfPoePriority"))
+)
+if mibBuilder.loadTexts:
+    hpSwitchDevProfileGroup.setStatus("deprecated")
+
+hpSwitchDevAssociationGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 3, 2, 2)
+)
+hpSwitchDevAssociationGroup.setObjects(
+      *(("HP-ICF-DEV-CONF-MIB", "hpSwitchDevAssociationProfName"),
+        ("HP-ICF-DEV-CONF-MIB", "hpSwitchDevAssociationProfID"),
+        ("HP-ICF-DEV-CONF-MIB", "hpSwitchDevAssociationStatus"))
+)
+if mibBuilder.loadTexts:
+    hpSwitchDevAssociationGroup.setStatus("deprecated")
+
+hpSwitchRogueDevGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 3, 2, 3)
+)
+hpSwitchRogueDevGroup.setObjects(
+      *(("HP-ICF-DEV-CONF-MIB", "hpSwitchRogueDevStatus"),
+        ("HP-ICF-DEV-CONF-MIB", "hpSwitchRogueDevAction"),
+        ("HP-ICF-DEV-CONF-MIB", "hpSwitchNeighborDevMacAddress"))
+)
+if mibBuilder.loadTexts:
+    hpSwitchRogueDevGroup.setStatus("current")
+
+hpSwitchWhitelistGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 3, 2, 4)
+)
+hpSwitchWhitelistGroup.setObjects(
+    ("HP-ICF-DEV-CONF-MIB", "hpSwitchWhitelistRowStatus")
+)
+if mibBuilder.loadTexts:
+    hpSwitchWhitelistGroup.setStatus("current")
+
+hpSwitchDevPortGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 3, 2, 5)
+)
+hpSwitchDevPortGroup.setObjects(
+      *(("HP-ICF-DEV-CONF-MIB", "hpSwitchDevPortType"),
+        ("HP-ICF-DEV-CONF-MIB", "hpSwitchDevPortProfName"))
+)
+if mibBuilder.loadTexts:
+    hpSwitchDevPortGroup.setStatus("deprecated")
+
+hpSwitchDevProfileGroupNew = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 3, 2, 6)
+)
+hpSwitchDevProfileGroupNew.setObjects(
+      *(("HP-ICF-DEV-CONF-MIB", "hpSwitchProfName"),
+        ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfRowStatus"),
+        ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfUntaggedVlanID"),
+        ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfTaggedVlanList"),
+        ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfIngressBandwidth"),
+        ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfEgressBandwidth"),
+        ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfCosPriority"),
+        ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfPortSpeed"),
+        ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfPoeMaxPower"),
+        ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfPoePriority"),
+        ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfJumboFrameSupport"),
+        ("HP-ICF-DEV-CONF-MIB", "hpSwitchProfTunneledNodeSupport"))
+)
+if mibBuilder.loadTexts:
+    hpSwitchDevProfileGroupNew.setStatus("current")
+
+hpSwitchDevIdentAssociationGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 3, 2, 7)
+)
+hpSwitchDevIdentAssociationGroup.setObjects(
+      *(("HP-ICF-DEV-CONF-MIB", "hpSwitchDevIdentAssociationRowStatus"),
+        ("HP-ICF-DEV-CONF-MIB", "hpSwitchDevIdentAssociationProfName"),
+        ("HP-ICF-DEV-CONF-MIB", "hpSwitchDevIdentAssociationProfID"),
+        ("HP-ICF-DEV-CONF-MIB", "hpSwitchDevIdentAssociationStatus"),
+        ("HP-ICF-DEV-CONF-MIB", "hpSwitchDevIdentAssociationDeviceType"))
+)
+if mibBuilder.loadTexts:
+    hpSwitchDevIdentAssociationGroup.setStatus("current")
+
+hpSwitchDevPortGroupNew = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 3, 2, 8)
+)
+hpSwitchDevPortGroupNew.setObjects(
+      *(("HP-ICF-DEV-CONF-MIB", "hpSwitchDevPortType"),
+        ("HP-ICF-DEV-CONF-MIB", "hpSwitchDevPortProfName"),
+        ("HP-ICF-DEV-CONF-MIB", "hpSwitchDevPortDeviceName"))
+)
+if mibBuilder.loadTexts:
+    hpSwitchDevPortGroupNew.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+hpSwitchDevCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 3, 1, 1)
+)
+if mibBuilder.loadTexts:
+    hpSwitchDevCompliance.setStatus(
+        "deprecated"
+    )
+
+hpSwitchDevCompliance1 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 3, 1, 2)
+)
+if mibBuilder.loadTexts:
+    hpSwitchDevCompliance1.setStatus(
+        "deprecated"
+    )
+
+hpSwitchDevCompliance2 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 126, 3, 1, 3)
+)
+if mibBuilder.loadTexts:
+    hpSwitchDevCompliance2.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HP-ICF-DEV-CONF-MIB",
+    **{"HpPartnerDeviceType": HpPartnerDeviceType,
+       "HpPartnerDeviceTypeList": HpPartnerDeviceTypeList,
+       "hpicfDevConf": hpicfDevConf,
+       "hpSwitchDevNotifications": hpSwitchDevNotifications,
+       "hpSwitchDevScalar": hpSwitchDevScalar,
+       "hpSwitchDevGlobals": hpSwitchDevGlobals,
+       "hpSwitchDevConformance": hpSwitchDevConformance,
+       "hpSwitchDevCompliances": hpSwitchDevCompliances,
+       "hpSwitchDevCompliance": hpSwitchDevCompliance,
+       "hpSwitchDevCompliance1": hpSwitchDevCompliance1,
+       "hpSwitchDevCompliance2": hpSwitchDevCompliance2,
+       "hpSwitchDevConfigGroups": hpSwitchDevConfigGroups,
+       "hpSwitchDevProfileGroup": hpSwitchDevProfileGroup,
+       "hpSwitchDevAssociationGroup": hpSwitchDevAssociationGroup,
+       "hpSwitchRogueDevGroup": hpSwitchRogueDevGroup,
+       "hpSwitchWhitelistGroup": hpSwitchWhitelistGroup,
+       "hpSwitchDevPortGroup": hpSwitchDevPortGroup,
+       "hpSwitchDevProfileGroupNew": hpSwitchDevProfileGroupNew,
+       "hpSwitchDevIdentAssociationGroup": hpSwitchDevIdentAssociationGroup,
+       "hpSwitchDevPortGroupNew": hpSwitchDevPortGroupNew,
+       "hpSwitchDevConfig": hpSwitchDevConfig,
+       "hpSwitchDevProfTable": hpSwitchDevProfTable,
+       "hpSwitchDevProfEntry": hpSwitchDevProfEntry,
+       "hpSwitchProfIndex": hpSwitchProfIndex,
+       "hpSwitchProfRowStatus": hpSwitchProfRowStatus,
+       "hpSwitchProfName": hpSwitchProfName,
+       "hpSwitchProfUntaggedVlanID": hpSwitchProfUntaggedVlanID,
+       "hpSwitchProfTaggedVlanList": hpSwitchProfTaggedVlanList,
+       "hpSwitchProfIngressBandwidth": hpSwitchProfIngressBandwidth,
+       "hpSwitchProfEgressBandwidth": hpSwitchProfEgressBandwidth,
+       "hpSwitchProfCosPriority": hpSwitchProfCosPriority,
+       "hpSwitchProfPortSpeed": hpSwitchProfPortSpeed,
+       "hpSwitchProfPoeMaxPower": hpSwitchProfPoeMaxPower,
+       "hpSwitchProfPoePriority": hpSwitchProfPoePriority,
+       "hpSwitchProfJumboFrameSupport": hpSwitchProfJumboFrameSupport,
+       "hpSwitchProfTunneledNodeSupport": hpSwitchProfTunneledNodeSupport,
+       "hpSwitchDevAssociationTable": hpSwitchDevAssociationTable,
+       "hpSwitchDevAssociationEntry": hpSwitchDevAssociationEntry,
+       "hpSwitchDevAssociationType": hpSwitchDevAssociationType,
+       "hpSwitchDevAssociationProfName": hpSwitchDevAssociationProfName,
+       "hpSwitchDevAssociationProfID": hpSwitchDevAssociationProfID,
+       "hpSwitchDevAssociationStatus": hpSwitchDevAssociationStatus,
+       "hpSwitchRogueDevice": hpSwitchRogueDevice,
+       "hpSwitchRogueDevStatus": hpSwitchRogueDevStatus,
+       "hpSwitchRogueDevAction": hpSwitchRogueDevAction,
+       "hpSwitchRogueDevMacTable": hpSwitchRogueDevMacTable,
+       "hpSwitchRogueDevMacEntry": hpSwitchRogueDevMacEntry,
+       "hpSwitchRogueDevMacAddress": hpSwitchRogueDevMacAddress,
+       "hpSwitchNeighborDevMacAddress": hpSwitchNeighborDevMacAddress,
+       "hpSwitchWhitelistMacTable": hpSwitchWhitelistMacTable,
+       "hpSwitchWhitelistMacEntry": hpSwitchWhitelistMacEntry,
+       "hpSwitchWhitelistMacAddress": hpSwitchWhitelistMacAddress,
+       "hpSwitchWhitelistRowStatus": hpSwitchWhitelistRowStatus,
+       "hpSwitchDevPortTable": hpSwitchDevPortTable,
+       "hpSwitchDevPortEntry": hpSwitchDevPortEntry,
+       "hpSwitchDevPortIndex": hpSwitchDevPortIndex,
+       "hpSwitchDevPortType": hpSwitchDevPortType,
+       "hpSwitchDevPortProfName": hpSwitchDevPortProfName,
+       "hpSwitchDevPortDeviceName": hpSwitchDevPortDeviceName,
+       "hpSwitchDevIdentAssociationTable": hpSwitchDevIdentAssociationTable,
+       "hpSwitchDevIdentAssociationEntry": hpSwitchDevIdentAssociationEntry,
+       "hpSwitchDevIdentAssociationType": hpSwitchDevIdentAssociationType,
+       "hpSwitchDevIdentAssociationSubType": hpSwitchDevIdentAssociationSubType,
+       "hpSwitchDevIdentAssociationRowStatus": hpSwitchDevIdentAssociationRowStatus,
+       "hpSwitchDevIdentAssociationProfName": hpSwitchDevIdentAssociationProfName,
+       "hpSwitchDevIdentAssociationProfID": hpSwitchDevIdentAssociationProfID,
+       "hpSwitchDevIdentAssociationStatus": hpSwitchDevIdentAssociationStatus,
+       "hpSwitchDevIdentAssociationDeviceType": hpSwitchDevIdentAssociationDeviceType}
+)

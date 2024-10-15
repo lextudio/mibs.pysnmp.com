@@ -1,109 +1,840 @@
+# SNMP MIB module (Nortel-MsCarrier-MscPassport-SourceRouteEndStationMIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module Nortel-MsCarrier-MscPassport-SourceRouteEndStationMIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/Nortel-MsCarrier-MscPassport-SourceRouteEndStationMIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:21:56 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection")
-Counter32, Gauge32, RowStatus, StorageType, Unsigned32, DisplayString = mibBuilder.importSymbols("Nortel-MsCarrier-MscPassport-StandardTextualConventionsMIB", "Counter32", "Gauge32", "RowStatus", "StorageType", "Unsigned32", "DisplayString")
-AsciiStringIndex, AsciiString, HexString, NonReplicated, DashedHexString = mibBuilder.importSymbols("Nortel-MsCarrier-MscPassport-TextualConventionsMIB", "AsciiStringIndex", "AsciiString", "HexString", "NonReplicated", "DashedHexString")
-mscPassportMIBs, = mibBuilder.importSymbols("Nortel-MsCarrier-MscPassport-UsefulDefinitionsMIB", "mscPassportMIBs")
-mscVr, mscVrIndex = mibBuilder.importSymbols("Nortel-MsCarrier-MscPassport-VirtualRouterMIB", "mscVr", "mscVrIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-TimeTicks, Counter32, Gauge32, ObjectIdentity, Integer32, iso, ModuleIdentity, IpAddress, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Unsigned32, MibIdentifier, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Counter32", "Gauge32", "ObjectIdentity", "Integer32", "iso", "ModuleIdentity", "IpAddress", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Unsigned32", "MibIdentifier", "NotificationType")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-sourceRouteEndStationMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 54))
-mscVrSres = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13))
-mscVrSresRowStatusTable = MibTable((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 1), )
-if mibBuilder.loadTexts: mscVrSresRowStatusTable.setStatus('mandatory')
-mscVrSresRowStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 1, 1), ).setIndexNames((0, "Nortel-MsCarrier-MscPassport-VirtualRouterMIB", "mscVrIndex"), (0, "Nortel-MsCarrier-MscPassport-SourceRouteEndStationMIB", "mscVrSresIndex"))
-if mibBuilder.loadTexts: mscVrSresRowStatusEntry.setStatus('mandatory')
-mscVrSresRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 1, 1, 1), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mscVrSresRowStatus.setStatus('mandatory')
-mscVrSresComponentName = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscVrSresComponentName.setStatus('mandatory')
-mscVrSresStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 1, 1, 4), StorageType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscVrSresStorageType.setStatus('mandatory')
-mscVrSresIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 1, 1, 10), NonReplicated())
-if mibBuilder.loadTexts: mscVrSresIndex.setStatus('mandatory')
-mscVrSresAdminControlTable = MibTable((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 10), )
-if mibBuilder.loadTexts: mscVrSresAdminControlTable.setStatus('mandatory')
-mscVrSresAdminControlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 10, 1), ).setIndexNames((0, "Nortel-MsCarrier-MscPassport-VirtualRouterMIB", "mscVrIndex"), (0, "Nortel-MsCarrier-MscPassport-SourceRouteEndStationMIB", "mscVrSresIndex"))
-if mibBuilder.loadTexts: mscVrSresAdminControlEntry.setStatus('mandatory')
-mscVrSresSnmpAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 10, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("up", 1), ("down", 2), ("testing", 3))).clone('up')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscVrSresSnmpAdminStatus.setStatus('mandatory')
-mscVrSresProvTable = MibTable((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 11), )
-if mibBuilder.loadTexts: mscVrSresProvTable.setStatus('mandatory')
-mscVrSresProvEntry = MibTableRow((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 11, 1), ).setIndexNames((0, "Nortel-MsCarrier-MscPassport-VirtualRouterMIB", "mscVrIndex"), (0, "Nortel-MsCarrier-MscPassport-SourceRouteEndStationMIB", "mscVrSresIndex"))
-if mibBuilder.loadTexts: mscVrSresProvEntry.setStatus('mandatory')
-mscVrSresRouteTableNumEntries = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 11, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)).clone(5000)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mscVrSresRouteTableNumEntries.setStatus('mandatory')
-mscVrSresAgingTime = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 11, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(200, 1000000)).clone(900)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mscVrSresAgingTime.setStatus('mandatory')
-mscVrSresRouteDescriptorLength = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 11, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(8, 14)).clone(14)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscVrSresRouteDescriptorLength.setStatus('mandatory')
-mscVrSresOperStatusTable = MibTable((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 12), )
-if mibBuilder.loadTexts: mscVrSresOperStatusTable.setStatus('mandatory')
-mscVrSresOperStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 12, 1), ).setIndexNames((0, "Nortel-MsCarrier-MscPassport-VirtualRouterMIB", "mscVrIndex"), (0, "Nortel-MsCarrier-MscPassport-SourceRouteEndStationMIB", "mscVrSresIndex"))
-if mibBuilder.loadTexts: mscVrSresOperStatusEntry.setStatus('mandatory')
-mscVrSresSnmpOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 12, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("up", 1), ("down", 2), ("testing", 3))).clone('up')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscVrSresSnmpOperStatus.setStatus('mandatory')
-mscVrSresStateTable = MibTable((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 13), )
-if mibBuilder.loadTexts: mscVrSresStateTable.setStatus('mandatory')
-mscVrSresStateEntry = MibTableRow((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 13, 1), ).setIndexNames((0, "Nortel-MsCarrier-MscPassport-VirtualRouterMIB", "mscVrIndex"), (0, "Nortel-MsCarrier-MscPassport-SourceRouteEndStationMIB", "mscVrSresIndex"))
-if mibBuilder.loadTexts: mscVrSresStateEntry.setStatus('mandatory')
-mscVrSresAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 13, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("locked", 0), ("unlocked", 1), ("shuttingDown", 2))).clone('unlocked')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscVrSresAdminState.setStatus('mandatory')
-mscVrSresOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 13, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1))).clone('disabled')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscVrSresOperationalState.setStatus('mandatory')
-mscVrSresUsageState = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 13, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("idle", 0), ("active", 1), ("busy", 2))).clone('idle')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscVrSresUsageState.setStatus('mandatory')
-mscVrSresOperTable = MibTable((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 14), )
-if mibBuilder.loadTexts: mscVrSresOperTable.setStatus('mandatory')
-mscVrSresOperEntry = MibTableRow((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 14, 1), ).setIndexNames((0, "Nortel-MsCarrier-MscPassport-VirtualRouterMIB", "mscVrIndex"), (0, "Nortel-MsCarrier-MscPassport-SourceRouteEndStationMIB", "mscVrSresIndex"))
-if mibBuilder.loadTexts: mscVrSresOperEntry.setStatus('mandatory')
-mscVrSresRtEntriesUsed = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 14, 1, 1), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscVrSresRtEntriesUsed.setStatus('mandatory')
-mscVrSresRtEntriesFree = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 14, 1, 2), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscVrSresRtEntriesFree.setStatus('mandatory')
-mscVrSresRtEntriesDenied = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 14, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscVrSresRtEntriesDenied.setStatus('mandatory')
-mscVrSresRe = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 2))
-mscVrSresReRowStatusTable = MibTable((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 2, 1), )
-if mibBuilder.loadTexts: mscVrSresReRowStatusTable.setStatus('mandatory')
-mscVrSresReRowStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 2, 1, 1), ).setIndexNames((0, "Nortel-MsCarrier-MscPassport-VirtualRouterMIB", "mscVrIndex"), (0, "Nortel-MsCarrier-MscPassport-SourceRouteEndStationMIB", "mscVrSresIndex"), (0, "Nortel-MsCarrier-MscPassport-SourceRouteEndStationMIB", "mscVrSresReDestMacAddressIndex"), (0, "Nortel-MsCarrier-MscPassport-SourceRouteEndStationMIB", "mscVrSresReProtocolPortNameIndex"))
-if mibBuilder.loadTexts: mscVrSresReRowStatusEntry.setStatus('mandatory')
-mscVrSresReRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 2, 1, 1, 1), RowStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscVrSresReRowStatus.setStatus('mandatory')
-mscVrSresReComponentName = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 2, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscVrSresReComponentName.setStatus('mandatory')
-mscVrSresReStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 2, 1, 1, 4), StorageType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscVrSresReStorageType.setStatus('mandatory')
-mscVrSresReDestMacAddressIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 2, 1, 1, 10), DashedHexString().subtype(subtypeSpec=ValueSizeConstraint(6, 6)).setFixedLength(6))
-if mibBuilder.loadTexts: mscVrSresReDestMacAddressIndex.setStatus('mandatory')
-mscVrSresReProtocolPortNameIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 2, 1, 1, 11), AsciiStringIndex().subtype(subtypeSpec=ValueSizeConstraint(1, 20)))
-if mibBuilder.loadTexts: mscVrSresReProtocolPortNameIndex.setStatus('mandatory')
-mscVrSresReOperTable = MibTable((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 2, 10), )
-if mibBuilder.loadTexts: mscVrSresReOperTable.setStatus('mandatory')
-mscVrSresReOperEntry = MibTableRow((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 2, 10, 1), ).setIndexNames((0, "Nortel-MsCarrier-MscPassport-VirtualRouterMIB", "mscVrIndex"), (0, "Nortel-MsCarrier-MscPassport-SourceRouteEndStationMIB", "mscVrSresIndex"), (0, "Nortel-MsCarrier-MscPassport-SourceRouteEndStationMIB", "mscVrSresReDestMacAddressIndex"), (0, "Nortel-MsCarrier-MscPassport-SourceRouteEndStationMIB", "mscVrSresReProtocolPortNameIndex"))
-if mibBuilder.loadTexts: mscVrSresReOperEntry.setStatus('mandatory')
-mscVrSresReRouteControl = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 2, 10, 1, 1), HexString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscVrSresReRouteControl.setStatus('mandatory')
-mscVrSresReRifLength = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 2, 10, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(2, 30))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscVrSresReRifLength.setStatus('mandatory')
-mscVrSresReRdDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 2, 10, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("leftToRight", 0), ("rightToLeft", 1), ("noRif", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscVrSresReRdDirection.setStatus('mandatory')
-mscVrSresReRouteDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 2, 10, 1, 4), AsciiString().subtype(subtypeSpec=ValueSizeConstraint(0, 90))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mscVrSresReRouteDescr.setStatus('mandatory')
-sourceRouteEndStationGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 54, 1))
-sourceRouteEndStationGroupCA = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 54, 1, 1))
-sourceRouteEndStationGroupCA02 = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 54, 1, 1, 3))
-sourceRouteEndStationGroupCA02A = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 54, 1, 1, 3, 2))
-sourceRouteEndStationCapabilities = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 54, 3))
-sourceRouteEndStationCapabilitiesCA = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 54, 3, 1))
-sourceRouteEndStationCapabilitiesCA02 = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 54, 3, 1, 3))
-sourceRouteEndStationCapabilitiesCA02A = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 54, 3, 1, 3, 2))
-mibBuilder.exportSymbols("Nortel-MsCarrier-MscPassport-SourceRouteEndStationMIB", sourceRouteEndStationCapabilitiesCA02A=sourceRouteEndStationCapabilitiesCA02A, mscVrSresStateTable=mscVrSresStateTable, mscVrSresSnmpOperStatus=mscVrSresSnmpOperStatus, mscVrSresReOperEntry=mscVrSresReOperEntry, mscVrSresProvEntry=mscVrSresProvEntry, mscVrSres=mscVrSres, mscVrSresAdminControlTable=mscVrSresAdminControlTable, mscVrSresReRowStatusEntry=mscVrSresReRowStatusEntry, sourceRouteEndStationCapabilities=sourceRouteEndStationCapabilities, mscVrSresReProtocolPortNameIndex=mscVrSresReProtocolPortNameIndex, mscVrSresOperationalState=mscVrSresOperationalState, mscVrSresReRifLength=mscVrSresReRifLength, mscVrSresUsageState=mscVrSresUsageState, mscVrSresProvTable=mscVrSresProvTable, mscVrSresRowStatusTable=mscVrSresRowStatusTable, sourceRouteEndStationGroupCA02=sourceRouteEndStationGroupCA02, mscVrSresComponentName=mscVrSresComponentName, mscVrSresRe=mscVrSresRe, mscVrSresRowStatusEntry=mscVrSresRowStatusEntry, mscVrSresRowStatus=mscVrSresRowStatus, mscVrSresReRdDirection=mscVrSresReRdDirection, mscVrSresStateEntry=mscVrSresStateEntry, mscVrSresOperEntry=mscVrSresOperEntry, mscVrSresRouteTableNumEntries=mscVrSresRouteTableNumEntries, mscVrSresRtEntriesFree=mscVrSresRtEntriesFree, mscVrSresIndex=mscVrSresIndex, mscVrSresReRowStatus=mscVrSresReRowStatus, mscVrSresReOperTable=mscVrSresReOperTable, mscVrSresOperStatusEntry=mscVrSresOperStatusEntry, mscVrSresAgingTime=mscVrSresAgingTime, mscVrSresReRouteDescr=mscVrSresReRouteDescr, mscVrSresReDestMacAddressIndex=mscVrSresReDestMacAddressIndex, mscVrSresRtEntriesDenied=mscVrSresRtEntriesDenied, mscVrSresStorageType=mscVrSresStorageType, mscVrSresReStorageType=mscVrSresReStorageType, sourceRouteEndStationMIB=sourceRouteEndStationMIB, mscVrSresSnmpAdminStatus=mscVrSresSnmpAdminStatus, mscVrSresRouteDescriptorLength=mscVrSresRouteDescriptorLength, sourceRouteEndStationGroupCA=sourceRouteEndStationGroupCA, mscVrSresOperStatusTable=mscVrSresOperStatusTable, sourceRouteEndStationCapabilitiesCA02=sourceRouteEndStationCapabilitiesCA02, mscVrSresRtEntriesUsed=mscVrSresRtEntriesUsed, sourceRouteEndStationGroupCA02A=sourceRouteEndStationGroupCA02A, mscVrSresReRowStatusTable=mscVrSresReRowStatusTable, mscVrSresReRouteControl=mscVrSresReRouteControl, mscVrSresAdminControlEntry=mscVrSresAdminControlEntry, mscVrSresReComponentName=mscVrSresReComponentName, sourceRouteEndStationGroup=sourceRouteEndStationGroup, sourceRouteEndStationCapabilitiesCA=sourceRouteEndStationCapabilitiesCA, mscVrSresOperTable=mscVrSresOperTable, mscVrSresAdminState=mscVrSresAdminState)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/Nortel-MsCarrier-MscPassport-SourceRouteEndStationMIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:33:04 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(Counter32,
+ DisplayString,
+ Gauge32,
+ RowStatus,
+ StorageType,
+ Unsigned32) = mibBuilder.importSymbols(
+    "Nortel-MsCarrier-MscPassport-StandardTextualConventionsMIB",
+    "Counter32",
+    "DisplayString",
+    "Gauge32",
+    "RowStatus",
+    "StorageType",
+    "Unsigned32")
+
+(AsciiString,
+ AsciiStringIndex,
+ DashedHexString,
+ HexString,
+ NonReplicated) = mibBuilder.importSymbols(
+    "Nortel-MsCarrier-MscPassport-TextualConventionsMIB",
+    "AsciiString",
+    "AsciiStringIndex",
+    "DashedHexString",
+    "HexString",
+    "NonReplicated")
+
+(mscPassportMIBs,) = mibBuilder.importSymbols(
+    "Nortel-MsCarrier-MscPassport-UsefulDefinitionsMIB",
+    "mscPassportMIBs")
+
+(mscVr,
+ mscVrIndex) = mibBuilder.importSymbols(
+    "Nortel-MsCarrier-MscPassport-VirtualRouterMIB",
+    "mscVr",
+    "mscVrIndex")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_MscVrSres_ObjectIdentity = ObjectIdentity
+mscVrSres = _MscVrSres_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13)
+)
+_MscVrSresRowStatusTable_Object = MibTable
+mscVrSresRowStatusTable = _MscVrSresRowStatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 1)
+)
+if mibBuilder.loadTexts:
+    mscVrSresRowStatusTable.setStatus("mandatory")
+_MscVrSresRowStatusEntry_Object = MibTableRow
+mscVrSresRowStatusEntry = _MscVrSresRowStatusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 1, 1)
+)
+mscVrSresRowStatusEntry.setIndexNames(
+    (0, "Nortel-MsCarrier-MscPassport-VirtualRouterMIB", "mscVrIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-SourceRouteEndStationMIB", "mscVrSresIndex"),
+)
+if mibBuilder.loadTexts:
+    mscVrSresRowStatusEntry.setStatus("mandatory")
+_MscVrSresRowStatus_Type = RowStatus
+_MscVrSresRowStatus_Object = MibTableColumn
+mscVrSresRowStatus = _MscVrSresRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 1, 1, 1),
+    _MscVrSresRowStatus_Type()
+)
+mscVrSresRowStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mscVrSresRowStatus.setStatus("mandatory")
+_MscVrSresComponentName_Type = DisplayString
+_MscVrSresComponentName_Object = MibTableColumn
+mscVrSresComponentName = _MscVrSresComponentName_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 1, 1, 2),
+    _MscVrSresComponentName_Type()
+)
+mscVrSresComponentName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscVrSresComponentName.setStatus("mandatory")
+_MscVrSresStorageType_Type = StorageType
+_MscVrSresStorageType_Object = MibTableColumn
+mscVrSresStorageType = _MscVrSresStorageType_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 1, 1, 4),
+    _MscVrSresStorageType_Type()
+)
+mscVrSresStorageType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscVrSresStorageType.setStatus("mandatory")
+_MscVrSresIndex_Type = NonReplicated
+_MscVrSresIndex_Object = MibTableColumn
+mscVrSresIndex = _MscVrSresIndex_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 1, 1, 10),
+    _MscVrSresIndex_Type()
+)
+mscVrSresIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    mscVrSresIndex.setStatus("mandatory")
+_MscVrSresRe_ObjectIdentity = ObjectIdentity
+mscVrSresRe = _MscVrSresRe_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 2)
+)
+_MscVrSresReRowStatusTable_Object = MibTable
+mscVrSresReRowStatusTable = _MscVrSresReRowStatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 2, 1)
+)
+if mibBuilder.loadTexts:
+    mscVrSresReRowStatusTable.setStatus("mandatory")
+_MscVrSresReRowStatusEntry_Object = MibTableRow
+mscVrSresReRowStatusEntry = _MscVrSresReRowStatusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 2, 1, 1)
+)
+mscVrSresReRowStatusEntry.setIndexNames(
+    (0, "Nortel-MsCarrier-MscPassport-VirtualRouterMIB", "mscVrIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-SourceRouteEndStationMIB", "mscVrSresIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-SourceRouteEndStationMIB", "mscVrSresReDestMacAddressIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-SourceRouteEndStationMIB", "mscVrSresReProtocolPortNameIndex"),
+)
+if mibBuilder.loadTexts:
+    mscVrSresReRowStatusEntry.setStatus("mandatory")
+_MscVrSresReRowStatus_Type = RowStatus
+_MscVrSresReRowStatus_Object = MibTableColumn
+mscVrSresReRowStatus = _MscVrSresReRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 2, 1, 1, 1),
+    _MscVrSresReRowStatus_Type()
+)
+mscVrSresReRowStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscVrSresReRowStatus.setStatus("mandatory")
+_MscVrSresReComponentName_Type = DisplayString
+_MscVrSresReComponentName_Object = MibTableColumn
+mscVrSresReComponentName = _MscVrSresReComponentName_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 2, 1, 1, 2),
+    _MscVrSresReComponentName_Type()
+)
+mscVrSresReComponentName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscVrSresReComponentName.setStatus("mandatory")
+_MscVrSresReStorageType_Type = StorageType
+_MscVrSresReStorageType_Object = MibTableColumn
+mscVrSresReStorageType = _MscVrSresReStorageType_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 2, 1, 1, 4),
+    _MscVrSresReStorageType_Type()
+)
+mscVrSresReStorageType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscVrSresReStorageType.setStatus("mandatory")
+
+
+class _MscVrSresReDestMacAddressIndex_Type(DashedHexString):
+    """Custom type mscVrSresReDestMacAddressIndex based on DashedHexString"""
+    subtypeSpec = DashedHexString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(6, 6),
+    )
+
+
+_MscVrSresReDestMacAddressIndex_Type.__name__ = "DashedHexString"
+_MscVrSresReDestMacAddressIndex_Object = MibTableColumn
+mscVrSresReDestMacAddressIndex = _MscVrSresReDestMacAddressIndex_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 2, 1, 1, 10),
+    _MscVrSresReDestMacAddressIndex_Type()
+)
+mscVrSresReDestMacAddressIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    mscVrSresReDestMacAddressIndex.setStatus("mandatory")
+
+
+class _MscVrSresReProtocolPortNameIndex_Type(AsciiStringIndex):
+    """Custom type mscVrSresReProtocolPortNameIndex based on AsciiStringIndex"""
+    subtypeSpec = AsciiStringIndex.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 20),
+    )
+
+
+_MscVrSresReProtocolPortNameIndex_Type.__name__ = "AsciiStringIndex"
+_MscVrSresReProtocolPortNameIndex_Object = MibTableColumn
+mscVrSresReProtocolPortNameIndex = _MscVrSresReProtocolPortNameIndex_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 2, 1, 1, 11),
+    _MscVrSresReProtocolPortNameIndex_Type()
+)
+mscVrSresReProtocolPortNameIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    mscVrSresReProtocolPortNameIndex.setStatus("mandatory")
+_MscVrSresReOperTable_Object = MibTable
+mscVrSresReOperTable = _MscVrSresReOperTable_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 2, 10)
+)
+if mibBuilder.loadTexts:
+    mscVrSresReOperTable.setStatus("mandatory")
+_MscVrSresReOperEntry_Object = MibTableRow
+mscVrSresReOperEntry = _MscVrSresReOperEntry_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 2, 10, 1)
+)
+mscVrSresReOperEntry.setIndexNames(
+    (0, "Nortel-MsCarrier-MscPassport-VirtualRouterMIB", "mscVrIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-SourceRouteEndStationMIB", "mscVrSresIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-SourceRouteEndStationMIB", "mscVrSresReDestMacAddressIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-SourceRouteEndStationMIB", "mscVrSresReProtocolPortNameIndex"),
+)
+if mibBuilder.loadTexts:
+    mscVrSresReOperEntry.setStatus("mandatory")
+
+
+class _MscVrSresReRouteControl_Type(HexString):
+    """Custom type mscVrSresReRouteControl based on HexString"""
+    subtypeSpec = HexString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 2),
+    )
+
+
+_MscVrSresReRouteControl_Type.__name__ = "HexString"
+_MscVrSresReRouteControl_Object = MibTableColumn
+mscVrSresReRouteControl = _MscVrSresReRouteControl_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 2, 10, 1, 1),
+    _MscVrSresReRouteControl_Type()
+)
+mscVrSresReRouteControl.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscVrSresReRouteControl.setStatus("mandatory")
+
+
+class _MscVrSresReRifLength_Type(Unsigned32):
+    """Custom type mscVrSresReRifLength based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(2, 30),
+    )
+
+
+_MscVrSresReRifLength_Type.__name__ = "Unsigned32"
+_MscVrSresReRifLength_Object = MibTableColumn
+mscVrSresReRifLength = _MscVrSresReRifLength_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 2, 10, 1, 2),
+    _MscVrSresReRifLength_Type()
+)
+mscVrSresReRifLength.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscVrSresReRifLength.setStatus("mandatory")
+
+
+class _MscVrSresReRdDirection_Type(Integer32):
+    """Custom type mscVrSresReRdDirection based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("leftToRight", 0),
+          ("noRif", 2),
+          ("rightToLeft", 1))
+    )
+
+
+_MscVrSresReRdDirection_Type.__name__ = "Integer32"
+_MscVrSresReRdDirection_Object = MibTableColumn
+mscVrSresReRdDirection = _MscVrSresReRdDirection_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 2, 10, 1, 3),
+    _MscVrSresReRdDirection_Type()
+)
+mscVrSresReRdDirection.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscVrSresReRdDirection.setStatus("mandatory")
+
+
+class _MscVrSresReRouteDescr_Type(AsciiString):
+    """Custom type mscVrSresReRouteDescr based on AsciiString"""
+    subtypeSpec = AsciiString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 90),
+    )
+
+
+_MscVrSresReRouteDescr_Type.__name__ = "AsciiString"
+_MscVrSresReRouteDescr_Object = MibTableColumn
+mscVrSresReRouteDescr = _MscVrSresReRouteDescr_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 2, 10, 1, 4),
+    _MscVrSresReRouteDescr_Type()
+)
+mscVrSresReRouteDescr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscVrSresReRouteDescr.setStatus("mandatory")
+_MscVrSresAdminControlTable_Object = MibTable
+mscVrSresAdminControlTable = _MscVrSresAdminControlTable_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 10)
+)
+if mibBuilder.loadTexts:
+    mscVrSresAdminControlTable.setStatus("mandatory")
+_MscVrSresAdminControlEntry_Object = MibTableRow
+mscVrSresAdminControlEntry = _MscVrSresAdminControlEntry_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 10, 1)
+)
+mscVrSresAdminControlEntry.setIndexNames(
+    (0, "Nortel-MsCarrier-MscPassport-VirtualRouterMIB", "mscVrIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-SourceRouteEndStationMIB", "mscVrSresIndex"),
+)
+if mibBuilder.loadTexts:
+    mscVrSresAdminControlEntry.setStatus("mandatory")
+
+
+class _MscVrSresSnmpAdminStatus_Type(Integer32):
+    """Custom type mscVrSresSnmpAdminStatus based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 2),
+          ("testing", 3),
+          ("up", 1))
+    )
+
+
+_MscVrSresSnmpAdminStatus_Type.__name__ = "Integer32"
+_MscVrSresSnmpAdminStatus_Object = MibTableColumn
+mscVrSresSnmpAdminStatus = _MscVrSresSnmpAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 10, 1, 1),
+    _MscVrSresSnmpAdminStatus_Type()
+)
+mscVrSresSnmpAdminStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscVrSresSnmpAdminStatus.setStatus("mandatory")
+_MscVrSresProvTable_Object = MibTable
+mscVrSresProvTable = _MscVrSresProvTable_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 11)
+)
+if mibBuilder.loadTexts:
+    mscVrSresProvTable.setStatus("mandatory")
+_MscVrSresProvEntry_Object = MibTableRow
+mscVrSresProvEntry = _MscVrSresProvEntry_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 11, 1)
+)
+mscVrSresProvEntry.setIndexNames(
+    (0, "Nortel-MsCarrier-MscPassport-VirtualRouterMIB", "mscVrIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-SourceRouteEndStationMIB", "mscVrSresIndex"),
+)
+if mibBuilder.loadTexts:
+    mscVrSresProvEntry.setStatus("mandatory")
+
+
+class _MscVrSresRouteTableNumEntries_Type(Unsigned32):
+    """Custom type mscVrSresRouteTableNumEntries based on Unsigned32"""
+    defaultValue = 5000
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_MscVrSresRouteTableNumEntries_Type.__name__ = "Unsigned32"
+_MscVrSresRouteTableNumEntries_Object = MibTableColumn
+mscVrSresRouteTableNumEntries = _MscVrSresRouteTableNumEntries_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 11, 1, 1),
+    _MscVrSresRouteTableNumEntries_Type()
+)
+mscVrSresRouteTableNumEntries.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mscVrSresRouteTableNumEntries.setStatus("mandatory")
+
+
+class _MscVrSresAgingTime_Type(Unsigned32):
+    """Custom type mscVrSresAgingTime based on Unsigned32"""
+    defaultValue = 900
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(200, 1000000),
+    )
+
+
+_MscVrSresAgingTime_Type.__name__ = "Unsigned32"
+_MscVrSresAgingTime_Object = MibTableColumn
+mscVrSresAgingTime = _MscVrSresAgingTime_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 11, 1, 2),
+    _MscVrSresAgingTime_Type()
+)
+mscVrSresAgingTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mscVrSresAgingTime.setStatus("mandatory")
+
+
+class _MscVrSresRouteDescriptorLength_Type(Unsigned32):
+    """Custom type mscVrSresRouteDescriptorLength based on Unsigned32"""
+    defaultValue = 14
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(8, 14),
+    )
+
+
+_MscVrSresRouteDescriptorLength_Type.__name__ = "Unsigned32"
+_MscVrSresRouteDescriptorLength_Object = MibTableColumn
+mscVrSresRouteDescriptorLength = _MscVrSresRouteDescriptorLength_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 11, 1, 3),
+    _MscVrSresRouteDescriptorLength_Type()
+)
+mscVrSresRouteDescriptorLength.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscVrSresRouteDescriptorLength.setStatus("mandatory")
+_MscVrSresOperStatusTable_Object = MibTable
+mscVrSresOperStatusTable = _MscVrSresOperStatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 12)
+)
+if mibBuilder.loadTexts:
+    mscVrSresOperStatusTable.setStatus("mandatory")
+_MscVrSresOperStatusEntry_Object = MibTableRow
+mscVrSresOperStatusEntry = _MscVrSresOperStatusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 12, 1)
+)
+mscVrSresOperStatusEntry.setIndexNames(
+    (0, "Nortel-MsCarrier-MscPassport-VirtualRouterMIB", "mscVrIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-SourceRouteEndStationMIB", "mscVrSresIndex"),
+)
+if mibBuilder.loadTexts:
+    mscVrSresOperStatusEntry.setStatus("mandatory")
+
+
+class _MscVrSresSnmpOperStatus_Type(Integer32):
+    """Custom type mscVrSresSnmpOperStatus based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 2),
+          ("testing", 3),
+          ("up", 1))
+    )
+
+
+_MscVrSresSnmpOperStatus_Type.__name__ = "Integer32"
+_MscVrSresSnmpOperStatus_Object = MibTableColumn
+mscVrSresSnmpOperStatus = _MscVrSresSnmpOperStatus_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 12, 1, 1),
+    _MscVrSresSnmpOperStatus_Type()
+)
+mscVrSresSnmpOperStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscVrSresSnmpOperStatus.setStatus("mandatory")
+_MscVrSresStateTable_Object = MibTable
+mscVrSresStateTable = _MscVrSresStateTable_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 13)
+)
+if mibBuilder.loadTexts:
+    mscVrSresStateTable.setStatus("mandatory")
+_MscVrSresStateEntry_Object = MibTableRow
+mscVrSresStateEntry = _MscVrSresStateEntry_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 13, 1)
+)
+mscVrSresStateEntry.setIndexNames(
+    (0, "Nortel-MsCarrier-MscPassport-VirtualRouterMIB", "mscVrIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-SourceRouteEndStationMIB", "mscVrSresIndex"),
+)
+if mibBuilder.loadTexts:
+    mscVrSresStateEntry.setStatus("mandatory")
+
+
+class _MscVrSresAdminState_Type(Integer32):
+    """Custom type mscVrSresAdminState based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("locked", 0),
+          ("shuttingDown", 2),
+          ("unlocked", 1))
+    )
+
+
+_MscVrSresAdminState_Type.__name__ = "Integer32"
+_MscVrSresAdminState_Object = MibTableColumn
+mscVrSresAdminState = _MscVrSresAdminState_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 13, 1, 1),
+    _MscVrSresAdminState_Type()
+)
+mscVrSresAdminState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscVrSresAdminState.setStatus("mandatory")
+
+
+class _MscVrSresOperationalState_Type(Integer32):
+    """Custom type mscVrSresOperationalState based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 0),
+          ("enabled", 1))
+    )
+
+
+_MscVrSresOperationalState_Type.__name__ = "Integer32"
+_MscVrSresOperationalState_Object = MibTableColumn
+mscVrSresOperationalState = _MscVrSresOperationalState_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 13, 1, 2),
+    _MscVrSresOperationalState_Type()
+)
+mscVrSresOperationalState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscVrSresOperationalState.setStatus("mandatory")
+
+
+class _MscVrSresUsageState_Type(Integer32):
+    """Custom type mscVrSresUsageState based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 1),
+          ("busy", 2),
+          ("idle", 0))
+    )
+
+
+_MscVrSresUsageState_Type.__name__ = "Integer32"
+_MscVrSresUsageState_Object = MibTableColumn
+mscVrSresUsageState = _MscVrSresUsageState_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 13, 1, 3),
+    _MscVrSresUsageState_Type()
+)
+mscVrSresUsageState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscVrSresUsageState.setStatus("mandatory")
+_MscVrSresOperTable_Object = MibTable
+mscVrSresOperTable = _MscVrSresOperTable_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 14)
+)
+if mibBuilder.loadTexts:
+    mscVrSresOperTable.setStatus("mandatory")
+_MscVrSresOperEntry_Object = MibTableRow
+mscVrSresOperEntry = _MscVrSresOperEntry_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 14, 1)
+)
+mscVrSresOperEntry.setIndexNames(
+    (0, "Nortel-MsCarrier-MscPassport-VirtualRouterMIB", "mscVrIndex"),
+    (0, "Nortel-MsCarrier-MscPassport-SourceRouteEndStationMIB", "mscVrSresIndex"),
+)
+if mibBuilder.loadTexts:
+    mscVrSresOperEntry.setStatus("mandatory")
+
+
+class _MscVrSresRtEntriesUsed_Type(Gauge32):
+    """Custom type mscVrSresRtEntriesUsed based on Gauge32"""
+    defaultValue = 0
+
+    subtypeSpec = Gauge32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_MscVrSresRtEntriesUsed_Type.__name__ = "Gauge32"
+_MscVrSresRtEntriesUsed_Object = MibTableColumn
+mscVrSresRtEntriesUsed = _MscVrSresRtEntriesUsed_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 14, 1, 1),
+    _MscVrSresRtEntriesUsed_Type()
+)
+mscVrSresRtEntriesUsed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscVrSresRtEntriesUsed.setStatus("mandatory")
+
+
+class _MscVrSresRtEntriesFree_Type(Gauge32):
+    """Custom type mscVrSresRtEntriesFree based on Gauge32"""
+    defaultValue = 0
+
+    subtypeSpec = Gauge32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_MscVrSresRtEntriesFree_Type.__name__ = "Gauge32"
+_MscVrSresRtEntriesFree_Object = MibTableColumn
+mscVrSresRtEntriesFree = _MscVrSresRtEntriesFree_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 14, 1, 2),
+    _MscVrSresRtEntriesFree_Type()
+)
+mscVrSresRtEntriesFree.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscVrSresRtEntriesFree.setStatus("mandatory")
+_MscVrSresRtEntriesDenied_Type = Counter32
+_MscVrSresRtEntriesDenied_Object = MibTableColumn
+mscVrSresRtEntriesDenied = _MscVrSresRtEntriesDenied_Object(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 1, 100, 13, 14, 1, 3),
+    _MscVrSresRtEntriesDenied_Type()
+)
+mscVrSresRtEntriesDenied.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mscVrSresRtEntriesDenied.setStatus("mandatory")
+_SourceRouteEndStationMIB_ObjectIdentity = ObjectIdentity
+sourceRouteEndStationMIB = _SourceRouteEndStationMIB_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 54)
+)
+_SourceRouteEndStationGroup_ObjectIdentity = ObjectIdentity
+sourceRouteEndStationGroup = _SourceRouteEndStationGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 54, 1)
+)
+_SourceRouteEndStationGroupCA_ObjectIdentity = ObjectIdentity
+sourceRouteEndStationGroupCA = _SourceRouteEndStationGroupCA_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 54, 1, 1)
+)
+_SourceRouteEndStationGroupCA02_ObjectIdentity = ObjectIdentity
+sourceRouteEndStationGroupCA02 = _SourceRouteEndStationGroupCA02_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 54, 1, 1, 3)
+)
+_SourceRouteEndStationGroupCA02A_ObjectIdentity = ObjectIdentity
+sourceRouteEndStationGroupCA02A = _SourceRouteEndStationGroupCA02A_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 54, 1, 1, 3, 2)
+)
+_SourceRouteEndStationCapabilities_ObjectIdentity = ObjectIdentity
+sourceRouteEndStationCapabilities = _SourceRouteEndStationCapabilities_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 54, 3)
+)
+_SourceRouteEndStationCapabilitiesCA_ObjectIdentity = ObjectIdentity
+sourceRouteEndStationCapabilitiesCA = _SourceRouteEndStationCapabilitiesCA_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 54, 3, 1)
+)
+_SourceRouteEndStationCapabilitiesCA02_ObjectIdentity = ObjectIdentity
+sourceRouteEndStationCapabilitiesCA02 = _SourceRouteEndStationCapabilitiesCA02_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 54, 3, 1, 3)
+)
+_SourceRouteEndStationCapabilitiesCA02A_ObjectIdentity = ObjectIdentity
+sourceRouteEndStationCapabilitiesCA02A = _SourceRouteEndStationCapabilitiesCA02A_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 36, 2, 2, 54, 3, 1, 3, 2)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "Nortel-MsCarrier-MscPassport-SourceRouteEndStationMIB",
+    **{"mscVrSres": mscVrSres,
+       "mscVrSresRowStatusTable": mscVrSresRowStatusTable,
+       "mscVrSresRowStatusEntry": mscVrSresRowStatusEntry,
+       "mscVrSresRowStatus": mscVrSresRowStatus,
+       "mscVrSresComponentName": mscVrSresComponentName,
+       "mscVrSresStorageType": mscVrSresStorageType,
+       "mscVrSresIndex": mscVrSresIndex,
+       "mscVrSresRe": mscVrSresRe,
+       "mscVrSresReRowStatusTable": mscVrSresReRowStatusTable,
+       "mscVrSresReRowStatusEntry": mscVrSresReRowStatusEntry,
+       "mscVrSresReRowStatus": mscVrSresReRowStatus,
+       "mscVrSresReComponentName": mscVrSresReComponentName,
+       "mscVrSresReStorageType": mscVrSresReStorageType,
+       "mscVrSresReDestMacAddressIndex": mscVrSresReDestMacAddressIndex,
+       "mscVrSresReProtocolPortNameIndex": mscVrSresReProtocolPortNameIndex,
+       "mscVrSresReOperTable": mscVrSresReOperTable,
+       "mscVrSresReOperEntry": mscVrSresReOperEntry,
+       "mscVrSresReRouteControl": mscVrSresReRouteControl,
+       "mscVrSresReRifLength": mscVrSresReRifLength,
+       "mscVrSresReRdDirection": mscVrSresReRdDirection,
+       "mscVrSresReRouteDescr": mscVrSresReRouteDescr,
+       "mscVrSresAdminControlTable": mscVrSresAdminControlTable,
+       "mscVrSresAdminControlEntry": mscVrSresAdminControlEntry,
+       "mscVrSresSnmpAdminStatus": mscVrSresSnmpAdminStatus,
+       "mscVrSresProvTable": mscVrSresProvTable,
+       "mscVrSresProvEntry": mscVrSresProvEntry,
+       "mscVrSresRouteTableNumEntries": mscVrSresRouteTableNumEntries,
+       "mscVrSresAgingTime": mscVrSresAgingTime,
+       "mscVrSresRouteDescriptorLength": mscVrSresRouteDescriptorLength,
+       "mscVrSresOperStatusTable": mscVrSresOperStatusTable,
+       "mscVrSresOperStatusEntry": mscVrSresOperStatusEntry,
+       "mscVrSresSnmpOperStatus": mscVrSresSnmpOperStatus,
+       "mscVrSresStateTable": mscVrSresStateTable,
+       "mscVrSresStateEntry": mscVrSresStateEntry,
+       "mscVrSresAdminState": mscVrSresAdminState,
+       "mscVrSresOperationalState": mscVrSresOperationalState,
+       "mscVrSresUsageState": mscVrSresUsageState,
+       "mscVrSresOperTable": mscVrSresOperTable,
+       "mscVrSresOperEntry": mscVrSresOperEntry,
+       "mscVrSresRtEntriesUsed": mscVrSresRtEntriesUsed,
+       "mscVrSresRtEntriesFree": mscVrSresRtEntriesFree,
+       "mscVrSresRtEntriesDenied": mscVrSresRtEntriesDenied,
+       "sourceRouteEndStationMIB": sourceRouteEndStationMIB,
+       "sourceRouteEndStationGroup": sourceRouteEndStationGroup,
+       "sourceRouteEndStationGroupCA": sourceRouteEndStationGroupCA,
+       "sourceRouteEndStationGroupCA02": sourceRouteEndStationGroupCA02,
+       "sourceRouteEndStationGroupCA02A": sourceRouteEndStationGroupCA02A,
+       "sourceRouteEndStationCapabilities": sourceRouteEndStationCapabilities,
+       "sourceRouteEndStationCapabilitiesCA": sourceRouteEndStationCapabilitiesCA,
+       "sourceRouteEndStationCapabilitiesCA02": sourceRouteEndStationCapabilitiesCA02,
+       "sourceRouteEndStationCapabilitiesCA02A": sourceRouteEndStationCapabilitiesCA02A}
+)

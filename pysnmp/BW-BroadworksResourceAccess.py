@@ -1,36 +1,219 @@
+# SNMP MIB module (BW-BroadworksResourceAccess) expressed in pysnmp data model.
 #
-# PySNMP MIB module BW-BroadworksResourceAccess (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/BW-BroadworksResourceAccess
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:24:59 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-Unsigned32, TimeTicks, ObjectIdentity, MibIdentifier, IpAddress, enterprises, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, Counter64, Gauge32, ModuleIdentity, iso, Bits, NotificationType, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "TimeTicks", "ObjectIdentity", "MibIdentifier", "IpAddress", "enterprises", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "Counter64", "Gauge32", "ModuleIdentity", "iso", "Bits", "NotificationType", "Counter32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-broadsoft = ModuleIdentity((1, 3, 6, 1, 4, 1, 6431))
-if mibBuilder.loadTexts: broadsoft.setLastUpdated('200803011000Z')
-if mibBuilder.loadTexts: broadsoft.setOrganization('Broadsoft, Inc')
-broadworks = MibIdentifier((1, 3, 6, 1, 4, 1, 6431, 1))
-resourceAccess = MibIdentifier((1, 3, 6, 1, 4, 1, 6431, 1, 13))
-operations = MibIdentifier((1, 3, 6, 1, 4, 1, 6431, 1, 13, 1))
-bwResourceAccessMibConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6431, 1, 13, 1000))
-bwFileGets = MibScalar((1, 3, 6, 1, 4, 1, 6431, 1, 13, 1, 1), Counter32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: bwFileGets.setStatus('current')
-bwFileDeletes = MibScalar((1, 3, 6, 1, 4, 1, 6431, 1, 13, 1, 2), Counter32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: bwFileDeletes.setStatus('current')
-bwFilePuts = MibScalar((1, 3, 6, 1, 4, 1, 6431, 1, 13, 1, 3), Counter32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: bwFilePuts.setStatus('current')
-bwResourceAccessMibGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6431, 1, 13, 1000, 1))
-bwResourceAccessMibCompliancy = MibIdentifier((1, 3, 6, 1, 4, 1, 6431, 1, 13, 1000, 2))
-bwResourceAccessOperationsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6431, 1, 13, 1000, 1, 1)).setObjects(("BW-BroadworksResourceAccess", "bwFileGets"), ("BW-BroadworksResourceAccess", "bwFileDeletes"), ("BW-BroadworksResourceAccess", "bwFilePuts"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    bwResourceAccessOperationsGroup = bwResourceAccessOperationsGroup.setStatus('current')
-bwResourceAccessBasicCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6431, 1, 13, 1000, 2, 1)).setObjects(("BW-BroadworksResourceAccess", "bwResourceAccessOperationsGroup"))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/BW-BroadworksResourceAccess
+# Produced by pysmi-1.5.4 at Mon Oct 14 20:50:04 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    bwResourceAccessBasicCompliance = bwResourceAccessBasicCompliance.setStatus('current')
-mibBuilder.exportSymbols("BW-BroadworksResourceAccess", bwResourceAccessMibCompliancy=bwResourceAccessMibCompliancy, broadworks=broadworks, bwResourceAccessBasicCompliance=bwResourceAccessBasicCompliance, PYSNMP_MODULE_ID=broadsoft, resourceAccess=resourceAccess, bwFileDeletes=bwFileDeletes, operations=operations, bwFilePuts=bwFilePuts, bwResourceAccessMibConformance=bwResourceAccessMibConformance, bwResourceAccessOperationsGroup=bwResourceAccessOperationsGroup, bwResourceAccessMibGroups=bwResourceAccessMibGroups, broadsoft=broadsoft, bwFileGets=bwFileGets)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+broadsoft = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 6431)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Broadworks_ObjectIdentity = ObjectIdentity
+broadworks = _Broadworks_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6431, 1)
+)
+_ResourceAccess_ObjectIdentity = ObjectIdentity
+resourceAccess = _ResourceAccess_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 13)
+)
+_Operations_ObjectIdentity = ObjectIdentity
+operations = _Operations_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 13, 1)
+)
+_BwFileGets_Type = Counter32
+_BwFileGets_Object = MibScalar
+bwFileGets = _BwFileGets_Object(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 13, 1, 1),
+    _BwFileGets_Type()
+)
+bwFileGets.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    bwFileGets.setStatus("current")
+_BwFileDeletes_Type = Counter32
+_BwFileDeletes_Object = MibScalar
+bwFileDeletes = _BwFileDeletes_Object(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 13, 1, 2),
+    _BwFileDeletes_Type()
+)
+bwFileDeletes.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    bwFileDeletes.setStatus("current")
+_BwFilePuts_Type = Counter32
+_BwFilePuts_Object = MibScalar
+bwFilePuts = _BwFilePuts_Object(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 13, 1, 3),
+    _BwFilePuts_Type()
+)
+bwFilePuts.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    bwFilePuts.setStatus("current")
+_BwResourceAccessMibConformance_ObjectIdentity = ObjectIdentity
+bwResourceAccessMibConformance = _BwResourceAccessMibConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 13, 1000)
+)
+_BwResourceAccessMibGroups_ObjectIdentity = ObjectIdentity
+bwResourceAccessMibGroups = _BwResourceAccessMibGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 13, 1000, 1)
+)
+_BwResourceAccessMibCompliancy_ObjectIdentity = ObjectIdentity
+bwResourceAccessMibCompliancy = _BwResourceAccessMibCompliancy_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 13, 1000, 2)
+)
+
+# Managed Objects groups
+
+bwResourceAccessOperationsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 13, 1000, 1, 1)
+)
+bwResourceAccessOperationsGroup.setObjects(
+      *(("BW-BroadworksResourceAccess", "bwFileGets"),
+        ("BW-BroadworksResourceAccess", "bwFileDeletes"),
+        ("BW-BroadworksResourceAccess", "bwFilePuts"))
+)
+if mibBuilder.loadTexts:
+    bwResourceAccessOperationsGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+bwResourceAccessBasicCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 13, 1000, 2, 1)
+)
+if mibBuilder.loadTexts:
+    bwResourceAccessBasicCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "BW-BroadworksResourceAccess",
+    **{"broadsoft": broadsoft,
+       "broadworks": broadworks,
+       "resourceAccess": resourceAccess,
+       "operations": operations,
+       "bwFileGets": bwFileGets,
+       "bwFileDeletes": bwFileDeletes,
+       "bwFilePuts": bwFilePuts,
+       "bwResourceAccessMibConformance": bwResourceAccessMibConformance,
+       "bwResourceAccessMibGroups": bwResourceAccessMibGroups,
+       "bwResourceAccessOperationsGroup": bwResourceAccessOperationsGroup,
+       "bwResourceAccessMibCompliancy": bwResourceAccessMibCompliancy,
+       "bwResourceAccessBasicCompliance": bwResourceAccessBasicCompliance}
+)

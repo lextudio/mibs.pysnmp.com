@@ -1,44 +1,292 @@
+# SNMP MIB module (HUAWEI-MDNS-RELAY-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HUAWEI-MDNS-RELAY-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/HUAWEI-MDNS-RELAY-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:34:49 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
-hwDatacomm, = mibBuilder.importSymbols("HUAWEI-MIB", "hwDatacomm")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-MibIdentifier, Unsigned32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Counter32, NotificationType, iso, Counter64, Bits, Integer32, ObjectIdentity, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Unsigned32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Counter32", "NotificationType", "iso", "Counter64", "Bits", "Integer32", "ObjectIdentity", "TimeTicks", "IpAddress")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-hwMdnsRelayMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 5, 25, 326))
-hwMdnsRelayMIB.setRevisions(('2014-01-06 11:16', '2014-01-06 11:16',))
-if mibBuilder.loadTexts: hwMdnsRelayMIB.setLastUpdated('201401061116Z')
-if mibBuilder.loadTexts: hwMdnsRelayMIB.setOrganization('Huawei Technologies Co.,Ltd.')
-hwMdnsRelayObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 5, 25, 326, 1))
-hwMdnsRelayGatewayIPGlobal = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 326, 1, 1), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwMdnsRelayGatewayIPGlobal.setStatus('current')
-hwMdnsRelaySourceIPGlobal = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 326, 1, 2), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwMdnsRelaySourceIPGlobal.setStatus('current')
-hwMdnsRelayCfgTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 5, 25, 326, 1, 3), )
-if mibBuilder.loadTexts: hwMdnsRelayCfgTable.setStatus('current')
-hwMdnsRelayCfgEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 5, 25, 326, 1, 3, 1), ).setIndexNames((0, "HUAWEI-MDNS-RELAY-MIB", "hwMdnsRelayVlanId"))
-if mibBuilder.loadTexts: hwMdnsRelayCfgEntry.setStatus('current')
-hwMdnsRelayVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 326, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094)))
-if mibBuilder.loadTexts: hwMdnsRelayVlanId.setStatus('current')
-hwMdnsRelayEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 326, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 0))).clone(namedValues=NamedValues(("enable", 1), ("disable", 0)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwMdnsRelayEnable.setStatus('current')
-hwMdnsRelayProbeInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 326, 1, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(60, 38400), ))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwMdnsRelayProbeInterval.setStatus('current')
-hwMdnsRelayMibConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 5, 25, 326, 2))
-hwMdnsRelayMibGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 5, 25, 326, 2, 1))
-hwMdnsRelayMibGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2011, 5, 25, 326, 2, 1, 1)).setObjects(("HUAWEI-MDNS-RELAY-MIB", "hwMdnsRelayGatewayIPGlobal"), ("HUAWEI-MDNS-RELAY-MIB", "hwMdnsRelaySourceIPGlobal"), ("HUAWEI-MDNS-RELAY-MIB", "hwMdnsRelayVlanId"), ("HUAWEI-MDNS-RELAY-MIB", "hwMdnsRelayEnable"), ("HUAWEI-MDNS-RELAY-MIB", "hwMdnsRelayProbeInterval"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hwMdnsRelayMibGroup = hwMdnsRelayMibGroup.setStatus('current')
-hwMdnsRelayMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 5, 25, 326, 2, 2))
-hwMdnsRelayMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 2011, 5, 25, 326, 2, 2, 1)).setObjects(("HUAWEI-MDNS-RELAY-MIB", "hwMdnsRelayMibGroup"))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-MDNS-RELAY-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:04:54 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hwMdnsRelayMIBCompliance = hwMdnsRelayMIBCompliance.setStatus('current')
-mibBuilder.exportSymbols("HUAWEI-MDNS-RELAY-MIB", hwMdnsRelayMibConformance=hwMdnsRelayMibConformance, hwMdnsRelayMIB=hwMdnsRelayMIB, hwMdnsRelayMIBCompliances=hwMdnsRelayMIBCompliances, hwMdnsRelayCfgEntry=hwMdnsRelayCfgEntry, hwMdnsRelayProbeInterval=hwMdnsRelayProbeInterval, hwMdnsRelayMibGroups=hwMdnsRelayMibGroups, hwMdnsRelayGatewayIPGlobal=hwMdnsRelayGatewayIPGlobal, hwMdnsRelayVlanId=hwMdnsRelayVlanId, hwMdnsRelayMibGroup=hwMdnsRelayMibGroup, hwMdnsRelayCfgTable=hwMdnsRelayCfgTable, hwMdnsRelayMIBCompliance=hwMdnsRelayMIBCompliance, hwMdnsRelayEnable=hwMdnsRelayEnable, hwMdnsRelayObjects=hwMdnsRelayObjects, hwMdnsRelaySourceIPGlobal=hwMdnsRelaySourceIPGlobal, PYSNMP_MODULE_ID=hwMdnsRelayMIB)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(hwDatacomm,) = mibBuilder.importSymbols(
+    "HUAWEI-MIB",
+    "hwDatacomm")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+hwMdnsRelayMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 326)
+)
+hwMdnsRelayMIB.setRevisions(
+        ("2014-01-06 11:16",
+         "2014-01-06 11:16")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_HwMdnsRelayObjects_ObjectIdentity = ObjectIdentity
+hwMdnsRelayObjects = _HwMdnsRelayObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 326, 1)
+)
+_HwMdnsRelayGatewayIPGlobal_Type = IpAddress
+_HwMdnsRelayGatewayIPGlobal_Object = MibScalar
+hwMdnsRelayGatewayIPGlobal = _HwMdnsRelayGatewayIPGlobal_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 326, 1, 1),
+    _HwMdnsRelayGatewayIPGlobal_Type()
+)
+hwMdnsRelayGatewayIPGlobal.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwMdnsRelayGatewayIPGlobal.setStatus("current")
+_HwMdnsRelaySourceIPGlobal_Type = IpAddress
+_HwMdnsRelaySourceIPGlobal_Object = MibScalar
+hwMdnsRelaySourceIPGlobal = _HwMdnsRelaySourceIPGlobal_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 326, 1, 2),
+    _HwMdnsRelaySourceIPGlobal_Type()
+)
+hwMdnsRelaySourceIPGlobal.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwMdnsRelaySourceIPGlobal.setStatus("current")
+_HwMdnsRelayCfgTable_Object = MibTable
+hwMdnsRelayCfgTable = _HwMdnsRelayCfgTable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 326, 1, 3)
+)
+if mibBuilder.loadTexts:
+    hwMdnsRelayCfgTable.setStatus("current")
+_HwMdnsRelayCfgEntry_Object = MibTableRow
+hwMdnsRelayCfgEntry = _HwMdnsRelayCfgEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 326, 1, 3, 1)
+)
+hwMdnsRelayCfgEntry.setIndexNames(
+    (0, "HUAWEI-MDNS-RELAY-MIB", "hwMdnsRelayVlanId"),
+)
+if mibBuilder.loadTexts:
+    hwMdnsRelayCfgEntry.setStatus("current")
+
+
+class _HwMdnsRelayVlanId_Type(Integer32):
+    """Custom type hwMdnsRelayVlanId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_HwMdnsRelayVlanId_Type.__name__ = "Integer32"
+_HwMdnsRelayVlanId_Object = MibTableColumn
+hwMdnsRelayVlanId = _HwMdnsRelayVlanId_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 326, 1, 3, 1, 1),
+    _HwMdnsRelayVlanId_Type()
+)
+hwMdnsRelayVlanId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hwMdnsRelayVlanId.setStatus("current")
+
+
+class _HwMdnsRelayEnable_Type(Integer32):
+    """Custom type hwMdnsRelayEnable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_HwMdnsRelayEnable_Type.__name__ = "Integer32"
+_HwMdnsRelayEnable_Object = MibTableColumn
+hwMdnsRelayEnable = _HwMdnsRelayEnable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 326, 1, 3, 1, 2),
+    _HwMdnsRelayEnable_Type()
+)
+hwMdnsRelayEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwMdnsRelayEnable.setStatus("current")
+
+
+class _HwMdnsRelayProbeInterval_Type(Integer32):
+    """Custom type hwMdnsRelayProbeInterval based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(60, 38400),
+    )
+
+
+_HwMdnsRelayProbeInterval_Type.__name__ = "Integer32"
+_HwMdnsRelayProbeInterval_Object = MibTableColumn
+hwMdnsRelayProbeInterval = _HwMdnsRelayProbeInterval_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 326, 1, 3, 1, 3),
+    _HwMdnsRelayProbeInterval_Type()
+)
+hwMdnsRelayProbeInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwMdnsRelayProbeInterval.setStatus("current")
+_HwMdnsRelayMibConformance_ObjectIdentity = ObjectIdentity
+hwMdnsRelayMibConformance = _HwMdnsRelayMibConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 326, 2)
+)
+_HwMdnsRelayMibGroups_ObjectIdentity = ObjectIdentity
+hwMdnsRelayMibGroups = _HwMdnsRelayMibGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 326, 2, 1)
+)
+_HwMdnsRelayMIBCompliances_ObjectIdentity = ObjectIdentity
+hwMdnsRelayMIBCompliances = _HwMdnsRelayMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 326, 2, 2)
+)
+
+# Managed Objects groups
+
+hwMdnsRelayMibGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 326, 2, 1, 1)
+)
+hwMdnsRelayMibGroup.setObjects(
+      *(("HUAWEI-MDNS-RELAY-MIB", "hwMdnsRelayGatewayIPGlobal"),
+        ("HUAWEI-MDNS-RELAY-MIB", "hwMdnsRelaySourceIPGlobal"),
+        ("HUAWEI-MDNS-RELAY-MIB", "hwMdnsRelayVlanId"),
+        ("HUAWEI-MDNS-RELAY-MIB", "hwMdnsRelayEnable"),
+        ("HUAWEI-MDNS-RELAY-MIB", "hwMdnsRelayProbeInterval"))
+)
+if mibBuilder.loadTexts:
+    hwMdnsRelayMibGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+hwMdnsRelayMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 326, 2, 2, 1)
+)
+if mibBuilder.loadTexts:
+    hwMdnsRelayMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HUAWEI-MDNS-RELAY-MIB",
+    **{"hwMdnsRelayMIB": hwMdnsRelayMIB,
+       "hwMdnsRelayObjects": hwMdnsRelayObjects,
+       "hwMdnsRelayGatewayIPGlobal": hwMdnsRelayGatewayIPGlobal,
+       "hwMdnsRelaySourceIPGlobal": hwMdnsRelaySourceIPGlobal,
+       "hwMdnsRelayCfgTable": hwMdnsRelayCfgTable,
+       "hwMdnsRelayCfgEntry": hwMdnsRelayCfgEntry,
+       "hwMdnsRelayVlanId": hwMdnsRelayVlanId,
+       "hwMdnsRelayEnable": hwMdnsRelayEnable,
+       "hwMdnsRelayProbeInterval": hwMdnsRelayProbeInterval,
+       "hwMdnsRelayMibConformance": hwMdnsRelayMibConformance,
+       "hwMdnsRelayMibGroups": hwMdnsRelayMibGroups,
+       "hwMdnsRelayMibGroup": hwMdnsRelayMibGroup,
+       "hwMdnsRelayMIBCompliances": hwMdnsRelayMIBCompliances,
+       "hwMdnsRelayMIBCompliance": hwMdnsRelayMIBCompliance}
+)

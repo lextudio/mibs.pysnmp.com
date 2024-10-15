@@ -1,680 +1,5669 @@
+# SNMP MIB module (MOXA-NP6000-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module MOXA-NP6000-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/MOXA-NP6000-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:03:37 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, iso, ModuleIdentity, ObjectIdentity, Bits, Gauge32, TimeTicks, Unsigned32, Counter64, NotificationType, IpAddress, enterprises, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "iso", "ModuleIdentity", "ObjectIdentity", "Bits", "Gauge32", "TimeTicks", "Unsigned32", "Counter64", "NotificationType", "IpAddress", "enterprises", "Integer32")
-TextualConvention, MacAddress, DisplayString, DateAndTime = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "MacAddress", "DisplayString", "DateAndTime")
-moxa = MibIdentifier((1, 3, 6, 1, 4, 1, 8691))
-nport = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2))
-np6000 = ModuleIdentity((1, 3, 6, 1, 4, 1, 8691, 2, 8))
-if mibBuilder.loadTexts: np6000.setLastUpdated('200607120000Z')
-if mibBuilder.loadTexts: np6000.setOrganization('Moxa Technologies Co.')
-swMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1))
-class PortList(TextualConvention, OctetString):
-    status = 'current'
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/MOXA-NP6000-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:22:42 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-overview = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 1))
-modelName = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 1, 1), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: modelName.setStatus('current')
-serialNumber = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: serialNumber.setStatus('current')
-firmwareVersion = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: firmwareVersion.setStatus('current')
-macAddress = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 1, 4), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: macAddress.setStatus('current')
-viewLanSpeed = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 1, 5), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: viewLanSpeed.setStatus('current')
-viewLanModuleSpeed = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 1, 6), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: viewLanModuleSpeed.setStatus('current')
-upTime = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 1, 7), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: upTime.setStatus('current')
-moduleType = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 1, 8), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: moduleType.setStatus('current')
-basicSetting = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 2))
-serverSetting = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 2, 1))
-serverName = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 2, 1, 1), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: serverName.setStatus('current')
-serverLocation = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 2, 1, 2), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: serverLocation.setStatus('current')
-timeSetting = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 2, 2))
-timeZone = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 2, 2, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: timeZone.setStatus('current')
-localTime = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 2, 2, 2), DateAndTime()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: localTime.setStatus('current')
-timeServer = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 2, 2, 3), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: timeServer.setStatus('current')
-networkSetting = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 3))
-ipConfiguration = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 3, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("static", 0), ("dhcp", 1), ("dhcp-BOOTP", 2), ("bootp", 3), ("pppoe", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ipConfiguration.setStatus('current')
-sysIpAddress = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 3, 2), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: sysIpAddress.setStatus('current')
-netMask = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 3, 3), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: netMask.setStatus('current')
-defaultGateway = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 3, 4), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: defaultGateway.setStatus('current')
-dnsServer1IpAddr = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 3, 5), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dnsServer1IpAddr.setStatus('current')
-dnsServer2IpAddr = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 3, 6), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dnsServer2IpAddr.setStatus('current')
-pppoeUserAccount = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 3, 7), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pppoeUserAccount.setStatus('current')
-pppoePassword = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 3, 8), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pppoePassword.setStatus('current')
-winsFunction = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 3, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: winsFunction.setStatus('current')
-winsServer = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 3, 10), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: winsServer.setStatus('current')
-lan1Speed = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 3, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("auto-Negation", 0), ("tenMbps-Half", 1), ("tenMbps-Full", 2), ("hundredMbps-Half", 3), ("hundredMbps-Full", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lan1Speed.setStatus('current')
-routingProtocol = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 3, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("rip-1", 1), ("rip-2", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: routingProtocol.setStatus('current')
-gratuitousArp = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 3, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: gratuitousArp.setStatus('current')
-gratuitousArpSendPeriod = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 3, 14), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: gratuitousArpSendPeriod.setStatus('current')
-portSetting = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4))
-opModeSetting = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1))
-opMode = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 1))
-opModePortTable = MibTable((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 1, 1), )
-if mibBuilder.loadTexts: opModePortTable.setStatus('current')
-opModePortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 1, 1, 1), ).setIndexNames((0, "MOXA-NP6000-MIB", "portIndex"))
-if mibBuilder.loadTexts: opModePortEntry.setStatus('current')
-portIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 1, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portIndex.setStatus('current')
-portApplication = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 4, 11, 13, 12, 2, 3, 6, 1))).clone(namedValues=NamedValues(("disable", 0), ("device-Control", 4), ("socket", 11), ("pair-Connection", 13), ("ethernet-Modem", 12), ("terminal", 2), ("reverse-Terminal", 3), ("printer", 6), ("dial-InOut", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: portApplication.setStatus('current')
-portMode = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20))).clone(namedValues=NamedValues(("pair-Slave", 0), ("pair-Master", 1), ("aspp", 2), ("raw-PRN", 3), ("slip", 4), ("slipd", 5), ("ppp", 6), ("disable", 7), ("telnetd", 8), ("dynamic", 9), ("tcp-Server", 10), ("lpd-PRN", 11), ("ethernet-Modem", 12), ("tcp-Client", 13), ("udp", 14), ("pppd", 15), ("term-ASC", 16), ("term-BIN", 17), ("reverse-SSH", 18), ("ssh", 19), ("rfc-2217", 20)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: portMode.setStatus('current')
-application = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2))
-deviceControl = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 1))
-deviceControlTable = MibTable((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 1, 1), )
-if mibBuilder.loadTexts: deviceControlTable.setStatus('current')
-deviceControlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 1, 1, 1), ).setIndexNames((0, "MOXA-NP6000-MIB", "portIndex"))
-if mibBuilder.loadTexts: deviceControlEntry.setStatus('current')
-deviceControlTcpAliveCheck = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 1, 1, 1, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: deviceControlTcpAliveCheck.setStatus('current')
-deviceControlMaxConnection = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 1, 1, 1, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: deviceControlMaxConnection.setStatus('current')
-deviceControlIgnoreJammedIp = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("no", 0), ("yes", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: deviceControlIgnoreJammedIp.setStatus('current')
-deviceControlAllowDriverControl = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("no", 0), ("yes", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: deviceControlAllowDriverControl.setStatus('current')
-deviceControlSecure = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("no", 0), ("yes", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: deviceControlSecure.setStatus('current')
-deviceControlTcpPort = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 1, 1, 1, 6), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: deviceControlTcpPort.setStatus('current')
-deviceControlConnectionDownRTS = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 0))).clone(namedValues=NamedValues(("goes-low", 1), ("always-high", 0)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: deviceControlConnectionDownRTS.setStatus('current')
-deviceControlConnectionDownDTR = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 1, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 0))).clone(namedValues=NamedValues(("goes-low", 1), ("always-high", 0)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: deviceControlConnectionDownDTR.setStatus('current')
-socket = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2))
-socketTable = MibTable((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1), )
-if mibBuilder.loadTexts: socketTable.setStatus('current')
-socketEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1), ).setIndexNames((0, "MOXA-NP6000-MIB", "portIndex"))
-if mibBuilder.loadTexts: socketEntry.setStatus('current')
-socketTcpAliveCheck = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: socketTcpAliveCheck.setStatus('current')
-socketInactivityTime = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: socketInactivityTime.setStatus('current')
-socketMaxConnection = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: socketMaxConnection.setStatus('current')
-socketIgnoreJammedIp = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("no", 0), ("yes", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: socketIgnoreJammedIp.setStatus('current')
-socketAllowDriverControl = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("no", 0), ("yes", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: socketAllowDriverControl.setStatus('current')
-socketSecure = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("no", 0), ("yes", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: socketSecure.setStatus('current')
-socketTcpPort = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 7), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: socketTcpPort.setStatus('current')
-socketCmdPort = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 8), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: socketCmdPort.setStatus('current')
-socketTcpServerConnectionDownRTS = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 0))).clone(namedValues=NamedValues(("goes-low", 1), ("always-high", 0)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: socketTcpServerConnectionDownRTS.setStatus('current')
-socketTcpServerConnectionDownDTR = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 0))).clone(namedValues=NamedValues(("goes-low", 1), ("always-high", 0)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: socketTcpServerConnectionDownDTR.setStatus('current')
-socketTcpClientDestinationAddress1 = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 11), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: socketTcpClientDestinationAddress1.setStatus('current')
-socketTcpClientDestinationPort1 = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 12), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: socketTcpClientDestinationPort1.setStatus('current')
-socketTcpClientDestinationAddress2 = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 13), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: socketTcpClientDestinationAddress2.setStatus('current')
-socketTcpClientDestinationPort2 = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 14), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: socketTcpClientDestinationPort2.setStatus('current')
-socketTcpClientDestinationAddress3 = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 15), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: socketTcpClientDestinationAddress3.setStatus('current')
-socketTcpClientDestinationPort3 = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 16), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: socketTcpClientDestinationPort3.setStatus('current')
-socketTcpClientDestinationAddress4 = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 17), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: socketTcpClientDestinationAddress4.setStatus('current')
-socketTcpClientDestinationPort4 = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 18), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: socketTcpClientDestinationPort4.setStatus('current')
-socketTcpClientDesignatedLocalPort1 = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 19), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: socketTcpClientDesignatedLocalPort1.setStatus('current')
-socketTcpClientDesignatedLocalPort2 = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 20), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: socketTcpClientDesignatedLocalPort2.setStatus('current')
-socketTcpClientDesignatedLocalPort3 = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 21), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: socketTcpClientDesignatedLocalPort3.setStatus('current')
-socketTcpClientDesignatedLocalPort4 = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 22), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: socketTcpClientDesignatedLocalPort4.setStatus('current')
-socketTcpClientConnectionControl = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 23), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(257, 258, 514, 1028, 260, 2056, 264))).clone(namedValues=NamedValues(("startup-None", 257), ("anyCharacter-None", 258), ("anyCharacter-InactivityTime", 514), ("dsrOn-DSR-Off", 1028), ("dsrOn-None", 260), ("dcdOn-DCD-Off", 2056), ("dcdOn-None", 264)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: socketTcpClientConnectionControl.setStatus('current')
-socketUdpDestinationAddress1Begin = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 24), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: socketUdpDestinationAddress1Begin.setStatus('current')
-socketUdpDestinationAddress1End = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 25), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: socketUdpDestinationAddress1End.setStatus('current')
-socketUdpDestinationPort1 = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 26), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: socketUdpDestinationPort1.setStatus('current')
-socketUdpDestinationAddress2Begin = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 27), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: socketUdpDestinationAddress2Begin.setStatus('current')
-socketUdpDestinationAddress2End = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 28), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: socketUdpDestinationAddress2End.setStatus('current')
-socketUdpDestinationPort2 = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 29), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: socketUdpDestinationPort2.setStatus('current')
-socketUdpDestinationAddress3Begin = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 30), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: socketUdpDestinationAddress3Begin.setStatus('current')
-socketUdpDestinationAddress3End = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 31), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: socketUdpDestinationAddress3End.setStatus('current')
-socketUdpDestinationPort3 = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 32), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: socketUdpDestinationPort3.setStatus('current')
-socketUdpDestinationAddress4Begin = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 33), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: socketUdpDestinationAddress4Begin.setStatus('current')
-socketUdpDestinationAddress4End = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 34), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: socketUdpDestinationAddress4End.setStatus('current')
-socketUdpDestinationPort4 = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 35), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: socketUdpDestinationPort4.setStatus('current')
-socketUdpLocalListenPort = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 36), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: socketUdpLocalListenPort.setStatus('current')
-pairConnection = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 3))
-pairConnectionTable = MibTable((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 3, 1), )
-if mibBuilder.loadTexts: pairConnectionTable.setStatus('current')
-pairConnectionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 3, 1, 1), ).setIndexNames((0, "MOXA-NP6000-MIB", "portIndex"))
-if mibBuilder.loadTexts: pairConnectionEntry.setStatus('current')
-pairConnectionTcpAliveCheck = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 3, 1, 1, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pairConnectionTcpAliveCheck.setStatus('current')
-pairConnectionSecure = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 3, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("no", 0), ("yes", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pairConnectionSecure.setStatus('current')
-pairConnectionDestinationAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 3, 1, 1, 3), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pairConnectionDestinationAddress.setStatus('current')
-pairConnectionDestinationPort = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 3, 1, 1, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pairConnectionDestinationPort.setStatus('current')
-pairConnectionTcpPort = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 3, 1, 1, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pairConnectionTcpPort.setStatus('current')
-ethernetModem = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 4))
-ethernetModemTable = MibTable((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 4, 1), )
-if mibBuilder.loadTexts: ethernetModemTable.setStatus('current')
-ethernetModemEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 4, 1, 1), ).setIndexNames((0, "MOXA-NP6000-MIB", "portIndex"))
-if mibBuilder.loadTexts: ethernetModemEntry.setStatus('current')
-ethernetModemTcpAliveCheck = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 4, 1, 1, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ethernetModemTcpAliveCheck.setStatus('current')
-ethernetModemTcpPort = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 4, 1, 1, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ethernetModemTcpPort.setStatus('current')
-terminal = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5))
-terminalTable = MibTable((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1), )
-if mibBuilder.loadTexts: terminalTable.setStatus('current')
-terminalEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1, 1), ).setIndexNames((0, "MOXA-NP6000-MIB", "portIndex"))
-if mibBuilder.loadTexts: terminalEntry.setStatus('current')
-terminalTcpAliveCheck = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1, 1, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: terminalTcpAliveCheck.setStatus('current')
-terminalInactivityTime = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1, 1, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: terminalInactivityTime.setStatus('current')
-terminalAutoLinkProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("telnet", 1), ("rlogin", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: terminalAutoLinkProtocol.setStatus('current')
-terminalPrimaryHostAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1, 1, 4), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: terminalPrimaryHostAddress.setStatus('current')
-terminalSecondHostAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1, 1, 5), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: terminalSecondHostAddress.setStatus('current')
-terminalTelnetTcpPort = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1, 1, 6), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: terminalTelnetTcpPort.setStatus('current')
-terminalSshTcpPort = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1, 1, 7), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: terminalSshTcpPort.setStatus('current')
-terminalType = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1, 1, 8), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: terminalType.setStatus('current')
-terminalMaxSessions = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1, 1, 9), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: terminalMaxSessions.setStatus('current')
-terminalChangeSession = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1, 1, 10), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: terminalChangeSession.setStatus('current')
-terminalQuit = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1, 1, 11), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: terminalQuit.setStatus('current')
-terminalBreak = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1, 1, 12), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: terminalBreak.setStatus('current')
-terminalInterrupt = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1, 1, 13), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: terminalInterrupt.setStatus('current')
-terminalAuthenticationType = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("local", 1), ("radius", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: terminalAuthenticationType.setStatus('current')
-terminalAutoLoginPrompt = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1, 1, 15), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: terminalAutoLoginPrompt.setStatus('current')
-terminalPasswordPrompt = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1, 1, 16), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: terminalPasswordPrompt.setStatus('current')
-terminalLoginUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1, 1, 17), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: terminalLoginUserName.setStatus('current')
-terminalLoginPassword = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1, 1, 18), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: terminalLoginPassword.setStatus('current')
-reverseTerminal = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 6))
-reverseTerminalTable = MibTable((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 6, 1), )
-if mibBuilder.loadTexts: reverseTerminalTable.setStatus('current')
-reverseTerminalEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 6, 1, 1), ).setIndexNames((0, "MOXA-NP6000-MIB", "portIndex"))
-if mibBuilder.loadTexts: reverseTerminalEntry.setStatus('current')
-reverseTerminalTcpAliveCheck = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 6, 1, 1, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: reverseTerminalTcpAliveCheck.setStatus('current')
-reverseTerminalInactivityTime = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 6, 1, 1, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: reverseTerminalInactivityTime.setStatus('current')
-reverseTerminalTcpPort = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 6, 1, 1, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: reverseTerminalTcpPort.setStatus('current')
-reverseTerminalAuthenticationType = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 6, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("local", 1), ("radius", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: reverseTerminalAuthenticationType.setStatus('current')
-reverseTerminalMapKeys = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 6, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("cr-lf", 0), ("cr", 1), ("lf", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: reverseTerminalMapKeys.setStatus('current')
-printer = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 7))
-printerTable = MibTable((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 7, 1), )
-if mibBuilder.loadTexts: printerTable.setStatus('current')
-printerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 7, 1, 1), ).setIndexNames((0, "MOXA-NP6000-MIB", "portIndex"))
-if mibBuilder.loadTexts: printerEntry.setStatus('current')
-printerTcpAliveCheck = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 7, 1, 1, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: printerTcpAliveCheck.setStatus('current')
-printerTcpPort = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 7, 1, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: printerTcpPort.setStatus('current')
-printerGroup = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 7, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15))).clone(namedValues=NamedValues(("group1", 0), ("group2", 1), ("group3", 2), ("group4", 3), ("group5", 4), ("group6", 5), ("group7", 6), ("group8", 7), ("group9", 8), ("group10", 9), ("group11", 10), ("group12", 11), ("group13", 12), ("group14", 13), ("group15", 14), ("group16", 15)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: printerGroup.setStatus('current')
-printerQueueNameRaw = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 7, 1, 1, 4), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: printerQueueNameRaw.setStatus('current')
-printerQueueNameASCII = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 7, 1, 1, 5), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: printerQueueNameASCII.setStatus('current')
-printerAppendFromFeed = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 7, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: printerAppendFromFeed.setStatus('current')
-dial = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 8))
-dialTable = MibTable((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 8, 1), )
-if mibBuilder.loadTexts: dialTable.setStatus('current')
-dialEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 8, 1, 1), ).setIndexNames((0, "MOXA-NP6000-MIB", "portIndex"))
-if mibBuilder.loadTexts: dialEntry.setStatus('current')
-dialTERMBINMode = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 8, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("no", 0), ("yes", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dialTERMBINMode.setStatus('current')
-dialPPPDMode = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 8, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("no", 0), ("yes", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dialPPPDMode.setStatus('current')
-dialSLIPDMode = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 8, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("no", 0), ("yes", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dialSLIPDMode.setStatus('current')
-dialAuthType = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 8, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("local", 1), ("radius", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dialAuthType.setStatus('current')
-dialDisconnectBy = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 8, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 2, 4))).clone(namedValues=NamedValues(("none", 0), ("dcd-off", 2), ("dsr-off", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dialDisconnectBy.setStatus('current')
-dialDestinationIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 8, 1, 1, 6), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dialDestinationIpAddress.setStatus('current')
-dialSourceIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 8, 1, 1, 7), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dialSourceIpAddress.setStatus('current')
-dialIpNetmask = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 8, 1, 1, 8), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dialIpNetmask.setStatus('current')
-dialTcpIpCompression = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 8, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("no", 0), ("yes", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dialTcpIpCompression.setStatus('current')
-dialInactivityTime = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 8, 1, 1, 10), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dialInactivityTime.setStatus('current')
-dialLinkQualityReport = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 8, 1, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("no", 0), ("yes", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dialLinkQualityReport.setStatus('current')
-dialOutgoingPAPID = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 8, 1, 1, 12), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dialOutgoingPAPID.setStatus('current')
-dialPAPPassword = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 8, 1, 1, 13), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dialPAPPassword.setStatus('current')
-dialIncomingPAPCheck = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 8, 1, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("local", 1), ("radius", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dialIncomingPAPCheck.setStatus('current')
-dataPacking = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 3))
-dataPackingPortTable = MibTable((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 3, 1), )
-if mibBuilder.loadTexts: dataPackingPortTable.setStatus('current')
-dataPackingPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 3, 1, 1), ).setIndexNames((0, "MOXA-NP6000-MIB", "portIndex"))
-if mibBuilder.loadTexts: dataPackingPortEntry.setStatus('current')
-portPacketLength = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 3, 1, 1, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: portPacketLength.setStatus('current')
-portDelimiter1Enable = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 3, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: portDelimiter1Enable.setStatus('current')
-portDelimiter1 = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 3, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 2))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: portDelimiter1.setStatus('current')
-portDelimiter2Enable = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 3, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: portDelimiter2Enable.setStatus('current')
-portDelimiter2 = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 3, 1, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 2))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: portDelimiter2.setStatus('current')
-portDelimiterProcess = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 3, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 4, 8))).clone(namedValues=NamedValues(("doNothing", 1), ("delimiterAddOne", 2), ("delimiterAddTwo", 4), ("stripDelimiter", 8)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: portDelimiterProcess.setStatus('current')
-portForceTransmit = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 3, 1, 1, 7), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: portForceTransmit.setStatus('current')
-comParamSetting = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 2))
-comParamPortTable = MibTable((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 2, 1), )
-if mibBuilder.loadTexts: comParamPortTable.setStatus('current')
-comParamPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 2, 1, 1), ).setIndexNames((0, "MOXA-NP6000-MIB", "portIndex"))
-if mibBuilder.loadTexts: comParamPortEntry.setStatus('current')
-portAlias = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 2, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: portAlias.setStatus('current')
-portInterface = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("rs-232", 0), ("rs-422", 1), ("rs-485-2-wire", 2), ("rs-485-4-wire", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: portInterface.setStatus('current')
-portBaudRate = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19))).clone(namedValues=NamedValues(("b50", 0), ("b75", 1), ("b110", 2), ("b134", 3), ("b150", 4), ("b300", 5), ("b600", 6), ("b1200", 7), ("b1800", 8), ("b2400", 9), ("b4800", 10), ("b7200", 11), ("b9600", 12), ("b19200", 13), ("b38400", 14), ("b57600", 15), ("b115200", 16), ("b230400", 17), ("b460800", 18), ("b921600", 19)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: portBaudRate.setStatus('current')
-portBaudRateManual = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 2, 1, 1, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: portBaudRateManual.setStatus('current')
-portDataBits = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("d5", 0), ("d6", 1), ("d7", 2), ("d8", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: portDataBits.setStatus('current')
-portStopBits = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 2, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("s1", 0), ("s15", 1), ("s2", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: portStopBits.setStatus('current')
-portParity = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 2, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("none", 0), ("odd", 1), ("even", 2), ("mark", 3), ("space", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: portParity.setStatus('current')
-portFlowControl = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 2, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("none", 0), ("rts-cts", 1), ("xon-xoff", 2), ("dtr-dsr", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: portFlowControl.setStatus('current')
-portFIFO = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 2, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: portFIFO.setStatus('current')
-dataBuffering = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 3))
-dataBufferingPortTable = MibTable((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 3, 1), )
-if mibBuilder.loadTexts: dataBufferingPortTable.setStatus('current')
-dataBufferingPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 3, 1, 1), ).setIndexNames((0, "MOXA-NP6000-MIB", "portIndex"))
-if mibBuilder.loadTexts: dataBufferingPortEntry.setStatus('current')
-portBufferingEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 3, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("no", 0), ("yes", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: portBufferingEnable.setStatus('current')
-portBufferingLocation = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 3, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("memory", 0), ("sdCard", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: portBufferingLocation.setStatus('current')
-portBufferingSDFileSize = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 3, 1, 1, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: portBufferingSDFileSize.setStatus('current')
-portSerialDataLoggingEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 3, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("no", 0), ("yes", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: portSerialDataLoggingEnable.setStatus('current')
-modemSettings = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 4))
-modemSettingsPortTable = MibTable((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 4, 1), )
-if mibBuilder.loadTexts: modemSettingsPortTable.setStatus('current')
-modemSettingsPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 4, 1, 1), ).setIndexNames((0, "MOXA-NP6000-MIB", "portIndex"))
-if mibBuilder.loadTexts: modemSettingsPortEntry.setStatus('current')
-portEnableModem = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 4, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: portEnableModem.setStatus('current')
-portInitialString = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 4, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 24))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: portInitialString.setStatus('current')
-portDialUp = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 4, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: portDialUp.setStatus('current')
-portPhoneNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 4, 1, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: portPhoneNumber.setStatus('current')
-welcomeMessage = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 5))
-portEnableWelcomeMessage = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 5, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: portEnableWelcomeMessage.setStatus('current')
-portMessage = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 5, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 1280))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: portMessage.setStatus('current')
-sysManagement = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5))
-miscNetworkSettings = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1))
-accessibleIp = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 1))
-enableAccessibleIpList = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: enableAccessibleIpList.setStatus('current')
-accessibleIpListTable = MibTable((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 1, 2), )
-if mibBuilder.loadTexts: accessibleIpListTable.setStatus('current')
-accessibleIpListEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 1, 2, 1), ).setIndexNames((0, "MOXA-NP6000-MIB", "activeAccessibleIpList"))
-if mibBuilder.loadTexts: accessibleIpListEntry.setStatus('current')
-accessibleIpListIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 1, 2, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: accessibleIpListIndex.setStatus('current')
-activeAccessibleIpList = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: activeAccessibleIpList.setStatus('current')
-accessibleIpListAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 1, 2, 1, 3), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: accessibleIpListAddress.setStatus('current')
-accessibleIpListNetmask = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 1, 2, 1, 4), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: accessibleIpListNetmask.setStatus('current')
-snmpAgentSettings = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 2))
-snmpEnable = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: snmpEnable.setStatus('current')
-snmpContactName = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 2, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 40))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: snmpContactName.setStatus('current')
-snmpLocation = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 2, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 40))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: snmpLocation.setStatus('current')
-dDNS = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 3))
-dDNSEnable = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 3, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dDNSEnable.setStatus('current')
-dDNSServerAddress = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 3, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0))).clone(namedValues=NamedValues(("dynDns_org", 0)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dDNSServerAddress.setStatus('current')
-dDNSHostName = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 3, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 60))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dDNSHostName.setStatus('current')
-dDNSUserName = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 3, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 60))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dDNSUserName.setStatus('current')
-dDNSPassword = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 3, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 60))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dDNSPassword.setStatus('current')
-hostTable = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 4))
-hostTableTable = MibTable((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 4, 1), )
-if mibBuilder.loadTexts: hostTableTable.setStatus('current')
-hostTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 4, 1, 1), ).setIndexNames((0, "MOXA-NP6000-MIB", "hostTableIndex"))
-if mibBuilder.loadTexts: hostTableEntry.setStatus('current')
-hostTableIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 4, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hostTableIndex.setStatus('current')
-hostName = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 4, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hostName.setStatus('current')
-hostIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 4, 1, 1, 3), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hostIpAddress.setStatus('current')
-routeTable = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 5))
-routeTableTable = MibTable((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 5, 1), )
-if mibBuilder.loadTexts: routeTableTable.setStatus('current')
-routeTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 5, 1, 1), ).setIndexNames((0, "MOXA-NP6000-MIB", "routeTableIndex"))
-if mibBuilder.loadTexts: routeTableEntry.setStatus('current')
-routeTableIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 5, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: routeTableIndex.setStatus('current')
-gatewayRouteTable = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 5, 1, 1, 2), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: gatewayRouteTable.setStatus('current')
-destinationRouteTable = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 5, 1, 1, 3), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: destinationRouteTable.setStatus('current')
-netmaskRouteTable = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 5, 1, 1, 4), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: netmaskRouteTable.setStatus('current')
-metricRouteTable = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 5, 1, 1, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: metricRouteTable.setStatus('current')
-interfaceRouteTable = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 5, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 256))).clone(namedValues=NamedValues(("port1", 0), ("port2", 1), ("port3", 2), ("port4", 3), ("port5", 4), ("port6", 5), ("port7", 6), ("port8", 7), ("port9", 8), ("port10", 9), ("port11", 10), ("port12", 11), ("port13", 12), ("port14", 13), ("port15", 14), ("port16", 15), ("lan", 256)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: interfaceRouteTable.setStatus('current')
-userTable = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 6))
-userTableTable = MibTable((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 6, 1), )
-if mibBuilder.loadTexts: userTableTable.setStatus('current')
-userTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 6, 1, 1), ).setIndexNames((0, "MOXA-NP6000-MIB", "userTableIndex"))
-if mibBuilder.loadTexts: userTableEntry.setStatus('current')
-userTableIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 6, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: userTableIndex.setStatus('current')
-userNameUserTable = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 6, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: userNameUserTable.setStatus('current')
-passwordUserTable = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 6, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: passwordUserTable.setStatus('current')
-phoneNumberUserTable = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 6, 1, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: phoneNumberUserTable.setStatus('current')
-authenticationServer = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 7))
-radiusServerIp = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 7, 1), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: radiusServerIp.setStatus('current')
-radiusKey = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 7, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: radiusKey.setStatus('current')
-udpPortAuthenticationServer = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 7, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1645, 1812))).clone(namedValues=NamedValues(("port1645", 1645), ("port1812", 1812)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: udpPortAuthenticationServer.setStatus('current')
-radiusAccounting = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 7, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: radiusAccounting.setStatus('current')
-sysLogSettings = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 8))
-sysLocalLog = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 8, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: sysLocalLog.setStatus('current')
-networkLocalLog = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 8, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: networkLocalLog.setStatus('current')
-configLocalLog = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 8, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: configLocalLog.setStatus('current')
-opModeLocalLog = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 8, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opModeLocalLog.setStatus('current')
-autoWarningSettings = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2))
-eventSettings = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 1))
-mailWarningColdStart = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mailWarningColdStart.setStatus('current')
-mailWarningWarmStart = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mailWarningWarmStart.setStatus('current')
-mailWarningAuthFailure = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mailWarningAuthFailure.setStatus('current')
-mailWarningIpChanged = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mailWarningIpChanged.setStatus('current')
-mailWarningPasswordChanged = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mailWarningPasswordChanged.setStatus('current')
-trapServerColdStart = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: trapServerColdStart.setStatus('current')
-trapServerWarmStart = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: trapServerWarmStart.setStatus('current')
-trapServerAuthFailure = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: trapServerAuthFailure.setStatus('current')
-alarmServerEthernet1LinkDown = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alarmServerEthernet1LinkDown.setStatus('current')
-alarmServerEthernet2LinkDown = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alarmServerEthernet2LinkDown.setStatus('current')
-alarmServerEthernet3LinkDown = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alarmServerEthernet3LinkDown.setStatus('current')
-serialEventSettings = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 2))
-portEventSettingsTable = MibTable((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 2, 1), )
-if mibBuilder.loadTexts: portEventSettingsTable.setStatus('current')
-portEventSettingsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 2, 1, 1), ).setIndexNames((0, "MOXA-NP6000-MIB", "portIndex"))
-if mibBuilder.loadTexts: portEventSettingsEntry.setStatus('current')
-mailDCDchange = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mailDCDchange.setStatus('current')
-trapDCDchange = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: trapDCDchange.setStatus('current')
-alarmDCDchange = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alarmDCDchange.setStatus('current')
-mailDSRchange = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mailDSRchange.setStatus('current')
-trapDSRchange = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: trapDSRchange.setStatus('current')
-alarmDSRchange = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 2, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alarmDSRchange.setStatus('current')
-emailAlert = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 3))
-emailWarningMailServer = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 3, 1), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: emailWarningMailServer.setStatus('current')
-emailRequiresAuthentication = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 3, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("non-require", 0), ("require", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: emailRequiresAuthentication.setStatus('current')
-emailWarningUserName = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 3, 3), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: emailWarningUserName.setStatus('current')
-emailWarningPassword = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 3, 4), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: emailWarningPassword.setStatus('current')
-emailWarningFromEmail = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 3, 5), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: emailWarningFromEmail.setStatus('current')
-emailWarningFirstEmailAddr = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 3, 6), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: emailWarningFirstEmailAddr.setStatus('current')
-emailWarningSecondEmailAddr = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 3, 7), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: emailWarningSecondEmailAddr.setStatus('current')
-emailWarningThirdEmailAddr = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 3, 8), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: emailWarningThirdEmailAddr.setStatus('current')
-emailWarningFourthEmailAddr = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 3, 9), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: emailWarningFourthEmailAddr.setStatus('current')
-snmpTrap = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 4))
-snmpTrapReceiverIp = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 4, 1), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: snmpTrapReceiverIp.setStatus('current')
-trapVersion = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 4, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("v1", 0), ("v2c", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: trapVersion.setStatus('current')
-maintenance = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 3))
-consoleSettings = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 3, 1))
-httpConsole = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 3, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("enable", 0), ("disable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: httpConsole.setStatus('current')
-httpsConsole = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("enable", 0), ("disable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: httpsConsole.setStatus('current')
-telnetConsole = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("enable", 0), ("disable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: telnetConsole.setStatus('current')
-sshConsole = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("enable", 0), ("disable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: sshConsole.setStatus('current')
-lcmReadOnlyProtect = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("writable", 0), ("readonly", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lcmReadOnlyProtect.setStatus('current')
-resetButtonFunction = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 3, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("always-enable", 0), ("disable-after-60-sec", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: resetButtonFunction.setStatus('current')
-loadFactoryDefault = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 3, 2))
-loadFactoryDefaultSetting = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 3, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("resetToFactoryDefault-ExcludingIpConfiguration", 0), ("resetToFactoryDefault", 1)))).setMaxAccess("writeonly")
-if mibBuilder.loadTexts: loadFactoryDefaultSetting.setStatus('current')
-sysStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6))
-s2eConnections = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 1))
-monitorRemoteIpTable = MibTable((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 1, 1), )
-if mibBuilder.loadTexts: monitorRemoteIpTable.setStatus('current')
-monitorRemoteIpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 1, 1, 1), ).setIndexNames((0, "MOXA-NP6000-MIB", "portIndex"), (0, "MOXA-NP6000-MIB", "remoteIpIndex"))
-if mibBuilder.loadTexts: monitorRemoteIpEntry.setStatus('current')
-remoteIpIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 1, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: remoteIpIndex.setStatus('current')
-monitorRemoteIp = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 1, 1, 1, 2), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: monitorRemoteIp.setStatus('current')
-serialPortStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 2))
-monitorSerialPortStatusTable = MibTable((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 2, 1), )
-if mibBuilder.loadTexts: monitorSerialPortStatusTable.setStatus('current')
-monitorSerialPortStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 2, 1, 1), ).setIndexNames((0, "MOXA-NP6000-MIB", "portIndex"))
-if mibBuilder.loadTexts: monitorSerialPortStatusEntry.setStatus('current')
-monitorTxCount = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 2, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: monitorTxCount.setStatus('current')
-monitorRxCount = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 2, 1, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: monitorRxCount.setStatus('current')
-monitorTxTotalCount = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 2, 1, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: monitorTxTotalCount.setStatus('current')
-monitorRxTotalCount = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 2, 1, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: monitorRxTotalCount.setStatus('current')
-monitorDSR = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("off", 0), ("on", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: monitorDSR.setStatus('current')
-monitorDTR = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 2, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("off", 0), ("on", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: monitorDTR.setStatus('current')
-monitorRTS = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 2, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("off", 0), ("on", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: monitorRTS.setStatus('current')
-monitorCTS = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 2, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("off", 0), ("on", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: monitorCTS.setStatus('current')
-monitorDCD = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 2, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("off", 0), ("on", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: monitorDCD.setStatus('current')
-serialPortErrorCount = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 3))
-monitorSerialPortErrorCountTable = MibTable((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 3, 1), )
-if mibBuilder.loadTexts: monitorSerialPortErrorCountTable.setStatus('current')
-monitorSerialPortErrorCountEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 3, 1, 1), ).setIndexNames((0, "MOXA-NP6000-MIB", "portIndex"))
-if mibBuilder.loadTexts: monitorSerialPortErrorCountEntry.setStatus('current')
-monitorErrorCountFrame = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 3, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: monitorErrorCountFrame.setStatus('current')
-monitorErrorCountParity = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 3, 1, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: monitorErrorCountParity.setStatus('current')
-monitorErrorCountOverrun = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 3, 1, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: monitorErrorCountOverrun.setStatus('current')
-monitorErrorCountBreak = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 3, 1, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: monitorErrorCountBreak.setStatus('current')
-serialPortSettings = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 4))
-monitorSerialPortSettingsTable = MibTable((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 4, 1), )
-if mibBuilder.loadTexts: monitorSerialPortSettingsTable.setStatus('current')
-monitorSerialPortSettingsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 4, 1, 1), ).setIndexNames((0, "MOXA-NP6000-MIB", "portIndex"))
-if mibBuilder.loadTexts: monitorSerialPortSettingsEntry.setStatus('current')
-monitorBaudRate = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 4, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: monitorBaudRate.setStatus('current')
-monitorDataBits = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 4, 1, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: monitorDataBits.setStatus('current')
-monitorStopBits = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 4, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: monitorStopBits.setStatus('current')
-monitorParity = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 4, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 8, 24, 40, 56))).clone(namedValues=NamedValues(("none", 0), ("odd", 8), ("even", 24), ("mark", 40), ("space", 56)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: monitorParity.setStatus('current')
-monitorRTSCTSFlowControl = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 4, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("off", 0), ("on", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: monitorRTSCTSFlowControl.setStatus('current')
-monitorXONXOFFFlowControl = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 4, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("off", 0), ("on", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: monitorXONXOFFFlowControl.setStatus('current')
-monitorDTRDSRFlowControl = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 4, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("off", 0), ("on", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: monitorDTRDSRFlowControl.setStatus('current')
-monitorFIFO = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 4, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: monitorFIFO.setStatus('current')
-monitorInterface = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 4, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("rs-232", 0), ("rs-422", 1), ("rs-485-2-wire", 2), ("rs-485-4-wire", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: monitorInterface.setStatus('current')
-relayOutputStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 5))
-relayOutputEthernet1LinkDown = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 5, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("alarm", 1), ("alarm-Acked", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: relayOutputEthernet1LinkDown.setStatus('current')
-ethernet1LinkDownAcknowledge = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 5, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0))).clone(namedValues=NamedValues(("acked", 0)))).setMaxAccess("writeonly")
-if mibBuilder.loadTexts: ethernet1LinkDownAcknowledge.setStatus('current')
-relayOutputEthernet2LinkDown = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 5, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("alarm", 1), ("alarm-Acked", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: relayOutputEthernet2LinkDown.setStatus('current')
-ethernet2LinkDownAcknowledge = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 5, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0))).clone(namedValues=NamedValues(("acked", 0)))).setMaxAccess("writeonly")
-if mibBuilder.loadTexts: ethernet2LinkDownAcknowledge.setStatus('current')
-relayOutputEthernet3LinkDown = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 5, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("alarm", 1), ("alarm-Acked", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: relayOutputEthernet3LinkDown.setStatus('current')
-ethernet3LinkDownAcknowledge = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 5, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0))).clone(namedValues=NamedValues(("acked", 0)))).setMaxAccess("writeonly")
-if mibBuilder.loadTexts: ethernet3LinkDownAcknowledge.setStatus('current')
-portDCDChangedStatusTable = MibTable((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 5, 7), )
-if mibBuilder.loadTexts: portDCDChangedStatusTable.setStatus('current')
-portDCDChangedStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 5, 7, 1), ).setIndexNames((0, "MOXA-NP6000-MIB", "portIndex"))
-if mibBuilder.loadTexts: portDCDChangedStatusEntry.setStatus('current')
-portDCDChangedStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 5, 7, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("alarm", 1), ("alarm-Acked", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portDCDChangedStatus.setStatus('current')
-portDCDChangedAcknowledge = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 5, 7, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0))).clone(namedValues=NamedValues(("acked", 0)))).setMaxAccess("writeonly")
-if mibBuilder.loadTexts: portDCDChangedAcknowledge.setStatus('current')
-portDSRChangedStatusTable = MibTable((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 5, 8), )
-if mibBuilder.loadTexts: portDSRChangedStatusTable.setStatus('current')
-portDSRChangedStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 5, 8, 1), ).setIndexNames((0, "MOXA-NP6000-MIB", "portIndex"))
-if mibBuilder.loadTexts: portDSRChangedStatusEntry.setStatus('current')
-portDSRChangedStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 5, 8, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("alarm", 1), ("alarm-Acked", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portDSRChangedStatus.setStatus('current')
-portDSRChangedAcknowledge = MibTableColumn((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 5, 8, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0))).clone(namedValues=NamedValues(("acked", 0)))).setMaxAccess("writeonly")
-if mibBuilder.loadTexts: portDSRChangedAcknowledge.setStatus('current')
-saveConfiguration = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 7))
-saveConfig = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 7, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("save", 1)))).setMaxAccess("writeonly")
-if mibBuilder.loadTexts: saveConfig.setStatus('current')
-restart = MibIdentifier((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 8))
-restartPorts = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 8, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15))).clone(namedValues=NamedValues(("port1", 0), ("port2", 1), ("port3", 2), ("port4", 3), ("port5", 4), ("port6", 5), ("port7", 6), ("port8", 7), ("port9", 8), ("port10", 9), ("port11", 10), ("port12", 11), ("port13", 12), ("port14", 13), ("port15", 14), ("port16", 15)))).setMaxAccess("writeonly")
-if mibBuilder.loadTexts: restartPorts.setStatus('current')
-restartSystem = MibScalar((1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 8, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("restart", 1)))).setMaxAccess("writeonly")
-if mibBuilder.loadTexts: restartSystem.setStatus('current')
-mibBuilder.exportSymbols("MOXA-NP6000-MIB", opMode=opMode, alarmDCDchange=alarmDCDchange, portDelimiter1Enable=portDelimiter1Enable, dialIncomingPAPCheck=dialIncomingPAPCheck, passwordUserTable=passwordUserTable, socketTcpClientDestinationPort3=socketTcpClientDestinationPort3, relayOutputStatus=relayOutputStatus, mailWarningPasswordChanged=mailWarningPasswordChanged, dnsServer2IpAddr=dnsServer2IpAddr, terminalSecondHostAddress=terminalSecondHostAddress, gatewayRouteTable=gatewayRouteTable, monitorParity=monitorParity, pairConnectionDestinationAddress=pairConnectionDestinationAddress, dialDisconnectBy=dialDisconnectBy, sysLogSettings=sysLogSettings, hostTableIndex=hostTableIndex, socketUdpDestinationAddress2Begin=socketUdpDestinationAddress2Begin, phoneNumberUserTable=phoneNumberUserTable, portDSRChangedStatusEntry=portDSRChangedStatusEntry, opModeSetting=opModeSetting, restartSystem=restartSystem, timeSetting=timeSetting, miscNetworkSettings=miscNetworkSettings, socketUdpDestinationAddress1End=socketUdpDestinationAddress1End, portEnableWelcomeMessage=portEnableWelcomeMessage, snmpContactName=snmpContactName, mailWarningColdStart=mailWarningColdStart, socketUdpDestinationAddress4End=socketUdpDestinationAddress4End, reverseTerminalTcpPort=reverseTerminalTcpPort, routeTable=routeTable, pppoeUserAccount=pppoeUserAccount, terminalLoginPassword=terminalLoginPassword, printer=printer, winsFunction=winsFunction, reverseTerminalEntry=reverseTerminalEntry, upTime=upTime, dataPacking=dataPacking, dataBufferingPortTable=dataBufferingPortTable, portBufferingEnable=portBufferingEnable, dDNSServerAddress=dDNSServerAddress, userTableTable=userTableTable, routeTableIndex=routeTableIndex, dialDestinationIpAddress=dialDestinationIpAddress, emailWarningPassword=emailWarningPassword, terminalLoginUserName=terminalLoginUserName, monitorTxTotalCount=monitorTxTotalCount, socketUdpDestinationPort3=socketUdpDestinationPort3, portStopBits=portStopBits, portFlowControl=portFlowControl, serialPortSettings=serialPortSettings, terminalAutoLinkProtocol=terminalAutoLinkProtocol, socketTable=socketTable, snmpLocation=snmpLocation, ethernetModemTcpAliveCheck=ethernetModemTcpAliveCheck, monitorXONXOFFFlowControl=monitorXONXOFFFlowControl, socketTcpClientDesignatedLocalPort4=socketTcpClientDesignatedLocalPort4, hostName=hostName, winsServer=winsServer, snmpTrapReceiverIp=snmpTrapReceiverIp, userTableIndex=userTableIndex, monitorDTRDSRFlowControl=monitorDTRDSRFlowControl, overview=overview, netMask=netMask, portMessage=portMessage, snmpAgentSettings=snmpAgentSettings, printerTcpPort=printerTcpPort, deviceControlConnectionDownRTS=deviceControlConnectionDownRTS, emailWarningMailServer=emailWarningMailServer, mailWarningAuthFailure=mailWarningAuthFailure, monitorSerialPortErrorCountTable=monitorSerialPortErrorCountTable, portAlias=portAlias, saveConfiguration=saveConfiguration, pairConnectionEntry=pairConnectionEntry, monitorDCD=monitorDCD, dialTcpIpCompression=dialTcpIpCompression, socketUdpLocalListenPort=socketUdpLocalListenPort, pppoePassword=pppoePassword, trapDCDchange=trapDCDchange, monitorSerialPortSettingsTable=monitorSerialPortSettingsTable, pairConnectionSecure=pairConnectionSecure, hostTableEntry=hostTableEntry, socketTcpPort=socketTcpPort, socketTcpClientDestinationAddress1=socketTcpClientDestinationAddress1, routeTableTable=routeTableTable, dialIpNetmask=dialIpNetmask, gratuitousArpSendPeriod=gratuitousArpSendPeriod, socketUdpDestinationAddress1Begin=socketUdpDestinationAddress1Begin, moduleType=moduleType, socket=socket, relayOutputEthernet2LinkDown=relayOutputEthernet2LinkDown, activeAccessibleIpList=activeAccessibleIpList, interfaceRouteTable=interfaceRouteTable, firmwareVersion=firmwareVersion, snmpTrap=snmpTrap, configLocalLog=configLocalLog, comParamSetting=comParamSetting, socketTcpClientDestinationPort2=socketTcpClientDestinationPort2, terminalSshTcpPort=terminalSshTcpPort, portDCDChangedAcknowledge=portDCDChangedAcknowledge, dialSourceIpAddress=dialSourceIpAddress, opModePortEntry=opModePortEntry, pairConnectionTcpPort=pairConnectionTcpPort, monitorRTSCTSFlowControl=monitorRTSCTSFlowControl, monitorRxTotalCount=monitorRxTotalCount, terminalType=terminalType, modelName=modelName, portBufferingSDFileSize=portBufferingSDFileSize, monitorSerialPortStatusEntry=monitorSerialPortStatusEntry, socketTcpClientDestinationAddress3=socketTcpClientDestinationAddress3, emailWarningFourthEmailAddr=emailWarningFourthEmailAddr, restart=restart, reverseTerminalTable=reverseTerminalTable, maintenance=maintenance, swMgmt=swMgmt, portParity=portParity, monitorErrorCountFrame=monitorErrorCountFrame, terminalAuthenticationType=terminalAuthenticationType, socketCmdPort=socketCmdPort, PYSNMP_MODULE_ID=np6000, socketMaxConnection=socketMaxConnection, s2eConnections=s2eConnections, socketUdpDestinationPort4=socketUdpDestinationPort4, sysStatus=sysStatus, portBaudRate=portBaudRate, sshConsole=sshConsole, accessibleIpListAddress=accessibleIpListAddress, userTable=userTable, monitorRTS=monitorRTS, portDSRChangedAcknowledge=portDSRChangedAcknowledge, monitorSerialPortErrorCountEntry=monitorSerialPortErrorCountEntry, portDSRChangedStatusTable=portDSRChangedStatusTable, socketTcpClientDestinationPort1=socketTcpClientDestinationPort1, dataPackingPortTable=dataPackingPortTable, restartPorts=restartPorts, opModePortTable=opModePortTable, portIndex=portIndex, reverseTerminalTcpAliveCheck=reverseTerminalTcpAliveCheck, dataBuffering=dataBuffering, serialNumber=serialNumber, resetButtonFunction=resetButtonFunction, ethernetModemEntry=ethernetModemEntry, terminalQuit=terminalQuit, hostTableTable=hostTableTable, dialTERMBINMode=dialTERMBINMode, hostIpAddress=hostIpAddress, alarmDSRchange=alarmDSRchange, socketUdpDestinationAddress2End=socketUdpDestinationAddress2End, consoleSettings=consoleSettings, monitorSerialPortStatusTable=monitorSerialPortStatusTable, relayOutputEthernet1LinkDown=relayOutputEthernet1LinkDown, timeZone=timeZone, mailDCDchange=mailDCDchange, monitorStopBits=monitorStopBits, serialPortErrorCount=serialPortErrorCount, deviceControlMaxConnection=deviceControlMaxConnection, monitorFIFO=monitorFIFO, dataBufferingPortEntry=dataBufferingPortEntry, welcomeMessage=welcomeMessage, socketTcpClientDesignatedLocalPort3=socketTcpClientDesignatedLocalPort3, socketTcpClientDesignatedLocalPort2=socketTcpClientDesignatedLocalPort2, mailDSRchange=mailDSRchange, autoWarningSettings=autoWarningSettings, trapServerAuthFailure=trapServerAuthFailure, userNameUserTable=userNameUserTable, monitorRemoteIpEntry=monitorRemoteIpEntry, portFIFO=portFIFO, terminalInactivityTime=terminalInactivityTime, relayOutputEthernet3LinkDown=relayOutputEthernet3LinkDown, opModeLocalLog=opModeLocalLog, portDialUp=portDialUp, deviceControlTcpPort=deviceControlTcpPort, application=application, gratuitousArp=gratuitousArp, alarmServerEthernet3LinkDown=alarmServerEthernet3LinkDown, reverseTerminalInactivityTime=reverseTerminalInactivityTime, accessibleIp=accessibleIp, eventSettings=eventSettings, moxa=moxa, portPacketLength=portPacketLength, serialEventSettings=serialEventSettings, socketUdpDestinationAddress3Begin=socketUdpDestinationAddress3Begin, portDelimiter2=portDelimiter2, snmpEnable=snmpEnable, dialInactivityTime=dialInactivityTime, sysManagement=sysManagement, nport=nport, terminalAutoLoginPrompt=terminalAutoLoginPrompt, monitorRemoteIpTable=monitorRemoteIpTable, netmaskRouteTable=netmaskRouteTable, portDCDChangedStatus=portDCDChangedStatus, monitorCTS=monitorCTS, emailWarningThirdEmailAddr=emailWarningThirdEmailAddr, dial=dial, monitorErrorCountBreak=monitorErrorCountBreak, pairConnectionDestinationPort=pairConnectionDestinationPort, monitorSerialPortSettingsEntry=monitorSerialPortSettingsEntry, terminalTelnetTcpPort=terminalTelnetTcpPort, terminal=terminal, socketSecure=socketSecure, networkSetting=networkSetting, portInitialString=portInitialString, comParamPortTable=comParamPortTable, mailWarningWarmStart=mailWarningWarmStart, portSerialDataLoggingEnable=portSerialDataLoggingEnable, dialSLIPDMode=dialSLIPDMode, portSetting=portSetting, monitorBaudRate=monitorBaudRate, emailWarningSecondEmailAddr=emailWarningSecondEmailAddr, socketTcpClientConnectionControl=socketTcpClientConnectionControl, httpsConsole=httpsConsole, portEventSettingsEntry=portEventSettingsEntry, portEventSettingsTable=portEventSettingsTable, radiusAccounting=radiusAccounting, reverseTerminal=reverseTerminal, portDSRChangedStatus=portDSRChangedStatus, emailAlert=emailAlert, pairConnectionTcpAliveCheck=pairConnectionTcpAliveCheck, socketUdpDestinationPort2=socketUdpDestinationPort2, loadFactoryDefault=loadFactoryDefault, dDNSUserName=dDNSUserName, routingProtocol=routingProtocol, ethernet2LinkDownAcknowledge=ethernet2LinkDownAcknowledge, socketTcpAliveCheck=socketTcpAliveCheck, reverseTerminalAuthenticationType=reverseTerminalAuthenticationType, dDNS=dDNS, destinationRouteTable=destinationRouteTable, serialPortStatus=serialPortStatus, portForceTransmit=portForceTransmit, accessibleIpListIndex=accessibleIpListIndex, terminalTable=terminalTable, trapDSRchange=trapDSRchange, socketTcpClientDestinationAddress4=socketTcpClientDestinationAddress4, deviceControl=deviceControl, portMode=portMode, portDCDChangedStatusEntry=portDCDChangedStatusEntry, ethernetModemTable=ethernetModemTable, socketTcpServerConnectionDownRTS=socketTcpServerConnectionDownRTS, portDelimiter2Enable=portDelimiter2Enable, printerQueueNameASCII=printerQueueNameASCII, terminalPrimaryHostAddress=terminalPrimaryHostAddress, ethernetModem=ethernetModem, deviceControlIgnoreJammedIp=deviceControlIgnoreJammedIp, ipConfiguration=ipConfiguration, ethernetModemTcpPort=ethernetModemTcpPort, terminalChangeSession=terminalChangeSession, trapServerWarmStart=trapServerWarmStart, basicSetting=basicSetting, portBufferingLocation=portBufferingLocation, deviceControlSecure=deviceControlSecure, deviceControlEntry=deviceControlEntry, telnetConsole=telnetConsole, printerTcpAliveCheck=printerTcpAliveCheck, emailWarningFirstEmailAddr=emailWarningFirstEmailAddr, portApplication=portApplication)
-mibBuilder.exportSymbols("MOXA-NP6000-MIB", sysLocalLog=sysLocalLog, np6000=np6000, radiusServerIp=radiusServerIp, socketTcpClientDestinationPort4=socketTcpClientDestinationPort4, socketTcpClientDesignatedLocalPort1=socketTcpClientDesignatedLocalPort1, accessibleIpListNetmask=accessibleIpListNetmask, deviceControlAllowDriverControl=deviceControlAllowDriverControl, ethernet1LinkDownAcknowledge=ethernet1LinkDownAcknowledge, deviceControlTable=deviceControlTable, terminalEntry=terminalEntry, socketTcpClientDestinationAddress2=socketTcpClientDestinationAddress2, radiusKey=radiusKey, alarmServerEthernet2LinkDown=alarmServerEthernet2LinkDown, reverseTerminalMapKeys=reverseTerminalMapKeys, monitorDTR=monitorDTR, modemSettingsPortEntry=modemSettingsPortEntry, serverSetting=serverSetting, saveConfig=saveConfig, dialEntry=dialEntry, monitorRxCount=monitorRxCount, terminalPasswordPrompt=terminalPasswordPrompt, enableAccessibleIpList=enableAccessibleIpList, portDelimiter1=portDelimiter1, portDelimiterProcess=portDelimiterProcess, deviceControlConnectionDownDTR=deviceControlConnectionDownDTR, dDNSPassword=dDNSPassword, monitorTxCount=monitorTxCount, dDNSEnable=dDNSEnable, emailWarningFromEmail=emailWarningFromEmail, viewLanModuleSpeed=viewLanModuleSpeed, portEnableModem=portEnableModem, modemSettingsPortTable=modemSettingsPortTable, dialLinkQualityReport=dialLinkQualityReport, terminalMaxSessions=terminalMaxSessions, modemSettings=modemSettings, macAddress=macAddress, terminalTcpAliveCheck=terminalTcpAliveCheck, portPhoneNumber=portPhoneNumber, metricRouteTable=metricRouteTable, localTime=localTime, monitorDataBits=monitorDataBits, monitorErrorCountOverrun=monitorErrorCountOverrun, printerAppendFromFeed=printerAppendFromFeed, monitorRemoteIp=monitorRemoteIp, printerQueueNameRaw=printerQueueNameRaw, socketUdpDestinationPort1=socketUdpDestinationPort1, routeTableEntry=routeTableEntry, dialOutgoingPAPID=dialOutgoingPAPID, pairConnection=pairConnection, printerTable=printerTable, networkLocalLog=networkLocalLog, defaultGateway=defaultGateway, udpPortAuthenticationServer=udpPortAuthenticationServer, socketEntry=socketEntry, mailWarningIpChanged=mailWarningIpChanged, portBaudRateManual=portBaudRateManual, trapServerColdStart=trapServerColdStart, monitorInterface=monitorInterface, terminalInterrupt=terminalInterrupt, serverLocation=serverLocation, dialTable=dialTable, portDCDChangedStatusTable=portDCDChangedStatusTable, emailWarningUserName=emailWarningUserName, socketUdpDestinationAddress3End=socketUdpDestinationAddress3End, comParamPortEntry=comParamPortEntry, httpConsole=httpConsole, dnsServer1IpAddr=dnsServer1IpAddr, accessibleIpListTable=accessibleIpListTable, timeServer=timeServer, alarmServerEthernet1LinkDown=alarmServerEthernet1LinkDown, dialAuthType=dialAuthType, userTableEntry=userTableEntry, serverName=serverName, dialPPPDMode=dialPPPDMode, monitorDSR=monitorDSR, socketUdpDestinationAddress4Begin=socketUdpDestinationAddress4Begin, hostTable=hostTable, printerEntry=printerEntry, ethernet3LinkDownAcknowledge=ethernet3LinkDownAcknowledge, dataPackingPortEntry=dataPackingPortEntry, accessibleIpListEntry=accessibleIpListEntry, emailRequiresAuthentication=emailRequiresAuthentication, portInterface=portInterface, lan1Speed=lan1Speed, sysIpAddress=sysIpAddress, portDataBits=portDataBits, loadFactoryDefaultSetting=loadFactoryDefaultSetting, authenticationServer=authenticationServer, viewLanSpeed=viewLanSpeed, pairConnectionTable=pairConnectionTable, socketInactivityTime=socketInactivityTime, printerGroup=printerGroup, dDNSHostName=dDNSHostName, socketTcpServerConnectionDownDTR=socketTcpServerConnectionDownDTR, lcmReadOnlyProtect=lcmReadOnlyProtect, socketIgnoreJammedIp=socketIgnoreJammedIp, remoteIpIndex=remoteIpIndex, monitorErrorCountParity=monitorErrorCountParity, terminalBreak=terminalBreak, PortList=PortList, dialPAPPassword=dialPAPPassword, deviceControlTcpAliveCheck=deviceControlTcpAliveCheck, socketAllowDriverControl=socketAllowDriverControl, trapVersion=trapVersion)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ MacAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "MacAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+np6000 = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class PortList(OctetString, TextualConvention):
+    status = "current"
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Moxa_ObjectIdentity = ObjectIdentity
+moxa = _Moxa_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691)
+)
+_Nport_ObjectIdentity = ObjectIdentity
+nport = _Nport_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2)
+)
+_SwMgmt_ObjectIdentity = ObjectIdentity
+swMgmt = _SwMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1)
+)
+_Overview_ObjectIdentity = ObjectIdentity
+overview = _Overview_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 1)
+)
+_ModelName_Type = DisplayString
+_ModelName_Object = MibScalar
+modelName = _ModelName_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 1, 1),
+    _ModelName_Type()
+)
+modelName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    modelName.setStatus("current")
+_SerialNumber_Type = Integer32
+_SerialNumber_Object = MibScalar
+serialNumber = _SerialNumber_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 1, 2),
+    _SerialNumber_Type()
+)
+serialNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    serialNumber.setStatus("current")
+_FirmwareVersion_Type = DisplayString
+_FirmwareVersion_Object = MibScalar
+firmwareVersion = _FirmwareVersion_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 1, 3),
+    _FirmwareVersion_Type()
+)
+firmwareVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    firmwareVersion.setStatus("current")
+_MacAddress_Type = MacAddress
+_MacAddress_Object = MibScalar
+macAddress = _MacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 1, 4),
+    _MacAddress_Type()
+)
+macAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    macAddress.setStatus("current")
+_ViewLanSpeed_Type = DisplayString
+_ViewLanSpeed_Object = MibScalar
+viewLanSpeed = _ViewLanSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 1, 5),
+    _ViewLanSpeed_Type()
+)
+viewLanSpeed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    viewLanSpeed.setStatus("current")
+_ViewLanModuleSpeed_Type = DisplayString
+_ViewLanModuleSpeed_Object = MibScalar
+viewLanModuleSpeed = _ViewLanModuleSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 1, 6),
+    _ViewLanModuleSpeed_Type()
+)
+viewLanModuleSpeed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    viewLanModuleSpeed.setStatus("current")
+_UpTime_Type = DisplayString
+_UpTime_Object = MibScalar
+upTime = _UpTime_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 1, 7),
+    _UpTime_Type()
+)
+upTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    upTime.setStatus("current")
+_ModuleType_Type = DisplayString
+_ModuleType_Object = MibScalar
+moduleType = _ModuleType_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 1, 8),
+    _ModuleType_Type()
+)
+moduleType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    moduleType.setStatus("current")
+_BasicSetting_ObjectIdentity = ObjectIdentity
+basicSetting = _BasicSetting_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 2)
+)
+_ServerSetting_ObjectIdentity = ObjectIdentity
+serverSetting = _ServerSetting_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 2, 1)
+)
+_ServerName_Type = DisplayString
+_ServerName_Object = MibScalar
+serverName = _ServerName_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 2, 1, 1),
+    _ServerName_Type()
+)
+serverName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    serverName.setStatus("current")
+_ServerLocation_Type = DisplayString
+_ServerLocation_Object = MibScalar
+serverLocation = _ServerLocation_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 2, 1, 2),
+    _ServerLocation_Type()
+)
+serverLocation.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    serverLocation.setStatus("current")
+_TimeSetting_ObjectIdentity = ObjectIdentity
+timeSetting = _TimeSetting_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 2, 2)
+)
+_TimeZone_Type = Integer32
+_TimeZone_Object = MibScalar
+timeZone = _TimeZone_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 2, 2, 1),
+    _TimeZone_Type()
+)
+timeZone.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    timeZone.setStatus("current")
+_LocalTime_Type = DateAndTime
+_LocalTime_Object = MibScalar
+localTime = _LocalTime_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 2, 2, 2),
+    _LocalTime_Type()
+)
+localTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    localTime.setStatus("current")
+_TimeServer_Type = DisplayString
+_TimeServer_Object = MibScalar
+timeServer = _TimeServer_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 2, 2, 3),
+    _TimeServer_Type()
+)
+timeServer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    timeServer.setStatus("current")
+_NetworkSetting_ObjectIdentity = ObjectIdentity
+networkSetting = _NetworkSetting_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 3)
+)
+
+
+class _IpConfiguration_Type(Integer32):
+    """Custom type ipConfiguration based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("bootp", 3),
+          ("dhcp", 1),
+          ("dhcp-BOOTP", 2),
+          ("pppoe", 4),
+          ("static", 0))
+    )
+
+
+_IpConfiguration_Type.__name__ = "Integer32"
+_IpConfiguration_Object = MibScalar
+ipConfiguration = _IpConfiguration_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 3, 1),
+    _IpConfiguration_Type()
+)
+ipConfiguration.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ipConfiguration.setStatus("current")
+_SysIpAddress_Type = IpAddress
+_SysIpAddress_Object = MibScalar
+sysIpAddress = _SysIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 3, 2),
+    _SysIpAddress_Type()
+)
+sysIpAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    sysIpAddress.setStatus("current")
+_NetMask_Type = IpAddress
+_NetMask_Object = MibScalar
+netMask = _NetMask_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 3, 3),
+    _NetMask_Type()
+)
+netMask.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    netMask.setStatus("current")
+_DefaultGateway_Type = IpAddress
+_DefaultGateway_Object = MibScalar
+defaultGateway = _DefaultGateway_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 3, 4),
+    _DefaultGateway_Type()
+)
+defaultGateway.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    defaultGateway.setStatus("current")
+_DnsServer1IpAddr_Type = IpAddress
+_DnsServer1IpAddr_Object = MibScalar
+dnsServer1IpAddr = _DnsServer1IpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 3, 5),
+    _DnsServer1IpAddr_Type()
+)
+dnsServer1IpAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dnsServer1IpAddr.setStatus("current")
+_DnsServer2IpAddr_Type = IpAddress
+_DnsServer2IpAddr_Object = MibScalar
+dnsServer2IpAddr = _DnsServer2IpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 3, 6),
+    _DnsServer2IpAddr_Type()
+)
+dnsServer2IpAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dnsServer2IpAddr.setStatus("current")
+_PppoeUserAccount_Type = DisplayString
+_PppoeUserAccount_Object = MibScalar
+pppoeUserAccount = _PppoeUserAccount_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 3, 7),
+    _PppoeUserAccount_Type()
+)
+pppoeUserAccount.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pppoeUserAccount.setStatus("current")
+_PppoePassword_Type = DisplayString
+_PppoePassword_Object = MibScalar
+pppoePassword = _PppoePassword_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 3, 8),
+    _PppoePassword_Type()
+)
+pppoePassword.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pppoePassword.setStatus("current")
+
+
+class _WinsFunction_Type(Integer32):
+    """Custom type winsFunction based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_WinsFunction_Type.__name__ = "Integer32"
+_WinsFunction_Object = MibScalar
+winsFunction = _WinsFunction_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 3, 9),
+    _WinsFunction_Type()
+)
+winsFunction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    winsFunction.setStatus("current")
+_WinsServer_Type = IpAddress
+_WinsServer_Object = MibScalar
+winsServer = _WinsServer_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 3, 10),
+    _WinsServer_Type()
+)
+winsServer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    winsServer.setStatus("current")
+
+
+class _Lan1Speed_Type(Integer32):
+    """Custom type lan1Speed based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("auto-Negation", 0),
+          ("hundredMbps-Full", 4),
+          ("hundredMbps-Half", 3),
+          ("tenMbps-Full", 2),
+          ("tenMbps-Half", 1))
+    )
+
+
+_Lan1Speed_Type.__name__ = "Integer32"
+_Lan1Speed_Object = MibScalar
+lan1Speed = _Lan1Speed_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 3, 11),
+    _Lan1Speed_Type()
+)
+lan1Speed.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    lan1Speed.setStatus("current")
+
+
+class _RoutingProtocol_Type(Integer32):
+    """Custom type routingProtocol based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("rip-1", 1),
+          ("rip-2", 2))
+    )
+
+
+_RoutingProtocol_Type.__name__ = "Integer32"
+_RoutingProtocol_Object = MibScalar
+routingProtocol = _RoutingProtocol_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 3, 12),
+    _RoutingProtocol_Type()
+)
+routingProtocol.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    routingProtocol.setStatus("current")
+
+
+class _GratuitousArp_Type(Integer32):
+    """Custom type gratuitousArp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_GratuitousArp_Type.__name__ = "Integer32"
+_GratuitousArp_Object = MibScalar
+gratuitousArp = _GratuitousArp_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 3, 13),
+    _GratuitousArp_Type()
+)
+gratuitousArp.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    gratuitousArp.setStatus("current")
+_GratuitousArpSendPeriod_Type = Integer32
+_GratuitousArpSendPeriod_Object = MibScalar
+gratuitousArpSendPeriod = _GratuitousArpSendPeriod_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 3, 14),
+    _GratuitousArpSendPeriod_Type()
+)
+gratuitousArpSendPeriod.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    gratuitousArpSendPeriod.setStatus("current")
+_PortSetting_ObjectIdentity = ObjectIdentity
+portSetting = _PortSetting_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4)
+)
+_OpModeSetting_ObjectIdentity = ObjectIdentity
+opModeSetting = _OpModeSetting_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1)
+)
+_OpMode_ObjectIdentity = ObjectIdentity
+opMode = _OpMode_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 1)
+)
+_OpModePortTable_Object = MibTable
+opModePortTable = _OpModePortTable_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    opModePortTable.setStatus("current")
+_OpModePortEntry_Object = MibTableRow
+opModePortEntry = _OpModePortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 1, 1, 1)
+)
+opModePortEntry.setIndexNames(
+    (0, "MOXA-NP6000-MIB", "portIndex"),
+)
+if mibBuilder.loadTexts:
+    opModePortEntry.setStatus("current")
+_PortIndex_Type = Integer32
+_PortIndex_Object = MibTableColumn
+portIndex = _PortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 1, 1, 1, 1),
+    _PortIndex_Type()
+)
+portIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portIndex.setStatus("current")
+
+
+class _PortApplication_Type(Integer32):
+    """Custom type portApplication based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              6,
+              11,
+              12,
+              13)
+        )
+    )
+    namedValues = NamedValues(
+        *(("device-Control", 4),
+          ("dial-InOut", 1),
+          ("disable", 0),
+          ("ethernet-Modem", 12),
+          ("pair-Connection", 13),
+          ("printer", 6),
+          ("reverse-Terminal", 3),
+          ("socket", 11),
+          ("terminal", 2))
+    )
+
+
+_PortApplication_Type.__name__ = "Integer32"
+_PortApplication_Object = MibTableColumn
+portApplication = _PortApplication_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 1, 1, 1, 2),
+    _PortApplication_Type()
+)
+portApplication.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    portApplication.setStatus("current")
+
+
+class _PortMode_Type(Integer32):
+    """Custom type portMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20)
+        )
+    )
+    namedValues = NamedValues(
+        *(("aspp", 2),
+          ("disable", 7),
+          ("dynamic", 9),
+          ("ethernet-Modem", 12),
+          ("lpd-PRN", 11),
+          ("pair-Master", 1),
+          ("pair-Slave", 0),
+          ("ppp", 6),
+          ("pppd", 15),
+          ("raw-PRN", 3),
+          ("reverse-SSH", 18),
+          ("rfc-2217", 20),
+          ("slip", 4),
+          ("slipd", 5),
+          ("ssh", 19),
+          ("tcp-Client", 13),
+          ("tcp-Server", 10),
+          ("telnetd", 8),
+          ("term-ASC", 16),
+          ("term-BIN", 17),
+          ("udp", 14))
+    )
+
+
+_PortMode_Type.__name__ = "Integer32"
+_PortMode_Object = MibTableColumn
+portMode = _PortMode_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 1, 1, 1, 3),
+    _PortMode_Type()
+)
+portMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    portMode.setStatus("current")
+_Application_ObjectIdentity = ObjectIdentity
+application = _Application_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2)
+)
+_DeviceControl_ObjectIdentity = ObjectIdentity
+deviceControl = _DeviceControl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 1)
+)
+_DeviceControlTable_Object = MibTable
+deviceControlTable = _DeviceControlTable_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 1, 1)
+)
+if mibBuilder.loadTexts:
+    deviceControlTable.setStatus("current")
+_DeviceControlEntry_Object = MibTableRow
+deviceControlEntry = _DeviceControlEntry_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 1, 1, 1)
+)
+deviceControlEntry.setIndexNames(
+    (0, "MOXA-NP6000-MIB", "portIndex"),
+)
+if mibBuilder.loadTexts:
+    deviceControlEntry.setStatus("current")
+_DeviceControlTcpAliveCheck_Type = Integer32
+_DeviceControlTcpAliveCheck_Object = MibTableColumn
+deviceControlTcpAliveCheck = _DeviceControlTcpAliveCheck_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 1, 1, 1, 1),
+    _DeviceControlTcpAliveCheck_Type()
+)
+deviceControlTcpAliveCheck.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    deviceControlTcpAliveCheck.setStatus("current")
+_DeviceControlMaxConnection_Type = Integer32
+_DeviceControlMaxConnection_Object = MibTableColumn
+deviceControlMaxConnection = _DeviceControlMaxConnection_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 1, 1, 1, 2),
+    _DeviceControlMaxConnection_Type()
+)
+deviceControlMaxConnection.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    deviceControlMaxConnection.setStatus("current")
+
+
+class _DeviceControlIgnoreJammedIp_Type(Integer32):
+    """Custom type deviceControlIgnoreJammedIp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 0),
+          ("yes", 1))
+    )
+
+
+_DeviceControlIgnoreJammedIp_Type.__name__ = "Integer32"
+_DeviceControlIgnoreJammedIp_Object = MibTableColumn
+deviceControlIgnoreJammedIp = _DeviceControlIgnoreJammedIp_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 1, 1, 1, 3),
+    _DeviceControlIgnoreJammedIp_Type()
+)
+deviceControlIgnoreJammedIp.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    deviceControlIgnoreJammedIp.setStatus("current")
+
+
+class _DeviceControlAllowDriverControl_Type(Integer32):
+    """Custom type deviceControlAllowDriverControl based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 0),
+          ("yes", 1))
+    )
+
+
+_DeviceControlAllowDriverControl_Type.__name__ = "Integer32"
+_DeviceControlAllowDriverControl_Object = MibTableColumn
+deviceControlAllowDriverControl = _DeviceControlAllowDriverControl_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 1, 1, 1, 4),
+    _DeviceControlAllowDriverControl_Type()
+)
+deviceControlAllowDriverControl.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    deviceControlAllowDriverControl.setStatus("current")
+
+
+class _DeviceControlSecure_Type(Integer32):
+    """Custom type deviceControlSecure based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 0),
+          ("yes", 1))
+    )
+
+
+_DeviceControlSecure_Type.__name__ = "Integer32"
+_DeviceControlSecure_Object = MibTableColumn
+deviceControlSecure = _DeviceControlSecure_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 1, 1, 1, 5),
+    _DeviceControlSecure_Type()
+)
+deviceControlSecure.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    deviceControlSecure.setStatus("current")
+_DeviceControlTcpPort_Type = Integer32
+_DeviceControlTcpPort_Object = MibTableColumn
+deviceControlTcpPort = _DeviceControlTcpPort_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 1, 1, 1, 6),
+    _DeviceControlTcpPort_Type()
+)
+deviceControlTcpPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    deviceControlTcpPort.setStatus("current")
+
+
+class _DeviceControlConnectionDownRTS_Type(Integer32):
+    """Custom type deviceControlConnectionDownRTS based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("always-high", 0),
+          ("goes-low", 1))
+    )
+
+
+_DeviceControlConnectionDownRTS_Type.__name__ = "Integer32"
+_DeviceControlConnectionDownRTS_Object = MibTableColumn
+deviceControlConnectionDownRTS = _DeviceControlConnectionDownRTS_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 1, 1, 1, 7),
+    _DeviceControlConnectionDownRTS_Type()
+)
+deviceControlConnectionDownRTS.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    deviceControlConnectionDownRTS.setStatus("current")
+
+
+class _DeviceControlConnectionDownDTR_Type(Integer32):
+    """Custom type deviceControlConnectionDownDTR based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("always-high", 0),
+          ("goes-low", 1))
+    )
+
+
+_DeviceControlConnectionDownDTR_Type.__name__ = "Integer32"
+_DeviceControlConnectionDownDTR_Object = MibTableColumn
+deviceControlConnectionDownDTR = _DeviceControlConnectionDownDTR_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 1, 1, 1, 8),
+    _DeviceControlConnectionDownDTR_Type()
+)
+deviceControlConnectionDownDTR.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    deviceControlConnectionDownDTR.setStatus("current")
+_Socket_ObjectIdentity = ObjectIdentity
+socket = _Socket_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2)
+)
+_SocketTable_Object = MibTable
+socketTable = _SocketTable_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1)
+)
+if mibBuilder.loadTexts:
+    socketTable.setStatus("current")
+_SocketEntry_Object = MibTableRow
+socketEntry = _SocketEntry_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1)
+)
+socketEntry.setIndexNames(
+    (0, "MOXA-NP6000-MIB", "portIndex"),
+)
+if mibBuilder.loadTexts:
+    socketEntry.setStatus("current")
+_SocketTcpAliveCheck_Type = Integer32
+_SocketTcpAliveCheck_Object = MibTableColumn
+socketTcpAliveCheck = _SocketTcpAliveCheck_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 1),
+    _SocketTcpAliveCheck_Type()
+)
+socketTcpAliveCheck.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    socketTcpAliveCheck.setStatus("current")
+_SocketInactivityTime_Type = Integer32
+_SocketInactivityTime_Object = MibTableColumn
+socketInactivityTime = _SocketInactivityTime_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 2),
+    _SocketInactivityTime_Type()
+)
+socketInactivityTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    socketInactivityTime.setStatus("current")
+_SocketMaxConnection_Type = Integer32
+_SocketMaxConnection_Object = MibTableColumn
+socketMaxConnection = _SocketMaxConnection_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 3),
+    _SocketMaxConnection_Type()
+)
+socketMaxConnection.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    socketMaxConnection.setStatus("current")
+
+
+class _SocketIgnoreJammedIp_Type(Integer32):
+    """Custom type socketIgnoreJammedIp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 0),
+          ("yes", 1))
+    )
+
+
+_SocketIgnoreJammedIp_Type.__name__ = "Integer32"
+_SocketIgnoreJammedIp_Object = MibTableColumn
+socketIgnoreJammedIp = _SocketIgnoreJammedIp_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 4),
+    _SocketIgnoreJammedIp_Type()
+)
+socketIgnoreJammedIp.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    socketIgnoreJammedIp.setStatus("current")
+
+
+class _SocketAllowDriverControl_Type(Integer32):
+    """Custom type socketAllowDriverControl based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 0),
+          ("yes", 1))
+    )
+
+
+_SocketAllowDriverControl_Type.__name__ = "Integer32"
+_SocketAllowDriverControl_Object = MibTableColumn
+socketAllowDriverControl = _SocketAllowDriverControl_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 5),
+    _SocketAllowDriverControl_Type()
+)
+socketAllowDriverControl.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    socketAllowDriverControl.setStatus("current")
+
+
+class _SocketSecure_Type(Integer32):
+    """Custom type socketSecure based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 0),
+          ("yes", 1))
+    )
+
+
+_SocketSecure_Type.__name__ = "Integer32"
+_SocketSecure_Object = MibTableColumn
+socketSecure = _SocketSecure_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 6),
+    _SocketSecure_Type()
+)
+socketSecure.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    socketSecure.setStatus("current")
+_SocketTcpPort_Type = Integer32
+_SocketTcpPort_Object = MibTableColumn
+socketTcpPort = _SocketTcpPort_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 7),
+    _SocketTcpPort_Type()
+)
+socketTcpPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    socketTcpPort.setStatus("current")
+_SocketCmdPort_Type = Integer32
+_SocketCmdPort_Object = MibTableColumn
+socketCmdPort = _SocketCmdPort_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 8),
+    _SocketCmdPort_Type()
+)
+socketCmdPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    socketCmdPort.setStatus("current")
+
+
+class _SocketTcpServerConnectionDownRTS_Type(Integer32):
+    """Custom type socketTcpServerConnectionDownRTS based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("always-high", 0),
+          ("goes-low", 1))
+    )
+
+
+_SocketTcpServerConnectionDownRTS_Type.__name__ = "Integer32"
+_SocketTcpServerConnectionDownRTS_Object = MibTableColumn
+socketTcpServerConnectionDownRTS = _SocketTcpServerConnectionDownRTS_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 9),
+    _SocketTcpServerConnectionDownRTS_Type()
+)
+socketTcpServerConnectionDownRTS.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    socketTcpServerConnectionDownRTS.setStatus("current")
+
+
+class _SocketTcpServerConnectionDownDTR_Type(Integer32):
+    """Custom type socketTcpServerConnectionDownDTR based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("always-high", 0),
+          ("goes-low", 1))
+    )
+
+
+_SocketTcpServerConnectionDownDTR_Type.__name__ = "Integer32"
+_SocketTcpServerConnectionDownDTR_Object = MibTableColumn
+socketTcpServerConnectionDownDTR = _SocketTcpServerConnectionDownDTR_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 10),
+    _SocketTcpServerConnectionDownDTR_Type()
+)
+socketTcpServerConnectionDownDTR.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    socketTcpServerConnectionDownDTR.setStatus("current")
+_SocketTcpClientDestinationAddress1_Type = DisplayString
+_SocketTcpClientDestinationAddress1_Object = MibTableColumn
+socketTcpClientDestinationAddress1 = _SocketTcpClientDestinationAddress1_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 11),
+    _SocketTcpClientDestinationAddress1_Type()
+)
+socketTcpClientDestinationAddress1.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    socketTcpClientDestinationAddress1.setStatus("current")
+_SocketTcpClientDestinationPort1_Type = Integer32
+_SocketTcpClientDestinationPort1_Object = MibTableColumn
+socketTcpClientDestinationPort1 = _SocketTcpClientDestinationPort1_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 12),
+    _SocketTcpClientDestinationPort1_Type()
+)
+socketTcpClientDestinationPort1.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    socketTcpClientDestinationPort1.setStatus("current")
+_SocketTcpClientDestinationAddress2_Type = DisplayString
+_SocketTcpClientDestinationAddress2_Object = MibTableColumn
+socketTcpClientDestinationAddress2 = _SocketTcpClientDestinationAddress2_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 13),
+    _SocketTcpClientDestinationAddress2_Type()
+)
+socketTcpClientDestinationAddress2.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    socketTcpClientDestinationAddress2.setStatus("current")
+_SocketTcpClientDestinationPort2_Type = Integer32
+_SocketTcpClientDestinationPort2_Object = MibTableColumn
+socketTcpClientDestinationPort2 = _SocketTcpClientDestinationPort2_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 14),
+    _SocketTcpClientDestinationPort2_Type()
+)
+socketTcpClientDestinationPort2.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    socketTcpClientDestinationPort2.setStatus("current")
+_SocketTcpClientDestinationAddress3_Type = DisplayString
+_SocketTcpClientDestinationAddress3_Object = MibTableColumn
+socketTcpClientDestinationAddress3 = _SocketTcpClientDestinationAddress3_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 15),
+    _SocketTcpClientDestinationAddress3_Type()
+)
+socketTcpClientDestinationAddress3.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    socketTcpClientDestinationAddress3.setStatus("current")
+_SocketTcpClientDestinationPort3_Type = Integer32
+_SocketTcpClientDestinationPort3_Object = MibTableColumn
+socketTcpClientDestinationPort3 = _SocketTcpClientDestinationPort3_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 16),
+    _SocketTcpClientDestinationPort3_Type()
+)
+socketTcpClientDestinationPort3.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    socketTcpClientDestinationPort3.setStatus("current")
+_SocketTcpClientDestinationAddress4_Type = DisplayString
+_SocketTcpClientDestinationAddress4_Object = MibTableColumn
+socketTcpClientDestinationAddress4 = _SocketTcpClientDestinationAddress4_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 17),
+    _SocketTcpClientDestinationAddress4_Type()
+)
+socketTcpClientDestinationAddress4.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    socketTcpClientDestinationAddress4.setStatus("current")
+_SocketTcpClientDestinationPort4_Type = Integer32
+_SocketTcpClientDestinationPort4_Object = MibTableColumn
+socketTcpClientDestinationPort4 = _SocketTcpClientDestinationPort4_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 18),
+    _SocketTcpClientDestinationPort4_Type()
+)
+socketTcpClientDestinationPort4.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    socketTcpClientDestinationPort4.setStatus("current")
+_SocketTcpClientDesignatedLocalPort1_Type = Integer32
+_SocketTcpClientDesignatedLocalPort1_Object = MibTableColumn
+socketTcpClientDesignatedLocalPort1 = _SocketTcpClientDesignatedLocalPort1_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 19),
+    _SocketTcpClientDesignatedLocalPort1_Type()
+)
+socketTcpClientDesignatedLocalPort1.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    socketTcpClientDesignatedLocalPort1.setStatus("current")
+_SocketTcpClientDesignatedLocalPort2_Type = Integer32
+_SocketTcpClientDesignatedLocalPort2_Object = MibTableColumn
+socketTcpClientDesignatedLocalPort2 = _SocketTcpClientDesignatedLocalPort2_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 20),
+    _SocketTcpClientDesignatedLocalPort2_Type()
+)
+socketTcpClientDesignatedLocalPort2.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    socketTcpClientDesignatedLocalPort2.setStatus("current")
+_SocketTcpClientDesignatedLocalPort3_Type = Integer32
+_SocketTcpClientDesignatedLocalPort3_Object = MibTableColumn
+socketTcpClientDesignatedLocalPort3 = _SocketTcpClientDesignatedLocalPort3_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 21),
+    _SocketTcpClientDesignatedLocalPort3_Type()
+)
+socketTcpClientDesignatedLocalPort3.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    socketTcpClientDesignatedLocalPort3.setStatus("current")
+_SocketTcpClientDesignatedLocalPort4_Type = Integer32
+_SocketTcpClientDesignatedLocalPort4_Object = MibTableColumn
+socketTcpClientDesignatedLocalPort4 = _SocketTcpClientDesignatedLocalPort4_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 22),
+    _SocketTcpClientDesignatedLocalPort4_Type()
+)
+socketTcpClientDesignatedLocalPort4.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    socketTcpClientDesignatedLocalPort4.setStatus("current")
+
+
+class _SocketTcpClientConnectionControl_Type(Integer32):
+    """Custom type socketTcpClientConnectionControl based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(257,
+              258,
+              260,
+              264,
+              514,
+              1028,
+              2056)
+        )
+    )
+    namedValues = NamedValues(
+        *(("anyCharacter-InactivityTime", 514),
+          ("anyCharacter-None", 258),
+          ("dcdOn-DCD-Off", 2056),
+          ("dcdOn-None", 264),
+          ("dsrOn-DSR-Off", 1028),
+          ("dsrOn-None", 260),
+          ("startup-None", 257))
+    )
+
+
+_SocketTcpClientConnectionControl_Type.__name__ = "Integer32"
+_SocketTcpClientConnectionControl_Object = MibTableColumn
+socketTcpClientConnectionControl = _SocketTcpClientConnectionControl_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 23),
+    _SocketTcpClientConnectionControl_Type()
+)
+socketTcpClientConnectionControl.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    socketTcpClientConnectionControl.setStatus("current")
+_SocketUdpDestinationAddress1Begin_Type = IpAddress
+_SocketUdpDestinationAddress1Begin_Object = MibTableColumn
+socketUdpDestinationAddress1Begin = _SocketUdpDestinationAddress1Begin_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 24),
+    _SocketUdpDestinationAddress1Begin_Type()
+)
+socketUdpDestinationAddress1Begin.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    socketUdpDestinationAddress1Begin.setStatus("current")
+_SocketUdpDestinationAddress1End_Type = IpAddress
+_SocketUdpDestinationAddress1End_Object = MibTableColumn
+socketUdpDestinationAddress1End = _SocketUdpDestinationAddress1End_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 25),
+    _SocketUdpDestinationAddress1End_Type()
+)
+socketUdpDestinationAddress1End.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    socketUdpDestinationAddress1End.setStatus("current")
+_SocketUdpDestinationPort1_Type = Integer32
+_SocketUdpDestinationPort1_Object = MibTableColumn
+socketUdpDestinationPort1 = _SocketUdpDestinationPort1_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 26),
+    _SocketUdpDestinationPort1_Type()
+)
+socketUdpDestinationPort1.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    socketUdpDestinationPort1.setStatus("current")
+_SocketUdpDestinationAddress2Begin_Type = IpAddress
+_SocketUdpDestinationAddress2Begin_Object = MibTableColumn
+socketUdpDestinationAddress2Begin = _SocketUdpDestinationAddress2Begin_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 27),
+    _SocketUdpDestinationAddress2Begin_Type()
+)
+socketUdpDestinationAddress2Begin.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    socketUdpDestinationAddress2Begin.setStatus("current")
+_SocketUdpDestinationAddress2End_Type = IpAddress
+_SocketUdpDestinationAddress2End_Object = MibTableColumn
+socketUdpDestinationAddress2End = _SocketUdpDestinationAddress2End_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 28),
+    _SocketUdpDestinationAddress2End_Type()
+)
+socketUdpDestinationAddress2End.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    socketUdpDestinationAddress2End.setStatus("current")
+_SocketUdpDestinationPort2_Type = Integer32
+_SocketUdpDestinationPort2_Object = MibTableColumn
+socketUdpDestinationPort2 = _SocketUdpDestinationPort2_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 29),
+    _SocketUdpDestinationPort2_Type()
+)
+socketUdpDestinationPort2.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    socketUdpDestinationPort2.setStatus("current")
+_SocketUdpDestinationAddress3Begin_Type = IpAddress
+_SocketUdpDestinationAddress3Begin_Object = MibTableColumn
+socketUdpDestinationAddress3Begin = _SocketUdpDestinationAddress3Begin_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 30),
+    _SocketUdpDestinationAddress3Begin_Type()
+)
+socketUdpDestinationAddress3Begin.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    socketUdpDestinationAddress3Begin.setStatus("current")
+_SocketUdpDestinationAddress3End_Type = IpAddress
+_SocketUdpDestinationAddress3End_Object = MibTableColumn
+socketUdpDestinationAddress3End = _SocketUdpDestinationAddress3End_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 31),
+    _SocketUdpDestinationAddress3End_Type()
+)
+socketUdpDestinationAddress3End.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    socketUdpDestinationAddress3End.setStatus("current")
+_SocketUdpDestinationPort3_Type = Integer32
+_SocketUdpDestinationPort3_Object = MibTableColumn
+socketUdpDestinationPort3 = _SocketUdpDestinationPort3_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 32),
+    _SocketUdpDestinationPort3_Type()
+)
+socketUdpDestinationPort3.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    socketUdpDestinationPort3.setStatus("current")
+_SocketUdpDestinationAddress4Begin_Type = IpAddress
+_SocketUdpDestinationAddress4Begin_Object = MibTableColumn
+socketUdpDestinationAddress4Begin = _SocketUdpDestinationAddress4Begin_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 33),
+    _SocketUdpDestinationAddress4Begin_Type()
+)
+socketUdpDestinationAddress4Begin.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    socketUdpDestinationAddress4Begin.setStatus("current")
+_SocketUdpDestinationAddress4End_Type = IpAddress
+_SocketUdpDestinationAddress4End_Object = MibTableColumn
+socketUdpDestinationAddress4End = _SocketUdpDestinationAddress4End_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 34),
+    _SocketUdpDestinationAddress4End_Type()
+)
+socketUdpDestinationAddress4End.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    socketUdpDestinationAddress4End.setStatus("current")
+_SocketUdpDestinationPort4_Type = Integer32
+_SocketUdpDestinationPort4_Object = MibTableColumn
+socketUdpDestinationPort4 = _SocketUdpDestinationPort4_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 35),
+    _SocketUdpDestinationPort4_Type()
+)
+socketUdpDestinationPort4.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    socketUdpDestinationPort4.setStatus("current")
+_SocketUdpLocalListenPort_Type = Integer32
+_SocketUdpLocalListenPort_Object = MibTableColumn
+socketUdpLocalListenPort = _SocketUdpLocalListenPort_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 2, 1, 1, 36),
+    _SocketUdpLocalListenPort_Type()
+)
+socketUdpLocalListenPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    socketUdpLocalListenPort.setStatus("current")
+_PairConnection_ObjectIdentity = ObjectIdentity
+pairConnection = _PairConnection_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 3)
+)
+_PairConnectionTable_Object = MibTable
+pairConnectionTable = _PairConnectionTable_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 3, 1)
+)
+if mibBuilder.loadTexts:
+    pairConnectionTable.setStatus("current")
+_PairConnectionEntry_Object = MibTableRow
+pairConnectionEntry = _PairConnectionEntry_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 3, 1, 1)
+)
+pairConnectionEntry.setIndexNames(
+    (0, "MOXA-NP6000-MIB", "portIndex"),
+)
+if mibBuilder.loadTexts:
+    pairConnectionEntry.setStatus("current")
+_PairConnectionTcpAliveCheck_Type = Integer32
+_PairConnectionTcpAliveCheck_Object = MibTableColumn
+pairConnectionTcpAliveCheck = _PairConnectionTcpAliveCheck_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 3, 1, 1, 1),
+    _PairConnectionTcpAliveCheck_Type()
+)
+pairConnectionTcpAliveCheck.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pairConnectionTcpAliveCheck.setStatus("current")
+
+
+class _PairConnectionSecure_Type(Integer32):
+    """Custom type pairConnectionSecure based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 0),
+          ("yes", 1))
+    )
+
+
+_PairConnectionSecure_Type.__name__ = "Integer32"
+_PairConnectionSecure_Object = MibTableColumn
+pairConnectionSecure = _PairConnectionSecure_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 3, 1, 1, 2),
+    _PairConnectionSecure_Type()
+)
+pairConnectionSecure.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pairConnectionSecure.setStatus("current")
+_PairConnectionDestinationAddress_Type = DisplayString
+_PairConnectionDestinationAddress_Object = MibTableColumn
+pairConnectionDestinationAddress = _PairConnectionDestinationAddress_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 3, 1, 1, 3),
+    _PairConnectionDestinationAddress_Type()
+)
+pairConnectionDestinationAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pairConnectionDestinationAddress.setStatus("current")
+_PairConnectionDestinationPort_Type = Integer32
+_PairConnectionDestinationPort_Object = MibTableColumn
+pairConnectionDestinationPort = _PairConnectionDestinationPort_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 3, 1, 1, 4),
+    _PairConnectionDestinationPort_Type()
+)
+pairConnectionDestinationPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pairConnectionDestinationPort.setStatus("current")
+_PairConnectionTcpPort_Type = Integer32
+_PairConnectionTcpPort_Object = MibTableColumn
+pairConnectionTcpPort = _PairConnectionTcpPort_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 3, 1, 1, 5),
+    _PairConnectionTcpPort_Type()
+)
+pairConnectionTcpPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pairConnectionTcpPort.setStatus("current")
+_EthernetModem_ObjectIdentity = ObjectIdentity
+ethernetModem = _EthernetModem_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 4)
+)
+_EthernetModemTable_Object = MibTable
+ethernetModemTable = _EthernetModemTable_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 4, 1)
+)
+if mibBuilder.loadTexts:
+    ethernetModemTable.setStatus("current")
+_EthernetModemEntry_Object = MibTableRow
+ethernetModemEntry = _EthernetModemEntry_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 4, 1, 1)
+)
+ethernetModemEntry.setIndexNames(
+    (0, "MOXA-NP6000-MIB", "portIndex"),
+)
+if mibBuilder.loadTexts:
+    ethernetModemEntry.setStatus("current")
+_EthernetModemTcpAliveCheck_Type = Integer32
+_EthernetModemTcpAliveCheck_Object = MibTableColumn
+ethernetModemTcpAliveCheck = _EthernetModemTcpAliveCheck_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 4, 1, 1, 1),
+    _EthernetModemTcpAliveCheck_Type()
+)
+ethernetModemTcpAliveCheck.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ethernetModemTcpAliveCheck.setStatus("current")
+_EthernetModemTcpPort_Type = Integer32
+_EthernetModemTcpPort_Object = MibTableColumn
+ethernetModemTcpPort = _EthernetModemTcpPort_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 4, 1, 1, 2),
+    _EthernetModemTcpPort_Type()
+)
+ethernetModemTcpPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ethernetModemTcpPort.setStatus("current")
+_Terminal_ObjectIdentity = ObjectIdentity
+terminal = _Terminal_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5)
+)
+_TerminalTable_Object = MibTable
+terminalTable = _TerminalTable_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1)
+)
+if mibBuilder.loadTexts:
+    terminalTable.setStatus("current")
+_TerminalEntry_Object = MibTableRow
+terminalEntry = _TerminalEntry_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1, 1)
+)
+terminalEntry.setIndexNames(
+    (0, "MOXA-NP6000-MIB", "portIndex"),
+)
+if mibBuilder.loadTexts:
+    terminalEntry.setStatus("current")
+_TerminalTcpAliveCheck_Type = Integer32
+_TerminalTcpAliveCheck_Object = MibTableColumn
+terminalTcpAliveCheck = _TerminalTcpAliveCheck_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1, 1, 1),
+    _TerminalTcpAliveCheck_Type()
+)
+terminalTcpAliveCheck.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    terminalTcpAliveCheck.setStatus("current")
+_TerminalInactivityTime_Type = Integer32
+_TerminalInactivityTime_Object = MibTableColumn
+terminalInactivityTime = _TerminalInactivityTime_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1, 1, 2),
+    _TerminalInactivityTime_Type()
+)
+terminalInactivityTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    terminalInactivityTime.setStatus("current")
+
+
+class _TerminalAutoLinkProtocol_Type(Integer32):
+    """Custom type terminalAutoLinkProtocol based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("rlogin", 2),
+          ("telnet", 1))
+    )
+
+
+_TerminalAutoLinkProtocol_Type.__name__ = "Integer32"
+_TerminalAutoLinkProtocol_Object = MibTableColumn
+terminalAutoLinkProtocol = _TerminalAutoLinkProtocol_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1, 1, 3),
+    _TerminalAutoLinkProtocol_Type()
+)
+terminalAutoLinkProtocol.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    terminalAutoLinkProtocol.setStatus("current")
+_TerminalPrimaryHostAddress_Type = DisplayString
+_TerminalPrimaryHostAddress_Object = MibTableColumn
+terminalPrimaryHostAddress = _TerminalPrimaryHostAddress_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1, 1, 4),
+    _TerminalPrimaryHostAddress_Type()
+)
+terminalPrimaryHostAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    terminalPrimaryHostAddress.setStatus("current")
+_TerminalSecondHostAddress_Type = DisplayString
+_TerminalSecondHostAddress_Object = MibTableColumn
+terminalSecondHostAddress = _TerminalSecondHostAddress_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1, 1, 5),
+    _TerminalSecondHostAddress_Type()
+)
+terminalSecondHostAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    terminalSecondHostAddress.setStatus("current")
+_TerminalTelnetTcpPort_Type = Integer32
+_TerminalTelnetTcpPort_Object = MibTableColumn
+terminalTelnetTcpPort = _TerminalTelnetTcpPort_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1, 1, 6),
+    _TerminalTelnetTcpPort_Type()
+)
+terminalTelnetTcpPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    terminalTelnetTcpPort.setStatus("current")
+_TerminalSshTcpPort_Type = Integer32
+_TerminalSshTcpPort_Object = MibTableColumn
+terminalSshTcpPort = _TerminalSshTcpPort_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1, 1, 7),
+    _TerminalSshTcpPort_Type()
+)
+terminalSshTcpPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    terminalSshTcpPort.setStatus("current")
+_TerminalType_Type = DisplayString
+_TerminalType_Object = MibTableColumn
+terminalType = _TerminalType_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1, 1, 8),
+    _TerminalType_Type()
+)
+terminalType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    terminalType.setStatus("current")
+_TerminalMaxSessions_Type = Integer32
+_TerminalMaxSessions_Object = MibTableColumn
+terminalMaxSessions = _TerminalMaxSessions_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1, 1, 9),
+    _TerminalMaxSessions_Type()
+)
+terminalMaxSessions.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    terminalMaxSessions.setStatus("current")
+_TerminalChangeSession_Type = DisplayString
+_TerminalChangeSession_Object = MibTableColumn
+terminalChangeSession = _TerminalChangeSession_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1, 1, 10),
+    _TerminalChangeSession_Type()
+)
+terminalChangeSession.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    terminalChangeSession.setStatus("current")
+_TerminalQuit_Type = DisplayString
+_TerminalQuit_Object = MibTableColumn
+terminalQuit = _TerminalQuit_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1, 1, 11),
+    _TerminalQuit_Type()
+)
+terminalQuit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    terminalQuit.setStatus("current")
+_TerminalBreak_Type = DisplayString
+_TerminalBreak_Object = MibTableColumn
+terminalBreak = _TerminalBreak_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1, 1, 12),
+    _TerminalBreak_Type()
+)
+terminalBreak.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    terminalBreak.setStatus("current")
+_TerminalInterrupt_Type = DisplayString
+_TerminalInterrupt_Object = MibTableColumn
+terminalInterrupt = _TerminalInterrupt_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1, 1, 13),
+    _TerminalInterrupt_Type()
+)
+terminalInterrupt.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    terminalInterrupt.setStatus("current")
+
+
+class _TerminalAuthenticationType_Type(Integer32):
+    """Custom type terminalAuthenticationType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("local", 1),
+          ("none", 0),
+          ("radius", 2))
+    )
+
+
+_TerminalAuthenticationType_Type.__name__ = "Integer32"
+_TerminalAuthenticationType_Object = MibTableColumn
+terminalAuthenticationType = _TerminalAuthenticationType_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1, 1, 14),
+    _TerminalAuthenticationType_Type()
+)
+terminalAuthenticationType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    terminalAuthenticationType.setStatus("current")
+_TerminalAutoLoginPrompt_Type = DisplayString
+_TerminalAutoLoginPrompt_Object = MibTableColumn
+terminalAutoLoginPrompt = _TerminalAutoLoginPrompt_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1, 1, 15),
+    _TerminalAutoLoginPrompt_Type()
+)
+terminalAutoLoginPrompt.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    terminalAutoLoginPrompt.setStatus("current")
+_TerminalPasswordPrompt_Type = DisplayString
+_TerminalPasswordPrompt_Object = MibTableColumn
+terminalPasswordPrompt = _TerminalPasswordPrompt_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1, 1, 16),
+    _TerminalPasswordPrompt_Type()
+)
+terminalPasswordPrompt.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    terminalPasswordPrompt.setStatus("current")
+
+
+class _TerminalLoginUserName_Type(DisplayString):
+    """Custom type terminalLoginUserName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 16),
+    )
+
+
+_TerminalLoginUserName_Type.__name__ = "DisplayString"
+_TerminalLoginUserName_Object = MibTableColumn
+terminalLoginUserName = _TerminalLoginUserName_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1, 1, 17),
+    _TerminalLoginUserName_Type()
+)
+terminalLoginUserName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    terminalLoginUserName.setStatus("current")
+
+
+class _TerminalLoginPassword_Type(DisplayString):
+    """Custom type terminalLoginPassword based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 16),
+    )
+
+
+_TerminalLoginPassword_Type.__name__ = "DisplayString"
+_TerminalLoginPassword_Object = MibTableColumn
+terminalLoginPassword = _TerminalLoginPassword_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 5, 1, 1, 18),
+    _TerminalLoginPassword_Type()
+)
+terminalLoginPassword.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    terminalLoginPassword.setStatus("current")
+_ReverseTerminal_ObjectIdentity = ObjectIdentity
+reverseTerminal = _ReverseTerminal_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 6)
+)
+_ReverseTerminalTable_Object = MibTable
+reverseTerminalTable = _ReverseTerminalTable_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 6, 1)
+)
+if mibBuilder.loadTexts:
+    reverseTerminalTable.setStatus("current")
+_ReverseTerminalEntry_Object = MibTableRow
+reverseTerminalEntry = _ReverseTerminalEntry_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 6, 1, 1)
+)
+reverseTerminalEntry.setIndexNames(
+    (0, "MOXA-NP6000-MIB", "portIndex"),
+)
+if mibBuilder.loadTexts:
+    reverseTerminalEntry.setStatus("current")
+_ReverseTerminalTcpAliveCheck_Type = Integer32
+_ReverseTerminalTcpAliveCheck_Object = MibTableColumn
+reverseTerminalTcpAliveCheck = _ReverseTerminalTcpAliveCheck_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 6, 1, 1, 1),
+    _ReverseTerminalTcpAliveCheck_Type()
+)
+reverseTerminalTcpAliveCheck.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    reverseTerminalTcpAliveCheck.setStatus("current")
+_ReverseTerminalInactivityTime_Type = Integer32
+_ReverseTerminalInactivityTime_Object = MibTableColumn
+reverseTerminalInactivityTime = _ReverseTerminalInactivityTime_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 6, 1, 1, 2),
+    _ReverseTerminalInactivityTime_Type()
+)
+reverseTerminalInactivityTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    reverseTerminalInactivityTime.setStatus("current")
+_ReverseTerminalTcpPort_Type = Integer32
+_ReverseTerminalTcpPort_Object = MibTableColumn
+reverseTerminalTcpPort = _ReverseTerminalTcpPort_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 6, 1, 1, 3),
+    _ReverseTerminalTcpPort_Type()
+)
+reverseTerminalTcpPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    reverseTerminalTcpPort.setStatus("current")
+
+
+class _ReverseTerminalAuthenticationType_Type(Integer32):
+    """Custom type reverseTerminalAuthenticationType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("local", 1),
+          ("none", 0),
+          ("radius", 2))
+    )
+
+
+_ReverseTerminalAuthenticationType_Type.__name__ = "Integer32"
+_ReverseTerminalAuthenticationType_Object = MibTableColumn
+reverseTerminalAuthenticationType = _ReverseTerminalAuthenticationType_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 6, 1, 1, 4),
+    _ReverseTerminalAuthenticationType_Type()
+)
+reverseTerminalAuthenticationType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    reverseTerminalAuthenticationType.setStatus("current")
+
+
+class _ReverseTerminalMapKeys_Type(Integer32):
+    """Custom type reverseTerminalMapKeys based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("cr", 1),
+          ("cr-lf", 0),
+          ("lf", 2))
+    )
+
+
+_ReverseTerminalMapKeys_Type.__name__ = "Integer32"
+_ReverseTerminalMapKeys_Object = MibTableColumn
+reverseTerminalMapKeys = _ReverseTerminalMapKeys_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 6, 1, 1, 5),
+    _ReverseTerminalMapKeys_Type()
+)
+reverseTerminalMapKeys.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    reverseTerminalMapKeys.setStatus("current")
+_Printer_ObjectIdentity = ObjectIdentity
+printer = _Printer_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 7)
+)
+_PrinterTable_Object = MibTable
+printerTable = _PrinterTable_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 7, 1)
+)
+if mibBuilder.loadTexts:
+    printerTable.setStatus("current")
+_PrinterEntry_Object = MibTableRow
+printerEntry = _PrinterEntry_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 7, 1, 1)
+)
+printerEntry.setIndexNames(
+    (0, "MOXA-NP6000-MIB", "portIndex"),
+)
+if mibBuilder.loadTexts:
+    printerEntry.setStatus("current")
+_PrinterTcpAliveCheck_Type = Integer32
+_PrinterTcpAliveCheck_Object = MibTableColumn
+printerTcpAliveCheck = _PrinterTcpAliveCheck_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 7, 1, 1, 1),
+    _PrinterTcpAliveCheck_Type()
+)
+printerTcpAliveCheck.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    printerTcpAliveCheck.setStatus("current")
+_PrinterTcpPort_Type = Integer32
+_PrinterTcpPort_Object = MibTableColumn
+printerTcpPort = _PrinterTcpPort_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 7, 1, 1, 2),
+    _PrinterTcpPort_Type()
+)
+printerTcpPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    printerTcpPort.setStatus("current")
+
+
+class _PrinterGroup_Type(Integer32):
+    """Custom type printerGroup based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15)
+        )
+    )
+    namedValues = NamedValues(
+        *(("group1", 0),
+          ("group10", 9),
+          ("group11", 10),
+          ("group12", 11),
+          ("group13", 12),
+          ("group14", 13),
+          ("group15", 14),
+          ("group16", 15),
+          ("group2", 1),
+          ("group3", 2),
+          ("group4", 3),
+          ("group5", 4),
+          ("group6", 5),
+          ("group7", 6),
+          ("group8", 7),
+          ("group9", 8))
+    )
+
+
+_PrinterGroup_Type.__name__ = "Integer32"
+_PrinterGroup_Object = MibTableColumn
+printerGroup = _PrinterGroup_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 7, 1, 1, 3),
+    _PrinterGroup_Type()
+)
+printerGroup.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    printerGroup.setStatus("current")
+_PrinterQueueNameRaw_Type = DisplayString
+_PrinterQueueNameRaw_Object = MibTableColumn
+printerQueueNameRaw = _PrinterQueueNameRaw_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 7, 1, 1, 4),
+    _PrinterQueueNameRaw_Type()
+)
+printerQueueNameRaw.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    printerQueueNameRaw.setStatus("current")
+_PrinterQueueNameASCII_Type = DisplayString
+_PrinterQueueNameASCII_Object = MibTableColumn
+printerQueueNameASCII = _PrinterQueueNameASCII_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 7, 1, 1, 5),
+    _PrinterQueueNameASCII_Type()
+)
+printerQueueNameASCII.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    printerQueueNameASCII.setStatus("current")
+
+
+class _PrinterAppendFromFeed_Type(Integer32):
+    """Custom type printerAppendFromFeed based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_PrinterAppendFromFeed_Type.__name__ = "Integer32"
+_PrinterAppendFromFeed_Object = MibTableColumn
+printerAppendFromFeed = _PrinterAppendFromFeed_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 7, 1, 1, 6),
+    _PrinterAppendFromFeed_Type()
+)
+printerAppendFromFeed.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    printerAppendFromFeed.setStatus("current")
+_Dial_ObjectIdentity = ObjectIdentity
+dial = _Dial_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 8)
+)
+_DialTable_Object = MibTable
+dialTable = _DialTable_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 8, 1)
+)
+if mibBuilder.loadTexts:
+    dialTable.setStatus("current")
+_DialEntry_Object = MibTableRow
+dialEntry = _DialEntry_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 8, 1, 1)
+)
+dialEntry.setIndexNames(
+    (0, "MOXA-NP6000-MIB", "portIndex"),
+)
+if mibBuilder.loadTexts:
+    dialEntry.setStatus("current")
+
+
+class _DialTERMBINMode_Type(Integer32):
+    """Custom type dialTERMBINMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 0),
+          ("yes", 1))
+    )
+
+
+_DialTERMBINMode_Type.__name__ = "Integer32"
+_DialTERMBINMode_Object = MibTableColumn
+dialTERMBINMode = _DialTERMBINMode_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 8, 1, 1, 1),
+    _DialTERMBINMode_Type()
+)
+dialTERMBINMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dialTERMBINMode.setStatus("current")
+
+
+class _DialPPPDMode_Type(Integer32):
+    """Custom type dialPPPDMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 0),
+          ("yes", 1))
+    )
+
+
+_DialPPPDMode_Type.__name__ = "Integer32"
+_DialPPPDMode_Object = MibTableColumn
+dialPPPDMode = _DialPPPDMode_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 8, 1, 1, 2),
+    _DialPPPDMode_Type()
+)
+dialPPPDMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dialPPPDMode.setStatus("current")
+
+
+class _DialSLIPDMode_Type(Integer32):
+    """Custom type dialSLIPDMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 0),
+          ("yes", 1))
+    )
+
+
+_DialSLIPDMode_Type.__name__ = "Integer32"
+_DialSLIPDMode_Object = MibTableColumn
+dialSLIPDMode = _DialSLIPDMode_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 8, 1, 1, 3),
+    _DialSLIPDMode_Type()
+)
+dialSLIPDMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dialSLIPDMode.setStatus("current")
+
+
+class _DialAuthType_Type(Integer32):
+    """Custom type dialAuthType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("local", 1),
+          ("none", 0),
+          ("radius", 2))
+    )
+
+
+_DialAuthType_Type.__name__ = "Integer32"
+_DialAuthType_Object = MibTableColumn
+dialAuthType = _DialAuthType_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 8, 1, 1, 4),
+    _DialAuthType_Type()
+)
+dialAuthType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dialAuthType.setStatus("current")
+
+
+class _DialDisconnectBy_Type(Integer32):
+    """Custom type dialDisconnectBy based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              2,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dcd-off", 2),
+          ("dsr-off", 4),
+          ("none", 0))
+    )
+
+
+_DialDisconnectBy_Type.__name__ = "Integer32"
+_DialDisconnectBy_Object = MibTableColumn
+dialDisconnectBy = _DialDisconnectBy_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 8, 1, 1, 5),
+    _DialDisconnectBy_Type()
+)
+dialDisconnectBy.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dialDisconnectBy.setStatus("current")
+_DialDestinationIpAddress_Type = IpAddress
+_DialDestinationIpAddress_Object = MibTableColumn
+dialDestinationIpAddress = _DialDestinationIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 8, 1, 1, 6),
+    _DialDestinationIpAddress_Type()
+)
+dialDestinationIpAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dialDestinationIpAddress.setStatus("current")
+_DialSourceIpAddress_Type = IpAddress
+_DialSourceIpAddress_Object = MibTableColumn
+dialSourceIpAddress = _DialSourceIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 8, 1, 1, 7),
+    _DialSourceIpAddress_Type()
+)
+dialSourceIpAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dialSourceIpAddress.setStatus("current")
+_DialIpNetmask_Type = IpAddress
+_DialIpNetmask_Object = MibTableColumn
+dialIpNetmask = _DialIpNetmask_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 8, 1, 1, 8),
+    _DialIpNetmask_Type()
+)
+dialIpNetmask.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dialIpNetmask.setStatus("current")
+
+
+class _DialTcpIpCompression_Type(Integer32):
+    """Custom type dialTcpIpCompression based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 0),
+          ("yes", 1))
+    )
+
+
+_DialTcpIpCompression_Type.__name__ = "Integer32"
+_DialTcpIpCompression_Object = MibTableColumn
+dialTcpIpCompression = _DialTcpIpCompression_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 8, 1, 1, 9),
+    _DialTcpIpCompression_Type()
+)
+dialTcpIpCompression.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dialTcpIpCompression.setStatus("current")
+_DialInactivityTime_Type = Integer32
+_DialInactivityTime_Object = MibTableColumn
+dialInactivityTime = _DialInactivityTime_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 8, 1, 1, 10),
+    _DialInactivityTime_Type()
+)
+dialInactivityTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dialInactivityTime.setStatus("current")
+
+
+class _DialLinkQualityReport_Type(Integer32):
+    """Custom type dialLinkQualityReport based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 0),
+          ("yes", 1))
+    )
+
+
+_DialLinkQualityReport_Type.__name__ = "Integer32"
+_DialLinkQualityReport_Object = MibTableColumn
+dialLinkQualityReport = _DialLinkQualityReport_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 8, 1, 1, 11),
+    _DialLinkQualityReport_Type()
+)
+dialLinkQualityReport.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dialLinkQualityReport.setStatus("current")
+_DialOutgoingPAPID_Type = DisplayString
+_DialOutgoingPAPID_Object = MibTableColumn
+dialOutgoingPAPID = _DialOutgoingPAPID_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 8, 1, 1, 12),
+    _DialOutgoingPAPID_Type()
+)
+dialOutgoingPAPID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dialOutgoingPAPID.setStatus("current")
+_DialPAPPassword_Type = DisplayString
+_DialPAPPassword_Object = MibTableColumn
+dialPAPPassword = _DialPAPPassword_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 8, 1, 1, 13),
+    _DialPAPPassword_Type()
+)
+dialPAPPassword.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dialPAPPassword.setStatus("current")
+
+
+class _DialIncomingPAPCheck_Type(Integer32):
+    """Custom type dialIncomingPAPCheck based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("local", 1),
+          ("none", 0),
+          ("radius", 2))
+    )
+
+
+_DialIncomingPAPCheck_Type.__name__ = "Integer32"
+_DialIncomingPAPCheck_Object = MibTableColumn
+dialIncomingPAPCheck = _DialIncomingPAPCheck_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 2, 8, 1, 1, 14),
+    _DialIncomingPAPCheck_Type()
+)
+dialIncomingPAPCheck.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dialIncomingPAPCheck.setStatus("current")
+_DataPacking_ObjectIdentity = ObjectIdentity
+dataPacking = _DataPacking_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 3)
+)
+_DataPackingPortTable_Object = MibTable
+dataPackingPortTable = _DataPackingPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 3, 1)
+)
+if mibBuilder.loadTexts:
+    dataPackingPortTable.setStatus("current")
+_DataPackingPortEntry_Object = MibTableRow
+dataPackingPortEntry = _DataPackingPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 3, 1, 1)
+)
+dataPackingPortEntry.setIndexNames(
+    (0, "MOXA-NP6000-MIB", "portIndex"),
+)
+if mibBuilder.loadTexts:
+    dataPackingPortEntry.setStatus("current")
+_PortPacketLength_Type = Integer32
+_PortPacketLength_Object = MibTableColumn
+portPacketLength = _PortPacketLength_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 3, 1, 1, 1),
+    _PortPacketLength_Type()
+)
+portPacketLength.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    portPacketLength.setStatus("current")
+
+
+class _PortDelimiter1Enable_Type(Integer32):
+    """Custom type portDelimiter1Enable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_PortDelimiter1Enable_Type.__name__ = "Integer32"
+_PortDelimiter1Enable_Object = MibTableColumn
+portDelimiter1Enable = _PortDelimiter1Enable_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 3, 1, 1, 2),
+    _PortDelimiter1Enable_Type()
+)
+portDelimiter1Enable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    portDelimiter1Enable.setStatus("current")
+
+
+class _PortDelimiter1_Type(DisplayString):
+    """Custom type portDelimiter1 based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 2),
+    )
+
+
+_PortDelimiter1_Type.__name__ = "DisplayString"
+_PortDelimiter1_Object = MibTableColumn
+portDelimiter1 = _PortDelimiter1_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 3, 1, 1, 3),
+    _PortDelimiter1_Type()
+)
+portDelimiter1.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    portDelimiter1.setStatus("current")
+
+
+class _PortDelimiter2Enable_Type(Integer32):
+    """Custom type portDelimiter2Enable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_PortDelimiter2Enable_Type.__name__ = "Integer32"
+_PortDelimiter2Enable_Object = MibTableColumn
+portDelimiter2Enable = _PortDelimiter2Enable_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 3, 1, 1, 4),
+    _PortDelimiter2Enable_Type()
+)
+portDelimiter2Enable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    portDelimiter2Enable.setStatus("current")
+
+
+class _PortDelimiter2_Type(DisplayString):
+    """Custom type portDelimiter2 based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 2),
+    )
+
+
+_PortDelimiter2_Type.__name__ = "DisplayString"
+_PortDelimiter2_Object = MibTableColumn
+portDelimiter2 = _PortDelimiter2_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 3, 1, 1, 5),
+    _PortDelimiter2_Type()
+)
+portDelimiter2.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    portDelimiter2.setStatus("current")
+
+
+class _PortDelimiterProcess_Type(Integer32):
+    """Custom type portDelimiterProcess based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              4,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("delimiterAddOne", 2),
+          ("delimiterAddTwo", 4),
+          ("doNothing", 1),
+          ("stripDelimiter", 8))
+    )
+
+
+_PortDelimiterProcess_Type.__name__ = "Integer32"
+_PortDelimiterProcess_Object = MibTableColumn
+portDelimiterProcess = _PortDelimiterProcess_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 3, 1, 1, 6),
+    _PortDelimiterProcess_Type()
+)
+portDelimiterProcess.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    portDelimiterProcess.setStatus("current")
+_PortForceTransmit_Type = Integer32
+_PortForceTransmit_Object = MibTableColumn
+portForceTransmit = _PortForceTransmit_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 1, 3, 1, 1, 7),
+    _PortForceTransmit_Type()
+)
+portForceTransmit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    portForceTransmit.setStatus("current")
+_ComParamSetting_ObjectIdentity = ObjectIdentity
+comParamSetting = _ComParamSetting_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 2)
+)
+_ComParamPortTable_Object = MibTable
+comParamPortTable = _ComParamPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 2, 1)
+)
+if mibBuilder.loadTexts:
+    comParamPortTable.setStatus("current")
+_ComParamPortEntry_Object = MibTableRow
+comParamPortEntry = _ComParamPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 2, 1, 1)
+)
+comParamPortEntry.setIndexNames(
+    (0, "MOXA-NP6000-MIB", "portIndex"),
+)
+if mibBuilder.loadTexts:
+    comParamPortEntry.setStatus("current")
+
+
+class _PortAlias_Type(DisplayString):
+    """Custom type portAlias based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 16),
+    )
+
+
+_PortAlias_Type.__name__ = "DisplayString"
+_PortAlias_Object = MibTableColumn
+portAlias = _PortAlias_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 2, 1, 1, 1),
+    _PortAlias_Type()
+)
+portAlias.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    portAlias.setStatus("current")
+
+
+class _PortInterface_Type(Integer32):
+    """Custom type portInterface based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("rs-232", 0),
+          ("rs-422", 1),
+          ("rs-485-2-wire", 2),
+          ("rs-485-4-wire", 3))
+    )
+
+
+_PortInterface_Type.__name__ = "Integer32"
+_PortInterface_Object = MibTableColumn
+portInterface = _PortInterface_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 2, 1, 1, 2),
+    _PortInterface_Type()
+)
+portInterface.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    portInterface.setStatus("current")
+
+
+class _PortBaudRate_Type(Integer32):
+    """Custom type portBaudRate based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19)
+        )
+    )
+    namedValues = NamedValues(
+        *(("b110", 2),
+          ("b115200", 16),
+          ("b1200", 7),
+          ("b134", 3),
+          ("b150", 4),
+          ("b1800", 8),
+          ("b19200", 13),
+          ("b230400", 17),
+          ("b2400", 9),
+          ("b300", 5),
+          ("b38400", 14),
+          ("b460800", 18),
+          ("b4800", 10),
+          ("b50", 0),
+          ("b57600", 15),
+          ("b600", 6),
+          ("b7200", 11),
+          ("b75", 1),
+          ("b921600", 19),
+          ("b9600", 12))
+    )
+
+
+_PortBaudRate_Type.__name__ = "Integer32"
+_PortBaudRate_Object = MibTableColumn
+portBaudRate = _PortBaudRate_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 2, 1, 1, 3),
+    _PortBaudRate_Type()
+)
+portBaudRate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    portBaudRate.setStatus("current")
+_PortBaudRateManual_Type = Integer32
+_PortBaudRateManual_Object = MibTableColumn
+portBaudRateManual = _PortBaudRateManual_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 2, 1, 1, 4),
+    _PortBaudRateManual_Type()
+)
+portBaudRateManual.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    portBaudRateManual.setStatus("current")
+
+
+class _PortDataBits_Type(Integer32):
+    """Custom type portDataBits based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("d5", 0),
+          ("d6", 1),
+          ("d7", 2),
+          ("d8", 3))
+    )
+
+
+_PortDataBits_Type.__name__ = "Integer32"
+_PortDataBits_Object = MibTableColumn
+portDataBits = _PortDataBits_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 2, 1, 1, 5),
+    _PortDataBits_Type()
+)
+portDataBits.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    portDataBits.setStatus("current")
+
+
+class _PortStopBits_Type(Integer32):
+    """Custom type portStopBits based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("s1", 0),
+          ("s15", 1),
+          ("s2", 2))
+    )
+
+
+_PortStopBits_Type.__name__ = "Integer32"
+_PortStopBits_Object = MibTableColumn
+portStopBits = _PortStopBits_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 2, 1, 1, 6),
+    _PortStopBits_Type()
+)
+portStopBits.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    portStopBits.setStatus("current")
+
+
+class _PortParity_Type(Integer32):
+    """Custom type portParity based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("even", 2),
+          ("mark", 3),
+          ("none", 0),
+          ("odd", 1),
+          ("space", 4))
+    )
+
+
+_PortParity_Type.__name__ = "Integer32"
+_PortParity_Object = MibTableColumn
+portParity = _PortParity_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 2, 1, 1, 7),
+    _PortParity_Type()
+)
+portParity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    portParity.setStatus("current")
+
+
+class _PortFlowControl_Type(Integer32):
+    """Custom type portFlowControl based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dtr-dsr", 3),
+          ("none", 0),
+          ("rts-cts", 1),
+          ("xon-xoff", 2))
+    )
+
+
+_PortFlowControl_Type.__name__ = "Integer32"
+_PortFlowControl_Object = MibTableColumn
+portFlowControl = _PortFlowControl_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 2, 1, 1, 8),
+    _PortFlowControl_Type()
+)
+portFlowControl.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    portFlowControl.setStatus("current")
+
+
+class _PortFIFO_Type(Integer32):
+    """Custom type portFIFO based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_PortFIFO_Type.__name__ = "Integer32"
+_PortFIFO_Object = MibTableColumn
+portFIFO = _PortFIFO_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 2, 1, 1, 9),
+    _PortFIFO_Type()
+)
+portFIFO.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    portFIFO.setStatus("current")
+_DataBuffering_ObjectIdentity = ObjectIdentity
+dataBuffering = _DataBuffering_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 3)
+)
+_DataBufferingPortTable_Object = MibTable
+dataBufferingPortTable = _DataBufferingPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 3, 1)
+)
+if mibBuilder.loadTexts:
+    dataBufferingPortTable.setStatus("current")
+_DataBufferingPortEntry_Object = MibTableRow
+dataBufferingPortEntry = _DataBufferingPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 3, 1, 1)
+)
+dataBufferingPortEntry.setIndexNames(
+    (0, "MOXA-NP6000-MIB", "portIndex"),
+)
+if mibBuilder.loadTexts:
+    dataBufferingPortEntry.setStatus("current")
+
+
+class _PortBufferingEnable_Type(Integer32):
+    """Custom type portBufferingEnable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 0),
+          ("yes", 1))
+    )
+
+
+_PortBufferingEnable_Type.__name__ = "Integer32"
+_PortBufferingEnable_Object = MibTableColumn
+portBufferingEnable = _PortBufferingEnable_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 3, 1, 1, 1),
+    _PortBufferingEnable_Type()
+)
+portBufferingEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    portBufferingEnable.setStatus("current")
+
+
+class _PortBufferingLocation_Type(Integer32):
+    """Custom type portBufferingLocation based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("memory", 0),
+          ("sdCard", 1))
+    )
+
+
+_PortBufferingLocation_Type.__name__ = "Integer32"
+_PortBufferingLocation_Object = MibTableColumn
+portBufferingLocation = _PortBufferingLocation_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 3, 1, 1, 2),
+    _PortBufferingLocation_Type()
+)
+portBufferingLocation.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    portBufferingLocation.setStatus("current")
+_PortBufferingSDFileSize_Type = Integer32
+_PortBufferingSDFileSize_Object = MibTableColumn
+portBufferingSDFileSize = _PortBufferingSDFileSize_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 3, 1, 1, 3),
+    _PortBufferingSDFileSize_Type()
+)
+portBufferingSDFileSize.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    portBufferingSDFileSize.setStatus("current")
+
+
+class _PortSerialDataLoggingEnable_Type(Integer32):
+    """Custom type portSerialDataLoggingEnable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 0),
+          ("yes", 1))
+    )
+
+
+_PortSerialDataLoggingEnable_Type.__name__ = "Integer32"
+_PortSerialDataLoggingEnable_Object = MibTableColumn
+portSerialDataLoggingEnable = _PortSerialDataLoggingEnable_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 3, 1, 1, 4),
+    _PortSerialDataLoggingEnable_Type()
+)
+portSerialDataLoggingEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    portSerialDataLoggingEnable.setStatus("current")
+_ModemSettings_ObjectIdentity = ObjectIdentity
+modemSettings = _ModemSettings_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 4)
+)
+_ModemSettingsPortTable_Object = MibTable
+modemSettingsPortTable = _ModemSettingsPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 4, 1)
+)
+if mibBuilder.loadTexts:
+    modemSettingsPortTable.setStatus("current")
+_ModemSettingsPortEntry_Object = MibTableRow
+modemSettingsPortEntry = _ModemSettingsPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 4, 1, 1)
+)
+modemSettingsPortEntry.setIndexNames(
+    (0, "MOXA-NP6000-MIB", "portIndex"),
+)
+if mibBuilder.loadTexts:
+    modemSettingsPortEntry.setStatus("current")
+
+
+class _PortEnableModem_Type(Integer32):
+    """Custom type portEnableModem based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_PortEnableModem_Type.__name__ = "Integer32"
+_PortEnableModem_Object = MibTableColumn
+portEnableModem = _PortEnableModem_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 4, 1, 1, 1),
+    _PortEnableModem_Type()
+)
+portEnableModem.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    portEnableModem.setStatus("current")
+
+
+class _PortInitialString_Type(DisplayString):
+    """Custom type portInitialString based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 24),
+    )
+
+
+_PortInitialString_Type.__name__ = "DisplayString"
+_PortInitialString_Object = MibTableColumn
+portInitialString = _PortInitialString_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 4, 1, 1, 2),
+    _PortInitialString_Type()
+)
+portInitialString.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    portInitialString.setStatus("current")
+
+
+class _PortDialUp_Type(DisplayString):
+    """Custom type portDialUp based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 8),
+    )
+
+
+_PortDialUp_Type.__name__ = "DisplayString"
+_PortDialUp_Object = MibTableColumn
+portDialUp = _PortDialUp_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 4, 1, 1, 3),
+    _PortDialUp_Type()
+)
+portDialUp.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    portDialUp.setStatus("current")
+
+
+class _PortPhoneNumber_Type(DisplayString):
+    """Custom type portPhoneNumber based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 16),
+    )
+
+
+_PortPhoneNumber_Type.__name__ = "DisplayString"
+_PortPhoneNumber_Object = MibTableColumn
+portPhoneNumber = _PortPhoneNumber_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 4, 1, 1, 4),
+    _PortPhoneNumber_Type()
+)
+portPhoneNumber.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    portPhoneNumber.setStatus("current")
+_WelcomeMessage_ObjectIdentity = ObjectIdentity
+welcomeMessage = _WelcomeMessage_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 5)
+)
+
+
+class _PortEnableWelcomeMessage_Type(Integer32):
+    """Custom type portEnableWelcomeMessage based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_PortEnableWelcomeMessage_Type.__name__ = "Integer32"
+_PortEnableWelcomeMessage_Object = MibScalar
+portEnableWelcomeMessage = _PortEnableWelcomeMessage_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 5, 1),
+    _PortEnableWelcomeMessage_Type()
+)
+portEnableWelcomeMessage.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    portEnableWelcomeMessage.setStatus("current")
+
+
+class _PortMessage_Type(DisplayString):
+    """Custom type portMessage based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 1280),
+    )
+
+
+_PortMessage_Type.__name__ = "DisplayString"
+_PortMessage_Object = MibScalar
+portMessage = _PortMessage_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 4, 5, 2),
+    _PortMessage_Type()
+)
+portMessage.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    portMessage.setStatus("current")
+_SysManagement_ObjectIdentity = ObjectIdentity
+sysManagement = _SysManagement_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5)
+)
+_MiscNetworkSettings_ObjectIdentity = ObjectIdentity
+miscNetworkSettings = _MiscNetworkSettings_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1)
+)
+_AccessibleIp_ObjectIdentity = ObjectIdentity
+accessibleIp = _AccessibleIp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 1)
+)
+
+
+class _EnableAccessibleIpList_Type(Integer32):
+    """Custom type enableAccessibleIpList based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_EnableAccessibleIpList_Type.__name__ = "Integer32"
+_EnableAccessibleIpList_Object = MibScalar
+enableAccessibleIpList = _EnableAccessibleIpList_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 1, 1),
+    _EnableAccessibleIpList_Type()
+)
+enableAccessibleIpList.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    enableAccessibleIpList.setStatus("current")
+_AccessibleIpListTable_Object = MibTable
+accessibleIpListTable = _AccessibleIpListTable_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    accessibleIpListTable.setStatus("current")
+_AccessibleIpListEntry_Object = MibTableRow
+accessibleIpListEntry = _AccessibleIpListEntry_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 1, 2, 1)
+)
+accessibleIpListEntry.setIndexNames(
+    (0, "MOXA-NP6000-MIB", "activeAccessibleIpList"),
+)
+if mibBuilder.loadTexts:
+    accessibleIpListEntry.setStatus("current")
+_AccessibleIpListIndex_Type = Integer32
+_AccessibleIpListIndex_Object = MibTableColumn
+accessibleIpListIndex = _AccessibleIpListIndex_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 1, 2, 1, 1),
+    _AccessibleIpListIndex_Type()
+)
+accessibleIpListIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    accessibleIpListIndex.setStatus("current")
+
+
+class _ActiveAccessibleIpList_Type(Integer32):
+    """Custom type activeAccessibleIpList based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_ActiveAccessibleIpList_Type.__name__ = "Integer32"
+_ActiveAccessibleIpList_Object = MibTableColumn
+activeAccessibleIpList = _ActiveAccessibleIpList_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 1, 2, 1, 2),
+    _ActiveAccessibleIpList_Type()
+)
+activeAccessibleIpList.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    activeAccessibleIpList.setStatus("current")
+_AccessibleIpListAddress_Type = IpAddress
+_AccessibleIpListAddress_Object = MibTableColumn
+accessibleIpListAddress = _AccessibleIpListAddress_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 1, 2, 1, 3),
+    _AccessibleIpListAddress_Type()
+)
+accessibleIpListAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    accessibleIpListAddress.setStatus("current")
+_AccessibleIpListNetmask_Type = IpAddress
+_AccessibleIpListNetmask_Object = MibTableColumn
+accessibleIpListNetmask = _AccessibleIpListNetmask_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 1, 2, 1, 4),
+    _AccessibleIpListNetmask_Type()
+)
+accessibleIpListNetmask.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    accessibleIpListNetmask.setStatus("current")
+_SnmpAgentSettings_ObjectIdentity = ObjectIdentity
+snmpAgentSettings = _SnmpAgentSettings_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 2)
+)
+
+
+class _SnmpEnable_Type(Integer32):
+    """Custom type snmpEnable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_SnmpEnable_Type.__name__ = "Integer32"
+_SnmpEnable_Object = MibScalar
+snmpEnable = _SnmpEnable_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 2, 1),
+    _SnmpEnable_Type()
+)
+snmpEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    snmpEnable.setStatus("current")
+
+
+class _SnmpContactName_Type(DisplayString):
+    """Custom type snmpContactName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 40),
+    )
+
+
+_SnmpContactName_Type.__name__ = "DisplayString"
+_SnmpContactName_Object = MibScalar
+snmpContactName = _SnmpContactName_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 2, 2),
+    _SnmpContactName_Type()
+)
+snmpContactName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    snmpContactName.setStatus("current")
+
+
+class _SnmpLocation_Type(DisplayString):
+    """Custom type snmpLocation based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 40),
+    )
+
+
+_SnmpLocation_Type.__name__ = "DisplayString"
+_SnmpLocation_Object = MibScalar
+snmpLocation = _SnmpLocation_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 2, 3),
+    _SnmpLocation_Type()
+)
+snmpLocation.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    snmpLocation.setStatus("current")
+_DDNS_ObjectIdentity = ObjectIdentity
+dDNS = _DDNS_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 3)
+)
+
+
+class _DDNSEnable_Type(Integer32):
+    """Custom type dDNSEnable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_DDNSEnable_Type.__name__ = "Integer32"
+_DDNSEnable_Object = MibScalar
+dDNSEnable = _DDNSEnable_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 3, 1),
+    _DDNSEnable_Type()
+)
+dDNSEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dDNSEnable.setStatus("current")
+
+
+class _DDNSServerAddress_Type(Integer32):
+    """Custom type dDNSServerAddress based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            0
+        )
+    )
+    namedValues = NamedValues(
+        ("dynDns_org", 0)
+    )
+
+
+_DDNSServerAddress_Type.__name__ = "Integer32"
+_DDNSServerAddress_Object = MibScalar
+dDNSServerAddress = _DDNSServerAddress_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 3, 2),
+    _DDNSServerAddress_Type()
+)
+dDNSServerAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dDNSServerAddress.setStatus("current")
+
+
+class _DDNSHostName_Type(DisplayString):
+    """Custom type dDNSHostName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 60),
+    )
+
+
+_DDNSHostName_Type.__name__ = "DisplayString"
+_DDNSHostName_Object = MibScalar
+dDNSHostName = _DDNSHostName_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 3, 3),
+    _DDNSHostName_Type()
+)
+dDNSHostName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dDNSHostName.setStatus("current")
+
+
+class _DDNSUserName_Type(DisplayString):
+    """Custom type dDNSUserName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 60),
+    )
+
+
+_DDNSUserName_Type.__name__ = "DisplayString"
+_DDNSUserName_Object = MibScalar
+dDNSUserName = _DDNSUserName_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 3, 4),
+    _DDNSUserName_Type()
+)
+dDNSUserName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dDNSUserName.setStatus("current")
+
+
+class _DDNSPassword_Type(DisplayString):
+    """Custom type dDNSPassword based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 60),
+    )
+
+
+_DDNSPassword_Type.__name__ = "DisplayString"
+_DDNSPassword_Object = MibScalar
+dDNSPassword = _DDNSPassword_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 3, 5),
+    _DDNSPassword_Type()
+)
+dDNSPassword.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dDNSPassword.setStatus("current")
+_HostTable_ObjectIdentity = ObjectIdentity
+hostTable = _HostTable_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 4)
+)
+_HostTableTable_Object = MibTable
+hostTableTable = _HostTableTable_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 4, 1)
+)
+if mibBuilder.loadTexts:
+    hostTableTable.setStatus("current")
+_HostTableEntry_Object = MibTableRow
+hostTableEntry = _HostTableEntry_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 4, 1, 1)
+)
+hostTableEntry.setIndexNames(
+    (0, "MOXA-NP6000-MIB", "hostTableIndex"),
+)
+if mibBuilder.loadTexts:
+    hostTableEntry.setStatus("current")
+_HostTableIndex_Type = Integer32
+_HostTableIndex_Object = MibTableColumn
+hostTableIndex = _HostTableIndex_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 4, 1, 1, 1),
+    _HostTableIndex_Type()
+)
+hostTableIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hostTableIndex.setStatus("current")
+
+
+class _HostName_Type(DisplayString):
+    """Custom type hostName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 16),
+    )
+
+
+_HostName_Type.__name__ = "DisplayString"
+_HostName_Object = MibTableColumn
+hostName = _HostName_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 4, 1, 1, 2),
+    _HostName_Type()
+)
+hostName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hostName.setStatus("current")
+_HostIpAddress_Type = IpAddress
+_HostIpAddress_Object = MibTableColumn
+hostIpAddress = _HostIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 4, 1, 1, 3),
+    _HostIpAddress_Type()
+)
+hostIpAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hostIpAddress.setStatus("current")
+_RouteTable_ObjectIdentity = ObjectIdentity
+routeTable = _RouteTable_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 5)
+)
+_RouteTableTable_Object = MibTable
+routeTableTable = _RouteTableTable_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 5, 1)
+)
+if mibBuilder.loadTexts:
+    routeTableTable.setStatus("current")
+_RouteTableEntry_Object = MibTableRow
+routeTableEntry = _RouteTableEntry_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 5, 1, 1)
+)
+routeTableEntry.setIndexNames(
+    (0, "MOXA-NP6000-MIB", "routeTableIndex"),
+)
+if mibBuilder.loadTexts:
+    routeTableEntry.setStatus("current")
+_RouteTableIndex_Type = Integer32
+_RouteTableIndex_Object = MibTableColumn
+routeTableIndex = _RouteTableIndex_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 5, 1, 1, 1),
+    _RouteTableIndex_Type()
+)
+routeTableIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    routeTableIndex.setStatus("current")
+_GatewayRouteTable_Type = IpAddress
+_GatewayRouteTable_Object = MibTableColumn
+gatewayRouteTable = _GatewayRouteTable_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 5, 1, 1, 2),
+    _GatewayRouteTable_Type()
+)
+gatewayRouteTable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    gatewayRouteTable.setStatus("current")
+_DestinationRouteTable_Type = IpAddress
+_DestinationRouteTable_Object = MibTableColumn
+destinationRouteTable = _DestinationRouteTable_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 5, 1, 1, 3),
+    _DestinationRouteTable_Type()
+)
+destinationRouteTable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    destinationRouteTable.setStatus("current")
+_NetmaskRouteTable_Type = IpAddress
+_NetmaskRouteTable_Object = MibTableColumn
+netmaskRouteTable = _NetmaskRouteTable_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 5, 1, 1, 4),
+    _NetmaskRouteTable_Type()
+)
+netmaskRouteTable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    netmaskRouteTable.setStatus("current")
+_MetricRouteTable_Type = Integer32
+_MetricRouteTable_Object = MibTableColumn
+metricRouteTable = _MetricRouteTable_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 5, 1, 1, 5),
+    _MetricRouteTable_Type()
+)
+metricRouteTable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    metricRouteTable.setStatus("current")
+
+
+class _InterfaceRouteTable_Type(Integer32):
+    """Custom type interfaceRouteTable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              256)
+        )
+    )
+    namedValues = NamedValues(
+        *(("lan", 256),
+          ("port1", 0),
+          ("port10", 9),
+          ("port11", 10),
+          ("port12", 11),
+          ("port13", 12),
+          ("port14", 13),
+          ("port15", 14),
+          ("port16", 15),
+          ("port2", 1),
+          ("port3", 2),
+          ("port4", 3),
+          ("port5", 4),
+          ("port6", 5),
+          ("port7", 6),
+          ("port8", 7),
+          ("port9", 8))
+    )
+
+
+_InterfaceRouteTable_Type.__name__ = "Integer32"
+_InterfaceRouteTable_Object = MibTableColumn
+interfaceRouteTable = _InterfaceRouteTable_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 5, 1, 1, 6),
+    _InterfaceRouteTable_Type()
+)
+interfaceRouteTable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    interfaceRouteTable.setStatus("current")
+_UserTable_ObjectIdentity = ObjectIdentity
+userTable = _UserTable_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 6)
+)
+_UserTableTable_Object = MibTable
+userTableTable = _UserTableTable_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 6, 1)
+)
+if mibBuilder.loadTexts:
+    userTableTable.setStatus("current")
+_UserTableEntry_Object = MibTableRow
+userTableEntry = _UserTableEntry_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 6, 1, 1)
+)
+userTableEntry.setIndexNames(
+    (0, "MOXA-NP6000-MIB", "userTableIndex"),
+)
+if mibBuilder.loadTexts:
+    userTableEntry.setStatus("current")
+_UserTableIndex_Type = Integer32
+_UserTableIndex_Object = MibTableColumn
+userTableIndex = _UserTableIndex_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 6, 1, 1, 1),
+    _UserTableIndex_Type()
+)
+userTableIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    userTableIndex.setStatus("current")
+
+
+class _UserNameUserTable_Type(DisplayString):
+    """Custom type userNameUserTable based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 16),
+    )
+
+
+_UserNameUserTable_Type.__name__ = "DisplayString"
+_UserNameUserTable_Object = MibTableColumn
+userNameUserTable = _UserNameUserTable_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 6, 1, 1, 2),
+    _UserNameUserTable_Type()
+)
+userNameUserTable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    userNameUserTable.setStatus("current")
+
+
+class _PasswordUserTable_Type(DisplayString):
+    """Custom type passwordUserTable based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 16),
+    )
+
+
+_PasswordUserTable_Type.__name__ = "DisplayString"
+_PasswordUserTable_Object = MibTableColumn
+passwordUserTable = _PasswordUserTable_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 6, 1, 1, 3),
+    _PasswordUserTable_Type()
+)
+passwordUserTable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    passwordUserTable.setStatus("current")
+
+
+class _PhoneNumberUserTable_Type(DisplayString):
+    """Custom type phoneNumberUserTable based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 16),
+    )
+
+
+_PhoneNumberUserTable_Type.__name__ = "DisplayString"
+_PhoneNumberUserTable_Object = MibTableColumn
+phoneNumberUserTable = _PhoneNumberUserTable_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 6, 1, 1, 4),
+    _PhoneNumberUserTable_Type()
+)
+phoneNumberUserTable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    phoneNumberUserTable.setStatus("current")
+_AuthenticationServer_ObjectIdentity = ObjectIdentity
+authenticationServer = _AuthenticationServer_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 7)
+)
+_RadiusServerIp_Type = DisplayString
+_RadiusServerIp_Object = MibScalar
+radiusServerIp = _RadiusServerIp_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 7, 1),
+    _RadiusServerIp_Type()
+)
+radiusServerIp.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    radiusServerIp.setStatus("current")
+
+
+class _RadiusKey_Type(DisplayString):
+    """Custom type radiusKey based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 16),
+    )
+
+
+_RadiusKey_Type.__name__ = "DisplayString"
+_RadiusKey_Object = MibScalar
+radiusKey = _RadiusKey_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 7, 2),
+    _RadiusKey_Type()
+)
+radiusKey.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    radiusKey.setStatus("current")
+
+
+class _UdpPortAuthenticationServer_Type(Integer32):
+    """Custom type udpPortAuthenticationServer based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1645,
+              1812)
+        )
+    )
+    namedValues = NamedValues(
+        *(("port1645", 1645),
+          ("port1812", 1812))
+    )
+
+
+_UdpPortAuthenticationServer_Type.__name__ = "Integer32"
+_UdpPortAuthenticationServer_Object = MibScalar
+udpPortAuthenticationServer = _UdpPortAuthenticationServer_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 7, 3),
+    _UdpPortAuthenticationServer_Type()
+)
+udpPortAuthenticationServer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    udpPortAuthenticationServer.setStatus("current")
+
+
+class _RadiusAccounting_Type(Integer32):
+    """Custom type radiusAccounting based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_RadiusAccounting_Type.__name__ = "Integer32"
+_RadiusAccounting_Object = MibScalar
+radiusAccounting = _RadiusAccounting_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 7, 4),
+    _RadiusAccounting_Type()
+)
+radiusAccounting.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    radiusAccounting.setStatus("current")
+_SysLogSettings_ObjectIdentity = ObjectIdentity
+sysLogSettings = _SysLogSettings_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 8)
+)
+
+
+class _SysLocalLog_Type(Integer32):
+    """Custom type sysLocalLog based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_SysLocalLog_Type.__name__ = "Integer32"
+_SysLocalLog_Object = MibScalar
+sysLocalLog = _SysLocalLog_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 8, 1),
+    _SysLocalLog_Type()
+)
+sysLocalLog.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    sysLocalLog.setStatus("current")
+
+
+class _NetworkLocalLog_Type(Integer32):
+    """Custom type networkLocalLog based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_NetworkLocalLog_Type.__name__ = "Integer32"
+_NetworkLocalLog_Object = MibScalar
+networkLocalLog = _NetworkLocalLog_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 8, 2),
+    _NetworkLocalLog_Type()
+)
+networkLocalLog.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    networkLocalLog.setStatus("current")
+
+
+class _ConfigLocalLog_Type(Integer32):
+    """Custom type configLocalLog based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_ConfigLocalLog_Type.__name__ = "Integer32"
+_ConfigLocalLog_Object = MibScalar
+configLocalLog = _ConfigLocalLog_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 8, 3),
+    _ConfigLocalLog_Type()
+)
+configLocalLog.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    configLocalLog.setStatus("current")
+
+
+class _OpModeLocalLog_Type(Integer32):
+    """Custom type opModeLocalLog based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_OpModeLocalLog_Type.__name__ = "Integer32"
+_OpModeLocalLog_Object = MibScalar
+opModeLocalLog = _OpModeLocalLog_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 1, 8, 4),
+    _OpModeLocalLog_Type()
+)
+opModeLocalLog.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opModeLocalLog.setStatus("current")
+_AutoWarningSettings_ObjectIdentity = ObjectIdentity
+autoWarningSettings = _AutoWarningSettings_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2)
+)
+_EventSettings_ObjectIdentity = ObjectIdentity
+eventSettings = _EventSettings_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 1)
+)
+
+
+class _MailWarningColdStart_Type(Integer32):
+    """Custom type mailWarningColdStart based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_MailWarningColdStart_Type.__name__ = "Integer32"
+_MailWarningColdStart_Object = MibScalar
+mailWarningColdStart = _MailWarningColdStart_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 1, 1),
+    _MailWarningColdStart_Type()
+)
+mailWarningColdStart.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mailWarningColdStart.setStatus("current")
+
+
+class _MailWarningWarmStart_Type(Integer32):
+    """Custom type mailWarningWarmStart based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_MailWarningWarmStart_Type.__name__ = "Integer32"
+_MailWarningWarmStart_Object = MibScalar
+mailWarningWarmStart = _MailWarningWarmStart_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 1, 2),
+    _MailWarningWarmStart_Type()
+)
+mailWarningWarmStart.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mailWarningWarmStart.setStatus("current")
+
+
+class _MailWarningAuthFailure_Type(Integer32):
+    """Custom type mailWarningAuthFailure based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_MailWarningAuthFailure_Type.__name__ = "Integer32"
+_MailWarningAuthFailure_Object = MibScalar
+mailWarningAuthFailure = _MailWarningAuthFailure_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 1, 3),
+    _MailWarningAuthFailure_Type()
+)
+mailWarningAuthFailure.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mailWarningAuthFailure.setStatus("current")
+
+
+class _MailWarningIpChanged_Type(Integer32):
+    """Custom type mailWarningIpChanged based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_MailWarningIpChanged_Type.__name__ = "Integer32"
+_MailWarningIpChanged_Object = MibScalar
+mailWarningIpChanged = _MailWarningIpChanged_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 1, 4),
+    _MailWarningIpChanged_Type()
+)
+mailWarningIpChanged.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mailWarningIpChanged.setStatus("current")
+
+
+class _MailWarningPasswordChanged_Type(Integer32):
+    """Custom type mailWarningPasswordChanged based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_MailWarningPasswordChanged_Type.__name__ = "Integer32"
+_MailWarningPasswordChanged_Object = MibScalar
+mailWarningPasswordChanged = _MailWarningPasswordChanged_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 1, 5),
+    _MailWarningPasswordChanged_Type()
+)
+mailWarningPasswordChanged.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mailWarningPasswordChanged.setStatus("current")
+
+
+class _TrapServerColdStart_Type(Integer32):
+    """Custom type trapServerColdStart based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_TrapServerColdStart_Type.__name__ = "Integer32"
+_TrapServerColdStart_Object = MibScalar
+trapServerColdStart = _TrapServerColdStart_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 1, 6),
+    _TrapServerColdStart_Type()
+)
+trapServerColdStart.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    trapServerColdStart.setStatus("current")
+
+
+class _TrapServerWarmStart_Type(Integer32):
+    """Custom type trapServerWarmStart based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_TrapServerWarmStart_Type.__name__ = "Integer32"
+_TrapServerWarmStart_Object = MibScalar
+trapServerWarmStart = _TrapServerWarmStart_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 1, 7),
+    _TrapServerWarmStart_Type()
+)
+trapServerWarmStart.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    trapServerWarmStart.setStatus("current")
+
+
+class _TrapServerAuthFailure_Type(Integer32):
+    """Custom type trapServerAuthFailure based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_TrapServerAuthFailure_Type.__name__ = "Integer32"
+_TrapServerAuthFailure_Object = MibScalar
+trapServerAuthFailure = _TrapServerAuthFailure_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 1, 8),
+    _TrapServerAuthFailure_Type()
+)
+trapServerAuthFailure.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    trapServerAuthFailure.setStatus("current")
+
+
+class _AlarmServerEthernet1LinkDown_Type(Integer32):
+    """Custom type alarmServerEthernet1LinkDown based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_AlarmServerEthernet1LinkDown_Type.__name__ = "Integer32"
+_AlarmServerEthernet1LinkDown_Object = MibScalar
+alarmServerEthernet1LinkDown = _AlarmServerEthernet1LinkDown_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 1, 9),
+    _AlarmServerEthernet1LinkDown_Type()
+)
+alarmServerEthernet1LinkDown.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alarmServerEthernet1LinkDown.setStatus("current")
+
+
+class _AlarmServerEthernet2LinkDown_Type(Integer32):
+    """Custom type alarmServerEthernet2LinkDown based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_AlarmServerEthernet2LinkDown_Type.__name__ = "Integer32"
+_AlarmServerEthernet2LinkDown_Object = MibScalar
+alarmServerEthernet2LinkDown = _AlarmServerEthernet2LinkDown_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 1, 10),
+    _AlarmServerEthernet2LinkDown_Type()
+)
+alarmServerEthernet2LinkDown.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alarmServerEthernet2LinkDown.setStatus("current")
+
+
+class _AlarmServerEthernet3LinkDown_Type(Integer32):
+    """Custom type alarmServerEthernet3LinkDown based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_AlarmServerEthernet3LinkDown_Type.__name__ = "Integer32"
+_AlarmServerEthernet3LinkDown_Object = MibScalar
+alarmServerEthernet3LinkDown = _AlarmServerEthernet3LinkDown_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 1, 11),
+    _AlarmServerEthernet3LinkDown_Type()
+)
+alarmServerEthernet3LinkDown.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alarmServerEthernet3LinkDown.setStatus("current")
+_SerialEventSettings_ObjectIdentity = ObjectIdentity
+serialEventSettings = _SerialEventSettings_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 2)
+)
+_PortEventSettingsTable_Object = MibTable
+portEventSettingsTable = _PortEventSettingsTable_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 2, 1)
+)
+if mibBuilder.loadTexts:
+    portEventSettingsTable.setStatus("current")
+_PortEventSettingsEntry_Object = MibTableRow
+portEventSettingsEntry = _PortEventSettingsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 2, 1, 1)
+)
+portEventSettingsEntry.setIndexNames(
+    (0, "MOXA-NP6000-MIB", "portIndex"),
+)
+if mibBuilder.loadTexts:
+    portEventSettingsEntry.setStatus("current")
+
+
+class _MailDCDchange_Type(Integer32):
+    """Custom type mailDCDchange based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_MailDCDchange_Type.__name__ = "Integer32"
+_MailDCDchange_Object = MibTableColumn
+mailDCDchange = _MailDCDchange_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 2, 1, 1, 1),
+    _MailDCDchange_Type()
+)
+mailDCDchange.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mailDCDchange.setStatus("current")
+
+
+class _TrapDCDchange_Type(Integer32):
+    """Custom type trapDCDchange based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_TrapDCDchange_Type.__name__ = "Integer32"
+_TrapDCDchange_Object = MibTableColumn
+trapDCDchange = _TrapDCDchange_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 2, 1, 1, 2),
+    _TrapDCDchange_Type()
+)
+trapDCDchange.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    trapDCDchange.setStatus("current")
+
+
+class _AlarmDCDchange_Type(Integer32):
+    """Custom type alarmDCDchange based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_AlarmDCDchange_Type.__name__ = "Integer32"
+_AlarmDCDchange_Object = MibTableColumn
+alarmDCDchange = _AlarmDCDchange_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 2, 1, 1, 3),
+    _AlarmDCDchange_Type()
+)
+alarmDCDchange.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alarmDCDchange.setStatus("current")
+
+
+class _MailDSRchange_Type(Integer32):
+    """Custom type mailDSRchange based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_MailDSRchange_Type.__name__ = "Integer32"
+_MailDSRchange_Object = MibTableColumn
+mailDSRchange = _MailDSRchange_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 2, 1, 1, 4),
+    _MailDSRchange_Type()
+)
+mailDSRchange.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mailDSRchange.setStatus("current")
+
+
+class _TrapDSRchange_Type(Integer32):
+    """Custom type trapDSRchange based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_TrapDSRchange_Type.__name__ = "Integer32"
+_TrapDSRchange_Object = MibTableColumn
+trapDSRchange = _TrapDSRchange_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 2, 1, 1, 5),
+    _TrapDSRchange_Type()
+)
+trapDSRchange.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    trapDSRchange.setStatus("current")
+
+
+class _AlarmDSRchange_Type(Integer32):
+    """Custom type alarmDSRchange based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_AlarmDSRchange_Type.__name__ = "Integer32"
+_AlarmDSRchange_Object = MibTableColumn
+alarmDSRchange = _AlarmDSRchange_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 2, 1, 1, 6),
+    _AlarmDSRchange_Type()
+)
+alarmDSRchange.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alarmDSRchange.setStatus("current")
+_EmailAlert_ObjectIdentity = ObjectIdentity
+emailAlert = _EmailAlert_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 3)
+)
+_EmailWarningMailServer_Type = DisplayString
+_EmailWarningMailServer_Object = MibScalar
+emailWarningMailServer = _EmailWarningMailServer_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 3, 1),
+    _EmailWarningMailServer_Type()
+)
+emailWarningMailServer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    emailWarningMailServer.setStatus("current")
+
+
+class _EmailRequiresAuthentication_Type(Integer32):
+    """Custom type emailRequiresAuthentication based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("non-require", 0),
+          ("require", 1))
+    )
+
+
+_EmailRequiresAuthentication_Type.__name__ = "Integer32"
+_EmailRequiresAuthentication_Object = MibScalar
+emailRequiresAuthentication = _EmailRequiresAuthentication_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 3, 2),
+    _EmailRequiresAuthentication_Type()
+)
+emailRequiresAuthentication.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    emailRequiresAuthentication.setStatus("current")
+_EmailWarningUserName_Type = DisplayString
+_EmailWarningUserName_Object = MibScalar
+emailWarningUserName = _EmailWarningUserName_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 3, 3),
+    _EmailWarningUserName_Type()
+)
+emailWarningUserName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    emailWarningUserName.setStatus("current")
+_EmailWarningPassword_Type = DisplayString
+_EmailWarningPassword_Object = MibScalar
+emailWarningPassword = _EmailWarningPassword_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 3, 4),
+    _EmailWarningPassword_Type()
+)
+emailWarningPassword.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    emailWarningPassword.setStatus("current")
+_EmailWarningFromEmail_Type = DisplayString
+_EmailWarningFromEmail_Object = MibScalar
+emailWarningFromEmail = _EmailWarningFromEmail_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 3, 5),
+    _EmailWarningFromEmail_Type()
+)
+emailWarningFromEmail.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    emailWarningFromEmail.setStatus("current")
+_EmailWarningFirstEmailAddr_Type = DisplayString
+_EmailWarningFirstEmailAddr_Object = MibScalar
+emailWarningFirstEmailAddr = _EmailWarningFirstEmailAddr_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 3, 6),
+    _EmailWarningFirstEmailAddr_Type()
+)
+emailWarningFirstEmailAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    emailWarningFirstEmailAddr.setStatus("current")
+_EmailWarningSecondEmailAddr_Type = DisplayString
+_EmailWarningSecondEmailAddr_Object = MibScalar
+emailWarningSecondEmailAddr = _EmailWarningSecondEmailAddr_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 3, 7),
+    _EmailWarningSecondEmailAddr_Type()
+)
+emailWarningSecondEmailAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    emailWarningSecondEmailAddr.setStatus("current")
+_EmailWarningThirdEmailAddr_Type = DisplayString
+_EmailWarningThirdEmailAddr_Object = MibScalar
+emailWarningThirdEmailAddr = _EmailWarningThirdEmailAddr_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 3, 8),
+    _EmailWarningThirdEmailAddr_Type()
+)
+emailWarningThirdEmailAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    emailWarningThirdEmailAddr.setStatus("current")
+_EmailWarningFourthEmailAddr_Type = DisplayString
+_EmailWarningFourthEmailAddr_Object = MibScalar
+emailWarningFourthEmailAddr = _EmailWarningFourthEmailAddr_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 3, 9),
+    _EmailWarningFourthEmailAddr_Type()
+)
+emailWarningFourthEmailAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    emailWarningFourthEmailAddr.setStatus("current")
+_SnmpTrap_ObjectIdentity = ObjectIdentity
+snmpTrap = _SnmpTrap_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 4)
+)
+_SnmpTrapReceiverIp_Type = DisplayString
+_SnmpTrapReceiverIp_Object = MibScalar
+snmpTrapReceiverIp = _SnmpTrapReceiverIp_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 4, 1),
+    _SnmpTrapReceiverIp_Type()
+)
+snmpTrapReceiverIp.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    snmpTrapReceiverIp.setStatus("current")
+
+
+class _TrapVersion_Type(Integer32):
+    """Custom type trapVersion based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("v1", 0),
+          ("v2c", 1))
+    )
+
+
+_TrapVersion_Type.__name__ = "Integer32"
+_TrapVersion_Object = MibScalar
+trapVersion = _TrapVersion_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 2, 4, 2),
+    _TrapVersion_Type()
+)
+trapVersion.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    trapVersion.setStatus("current")
+_Maintenance_ObjectIdentity = ObjectIdentity
+maintenance = _Maintenance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 3)
+)
+_ConsoleSettings_ObjectIdentity = ObjectIdentity
+consoleSettings = _ConsoleSettings_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 3, 1)
+)
+
+
+class _HttpConsole_Type(Integer32):
+    """Custom type httpConsole based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 1),
+          ("enable", 0))
+    )
+
+
+_HttpConsole_Type.__name__ = "Integer32"
+_HttpConsole_Object = MibScalar
+httpConsole = _HttpConsole_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 3, 1, 1),
+    _HttpConsole_Type()
+)
+httpConsole.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    httpConsole.setStatus("current")
+
+
+class _HttpsConsole_Type(Integer32):
+    """Custom type httpsConsole based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 1),
+          ("enable", 0))
+    )
+
+
+_HttpsConsole_Type.__name__ = "Integer32"
+_HttpsConsole_Object = MibScalar
+httpsConsole = _HttpsConsole_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 3, 1, 2),
+    _HttpsConsole_Type()
+)
+httpsConsole.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    httpsConsole.setStatus("current")
+
+
+class _TelnetConsole_Type(Integer32):
+    """Custom type telnetConsole based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 1),
+          ("enable", 0))
+    )
+
+
+_TelnetConsole_Type.__name__ = "Integer32"
+_TelnetConsole_Object = MibScalar
+telnetConsole = _TelnetConsole_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 3, 1, 3),
+    _TelnetConsole_Type()
+)
+telnetConsole.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    telnetConsole.setStatus("current")
+
+
+class _SshConsole_Type(Integer32):
+    """Custom type sshConsole based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 1),
+          ("enable", 0))
+    )
+
+
+_SshConsole_Type.__name__ = "Integer32"
+_SshConsole_Object = MibScalar
+sshConsole = _SshConsole_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 3, 1, 4),
+    _SshConsole_Type()
+)
+sshConsole.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    sshConsole.setStatus("current")
+
+
+class _LcmReadOnlyProtect_Type(Integer32):
+    """Custom type lcmReadOnlyProtect based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("readonly", 1),
+          ("writable", 0))
+    )
+
+
+_LcmReadOnlyProtect_Type.__name__ = "Integer32"
+_LcmReadOnlyProtect_Object = MibScalar
+lcmReadOnlyProtect = _LcmReadOnlyProtect_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 3, 1, 5),
+    _LcmReadOnlyProtect_Type()
+)
+lcmReadOnlyProtect.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    lcmReadOnlyProtect.setStatus("current")
+
+
+class _ResetButtonFunction_Type(Integer32):
+    """Custom type resetButtonFunction based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("always-enable", 0),
+          ("disable-after-60-sec", 1))
+    )
+
+
+_ResetButtonFunction_Type.__name__ = "Integer32"
+_ResetButtonFunction_Object = MibScalar
+resetButtonFunction = _ResetButtonFunction_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 3, 1, 6),
+    _ResetButtonFunction_Type()
+)
+resetButtonFunction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    resetButtonFunction.setStatus("current")
+_LoadFactoryDefault_ObjectIdentity = ObjectIdentity
+loadFactoryDefault = _LoadFactoryDefault_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 3, 2)
+)
+
+
+class _LoadFactoryDefaultSetting_Type(Integer32):
+    """Custom type loadFactoryDefaultSetting based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("resetToFactoryDefault", 1),
+          ("resetToFactoryDefault-ExcludingIpConfiguration", 0))
+    )
+
+
+_LoadFactoryDefaultSetting_Type.__name__ = "Integer32"
+_LoadFactoryDefaultSetting_Object = MibScalar
+loadFactoryDefaultSetting = _LoadFactoryDefaultSetting_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 5, 3, 2, 1),
+    _LoadFactoryDefaultSetting_Type()
+)
+loadFactoryDefaultSetting.setMaxAccess("write-only")
+if mibBuilder.loadTexts:
+    loadFactoryDefaultSetting.setStatus("current")
+_SysStatus_ObjectIdentity = ObjectIdentity
+sysStatus = _SysStatus_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6)
+)
+_S2eConnections_ObjectIdentity = ObjectIdentity
+s2eConnections = _S2eConnections_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 1)
+)
+_MonitorRemoteIpTable_Object = MibTable
+monitorRemoteIpTable = _MonitorRemoteIpTable_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 1, 1)
+)
+if mibBuilder.loadTexts:
+    monitorRemoteIpTable.setStatus("current")
+_MonitorRemoteIpEntry_Object = MibTableRow
+monitorRemoteIpEntry = _MonitorRemoteIpEntry_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 1, 1, 1)
+)
+monitorRemoteIpEntry.setIndexNames(
+    (0, "MOXA-NP6000-MIB", "portIndex"),
+    (0, "MOXA-NP6000-MIB", "remoteIpIndex"),
+)
+if mibBuilder.loadTexts:
+    monitorRemoteIpEntry.setStatus("current")
+_RemoteIpIndex_Type = Integer32
+_RemoteIpIndex_Object = MibTableColumn
+remoteIpIndex = _RemoteIpIndex_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 1, 1, 1, 1),
+    _RemoteIpIndex_Type()
+)
+remoteIpIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    remoteIpIndex.setStatus("current")
+_MonitorRemoteIp_Type = IpAddress
+_MonitorRemoteIp_Object = MibTableColumn
+monitorRemoteIp = _MonitorRemoteIp_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 1, 1, 1, 2),
+    _MonitorRemoteIp_Type()
+)
+monitorRemoteIp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    monitorRemoteIp.setStatus("current")
+_SerialPortStatus_ObjectIdentity = ObjectIdentity
+serialPortStatus = _SerialPortStatus_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 2)
+)
+_MonitorSerialPortStatusTable_Object = MibTable
+monitorSerialPortStatusTable = _MonitorSerialPortStatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 2, 1)
+)
+if mibBuilder.loadTexts:
+    monitorSerialPortStatusTable.setStatus("current")
+_MonitorSerialPortStatusEntry_Object = MibTableRow
+monitorSerialPortStatusEntry = _MonitorSerialPortStatusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 2, 1, 1)
+)
+monitorSerialPortStatusEntry.setIndexNames(
+    (0, "MOXA-NP6000-MIB", "portIndex"),
+)
+if mibBuilder.loadTexts:
+    monitorSerialPortStatusEntry.setStatus("current")
+_MonitorTxCount_Type = Integer32
+_MonitorTxCount_Object = MibTableColumn
+monitorTxCount = _MonitorTxCount_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 2, 1, 1, 1),
+    _MonitorTxCount_Type()
+)
+monitorTxCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    monitorTxCount.setStatus("current")
+_MonitorRxCount_Type = Integer32
+_MonitorRxCount_Object = MibTableColumn
+monitorRxCount = _MonitorRxCount_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 2, 1, 1, 2),
+    _MonitorRxCount_Type()
+)
+monitorRxCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    monitorRxCount.setStatus("current")
+_MonitorTxTotalCount_Type = Integer32
+_MonitorTxTotalCount_Object = MibTableColumn
+monitorTxTotalCount = _MonitorTxTotalCount_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 2, 1, 1, 3),
+    _MonitorTxTotalCount_Type()
+)
+monitorTxTotalCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    monitorTxTotalCount.setStatus("current")
+_MonitorRxTotalCount_Type = Integer32
+_MonitorRxTotalCount_Object = MibTableColumn
+monitorRxTotalCount = _MonitorRxTotalCount_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 2, 1, 1, 4),
+    _MonitorRxTotalCount_Type()
+)
+monitorRxTotalCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    monitorRxTotalCount.setStatus("current")
+
+
+class _MonitorDSR_Type(Integer32):
+    """Custom type monitorDSR based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 0),
+          ("on", 1))
+    )
+
+
+_MonitorDSR_Type.__name__ = "Integer32"
+_MonitorDSR_Object = MibTableColumn
+monitorDSR = _MonitorDSR_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 2, 1, 1, 5),
+    _MonitorDSR_Type()
+)
+monitorDSR.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    monitorDSR.setStatus("current")
+
+
+class _MonitorDTR_Type(Integer32):
+    """Custom type monitorDTR based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 0),
+          ("on", 1))
+    )
+
+
+_MonitorDTR_Type.__name__ = "Integer32"
+_MonitorDTR_Object = MibTableColumn
+monitorDTR = _MonitorDTR_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 2, 1, 1, 6),
+    _MonitorDTR_Type()
+)
+monitorDTR.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    monitorDTR.setStatus("current")
+
+
+class _MonitorRTS_Type(Integer32):
+    """Custom type monitorRTS based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 0),
+          ("on", 1))
+    )
+
+
+_MonitorRTS_Type.__name__ = "Integer32"
+_MonitorRTS_Object = MibTableColumn
+monitorRTS = _MonitorRTS_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 2, 1, 1, 7),
+    _MonitorRTS_Type()
+)
+monitorRTS.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    monitorRTS.setStatus("current")
+
+
+class _MonitorCTS_Type(Integer32):
+    """Custom type monitorCTS based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 0),
+          ("on", 1))
+    )
+
+
+_MonitorCTS_Type.__name__ = "Integer32"
+_MonitorCTS_Object = MibTableColumn
+monitorCTS = _MonitorCTS_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 2, 1, 1, 8),
+    _MonitorCTS_Type()
+)
+monitorCTS.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    monitorCTS.setStatus("current")
+
+
+class _MonitorDCD_Type(Integer32):
+    """Custom type monitorDCD based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 0),
+          ("on", 1))
+    )
+
+
+_MonitorDCD_Type.__name__ = "Integer32"
+_MonitorDCD_Object = MibTableColumn
+monitorDCD = _MonitorDCD_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 2, 1, 1, 9),
+    _MonitorDCD_Type()
+)
+monitorDCD.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    monitorDCD.setStatus("current")
+_SerialPortErrorCount_ObjectIdentity = ObjectIdentity
+serialPortErrorCount = _SerialPortErrorCount_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 3)
+)
+_MonitorSerialPortErrorCountTable_Object = MibTable
+monitorSerialPortErrorCountTable = _MonitorSerialPortErrorCountTable_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 3, 1)
+)
+if mibBuilder.loadTexts:
+    monitorSerialPortErrorCountTable.setStatus("current")
+_MonitorSerialPortErrorCountEntry_Object = MibTableRow
+monitorSerialPortErrorCountEntry = _MonitorSerialPortErrorCountEntry_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 3, 1, 1)
+)
+monitorSerialPortErrorCountEntry.setIndexNames(
+    (0, "MOXA-NP6000-MIB", "portIndex"),
+)
+if mibBuilder.loadTexts:
+    monitorSerialPortErrorCountEntry.setStatus("current")
+_MonitorErrorCountFrame_Type = Integer32
+_MonitorErrorCountFrame_Object = MibTableColumn
+monitorErrorCountFrame = _MonitorErrorCountFrame_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 3, 1, 1, 1),
+    _MonitorErrorCountFrame_Type()
+)
+monitorErrorCountFrame.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    monitorErrorCountFrame.setStatus("current")
+_MonitorErrorCountParity_Type = Integer32
+_MonitorErrorCountParity_Object = MibTableColumn
+monitorErrorCountParity = _MonitorErrorCountParity_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 3, 1, 1, 2),
+    _MonitorErrorCountParity_Type()
+)
+monitorErrorCountParity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    monitorErrorCountParity.setStatus("current")
+_MonitorErrorCountOverrun_Type = Integer32
+_MonitorErrorCountOverrun_Object = MibTableColumn
+monitorErrorCountOverrun = _MonitorErrorCountOverrun_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 3, 1, 1, 3),
+    _MonitorErrorCountOverrun_Type()
+)
+monitorErrorCountOverrun.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    monitorErrorCountOverrun.setStatus("current")
+_MonitorErrorCountBreak_Type = Integer32
+_MonitorErrorCountBreak_Object = MibTableColumn
+monitorErrorCountBreak = _MonitorErrorCountBreak_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 3, 1, 1, 4),
+    _MonitorErrorCountBreak_Type()
+)
+monitorErrorCountBreak.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    monitorErrorCountBreak.setStatus("current")
+_SerialPortSettings_ObjectIdentity = ObjectIdentity
+serialPortSettings = _SerialPortSettings_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 4)
+)
+_MonitorSerialPortSettingsTable_Object = MibTable
+monitorSerialPortSettingsTable = _MonitorSerialPortSettingsTable_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 4, 1)
+)
+if mibBuilder.loadTexts:
+    monitorSerialPortSettingsTable.setStatus("current")
+_MonitorSerialPortSettingsEntry_Object = MibTableRow
+monitorSerialPortSettingsEntry = _MonitorSerialPortSettingsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 4, 1, 1)
+)
+monitorSerialPortSettingsEntry.setIndexNames(
+    (0, "MOXA-NP6000-MIB", "portIndex"),
+)
+if mibBuilder.loadTexts:
+    monitorSerialPortSettingsEntry.setStatus("current")
+_MonitorBaudRate_Type = Integer32
+_MonitorBaudRate_Object = MibTableColumn
+monitorBaudRate = _MonitorBaudRate_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 4, 1, 1, 1),
+    _MonitorBaudRate_Type()
+)
+monitorBaudRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    monitorBaudRate.setStatus("current")
+_MonitorDataBits_Type = Integer32
+_MonitorDataBits_Object = MibTableColumn
+monitorDataBits = _MonitorDataBits_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 4, 1, 1, 2),
+    _MonitorDataBits_Type()
+)
+monitorDataBits.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    monitorDataBits.setStatus("current")
+_MonitorStopBits_Type = DisplayString
+_MonitorStopBits_Object = MibTableColumn
+monitorStopBits = _MonitorStopBits_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 4, 1, 1, 3),
+    _MonitorStopBits_Type()
+)
+monitorStopBits.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    monitorStopBits.setStatus("current")
+
+
+class _MonitorParity_Type(Integer32):
+    """Custom type monitorParity based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              8,
+              24,
+              40,
+              56)
+        )
+    )
+    namedValues = NamedValues(
+        *(("even", 24),
+          ("mark", 40),
+          ("none", 0),
+          ("odd", 8),
+          ("space", 56))
+    )
+
+
+_MonitorParity_Type.__name__ = "Integer32"
+_MonitorParity_Object = MibTableColumn
+monitorParity = _MonitorParity_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 4, 1, 1, 4),
+    _MonitorParity_Type()
+)
+monitorParity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    monitorParity.setStatus("current")
+
+
+class _MonitorRTSCTSFlowControl_Type(Integer32):
+    """Custom type monitorRTSCTSFlowControl based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 0),
+          ("on", 1))
+    )
+
+
+_MonitorRTSCTSFlowControl_Type.__name__ = "Integer32"
+_MonitorRTSCTSFlowControl_Object = MibTableColumn
+monitorRTSCTSFlowControl = _MonitorRTSCTSFlowControl_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 4, 1, 1, 5),
+    _MonitorRTSCTSFlowControl_Type()
+)
+monitorRTSCTSFlowControl.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    monitorRTSCTSFlowControl.setStatus("current")
+
+
+class _MonitorXONXOFFFlowControl_Type(Integer32):
+    """Custom type monitorXONXOFFFlowControl based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 0),
+          ("on", 1))
+    )
+
+
+_MonitorXONXOFFFlowControl_Type.__name__ = "Integer32"
+_MonitorXONXOFFFlowControl_Object = MibTableColumn
+monitorXONXOFFFlowControl = _MonitorXONXOFFFlowControl_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 4, 1, 1, 6),
+    _MonitorXONXOFFFlowControl_Type()
+)
+monitorXONXOFFFlowControl.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    monitorXONXOFFFlowControl.setStatus("current")
+
+
+class _MonitorDTRDSRFlowControl_Type(Integer32):
+    """Custom type monitorDTRDSRFlowControl based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 0),
+          ("on", 1))
+    )
+
+
+_MonitorDTRDSRFlowControl_Type.__name__ = "Integer32"
+_MonitorDTRDSRFlowControl_Object = MibTableColumn
+monitorDTRDSRFlowControl = _MonitorDTRDSRFlowControl_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 4, 1, 1, 7),
+    _MonitorDTRDSRFlowControl_Type()
+)
+monitorDTRDSRFlowControl.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    monitorDTRDSRFlowControl.setStatus("current")
+
+
+class _MonitorFIFO_Type(Integer32):
+    """Custom type monitorFIFO based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_MonitorFIFO_Type.__name__ = "Integer32"
+_MonitorFIFO_Object = MibTableColumn
+monitorFIFO = _MonitorFIFO_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 4, 1, 1, 8),
+    _MonitorFIFO_Type()
+)
+monitorFIFO.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    monitorFIFO.setStatus("current")
+
+
+class _MonitorInterface_Type(Integer32):
+    """Custom type monitorInterface based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("rs-232", 0),
+          ("rs-422", 1),
+          ("rs-485-2-wire", 2),
+          ("rs-485-4-wire", 3))
+    )
+
+
+_MonitorInterface_Type.__name__ = "Integer32"
+_MonitorInterface_Object = MibTableColumn
+monitorInterface = _MonitorInterface_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 4, 1, 1, 9),
+    _MonitorInterface_Type()
+)
+monitorInterface.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    monitorInterface.setStatus("current")
+_RelayOutputStatus_ObjectIdentity = ObjectIdentity
+relayOutputStatus = _RelayOutputStatus_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 5)
+)
+
+
+class _RelayOutputEthernet1LinkDown_Type(Integer32):
+    """Custom type relayOutputEthernet1LinkDown based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("alarm", 1),
+          ("alarm-Acked", 2),
+          ("none", 0))
+    )
+
+
+_RelayOutputEthernet1LinkDown_Type.__name__ = "Integer32"
+_RelayOutputEthernet1LinkDown_Object = MibScalar
+relayOutputEthernet1LinkDown = _RelayOutputEthernet1LinkDown_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 5, 1),
+    _RelayOutputEthernet1LinkDown_Type()
+)
+relayOutputEthernet1LinkDown.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    relayOutputEthernet1LinkDown.setStatus("current")
+
+
+class _Ethernet1LinkDownAcknowledge_Type(Integer32):
+    """Custom type ethernet1LinkDownAcknowledge based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            0
+        )
+    )
+    namedValues = NamedValues(
+        ("acked", 0)
+    )
+
+
+_Ethernet1LinkDownAcknowledge_Type.__name__ = "Integer32"
+_Ethernet1LinkDownAcknowledge_Object = MibScalar
+ethernet1LinkDownAcknowledge = _Ethernet1LinkDownAcknowledge_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 5, 2),
+    _Ethernet1LinkDownAcknowledge_Type()
+)
+ethernet1LinkDownAcknowledge.setMaxAccess("write-only")
+if mibBuilder.loadTexts:
+    ethernet1LinkDownAcknowledge.setStatus("current")
+
+
+class _RelayOutputEthernet2LinkDown_Type(Integer32):
+    """Custom type relayOutputEthernet2LinkDown based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("alarm", 1),
+          ("alarm-Acked", 2),
+          ("none", 0))
+    )
+
+
+_RelayOutputEthernet2LinkDown_Type.__name__ = "Integer32"
+_RelayOutputEthernet2LinkDown_Object = MibScalar
+relayOutputEthernet2LinkDown = _RelayOutputEthernet2LinkDown_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 5, 3),
+    _RelayOutputEthernet2LinkDown_Type()
+)
+relayOutputEthernet2LinkDown.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    relayOutputEthernet2LinkDown.setStatus("current")
+
+
+class _Ethernet2LinkDownAcknowledge_Type(Integer32):
+    """Custom type ethernet2LinkDownAcknowledge based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            0
+        )
+    )
+    namedValues = NamedValues(
+        ("acked", 0)
+    )
+
+
+_Ethernet2LinkDownAcknowledge_Type.__name__ = "Integer32"
+_Ethernet2LinkDownAcknowledge_Object = MibScalar
+ethernet2LinkDownAcknowledge = _Ethernet2LinkDownAcknowledge_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 5, 4),
+    _Ethernet2LinkDownAcknowledge_Type()
+)
+ethernet2LinkDownAcknowledge.setMaxAccess("write-only")
+if mibBuilder.loadTexts:
+    ethernet2LinkDownAcknowledge.setStatus("current")
+
+
+class _RelayOutputEthernet3LinkDown_Type(Integer32):
+    """Custom type relayOutputEthernet3LinkDown based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("alarm", 1),
+          ("alarm-Acked", 2),
+          ("none", 0))
+    )
+
+
+_RelayOutputEthernet3LinkDown_Type.__name__ = "Integer32"
+_RelayOutputEthernet3LinkDown_Object = MibScalar
+relayOutputEthernet3LinkDown = _RelayOutputEthernet3LinkDown_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 5, 5),
+    _RelayOutputEthernet3LinkDown_Type()
+)
+relayOutputEthernet3LinkDown.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    relayOutputEthernet3LinkDown.setStatus("current")
+
+
+class _Ethernet3LinkDownAcknowledge_Type(Integer32):
+    """Custom type ethernet3LinkDownAcknowledge based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            0
+        )
+    )
+    namedValues = NamedValues(
+        ("acked", 0)
+    )
+
+
+_Ethernet3LinkDownAcknowledge_Type.__name__ = "Integer32"
+_Ethernet3LinkDownAcknowledge_Object = MibScalar
+ethernet3LinkDownAcknowledge = _Ethernet3LinkDownAcknowledge_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 5, 6),
+    _Ethernet3LinkDownAcknowledge_Type()
+)
+ethernet3LinkDownAcknowledge.setMaxAccess("write-only")
+if mibBuilder.loadTexts:
+    ethernet3LinkDownAcknowledge.setStatus("current")
+_PortDCDChangedStatusTable_Object = MibTable
+portDCDChangedStatusTable = _PortDCDChangedStatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 5, 7)
+)
+if mibBuilder.loadTexts:
+    portDCDChangedStatusTable.setStatus("current")
+_PortDCDChangedStatusEntry_Object = MibTableRow
+portDCDChangedStatusEntry = _PortDCDChangedStatusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 5, 7, 1)
+)
+portDCDChangedStatusEntry.setIndexNames(
+    (0, "MOXA-NP6000-MIB", "portIndex"),
+)
+if mibBuilder.loadTexts:
+    portDCDChangedStatusEntry.setStatus("current")
+
+
+class _PortDCDChangedStatus_Type(Integer32):
+    """Custom type portDCDChangedStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("alarm", 1),
+          ("alarm-Acked", 2),
+          ("none", 0))
+    )
+
+
+_PortDCDChangedStatus_Type.__name__ = "Integer32"
+_PortDCDChangedStatus_Object = MibTableColumn
+portDCDChangedStatus = _PortDCDChangedStatus_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 5, 7, 1, 1),
+    _PortDCDChangedStatus_Type()
+)
+portDCDChangedStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portDCDChangedStatus.setStatus("current")
+
+
+class _PortDCDChangedAcknowledge_Type(Integer32):
+    """Custom type portDCDChangedAcknowledge based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            0
+        )
+    )
+    namedValues = NamedValues(
+        ("acked", 0)
+    )
+
+
+_PortDCDChangedAcknowledge_Type.__name__ = "Integer32"
+_PortDCDChangedAcknowledge_Object = MibTableColumn
+portDCDChangedAcknowledge = _PortDCDChangedAcknowledge_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 5, 7, 1, 2),
+    _PortDCDChangedAcknowledge_Type()
+)
+portDCDChangedAcknowledge.setMaxAccess("write-only")
+if mibBuilder.loadTexts:
+    portDCDChangedAcknowledge.setStatus("current")
+_PortDSRChangedStatusTable_Object = MibTable
+portDSRChangedStatusTable = _PortDSRChangedStatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 5, 8)
+)
+if mibBuilder.loadTexts:
+    portDSRChangedStatusTable.setStatus("current")
+_PortDSRChangedStatusEntry_Object = MibTableRow
+portDSRChangedStatusEntry = _PortDSRChangedStatusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 5, 8, 1)
+)
+portDSRChangedStatusEntry.setIndexNames(
+    (0, "MOXA-NP6000-MIB", "portIndex"),
+)
+if mibBuilder.loadTexts:
+    portDSRChangedStatusEntry.setStatus("current")
+
+
+class _PortDSRChangedStatus_Type(Integer32):
+    """Custom type portDSRChangedStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("alarm", 1),
+          ("alarm-Acked", 2),
+          ("none", 0))
+    )
+
+
+_PortDSRChangedStatus_Type.__name__ = "Integer32"
+_PortDSRChangedStatus_Object = MibTableColumn
+portDSRChangedStatus = _PortDSRChangedStatus_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 5, 8, 1, 1),
+    _PortDSRChangedStatus_Type()
+)
+portDSRChangedStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portDSRChangedStatus.setStatus("current")
+
+
+class _PortDSRChangedAcknowledge_Type(Integer32):
+    """Custom type portDSRChangedAcknowledge based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            0
+        )
+    )
+    namedValues = NamedValues(
+        ("acked", 0)
+    )
+
+
+_PortDSRChangedAcknowledge_Type.__name__ = "Integer32"
+_PortDSRChangedAcknowledge_Object = MibTableColumn
+portDSRChangedAcknowledge = _PortDSRChangedAcknowledge_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 6, 5, 8, 1, 2),
+    _PortDSRChangedAcknowledge_Type()
+)
+portDSRChangedAcknowledge.setMaxAccess("write-only")
+if mibBuilder.loadTexts:
+    portDSRChangedAcknowledge.setStatus("current")
+_SaveConfiguration_ObjectIdentity = ObjectIdentity
+saveConfiguration = _SaveConfiguration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 7)
+)
+
+
+class _SaveConfig_Type(Integer32):
+    """Custom type saveConfig based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            1
+        )
+    )
+    namedValues = NamedValues(
+        ("save", 1)
+    )
+
+
+_SaveConfig_Type.__name__ = "Integer32"
+_SaveConfig_Object = MibScalar
+saveConfig = _SaveConfig_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 7, 1),
+    _SaveConfig_Type()
+)
+saveConfig.setMaxAccess("write-only")
+if mibBuilder.loadTexts:
+    saveConfig.setStatus("current")
+_Restart_ObjectIdentity = ObjectIdentity
+restart = _Restart_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 8)
+)
+
+
+class _RestartPorts_Type(Integer32):
+    """Custom type restartPorts based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15)
+        )
+    )
+    namedValues = NamedValues(
+        *(("port1", 0),
+          ("port10", 9),
+          ("port11", 10),
+          ("port12", 11),
+          ("port13", 12),
+          ("port14", 13),
+          ("port15", 14),
+          ("port16", 15),
+          ("port2", 1),
+          ("port3", 2),
+          ("port4", 3),
+          ("port5", 4),
+          ("port6", 5),
+          ("port7", 6),
+          ("port8", 7),
+          ("port9", 8))
+    )
+
+
+_RestartPorts_Type.__name__ = "Integer32"
+_RestartPorts_Object = MibScalar
+restartPorts = _RestartPorts_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 8, 1),
+    _RestartPorts_Type()
+)
+restartPorts.setMaxAccess("write-only")
+if mibBuilder.loadTexts:
+    restartPorts.setStatus("current")
+
+
+class _RestartSystem_Type(Integer32):
+    """Custom type restartSystem based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            1
+        )
+    )
+    namedValues = NamedValues(
+        ("restart", 1)
+    )
+
+
+_RestartSystem_Type.__name__ = "Integer32"
+_RestartSystem_Object = MibScalar
+restartSystem = _RestartSystem_Object(
+    (1, 3, 6, 1, 4, 1, 8691, 2, 8, 1, 8, 2),
+    _RestartSystem_Type()
+)
+restartSystem.setMaxAccess("write-only")
+if mibBuilder.loadTexts:
+    restartSystem.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "MOXA-NP6000-MIB",
+    **{"PortList": PortList,
+       "moxa": moxa,
+       "nport": nport,
+       "np6000": np6000,
+       "swMgmt": swMgmt,
+       "overview": overview,
+       "modelName": modelName,
+       "serialNumber": serialNumber,
+       "firmwareVersion": firmwareVersion,
+       "macAddress": macAddress,
+       "viewLanSpeed": viewLanSpeed,
+       "viewLanModuleSpeed": viewLanModuleSpeed,
+       "upTime": upTime,
+       "moduleType": moduleType,
+       "basicSetting": basicSetting,
+       "serverSetting": serverSetting,
+       "serverName": serverName,
+       "serverLocation": serverLocation,
+       "timeSetting": timeSetting,
+       "timeZone": timeZone,
+       "localTime": localTime,
+       "timeServer": timeServer,
+       "networkSetting": networkSetting,
+       "ipConfiguration": ipConfiguration,
+       "sysIpAddress": sysIpAddress,
+       "netMask": netMask,
+       "defaultGateway": defaultGateway,
+       "dnsServer1IpAddr": dnsServer1IpAddr,
+       "dnsServer2IpAddr": dnsServer2IpAddr,
+       "pppoeUserAccount": pppoeUserAccount,
+       "pppoePassword": pppoePassword,
+       "winsFunction": winsFunction,
+       "winsServer": winsServer,
+       "lan1Speed": lan1Speed,
+       "routingProtocol": routingProtocol,
+       "gratuitousArp": gratuitousArp,
+       "gratuitousArpSendPeriod": gratuitousArpSendPeriod,
+       "portSetting": portSetting,
+       "opModeSetting": opModeSetting,
+       "opMode": opMode,
+       "opModePortTable": opModePortTable,
+       "opModePortEntry": opModePortEntry,
+       "portIndex": portIndex,
+       "portApplication": portApplication,
+       "portMode": portMode,
+       "application": application,
+       "deviceControl": deviceControl,
+       "deviceControlTable": deviceControlTable,
+       "deviceControlEntry": deviceControlEntry,
+       "deviceControlTcpAliveCheck": deviceControlTcpAliveCheck,
+       "deviceControlMaxConnection": deviceControlMaxConnection,
+       "deviceControlIgnoreJammedIp": deviceControlIgnoreJammedIp,
+       "deviceControlAllowDriverControl": deviceControlAllowDriverControl,
+       "deviceControlSecure": deviceControlSecure,
+       "deviceControlTcpPort": deviceControlTcpPort,
+       "deviceControlConnectionDownRTS": deviceControlConnectionDownRTS,
+       "deviceControlConnectionDownDTR": deviceControlConnectionDownDTR,
+       "socket": socket,
+       "socketTable": socketTable,
+       "socketEntry": socketEntry,
+       "socketTcpAliveCheck": socketTcpAliveCheck,
+       "socketInactivityTime": socketInactivityTime,
+       "socketMaxConnection": socketMaxConnection,
+       "socketIgnoreJammedIp": socketIgnoreJammedIp,
+       "socketAllowDriverControl": socketAllowDriverControl,
+       "socketSecure": socketSecure,
+       "socketTcpPort": socketTcpPort,
+       "socketCmdPort": socketCmdPort,
+       "socketTcpServerConnectionDownRTS": socketTcpServerConnectionDownRTS,
+       "socketTcpServerConnectionDownDTR": socketTcpServerConnectionDownDTR,
+       "socketTcpClientDestinationAddress1": socketTcpClientDestinationAddress1,
+       "socketTcpClientDestinationPort1": socketTcpClientDestinationPort1,
+       "socketTcpClientDestinationAddress2": socketTcpClientDestinationAddress2,
+       "socketTcpClientDestinationPort2": socketTcpClientDestinationPort2,
+       "socketTcpClientDestinationAddress3": socketTcpClientDestinationAddress3,
+       "socketTcpClientDestinationPort3": socketTcpClientDestinationPort3,
+       "socketTcpClientDestinationAddress4": socketTcpClientDestinationAddress4,
+       "socketTcpClientDestinationPort4": socketTcpClientDestinationPort4,
+       "socketTcpClientDesignatedLocalPort1": socketTcpClientDesignatedLocalPort1,
+       "socketTcpClientDesignatedLocalPort2": socketTcpClientDesignatedLocalPort2,
+       "socketTcpClientDesignatedLocalPort3": socketTcpClientDesignatedLocalPort3,
+       "socketTcpClientDesignatedLocalPort4": socketTcpClientDesignatedLocalPort4,
+       "socketTcpClientConnectionControl": socketTcpClientConnectionControl,
+       "socketUdpDestinationAddress1Begin": socketUdpDestinationAddress1Begin,
+       "socketUdpDestinationAddress1End": socketUdpDestinationAddress1End,
+       "socketUdpDestinationPort1": socketUdpDestinationPort1,
+       "socketUdpDestinationAddress2Begin": socketUdpDestinationAddress2Begin,
+       "socketUdpDestinationAddress2End": socketUdpDestinationAddress2End,
+       "socketUdpDestinationPort2": socketUdpDestinationPort2,
+       "socketUdpDestinationAddress3Begin": socketUdpDestinationAddress3Begin,
+       "socketUdpDestinationAddress3End": socketUdpDestinationAddress3End,
+       "socketUdpDestinationPort3": socketUdpDestinationPort3,
+       "socketUdpDestinationAddress4Begin": socketUdpDestinationAddress4Begin,
+       "socketUdpDestinationAddress4End": socketUdpDestinationAddress4End,
+       "socketUdpDestinationPort4": socketUdpDestinationPort4,
+       "socketUdpLocalListenPort": socketUdpLocalListenPort,
+       "pairConnection": pairConnection,
+       "pairConnectionTable": pairConnectionTable,
+       "pairConnectionEntry": pairConnectionEntry,
+       "pairConnectionTcpAliveCheck": pairConnectionTcpAliveCheck,
+       "pairConnectionSecure": pairConnectionSecure,
+       "pairConnectionDestinationAddress": pairConnectionDestinationAddress,
+       "pairConnectionDestinationPort": pairConnectionDestinationPort,
+       "pairConnectionTcpPort": pairConnectionTcpPort,
+       "ethernetModem": ethernetModem,
+       "ethernetModemTable": ethernetModemTable,
+       "ethernetModemEntry": ethernetModemEntry,
+       "ethernetModemTcpAliveCheck": ethernetModemTcpAliveCheck,
+       "ethernetModemTcpPort": ethernetModemTcpPort,
+       "terminal": terminal,
+       "terminalTable": terminalTable,
+       "terminalEntry": terminalEntry,
+       "terminalTcpAliveCheck": terminalTcpAliveCheck,
+       "terminalInactivityTime": terminalInactivityTime,
+       "terminalAutoLinkProtocol": terminalAutoLinkProtocol,
+       "terminalPrimaryHostAddress": terminalPrimaryHostAddress,
+       "terminalSecondHostAddress": terminalSecondHostAddress,
+       "terminalTelnetTcpPort": terminalTelnetTcpPort,
+       "terminalSshTcpPort": terminalSshTcpPort,
+       "terminalType": terminalType,
+       "terminalMaxSessions": terminalMaxSessions,
+       "terminalChangeSession": terminalChangeSession,
+       "terminalQuit": terminalQuit,
+       "terminalBreak": terminalBreak,
+       "terminalInterrupt": terminalInterrupt,
+       "terminalAuthenticationType": terminalAuthenticationType,
+       "terminalAutoLoginPrompt": terminalAutoLoginPrompt,
+       "terminalPasswordPrompt": terminalPasswordPrompt,
+       "terminalLoginUserName": terminalLoginUserName,
+       "terminalLoginPassword": terminalLoginPassword,
+       "reverseTerminal": reverseTerminal,
+       "reverseTerminalTable": reverseTerminalTable,
+       "reverseTerminalEntry": reverseTerminalEntry,
+       "reverseTerminalTcpAliveCheck": reverseTerminalTcpAliveCheck,
+       "reverseTerminalInactivityTime": reverseTerminalInactivityTime,
+       "reverseTerminalTcpPort": reverseTerminalTcpPort,
+       "reverseTerminalAuthenticationType": reverseTerminalAuthenticationType,
+       "reverseTerminalMapKeys": reverseTerminalMapKeys,
+       "printer": printer,
+       "printerTable": printerTable,
+       "printerEntry": printerEntry,
+       "printerTcpAliveCheck": printerTcpAliveCheck,
+       "printerTcpPort": printerTcpPort,
+       "printerGroup": printerGroup,
+       "printerQueueNameRaw": printerQueueNameRaw,
+       "printerQueueNameASCII": printerQueueNameASCII,
+       "printerAppendFromFeed": printerAppendFromFeed,
+       "dial": dial,
+       "dialTable": dialTable,
+       "dialEntry": dialEntry,
+       "dialTERMBINMode": dialTERMBINMode,
+       "dialPPPDMode": dialPPPDMode,
+       "dialSLIPDMode": dialSLIPDMode,
+       "dialAuthType": dialAuthType,
+       "dialDisconnectBy": dialDisconnectBy,
+       "dialDestinationIpAddress": dialDestinationIpAddress,
+       "dialSourceIpAddress": dialSourceIpAddress,
+       "dialIpNetmask": dialIpNetmask,
+       "dialTcpIpCompression": dialTcpIpCompression,
+       "dialInactivityTime": dialInactivityTime,
+       "dialLinkQualityReport": dialLinkQualityReport,
+       "dialOutgoingPAPID": dialOutgoingPAPID,
+       "dialPAPPassword": dialPAPPassword,
+       "dialIncomingPAPCheck": dialIncomingPAPCheck,
+       "dataPacking": dataPacking,
+       "dataPackingPortTable": dataPackingPortTable,
+       "dataPackingPortEntry": dataPackingPortEntry,
+       "portPacketLength": portPacketLength,
+       "portDelimiter1Enable": portDelimiter1Enable,
+       "portDelimiter1": portDelimiter1,
+       "portDelimiter2Enable": portDelimiter2Enable,
+       "portDelimiter2": portDelimiter2,
+       "portDelimiterProcess": portDelimiterProcess,
+       "portForceTransmit": portForceTransmit,
+       "comParamSetting": comParamSetting,
+       "comParamPortTable": comParamPortTable,
+       "comParamPortEntry": comParamPortEntry,
+       "portAlias": portAlias,
+       "portInterface": portInterface,
+       "portBaudRate": portBaudRate,
+       "portBaudRateManual": portBaudRateManual,
+       "portDataBits": portDataBits,
+       "portStopBits": portStopBits,
+       "portParity": portParity,
+       "portFlowControl": portFlowControl,
+       "portFIFO": portFIFO,
+       "dataBuffering": dataBuffering,
+       "dataBufferingPortTable": dataBufferingPortTable,
+       "dataBufferingPortEntry": dataBufferingPortEntry,
+       "portBufferingEnable": portBufferingEnable,
+       "portBufferingLocation": portBufferingLocation,
+       "portBufferingSDFileSize": portBufferingSDFileSize,
+       "portSerialDataLoggingEnable": portSerialDataLoggingEnable,
+       "modemSettings": modemSettings,
+       "modemSettingsPortTable": modemSettingsPortTable,
+       "modemSettingsPortEntry": modemSettingsPortEntry,
+       "portEnableModem": portEnableModem,
+       "portInitialString": portInitialString,
+       "portDialUp": portDialUp,
+       "portPhoneNumber": portPhoneNumber,
+       "welcomeMessage": welcomeMessage,
+       "portEnableWelcomeMessage": portEnableWelcomeMessage,
+       "portMessage": portMessage,
+       "sysManagement": sysManagement,
+       "miscNetworkSettings": miscNetworkSettings,
+       "accessibleIp": accessibleIp,
+       "enableAccessibleIpList": enableAccessibleIpList,
+       "accessibleIpListTable": accessibleIpListTable,
+       "accessibleIpListEntry": accessibleIpListEntry,
+       "accessibleIpListIndex": accessibleIpListIndex,
+       "activeAccessibleIpList": activeAccessibleIpList,
+       "accessibleIpListAddress": accessibleIpListAddress,
+       "accessibleIpListNetmask": accessibleIpListNetmask,
+       "snmpAgentSettings": snmpAgentSettings,
+       "snmpEnable": snmpEnable,
+       "snmpContactName": snmpContactName,
+       "snmpLocation": snmpLocation,
+       "dDNS": dDNS,
+       "dDNSEnable": dDNSEnable,
+       "dDNSServerAddress": dDNSServerAddress,
+       "dDNSHostName": dDNSHostName,
+       "dDNSUserName": dDNSUserName,
+       "dDNSPassword": dDNSPassword,
+       "hostTable": hostTable,
+       "hostTableTable": hostTableTable,
+       "hostTableEntry": hostTableEntry,
+       "hostTableIndex": hostTableIndex,
+       "hostName": hostName,
+       "hostIpAddress": hostIpAddress,
+       "routeTable": routeTable,
+       "routeTableTable": routeTableTable,
+       "routeTableEntry": routeTableEntry,
+       "routeTableIndex": routeTableIndex,
+       "gatewayRouteTable": gatewayRouteTable,
+       "destinationRouteTable": destinationRouteTable,
+       "netmaskRouteTable": netmaskRouteTable,
+       "metricRouteTable": metricRouteTable,
+       "interfaceRouteTable": interfaceRouteTable,
+       "userTable": userTable,
+       "userTableTable": userTableTable,
+       "userTableEntry": userTableEntry,
+       "userTableIndex": userTableIndex,
+       "userNameUserTable": userNameUserTable,
+       "passwordUserTable": passwordUserTable,
+       "phoneNumberUserTable": phoneNumberUserTable,
+       "authenticationServer": authenticationServer,
+       "radiusServerIp": radiusServerIp,
+       "radiusKey": radiusKey,
+       "udpPortAuthenticationServer": udpPortAuthenticationServer,
+       "radiusAccounting": radiusAccounting,
+       "sysLogSettings": sysLogSettings,
+       "sysLocalLog": sysLocalLog,
+       "networkLocalLog": networkLocalLog,
+       "configLocalLog": configLocalLog,
+       "opModeLocalLog": opModeLocalLog,
+       "autoWarningSettings": autoWarningSettings,
+       "eventSettings": eventSettings,
+       "mailWarningColdStart": mailWarningColdStart,
+       "mailWarningWarmStart": mailWarningWarmStart,
+       "mailWarningAuthFailure": mailWarningAuthFailure,
+       "mailWarningIpChanged": mailWarningIpChanged,
+       "mailWarningPasswordChanged": mailWarningPasswordChanged,
+       "trapServerColdStart": trapServerColdStart,
+       "trapServerWarmStart": trapServerWarmStart,
+       "trapServerAuthFailure": trapServerAuthFailure,
+       "alarmServerEthernet1LinkDown": alarmServerEthernet1LinkDown,
+       "alarmServerEthernet2LinkDown": alarmServerEthernet2LinkDown,
+       "alarmServerEthernet3LinkDown": alarmServerEthernet3LinkDown,
+       "serialEventSettings": serialEventSettings,
+       "portEventSettingsTable": portEventSettingsTable,
+       "portEventSettingsEntry": portEventSettingsEntry,
+       "mailDCDchange": mailDCDchange,
+       "trapDCDchange": trapDCDchange,
+       "alarmDCDchange": alarmDCDchange,
+       "mailDSRchange": mailDSRchange,
+       "trapDSRchange": trapDSRchange,
+       "alarmDSRchange": alarmDSRchange,
+       "emailAlert": emailAlert,
+       "emailWarningMailServer": emailWarningMailServer,
+       "emailRequiresAuthentication": emailRequiresAuthentication,
+       "emailWarningUserName": emailWarningUserName,
+       "emailWarningPassword": emailWarningPassword,
+       "emailWarningFromEmail": emailWarningFromEmail,
+       "emailWarningFirstEmailAddr": emailWarningFirstEmailAddr,
+       "emailWarningSecondEmailAddr": emailWarningSecondEmailAddr,
+       "emailWarningThirdEmailAddr": emailWarningThirdEmailAddr,
+       "emailWarningFourthEmailAddr": emailWarningFourthEmailAddr,
+       "snmpTrap": snmpTrap,
+       "snmpTrapReceiverIp": snmpTrapReceiverIp,
+       "trapVersion": trapVersion,
+       "maintenance": maintenance,
+       "consoleSettings": consoleSettings,
+       "httpConsole": httpConsole,
+       "httpsConsole": httpsConsole,
+       "telnetConsole": telnetConsole,
+       "sshConsole": sshConsole,
+       "lcmReadOnlyProtect": lcmReadOnlyProtect,
+       "resetButtonFunction": resetButtonFunction,
+       "loadFactoryDefault": loadFactoryDefault,
+       "loadFactoryDefaultSetting": loadFactoryDefaultSetting,
+       "sysStatus": sysStatus,
+       "s2eConnections": s2eConnections,
+       "monitorRemoteIpTable": monitorRemoteIpTable,
+       "monitorRemoteIpEntry": monitorRemoteIpEntry,
+       "remoteIpIndex": remoteIpIndex,
+       "monitorRemoteIp": monitorRemoteIp,
+       "serialPortStatus": serialPortStatus,
+       "monitorSerialPortStatusTable": monitorSerialPortStatusTable,
+       "monitorSerialPortStatusEntry": monitorSerialPortStatusEntry,
+       "monitorTxCount": monitorTxCount,
+       "monitorRxCount": monitorRxCount,
+       "monitorTxTotalCount": monitorTxTotalCount,
+       "monitorRxTotalCount": monitorRxTotalCount,
+       "monitorDSR": monitorDSR,
+       "monitorDTR": monitorDTR,
+       "monitorRTS": monitorRTS,
+       "monitorCTS": monitorCTS,
+       "monitorDCD": monitorDCD,
+       "serialPortErrorCount": serialPortErrorCount,
+       "monitorSerialPortErrorCountTable": monitorSerialPortErrorCountTable,
+       "monitorSerialPortErrorCountEntry": monitorSerialPortErrorCountEntry,
+       "monitorErrorCountFrame": monitorErrorCountFrame,
+       "monitorErrorCountParity": monitorErrorCountParity,
+       "monitorErrorCountOverrun": monitorErrorCountOverrun,
+       "monitorErrorCountBreak": monitorErrorCountBreak,
+       "serialPortSettings": serialPortSettings,
+       "monitorSerialPortSettingsTable": monitorSerialPortSettingsTable,
+       "monitorSerialPortSettingsEntry": monitorSerialPortSettingsEntry,
+       "monitorBaudRate": monitorBaudRate,
+       "monitorDataBits": monitorDataBits,
+       "monitorStopBits": monitorStopBits,
+       "monitorParity": monitorParity,
+       "monitorRTSCTSFlowControl": monitorRTSCTSFlowControl,
+       "monitorXONXOFFFlowControl": monitorXONXOFFFlowControl,
+       "monitorDTRDSRFlowControl": monitorDTRDSRFlowControl,
+       "monitorFIFO": monitorFIFO,
+       "monitorInterface": monitorInterface,
+       "relayOutputStatus": relayOutputStatus,
+       "relayOutputEthernet1LinkDown": relayOutputEthernet1LinkDown,
+       "ethernet1LinkDownAcknowledge": ethernet1LinkDownAcknowledge,
+       "relayOutputEthernet2LinkDown": relayOutputEthernet2LinkDown,
+       "ethernet2LinkDownAcknowledge": ethernet2LinkDownAcknowledge,
+       "relayOutputEthernet3LinkDown": relayOutputEthernet3LinkDown,
+       "ethernet3LinkDownAcknowledge": ethernet3LinkDownAcknowledge,
+       "portDCDChangedStatusTable": portDCDChangedStatusTable,
+       "portDCDChangedStatusEntry": portDCDChangedStatusEntry,
+       "portDCDChangedStatus": portDCDChangedStatus,
+       "portDCDChangedAcknowledge": portDCDChangedAcknowledge,
+       "portDSRChangedStatusTable": portDSRChangedStatusTable,
+       "portDSRChangedStatusEntry": portDSRChangedStatusEntry,
+       "portDSRChangedStatus": portDSRChangedStatus,
+       "portDSRChangedAcknowledge": portDSRChangedAcknowledge,
+       "saveConfiguration": saveConfiguration,
+       "saveConfig": saveConfig,
+       "restart": restart,
+       "restartPorts": restartPorts,
+       "restartSystem": restartSystem}
+)

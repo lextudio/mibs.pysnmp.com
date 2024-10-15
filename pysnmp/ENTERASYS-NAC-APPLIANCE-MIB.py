@@ -1,62 +1,357 @@
+# SNMP MIB module (ENTERASYS-NAC-APPLIANCE-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ENTERASYS-NAC-APPLIANCE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/ENTERASYS-NAC-APPLIANCE-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:49:48 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
-etsysModules, = mibBuilder.importSymbols("ENTERASYS-MIB-NAMES", "etsysModules")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-ObjectIdentity, iso, Unsigned32, Gauge32, Counter32, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Bits, Counter64, IpAddress, ModuleIdentity, MibIdentifier, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "iso", "Unsigned32", "Gauge32", "Counter32", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Bits", "Counter64", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-etsysNacApplianceMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 5624, 1, 2, 73))
-etsysNacApplianceMIB.setRevisions(('2010-03-09 13:03',))
-if mibBuilder.loadTexts: etsysNacApplianceMIB.setLastUpdated('201003091303Z')
-if mibBuilder.loadTexts: etsysNacApplianceMIB.setOrganization('Enterasys Networks, Inc')
-etsysNacApplianceObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 1))
-etsysNacApplAuthenticationRequests = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 1, 1), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: etsysNacApplAuthenticationRequests.setStatus('current')
-etsysNacApplAuthenticationSuccesses = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 1, 2), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: etsysNacApplAuthenticationSuccesses.setStatus('current')
-etsysNacApplAuthenticationFailures = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 1, 3), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: etsysNacApplAuthenticationFailures.setStatus('current')
-etsysNacApplRadiusChallenges = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 1, 4), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: etsysNacApplRadiusChallenges.setStatus('current')
-etsysNacApplAuthenticationInvalidRequests = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 1, 5), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: etsysNacApplAuthenticationInvalidRequests.setStatus('current')
-etsysNacApplAuthenticationDuplicateRequests = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 1, 6), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: etsysNacApplAuthenticationDuplicateRequests.setStatus('current')
-etsysNacApplAuthenticationMalformedRequests = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 1, 7), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: etsysNacApplAuthenticationMalformedRequests.setStatus('current')
-etsysNacApplAuthenticationBadRequests = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 1, 8), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: etsysNacApplAuthenticationBadRequests.setStatus('current')
-etsysNacApplAuthenticationDroppedPackets = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 1, 9), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: etsysNacApplAuthenticationDroppedPackets.setStatus('current')
-etsysNacApplAuthenticationUnknownTypes = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 1, 10), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: etsysNacApplAuthenticationUnknownTypes.setStatus('current')
-etsysNacApplAssessmentRequests = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 1, 11), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: etsysNacApplAssessmentRequests.setStatus('current')
-etsysNacApplCaptivePortalRequests = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 1, 12), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: etsysNacApplCaptivePortalRequests.setStatus('current')
-etsysNacApplContactLostSwitches = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 1, 13), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: etsysNacApplContactLostSwitches.setStatus('current')
-etsysNacApplIPResolutionFailures = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 1, 14), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: etsysNacApplIPResolutionFailures.setStatus('current')
-etsysNacApplIPResolutionTimeouts = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 1, 15), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: etsysNacApplIPResolutionTimeouts.setStatus('current')
-etsysNacApplConnectedAgents = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 1, 16), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: etsysNacApplConnectedAgents.setStatus('current')
-etsysNacApplianceMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 2))
-etsysNacApplianceMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 2, 1))
-etsysNacApplianceMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 2, 2))
-etsysNacApplianceMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 2, 1, 1)).setObjects(("ENTERASYS-NAC-APPLIANCE-MIB", "etsysNacApplAuthenticationRequests"), ("ENTERASYS-NAC-APPLIANCE-MIB", "etsysNacApplAuthenticationSuccesses"), ("ENTERASYS-NAC-APPLIANCE-MIB", "etsysNacApplAuthenticationFailures"), ("ENTERASYS-NAC-APPLIANCE-MIB", "etsysNacApplRadiusChallenges"), ("ENTERASYS-NAC-APPLIANCE-MIB", "etsysNacApplAuthenticationInvalidRequests"), ("ENTERASYS-NAC-APPLIANCE-MIB", "etsysNacApplAuthenticationDuplicateRequests"), ("ENTERASYS-NAC-APPLIANCE-MIB", "etsysNacApplAuthenticationMalformedRequests"), ("ENTERASYS-NAC-APPLIANCE-MIB", "etsysNacApplAuthenticationBadRequests"), ("ENTERASYS-NAC-APPLIANCE-MIB", "etsysNacApplAuthenticationDroppedPackets"), ("ENTERASYS-NAC-APPLIANCE-MIB", "etsysNacApplAuthenticationUnknownTypes"), ("ENTERASYS-NAC-APPLIANCE-MIB", "etsysNacApplAssessmentRequests"), ("ENTERASYS-NAC-APPLIANCE-MIB", "etsysNacApplCaptivePortalRequests"), ("ENTERASYS-NAC-APPLIANCE-MIB", "etsysNacApplContactLostSwitches"), ("ENTERASYS-NAC-APPLIANCE-MIB", "etsysNacApplIPResolutionFailures"), ("ENTERASYS-NAC-APPLIANCE-MIB", "etsysNacApplIPResolutionTimeouts"), ("ENTERASYS-NAC-APPLIANCE-MIB", "etsysNacApplConnectedAgents"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    etsysNacApplianceMIBGroup = etsysNacApplianceMIBGroup.setStatus('current')
-etsysNacApplianceMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 2, 2, 1)).setObjects(("ENTERASYS-NAC-APPLIANCE-MIB", "etsysNacApplianceMIBGroup"))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/ENTERASYS-NAC-APPLIANCE-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:39:16 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    etsysNacApplianceMIBCompliance = etsysNacApplianceMIBCompliance.setStatus('current')
-mibBuilder.exportSymbols("ENTERASYS-NAC-APPLIANCE-MIB", etsysNacApplAuthenticationSuccesses=etsysNacApplAuthenticationSuccesses, etsysNacApplAssessmentRequests=etsysNacApplAssessmentRequests, etsysNacApplianceMIBGroups=etsysNacApplianceMIBGroups, etsysNacApplAuthenticationBadRequests=etsysNacApplAuthenticationBadRequests, etsysNacApplianceMIBGroup=etsysNacApplianceMIBGroup, etsysNacApplAuthenticationDroppedPackets=etsysNacApplAuthenticationDroppedPackets, etsysNacApplContactLostSwitches=etsysNacApplContactLostSwitches, etsysNacApplRadiusChallenges=etsysNacApplRadiusChallenges, etsysNacApplianceMIBCompliances=etsysNacApplianceMIBCompliances, etsysNacApplianceObjects=etsysNacApplianceObjects, etsysNacApplAuthenticationFailures=etsysNacApplAuthenticationFailures, etsysNacApplianceMIB=etsysNacApplianceMIB, etsysNacApplianceMIBCompliance=etsysNacApplianceMIBCompliance, PYSNMP_MODULE_ID=etsysNacApplianceMIB, etsysNacApplianceMIBConformance=etsysNacApplianceMIBConformance, etsysNacApplAuthenticationRequests=etsysNacApplAuthenticationRequests, etsysNacApplAuthenticationInvalidRequests=etsysNacApplAuthenticationInvalidRequests, etsysNacApplCaptivePortalRequests=etsysNacApplCaptivePortalRequests, etsysNacApplIPResolutionFailures=etsysNacApplIPResolutionFailures, etsysNacApplAuthenticationMalformedRequests=etsysNacApplAuthenticationMalformedRequests, etsysNacApplIPResolutionTimeouts=etsysNacApplIPResolutionTimeouts, etsysNacApplAuthenticationUnknownTypes=etsysNacApplAuthenticationUnknownTypes, etsysNacApplAuthenticationDuplicateRequests=etsysNacApplAuthenticationDuplicateRequests, etsysNacApplConnectedAgents=etsysNacApplConnectedAgents)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(etsysModules,) = mibBuilder.importSymbols(
+    "ENTERASYS-MIB-NAMES",
+    "etsysModules")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+etsysNacApplianceMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 73)
+)
+etsysNacApplianceMIB.setRevisions(
+        ("2010-03-09 13:03",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_EtsysNacApplianceObjects_ObjectIdentity = ObjectIdentity
+etsysNacApplianceObjects = _EtsysNacApplianceObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 1)
+)
+_EtsysNacApplAuthenticationRequests_Type = Counter64
+_EtsysNacApplAuthenticationRequests_Object = MibScalar
+etsysNacApplAuthenticationRequests = _EtsysNacApplAuthenticationRequests_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 1, 1),
+    _EtsysNacApplAuthenticationRequests_Type()
+)
+etsysNacApplAuthenticationRequests.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    etsysNacApplAuthenticationRequests.setStatus("current")
+_EtsysNacApplAuthenticationSuccesses_Type = Counter64
+_EtsysNacApplAuthenticationSuccesses_Object = MibScalar
+etsysNacApplAuthenticationSuccesses = _EtsysNacApplAuthenticationSuccesses_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 1, 2),
+    _EtsysNacApplAuthenticationSuccesses_Type()
+)
+etsysNacApplAuthenticationSuccesses.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    etsysNacApplAuthenticationSuccesses.setStatus("current")
+_EtsysNacApplAuthenticationFailures_Type = Counter64
+_EtsysNacApplAuthenticationFailures_Object = MibScalar
+etsysNacApplAuthenticationFailures = _EtsysNacApplAuthenticationFailures_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 1, 3),
+    _EtsysNacApplAuthenticationFailures_Type()
+)
+etsysNacApplAuthenticationFailures.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    etsysNacApplAuthenticationFailures.setStatus("current")
+_EtsysNacApplRadiusChallenges_Type = Counter64
+_EtsysNacApplRadiusChallenges_Object = MibScalar
+etsysNacApplRadiusChallenges = _EtsysNacApplRadiusChallenges_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 1, 4),
+    _EtsysNacApplRadiusChallenges_Type()
+)
+etsysNacApplRadiusChallenges.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    etsysNacApplRadiusChallenges.setStatus("current")
+_EtsysNacApplAuthenticationInvalidRequests_Type = Counter64
+_EtsysNacApplAuthenticationInvalidRequests_Object = MibScalar
+etsysNacApplAuthenticationInvalidRequests = _EtsysNacApplAuthenticationInvalidRequests_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 1, 5),
+    _EtsysNacApplAuthenticationInvalidRequests_Type()
+)
+etsysNacApplAuthenticationInvalidRequests.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    etsysNacApplAuthenticationInvalidRequests.setStatus("current")
+_EtsysNacApplAuthenticationDuplicateRequests_Type = Counter64
+_EtsysNacApplAuthenticationDuplicateRequests_Object = MibScalar
+etsysNacApplAuthenticationDuplicateRequests = _EtsysNacApplAuthenticationDuplicateRequests_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 1, 6),
+    _EtsysNacApplAuthenticationDuplicateRequests_Type()
+)
+etsysNacApplAuthenticationDuplicateRequests.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    etsysNacApplAuthenticationDuplicateRequests.setStatus("current")
+_EtsysNacApplAuthenticationMalformedRequests_Type = Counter64
+_EtsysNacApplAuthenticationMalformedRequests_Object = MibScalar
+etsysNacApplAuthenticationMalformedRequests = _EtsysNacApplAuthenticationMalformedRequests_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 1, 7),
+    _EtsysNacApplAuthenticationMalformedRequests_Type()
+)
+etsysNacApplAuthenticationMalformedRequests.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    etsysNacApplAuthenticationMalformedRequests.setStatus("current")
+_EtsysNacApplAuthenticationBadRequests_Type = Counter64
+_EtsysNacApplAuthenticationBadRequests_Object = MibScalar
+etsysNacApplAuthenticationBadRequests = _EtsysNacApplAuthenticationBadRequests_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 1, 8),
+    _EtsysNacApplAuthenticationBadRequests_Type()
+)
+etsysNacApplAuthenticationBadRequests.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    etsysNacApplAuthenticationBadRequests.setStatus("current")
+_EtsysNacApplAuthenticationDroppedPackets_Type = Counter64
+_EtsysNacApplAuthenticationDroppedPackets_Object = MibScalar
+etsysNacApplAuthenticationDroppedPackets = _EtsysNacApplAuthenticationDroppedPackets_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 1, 9),
+    _EtsysNacApplAuthenticationDroppedPackets_Type()
+)
+etsysNacApplAuthenticationDroppedPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    etsysNacApplAuthenticationDroppedPackets.setStatus("current")
+_EtsysNacApplAuthenticationUnknownTypes_Type = Counter64
+_EtsysNacApplAuthenticationUnknownTypes_Object = MibScalar
+etsysNacApplAuthenticationUnknownTypes = _EtsysNacApplAuthenticationUnknownTypes_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 1, 10),
+    _EtsysNacApplAuthenticationUnknownTypes_Type()
+)
+etsysNacApplAuthenticationUnknownTypes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    etsysNacApplAuthenticationUnknownTypes.setStatus("current")
+_EtsysNacApplAssessmentRequests_Type = Counter64
+_EtsysNacApplAssessmentRequests_Object = MibScalar
+etsysNacApplAssessmentRequests = _EtsysNacApplAssessmentRequests_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 1, 11),
+    _EtsysNacApplAssessmentRequests_Type()
+)
+etsysNacApplAssessmentRequests.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    etsysNacApplAssessmentRequests.setStatus("current")
+_EtsysNacApplCaptivePortalRequests_Type = Counter64
+_EtsysNacApplCaptivePortalRequests_Object = MibScalar
+etsysNacApplCaptivePortalRequests = _EtsysNacApplCaptivePortalRequests_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 1, 12),
+    _EtsysNacApplCaptivePortalRequests_Type()
+)
+etsysNacApplCaptivePortalRequests.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    etsysNacApplCaptivePortalRequests.setStatus("current")
+_EtsysNacApplContactLostSwitches_Type = Counter64
+_EtsysNacApplContactLostSwitches_Object = MibScalar
+etsysNacApplContactLostSwitches = _EtsysNacApplContactLostSwitches_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 1, 13),
+    _EtsysNacApplContactLostSwitches_Type()
+)
+etsysNacApplContactLostSwitches.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    etsysNacApplContactLostSwitches.setStatus("current")
+_EtsysNacApplIPResolutionFailures_Type = Counter64
+_EtsysNacApplIPResolutionFailures_Object = MibScalar
+etsysNacApplIPResolutionFailures = _EtsysNacApplIPResolutionFailures_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 1, 14),
+    _EtsysNacApplIPResolutionFailures_Type()
+)
+etsysNacApplIPResolutionFailures.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    etsysNacApplIPResolutionFailures.setStatus("current")
+_EtsysNacApplIPResolutionTimeouts_Type = Counter64
+_EtsysNacApplIPResolutionTimeouts_Object = MibScalar
+etsysNacApplIPResolutionTimeouts = _EtsysNacApplIPResolutionTimeouts_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 1, 15),
+    _EtsysNacApplIPResolutionTimeouts_Type()
+)
+etsysNacApplIPResolutionTimeouts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    etsysNacApplIPResolutionTimeouts.setStatus("current")
+_EtsysNacApplConnectedAgents_Type = Counter64
+_EtsysNacApplConnectedAgents_Object = MibScalar
+etsysNacApplConnectedAgents = _EtsysNacApplConnectedAgents_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 1, 16),
+    _EtsysNacApplConnectedAgents_Type()
+)
+etsysNacApplConnectedAgents.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    etsysNacApplConnectedAgents.setStatus("current")
+_EtsysNacApplianceMIBConformance_ObjectIdentity = ObjectIdentity
+etsysNacApplianceMIBConformance = _EtsysNacApplianceMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 2)
+)
+_EtsysNacApplianceMIBGroups_ObjectIdentity = ObjectIdentity
+etsysNacApplianceMIBGroups = _EtsysNacApplianceMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 2, 1)
+)
+_EtsysNacApplianceMIBCompliances_ObjectIdentity = ObjectIdentity
+etsysNacApplianceMIBCompliances = _EtsysNacApplianceMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 2, 2)
+)
+
+# Managed Objects groups
+
+etsysNacApplianceMIBGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 2, 1, 1)
+)
+etsysNacApplianceMIBGroup.setObjects(
+      *(("ENTERASYS-NAC-APPLIANCE-MIB", "etsysNacApplAuthenticationRequests"),
+        ("ENTERASYS-NAC-APPLIANCE-MIB", "etsysNacApplAuthenticationSuccesses"),
+        ("ENTERASYS-NAC-APPLIANCE-MIB", "etsysNacApplAuthenticationFailures"),
+        ("ENTERASYS-NAC-APPLIANCE-MIB", "etsysNacApplRadiusChallenges"),
+        ("ENTERASYS-NAC-APPLIANCE-MIB", "etsysNacApplAuthenticationInvalidRequests"),
+        ("ENTERASYS-NAC-APPLIANCE-MIB", "etsysNacApplAuthenticationDuplicateRequests"),
+        ("ENTERASYS-NAC-APPLIANCE-MIB", "etsysNacApplAuthenticationMalformedRequests"),
+        ("ENTERASYS-NAC-APPLIANCE-MIB", "etsysNacApplAuthenticationBadRequests"),
+        ("ENTERASYS-NAC-APPLIANCE-MIB", "etsysNacApplAuthenticationDroppedPackets"),
+        ("ENTERASYS-NAC-APPLIANCE-MIB", "etsysNacApplAuthenticationUnknownTypes"),
+        ("ENTERASYS-NAC-APPLIANCE-MIB", "etsysNacApplAssessmentRequests"),
+        ("ENTERASYS-NAC-APPLIANCE-MIB", "etsysNacApplCaptivePortalRequests"),
+        ("ENTERASYS-NAC-APPLIANCE-MIB", "etsysNacApplContactLostSwitches"),
+        ("ENTERASYS-NAC-APPLIANCE-MIB", "etsysNacApplIPResolutionFailures"),
+        ("ENTERASYS-NAC-APPLIANCE-MIB", "etsysNacApplIPResolutionTimeouts"),
+        ("ENTERASYS-NAC-APPLIANCE-MIB", "etsysNacApplConnectedAgents"))
+)
+if mibBuilder.loadTexts:
+    etsysNacApplianceMIBGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+etsysNacApplianceMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 73, 2, 2, 1)
+)
+if mibBuilder.loadTexts:
+    etsysNacApplianceMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ENTERASYS-NAC-APPLIANCE-MIB",
+    **{"etsysNacApplianceMIB": etsysNacApplianceMIB,
+       "etsysNacApplianceObjects": etsysNacApplianceObjects,
+       "etsysNacApplAuthenticationRequests": etsysNacApplAuthenticationRequests,
+       "etsysNacApplAuthenticationSuccesses": etsysNacApplAuthenticationSuccesses,
+       "etsysNacApplAuthenticationFailures": etsysNacApplAuthenticationFailures,
+       "etsysNacApplRadiusChallenges": etsysNacApplRadiusChallenges,
+       "etsysNacApplAuthenticationInvalidRequests": etsysNacApplAuthenticationInvalidRequests,
+       "etsysNacApplAuthenticationDuplicateRequests": etsysNacApplAuthenticationDuplicateRequests,
+       "etsysNacApplAuthenticationMalformedRequests": etsysNacApplAuthenticationMalformedRequests,
+       "etsysNacApplAuthenticationBadRequests": etsysNacApplAuthenticationBadRequests,
+       "etsysNacApplAuthenticationDroppedPackets": etsysNacApplAuthenticationDroppedPackets,
+       "etsysNacApplAuthenticationUnknownTypes": etsysNacApplAuthenticationUnknownTypes,
+       "etsysNacApplAssessmentRequests": etsysNacApplAssessmentRequests,
+       "etsysNacApplCaptivePortalRequests": etsysNacApplCaptivePortalRequests,
+       "etsysNacApplContactLostSwitches": etsysNacApplContactLostSwitches,
+       "etsysNacApplIPResolutionFailures": etsysNacApplIPResolutionFailures,
+       "etsysNacApplIPResolutionTimeouts": etsysNacApplIPResolutionTimeouts,
+       "etsysNacApplConnectedAgents": etsysNacApplConnectedAgents,
+       "etsysNacApplianceMIBConformance": etsysNacApplianceMIBConformance,
+       "etsysNacApplianceMIBGroups": etsysNacApplianceMIBGroups,
+       "etsysNacApplianceMIBGroup": etsysNacApplianceMIBGroup,
+       "etsysNacApplianceMIBCompliances": etsysNacApplianceMIBCompliances,
+       "etsysNacApplianceMIBCompliance": etsysNacApplianceMIBCompliance}
+)

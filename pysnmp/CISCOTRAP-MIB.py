@@ -1,30 +1,278 @@
+# SNMP MIB module (CISCOTRAP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCOTRAP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/CISCOTRAP-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:08:35 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
-cisco, = mibBuilder.importSymbols("CISCO-SMI", "cisco")
-ifDescr, ifIndex, ifType = mibBuilder.importSymbols("IF-MIB", "ifDescr", "ifIndex", "ifType")
-locIfReason, = mibBuilder.importSymbols("OLD-CISCO-INTERFACES-MIB", "locIfReason")
-authAddr, whyReload = mibBuilder.importSymbols("OLD-CISCO-SYSTEM-MIB", "authAddr", "whyReload")
-loctcpConnInBytes, loctcpConnElapsed, loctcpConnOutBytes = mibBuilder.importSymbols("OLD-CISCO-TCP-MIB", "loctcpConnInBytes", "loctcpConnElapsed", "loctcpConnOutBytes")
-tsLineUser, tslineSesType = mibBuilder.importSymbols("OLD-CISCO-TS-MIB", "tsLineUser", "tslineSesType")
-egpNeighAddr, = mibBuilder.importSymbols("RFC1213-MIB", "egpNeighAddr")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-snmp, sysUpTime = mibBuilder.importSymbols("SNMPv2-MIB", "snmp", "sysUpTime")
-iso, Gauge32, MibIdentifier, Counter64, NotificationType, Bits, Unsigned32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, ModuleIdentity, NotificationType, Integer32, ObjectIdentity, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Gauge32", "MibIdentifier", "Counter64", "NotificationType", "Bits", "Unsigned32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "ModuleIdentity", "NotificationType", "Integer32", "ObjectIdentity", "Counter32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-tcpConnState, = mibBuilder.importSymbols("TCP-MIB", "tcpConnState")
-coldStart = NotificationType((1, 3, 6, 1, 2, 1, 11) + (0,0)).setObjects(("SNMPv2-MIB", "sysUpTime"), ("OLD-CISCO-SYSTEM-MIB", "whyReload"))
-linkDown = NotificationType((1, 3, 6, 1, 2, 1, 11) + (0,2)).setObjects(("IF-MIB", "ifIndex"), ("IF-MIB", "ifDescr"), ("IF-MIB", "ifType"), ("OLD-CISCO-INTERFACES-MIB", "locIfReason"))
-linkUp = NotificationType((1, 3, 6, 1, 2, 1, 11) + (0,3)).setObjects(("IF-MIB", "ifIndex"), ("IF-MIB", "ifDescr"), ("IF-MIB", "ifType"), ("OLD-CISCO-INTERFACES-MIB", "locIfReason"))
-authenticationFailure = NotificationType((1, 3, 6, 1, 2, 1, 11) + (0,4)).setObjects(("OLD-CISCO-SYSTEM-MIB", "authAddr"))
-egpNeighborLoss = NotificationType((1, 3, 6, 1, 2, 1, 11) + (0,5)).setObjects(("RFC1213-MIB", "egpNeighAddr"))
-reload = NotificationType((1, 3, 6, 1, 4, 1, 9) + (0,0)).setObjects(("SNMPv2-MIB", "sysUpTime"), ("OLD-CISCO-SYSTEM-MIB", "whyReload"))
-tcpConnectionClose = NotificationType((1, 3, 6, 1, 4, 1, 9) + (0,1)).setObjects(("OLD-CISCO-TS-MIB", "tslineSesType"), ("TCP-MIB", "tcpConnState"), ("OLD-CISCO-TCP-MIB", "loctcpConnElapsed"), ("OLD-CISCO-TCP-MIB", "loctcpConnInBytes"), ("OLD-CISCO-TCP-MIB", "loctcpConnOutBytes"), ("OLD-CISCO-TS-MIB", "tsLineUser"))
-mibBuilder.exportSymbols("CISCOTRAP-MIB", linkUp=linkUp, reload=reload, coldStart=coldStart, egpNeighborLoss=egpNeighborLoss, authenticationFailure=authenticationFailure, tcpConnectionClose=tcpConnectionClose, linkDown=linkDown)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CISCOTRAP-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:15:26 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(cisco,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "cisco")
+
+(ifDescr,
+ ifIndex,
+ ifType) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifDescr",
+    "ifIndex",
+    "ifType")
+
+(locIfReason,) = mibBuilder.importSymbols(
+    "OLD-CISCO-INTERFACES-MIB",
+    "locIfReason")
+
+(authAddr,
+ whyReload) = mibBuilder.importSymbols(
+    "OLD-CISCO-SYSTEM-MIB",
+    "authAddr",
+    "whyReload")
+
+(loctcpConnElapsed,
+ loctcpConnInBytes,
+ loctcpConnOutBytes) = mibBuilder.importSymbols(
+    "OLD-CISCO-TCP-MIB",
+    "loctcpConnElapsed",
+    "loctcpConnInBytes",
+    "loctcpConnOutBytes")
+
+(tsLineUser,
+ tslineSesType) = mibBuilder.importSymbols(
+    "OLD-CISCO-TS-MIB",
+    "tsLineUser",
+    "tslineSesType")
+
+(egpNeighAddr,) = mibBuilder.importSymbols(
+    "RFC1213-MIB",
+    "egpNeighAddr")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(snmp,
+ sysUpTime) = mibBuilder.importSymbols(
+    "SNMPv2-MIB",
+    "snmp",
+    "sysUpTime")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ NotificationType,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "NotificationType",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+(tcpConnState,) = mibBuilder.importSymbols(
+    "TCP-MIB",
+    "tcpConnState")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+coldStart = NotificationType(
+    (1, 3, 6, 1, 2, 1, 11, 0, 0)
+)
+coldStart.setObjects(
+      *(("SNMPv2-MIB", "sysUpTime"),
+        ("OLD-CISCO-SYSTEM-MIB", "whyReload"))
+)
+if mibBuilder.loadTexts:
+    coldStart.setStatus(
+        ""
+    )
+
+linkDown = NotificationType(
+    (1, 3, 6, 1, 2, 1, 11, 0, 2)
+)
+linkDown.setObjects(
+      *(("IF-MIB", "ifIndex"),
+        ("IF-MIB", "ifDescr"),
+        ("IF-MIB", "ifType"),
+        ("OLD-CISCO-INTERFACES-MIB", "locIfReason"))
+)
+if mibBuilder.loadTexts:
+    linkDown.setStatus(
+        ""
+    )
+
+linkUp = NotificationType(
+    (1, 3, 6, 1, 2, 1, 11, 0, 3)
+)
+linkUp.setObjects(
+      *(("IF-MIB", "ifIndex"),
+        ("IF-MIB", "ifDescr"),
+        ("IF-MIB", "ifType"),
+        ("OLD-CISCO-INTERFACES-MIB", "locIfReason"))
+)
+if mibBuilder.loadTexts:
+    linkUp.setStatus(
+        ""
+    )
+
+authenticationFailure = NotificationType(
+    (1, 3, 6, 1, 2, 1, 11, 0, 4)
+)
+authenticationFailure.setObjects(
+    ("OLD-CISCO-SYSTEM-MIB", "authAddr")
+)
+if mibBuilder.loadTexts:
+    authenticationFailure.setStatus(
+        ""
+    )
+
+egpNeighborLoss = NotificationType(
+    (1, 3, 6, 1, 2, 1, 11, 0, 5)
+)
+egpNeighborLoss.setObjects(
+    ("RFC1213-MIB", "egpNeighAddr")
+)
+if mibBuilder.loadTexts:
+    egpNeighborLoss.setStatus(
+        ""
+    )
+
+reload = NotificationType(
+    (1, 3, 6, 1, 4, 1, 9, 0, 0)
+)
+reload.setObjects(
+      *(("SNMPv2-MIB", "sysUpTime"),
+        ("OLD-CISCO-SYSTEM-MIB", "whyReload"))
+)
+if mibBuilder.loadTexts:
+    reload.setStatus(
+        ""
+    )
+
+tcpConnectionClose = NotificationType(
+    (1, 3, 6, 1, 4, 1, 9, 0, 1)
+)
+tcpConnectionClose.setObjects(
+      *(("OLD-CISCO-TS-MIB", "tslineSesType"),
+        ("TCP-MIB", "tcpConnState"),
+        ("OLD-CISCO-TCP-MIB", "loctcpConnElapsed"),
+        ("OLD-CISCO-TCP-MIB", "loctcpConnInBytes"),
+        ("OLD-CISCO-TCP-MIB", "loctcpConnOutBytes"),
+        ("OLD-CISCO-TS-MIB", "tsLineUser"))
+)
+if mibBuilder.loadTexts:
+    tcpConnectionClose.setStatus(
+        ""
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCOTRAP-MIB",
+    **{"coldStart": coldStart,
+       "linkDown": linkDown,
+       "linkUp": linkUp,
+       "authenticationFailure": authenticationFailure,
+       "egpNeighborLoss": egpNeighborLoss,
+       "reload": reload,
+       "tcpConnectionClose": tcpConnectionClose}
+)

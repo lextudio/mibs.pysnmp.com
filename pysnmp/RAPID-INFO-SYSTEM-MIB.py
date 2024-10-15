@@ -1,23 +1,163 @@
+# SNMP MIB module (RAPID-INFO-SYSTEM-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module RAPID-INFO-SYSTEM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/RAPID-INFO-SYSTEM-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:43:29 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint")
-rapidstream, = mibBuilder.importSymbols("RAPID-MIB", "rapidstream")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Unsigned32, TimeTicks, Gauge32, IpAddress, Counter64, NotificationType, Bits, Integer32, Counter32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, MibIdentifier, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Unsigned32", "TimeTicks", "Gauge32", "IpAddress", "Counter64", "NotificationType", "Bits", "Integer32", "Counter32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "MibIdentifier", "enterprises")
-DisplayString, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "DateAndTime", "TextualConvention")
-rsInfoModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 4355, 6))
-rsInfoModule.setRevisions(('2001-04-20 12:00', '2002-11-01 12:00',))
-if mibBuilder.loadTexts: rsInfoModule.setLastUpdated('0103061200Z')
-if mibBuilder.loadTexts: rsInfoModule.setOrganization('WatchGuard Technologies, Inc.')
-rsInfoSystem = ObjectIdentity((1, 3, 6, 1, 4, 1, 4355, 6, 1))
-if mibBuilder.loadTexts: rsInfoSystem.setStatus('current')
-rsInfoSystemCurrentTime = MibScalar((1, 3, 6, 1, 4, 1, 4355, 6, 1, 1), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rsInfoSystemCurrentTime.setStatus('current')
-mibBuilder.exportSymbols("RAPID-INFO-SYSTEM-MIB", rsInfoSystemCurrentTime=rsInfoSystemCurrentTime, rsInfoSystem=rsInfoSystem, rsInfoModule=rsInfoModule, PYSNMP_MODULE_ID=rsInfoModule)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/RAPID-INFO-SYSTEM-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:44:37 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(rapidstream,) = mibBuilder.importSymbols(
+    "RAPID-MIB",
+    "rapidstream")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+rsInfoModule = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4355, 6)
+)
+rsInfoModule.setRevisions(
+        ("2001-04-20 12:00",
+         "2002-11-01 12:00")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_RsInfoSystem_ObjectIdentity = ObjectIdentity
+rsInfoSystem = _RsInfoSystem_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4355, 6, 1)
+)
+if mibBuilder.loadTexts:
+    rsInfoSystem.setStatus("current")
+_RsInfoSystemCurrentTime_Type = DateAndTime
+_RsInfoSystemCurrentTime_Object = MibScalar
+rsInfoSystemCurrentTime = _RsInfoSystemCurrentTime_Object(
+    (1, 3, 6, 1, 4, 1, 4355, 6, 1, 1),
+    _RsInfoSystemCurrentTime_Type()
+)
+rsInfoSystemCurrentTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rsInfoSystemCurrentTime.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "RAPID-INFO-SYSTEM-MIB",
+    **{"rsInfoModule": rsInfoModule,
+       "rsInfoSystem": rsInfoSystem,
+       "rsInfoSystemCurrentTime": rsInfoSystemCurrentTime}
+)

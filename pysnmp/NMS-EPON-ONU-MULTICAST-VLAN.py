@@ -1,28 +1,215 @@
+# SNMP MIB module (NMS-EPON-ONU-MULTICAST-VLAN) expressed in pysnmp data model.
 #
-# PySNMP MIB module NMS-EPON-ONU-MULTICAST-VLAN (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/NMS-EPON-ONU-MULTICAST-VLAN
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:12:09 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-nmsEPONGroup, = mibBuilder.importSymbols("NMS-SMI", "nmsEPONGroup")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-iso, IpAddress, Counter32, Gauge32, MibIdentifier, ModuleIdentity, Unsigned32, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, TimeTicks, ObjectIdentity, Bits, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "IpAddress", "Counter32", "Gauge32", "MibIdentifier", "ModuleIdentity", "Unsigned32", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "TimeTicks", "ObjectIdentity", "Bits", "NotificationType")
-DisplayString, TruthValue, PhysAddress, MacAddress, TextualConvention, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "PhysAddress", "MacAddress", "TextualConvention", "RowStatus")
-nmsEponOnuMulticastVlan = MibIdentifier((1, 3, 6, 1, 4, 1, 11606, 10, 101, 14))
-nmsepononumulticastvlanTable = MibTable((1, 3, 6, 1, 4, 1, 11606, 10, 101, 14, 1), )
-if mibBuilder.loadTexts: nmsepononumulticastvlanTable.setStatus('mandatory')
-nmsEponOnuVlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11606, 10, 101, 14, 1, 1), ).setIndexNames((0, "NMS-EPON-ONU-MULTICAST-VLAN", "onuLlidDiid"), (0, "NMS-EPON-ONU-MULTICAST-VLAN", "onuIfSequenceNo"), (0, "NMS-EPON-ONU-MULTICAST-VLAN", "onuMcstMcVlanID"))
-if mibBuilder.loadTexts: nmsEponOnuVlanEntry.setStatus('mandatory')
-onuLlidDiid = MibTableColumn((1, 3, 6, 1, 4, 1, 11606, 10, 101, 14, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: onuLlidDiid.setStatus('mandatory')
-onuIfSequenceNo = MibTableColumn((1, 3, 6, 1, 4, 1, 11606, 10, 101, 14, 1, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: onuIfSequenceNo.setStatus('mandatory')
-onuMcstMcVlanID = MibTableColumn((1, 3, 6, 1, 4, 1, 11606, 10, 101, 14, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(2, 4094))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: onuMcstMcVlanID.setStatus('mandatory')
-onuMcVlanRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11606, 10, 101, 14, 1, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: onuMcVlanRowStatus.setStatus('mandatory')
-mibBuilder.exportSymbols("NMS-EPON-ONU-MULTICAST-VLAN", onuMcstMcVlanID=onuMcstMcVlanID, nmsepononumulticastvlanTable=nmsepononumulticastvlanTable, onuMcVlanRowStatus=onuMcVlanRowStatus, onuIfSequenceNo=onuIfSequenceNo, nmsEponOnuMulticastVlan=nmsEponOnuMulticastVlan, nmsEponOnuVlanEntry=nmsEponOnuVlanEntry, onuLlidDiid=onuLlidDiid)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/NMS-EPON-ONU-MULTICAST-VLAN
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:27:49 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(nmsEPONGroup,) = mibBuilder.importSymbols(
+    "NMS-SMI",
+    "nmsEPONGroup")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_NmsEponOnuMulticastVlan_ObjectIdentity = ObjectIdentity
+nmsEponOnuMulticastVlan = _NmsEponOnuMulticastVlan_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11606, 10, 101, 14)
+)
+_NmsepononumulticastvlanTable_Object = MibTable
+nmsepononumulticastvlanTable = _NmsepononumulticastvlanTable_Object(
+    (1, 3, 6, 1, 4, 1, 11606, 10, 101, 14, 1)
+)
+if mibBuilder.loadTexts:
+    nmsepononumulticastvlanTable.setStatus("mandatory")
+_NmsEponOnuVlanEntry_Object = MibTableRow
+nmsEponOnuVlanEntry = _NmsEponOnuVlanEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11606, 10, 101, 14, 1, 1)
+)
+nmsEponOnuVlanEntry.setIndexNames(
+    (0, "NMS-EPON-ONU-MULTICAST-VLAN", "onuLlidDiid"),
+    (0, "NMS-EPON-ONU-MULTICAST-VLAN", "onuIfSequenceNo"),
+    (0, "NMS-EPON-ONU-MULTICAST-VLAN", "onuMcstMcVlanID"),
+)
+if mibBuilder.loadTexts:
+    nmsEponOnuVlanEntry.setStatus("mandatory")
+_OnuLlidDiid_Type = Integer32
+_OnuLlidDiid_Object = MibTableColumn
+onuLlidDiid = _OnuLlidDiid_Object(
+    (1, 3, 6, 1, 4, 1, 11606, 10, 101, 14, 1, 1, 1),
+    _OnuLlidDiid_Type()
+)
+onuLlidDiid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    onuLlidDiid.setStatus("mandatory")
+_OnuIfSequenceNo_Type = Integer32
+_OnuIfSequenceNo_Object = MibTableColumn
+onuIfSequenceNo = _OnuIfSequenceNo_Object(
+    (1, 3, 6, 1, 4, 1, 11606, 10, 101, 14, 1, 1, 2),
+    _OnuIfSequenceNo_Type()
+)
+onuIfSequenceNo.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    onuIfSequenceNo.setStatus("mandatory")
+
+
+class _OnuMcstMcVlanID_Type(Integer32):
+    """Custom type onuMcstMcVlanID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(2, 4094),
+    )
+
+
+_OnuMcstMcVlanID_Type.__name__ = "Integer32"
+_OnuMcstMcVlanID_Object = MibTableColumn
+onuMcstMcVlanID = _OnuMcstMcVlanID_Object(
+    (1, 3, 6, 1, 4, 1, 11606, 10, 101, 14, 1, 1, 3),
+    _OnuMcstMcVlanID_Type()
+)
+onuMcstMcVlanID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    onuMcstMcVlanID.setStatus("mandatory")
+_OnuMcVlanRowStatus_Type = RowStatus
+_OnuMcVlanRowStatus_Object = MibTableColumn
+onuMcVlanRowStatus = _OnuMcVlanRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11606, 10, 101, 14, 1, 1, 4),
+    _OnuMcVlanRowStatus_Type()
+)
+onuMcVlanRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    onuMcVlanRowStatus.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "NMS-EPON-ONU-MULTICAST-VLAN",
+    **{"nmsEponOnuMulticastVlan": nmsEponOnuMulticastVlan,
+       "nmsepononumulticastvlanTable": nmsepononumulticastvlanTable,
+       "nmsEponOnuVlanEntry": nmsEponOnuVlanEntry,
+       "onuLlidDiid": onuLlidDiid,
+       "onuIfSequenceNo": onuIfSequenceNo,
+       "onuMcstMcVlanID": onuMcstMcVlanID,
+       "onuMcVlanRowStatus": onuMcVlanRowStatus}
+)

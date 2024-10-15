@@ -1,32 +1,223 @@
+# SNMP MIB module (NT-Reference-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module NT-Reference-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/NT-Reference-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:07:15 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-Unsigned32, ModuleIdentity, MibIdentifier, Bits, NotificationType, Counter32, Counter64, enterprises, ObjectIdentity, IpAddress, Gauge32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "ModuleIdentity", "MibIdentifier", "Bits", "NotificationType", "Counter32", "Counter64", "enterprises", "ObjectIdentity", "IpAddress", "Gauge32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "TimeTicks")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-nt = MibIdentifier((1, 3, 6, 1, 4, 1, 562))
-meridian = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 3))
-experimental = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 3, 0))
-modules = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 3, 1))
-common = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 3, 2))
-smp = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 3, 3))
-cybele = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 3, 4))
-mobility = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 3, 5))
-callProcessing = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 3, 6))
-iccm = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 3, 7))
-ngen = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 3, 8))
-amber = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 3, 9))
-entityNaming = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 3, 2, 0))
-networkID = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 3, 2, 0, 0))
-cybeleNaming = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 3, 2, 0, 1))
-ngenNaming = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 3, 2, 0, 2))
-mailNaming = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 3, 2, 0, 3))
-mobilityNmaing = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 3, 2, 0, 4))
-mibBuilder.exportSymbols("NT-Reference-MIB", smp=smp, meridian=meridian, common=common, callProcessing=callProcessing, nt=nt, entityNaming=entityNaming, amber=amber, cybele=cybele, networkID=networkID, iccm=iccm, mailNaming=mailNaming, mobility=mobility, ngen=ngen, cybeleNaming=cybeleNaming, mobilityNmaing=mobilityNmaing, modules=modules, experimental=experimental, ngenNaming=ngenNaming)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/NT-Reference-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:24:44 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Nt_ObjectIdentity = ObjectIdentity
+nt = _Nt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562)
+)
+_Meridian_ObjectIdentity = ObjectIdentity
+meridian = _Meridian_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 3)
+)
+_Experimental_ObjectIdentity = ObjectIdentity
+experimental = _Experimental_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 3, 0)
+)
+_Modules_ObjectIdentity = ObjectIdentity
+modules = _Modules_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 3, 1)
+)
+_Common_ObjectIdentity = ObjectIdentity
+common = _Common_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 3, 2)
+)
+_EntityNaming_ObjectIdentity = ObjectIdentity
+entityNaming = _EntityNaming_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 3, 2, 0)
+)
+_NetworkID_ObjectIdentity = ObjectIdentity
+networkID = _NetworkID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 3, 2, 0, 0)
+)
+_CybeleNaming_ObjectIdentity = ObjectIdentity
+cybeleNaming = _CybeleNaming_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 3, 2, 0, 1)
+)
+_NgenNaming_ObjectIdentity = ObjectIdentity
+ngenNaming = _NgenNaming_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 3, 2, 0, 2)
+)
+_MailNaming_ObjectIdentity = ObjectIdentity
+mailNaming = _MailNaming_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 3, 2, 0, 3)
+)
+_MobilityNmaing_ObjectIdentity = ObjectIdentity
+mobilityNmaing = _MobilityNmaing_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 3, 2, 0, 4)
+)
+_Smp_ObjectIdentity = ObjectIdentity
+smp = _Smp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 3, 3)
+)
+_Cybele_ObjectIdentity = ObjectIdentity
+cybele = _Cybele_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 3, 4)
+)
+_Mobility_ObjectIdentity = ObjectIdentity
+mobility = _Mobility_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 3, 5)
+)
+_CallProcessing_ObjectIdentity = ObjectIdentity
+callProcessing = _CallProcessing_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 3, 6)
+)
+_Iccm_ObjectIdentity = ObjectIdentity
+iccm = _Iccm_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 3, 7)
+)
+_Ngen_ObjectIdentity = ObjectIdentity
+ngen = _Ngen_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 3, 8)
+)
+_Amber_ObjectIdentity = ObjectIdentity
+amber = _Amber_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 562, 3, 9)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "NT-Reference-MIB",
+    **{"nt": nt,
+       "meridian": meridian,
+       "experimental": experimental,
+       "modules": modules,
+       "common": common,
+       "entityNaming": entityNaming,
+       "networkID": networkID,
+       "cybeleNaming": cybeleNaming,
+       "ngenNaming": ngenNaming,
+       "mailNaming": mailNaming,
+       "mobilityNmaing": mobilityNmaing,
+       "smp": smp,
+       "cybele": cybele,
+       "mobility": mobility,
+       "callProcessing": callProcessing,
+       "iccm": iccm,
+       "ngen": ngen,
+       "amber": amber}
+)

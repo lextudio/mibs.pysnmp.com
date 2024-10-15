@@ -1,37 +1,316 @@
+# SNMP MIB module (CXFLT-IP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CXFLT-IP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/CXFLT-IP-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:17:05 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint")
-cxFltIp, = mibBuilder.importSymbols("CXProduct-SMI", "cxFltIp")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter64, TimeTicks, Unsigned32, Bits, ModuleIdentity, MibIdentifier, NotificationType, Integer32, Gauge32, ObjectIdentity, Counter32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "TimeTicks", "Unsigned32", "Bits", "ModuleIdentity", "MibIdentifier", "NotificationType", "Integer32", "Gauge32", "ObjectIdentity", "Counter32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-cxFltIpAddrTable = MibTable((1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 21, 1), )
-if mibBuilder.loadTexts: cxFltIpAddrTable.setStatus('mandatory')
-cxFltIpAddrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 21, 1, 1), ).setIndexNames((0, "CXFLT-IP-MIB", "cxFltIpIndex"))
-if mibBuilder.loadTexts: cxFltIpAddrEntry.setStatus('mandatory')
-cxFltIpIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 21, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cxFltIpIndex.setStatus('mandatory')
-cxFltIpSrcAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 21, 1, 1, 2), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cxFltIpSrcAddr.setStatus('mandatory')
-cxFltIpSrcNetMask = MibTableColumn((1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 21, 1, 1, 3), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cxFltIpSrcNetMask.setStatus('mandatory')
-cxFltIpDstAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 21, 1, 1, 4), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cxFltIpDstAddr.setStatus('mandatory')
-cxFltIpDstNetMask = MibTableColumn((1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 21, 1, 1, 5), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cxFltIpDstNetMask.setStatus('mandatory')
-cxFltIpParameter = MibTableColumn((1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 21, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("discard", 1), ("forward", 2), ("priority-low", 3), ("priority-high", 4))).clone('discard')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cxFltIpParameter.setStatus('mandatory')
-cxFltIpRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 21, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("invalid", 1), ("valid", 2))).clone('valid')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cxFltIpRowStatus.setStatus('mandatory')
-cxFltIpProtType = MibTableColumn((1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 21, 1, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cxFltIpProtType.setStatus('mandatory')
-cxFltIpProtPortNum = MibTableColumn((1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 21, 1, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cxFltIpProtPortNum.setStatus('mandatory')
-mibBuilder.exportSymbols("CXFLT-IP-MIB", cxFltIpProtType=cxFltIpProtType, cxFltIpSrcAddr=cxFltIpSrcAddr, cxFltIpDstAddr=cxFltIpDstAddr, cxFltIpParameter=cxFltIpParameter, cxFltIpSrcNetMask=cxFltIpSrcNetMask, cxFltIpAddrEntry=cxFltIpAddrEntry, cxFltIpAddrTable=cxFltIpAddrTable, cxFltIpRowStatus=cxFltIpRowStatus, cxFltIpProtPortNum=cxFltIpProtPortNum, cxFltIpDstNetMask=cxFltIpDstNetMask, cxFltIpIndex=cxFltIpIndex)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CXFLT-IP-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:20:22 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(cxFltIp,) = mibBuilder.importSymbols(
+    "CXProduct-SMI",
+    "cxFltIp")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CxFltIpAddrTable_Object = MibTable
+cxFltIpAddrTable = _CxFltIpAddrTable_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 21, 1)
+)
+if mibBuilder.loadTexts:
+    cxFltIpAddrTable.setStatus("mandatory")
+_CxFltIpAddrEntry_Object = MibTableRow
+cxFltIpAddrEntry = _CxFltIpAddrEntry_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 21, 1, 1)
+)
+cxFltIpAddrEntry.setIndexNames(
+    (0, "CXFLT-IP-MIB", "cxFltIpIndex"),
+)
+if mibBuilder.loadTexts:
+    cxFltIpAddrEntry.setStatus("mandatory")
+
+
+class _CxFltIpIndex_Type(Integer32):
+    """Custom type cxFltIpIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_CxFltIpIndex_Type.__name__ = "Integer32"
+_CxFltIpIndex_Object = MibTableColumn
+cxFltIpIndex = _CxFltIpIndex_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 21, 1, 1, 1),
+    _CxFltIpIndex_Type()
+)
+cxFltIpIndex.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cxFltIpIndex.setStatus("mandatory")
+_CxFltIpSrcAddr_Type = IpAddress
+_CxFltIpSrcAddr_Object = MibTableColumn
+cxFltIpSrcAddr = _CxFltIpSrcAddr_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 21, 1, 1, 2),
+    _CxFltIpSrcAddr_Type()
+)
+cxFltIpSrcAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cxFltIpSrcAddr.setStatus("mandatory")
+_CxFltIpSrcNetMask_Type = IpAddress
+_CxFltIpSrcNetMask_Object = MibTableColumn
+cxFltIpSrcNetMask = _CxFltIpSrcNetMask_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 21, 1, 1, 3),
+    _CxFltIpSrcNetMask_Type()
+)
+cxFltIpSrcNetMask.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cxFltIpSrcNetMask.setStatus("mandatory")
+_CxFltIpDstAddr_Type = IpAddress
+_CxFltIpDstAddr_Object = MibTableColumn
+cxFltIpDstAddr = _CxFltIpDstAddr_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 21, 1, 1, 4),
+    _CxFltIpDstAddr_Type()
+)
+cxFltIpDstAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cxFltIpDstAddr.setStatus("mandatory")
+_CxFltIpDstNetMask_Type = IpAddress
+_CxFltIpDstNetMask_Object = MibTableColumn
+cxFltIpDstNetMask = _CxFltIpDstNetMask_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 21, 1, 1, 5),
+    _CxFltIpDstNetMask_Type()
+)
+cxFltIpDstNetMask.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cxFltIpDstNetMask.setStatus("mandatory")
+
+
+class _CxFltIpParameter_Type(Integer32):
+    """Custom type cxFltIpParameter based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("discard", 1),
+          ("forward", 2),
+          ("priority-high", 4),
+          ("priority-low", 3))
+    )
+
+
+_CxFltIpParameter_Type.__name__ = "Integer32"
+_CxFltIpParameter_Object = MibTableColumn
+cxFltIpParameter = _CxFltIpParameter_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 21, 1, 1, 6),
+    _CxFltIpParameter_Type()
+)
+cxFltIpParameter.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cxFltIpParameter.setStatus("mandatory")
+
+
+class _CxFltIpRowStatus_Type(Integer32):
+    """Custom type cxFltIpRowStatus based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("invalid", 1),
+          ("valid", 2))
+    )
+
+
+_CxFltIpRowStatus_Type.__name__ = "Integer32"
+_CxFltIpRowStatus_Object = MibTableColumn
+cxFltIpRowStatus = _CxFltIpRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 21, 1, 1, 7),
+    _CxFltIpRowStatus_Type()
+)
+cxFltIpRowStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cxFltIpRowStatus.setStatus("mandatory")
+
+
+class _CxFltIpProtType_Type(Integer32):
+    """Custom type cxFltIpProtType based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_CxFltIpProtType_Type.__name__ = "Integer32"
+_CxFltIpProtType_Object = MibTableColumn
+cxFltIpProtType = _CxFltIpProtType_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 21, 1, 1, 8),
+    _CxFltIpProtType_Type()
+)
+cxFltIpProtType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cxFltIpProtType.setStatus("mandatory")
+
+
+class _CxFltIpProtPortNum_Type(Integer32):
+    """Custom type cxFltIpProtPortNum based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_CxFltIpProtPortNum_Type.__name__ = "Integer32"
+_CxFltIpProtPortNum_Object = MibTableColumn
+cxFltIpProtPortNum = _CxFltIpProtPortNum_Object(
+    (1, 3, 6, 1, 4, 1, 495, 2, 1, 6, 21, 1, 1, 9),
+    _CxFltIpProtPortNum_Type()
+)
+cxFltIpProtPortNum.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cxFltIpProtPortNum.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CXFLT-IP-MIB",
+    **{"cxFltIpAddrTable": cxFltIpAddrTable,
+       "cxFltIpAddrEntry": cxFltIpAddrEntry,
+       "cxFltIpIndex": cxFltIpIndex,
+       "cxFltIpSrcAddr": cxFltIpSrcAddr,
+       "cxFltIpSrcNetMask": cxFltIpSrcNetMask,
+       "cxFltIpDstAddr": cxFltIpDstAddr,
+       "cxFltIpDstNetMask": cxFltIpDstNetMask,
+       "cxFltIpParameter": cxFltIpParameter,
+       "cxFltIpRowStatus": cxFltIpRowStatus,
+       "cxFltIpProtType": cxFltIpProtType,
+       "cxFltIpProtPortNum": cxFltIpProtPortNum}
+)

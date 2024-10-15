@@ -1,161 +1,937 @@
+# SNMP MIB module (MERU-CONFIG-QOS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module MERU-CONFIG-QOS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/MERU-CONFIG-QOS-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:01:10 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
-Ipv6Address, = mibBuilder.importSymbols("IPV6-TC", "Ipv6Address")
-mwConfiguration, = mibBuilder.importSymbols("MERU-SMI", "mwConfiguration")
-MwlDscpType, MwlQosCodecProtocol, MwlQosCodec, MwlQosRulesMatchClassBits, MwlDropPolicy, MwlOnOffSwitch, MwlQosRulesMatchClass, MwlQosAction, MwlQosProtocol, MwlAdmissionControl = mibBuilder.importSymbols("MERU-TC", "MwlDscpType", "MwlQosCodecProtocol", "MwlQosCodec", "MwlQosRulesMatchClassBits", "MwlDropPolicy", "MwlOnOffSwitch", "MwlQosRulesMatchClass", "MwlQosAction", "MwlQosProtocol", "MwlAdmissionControl")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ObjectIdentity, ModuleIdentity, iso, Counter32, TimeTicks, Gauge32, Bits, MibIdentifier, NotificationType, Integer32, Counter64, enterprises, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "ModuleIdentity", "iso", "Counter32", "TimeTicks", "Gauge32", "Bits", "MibIdentifier", "NotificationType", "Integer32", "Counter64", "enterprises", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "IpAddress")
-TimeStamp, RowStatus, DisplayString, DateAndTime, TimeInterval, TruthValue, TextualConvention, MacAddress = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "RowStatus", "DisplayString", "DateAndTime", "TimeInterval", "TruthValue", "TextualConvention", "MacAddress")
-mwConfigQoS = ModuleIdentity((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8))
-if mibBuilder.loadTexts: mwConfigQoS.setLastUpdated('200506050000Z')
-if mibBuilder.loadTexts: mwConfigQoS.setOrganization('Meru Networks')
-mwQosVars = MibIdentifier((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 1))
-mwQosVarsQosOnOff = MibScalar((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 1, 1), MwlOnOffSwitch()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mwQosVarsQosOnOff.setStatus('current')
-mwQosVarsQosAdmissionControl = MibScalar((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 1, 2), MwlAdmissionControl()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mwQosVarsQosAdmissionControl.setStatus('current')
-mwQosVarsQosDropPolicy = MibScalar((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 1, 3), MwlDropPolicy()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mwQosVarsQosDropPolicy.setStatus('current')
-mwQosVarsQosDefaultTimeToLive = MibScalar((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 1, 4), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mwQosVarsQosDefaultTimeToLive.setStatus('current')
-mwQosVarsQosUdpTimeToLive = MibScalar((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 1, 5), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mwQosVarsQosUdpTimeToLive.setStatus('current')
-mwQosVarsQosTcpTimeToLive = MibScalar((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 1, 6), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mwQosVarsQosTcpTimeToLive.setStatus('current')
-mwQosVarsPercentBWScaling = MibScalar((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 1, 7), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mwQosVarsPercentBWScaling.setStatus('current')
-mwQosVarsQosMaxCallsPerAp = MibScalar((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 1, 8), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mwQosVarsQosMaxCallsPerAp.setStatus('current')
-mwQosVarsQosMaxCallsPerInterfRegion = MibScalar((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 1, 9), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mwQosVarsQosMaxCallsPerInterfRegion.setStatus('current')
-mwQosVarsQosLoadBalanceMaxStationsPerAp = MibScalar((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 1, 10), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mwQosVarsQosLoadBalanceMaxStationsPerAp.setStatus('current')
-mwQosVarsQosLoadBalanceMaxStationsPerBssid = MibScalar((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 1, 11), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mwQosVarsQosLoadBalanceMaxStationsPerBssid.setStatus('current')
-mwQosVarsQosLoadBalanceOverflow = MibScalar((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 1, 12), MwlOnOffSwitch()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mwQosVarsQosLoadBalanceOverflow.setStatus('current')
-mwQosVarsQosMaxCallsPerBssid = MibScalar((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 1, 13), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mwQosVarsQosMaxCallsPerBssid.setStatus('current')
-mwQosVarsQosCacDeauth = MibScalar((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 1, 14), MwlOnOffSwitch()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mwQosVarsQosCacDeauth.setStatus('current')
-mwQosVarsQosStationAssignAge = MibScalar((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 1, 15), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mwQosVarsQosStationAssignAge.setStatus('current')
-mwQosVarsQosSipIdleTimeout = MibScalar((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 1, 16), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mwQosVarsQosSipIdleTimeout.setStatus('current')
-mwQosRuleTable = MibTable((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2), )
-if mibBuilder.loadTexts: mwQosRuleTable.setStatus('current')
-mwQosRuleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1), ).setIndexNames((0, "MERU-CONFIG-QOS-MIB", "mwQosRuleTableIndex"))
-if mibBuilder.loadTexts: mwQosRuleEntry.setStatus('current')
-mwQosRuleTableIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 1), Integer32())
-if mibBuilder.loadTexts: mwQosRuleTableIndex.setStatus('current')
-mwQosRuleId = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 2), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosRuleId.setStatus('current')
-mwQosRuleDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 3), MwlDscpType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosRuleDscp.setStatus('current')
-mwQosRuleDstIp = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 4), IpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosRuleDstIp.setStatus('current')
-mwQosRuleSrcIp = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 5), IpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosRuleSrcIp.setStatus('current')
-mwQosRuleAction = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 6), MwlQosAction()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosRuleAction.setStatus('current')
-mwQosRuleDstMask = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 7), IpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosRuleDstMask.setStatus('current')
-mwQosRuleDstPort = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosRuleDstPort.setStatus('current')
-mwQosRuleSrcMask = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 9), IpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosRuleSrcMask.setStatus('current')
-mwQosRuleSrcPort = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosRuleSrcPort.setStatus('current')
-mwQosRuleProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 11), MwlQosProtocol()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosRuleProtocol.setStatus('current')
-mwQosRulePriority = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 8))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosRulePriority.setStatus('current')
-mwQosRuleIdUfcFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 13), MwlQosRulesMatchClass()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosRuleIdUfcFlag.setStatus('current')
-mwQosRuleDstIpFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 14), MwlQosRulesMatchClassBits()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosRuleDstIpFlag.setStatus('current')
-mwQosRuleSrcIpFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 15), MwlQosRulesMatchClassBits()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosRuleSrcIpFlag.setStatus('current')
-mwQosRuleL4Protocol = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosRuleL4Protocol.setStatus('current')
-mwQosRuleDstPortFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 18), MwlQosRulesMatchClassBits()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosRuleDstPortFlag.setStatus('current')
-mwQosRuleSrcPortFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 19), MwlQosRulesMatchClassBits()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosRuleSrcPortFlag.setStatus('current')
-mwQosRuleDstIpUfcFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 20), MwlQosRulesMatchClassBits()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosRuleDstIpUfcFlag.setStatus('current')
-mwQosRuleSrcIpUfcFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 21), MwlQosRulesMatchClassBits()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosRuleSrcIpUfcFlag.setStatus('current')
-mwQosRuleAvgPacketRate = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 22), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosRuleAvgPacketRate.setStatus('current')
-mwQosRuleDstPortUfcFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 23), MwlQosRulesMatchClassBits()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosRuleDstPortUfcFlag.setStatus('current')
-mwQosRuleSrcPortUfcFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 24), MwlQosRulesMatchClassBits()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosRuleSrcPortUfcFlag.setStatus('current')
-mwQosRuleL4ProtocolFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 25), MwlQosRulesMatchClassBits()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosRuleL4ProtocolFlag.setStatus('current')
-mwQosRuleTrafficControl = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 26), MwlOnOffSwitch()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosRuleTrafficControl.setStatus('current')
-mwQosRuleLogging = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 27), MwlOnOffSwitch()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosRuleLogging.setStatus('current')
-mwQosRulePacketMinLength = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 28), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosRulePacketMinLength.setStatus('current')
-mwQosRulePacketMaxLength = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 29), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosRulePacketMaxLength.setStatus('current')
-mwQosRuleTokenBucketRate = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 30), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosRuleTokenBucketRate.setStatus('current')
-mwQosRuleFirewallFilterId = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 31), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosRuleFirewallFilterId.setStatus('current')
-mwQosRuleL4ProtocolUfcFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 32), MwlQosRulesMatchClassBits()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosRuleL4ProtocolUfcFlag.setStatus('current')
-mwQosRulePacketMinLengthFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 33), MwlQosRulesMatchClassBits()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosRulePacketMinLengthFlag.setStatus('current')
-mwQosRuleFirewallFilterIdFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 34), MwlQosRulesMatchClassBits()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosRuleFirewallFilterIdFlag.setStatus('current')
-mwQosRulePacketMinLengthUfcFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 35), MwlQosRulesMatchClassBits()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosRulePacketMinLengthUfcFlag.setStatus('current')
-mwQosRuleFirewallFilterIdUfcFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 36), MwlQosRulesMatchClassBits()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosRuleFirewallFilterIdUfcFlag.setStatus('current')
-mwQosRuleLoggingFrequency = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 37), Integer32().subtype(subtypeSpec=ValueRangeConstraint(30, 60))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosRuleLoggingFrequency.setStatus('current')
-mwQosRuleRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 40), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosRuleRowStatus.setStatus('current')
-mwQosCodecTranslRuleTable = MibTable((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 3), )
-if mibBuilder.loadTexts: mwQosCodecTranslRuleTable.setStatus('current')
-mwQosCodecTranslRuleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 3, 1), ).setIndexNames((0, "MERU-CONFIG-QOS-MIB", "mwQosCodecTranslRuleTableIndex"))
-if mibBuilder.loadTexts: mwQosCodecTranslRuleEntry.setStatus('current')
-mwQosCodecTranslRuleTableIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 3, 1, 1), Integer32())
-if mibBuilder.loadTexts: mwQosCodecTranslRuleTableIndex.setStatus('current')
-mwQosCodecTranslRuleId = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 3, 1, 2), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosCodecTranslRuleId.setStatus('current')
-mwQosCodecTranslRuleQosCtrProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 3, 1, 3), MwlQosCodecProtocol()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosCodecTranslRuleQosCtrProtocol.setStatus('current')
-mwQosCodecTranslRuleQosCtrCodecEnum = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 3, 1, 4), MwlQosCodec()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosCodecTranslRuleQosCtrCodecEnum.setStatus('current')
-mwQosCodecTranslRuleQosCtrRspecRate = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 3, 1, 5), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosCodecTranslRuleQosCtrRspecRate.setStatus('current')
-mwQosCodecTranslRuleQosCtrRspecSlack = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 3, 1, 6), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosCodecTranslRuleQosCtrRspecSlack.setStatus('current')
-mwQosCodecTranslRuleQosCtrSampleRate = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 3, 1, 7), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosCodecTranslRuleQosCtrSampleRate.setStatus('current')
-mwQosCodecTranslRuleQosCtrTspecPeakRate = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 3, 1, 8), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosCodecTranslRuleQosCtrTspecPeakRate.setStatus('current')
-mwQosCodecTranslRuleQosCtrTspecMinPolicedUnit = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 3, 1, 9), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosCodecTranslRuleQosCtrTspecMinPolicedUnit.setStatus('current')
-mwQosCodecTranslRuleQosCtrTspecTokenBucketRate = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 3, 1, 10), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosCodecTranslRuleQosCtrTspecTokenBucketRate.setStatus('current')
-mwQosCodecTranslRuleQosCtrTspecTokenBucketSize = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 3, 1, 11), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosCodecTranslRuleQosCtrTspecTokenBucketSize.setStatus('current')
-mwQosCodecTranslRuleQosCtrTspecMaxDatagramSize = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 3, 1, 12), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosCodecTranslRuleQosCtrTspecMaxDatagramSize.setStatus('current')
-mwQosCodecTranslRuleRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 3, 1, 14), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwQosCodecTranslRuleRowStatus.setStatus('current')
-mibBuilder.exportSymbols("MERU-CONFIG-QOS-MIB", mwQosVarsQosSipIdleTimeout=mwQosVarsQosSipIdleTimeout, mwQosRuleFirewallFilterIdFlag=mwQosRuleFirewallFilterIdFlag, mwQosCodecTranslRuleQosCtrTspecMinPolicedUnit=mwQosCodecTranslRuleQosCtrTspecMinPolicedUnit, mwQosRuleL4ProtocolUfcFlag=mwQosRuleL4ProtocolUfcFlag, mwQosVarsQosMaxCallsPerBssid=mwQosVarsQosMaxCallsPerBssid, mwQosRuleL4Protocol=mwQosRuleL4Protocol, mwQosRuleAvgPacketRate=mwQosRuleAvgPacketRate, mwQosCodecTranslRuleQosCtrProtocol=mwQosCodecTranslRuleQosCtrProtocol, mwQosCodecTranslRuleQosCtrTspecPeakRate=mwQosCodecTranslRuleQosCtrTspecPeakRate, mwQosVarsQosLoadBalanceMaxStationsPerAp=mwQosVarsQosLoadBalanceMaxStationsPerAp, mwQosRuleSrcPortFlag=mwQosRuleSrcPortFlag, mwQosVarsQosMaxCallsPerAp=mwQosVarsQosMaxCallsPerAp, mwQosVarsQosDefaultTimeToLive=mwQosVarsQosDefaultTimeToLive, mwQosVarsQosTcpTimeToLive=mwQosVarsQosTcpTimeToLive, mwQosRuleTokenBucketRate=mwQosRuleTokenBucketRate, mwQosVarsPercentBWScaling=mwQosVarsPercentBWScaling, mwQosVarsQosCacDeauth=mwQosVarsQosCacDeauth, mwQosRuleDstMask=mwQosRuleDstMask, mwQosCodecTranslRuleEntry=mwQosCodecTranslRuleEntry, mwQosRuleSrcIpFlag=mwQosRuleSrcIpFlag, mwQosCodecTranslRuleQosCtrRspecSlack=mwQosCodecTranslRuleQosCtrRspecSlack, mwQosRuleFirewallFilterId=mwQosRuleFirewallFilterId, mwQosRulePacketMaxLength=mwQosRulePacketMaxLength, mwQosRuleLogging=mwQosRuleLogging, mwQosRuleSrcIpUfcFlag=mwQosRuleSrcIpUfcFlag, mwQosVarsQosAdmissionControl=mwQosVarsQosAdmissionControl, mwQosRuleLoggingFrequency=mwQosRuleLoggingFrequency, mwQosRuleTableIndex=mwQosRuleTableIndex, mwQosRuleDscp=mwQosRuleDscp, mwQosRuleIdUfcFlag=mwQosRuleIdUfcFlag, mwQosRuleDstIpFlag=mwQosRuleDstIpFlag, mwQosCodecTranslRuleQosCtrTspecTokenBucketSize=mwQosCodecTranslRuleQosCtrTspecTokenBucketSize, mwQosRulePacketMinLengthUfcFlag=mwQosRulePacketMinLengthUfcFlag, mwQosVarsQosUdpTimeToLive=mwQosVarsQosUdpTimeToLive, mwQosRuleFirewallFilterIdUfcFlag=mwQosRuleFirewallFilterIdUfcFlag, mwQosRuleAction=mwQosRuleAction, mwQosRuleSrcPortUfcFlag=mwQosRuleSrcPortUfcFlag, mwQosRuleSrcMask=mwQosRuleSrcMask, mwQosRulePriority=mwQosRulePriority, mwQosRuleDstPortUfcFlag=mwQosRuleDstPortUfcFlag, mwQosCodecTranslRuleQosCtrTspecMaxDatagramSize=mwQosCodecTranslRuleQosCtrTspecMaxDatagramSize, mwQosRuleDstIpUfcFlag=mwQosRuleDstIpUfcFlag, mwQosRuleL4ProtocolFlag=mwQosRuleL4ProtocolFlag, mwQosRuleRowStatus=mwQosRuleRowStatus, mwQosRulePacketMinLengthFlag=mwQosRulePacketMinLengthFlag, mwQosRuleDstPort=mwQosRuleDstPort, mwQosRuleDstPortFlag=mwQosRuleDstPortFlag, mwQosCodecTranslRuleTable=mwQosCodecTranslRuleTable, mwQosCodecTranslRuleQosCtrSampleRate=mwQosCodecTranslRuleQosCtrSampleRate, mwQosVarsQosOnOff=mwQosVarsQosOnOff, mwQosCodecTranslRuleQosCtrCodecEnum=mwQosCodecTranslRuleQosCtrCodecEnum, mwQosRuleTable=mwQosRuleTable, mwQosCodecTranslRuleQosCtrRspecRate=mwQosCodecTranslRuleQosCtrRspecRate, mwQosVarsQosDropPolicy=mwQosVarsQosDropPolicy, mwQosCodecTranslRuleRowStatus=mwQosCodecTranslRuleRowStatus, mwConfigQoS=mwConfigQoS, mwQosRuleId=mwQosRuleId, mwQosCodecTranslRuleTableIndex=mwQosCodecTranslRuleTableIndex, mwQosVarsQosLoadBalanceMaxStationsPerBssid=mwQosVarsQosLoadBalanceMaxStationsPerBssid, mwQosVarsQosStationAssignAge=mwQosVarsQosStationAssignAge, mwQosVarsQosMaxCallsPerInterfRegion=mwQosVarsQosMaxCallsPerInterfRegion, mwQosRuleDstIp=mwQosRuleDstIp, mwQosRuleTrafficControl=mwQosRuleTrafficControl, mwQosVarsQosLoadBalanceOverflow=mwQosVarsQosLoadBalanceOverflow, mwQosVars=mwQosVars, mwQosRuleEntry=mwQosRuleEntry, mwQosRuleSrcIp=mwQosRuleSrcIp, mwQosRuleProtocol=mwQosRuleProtocol, mwQosCodecTranslRuleQosCtrTspecTokenBucketRate=mwQosCodecTranslRuleQosCtrTspecTokenBucketRate, mwQosRulePacketMinLength=mwQosRulePacketMinLength, PYSNMP_MODULE_ID=mwConfigQoS, mwQosRuleSrcPort=mwQosRuleSrcPort, mwQosCodecTranslRuleId=mwQosCodecTranslRuleId)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/MERU-CONFIG-QOS-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:21:05 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(Ipv6Address,) = mibBuilder.importSymbols(
+    "IPV6-TC",
+    "Ipv6Address")
+
+(mwConfiguration,) = mibBuilder.importSymbols(
+    "MERU-SMI",
+    "mwConfiguration")
+
+(MwlAdmissionControl,
+ MwlDropPolicy,
+ MwlDscpType,
+ MwlOnOffSwitch,
+ MwlQosAction,
+ MwlQosCodec,
+ MwlQosCodecProtocol,
+ MwlQosProtocol,
+ MwlQosRulesMatchClass,
+ MwlQosRulesMatchClassBits) = mibBuilder.importSymbols(
+    "MERU-TC",
+    "MwlAdmissionControl",
+    "MwlDropPolicy",
+    "MwlDscpType",
+    "MwlOnOffSwitch",
+    "MwlQosAction",
+    "MwlQosCodec",
+    "MwlQosCodecProtocol",
+    "MwlQosProtocol",
+    "MwlQosRulesMatchClass",
+    "MwlQosRulesMatchClassBits")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ MacAddress,
+ RowStatus,
+ TextualConvention,
+ TimeInterval,
+ TimeStamp,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "MacAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TimeInterval",
+    "TimeStamp",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+mwConfigQoS = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_MwQosVars_ObjectIdentity = ObjectIdentity
+mwQosVars = _MwQosVars_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 1)
+)
+_MwQosVarsQosOnOff_Type = MwlOnOffSwitch
+_MwQosVarsQosOnOff_Object = MibScalar
+mwQosVarsQosOnOff = _MwQosVarsQosOnOff_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 1, 1),
+    _MwQosVarsQosOnOff_Type()
+)
+mwQosVarsQosOnOff.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mwQosVarsQosOnOff.setStatus("current")
+_MwQosVarsQosAdmissionControl_Type = MwlAdmissionControl
+_MwQosVarsQosAdmissionControl_Object = MibScalar
+mwQosVarsQosAdmissionControl = _MwQosVarsQosAdmissionControl_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 1, 2),
+    _MwQosVarsQosAdmissionControl_Type()
+)
+mwQosVarsQosAdmissionControl.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mwQosVarsQosAdmissionControl.setStatus("current")
+_MwQosVarsQosDropPolicy_Type = MwlDropPolicy
+_MwQosVarsQosDropPolicy_Object = MibScalar
+mwQosVarsQosDropPolicy = _MwQosVarsQosDropPolicy_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 1, 3),
+    _MwQosVarsQosDropPolicy_Type()
+)
+mwQosVarsQosDropPolicy.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mwQosVarsQosDropPolicy.setStatus("current")
+_MwQosVarsQosDefaultTimeToLive_Type = Unsigned32
+_MwQosVarsQosDefaultTimeToLive_Object = MibScalar
+mwQosVarsQosDefaultTimeToLive = _MwQosVarsQosDefaultTimeToLive_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 1, 4),
+    _MwQosVarsQosDefaultTimeToLive_Type()
+)
+mwQosVarsQosDefaultTimeToLive.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mwQosVarsQosDefaultTimeToLive.setStatus("current")
+_MwQosVarsQosUdpTimeToLive_Type = Unsigned32
+_MwQosVarsQosUdpTimeToLive_Object = MibScalar
+mwQosVarsQosUdpTimeToLive = _MwQosVarsQosUdpTimeToLive_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 1, 5),
+    _MwQosVarsQosUdpTimeToLive_Type()
+)
+mwQosVarsQosUdpTimeToLive.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mwQosVarsQosUdpTimeToLive.setStatus("current")
+_MwQosVarsQosTcpTimeToLive_Type = Unsigned32
+_MwQosVarsQosTcpTimeToLive_Object = MibScalar
+mwQosVarsQosTcpTimeToLive = _MwQosVarsQosTcpTimeToLive_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 1, 6),
+    _MwQosVarsQosTcpTimeToLive_Type()
+)
+mwQosVarsQosTcpTimeToLive.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mwQosVarsQosTcpTimeToLive.setStatus("current")
+_MwQosVarsPercentBWScaling_Type = Unsigned32
+_MwQosVarsPercentBWScaling_Object = MibScalar
+mwQosVarsPercentBWScaling = _MwQosVarsPercentBWScaling_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 1, 7),
+    _MwQosVarsPercentBWScaling_Type()
+)
+mwQosVarsPercentBWScaling.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mwQosVarsPercentBWScaling.setStatus("current")
+_MwQosVarsQosMaxCallsPerAp_Type = Unsigned32
+_MwQosVarsQosMaxCallsPerAp_Object = MibScalar
+mwQosVarsQosMaxCallsPerAp = _MwQosVarsQosMaxCallsPerAp_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 1, 8),
+    _MwQosVarsQosMaxCallsPerAp_Type()
+)
+mwQosVarsQosMaxCallsPerAp.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mwQosVarsQosMaxCallsPerAp.setStatus("current")
+_MwQosVarsQosMaxCallsPerInterfRegion_Type = Unsigned32
+_MwQosVarsQosMaxCallsPerInterfRegion_Object = MibScalar
+mwQosVarsQosMaxCallsPerInterfRegion = _MwQosVarsQosMaxCallsPerInterfRegion_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 1, 9),
+    _MwQosVarsQosMaxCallsPerInterfRegion_Type()
+)
+mwQosVarsQosMaxCallsPerInterfRegion.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mwQosVarsQosMaxCallsPerInterfRegion.setStatus("current")
+_MwQosVarsQosLoadBalanceMaxStationsPerAp_Type = Unsigned32
+_MwQosVarsQosLoadBalanceMaxStationsPerAp_Object = MibScalar
+mwQosVarsQosLoadBalanceMaxStationsPerAp = _MwQosVarsQosLoadBalanceMaxStationsPerAp_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 1, 10),
+    _MwQosVarsQosLoadBalanceMaxStationsPerAp_Type()
+)
+mwQosVarsQosLoadBalanceMaxStationsPerAp.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mwQosVarsQosLoadBalanceMaxStationsPerAp.setStatus("current")
+_MwQosVarsQosLoadBalanceMaxStationsPerBssid_Type = Unsigned32
+_MwQosVarsQosLoadBalanceMaxStationsPerBssid_Object = MibScalar
+mwQosVarsQosLoadBalanceMaxStationsPerBssid = _MwQosVarsQosLoadBalanceMaxStationsPerBssid_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 1, 11),
+    _MwQosVarsQosLoadBalanceMaxStationsPerBssid_Type()
+)
+mwQosVarsQosLoadBalanceMaxStationsPerBssid.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mwQosVarsQosLoadBalanceMaxStationsPerBssid.setStatus("current")
+_MwQosVarsQosLoadBalanceOverflow_Type = MwlOnOffSwitch
+_MwQosVarsQosLoadBalanceOverflow_Object = MibScalar
+mwQosVarsQosLoadBalanceOverflow = _MwQosVarsQosLoadBalanceOverflow_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 1, 12),
+    _MwQosVarsQosLoadBalanceOverflow_Type()
+)
+mwQosVarsQosLoadBalanceOverflow.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mwQosVarsQosLoadBalanceOverflow.setStatus("current")
+_MwQosVarsQosMaxCallsPerBssid_Type = Unsigned32
+_MwQosVarsQosMaxCallsPerBssid_Object = MibScalar
+mwQosVarsQosMaxCallsPerBssid = _MwQosVarsQosMaxCallsPerBssid_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 1, 13),
+    _MwQosVarsQosMaxCallsPerBssid_Type()
+)
+mwQosVarsQosMaxCallsPerBssid.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mwQosVarsQosMaxCallsPerBssid.setStatus("current")
+_MwQosVarsQosCacDeauth_Type = MwlOnOffSwitch
+_MwQosVarsQosCacDeauth_Object = MibScalar
+mwQosVarsQosCacDeauth = _MwQosVarsQosCacDeauth_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 1, 14),
+    _MwQosVarsQosCacDeauth_Type()
+)
+mwQosVarsQosCacDeauth.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mwQosVarsQosCacDeauth.setStatus("current")
+_MwQosVarsQosStationAssignAge_Type = Unsigned32
+_MwQosVarsQosStationAssignAge_Object = MibScalar
+mwQosVarsQosStationAssignAge = _MwQosVarsQosStationAssignAge_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 1, 15),
+    _MwQosVarsQosStationAssignAge_Type()
+)
+mwQosVarsQosStationAssignAge.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mwQosVarsQosStationAssignAge.setStatus("current")
+_MwQosVarsQosSipIdleTimeout_Type = Unsigned32
+_MwQosVarsQosSipIdleTimeout_Object = MibScalar
+mwQosVarsQosSipIdleTimeout = _MwQosVarsQosSipIdleTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 1, 16),
+    _MwQosVarsQosSipIdleTimeout_Type()
+)
+mwQosVarsQosSipIdleTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mwQosVarsQosSipIdleTimeout.setStatus("current")
+_MwQosRuleTable_Object = MibTable
+mwQosRuleTable = _MwQosRuleTable_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2)
+)
+if mibBuilder.loadTexts:
+    mwQosRuleTable.setStatus("current")
+_MwQosRuleEntry_Object = MibTableRow
+mwQosRuleEntry = _MwQosRuleEntry_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1)
+)
+mwQosRuleEntry.setIndexNames(
+    (0, "MERU-CONFIG-QOS-MIB", "mwQosRuleTableIndex"),
+)
+if mibBuilder.loadTexts:
+    mwQosRuleEntry.setStatus("current")
+_MwQosRuleTableIndex_Type = Integer32
+_MwQosRuleTableIndex_Object = MibTableColumn
+mwQosRuleTableIndex = _MwQosRuleTableIndex_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 1),
+    _MwQosRuleTableIndex_Type()
+)
+mwQosRuleTableIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    mwQosRuleTableIndex.setStatus("current")
+_MwQosRuleId_Type = Unsigned32
+_MwQosRuleId_Object = MibTableColumn
+mwQosRuleId = _MwQosRuleId_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 2),
+    _MwQosRuleId_Type()
+)
+mwQosRuleId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosRuleId.setStatus("current")
+_MwQosRuleDscp_Type = MwlDscpType
+_MwQosRuleDscp_Object = MibTableColumn
+mwQosRuleDscp = _MwQosRuleDscp_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 3),
+    _MwQosRuleDscp_Type()
+)
+mwQosRuleDscp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosRuleDscp.setStatus("current")
+_MwQosRuleDstIp_Type = IpAddress
+_MwQosRuleDstIp_Object = MibTableColumn
+mwQosRuleDstIp = _MwQosRuleDstIp_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 4),
+    _MwQosRuleDstIp_Type()
+)
+mwQosRuleDstIp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosRuleDstIp.setStatus("current")
+_MwQosRuleSrcIp_Type = IpAddress
+_MwQosRuleSrcIp_Object = MibTableColumn
+mwQosRuleSrcIp = _MwQosRuleSrcIp_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 5),
+    _MwQosRuleSrcIp_Type()
+)
+mwQosRuleSrcIp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosRuleSrcIp.setStatus("current")
+_MwQosRuleAction_Type = MwlQosAction
+_MwQosRuleAction_Object = MibTableColumn
+mwQosRuleAction = _MwQosRuleAction_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 6),
+    _MwQosRuleAction_Type()
+)
+mwQosRuleAction.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosRuleAction.setStatus("current")
+_MwQosRuleDstMask_Type = IpAddress
+_MwQosRuleDstMask_Object = MibTableColumn
+mwQosRuleDstMask = _MwQosRuleDstMask_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 7),
+    _MwQosRuleDstMask_Type()
+)
+mwQosRuleDstMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosRuleDstMask.setStatus("current")
+
+
+class _MwQosRuleDstPort_Type(Integer32):
+    """Custom type mwQosRuleDstPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_MwQosRuleDstPort_Type.__name__ = "Integer32"
+_MwQosRuleDstPort_Object = MibTableColumn
+mwQosRuleDstPort = _MwQosRuleDstPort_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 8),
+    _MwQosRuleDstPort_Type()
+)
+mwQosRuleDstPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosRuleDstPort.setStatus("current")
+_MwQosRuleSrcMask_Type = IpAddress
+_MwQosRuleSrcMask_Object = MibTableColumn
+mwQosRuleSrcMask = _MwQosRuleSrcMask_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 9),
+    _MwQosRuleSrcMask_Type()
+)
+mwQosRuleSrcMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosRuleSrcMask.setStatus("current")
+
+
+class _MwQosRuleSrcPort_Type(Integer32):
+    """Custom type mwQosRuleSrcPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_MwQosRuleSrcPort_Type.__name__ = "Integer32"
+_MwQosRuleSrcPort_Object = MibTableColumn
+mwQosRuleSrcPort = _MwQosRuleSrcPort_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 10),
+    _MwQosRuleSrcPort_Type()
+)
+mwQosRuleSrcPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosRuleSrcPort.setStatus("current")
+_MwQosRuleProtocol_Type = MwlQosProtocol
+_MwQosRuleProtocol_Object = MibTableColumn
+mwQosRuleProtocol = _MwQosRuleProtocol_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 11),
+    _MwQosRuleProtocol_Type()
+)
+mwQosRuleProtocol.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosRuleProtocol.setStatus("current")
+
+
+class _MwQosRulePriority_Type(Integer32):
+    """Custom type mwQosRulePriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 8),
+    )
+
+
+_MwQosRulePriority_Type.__name__ = "Integer32"
+_MwQosRulePriority_Object = MibTableColumn
+mwQosRulePriority = _MwQosRulePriority_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 12),
+    _MwQosRulePriority_Type()
+)
+mwQosRulePriority.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosRulePriority.setStatus("current")
+_MwQosRuleIdUfcFlag_Type = MwlQosRulesMatchClass
+_MwQosRuleIdUfcFlag_Object = MibTableColumn
+mwQosRuleIdUfcFlag = _MwQosRuleIdUfcFlag_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 13),
+    _MwQosRuleIdUfcFlag_Type()
+)
+mwQosRuleIdUfcFlag.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosRuleIdUfcFlag.setStatus("current")
+_MwQosRuleDstIpFlag_Type = MwlQosRulesMatchClassBits
+_MwQosRuleDstIpFlag_Object = MibTableColumn
+mwQosRuleDstIpFlag = _MwQosRuleDstIpFlag_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 14),
+    _MwQosRuleDstIpFlag_Type()
+)
+mwQosRuleDstIpFlag.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosRuleDstIpFlag.setStatus("current")
+_MwQosRuleSrcIpFlag_Type = MwlQosRulesMatchClassBits
+_MwQosRuleSrcIpFlag_Object = MibTableColumn
+mwQosRuleSrcIpFlag = _MwQosRuleSrcIpFlag_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 15),
+    _MwQosRuleSrcIpFlag_Type()
+)
+mwQosRuleSrcIpFlag.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosRuleSrcIpFlag.setStatus("current")
+
+
+class _MwQosRuleL4Protocol_Type(Integer32):
+    """Custom type mwQosRuleL4Protocol based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_MwQosRuleL4Protocol_Type.__name__ = "Integer32"
+_MwQosRuleL4Protocol_Object = MibTableColumn
+mwQosRuleL4Protocol = _MwQosRuleL4Protocol_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 16),
+    _MwQosRuleL4Protocol_Type()
+)
+mwQosRuleL4Protocol.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosRuleL4Protocol.setStatus("current")
+_MwQosRuleDstPortFlag_Type = MwlQosRulesMatchClassBits
+_MwQosRuleDstPortFlag_Object = MibTableColumn
+mwQosRuleDstPortFlag = _MwQosRuleDstPortFlag_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 18),
+    _MwQosRuleDstPortFlag_Type()
+)
+mwQosRuleDstPortFlag.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosRuleDstPortFlag.setStatus("current")
+_MwQosRuleSrcPortFlag_Type = MwlQosRulesMatchClassBits
+_MwQosRuleSrcPortFlag_Object = MibTableColumn
+mwQosRuleSrcPortFlag = _MwQosRuleSrcPortFlag_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 19),
+    _MwQosRuleSrcPortFlag_Type()
+)
+mwQosRuleSrcPortFlag.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosRuleSrcPortFlag.setStatus("current")
+_MwQosRuleDstIpUfcFlag_Type = MwlQosRulesMatchClassBits
+_MwQosRuleDstIpUfcFlag_Object = MibTableColumn
+mwQosRuleDstIpUfcFlag = _MwQosRuleDstIpUfcFlag_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 20),
+    _MwQosRuleDstIpUfcFlag_Type()
+)
+mwQosRuleDstIpUfcFlag.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosRuleDstIpUfcFlag.setStatus("current")
+_MwQosRuleSrcIpUfcFlag_Type = MwlQosRulesMatchClassBits
+_MwQosRuleSrcIpUfcFlag_Object = MibTableColumn
+mwQosRuleSrcIpUfcFlag = _MwQosRuleSrcIpUfcFlag_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 21),
+    _MwQosRuleSrcIpUfcFlag_Type()
+)
+mwQosRuleSrcIpUfcFlag.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosRuleSrcIpUfcFlag.setStatus("current")
+_MwQosRuleAvgPacketRate_Type = Unsigned32
+_MwQosRuleAvgPacketRate_Object = MibTableColumn
+mwQosRuleAvgPacketRate = _MwQosRuleAvgPacketRate_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 22),
+    _MwQosRuleAvgPacketRate_Type()
+)
+mwQosRuleAvgPacketRate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosRuleAvgPacketRate.setStatus("current")
+_MwQosRuleDstPortUfcFlag_Type = MwlQosRulesMatchClassBits
+_MwQosRuleDstPortUfcFlag_Object = MibTableColumn
+mwQosRuleDstPortUfcFlag = _MwQosRuleDstPortUfcFlag_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 23),
+    _MwQosRuleDstPortUfcFlag_Type()
+)
+mwQosRuleDstPortUfcFlag.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosRuleDstPortUfcFlag.setStatus("current")
+_MwQosRuleSrcPortUfcFlag_Type = MwlQosRulesMatchClassBits
+_MwQosRuleSrcPortUfcFlag_Object = MibTableColumn
+mwQosRuleSrcPortUfcFlag = _MwQosRuleSrcPortUfcFlag_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 24),
+    _MwQosRuleSrcPortUfcFlag_Type()
+)
+mwQosRuleSrcPortUfcFlag.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosRuleSrcPortUfcFlag.setStatus("current")
+_MwQosRuleL4ProtocolFlag_Type = MwlQosRulesMatchClassBits
+_MwQosRuleL4ProtocolFlag_Object = MibTableColumn
+mwQosRuleL4ProtocolFlag = _MwQosRuleL4ProtocolFlag_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 25),
+    _MwQosRuleL4ProtocolFlag_Type()
+)
+mwQosRuleL4ProtocolFlag.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosRuleL4ProtocolFlag.setStatus("current")
+_MwQosRuleTrafficControl_Type = MwlOnOffSwitch
+_MwQosRuleTrafficControl_Object = MibTableColumn
+mwQosRuleTrafficControl = _MwQosRuleTrafficControl_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 26),
+    _MwQosRuleTrafficControl_Type()
+)
+mwQosRuleTrafficControl.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosRuleTrafficControl.setStatus("current")
+_MwQosRuleLogging_Type = MwlOnOffSwitch
+_MwQosRuleLogging_Object = MibTableColumn
+mwQosRuleLogging = _MwQosRuleLogging_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 27),
+    _MwQosRuleLogging_Type()
+)
+mwQosRuleLogging.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosRuleLogging.setStatus("current")
+_MwQosRulePacketMinLength_Type = Unsigned32
+_MwQosRulePacketMinLength_Object = MibTableColumn
+mwQosRulePacketMinLength = _MwQosRulePacketMinLength_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 28),
+    _MwQosRulePacketMinLength_Type()
+)
+mwQosRulePacketMinLength.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosRulePacketMinLength.setStatus("current")
+_MwQosRulePacketMaxLength_Type = Unsigned32
+_MwQosRulePacketMaxLength_Object = MibTableColumn
+mwQosRulePacketMaxLength = _MwQosRulePacketMaxLength_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 29),
+    _MwQosRulePacketMaxLength_Type()
+)
+mwQosRulePacketMaxLength.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosRulePacketMaxLength.setStatus("current")
+_MwQosRuleTokenBucketRate_Type = Unsigned32
+_MwQosRuleTokenBucketRate_Object = MibTableColumn
+mwQosRuleTokenBucketRate = _MwQosRuleTokenBucketRate_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 30),
+    _MwQosRuleTokenBucketRate_Type()
+)
+mwQosRuleTokenBucketRate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosRuleTokenBucketRate.setStatus("current")
+
+
+class _MwQosRuleFirewallFilterId_Type(DisplayString):
+    """Custom type mwQosRuleFirewallFilterId based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 16),
+    )
+
+
+_MwQosRuleFirewallFilterId_Type.__name__ = "DisplayString"
+_MwQosRuleFirewallFilterId_Object = MibTableColumn
+mwQosRuleFirewallFilterId = _MwQosRuleFirewallFilterId_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 31),
+    _MwQosRuleFirewallFilterId_Type()
+)
+mwQosRuleFirewallFilterId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosRuleFirewallFilterId.setStatus("current")
+_MwQosRuleL4ProtocolUfcFlag_Type = MwlQosRulesMatchClassBits
+_MwQosRuleL4ProtocolUfcFlag_Object = MibTableColumn
+mwQosRuleL4ProtocolUfcFlag = _MwQosRuleL4ProtocolUfcFlag_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 32),
+    _MwQosRuleL4ProtocolUfcFlag_Type()
+)
+mwQosRuleL4ProtocolUfcFlag.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosRuleL4ProtocolUfcFlag.setStatus("current")
+_MwQosRulePacketMinLengthFlag_Type = MwlQosRulesMatchClassBits
+_MwQosRulePacketMinLengthFlag_Object = MibTableColumn
+mwQosRulePacketMinLengthFlag = _MwQosRulePacketMinLengthFlag_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 33),
+    _MwQosRulePacketMinLengthFlag_Type()
+)
+mwQosRulePacketMinLengthFlag.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosRulePacketMinLengthFlag.setStatus("current")
+_MwQosRuleFirewallFilterIdFlag_Type = MwlQosRulesMatchClassBits
+_MwQosRuleFirewallFilterIdFlag_Object = MibTableColumn
+mwQosRuleFirewallFilterIdFlag = _MwQosRuleFirewallFilterIdFlag_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 34),
+    _MwQosRuleFirewallFilterIdFlag_Type()
+)
+mwQosRuleFirewallFilterIdFlag.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosRuleFirewallFilterIdFlag.setStatus("current")
+_MwQosRulePacketMinLengthUfcFlag_Type = MwlQosRulesMatchClassBits
+_MwQosRulePacketMinLengthUfcFlag_Object = MibTableColumn
+mwQosRulePacketMinLengthUfcFlag = _MwQosRulePacketMinLengthUfcFlag_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 35),
+    _MwQosRulePacketMinLengthUfcFlag_Type()
+)
+mwQosRulePacketMinLengthUfcFlag.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosRulePacketMinLengthUfcFlag.setStatus("current")
+_MwQosRuleFirewallFilterIdUfcFlag_Type = MwlQosRulesMatchClassBits
+_MwQosRuleFirewallFilterIdUfcFlag_Object = MibTableColumn
+mwQosRuleFirewallFilterIdUfcFlag = _MwQosRuleFirewallFilterIdUfcFlag_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 36),
+    _MwQosRuleFirewallFilterIdUfcFlag_Type()
+)
+mwQosRuleFirewallFilterIdUfcFlag.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosRuleFirewallFilterIdUfcFlag.setStatus("current")
+
+
+class _MwQosRuleLoggingFrequency_Type(Integer32):
+    """Custom type mwQosRuleLoggingFrequency based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(30, 60),
+    )
+
+
+_MwQosRuleLoggingFrequency_Type.__name__ = "Integer32"
+_MwQosRuleLoggingFrequency_Object = MibTableColumn
+mwQosRuleLoggingFrequency = _MwQosRuleLoggingFrequency_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 37),
+    _MwQosRuleLoggingFrequency_Type()
+)
+mwQosRuleLoggingFrequency.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosRuleLoggingFrequency.setStatus("current")
+_MwQosRuleRowStatus_Type = RowStatus
+_MwQosRuleRowStatus_Object = MibTableColumn
+mwQosRuleRowStatus = _MwQosRuleRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 2, 1, 40),
+    _MwQosRuleRowStatus_Type()
+)
+mwQosRuleRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosRuleRowStatus.setStatus("current")
+_MwQosCodecTranslRuleTable_Object = MibTable
+mwQosCodecTranslRuleTable = _MwQosCodecTranslRuleTable_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 3)
+)
+if mibBuilder.loadTexts:
+    mwQosCodecTranslRuleTable.setStatus("current")
+_MwQosCodecTranslRuleEntry_Object = MibTableRow
+mwQosCodecTranslRuleEntry = _MwQosCodecTranslRuleEntry_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 3, 1)
+)
+mwQosCodecTranslRuleEntry.setIndexNames(
+    (0, "MERU-CONFIG-QOS-MIB", "mwQosCodecTranslRuleTableIndex"),
+)
+if mibBuilder.loadTexts:
+    mwQosCodecTranslRuleEntry.setStatus("current")
+_MwQosCodecTranslRuleTableIndex_Type = Integer32
+_MwQosCodecTranslRuleTableIndex_Object = MibTableColumn
+mwQosCodecTranslRuleTableIndex = _MwQosCodecTranslRuleTableIndex_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 3, 1, 1),
+    _MwQosCodecTranslRuleTableIndex_Type()
+)
+mwQosCodecTranslRuleTableIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    mwQosCodecTranslRuleTableIndex.setStatus("current")
+_MwQosCodecTranslRuleId_Type = Unsigned32
+_MwQosCodecTranslRuleId_Object = MibTableColumn
+mwQosCodecTranslRuleId = _MwQosCodecTranslRuleId_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 3, 1, 2),
+    _MwQosCodecTranslRuleId_Type()
+)
+mwQosCodecTranslRuleId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosCodecTranslRuleId.setStatus("current")
+_MwQosCodecTranslRuleQosCtrProtocol_Type = MwlQosCodecProtocol
+_MwQosCodecTranslRuleQosCtrProtocol_Object = MibTableColumn
+mwQosCodecTranslRuleQosCtrProtocol = _MwQosCodecTranslRuleQosCtrProtocol_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 3, 1, 3),
+    _MwQosCodecTranslRuleQosCtrProtocol_Type()
+)
+mwQosCodecTranslRuleQosCtrProtocol.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosCodecTranslRuleQosCtrProtocol.setStatus("current")
+_MwQosCodecTranslRuleQosCtrCodecEnum_Type = MwlQosCodec
+_MwQosCodecTranslRuleQosCtrCodecEnum_Object = MibTableColumn
+mwQosCodecTranslRuleQosCtrCodecEnum = _MwQosCodecTranslRuleQosCtrCodecEnum_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 3, 1, 4),
+    _MwQosCodecTranslRuleQosCtrCodecEnum_Type()
+)
+mwQosCodecTranslRuleQosCtrCodecEnum.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosCodecTranslRuleQosCtrCodecEnum.setStatus("current")
+_MwQosCodecTranslRuleQosCtrRspecRate_Type = Unsigned32
+_MwQosCodecTranslRuleQosCtrRspecRate_Object = MibTableColumn
+mwQosCodecTranslRuleQosCtrRspecRate = _MwQosCodecTranslRuleQosCtrRspecRate_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 3, 1, 5),
+    _MwQosCodecTranslRuleQosCtrRspecRate_Type()
+)
+mwQosCodecTranslRuleQosCtrRspecRate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosCodecTranslRuleQosCtrRspecRate.setStatus("current")
+_MwQosCodecTranslRuleQosCtrRspecSlack_Type = Unsigned32
+_MwQosCodecTranslRuleQosCtrRspecSlack_Object = MibTableColumn
+mwQosCodecTranslRuleQosCtrRspecSlack = _MwQosCodecTranslRuleQosCtrRspecSlack_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 3, 1, 6),
+    _MwQosCodecTranslRuleQosCtrRspecSlack_Type()
+)
+mwQosCodecTranslRuleQosCtrRspecSlack.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosCodecTranslRuleQosCtrRspecSlack.setStatus("current")
+_MwQosCodecTranslRuleQosCtrSampleRate_Type = Unsigned32
+_MwQosCodecTranslRuleQosCtrSampleRate_Object = MibTableColumn
+mwQosCodecTranslRuleQosCtrSampleRate = _MwQosCodecTranslRuleQosCtrSampleRate_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 3, 1, 7),
+    _MwQosCodecTranslRuleQosCtrSampleRate_Type()
+)
+mwQosCodecTranslRuleQosCtrSampleRate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosCodecTranslRuleQosCtrSampleRate.setStatus("current")
+_MwQosCodecTranslRuleQosCtrTspecPeakRate_Type = Unsigned32
+_MwQosCodecTranslRuleQosCtrTspecPeakRate_Object = MibTableColumn
+mwQosCodecTranslRuleQosCtrTspecPeakRate = _MwQosCodecTranslRuleQosCtrTspecPeakRate_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 3, 1, 8),
+    _MwQosCodecTranslRuleQosCtrTspecPeakRate_Type()
+)
+mwQosCodecTranslRuleQosCtrTspecPeakRate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosCodecTranslRuleQosCtrTspecPeakRate.setStatus("current")
+_MwQosCodecTranslRuleQosCtrTspecMinPolicedUnit_Type = Unsigned32
+_MwQosCodecTranslRuleQosCtrTspecMinPolicedUnit_Object = MibTableColumn
+mwQosCodecTranslRuleQosCtrTspecMinPolicedUnit = _MwQosCodecTranslRuleQosCtrTspecMinPolicedUnit_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 3, 1, 9),
+    _MwQosCodecTranslRuleQosCtrTspecMinPolicedUnit_Type()
+)
+mwQosCodecTranslRuleQosCtrTspecMinPolicedUnit.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosCodecTranslRuleQosCtrTspecMinPolicedUnit.setStatus("current")
+_MwQosCodecTranslRuleQosCtrTspecTokenBucketRate_Type = Unsigned32
+_MwQosCodecTranslRuleQosCtrTspecTokenBucketRate_Object = MibTableColumn
+mwQosCodecTranslRuleQosCtrTspecTokenBucketRate = _MwQosCodecTranslRuleQosCtrTspecTokenBucketRate_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 3, 1, 10),
+    _MwQosCodecTranslRuleQosCtrTspecTokenBucketRate_Type()
+)
+mwQosCodecTranslRuleQosCtrTspecTokenBucketRate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosCodecTranslRuleQosCtrTspecTokenBucketRate.setStatus("current")
+_MwQosCodecTranslRuleQosCtrTspecTokenBucketSize_Type = Unsigned32
+_MwQosCodecTranslRuleQosCtrTspecTokenBucketSize_Object = MibTableColumn
+mwQosCodecTranslRuleQosCtrTspecTokenBucketSize = _MwQosCodecTranslRuleQosCtrTspecTokenBucketSize_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 3, 1, 11),
+    _MwQosCodecTranslRuleQosCtrTspecTokenBucketSize_Type()
+)
+mwQosCodecTranslRuleQosCtrTspecTokenBucketSize.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosCodecTranslRuleQosCtrTspecTokenBucketSize.setStatus("current")
+_MwQosCodecTranslRuleQosCtrTspecMaxDatagramSize_Type = Unsigned32
+_MwQosCodecTranslRuleQosCtrTspecMaxDatagramSize_Object = MibTableColumn
+mwQosCodecTranslRuleQosCtrTspecMaxDatagramSize = _MwQosCodecTranslRuleQosCtrTspecMaxDatagramSize_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 3, 1, 12),
+    _MwQosCodecTranslRuleQosCtrTspecMaxDatagramSize_Type()
+)
+mwQosCodecTranslRuleQosCtrTspecMaxDatagramSize.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosCodecTranslRuleQosCtrTspecMaxDatagramSize.setStatus("current")
+_MwQosCodecTranslRuleRowStatus_Type = RowStatus
+_MwQosCodecTranslRuleRowStatus_Object = MibTableColumn
+mwQosCodecTranslRuleRowStatus = _MwQosCodecTranslRuleRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 8, 3, 1, 14),
+    _MwQosCodecTranslRuleRowStatus_Type()
+)
+mwQosCodecTranslRuleRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwQosCodecTranslRuleRowStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "MERU-CONFIG-QOS-MIB",
+    **{"mwConfigQoS": mwConfigQoS,
+       "mwQosVars": mwQosVars,
+       "mwQosVarsQosOnOff": mwQosVarsQosOnOff,
+       "mwQosVarsQosAdmissionControl": mwQosVarsQosAdmissionControl,
+       "mwQosVarsQosDropPolicy": mwQosVarsQosDropPolicy,
+       "mwQosVarsQosDefaultTimeToLive": mwQosVarsQosDefaultTimeToLive,
+       "mwQosVarsQosUdpTimeToLive": mwQosVarsQosUdpTimeToLive,
+       "mwQosVarsQosTcpTimeToLive": mwQosVarsQosTcpTimeToLive,
+       "mwQosVarsPercentBWScaling": mwQosVarsPercentBWScaling,
+       "mwQosVarsQosMaxCallsPerAp": mwQosVarsQosMaxCallsPerAp,
+       "mwQosVarsQosMaxCallsPerInterfRegion": mwQosVarsQosMaxCallsPerInterfRegion,
+       "mwQosVarsQosLoadBalanceMaxStationsPerAp": mwQosVarsQosLoadBalanceMaxStationsPerAp,
+       "mwQosVarsQosLoadBalanceMaxStationsPerBssid": mwQosVarsQosLoadBalanceMaxStationsPerBssid,
+       "mwQosVarsQosLoadBalanceOverflow": mwQosVarsQosLoadBalanceOverflow,
+       "mwQosVarsQosMaxCallsPerBssid": mwQosVarsQosMaxCallsPerBssid,
+       "mwQosVarsQosCacDeauth": mwQosVarsQosCacDeauth,
+       "mwQosVarsQosStationAssignAge": mwQosVarsQosStationAssignAge,
+       "mwQosVarsQosSipIdleTimeout": mwQosVarsQosSipIdleTimeout,
+       "mwQosRuleTable": mwQosRuleTable,
+       "mwQosRuleEntry": mwQosRuleEntry,
+       "mwQosRuleTableIndex": mwQosRuleTableIndex,
+       "mwQosRuleId": mwQosRuleId,
+       "mwQosRuleDscp": mwQosRuleDscp,
+       "mwQosRuleDstIp": mwQosRuleDstIp,
+       "mwQosRuleSrcIp": mwQosRuleSrcIp,
+       "mwQosRuleAction": mwQosRuleAction,
+       "mwQosRuleDstMask": mwQosRuleDstMask,
+       "mwQosRuleDstPort": mwQosRuleDstPort,
+       "mwQosRuleSrcMask": mwQosRuleSrcMask,
+       "mwQosRuleSrcPort": mwQosRuleSrcPort,
+       "mwQosRuleProtocol": mwQosRuleProtocol,
+       "mwQosRulePriority": mwQosRulePriority,
+       "mwQosRuleIdUfcFlag": mwQosRuleIdUfcFlag,
+       "mwQosRuleDstIpFlag": mwQosRuleDstIpFlag,
+       "mwQosRuleSrcIpFlag": mwQosRuleSrcIpFlag,
+       "mwQosRuleL4Protocol": mwQosRuleL4Protocol,
+       "mwQosRuleDstPortFlag": mwQosRuleDstPortFlag,
+       "mwQosRuleSrcPortFlag": mwQosRuleSrcPortFlag,
+       "mwQosRuleDstIpUfcFlag": mwQosRuleDstIpUfcFlag,
+       "mwQosRuleSrcIpUfcFlag": mwQosRuleSrcIpUfcFlag,
+       "mwQosRuleAvgPacketRate": mwQosRuleAvgPacketRate,
+       "mwQosRuleDstPortUfcFlag": mwQosRuleDstPortUfcFlag,
+       "mwQosRuleSrcPortUfcFlag": mwQosRuleSrcPortUfcFlag,
+       "mwQosRuleL4ProtocolFlag": mwQosRuleL4ProtocolFlag,
+       "mwQosRuleTrafficControl": mwQosRuleTrafficControl,
+       "mwQosRuleLogging": mwQosRuleLogging,
+       "mwQosRulePacketMinLength": mwQosRulePacketMinLength,
+       "mwQosRulePacketMaxLength": mwQosRulePacketMaxLength,
+       "mwQosRuleTokenBucketRate": mwQosRuleTokenBucketRate,
+       "mwQosRuleFirewallFilterId": mwQosRuleFirewallFilterId,
+       "mwQosRuleL4ProtocolUfcFlag": mwQosRuleL4ProtocolUfcFlag,
+       "mwQosRulePacketMinLengthFlag": mwQosRulePacketMinLengthFlag,
+       "mwQosRuleFirewallFilterIdFlag": mwQosRuleFirewallFilterIdFlag,
+       "mwQosRulePacketMinLengthUfcFlag": mwQosRulePacketMinLengthUfcFlag,
+       "mwQosRuleFirewallFilterIdUfcFlag": mwQosRuleFirewallFilterIdUfcFlag,
+       "mwQosRuleLoggingFrequency": mwQosRuleLoggingFrequency,
+       "mwQosRuleRowStatus": mwQosRuleRowStatus,
+       "mwQosCodecTranslRuleTable": mwQosCodecTranslRuleTable,
+       "mwQosCodecTranslRuleEntry": mwQosCodecTranslRuleEntry,
+       "mwQosCodecTranslRuleTableIndex": mwQosCodecTranslRuleTableIndex,
+       "mwQosCodecTranslRuleId": mwQosCodecTranslRuleId,
+       "mwQosCodecTranslRuleQosCtrProtocol": mwQosCodecTranslRuleQosCtrProtocol,
+       "mwQosCodecTranslRuleQosCtrCodecEnum": mwQosCodecTranslRuleQosCtrCodecEnum,
+       "mwQosCodecTranslRuleQosCtrRspecRate": mwQosCodecTranslRuleQosCtrRspecRate,
+       "mwQosCodecTranslRuleQosCtrRspecSlack": mwQosCodecTranslRuleQosCtrRspecSlack,
+       "mwQosCodecTranslRuleQosCtrSampleRate": mwQosCodecTranslRuleQosCtrSampleRate,
+       "mwQosCodecTranslRuleQosCtrTspecPeakRate": mwQosCodecTranslRuleQosCtrTspecPeakRate,
+       "mwQosCodecTranslRuleQosCtrTspecMinPolicedUnit": mwQosCodecTranslRuleQosCtrTspecMinPolicedUnit,
+       "mwQosCodecTranslRuleQosCtrTspecTokenBucketRate": mwQosCodecTranslRuleQosCtrTspecTokenBucketRate,
+       "mwQosCodecTranslRuleQosCtrTspecTokenBucketSize": mwQosCodecTranslRuleQosCtrTspecTokenBucketSize,
+       "mwQosCodecTranslRuleQosCtrTspecMaxDatagramSize": mwQosCodecTranslRuleQosCtrTspecMaxDatagramSize,
+       "mwQosCodecTranslRuleRowStatus": mwQosCodecTranslRuleRowStatus}
+)

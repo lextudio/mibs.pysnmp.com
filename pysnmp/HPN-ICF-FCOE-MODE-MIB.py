@@ -1,24 +1,187 @@
+# SNMP MIB module (HPN-ICF-FCOE-MODE-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HPN-ICF-FCOE-MODE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/HPN-ICF-FCOE-MODE-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:26:43 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
-hpnicfCommon, = mibBuilder.importSymbols("HPN-ICF-OID-MIB", "hpnicfCommon")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, Integer32, IpAddress, Bits, ModuleIdentity, Counter32, Unsigned32, TimeTicks, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, NotificationType, Gauge32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Integer32", "IpAddress", "Bits", "ModuleIdentity", "Counter32", "Unsigned32", "TimeTicks", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "NotificationType", "Gauge32", "iso")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-hpnicfFcoeMode = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 135))
-hpnicfFcoeMode.setRevisions(('2013-03-08 11:00',))
-if mibBuilder.loadTexts: hpnicfFcoeMode.setLastUpdated('201303081100Z')
-if mibBuilder.loadTexts: hpnicfFcoeMode.setOrganization('')
-hpnicfFcoeModeMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 135, 1))
-hpnicfFcoeModeCfgMode = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 135, 1, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfFcoeModeCfgMode.setStatus('current')
-hpnicfFcoeModeCfgLastResult = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 135, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("success", 1), ("noLicence", 2), ("needReset", 3), ("unknownFault", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfFcoeModeCfgLastResult.setStatus('current')
-mibBuilder.exportSymbols("HPN-ICF-FCOE-MODE-MIB", PYSNMP_MODULE_ID=hpnicfFcoeMode, hpnicfFcoeModeCfgLastResult=hpnicfFcoeModeCfgLastResult, hpnicfFcoeModeMibObjects=hpnicfFcoeModeMibObjects, hpnicfFcoeMode=hpnicfFcoeMode, hpnicfFcoeModeCfgMode=hpnicfFcoeModeCfgMode)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HPN-ICF-FCOE-MODE-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:00:23 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(hpnicfCommon,) = mibBuilder.importSymbols(
+    "HPN-ICF-OID-MIB",
+    "hpnicfCommon")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+hpnicfFcoeMode = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 135)
+)
+hpnicfFcoeMode.setRevisions(
+        ("2013-03-08 11:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_HpnicfFcoeModeMibObjects_ObjectIdentity = ObjectIdentity
+hpnicfFcoeModeMibObjects = _HpnicfFcoeModeMibObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 135, 1)
+)
+_HpnicfFcoeModeCfgMode_Type = Integer32
+_HpnicfFcoeModeCfgMode_Object = MibScalar
+hpnicfFcoeModeCfgMode = _HpnicfFcoeModeCfgMode_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 135, 1, 1),
+    _HpnicfFcoeModeCfgMode_Type()
+)
+hpnicfFcoeModeCfgMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfFcoeModeCfgMode.setStatus("current")
+
+
+class _HpnicfFcoeModeCfgLastResult_Type(Integer32):
+    """Custom type hpnicfFcoeModeCfgLastResult based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("needReset", 3),
+          ("noLicence", 2),
+          ("success", 1),
+          ("unknownFault", 4))
+    )
+
+
+_HpnicfFcoeModeCfgLastResult_Type.__name__ = "Integer32"
+_HpnicfFcoeModeCfgLastResult_Object = MibScalar
+hpnicfFcoeModeCfgLastResult = _HpnicfFcoeModeCfgLastResult_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 135, 1, 2),
+    _HpnicfFcoeModeCfgLastResult_Type()
+)
+hpnicfFcoeModeCfgLastResult.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfFcoeModeCfgLastResult.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HPN-ICF-FCOE-MODE-MIB",
+    **{"hpnicfFcoeMode": hpnicfFcoeMode,
+       "hpnicfFcoeModeMibObjects": hpnicfFcoeModeMibObjects,
+       "hpnicfFcoeModeCfgMode": hpnicfFcoeModeCfgMode,
+       "hpnicfFcoeModeCfgLastResult": hpnicfFcoeModeCfgLastResult}
+)

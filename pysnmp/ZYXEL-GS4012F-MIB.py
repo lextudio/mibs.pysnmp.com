@@ -1,17 +1,17 @@
-"""SNMP MIB module (ZYXEL-GS4012F-MIB) expressed in pysnmp data model.
+# SNMP MIB module (ZYXEL-GS4012F-MIB) expressed in pysnmp data model.
+#
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/ZYXEL-GS4012F-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:21:55 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-This Python module is designed to be imported and executed by the
-pysnmp library.
-
-See https://www.pysnmp.com/pysnmp for further information.
-
-Notes
------
-ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/ZYXEL-GS4012F-MIB
-Produced by pysmi-1.3.3 at Sun Mar 10 06:03:03 2024
-On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm
-Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
-"""
 if 'mibBuilder' not in globals():
     import sys
 
@@ -57,35 +57,35 @@ if 'mibBuilder' not in globals():
     "IF-MIB",
     "InterfaceIndexOrZero")
 
-(InetAddressType,
- InetAddress) = mibBuilder.importSymbols(
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
     "INET-ADDRESS-MIB",
-    "InetAddressType",
-    "InetAddress")
+    "InetAddress",
+    "InetAddressType")
 
-(ospfLsdbAreaId,
- ospfAddressLessIf,
+(ospfAddressLessIf,
  ospfAreaId,
+ ospfIfIpAddress,
+ ospfLsdbAreaId,
  ospfLsdbLsid,
  ospfLsdbRouterId,
- ospfNbrIpAddr,
- ospfVirtIfNeighbor,
- ospfNbrAddressLessIndex,
- ospfVirtIfAreaId,
  ospfLsdbType,
- ospfIfIpAddress) = mibBuilder.importSymbols(
+ ospfNbrAddressLessIndex,
+ ospfNbrIpAddr,
+ ospfVirtIfAreaId,
+ ospfVirtIfNeighbor) = mibBuilder.importSymbols(
     "OSPF-MIB",
-    "ospfLsdbAreaId",
     "ospfAddressLessIf",
     "ospfAreaId",
+    "ospfIfIpAddress",
+    "ospfLsdbAreaId",
     "ospfLsdbLsid",
     "ospfLsdbRouterId",
-    "ospfNbrIpAddr",
-    "ospfVirtIfNeighbor",
-    "ospfNbrAddressLessIndex",
-    "ospfVirtIfAreaId",
     "ospfLsdbType",
-    "ospfIfIpAddress")
+    "ospfNbrAddressLessIndex",
+    "ospfNbrIpAddr",
+    "ospfVirtIfAreaId",
+    "ospfVirtIfNeighbor")
 
 (EnabledStatus,) = mibBuilder.importSymbols(
     "P-BRIDGE-MIB",
@@ -109,58 +109,58 @@ if 'mibBuilder' not in globals():
     "SNMPv2-MIB",
     "sysObjectID")
 
-(enterprises,
- NotificationType,
- Unsigned32,
- ObjectIdentity,
- Integer32,
- TimeTicks,
- Bits,
+(Bits,
  Counter32,
- IpAddress,
- iso,
- MibIdentifier,
  Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
  ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
  MibScalar,
  MibTable,
  MibTableRow,
  MibTableColumn,
- Gauge32) = mibBuilder.importSymbols(
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
     "SNMPv2-SMI",
-    "enterprises",
-    "NotificationType",
-    "Unsigned32",
-    "ObjectIdentity",
-    "Integer32",
-    "TimeTicks",
     "Bits",
     "Counter32",
-    "IpAddress",
-    "iso",
-    "MibIdentifier",
     "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
     "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
     "MibScalar",
     "MibTable",
     "MibTableRow",
     "MibTableColumn",
-    "Gauge32")
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
 
-(RowStatus,
- MacAddress,
+(DateAndTime,
  DisplayString,
- TextualConvention,
- DateAndTime,
+ MacAddress,
+ RowStatus,
  StorageType,
+ TextualConvention,
  TruthValue) = mibBuilder.importSymbols(
     "SNMPv2-TC",
-    "RowStatus",
-    "MacAddress",
-    "DisplayString",
-    "TextualConvention",
     "DateAndTime",
+    "DisplayString",
+    "MacAddress",
+    "RowStatus",
     "StorageType",
+    "TextualConvention",
     "TruthValue")
 
 
@@ -182,15 +182,15 @@ faultTrapsMIB = ModuleIdentity(
 
 
 
-class UtcTimeStamp(TextualConvention, Unsigned32):
+class UtcTimeStamp(Unsigned32, TextualConvention):
     status = "current"
 
 
-class EventIdNumber(TextualConvention, Integer32):
+class EventIdNumber(Integer32, TextualConvention):
     status = "current"
 
 
-class EventSeverity(TextualConvention, Integer32):
+class EventSeverity(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -210,7 +210,7 @@ class EventSeverity(TextualConvention, Integer32):
 
 
 
-class EventServiceAffective(TextualConvention, Integer32):
+class EventServiceAffective(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -226,7 +226,7 @@ class EventServiceAffective(TextualConvention, Integer32):
 
 
 
-class InstanceType(TextualConvention, Integer32):
+class InstanceType(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -256,7 +256,7 @@ class InstanceType(TextualConvention, Integer32):
 
 
 
-class EventPersistence(TextualConvention, Integer32):
+class EventPersistence(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(

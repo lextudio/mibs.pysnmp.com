@@ -1,215 +1,1371 @@
+# SNMP MIB module (PUBLAN-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module PUBLAN-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/PUBLAN-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:33:43 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Integer32, private, NotificationType, TimeTicks, iso, ObjectIdentity, MibIdentifier, IpAddress, ModuleIdentity, Unsigned32, Bits, Counter64, Gauge32, mgmt, Counter32, NotificationType, enterprises, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "private", "NotificationType", "TimeTicks", "iso", "ObjectIdentity", "MibIdentifier", "IpAddress", "ModuleIdentity", "Unsigned32", "Bits", "Counter64", "Gauge32", "mgmt", "Counter32", "NotificationType", "enterprises", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/PUBLAN-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:40:00 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ NotificationType,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso,
+ mgmt,
+ private) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "NotificationType",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso",
+    "mgmt",
+    "private")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+
 class DisplayString(OctetString):
-    pass
+    """Custom type DisplayString based on OctetString"""
+
+
+
 
 class PhysAddress(OctetString):
-    pass
+    """Custom type PhysAddress based on OctetString"""
 
-lucent = MibIdentifier((1, 3, 6, 1, 4, 1, 1751))
-lucent_MIB = MibIdentifier((1, 3, 6, 1, 4, 1, 1751, 2)).setLabel("lucent-MIB")
-publan = MibIdentifier((1, 3, 6, 1, 4, 1, 1751, 2, 51))
-pubStation = MibIdentifier((1, 3, 6, 1, 4, 1, 1751, 2, 51, 1))
-pubClient = MibIdentifier((1, 3, 6, 1, 4, 1, 1751, 2, 51, 2))
-publanInterface = MibIdentifier((1, 3, 6, 1, 4, 1, 1751, 2, 51, 3))
-publanSNMPSetup = MibIdentifier((1, 3, 6, 1, 4, 1, 1751, 2, 51, 4))
-publanPPPSetup = MibIdentifier((1, 3, 6, 1, 4, 1, 1751, 2, 51, 5))
-publanAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 1751, 2, 51, 6))
-radius = MibIdentifier((1, 3, 6, 1, 4, 1, 1751, 2, 51, 7))
-publanShimECPSetup = MibIdentifier((1, 3, 6, 1, 4, 1, 1751, 2, 51, 8))
-pubStationTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 1751, 2, 51, 15))
-publanPHY = MibIdentifier((1, 3, 6, 1, 4, 1, 1751, 2, 51, 3, 2))
-publanDriver = MibIdentifier((1, 3, 6, 1, 4, 1, 1751, 2, 51, 3, 4))
-pliSystemName = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 3, 2, 1), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pliSystemName.setStatus('mandatory')
-pliNetworkName = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 3, 2, 2), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pliNetworkName.setStatus('mandatory')
-pliMACAddress = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 3, 2, 3), PhysAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pliMACAddress.setStatus('mandatory')
-pliMediumReservation = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 3, 2, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2347))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pliMediumReservation.setStatus('mandatory')
-pliTransmitRate = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 3, 2, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 3))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pliTransmitRate.setStatus('mandatory')
-pliOperatingFrequency = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 3, 2, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 14))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pliOperatingFrequency.setStatus('mandatory')
-pliAPDensity = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 3, 2, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 3))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pliAPDensity.setStatus('mandatory')
-pliClosedSystem = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 3, 2, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pliClosedSystem.setStatus('mandatory')
-pliAllowedDataRates = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 3, 2, 9), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pliAllowedDataRates.setStatus('mandatory')
-pliDriverName = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 3, 4, 1), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pliDriverName.setStatus('mandatory')
-pliDriverVersion = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 3, 4, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pliDriverVersion.setStatus('mandatory')
-psSNMPReadPassword = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 4, 1), DisplayString()).setMaxAccess("writeonly")
-if mibBuilder.loadTexts: psSNMPReadPassword.setStatus('mandatory')
-psSNMPReadWritePassword = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 4, 2), DisplayString()).setMaxAccess("writeonly")
-if mibBuilder.loadTexts: psSNMPReadWritePassword.setStatus('mandatory')
-psSNMPTrapHostIPAddress = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 4, 3), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: psSNMPTrapHostIPAddress.setStatus('mandatory')
-psSNMPTrapHostPassword = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 4, 4), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: psSNMPTrapHostPassword.setStatus('mandatory')
-psSNMPManagerCount = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 4, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: psSNMPManagerCount.setStatus('mandatory')
-psSNMPAccessTable = MibTable((1, 3, 6, 1, 4, 1, 1751, 2, 51, 4, 6), )
-if mibBuilder.loadTexts: psSNMPAccessTable.setStatus('mandatory')
-psSNMPAccessTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1751, 2, 51, 4, 6, 1), ).setIndexNames((0, "PUBLAN-MIB", "psSNMPManagerIndex"))
-if mibBuilder.loadTexts: psSNMPAccessTableEntry.setStatus('mandatory')
-index = MibTableColumn((1, 3, 6, 1, 4, 1, 1751, 2, 51, 4, 6, 1, 1), Integer32())
-if mibBuilder.loadTexts: index.setStatus('mandatory')
-managerIPAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 1751, 2, 51, 4, 6, 1, 2), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: managerIPAddress.setStatus('mandatory')
-managerIPMask = MibTableColumn((1, 3, 6, 1, 4, 1, 1751, 2, 51, 4, 6, 1, 3), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: managerIPMask.setStatus('mandatory')
-managerStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1751, 2, 51, 4, 6, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("delete", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: managerStatus.setStatus('mandatory')
-psSNMPInBadManagers = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 4, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: psSNMPInBadManagers.setStatus('mandatory')
-psPPPIPAddressAssignmentType = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 3))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: psPPPIPAddressAssignmentType.setStatus('mandatory')
-psPPPStartIPAddress = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 2), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: psPPPStartIPAddress.setStatus('mandatory')
-psPPPEndIPAddress = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 3), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: psPPPEndIPAddress.setStatus('mandatory')
-psPPPNoOfMACIPMappingEntries = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: psPPPNoOfMACIPMappingEntries.setStatus('mandatory')
-psPPPMACIPMappingTable = MibTable((1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 5), )
-if mibBuilder.loadTexts: psPPPMACIPMappingTable.setStatus('mandatory')
-psPPPMACIPMappingTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 5, 1), ).setIndexNames((0, "PUBLAN-MIB", "psPPPMACIPTableIndex"))
-if mibBuilder.loadTexts: psPPPMACIPMappingTableEntry.setStatus('mandatory')
-index3 = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 5, 1, 1), Integer32())
-if mibBuilder.loadTexts: index3.setStatus('mandatory')
-macaddress = MibTableColumn((1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 5, 1, 2), PhysAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: macaddress.setStatus('mandatory')
-ipAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 5, 1, 3), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ipAddress.setStatus('mandatory')
-comment = MibTableColumn((1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 5, 1, 4), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: comment.setStatus('mandatory')
-entrystatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 5, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("delete", 2)))).setMaxAccess("writeonly")
-if mibBuilder.loadTexts: entrystatus.setStatus('mandatory')
-psPPPKeepAliveInterval = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 6), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: psPPPKeepAliveInterval.setStatus('mandatory')
-psPPPNoOfKeepAliveTimeouts = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 7), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: psPPPNoOfKeepAliveTimeouts.setStatus('mandatory')
-psPPPDNSIPAddress = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 8), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: psPPPDNSIPAddress.setStatus('mandatory')
-psPPPIPRangeTable = MibTable((1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 20), )
-if mibBuilder.loadTexts: psPPPIPRangeTable.setStatus('mandatory')
-psPPPIPRangeTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 20, 1), ).setIndexNames((0, "PUBLAN-MIB", "psPPPIPRangeTableIndex"))
-if mibBuilder.loadTexts: psPPPIPRangeTableEntry.setStatus('mandatory')
-psPPPIPRangeTableIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 20, 1, 1), Integer32())
-if mibBuilder.loadTexts: psPPPIPRangeTableIndex.setStatus('mandatory')
-poolStartIPAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 20, 1, 2), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: poolStartIPAddress.setStatus('mandatory')
-poolEndIPAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 20, 1, 3), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: poolEndIPAddress.setStatus('mandatory')
-numOfIPAddresss = MibTableColumn((1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 20, 1, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: numOfIPAddresss.setStatus('mandatory')
-comments = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 20, 1, 6), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: comments.setStatus('mandatory')
-status = MibTableColumn((1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 20, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 3))).clone(namedValues=NamedValues(("enable", 1), ("delete", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: status.setStatus('mandatory')
-psVersion = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 6, 1), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: psVersion.setStatus('mandatory')
-psIPAddress = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 6, 2), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: psIPAddress.setStatus('mandatory')
-psSubnetMask = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 6, 3), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: psSubnetMask.setStatus('mandatory')
-psDefaultGateway = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 6, 4), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: psDefaultGateway.setStatus('mandatory')
-psIPAddressType = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 6, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: psIPAddressType.setStatus('mandatory')
-psAdministrativeState = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 6, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: psAdministrativeState.setStatus('mandatory')
-psTFTPIPAddress = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 6, 7), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: psTFTPIPAddress.setStatus('mandatory')
-psTFTPFilename = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 6, 8), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: psTFTPFilename.setStatus('mandatory')
-psTFTPOperation = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 6, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2))).setMaxAccess("writeonly")
-if mibBuilder.loadTexts: psTFTPOperation.setStatus('mandatory')
-psReboot = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 6, 10), Integer32()).setMaxAccess("writeonly")
-if mibBuilder.loadTexts: psReboot.setStatus('mandatory')
-radiusClientMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2))
-radiusClientMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1))
-radiusClient = MibIdentifier((1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1))
-radiusClientInvalidServerAddresses = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusClientInvalidServerAddresses.setStatus('mandatory')
-radiusServerTable = MibTable((1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2), )
-if mibBuilder.loadTexts: radiusServerTable.setStatus('mandatory')
-radiusServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1), ).setIndexNames((0, "PUBLAN-MIB", "radiusServerIndex"))
-if mibBuilder.loadTexts: radiusServerEntry.setStatus('mandatory')
-index4 = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 1), Integer32())
-if mibBuilder.loadTexts: index4.setStatus('mandatory')
-type = MibTableColumn((1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("auth", 1), ("acct", 2), ("auth-and-acct", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: type.setStatus('mandatory')
-serverIPAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 3), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: serverIPAddress.setStatus('mandatory')
-destPortAuth = MibTableColumn((1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: destPortAuth.setStatus('mandatory')
-destPortAcct = MibTableColumn((1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: destPortAcct.setStatus('mandatory')
-accessRequests = MibTableColumn((1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: accessRequests.setStatus('mandatory')
-accessRetransmissions = MibTableColumn((1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: accessRetransmissions.setStatus('mandatory')
-accessAccepts = MibTableColumn((1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: accessAccepts.setStatus('mandatory')
-accessChallenges = MibTableColumn((1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: accessChallenges.setStatus('mandatory')
-malformedAccessResponses = MibTableColumn((1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: malformedAccessResponses.setStatus('mandatory')
-authenticationBadAuthenticators = MibTableColumn((1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: authenticationBadAuthenticators.setStatus('mandatory')
-accessRejects = MibTableColumn((1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: accessRejects.setStatus('mandatory')
-timeouts = MibTableColumn((1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: timeouts.setStatus('mandatory')
-accountingRequests = MibTableColumn((1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: accountingRequests.setStatus('mandatory')
-accountingRetransmissions = MibTableColumn((1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: accountingRetransmissions.setStatus('mandatory')
-accountingResponses = MibTableColumn((1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 16), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: accountingResponses.setStatus('mandatory')
-accountingBadAuthenticators = MibTableColumn((1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 17), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: accountingBadAuthenticators.setStatus('mandatory')
-sharedSecret = MibTableColumn((1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 18), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: sharedSecret.setStatus('mandatory')
-enabled = MibTableColumn((1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2), ("delete", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: enabled.setStatus('mandatory')
-responseTime = MibTableColumn((1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 20), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))).clone(namedValues=NamedValues(("one-sec", 1), ("two-secs", 2), ("three-secs", 3), ("four-secs", 4), ("five-secs", 5), ("six-secs", 6), ("seven-secs", 7), ("eight-secs", 8), ("nine-secs", 9), ("ten-secs", 10)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: responseTime.setStatus('mandatory')
-maximumRetransmission = MibTableColumn((1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 21), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("one", 1), ("two", 2), ("three", 3), ("four", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: maximumRetransmission.setStatus('mandatory')
-radiusClientMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 2))
-radiusClientMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 2, 1))
-radiusClientMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 2, 2))
-psShimECPRetransmissionCount = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 8, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: psShimECPRetransmissionCount.setStatus('mandatory')
-psShimECPRepeatResponseCount = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 8, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: psShimECPRepeatResponseCount.setStatus('mandatory')
-psShimECPRetransmissionTimeout = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 8, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: psShimECPRetransmissionTimeout.setStatus('mandatory')
-pubStationTrapVariables = MibIdentifier((1, 3, 6, 1, 4, 1, 1751, 2, 51, 15, 1))
-pubStationMacAddress = MibScalar((1, 3, 6, 1, 4, 1, 1751, 2, 51, 15, 1, 1), PhysAddress())
-if mibBuilder.loadTexts: pubStationMacAddress.setStatus('mandatory')
-pubStationFlashRelatedTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 1751, 2, 51, 15, 2))
-pubStationFlashNotPresent = NotificationType((1, 3, 6, 1, 4, 1, 1751, 2, 51, 15, 2) + (0,1))
-pubStationFlashEmpty = NotificationType((1, 3, 6, 1, 4, 1, 1751, 2, 51, 15, 2) + (0,2))
-pubStationFlashCorrupted = NotificationType((1, 3, 6, 1, 4, 1, 1751, 2, 51, 15, 2) + (0,3))
-pubStationConfigurationRelatedTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 1751, 2, 51, 15, 3))
-pubStationInvalidKey = NotificationType((1, 3, 6, 1, 4, 1, 1751, 2, 51, 15, 3) + (0,1))
-pubStationAPMNotConfigured = NotificationType((1, 3, 6, 1, 4, 1, 1751, 2, 51, 15, 3) + (0,2))
-pubStationIncompatibleWavelanCard = NotificationType((1, 3, 6, 1, 4, 1, 1751, 2, 51, 15, 3) + (0,3))
-mibBuilder.exportSymbols("PUBLAN-MIB", poolStartIPAddress=poolStartIPAddress, numOfIPAddresss=numOfIPAddresss, responseTime=responseTime, destPortAuth=destPortAuth, psAdministrativeState=psAdministrativeState, psPPPMACIPMappingTableEntry=psPPPMACIPMappingTableEntry, psPPPNoOfKeepAliveTimeouts=psPPPNoOfKeepAliveTimeouts, psTFTPFilename=psTFTPFilename, radius=radius, psPPPIPRangeTableIndex=psPPPIPRangeTableIndex, pliAPDensity=pliAPDensity, sharedSecret=sharedSecret, pubStationTraps=pubStationTraps, psSNMPTrapHostIPAddress=psSNMPTrapHostIPAddress, managerIPAddress=managerIPAddress, accessRequests=accessRequests, type=type, pliDriverName=pliDriverName, publanSNMPSetup=publanSNMPSetup, psTFTPOperation=psTFTPOperation, pliOperatingFrequency=pliOperatingFrequency, pubStationIncompatibleWavelanCard=pubStationIncompatibleWavelanCard, pliSystemName=pliSystemName, psPPPEndIPAddress=psPPPEndIPAddress, psShimECPRepeatResponseCount=psShimECPRepeatResponseCount, accountingRequests=accountingRequests, index3=index3, accessRejects=accessRejects, timeouts=timeouts, publanAgent=publanAgent, ipAddress=ipAddress, pubStationMacAddress=pubStationMacAddress, accountingBadAuthenticators=accountingBadAuthenticators, malformedAccessResponses=malformedAccessResponses, pubStationConfigurationRelatedTraps=pubStationConfigurationRelatedTraps, psTFTPIPAddress=psTFTPIPAddress, psSNMPAccessTable=psSNMPAccessTable, psPPPIPRangeTableEntry=psPPPIPRangeTableEntry, accessChallenges=accessChallenges, managerStatus=managerStatus, pubStationFlashCorrupted=pubStationFlashCorrupted, radiusClientMIBCompliances=radiusClientMIBCompliances, psPPPNoOfMACIPMappingEntries=psPPPNoOfMACIPMappingEntries, psSubnetMask=psSubnetMask, radiusClientInvalidServerAddresses=radiusClientInvalidServerAddresses, pubStationAPMNotConfigured=pubStationAPMNotConfigured, DisplayString=DisplayString, psVersion=psVersion, index4=index4, publanDriver=publanDriver, enabled=enabled, psReboot=psReboot, radiusServerEntry=radiusServerEntry, maximumRetransmission=maximumRetransmission, psPPPStartIPAddress=psPPPStartIPAddress, entrystatus=entrystatus, psPPPIPAddressAssignmentType=psPPPIPAddressAssignmentType, index=index, PhysAddress=PhysAddress, psIPAddressType=psIPAddressType, comments=comments, authenticationBadAuthenticators=authenticationBadAuthenticators, pliTransmitRate=pliTransmitRate, publan=publan, radiusClientMIBConformance=radiusClientMIBConformance, radiusClientMIBGroups=radiusClientMIBGroups, psSNMPManagerCount=psSNMPManagerCount, psIPAddress=psIPAddress, lucent_MIB=lucent_MIB, accountingRetransmissions=accountingRetransmissions, radiusClient=radiusClient, psShimECPRetransmissionCount=psShimECPRetransmissionCount, pubStationFlashRelatedTraps=pubStationFlashRelatedTraps, psSNMPReadPassword=psSNMPReadPassword, psShimECPRetransmissionTimeout=psShimECPRetransmissionTimeout, radiusClientMIB=radiusClientMIB, psSNMPReadWritePassword=psSNMPReadWritePassword, pubStationFlashNotPresent=pubStationFlashNotPresent, psPPPMACIPMappingTable=psPPPMACIPMappingTable, pliClosedSystem=pliClosedSystem, serverIPAddress=serverIPAddress, pubStationTrapVariables=pubStationTrapVariables, radiusServerTable=radiusServerTable, radiusClientMIBObjects=radiusClientMIBObjects, accountingResponses=accountingResponses, pubClient=pubClient, psSNMPInBadManagers=psSNMPInBadManagers, macaddress=macaddress, pliMediumReservation=pliMediumReservation, pliAllowedDataRates=pliAllowedDataRates, psSNMPTrapHostPassword=psSNMPTrapHostPassword, destPortAcct=destPortAcct, psDefaultGateway=psDefaultGateway, accessRetransmissions=accessRetransmissions, publanPPPSetup=publanPPPSetup, pliDriverVersion=pliDriverVersion, pubStation=pubStation, comment=comment, lucent=lucent, status=status, managerIPMask=managerIPMask, psPPPDNSIPAddress=psPPPDNSIPAddress, poolEndIPAddress=poolEndIPAddress, pliMACAddress=pliMACAddress, publanInterface=publanInterface, publanPHY=publanPHY, psPPPKeepAliveInterval=psPPPKeepAliveInterval, pliNetworkName=pliNetworkName, psPPPIPRangeTable=psPPPIPRangeTable, pubStationFlashEmpty=pubStationFlashEmpty, psSNMPAccessTableEntry=psSNMPAccessTableEntry, publanShimECPSetup=publanShimECPSetup, accessAccepts=accessAccepts, pubStationInvalidKey=pubStationInvalidKey)
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Lucent_ObjectIdentity = ObjectIdentity
+lucent = _Lucent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751)
+)
+_Lucent_MIB_ObjectIdentity = ObjectIdentity
+lucent_MIB = _Lucent_MIB_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 2)
+)
+_Publan_ObjectIdentity = ObjectIdentity
+publan = _Publan_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51)
+)
+_PubStation_ObjectIdentity = ObjectIdentity
+pubStation = _PubStation_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 1)
+)
+_PubClient_ObjectIdentity = ObjectIdentity
+pubClient = _PubClient_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 2)
+)
+_PublanInterface_ObjectIdentity = ObjectIdentity
+publanInterface = _PublanInterface_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 3)
+)
+_PublanPHY_ObjectIdentity = ObjectIdentity
+publanPHY = _PublanPHY_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 3, 2)
+)
+_PliSystemName_Type = DisplayString
+_PliSystemName_Object = MibScalar
+pliSystemName = _PliSystemName_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 3, 2, 1),
+    _PliSystemName_Type()
+)
+pliSystemName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pliSystemName.setStatus("mandatory")
+_PliNetworkName_Type = DisplayString
+_PliNetworkName_Object = MibScalar
+pliNetworkName = _PliNetworkName_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 3, 2, 2),
+    _PliNetworkName_Type()
+)
+pliNetworkName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pliNetworkName.setStatus("mandatory")
+_PliMACAddress_Type = PhysAddress
+_PliMACAddress_Object = MibScalar
+pliMACAddress = _PliMACAddress_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 3, 2, 3),
+    _PliMACAddress_Type()
+)
+pliMACAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pliMACAddress.setStatus("mandatory")
+
+
+class _PliMediumReservation_Type(Integer32):
+    """Custom type pliMediumReservation based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2347),
+    )
+
+
+_PliMediumReservation_Type.__name__ = "Integer32"
+_PliMediumReservation_Object = MibScalar
+pliMediumReservation = _PliMediumReservation_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 3, 2, 4),
+    _PliMediumReservation_Type()
+)
+pliMediumReservation.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pliMediumReservation.setStatus("mandatory")
+
+
+class _PliTransmitRate_Type(Integer32):
+    """Custom type pliTransmitRate based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 3),
+    )
+
+
+_PliTransmitRate_Type.__name__ = "Integer32"
+_PliTransmitRate_Object = MibScalar
+pliTransmitRate = _PliTransmitRate_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 3, 2, 5),
+    _PliTransmitRate_Type()
+)
+pliTransmitRate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pliTransmitRate.setStatus("mandatory")
+
+
+class _PliOperatingFrequency_Type(Integer32):
+    """Custom type pliOperatingFrequency based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 14),
+    )
+
+
+_PliOperatingFrequency_Type.__name__ = "Integer32"
+_PliOperatingFrequency_Object = MibScalar
+pliOperatingFrequency = _PliOperatingFrequency_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 3, 2, 6),
+    _PliOperatingFrequency_Type()
+)
+pliOperatingFrequency.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pliOperatingFrequency.setStatus("mandatory")
+
+
+class _PliAPDensity_Type(Integer32):
+    """Custom type pliAPDensity based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 3),
+    )
+
+
+_PliAPDensity_Type.__name__ = "Integer32"
+_PliAPDensity_Object = MibScalar
+pliAPDensity = _PliAPDensity_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 3, 2, 7),
+    _PliAPDensity_Type()
+)
+pliAPDensity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pliAPDensity.setStatus("mandatory")
+
+
+class _PliClosedSystem_Type(Integer32):
+    """Custom type pliClosedSystem based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2),
+    )
+
+
+_PliClosedSystem_Type.__name__ = "Integer32"
+_PliClosedSystem_Object = MibScalar
+pliClosedSystem = _PliClosedSystem_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 3, 2, 8),
+    _PliClosedSystem_Type()
+)
+pliClosedSystem.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pliClosedSystem.setStatus("mandatory")
+_PliAllowedDataRates_Type = Integer32
+_PliAllowedDataRates_Object = MibScalar
+pliAllowedDataRates = _PliAllowedDataRates_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 3, 2, 9),
+    _PliAllowedDataRates_Type()
+)
+pliAllowedDataRates.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pliAllowedDataRates.setStatus("mandatory")
+_PublanDriver_ObjectIdentity = ObjectIdentity
+publanDriver = _PublanDriver_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 3, 4)
+)
+_PliDriverName_Type = DisplayString
+_PliDriverName_Object = MibScalar
+pliDriverName = _PliDriverName_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 3, 4, 1),
+    _PliDriverName_Type()
+)
+pliDriverName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pliDriverName.setStatus("mandatory")
+_PliDriverVersion_Type = DisplayString
+_PliDriverVersion_Object = MibScalar
+pliDriverVersion = _PliDriverVersion_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 3, 4, 2),
+    _PliDriverVersion_Type()
+)
+pliDriverVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pliDriverVersion.setStatus("mandatory")
+_PublanSNMPSetup_ObjectIdentity = ObjectIdentity
+publanSNMPSetup = _PublanSNMPSetup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 4)
+)
+_PsSNMPReadPassword_Type = DisplayString
+_PsSNMPReadPassword_Object = MibScalar
+psSNMPReadPassword = _PsSNMPReadPassword_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 4, 1),
+    _PsSNMPReadPassword_Type()
+)
+psSNMPReadPassword.setMaxAccess("write-only")
+if mibBuilder.loadTexts:
+    psSNMPReadPassword.setStatus("mandatory")
+_PsSNMPReadWritePassword_Type = DisplayString
+_PsSNMPReadWritePassword_Object = MibScalar
+psSNMPReadWritePassword = _PsSNMPReadWritePassword_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 4, 2),
+    _PsSNMPReadWritePassword_Type()
+)
+psSNMPReadWritePassword.setMaxAccess("write-only")
+if mibBuilder.loadTexts:
+    psSNMPReadWritePassword.setStatus("mandatory")
+_PsSNMPTrapHostIPAddress_Type = IpAddress
+_PsSNMPTrapHostIPAddress_Object = MibScalar
+psSNMPTrapHostIPAddress = _PsSNMPTrapHostIPAddress_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 4, 3),
+    _PsSNMPTrapHostIPAddress_Type()
+)
+psSNMPTrapHostIPAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    psSNMPTrapHostIPAddress.setStatus("mandatory")
+_PsSNMPTrapHostPassword_Type = DisplayString
+_PsSNMPTrapHostPassword_Object = MibScalar
+psSNMPTrapHostPassword = _PsSNMPTrapHostPassword_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 4, 4),
+    _PsSNMPTrapHostPassword_Type()
+)
+psSNMPTrapHostPassword.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    psSNMPTrapHostPassword.setStatus("mandatory")
+_PsSNMPManagerCount_Type = Integer32
+_PsSNMPManagerCount_Object = MibScalar
+psSNMPManagerCount = _PsSNMPManagerCount_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 4, 5),
+    _PsSNMPManagerCount_Type()
+)
+psSNMPManagerCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    psSNMPManagerCount.setStatus("mandatory")
+_PsSNMPAccessTable_Object = MibTable
+psSNMPAccessTable = _PsSNMPAccessTable_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 4, 6)
+)
+if mibBuilder.loadTexts:
+    psSNMPAccessTable.setStatus("mandatory")
+_PsSNMPAccessTableEntry_Object = MibTableRow
+psSNMPAccessTableEntry = _PsSNMPAccessTableEntry_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 4, 6, 1)
+)
+psSNMPAccessTableEntry.setIndexNames(
+    (0, "PUBLAN-MIB", "psSNMPManagerIndex"),
+)
+if mibBuilder.loadTexts:
+    psSNMPAccessTableEntry.setStatus("mandatory")
+_Index_Type = Integer32
+_Index_Object = MibTableColumn
+index = _Index_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 4, 6, 1, 1),
+    _Index_Type()
+)
+index.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    index.setStatus("mandatory")
+_ManagerIPAddress_Type = IpAddress
+_ManagerIPAddress_Object = MibTableColumn
+managerIPAddress = _ManagerIPAddress_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 4, 6, 1, 2),
+    _ManagerIPAddress_Type()
+)
+managerIPAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    managerIPAddress.setStatus("mandatory")
+_ManagerIPMask_Type = IpAddress
+_ManagerIPMask_Object = MibTableColumn
+managerIPMask = _ManagerIPMask_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 4, 6, 1, 3),
+    _ManagerIPMask_Type()
+)
+managerIPMask.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    managerIPMask.setStatus("mandatory")
+
+
+class _ManagerStatus_Type(Integer32):
+    """Custom type managerStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("delete", 2),
+          ("enable", 1))
+    )
+
+
+_ManagerStatus_Type.__name__ = "Integer32"
+_ManagerStatus_Object = MibTableColumn
+managerStatus = _ManagerStatus_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 4, 6, 1, 4),
+    _ManagerStatus_Type()
+)
+managerStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    managerStatus.setStatus("mandatory")
+_PsSNMPInBadManagers_Type = Counter32
+_PsSNMPInBadManagers_Object = MibScalar
+psSNMPInBadManagers = _PsSNMPInBadManagers_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 4, 7),
+    _PsSNMPInBadManagers_Type()
+)
+psSNMPInBadManagers.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    psSNMPInBadManagers.setStatus("mandatory")
+_PublanPPPSetup_ObjectIdentity = ObjectIdentity
+publanPPPSetup = _PublanPPPSetup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 5)
+)
+
+
+class _PsPPPIPAddressAssignmentType_Type(Integer32):
+    """Custom type psPPPIPAddressAssignmentType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 3),
+    )
+
+
+_PsPPPIPAddressAssignmentType_Type.__name__ = "Integer32"
+_PsPPPIPAddressAssignmentType_Object = MibScalar
+psPPPIPAddressAssignmentType = _PsPPPIPAddressAssignmentType_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 1),
+    _PsPPPIPAddressAssignmentType_Type()
+)
+psPPPIPAddressAssignmentType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    psPPPIPAddressAssignmentType.setStatus("mandatory")
+_PsPPPStartIPAddress_Type = IpAddress
+_PsPPPStartIPAddress_Object = MibScalar
+psPPPStartIPAddress = _PsPPPStartIPAddress_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 2),
+    _PsPPPStartIPAddress_Type()
+)
+psPPPStartIPAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    psPPPStartIPAddress.setStatus("mandatory")
+_PsPPPEndIPAddress_Type = IpAddress
+_PsPPPEndIPAddress_Object = MibScalar
+psPPPEndIPAddress = _PsPPPEndIPAddress_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 3),
+    _PsPPPEndIPAddress_Type()
+)
+psPPPEndIPAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    psPPPEndIPAddress.setStatus("mandatory")
+_PsPPPNoOfMACIPMappingEntries_Type = Integer32
+_PsPPPNoOfMACIPMappingEntries_Object = MibScalar
+psPPPNoOfMACIPMappingEntries = _PsPPPNoOfMACIPMappingEntries_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 4),
+    _PsPPPNoOfMACIPMappingEntries_Type()
+)
+psPPPNoOfMACIPMappingEntries.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    psPPPNoOfMACIPMappingEntries.setStatus("mandatory")
+_PsPPPMACIPMappingTable_Object = MibTable
+psPPPMACIPMappingTable = _PsPPPMACIPMappingTable_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 5)
+)
+if mibBuilder.loadTexts:
+    psPPPMACIPMappingTable.setStatus("mandatory")
+_PsPPPMACIPMappingTableEntry_Object = MibTableRow
+psPPPMACIPMappingTableEntry = _PsPPPMACIPMappingTableEntry_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 5, 1)
+)
+psPPPMACIPMappingTableEntry.setIndexNames(
+    (0, "PUBLAN-MIB", "psPPPMACIPTableIndex"),
+)
+if mibBuilder.loadTexts:
+    psPPPMACIPMappingTableEntry.setStatus("mandatory")
+_Index3_Type = Integer32
+_Index3_Object = MibScalar
+index3 = _Index3_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 5, 1, 1),
+    _Index3_Type()
+)
+index3.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    index3.setStatus("mandatory")
+_Macaddress_Type = PhysAddress
+_Macaddress_Object = MibTableColumn
+macaddress = _Macaddress_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 5, 1, 2),
+    _Macaddress_Type()
+)
+macaddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    macaddress.setStatus("mandatory")
+_IpAddress_Type = IpAddress
+_IpAddress_Object = MibTableColumn
+ipAddress = _IpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 5, 1, 3),
+    _IpAddress_Type()
+)
+ipAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ipAddress.setStatus("mandatory")
+_Comment_Type = DisplayString
+_Comment_Object = MibTableColumn
+comment = _Comment_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 5, 1, 4),
+    _Comment_Type()
+)
+comment.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    comment.setStatus("mandatory")
+
+
+class _Entrystatus_Type(Integer32):
+    """Custom type entrystatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("delete", 2),
+          ("enable", 1))
+    )
+
+
+_Entrystatus_Type.__name__ = "Integer32"
+_Entrystatus_Object = MibTableColumn
+entrystatus = _Entrystatus_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 5, 1, 5),
+    _Entrystatus_Type()
+)
+entrystatus.setMaxAccess("write-only")
+if mibBuilder.loadTexts:
+    entrystatus.setStatus("mandatory")
+_PsPPPKeepAliveInterval_Type = Integer32
+_PsPPPKeepAliveInterval_Object = MibScalar
+psPPPKeepAliveInterval = _PsPPPKeepAliveInterval_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 6),
+    _PsPPPKeepAliveInterval_Type()
+)
+psPPPKeepAliveInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    psPPPKeepAliveInterval.setStatus("mandatory")
+_PsPPPNoOfKeepAliveTimeouts_Type = Integer32
+_PsPPPNoOfKeepAliveTimeouts_Object = MibScalar
+psPPPNoOfKeepAliveTimeouts = _PsPPPNoOfKeepAliveTimeouts_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 7),
+    _PsPPPNoOfKeepAliveTimeouts_Type()
+)
+psPPPNoOfKeepAliveTimeouts.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    psPPPNoOfKeepAliveTimeouts.setStatus("mandatory")
+_PsPPPDNSIPAddress_Type = IpAddress
+_PsPPPDNSIPAddress_Object = MibScalar
+psPPPDNSIPAddress = _PsPPPDNSIPAddress_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 8),
+    _PsPPPDNSIPAddress_Type()
+)
+psPPPDNSIPAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    psPPPDNSIPAddress.setStatus("mandatory")
+_PsPPPIPRangeTable_Object = MibTable
+psPPPIPRangeTable = _PsPPPIPRangeTable_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 20)
+)
+if mibBuilder.loadTexts:
+    psPPPIPRangeTable.setStatus("mandatory")
+_PsPPPIPRangeTableEntry_Object = MibTableRow
+psPPPIPRangeTableEntry = _PsPPPIPRangeTableEntry_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 20, 1)
+)
+psPPPIPRangeTableEntry.setIndexNames(
+    (0, "PUBLAN-MIB", "psPPPIPRangeTableIndex"),
+)
+if mibBuilder.loadTexts:
+    psPPPIPRangeTableEntry.setStatus("mandatory")
+_PsPPPIPRangeTableIndex_Type = Integer32
+_PsPPPIPRangeTableIndex_Object = MibTableColumn
+psPPPIPRangeTableIndex = _PsPPPIPRangeTableIndex_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 20, 1, 1),
+    _PsPPPIPRangeTableIndex_Type()
+)
+psPPPIPRangeTableIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    psPPPIPRangeTableIndex.setStatus("mandatory")
+_PoolStartIPAddress_Type = IpAddress
+_PoolStartIPAddress_Object = MibTableColumn
+poolStartIPAddress = _PoolStartIPAddress_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 20, 1, 2),
+    _PoolStartIPAddress_Type()
+)
+poolStartIPAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    poolStartIPAddress.setStatus("mandatory")
+_PoolEndIPAddress_Type = IpAddress
+_PoolEndIPAddress_Object = MibTableColumn
+poolEndIPAddress = _PoolEndIPAddress_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 20, 1, 3),
+    _PoolEndIPAddress_Type()
+)
+poolEndIPAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    poolEndIPAddress.setStatus("mandatory")
+_NumOfIPAddresss_Type = Integer32
+_NumOfIPAddresss_Object = MibTableColumn
+numOfIPAddresss = _NumOfIPAddresss_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 20, 1, 4),
+    _NumOfIPAddresss_Type()
+)
+numOfIPAddresss.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    numOfIPAddresss.setStatus("mandatory")
+
+
+class _Status_Type(Integer32):
+    """Custom type status based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("delete", 3),
+          ("enable", 1))
+    )
+
+
+_Status_Type.__name__ = "Integer32"
+_Status_Object = MibTableColumn
+status = _Status_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 20, 1, 5),
+    _Status_Type()
+)
+status.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    status.setStatus("mandatory")
+_Comments_Type = DisplayString
+_Comments_Object = MibScalar
+comments = _Comments_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 5, 20, 1, 6),
+    _Comments_Type()
+)
+comments.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    comments.setStatus("mandatory")
+_PublanAgent_ObjectIdentity = ObjectIdentity
+publanAgent = _PublanAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 6)
+)
+_PsVersion_Type = DisplayString
+_PsVersion_Object = MibScalar
+psVersion = _PsVersion_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 6, 1),
+    _PsVersion_Type()
+)
+psVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    psVersion.setStatus("mandatory")
+_PsIPAddress_Type = IpAddress
+_PsIPAddress_Object = MibScalar
+psIPAddress = _PsIPAddress_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 6, 2),
+    _PsIPAddress_Type()
+)
+psIPAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    psIPAddress.setStatus("mandatory")
+_PsSubnetMask_Type = IpAddress
+_PsSubnetMask_Object = MibScalar
+psSubnetMask = _PsSubnetMask_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 6, 3),
+    _PsSubnetMask_Type()
+)
+psSubnetMask.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    psSubnetMask.setStatus("mandatory")
+_PsDefaultGateway_Type = IpAddress
+_PsDefaultGateway_Object = MibScalar
+psDefaultGateway = _PsDefaultGateway_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 6, 4),
+    _PsDefaultGateway_Type()
+)
+psDefaultGateway.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    psDefaultGateway.setStatus("mandatory")
+
+
+class _PsIPAddressType_Type(Integer32):
+    """Custom type psIPAddressType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2),
+    )
+
+
+_PsIPAddressType_Type.__name__ = "Integer32"
+_PsIPAddressType_Object = MibScalar
+psIPAddressType = _PsIPAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 6, 5),
+    _PsIPAddressType_Type()
+)
+psIPAddressType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    psIPAddressType.setStatus("mandatory")
+
+
+class _PsAdministrativeState_Type(Integer32):
+    """Custom type psAdministrativeState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2),
+    )
+
+
+_PsAdministrativeState_Type.__name__ = "Integer32"
+_PsAdministrativeState_Object = MibScalar
+psAdministrativeState = _PsAdministrativeState_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 6, 6),
+    _PsAdministrativeState_Type()
+)
+psAdministrativeState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    psAdministrativeState.setStatus("mandatory")
+_PsTFTPIPAddress_Type = IpAddress
+_PsTFTPIPAddress_Object = MibScalar
+psTFTPIPAddress = _PsTFTPIPAddress_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 6, 7),
+    _PsTFTPIPAddress_Type()
+)
+psTFTPIPAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    psTFTPIPAddress.setStatus("mandatory")
+_PsTFTPFilename_Type = DisplayString
+_PsTFTPFilename_Object = MibScalar
+psTFTPFilename = _PsTFTPFilename_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 6, 8),
+    _PsTFTPFilename_Type()
+)
+psTFTPFilename.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    psTFTPFilename.setStatus("mandatory")
+
+
+class _PsTFTPOperation_Type(Integer32):
+    """Custom type psTFTPOperation based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2),
+    )
+
+
+_PsTFTPOperation_Type.__name__ = "Integer32"
+_PsTFTPOperation_Object = MibScalar
+psTFTPOperation = _PsTFTPOperation_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 6, 9),
+    _PsTFTPOperation_Type()
+)
+psTFTPOperation.setMaxAccess("write-only")
+if mibBuilder.loadTexts:
+    psTFTPOperation.setStatus("mandatory")
+_PsReboot_Type = Integer32
+_PsReboot_Object = MibScalar
+psReboot = _PsReboot_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 6, 10),
+    _PsReboot_Type()
+)
+psReboot.setMaxAccess("write-only")
+if mibBuilder.loadTexts:
+    psReboot.setStatus("mandatory")
+_Radius_ObjectIdentity = ObjectIdentity
+radius = _Radius_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 7)
+)
+_RadiusClientMIB_ObjectIdentity = ObjectIdentity
+radiusClientMIB = _RadiusClientMIB_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2)
+)
+_RadiusClientMIBObjects_ObjectIdentity = ObjectIdentity
+radiusClientMIBObjects = _RadiusClientMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1)
+)
+_RadiusClient_ObjectIdentity = ObjectIdentity
+radiusClient = _RadiusClient_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1)
+)
+_RadiusClientInvalidServerAddresses_Type = Counter32
+_RadiusClientInvalidServerAddresses_Object = MibScalar
+radiusClientInvalidServerAddresses = _RadiusClientInvalidServerAddresses_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 1),
+    _RadiusClientInvalidServerAddresses_Type()
+)
+radiusClientInvalidServerAddresses.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    radiusClientInvalidServerAddresses.setStatus("mandatory")
+_RadiusServerTable_Object = MibTable
+radiusServerTable = _RadiusServerTable_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    radiusServerTable.setStatus("mandatory")
+_RadiusServerEntry_Object = MibTableRow
+radiusServerEntry = _RadiusServerEntry_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1)
+)
+radiusServerEntry.setIndexNames(
+    (0, "PUBLAN-MIB", "radiusServerIndex"),
+)
+if mibBuilder.loadTexts:
+    radiusServerEntry.setStatus("mandatory")
+_Index4_Type = Integer32
+_Index4_Object = MibScalar
+index4 = _Index4_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 1),
+    _Index4_Type()
+)
+index4.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    index4.setStatus("mandatory")
+
+
+class _Type_Type(Integer32):
+    """Custom type type based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("acct", 2),
+          ("auth", 1),
+          ("auth-and-acct", 3))
+    )
+
+
+_Type_Type.__name__ = "Integer32"
+_Type_Object = MibTableColumn
+type = _Type_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 2),
+    _Type_Type()
+)
+type.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    type.setStatus("mandatory")
+_ServerIPAddress_Type = IpAddress
+_ServerIPAddress_Object = MibTableColumn
+serverIPAddress = _ServerIPAddress_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 3),
+    _ServerIPAddress_Type()
+)
+serverIPAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    serverIPAddress.setStatus("mandatory")
+_DestPortAuth_Type = Integer32
+_DestPortAuth_Object = MibTableColumn
+destPortAuth = _DestPortAuth_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 4),
+    _DestPortAuth_Type()
+)
+destPortAuth.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    destPortAuth.setStatus("mandatory")
+_DestPortAcct_Type = Integer32
+_DestPortAcct_Object = MibTableColumn
+destPortAcct = _DestPortAcct_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 5),
+    _DestPortAcct_Type()
+)
+destPortAcct.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    destPortAcct.setStatus("mandatory")
+_AccessRequests_Type = Counter32
+_AccessRequests_Object = MibTableColumn
+accessRequests = _AccessRequests_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 6),
+    _AccessRequests_Type()
+)
+accessRequests.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    accessRequests.setStatus("mandatory")
+_AccessRetransmissions_Type = Counter32
+_AccessRetransmissions_Object = MibTableColumn
+accessRetransmissions = _AccessRetransmissions_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 7),
+    _AccessRetransmissions_Type()
+)
+accessRetransmissions.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    accessRetransmissions.setStatus("mandatory")
+_AccessAccepts_Type = Counter32
+_AccessAccepts_Object = MibTableColumn
+accessAccepts = _AccessAccepts_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 8),
+    _AccessAccepts_Type()
+)
+accessAccepts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    accessAccepts.setStatus("mandatory")
+_AccessChallenges_Type = Counter32
+_AccessChallenges_Object = MibTableColumn
+accessChallenges = _AccessChallenges_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 9),
+    _AccessChallenges_Type()
+)
+accessChallenges.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    accessChallenges.setStatus("mandatory")
+_MalformedAccessResponses_Type = Counter32
+_MalformedAccessResponses_Object = MibTableColumn
+malformedAccessResponses = _MalformedAccessResponses_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 10),
+    _MalformedAccessResponses_Type()
+)
+malformedAccessResponses.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    malformedAccessResponses.setStatus("mandatory")
+_AuthenticationBadAuthenticators_Type = Counter32
+_AuthenticationBadAuthenticators_Object = MibTableColumn
+authenticationBadAuthenticators = _AuthenticationBadAuthenticators_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 11),
+    _AuthenticationBadAuthenticators_Type()
+)
+authenticationBadAuthenticators.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    authenticationBadAuthenticators.setStatus("mandatory")
+_AccessRejects_Type = Counter32
+_AccessRejects_Object = MibTableColumn
+accessRejects = _AccessRejects_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 12),
+    _AccessRejects_Type()
+)
+accessRejects.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    accessRejects.setStatus("mandatory")
+_Timeouts_Type = Counter32
+_Timeouts_Object = MibTableColumn
+timeouts = _Timeouts_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 13),
+    _Timeouts_Type()
+)
+timeouts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    timeouts.setStatus("mandatory")
+_AccountingRequests_Type = Counter32
+_AccountingRequests_Object = MibTableColumn
+accountingRequests = _AccountingRequests_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 14),
+    _AccountingRequests_Type()
+)
+accountingRequests.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    accountingRequests.setStatus("mandatory")
+_AccountingRetransmissions_Type = Counter32
+_AccountingRetransmissions_Object = MibTableColumn
+accountingRetransmissions = _AccountingRetransmissions_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 15),
+    _AccountingRetransmissions_Type()
+)
+accountingRetransmissions.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    accountingRetransmissions.setStatus("mandatory")
+_AccountingResponses_Type = Counter32
+_AccountingResponses_Object = MibTableColumn
+accountingResponses = _AccountingResponses_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 16),
+    _AccountingResponses_Type()
+)
+accountingResponses.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    accountingResponses.setStatus("mandatory")
+_AccountingBadAuthenticators_Type = Counter32
+_AccountingBadAuthenticators_Object = MibTableColumn
+accountingBadAuthenticators = _AccountingBadAuthenticators_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 17),
+    _AccountingBadAuthenticators_Type()
+)
+accountingBadAuthenticators.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    accountingBadAuthenticators.setStatus("mandatory")
+_SharedSecret_Type = DisplayString
+_SharedSecret_Object = MibTableColumn
+sharedSecret = _SharedSecret_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 18),
+    _SharedSecret_Type()
+)
+sharedSecret.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    sharedSecret.setStatus("mandatory")
+
+
+class _Enabled_Type(Integer32):
+    """Custom type enabled based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("delete", 3),
+          ("disable", 2),
+          ("enable", 1))
+    )
+
+
+_Enabled_Type.__name__ = "Integer32"
+_Enabled_Object = MibTableColumn
+enabled = _Enabled_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 19),
+    _Enabled_Type()
+)
+enabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    enabled.setStatus("mandatory")
+
+
+class _ResponseTime_Type(Integer32):
+    """Custom type responseTime based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eight-secs", 8),
+          ("five-secs", 5),
+          ("four-secs", 4),
+          ("nine-secs", 9),
+          ("one-sec", 1),
+          ("seven-secs", 7),
+          ("six-secs", 6),
+          ("ten-secs", 10),
+          ("three-secs", 3),
+          ("two-secs", 2))
+    )
+
+
+_ResponseTime_Type.__name__ = "Integer32"
+_ResponseTime_Object = MibTableColumn
+responseTime = _ResponseTime_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 20),
+    _ResponseTime_Type()
+)
+responseTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    responseTime.setStatus("mandatory")
+
+
+class _MaximumRetransmission_Type(Integer32):
+    """Custom type maximumRetransmission based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("four", 4),
+          ("one", 1),
+          ("three", 3),
+          ("two", 2))
+    )
+
+
+_MaximumRetransmission_Type.__name__ = "Integer32"
+_MaximumRetransmission_Object = MibTableColumn
+maximumRetransmission = _MaximumRetransmission_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 1, 1, 2, 1, 21),
+    _MaximumRetransmission_Type()
+)
+maximumRetransmission.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    maximumRetransmission.setStatus("mandatory")
+_RadiusClientMIBConformance_ObjectIdentity = ObjectIdentity
+radiusClientMIBConformance = _RadiusClientMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 2)
+)
+_RadiusClientMIBCompliances_ObjectIdentity = ObjectIdentity
+radiusClientMIBCompliances = _RadiusClientMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 2, 1)
+)
+_RadiusClientMIBGroups_ObjectIdentity = ObjectIdentity
+radiusClientMIBGroups = _RadiusClientMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 7, 2, 2, 2)
+)
+_PublanShimECPSetup_ObjectIdentity = ObjectIdentity
+publanShimECPSetup = _PublanShimECPSetup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 8)
+)
+_PsShimECPRetransmissionCount_Type = Integer32
+_PsShimECPRetransmissionCount_Object = MibScalar
+psShimECPRetransmissionCount = _PsShimECPRetransmissionCount_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 8, 1),
+    _PsShimECPRetransmissionCount_Type()
+)
+psShimECPRetransmissionCount.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    psShimECPRetransmissionCount.setStatus("mandatory")
+_PsShimECPRepeatResponseCount_Type = Integer32
+_PsShimECPRepeatResponseCount_Object = MibScalar
+psShimECPRepeatResponseCount = _PsShimECPRepeatResponseCount_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 8, 2),
+    _PsShimECPRepeatResponseCount_Type()
+)
+psShimECPRepeatResponseCount.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    psShimECPRepeatResponseCount.setStatus("mandatory")
+_PsShimECPRetransmissionTimeout_Type = Integer32
+_PsShimECPRetransmissionTimeout_Object = MibScalar
+psShimECPRetransmissionTimeout = _PsShimECPRetransmissionTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 8, 3),
+    _PsShimECPRetransmissionTimeout_Type()
+)
+psShimECPRetransmissionTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    psShimECPRetransmissionTimeout.setStatus("mandatory")
+_PubStationTraps_ObjectIdentity = ObjectIdentity
+pubStationTraps = _PubStationTraps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 15)
+)
+_PubStationTrapVariables_ObjectIdentity = ObjectIdentity
+pubStationTrapVariables = _PubStationTrapVariables_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 15, 1)
+)
+_PubStationMacAddress_Type = PhysAddress
+_PubStationMacAddress_Object = MibScalar
+pubStationMacAddress = _PubStationMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 15, 1, 1),
+    _PubStationMacAddress_Type()
+)
+pubStationMacAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    pubStationMacAddress.setStatus("mandatory")
+_PubStationFlashRelatedTraps_ObjectIdentity = ObjectIdentity
+pubStationFlashRelatedTraps = _PubStationFlashRelatedTraps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 15, 2)
+)
+_PubStationConfigurationRelatedTraps_ObjectIdentity = ObjectIdentity
+pubStationConfigurationRelatedTraps = _PubStationConfigurationRelatedTraps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 15, 3)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+pubStationFlashNotPresent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 15, 2, 0, 1)
+)
+if mibBuilder.loadTexts:
+    pubStationFlashNotPresent.setStatus(
+        ""
+    )
+
+pubStationFlashEmpty = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 15, 2, 0, 2)
+)
+if mibBuilder.loadTexts:
+    pubStationFlashEmpty.setStatus(
+        ""
+    )
+
+pubStationFlashCorrupted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 15, 2, 0, 3)
+)
+if mibBuilder.loadTexts:
+    pubStationFlashCorrupted.setStatus(
+        ""
+    )
+
+pubStationInvalidKey = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 15, 3, 0, 1)
+)
+if mibBuilder.loadTexts:
+    pubStationInvalidKey.setStatus(
+        ""
+    )
+
+pubStationAPMNotConfigured = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 15, 3, 0, 2)
+)
+if mibBuilder.loadTexts:
+    pubStationAPMNotConfigured.setStatus(
+        ""
+    )
+
+pubStationIncompatibleWavelanCard = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1751, 2, 51, 15, 3, 0, 3)
+)
+if mibBuilder.loadTexts:
+    pubStationIncompatibleWavelanCard.setStatus(
+        ""
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "PUBLAN-MIB",
+    **{"DisplayString": DisplayString,
+       "PhysAddress": PhysAddress,
+       "lucent": lucent,
+       "lucent-MIB": lucent_MIB,
+       "publan": publan,
+       "pubStation": pubStation,
+       "pubClient": pubClient,
+       "publanInterface": publanInterface,
+       "publanPHY": publanPHY,
+       "pliSystemName": pliSystemName,
+       "pliNetworkName": pliNetworkName,
+       "pliMACAddress": pliMACAddress,
+       "pliMediumReservation": pliMediumReservation,
+       "pliTransmitRate": pliTransmitRate,
+       "pliOperatingFrequency": pliOperatingFrequency,
+       "pliAPDensity": pliAPDensity,
+       "pliClosedSystem": pliClosedSystem,
+       "pliAllowedDataRates": pliAllowedDataRates,
+       "publanDriver": publanDriver,
+       "pliDriverName": pliDriverName,
+       "pliDriverVersion": pliDriverVersion,
+       "publanSNMPSetup": publanSNMPSetup,
+       "psSNMPReadPassword": psSNMPReadPassword,
+       "psSNMPReadWritePassword": psSNMPReadWritePassword,
+       "psSNMPTrapHostIPAddress": psSNMPTrapHostIPAddress,
+       "psSNMPTrapHostPassword": psSNMPTrapHostPassword,
+       "psSNMPManagerCount": psSNMPManagerCount,
+       "psSNMPAccessTable": psSNMPAccessTable,
+       "psSNMPAccessTableEntry": psSNMPAccessTableEntry,
+       "index": index,
+       "managerIPAddress": managerIPAddress,
+       "managerIPMask": managerIPMask,
+       "managerStatus": managerStatus,
+       "psSNMPInBadManagers": psSNMPInBadManagers,
+       "publanPPPSetup": publanPPPSetup,
+       "psPPPIPAddressAssignmentType": psPPPIPAddressAssignmentType,
+       "psPPPStartIPAddress": psPPPStartIPAddress,
+       "psPPPEndIPAddress": psPPPEndIPAddress,
+       "psPPPNoOfMACIPMappingEntries": psPPPNoOfMACIPMappingEntries,
+       "psPPPMACIPMappingTable": psPPPMACIPMappingTable,
+       "psPPPMACIPMappingTableEntry": psPPPMACIPMappingTableEntry,
+       "index3": index3,
+       "macaddress": macaddress,
+       "ipAddress": ipAddress,
+       "comment": comment,
+       "entrystatus": entrystatus,
+       "psPPPKeepAliveInterval": psPPPKeepAliveInterval,
+       "psPPPNoOfKeepAliveTimeouts": psPPPNoOfKeepAliveTimeouts,
+       "psPPPDNSIPAddress": psPPPDNSIPAddress,
+       "psPPPIPRangeTable": psPPPIPRangeTable,
+       "psPPPIPRangeTableEntry": psPPPIPRangeTableEntry,
+       "psPPPIPRangeTableIndex": psPPPIPRangeTableIndex,
+       "poolStartIPAddress": poolStartIPAddress,
+       "poolEndIPAddress": poolEndIPAddress,
+       "numOfIPAddresss": numOfIPAddresss,
+       "status": status,
+       "comments": comments,
+       "publanAgent": publanAgent,
+       "psVersion": psVersion,
+       "psIPAddress": psIPAddress,
+       "psSubnetMask": psSubnetMask,
+       "psDefaultGateway": psDefaultGateway,
+       "psIPAddressType": psIPAddressType,
+       "psAdministrativeState": psAdministrativeState,
+       "psTFTPIPAddress": psTFTPIPAddress,
+       "psTFTPFilename": psTFTPFilename,
+       "psTFTPOperation": psTFTPOperation,
+       "psReboot": psReboot,
+       "radius": radius,
+       "radiusClientMIB": radiusClientMIB,
+       "radiusClientMIBObjects": radiusClientMIBObjects,
+       "radiusClient": radiusClient,
+       "radiusClientInvalidServerAddresses": radiusClientInvalidServerAddresses,
+       "radiusServerTable": radiusServerTable,
+       "radiusServerEntry": radiusServerEntry,
+       "index4": index4,
+       "type": type,
+       "serverIPAddress": serverIPAddress,
+       "destPortAuth": destPortAuth,
+       "destPortAcct": destPortAcct,
+       "accessRequests": accessRequests,
+       "accessRetransmissions": accessRetransmissions,
+       "accessAccepts": accessAccepts,
+       "accessChallenges": accessChallenges,
+       "malformedAccessResponses": malformedAccessResponses,
+       "authenticationBadAuthenticators": authenticationBadAuthenticators,
+       "accessRejects": accessRejects,
+       "timeouts": timeouts,
+       "accountingRequests": accountingRequests,
+       "accountingRetransmissions": accountingRetransmissions,
+       "accountingResponses": accountingResponses,
+       "accountingBadAuthenticators": accountingBadAuthenticators,
+       "sharedSecret": sharedSecret,
+       "enabled": enabled,
+       "responseTime": responseTime,
+       "maximumRetransmission": maximumRetransmission,
+       "radiusClientMIBConformance": radiusClientMIBConformance,
+       "radiusClientMIBCompliances": radiusClientMIBCompliances,
+       "radiusClientMIBGroups": radiusClientMIBGroups,
+       "publanShimECPSetup": publanShimECPSetup,
+       "psShimECPRetransmissionCount": psShimECPRetransmissionCount,
+       "psShimECPRepeatResponseCount": psShimECPRepeatResponseCount,
+       "psShimECPRetransmissionTimeout": psShimECPRetransmissionTimeout,
+       "pubStationTraps": pubStationTraps,
+       "pubStationTrapVariables": pubStationTrapVariables,
+       "pubStationMacAddress": pubStationMacAddress,
+       "pubStationFlashRelatedTraps": pubStationFlashRelatedTraps,
+       "pubStationFlashNotPresent": pubStationFlashNotPresent,
+       "pubStationFlashEmpty": pubStationFlashEmpty,
+       "pubStationFlashCorrupted": pubStationFlashCorrupted,
+       "pubStationConfigurationRelatedTraps": pubStationConfigurationRelatedTraps,
+       "pubStationInvalidKey": pubStationInvalidKey,
+       "pubStationAPMNotConfigured": pubStationAPMNotConfigured,
+       "pubStationIncompatibleWavelanCard": pubStationIncompatibleWavelanCard}
+)

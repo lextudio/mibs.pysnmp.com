@@ -1,446 +1,3226 @@
+# SNMP MIB module (LEAN-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module LEAN-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/LEAN-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:55:45 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-MibIdentifier, ModuleIdentity, NotificationType, Counter64, IpAddress, Unsigned32, ObjectIdentity, Counter32, Integer32, Gauge32, Bits, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "ModuleIdentity", "NotificationType", "Counter64", "IpAddress", "Unsigned32", "ObjectIdentity", "Counter32", "Integer32", "Gauge32", "Bits", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "enterprises")
-RowStatus, TimeStamp, PhysAddress, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TimeStamp", "PhysAddress", "DisplayString", "TextualConvention")
-tellabs = ModuleIdentity((1, 3, 6, 1, 4, 1, 42))
-if mibBuilder.loadTexts: tellabs.setLastUpdated('Wed Oct 11 15:08:08 BST 1995')
-if mibBuilder.loadTexts: tellabs.setOrganization('Tellabs Ltd., Shannon')
-class IfIndex(TextualConvention, Integer32):
-    status = 'current'
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/LEAN-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:17:40 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-leanMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 1))
-frnetservMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 1, 1))
-frnetservObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 1, 1, 1))
-frnetservTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 1, 1, 2))
-frLportTable = MibTable((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 1), )
-if mibBuilder.loadTexts: frLportTable.setStatus('current')
-frLportEntry = MibTableRow((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: frLportEntry.setStatus('current')
-frLportNumPlan = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("e164", 2), ("x121", 3), ("none", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frLportNumPlan.setStatus('current')
-frLportContact = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frLportContact.setStatus('current')
-frLportLocation = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frLportLocation.setStatus('current')
-frLportType = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("uni", 1), ("nni", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frLportType.setStatus('current')
-frLportAddrDLCILen = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("twoOctets10Bits", 1), ("threeOctets10Bits", 2), ("threeOctets16Bits", 3), ("fourOctets17Bits", 4), ("fourOctets23Bits", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frLportAddrDLCILen.setStatus('current')
-frLportVCSigProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("none", 1), ("lmi", 2), ("ansiT1617D", 3), ("ansiT1617B", 4), ("ccittQ933A", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frLportVCSigProtocol.setStatus('current')
-frLportVCSigPointer = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 1, 1, 7), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frLportVCSigPointer.setStatus('current')
-frMgtVCSigTable = MibTable((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 2), )
-if mibBuilder.loadTexts: frMgtVCSigTable.setStatus('current')
-frMgtVCSigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: frMgtVCSigEntry.setStatus('current')
-frMgtVCSigProced = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("u2nnet", 1), ("bidirect", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frMgtVCSigProced.setStatus('current')
-frMgtVCSigUserN391 = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255)).clone(6)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frMgtVCSigUserN391.setStatus('current')
-frMgtVCSigUserN392 = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 10)).clone(3)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frMgtVCSigUserN392.setStatus('current')
-frMgtVCSigUserN393 = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 10)).clone(4)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frMgtVCSigUserN393.setStatus('current')
-frMgtVCSigUserT391 = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 2, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(5, 30)).clone(10)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frMgtVCSigUserT391.setStatus('current')
-frMgtVCSigNetN392 = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 2, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 10)).clone(3)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frMgtVCSigNetN392.setStatus('current')
-frMgtVCSigNetN393 = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 2, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 10)).clone(4)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frMgtVCSigNetN393.setStatus('current')
-frMgtVCSigNetT392 = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 2, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(5, 30)).clone(15)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frMgtVCSigNetT392.setStatus('current')
-frMgtVCSigNetnN4 = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 2, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(5, 5))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frMgtVCSigNetnN4.setStatus('current')
-frMgtVCSigNetnT3 = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 2, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(5, 5), ValueRangeConstraint(10, 10), ValueRangeConstraint(15, 15), ValueRangeConstraint(20, 20), ValueRangeConstraint(25, 25), ValueRangeConstraint(30, 30), )).clone(20)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frMgtVCSigNetnT3.setStatus('current')
-frMgtVCSigUserLinkRelErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 2, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frMgtVCSigUserLinkRelErrors.setStatus('current')
-frMgtVCSigUserProtErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 2, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frMgtVCSigUserProtErrors.setStatus('current')
-frMgtVCSigUserChanInactive = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 2, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frMgtVCSigUserChanInactive.setStatus('current')
-frMgtVCSigNetLinkRelErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 2, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frMgtVCSigNetLinkRelErrors.setStatus('current')
-frMgtVCSigNetProtErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 2, 1, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frMgtVCSigNetProtErrors.setStatus('current')
-frMgtVCSigNetChanInactive = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 2, 1, 16), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frMgtVCSigNetChanInactive.setStatus('current')
-frPVCEndptTable = MibTable((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3), )
-if mibBuilder.loadTexts: frPVCEndptTable.setStatus('current')
-frPVCEndptEntry = MibTableRow((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "LEAN-MIB", "frPVCEndptDLCIIndex"))
-if mibBuilder.loadTexts: frPVCEndptEntry.setStatus('current')
-frPVCEndptDLCIIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 1), Integer32())
-if mibBuilder.loadTexts: frPVCEndptDLCIIndex.setStatus('current')
-frPVCEndptInMaxFrameSize = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 2), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: frPVCEndptInMaxFrameSize.setStatus('current')
-frPVCEndptInBc = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 3), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: frPVCEndptInBc.setStatus('current')
-frPVCEndptInBe = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 4), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: frPVCEndptInBe.setStatus('current')
-frPVCEndptInCIR = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 5), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: frPVCEndptInCIR.setStatus('current')
-frPVCEndptOutMaxFrameSize = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 6), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: frPVCEndptOutMaxFrameSize.setStatus('current')
-frPVCEndptOutBc = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 7), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: frPVCEndptOutBc.setStatus('current')
-frPVCEndptOutBe = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 8), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: frPVCEndptOutBe.setStatus('current')
-frPVCEndptOutCIR = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 9), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: frPVCEndptOutCIR.setStatus('current')
-frPVCEndptConnectIdentifier = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 10), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCEndptConnectIdentifier.setStatus('current')
-frPVCEndptRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 11), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: frPVCEndptRowStatus.setStatus('current')
-frPVCEndptRcvdSigStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("deleted", 1), ("active", 2), ("inactive", 3), ("none", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCEndptRcvdSigStatus.setStatus('current')
-frPVCEndptInFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCEndptInFrames.setStatus('current')
-frPVCEndptOutFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCEndptOutFrames.setStatus('current')
-frPVCEndptInDEFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCEndptInDEFrames.setStatus('current')
-frPVCEndptInExcessFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 16), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCEndptInExcessFrames.setStatus('current')
-frPVCEndptOutExcessFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 17), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCEndptOutExcessFrames.setStatus('current')
-frPVCEndptInDiscards = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 18), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCEndptInDiscards.setStatus('current')
-frPVCEndptInOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 19), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCEndptInOctets.setStatus('current')
-frPVCEndptOutOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 20), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCEndptOutOctets.setStatus('current')
-frPVCConnectIndexValue = MibScalar((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCConnectIndexValue.setStatus('current')
-frPVCConnectTable = MibTable((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 5), )
-if mibBuilder.loadTexts: frPVCConnectTable.setStatus('current')
-frPVCConnectEntry = MibTableRow((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 5, 1), ).setIndexNames((0, "LEAN-MIB", "frPVCConnectIndex"), (0, "LEAN-MIB", "frPVCConnectLowIfIndex"), (0, "LEAN-MIB", "frPVCConnectLowDLCIIndex"), (0, "LEAN-MIB", "frPVCConnectHighIfIndex"), (0, "LEAN-MIB", "frPVCConnectHighDLCIIndex"))
-if mibBuilder.loadTexts: frPVCConnectEntry.setStatus('current')
-frPVCConnectIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 5, 1, 1), Integer32())
-if mibBuilder.loadTexts: frPVCConnectIndex.setStatus('current')
-frPVCConnectLowIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 5, 1, 2), IfIndex())
-if mibBuilder.loadTexts: frPVCConnectLowIfIndex.setStatus('current')
-frPVCConnectLowDLCIIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 5, 1, 3), Integer32())
-if mibBuilder.loadTexts: frPVCConnectLowDLCIIndex.setStatus('current')
-frPVCConnectHighIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 5, 1, 4), IfIndex())
-if mibBuilder.loadTexts: frPVCConnectHighIfIndex.setStatus('current')
-frPVCConnectHighDLCIIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 5, 1, 5), Integer32())
-if mibBuilder.loadTexts: frPVCConnectHighDLCIIndex.setStatus('current')
-frPVCConnectAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 5, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("active", 1), ("inactive", 2), ("testing", 3)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: frPVCConnectAdminStatus.setStatus('current')
-frPVCConnectL2hOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 5, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("active", 1), ("inactive", 2), ("testing", 3), ("unknown", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCConnectL2hOperStatus.setStatus('current')
-frPVCConnectH2lOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 5, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("active", 1), ("inactive", 2), ("testing", 3), ("unknown", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCConnectH2lOperStatus.setStatus('current')
-frPVCConnectL2hLastChange = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 5, 1, 9), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCConnectL2hLastChange.setStatus('current')
-frPVCConnectH2lLastChange = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 5, 1, 10), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCConnectH2lLastChange.setStatus('current')
-frPVCConnectRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 5, 1, 11), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: frPVCConnectRowStatus.setStatus('current')
-frAccountPVCTable = MibTable((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 6), )
-if mibBuilder.loadTexts: frAccountPVCTable.setStatus('current')
-frAccountPVCEntry = MibTableRow((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 6, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "LEAN-MIB", "frAccountPVCDLCIIndex"))
-if mibBuilder.loadTexts: frAccountPVCEntry.setStatus('current')
-frAccountPVCDLCIIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 6, 1, 1), Integer32())
-if mibBuilder.loadTexts: frAccountPVCDLCIIndex.setStatus('current')
-frAccountPVCSegmentSize = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 6, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frAccountPVCSegmentSize.setStatus('current')
-frAccountPVCInSegments = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 6, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frAccountPVCInSegments.setStatus('current')
-frAccountPVCOutSegments = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 6, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frAccountPVCOutSegments.setStatus('current')
-frAccountLportTable = MibTable((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 7), )
-if mibBuilder.loadTexts: frAccountLportTable.setStatus('current')
-frAccountLportEntry = MibTableRow((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 7, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: frAccountLportEntry.setStatus('current')
-frAccountLportSegmentSize = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 7, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frAccountLportSegmentSize.setStatus('current')
-frAccountLportInSegments = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 7, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frAccountLportInSegments.setStatus('current')
-frAccountLportOutSegments = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 7, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frAccountLportOutSegments.setStatus('current')
-frPVCConnectStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 42, 1, 1, 2, 1)).setObjects(("LEAN-MIB", "frPVCConnectIndex"), ("LEAN-MIB", "frPVCConnectLowIfIndex"), ("LEAN-MIB", "frPVCConnectLowDLCIIndex"), ("LEAN-MIB", "frPVCConnectHighIfIndex"), ("LEAN-MIB", "frPVCConnectHighDLCIIndex"), ("LEAN-MIB", "frPVCConnectL2hOperStatus"), ("LEAN-MIB", "frPVCConnectH2lOperStatus"), ("LEAN-MIB", "frPVCEndptRcvdSigStatus"))
-if mibBuilder.loadTexts: frPVCConnectStatusChange.setStatus('current')
-frnetservConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 1, 1, 3))
-frnetservGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 1, 1, 3, 1))
-frnetservCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 1, 1, 3, 2))
-frnetservCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 42, 1, 1, 3, 2, 1)).setObjects(("LEAN-MIB", "frnetservLportGroup"), ("LEAN-MIB", "frnetservMgtVCSigGroup"), ("LEAN-MIB", "frnetservPVCEndptGroup"), ("LEAN-MIB", "frnetservPVCConnectGroup"), ("LEAN-MIB", "frnetservAccountPVCGroup"), ("LEAN-MIB", "frnetservAccountLportGroup"))
+if 'mibBuilder' not in globals():
+    import sys
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    frnetservCompliance = frnetservCompliance.setStatus('current')
-frnetservLportGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 42, 1, 1, 3, 1, 1)).setObjects(("LEAN-MIB", "frLportNumPlan"), ("LEAN-MIB", "frLportContact"), ("LEAN-MIB", "frLportLocation"), ("LEAN-MIB", "frLportType"), ("LEAN-MIB", "frLportAddrDLCILen"), ("LEAN-MIB", "frLportVCSigProtocol"), ("LEAN-MIB", "frLportVCSigPointer"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    frnetservLportGroup = frnetservLportGroup.setStatus('current')
-frnetservMgtVCSigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 42, 1, 1, 3, 1, 2)).setObjects(("LEAN-MIB", "frMgtVCSigProced"), ("LEAN-MIB", "frMgtVCSigUserN391"), ("LEAN-MIB", "frMgtVCSigUserN392"), ("LEAN-MIB", "frMgtVCSigUserN393"), ("LEAN-MIB", "frMgtVCSigUserT391"), ("LEAN-MIB", "frMgtVCSigNetN392"), ("LEAN-MIB", "frMgtVCSigNetN393"), ("LEAN-MIB", "frMgtVCSigNetT392"), ("LEAN-MIB", "frMgtVCSigNetnN4"), ("LEAN-MIB", "frMgtVCSigNetnT3"), ("LEAN-MIB", "frMgtVCSigUserLinkRelErrors"), ("LEAN-MIB", "frMgtVCSigUserProtErrors"), ("LEAN-MIB", "frMgtVCSigUserChanInactive"), ("LEAN-MIB", "frMgtVCSigNetLinkRelErrors"), ("LEAN-MIB", "frMgtVCSigNetProtErrors"), ("LEAN-MIB", "frMgtVCSigNetChanInactive"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    frnetservMgtVCSigGroup = frnetservMgtVCSigGroup.setStatus('current')
-frnetservPVCEndptGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 42, 1, 1, 3, 1, 3)).setObjects(("LEAN-MIB", "frPVCConnectIndexValue"), ("LEAN-MIB", "frPVCEndptInMaxFrameSize"), ("LEAN-MIB", "frPVCEndptInBc"), ("LEAN-MIB", "frPVCEndptInBe"), ("LEAN-MIB", "frPVCEndptInCIR"), ("LEAN-MIB", "frPVCEndptOutMaxFrameSize"), ("LEAN-MIB", "frPVCEndptOutBc"), ("LEAN-MIB", "frPVCEndptOutBe"), ("LEAN-MIB", "frPVCEndptOutCIR"), ("LEAN-MIB", "frPVCEndptConnectIdentifier"), ("LEAN-MIB", "frPVCEndptRowStatus"), ("LEAN-MIB", "frPVCEndptRcvdSigStatus"), ("LEAN-MIB", "frPVCEndptInFrames"), ("LEAN-MIB", "frPVCEndptOutFrames"), ("LEAN-MIB", "frPVCEndptInDEFrames"), ("LEAN-MIB", "frPVCEndptInExcessFrames"), ("LEAN-MIB", "frPVCEndptOutExcessFrames"), ("LEAN-MIB", "frPVCEndptInDiscards"), ("LEAN-MIB", "frPVCEndptInOctets"), ("LEAN-MIB", "frPVCEndptOutOctets"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    frnetservPVCEndptGroup = frnetservPVCEndptGroup.setStatus('current')
-frnetservPVCConnectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 42, 1, 1, 3, 1, 4)).setObjects(("LEAN-MIB", "frPVCConnectAdminStatus"), ("LEAN-MIB", "frPVCConnectL2hOperStatus"), ("LEAN-MIB", "frPVCConnectH2lOperStatus"), ("LEAN-MIB", "frPVCConnectL2hLastChange"), ("LEAN-MIB", "frPVCConnectH2lLastChange"), ("LEAN-MIB", "frPVCConnectRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    frnetservPVCConnectGroup = frnetservPVCConnectGroup.setStatus('current')
-frnetservAccountPVCGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 42, 1, 1, 3, 1, 5)).setObjects(("LEAN-MIB", "frAccountPVCSegmentSize"), ("LEAN-MIB", "frAccountPVCInSegments"), ("LEAN-MIB", "frAccountPVCOutSegments"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    frnetservAccountPVCGroup = frnetservAccountPVCGroup.setStatus('current')
-frnetservAccountLportGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 42, 1, 1, 3, 1, 6)).setObjects(("LEAN-MIB", "frAccountLportSegmentSize"), ("LEAN-MIB", "frAccountLportInSegments"), ("LEAN-MIB", "frAccountLportOutSegments"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    frnetservAccountLportGroup = frnetservAccountLportGroup.setStatus('current')
-atmMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 1, 2))
-atmMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 1, 2, 1))
-class AtmTrafficDescrParamIndex(TextualConvention, Integer32):
-    status = 'current'
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-atmTrafficDescriptorTypes = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 1))
-atmNoTrafficDescriptor = ObjectIdentity((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 1, 1))
-if mibBuilder.loadTexts: atmNoTrafficDescriptor.setStatus('current')
-atmNoClpNoScr = ObjectIdentity((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 1, 2))
-if mibBuilder.loadTexts: atmNoClpNoScr.setStatus('current')
-atmClpNoTaggingNoScr = ObjectIdentity((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 1, 3))
-if mibBuilder.loadTexts: atmClpNoTaggingNoScr.setStatus('current')
-atmClpTaggingNoScr = ObjectIdentity((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 1, 4))
-if mibBuilder.loadTexts: atmClpTaggingNoScr.setStatus('current')
-atmNoClpScr = ObjectIdentity((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 1, 5))
-if mibBuilder.loadTexts: atmNoClpScr.setStatus('current')
-atmClpNoTaggingScr = ObjectIdentity((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 1, 6))
-if mibBuilder.loadTexts: atmClpNoTaggingScr.setStatus('current')
-atmClpTaggingScr = ObjectIdentity((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 1, 7))
-if mibBuilder.loadTexts: atmClpTaggingScr.setStatus('current')
-atmInterfaceConfTable = MibTable((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 2), )
-if mibBuilder.loadTexts: atmInterfaceConfTable.setStatus('current')
-atmInterfaceConfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: atmInterfaceConfEntry.setStatus('current')
-atmInterfaceMaxVpcs = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4096))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmInterfaceMaxVpcs.setStatus('current')
-atmInterfaceMaxVccs = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65536))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmInterfaceMaxVccs.setStatus('current')
-atmInterfaceConfVpcs = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4096))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmInterfaceConfVpcs.setStatus('current')
-atmInterfaceConfVccs = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65536))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmInterfaceConfVccs.setStatus('current')
-atmInterfaceMaxActiveVpiBits = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 2, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 12))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmInterfaceMaxActiveVpiBits.setStatus('current')
-atmInterfaceMaxActiveVciBits = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 2, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 16))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmInterfaceMaxActiveVciBits.setStatus('current')
-atmInterfaceIlmiVpi = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 2, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmInterfaceIlmiVpi.setStatus('current')
-atmInterfaceIlmiVci = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 2, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)).clone(16)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmInterfaceIlmiVci.setStatus('current')
-atmInterfaceAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 2, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("private", 1), ("nsapE164", 2), ("nativeE164", 3), ("other", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmInterfaceAddressType.setStatus('current')
-atmInterfaceAdminAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 2, 1, 10), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmInterfaceAdminAddress.setStatus('current')
-atmInterfaceMyNeighborIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 2, 1, 11), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmInterfaceMyNeighborIpAddress.setStatus('current')
-atmInterfaceMyNeighborIfName = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 2, 1, 12), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmInterfaceMyNeighborIfName.setStatus('current')
-atmInterfaceDs3PlcpTable = MibTable((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 3), )
-if mibBuilder.loadTexts: atmInterfaceDs3PlcpTable.setStatus('current')
-atmInterfaceDs3PlcpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: atmInterfaceDs3PlcpEntry.setStatus('current')
-atmInterfaceDs3PlcpSEFSs = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 3, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmInterfaceDs3PlcpSEFSs.setStatus('current')
-atmInterfaceDs3PlcpAlarmState = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("noAlarm", 1), ("receivedFarEndAlarm", 2), ("incomingLOF", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmInterfaceDs3PlcpAlarmState.setStatus('current')
-atmInterfaceDs3PlcpUASs = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 3, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmInterfaceDs3PlcpUASs.setStatus('current')
-atmInterfaceTCTable = MibTable((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 4), )
-if mibBuilder.loadTexts: atmInterfaceTCTable.setStatus('current')
-atmInterfaceTCEntry = MibTableRow((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 4, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: atmInterfaceTCEntry.setStatus('current')
-atmInterfaceOCDEvents = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 4, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmInterfaceOCDEvents.setStatus('current')
-atmInterfaceTCAlarmState = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("noAlarm", 1), ("lcdFailure", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmInterfaceTCAlarmState.setStatus('current')
-atmTrafficDescrParamTable = MibTable((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 5), )
-if mibBuilder.loadTexts: atmTrafficDescrParamTable.setStatus('current')
-atmTrafficDescrParamEntry = MibTableRow((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 5, 1), ).setIndexNames((0, "LEAN-MIB", "atmTrafficDescrParamIndex"))
-if mibBuilder.loadTexts: atmTrafficDescrParamEntry.setStatus('current')
-atmTrafficDescrParamIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 5, 1, 1), AtmTrafficDescrParamIndex())
-if mibBuilder.loadTexts: atmTrafficDescrParamIndex.setStatus('current')
-atmTrafficDescrType = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 5, 1, 2), ObjectIdentifier().clone((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 1, 1))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmTrafficDescrType.setStatus('current')
-atmTrafficDescrParam1 = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 5, 1, 3), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmTrafficDescrParam1.setStatus('current')
-atmTrafficDescrParam2 = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 5, 1, 4), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmTrafficDescrParam2.setStatus('current')
-atmTrafficDescrParam3 = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 5, 1, 5), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmTrafficDescrParam3.setStatus('current')
-atmTrafficDescrParam4 = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 5, 1, 6), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmTrafficDescrParam4.setStatus('current')
-atmTrafficDescrParam5 = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 5, 1, 7), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmTrafficDescrParam5.setStatus('current')
-atmTrafficQoSClass = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 5, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmTrafficQoSClass.setStatus('current')
-atmTrafficDescrRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 5, 1, 9), RowStatus().clone('active')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmTrafficDescrRowStatus.setStatus('current')
-atmVplTable = MibTable((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 6), )
-if mibBuilder.loadTexts: atmVplTable.setStatus('current')
-atmVplEntry = MibTableRow((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 6, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "LEAN-MIB", "atmVplVpi"))
-if mibBuilder.loadTexts: atmVplEntry.setStatus('current')
-atmVplVpi = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 6, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
-if mibBuilder.loadTexts: atmVplVpi.setStatus('current')
-atmVplAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 6, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2))).clone('down')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmVplAdminStatus.setStatus('current')
-atmVplOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 6, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("up", 1), ("down", 2), ("unknown", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmVplOperStatus.setStatus('current')
-atmVplLastChange = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 6, 1, 4), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmVplLastChange.setStatus('current')
-atmVplReceiveTrafficDescrIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 6, 1, 5), AtmTrafficDescrParamIndex()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmVplReceiveTrafficDescrIndex.setStatus('current')
-atmVplTransmitTrafficDescrIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 6, 1, 6), AtmTrafficDescrParamIndex()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmVplTransmitTrafficDescrIndex.setStatus('current')
-atmVplCrossConnectIdentifier = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 6, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmVplCrossConnectIdentifier.setStatus('current')
-atmVplRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 6, 1, 8), RowStatus().clone('active')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmVplRowStatus.setStatus('current')
-atmVclTable = MibTable((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 7), )
-if mibBuilder.loadTexts: atmVclTable.setStatus('current')
-atmVclEntry = MibTableRow((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 7, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "LEAN-MIB", "atmVclVpi"), (0, "LEAN-MIB", "atmVclVci"))
-if mibBuilder.loadTexts: atmVclEntry.setStatus('current')
-atmVclVpi = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 7, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4095)))
-if mibBuilder.loadTexts: atmVclVpi.setStatus('current')
-atmVclVci = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 7, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)))
-if mibBuilder.loadTexts: atmVclVci.setStatus('current')
-atmVclAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 7, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmVclAdminStatus.setStatus('current')
-atmVclOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 7, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("up", 1), ("down", 2), ("unknown", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmVclOperStatus.setStatus('current')
-atmVclLastChange = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 7, 1, 5), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmVclLastChange.setStatus('current')
-atmVclReceiveTrafficDescrIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 7, 1, 6), AtmTrafficDescrParamIndex()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmVclReceiveTrafficDescrIndex.setStatus('current')
-atmVclTransmitTrafficDescrIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 7, 1, 7), AtmTrafficDescrParamIndex()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmVclTransmitTrafficDescrIndex.setStatus('current')
-atmVccAalType = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 7, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("aal1", 1), ("aal34", 2), ("aal5", 3), ("other", 4), ("unknown", 5)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmVccAalType.setStatus('current')
-atmVccAal5CpcsTransmitSduSize = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 7, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(9188)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmVccAal5CpcsTransmitSduSize.setStatus('current')
-atmVccAal5CpcsReceiveSduSize = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 7, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(9188)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmVccAal5CpcsReceiveSduSize.setStatus('current')
-atmVccAal5EncapsType = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 7, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))).clone(namedValues=NamedValues(("vcMultiplexRoutedProtocol", 1), ("vcMultiplexBridgedProtocol8023", 2), ("vcMultiplexBridgedProtocol8025", 3), ("vcMultiplexBridgedProtocol8026", 4), ("vcMultiplexLANemulation8023", 5), ("vcMultiplexLANemulation8025", 6), ("llcEncapsulation", 7), ("multiprotocolFrameRelaySscs", 8), ("other", 9), ("unknown", 10))).clone('llcEncapsulation')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmVccAal5EncapsType.setStatus('current')
-atmVclCrossConnectIdentifier = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 7, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmVclCrossConnectIdentifier.setStatus('current')
-atmVclRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 7, 1, 13), RowStatus().clone('active')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmVclRowStatus.setStatus('current')
-atmVpCrossConnectIndexNext = MibScalar((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmVpCrossConnectIndexNext.setStatus('current')
-atmVpCrossConnectTable = MibTable((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 9), )
-if mibBuilder.loadTexts: atmVpCrossConnectTable.setStatus('current')
-atmVpCrossConnectEntry = MibTableRow((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 9, 1), ).setIndexNames((0, "LEAN-MIB", "atmVpCrossConnectIndex"), (0, "LEAN-MIB", "atmVpCrossConnectLowIfIndex"), (0, "LEAN-MIB", "atmVpCrossConnectLowVpi"), (0, "LEAN-MIB", "atmVpCrossConnectHighIfIndex"), (0, "LEAN-MIB", "atmVpCrossConnectHighVpi"))
-if mibBuilder.loadTexts: atmVpCrossConnectEntry.setStatus('current')
-atmVpCrossConnectIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 9, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: atmVpCrossConnectIndex.setStatus('current')
-atmVpCrossConnectLowIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 9, 1, 2), IfIndex())
-if mibBuilder.loadTexts: atmVpCrossConnectLowIfIndex.setStatus('current')
-atmVpCrossConnectLowVpi = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 9, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
-if mibBuilder.loadTexts: atmVpCrossConnectLowVpi.setStatus('current')
-atmVpCrossConnectHighIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 9, 1, 4), IfIndex())
-if mibBuilder.loadTexts: atmVpCrossConnectHighIfIndex.setStatus('current')
-atmVpCrossConnectHighVpi = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 9, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
-if mibBuilder.loadTexts: atmVpCrossConnectHighVpi.setStatus('current')
-atmVpCrossConnectAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 9, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2))).clone('down')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmVpCrossConnectAdminStatus.setStatus('current')
-atmVpCrossConnectL2HOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 9, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("up", 1), ("down", 2), ("unknown", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmVpCrossConnectL2HOperStatus.setStatus('current')
-atmVpCrossConnectH2LOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 9, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("up", 1), ("down", 2), ("unknown", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmVpCrossConnectH2LOperStatus.setStatus('current')
-atmVpCrossConnectL2HLastChange = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 9, 1, 9), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmVpCrossConnectL2HLastChange.setStatus('current')
-atmVpCrossConnectH2LLastChange = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 9, 1, 10), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmVpCrossConnectH2LLastChange.setStatus('current')
-atmVpCrossConnectRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 9, 1, 11), RowStatus().clone('active')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmVpCrossConnectRowStatus.setStatus('current')
-atmVcCrossConnectIndexNext = MibScalar((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmVcCrossConnectIndexNext.setStatus('current')
-atmVcCrossConnectTable = MibTable((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 11), )
-if mibBuilder.loadTexts: atmVcCrossConnectTable.setStatus('current')
-atmVcCrossConnectEntry = MibTableRow((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 11, 1), ).setIndexNames((0, "LEAN-MIB", "atmVcCrossConnectIndex"), (0, "LEAN-MIB", "atmVcCrossConnectLowIfIndex"), (0, "LEAN-MIB", "atmVcCrossConnectLowVpi"), (0, "LEAN-MIB", "atmVcCrossConnectLowVci"), (0, "LEAN-MIB", "atmVcCrossConnectHighIfIndex"), (0, "LEAN-MIB", "atmVcCrossConnectHighVpi"), (0, "LEAN-MIB", "atmVcCrossConnectHighVci"))
-if mibBuilder.loadTexts: atmVcCrossConnectEntry.setStatus('current')
-atmVcCrossConnectIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 11, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: atmVcCrossConnectIndex.setStatus('current')
-atmVcCrossConnectLowIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 11, 1, 2), IfIndex())
-if mibBuilder.loadTexts: atmVcCrossConnectLowIfIndex.setStatus('current')
-atmVcCrossConnectLowVpi = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 11, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4095)))
-if mibBuilder.loadTexts: atmVcCrossConnectLowVpi.setStatus('current')
-atmVcCrossConnectLowVci = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 11, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)))
-if mibBuilder.loadTexts: atmVcCrossConnectLowVci.setStatus('current')
-atmVcCrossConnectHighIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 11, 1, 5), IfIndex())
-if mibBuilder.loadTexts: atmVcCrossConnectHighIfIndex.setStatus('current')
-atmVcCrossConnectHighVpi = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 11, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4095)))
-if mibBuilder.loadTexts: atmVcCrossConnectHighVpi.setStatus('current')
-atmVcCrossConnectHighVci = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 11, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)))
-if mibBuilder.loadTexts: atmVcCrossConnectHighVci.setStatus('current')
-atmVcCrossConnectAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 11, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2))).clone('down')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmVcCrossConnectAdminStatus.setStatus('current')
-atmVcCrossConnectL2HOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 11, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("up", 1), ("down", 2), ("unknown", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmVcCrossConnectL2HOperStatus.setStatus('current')
-atmVcCrossConnectH2LOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 11, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("up", 1), ("down", 2), ("unknown", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmVcCrossConnectH2LOperStatus.setStatus('current')
-atmVcCrossConnectL2HLastChange = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 11, 1, 11), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmVcCrossConnectL2HLastChange.setStatus('current')
-atmVcCrossConnectH2LLastChange = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 11, 1, 12), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmVcCrossConnectH2LLastChange.setStatus('current')
-atmVcCrossConnectRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 11, 1, 13), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmVcCrossConnectRowStatus.setStatus('current')
-aal5VccTable = MibTable((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 12), )
-if mibBuilder.loadTexts: aal5VccTable.setStatus('current')
-aal5VccEntry = MibTableRow((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 12, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "LEAN-MIB", "aal5VccVpi"), (0, "LEAN-MIB", "aal5VccVci"))
-if mibBuilder.loadTexts: aal5VccEntry.setStatus('current')
-aal5VccVpi = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 12, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4095)))
-if mibBuilder.loadTexts: aal5VccVpi.setStatus('current')
-aal5VccVci = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 12, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)))
-if mibBuilder.loadTexts: aal5VccVci.setStatus('current')
-aal5VccCrcErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 12, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aal5VccCrcErrors.setStatus('current')
-aal5VccSarTimeOuts = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 12, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aal5VccSarTimeOuts.setStatus('current')
-aal5VccOverSizedSDUs = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 12, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aal5VccOverSizedSDUs.setStatus('current')
-atmMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 1, 2, 2))
-atmMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 1, 2, 2, 1))
-atmMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 1, 2, 2, 2))
-atmMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 42, 1, 2, 2, 2, 1)).setObjects(("LEAN-MIB", "atmInterfaceConfGroup"), ("LEAN-MIB", "atmTrafficDescrGroup"))
+# Import base ASN.1 objects even if this MIB does not use it
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    atmMIBCompliance = atmMIBCompliance.setStatus('current')
-atmInterfaceConfGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 42, 1, 2, 2, 1, 1)).setObjects(("LEAN-MIB", "atmInterfaceMaxVpcs"), ("LEAN-MIB", "atmInterfaceMaxVccs"), ("LEAN-MIB", "atmInterfaceConfVpcs"), ("LEAN-MIB", "atmInterfaceConfVccs"), ("LEAN-MIB", "atmInterfaceMaxActiveVpiBits"), ("LEAN-MIB", "atmInterfaceMaxActiveVciBits"), ("LEAN-MIB", "atmInterfaceIlmiVpi"), ("LEAN-MIB", "atmInterfaceIlmiVci"), ("LEAN-MIB", "atmInterfaceAddressType"), ("LEAN-MIB", "atmInterfaceAdminAddress"), ("LEAN-MIB", "atmInterfaceMyNeighborIpAddress"), ("LEAN-MIB", "atmInterfaceMyNeighborIfName"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    atmInterfaceConfGroup = atmInterfaceConfGroup.setStatus('current')
-atmTrafficDescrGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 42, 1, 2, 2, 1, 2)).setObjects(("LEAN-MIB", "atmTrafficDescrType"), ("LEAN-MIB", "atmTrafficDescrParam1"), ("LEAN-MIB", "atmTrafficDescrParam2"), ("LEAN-MIB", "atmTrafficDescrParam3"), ("LEAN-MIB", "atmTrafficDescrParam4"), ("LEAN-MIB", "atmTrafficDescrParam5"), ("LEAN-MIB", "atmTrafficQoSClass"), ("LEAN-MIB", "atmTrafficDescrRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    atmTrafficDescrGroup = atmTrafficDescrGroup.setStatus('current')
-atmInterfaceDs3PlcpGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 42, 1, 2, 2, 1, 3)).setObjects(("LEAN-MIB", "atmInterfaceDs3PlcpSEFSs"), ("LEAN-MIB", "atmInterfaceDs3PlcpAlarmState"), ("LEAN-MIB", "atmInterfaceDs3PlcpUASs"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    atmInterfaceDs3PlcpGroup = atmInterfaceDs3PlcpGroup.setStatus('current')
-atmInterfaceTCGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 42, 1, 2, 2, 1, 4)).setObjects(("LEAN-MIB", "atmInterfaceOCDEvents"), ("LEAN-MIB", "atmInterfaceTCAlarmState"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    atmInterfaceTCGroup = atmInterfaceTCGroup.setStatus('current')
-atmVpcTerminationGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 42, 1, 2, 2, 1, 5)).setObjects(("LEAN-MIB", "atmVplOperStatus"), ("LEAN-MIB", "atmVplAdminStatus"), ("LEAN-MIB", "atmVplLastChange"), ("LEAN-MIB", "atmVplReceiveTrafficDescrIndex"), ("LEAN-MIB", "atmVplTransmitTrafficDescrIndex"), ("LEAN-MIB", "atmVplRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    atmVpcTerminationGroup = atmVpcTerminationGroup.setStatus('current')
-atmVccTerminationGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 42, 1, 2, 2, 1, 6)).setObjects(("LEAN-MIB", "atmVclOperStatus"), ("LEAN-MIB", "atmVclAdminStatus"), ("LEAN-MIB", "atmVclLastChange"), ("LEAN-MIB", "atmVclReceiveTrafficDescrIndex"), ("LEAN-MIB", "atmVclTransmitTrafficDescrIndex"), ("LEAN-MIB", "atmVccAalType"), ("LEAN-MIB", "atmVclRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    atmVccTerminationGroup = atmVccTerminationGroup.setStatus('current')
-atmVpCrossConnectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 42, 1, 2, 2, 1, 7)).setObjects(("LEAN-MIB", "atmVplReceiveTrafficDescrIndex"), ("LEAN-MIB", "atmVplTransmitTrafficDescrIndex"), ("LEAN-MIB", "atmVplOperStatus"), ("LEAN-MIB", "atmVplRowStatus"), ("LEAN-MIB", "atmVpCrossConnectAdminStatus"), ("LEAN-MIB", "atmVpCrossConnectL2HOperStatus"), ("LEAN-MIB", "atmVpCrossConnectH2LOperStatus"), ("LEAN-MIB", "atmVpCrossConnectL2HLastChange"), ("LEAN-MIB", "atmVpCrossConnectH2LLastChange"), ("LEAN-MIB", "atmVpCrossConnectRowStatus"), ("LEAN-MIB", "atmVplCrossConnectIdentifier"), ("LEAN-MIB", "atmVpCrossConnectIndexNext"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    atmVpCrossConnectGroup = atmVpCrossConnectGroup.setStatus('current')
-atmVcCrossConnectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 42, 1, 2, 2, 1, 8)).setObjects(("LEAN-MIB", "atmVclReceiveTrafficDescrIndex"), ("LEAN-MIB", "atmVclTransmitTrafficDescrIndex"), ("LEAN-MIB", "atmVclOperStatus"), ("LEAN-MIB", "atmVclRowStatus"), ("LEAN-MIB", "atmVcCrossConnectAdminStatus"), ("LEAN-MIB", "atmVcCrossConnectL2HOperStatus"), ("LEAN-MIB", "atmVcCrossConnectH2LOperStatus"), ("LEAN-MIB", "atmVcCrossConnectL2HLastChange"), ("LEAN-MIB", "atmVcCrossConnectH2LLastChange"), ("LEAN-MIB", "atmVcCrossConnectRowStatus"), ("LEAN-MIB", "atmVclCrossConnectIdentifier"), ("LEAN-MIB", "atmVcCrossConnectIndexNext"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    atmVcCrossConnectGroup = atmVcCrossConnectGroup.setStatus('current')
-aal5VccGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 42, 1, 2, 2, 1, 9)).setObjects(("LEAN-MIB", "atmVccAal5CpcsTransmitSduSize"), ("LEAN-MIB", "atmVccAal5CpcsReceiveSduSize"), ("LEAN-MIB", "atmVccAal5EncapsType"), ("LEAN-MIB", "aal5VccCrcErrors"), ("LEAN-MIB", "aal5VccSarTimeOuts"), ("LEAN-MIB", "aal5VccOverSizedSDUs"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    aal5VccGroup = aal5VccGroup.setStatus('current')
-mibBuilder.exportSymbols("LEAN-MIB", atmNoClpScr=atmNoClpScr, atmVpCrossConnectL2HOperStatus=atmVpCrossConnectL2HOperStatus, frMgtVCSigNetLinkRelErrors=frMgtVCSigNetLinkRelErrors, leanMIB=leanMIB, frPVCEndptInExcessFrames=frPVCEndptInExcessFrames, atmVcCrossConnectLowVci=atmVcCrossConnectLowVci, frLportTable=frLportTable, frLportAddrDLCILen=frLportAddrDLCILen, frMgtVCSigUserProtErrors=frMgtVCSigUserProtErrors, atmTrafficDescrParam5=atmTrafficDescrParam5, atmVplTable=atmVplTable, atmVcCrossConnectH2LOperStatus=atmVcCrossConnectH2LOperStatus, atmVpCrossConnectIndex=atmVpCrossConnectIndex, aal5VccVpi=aal5VccVpi, frPVCConnectEntry=frPVCConnectEntry, atmInterfaceIlmiVci=atmInterfaceIlmiVci, frMgtVCSigTable=frMgtVCSigTable, atmVpCrossConnectAdminStatus=atmVpCrossConnectAdminStatus, frAccountPVCEntry=frAccountPVCEntry, atmMIBCompliance=atmMIBCompliance, frPVCConnectH2lOperStatus=frPVCConnectH2lOperStatus, frMgtVCSigNetN393=frMgtVCSigNetN393, frPVCEndptOutExcessFrames=frPVCEndptOutExcessFrames, atmTrafficDescrParamTable=atmTrafficDescrParamTable, atmVplReceiveTrafficDescrIndex=atmVplReceiveTrafficDescrIndex, frAccountLportTable=frAccountLportTable, atmInterfaceIlmiVpi=atmInterfaceIlmiVpi, atmVpCrossConnectLowVpi=atmVpCrossConnectLowVpi, frPVCEndptInMaxFrameSize=frPVCEndptInMaxFrameSize, frMgtVCSigNetN392=frMgtVCSigNetN392, frAccountPVCSegmentSize=frAccountPVCSegmentSize, frPVCEndptInBe=frPVCEndptInBe, atmVpCrossConnectHighIfIndex=atmVpCrossConnectHighIfIndex, atmVplTransmitTrafficDescrIndex=atmVplTransmitTrafficDescrIndex, frPVCConnectTable=frPVCConnectTable, atmClpTaggingNoScr=atmClpTaggingNoScr, atmMIBGroups=atmMIBGroups, atmTrafficDescrParam2=atmTrafficDescrParam2, frPVCEndptInFrames=frPVCEndptInFrames, aal5VccGroup=aal5VccGroup, atmTrafficQoSClass=atmTrafficQoSClass, frnetservLportGroup=frnetservLportGroup, frPVCConnectStatusChange=frPVCConnectStatusChange, frMgtVCSigUserChanInactive=frMgtVCSigUserChanInactive, frPVCEndptInDEFrames=frPVCEndptInDEFrames, frMgtVCSigNetProtErrors=frMgtVCSigNetProtErrors, atmVclTable=atmVclTable, frPVCEndptRcvdSigStatus=frPVCEndptRcvdSigStatus, frnetservObjects=frnetservObjects, frPVCEndptInDiscards=frPVCEndptInDiscards, frnetservTraps=frnetservTraps, frAccountPVCTable=frAccountPVCTable, frnetservMgtVCSigGroup=frnetservMgtVCSigGroup, atmVclVci=atmVclVci, frnetservConformance=frnetservConformance, atmVcCrossConnectH2LLastChange=atmVcCrossConnectH2LLastChange, frPVCConnectRowStatus=frPVCConnectRowStatus, frnetservPVCConnectGroup=frnetservPVCConnectGroup, atmInterfaceMaxActiveVpiBits=atmInterfaceMaxActiveVpiBits, atmInterfaceConfEntry=atmInterfaceConfEntry, aal5VccVci=aal5VccVci, atmTrafficDescrParam3=atmTrafficDescrParam3, frAccountLportEntry=frAccountLportEntry, atmInterfaceMaxVpcs=atmInterfaceMaxVpcs, atmInterfaceConfGroup=atmInterfaceConfGroup, frnetservMIB=frnetservMIB, frLportVCSigPointer=frLportVCSigPointer, frPVCEndptDLCIIndex=frPVCEndptDLCIIndex, frMgtVCSigEntry=frMgtVCSigEntry, atmInterfaceAdminAddress=atmInterfaceAdminAddress, frAccountLportOutSegments=frAccountLportOutSegments, atmTrafficDescrParam1=atmTrafficDescrParam1, atmVcCrossConnectLowVpi=atmVcCrossConnectLowVpi, frPVCEndptInBc=frPVCEndptInBc, atmTrafficDescrRowStatus=atmTrafficDescrRowStatus, atmInterfaceConfVpcs=atmInterfaceConfVpcs, atmVpCrossConnectL2HLastChange=atmVpCrossConnectL2HLastChange, atmVccAal5CpcsReceiveSduSize=atmVccAal5CpcsReceiveSduSize, frPVCEndptOutBc=frPVCEndptOutBc, frPVCEndptTable=frPVCEndptTable, atmTrafficDescrGroup=atmTrafficDescrGroup, atmVpcTerminationGroup=atmVpcTerminationGroup, frPVCConnectAdminStatus=frPVCConnectAdminStatus, atmVclOperStatus=atmVclOperStatus, frLportLocation=frLportLocation, atmVplVpi=atmVplVpi, frPVCConnectHighDLCIIndex=frPVCConnectHighDLCIIndex, atmTrafficDescrParamEntry=atmTrafficDescrParamEntry, atmVcCrossConnectIndexNext=atmVcCrossConnectIndexNext, PYSNMP_MODULE_ID=tellabs, frLportContact=frLportContact, frPVCConnectLowIfIndex=frPVCConnectLowIfIndex, atmVclRowStatus=atmVclRowStatus, frPVCConnectHighIfIndex=frPVCConnectHighIfIndex, frLportEntry=frLportEntry, frPVCConnectH2lLastChange=frPVCConnectH2lLastChange, atmInterfaceTCTable=atmInterfaceTCTable, atmVplCrossConnectIdentifier=atmVplCrossConnectIdentifier, frAccountLportSegmentSize=frAccountLportSegmentSize, frAccountLportInSegments=frAccountLportInSegments, atmInterfaceAddressType=atmInterfaceAddressType, atmVplEntry=atmVplEntry, atmVcCrossConnectHighIfIndex=atmVcCrossConnectHighIfIndex, aal5VccSarTimeOuts=aal5VccSarTimeOuts, atmNoClpNoScr=atmNoClpNoScr, atmMIB=atmMIB, AtmTrafficDescrParamIndex=AtmTrafficDescrParamIndex, frLportVCSigProtocol=frLportVCSigProtocol, atmInterfaceDs3PlcpSEFSs=atmInterfaceDs3PlcpSEFSs, frPVCConnectL2hLastChange=frPVCConnectL2hLastChange, frnetservGroups=frnetservGroups, atmVpCrossConnectTable=atmVpCrossConnectTable, frnetservCompliances=frnetservCompliances, atmVccAalType=atmVccAalType, atmVclCrossConnectIdentifier=atmVclCrossConnectIdentifier, frMgtVCSigProced=frMgtVCSigProced, frPVCEndptEntry=frPVCEndptEntry, frPVCEndptOutOctets=frPVCEndptOutOctets, frAccountPVCOutSegments=frAccountPVCOutSegments, atmInterfaceDs3PlcpUASs=atmInterfaceDs3PlcpUASs, atmVpCrossConnectRowStatus=atmVpCrossConnectRowStatus, atmVccAal5CpcsTransmitSduSize=atmVccAal5CpcsTransmitSduSize, frPVCEndptOutCIR=frPVCEndptOutCIR, frPVCConnectIndex=frPVCConnectIndex, atmInterfaceConfVccs=atmInterfaceConfVccs, IfIndex=IfIndex, aal5VccOverSizedSDUs=aal5VccOverSizedSDUs, frPVCEndptOutBe=frPVCEndptOutBe, frnetservAccountLportGroup=frnetservAccountLportGroup, atmClpTaggingScr=atmClpTaggingScr, frPVCEndptInOctets=frPVCEndptInOctets, atmTrafficDescriptorTypes=atmTrafficDescriptorTypes, frMgtVCSigNetT392=frMgtVCSigNetT392, atmInterfaceDs3PlcpTable=atmInterfaceDs3PlcpTable, atmVpCrossConnectEntry=atmVpCrossConnectEntry, frnetservAccountPVCGroup=frnetservAccountPVCGroup, atmVcCrossConnectEntry=atmVcCrossConnectEntry, atmVclEntry=atmVclEntry, atmVpCrossConnectHighVpi=atmVpCrossConnectHighVpi, atmVpCrossConnectIndexNext=atmVpCrossConnectIndexNext, atmVplLastChange=atmVplLastChange, frMgtVCSigNetnT3=frMgtVCSigNetnT3, atmInterfaceConfTable=atmInterfaceConfTable, atmVpCrossConnectH2LLastChange=atmVpCrossConnectH2LLastChange, atmClpNoTaggingNoScr=atmClpNoTaggingNoScr, atmInterfaceMaxVccs=atmInterfaceMaxVccs, atmMIBObjects=atmMIBObjects, atmVpCrossConnectGroup=atmVpCrossConnectGroup, aal5VccCrcErrors=aal5VccCrcErrors, atmInterfaceTCAlarmState=atmInterfaceTCAlarmState, atmVccAal5EncapsType=atmVccAal5EncapsType, frMgtVCSigUserN393=frMgtVCSigUserN393, atmTrafficDescrParam4=atmTrafficDescrParam4, atmVcCrossConnectL2HOperStatus=atmVcCrossConnectL2HOperStatus, frMgtVCSigUserT391=frMgtVCSigUserT391, atmVcCrossConnectRowStatus=atmVcCrossConnectRowStatus, frPVCEndptRowStatus=frPVCEndptRowStatus, frAccountPVCDLCIIndex=frAccountPVCDLCIIndex, atmVcCrossConnectHighVpi=atmVcCrossConnectHighVpi, atmVclAdminStatus=atmVclAdminStatus, atmVcCrossConnectAdminStatus=atmVcCrossConnectAdminStatus, atmVcCrossConnectTable=atmVcCrossConnectTable, frnetservCompliance=frnetservCompliance, aal5VccEntry=aal5VccEntry, frMgtVCSigUserN392=frMgtVCSigUserN392, frPVCEndptOutMaxFrameSize=frPVCEndptOutMaxFrameSize, atmVplRowStatus=atmVplRowStatus, frLportType=frLportType, atmVccTerminationGroup=atmVccTerminationGroup, frAccountPVCInSegments=frAccountPVCInSegments, frPVCEndptConnectIdentifier=frPVCEndptConnectIdentifier, atmVpCrossConnectH2LOperStatus=atmVpCrossConnectH2LOperStatus, atmNoTrafficDescriptor=atmNoTrafficDescriptor, atmVcCrossConnectGroup=atmVcCrossConnectGroup, atmVclReceiveTrafficDescrIndex=atmVclReceiveTrafficDescrIndex, atmInterfaceDs3PlcpAlarmState=atmInterfaceDs3PlcpAlarmState, frPVCConnectLowDLCIIndex=frPVCConnectLowDLCIIndex, atmVpCrossConnectLowIfIndex=atmVpCrossConnectLowIfIndex, atmVclLastChange=atmVclLastChange, atmVplOperStatus=atmVplOperStatus, atmInterfaceDs3PlcpEntry=atmInterfaceDs3PlcpEntry, atmInterfaceOCDEvents=atmInterfaceOCDEvents, frMgtVCSigUserN391=frMgtVCSigUserN391, atmInterfaceMaxActiveVciBits=atmInterfaceMaxActiveVciBits, atmVcCrossConnectL2HLastChange=atmVcCrossConnectL2HLastChange, frMgtVCSigNetnN4=frMgtVCSigNetnN4, atmInterfaceMyNeighborIpAddress=atmInterfaceMyNeighborIpAddress, atmVcCrossConnectIndex=atmVcCrossConnectIndex, frMgtVCSigUserLinkRelErrors=frMgtVCSigUserLinkRelErrors, atmVcCrossConnectLowIfIndex=atmVcCrossConnectLowIfIndex, tellabs=tellabs, atmTrafficDescrParamIndex=atmTrafficDescrParamIndex, atmInterfaceTCEntry=atmInterfaceTCEntry, atmTrafficDescrType=atmTrafficDescrType, frLportNumPlan=frLportNumPlan, atmClpNoTaggingScr=atmClpNoTaggingScr, atmMIBConformance=atmMIBConformance, atmMIBCompliances=atmMIBCompliances, frnetservPVCEndptGroup=frnetservPVCEndptGroup, atmVcCrossConnectHighVci=atmVcCrossConnectHighVci, atmVclVpi=atmVclVpi, atmInterfaceTCGroup=atmInterfaceTCGroup, atmVplAdminStatus=atmVplAdminStatus, atmVclTransmitTrafficDescrIndex=atmVclTransmitTrafficDescrIndex, aal5VccTable=aal5VccTable, frPVCEndptOutFrames=frPVCEndptOutFrames, frPVCConnectIndexValue=frPVCConnectIndexValue, atmInterfaceDs3PlcpGroup=atmInterfaceDs3PlcpGroup, frPVCConnectL2hOperStatus=frPVCConnectL2hOperStatus, frPVCEndptInCIR=frPVCEndptInCIR, frMgtVCSigNetChanInactive=frMgtVCSigNetChanInactive, atmInterfaceMyNeighborIfName=atmInterfaceMyNeighborIfName)
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TimeStamp) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TimeStamp")
+
+
+# MODULE-IDENTITY
+
+tellabs = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 42)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class IfIndex(Integer32, TextualConvention):
+    status = "current"
+
+
+class AtmTrafficDescrParamIndex(Integer32, TextualConvention):
+    status = "current"
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_LeanMIB_ObjectIdentity = ObjectIdentity
+leanMIB = _LeanMIB_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 1)
+)
+_FrnetservMIB_ObjectIdentity = ObjectIdentity
+frnetservMIB = _FrnetservMIB_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1)
+)
+_FrnetservObjects_ObjectIdentity = ObjectIdentity
+frnetservObjects = _FrnetservObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1)
+)
+_FrLportTable_Object = MibTable
+frLportTable = _FrLportTable_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    frLportTable.setStatus("current")
+_FrLportEntry_Object = MibTableRow
+frLportEntry = _FrLportEntry_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 1, 1)
+)
+frLportEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    frLportEntry.setStatus("current")
+
+
+class _FrLportNumPlan_Type(Integer32):
+    """Custom type frLportNumPlan based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("e164", 2),
+          ("none", 4),
+          ("other", 1),
+          ("x121", 3))
+    )
+
+
+_FrLportNumPlan_Type.__name__ = "Integer32"
+_FrLportNumPlan_Object = MibTableColumn
+frLportNumPlan = _FrLportNumPlan_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 1, 1, 1),
+    _FrLportNumPlan_Type()
+)
+frLportNumPlan.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frLportNumPlan.setStatus("current")
+
+
+class _FrLportContact_Type(DisplayString):
+    """Custom type frLportContact based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_FrLportContact_Type.__name__ = "DisplayString"
+_FrLportContact_Object = MibTableColumn
+frLportContact = _FrLportContact_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 1, 1, 2),
+    _FrLportContact_Type()
+)
+frLportContact.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frLportContact.setStatus("current")
+
+
+class _FrLportLocation_Type(DisplayString):
+    """Custom type frLportLocation based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_FrLportLocation_Type.__name__ = "DisplayString"
+_FrLportLocation_Object = MibTableColumn
+frLportLocation = _FrLportLocation_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 1, 1, 3),
+    _FrLportLocation_Type()
+)
+frLportLocation.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frLportLocation.setStatus("current")
+
+
+class _FrLportType_Type(Integer32):
+    """Custom type frLportType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("nni", 2),
+          ("uni", 1))
+    )
+
+
+_FrLportType_Type.__name__ = "Integer32"
+_FrLportType_Object = MibTableColumn
+frLportType = _FrLportType_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 1, 1, 4),
+    _FrLportType_Type()
+)
+frLportType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frLportType.setStatus("current")
+
+
+class _FrLportAddrDLCILen_Type(Integer32):
+    """Custom type frLportAddrDLCILen based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("fourOctets17Bits", 4),
+          ("fourOctets23Bits", 5),
+          ("threeOctets10Bits", 2),
+          ("threeOctets16Bits", 3),
+          ("twoOctets10Bits", 1))
+    )
+
+
+_FrLportAddrDLCILen_Type.__name__ = "Integer32"
+_FrLportAddrDLCILen_Object = MibTableColumn
+frLportAddrDLCILen = _FrLportAddrDLCILen_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 1, 1, 5),
+    _FrLportAddrDLCILen_Type()
+)
+frLportAddrDLCILen.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frLportAddrDLCILen.setStatus("current")
+
+
+class _FrLportVCSigProtocol_Type(Integer32):
+    """Custom type frLportVCSigProtocol based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ansiT1617B", 4),
+          ("ansiT1617D", 3),
+          ("ccittQ933A", 5),
+          ("lmi", 2),
+          ("none", 1))
+    )
+
+
+_FrLportVCSigProtocol_Type.__name__ = "Integer32"
+_FrLportVCSigProtocol_Object = MibTableColumn
+frLportVCSigProtocol = _FrLportVCSigProtocol_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 1, 1, 6),
+    _FrLportVCSigProtocol_Type()
+)
+frLportVCSigProtocol.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frLportVCSigProtocol.setStatus("current")
+_FrLportVCSigPointer_Type = ObjectIdentifier
+_FrLportVCSigPointer_Object = MibTableColumn
+frLportVCSigPointer = _FrLportVCSigPointer_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 1, 1, 7),
+    _FrLportVCSigPointer_Type()
+)
+frLportVCSigPointer.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frLportVCSigPointer.setStatus("current")
+_FrMgtVCSigTable_Object = MibTable
+frMgtVCSigTable = _FrMgtVCSigTable_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    frMgtVCSigTable.setStatus("current")
+_FrMgtVCSigEntry_Object = MibTableRow
+frMgtVCSigEntry = _FrMgtVCSigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 2, 1)
+)
+frMgtVCSigEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    frMgtVCSigEntry.setStatus("current")
+
+
+class _FrMgtVCSigProced_Type(Integer32):
+    """Custom type frMgtVCSigProced based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("bidirect", 2),
+          ("u2nnet", 1))
+    )
+
+
+_FrMgtVCSigProced_Type.__name__ = "Integer32"
+_FrMgtVCSigProced_Object = MibTableColumn
+frMgtVCSigProced = _FrMgtVCSigProced_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 2, 1, 1),
+    _FrMgtVCSigProced_Type()
+)
+frMgtVCSigProced.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frMgtVCSigProced.setStatus("current")
+
+
+class _FrMgtVCSigUserN391_Type(Integer32):
+    """Custom type frMgtVCSigUserN391 based on Integer32"""
+    defaultValue = 6
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_FrMgtVCSigUserN391_Type.__name__ = "Integer32"
+_FrMgtVCSigUserN391_Object = MibTableColumn
+frMgtVCSigUserN391 = _FrMgtVCSigUserN391_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 2, 1, 2),
+    _FrMgtVCSigUserN391_Type()
+)
+frMgtVCSigUserN391.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frMgtVCSigUserN391.setStatus("current")
+
+
+class _FrMgtVCSigUserN392_Type(Integer32):
+    """Custom type frMgtVCSigUserN392 based on Integer32"""
+    defaultValue = 3
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 10),
+    )
+
+
+_FrMgtVCSigUserN392_Type.__name__ = "Integer32"
+_FrMgtVCSigUserN392_Object = MibTableColumn
+frMgtVCSigUserN392 = _FrMgtVCSigUserN392_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 2, 1, 3),
+    _FrMgtVCSigUserN392_Type()
+)
+frMgtVCSigUserN392.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frMgtVCSigUserN392.setStatus("current")
+
+
+class _FrMgtVCSigUserN393_Type(Integer32):
+    """Custom type frMgtVCSigUserN393 based on Integer32"""
+    defaultValue = 4
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 10),
+    )
+
+
+_FrMgtVCSigUserN393_Type.__name__ = "Integer32"
+_FrMgtVCSigUserN393_Object = MibTableColumn
+frMgtVCSigUserN393 = _FrMgtVCSigUserN393_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 2, 1, 4),
+    _FrMgtVCSigUserN393_Type()
+)
+frMgtVCSigUserN393.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frMgtVCSigUserN393.setStatus("current")
+
+
+class _FrMgtVCSigUserT391_Type(Integer32):
+    """Custom type frMgtVCSigUserT391 based on Integer32"""
+    defaultValue = 10
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(5, 30),
+    )
+
+
+_FrMgtVCSigUserT391_Type.__name__ = "Integer32"
+_FrMgtVCSigUserT391_Object = MibTableColumn
+frMgtVCSigUserT391 = _FrMgtVCSigUserT391_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 2, 1, 5),
+    _FrMgtVCSigUserT391_Type()
+)
+frMgtVCSigUserT391.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frMgtVCSigUserT391.setStatus("current")
+
+
+class _FrMgtVCSigNetN392_Type(Integer32):
+    """Custom type frMgtVCSigNetN392 based on Integer32"""
+    defaultValue = 3
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 10),
+    )
+
+
+_FrMgtVCSigNetN392_Type.__name__ = "Integer32"
+_FrMgtVCSigNetN392_Object = MibTableColumn
+frMgtVCSigNetN392 = _FrMgtVCSigNetN392_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 2, 1, 6),
+    _FrMgtVCSigNetN392_Type()
+)
+frMgtVCSigNetN392.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frMgtVCSigNetN392.setStatus("current")
+
+
+class _FrMgtVCSigNetN393_Type(Integer32):
+    """Custom type frMgtVCSigNetN393 based on Integer32"""
+    defaultValue = 4
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 10),
+    )
+
+
+_FrMgtVCSigNetN393_Type.__name__ = "Integer32"
+_FrMgtVCSigNetN393_Object = MibTableColumn
+frMgtVCSigNetN393 = _FrMgtVCSigNetN393_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 2, 1, 7),
+    _FrMgtVCSigNetN393_Type()
+)
+frMgtVCSigNetN393.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frMgtVCSigNetN393.setStatus("current")
+
+
+class _FrMgtVCSigNetT392_Type(Integer32):
+    """Custom type frMgtVCSigNetT392 based on Integer32"""
+    defaultValue = 15
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(5, 30),
+    )
+
+
+_FrMgtVCSigNetT392_Type.__name__ = "Integer32"
+_FrMgtVCSigNetT392_Object = MibTableColumn
+frMgtVCSigNetT392 = _FrMgtVCSigNetT392_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 2, 1, 8),
+    _FrMgtVCSigNetT392_Type()
+)
+frMgtVCSigNetT392.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frMgtVCSigNetT392.setStatus("current")
+
+
+class _FrMgtVCSigNetnN4_Type(Integer32):
+    """Custom type frMgtVCSigNetnN4 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(5, 5),
+    )
+
+
+_FrMgtVCSigNetnN4_Type.__name__ = "Integer32"
+_FrMgtVCSigNetnN4_Object = MibTableColumn
+frMgtVCSigNetnN4 = _FrMgtVCSigNetnN4_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 2, 1, 9),
+    _FrMgtVCSigNetnN4_Type()
+)
+frMgtVCSigNetnN4.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frMgtVCSigNetnN4.setStatus("current")
+
+
+class _FrMgtVCSigNetnT3_Type(Integer32):
+    """Custom type frMgtVCSigNetnT3 based on Integer32"""
+    defaultValue = 20
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(5, 5),
+        ValueRangeConstraint(10, 10),
+        ValueRangeConstraint(15, 15),
+        ValueRangeConstraint(20, 20),
+        ValueRangeConstraint(25, 25),
+        ValueRangeConstraint(30, 30),
+    )
+
+
+_FrMgtVCSigNetnT3_Type.__name__ = "Integer32"
+_FrMgtVCSigNetnT3_Object = MibTableColumn
+frMgtVCSigNetnT3 = _FrMgtVCSigNetnT3_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 2, 1, 10),
+    _FrMgtVCSigNetnT3_Type()
+)
+frMgtVCSigNetnT3.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frMgtVCSigNetnT3.setStatus("current")
+_FrMgtVCSigUserLinkRelErrors_Type = Counter32
+_FrMgtVCSigUserLinkRelErrors_Object = MibTableColumn
+frMgtVCSigUserLinkRelErrors = _FrMgtVCSigUserLinkRelErrors_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 2, 1, 11),
+    _FrMgtVCSigUserLinkRelErrors_Type()
+)
+frMgtVCSigUserLinkRelErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frMgtVCSigUserLinkRelErrors.setStatus("current")
+_FrMgtVCSigUserProtErrors_Type = Counter32
+_FrMgtVCSigUserProtErrors_Object = MibTableColumn
+frMgtVCSigUserProtErrors = _FrMgtVCSigUserProtErrors_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 2, 1, 12),
+    _FrMgtVCSigUserProtErrors_Type()
+)
+frMgtVCSigUserProtErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frMgtVCSigUserProtErrors.setStatus("current")
+_FrMgtVCSigUserChanInactive_Type = Counter32
+_FrMgtVCSigUserChanInactive_Object = MibTableColumn
+frMgtVCSigUserChanInactive = _FrMgtVCSigUserChanInactive_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 2, 1, 13),
+    _FrMgtVCSigUserChanInactive_Type()
+)
+frMgtVCSigUserChanInactive.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frMgtVCSigUserChanInactive.setStatus("current")
+_FrMgtVCSigNetLinkRelErrors_Type = Counter32
+_FrMgtVCSigNetLinkRelErrors_Object = MibTableColumn
+frMgtVCSigNetLinkRelErrors = _FrMgtVCSigNetLinkRelErrors_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 2, 1, 14),
+    _FrMgtVCSigNetLinkRelErrors_Type()
+)
+frMgtVCSigNetLinkRelErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frMgtVCSigNetLinkRelErrors.setStatus("current")
+_FrMgtVCSigNetProtErrors_Type = Counter32
+_FrMgtVCSigNetProtErrors_Object = MibTableColumn
+frMgtVCSigNetProtErrors = _FrMgtVCSigNetProtErrors_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 2, 1, 15),
+    _FrMgtVCSigNetProtErrors_Type()
+)
+frMgtVCSigNetProtErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frMgtVCSigNetProtErrors.setStatus("current")
+_FrMgtVCSigNetChanInactive_Type = Counter32
+_FrMgtVCSigNetChanInactive_Object = MibTableColumn
+frMgtVCSigNetChanInactive = _FrMgtVCSigNetChanInactive_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 2, 1, 16),
+    _FrMgtVCSigNetChanInactive_Type()
+)
+frMgtVCSigNetChanInactive.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frMgtVCSigNetChanInactive.setStatus("current")
+_FrPVCEndptTable_Object = MibTable
+frPVCEndptTable = _FrPVCEndptTable_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3)
+)
+if mibBuilder.loadTexts:
+    frPVCEndptTable.setStatus("current")
+_FrPVCEndptEntry_Object = MibTableRow
+frPVCEndptEntry = _FrPVCEndptEntry_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1)
+)
+frPVCEndptEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+    (0, "LEAN-MIB", "frPVCEndptDLCIIndex"),
+)
+if mibBuilder.loadTexts:
+    frPVCEndptEntry.setStatus("current")
+_FrPVCEndptDLCIIndex_Type = Integer32
+_FrPVCEndptDLCIIndex_Object = MibTableColumn
+frPVCEndptDLCIIndex = _FrPVCEndptDLCIIndex_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 1),
+    _FrPVCEndptDLCIIndex_Type()
+)
+frPVCEndptDLCIIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    frPVCEndptDLCIIndex.setStatus("current")
+_FrPVCEndptInMaxFrameSize_Type = Integer32
+_FrPVCEndptInMaxFrameSize_Object = MibTableColumn
+frPVCEndptInMaxFrameSize = _FrPVCEndptInMaxFrameSize_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 2),
+    _FrPVCEndptInMaxFrameSize_Type()
+)
+frPVCEndptInMaxFrameSize.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    frPVCEndptInMaxFrameSize.setStatus("current")
+_FrPVCEndptInBc_Type = Integer32
+_FrPVCEndptInBc_Object = MibTableColumn
+frPVCEndptInBc = _FrPVCEndptInBc_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 3),
+    _FrPVCEndptInBc_Type()
+)
+frPVCEndptInBc.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    frPVCEndptInBc.setStatus("current")
+_FrPVCEndptInBe_Type = Integer32
+_FrPVCEndptInBe_Object = MibTableColumn
+frPVCEndptInBe = _FrPVCEndptInBe_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 4),
+    _FrPVCEndptInBe_Type()
+)
+frPVCEndptInBe.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    frPVCEndptInBe.setStatus("current")
+_FrPVCEndptInCIR_Type = Integer32
+_FrPVCEndptInCIR_Object = MibTableColumn
+frPVCEndptInCIR = _FrPVCEndptInCIR_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 5),
+    _FrPVCEndptInCIR_Type()
+)
+frPVCEndptInCIR.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    frPVCEndptInCIR.setStatus("current")
+_FrPVCEndptOutMaxFrameSize_Type = Integer32
+_FrPVCEndptOutMaxFrameSize_Object = MibTableColumn
+frPVCEndptOutMaxFrameSize = _FrPVCEndptOutMaxFrameSize_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 6),
+    _FrPVCEndptOutMaxFrameSize_Type()
+)
+frPVCEndptOutMaxFrameSize.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    frPVCEndptOutMaxFrameSize.setStatus("current")
+_FrPVCEndptOutBc_Type = Integer32
+_FrPVCEndptOutBc_Object = MibTableColumn
+frPVCEndptOutBc = _FrPVCEndptOutBc_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 7),
+    _FrPVCEndptOutBc_Type()
+)
+frPVCEndptOutBc.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    frPVCEndptOutBc.setStatus("current")
+_FrPVCEndptOutBe_Type = Integer32
+_FrPVCEndptOutBe_Object = MibTableColumn
+frPVCEndptOutBe = _FrPVCEndptOutBe_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 8),
+    _FrPVCEndptOutBe_Type()
+)
+frPVCEndptOutBe.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    frPVCEndptOutBe.setStatus("current")
+_FrPVCEndptOutCIR_Type = Integer32
+_FrPVCEndptOutCIR_Object = MibTableColumn
+frPVCEndptOutCIR = _FrPVCEndptOutCIR_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 9),
+    _FrPVCEndptOutCIR_Type()
+)
+frPVCEndptOutCIR.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    frPVCEndptOutCIR.setStatus("current")
+_FrPVCEndptConnectIdentifier_Type = Integer32
+_FrPVCEndptConnectIdentifier_Object = MibTableColumn
+frPVCEndptConnectIdentifier = _FrPVCEndptConnectIdentifier_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 10),
+    _FrPVCEndptConnectIdentifier_Type()
+)
+frPVCEndptConnectIdentifier.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frPVCEndptConnectIdentifier.setStatus("current")
+_FrPVCEndptRowStatus_Type = RowStatus
+_FrPVCEndptRowStatus_Object = MibTableColumn
+frPVCEndptRowStatus = _FrPVCEndptRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 11),
+    _FrPVCEndptRowStatus_Type()
+)
+frPVCEndptRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    frPVCEndptRowStatus.setStatus("current")
+
+
+class _FrPVCEndptRcvdSigStatus_Type(Integer32):
+    """Custom type frPVCEndptRcvdSigStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 2),
+          ("deleted", 1),
+          ("inactive", 3),
+          ("none", 4))
+    )
+
+
+_FrPVCEndptRcvdSigStatus_Type.__name__ = "Integer32"
+_FrPVCEndptRcvdSigStatus_Object = MibTableColumn
+frPVCEndptRcvdSigStatus = _FrPVCEndptRcvdSigStatus_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 12),
+    _FrPVCEndptRcvdSigStatus_Type()
+)
+frPVCEndptRcvdSigStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frPVCEndptRcvdSigStatus.setStatus("current")
+_FrPVCEndptInFrames_Type = Counter32
+_FrPVCEndptInFrames_Object = MibTableColumn
+frPVCEndptInFrames = _FrPVCEndptInFrames_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 13),
+    _FrPVCEndptInFrames_Type()
+)
+frPVCEndptInFrames.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frPVCEndptInFrames.setStatus("current")
+_FrPVCEndptOutFrames_Type = Counter32
+_FrPVCEndptOutFrames_Object = MibTableColumn
+frPVCEndptOutFrames = _FrPVCEndptOutFrames_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 14),
+    _FrPVCEndptOutFrames_Type()
+)
+frPVCEndptOutFrames.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frPVCEndptOutFrames.setStatus("current")
+_FrPVCEndptInDEFrames_Type = Counter32
+_FrPVCEndptInDEFrames_Object = MibTableColumn
+frPVCEndptInDEFrames = _FrPVCEndptInDEFrames_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 15),
+    _FrPVCEndptInDEFrames_Type()
+)
+frPVCEndptInDEFrames.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frPVCEndptInDEFrames.setStatus("current")
+_FrPVCEndptInExcessFrames_Type = Counter32
+_FrPVCEndptInExcessFrames_Object = MibTableColumn
+frPVCEndptInExcessFrames = _FrPVCEndptInExcessFrames_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 16),
+    _FrPVCEndptInExcessFrames_Type()
+)
+frPVCEndptInExcessFrames.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frPVCEndptInExcessFrames.setStatus("current")
+_FrPVCEndptOutExcessFrames_Type = Counter32
+_FrPVCEndptOutExcessFrames_Object = MibTableColumn
+frPVCEndptOutExcessFrames = _FrPVCEndptOutExcessFrames_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 17),
+    _FrPVCEndptOutExcessFrames_Type()
+)
+frPVCEndptOutExcessFrames.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frPVCEndptOutExcessFrames.setStatus("current")
+_FrPVCEndptInDiscards_Type = Counter32
+_FrPVCEndptInDiscards_Object = MibTableColumn
+frPVCEndptInDiscards = _FrPVCEndptInDiscards_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 18),
+    _FrPVCEndptInDiscards_Type()
+)
+frPVCEndptInDiscards.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frPVCEndptInDiscards.setStatus("current")
+_FrPVCEndptInOctets_Type = Counter32
+_FrPVCEndptInOctets_Object = MibTableColumn
+frPVCEndptInOctets = _FrPVCEndptInOctets_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 19),
+    _FrPVCEndptInOctets_Type()
+)
+frPVCEndptInOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frPVCEndptInOctets.setStatus("current")
+_FrPVCEndptOutOctets_Type = Counter32
+_FrPVCEndptOutOctets_Object = MibTableColumn
+frPVCEndptOutOctets = _FrPVCEndptOutOctets_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 3, 1, 20),
+    _FrPVCEndptOutOctets_Type()
+)
+frPVCEndptOutOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frPVCEndptOutOctets.setStatus("current")
+
+
+class _FrPVCConnectIndexValue_Type(Integer32):
+    """Custom type frPVCConnectIndexValue based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_FrPVCConnectIndexValue_Type.__name__ = "Integer32"
+_FrPVCConnectIndexValue_Object = MibScalar
+frPVCConnectIndexValue = _FrPVCConnectIndexValue_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 4),
+    _FrPVCConnectIndexValue_Type()
+)
+frPVCConnectIndexValue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frPVCConnectIndexValue.setStatus("current")
+_FrPVCConnectTable_Object = MibTable
+frPVCConnectTable = _FrPVCConnectTable_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 5)
+)
+if mibBuilder.loadTexts:
+    frPVCConnectTable.setStatus("current")
+_FrPVCConnectEntry_Object = MibTableRow
+frPVCConnectEntry = _FrPVCConnectEntry_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 5, 1)
+)
+frPVCConnectEntry.setIndexNames(
+    (0, "LEAN-MIB", "frPVCConnectIndex"),
+    (0, "LEAN-MIB", "frPVCConnectLowIfIndex"),
+    (0, "LEAN-MIB", "frPVCConnectLowDLCIIndex"),
+    (0, "LEAN-MIB", "frPVCConnectHighIfIndex"),
+    (0, "LEAN-MIB", "frPVCConnectHighDLCIIndex"),
+)
+if mibBuilder.loadTexts:
+    frPVCConnectEntry.setStatus("current")
+_FrPVCConnectIndex_Type = Integer32
+_FrPVCConnectIndex_Object = MibTableColumn
+frPVCConnectIndex = _FrPVCConnectIndex_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 5, 1, 1),
+    _FrPVCConnectIndex_Type()
+)
+frPVCConnectIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    frPVCConnectIndex.setStatus("current")
+_FrPVCConnectLowIfIndex_Type = IfIndex
+_FrPVCConnectLowIfIndex_Object = MibTableColumn
+frPVCConnectLowIfIndex = _FrPVCConnectLowIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 5, 1, 2),
+    _FrPVCConnectLowIfIndex_Type()
+)
+frPVCConnectLowIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    frPVCConnectLowIfIndex.setStatus("current")
+_FrPVCConnectLowDLCIIndex_Type = Integer32
+_FrPVCConnectLowDLCIIndex_Object = MibTableColumn
+frPVCConnectLowDLCIIndex = _FrPVCConnectLowDLCIIndex_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 5, 1, 3),
+    _FrPVCConnectLowDLCIIndex_Type()
+)
+frPVCConnectLowDLCIIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    frPVCConnectLowDLCIIndex.setStatus("current")
+_FrPVCConnectHighIfIndex_Type = IfIndex
+_FrPVCConnectHighIfIndex_Object = MibTableColumn
+frPVCConnectHighIfIndex = _FrPVCConnectHighIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 5, 1, 4),
+    _FrPVCConnectHighIfIndex_Type()
+)
+frPVCConnectHighIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    frPVCConnectHighIfIndex.setStatus("current")
+_FrPVCConnectHighDLCIIndex_Type = Integer32
+_FrPVCConnectHighDLCIIndex_Object = MibTableColumn
+frPVCConnectHighDLCIIndex = _FrPVCConnectHighDLCIIndex_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 5, 1, 5),
+    _FrPVCConnectHighDLCIIndex_Type()
+)
+frPVCConnectHighDLCIIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    frPVCConnectHighDLCIIndex.setStatus("current")
+
+
+class _FrPVCConnectAdminStatus_Type(Integer32):
+    """Custom type frPVCConnectAdminStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 1),
+          ("inactive", 2),
+          ("testing", 3))
+    )
+
+
+_FrPVCConnectAdminStatus_Type.__name__ = "Integer32"
+_FrPVCConnectAdminStatus_Object = MibTableColumn
+frPVCConnectAdminStatus = _FrPVCConnectAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 5, 1, 6),
+    _FrPVCConnectAdminStatus_Type()
+)
+frPVCConnectAdminStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    frPVCConnectAdminStatus.setStatus("current")
+
+
+class _FrPVCConnectL2hOperStatus_Type(Integer32):
+    """Custom type frPVCConnectL2hOperStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 1),
+          ("inactive", 2),
+          ("testing", 3),
+          ("unknown", 4))
+    )
+
+
+_FrPVCConnectL2hOperStatus_Type.__name__ = "Integer32"
+_FrPVCConnectL2hOperStatus_Object = MibTableColumn
+frPVCConnectL2hOperStatus = _FrPVCConnectL2hOperStatus_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 5, 1, 7),
+    _FrPVCConnectL2hOperStatus_Type()
+)
+frPVCConnectL2hOperStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frPVCConnectL2hOperStatus.setStatus("current")
+
+
+class _FrPVCConnectH2lOperStatus_Type(Integer32):
+    """Custom type frPVCConnectH2lOperStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 1),
+          ("inactive", 2),
+          ("testing", 3),
+          ("unknown", 4))
+    )
+
+
+_FrPVCConnectH2lOperStatus_Type.__name__ = "Integer32"
+_FrPVCConnectH2lOperStatus_Object = MibTableColumn
+frPVCConnectH2lOperStatus = _FrPVCConnectH2lOperStatus_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 5, 1, 8),
+    _FrPVCConnectH2lOperStatus_Type()
+)
+frPVCConnectH2lOperStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frPVCConnectH2lOperStatus.setStatus("current")
+_FrPVCConnectL2hLastChange_Type = TimeStamp
+_FrPVCConnectL2hLastChange_Object = MibTableColumn
+frPVCConnectL2hLastChange = _FrPVCConnectL2hLastChange_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 5, 1, 9),
+    _FrPVCConnectL2hLastChange_Type()
+)
+frPVCConnectL2hLastChange.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frPVCConnectL2hLastChange.setStatus("current")
+_FrPVCConnectH2lLastChange_Type = TimeStamp
+_FrPVCConnectH2lLastChange_Object = MibTableColumn
+frPVCConnectH2lLastChange = _FrPVCConnectH2lLastChange_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 5, 1, 10),
+    _FrPVCConnectH2lLastChange_Type()
+)
+frPVCConnectH2lLastChange.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frPVCConnectH2lLastChange.setStatus("current")
+_FrPVCConnectRowStatus_Type = RowStatus
+_FrPVCConnectRowStatus_Object = MibTableColumn
+frPVCConnectRowStatus = _FrPVCConnectRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 5, 1, 11),
+    _FrPVCConnectRowStatus_Type()
+)
+frPVCConnectRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    frPVCConnectRowStatus.setStatus("current")
+_FrAccountPVCTable_Object = MibTable
+frAccountPVCTable = _FrAccountPVCTable_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 6)
+)
+if mibBuilder.loadTexts:
+    frAccountPVCTable.setStatus("current")
+_FrAccountPVCEntry_Object = MibTableRow
+frAccountPVCEntry = _FrAccountPVCEntry_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 6, 1)
+)
+frAccountPVCEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+    (0, "LEAN-MIB", "frAccountPVCDLCIIndex"),
+)
+if mibBuilder.loadTexts:
+    frAccountPVCEntry.setStatus("current")
+_FrAccountPVCDLCIIndex_Type = Integer32
+_FrAccountPVCDLCIIndex_Object = MibTableColumn
+frAccountPVCDLCIIndex = _FrAccountPVCDLCIIndex_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 6, 1, 1),
+    _FrAccountPVCDLCIIndex_Type()
+)
+frAccountPVCDLCIIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    frAccountPVCDLCIIndex.setStatus("current")
+_FrAccountPVCSegmentSize_Type = Integer32
+_FrAccountPVCSegmentSize_Object = MibTableColumn
+frAccountPVCSegmentSize = _FrAccountPVCSegmentSize_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 6, 1, 2),
+    _FrAccountPVCSegmentSize_Type()
+)
+frAccountPVCSegmentSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frAccountPVCSegmentSize.setStatus("current")
+_FrAccountPVCInSegments_Type = Counter32
+_FrAccountPVCInSegments_Object = MibTableColumn
+frAccountPVCInSegments = _FrAccountPVCInSegments_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 6, 1, 3),
+    _FrAccountPVCInSegments_Type()
+)
+frAccountPVCInSegments.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frAccountPVCInSegments.setStatus("current")
+_FrAccountPVCOutSegments_Type = Counter32
+_FrAccountPVCOutSegments_Object = MibTableColumn
+frAccountPVCOutSegments = _FrAccountPVCOutSegments_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 6, 1, 4),
+    _FrAccountPVCOutSegments_Type()
+)
+frAccountPVCOutSegments.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frAccountPVCOutSegments.setStatus("current")
+_FrAccountLportTable_Object = MibTable
+frAccountLportTable = _FrAccountLportTable_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 7)
+)
+if mibBuilder.loadTexts:
+    frAccountLportTable.setStatus("current")
+_FrAccountLportEntry_Object = MibTableRow
+frAccountLportEntry = _FrAccountLportEntry_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 7, 1)
+)
+frAccountLportEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    frAccountLportEntry.setStatus("current")
+_FrAccountLportSegmentSize_Type = Integer32
+_FrAccountLportSegmentSize_Object = MibTableColumn
+frAccountLportSegmentSize = _FrAccountLportSegmentSize_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 7, 1, 1),
+    _FrAccountLportSegmentSize_Type()
+)
+frAccountLportSegmentSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frAccountLportSegmentSize.setStatus("current")
+_FrAccountLportInSegments_Type = Counter32
+_FrAccountLportInSegments_Object = MibTableColumn
+frAccountLportInSegments = _FrAccountLportInSegments_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 7, 1, 2),
+    _FrAccountLportInSegments_Type()
+)
+frAccountLportInSegments.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frAccountLportInSegments.setStatus("current")
+_FrAccountLportOutSegments_Type = Counter32
+_FrAccountLportOutSegments_Object = MibTableColumn
+frAccountLportOutSegments = _FrAccountLportOutSegments_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 1, 7, 1, 3),
+    _FrAccountLportOutSegments_Type()
+)
+frAccountLportOutSegments.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    frAccountLportOutSegments.setStatus("current")
+_FrnetservTraps_ObjectIdentity = ObjectIdentity
+frnetservTraps = _FrnetservTraps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 2)
+)
+_FrnetservConformance_ObjectIdentity = ObjectIdentity
+frnetservConformance = _FrnetservConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 3)
+)
+_FrnetservGroups_ObjectIdentity = ObjectIdentity
+frnetservGroups = _FrnetservGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 3, 1)
+)
+_FrnetservCompliances_ObjectIdentity = ObjectIdentity
+frnetservCompliances = _FrnetservCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 3, 2)
+)
+_AtmMIB_ObjectIdentity = ObjectIdentity
+atmMIB = _AtmMIB_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2)
+)
+_AtmMIBObjects_ObjectIdentity = ObjectIdentity
+atmMIBObjects = _AtmMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1)
+)
+_AtmTrafficDescriptorTypes_ObjectIdentity = ObjectIdentity
+atmTrafficDescriptorTypes = _AtmTrafficDescriptorTypes_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 1)
+)
+_AtmNoTrafficDescriptor_ObjectIdentity = ObjectIdentity
+atmNoTrafficDescriptor = _AtmNoTrafficDescriptor_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    atmNoTrafficDescriptor.setStatus("current")
+_AtmNoClpNoScr_ObjectIdentity = ObjectIdentity
+atmNoClpNoScr = _AtmNoClpNoScr_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    atmNoClpNoScr.setStatus("current")
+_AtmClpNoTaggingNoScr_ObjectIdentity = ObjectIdentity
+atmClpNoTaggingNoScr = _AtmClpNoTaggingNoScr_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 1, 3)
+)
+if mibBuilder.loadTexts:
+    atmClpNoTaggingNoScr.setStatus("current")
+_AtmClpTaggingNoScr_ObjectIdentity = ObjectIdentity
+atmClpTaggingNoScr = _AtmClpTaggingNoScr_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 1, 4)
+)
+if mibBuilder.loadTexts:
+    atmClpTaggingNoScr.setStatus("current")
+_AtmNoClpScr_ObjectIdentity = ObjectIdentity
+atmNoClpScr = _AtmNoClpScr_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 1, 5)
+)
+if mibBuilder.loadTexts:
+    atmNoClpScr.setStatus("current")
+_AtmClpNoTaggingScr_ObjectIdentity = ObjectIdentity
+atmClpNoTaggingScr = _AtmClpNoTaggingScr_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 1, 6)
+)
+if mibBuilder.loadTexts:
+    atmClpNoTaggingScr.setStatus("current")
+_AtmClpTaggingScr_ObjectIdentity = ObjectIdentity
+atmClpTaggingScr = _AtmClpTaggingScr_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 1, 7)
+)
+if mibBuilder.loadTexts:
+    atmClpTaggingScr.setStatus("current")
+_AtmInterfaceConfTable_Object = MibTable
+atmInterfaceConfTable = _AtmInterfaceConfTable_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 2)
+)
+if mibBuilder.loadTexts:
+    atmInterfaceConfTable.setStatus("current")
+_AtmInterfaceConfEntry_Object = MibTableRow
+atmInterfaceConfEntry = _AtmInterfaceConfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 2, 1)
+)
+atmInterfaceConfEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    atmInterfaceConfEntry.setStatus("current")
+
+
+class _AtmInterfaceMaxVpcs_Type(Integer32):
+    """Custom type atmInterfaceMaxVpcs based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4096),
+    )
+
+
+_AtmInterfaceMaxVpcs_Type.__name__ = "Integer32"
+_AtmInterfaceMaxVpcs_Object = MibTableColumn
+atmInterfaceMaxVpcs = _AtmInterfaceMaxVpcs_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 2, 1, 1),
+    _AtmInterfaceMaxVpcs_Type()
+)
+atmInterfaceMaxVpcs.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    atmInterfaceMaxVpcs.setStatus("current")
+
+
+class _AtmInterfaceMaxVccs_Type(Integer32):
+    """Custom type atmInterfaceMaxVccs based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65536),
+    )
+
+
+_AtmInterfaceMaxVccs_Type.__name__ = "Integer32"
+_AtmInterfaceMaxVccs_Object = MibTableColumn
+atmInterfaceMaxVccs = _AtmInterfaceMaxVccs_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 2, 1, 2),
+    _AtmInterfaceMaxVccs_Type()
+)
+atmInterfaceMaxVccs.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    atmInterfaceMaxVccs.setStatus("current")
+
+
+class _AtmInterfaceConfVpcs_Type(Integer32):
+    """Custom type atmInterfaceConfVpcs based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4096),
+    )
+
+
+_AtmInterfaceConfVpcs_Type.__name__ = "Integer32"
+_AtmInterfaceConfVpcs_Object = MibTableColumn
+atmInterfaceConfVpcs = _AtmInterfaceConfVpcs_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 2, 1, 3),
+    _AtmInterfaceConfVpcs_Type()
+)
+atmInterfaceConfVpcs.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atmInterfaceConfVpcs.setStatus("current")
+
+
+class _AtmInterfaceConfVccs_Type(Integer32):
+    """Custom type atmInterfaceConfVccs based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65536),
+    )
+
+
+_AtmInterfaceConfVccs_Type.__name__ = "Integer32"
+_AtmInterfaceConfVccs_Object = MibTableColumn
+atmInterfaceConfVccs = _AtmInterfaceConfVccs_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 2, 1, 4),
+    _AtmInterfaceConfVccs_Type()
+)
+atmInterfaceConfVccs.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atmInterfaceConfVccs.setStatus("current")
+
+
+class _AtmInterfaceMaxActiveVpiBits_Type(Integer32):
+    """Custom type atmInterfaceMaxActiveVpiBits based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 12),
+    )
+
+
+_AtmInterfaceMaxActiveVpiBits_Type.__name__ = "Integer32"
+_AtmInterfaceMaxActiveVpiBits_Object = MibTableColumn
+atmInterfaceMaxActiveVpiBits = _AtmInterfaceMaxActiveVpiBits_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 2, 1, 5),
+    _AtmInterfaceMaxActiveVpiBits_Type()
+)
+atmInterfaceMaxActiveVpiBits.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    atmInterfaceMaxActiveVpiBits.setStatus("current")
+
+
+class _AtmInterfaceMaxActiveVciBits_Type(Integer32):
+    """Custom type atmInterfaceMaxActiveVciBits based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 16),
+    )
+
+
+_AtmInterfaceMaxActiveVciBits_Type.__name__ = "Integer32"
+_AtmInterfaceMaxActiveVciBits_Object = MibTableColumn
+atmInterfaceMaxActiveVciBits = _AtmInterfaceMaxActiveVciBits_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 2, 1, 6),
+    _AtmInterfaceMaxActiveVciBits_Type()
+)
+atmInterfaceMaxActiveVciBits.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    atmInterfaceMaxActiveVciBits.setStatus("current")
+
+
+class _AtmInterfaceIlmiVpi_Type(Integer32):
+    """Custom type atmInterfaceIlmiVpi based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_AtmInterfaceIlmiVpi_Type.__name__ = "Integer32"
+_AtmInterfaceIlmiVpi_Object = MibTableColumn
+atmInterfaceIlmiVpi = _AtmInterfaceIlmiVpi_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 2, 1, 7),
+    _AtmInterfaceIlmiVpi_Type()
+)
+atmInterfaceIlmiVpi.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    atmInterfaceIlmiVpi.setStatus("current")
+
+
+class _AtmInterfaceIlmiVci_Type(Integer32):
+    """Custom type atmInterfaceIlmiVci based on Integer32"""
+    defaultValue = 16
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_AtmInterfaceIlmiVci_Type.__name__ = "Integer32"
+_AtmInterfaceIlmiVci_Object = MibTableColumn
+atmInterfaceIlmiVci = _AtmInterfaceIlmiVci_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 2, 1, 8),
+    _AtmInterfaceIlmiVci_Type()
+)
+atmInterfaceIlmiVci.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    atmInterfaceIlmiVci.setStatus("current")
+
+
+class _AtmInterfaceAddressType_Type(Integer32):
+    """Custom type atmInterfaceAddressType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("nativeE164", 3),
+          ("nsapE164", 2),
+          ("other", 4),
+          ("private", 1))
+    )
+
+
+_AtmInterfaceAddressType_Type.__name__ = "Integer32"
+_AtmInterfaceAddressType_Object = MibTableColumn
+atmInterfaceAddressType = _AtmInterfaceAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 2, 1, 9),
+    _AtmInterfaceAddressType_Type()
+)
+atmInterfaceAddressType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atmInterfaceAddressType.setStatus("current")
+
+
+class _AtmInterfaceAdminAddress_Type(OctetString):
+    """Custom type atmInterfaceAdminAddress based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_AtmInterfaceAdminAddress_Type.__name__ = "OctetString"
+_AtmInterfaceAdminAddress_Object = MibTableColumn
+atmInterfaceAdminAddress = _AtmInterfaceAdminAddress_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 2, 1, 10),
+    _AtmInterfaceAdminAddress_Type()
+)
+atmInterfaceAdminAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atmInterfaceAdminAddress.setStatus("current")
+_AtmInterfaceMyNeighborIpAddress_Type = IpAddress
+_AtmInterfaceMyNeighborIpAddress_Object = MibTableColumn
+atmInterfaceMyNeighborIpAddress = _AtmInterfaceMyNeighborIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 2, 1, 11),
+    _AtmInterfaceMyNeighborIpAddress_Type()
+)
+atmInterfaceMyNeighborIpAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    atmInterfaceMyNeighborIpAddress.setStatus("current")
+_AtmInterfaceMyNeighborIfName_Type = DisplayString
+_AtmInterfaceMyNeighborIfName_Object = MibTableColumn
+atmInterfaceMyNeighborIfName = _AtmInterfaceMyNeighborIfName_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 2, 1, 12),
+    _AtmInterfaceMyNeighborIfName_Type()
+)
+atmInterfaceMyNeighborIfName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    atmInterfaceMyNeighborIfName.setStatus("current")
+_AtmInterfaceDs3PlcpTable_Object = MibTable
+atmInterfaceDs3PlcpTable = _AtmInterfaceDs3PlcpTable_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 3)
+)
+if mibBuilder.loadTexts:
+    atmInterfaceDs3PlcpTable.setStatus("current")
+_AtmInterfaceDs3PlcpEntry_Object = MibTableRow
+atmInterfaceDs3PlcpEntry = _AtmInterfaceDs3PlcpEntry_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 3, 1)
+)
+atmInterfaceDs3PlcpEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    atmInterfaceDs3PlcpEntry.setStatus("current")
+_AtmInterfaceDs3PlcpSEFSs_Type = Counter32
+_AtmInterfaceDs3PlcpSEFSs_Object = MibTableColumn
+atmInterfaceDs3PlcpSEFSs = _AtmInterfaceDs3PlcpSEFSs_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 3, 1, 1),
+    _AtmInterfaceDs3PlcpSEFSs_Type()
+)
+atmInterfaceDs3PlcpSEFSs.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atmInterfaceDs3PlcpSEFSs.setStatus("current")
+
+
+class _AtmInterfaceDs3PlcpAlarmState_Type(Integer32):
+    """Custom type atmInterfaceDs3PlcpAlarmState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("incomingLOF", 3),
+          ("noAlarm", 1),
+          ("receivedFarEndAlarm", 2))
+    )
+
+
+_AtmInterfaceDs3PlcpAlarmState_Type.__name__ = "Integer32"
+_AtmInterfaceDs3PlcpAlarmState_Object = MibTableColumn
+atmInterfaceDs3PlcpAlarmState = _AtmInterfaceDs3PlcpAlarmState_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 3, 1, 2),
+    _AtmInterfaceDs3PlcpAlarmState_Type()
+)
+atmInterfaceDs3PlcpAlarmState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atmInterfaceDs3PlcpAlarmState.setStatus("current")
+_AtmInterfaceDs3PlcpUASs_Type = Counter32
+_AtmInterfaceDs3PlcpUASs_Object = MibTableColumn
+atmInterfaceDs3PlcpUASs = _AtmInterfaceDs3PlcpUASs_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 3, 1, 3),
+    _AtmInterfaceDs3PlcpUASs_Type()
+)
+atmInterfaceDs3PlcpUASs.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atmInterfaceDs3PlcpUASs.setStatus("current")
+_AtmInterfaceTCTable_Object = MibTable
+atmInterfaceTCTable = _AtmInterfaceTCTable_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 4)
+)
+if mibBuilder.loadTexts:
+    atmInterfaceTCTable.setStatus("current")
+_AtmInterfaceTCEntry_Object = MibTableRow
+atmInterfaceTCEntry = _AtmInterfaceTCEntry_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 4, 1)
+)
+atmInterfaceTCEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    atmInterfaceTCEntry.setStatus("current")
+_AtmInterfaceOCDEvents_Type = Counter32
+_AtmInterfaceOCDEvents_Object = MibTableColumn
+atmInterfaceOCDEvents = _AtmInterfaceOCDEvents_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 4, 1, 1),
+    _AtmInterfaceOCDEvents_Type()
+)
+atmInterfaceOCDEvents.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atmInterfaceOCDEvents.setStatus("current")
+
+
+class _AtmInterfaceTCAlarmState_Type(Integer32):
+    """Custom type atmInterfaceTCAlarmState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("lcdFailure", 2),
+          ("noAlarm", 1))
+    )
+
+
+_AtmInterfaceTCAlarmState_Type.__name__ = "Integer32"
+_AtmInterfaceTCAlarmState_Object = MibTableColumn
+atmInterfaceTCAlarmState = _AtmInterfaceTCAlarmState_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 4, 1, 2),
+    _AtmInterfaceTCAlarmState_Type()
+)
+atmInterfaceTCAlarmState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atmInterfaceTCAlarmState.setStatus("current")
+_AtmTrafficDescrParamTable_Object = MibTable
+atmTrafficDescrParamTable = _AtmTrafficDescrParamTable_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 5)
+)
+if mibBuilder.loadTexts:
+    atmTrafficDescrParamTable.setStatus("current")
+_AtmTrafficDescrParamEntry_Object = MibTableRow
+atmTrafficDescrParamEntry = _AtmTrafficDescrParamEntry_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 5, 1)
+)
+atmTrafficDescrParamEntry.setIndexNames(
+    (0, "LEAN-MIB", "atmTrafficDescrParamIndex"),
+)
+if mibBuilder.loadTexts:
+    atmTrafficDescrParamEntry.setStatus("current")
+_AtmTrafficDescrParamIndex_Type = AtmTrafficDescrParamIndex
+_AtmTrafficDescrParamIndex_Object = MibTableColumn
+atmTrafficDescrParamIndex = _AtmTrafficDescrParamIndex_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 5, 1, 1),
+    _AtmTrafficDescrParamIndex_Type()
+)
+atmTrafficDescrParamIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    atmTrafficDescrParamIndex.setStatus("current")
+
+
+class _AtmTrafficDescrType_Type(ObjectIdentifier):
+    """Custom type atmTrafficDescrType based on ObjectIdentifier"""
+    defaultValue = (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 1, 1)
+
+
+_AtmTrafficDescrType_Object = MibTableColumn
+atmTrafficDescrType = _AtmTrafficDescrType_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 5, 1, 2),
+    _AtmTrafficDescrType_Type()
+)
+atmTrafficDescrType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    atmTrafficDescrType.setStatus("current")
+
+
+class _AtmTrafficDescrParam1_Type(Integer32):
+    """Custom type atmTrafficDescrParam1 based on Integer32"""
+    defaultValue = 0
+
+
+_AtmTrafficDescrParam1_Object = MibTableColumn
+atmTrafficDescrParam1 = _AtmTrafficDescrParam1_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 5, 1, 3),
+    _AtmTrafficDescrParam1_Type()
+)
+atmTrafficDescrParam1.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    atmTrafficDescrParam1.setStatus("current")
+
+
+class _AtmTrafficDescrParam2_Type(Integer32):
+    """Custom type atmTrafficDescrParam2 based on Integer32"""
+    defaultValue = 0
+
+
+_AtmTrafficDescrParam2_Object = MibTableColumn
+atmTrafficDescrParam2 = _AtmTrafficDescrParam2_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 5, 1, 4),
+    _AtmTrafficDescrParam2_Type()
+)
+atmTrafficDescrParam2.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    atmTrafficDescrParam2.setStatus("current")
+
+
+class _AtmTrafficDescrParam3_Type(Integer32):
+    """Custom type atmTrafficDescrParam3 based on Integer32"""
+    defaultValue = 0
+
+
+_AtmTrafficDescrParam3_Object = MibTableColumn
+atmTrafficDescrParam3 = _AtmTrafficDescrParam3_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 5, 1, 5),
+    _AtmTrafficDescrParam3_Type()
+)
+atmTrafficDescrParam3.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    atmTrafficDescrParam3.setStatus("current")
+
+
+class _AtmTrafficDescrParam4_Type(Integer32):
+    """Custom type atmTrafficDescrParam4 based on Integer32"""
+    defaultValue = 0
+
+
+_AtmTrafficDescrParam4_Object = MibTableColumn
+atmTrafficDescrParam4 = _AtmTrafficDescrParam4_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 5, 1, 6),
+    _AtmTrafficDescrParam4_Type()
+)
+atmTrafficDescrParam4.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    atmTrafficDescrParam4.setStatus("current")
+
+
+class _AtmTrafficDescrParam5_Type(Integer32):
+    """Custom type atmTrafficDescrParam5 based on Integer32"""
+    defaultValue = 0
+
+
+_AtmTrafficDescrParam5_Object = MibTableColumn
+atmTrafficDescrParam5 = _AtmTrafficDescrParam5_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 5, 1, 7),
+    _AtmTrafficDescrParam5_Type()
+)
+atmTrafficDescrParam5.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    atmTrafficDescrParam5.setStatus("current")
+
+
+class _AtmTrafficQoSClass_Type(Integer32):
+    """Custom type atmTrafficQoSClass based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_AtmTrafficQoSClass_Type.__name__ = "Integer32"
+_AtmTrafficQoSClass_Object = MibTableColumn
+atmTrafficQoSClass = _AtmTrafficQoSClass_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 5, 1, 8),
+    _AtmTrafficQoSClass_Type()
+)
+atmTrafficQoSClass.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    atmTrafficQoSClass.setStatus("current")
+
+
+class _AtmTrafficDescrRowStatus_Type(RowStatus):
+    """Custom type atmTrafficDescrRowStatus based on RowStatus"""
+
+
+_AtmTrafficDescrRowStatus_Object = MibTableColumn
+atmTrafficDescrRowStatus = _AtmTrafficDescrRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 5, 1, 9),
+    _AtmTrafficDescrRowStatus_Type()
+)
+atmTrafficDescrRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    atmTrafficDescrRowStatus.setStatus("current")
+_AtmVplTable_Object = MibTable
+atmVplTable = _AtmVplTable_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 6)
+)
+if mibBuilder.loadTexts:
+    atmVplTable.setStatus("current")
+_AtmVplEntry_Object = MibTableRow
+atmVplEntry = _AtmVplEntry_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 6, 1)
+)
+atmVplEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+    (0, "LEAN-MIB", "atmVplVpi"),
+)
+if mibBuilder.loadTexts:
+    atmVplEntry.setStatus("current")
+
+
+class _AtmVplVpi_Type(Integer32):
+    """Custom type atmVplVpi based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_AtmVplVpi_Type.__name__ = "Integer32"
+_AtmVplVpi_Object = MibTableColumn
+atmVplVpi = _AtmVplVpi_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 6, 1, 1),
+    _AtmVplVpi_Type()
+)
+atmVplVpi.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    atmVplVpi.setStatus("current")
+
+
+class _AtmVplAdminStatus_Type(Integer32):
+    """Custom type atmVplAdminStatus based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 2),
+          ("up", 1))
+    )
+
+
+_AtmVplAdminStatus_Type.__name__ = "Integer32"
+_AtmVplAdminStatus_Object = MibTableColumn
+atmVplAdminStatus = _AtmVplAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 6, 1, 2),
+    _AtmVplAdminStatus_Type()
+)
+atmVplAdminStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    atmVplAdminStatus.setStatus("current")
+
+
+class _AtmVplOperStatus_Type(Integer32):
+    """Custom type atmVplOperStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 2),
+          ("unknown", 3),
+          ("up", 1))
+    )
+
+
+_AtmVplOperStatus_Type.__name__ = "Integer32"
+_AtmVplOperStatus_Object = MibTableColumn
+atmVplOperStatus = _AtmVplOperStatus_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 6, 1, 3),
+    _AtmVplOperStatus_Type()
+)
+atmVplOperStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atmVplOperStatus.setStatus("current")
+_AtmVplLastChange_Type = TimeStamp
+_AtmVplLastChange_Object = MibTableColumn
+atmVplLastChange = _AtmVplLastChange_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 6, 1, 4),
+    _AtmVplLastChange_Type()
+)
+atmVplLastChange.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atmVplLastChange.setStatus("current")
+_AtmVplReceiveTrafficDescrIndex_Type = AtmTrafficDescrParamIndex
+_AtmVplReceiveTrafficDescrIndex_Object = MibTableColumn
+atmVplReceiveTrafficDescrIndex = _AtmVplReceiveTrafficDescrIndex_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 6, 1, 5),
+    _AtmVplReceiveTrafficDescrIndex_Type()
+)
+atmVplReceiveTrafficDescrIndex.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    atmVplReceiveTrafficDescrIndex.setStatus("current")
+_AtmVplTransmitTrafficDescrIndex_Type = AtmTrafficDescrParamIndex
+_AtmVplTransmitTrafficDescrIndex_Object = MibTableColumn
+atmVplTransmitTrafficDescrIndex = _AtmVplTransmitTrafficDescrIndex_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 6, 1, 6),
+    _AtmVplTransmitTrafficDescrIndex_Type()
+)
+atmVplTransmitTrafficDescrIndex.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    atmVplTransmitTrafficDescrIndex.setStatus("current")
+
+
+class _AtmVplCrossConnectIdentifier_Type(Integer32):
+    """Custom type atmVplCrossConnectIdentifier based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_AtmVplCrossConnectIdentifier_Type.__name__ = "Integer32"
+_AtmVplCrossConnectIdentifier_Object = MibTableColumn
+atmVplCrossConnectIdentifier = _AtmVplCrossConnectIdentifier_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 6, 1, 7),
+    _AtmVplCrossConnectIdentifier_Type()
+)
+atmVplCrossConnectIdentifier.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atmVplCrossConnectIdentifier.setStatus("current")
+
+
+class _AtmVplRowStatus_Type(RowStatus):
+    """Custom type atmVplRowStatus based on RowStatus"""
+
+
+_AtmVplRowStatus_Object = MibTableColumn
+atmVplRowStatus = _AtmVplRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 6, 1, 8),
+    _AtmVplRowStatus_Type()
+)
+atmVplRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    atmVplRowStatus.setStatus("current")
+_AtmVclTable_Object = MibTable
+atmVclTable = _AtmVclTable_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 7)
+)
+if mibBuilder.loadTexts:
+    atmVclTable.setStatus("current")
+_AtmVclEntry_Object = MibTableRow
+atmVclEntry = _AtmVclEntry_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 7, 1)
+)
+atmVclEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+    (0, "LEAN-MIB", "atmVclVpi"),
+    (0, "LEAN-MIB", "atmVclVci"),
+)
+if mibBuilder.loadTexts:
+    atmVclEntry.setStatus("current")
+
+
+class _AtmVclVpi_Type(Integer32):
+    """Custom type atmVclVpi based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4095),
+    )
+
+
+_AtmVclVpi_Type.__name__ = "Integer32"
+_AtmVclVpi_Object = MibTableColumn
+atmVclVpi = _AtmVclVpi_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 7, 1, 1),
+    _AtmVclVpi_Type()
+)
+atmVclVpi.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    atmVclVpi.setStatus("current")
+
+
+class _AtmVclVci_Type(Integer32):
+    """Custom type atmVclVci based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_AtmVclVci_Type.__name__ = "Integer32"
+_AtmVclVci_Object = MibTableColumn
+atmVclVci = _AtmVclVci_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 7, 1, 2),
+    _AtmVclVci_Type()
+)
+atmVclVci.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    atmVclVci.setStatus("current")
+
+
+class _AtmVclAdminStatus_Type(Integer32):
+    """Custom type atmVclAdminStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 2),
+          ("up", 1))
+    )
+
+
+_AtmVclAdminStatus_Type.__name__ = "Integer32"
+_AtmVclAdminStatus_Object = MibTableColumn
+atmVclAdminStatus = _AtmVclAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 7, 1, 3),
+    _AtmVclAdminStatus_Type()
+)
+atmVclAdminStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    atmVclAdminStatus.setStatus("current")
+
+
+class _AtmVclOperStatus_Type(Integer32):
+    """Custom type atmVclOperStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 2),
+          ("unknown", 3),
+          ("up", 1))
+    )
+
+
+_AtmVclOperStatus_Type.__name__ = "Integer32"
+_AtmVclOperStatus_Object = MibTableColumn
+atmVclOperStatus = _AtmVclOperStatus_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 7, 1, 4),
+    _AtmVclOperStatus_Type()
+)
+atmVclOperStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atmVclOperStatus.setStatus("current")
+_AtmVclLastChange_Type = TimeStamp
+_AtmVclLastChange_Object = MibTableColumn
+atmVclLastChange = _AtmVclLastChange_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 7, 1, 5),
+    _AtmVclLastChange_Type()
+)
+atmVclLastChange.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atmVclLastChange.setStatus("current")
+_AtmVclReceiveTrafficDescrIndex_Type = AtmTrafficDescrParamIndex
+_AtmVclReceiveTrafficDescrIndex_Object = MibTableColumn
+atmVclReceiveTrafficDescrIndex = _AtmVclReceiveTrafficDescrIndex_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 7, 1, 6),
+    _AtmVclReceiveTrafficDescrIndex_Type()
+)
+atmVclReceiveTrafficDescrIndex.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    atmVclReceiveTrafficDescrIndex.setStatus("current")
+_AtmVclTransmitTrafficDescrIndex_Type = AtmTrafficDescrParamIndex
+_AtmVclTransmitTrafficDescrIndex_Object = MibTableColumn
+atmVclTransmitTrafficDescrIndex = _AtmVclTransmitTrafficDescrIndex_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 7, 1, 7),
+    _AtmVclTransmitTrafficDescrIndex_Type()
+)
+atmVclTransmitTrafficDescrIndex.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    atmVclTransmitTrafficDescrIndex.setStatus("current")
+
+
+class _AtmVccAalType_Type(Integer32):
+    """Custom type atmVccAalType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("aal1", 1),
+          ("aal34", 2),
+          ("aal5", 3),
+          ("other", 4),
+          ("unknown", 5))
+    )
+
+
+_AtmVccAalType_Type.__name__ = "Integer32"
+_AtmVccAalType_Object = MibTableColumn
+atmVccAalType = _AtmVccAalType_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 7, 1, 8),
+    _AtmVccAalType_Type()
+)
+atmVccAalType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    atmVccAalType.setStatus("current")
+
+
+class _AtmVccAal5CpcsTransmitSduSize_Type(Integer32):
+    """Custom type atmVccAal5CpcsTransmitSduSize based on Integer32"""
+    defaultValue = 9188
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_AtmVccAal5CpcsTransmitSduSize_Type.__name__ = "Integer32"
+_AtmVccAal5CpcsTransmitSduSize_Object = MibTableColumn
+atmVccAal5CpcsTransmitSduSize = _AtmVccAal5CpcsTransmitSduSize_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 7, 1, 9),
+    _AtmVccAal5CpcsTransmitSduSize_Type()
+)
+atmVccAal5CpcsTransmitSduSize.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    atmVccAal5CpcsTransmitSduSize.setStatus("current")
+
+
+class _AtmVccAal5CpcsReceiveSduSize_Type(Integer32):
+    """Custom type atmVccAal5CpcsReceiveSduSize based on Integer32"""
+    defaultValue = 9188
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_AtmVccAal5CpcsReceiveSduSize_Type.__name__ = "Integer32"
+_AtmVccAal5CpcsReceiveSduSize_Object = MibTableColumn
+atmVccAal5CpcsReceiveSduSize = _AtmVccAal5CpcsReceiveSduSize_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 7, 1, 10),
+    _AtmVccAal5CpcsReceiveSduSize_Type()
+)
+atmVccAal5CpcsReceiveSduSize.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    atmVccAal5CpcsReceiveSduSize.setStatus("current")
+
+
+class _AtmVccAal5EncapsType_Type(Integer32):
+    """Custom type atmVccAal5EncapsType based on Integer32"""
+    defaultValue = 7
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10)
+        )
+    )
+    namedValues = NamedValues(
+        *(("llcEncapsulation", 7),
+          ("multiprotocolFrameRelaySscs", 8),
+          ("other", 9),
+          ("unknown", 10),
+          ("vcMultiplexBridgedProtocol8023", 2),
+          ("vcMultiplexBridgedProtocol8025", 3),
+          ("vcMultiplexBridgedProtocol8026", 4),
+          ("vcMultiplexLANemulation8023", 5),
+          ("vcMultiplexLANemulation8025", 6),
+          ("vcMultiplexRoutedProtocol", 1))
+    )
+
+
+_AtmVccAal5EncapsType_Type.__name__ = "Integer32"
+_AtmVccAal5EncapsType_Object = MibTableColumn
+atmVccAal5EncapsType = _AtmVccAal5EncapsType_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 7, 1, 11),
+    _AtmVccAal5EncapsType_Type()
+)
+atmVccAal5EncapsType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    atmVccAal5EncapsType.setStatus("current")
+
+
+class _AtmVclCrossConnectIdentifier_Type(Integer32):
+    """Custom type atmVclCrossConnectIdentifier based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_AtmVclCrossConnectIdentifier_Type.__name__ = "Integer32"
+_AtmVclCrossConnectIdentifier_Object = MibTableColumn
+atmVclCrossConnectIdentifier = _AtmVclCrossConnectIdentifier_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 7, 1, 12),
+    _AtmVclCrossConnectIdentifier_Type()
+)
+atmVclCrossConnectIdentifier.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atmVclCrossConnectIdentifier.setStatus("current")
+
+
+class _AtmVclRowStatus_Type(RowStatus):
+    """Custom type atmVclRowStatus based on RowStatus"""
+
+
+_AtmVclRowStatus_Object = MibTableColumn
+atmVclRowStatus = _AtmVclRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 7, 1, 13),
+    _AtmVclRowStatus_Type()
+)
+atmVclRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    atmVclRowStatus.setStatus("current")
+
+
+class _AtmVpCrossConnectIndexNext_Type(Integer32):
+    """Custom type atmVpCrossConnectIndexNext based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_AtmVpCrossConnectIndexNext_Type.__name__ = "Integer32"
+_AtmVpCrossConnectIndexNext_Object = MibScalar
+atmVpCrossConnectIndexNext = _AtmVpCrossConnectIndexNext_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 8),
+    _AtmVpCrossConnectIndexNext_Type()
+)
+atmVpCrossConnectIndexNext.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atmVpCrossConnectIndexNext.setStatus("current")
+_AtmVpCrossConnectTable_Object = MibTable
+atmVpCrossConnectTable = _AtmVpCrossConnectTable_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 9)
+)
+if mibBuilder.loadTexts:
+    atmVpCrossConnectTable.setStatus("current")
+_AtmVpCrossConnectEntry_Object = MibTableRow
+atmVpCrossConnectEntry = _AtmVpCrossConnectEntry_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 9, 1)
+)
+atmVpCrossConnectEntry.setIndexNames(
+    (0, "LEAN-MIB", "atmVpCrossConnectIndex"),
+    (0, "LEAN-MIB", "atmVpCrossConnectLowIfIndex"),
+    (0, "LEAN-MIB", "atmVpCrossConnectLowVpi"),
+    (0, "LEAN-MIB", "atmVpCrossConnectHighIfIndex"),
+    (0, "LEAN-MIB", "atmVpCrossConnectHighVpi"),
+)
+if mibBuilder.loadTexts:
+    atmVpCrossConnectEntry.setStatus("current")
+
+
+class _AtmVpCrossConnectIndex_Type(Integer32):
+    """Custom type atmVpCrossConnectIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_AtmVpCrossConnectIndex_Type.__name__ = "Integer32"
+_AtmVpCrossConnectIndex_Object = MibTableColumn
+atmVpCrossConnectIndex = _AtmVpCrossConnectIndex_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 9, 1, 1),
+    _AtmVpCrossConnectIndex_Type()
+)
+atmVpCrossConnectIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    atmVpCrossConnectIndex.setStatus("current")
+_AtmVpCrossConnectLowIfIndex_Type = IfIndex
+_AtmVpCrossConnectLowIfIndex_Object = MibTableColumn
+atmVpCrossConnectLowIfIndex = _AtmVpCrossConnectLowIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 9, 1, 2),
+    _AtmVpCrossConnectLowIfIndex_Type()
+)
+atmVpCrossConnectLowIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    atmVpCrossConnectLowIfIndex.setStatus("current")
+
+
+class _AtmVpCrossConnectLowVpi_Type(Integer32):
+    """Custom type atmVpCrossConnectLowVpi based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_AtmVpCrossConnectLowVpi_Type.__name__ = "Integer32"
+_AtmVpCrossConnectLowVpi_Object = MibTableColumn
+atmVpCrossConnectLowVpi = _AtmVpCrossConnectLowVpi_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 9, 1, 3),
+    _AtmVpCrossConnectLowVpi_Type()
+)
+atmVpCrossConnectLowVpi.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    atmVpCrossConnectLowVpi.setStatus("current")
+_AtmVpCrossConnectHighIfIndex_Type = IfIndex
+_AtmVpCrossConnectHighIfIndex_Object = MibTableColumn
+atmVpCrossConnectHighIfIndex = _AtmVpCrossConnectHighIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 9, 1, 4),
+    _AtmVpCrossConnectHighIfIndex_Type()
+)
+atmVpCrossConnectHighIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    atmVpCrossConnectHighIfIndex.setStatus("current")
+
+
+class _AtmVpCrossConnectHighVpi_Type(Integer32):
+    """Custom type atmVpCrossConnectHighVpi based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_AtmVpCrossConnectHighVpi_Type.__name__ = "Integer32"
+_AtmVpCrossConnectHighVpi_Object = MibTableColumn
+atmVpCrossConnectHighVpi = _AtmVpCrossConnectHighVpi_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 9, 1, 5),
+    _AtmVpCrossConnectHighVpi_Type()
+)
+atmVpCrossConnectHighVpi.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    atmVpCrossConnectHighVpi.setStatus("current")
+
+
+class _AtmVpCrossConnectAdminStatus_Type(Integer32):
+    """Custom type atmVpCrossConnectAdminStatus based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 2),
+          ("up", 1))
+    )
+
+
+_AtmVpCrossConnectAdminStatus_Type.__name__ = "Integer32"
+_AtmVpCrossConnectAdminStatus_Object = MibTableColumn
+atmVpCrossConnectAdminStatus = _AtmVpCrossConnectAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 9, 1, 6),
+    _AtmVpCrossConnectAdminStatus_Type()
+)
+atmVpCrossConnectAdminStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    atmVpCrossConnectAdminStatus.setStatus("current")
+
+
+class _AtmVpCrossConnectL2HOperStatus_Type(Integer32):
+    """Custom type atmVpCrossConnectL2HOperStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 2),
+          ("unknown", 3),
+          ("up", 1))
+    )
+
+
+_AtmVpCrossConnectL2HOperStatus_Type.__name__ = "Integer32"
+_AtmVpCrossConnectL2HOperStatus_Object = MibTableColumn
+atmVpCrossConnectL2HOperStatus = _AtmVpCrossConnectL2HOperStatus_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 9, 1, 7),
+    _AtmVpCrossConnectL2HOperStatus_Type()
+)
+atmVpCrossConnectL2HOperStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atmVpCrossConnectL2HOperStatus.setStatus("current")
+
+
+class _AtmVpCrossConnectH2LOperStatus_Type(Integer32):
+    """Custom type atmVpCrossConnectH2LOperStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 2),
+          ("unknown", 3),
+          ("up", 1))
+    )
+
+
+_AtmVpCrossConnectH2LOperStatus_Type.__name__ = "Integer32"
+_AtmVpCrossConnectH2LOperStatus_Object = MibTableColumn
+atmVpCrossConnectH2LOperStatus = _AtmVpCrossConnectH2LOperStatus_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 9, 1, 8),
+    _AtmVpCrossConnectH2LOperStatus_Type()
+)
+atmVpCrossConnectH2LOperStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atmVpCrossConnectH2LOperStatus.setStatus("current")
+_AtmVpCrossConnectL2HLastChange_Type = TimeStamp
+_AtmVpCrossConnectL2HLastChange_Object = MibTableColumn
+atmVpCrossConnectL2HLastChange = _AtmVpCrossConnectL2HLastChange_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 9, 1, 9),
+    _AtmVpCrossConnectL2HLastChange_Type()
+)
+atmVpCrossConnectL2HLastChange.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atmVpCrossConnectL2HLastChange.setStatus("current")
+_AtmVpCrossConnectH2LLastChange_Type = TimeStamp
+_AtmVpCrossConnectH2LLastChange_Object = MibTableColumn
+atmVpCrossConnectH2LLastChange = _AtmVpCrossConnectH2LLastChange_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 9, 1, 10),
+    _AtmVpCrossConnectH2LLastChange_Type()
+)
+atmVpCrossConnectH2LLastChange.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atmVpCrossConnectH2LLastChange.setStatus("current")
+
+
+class _AtmVpCrossConnectRowStatus_Type(RowStatus):
+    """Custom type atmVpCrossConnectRowStatus based on RowStatus"""
+
+
+_AtmVpCrossConnectRowStatus_Object = MibTableColumn
+atmVpCrossConnectRowStatus = _AtmVpCrossConnectRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 9, 1, 11),
+    _AtmVpCrossConnectRowStatus_Type()
+)
+atmVpCrossConnectRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    atmVpCrossConnectRowStatus.setStatus("current")
+
+
+class _AtmVcCrossConnectIndexNext_Type(Integer32):
+    """Custom type atmVcCrossConnectIndexNext based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_AtmVcCrossConnectIndexNext_Type.__name__ = "Integer32"
+_AtmVcCrossConnectIndexNext_Object = MibScalar
+atmVcCrossConnectIndexNext = _AtmVcCrossConnectIndexNext_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 10),
+    _AtmVcCrossConnectIndexNext_Type()
+)
+atmVcCrossConnectIndexNext.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atmVcCrossConnectIndexNext.setStatus("current")
+_AtmVcCrossConnectTable_Object = MibTable
+atmVcCrossConnectTable = _AtmVcCrossConnectTable_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 11)
+)
+if mibBuilder.loadTexts:
+    atmVcCrossConnectTable.setStatus("current")
+_AtmVcCrossConnectEntry_Object = MibTableRow
+atmVcCrossConnectEntry = _AtmVcCrossConnectEntry_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 11, 1)
+)
+atmVcCrossConnectEntry.setIndexNames(
+    (0, "LEAN-MIB", "atmVcCrossConnectIndex"),
+    (0, "LEAN-MIB", "atmVcCrossConnectLowIfIndex"),
+    (0, "LEAN-MIB", "atmVcCrossConnectLowVpi"),
+    (0, "LEAN-MIB", "atmVcCrossConnectLowVci"),
+    (0, "LEAN-MIB", "atmVcCrossConnectHighIfIndex"),
+    (0, "LEAN-MIB", "atmVcCrossConnectHighVpi"),
+    (0, "LEAN-MIB", "atmVcCrossConnectHighVci"),
+)
+if mibBuilder.loadTexts:
+    atmVcCrossConnectEntry.setStatus("current")
+
+
+class _AtmVcCrossConnectIndex_Type(Integer32):
+    """Custom type atmVcCrossConnectIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_AtmVcCrossConnectIndex_Type.__name__ = "Integer32"
+_AtmVcCrossConnectIndex_Object = MibTableColumn
+atmVcCrossConnectIndex = _AtmVcCrossConnectIndex_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 11, 1, 1),
+    _AtmVcCrossConnectIndex_Type()
+)
+atmVcCrossConnectIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    atmVcCrossConnectIndex.setStatus("current")
+_AtmVcCrossConnectLowIfIndex_Type = IfIndex
+_AtmVcCrossConnectLowIfIndex_Object = MibTableColumn
+atmVcCrossConnectLowIfIndex = _AtmVcCrossConnectLowIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 11, 1, 2),
+    _AtmVcCrossConnectLowIfIndex_Type()
+)
+atmVcCrossConnectLowIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    atmVcCrossConnectLowIfIndex.setStatus("current")
+
+
+class _AtmVcCrossConnectLowVpi_Type(Integer32):
+    """Custom type atmVcCrossConnectLowVpi based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4095),
+    )
+
+
+_AtmVcCrossConnectLowVpi_Type.__name__ = "Integer32"
+_AtmVcCrossConnectLowVpi_Object = MibTableColumn
+atmVcCrossConnectLowVpi = _AtmVcCrossConnectLowVpi_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 11, 1, 3),
+    _AtmVcCrossConnectLowVpi_Type()
+)
+atmVcCrossConnectLowVpi.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    atmVcCrossConnectLowVpi.setStatus("current")
+
+
+class _AtmVcCrossConnectLowVci_Type(Integer32):
+    """Custom type atmVcCrossConnectLowVci based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_AtmVcCrossConnectLowVci_Type.__name__ = "Integer32"
+_AtmVcCrossConnectLowVci_Object = MibTableColumn
+atmVcCrossConnectLowVci = _AtmVcCrossConnectLowVci_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 11, 1, 4),
+    _AtmVcCrossConnectLowVci_Type()
+)
+atmVcCrossConnectLowVci.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    atmVcCrossConnectLowVci.setStatus("current")
+_AtmVcCrossConnectHighIfIndex_Type = IfIndex
+_AtmVcCrossConnectHighIfIndex_Object = MibTableColumn
+atmVcCrossConnectHighIfIndex = _AtmVcCrossConnectHighIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 11, 1, 5),
+    _AtmVcCrossConnectHighIfIndex_Type()
+)
+atmVcCrossConnectHighIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    atmVcCrossConnectHighIfIndex.setStatus("current")
+
+
+class _AtmVcCrossConnectHighVpi_Type(Integer32):
+    """Custom type atmVcCrossConnectHighVpi based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4095),
+    )
+
+
+_AtmVcCrossConnectHighVpi_Type.__name__ = "Integer32"
+_AtmVcCrossConnectHighVpi_Object = MibTableColumn
+atmVcCrossConnectHighVpi = _AtmVcCrossConnectHighVpi_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 11, 1, 6),
+    _AtmVcCrossConnectHighVpi_Type()
+)
+atmVcCrossConnectHighVpi.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    atmVcCrossConnectHighVpi.setStatus("current")
+
+
+class _AtmVcCrossConnectHighVci_Type(Integer32):
+    """Custom type atmVcCrossConnectHighVci based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_AtmVcCrossConnectHighVci_Type.__name__ = "Integer32"
+_AtmVcCrossConnectHighVci_Object = MibTableColumn
+atmVcCrossConnectHighVci = _AtmVcCrossConnectHighVci_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 11, 1, 7),
+    _AtmVcCrossConnectHighVci_Type()
+)
+atmVcCrossConnectHighVci.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    atmVcCrossConnectHighVci.setStatus("current")
+
+
+class _AtmVcCrossConnectAdminStatus_Type(Integer32):
+    """Custom type atmVcCrossConnectAdminStatus based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 2),
+          ("up", 1))
+    )
+
+
+_AtmVcCrossConnectAdminStatus_Type.__name__ = "Integer32"
+_AtmVcCrossConnectAdminStatus_Object = MibTableColumn
+atmVcCrossConnectAdminStatus = _AtmVcCrossConnectAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 11, 1, 8),
+    _AtmVcCrossConnectAdminStatus_Type()
+)
+atmVcCrossConnectAdminStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    atmVcCrossConnectAdminStatus.setStatus("current")
+
+
+class _AtmVcCrossConnectL2HOperStatus_Type(Integer32):
+    """Custom type atmVcCrossConnectL2HOperStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 2),
+          ("unknown", 3),
+          ("up", 1))
+    )
+
+
+_AtmVcCrossConnectL2HOperStatus_Type.__name__ = "Integer32"
+_AtmVcCrossConnectL2HOperStatus_Object = MibTableColumn
+atmVcCrossConnectL2HOperStatus = _AtmVcCrossConnectL2HOperStatus_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 11, 1, 9),
+    _AtmVcCrossConnectL2HOperStatus_Type()
+)
+atmVcCrossConnectL2HOperStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atmVcCrossConnectL2HOperStatus.setStatus("current")
+
+
+class _AtmVcCrossConnectH2LOperStatus_Type(Integer32):
+    """Custom type atmVcCrossConnectH2LOperStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 2),
+          ("unknown", 3),
+          ("up", 1))
+    )
+
+
+_AtmVcCrossConnectH2LOperStatus_Type.__name__ = "Integer32"
+_AtmVcCrossConnectH2LOperStatus_Object = MibTableColumn
+atmVcCrossConnectH2LOperStatus = _AtmVcCrossConnectH2LOperStatus_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 11, 1, 10),
+    _AtmVcCrossConnectH2LOperStatus_Type()
+)
+atmVcCrossConnectH2LOperStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atmVcCrossConnectH2LOperStatus.setStatus("current")
+_AtmVcCrossConnectL2HLastChange_Type = TimeStamp
+_AtmVcCrossConnectL2HLastChange_Object = MibTableColumn
+atmVcCrossConnectL2HLastChange = _AtmVcCrossConnectL2HLastChange_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 11, 1, 11),
+    _AtmVcCrossConnectL2HLastChange_Type()
+)
+atmVcCrossConnectL2HLastChange.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atmVcCrossConnectL2HLastChange.setStatus("current")
+_AtmVcCrossConnectH2LLastChange_Type = TimeStamp
+_AtmVcCrossConnectH2LLastChange_Object = MibTableColumn
+atmVcCrossConnectH2LLastChange = _AtmVcCrossConnectH2LLastChange_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 11, 1, 12),
+    _AtmVcCrossConnectH2LLastChange_Type()
+)
+atmVcCrossConnectH2LLastChange.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atmVcCrossConnectH2LLastChange.setStatus("current")
+_AtmVcCrossConnectRowStatus_Type = RowStatus
+_AtmVcCrossConnectRowStatus_Object = MibTableColumn
+atmVcCrossConnectRowStatus = _AtmVcCrossConnectRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 11, 1, 13),
+    _AtmVcCrossConnectRowStatus_Type()
+)
+atmVcCrossConnectRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    atmVcCrossConnectRowStatus.setStatus("current")
+_Aal5VccTable_Object = MibTable
+aal5VccTable = _Aal5VccTable_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 12)
+)
+if mibBuilder.loadTexts:
+    aal5VccTable.setStatus("current")
+_Aal5VccEntry_Object = MibTableRow
+aal5VccEntry = _Aal5VccEntry_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 12, 1)
+)
+aal5VccEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+    (0, "LEAN-MIB", "aal5VccVpi"),
+    (0, "LEAN-MIB", "aal5VccVci"),
+)
+if mibBuilder.loadTexts:
+    aal5VccEntry.setStatus("current")
+
+
+class _Aal5VccVpi_Type(Integer32):
+    """Custom type aal5VccVpi based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4095),
+    )
+
+
+_Aal5VccVpi_Type.__name__ = "Integer32"
+_Aal5VccVpi_Object = MibTableColumn
+aal5VccVpi = _Aal5VccVpi_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 12, 1, 1),
+    _Aal5VccVpi_Type()
+)
+aal5VccVpi.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    aal5VccVpi.setStatus("current")
+
+
+class _Aal5VccVci_Type(Integer32):
+    """Custom type aal5VccVci based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_Aal5VccVci_Type.__name__ = "Integer32"
+_Aal5VccVci_Object = MibTableColumn
+aal5VccVci = _Aal5VccVci_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 12, 1, 2),
+    _Aal5VccVci_Type()
+)
+aal5VccVci.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    aal5VccVci.setStatus("current")
+_Aal5VccCrcErrors_Type = Counter32
+_Aal5VccCrcErrors_Object = MibTableColumn
+aal5VccCrcErrors = _Aal5VccCrcErrors_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 12, 1, 3),
+    _Aal5VccCrcErrors_Type()
+)
+aal5VccCrcErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aal5VccCrcErrors.setStatus("current")
+_Aal5VccSarTimeOuts_Type = Counter32
+_Aal5VccSarTimeOuts_Object = MibTableColumn
+aal5VccSarTimeOuts = _Aal5VccSarTimeOuts_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 12, 1, 4),
+    _Aal5VccSarTimeOuts_Type()
+)
+aal5VccSarTimeOuts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aal5VccSarTimeOuts.setStatus("current")
+_Aal5VccOverSizedSDUs_Type = Counter32
+_Aal5VccOverSizedSDUs_Object = MibTableColumn
+aal5VccOverSizedSDUs = _Aal5VccOverSizedSDUs_Object(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 1, 12, 1, 5),
+    _Aal5VccOverSizedSDUs_Type()
+)
+aal5VccOverSizedSDUs.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aal5VccOverSizedSDUs.setStatus("current")
+_AtmMIBConformance_ObjectIdentity = ObjectIdentity
+atmMIBConformance = _AtmMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 2)
+)
+_AtmMIBGroups_ObjectIdentity = ObjectIdentity
+atmMIBGroups = _AtmMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 2, 1)
+)
+_AtmMIBCompliances_ObjectIdentity = ObjectIdentity
+atmMIBCompliances = _AtmMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 2, 2)
+)
+
+# Managed Objects groups
+
+frnetservLportGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 3, 1, 1)
+)
+frnetservLportGroup.setObjects(
+      *(("LEAN-MIB", "frLportNumPlan"),
+        ("LEAN-MIB", "frLportContact"),
+        ("LEAN-MIB", "frLportLocation"),
+        ("LEAN-MIB", "frLportType"),
+        ("LEAN-MIB", "frLportAddrDLCILen"),
+        ("LEAN-MIB", "frLportVCSigProtocol"),
+        ("LEAN-MIB", "frLportVCSigPointer"))
+)
+if mibBuilder.loadTexts:
+    frnetservLportGroup.setStatus("current")
+
+frnetservMgtVCSigGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 3, 1, 2)
+)
+frnetservMgtVCSigGroup.setObjects(
+      *(("LEAN-MIB", "frMgtVCSigProced"),
+        ("LEAN-MIB", "frMgtVCSigUserN391"),
+        ("LEAN-MIB", "frMgtVCSigUserN392"),
+        ("LEAN-MIB", "frMgtVCSigUserN393"),
+        ("LEAN-MIB", "frMgtVCSigUserT391"),
+        ("LEAN-MIB", "frMgtVCSigNetN392"),
+        ("LEAN-MIB", "frMgtVCSigNetN393"),
+        ("LEAN-MIB", "frMgtVCSigNetT392"),
+        ("LEAN-MIB", "frMgtVCSigNetnN4"),
+        ("LEAN-MIB", "frMgtVCSigNetnT3"),
+        ("LEAN-MIB", "frMgtVCSigUserLinkRelErrors"),
+        ("LEAN-MIB", "frMgtVCSigUserProtErrors"),
+        ("LEAN-MIB", "frMgtVCSigUserChanInactive"),
+        ("LEAN-MIB", "frMgtVCSigNetLinkRelErrors"),
+        ("LEAN-MIB", "frMgtVCSigNetProtErrors"),
+        ("LEAN-MIB", "frMgtVCSigNetChanInactive"))
+)
+if mibBuilder.loadTexts:
+    frnetservMgtVCSigGroup.setStatus("current")
+
+frnetservPVCEndptGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 3, 1, 3)
+)
+frnetservPVCEndptGroup.setObjects(
+      *(("LEAN-MIB", "frPVCConnectIndexValue"),
+        ("LEAN-MIB", "frPVCEndptInMaxFrameSize"),
+        ("LEAN-MIB", "frPVCEndptInBc"),
+        ("LEAN-MIB", "frPVCEndptInBe"),
+        ("LEAN-MIB", "frPVCEndptInCIR"),
+        ("LEAN-MIB", "frPVCEndptOutMaxFrameSize"),
+        ("LEAN-MIB", "frPVCEndptOutBc"),
+        ("LEAN-MIB", "frPVCEndptOutBe"),
+        ("LEAN-MIB", "frPVCEndptOutCIR"),
+        ("LEAN-MIB", "frPVCEndptConnectIdentifier"),
+        ("LEAN-MIB", "frPVCEndptRowStatus"),
+        ("LEAN-MIB", "frPVCEndptRcvdSigStatus"),
+        ("LEAN-MIB", "frPVCEndptInFrames"),
+        ("LEAN-MIB", "frPVCEndptOutFrames"),
+        ("LEAN-MIB", "frPVCEndptInDEFrames"),
+        ("LEAN-MIB", "frPVCEndptInExcessFrames"),
+        ("LEAN-MIB", "frPVCEndptOutExcessFrames"),
+        ("LEAN-MIB", "frPVCEndptInDiscards"),
+        ("LEAN-MIB", "frPVCEndptInOctets"),
+        ("LEAN-MIB", "frPVCEndptOutOctets"))
+)
+if mibBuilder.loadTexts:
+    frnetservPVCEndptGroup.setStatus("current")
+
+frnetservPVCConnectGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 3, 1, 4)
+)
+frnetservPVCConnectGroup.setObjects(
+      *(("LEAN-MIB", "frPVCConnectAdminStatus"),
+        ("LEAN-MIB", "frPVCConnectL2hOperStatus"),
+        ("LEAN-MIB", "frPVCConnectH2lOperStatus"),
+        ("LEAN-MIB", "frPVCConnectL2hLastChange"),
+        ("LEAN-MIB", "frPVCConnectH2lLastChange"),
+        ("LEAN-MIB", "frPVCConnectRowStatus"))
+)
+if mibBuilder.loadTexts:
+    frnetservPVCConnectGroup.setStatus("current")
+
+frnetservAccountPVCGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 3, 1, 5)
+)
+frnetservAccountPVCGroup.setObjects(
+      *(("LEAN-MIB", "frAccountPVCSegmentSize"),
+        ("LEAN-MIB", "frAccountPVCInSegments"),
+        ("LEAN-MIB", "frAccountPVCOutSegments"))
+)
+if mibBuilder.loadTexts:
+    frnetservAccountPVCGroup.setStatus("current")
+
+frnetservAccountLportGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 3, 1, 6)
+)
+frnetservAccountLportGroup.setObjects(
+      *(("LEAN-MIB", "frAccountLportSegmentSize"),
+        ("LEAN-MIB", "frAccountLportInSegments"),
+        ("LEAN-MIB", "frAccountLportOutSegments"))
+)
+if mibBuilder.loadTexts:
+    frnetservAccountLportGroup.setStatus("current")
+
+atmInterfaceConfGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 2, 1, 1)
+)
+atmInterfaceConfGroup.setObjects(
+      *(("LEAN-MIB", "atmInterfaceMaxVpcs"),
+        ("LEAN-MIB", "atmInterfaceMaxVccs"),
+        ("LEAN-MIB", "atmInterfaceConfVpcs"),
+        ("LEAN-MIB", "atmInterfaceConfVccs"),
+        ("LEAN-MIB", "atmInterfaceMaxActiveVpiBits"),
+        ("LEAN-MIB", "atmInterfaceMaxActiveVciBits"),
+        ("LEAN-MIB", "atmInterfaceIlmiVpi"),
+        ("LEAN-MIB", "atmInterfaceIlmiVci"),
+        ("LEAN-MIB", "atmInterfaceAddressType"),
+        ("LEAN-MIB", "atmInterfaceAdminAddress"),
+        ("LEAN-MIB", "atmInterfaceMyNeighborIpAddress"),
+        ("LEAN-MIB", "atmInterfaceMyNeighborIfName"))
+)
+if mibBuilder.loadTexts:
+    atmInterfaceConfGroup.setStatus("current")
+
+atmTrafficDescrGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 2, 1, 2)
+)
+atmTrafficDescrGroup.setObjects(
+      *(("LEAN-MIB", "atmTrafficDescrType"),
+        ("LEAN-MIB", "atmTrafficDescrParam1"),
+        ("LEAN-MIB", "atmTrafficDescrParam2"),
+        ("LEAN-MIB", "atmTrafficDescrParam3"),
+        ("LEAN-MIB", "atmTrafficDescrParam4"),
+        ("LEAN-MIB", "atmTrafficDescrParam5"),
+        ("LEAN-MIB", "atmTrafficQoSClass"),
+        ("LEAN-MIB", "atmTrafficDescrRowStatus"))
+)
+if mibBuilder.loadTexts:
+    atmTrafficDescrGroup.setStatus("current")
+
+atmInterfaceDs3PlcpGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 2, 1, 3)
+)
+atmInterfaceDs3PlcpGroup.setObjects(
+      *(("LEAN-MIB", "atmInterfaceDs3PlcpSEFSs"),
+        ("LEAN-MIB", "atmInterfaceDs3PlcpAlarmState"),
+        ("LEAN-MIB", "atmInterfaceDs3PlcpUASs"))
+)
+if mibBuilder.loadTexts:
+    atmInterfaceDs3PlcpGroup.setStatus("current")
+
+atmInterfaceTCGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 2, 1, 4)
+)
+atmInterfaceTCGroup.setObjects(
+      *(("LEAN-MIB", "atmInterfaceOCDEvents"),
+        ("LEAN-MIB", "atmInterfaceTCAlarmState"))
+)
+if mibBuilder.loadTexts:
+    atmInterfaceTCGroup.setStatus("current")
+
+atmVpcTerminationGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 2, 1, 5)
+)
+atmVpcTerminationGroup.setObjects(
+      *(("LEAN-MIB", "atmVplOperStatus"),
+        ("LEAN-MIB", "atmVplAdminStatus"),
+        ("LEAN-MIB", "atmVplLastChange"),
+        ("LEAN-MIB", "atmVplReceiveTrafficDescrIndex"),
+        ("LEAN-MIB", "atmVplTransmitTrafficDescrIndex"),
+        ("LEAN-MIB", "atmVplRowStatus"))
+)
+if mibBuilder.loadTexts:
+    atmVpcTerminationGroup.setStatus("current")
+
+atmVccTerminationGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 2, 1, 6)
+)
+atmVccTerminationGroup.setObjects(
+      *(("LEAN-MIB", "atmVclOperStatus"),
+        ("LEAN-MIB", "atmVclAdminStatus"),
+        ("LEAN-MIB", "atmVclLastChange"),
+        ("LEAN-MIB", "atmVclReceiveTrafficDescrIndex"),
+        ("LEAN-MIB", "atmVclTransmitTrafficDescrIndex"),
+        ("LEAN-MIB", "atmVccAalType"),
+        ("LEAN-MIB", "atmVclRowStatus"))
+)
+if mibBuilder.loadTexts:
+    atmVccTerminationGroup.setStatus("current")
+
+atmVpCrossConnectGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 2, 1, 7)
+)
+atmVpCrossConnectGroup.setObjects(
+      *(("LEAN-MIB", "atmVplReceiveTrafficDescrIndex"),
+        ("LEAN-MIB", "atmVplTransmitTrafficDescrIndex"),
+        ("LEAN-MIB", "atmVplOperStatus"),
+        ("LEAN-MIB", "atmVplRowStatus"),
+        ("LEAN-MIB", "atmVpCrossConnectAdminStatus"),
+        ("LEAN-MIB", "atmVpCrossConnectL2HOperStatus"),
+        ("LEAN-MIB", "atmVpCrossConnectH2LOperStatus"),
+        ("LEAN-MIB", "atmVpCrossConnectL2HLastChange"),
+        ("LEAN-MIB", "atmVpCrossConnectH2LLastChange"),
+        ("LEAN-MIB", "atmVpCrossConnectRowStatus"),
+        ("LEAN-MIB", "atmVplCrossConnectIdentifier"),
+        ("LEAN-MIB", "atmVpCrossConnectIndexNext"))
+)
+if mibBuilder.loadTexts:
+    atmVpCrossConnectGroup.setStatus("current")
+
+atmVcCrossConnectGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 2, 1, 8)
+)
+atmVcCrossConnectGroup.setObjects(
+      *(("LEAN-MIB", "atmVclReceiveTrafficDescrIndex"),
+        ("LEAN-MIB", "atmVclTransmitTrafficDescrIndex"),
+        ("LEAN-MIB", "atmVclOperStatus"),
+        ("LEAN-MIB", "atmVclRowStatus"),
+        ("LEAN-MIB", "atmVcCrossConnectAdminStatus"),
+        ("LEAN-MIB", "atmVcCrossConnectL2HOperStatus"),
+        ("LEAN-MIB", "atmVcCrossConnectH2LOperStatus"),
+        ("LEAN-MIB", "atmVcCrossConnectL2HLastChange"),
+        ("LEAN-MIB", "atmVcCrossConnectH2LLastChange"),
+        ("LEAN-MIB", "atmVcCrossConnectRowStatus"),
+        ("LEAN-MIB", "atmVclCrossConnectIdentifier"),
+        ("LEAN-MIB", "atmVcCrossConnectIndexNext"))
+)
+if mibBuilder.loadTexts:
+    atmVcCrossConnectGroup.setStatus("current")
+
+aal5VccGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 2, 1, 9)
+)
+aal5VccGroup.setObjects(
+      *(("LEAN-MIB", "atmVccAal5CpcsTransmitSduSize"),
+        ("LEAN-MIB", "atmVccAal5CpcsReceiveSduSize"),
+        ("LEAN-MIB", "atmVccAal5EncapsType"),
+        ("LEAN-MIB", "aal5VccCrcErrors"),
+        ("LEAN-MIB", "aal5VccSarTimeOuts"),
+        ("LEAN-MIB", "aal5VccOverSizedSDUs"))
+)
+if mibBuilder.loadTexts:
+    aal5VccGroup.setStatus("current")
+
+
+# Notification objects
+
+frPVCConnectStatusChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 2, 1)
+)
+frPVCConnectStatusChange.setObjects(
+      *(("LEAN-MIB", "frPVCConnectIndex"),
+        ("LEAN-MIB", "frPVCConnectLowIfIndex"),
+        ("LEAN-MIB", "frPVCConnectLowDLCIIndex"),
+        ("LEAN-MIB", "frPVCConnectHighIfIndex"),
+        ("LEAN-MIB", "frPVCConnectHighDLCIIndex"),
+        ("LEAN-MIB", "frPVCConnectL2hOperStatus"),
+        ("LEAN-MIB", "frPVCConnectH2lOperStatus"),
+        ("LEAN-MIB", "frPVCEndptRcvdSigStatus"))
+)
+if mibBuilder.loadTexts:
+    frPVCConnectStatusChange.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+frnetservCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 42, 1, 1, 3, 2, 1)
+)
+if mibBuilder.loadTexts:
+    frnetservCompliance.setStatus(
+        "current"
+    )
+
+atmMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 42, 1, 2, 2, 2, 1)
+)
+if mibBuilder.loadTexts:
+    atmMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "LEAN-MIB",
+    **{"IfIndex": IfIndex,
+       "AtmTrafficDescrParamIndex": AtmTrafficDescrParamIndex,
+       "tellabs": tellabs,
+       "leanMIB": leanMIB,
+       "frnetservMIB": frnetservMIB,
+       "frnetservObjects": frnetservObjects,
+       "frLportTable": frLportTable,
+       "frLportEntry": frLportEntry,
+       "frLportNumPlan": frLportNumPlan,
+       "frLportContact": frLportContact,
+       "frLportLocation": frLportLocation,
+       "frLportType": frLportType,
+       "frLportAddrDLCILen": frLportAddrDLCILen,
+       "frLportVCSigProtocol": frLportVCSigProtocol,
+       "frLportVCSigPointer": frLportVCSigPointer,
+       "frMgtVCSigTable": frMgtVCSigTable,
+       "frMgtVCSigEntry": frMgtVCSigEntry,
+       "frMgtVCSigProced": frMgtVCSigProced,
+       "frMgtVCSigUserN391": frMgtVCSigUserN391,
+       "frMgtVCSigUserN392": frMgtVCSigUserN392,
+       "frMgtVCSigUserN393": frMgtVCSigUserN393,
+       "frMgtVCSigUserT391": frMgtVCSigUserT391,
+       "frMgtVCSigNetN392": frMgtVCSigNetN392,
+       "frMgtVCSigNetN393": frMgtVCSigNetN393,
+       "frMgtVCSigNetT392": frMgtVCSigNetT392,
+       "frMgtVCSigNetnN4": frMgtVCSigNetnN4,
+       "frMgtVCSigNetnT3": frMgtVCSigNetnT3,
+       "frMgtVCSigUserLinkRelErrors": frMgtVCSigUserLinkRelErrors,
+       "frMgtVCSigUserProtErrors": frMgtVCSigUserProtErrors,
+       "frMgtVCSigUserChanInactive": frMgtVCSigUserChanInactive,
+       "frMgtVCSigNetLinkRelErrors": frMgtVCSigNetLinkRelErrors,
+       "frMgtVCSigNetProtErrors": frMgtVCSigNetProtErrors,
+       "frMgtVCSigNetChanInactive": frMgtVCSigNetChanInactive,
+       "frPVCEndptTable": frPVCEndptTable,
+       "frPVCEndptEntry": frPVCEndptEntry,
+       "frPVCEndptDLCIIndex": frPVCEndptDLCIIndex,
+       "frPVCEndptInMaxFrameSize": frPVCEndptInMaxFrameSize,
+       "frPVCEndptInBc": frPVCEndptInBc,
+       "frPVCEndptInBe": frPVCEndptInBe,
+       "frPVCEndptInCIR": frPVCEndptInCIR,
+       "frPVCEndptOutMaxFrameSize": frPVCEndptOutMaxFrameSize,
+       "frPVCEndptOutBc": frPVCEndptOutBc,
+       "frPVCEndptOutBe": frPVCEndptOutBe,
+       "frPVCEndptOutCIR": frPVCEndptOutCIR,
+       "frPVCEndptConnectIdentifier": frPVCEndptConnectIdentifier,
+       "frPVCEndptRowStatus": frPVCEndptRowStatus,
+       "frPVCEndptRcvdSigStatus": frPVCEndptRcvdSigStatus,
+       "frPVCEndptInFrames": frPVCEndptInFrames,
+       "frPVCEndptOutFrames": frPVCEndptOutFrames,
+       "frPVCEndptInDEFrames": frPVCEndptInDEFrames,
+       "frPVCEndptInExcessFrames": frPVCEndptInExcessFrames,
+       "frPVCEndptOutExcessFrames": frPVCEndptOutExcessFrames,
+       "frPVCEndptInDiscards": frPVCEndptInDiscards,
+       "frPVCEndptInOctets": frPVCEndptInOctets,
+       "frPVCEndptOutOctets": frPVCEndptOutOctets,
+       "frPVCConnectIndexValue": frPVCConnectIndexValue,
+       "frPVCConnectTable": frPVCConnectTable,
+       "frPVCConnectEntry": frPVCConnectEntry,
+       "frPVCConnectIndex": frPVCConnectIndex,
+       "frPVCConnectLowIfIndex": frPVCConnectLowIfIndex,
+       "frPVCConnectLowDLCIIndex": frPVCConnectLowDLCIIndex,
+       "frPVCConnectHighIfIndex": frPVCConnectHighIfIndex,
+       "frPVCConnectHighDLCIIndex": frPVCConnectHighDLCIIndex,
+       "frPVCConnectAdminStatus": frPVCConnectAdminStatus,
+       "frPVCConnectL2hOperStatus": frPVCConnectL2hOperStatus,
+       "frPVCConnectH2lOperStatus": frPVCConnectH2lOperStatus,
+       "frPVCConnectL2hLastChange": frPVCConnectL2hLastChange,
+       "frPVCConnectH2lLastChange": frPVCConnectH2lLastChange,
+       "frPVCConnectRowStatus": frPVCConnectRowStatus,
+       "frAccountPVCTable": frAccountPVCTable,
+       "frAccountPVCEntry": frAccountPVCEntry,
+       "frAccountPVCDLCIIndex": frAccountPVCDLCIIndex,
+       "frAccountPVCSegmentSize": frAccountPVCSegmentSize,
+       "frAccountPVCInSegments": frAccountPVCInSegments,
+       "frAccountPVCOutSegments": frAccountPVCOutSegments,
+       "frAccountLportTable": frAccountLportTable,
+       "frAccountLportEntry": frAccountLportEntry,
+       "frAccountLportSegmentSize": frAccountLportSegmentSize,
+       "frAccountLportInSegments": frAccountLportInSegments,
+       "frAccountLportOutSegments": frAccountLportOutSegments,
+       "frnetservTraps": frnetservTraps,
+       "frPVCConnectStatusChange": frPVCConnectStatusChange,
+       "frnetservConformance": frnetservConformance,
+       "frnetservGroups": frnetservGroups,
+       "frnetservLportGroup": frnetservLportGroup,
+       "frnetservMgtVCSigGroup": frnetservMgtVCSigGroup,
+       "frnetservPVCEndptGroup": frnetservPVCEndptGroup,
+       "frnetservPVCConnectGroup": frnetservPVCConnectGroup,
+       "frnetservAccountPVCGroup": frnetservAccountPVCGroup,
+       "frnetservAccountLportGroup": frnetservAccountLportGroup,
+       "frnetservCompliances": frnetservCompliances,
+       "frnetservCompliance": frnetservCompliance,
+       "atmMIB": atmMIB,
+       "atmMIBObjects": atmMIBObjects,
+       "atmTrafficDescriptorTypes": atmTrafficDescriptorTypes,
+       "atmNoTrafficDescriptor": atmNoTrafficDescriptor,
+       "atmNoClpNoScr": atmNoClpNoScr,
+       "atmClpNoTaggingNoScr": atmClpNoTaggingNoScr,
+       "atmClpTaggingNoScr": atmClpTaggingNoScr,
+       "atmNoClpScr": atmNoClpScr,
+       "atmClpNoTaggingScr": atmClpNoTaggingScr,
+       "atmClpTaggingScr": atmClpTaggingScr,
+       "atmInterfaceConfTable": atmInterfaceConfTable,
+       "atmInterfaceConfEntry": atmInterfaceConfEntry,
+       "atmInterfaceMaxVpcs": atmInterfaceMaxVpcs,
+       "atmInterfaceMaxVccs": atmInterfaceMaxVccs,
+       "atmInterfaceConfVpcs": atmInterfaceConfVpcs,
+       "atmInterfaceConfVccs": atmInterfaceConfVccs,
+       "atmInterfaceMaxActiveVpiBits": atmInterfaceMaxActiveVpiBits,
+       "atmInterfaceMaxActiveVciBits": atmInterfaceMaxActiveVciBits,
+       "atmInterfaceIlmiVpi": atmInterfaceIlmiVpi,
+       "atmInterfaceIlmiVci": atmInterfaceIlmiVci,
+       "atmInterfaceAddressType": atmInterfaceAddressType,
+       "atmInterfaceAdminAddress": atmInterfaceAdminAddress,
+       "atmInterfaceMyNeighborIpAddress": atmInterfaceMyNeighborIpAddress,
+       "atmInterfaceMyNeighborIfName": atmInterfaceMyNeighborIfName,
+       "atmInterfaceDs3PlcpTable": atmInterfaceDs3PlcpTable,
+       "atmInterfaceDs3PlcpEntry": atmInterfaceDs3PlcpEntry,
+       "atmInterfaceDs3PlcpSEFSs": atmInterfaceDs3PlcpSEFSs,
+       "atmInterfaceDs3PlcpAlarmState": atmInterfaceDs3PlcpAlarmState,
+       "atmInterfaceDs3PlcpUASs": atmInterfaceDs3PlcpUASs,
+       "atmInterfaceTCTable": atmInterfaceTCTable,
+       "atmInterfaceTCEntry": atmInterfaceTCEntry,
+       "atmInterfaceOCDEvents": atmInterfaceOCDEvents,
+       "atmInterfaceTCAlarmState": atmInterfaceTCAlarmState,
+       "atmTrafficDescrParamTable": atmTrafficDescrParamTable,
+       "atmTrafficDescrParamEntry": atmTrafficDescrParamEntry,
+       "atmTrafficDescrParamIndex": atmTrafficDescrParamIndex,
+       "atmTrafficDescrType": atmTrafficDescrType,
+       "atmTrafficDescrParam1": atmTrafficDescrParam1,
+       "atmTrafficDescrParam2": atmTrafficDescrParam2,
+       "atmTrafficDescrParam3": atmTrafficDescrParam3,
+       "atmTrafficDescrParam4": atmTrafficDescrParam4,
+       "atmTrafficDescrParam5": atmTrafficDescrParam5,
+       "atmTrafficQoSClass": atmTrafficQoSClass,
+       "atmTrafficDescrRowStatus": atmTrafficDescrRowStatus,
+       "atmVplTable": atmVplTable,
+       "atmVplEntry": atmVplEntry,
+       "atmVplVpi": atmVplVpi,
+       "atmVplAdminStatus": atmVplAdminStatus,
+       "atmVplOperStatus": atmVplOperStatus,
+       "atmVplLastChange": atmVplLastChange,
+       "atmVplReceiveTrafficDescrIndex": atmVplReceiveTrafficDescrIndex,
+       "atmVplTransmitTrafficDescrIndex": atmVplTransmitTrafficDescrIndex,
+       "atmVplCrossConnectIdentifier": atmVplCrossConnectIdentifier,
+       "atmVplRowStatus": atmVplRowStatus,
+       "atmVclTable": atmVclTable,
+       "atmVclEntry": atmVclEntry,
+       "atmVclVpi": atmVclVpi,
+       "atmVclVci": atmVclVci,
+       "atmVclAdminStatus": atmVclAdminStatus,
+       "atmVclOperStatus": atmVclOperStatus,
+       "atmVclLastChange": atmVclLastChange,
+       "atmVclReceiveTrafficDescrIndex": atmVclReceiveTrafficDescrIndex,
+       "atmVclTransmitTrafficDescrIndex": atmVclTransmitTrafficDescrIndex,
+       "atmVccAalType": atmVccAalType,
+       "atmVccAal5CpcsTransmitSduSize": atmVccAal5CpcsTransmitSduSize,
+       "atmVccAal5CpcsReceiveSduSize": atmVccAal5CpcsReceiveSduSize,
+       "atmVccAal5EncapsType": atmVccAal5EncapsType,
+       "atmVclCrossConnectIdentifier": atmVclCrossConnectIdentifier,
+       "atmVclRowStatus": atmVclRowStatus,
+       "atmVpCrossConnectIndexNext": atmVpCrossConnectIndexNext,
+       "atmVpCrossConnectTable": atmVpCrossConnectTable,
+       "atmVpCrossConnectEntry": atmVpCrossConnectEntry,
+       "atmVpCrossConnectIndex": atmVpCrossConnectIndex,
+       "atmVpCrossConnectLowIfIndex": atmVpCrossConnectLowIfIndex,
+       "atmVpCrossConnectLowVpi": atmVpCrossConnectLowVpi,
+       "atmVpCrossConnectHighIfIndex": atmVpCrossConnectHighIfIndex,
+       "atmVpCrossConnectHighVpi": atmVpCrossConnectHighVpi,
+       "atmVpCrossConnectAdminStatus": atmVpCrossConnectAdminStatus,
+       "atmVpCrossConnectL2HOperStatus": atmVpCrossConnectL2HOperStatus,
+       "atmVpCrossConnectH2LOperStatus": atmVpCrossConnectH2LOperStatus,
+       "atmVpCrossConnectL2HLastChange": atmVpCrossConnectL2HLastChange,
+       "atmVpCrossConnectH2LLastChange": atmVpCrossConnectH2LLastChange,
+       "atmVpCrossConnectRowStatus": atmVpCrossConnectRowStatus,
+       "atmVcCrossConnectIndexNext": atmVcCrossConnectIndexNext,
+       "atmVcCrossConnectTable": atmVcCrossConnectTable,
+       "atmVcCrossConnectEntry": atmVcCrossConnectEntry,
+       "atmVcCrossConnectIndex": atmVcCrossConnectIndex,
+       "atmVcCrossConnectLowIfIndex": atmVcCrossConnectLowIfIndex,
+       "atmVcCrossConnectLowVpi": atmVcCrossConnectLowVpi,
+       "atmVcCrossConnectLowVci": atmVcCrossConnectLowVci,
+       "atmVcCrossConnectHighIfIndex": atmVcCrossConnectHighIfIndex,
+       "atmVcCrossConnectHighVpi": atmVcCrossConnectHighVpi,
+       "atmVcCrossConnectHighVci": atmVcCrossConnectHighVci,
+       "atmVcCrossConnectAdminStatus": atmVcCrossConnectAdminStatus,
+       "atmVcCrossConnectL2HOperStatus": atmVcCrossConnectL2HOperStatus,
+       "atmVcCrossConnectH2LOperStatus": atmVcCrossConnectH2LOperStatus,
+       "atmVcCrossConnectL2HLastChange": atmVcCrossConnectL2HLastChange,
+       "atmVcCrossConnectH2LLastChange": atmVcCrossConnectH2LLastChange,
+       "atmVcCrossConnectRowStatus": atmVcCrossConnectRowStatus,
+       "aal5VccTable": aal5VccTable,
+       "aal5VccEntry": aal5VccEntry,
+       "aal5VccVpi": aal5VccVpi,
+       "aal5VccVci": aal5VccVci,
+       "aal5VccCrcErrors": aal5VccCrcErrors,
+       "aal5VccSarTimeOuts": aal5VccSarTimeOuts,
+       "aal5VccOverSizedSDUs": aal5VccOverSizedSDUs,
+       "atmMIBConformance": atmMIBConformance,
+       "atmMIBGroups": atmMIBGroups,
+       "atmInterfaceConfGroup": atmInterfaceConfGroup,
+       "atmTrafficDescrGroup": atmTrafficDescrGroup,
+       "atmInterfaceDs3PlcpGroup": atmInterfaceDs3PlcpGroup,
+       "atmInterfaceTCGroup": atmInterfaceTCGroup,
+       "atmVpcTerminationGroup": atmVpcTerminationGroup,
+       "atmVccTerminationGroup": atmVccTerminationGroup,
+       "atmVpCrossConnectGroup": atmVpCrossConnectGroup,
+       "atmVcCrossConnectGroup": atmVcCrossConnectGroup,
+       "aal5VccGroup": aal5VccGroup,
+       "atmMIBCompliances": atmMIBCompliances,
+       "atmMIBCompliance": atmMIBCompliance}
+)

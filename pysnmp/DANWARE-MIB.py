@@ -1,191 +1,1715 @@
+# SNMP MIB module (DANWARE-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module DANWARE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/DANWARE-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:21:09 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Integer32, ObjectIdentity, TimeTicks, Unsigned32, ModuleIdentity, MibIdentifier, IpAddress, Bits, Counter32, Gauge32, enterprises, NotificationType, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Integer32", "ObjectIdentity", "TimeTicks", "Unsigned32", "ModuleIdentity", "MibIdentifier", "IpAddress", "Bits", "Counter32", "Gauge32", "enterprises", "NotificationType", "Counter64")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-danware = MibIdentifier((1, 3, 6, 1, 4, 1, 8116))
-netop = MibIdentifier((1, 3, 6, 1, 4, 1, 8116, 2))
-netopEvent = MibIdentifier((1, 3, 6, 1, 4, 1, 8116, 2, 6))
-netopManufacturer = MibScalar((1, 3, 6, 1, 4, 1, 8116, 2, 1), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: netopManufacturer.setStatus('mandatory')
-netopProducts = MibScalar((1, 3, 6, 1, 4, 1, 8116, 2, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 10, 20, 21, 22, 23, 24, 25, 30))).clone(namedValues=NamedValues(("unknown", 0), ("guest", 1), ("teacher", 10), ("host", 20), ("nameserver", 21), ("gateway", 22), ("logserver", 23), ("accessserver", 24), ("classserver", 25), ("student", 30)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: netopProducts.setStatus('mandatory')
-netopVersionNumber = MibScalar((1, 3, 6, 1, 4, 1, 8116, 2, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: netopVersionNumber.setStatus('mandatory')
-netopStatus = MibScalar((1, 3, 6, 1, 4, 1, 8116, 2, 4), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: netopStatus.setStatus('mandatory')
-netopCallHost = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,0))
-netopHangupHost = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,1))
-netopStartHelp = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,2))
-netopStopHelp = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,3))
-netopHelpDefined = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,4))
-netopHelpDeleted = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,5))
-netopHelpReqReceived = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,6))
-netopHelpReqCancel = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,7))
-netopSesRecStarted = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,8))
-netopSesRecStop = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,9))
-netopACLogin = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,10))
-netopACLogOff = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,11))
-netopUnknown = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,12))
-netopHostStarted = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,32))
-netopHostStopped = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,33))
-netopStartRemoteCtrl = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,34))
-netopStopRemoteCtrl = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,35))
-netopStartCallback = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,36))
-netopHelpReqSent = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,37))
-netopHstHelpReqCancel = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,38))
-netopIndvSeqEnab = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,39))
-netopIndvSeqDisab = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,40))
-netopSecRoleAdded = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,41))
-netopSecRoleDeleted = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,42))
-netopSecRoleChange = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,43))
-netopGstGrpAdded = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,44))
-netopGstGrpDeleted = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,45))
-netopGstGrpChange = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,46))
-netopPWEnabled = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,47))
-netopPWDisabled = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,48))
-netopPWChange = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,49))
-netopCallBEnabled = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,50))
-netopCallBDisabled = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,51))
-netopCallBChange = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,52))
-netopConfAccEnab = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,53))
-netopConfAccDisab = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,54))
-netopGatewCallb = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,64))
-netopGatewIndvDef = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,65))
-netopGatewIndvDEL = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,66))
-netopGatewGstAdded = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,67))
-netopGatewGstDelete = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,68))
-netopGatewGstChange = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,69))
-netopGatewPWEnab = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,70))
-netopGatewPWDisab = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,71))
-netopGatewPWChange = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,72))
-netopGatewCallbEnab = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,73))
-netopGatewCallbDisab = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,74))
-netopGatewCallbChange = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,75))
-netopFileReceive = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,96))
-netopFileSent = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,97))
-netopBooted = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,98))
-netopConectionLost = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,99))
-netopPassWordRejected = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,100))
-netopConfAccessDenied = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,101))
-netopASPWRejected = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,102))
-netopASAdminChange = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,103))
-netopEventLoggingFailed = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,112))
-netopSNMPLoggingFailed = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,113))
-netopRCStarted = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,114))
-netopRCStopped = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,115))
-netopFileTrStarted = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,116))
-netopFileTrStopped = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,117))
-netopGChatStarted = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,118))
-netopGChatStopped = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,119))
-netopGAudioStarted = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,120))
-netopGAudioStopped = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,121))
-netopClipReceived = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,122))
-netopClipSent = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,123))
-netopRrintReceived = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,124))
-netopPrintSent = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,125))
-netopCommProfileStart = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,126))
-netopCommProfileStop = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,127))
-netopLogLocalOn = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,128))
-netopLogLocalOff = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,129))
-netopLogLocalChange = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,130))
-netopLogServerOn = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,131))
-netopLogServerOff = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,132))
-netopIsLogServer = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,133))
-netopIsNotLogServer = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,134))
-netopLogEventlogOn = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,135))
-netopLogEventlogOff = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,136))
-netopLogSNMPOn = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,137))
-netopLogSNMPOff = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,138))
-netopKbdLock = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,139))
-netopKbdUnlock = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,140))
-netopScrBlank = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,141))
-netopScrUnblank = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,142))
-netopLogoff = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,143))
-netopGWLogin = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,144))
-netopOptWaitStart = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,145))
-netopOptLoadStar = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,146))
-netopOptMinStart = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,147))
-netopOptStealth = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,148))
-netopOptMinConn = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,149))
-netopOptOnTop = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,150))
-netopOptShowFile = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,151))
-netopOptKeepAlive = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,152))
-netopOptBootHangUp = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,153))
-netopOptLogOffHangUp = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,154))
-netopOptNaming = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,155))
-netopOptPublic = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,156))
-netopOptNotification = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,157))
-netopOptHlpDescr = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,158))
-netopOptHlpProvid = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,159))
-netopOptHlpComm = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,160))
-netopOptHlpAdr = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,161))
-netopOptHlpIcon = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,162))
-netopOptAudDuplex = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,163))
-netopOptAudSilence = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,164))
-netopOptAudLineHold = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,165))
-netopOptNNSChg = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,166))
-netopMaintGuest = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,167))
-netopMaintGW = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,168))
-netopMaintOther = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,169))
-netopMaintExit = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,170))
-netopMaintProtect = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,171))
-netopMaintPW = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,172))
-netopAccessAllowance = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,173))
-netopAccessMACIP = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,174))
-netopAccessFTrans = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,175))
-netopSSGroupIDChg = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,176))
-netopPWRejectLimit = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,177))
-netopNameServerStart = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,178))
-netopNameServerStop = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,179))
-netopSecurityServerStart = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,180))
-netopSecurityServerStop = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,181))
-netopGatewayStart = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,182))
-netopGatwayStop = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,183))
-netopOptLockHangUp = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,184))
-netopOptNothingHangUp = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,185))
-netopOptUserName = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,186))
-netopFMStarted = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,187))
-netopFMStopped = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,188))
-netopHChatStarted = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,189))
-netopHChatStopped = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,190))
-netopHAudioStarted = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,191))
-netopHAudioStopped = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,192))
-netopCommunicationStarted = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,193))
-netopCommunicationStopped = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,194))
-netopRunScript = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,195))
-netopRunProgram = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,196))
-netopExecuteCommand = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,197))
-netopGatewGrpDefined = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,198))
-netopGatewGrpDeleted = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,199))
-netopGatewAccessAllowed = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,200))
-netopGatewNNSGDIChanged = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,201))
-netopAccessServerPWChanged = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,202))
-netopInventoryReceived = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,203))
-netopMessageSent = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,204))
-netopInventorySent = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,205))
-netopMessageReceived = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,206))
-netopTimeoutLimitExeded = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,207))
-netopAuthenticatedUser = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,208))
-netopGatewayPWRejected = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,209))
-netopWebUpdateCheck = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,210))
-netopWebUpdateDownload = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,211))
-netopWebUpdateInstall = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,212))
-netopWebUpdateSuccess = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,213))
-netopWebUpdateFailed = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,214))
-netopClassServerStart = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,215))
-netopClassServerStop = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,216))
-netopOptMultiGuest = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,217))
-netopRemoteMgmStarted = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,218))
-netopRemoteMgmStopped = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,219))
-netopRemoteMgmStarted2 = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,220))
-netopRemoteMgmStopped2 = NotificationType((1, 3, 6, 1, 4, 1, 8116, 2, 6) + (0,221))
-mibBuilder.exportSymbols("DANWARE-MIB", netopEvent=netopEvent, netopGatewCallbEnab=netopGatewCallbEnab, netopMaintOther=netopMaintOther, netopOptKeepAlive=netopOptKeepAlive, netopGatewPWDisab=netopGatewPWDisab, netopSecRoleChange=netopSecRoleChange, netopCallBEnabled=netopCallBEnabled, netopSesRecStop=netopSesRecStop, netopOptShowFile=netopOptShowFile, netopCommunicationStarted=netopCommunicationStarted, netopMessageReceived=netopMessageReceived, netopHAudioStarted=netopHAudioStarted, netopGatewayStart=netopGatewayStart, netopRCStopped=netopRCStopped, netopGatewIndvDef=netopGatewIndvDef, netopOptWaitStart=netopOptWaitStart, netopOptHlpIcon=netopOptHlpIcon, netopOptNaming=netopOptNaming, netopOptNNSChg=netopOptNNSChg, netopStatus=netopStatus, netopOptUserName=netopOptUserName, netopHangupHost=netopHangupHost, netopACLogOff=netopACLogOff, netopOptStealth=netopOptStealth, netopPrintSent=netopPrintSent, netopVersionNumber=netopVersionNumber, netopKbdLock=netopKbdLock, netopLogLocalOn=netopLogLocalOn, netopWebUpdateInstall=netopWebUpdateInstall, netop=netop, netopGWLogin=netopGWLogin, netopGatwayStop=netopGatwayStop, netopOptHlpProvid=netopOptHlpProvid, netopGatewGstDelete=netopGatewGstDelete, netopOptAudDuplex=netopOptAudDuplex, netopIndvSeqDisab=netopIndvSeqDisab, netopRemoteMgmStarted=netopRemoteMgmStarted, netopOptPublic=netopOptPublic, netopFileReceive=netopFileReceive, netopMaintGW=netopMaintGW, netopCallBDisabled=netopCallBDisabled, netopGChatStopped=netopGChatStopped, netopOptOnTop=netopOptOnTop, netopLogoff=netopLogoff, netopASPWRejected=netopASPWRejected, netopOptLockHangUp=netopOptLockHangUp, netopAccessAllowance=netopAccessAllowance, netopGatewCallbDisab=netopGatewCallbDisab, netopGatewPWChange=netopGatewPWChange, netopFileTrStopped=netopFileTrStopped, netopNameServerStop=netopNameServerStop, netopGatewPWEnab=netopGatewPWEnab, netopFileTrStarted=netopFileTrStarted, netopGatewIndvDEL=netopGatewIndvDEL, danware=danware, netopStopHelp=netopStopHelp, netopSecRoleAdded=netopSecRoleAdded, netopGatewayPWRejected=netopGatewayPWRejected, netopEventLoggingFailed=netopEventLoggingFailed, netopClipSent=netopClipSent, netopGAudioStopped=netopGAudioStopped, netopPWRejectLimit=netopPWRejectLimit, netopIsNotLogServer=netopIsNotLogServer, netopMaintProtect=netopMaintProtect, netopScrBlank=netopScrBlank, netopClassServerStart=netopClassServerStart, netopOptBootHangUp=netopOptBootHangUp, netopRunProgram=netopRunProgram, netopGatewGrpDefined=netopGatewGrpDefined, netopStartCallback=netopStartCallback, netopSSGroupIDChg=netopSSGroupIDChg, netopBooted=netopBooted, netopOptMinStart=netopOptMinStart, netopCommProfileStart=netopCommProfileStart, netopACLogin=netopACLogin, netopGatewGrpDeleted=netopGatewGrpDeleted, netopInventorySent=netopInventorySent, netopRemoteMgmStopped=netopRemoteMgmStopped, netopASAdminChange=netopASAdminChange, netopScrUnblank=netopScrUnblank, netopLogSNMPOn=netopLogSNMPOn, netopSecurityServerStart=netopSecurityServerStart, netopClipReceived=netopClipReceived, netopCallBChange=netopCallBChange, netopLogLocalChange=netopLogLocalChange, netopOptMultiGuest=netopOptMultiGuest, netopGChatStarted=netopGChatStarted, netopOptHlpComm=netopOptHlpComm, netopRemoteMgmStopped2=netopRemoteMgmStopped2, netopConfAccessDenied=netopConfAccessDenied, netopCommunicationStopped=netopCommunicationStopped, netopGatewAccessAllowed=netopGatewAccessAllowed, netopTimeoutLimitExeded=netopTimeoutLimitExeded, netopAccessFTrans=netopAccessFTrans, netopSecRoleDeleted=netopSecRoleDeleted, netopPassWordRejected=netopPassWordRejected, netopFMStarted=netopFMStarted, netopOptHlpDescr=netopOptHlpDescr, netopGstGrpDeleted=netopGstGrpDeleted, netopLogLocalOff=netopLogLocalOff, netopSesRecStarted=netopSesRecStarted, netopAccessMACIP=netopAccessMACIP, netopLogSNMPOff=netopLogSNMPOff, netopWebUpdateSuccess=netopWebUpdateSuccess, netopHstHelpReqCancel=netopHstHelpReqCancel, netopStopRemoteCtrl=netopStopRemoteCtrl, netopMaintPW=netopMaintPW, netopSecurityServerStop=netopSecurityServerStop, netopHelpDefined=netopHelpDefined, netopConfAccDisab=netopConfAccDisab, netopOptAudSilence=netopOptAudSilence, netopClassServerStop=netopClassServerStop, netopFileSent=netopFileSent, netopStartRemoteCtrl=netopStartRemoteCtrl, netopAccessServerPWChanged=netopAccessServerPWChanged, netopWebUpdateFailed=netopWebUpdateFailed, netopOptNothingHangUp=netopOptNothingHangUp, netopLogEventlogOff=netopLogEventlogOff, netopMaintGuest=netopMaintGuest, netopHelpReqSent=netopHelpReqSent, netopProducts=netopProducts, netopOptAudLineHold=netopOptAudLineHold, netopHelpDeleted=netopHelpDeleted, netopGatewCallb=netopGatewCallb, netopMessageSent=netopMessageSent, netopRemoteMgmStarted2=netopRemoteMgmStarted2, netopGatewNNSGDIChanged=netopGatewNNSGDIChanged, netopIndvSeqEnab=netopIndvSeqEnab, netopHAudioStopped=netopHAudioStopped, netopWebUpdateCheck=netopWebUpdateCheck, netopWebUpdateDownload=netopWebUpdateDownload, netopOptLogOffHangUp=netopOptLogOffHangUp, netopKbdUnlock=netopKbdUnlock, netopLogEventlogOn=netopLogEventlogOn, netopGstGrpAdded=netopGstGrpAdded, netopOptLoadStar=netopOptLoadStar, netopConfAccEnab=netopConfAccEnab, netopRunScript=netopRunScript, netopOptHlpAdr=netopOptHlpAdr, netopMaintExit=netopMaintExit, netopPWEnabled=netopPWEnabled, netopGatewCallbChange=netopGatewCallbChange, netopCommProfileStop=netopCommProfileStop, netopLogServerOff=netopLogServerOff, netopPWDisabled=netopPWDisabled, netopPWChange=netopPWChange, netopGatewGstChange=netopGatewGstChange, netopManufacturer=netopManufacturer, netopHelpReqReceived=netopHelpReqReceived, netopRrintReceived=netopRrintReceived, netopOptMinConn=netopOptMinConn, netopStartHelp=netopStartHelp, netopNameServerStart=netopNameServerStart, netopUnknown=netopUnknown, netopOptNotification=netopOptNotification, netopExecuteCommand=netopExecuteCommand, netopAuthenticatedUser=netopAuthenticatedUser, netopHostStopped=netopHostStopped, netopGstGrpChange=netopGstGrpChange, netopLogServerOn=netopLogServerOn, netopFMStopped=netopFMStopped, netopInventoryReceived=netopInventoryReceived, netopIsLogServer=netopIsLogServer, netopHelpReqCancel=netopHelpReqCancel, netopSNMPLoggingFailed=netopSNMPLoggingFailed, netopHChatStarted=netopHChatStarted, netopRCStarted=netopRCStarted, netopGatewGstAdded=netopGatewGstAdded, netopConectionLost=netopConectionLost, netopHChatStopped=netopHChatStopped, netopCallHost=netopCallHost, netopHostStarted=netopHostStarted, netopGAudioStarted=netopGAudioStarted)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/DANWARE-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:22:54 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ NotificationType,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "NotificationType",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Danware_ObjectIdentity = ObjectIdentity
+danware = _Danware_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8116)
+)
+_Netop_ObjectIdentity = ObjectIdentity
+netop = _Netop_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8116, 2)
+)
+_NetopManufacturer_Type = DisplayString
+_NetopManufacturer_Object = MibScalar
+netopManufacturer = _NetopManufacturer_Object(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 1),
+    _NetopManufacturer_Type()
+)
+netopManufacturer.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    netopManufacturer.setStatus("mandatory")
+
+
+class _NetopProducts_Type(Integer32):
+    """Custom type netopProducts based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              10,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              30)
+        )
+    )
+    namedValues = NamedValues(
+        *(("accessserver", 24),
+          ("classserver", 25),
+          ("gateway", 22),
+          ("guest", 1),
+          ("host", 20),
+          ("logserver", 23),
+          ("nameserver", 21),
+          ("student", 30),
+          ("teacher", 10),
+          ("unknown", 0))
+    )
+
+
+_NetopProducts_Type.__name__ = "Integer32"
+_NetopProducts_Object = MibScalar
+netopProducts = _NetopProducts_Object(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 2),
+    _NetopProducts_Type()
+)
+netopProducts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    netopProducts.setStatus("mandatory")
+_NetopVersionNumber_Type = DisplayString
+_NetopVersionNumber_Object = MibScalar
+netopVersionNumber = _NetopVersionNumber_Object(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 3),
+    _NetopVersionNumber_Type()
+)
+netopVersionNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    netopVersionNumber.setStatus("mandatory")
+_NetopStatus_Type = DisplayString
+_NetopStatus_Object = MibScalar
+netopStatus = _NetopStatus_Object(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 4),
+    _NetopStatus_Type()
+)
+netopStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    netopStatus.setStatus("mandatory")
+_NetopEvent_ObjectIdentity = ObjectIdentity
+netopEvent = _NetopEvent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+netopCallHost = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 0)
+)
+if mibBuilder.loadTexts:
+    netopCallHost.setStatus(
+        ""
+    )
+
+netopHangupHost = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 1)
+)
+if mibBuilder.loadTexts:
+    netopHangupHost.setStatus(
+        ""
+    )
+
+netopStartHelp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 2)
+)
+if mibBuilder.loadTexts:
+    netopStartHelp.setStatus(
+        ""
+    )
+
+netopStopHelp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 3)
+)
+if mibBuilder.loadTexts:
+    netopStopHelp.setStatus(
+        ""
+    )
+
+netopHelpDefined = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 4)
+)
+if mibBuilder.loadTexts:
+    netopHelpDefined.setStatus(
+        ""
+    )
+
+netopHelpDeleted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 5)
+)
+if mibBuilder.loadTexts:
+    netopHelpDeleted.setStatus(
+        ""
+    )
+
+netopHelpReqReceived = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 6)
+)
+if mibBuilder.loadTexts:
+    netopHelpReqReceived.setStatus(
+        ""
+    )
+
+netopHelpReqCancel = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 7)
+)
+if mibBuilder.loadTexts:
+    netopHelpReqCancel.setStatus(
+        ""
+    )
+
+netopSesRecStarted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 8)
+)
+if mibBuilder.loadTexts:
+    netopSesRecStarted.setStatus(
+        ""
+    )
+
+netopSesRecStop = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 9)
+)
+if mibBuilder.loadTexts:
+    netopSesRecStop.setStatus(
+        ""
+    )
+
+netopACLogin = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 10)
+)
+if mibBuilder.loadTexts:
+    netopACLogin.setStatus(
+        ""
+    )
+
+netopACLogOff = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 11)
+)
+if mibBuilder.loadTexts:
+    netopACLogOff.setStatus(
+        ""
+    )
+
+netopUnknown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 12)
+)
+if mibBuilder.loadTexts:
+    netopUnknown.setStatus(
+        ""
+    )
+
+netopHostStarted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 32)
+)
+if mibBuilder.loadTexts:
+    netopHostStarted.setStatus(
+        ""
+    )
+
+netopHostStopped = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 33)
+)
+if mibBuilder.loadTexts:
+    netopHostStopped.setStatus(
+        ""
+    )
+
+netopStartRemoteCtrl = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 34)
+)
+if mibBuilder.loadTexts:
+    netopStartRemoteCtrl.setStatus(
+        ""
+    )
+
+netopStopRemoteCtrl = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 35)
+)
+if mibBuilder.loadTexts:
+    netopStopRemoteCtrl.setStatus(
+        ""
+    )
+
+netopStartCallback = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 36)
+)
+if mibBuilder.loadTexts:
+    netopStartCallback.setStatus(
+        ""
+    )
+
+netopHelpReqSent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 37)
+)
+if mibBuilder.loadTexts:
+    netopHelpReqSent.setStatus(
+        ""
+    )
+
+netopHstHelpReqCancel = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 38)
+)
+if mibBuilder.loadTexts:
+    netopHstHelpReqCancel.setStatus(
+        ""
+    )
+
+netopIndvSeqEnab = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 39)
+)
+if mibBuilder.loadTexts:
+    netopIndvSeqEnab.setStatus(
+        ""
+    )
+
+netopIndvSeqDisab = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 40)
+)
+if mibBuilder.loadTexts:
+    netopIndvSeqDisab.setStatus(
+        ""
+    )
+
+netopSecRoleAdded = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 41)
+)
+if mibBuilder.loadTexts:
+    netopSecRoleAdded.setStatus(
+        ""
+    )
+
+netopSecRoleDeleted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 42)
+)
+if mibBuilder.loadTexts:
+    netopSecRoleDeleted.setStatus(
+        ""
+    )
+
+netopSecRoleChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 43)
+)
+if mibBuilder.loadTexts:
+    netopSecRoleChange.setStatus(
+        ""
+    )
+
+netopGstGrpAdded = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 44)
+)
+if mibBuilder.loadTexts:
+    netopGstGrpAdded.setStatus(
+        ""
+    )
+
+netopGstGrpDeleted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 45)
+)
+if mibBuilder.loadTexts:
+    netopGstGrpDeleted.setStatus(
+        ""
+    )
+
+netopGstGrpChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 46)
+)
+if mibBuilder.loadTexts:
+    netopGstGrpChange.setStatus(
+        ""
+    )
+
+netopPWEnabled = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 47)
+)
+if mibBuilder.loadTexts:
+    netopPWEnabled.setStatus(
+        ""
+    )
+
+netopPWDisabled = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 48)
+)
+if mibBuilder.loadTexts:
+    netopPWDisabled.setStatus(
+        ""
+    )
+
+netopPWChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 49)
+)
+if mibBuilder.loadTexts:
+    netopPWChange.setStatus(
+        ""
+    )
+
+netopCallBEnabled = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 50)
+)
+if mibBuilder.loadTexts:
+    netopCallBEnabled.setStatus(
+        ""
+    )
+
+netopCallBDisabled = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 51)
+)
+if mibBuilder.loadTexts:
+    netopCallBDisabled.setStatus(
+        ""
+    )
+
+netopCallBChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 52)
+)
+if mibBuilder.loadTexts:
+    netopCallBChange.setStatus(
+        ""
+    )
+
+netopConfAccEnab = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 53)
+)
+if mibBuilder.loadTexts:
+    netopConfAccEnab.setStatus(
+        ""
+    )
+
+netopConfAccDisab = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 54)
+)
+if mibBuilder.loadTexts:
+    netopConfAccDisab.setStatus(
+        ""
+    )
+
+netopGatewCallb = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 64)
+)
+if mibBuilder.loadTexts:
+    netopGatewCallb.setStatus(
+        ""
+    )
+
+netopGatewIndvDef = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 65)
+)
+if mibBuilder.loadTexts:
+    netopGatewIndvDef.setStatus(
+        ""
+    )
+
+netopGatewIndvDEL = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 66)
+)
+if mibBuilder.loadTexts:
+    netopGatewIndvDEL.setStatus(
+        ""
+    )
+
+netopGatewGstAdded = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 67)
+)
+if mibBuilder.loadTexts:
+    netopGatewGstAdded.setStatus(
+        ""
+    )
+
+netopGatewGstDelete = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 68)
+)
+if mibBuilder.loadTexts:
+    netopGatewGstDelete.setStatus(
+        ""
+    )
+
+netopGatewGstChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 69)
+)
+if mibBuilder.loadTexts:
+    netopGatewGstChange.setStatus(
+        ""
+    )
+
+netopGatewPWEnab = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 70)
+)
+if mibBuilder.loadTexts:
+    netopGatewPWEnab.setStatus(
+        ""
+    )
+
+netopGatewPWDisab = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 71)
+)
+if mibBuilder.loadTexts:
+    netopGatewPWDisab.setStatus(
+        ""
+    )
+
+netopGatewPWChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 72)
+)
+if mibBuilder.loadTexts:
+    netopGatewPWChange.setStatus(
+        ""
+    )
+
+netopGatewCallbEnab = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 73)
+)
+if mibBuilder.loadTexts:
+    netopGatewCallbEnab.setStatus(
+        ""
+    )
+
+netopGatewCallbDisab = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 74)
+)
+if mibBuilder.loadTexts:
+    netopGatewCallbDisab.setStatus(
+        ""
+    )
+
+netopGatewCallbChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 75)
+)
+if mibBuilder.loadTexts:
+    netopGatewCallbChange.setStatus(
+        ""
+    )
+
+netopFileReceive = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 96)
+)
+if mibBuilder.loadTexts:
+    netopFileReceive.setStatus(
+        ""
+    )
+
+netopFileSent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 97)
+)
+if mibBuilder.loadTexts:
+    netopFileSent.setStatus(
+        ""
+    )
+
+netopBooted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 98)
+)
+if mibBuilder.loadTexts:
+    netopBooted.setStatus(
+        ""
+    )
+
+netopConectionLost = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 99)
+)
+if mibBuilder.loadTexts:
+    netopConectionLost.setStatus(
+        ""
+    )
+
+netopPassWordRejected = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 100)
+)
+if mibBuilder.loadTexts:
+    netopPassWordRejected.setStatus(
+        ""
+    )
+
+netopConfAccessDenied = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 101)
+)
+if mibBuilder.loadTexts:
+    netopConfAccessDenied.setStatus(
+        ""
+    )
+
+netopASPWRejected = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 102)
+)
+if mibBuilder.loadTexts:
+    netopASPWRejected.setStatus(
+        ""
+    )
+
+netopASAdminChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 103)
+)
+if mibBuilder.loadTexts:
+    netopASAdminChange.setStatus(
+        ""
+    )
+
+netopEventLoggingFailed = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 112)
+)
+if mibBuilder.loadTexts:
+    netopEventLoggingFailed.setStatus(
+        ""
+    )
+
+netopSNMPLoggingFailed = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 113)
+)
+if mibBuilder.loadTexts:
+    netopSNMPLoggingFailed.setStatus(
+        ""
+    )
+
+netopRCStarted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 114)
+)
+if mibBuilder.loadTexts:
+    netopRCStarted.setStatus(
+        ""
+    )
+
+netopRCStopped = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 115)
+)
+if mibBuilder.loadTexts:
+    netopRCStopped.setStatus(
+        ""
+    )
+
+netopFileTrStarted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 116)
+)
+if mibBuilder.loadTexts:
+    netopFileTrStarted.setStatus(
+        ""
+    )
+
+netopFileTrStopped = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 117)
+)
+if mibBuilder.loadTexts:
+    netopFileTrStopped.setStatus(
+        ""
+    )
+
+netopGChatStarted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 118)
+)
+if mibBuilder.loadTexts:
+    netopGChatStarted.setStatus(
+        ""
+    )
+
+netopGChatStopped = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 119)
+)
+if mibBuilder.loadTexts:
+    netopGChatStopped.setStatus(
+        ""
+    )
+
+netopGAudioStarted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 120)
+)
+if mibBuilder.loadTexts:
+    netopGAudioStarted.setStatus(
+        ""
+    )
+
+netopGAudioStopped = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 121)
+)
+if mibBuilder.loadTexts:
+    netopGAudioStopped.setStatus(
+        ""
+    )
+
+netopClipReceived = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 122)
+)
+if mibBuilder.loadTexts:
+    netopClipReceived.setStatus(
+        ""
+    )
+
+netopClipSent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 123)
+)
+if mibBuilder.loadTexts:
+    netopClipSent.setStatus(
+        ""
+    )
+
+netopRrintReceived = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 124)
+)
+if mibBuilder.loadTexts:
+    netopRrintReceived.setStatus(
+        ""
+    )
+
+netopPrintSent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 125)
+)
+if mibBuilder.loadTexts:
+    netopPrintSent.setStatus(
+        ""
+    )
+
+netopCommProfileStart = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 126)
+)
+if mibBuilder.loadTexts:
+    netopCommProfileStart.setStatus(
+        ""
+    )
+
+netopCommProfileStop = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 127)
+)
+if mibBuilder.loadTexts:
+    netopCommProfileStop.setStatus(
+        ""
+    )
+
+netopLogLocalOn = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 128)
+)
+if mibBuilder.loadTexts:
+    netopLogLocalOn.setStatus(
+        ""
+    )
+
+netopLogLocalOff = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 129)
+)
+if mibBuilder.loadTexts:
+    netopLogLocalOff.setStatus(
+        ""
+    )
+
+netopLogLocalChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 130)
+)
+if mibBuilder.loadTexts:
+    netopLogLocalChange.setStatus(
+        ""
+    )
+
+netopLogServerOn = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 131)
+)
+if mibBuilder.loadTexts:
+    netopLogServerOn.setStatus(
+        ""
+    )
+
+netopLogServerOff = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 132)
+)
+if mibBuilder.loadTexts:
+    netopLogServerOff.setStatus(
+        ""
+    )
+
+netopIsLogServer = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 133)
+)
+if mibBuilder.loadTexts:
+    netopIsLogServer.setStatus(
+        ""
+    )
+
+netopIsNotLogServer = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 134)
+)
+if mibBuilder.loadTexts:
+    netopIsNotLogServer.setStatus(
+        ""
+    )
+
+netopLogEventlogOn = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 135)
+)
+if mibBuilder.loadTexts:
+    netopLogEventlogOn.setStatus(
+        ""
+    )
+
+netopLogEventlogOff = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 136)
+)
+if mibBuilder.loadTexts:
+    netopLogEventlogOff.setStatus(
+        ""
+    )
+
+netopLogSNMPOn = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 137)
+)
+if mibBuilder.loadTexts:
+    netopLogSNMPOn.setStatus(
+        ""
+    )
+
+netopLogSNMPOff = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 138)
+)
+if mibBuilder.loadTexts:
+    netopLogSNMPOff.setStatus(
+        ""
+    )
+
+netopKbdLock = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 139)
+)
+if mibBuilder.loadTexts:
+    netopKbdLock.setStatus(
+        ""
+    )
+
+netopKbdUnlock = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 140)
+)
+if mibBuilder.loadTexts:
+    netopKbdUnlock.setStatus(
+        ""
+    )
+
+netopScrBlank = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 141)
+)
+if mibBuilder.loadTexts:
+    netopScrBlank.setStatus(
+        ""
+    )
+
+netopScrUnblank = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 142)
+)
+if mibBuilder.loadTexts:
+    netopScrUnblank.setStatus(
+        ""
+    )
+
+netopLogoff = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 143)
+)
+if mibBuilder.loadTexts:
+    netopLogoff.setStatus(
+        ""
+    )
+
+netopGWLogin = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 144)
+)
+if mibBuilder.loadTexts:
+    netopGWLogin.setStatus(
+        ""
+    )
+
+netopOptWaitStart = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 145)
+)
+if mibBuilder.loadTexts:
+    netopOptWaitStart.setStatus(
+        ""
+    )
+
+netopOptLoadStar = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 146)
+)
+if mibBuilder.loadTexts:
+    netopOptLoadStar.setStatus(
+        ""
+    )
+
+netopOptMinStart = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 147)
+)
+if mibBuilder.loadTexts:
+    netopOptMinStart.setStatus(
+        ""
+    )
+
+netopOptStealth = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 148)
+)
+if mibBuilder.loadTexts:
+    netopOptStealth.setStatus(
+        ""
+    )
+
+netopOptMinConn = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 149)
+)
+if mibBuilder.loadTexts:
+    netopOptMinConn.setStatus(
+        ""
+    )
+
+netopOptOnTop = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 150)
+)
+if mibBuilder.loadTexts:
+    netopOptOnTop.setStatus(
+        ""
+    )
+
+netopOptShowFile = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 151)
+)
+if mibBuilder.loadTexts:
+    netopOptShowFile.setStatus(
+        ""
+    )
+
+netopOptKeepAlive = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 152)
+)
+if mibBuilder.loadTexts:
+    netopOptKeepAlive.setStatus(
+        ""
+    )
+
+netopOptBootHangUp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 153)
+)
+if mibBuilder.loadTexts:
+    netopOptBootHangUp.setStatus(
+        ""
+    )
+
+netopOptLogOffHangUp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 154)
+)
+if mibBuilder.loadTexts:
+    netopOptLogOffHangUp.setStatus(
+        ""
+    )
+
+netopOptNaming = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 155)
+)
+if mibBuilder.loadTexts:
+    netopOptNaming.setStatus(
+        ""
+    )
+
+netopOptPublic = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 156)
+)
+if mibBuilder.loadTexts:
+    netopOptPublic.setStatus(
+        ""
+    )
+
+netopOptNotification = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 157)
+)
+if mibBuilder.loadTexts:
+    netopOptNotification.setStatus(
+        ""
+    )
+
+netopOptHlpDescr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 158)
+)
+if mibBuilder.loadTexts:
+    netopOptHlpDescr.setStatus(
+        ""
+    )
+
+netopOptHlpProvid = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 159)
+)
+if mibBuilder.loadTexts:
+    netopOptHlpProvid.setStatus(
+        ""
+    )
+
+netopOptHlpComm = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 160)
+)
+if mibBuilder.loadTexts:
+    netopOptHlpComm.setStatus(
+        ""
+    )
+
+netopOptHlpAdr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 161)
+)
+if mibBuilder.loadTexts:
+    netopOptHlpAdr.setStatus(
+        ""
+    )
+
+netopOptHlpIcon = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 162)
+)
+if mibBuilder.loadTexts:
+    netopOptHlpIcon.setStatus(
+        ""
+    )
+
+netopOptAudDuplex = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 163)
+)
+if mibBuilder.loadTexts:
+    netopOptAudDuplex.setStatus(
+        ""
+    )
+
+netopOptAudSilence = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 164)
+)
+if mibBuilder.loadTexts:
+    netopOptAudSilence.setStatus(
+        ""
+    )
+
+netopOptAudLineHold = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 165)
+)
+if mibBuilder.loadTexts:
+    netopOptAudLineHold.setStatus(
+        ""
+    )
+
+netopOptNNSChg = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 166)
+)
+if mibBuilder.loadTexts:
+    netopOptNNSChg.setStatus(
+        ""
+    )
+
+netopMaintGuest = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 167)
+)
+if mibBuilder.loadTexts:
+    netopMaintGuest.setStatus(
+        ""
+    )
+
+netopMaintGW = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 168)
+)
+if mibBuilder.loadTexts:
+    netopMaintGW.setStatus(
+        ""
+    )
+
+netopMaintOther = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 169)
+)
+if mibBuilder.loadTexts:
+    netopMaintOther.setStatus(
+        ""
+    )
+
+netopMaintExit = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 170)
+)
+if mibBuilder.loadTexts:
+    netopMaintExit.setStatus(
+        ""
+    )
+
+netopMaintProtect = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 171)
+)
+if mibBuilder.loadTexts:
+    netopMaintProtect.setStatus(
+        ""
+    )
+
+netopMaintPW = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 172)
+)
+if mibBuilder.loadTexts:
+    netopMaintPW.setStatus(
+        ""
+    )
+
+netopAccessAllowance = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 173)
+)
+if mibBuilder.loadTexts:
+    netopAccessAllowance.setStatus(
+        ""
+    )
+
+netopAccessMACIP = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 174)
+)
+if mibBuilder.loadTexts:
+    netopAccessMACIP.setStatus(
+        ""
+    )
+
+netopAccessFTrans = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 175)
+)
+if mibBuilder.loadTexts:
+    netopAccessFTrans.setStatus(
+        ""
+    )
+
+netopSSGroupIDChg = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 176)
+)
+if mibBuilder.loadTexts:
+    netopSSGroupIDChg.setStatus(
+        ""
+    )
+
+netopPWRejectLimit = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 177)
+)
+if mibBuilder.loadTexts:
+    netopPWRejectLimit.setStatus(
+        ""
+    )
+
+netopNameServerStart = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 178)
+)
+if mibBuilder.loadTexts:
+    netopNameServerStart.setStatus(
+        ""
+    )
+
+netopNameServerStop = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 179)
+)
+if mibBuilder.loadTexts:
+    netopNameServerStop.setStatus(
+        ""
+    )
+
+netopSecurityServerStart = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 180)
+)
+if mibBuilder.loadTexts:
+    netopSecurityServerStart.setStatus(
+        ""
+    )
+
+netopSecurityServerStop = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 181)
+)
+if mibBuilder.loadTexts:
+    netopSecurityServerStop.setStatus(
+        ""
+    )
+
+netopGatewayStart = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 182)
+)
+if mibBuilder.loadTexts:
+    netopGatewayStart.setStatus(
+        ""
+    )
+
+netopGatwayStop = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 183)
+)
+if mibBuilder.loadTexts:
+    netopGatwayStop.setStatus(
+        ""
+    )
+
+netopOptLockHangUp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 184)
+)
+if mibBuilder.loadTexts:
+    netopOptLockHangUp.setStatus(
+        ""
+    )
+
+netopOptNothingHangUp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 185)
+)
+if mibBuilder.loadTexts:
+    netopOptNothingHangUp.setStatus(
+        ""
+    )
+
+netopOptUserName = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 186)
+)
+if mibBuilder.loadTexts:
+    netopOptUserName.setStatus(
+        ""
+    )
+
+netopFMStarted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 187)
+)
+if mibBuilder.loadTexts:
+    netopFMStarted.setStatus(
+        ""
+    )
+
+netopFMStopped = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 188)
+)
+if mibBuilder.loadTexts:
+    netopFMStopped.setStatus(
+        ""
+    )
+
+netopHChatStarted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 189)
+)
+if mibBuilder.loadTexts:
+    netopHChatStarted.setStatus(
+        ""
+    )
+
+netopHChatStopped = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 190)
+)
+if mibBuilder.loadTexts:
+    netopHChatStopped.setStatus(
+        ""
+    )
+
+netopHAudioStarted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 191)
+)
+if mibBuilder.loadTexts:
+    netopHAudioStarted.setStatus(
+        ""
+    )
+
+netopHAudioStopped = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 192)
+)
+if mibBuilder.loadTexts:
+    netopHAudioStopped.setStatus(
+        ""
+    )
+
+netopCommunicationStarted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 193)
+)
+if mibBuilder.loadTexts:
+    netopCommunicationStarted.setStatus(
+        ""
+    )
+
+netopCommunicationStopped = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 194)
+)
+if mibBuilder.loadTexts:
+    netopCommunicationStopped.setStatus(
+        ""
+    )
+
+netopRunScript = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 195)
+)
+if mibBuilder.loadTexts:
+    netopRunScript.setStatus(
+        ""
+    )
+
+netopRunProgram = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 196)
+)
+if mibBuilder.loadTexts:
+    netopRunProgram.setStatus(
+        ""
+    )
+
+netopExecuteCommand = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 197)
+)
+if mibBuilder.loadTexts:
+    netopExecuteCommand.setStatus(
+        ""
+    )
+
+netopGatewGrpDefined = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 198)
+)
+if mibBuilder.loadTexts:
+    netopGatewGrpDefined.setStatus(
+        ""
+    )
+
+netopGatewGrpDeleted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 199)
+)
+if mibBuilder.loadTexts:
+    netopGatewGrpDeleted.setStatus(
+        ""
+    )
+
+netopGatewAccessAllowed = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 200)
+)
+if mibBuilder.loadTexts:
+    netopGatewAccessAllowed.setStatus(
+        ""
+    )
+
+netopGatewNNSGDIChanged = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 201)
+)
+if mibBuilder.loadTexts:
+    netopGatewNNSGDIChanged.setStatus(
+        ""
+    )
+
+netopAccessServerPWChanged = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 202)
+)
+if mibBuilder.loadTexts:
+    netopAccessServerPWChanged.setStatus(
+        ""
+    )
+
+netopInventoryReceived = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 203)
+)
+if mibBuilder.loadTexts:
+    netopInventoryReceived.setStatus(
+        ""
+    )
+
+netopMessageSent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 204)
+)
+if mibBuilder.loadTexts:
+    netopMessageSent.setStatus(
+        ""
+    )
+
+netopInventorySent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 205)
+)
+if mibBuilder.loadTexts:
+    netopInventorySent.setStatus(
+        ""
+    )
+
+netopMessageReceived = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 206)
+)
+if mibBuilder.loadTexts:
+    netopMessageReceived.setStatus(
+        ""
+    )
+
+netopTimeoutLimitExeded = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 207)
+)
+if mibBuilder.loadTexts:
+    netopTimeoutLimitExeded.setStatus(
+        ""
+    )
+
+netopAuthenticatedUser = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 208)
+)
+if mibBuilder.loadTexts:
+    netopAuthenticatedUser.setStatus(
+        ""
+    )
+
+netopGatewayPWRejected = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 209)
+)
+if mibBuilder.loadTexts:
+    netopGatewayPWRejected.setStatus(
+        ""
+    )
+
+netopWebUpdateCheck = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 210)
+)
+if mibBuilder.loadTexts:
+    netopWebUpdateCheck.setStatus(
+        ""
+    )
+
+netopWebUpdateDownload = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 211)
+)
+if mibBuilder.loadTexts:
+    netopWebUpdateDownload.setStatus(
+        ""
+    )
+
+netopWebUpdateInstall = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 212)
+)
+if mibBuilder.loadTexts:
+    netopWebUpdateInstall.setStatus(
+        ""
+    )
+
+netopWebUpdateSuccess = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 213)
+)
+if mibBuilder.loadTexts:
+    netopWebUpdateSuccess.setStatus(
+        ""
+    )
+
+netopWebUpdateFailed = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 214)
+)
+if mibBuilder.loadTexts:
+    netopWebUpdateFailed.setStatus(
+        ""
+    )
+
+netopClassServerStart = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 215)
+)
+if mibBuilder.loadTexts:
+    netopClassServerStart.setStatus(
+        ""
+    )
+
+netopClassServerStop = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 216)
+)
+if mibBuilder.loadTexts:
+    netopClassServerStop.setStatus(
+        ""
+    )
+
+netopOptMultiGuest = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 217)
+)
+if mibBuilder.loadTexts:
+    netopOptMultiGuest.setStatus(
+        ""
+    )
+
+netopRemoteMgmStarted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 218)
+)
+if mibBuilder.loadTexts:
+    netopRemoteMgmStarted.setStatus(
+        ""
+    )
+
+netopRemoteMgmStopped = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 219)
+)
+if mibBuilder.loadTexts:
+    netopRemoteMgmStopped.setStatus(
+        ""
+    )
+
+netopRemoteMgmStarted2 = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 220)
+)
+if mibBuilder.loadTexts:
+    netopRemoteMgmStarted2.setStatus(
+        ""
+    )
+
+netopRemoteMgmStopped2 = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8116, 2, 6, 0, 221)
+)
+if mibBuilder.loadTexts:
+    netopRemoteMgmStopped2.setStatus(
+        ""
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "DANWARE-MIB",
+    **{"danware": danware,
+       "netop": netop,
+       "netopManufacturer": netopManufacturer,
+       "netopProducts": netopProducts,
+       "netopVersionNumber": netopVersionNumber,
+       "netopStatus": netopStatus,
+       "netopEvent": netopEvent,
+       "netopCallHost": netopCallHost,
+       "netopHangupHost": netopHangupHost,
+       "netopStartHelp": netopStartHelp,
+       "netopStopHelp": netopStopHelp,
+       "netopHelpDefined": netopHelpDefined,
+       "netopHelpDeleted": netopHelpDeleted,
+       "netopHelpReqReceived": netopHelpReqReceived,
+       "netopHelpReqCancel": netopHelpReqCancel,
+       "netopSesRecStarted": netopSesRecStarted,
+       "netopSesRecStop": netopSesRecStop,
+       "netopACLogin": netopACLogin,
+       "netopACLogOff": netopACLogOff,
+       "netopUnknown": netopUnknown,
+       "netopHostStarted": netopHostStarted,
+       "netopHostStopped": netopHostStopped,
+       "netopStartRemoteCtrl": netopStartRemoteCtrl,
+       "netopStopRemoteCtrl": netopStopRemoteCtrl,
+       "netopStartCallback": netopStartCallback,
+       "netopHelpReqSent": netopHelpReqSent,
+       "netopHstHelpReqCancel": netopHstHelpReqCancel,
+       "netopIndvSeqEnab": netopIndvSeqEnab,
+       "netopIndvSeqDisab": netopIndvSeqDisab,
+       "netopSecRoleAdded": netopSecRoleAdded,
+       "netopSecRoleDeleted": netopSecRoleDeleted,
+       "netopSecRoleChange": netopSecRoleChange,
+       "netopGstGrpAdded": netopGstGrpAdded,
+       "netopGstGrpDeleted": netopGstGrpDeleted,
+       "netopGstGrpChange": netopGstGrpChange,
+       "netopPWEnabled": netopPWEnabled,
+       "netopPWDisabled": netopPWDisabled,
+       "netopPWChange": netopPWChange,
+       "netopCallBEnabled": netopCallBEnabled,
+       "netopCallBDisabled": netopCallBDisabled,
+       "netopCallBChange": netopCallBChange,
+       "netopConfAccEnab": netopConfAccEnab,
+       "netopConfAccDisab": netopConfAccDisab,
+       "netopGatewCallb": netopGatewCallb,
+       "netopGatewIndvDef": netopGatewIndvDef,
+       "netopGatewIndvDEL": netopGatewIndvDEL,
+       "netopGatewGstAdded": netopGatewGstAdded,
+       "netopGatewGstDelete": netopGatewGstDelete,
+       "netopGatewGstChange": netopGatewGstChange,
+       "netopGatewPWEnab": netopGatewPWEnab,
+       "netopGatewPWDisab": netopGatewPWDisab,
+       "netopGatewPWChange": netopGatewPWChange,
+       "netopGatewCallbEnab": netopGatewCallbEnab,
+       "netopGatewCallbDisab": netopGatewCallbDisab,
+       "netopGatewCallbChange": netopGatewCallbChange,
+       "netopFileReceive": netopFileReceive,
+       "netopFileSent": netopFileSent,
+       "netopBooted": netopBooted,
+       "netopConectionLost": netopConectionLost,
+       "netopPassWordRejected": netopPassWordRejected,
+       "netopConfAccessDenied": netopConfAccessDenied,
+       "netopASPWRejected": netopASPWRejected,
+       "netopASAdminChange": netopASAdminChange,
+       "netopEventLoggingFailed": netopEventLoggingFailed,
+       "netopSNMPLoggingFailed": netopSNMPLoggingFailed,
+       "netopRCStarted": netopRCStarted,
+       "netopRCStopped": netopRCStopped,
+       "netopFileTrStarted": netopFileTrStarted,
+       "netopFileTrStopped": netopFileTrStopped,
+       "netopGChatStarted": netopGChatStarted,
+       "netopGChatStopped": netopGChatStopped,
+       "netopGAudioStarted": netopGAudioStarted,
+       "netopGAudioStopped": netopGAudioStopped,
+       "netopClipReceived": netopClipReceived,
+       "netopClipSent": netopClipSent,
+       "netopRrintReceived": netopRrintReceived,
+       "netopPrintSent": netopPrintSent,
+       "netopCommProfileStart": netopCommProfileStart,
+       "netopCommProfileStop": netopCommProfileStop,
+       "netopLogLocalOn": netopLogLocalOn,
+       "netopLogLocalOff": netopLogLocalOff,
+       "netopLogLocalChange": netopLogLocalChange,
+       "netopLogServerOn": netopLogServerOn,
+       "netopLogServerOff": netopLogServerOff,
+       "netopIsLogServer": netopIsLogServer,
+       "netopIsNotLogServer": netopIsNotLogServer,
+       "netopLogEventlogOn": netopLogEventlogOn,
+       "netopLogEventlogOff": netopLogEventlogOff,
+       "netopLogSNMPOn": netopLogSNMPOn,
+       "netopLogSNMPOff": netopLogSNMPOff,
+       "netopKbdLock": netopKbdLock,
+       "netopKbdUnlock": netopKbdUnlock,
+       "netopScrBlank": netopScrBlank,
+       "netopScrUnblank": netopScrUnblank,
+       "netopLogoff": netopLogoff,
+       "netopGWLogin": netopGWLogin,
+       "netopOptWaitStart": netopOptWaitStart,
+       "netopOptLoadStar": netopOptLoadStar,
+       "netopOptMinStart": netopOptMinStart,
+       "netopOptStealth": netopOptStealth,
+       "netopOptMinConn": netopOptMinConn,
+       "netopOptOnTop": netopOptOnTop,
+       "netopOptShowFile": netopOptShowFile,
+       "netopOptKeepAlive": netopOptKeepAlive,
+       "netopOptBootHangUp": netopOptBootHangUp,
+       "netopOptLogOffHangUp": netopOptLogOffHangUp,
+       "netopOptNaming": netopOptNaming,
+       "netopOptPublic": netopOptPublic,
+       "netopOptNotification": netopOptNotification,
+       "netopOptHlpDescr": netopOptHlpDescr,
+       "netopOptHlpProvid": netopOptHlpProvid,
+       "netopOptHlpComm": netopOptHlpComm,
+       "netopOptHlpAdr": netopOptHlpAdr,
+       "netopOptHlpIcon": netopOptHlpIcon,
+       "netopOptAudDuplex": netopOptAudDuplex,
+       "netopOptAudSilence": netopOptAudSilence,
+       "netopOptAudLineHold": netopOptAudLineHold,
+       "netopOptNNSChg": netopOptNNSChg,
+       "netopMaintGuest": netopMaintGuest,
+       "netopMaintGW": netopMaintGW,
+       "netopMaintOther": netopMaintOther,
+       "netopMaintExit": netopMaintExit,
+       "netopMaintProtect": netopMaintProtect,
+       "netopMaintPW": netopMaintPW,
+       "netopAccessAllowance": netopAccessAllowance,
+       "netopAccessMACIP": netopAccessMACIP,
+       "netopAccessFTrans": netopAccessFTrans,
+       "netopSSGroupIDChg": netopSSGroupIDChg,
+       "netopPWRejectLimit": netopPWRejectLimit,
+       "netopNameServerStart": netopNameServerStart,
+       "netopNameServerStop": netopNameServerStop,
+       "netopSecurityServerStart": netopSecurityServerStart,
+       "netopSecurityServerStop": netopSecurityServerStop,
+       "netopGatewayStart": netopGatewayStart,
+       "netopGatwayStop": netopGatwayStop,
+       "netopOptLockHangUp": netopOptLockHangUp,
+       "netopOptNothingHangUp": netopOptNothingHangUp,
+       "netopOptUserName": netopOptUserName,
+       "netopFMStarted": netopFMStarted,
+       "netopFMStopped": netopFMStopped,
+       "netopHChatStarted": netopHChatStarted,
+       "netopHChatStopped": netopHChatStopped,
+       "netopHAudioStarted": netopHAudioStarted,
+       "netopHAudioStopped": netopHAudioStopped,
+       "netopCommunicationStarted": netopCommunicationStarted,
+       "netopCommunicationStopped": netopCommunicationStopped,
+       "netopRunScript": netopRunScript,
+       "netopRunProgram": netopRunProgram,
+       "netopExecuteCommand": netopExecuteCommand,
+       "netopGatewGrpDefined": netopGatewGrpDefined,
+       "netopGatewGrpDeleted": netopGatewGrpDeleted,
+       "netopGatewAccessAllowed": netopGatewAccessAllowed,
+       "netopGatewNNSGDIChanged": netopGatewNNSGDIChanged,
+       "netopAccessServerPWChanged": netopAccessServerPWChanged,
+       "netopInventoryReceived": netopInventoryReceived,
+       "netopMessageSent": netopMessageSent,
+       "netopInventorySent": netopInventorySent,
+       "netopMessageReceived": netopMessageReceived,
+       "netopTimeoutLimitExeded": netopTimeoutLimitExeded,
+       "netopAuthenticatedUser": netopAuthenticatedUser,
+       "netopGatewayPWRejected": netopGatewayPWRejected,
+       "netopWebUpdateCheck": netopWebUpdateCheck,
+       "netopWebUpdateDownload": netopWebUpdateDownload,
+       "netopWebUpdateInstall": netopWebUpdateInstall,
+       "netopWebUpdateSuccess": netopWebUpdateSuccess,
+       "netopWebUpdateFailed": netopWebUpdateFailed,
+       "netopClassServerStart": netopClassServerStart,
+       "netopClassServerStop": netopClassServerStop,
+       "netopOptMultiGuest": netopOptMultiGuest,
+       "netopRemoteMgmStarted": netopRemoteMgmStarted,
+       "netopRemoteMgmStopped": netopRemoteMgmStopped,
+       "netopRemoteMgmStarted2": netopRemoteMgmStarted2,
+       "netopRemoteMgmStopped2": netopRemoteMgmStopped2}
+)

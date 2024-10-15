@@ -1,17 +1,17 @@
-"""SNMP MIB module (XEROX-GENERAL-TC) expressed in pysnmp data model.
+# SNMP MIB module (XEROX-GENERAL-TC) expressed in pysnmp data model.
+#
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/XEROX-GENERAL-TC
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:18:14 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-This Python module is designed to be imported and executed by the
-pysnmp library.
-
-See https://www.pysnmp.com/pysnmp for further information.
-
-Notes
------
-ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/XEROX-GENERAL-TC
-Produced by pysmi-1.3.3 at Sun Mar 10 06:00:23 2024
-On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm
-Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
-"""
 if 'mibBuilder' not in globals():
     import sys
 
@@ -51,47 +51,47 @@ if 'mibBuilder' not in globals():
     "ModuleCompliance",
     "NotificationGroup")
 
-(Counter32,
- IpAddress,
+(Bits,
+ Counter32,
  Counter64,
- TimeTicks,
- Integer32,
- NotificationType,
- iso,
- MibIdentifier,
- ObjectIdentity,
  Gauge32,
+ Integer32,
+ IpAddress,
  ModuleIdentity,
- Unsigned32,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
  MibScalar,
  MibTable,
  MibTableRow,
  MibTableColumn,
- Bits) = mibBuilder.importSymbols(
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
     "SNMPv2-SMI",
+    "Bits",
     "Counter32",
-    "IpAddress",
     "Counter64",
-    "TimeTicks",
-    "Integer32",
-    "NotificationType",
-    "iso",
-    "MibIdentifier",
-    "ObjectIdentity",
     "Gauge32",
+    "Integer32",
+    "IpAddress",
     "ModuleIdentity",
-    "Unsigned32",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
     "MibScalar",
     "MibTable",
     "MibTableRow",
     "MibTableColumn",
-    "Bits")
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
 
-(TextualConvention,
- DisplayString) = mibBuilder.importSymbols(
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
     "SNMPv2-TC",
-    "TextualConvention",
-    "DisplayString")
+    "DisplayString",
+    "TextualConvention")
 
 (xeroxCommonMIB,) = mibBuilder.importSymbols(
     "XEROX-COMMON-MIB",
@@ -112,7 +112,7 @@ xcmGeneralTC = ModuleIdentity(
 
 
 
-class Cardinal16(TextualConvention, Integer32):
+class Cardinal16(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -121,7 +121,7 @@ class Cardinal16(TextualConvention, Integer32):
 
 
 
-class Cardinal32(TextualConvention, Integer32):
+class Cardinal32(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -130,7 +130,7 @@ class Cardinal32(TextualConvention, Integer32):
 
 
 
-class Cardinal64High(TextualConvention, Integer32):
+class Cardinal64High(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -139,7 +139,7 @@ class Cardinal64High(TextualConvention, Integer32):
 
 
 
-class Cardinal64Low(TextualConvention, Integer32):
+class Cardinal64Low(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -148,7 +148,7 @@ class Cardinal64Low(TextualConvention, Integer32):
 
 
 
-class CodedCountry(TextualConvention, OctetString):
+class CodedCountry(OctetString, TextualConvention):
     status = "current"
     subtypeSpec = OctetString.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -157,7 +157,7 @@ class CodedCountry(TextualConvention, OctetString):
 
 
 
-class CodedLanguage(TextualConvention, OctetString):
+class CodedLanguage(OctetString, TextualConvention):
     status = "current"
     subtypeSpec = OctetString.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -166,7 +166,7 @@ class CodedLanguage(TextualConvention, OctetString):
 
 
 
-class CodeIndexedStringIndex(TextualConvention, Integer32):
+class CodeIndexedStringIndex(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -175,24 +175,11 @@ class CodeIndexedStringIndex(TextualConvention, Integer32):
 
 
 
-class Counter64High(TextualConvention, Counter32):
+class Counter64High(Counter32, TextualConvention):
     status = "current"
 
 
-class Counter64Low(TextualConvention, Integer32):
-    status = "current"
-    subtypeSpec = Integer32.subtypeSpec
-    subtypeSpec += ConstraintsUnion(
-        ValueRangeConstraint(0, 2147483647),
-    )
-
-
-
-class Gauge64High(TextualConvention, Gauge32):
-    status = "current"
-
-
-class Gauge64Low(TextualConvention, Integer32):
+class Counter64Low(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -201,11 +188,11 @@ class Gauge64Low(TextualConvention, Integer32):
 
 
 
-class Integer64High(TextualConvention, Integer32):
+class Gauge64High(Gauge32, TextualConvention):
     status = "current"
 
 
-class Integer64Low(TextualConvention, Integer32):
+class Gauge64Low(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -214,7 +201,20 @@ class Integer64Low(TextualConvention, Integer32):
 
 
 
-class Ordinal16(TextualConvention, Integer32):
+class Integer64High(Integer32, TextualConvention):
+    status = "current"
+
+
+class Integer64Low(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+
+class Ordinal16(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -223,7 +223,7 @@ class Ordinal16(TextualConvention, Integer32):
 
 
 
-class Ordinal32(TextualConvention, Integer32):
+class Ordinal32(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -232,7 +232,7 @@ class Ordinal32(TextualConvention, Integer32):
 
 
 
-class Ordinal64High(TextualConvention, Integer32):
+class Ordinal64High(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -241,7 +241,7 @@ class Ordinal64High(TextualConvention, Integer32):
 
 
 
-class Ordinal64Low(TextualConvention, Integer32):
+class Ordinal64Low(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -250,7 +250,7 @@ class Ordinal64Low(TextualConvention, Integer32):
 
 
 
-class XcmFixedLocaleDisplayString(TextualConvention, OctetString):
+class XcmFixedLocaleDisplayString(OctetString, TextualConvention):
     status = "current"
     subtypeSpec = OctetString.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -259,7 +259,7 @@ class XcmFixedLocaleDisplayString(TextualConvention, OctetString):
 
 
 
-class XcmFixedLocaleUtf8String(TextualConvention, OctetString):
+class XcmFixedLocaleUtf8String(OctetString, TextualConvention):
     status = "current"
     subtypeSpec = OctetString.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -268,7 +268,7 @@ class XcmFixedLocaleUtf8String(TextualConvention, OctetString):
 
 
 
-class XcmNamedLocaleUtf8String(TextualConvention, OctetString):
+class XcmNamedLocaleUtf8String(OctetString, TextualConvention):
     status = "current"
     subtypeSpec = OctetString.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -277,7 +277,7 @@ class XcmNamedLocaleUtf8String(TextualConvention, OctetString):
 
 
 
-class XcmGenGroupSupport(TextualConvention, Integer32):
+class XcmGenGroupSupport(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -286,7 +286,7 @@ class XcmGenGroupSupport(TextualConvention, Integer32):
 
 
 
-class XcmGenLogFullPolicy(TextualConvention, Integer32):
+class XcmGenLogFullPolicy(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -310,7 +310,7 @@ class XcmGenLogFullPolicy(TextualConvention, Integer32):
 
 
 
-class XcmGenMessageMapStringLabel(TextualConvention, OctetString):
+class XcmGenMessageMapStringLabel(OctetString, TextualConvention):
     status = "current"
     subtypeSpec = OctetString.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -319,7 +319,7 @@ class XcmGenMessageMapStringLabel(TextualConvention, OctetString):
 
 
 
-class XcmGenNotifyDetailType(TextualConvention, Integer32):
+class XcmGenNotifyDetailType(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -353,7 +353,7 @@ class XcmGenNotifyDetailType(TextualConvention, Integer32):
 
 
 
-class XcmGenNotifySchemeSupport(TextualConvention, Integer32):
+class XcmGenNotifySchemeSupport(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -362,7 +362,7 @@ class XcmGenNotifySchemeSupport(TextualConvention, Integer32):
 
 
 
-class XcmGenNotifySeverityFilter(TextualConvention, Integer32):
+class XcmGenNotifySeverityFilter(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -371,7 +371,7 @@ class XcmGenNotifySeverityFilter(TextualConvention, Integer32):
 
 
 
-class XcmGenNotifyTrainingFilter(TextualConvention, Integer32):
+class XcmGenNotifyTrainingFilter(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -380,7 +380,7 @@ class XcmGenNotifyTrainingFilter(TextualConvention, Integer32):
 
 
 
-class XcmGenOptionValueSyntax(TextualConvention, Integer32):
+class XcmGenOptionValueSyntax(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -424,7 +424,7 @@ class XcmGenOptionValueSyntax(TextualConvention, Integer32):
 
 
 
-class XcmGenReconfOptionState(TextualConvention, Integer32):
+class XcmGenReconfOptionState(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -454,7 +454,7 @@ class XcmGenReconfOptionState(TextualConvention, Integer32):
 
 
 
-class XcmGenRowPersistence(TextualConvention, Integer32):
+class XcmGenRowPersistence(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -478,7 +478,7 @@ class XcmGenRowPersistence(TextualConvention, Integer32):
 
 
 
-class XcmGenSNMPDomain(TextualConvention, Integer32):
+class XcmGenSNMPDomain(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -510,7 +510,7 @@ class XcmGenSNMPDomain(TextualConvention, Integer32):
 
 
 
-class XcmGenSNMPVersion(TextualConvention, Integer32):
+class XcmGenSNMPVersion(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -542,7 +542,7 @@ class XcmGenSNMPVersion(TextualConvention, Integer32):
 
 
 
-class XcmGenSNMPv2ErrorStatus(TextualConvention, Integer32):
+class XcmGenSNMPv2ErrorStatus(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -596,7 +596,7 @@ class XcmGenSNMPv2ErrorStatus(TextualConvention, Integer32):
 
 
 
-class XcmGlobalUniqueID(TextualConvention, OctetString):
+class XcmGlobalUniqueID(OctetString, TextualConvention):
     status = "current"
     subtypeSpec = OctetString.subtypeSpec
     subtypeSpec += ConstraintsUnion(

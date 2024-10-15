@@ -1,37 +1,253 @@
+# SNMP MIB module (NMS-IF-APP-POLICY-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module NMS-IF-APP-POLICY-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/NMS-IF-APP-POLICY-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:12:24 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-nmsMgmt, = mibBuilder.importSymbols("NMS-SMI", "nmsMgmt")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-IpAddress, Unsigned32, MibIdentifier, iso, Integer32, ObjectIdentity, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Counter32, Counter64, NotificationType, ModuleIdentity, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Unsigned32", "MibIdentifier", "iso", "Integer32", "ObjectIdentity", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Counter32", "Counter64", "NotificationType", "ModuleIdentity", "TimeTicks")
-DisplayString, TextualConvention, PhysAddress, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "PhysAddress", "RowStatus")
-nmsIfAppPolicy = MibIdentifier((1, 3, 6, 1, 4, 1, 11606, 10, 9, 65))
-nmsIfAppPolicyTable = MibTable((1, 3, 6, 1, 4, 1, 11606, 10, 9, 65, 1), )
-if mibBuilder.loadTexts: nmsIfAppPolicyTable.setStatus('mandatory')
-nmsIfAppPolicyEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11606, 10, 9, 65, 1, 1), ).setIndexNames((0, "NMS-IF-APP-POLICY-MIB", "ponIfIndex"))
-if mibBuilder.loadTexts: nmsIfAppPolicyEntry.setStatus('mandatory')
-nmsIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11606, 10, 9, 65, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nmsIfIndex.setStatus('mandatory')
-nmsIfDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 11606, 10, 9, 65, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nmsIfDescr.setStatus('mandatory')
-nmsIfInMacACL = MibTableColumn((1, 3, 6, 1, 4, 1, 11606, 10, 9, 65, 1, 1, 3), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nmsIfInMacACL.setStatus('mandatory')
-nmsIfOutMacACL = MibTableColumn((1, 3, 6, 1, 4, 1, 11606, 10, 9, 65, 1, 1, 4), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nmsIfOutMacACL.setStatus('mandatory')
-nmsIfInIpACL = MibTableColumn((1, 3, 6, 1, 4, 1, 11606, 10, 9, 65, 1, 1, 5), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nmsIfInIpACL.setStatus('mandatory')
-nmsIfOutIpACL = MibTableColumn((1, 3, 6, 1, 4, 1, 11606, 10, 9, 65, 1, 1, 6), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nmsIfOutIpACL.setStatus('mandatory')
-nmsIfInQosPolicyName = MibTableColumn((1, 3, 6, 1, 4, 1, 11606, 10, 9, 65, 1, 1, 7), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nmsIfInQosPolicyName.setStatus('mandatory')
-nmsIfOutQosPolicyName = MibTableColumn((1, 3, 6, 1, 4, 1, 11606, 10, 9, 65, 1, 1, 8), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nmsIfOutQosPolicyName.setStatus('mandatory')
-mibBuilder.exportSymbols("NMS-IF-APP-POLICY-MIB", nmsIfDescr=nmsIfDescr, nmsIfOutQosPolicyName=nmsIfOutQosPolicyName, nmsIfOutIpACL=nmsIfOutIpACL, nmsIfIndex=nmsIfIndex, nmsIfOutMacACL=nmsIfOutMacACL, nmsIfAppPolicy=nmsIfAppPolicy, nmsIfInIpACL=nmsIfInIpACL, nmsIfInMacACL=nmsIfInMacACL, nmsIfAppPolicyEntry=nmsIfAppPolicyEntry, nmsIfAppPolicyTable=nmsIfAppPolicyTable, nmsIfInQosPolicyName=nmsIfInQosPolicyName)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/NMS-IF-APP-POLICY-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:27:56 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(nmsMgmt,) = mibBuilder.importSymbols(
+    "NMS-SMI",
+    "nmsMgmt")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_NmsIfAppPolicy_ObjectIdentity = ObjectIdentity
+nmsIfAppPolicy = _NmsIfAppPolicy_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11606, 10, 9, 65)
+)
+_NmsIfAppPolicyTable_Object = MibTable
+nmsIfAppPolicyTable = _NmsIfAppPolicyTable_Object(
+    (1, 3, 6, 1, 4, 1, 11606, 10, 9, 65, 1)
+)
+if mibBuilder.loadTexts:
+    nmsIfAppPolicyTable.setStatus("mandatory")
+_NmsIfAppPolicyEntry_Object = MibTableRow
+nmsIfAppPolicyEntry = _NmsIfAppPolicyEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11606, 10, 9, 65, 1, 1)
+)
+nmsIfAppPolicyEntry.setIndexNames(
+    (0, "NMS-IF-APP-POLICY-MIB", "ponIfIndex"),
+)
+if mibBuilder.loadTexts:
+    nmsIfAppPolicyEntry.setStatus("mandatory")
+_NmsIfIndex_Type = Integer32
+_NmsIfIndex_Object = MibTableColumn
+nmsIfIndex = _NmsIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11606, 10, 9, 65, 1, 1, 1),
+    _NmsIfIndex_Type()
+)
+nmsIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nmsIfIndex.setStatus("mandatory")
+
+
+class _NmsIfDescr_Type(DisplayString):
+    """Custom type nmsIfDescr based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_NmsIfDescr_Type.__name__ = "DisplayString"
+_NmsIfDescr_Object = MibTableColumn
+nmsIfDescr = _NmsIfDescr_Object(
+    (1, 3, 6, 1, 4, 1, 11606, 10, 9, 65, 1, 1, 2),
+    _NmsIfDescr_Type()
+)
+nmsIfDescr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nmsIfDescr.setStatus("mandatory")
+_NmsIfInMacACL_Type = DisplayString
+_NmsIfInMacACL_Object = MibTableColumn
+nmsIfInMacACL = _NmsIfInMacACL_Object(
+    (1, 3, 6, 1, 4, 1, 11606, 10, 9, 65, 1, 1, 3),
+    _NmsIfInMacACL_Type()
+)
+nmsIfInMacACL.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nmsIfInMacACL.setStatus("mandatory")
+_NmsIfOutMacACL_Type = DisplayString
+_NmsIfOutMacACL_Object = MibTableColumn
+nmsIfOutMacACL = _NmsIfOutMacACL_Object(
+    (1, 3, 6, 1, 4, 1, 11606, 10, 9, 65, 1, 1, 4),
+    _NmsIfOutMacACL_Type()
+)
+nmsIfOutMacACL.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nmsIfOutMacACL.setStatus("mandatory")
+_NmsIfInIpACL_Type = DisplayString
+_NmsIfInIpACL_Object = MibTableColumn
+nmsIfInIpACL = _NmsIfInIpACL_Object(
+    (1, 3, 6, 1, 4, 1, 11606, 10, 9, 65, 1, 1, 5),
+    _NmsIfInIpACL_Type()
+)
+nmsIfInIpACL.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nmsIfInIpACL.setStatus("mandatory")
+_NmsIfOutIpACL_Type = DisplayString
+_NmsIfOutIpACL_Object = MibTableColumn
+nmsIfOutIpACL = _NmsIfOutIpACL_Object(
+    (1, 3, 6, 1, 4, 1, 11606, 10, 9, 65, 1, 1, 6),
+    _NmsIfOutIpACL_Type()
+)
+nmsIfOutIpACL.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nmsIfOutIpACL.setStatus("mandatory")
+_NmsIfInQosPolicyName_Type = DisplayString
+_NmsIfInQosPolicyName_Object = MibTableColumn
+nmsIfInQosPolicyName = _NmsIfInQosPolicyName_Object(
+    (1, 3, 6, 1, 4, 1, 11606, 10, 9, 65, 1, 1, 7),
+    _NmsIfInQosPolicyName_Type()
+)
+nmsIfInQosPolicyName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nmsIfInQosPolicyName.setStatus("mandatory")
+_NmsIfOutQosPolicyName_Type = DisplayString
+_NmsIfOutQosPolicyName_Object = MibTableColumn
+nmsIfOutQosPolicyName = _NmsIfOutQosPolicyName_Object(
+    (1, 3, 6, 1, 4, 1, 11606, 10, 9, 65, 1, 1, 8),
+    _NmsIfOutQosPolicyName_Type()
+)
+nmsIfOutQosPolicyName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nmsIfOutQosPolicyName.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "NMS-IF-APP-POLICY-MIB",
+    **{"nmsIfAppPolicy": nmsIfAppPolicy,
+       "nmsIfAppPolicyTable": nmsIfAppPolicyTable,
+       "nmsIfAppPolicyEntry": nmsIfAppPolicyEntry,
+       "nmsIfIndex": nmsIfIndex,
+       "nmsIfDescr": nmsIfDescr,
+       "nmsIfInMacACL": nmsIfInMacACL,
+       "nmsIfOutMacACL": nmsIfOutMacACL,
+       "nmsIfInIpACL": nmsIfInIpACL,
+       "nmsIfOutIpACL": nmsIfOutIpACL,
+       "nmsIfInQosPolicyName": nmsIfInQosPolicyName,
+       "nmsIfOutQosPolicyName": nmsIfOutQosPolicyName}
+)

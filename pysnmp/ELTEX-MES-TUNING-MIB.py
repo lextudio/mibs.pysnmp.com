@@ -1,28 +1,190 @@
+# SNMP MIB module (ELTEX-MES-TUNING-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ELTEX-MES-TUNING-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/ELTEX-MES-TUNING-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:47:39 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
-eltMes, = mibBuilder.importSymbols("ELTEX-MES", "eltMes")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-TimeTicks, Unsigned32, MibIdentifier, Bits, Counter64, IpAddress, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, ObjectIdentity, NotificationType, ModuleIdentity, Integer32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Unsigned32", "MibIdentifier", "Bits", "Counter64", "IpAddress", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "ObjectIdentity", "NotificationType", "ModuleIdentity", "Integer32", "iso")
-TruthValue, RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "TextualConvention", "DisplayString")
-eltMesTuning = ModuleIdentity((1, 3, 6, 1, 4, 1, 35265, 1, 23, 29))
-eltMesTuning.setRevisions(('2014-12-19 00:00',))
-if mibBuilder.loadTexts: eltMesTuning.setLastUpdated('201412190000Z')
-if mibBuilder.loadTexts: eltMesTuning.setOrganization('Eltex Ltd.')
-eltMesTcamTuning = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 23, 29, 1))
-eltMaxSelectiveQinqIngressRules = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 23, 29, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltMaxSelectiveQinqIngressRules.setStatus('current')
-eltMaxSelectiveQinqIngressRulesAfterReset = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 23, 29, 1, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: eltMaxSelectiveQinqIngressRulesAfterReset.setStatus('current')
-eltMaxSelectiveQinqEgressRules = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 23, 29, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltMaxSelectiveQinqEgressRules.setStatus('current')
-eltMaxSelectiveQinqEgressRulesAfterReset = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 23, 29, 1, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: eltMaxSelectiveQinqEgressRulesAfterReset.setStatus('current')
-mibBuilder.exportSymbols("ELTEX-MES-TUNING-MIB", eltMaxSelectiveQinqIngressRulesAfterReset=eltMaxSelectiveQinqIngressRulesAfterReset, eltMaxSelectiveQinqEgressRulesAfterReset=eltMaxSelectiveQinqEgressRulesAfterReset, PYSNMP_MODULE_ID=eltMesTuning, eltMesTuning=eltMesTuning, eltMaxSelectiveQinqIngressRules=eltMaxSelectiveQinqIngressRules, eltMaxSelectiveQinqEgressRules=eltMaxSelectiveQinqEgressRules, eltMesTcamTuning=eltMesTcamTuning)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/ELTEX-MES-TUNING-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:38:04 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(eltMes,) = mibBuilder.importSymbols(
+    "ELTEX-MES",
+    "eltMes")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+eltMesTuning = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 29)
+)
+eltMesTuning.setRevisions(
+        ("2014-12-19 00:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_EltMesTcamTuning_ObjectIdentity = ObjectIdentity
+eltMesTcamTuning = _EltMesTcamTuning_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 29, 1)
+)
+_EltMaxSelectiveQinqIngressRules_Type = Integer32
+_EltMaxSelectiveQinqIngressRules_Object = MibScalar
+eltMaxSelectiveQinqIngressRules = _EltMaxSelectiveQinqIngressRules_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 29, 1, 1),
+    _EltMaxSelectiveQinqIngressRules_Type()
+)
+eltMaxSelectiveQinqIngressRules.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltMaxSelectiveQinqIngressRules.setStatus("current")
+_EltMaxSelectiveQinqIngressRulesAfterReset_Type = Integer32
+_EltMaxSelectiveQinqIngressRulesAfterReset_Object = MibScalar
+eltMaxSelectiveQinqIngressRulesAfterReset = _EltMaxSelectiveQinqIngressRulesAfterReset_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 29, 1, 2),
+    _EltMaxSelectiveQinqIngressRulesAfterReset_Type()
+)
+eltMaxSelectiveQinqIngressRulesAfterReset.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    eltMaxSelectiveQinqIngressRulesAfterReset.setStatus("current")
+_EltMaxSelectiveQinqEgressRules_Type = Integer32
+_EltMaxSelectiveQinqEgressRules_Object = MibScalar
+eltMaxSelectiveQinqEgressRules = _EltMaxSelectiveQinqEgressRules_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 29, 1, 3),
+    _EltMaxSelectiveQinqEgressRules_Type()
+)
+eltMaxSelectiveQinqEgressRules.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltMaxSelectiveQinqEgressRules.setStatus("current")
+_EltMaxSelectiveQinqEgressRulesAfterReset_Type = Integer32
+_EltMaxSelectiveQinqEgressRulesAfterReset_Object = MibScalar
+eltMaxSelectiveQinqEgressRulesAfterReset = _EltMaxSelectiveQinqEgressRulesAfterReset_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 29, 1, 4),
+    _EltMaxSelectiveQinqEgressRulesAfterReset_Type()
+)
+eltMaxSelectiveQinqEgressRulesAfterReset.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    eltMaxSelectiveQinqEgressRulesAfterReset.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ELTEX-MES-TUNING-MIB",
+    **{"eltMesTuning": eltMesTuning,
+       "eltMesTcamTuning": eltMesTcamTuning,
+       "eltMaxSelectiveQinqIngressRules": eltMaxSelectiveQinqIngressRules,
+       "eltMaxSelectiveQinqIngressRulesAfterReset": eltMaxSelectiveQinqIngressRulesAfterReset,
+       "eltMaxSelectiveQinqEgressRules": eltMaxSelectiveQinqEgressRules,
+       "eltMaxSelectiveQinqEgressRulesAfterReset": eltMaxSelectiveQinqEgressRulesAfterReset}
+)

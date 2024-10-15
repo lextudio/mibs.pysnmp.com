@@ -1,156 +1,1017 @@
+# SNMP MIB module (DLINK-3100-DNSCL-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module DLINK-3100-DNSCL-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/DLINK-3100-DNSCL-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:33:18 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion")
-rlDnsCl, = mibBuilder.importSymbols("DLINK-3100-MIB", "rlDnsCl")
-dnsResConfigSbeltEntry, = mibBuilder.importSymbols("DNS-RESOLVER-MIB", "dnsResConfigSbeltEntry")
-DnsQType, DnsQClass, DnsType, dns, DnsClass, DnsOpCode, DnsName, DnsNameAsIndex, DnsRespCode, DnsTime = mibBuilder.importSymbols("DNS-SERVER-MIB", "DnsQType", "DnsQClass", "DnsType", "dns", "DnsClass", "DnsOpCode", "DnsName", "DnsNameAsIndex", "DnsRespCode", "DnsTime")
-InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Unsigned32, IpAddress, iso, ObjectIdentity, Counter64, Bits, TimeTicks, Integer32, NotificationType, Counter32, Gauge32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "IpAddress", "iso", "ObjectIdentity", "Counter64", "Bits", "TimeTicks", "Integer32", "NotificationType", "Counter32", "Gauge32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity")
-TruthValue, TextualConvention, RowStatus, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "RowStatus", "DisplayString")
-rlDnsClMibVersion = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlDnsClMibVersion.setStatus('current')
-rlDnsClEnable = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlDnsClEnable.setStatus('current')
-rlDnsClDomainNameTable = MibTable((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 3), )
-if mibBuilder.loadTexts: rlDnsClDomainNameTable.setStatus('current')
-rlDnsClDomainNameEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 3, 1), ).setIndexNames((0, "DLINK-3100-DNSCL-MIB", "rlDnsClDomainNameName"))
-if mibBuilder.loadTexts: rlDnsClDomainNameEntry.setStatus('current')
-rlDnsClDomainNameName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 3, 1, 1), DnsName()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlDnsClDomainNameName.setStatus('current')
-rlDnsClDomainNameOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("static", 1), ("dhcp", 2))).clone('static')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlDnsClDomainNameOwner.setStatus('current')
-rlDnsClDomainNameRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 3, 1, 3), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlDnsClDomainNameRowStatus.setStatus('current')
-rlDnsClMaxNumOfRetransmissions = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10)).clone(3)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlDnsClMaxNumOfRetransmissions.setStatus('current')
-rlDnsClMinRetransmissionInterval = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 15)).clone(5)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlDnsClMinRetransmissionInterval.setStatus('current')
-rlDnsClNamesTable = MibTable((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 6), )
-if mibBuilder.loadTexts: rlDnsClNamesTable.setStatus('current')
-rlDnsClNamesEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 6, 1), ).setIndexNames((0, "DLINK-3100-DNSCL-MIB", "rlDnsClNamesName"), (0, "DLINK-3100-DNSCL-MIB", "rlDnsClNamesOwner"), (0, "DLINK-3100-DNSCL-MIB", "rlDnsClNamesIndex"))
-if mibBuilder.loadTexts: rlDnsClNamesEntry.setStatus('current')
-rlDnsClNamesName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 6, 1, 1), DnsName()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlDnsClNamesName.setStatus('current')
-rlDnsClNamesOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 6, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("static", 1), ("dhcp", 2))).clone('static')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlDnsClNamesOwner.setStatus('current')
-rlDnsClNamesIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 6, 1, 3), Integer32())
-if mibBuilder.loadTexts: rlDnsClNamesIndex.setStatus('current')
-rlDnsClNamesAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 6, 1, 4), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlDnsClNamesAddr.setStatus('current')
-rlDnsClNamesRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 6, 1, 5), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlDnsClNamesRowStatus.setStatus('current')
-rlDnsResConfigSbeltExtTable = MibTable((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 7), )
-if mibBuilder.loadTexts: rlDnsResConfigSbeltExtTable.setStatus('current')
-rlDnsResConfigSbeltExtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 7, 1), )
-dnsResConfigSbeltEntry.registerAugmentions(("DLINK-3100-DNSCL-MIB", "rlDnsResConfigSbeltExtEntry"))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/DLINK-3100-DNSCL-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:29:54 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(rlDnsCl,) = mibBuilder.importSymbols(
+    "DLINK-3100-MIB",
+    "rlDnsCl")
+
+(dnsResConfigSbeltEntry,) = mibBuilder.importSymbols(
+    "DNS-RESOLVER-MIB",
+    "dnsResConfigSbeltEntry")
+
+(DnsClass,
+ DnsName,
+ DnsNameAsIndex,
+ DnsOpCode,
+ DnsQClass,
+ DnsQType,
+ DnsRespCode,
+ DnsTime,
+ DnsType,
+ dns) = mibBuilder.importSymbols(
+    "DNS-SERVER-MIB",
+    "DnsClass",
+    "DnsName",
+    "DnsNameAsIndex",
+    "DnsOpCode",
+    "DnsQClass",
+    "DnsQType",
+    "DnsRespCode",
+    "DnsTime",
+    "DnsType",
+    "dns")
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_RlDnsClMibVersion_Type = Integer32
+_RlDnsClMibVersion_Object = MibScalar
+rlDnsClMibVersion = _RlDnsClMibVersion_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 1),
+    _RlDnsClMibVersion_Type()
+)
+rlDnsClMibVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlDnsClMibVersion.setStatus("current")
+
+
+class _RlDnsClEnable_Type(Integer32):
+    """Custom type rlDnsClEnable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 2),
+          ("enable", 1))
+    )
+
+
+_RlDnsClEnable_Type.__name__ = "Integer32"
+_RlDnsClEnable_Object = MibScalar
+rlDnsClEnable = _RlDnsClEnable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 2),
+    _RlDnsClEnable_Type()
+)
+rlDnsClEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlDnsClEnable.setStatus("current")
+_RlDnsClDomainNameTable_Object = MibTable
+rlDnsClDomainNameTable = _RlDnsClDomainNameTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 3)
+)
+if mibBuilder.loadTexts:
+    rlDnsClDomainNameTable.setStatus("current")
+_RlDnsClDomainNameEntry_Object = MibTableRow
+rlDnsClDomainNameEntry = _RlDnsClDomainNameEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 3, 1)
+)
+rlDnsClDomainNameEntry.setIndexNames(
+    (0, "DLINK-3100-DNSCL-MIB", "rlDnsClDomainNameName"),
+)
+if mibBuilder.loadTexts:
+    rlDnsClDomainNameEntry.setStatus("current")
+_RlDnsClDomainNameName_Type = DnsName
+_RlDnsClDomainNameName_Object = MibTableColumn
+rlDnsClDomainNameName = _RlDnsClDomainNameName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 3, 1, 1),
+    _RlDnsClDomainNameName_Type()
+)
+rlDnsClDomainNameName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlDnsClDomainNameName.setStatus("current")
+
+
+class _RlDnsClDomainNameOwner_Type(Integer32):
+    """Custom type rlDnsClDomainNameOwner based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dhcp", 2),
+          ("static", 1))
+    )
+
+
+_RlDnsClDomainNameOwner_Type.__name__ = "Integer32"
+_RlDnsClDomainNameOwner_Object = MibTableColumn
+rlDnsClDomainNameOwner = _RlDnsClDomainNameOwner_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 3, 1, 2),
+    _RlDnsClDomainNameOwner_Type()
+)
+rlDnsClDomainNameOwner.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlDnsClDomainNameOwner.setStatus("current")
+_RlDnsClDomainNameRowStatus_Type = RowStatus
+_RlDnsClDomainNameRowStatus_Object = MibTableColumn
+rlDnsClDomainNameRowStatus = _RlDnsClDomainNameRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 3, 1, 3),
+    _RlDnsClDomainNameRowStatus_Type()
+)
+rlDnsClDomainNameRowStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlDnsClDomainNameRowStatus.setStatus("current")
+
+
+class _RlDnsClMaxNumOfRetransmissions_Type(Integer32):
+    """Custom type rlDnsClMaxNumOfRetransmissions based on Integer32"""
+    defaultValue = 3
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 10),
+    )
+
+
+_RlDnsClMaxNumOfRetransmissions_Type.__name__ = "Integer32"
+_RlDnsClMaxNumOfRetransmissions_Object = MibScalar
+rlDnsClMaxNumOfRetransmissions = _RlDnsClMaxNumOfRetransmissions_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 4),
+    _RlDnsClMaxNumOfRetransmissions_Type()
+)
+rlDnsClMaxNumOfRetransmissions.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlDnsClMaxNumOfRetransmissions.setStatus("current")
+
+
+class _RlDnsClMinRetransmissionInterval_Type(Integer32):
+    """Custom type rlDnsClMinRetransmissionInterval based on Integer32"""
+    defaultValue = 5
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 15),
+    )
+
+
+_RlDnsClMinRetransmissionInterval_Type.__name__ = "Integer32"
+_RlDnsClMinRetransmissionInterval_Object = MibScalar
+rlDnsClMinRetransmissionInterval = _RlDnsClMinRetransmissionInterval_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 5),
+    _RlDnsClMinRetransmissionInterval_Type()
+)
+rlDnsClMinRetransmissionInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlDnsClMinRetransmissionInterval.setStatus("current")
+_RlDnsClNamesTable_Object = MibTable
+rlDnsClNamesTable = _RlDnsClNamesTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 6)
+)
+if mibBuilder.loadTexts:
+    rlDnsClNamesTable.setStatus("current")
+_RlDnsClNamesEntry_Object = MibTableRow
+rlDnsClNamesEntry = _RlDnsClNamesEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 6, 1)
+)
+rlDnsClNamesEntry.setIndexNames(
+    (0, "DLINK-3100-DNSCL-MIB", "rlDnsClNamesName"),
+    (0, "DLINK-3100-DNSCL-MIB", "rlDnsClNamesOwner"),
+    (0, "DLINK-3100-DNSCL-MIB", "rlDnsClNamesIndex"),
+)
+if mibBuilder.loadTexts:
+    rlDnsClNamesEntry.setStatus("current")
+_RlDnsClNamesName_Type = DnsName
+_RlDnsClNamesName_Object = MibTableColumn
+rlDnsClNamesName = _RlDnsClNamesName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 6, 1, 1),
+    _RlDnsClNamesName_Type()
+)
+rlDnsClNamesName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlDnsClNamesName.setStatus("current")
+
+
+class _RlDnsClNamesOwner_Type(Integer32):
+    """Custom type rlDnsClNamesOwner based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dhcp", 2),
+          ("static", 1))
+    )
+
+
+_RlDnsClNamesOwner_Type.__name__ = "Integer32"
+_RlDnsClNamesOwner_Object = MibTableColumn
+rlDnsClNamesOwner = _RlDnsClNamesOwner_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 6, 1, 2),
+    _RlDnsClNamesOwner_Type()
+)
+rlDnsClNamesOwner.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlDnsClNamesOwner.setStatus("current")
+_RlDnsClNamesIndex_Type = Integer32
+_RlDnsClNamesIndex_Object = MibTableColumn
+rlDnsClNamesIndex = _RlDnsClNamesIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 6, 1, 3),
+    _RlDnsClNamesIndex_Type()
+)
+rlDnsClNamesIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlDnsClNamesIndex.setStatus("current")
+_RlDnsClNamesAddr_Type = IpAddress
+_RlDnsClNamesAddr_Object = MibTableColumn
+rlDnsClNamesAddr = _RlDnsClNamesAddr_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 6, 1, 4),
+    _RlDnsClNamesAddr_Type()
+)
+rlDnsClNamesAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlDnsClNamesAddr.setStatus("current")
+_RlDnsClNamesRowStatus_Type = RowStatus
+_RlDnsClNamesRowStatus_Object = MibTableColumn
+rlDnsClNamesRowStatus = _RlDnsClNamesRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 6, 1, 5),
+    _RlDnsClNamesRowStatus_Type()
+)
+rlDnsClNamesRowStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlDnsClNamesRowStatus.setStatus("current")
+_RlDnsResConfigSbeltExtTable_Object = MibTable
+rlDnsResConfigSbeltExtTable = _RlDnsResConfigSbeltExtTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 7)
+)
+if mibBuilder.loadTexts:
+    rlDnsResConfigSbeltExtTable.setStatus("current")
+_RlDnsResConfigSbeltExtEntry_Object = MibTableRow
+rlDnsResConfigSbeltExtEntry = _RlDnsResConfigSbeltExtEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 7, 1)
+)
+if mibBuilder.loadTexts:
+    rlDnsResConfigSbeltExtEntry.setStatus("current")
+
+
+class _RlDnsResConfigSbeltOwner_Type(Integer32):
+    """Custom type rlDnsResConfigSbeltOwner based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dhcp", 2),
+          ("static", 1))
+    )
+
+
+_RlDnsResConfigSbeltOwner_Type.__name__ = "Integer32"
+_RlDnsResConfigSbeltOwner_Object = MibTableColumn
+rlDnsResConfigSbeltOwner = _RlDnsResConfigSbeltOwner_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 7, 1, 1),
+    _RlDnsResConfigSbeltOwner_Type()
+)
+rlDnsResConfigSbeltOwner.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlDnsResConfigSbeltOwner.setStatus("current")
+_RlDnsClNamesInetTable_Object = MibTable
+rlDnsClNamesInetTable = _RlDnsClNamesInetTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 8)
+)
+if mibBuilder.loadTexts:
+    rlDnsClNamesInetTable.setStatus("current")
+_RlDnsClNamesInetEntry_Object = MibTableRow
+rlDnsClNamesInetEntry = _RlDnsClNamesInetEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 8, 1)
+)
+rlDnsClNamesInetEntry.setIndexNames(
+    (0, "DLINK-3100-DNSCL-MIB", "rlDnsClNamesInetName"),
+    (0, "DLINK-3100-DNSCL-MIB", "rlDnsClNamesInetOwner"),
+    (0, "DLINK-3100-DNSCL-MIB", "rlDnsClNamesInetIndex"),
+    (0, "DLINK-3100-DNSCL-MIB", "rlDnsClNamesInetRRType"),
+)
+if mibBuilder.loadTexts:
+    rlDnsClNamesInetEntry.setStatus("current")
+_RlDnsClNamesInetName_Type = DnsName
+_RlDnsClNamesInetName_Object = MibTableColumn
+rlDnsClNamesInetName = _RlDnsClNamesInetName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 8, 1, 1),
+    _RlDnsClNamesInetName_Type()
+)
+rlDnsClNamesInetName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlDnsClNamesInetName.setStatus("current")
+
+
+class _RlDnsClNamesInetOwner_Type(Integer32):
+    """Custom type rlDnsClNamesInetOwner based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dhcp", 2),
+          ("static", 1))
+    )
+
+
+_RlDnsClNamesInetOwner_Type.__name__ = "Integer32"
+_RlDnsClNamesInetOwner_Object = MibTableColumn
+rlDnsClNamesInetOwner = _RlDnsClNamesInetOwner_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 8, 1, 2),
+    _RlDnsClNamesInetOwner_Type()
+)
+rlDnsClNamesInetOwner.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlDnsClNamesInetOwner.setStatus("current")
+_RlDnsClNamesInetIndex_Type = Integer32
+_RlDnsClNamesInetIndex_Object = MibTableColumn
+rlDnsClNamesInetIndex = _RlDnsClNamesInetIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 8, 1, 3),
+    _RlDnsClNamesInetIndex_Type()
+)
+rlDnsClNamesInetIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlDnsClNamesInetIndex.setStatus("current")
+_RlDnsClNamesInetRRType_Type = DnsType
+_RlDnsClNamesInetRRType_Object = MibTableColumn
+rlDnsClNamesInetRRType = _RlDnsClNamesInetRRType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 8, 1, 4),
+    _RlDnsClNamesInetRRType_Type()
+)
+rlDnsClNamesInetRRType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlDnsClNamesInetRRType.setStatus("current")
+_RlDnsClNamesInetAddrType_Type = InetAddressType
+_RlDnsClNamesInetAddrType_Object = MibTableColumn
+rlDnsClNamesInetAddrType = _RlDnsClNamesInetAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 8, 1, 5),
+    _RlDnsClNamesInetAddrType_Type()
+)
+rlDnsClNamesInetAddrType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlDnsClNamesInetAddrType.setStatus("current")
+_RlDnsClNamesInetAddr_Type = InetAddress
+_RlDnsClNamesInetAddr_Object = MibTableColumn
+rlDnsClNamesInetAddr = _RlDnsClNamesInetAddr_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 8, 1, 6),
+    _RlDnsClNamesInetAddr_Type()
+)
+rlDnsClNamesInetAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlDnsClNamesInetAddr.setStatus("current")
+_RlDnsClNamesInetRowStatus_Type = RowStatus
+_RlDnsClNamesInetRowStatus_Object = MibTableColumn
+rlDnsClNamesInetRowStatus = _RlDnsClNamesInetRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 8, 1, 7),
+    _RlDnsClNamesInetRowStatus_Type()
+)
+rlDnsClNamesInetRowStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlDnsClNamesInetRowStatus.setStatus("current")
+_RlDnsResConfigSbeltInetTable_Object = MibTable
+rlDnsResConfigSbeltInetTable = _RlDnsResConfigSbeltInetTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 9)
+)
+if mibBuilder.loadTexts:
+    rlDnsResConfigSbeltInetTable.setStatus("current")
+_RlDnsResConfigSbeltInetEntry_Object = MibTableRow
+rlDnsResConfigSbeltInetEntry = _RlDnsResConfigSbeltInetEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 9, 1)
+)
+rlDnsResConfigSbeltInetEntry.setIndexNames(
+    (0, "DLINK-3100-DNSCL-MIB", "rlDnsResConfigSbeltInetAddrType"),
+    (0, "DLINK-3100-DNSCL-MIB", "rlDnsResConfigSbeltInetAddr"),
+    (0, "DLINK-3100-DNSCL-MIB", "rlDnsResConfigSbeltInetSubTree"),
+    (0, "DLINK-3100-DNSCL-MIB", "rlDnsResConfigSbeltInetClass"),
+)
+if mibBuilder.loadTexts:
+    rlDnsResConfigSbeltInetEntry.setStatus("current")
+_RlDnsResConfigSbeltInetAddrType_Type = InetAddressType
+_RlDnsResConfigSbeltInetAddrType_Object = MibTableColumn
+rlDnsResConfigSbeltInetAddrType = _RlDnsResConfigSbeltInetAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 9, 1, 1),
+    _RlDnsResConfigSbeltInetAddrType_Type()
+)
+rlDnsResConfigSbeltInetAddrType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlDnsResConfigSbeltInetAddrType.setStatus("current")
+_RlDnsResConfigSbeltInetAddr_Type = InetAddress
+_RlDnsResConfigSbeltInetAddr_Object = MibTableColumn
+rlDnsResConfigSbeltInetAddr = _RlDnsResConfigSbeltInetAddr_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 9, 1, 2),
+    _RlDnsResConfigSbeltInetAddr_Type()
+)
+rlDnsResConfigSbeltInetAddr.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlDnsResConfigSbeltInetAddr.setStatus("current")
+_RlDnsResConfigSbeltInetName_Type = DnsName
+_RlDnsResConfigSbeltInetName_Object = MibTableColumn
+rlDnsResConfigSbeltInetName = _RlDnsResConfigSbeltInetName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 9, 1, 3),
+    _RlDnsResConfigSbeltInetName_Type()
+)
+rlDnsResConfigSbeltInetName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    rlDnsResConfigSbeltInetName.setStatus("current")
+
+
+class _RlDnsResConfigSbeltInetRecursion_Type(Integer32):
+    """Custom type rlDnsResConfigSbeltInetRecursion based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("iterative", 1),
+          ("recursive", 2),
+          ("recursiveAndIterative", 3))
+    )
+
+
+_RlDnsResConfigSbeltInetRecursion_Type.__name__ = "Integer32"
+_RlDnsResConfigSbeltInetRecursion_Object = MibTableColumn
+rlDnsResConfigSbeltInetRecursion = _RlDnsResConfigSbeltInetRecursion_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 9, 1, 4),
+    _RlDnsResConfigSbeltInetRecursion_Type()
+)
+rlDnsResConfigSbeltInetRecursion.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    rlDnsResConfigSbeltInetRecursion.setStatus("current")
+
+
+class _RlDnsResConfigSbeltInetPref_Type(Integer32):
+    """Custom type rlDnsResConfigSbeltInetPref based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_RlDnsResConfigSbeltInetPref_Type.__name__ = "Integer32"
+_RlDnsResConfigSbeltInetPref_Object = MibTableColumn
+rlDnsResConfigSbeltInetPref = _RlDnsResConfigSbeltInetPref_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 9, 1, 5),
+    _RlDnsResConfigSbeltInetPref_Type()
+)
+rlDnsResConfigSbeltInetPref.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    rlDnsResConfigSbeltInetPref.setStatus("current")
+_RlDnsResConfigSbeltInetSubTree_Type = DnsNameAsIndex
+_RlDnsResConfigSbeltInetSubTree_Object = MibTableColumn
+rlDnsResConfigSbeltInetSubTree = _RlDnsResConfigSbeltInetSubTree_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 9, 1, 6),
+    _RlDnsResConfigSbeltInetSubTree_Type()
+)
+rlDnsResConfigSbeltInetSubTree.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlDnsResConfigSbeltInetSubTree.setStatus("current")
+_RlDnsResConfigSbeltInetClass_Type = DnsClass
+_RlDnsResConfigSbeltInetClass_Object = MibTableColumn
+rlDnsResConfigSbeltInetClass = _RlDnsResConfigSbeltInetClass_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 9, 1, 7),
+    _RlDnsResConfigSbeltInetClass_Type()
+)
+rlDnsResConfigSbeltInetClass.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlDnsResConfigSbeltInetClass.setStatus("current")
+_RlDnsResConfigSbeltInetStatus_Type = RowStatus
+_RlDnsResConfigSbeltInetStatus_Object = MibTableColumn
+rlDnsResConfigSbeltInetStatus = _RlDnsResConfigSbeltInetStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 9, 1, 8),
+    _RlDnsResConfigSbeltInetStatus_Type()
+)
+rlDnsResConfigSbeltInetStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    rlDnsResConfigSbeltInetStatus.setStatus("current")
+_RlDnsResCacheRRInetTable_Object = MibTable
+rlDnsResCacheRRInetTable = _RlDnsResCacheRRInetTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 10)
+)
+if mibBuilder.loadTexts:
+    rlDnsResCacheRRInetTable.setStatus("current")
+_RlDnsResCacheRRInetEntry_Object = MibTableRow
+rlDnsResCacheRRInetEntry = _RlDnsResCacheRRInetEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 10, 1)
+)
+rlDnsResCacheRRInetEntry.setIndexNames(
+    (0, "DLINK-3100-DNSCL-MIB", "rlDnsResCacheRRInetName"),
+    (0, "DLINK-3100-DNSCL-MIB", "rlDnsResCacheRRInetClass"),
+    (0, "DLINK-3100-DNSCL-MIB", "rlDnsResCacheRRInetType"),
+    (0, "DLINK-3100-DNSCL-MIB", "rlDnsResCacheRRInetIndex"),
+)
+if mibBuilder.loadTexts:
+    rlDnsResCacheRRInetEntry.setStatus("current")
+_RlDnsResCacheRRInetName_Type = DnsNameAsIndex
+_RlDnsResCacheRRInetName_Object = MibTableColumn
+rlDnsResCacheRRInetName = _RlDnsResCacheRRInetName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 10, 1, 1),
+    _RlDnsResCacheRRInetName_Type()
+)
+rlDnsResCacheRRInetName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlDnsResCacheRRInetName.setStatus("current")
+_RlDnsResCacheRRInetClass_Type = DnsClass
+_RlDnsResCacheRRInetClass_Object = MibTableColumn
+rlDnsResCacheRRInetClass = _RlDnsResCacheRRInetClass_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 10, 1, 2),
+    _RlDnsResCacheRRInetClass_Type()
+)
+rlDnsResCacheRRInetClass.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlDnsResCacheRRInetClass.setStatus("current")
+_RlDnsResCacheRRInetType_Type = DnsType
+_RlDnsResCacheRRInetType_Object = MibTableColumn
+rlDnsResCacheRRInetType = _RlDnsResCacheRRInetType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 10, 1, 3),
+    _RlDnsResCacheRRInetType_Type()
+)
+rlDnsResCacheRRInetType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlDnsResCacheRRInetType.setStatus("current")
+_RlDnsResCacheRRInetTTL_Type = DnsTime
+_RlDnsResCacheRRInetTTL_Object = MibTableColumn
+rlDnsResCacheRRInetTTL = _RlDnsResCacheRRInetTTL_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 10, 1, 4),
+    _RlDnsResCacheRRInetTTL_Type()
+)
+rlDnsResCacheRRInetTTL.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlDnsResCacheRRInetTTL.setStatus("current")
+_RlDnsResCacheRRInetElapsedTTL_Type = DnsTime
+_RlDnsResCacheRRInetElapsedTTL_Object = MibTableColumn
+rlDnsResCacheRRInetElapsedTTL = _RlDnsResCacheRRInetElapsedTTL_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 10, 1, 5),
+    _RlDnsResCacheRRInetElapsedTTL_Type()
+)
+rlDnsResCacheRRInetElapsedTTL.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlDnsResCacheRRInetElapsedTTL.setStatus("current")
+_RlDnsResCacheRRInetSourceAddrType_Type = InetAddressType
+_RlDnsResCacheRRInetSourceAddrType_Object = MibTableColumn
+rlDnsResCacheRRInetSourceAddrType = _RlDnsResCacheRRInetSourceAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 10, 1, 6),
+    _RlDnsResCacheRRInetSourceAddrType_Type()
+)
+rlDnsResCacheRRInetSourceAddrType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlDnsResCacheRRInetSourceAddrType.setStatus("current")
+_RlDnsResCacheRRInetSource_Type = InetAddress
+_RlDnsResCacheRRInetSource_Object = MibTableColumn
+rlDnsResCacheRRInetSource = _RlDnsResCacheRRInetSource_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 10, 1, 7),
+    _RlDnsResCacheRRInetSource_Type()
+)
+rlDnsResCacheRRInetSource.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlDnsResCacheRRInetSource.setStatus("current")
+_RlDnsResCacheRRInetData_Type = OctetString
+_RlDnsResCacheRRInetData_Object = MibTableColumn
+rlDnsResCacheRRInetData = _RlDnsResCacheRRInetData_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 10, 1, 8),
+    _RlDnsResCacheRRInetData_Type()
+)
+rlDnsResCacheRRInetData.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlDnsResCacheRRInetData.setStatus("current")
+_RlDnsResCacheRRInetStatus_Type = RowStatus
+_RlDnsResCacheRRInetStatus_Object = MibTableColumn
+rlDnsResCacheRRInetStatus = _RlDnsResCacheRRInetStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 10, 1, 9),
+    _RlDnsResCacheRRInetStatus_Type()
+)
+rlDnsResCacheRRInetStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlDnsResCacheRRInetStatus.setStatus("current")
+_RlDnsResCacheRRInetIndex_Type = Integer32
+_RlDnsResCacheRRInetIndex_Object = MibTableColumn
+rlDnsResCacheRRInetIndex = _RlDnsResCacheRRInetIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 10, 1, 10),
+    _RlDnsResCacheRRInetIndex_Type()
+)
+rlDnsResCacheRRInetIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlDnsResCacheRRInetIndex.setStatus("current")
+_RlDnsResCacheRRInetPrettyName_Type = DnsName
+_RlDnsResCacheRRInetPrettyName_Object = MibTableColumn
+rlDnsResCacheRRInetPrettyName = _RlDnsResCacheRRInetPrettyName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 10, 1, 11),
+    _RlDnsResCacheRRInetPrettyName_Type()
+)
+rlDnsResCacheRRInetPrettyName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlDnsResCacheRRInetPrettyName.setStatus("current")
+_RlDnsResNCacheErrInetTable_Object = MibTable
+rlDnsResNCacheErrInetTable = _RlDnsResNCacheErrInetTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 11)
+)
+if mibBuilder.loadTexts:
+    rlDnsResNCacheErrInetTable.setStatus("current")
+_RlDnsResNCacheErrInetEntry_Object = MibTableRow
+rlDnsResNCacheErrInetEntry = _RlDnsResNCacheErrInetEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 11, 1)
+)
+rlDnsResNCacheErrInetEntry.setIndexNames(
+    (0, "DLINK-3100-DNSCL-MIB", "rlDnsResNCacheErrInetQName"),
+    (0, "DLINK-3100-DNSCL-MIB", "rlDnsResNCacheErrInetQClass"),
+    (0, "DLINK-3100-DNSCL-MIB", "rlDnsResNCacheErrInetQType"),
+    (0, "DLINK-3100-DNSCL-MIB", "rlDnsResNCacheErrInetIndex"),
+)
+if mibBuilder.loadTexts:
+    rlDnsResNCacheErrInetEntry.setStatus("current")
+_RlDnsResNCacheErrInetQName_Type = DnsNameAsIndex
+_RlDnsResNCacheErrInetQName_Object = MibTableColumn
+rlDnsResNCacheErrInetQName = _RlDnsResNCacheErrInetQName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 11, 1, 1),
+    _RlDnsResNCacheErrInetQName_Type()
+)
+rlDnsResNCacheErrInetQName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlDnsResNCacheErrInetQName.setStatus("current")
+_RlDnsResNCacheErrInetQClass_Type = DnsQClass
+_RlDnsResNCacheErrInetQClass_Object = MibTableColumn
+rlDnsResNCacheErrInetQClass = _RlDnsResNCacheErrInetQClass_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 11, 1, 2),
+    _RlDnsResNCacheErrInetQClass_Type()
+)
+rlDnsResNCacheErrInetQClass.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlDnsResNCacheErrInetQClass.setStatus("current")
+_RlDnsResNCacheErrInetQType_Type = DnsQType
+_RlDnsResNCacheErrInetQType_Object = MibTableColumn
+rlDnsResNCacheErrInetQType = _RlDnsResNCacheErrInetQType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 11, 1, 3),
+    _RlDnsResNCacheErrInetQType_Type()
+)
+rlDnsResNCacheErrInetQType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlDnsResNCacheErrInetQType.setStatus("current")
+_RlDnsResNCacheErrInetTTL_Type = DnsTime
+_RlDnsResNCacheErrInetTTL_Object = MibTableColumn
+rlDnsResNCacheErrInetTTL = _RlDnsResNCacheErrInetTTL_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 11, 1, 4),
+    _RlDnsResNCacheErrInetTTL_Type()
+)
+rlDnsResNCacheErrInetTTL.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlDnsResNCacheErrInetTTL.setStatus("current")
+_RlDnsResNCacheErrInetElapsedTTL_Type = DnsTime
+_RlDnsResNCacheErrInetElapsedTTL_Object = MibTableColumn
+rlDnsResNCacheErrInetElapsedTTL = _RlDnsResNCacheErrInetElapsedTTL_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 11, 1, 5),
+    _RlDnsResNCacheErrInetElapsedTTL_Type()
+)
+rlDnsResNCacheErrInetElapsedTTL.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlDnsResNCacheErrInetElapsedTTL.setStatus("current")
+_RlDnsResNCacheErrInetSourceAddrType_Type = InetAddressType
+_RlDnsResNCacheErrInetSourceAddrType_Object = MibTableColumn
+rlDnsResNCacheErrInetSourceAddrType = _RlDnsResNCacheErrInetSourceAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 11, 1, 6),
+    _RlDnsResNCacheErrInetSourceAddrType_Type()
+)
+rlDnsResNCacheErrInetSourceAddrType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlDnsResNCacheErrInetSourceAddrType.setStatus("current")
+_RlDnsResNCacheErrInetSource_Type = InetAddress
+_RlDnsResNCacheErrInetSource_Object = MibTableColumn
+rlDnsResNCacheErrInetSource = _RlDnsResNCacheErrInetSource_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 11, 1, 7),
+    _RlDnsResNCacheErrInetSource_Type()
+)
+rlDnsResNCacheErrInetSource.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlDnsResNCacheErrInetSource.setStatus("current")
+
+
+class _RlDnsResNCacheErrInetCode_Type(Integer32):
+    """Custom type rlDnsResNCacheErrInetCode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("noData", 2),
+          ("nonexistantName", 1),
+          ("other", 3))
+    )
+
+
+_RlDnsResNCacheErrInetCode_Type.__name__ = "Integer32"
+_RlDnsResNCacheErrInetCode_Object = MibTableColumn
+rlDnsResNCacheErrInetCode = _RlDnsResNCacheErrInetCode_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 11, 1, 8),
+    _RlDnsResNCacheErrInetCode_Type()
+)
+rlDnsResNCacheErrInetCode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlDnsResNCacheErrInetCode.setStatus("current")
+_RlDnsResNCacheErrInetStatus_Type = RowStatus
+_RlDnsResNCacheErrInetStatus_Object = MibTableColumn
+rlDnsResNCacheErrInetStatus = _RlDnsResNCacheErrInetStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 11, 1, 9),
+    _RlDnsResNCacheErrInetStatus_Type()
+)
+rlDnsResNCacheErrInetStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlDnsResNCacheErrInetStatus.setStatus("current")
+_RlDnsResNCacheErrInetIndex_Type = Integer32
+_RlDnsResNCacheErrInetIndex_Object = MibTableColumn
+rlDnsResNCacheErrInetIndex = _RlDnsResNCacheErrInetIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 11, 1, 10),
+    _RlDnsResNCacheErrInetIndex_Type()
+)
+rlDnsResNCacheErrInetIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlDnsResNCacheErrInetIndex.setStatus("current")
+_RlDnsResNCacheErrInetPrettyName_Type = DnsName
+_RlDnsResNCacheErrInetPrettyName_Object = MibTableColumn
+rlDnsResNCacheErrInetPrettyName = _RlDnsResNCacheErrInetPrettyName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 11, 1, 11),
+    _RlDnsResNCacheErrInetPrettyName_Type()
+)
+rlDnsResNCacheErrInetPrettyName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlDnsResNCacheErrInetPrettyName.setStatus("current")
+_RlDnsResConfigSbeltExtInetTable_Object = MibTable
+rlDnsResConfigSbeltExtInetTable = _RlDnsResConfigSbeltExtInetTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 12)
+)
+if mibBuilder.loadTexts:
+    rlDnsResConfigSbeltExtInetTable.setStatus("current")
+_RlDnsResConfigSbeltExtInetEntry_Object = MibTableRow
+rlDnsResConfigSbeltExtInetEntry = _RlDnsResConfigSbeltExtInetEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 12, 1)
+)
+if mibBuilder.loadTexts:
+    rlDnsResConfigSbeltExtInetEntry.setStatus("current")
+
+
+class _RlDnsResConfigSbeltInetOwner_Type(Integer32):
+    """Custom type rlDnsResConfigSbeltInetOwner based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dhcp", 2),
+          ("static", 1))
+    )
+
+
+_RlDnsResConfigSbeltInetOwner_Type.__name__ = "Integer32"
+_RlDnsResConfigSbeltInetOwner_Object = MibTableColumn
+rlDnsResConfigSbeltInetOwner = _RlDnsResConfigSbeltInetOwner_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 12, 1, 1),
+    _RlDnsResConfigSbeltInetOwner_Type()
+)
+rlDnsResConfigSbeltInetOwner.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlDnsResConfigSbeltInetOwner.setStatus("current")
+dnsResConfigSbeltEntry.registerAugmentions(
+    ("DLINK-3100-DNSCL-MIB",
+     "rlDnsResConfigSbeltExtEntry")
+)
 rlDnsResConfigSbeltExtEntry.setIndexNames(*dnsResConfigSbeltEntry.getIndexNames())
-if mibBuilder.loadTexts: rlDnsResConfigSbeltExtEntry.setStatus('current')
-rlDnsResConfigSbeltOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 7, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("static", 1), ("dhcp", 2))).clone('static')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlDnsResConfigSbeltOwner.setStatus('current')
-rlDnsClNamesInetTable = MibTable((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 8), )
-if mibBuilder.loadTexts: rlDnsClNamesInetTable.setStatus('current')
-rlDnsClNamesInetEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 8, 1), ).setIndexNames((0, "DLINK-3100-DNSCL-MIB", "rlDnsClNamesInetName"), (0, "DLINK-3100-DNSCL-MIB", "rlDnsClNamesInetOwner"), (0, "DLINK-3100-DNSCL-MIB", "rlDnsClNamesInetIndex"), (0, "DLINK-3100-DNSCL-MIB", "rlDnsClNamesInetRRType"))
-if mibBuilder.loadTexts: rlDnsClNamesInetEntry.setStatus('current')
-rlDnsClNamesInetName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 8, 1, 1), DnsName()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlDnsClNamesInetName.setStatus('current')
-rlDnsClNamesInetOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 8, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("static", 1), ("dhcp", 2))).clone('static')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlDnsClNamesInetOwner.setStatus('current')
-rlDnsClNamesInetIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 8, 1, 3), Integer32())
-if mibBuilder.loadTexts: rlDnsClNamesInetIndex.setStatus('current')
-rlDnsClNamesInetRRType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 8, 1, 4), DnsType())
-if mibBuilder.loadTexts: rlDnsClNamesInetRRType.setStatus('current')
-rlDnsClNamesInetAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 8, 1, 5), InetAddressType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlDnsClNamesInetAddrType.setStatus('current')
-rlDnsClNamesInetAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 8, 1, 6), InetAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlDnsClNamesInetAddr.setStatus('current')
-rlDnsClNamesInetRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 8, 1, 7), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlDnsClNamesInetRowStatus.setStatus('current')
-rlDnsResConfigSbeltInetTable = MibTable((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 9), )
-if mibBuilder.loadTexts: rlDnsResConfigSbeltInetTable.setStatus('current')
-rlDnsResConfigSbeltInetEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 9, 1), ).setIndexNames((0, "DLINK-3100-DNSCL-MIB", "rlDnsResConfigSbeltInetAddrType"), (0, "DLINK-3100-DNSCL-MIB", "rlDnsResConfigSbeltInetAddr"), (0, "DLINK-3100-DNSCL-MIB", "rlDnsResConfigSbeltInetSubTree"), (0, "DLINK-3100-DNSCL-MIB", "rlDnsResConfigSbeltInetClass"))
-if mibBuilder.loadTexts: rlDnsResConfigSbeltInetEntry.setStatus('current')
-rlDnsResConfigSbeltInetAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 9, 1, 1), InetAddressType())
-if mibBuilder.loadTexts: rlDnsResConfigSbeltInetAddrType.setStatus('current')
-rlDnsResConfigSbeltInetAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 9, 1, 2), InetAddress())
-if mibBuilder.loadTexts: rlDnsResConfigSbeltInetAddr.setStatus('current')
-rlDnsResConfigSbeltInetName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 9, 1, 3), DnsName()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: rlDnsResConfigSbeltInetName.setStatus('current')
-rlDnsResConfigSbeltInetRecursion = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 9, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("iterative", 1), ("recursive", 2), ("recursiveAndIterative", 3)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: rlDnsResConfigSbeltInetRecursion.setStatus('current')
-rlDnsResConfigSbeltInetPref = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 9, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: rlDnsResConfigSbeltInetPref.setStatus('current')
-rlDnsResConfigSbeltInetSubTree = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 9, 1, 6), DnsNameAsIndex())
-if mibBuilder.loadTexts: rlDnsResConfigSbeltInetSubTree.setStatus('current')
-rlDnsResConfigSbeltInetClass = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 9, 1, 7), DnsClass())
-if mibBuilder.loadTexts: rlDnsResConfigSbeltInetClass.setStatus('current')
-rlDnsResConfigSbeltInetStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 9, 1, 8), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: rlDnsResConfigSbeltInetStatus.setStatus('current')
-rlDnsResCacheRRInetTable = MibTable((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 10), )
-if mibBuilder.loadTexts: rlDnsResCacheRRInetTable.setStatus('current')
-rlDnsResCacheRRInetEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 10, 1), ).setIndexNames((0, "DLINK-3100-DNSCL-MIB", "rlDnsResCacheRRInetName"), (0, "DLINK-3100-DNSCL-MIB", "rlDnsResCacheRRInetClass"), (0, "DLINK-3100-DNSCL-MIB", "rlDnsResCacheRRInetType"), (0, "DLINK-3100-DNSCL-MIB", "rlDnsResCacheRRInetIndex"))
-if mibBuilder.loadTexts: rlDnsResCacheRRInetEntry.setStatus('current')
-rlDnsResCacheRRInetName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 10, 1, 1), DnsNameAsIndex())
-if mibBuilder.loadTexts: rlDnsResCacheRRInetName.setStatus('current')
-rlDnsResCacheRRInetClass = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 10, 1, 2), DnsClass())
-if mibBuilder.loadTexts: rlDnsResCacheRRInetClass.setStatus('current')
-rlDnsResCacheRRInetType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 10, 1, 3), DnsType())
-if mibBuilder.loadTexts: rlDnsResCacheRRInetType.setStatus('current')
-rlDnsResCacheRRInetTTL = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 10, 1, 4), DnsTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlDnsResCacheRRInetTTL.setStatus('current')
-rlDnsResCacheRRInetElapsedTTL = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 10, 1, 5), DnsTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlDnsResCacheRRInetElapsedTTL.setStatus('current')
-rlDnsResCacheRRInetSourceAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 10, 1, 6), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlDnsResCacheRRInetSourceAddrType.setStatus('current')
-rlDnsResCacheRRInetSource = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 10, 1, 7), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlDnsResCacheRRInetSource.setStatus('current')
-rlDnsResCacheRRInetData = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 10, 1, 8), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlDnsResCacheRRInetData.setStatus('current')
-rlDnsResCacheRRInetStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 10, 1, 9), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlDnsResCacheRRInetStatus.setStatus('current')
-rlDnsResCacheRRInetIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 10, 1, 10), Integer32())
-if mibBuilder.loadTexts: rlDnsResCacheRRInetIndex.setStatus('current')
-rlDnsResCacheRRInetPrettyName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 10, 1, 11), DnsName()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlDnsResCacheRRInetPrettyName.setStatus('current')
-rlDnsResNCacheErrInetTable = MibTable((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 11), )
-if mibBuilder.loadTexts: rlDnsResNCacheErrInetTable.setStatus('current')
-rlDnsResNCacheErrInetEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 11, 1), ).setIndexNames((0, "DLINK-3100-DNSCL-MIB", "rlDnsResNCacheErrInetQName"), (0, "DLINK-3100-DNSCL-MIB", "rlDnsResNCacheErrInetQClass"), (0, "DLINK-3100-DNSCL-MIB", "rlDnsResNCacheErrInetQType"), (0, "DLINK-3100-DNSCL-MIB", "rlDnsResNCacheErrInetIndex"))
-if mibBuilder.loadTexts: rlDnsResNCacheErrInetEntry.setStatus('current')
-rlDnsResNCacheErrInetQName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 11, 1, 1), DnsNameAsIndex())
-if mibBuilder.loadTexts: rlDnsResNCacheErrInetQName.setStatus('current')
-rlDnsResNCacheErrInetQClass = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 11, 1, 2), DnsQClass())
-if mibBuilder.loadTexts: rlDnsResNCacheErrInetQClass.setStatus('current')
-rlDnsResNCacheErrInetQType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 11, 1, 3), DnsQType())
-if mibBuilder.loadTexts: rlDnsResNCacheErrInetQType.setStatus('current')
-rlDnsResNCacheErrInetTTL = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 11, 1, 4), DnsTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlDnsResNCacheErrInetTTL.setStatus('current')
-rlDnsResNCacheErrInetElapsedTTL = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 11, 1, 5), DnsTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlDnsResNCacheErrInetElapsedTTL.setStatus('current')
-rlDnsResNCacheErrInetSourceAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 11, 1, 6), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlDnsResNCacheErrInetSourceAddrType.setStatus('current')
-rlDnsResNCacheErrInetSource = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 11, 1, 7), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlDnsResNCacheErrInetSource.setStatus('current')
-rlDnsResNCacheErrInetCode = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 11, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("nonexistantName", 1), ("noData", 2), ("other", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlDnsResNCacheErrInetCode.setStatus('current')
-rlDnsResNCacheErrInetStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 11, 1, 9), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlDnsResNCacheErrInetStatus.setStatus('current')
-rlDnsResNCacheErrInetIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 11, 1, 10), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlDnsResNCacheErrInetIndex.setStatus('current')
-rlDnsResNCacheErrInetPrettyName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 11, 1, 11), DnsName()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlDnsResNCacheErrInetPrettyName.setStatus('current')
-rlDnsResConfigSbeltExtInetTable = MibTable((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 12), )
-if mibBuilder.loadTexts: rlDnsResConfigSbeltExtInetTable.setStatus('current')
-rlDnsResConfigSbeltExtInetEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 12, 1), )
-rlDnsResConfigSbeltInetEntry.registerAugmentions(("DLINK-3100-DNSCL-MIB", "rlDnsResConfigSbeltExtInetEntry"))
+rlDnsResConfigSbeltInetEntry.registerAugmentions(
+    ("DLINK-3100-DNSCL-MIB",
+     "rlDnsResConfigSbeltExtInetEntry")
+)
 rlDnsResConfigSbeltExtInetEntry.setIndexNames(*rlDnsResConfigSbeltInetEntry.getIndexNames())
-if mibBuilder.loadTexts: rlDnsResConfigSbeltExtInetEntry.setStatus('current')
-rlDnsResConfigSbeltInetOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 93, 12, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("static", 1), ("dhcp", 2))).clone('static')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlDnsResConfigSbeltInetOwner.setStatus('current')
-mibBuilder.exportSymbols("DLINK-3100-DNSCL-MIB", rlDnsResConfigSbeltInetRecursion=rlDnsResConfigSbeltInetRecursion, rlDnsResCacheRRInetType=rlDnsResCacheRRInetType, rlDnsClNamesEntry=rlDnsClNamesEntry, rlDnsClNamesInetAddr=rlDnsClNamesInetAddr, rlDnsClNamesInetEntry=rlDnsClNamesInetEntry, rlDnsResConfigSbeltExtInetTable=rlDnsResConfigSbeltExtInetTable, rlDnsClMinRetransmissionInterval=rlDnsClMinRetransmissionInterval, rlDnsResNCacheErrInetElapsedTTL=rlDnsResNCacheErrInetElapsedTTL, rlDnsClNamesInetRowStatus=rlDnsClNamesInetRowStatus, rlDnsClDomainNameName=rlDnsClDomainNameName, rlDnsResConfigSbeltInetAddr=rlDnsResConfigSbeltInetAddr, rlDnsResNCacheErrInetIndex=rlDnsResNCacheErrInetIndex, rlDnsClNamesName=rlDnsClNamesName, rlDnsClNamesInetName=rlDnsClNamesInetName, rlDnsClNamesInetTable=rlDnsClNamesInetTable, rlDnsClMaxNumOfRetransmissions=rlDnsClMaxNumOfRetransmissions, rlDnsClNamesRowStatus=rlDnsClNamesRowStatus, rlDnsResCacheRRInetClass=rlDnsResCacheRRInetClass, rlDnsResNCacheErrInetQClass=rlDnsResNCacheErrInetQClass, rlDnsResCacheRRInetData=rlDnsResCacheRRInetData, rlDnsResNCacheErrInetQName=rlDnsResNCacheErrInetQName, rlDnsResNCacheErrInetQType=rlDnsResNCacheErrInetQType, rlDnsResNCacheErrInetCode=rlDnsResNCacheErrInetCode, rlDnsResNCacheErrInetPrettyName=rlDnsResNCacheErrInetPrettyName, rlDnsClNamesInetRRType=rlDnsClNamesInetRRType, rlDnsClNamesInetOwner=rlDnsClNamesInetOwner, rlDnsResConfigSbeltInetStatus=rlDnsResConfigSbeltInetStatus, rlDnsResCacheRRInetSourceAddrType=rlDnsResCacheRRInetSourceAddrType, rlDnsResCacheRRInetPrettyName=rlDnsResCacheRRInetPrettyName, rlDnsResNCacheErrInetTTL=rlDnsResNCacheErrInetTTL, rlDnsClNamesInetIndex=rlDnsClNamesInetIndex, rlDnsClDomainNameOwner=rlDnsClDomainNameOwner, rlDnsResConfigSbeltInetSubTree=rlDnsResConfigSbeltInetSubTree, rlDnsClDomainNameRowStatus=rlDnsClDomainNameRowStatus, rlDnsResCacheRRInetIndex=rlDnsResCacheRRInetIndex, rlDnsResConfigSbeltInetOwner=rlDnsResConfigSbeltInetOwner, rlDnsResConfigSbeltInetEntry=rlDnsResConfigSbeltInetEntry, rlDnsResConfigSbeltExtTable=rlDnsResConfigSbeltExtTable, rlDnsClNamesOwner=rlDnsClNamesOwner, rlDnsClMibVersion=rlDnsClMibVersion, rlDnsClNamesInetAddrType=rlDnsClNamesInetAddrType, rlDnsResConfigSbeltInetPref=rlDnsResConfigSbeltInetPref, rlDnsResConfigSbeltExtInetEntry=rlDnsResConfigSbeltExtInetEntry, rlDnsClNamesTable=rlDnsClNamesTable, rlDnsResConfigSbeltInetClass=rlDnsResConfigSbeltInetClass, rlDnsResNCacheErrInetSource=rlDnsResNCacheErrInetSource, rlDnsResCacheRRInetName=rlDnsResCacheRRInetName, rlDnsResNCacheErrInetTable=rlDnsResNCacheErrInetTable, rlDnsResConfigSbeltInetTable=rlDnsResConfigSbeltInetTable, rlDnsResCacheRRInetTTL=rlDnsResCacheRRInetTTL, rlDnsClEnable=rlDnsClEnable, rlDnsClDomainNameTable=rlDnsClDomainNameTable, rlDnsClNamesAddr=rlDnsClNamesAddr, rlDnsResConfigSbeltInetName=rlDnsResConfigSbeltInetName, rlDnsClDomainNameEntry=rlDnsClDomainNameEntry, rlDnsResCacheRRInetTable=rlDnsResCacheRRInetTable, rlDnsResCacheRRInetElapsedTTL=rlDnsResCacheRRInetElapsedTTL, rlDnsResNCacheErrInetSourceAddrType=rlDnsResNCacheErrInetSourceAddrType, rlDnsResConfigSbeltInetAddrType=rlDnsResConfigSbeltInetAddrType, rlDnsResCacheRRInetEntry=rlDnsResCacheRRInetEntry, rlDnsResConfigSbeltExtEntry=rlDnsResConfigSbeltExtEntry, rlDnsResCacheRRInetSource=rlDnsResCacheRRInetSource, rlDnsResNCacheErrInetStatus=rlDnsResNCacheErrInetStatus, rlDnsResNCacheErrInetEntry=rlDnsResNCacheErrInetEntry, rlDnsClNamesIndex=rlDnsClNamesIndex, rlDnsResConfigSbeltOwner=rlDnsResConfigSbeltOwner, rlDnsResCacheRRInetStatus=rlDnsResCacheRRInetStatus)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "DLINK-3100-DNSCL-MIB",
+    **{"rlDnsClMibVersion": rlDnsClMibVersion,
+       "rlDnsClEnable": rlDnsClEnable,
+       "rlDnsClDomainNameTable": rlDnsClDomainNameTable,
+       "rlDnsClDomainNameEntry": rlDnsClDomainNameEntry,
+       "rlDnsClDomainNameName": rlDnsClDomainNameName,
+       "rlDnsClDomainNameOwner": rlDnsClDomainNameOwner,
+       "rlDnsClDomainNameRowStatus": rlDnsClDomainNameRowStatus,
+       "rlDnsClMaxNumOfRetransmissions": rlDnsClMaxNumOfRetransmissions,
+       "rlDnsClMinRetransmissionInterval": rlDnsClMinRetransmissionInterval,
+       "rlDnsClNamesTable": rlDnsClNamesTable,
+       "rlDnsClNamesEntry": rlDnsClNamesEntry,
+       "rlDnsClNamesName": rlDnsClNamesName,
+       "rlDnsClNamesOwner": rlDnsClNamesOwner,
+       "rlDnsClNamesIndex": rlDnsClNamesIndex,
+       "rlDnsClNamesAddr": rlDnsClNamesAddr,
+       "rlDnsClNamesRowStatus": rlDnsClNamesRowStatus,
+       "rlDnsResConfigSbeltExtTable": rlDnsResConfigSbeltExtTable,
+       "rlDnsResConfigSbeltExtEntry": rlDnsResConfigSbeltExtEntry,
+       "rlDnsResConfigSbeltOwner": rlDnsResConfigSbeltOwner,
+       "rlDnsClNamesInetTable": rlDnsClNamesInetTable,
+       "rlDnsClNamesInetEntry": rlDnsClNamesInetEntry,
+       "rlDnsClNamesInetName": rlDnsClNamesInetName,
+       "rlDnsClNamesInetOwner": rlDnsClNamesInetOwner,
+       "rlDnsClNamesInetIndex": rlDnsClNamesInetIndex,
+       "rlDnsClNamesInetRRType": rlDnsClNamesInetRRType,
+       "rlDnsClNamesInetAddrType": rlDnsClNamesInetAddrType,
+       "rlDnsClNamesInetAddr": rlDnsClNamesInetAddr,
+       "rlDnsClNamesInetRowStatus": rlDnsClNamesInetRowStatus,
+       "rlDnsResConfigSbeltInetTable": rlDnsResConfigSbeltInetTable,
+       "rlDnsResConfigSbeltInetEntry": rlDnsResConfigSbeltInetEntry,
+       "rlDnsResConfigSbeltInetAddrType": rlDnsResConfigSbeltInetAddrType,
+       "rlDnsResConfigSbeltInetAddr": rlDnsResConfigSbeltInetAddr,
+       "rlDnsResConfigSbeltInetName": rlDnsResConfigSbeltInetName,
+       "rlDnsResConfigSbeltInetRecursion": rlDnsResConfigSbeltInetRecursion,
+       "rlDnsResConfigSbeltInetPref": rlDnsResConfigSbeltInetPref,
+       "rlDnsResConfigSbeltInetSubTree": rlDnsResConfigSbeltInetSubTree,
+       "rlDnsResConfigSbeltInetClass": rlDnsResConfigSbeltInetClass,
+       "rlDnsResConfigSbeltInetStatus": rlDnsResConfigSbeltInetStatus,
+       "rlDnsResCacheRRInetTable": rlDnsResCacheRRInetTable,
+       "rlDnsResCacheRRInetEntry": rlDnsResCacheRRInetEntry,
+       "rlDnsResCacheRRInetName": rlDnsResCacheRRInetName,
+       "rlDnsResCacheRRInetClass": rlDnsResCacheRRInetClass,
+       "rlDnsResCacheRRInetType": rlDnsResCacheRRInetType,
+       "rlDnsResCacheRRInetTTL": rlDnsResCacheRRInetTTL,
+       "rlDnsResCacheRRInetElapsedTTL": rlDnsResCacheRRInetElapsedTTL,
+       "rlDnsResCacheRRInetSourceAddrType": rlDnsResCacheRRInetSourceAddrType,
+       "rlDnsResCacheRRInetSource": rlDnsResCacheRRInetSource,
+       "rlDnsResCacheRRInetData": rlDnsResCacheRRInetData,
+       "rlDnsResCacheRRInetStatus": rlDnsResCacheRRInetStatus,
+       "rlDnsResCacheRRInetIndex": rlDnsResCacheRRInetIndex,
+       "rlDnsResCacheRRInetPrettyName": rlDnsResCacheRRInetPrettyName,
+       "rlDnsResNCacheErrInetTable": rlDnsResNCacheErrInetTable,
+       "rlDnsResNCacheErrInetEntry": rlDnsResNCacheErrInetEntry,
+       "rlDnsResNCacheErrInetQName": rlDnsResNCacheErrInetQName,
+       "rlDnsResNCacheErrInetQClass": rlDnsResNCacheErrInetQClass,
+       "rlDnsResNCacheErrInetQType": rlDnsResNCacheErrInetQType,
+       "rlDnsResNCacheErrInetTTL": rlDnsResNCacheErrInetTTL,
+       "rlDnsResNCacheErrInetElapsedTTL": rlDnsResNCacheErrInetElapsedTTL,
+       "rlDnsResNCacheErrInetSourceAddrType": rlDnsResNCacheErrInetSourceAddrType,
+       "rlDnsResNCacheErrInetSource": rlDnsResNCacheErrInetSource,
+       "rlDnsResNCacheErrInetCode": rlDnsResNCacheErrInetCode,
+       "rlDnsResNCacheErrInetStatus": rlDnsResNCacheErrInetStatus,
+       "rlDnsResNCacheErrInetIndex": rlDnsResNCacheErrInetIndex,
+       "rlDnsResNCacheErrInetPrettyName": rlDnsResNCacheErrInetPrettyName,
+       "rlDnsResConfigSbeltExtInetTable": rlDnsResConfigSbeltExtInetTable,
+       "rlDnsResConfigSbeltExtInetEntry": rlDnsResConfigSbeltExtInetEntry,
+       "rlDnsResConfigSbeltInetOwner": rlDnsResConfigSbeltInetOwner}
+)

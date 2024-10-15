@@ -1,292 +1,2400 @@
+# SNMP MIB module (DGS-1248T-B1-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module DGS-1248T-B1-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/DGS-1248T-B1-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:28:20 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-mib_2, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, ObjectIdentity, iso, Gauge32, TimeTicks, Bits, NotificationType, Counter64, Unsigned32, IpAddress, MibIdentifier, ModuleIdentity, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "mib-2", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "ObjectIdentity", "iso", "Gauge32", "TimeTicks", "Bits", "NotificationType", "Counter64", "Unsigned32", "IpAddress", "MibIdentifier", "ModuleIdentity", "enterprises")
-TextualConvention, PhysAddress, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "PhysAddress", "DisplayString")
-d_link = MibIdentifier((1, 3, 6, 1, 4, 1, 171)).setLabel("d-link")
-dlink_products = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10)).setLabel("dlink-products")
-dlink_DGS12XXTSeriesProd = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 76)).setLabel("dlink-DGS12XXTSeriesProd")
-dgs_1248tb1 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 76, 6)).setLabel("dgs-1248tb1")
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/DGS-1248T-B1-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:27:03 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso,
+ mib_2) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso",
+    "mib-2")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+
 class OwnerString(DisplayString):
-    pass
+    """Custom type OwnerString based on DisplayString"""
+
+
+
 
 class MacAddress(OctetString):
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(6, 6)
-    fixedLength = 6
+    """Custom type MacAddress based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(6, 6),
+    )
 
-class PortList(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(6, 6)
-    fixedLength = 6
 
-class RowStatus(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))
-    namedValues = NamedValues(("active", 1), ("notInService", 2), ("notReady", 3), ("createAndGo", 4), ("createAndWait", 5), ("destroy", 6))
 
-companyCommGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1))
-companyMiscGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 3))
-companySpanGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 4))
-companyConfigGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11))
-companyTVlanGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 13))
-companyPortTrunkGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 14))
-companyStaticGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 21))
-companyIgsGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22))
-companyDot1xGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23))
-commSetTable = MibTable((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 1), )
-if mibBuilder.loadTexts: commSetTable.setStatus('mandatory')
-commSetEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 1, 1), ).setIndexNames((0, "DGS-1248T-B1-MIB", "commSetIndex"))
-if mibBuilder.loadTexts: commSetEntry.setStatus('mandatory')
-commSetIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: commSetIndex.setStatus('mandatory')
-commSetName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: commSetName.setStatus('mandatory')
-commSetStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 1, 1, 3), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: commSetStatus.setStatus('mandatory')
-commGetTable = MibTable((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 2), )
-if mibBuilder.loadTexts: commGetTable.setStatus('mandatory')
-commGetEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 2, 1), ).setIndexNames((0, "DGS-1248T-B1-MIB", "commGetIndex"))
-if mibBuilder.loadTexts: commGetEntry.setStatus('mandatory')
-commGetIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: commGetIndex.setStatus('mandatory')
-commGetName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: commGetName.setStatus('mandatory')
-commGetStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 2, 1, 3), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: commGetStatus.setStatus('mandatory')
-commTrapTable = MibTable((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 3), )
-if mibBuilder.loadTexts: commTrapTable.setStatus('mandatory')
-commTrapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 3, 1), ).setIndexNames((0, "DGS-1248T-B1-MIB", "commTrapIndex"))
-if mibBuilder.loadTexts: commTrapEntry.setStatus('mandatory')
-commTrapIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: commTrapIndex.setStatus('mandatory')
-commTrapName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 3, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: commTrapName.setStatus('mandatory')
-commTrapIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 3, 1, 3), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: commTrapIpAddress.setStatus('mandatory')
-commTrapSNMPBootup = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: commTrapSNMPBootup.setStatus('mandatory')
-commTrapSNMPTPLinkUpDown = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 3, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: commTrapSNMPTPLinkUpDown.setStatus('mandatory')
-commTrapSNMPFiberLinkUpDown = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 3, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: commTrapSNMPFiberLinkUpDown.setStatus('mandatory')
-commTrapTrapAbnormalTPRXError = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 3, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: commTrapTrapAbnormalTPRXError.setStatus('mandatory')
-commTrapTrapAbnormalTPTXError = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 3, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: commTrapTrapAbnormalTPTXError.setStatus('mandatory')
-commTrapTrapAbnormalFiberRXError = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 3, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: commTrapTrapAbnormalFiberRXError.setStatus('mandatory')
-commTrapTrapAbnormalFiberTXError = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 3, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: commTrapTrapAbnormalFiberTXError.setStatus('mandatory')
-commTrapStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 3, 1, 13), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: commTrapStatus.setStatus('mandatory')
-miscReset = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 3, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("reset", 1), ("noop", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: miscReset.setStatus('mandatory')
-miscStatisticsReset = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 3, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("reset", 1), ("noop", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: miscStatisticsReset.setStatus('mandatory')
-spanOnOff = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 4, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: spanOnOff.setStatus('mandatory')
-configVerSwPrimary = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 31))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: configVerSwPrimary.setStatus('mandatory')
-configVerHwChipSet = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 31))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: configVerHwChipSet.setStatus('mandatory')
-configPortTable = MibTable((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 6), )
-if mibBuilder.loadTexts: configPortTable.setStatus('mandatory')
-configPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 6, 1), ).setIndexNames((0, "DGS-1248T-B1-MIB", "configPort"))
-if mibBuilder.loadTexts: configPortEntry.setStatus('mandatory')
-configPort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 6, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: configPort.setStatus('mandatory')
-configPortSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 6, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("disable", 1), ("auto", 2), ("rate10M-Half", 3), ("rate10M-Full", 4), ("rate100M-Half", 5), ("rate100M-Full", 6), ("rate1000M-Full", 7)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: configPortSpeed.setStatus('mandatory')
-configPortOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 6, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("down", 1), ("rate10M-Half", 2), ("rate10M-Full", 3), ("rate100M-Half", 4), ("rate100M-Full", 5), ("rate1000M-Full", 6)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: configPortOperStatus.setStatus('mandatory')
-configPortFlowControl = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 6, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: configPortFlowControl.setStatus('mandatory')
-configPortFlowControlOper = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 6, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: configPortFlowControlOper.setStatus('mandatory')
-configPortPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 6, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("low", 1), ("middle", 2), ("high", 3), ("highest", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: configPortPriority.setStatus('mandatory')
-configVLANMode = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("modeTagBased", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: configVLANMode.setStatus('mandatory')
-configMirrorTable = MibTable((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 8), )
-if mibBuilder.loadTexts: configMirrorTable.setStatus('mandatory')
-configMirrorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 8, 1), ).setIndexNames((0, "DGS-1248T-B1-MIB", "configMirrorId"))
-if mibBuilder.loadTexts: configMirrorEntry.setStatus('mandatory')
-configMirrorId = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 8, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: configMirrorId.setStatus('mandatory')
-configMirrorMon = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 8, 1, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: configMirrorMon.setStatus('mandatory')
-configMirrorTXSrc = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 8, 1, 3), PortList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: configMirrorTXSrc.setStatus('mandatory')
-configMirrorRXSrc = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 8, 1, 4), PortList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: configMirrorRXSrc.setStatus('mandatory')
-configMirrorStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 8, 1, 5), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: configMirrorStatus.setStatus('mandatory')
-configSNMPEnable = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: configSNMPEnable.setStatus('mandatory')
-configIpAssignmentMode = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("manual", 1), ("dhcp", 2), ("other", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: configIpAssignmentMode.setStatus('mandatory')
-configPhysAddress = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 13), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: configPhysAddress.setStatus('mandatory')
-configPasswordAdmin = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 15), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("writeonly")
-if mibBuilder.loadTexts: configPasswordAdmin.setStatus('mandatory')
-configIpAddress = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 16), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: configIpAddress.setStatus('mandatory')
-configNetMask = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 17), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: configNetMask.setStatus('mandatory')
-configGateway = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 18), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: configGateway.setStatus('mandatory')
-configSave = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("save", 1), ("noop", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: configSave.setStatus('mandatory')
-configRestoreDefaults = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 22), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("restore", 1), ("noop", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: configRestoreDefaults.setStatus('mandatory')
-tvlanTable = MibTable((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 13, 1), )
-if mibBuilder.loadTexts: tvlanTable.setStatus('mandatory')
-tvlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 13, 1, 1), ).setIndexNames((0, "DGS-1248T-B1-MIB", "tvlanId"))
-if mibBuilder.loadTexts: tvlanEntry.setStatus('mandatory')
-tvlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 13, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tvlanId.setStatus('mandatory')
-tvlanName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 13, 1, 1, 2), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tvlanName.setStatus('mandatory')
-tvlanMember = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 13, 1, 1, 3), PortList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tvlanMember.setStatus('mandatory')
-tvlanUntaggedPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 13, 1, 1, 4), PortList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tvlanUntaggedPorts.setStatus('mandatory')
-tvlanStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 13, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 3, 5, 6))).clone(namedValues=NamedValues(("active", 1), ("notready", 3), ("createAndwait", 5), ("destroy", 6)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tvlanStatus.setStatus('mandatory')
-portTrunkTable = MibTable((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 14, 1), )
-if mibBuilder.loadTexts: portTrunkTable.setStatus('mandatory')
-portTrunkEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 14, 1, 1), ).setIndexNames((0, "DGS-1248T-B1-MIB", "portTrunkId"), (0, "DGS-1248T-B1-MIB", "portTrunkMember"))
-if mibBuilder.loadTexts: portTrunkEntry.setStatus('mandatory')
-portTrunkId = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 14, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portTrunkId.setStatus('mandatory')
-portTrunkName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 14, 1, 1, 2), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: portTrunkName.setStatus('mandatory')
-portTrunkMember = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 14, 1, 1, 3), PortList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: portTrunkMember.setStatus('mandatory')
-staticOnOff = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 21, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: staticOnOff.setStatus('mandatory')
-staticAutoLearning = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 21, 2), PortList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: staticAutoLearning.setStatus('mandatory')
-staticTable = MibTable((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 21, 3), )
-if mibBuilder.loadTexts: staticTable.setStatus('mandatory')
-staticEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 21, 3, 1), ).setIndexNames((0, "DGS-1248T-B1-MIB", "staticId"))
-if mibBuilder.loadTexts: staticEntry.setStatus('mandatory')
-staticId = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 21, 3, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: staticId.setStatus('mandatory')
-staticMac = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 21, 3, 1, 2), MacAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: staticMac.setStatus('mandatory')
-staticPort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 21, 3, 1, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: staticPort.setStatus('mandatory')
-staticVlanID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 21, 3, 1, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: staticVlanID.setStatus('mandatory')
-staticStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 21, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 3, 5, 6))).clone(namedValues=NamedValues(("active", 1), ("notready", 3), ("createAndwait", 5), ("destroy", 6)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: staticStatus.setStatus('mandatory')
-igsSystem = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 1))
-igsVlan = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 3))
-igsStatus = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone(2)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: igsStatus.setStatus('mandatory')
-igsv3Processing = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone(1)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: igsv3Processing.setStatus('mandatory')
-igsRouterPortPurgeInterval = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(60, 600)).clone(260)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: igsRouterPortPurgeInterval.setStatus('mandatory')
-igsHostPortPurgeInterval = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(130, 153025)).clone(260)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: igsHostPortPurgeInterval.setStatus('mandatory')
-igsReportForwardInterval = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 25)).clone(5)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: igsReportForwardInterval.setStatus('mandatory')
-igsLeaveProcessInterval = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 25)).clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: igsLeaveProcessInterval.setStatus('mandatory')
-igsMcastEntryAgeingInterval = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(60, 600)).clone(600)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: igsMcastEntryAgeingInterval.setStatus('mandatory')
-igsSharedSegmentAggregationInterval = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 60)).clone(30)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: igsSharedSegmentAggregationInterval.setStatus('mandatory')
-igsGblReportFwdOnAllPorts = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("allports", 1), ("rtrports", 2))).clone(2)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: igsGblReportFwdOnAllPorts.setStatus('mandatory')
-igsNextMcastFwdMode = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("ipbased", 1), ("macbased", 2))).clone(1)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: igsNextMcastFwdMode.setStatus('mandatory')
-igsQueryInterval = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 1, 14), Integer32().subtype(subtypeSpec=ValueRangeConstraint(60, 600)).clone(125)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: igsQueryInterval.setStatus('mandatory')
-igsQueryMaxResponseTime = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 1, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(10, 25)).clone(10)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: igsQueryMaxResponseTime.setStatus('mandatory')
-igsRobustnessValue = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 1, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(2, 255)).clone(2)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: igsRobustnessValue.setStatus('mandatory')
-igsLastMembQueryInterval = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 1, 17), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 25)).clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: igsLastMembQueryInterval.setStatus('mandatory')
-igsVlanMcastFwdTable = MibTable((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 3, 1), )
-if mibBuilder.loadTexts: igsVlanMcastFwdTable.setStatus('mandatory')
-igsVlanMcastFwdEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 3, 1, 1), ).setIndexNames((0, "DGS-1248T-B1-MIB", "igsVlanMcastFwdVlanIdMac"), (0, "DGS-1248T-B1-MIB", "igsVlanMcastFwdGroupAddress"))
-if mibBuilder.loadTexts: igsVlanMcastFwdEntry.setStatus('mandatory')
-igsVlanMcastFwdVlanIdMac = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 3, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094)))
-if mibBuilder.loadTexts: igsVlanMcastFwdVlanIdMac.setStatus('mandatory')
-igsVlanMcastFwdGroupAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 3, 1, 1, 2), MacAddress())
-if mibBuilder.loadTexts: igsVlanMcastFwdGroupAddress.setStatus('mandatory')
-igsVlanMcastFwdPortListMac = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 3, 1, 1, 3), PortList()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: igsVlanMcastFwdPortListMac.setStatus('mandatory')
-igsVlanRouterPortListTable = MibTable((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 3, 3), )
-if mibBuilder.loadTexts: igsVlanRouterPortListTable.setStatus('mandatory')
-igsVlanRouterPortListEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 3, 3, 1), ).setIndexNames((0, "DGS-1248T-B1-MIB", "igsVlanRouterPortListVlanId"))
-if mibBuilder.loadTexts: igsVlanRouterPortListEntry.setStatus('mandatory')
-igsVlanRouterPortListVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 3, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094)))
-if mibBuilder.loadTexts: igsVlanRouterPortListVlanId.setStatus('mandatory')
-igsVlanRouterPortList = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 3, 3, 1, 2), PortList()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: igsVlanRouterPortList.setStatus('mandatory')
-igsVlanFilterTable = MibTable((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 3, 4), )
-if mibBuilder.loadTexts: igsVlanFilterTable.setStatus('mandatory')
-igsVlanFilterEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 3, 4, 1), ).setIndexNames((0, "DGS-1248T-B1-MIB", "igsVlanId"))
-if mibBuilder.loadTexts: igsVlanFilterEntry.setStatus('mandatory')
-igsVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 3, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094)))
-if mibBuilder.loadTexts: igsVlanId.setStatus('mandatory')
-igsVlanFilterStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 3, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: igsVlanFilterStatus.setStatus('mandatory')
-radius = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 1))
-dot1xAuth = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 2))
-radiusServerAddress = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 1, 1), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: radiusServerAddress.setStatus('mandatory')
-radiusServerPort = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: radiusServerPort.setStatus('mandatory')
-radiusServerSharedSecret = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 1, 3), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: radiusServerSharedSecret.setStatus('mandatory')
-dot1xAuthSystemControl = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1xAuthSystemControl.setStatus('mandatory')
-dot1xAuthQuietPeriod = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 2, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)).clone(60)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1xAuthQuietPeriod.setStatus('mandatory')
-dot1xAuthTxPeriod = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 2, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(30)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1xAuthTxPeriod.setStatus('mandatory')
-dot1xAuthSuppTimeout = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 2, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(30)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1xAuthSuppTimeout.setStatus('mandatory')
-dot1xAuthServerTimeout = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 2, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(30)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1xAuthServerTimeout.setStatus('mandatory')
-dot1xAuthMaxReq = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 2, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 10)).clone(2)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1xAuthMaxReq.setStatus('mandatory')
-dot1xAuthReAuthPeriod = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 2, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)).clone(3600)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1xAuthReAuthPeriod.setStatus('mandatory')
-dot1xAuthReAuthEnabled = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 2, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1xAuthReAuthEnabled.setStatus('mandatory')
-dot1xAuthConfigPortTable = MibTable((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 2, 9), )
-if mibBuilder.loadTexts: dot1xAuthConfigPortTable.setStatus('mandatory')
-dot1xAuthConfigPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 2, 9, 1), ).setIndexNames((0, "DGS-1248T-B1-MIB", "dot1xAuthConfigPortNumber"))
-if mibBuilder.loadTexts: dot1xAuthConfigPortEntry.setStatus('mandatory')
-dot1xAuthConfigPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 2, 9, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot1xAuthConfigPortNumber.setStatus('mandatory')
-dot1xAuthConfigPortControl = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 2, 9, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1xAuthConfigPortControl.setStatus('mandatory')
-dot1xAuthConfigPortStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 2, 9, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("authnull", 0), ("authorized", 1), ("unauthorized", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot1xAuthConfigPortStatus.setStatus('mandatory')
-dot1xAuthConfigPortSessionTime = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 2, 9, 1, 4), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot1xAuthConfigPortSessionTime.setStatus('mandatory')
-dot1xAuthConfigPortSessionUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 2, 9, 1, 5), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot1xAuthConfigPortSessionUserName.setStatus('mandatory')
-swFiberInsert = NotificationType((1, 3, 6, 1, 4, 1, 171, 10, 76, 6) + (0,1))
-swFiberRemove = NotificationType((1, 3, 6, 1, 4, 1, 171, 10, 76, 6) + (0,2))
-swFiberAbnormalRXError = NotificationType((1, 3, 6, 1, 4, 1, 171, 10, 76, 6) + (0,3))
-swFiberAbnormalTXError = NotificationType((1, 3, 6, 1, 4, 1, 171, 10, 76, 6) + (0,4))
-swTPAbnormalRXError = NotificationType((1, 3, 6, 1, 4, 1, 171, 10, 76, 6) + (0,5))
-swTPAbnormalTXError = NotificationType((1, 3, 6, 1, 4, 1, 171, 10, 76, 6) + (0,6))
-mibBuilder.exportSymbols("DGS-1248T-B1-MIB", configPhysAddress=configPhysAddress, igsSharedSegmentAggregationInterval=igsSharedSegmentAggregationInterval, swFiberAbnormalRXError=swFiberAbnormalRXError, dot1xAuthReAuthEnabled=dot1xAuthReAuthEnabled, companyCommGroup=companyCommGroup, commGetStatus=commGetStatus, commSetName=commSetName, miscReset=miscReset, portTrunkEntry=portTrunkEntry, igsVlanId=igsVlanId, dot1xAuthConfigPortTable=dot1xAuthConfigPortTable, companySpanGroup=companySpanGroup, d_link=d_link, igsReportForwardInterval=igsReportForwardInterval, miscStatisticsReset=miscStatisticsReset, igsGblReportFwdOnAllPorts=igsGblReportFwdOnAllPorts, dot1xAuth=dot1xAuth, radiusServerSharedSecret=radiusServerSharedSecret, igsRouterPortPurgeInterval=igsRouterPortPurgeInterval, commTrapTrapAbnormalFiberRXError=commTrapTrapAbnormalFiberRXError, tvlanEntry=tvlanEntry, dot1xAuthConfigPortSessionUserName=dot1xAuthConfigPortSessionUserName, tvlanId=tvlanId, swFiberInsert=swFiberInsert, configMirrorId=configMirrorId, commSetIndex=commSetIndex, staticMac=staticMac, igsMcastEntryAgeingInterval=igsMcastEntryAgeingInterval, staticPort=staticPort, commSetTable=commSetTable, dlink_products=dlink_products, commSetEntry=commSetEntry, dot1xAuthReAuthPeriod=dot1xAuthReAuthPeriod, PortList=PortList, igsRobustnessValue=igsRobustnessValue, commTrapTrapAbnormalTPTXError=commTrapTrapAbnormalTPTXError, configVerHwChipSet=configVerHwChipSet, commTrapIndex=commTrapIndex, igsSystem=igsSystem, dgs_1248tb1=dgs_1248tb1, commTrapStatus=commTrapStatus, staticVlanID=staticVlanID, igsLeaveProcessInterval=igsLeaveProcessInterval, configMirrorStatus=configMirrorStatus, igsVlanFilterTable=igsVlanFilterTable, commTrapIpAddress=commTrapIpAddress, commGetIndex=commGetIndex, configPortPriority=configPortPriority, configIpAssignmentMode=configIpAssignmentMode, commGetTable=commGetTable, igsVlanMcastFwdVlanIdMac=igsVlanMcastFwdVlanIdMac, commTrapTable=commTrapTable, igsVlanFilterEntry=igsVlanFilterEntry, configPortSpeed=configPortSpeed, companyTVlanGroup=companyTVlanGroup, spanOnOff=spanOnOff, companyPortTrunkGroup=companyPortTrunkGroup, tvlanStatus=tvlanStatus, staticId=staticId, tvlanMember=tvlanMember, igsVlanMcastFwdPortListMac=igsVlanMcastFwdPortListMac, configGateway=configGateway, swTPAbnormalRXError=swTPAbnormalRXError, configMirrorRXSrc=configMirrorRXSrc, portTrunkId=portTrunkId, igsVlanMcastFwdGroupAddress=igsVlanMcastFwdGroupAddress, commTrapSNMPBootup=commTrapSNMPBootup, configPortOperStatus=configPortOperStatus, dot1xAuthQuietPeriod=dot1xAuthQuietPeriod, staticEntry=staticEntry, dot1xAuthConfigPortControl=dot1xAuthConfigPortControl, configSave=configSave, commTrapEntry=commTrapEntry, commSetStatus=commSetStatus, dot1xAuthSuppTimeout=dot1xAuthSuppTimeout, MacAddress=MacAddress, commTrapSNMPTPLinkUpDown=commTrapSNMPTPLinkUpDown, companyIgsGroup=companyIgsGroup, configPortFlowControlOper=configPortFlowControlOper, igsVlanRouterPortListVlanId=igsVlanRouterPortListVlanId, swTPAbnormalTXError=swTPAbnormalTXError, igsVlan=igsVlan, igsStatus=igsStatus, staticTable=staticTable, igsQueryMaxResponseTime=igsQueryMaxResponseTime, dot1xAuthSystemControl=dot1xAuthSystemControl, configPort=configPort, tvlanUntaggedPorts=tvlanUntaggedPorts, igsVlanRouterPortListTable=igsVlanRouterPortListTable, swFiberRemove=swFiberRemove, configRestoreDefaults=configRestoreDefaults, companyDot1xGroup=companyDot1xGroup, igsVlanFilterStatus=igsVlanFilterStatus, dot1xAuthConfigPortEntry=dot1xAuthConfigPortEntry, configSNMPEnable=configSNMPEnable, configMirrorMon=configMirrorMon, igsNextMcastFwdMode=igsNextMcastFwdMode, companyMiscGroup=companyMiscGroup, companyConfigGroup=companyConfigGroup, tvlanTable=tvlanTable, commTrapTrapAbnormalTPRXError=commTrapTrapAbnormalTPRXError, igsLastMembQueryInterval=igsLastMembQueryInterval, companyStaticGroup=companyStaticGroup, configNetMask=configNetMask, tvlanName=tvlanName, igsVlanRouterPortListEntry=igsVlanRouterPortListEntry, configPasswordAdmin=configPasswordAdmin, dot1xAuthTxPeriod=dot1xAuthTxPeriod, dot1xAuthConfigPortNumber=dot1xAuthConfigPortNumber, configPortEntry=configPortEntry, portTrunkName=portTrunkName, configIpAddress=configIpAddress, dot1xAuthConfigPortStatus=dot1xAuthConfigPortStatus, igsv3Processing=igsv3Processing, swFiberAbnormalTXError=swFiberAbnormalTXError, configMirrorTable=configMirrorTable, radius=radius, configMirrorEntry=configMirrorEntry, configPortTable=configPortTable, igsVlanRouterPortList=igsVlanRouterPortList, commGetName=commGetName, igsVlanMcastFwdEntry=igsVlanMcastFwdEntry, dlink_DGS12XXTSeriesProd=dlink_DGS12XXTSeriesProd, RowStatus=RowStatus, commTrapTrapAbnormalFiberTXError=commTrapTrapAbnormalFiberTXError, portTrunkTable=portTrunkTable, OwnerString=OwnerString, commGetEntry=commGetEntry, configMirrorTXSrc=configMirrorTXSrc, portTrunkMember=portTrunkMember, dot1xAuthMaxReq=dot1xAuthMaxReq, commTrapName=commTrapName, configPortFlowControl=configPortFlowControl, igsQueryInterval=igsQueryInterval, configVerSwPrimary=configVerSwPrimary, radiusServerAddress=radiusServerAddress, configVLANMode=configVLANMode, radiusServerPort=radiusServerPort, dot1xAuthServerTimeout=dot1xAuthServerTimeout, staticOnOff=staticOnOff, dot1xAuthConfigPortSessionTime=dot1xAuthConfigPortSessionTime, commTrapSNMPFiberLinkUpDown=commTrapSNMPFiberLinkUpDown, igsHostPortPurgeInterval=igsHostPortPurgeInterval, staticStatus=staticStatus, staticAutoLearning=staticAutoLearning, igsVlanMcastFwdTable=igsVlanMcastFwdTable)
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class PortList(OctetString, TextualConvention):
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(6, 6),
+    )
+
+
+
+class RowStatus(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 1),
+          ("createAndGo", 4),
+          ("createAndWait", 5),
+          ("destroy", 6),
+          ("notInService", 2),
+          ("notReady", 3))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_D_link_ObjectIdentity = ObjectIdentity
+d_link = _D_link_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171)
+)
+_Dlink_products_ObjectIdentity = ObjectIdentity
+dlink_products = _Dlink_products_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10)
+)
+_Dlink_DGS12XXTSeriesProd_ObjectIdentity = ObjectIdentity
+dlink_DGS12XXTSeriesProd = _Dlink_DGS12XXTSeriesProd_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76)
+)
+_Dgs_1248tb1_ObjectIdentity = ObjectIdentity
+dgs_1248tb1 = _Dgs_1248tb1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6)
+)
+_CompanyCommGroup_ObjectIdentity = ObjectIdentity
+companyCommGroup = _CompanyCommGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1)
+)
+_CommSetTable_Object = MibTable
+commSetTable = _CommSetTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 1)
+)
+if mibBuilder.loadTexts:
+    commSetTable.setStatus("mandatory")
+_CommSetEntry_Object = MibTableRow
+commSetEntry = _CommSetEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 1, 1)
+)
+commSetEntry.setIndexNames(
+    (0, "DGS-1248T-B1-MIB", "commSetIndex"),
+)
+if mibBuilder.loadTexts:
+    commSetEntry.setStatus("mandatory")
+
+
+class _CommSetIndex_Type(Integer32):
+    """Custom type commSetIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2),
+    )
+
+
+_CommSetIndex_Type.__name__ = "Integer32"
+_CommSetIndex_Object = MibTableColumn
+commSetIndex = _CommSetIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 1, 1, 1),
+    _CommSetIndex_Type()
+)
+commSetIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    commSetIndex.setStatus("mandatory")
+
+
+class _CommSetName_Type(DisplayString):
+    """Custom type commSetName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 20),
+    )
+
+
+_CommSetName_Type.__name__ = "DisplayString"
+_CommSetName_Object = MibTableColumn
+commSetName = _CommSetName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 1, 1, 2),
+    _CommSetName_Type()
+)
+commSetName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    commSetName.setStatus("mandatory")
+_CommSetStatus_Type = RowStatus
+_CommSetStatus_Object = MibTableColumn
+commSetStatus = _CommSetStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 1, 1, 3),
+    _CommSetStatus_Type()
+)
+commSetStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    commSetStatus.setStatus("mandatory")
+_CommGetTable_Object = MibTable
+commGetTable = _CommGetTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 2)
+)
+if mibBuilder.loadTexts:
+    commGetTable.setStatus("mandatory")
+_CommGetEntry_Object = MibTableRow
+commGetEntry = _CommGetEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 2, 1)
+)
+commGetEntry.setIndexNames(
+    (0, "DGS-1248T-B1-MIB", "commGetIndex"),
+)
+if mibBuilder.loadTexts:
+    commGetEntry.setStatus("mandatory")
+
+
+class _CommGetIndex_Type(Integer32):
+    """Custom type commGetIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2),
+    )
+
+
+_CommGetIndex_Type.__name__ = "Integer32"
+_CommGetIndex_Object = MibTableColumn
+commGetIndex = _CommGetIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 2, 1, 1),
+    _CommGetIndex_Type()
+)
+commGetIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    commGetIndex.setStatus("mandatory")
+
+
+class _CommGetName_Type(DisplayString):
+    """Custom type commGetName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 20),
+    )
+
+
+_CommGetName_Type.__name__ = "DisplayString"
+_CommGetName_Object = MibTableColumn
+commGetName = _CommGetName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 2, 1, 2),
+    _CommGetName_Type()
+)
+commGetName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    commGetName.setStatus("mandatory")
+_CommGetStatus_Type = RowStatus
+_CommGetStatus_Object = MibTableColumn
+commGetStatus = _CommGetStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 2, 1, 3),
+    _CommGetStatus_Type()
+)
+commGetStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    commGetStatus.setStatus("mandatory")
+_CommTrapTable_Object = MibTable
+commTrapTable = _CommTrapTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 3)
+)
+if mibBuilder.loadTexts:
+    commTrapTable.setStatus("mandatory")
+_CommTrapEntry_Object = MibTableRow
+commTrapEntry = _CommTrapEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 3, 1)
+)
+commTrapEntry.setIndexNames(
+    (0, "DGS-1248T-B1-MIB", "commTrapIndex"),
+)
+if mibBuilder.loadTexts:
+    commTrapEntry.setStatus("mandatory")
+
+
+class _CommTrapIndex_Type(Integer32):
+    """Custom type commTrapIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2),
+    )
+
+
+_CommTrapIndex_Type.__name__ = "Integer32"
+_CommTrapIndex_Object = MibTableColumn
+commTrapIndex = _CommTrapIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 3, 1, 1),
+    _CommTrapIndex_Type()
+)
+commTrapIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    commTrapIndex.setStatus("mandatory")
+
+
+class _CommTrapName_Type(DisplayString):
+    """Custom type commTrapName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 20),
+    )
+
+
+_CommTrapName_Type.__name__ = "DisplayString"
+_CommTrapName_Object = MibTableColumn
+commTrapName = _CommTrapName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 3, 1, 2),
+    _CommTrapName_Type()
+)
+commTrapName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    commTrapName.setStatus("mandatory")
+_CommTrapIpAddress_Type = IpAddress
+_CommTrapIpAddress_Object = MibTableColumn
+commTrapIpAddress = _CommTrapIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 3, 1, 3),
+    _CommTrapIpAddress_Type()
+)
+commTrapIpAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    commTrapIpAddress.setStatus("mandatory")
+
+
+class _CommTrapSNMPBootup_Type(Integer32):
+    """Custom type commTrapSNMPBootup based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_CommTrapSNMPBootup_Type.__name__ = "Integer32"
+_CommTrapSNMPBootup_Object = MibTableColumn
+commTrapSNMPBootup = _CommTrapSNMPBootup_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 3, 1, 5),
+    _CommTrapSNMPBootup_Type()
+)
+commTrapSNMPBootup.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    commTrapSNMPBootup.setStatus("mandatory")
+
+
+class _CommTrapSNMPTPLinkUpDown_Type(Integer32):
+    """Custom type commTrapSNMPTPLinkUpDown based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_CommTrapSNMPTPLinkUpDown_Type.__name__ = "Integer32"
+_CommTrapSNMPTPLinkUpDown_Object = MibTableColumn
+commTrapSNMPTPLinkUpDown = _CommTrapSNMPTPLinkUpDown_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 3, 1, 6),
+    _CommTrapSNMPTPLinkUpDown_Type()
+)
+commTrapSNMPTPLinkUpDown.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    commTrapSNMPTPLinkUpDown.setStatus("mandatory")
+
+
+class _CommTrapSNMPFiberLinkUpDown_Type(Integer32):
+    """Custom type commTrapSNMPFiberLinkUpDown based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_CommTrapSNMPFiberLinkUpDown_Type.__name__ = "Integer32"
+_CommTrapSNMPFiberLinkUpDown_Object = MibTableColumn
+commTrapSNMPFiberLinkUpDown = _CommTrapSNMPFiberLinkUpDown_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 3, 1, 7),
+    _CommTrapSNMPFiberLinkUpDown_Type()
+)
+commTrapSNMPFiberLinkUpDown.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    commTrapSNMPFiberLinkUpDown.setStatus("mandatory")
+
+
+class _CommTrapTrapAbnormalTPRXError_Type(Integer32):
+    """Custom type commTrapTrapAbnormalTPRXError based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_CommTrapTrapAbnormalTPRXError_Type.__name__ = "Integer32"
+_CommTrapTrapAbnormalTPRXError_Object = MibTableColumn
+commTrapTrapAbnormalTPRXError = _CommTrapTrapAbnormalTPRXError_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 3, 1, 9),
+    _CommTrapTrapAbnormalTPRXError_Type()
+)
+commTrapTrapAbnormalTPRXError.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    commTrapTrapAbnormalTPRXError.setStatus("mandatory")
+
+
+class _CommTrapTrapAbnormalTPTXError_Type(Integer32):
+    """Custom type commTrapTrapAbnormalTPTXError based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_CommTrapTrapAbnormalTPTXError_Type.__name__ = "Integer32"
+_CommTrapTrapAbnormalTPTXError_Object = MibTableColumn
+commTrapTrapAbnormalTPTXError = _CommTrapTrapAbnormalTPTXError_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 3, 1, 10),
+    _CommTrapTrapAbnormalTPTXError_Type()
+)
+commTrapTrapAbnormalTPTXError.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    commTrapTrapAbnormalTPTXError.setStatus("mandatory")
+
+
+class _CommTrapTrapAbnormalFiberRXError_Type(Integer32):
+    """Custom type commTrapTrapAbnormalFiberRXError based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_CommTrapTrapAbnormalFiberRXError_Type.__name__ = "Integer32"
+_CommTrapTrapAbnormalFiberRXError_Object = MibTableColumn
+commTrapTrapAbnormalFiberRXError = _CommTrapTrapAbnormalFiberRXError_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 3, 1, 11),
+    _CommTrapTrapAbnormalFiberRXError_Type()
+)
+commTrapTrapAbnormalFiberRXError.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    commTrapTrapAbnormalFiberRXError.setStatus("mandatory")
+
+
+class _CommTrapTrapAbnormalFiberTXError_Type(Integer32):
+    """Custom type commTrapTrapAbnormalFiberTXError based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_CommTrapTrapAbnormalFiberTXError_Type.__name__ = "Integer32"
+_CommTrapTrapAbnormalFiberTXError_Object = MibTableColumn
+commTrapTrapAbnormalFiberTXError = _CommTrapTrapAbnormalFiberTXError_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 3, 1, 12),
+    _CommTrapTrapAbnormalFiberTXError_Type()
+)
+commTrapTrapAbnormalFiberTXError.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    commTrapTrapAbnormalFiberTXError.setStatus("mandatory")
+_CommTrapStatus_Type = RowStatus
+_CommTrapStatus_Object = MibTableColumn
+commTrapStatus = _CommTrapStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 1, 3, 1, 13),
+    _CommTrapStatus_Type()
+)
+commTrapStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    commTrapStatus.setStatus("mandatory")
+_CompanyMiscGroup_ObjectIdentity = ObjectIdentity
+companyMiscGroup = _CompanyMiscGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 3)
+)
+
+
+class _MiscReset_Type(Integer32):
+    """Custom type miscReset based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("noop", 2),
+          ("reset", 1))
+    )
+
+
+_MiscReset_Type.__name__ = "Integer32"
+_MiscReset_Object = MibScalar
+miscReset = _MiscReset_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 3, 2),
+    _MiscReset_Type()
+)
+miscReset.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    miscReset.setStatus("mandatory")
+
+
+class _MiscStatisticsReset_Type(Integer32):
+    """Custom type miscStatisticsReset based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("noop", 2),
+          ("reset", 1))
+    )
+
+
+_MiscStatisticsReset_Type.__name__ = "Integer32"
+_MiscStatisticsReset_Object = MibScalar
+miscStatisticsReset = _MiscStatisticsReset_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 3, 3),
+    _MiscStatisticsReset_Type()
+)
+miscStatisticsReset.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    miscStatisticsReset.setStatus("mandatory")
+_CompanySpanGroup_ObjectIdentity = ObjectIdentity
+companySpanGroup = _CompanySpanGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 4)
+)
+
+
+class _SpanOnOff_Type(Integer32):
+    """Custom type spanOnOff based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_SpanOnOff_Type.__name__ = "Integer32"
+_SpanOnOff_Object = MibScalar
+spanOnOff = _SpanOnOff_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 4, 1),
+    _SpanOnOff_Type()
+)
+spanOnOff.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    spanOnOff.setStatus("mandatory")
+_CompanyConfigGroup_ObjectIdentity = ObjectIdentity
+companyConfigGroup = _CompanyConfigGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11)
+)
+
+
+class _ConfigVerSwPrimary_Type(DisplayString):
+    """Custom type configVerSwPrimary based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 31),
+    )
+
+
+_ConfigVerSwPrimary_Type.__name__ = "DisplayString"
+_ConfigVerSwPrimary_Object = MibScalar
+configVerSwPrimary = _ConfigVerSwPrimary_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 1),
+    _ConfigVerSwPrimary_Type()
+)
+configVerSwPrimary.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    configVerSwPrimary.setStatus("mandatory")
+
+
+class _ConfigVerHwChipSet_Type(DisplayString):
+    """Custom type configVerHwChipSet based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 31),
+    )
+
+
+_ConfigVerHwChipSet_Type.__name__ = "DisplayString"
+_ConfigVerHwChipSet_Object = MibScalar
+configVerHwChipSet = _ConfigVerHwChipSet_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 2),
+    _ConfigVerHwChipSet_Type()
+)
+configVerHwChipSet.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    configVerHwChipSet.setStatus("mandatory")
+_ConfigPortTable_Object = MibTable
+configPortTable = _ConfigPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 6)
+)
+if mibBuilder.loadTexts:
+    configPortTable.setStatus("mandatory")
+_ConfigPortEntry_Object = MibTableRow
+configPortEntry = _ConfigPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 6, 1)
+)
+configPortEntry.setIndexNames(
+    (0, "DGS-1248T-B1-MIB", "configPort"),
+)
+if mibBuilder.loadTexts:
+    configPortEntry.setStatus("mandatory")
+_ConfigPort_Type = Integer32
+_ConfigPort_Object = MibTableColumn
+configPort = _ConfigPort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 6, 1, 1),
+    _ConfigPort_Type()
+)
+configPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    configPort.setStatus("mandatory")
+
+
+class _ConfigPortSpeed_Type(Integer32):
+    """Custom type configPortSpeed based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("auto", 2),
+          ("disable", 1),
+          ("rate1000M-Full", 7),
+          ("rate100M-Full", 6),
+          ("rate100M-Half", 5),
+          ("rate10M-Full", 4),
+          ("rate10M-Half", 3))
+    )
+
+
+_ConfigPortSpeed_Type.__name__ = "Integer32"
+_ConfigPortSpeed_Object = MibTableColumn
+configPortSpeed = _ConfigPortSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 6, 1, 2),
+    _ConfigPortSpeed_Type()
+)
+configPortSpeed.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    configPortSpeed.setStatus("mandatory")
+
+
+class _ConfigPortOperStatus_Type(Integer32):
+    """Custom type configPortOperStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 1),
+          ("rate1000M-Full", 6),
+          ("rate100M-Full", 5),
+          ("rate100M-Half", 4),
+          ("rate10M-Full", 3),
+          ("rate10M-Half", 2))
+    )
+
+
+_ConfigPortOperStatus_Type.__name__ = "Integer32"
+_ConfigPortOperStatus_Object = MibTableColumn
+configPortOperStatus = _ConfigPortOperStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 6, 1, 3),
+    _ConfigPortOperStatus_Type()
+)
+configPortOperStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    configPortOperStatus.setStatus("mandatory")
+
+
+class _ConfigPortFlowControl_Type(Integer32):
+    """Custom type configPortFlowControl based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_ConfigPortFlowControl_Type.__name__ = "Integer32"
+_ConfigPortFlowControl_Object = MibTableColumn
+configPortFlowControl = _ConfigPortFlowControl_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 6, 1, 4),
+    _ConfigPortFlowControl_Type()
+)
+configPortFlowControl.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    configPortFlowControl.setStatus("mandatory")
+
+
+class _ConfigPortFlowControlOper_Type(Integer32):
+    """Custom type configPortFlowControlOper based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_ConfigPortFlowControlOper_Type.__name__ = "Integer32"
+_ConfigPortFlowControlOper_Object = MibTableColumn
+configPortFlowControlOper = _ConfigPortFlowControlOper_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 6, 1, 5),
+    _ConfigPortFlowControlOper_Type()
+)
+configPortFlowControlOper.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    configPortFlowControlOper.setStatus("mandatory")
+
+
+class _ConfigPortPriority_Type(Integer32):
+    """Custom type configPortPriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("high", 3),
+          ("highest", 4),
+          ("low", 1),
+          ("middle", 2))
+    )
+
+
+_ConfigPortPriority_Type.__name__ = "Integer32"
+_ConfigPortPriority_Object = MibTableColumn
+configPortPriority = _ConfigPortPriority_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 6, 1, 6),
+    _ConfigPortPriority_Type()
+)
+configPortPriority.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    configPortPriority.setStatus("mandatory")
+
+
+class _ConfigVLANMode_Type(Integer32):
+    """Custom type configVLANMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            1
+        )
+    )
+    namedValues = NamedValues(
+        ("modeTagBased", 1)
+    )
+
+
+_ConfigVLANMode_Type.__name__ = "Integer32"
+_ConfigVLANMode_Object = MibScalar
+configVLANMode = _ConfigVLANMode_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 7),
+    _ConfigVLANMode_Type()
+)
+configVLANMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    configVLANMode.setStatus("mandatory")
+_ConfigMirrorTable_Object = MibTable
+configMirrorTable = _ConfigMirrorTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 8)
+)
+if mibBuilder.loadTexts:
+    configMirrorTable.setStatus("mandatory")
+_ConfigMirrorEntry_Object = MibTableRow
+configMirrorEntry = _ConfigMirrorEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 8, 1)
+)
+configMirrorEntry.setIndexNames(
+    (0, "DGS-1248T-B1-MIB", "configMirrorId"),
+)
+if mibBuilder.loadTexts:
+    configMirrorEntry.setStatus("mandatory")
+
+
+class _ConfigMirrorId_Type(Integer32):
+    """Custom type configMirrorId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1),
+    )
+
+
+_ConfigMirrorId_Type.__name__ = "Integer32"
+_ConfigMirrorId_Object = MibTableColumn
+configMirrorId = _ConfigMirrorId_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 8, 1, 1),
+    _ConfigMirrorId_Type()
+)
+configMirrorId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    configMirrorId.setStatus("mandatory")
+_ConfigMirrorMon_Type = Integer32
+_ConfigMirrorMon_Object = MibTableColumn
+configMirrorMon = _ConfigMirrorMon_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 8, 1, 2),
+    _ConfigMirrorMon_Type()
+)
+configMirrorMon.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    configMirrorMon.setStatus("mandatory")
+_ConfigMirrorTXSrc_Type = PortList
+_ConfigMirrorTXSrc_Object = MibTableColumn
+configMirrorTXSrc = _ConfigMirrorTXSrc_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 8, 1, 3),
+    _ConfigMirrorTXSrc_Type()
+)
+configMirrorTXSrc.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    configMirrorTXSrc.setStatus("mandatory")
+_ConfigMirrorRXSrc_Type = PortList
+_ConfigMirrorRXSrc_Object = MibTableColumn
+configMirrorRXSrc = _ConfigMirrorRXSrc_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 8, 1, 4),
+    _ConfigMirrorRXSrc_Type()
+)
+configMirrorRXSrc.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    configMirrorRXSrc.setStatus("mandatory")
+_ConfigMirrorStatus_Type = RowStatus
+_ConfigMirrorStatus_Object = MibTableColumn
+configMirrorStatus = _ConfigMirrorStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 8, 1, 5),
+    _ConfigMirrorStatus_Type()
+)
+configMirrorStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    configMirrorStatus.setStatus("mandatory")
+
+
+class _ConfigSNMPEnable_Type(Integer32):
+    """Custom type configSNMPEnable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_ConfigSNMPEnable_Type.__name__ = "Integer32"
+_ConfigSNMPEnable_Object = MibScalar
+configSNMPEnable = _ConfigSNMPEnable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 9),
+    _ConfigSNMPEnable_Type()
+)
+configSNMPEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    configSNMPEnable.setStatus("mandatory")
+
+
+class _ConfigIpAssignmentMode_Type(Integer32):
+    """Custom type configIpAssignmentMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dhcp", 2),
+          ("manual", 1),
+          ("other", 3))
+    )
+
+
+_ConfigIpAssignmentMode_Type.__name__ = "Integer32"
+_ConfigIpAssignmentMode_Object = MibScalar
+configIpAssignmentMode = _ConfigIpAssignmentMode_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 12),
+    _ConfigIpAssignmentMode_Type()
+)
+configIpAssignmentMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    configIpAssignmentMode.setStatus("mandatory")
+_ConfigPhysAddress_Type = MacAddress
+_ConfigPhysAddress_Object = MibScalar
+configPhysAddress = _ConfigPhysAddress_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 13),
+    _ConfigPhysAddress_Type()
+)
+configPhysAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    configPhysAddress.setStatus("mandatory")
+
+
+class _ConfigPasswordAdmin_Type(DisplayString):
+    """Custom type configPasswordAdmin based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 20),
+    )
+
+
+_ConfigPasswordAdmin_Type.__name__ = "DisplayString"
+_ConfigPasswordAdmin_Object = MibScalar
+configPasswordAdmin = _ConfigPasswordAdmin_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 15),
+    _ConfigPasswordAdmin_Type()
+)
+configPasswordAdmin.setMaxAccess("write-only")
+if mibBuilder.loadTexts:
+    configPasswordAdmin.setStatus("mandatory")
+_ConfigIpAddress_Type = IpAddress
+_ConfigIpAddress_Object = MibScalar
+configIpAddress = _ConfigIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 16),
+    _ConfigIpAddress_Type()
+)
+configIpAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    configIpAddress.setStatus("mandatory")
+_ConfigNetMask_Type = IpAddress
+_ConfigNetMask_Object = MibScalar
+configNetMask = _ConfigNetMask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 17),
+    _ConfigNetMask_Type()
+)
+configNetMask.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    configNetMask.setStatus("mandatory")
+_ConfigGateway_Type = IpAddress
+_ConfigGateway_Object = MibScalar
+configGateway = _ConfigGateway_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 18),
+    _ConfigGateway_Type()
+)
+configGateway.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    configGateway.setStatus("mandatory")
+
+
+class _ConfigSave_Type(Integer32):
+    """Custom type configSave based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("noop", 2),
+          ("save", 1))
+    )
+
+
+_ConfigSave_Type.__name__ = "Integer32"
+_ConfigSave_Object = MibScalar
+configSave = _ConfigSave_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 19),
+    _ConfigSave_Type()
+)
+configSave.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    configSave.setStatus("mandatory")
+
+
+class _ConfigRestoreDefaults_Type(Integer32):
+    """Custom type configRestoreDefaults based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("noop", 2),
+          ("restore", 1))
+    )
+
+
+_ConfigRestoreDefaults_Type.__name__ = "Integer32"
+_ConfigRestoreDefaults_Object = MibScalar
+configRestoreDefaults = _ConfigRestoreDefaults_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 11, 22),
+    _ConfigRestoreDefaults_Type()
+)
+configRestoreDefaults.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    configRestoreDefaults.setStatus("mandatory")
+_CompanyTVlanGroup_ObjectIdentity = ObjectIdentity
+companyTVlanGroup = _CompanyTVlanGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 13)
+)
+_TvlanTable_Object = MibTable
+tvlanTable = _TvlanTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 13, 1)
+)
+if mibBuilder.loadTexts:
+    tvlanTable.setStatus("mandatory")
+_TvlanEntry_Object = MibTableRow
+tvlanEntry = _TvlanEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 13, 1, 1)
+)
+tvlanEntry.setIndexNames(
+    (0, "DGS-1248T-B1-MIB", "tvlanId"),
+)
+if mibBuilder.loadTexts:
+    tvlanEntry.setStatus("mandatory")
+_TvlanId_Type = Integer32
+_TvlanId_Object = MibTableColumn
+tvlanId = _TvlanId_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 13, 1, 1, 1),
+    _TvlanId_Type()
+)
+tvlanId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tvlanId.setStatus("mandatory")
+_TvlanName_Type = DisplayString
+_TvlanName_Object = MibTableColumn
+tvlanName = _TvlanName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 13, 1, 1, 2),
+    _TvlanName_Type()
+)
+tvlanName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tvlanName.setStatus("mandatory")
+_TvlanMember_Type = PortList
+_TvlanMember_Object = MibTableColumn
+tvlanMember = _TvlanMember_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 13, 1, 1, 3),
+    _TvlanMember_Type()
+)
+tvlanMember.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tvlanMember.setStatus("mandatory")
+_TvlanUntaggedPorts_Type = PortList
+_TvlanUntaggedPorts_Object = MibTableColumn
+tvlanUntaggedPorts = _TvlanUntaggedPorts_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 13, 1, 1, 4),
+    _TvlanUntaggedPorts_Type()
+)
+tvlanUntaggedPorts.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tvlanUntaggedPorts.setStatus("mandatory")
+
+
+class _TvlanStatus_Type(Integer32):
+    """Custom type tvlanStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              3,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 1),
+          ("createAndwait", 5),
+          ("destroy", 6),
+          ("notready", 3))
+    )
+
+
+_TvlanStatus_Type.__name__ = "Integer32"
+_TvlanStatus_Object = MibTableColumn
+tvlanStatus = _TvlanStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 13, 1, 1, 5),
+    _TvlanStatus_Type()
+)
+tvlanStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tvlanStatus.setStatus("mandatory")
+_CompanyPortTrunkGroup_ObjectIdentity = ObjectIdentity
+companyPortTrunkGroup = _CompanyPortTrunkGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 14)
+)
+_PortTrunkTable_Object = MibTable
+portTrunkTable = _PortTrunkTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 14, 1)
+)
+if mibBuilder.loadTexts:
+    portTrunkTable.setStatus("mandatory")
+_PortTrunkEntry_Object = MibTableRow
+portTrunkEntry = _PortTrunkEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 14, 1, 1)
+)
+portTrunkEntry.setIndexNames(
+    (0, "DGS-1248T-B1-MIB", "portTrunkId"),
+    (0, "DGS-1248T-B1-MIB", "portTrunkMember"),
+)
+if mibBuilder.loadTexts:
+    portTrunkEntry.setStatus("mandatory")
+_PortTrunkId_Type = Integer32
+_PortTrunkId_Object = MibTableColumn
+portTrunkId = _PortTrunkId_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 14, 1, 1, 1),
+    _PortTrunkId_Type()
+)
+portTrunkId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portTrunkId.setStatus("mandatory")
+_PortTrunkName_Type = DisplayString
+_PortTrunkName_Object = MibTableColumn
+portTrunkName = _PortTrunkName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 14, 1, 1, 2),
+    _PortTrunkName_Type()
+)
+portTrunkName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    portTrunkName.setStatus("mandatory")
+_PortTrunkMember_Type = PortList
+_PortTrunkMember_Object = MibTableColumn
+portTrunkMember = _PortTrunkMember_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 14, 1, 1, 3),
+    _PortTrunkMember_Type()
+)
+portTrunkMember.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    portTrunkMember.setStatus("mandatory")
+_CompanyStaticGroup_ObjectIdentity = ObjectIdentity
+companyStaticGroup = _CompanyStaticGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 21)
+)
+
+
+class _StaticOnOff_Type(Integer32):
+    """Custom type staticOnOff based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_StaticOnOff_Type.__name__ = "Integer32"
+_StaticOnOff_Object = MibScalar
+staticOnOff = _StaticOnOff_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 21, 1),
+    _StaticOnOff_Type()
+)
+staticOnOff.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    staticOnOff.setStatus("mandatory")
+_StaticAutoLearning_Type = PortList
+_StaticAutoLearning_Object = MibScalar
+staticAutoLearning = _StaticAutoLearning_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 21, 2),
+    _StaticAutoLearning_Type()
+)
+staticAutoLearning.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    staticAutoLearning.setStatus("mandatory")
+_StaticTable_Object = MibTable
+staticTable = _StaticTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 21, 3)
+)
+if mibBuilder.loadTexts:
+    staticTable.setStatus("mandatory")
+_StaticEntry_Object = MibTableRow
+staticEntry = _StaticEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 21, 3, 1)
+)
+staticEntry.setIndexNames(
+    (0, "DGS-1248T-B1-MIB", "staticId"),
+)
+if mibBuilder.loadTexts:
+    staticEntry.setStatus("mandatory")
+_StaticId_Type = Integer32
+_StaticId_Object = MibTableColumn
+staticId = _StaticId_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 21, 3, 1, 1),
+    _StaticId_Type()
+)
+staticId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    staticId.setStatus("mandatory")
+_StaticMac_Type = MacAddress
+_StaticMac_Object = MibTableColumn
+staticMac = _StaticMac_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 21, 3, 1, 2),
+    _StaticMac_Type()
+)
+staticMac.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    staticMac.setStatus("mandatory")
+_StaticPort_Type = Integer32
+_StaticPort_Object = MibTableColumn
+staticPort = _StaticPort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 21, 3, 1, 3),
+    _StaticPort_Type()
+)
+staticPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    staticPort.setStatus("mandatory")
+_StaticVlanID_Type = Integer32
+_StaticVlanID_Object = MibTableColumn
+staticVlanID = _StaticVlanID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 21, 3, 1, 4),
+    _StaticVlanID_Type()
+)
+staticVlanID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    staticVlanID.setStatus("mandatory")
+
+
+class _StaticStatus_Type(Integer32):
+    """Custom type staticStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              3,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 1),
+          ("createAndwait", 5),
+          ("destroy", 6),
+          ("notready", 3))
+    )
+
+
+_StaticStatus_Type.__name__ = "Integer32"
+_StaticStatus_Object = MibTableColumn
+staticStatus = _StaticStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 21, 3, 1, 5),
+    _StaticStatus_Type()
+)
+staticStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    staticStatus.setStatus("mandatory")
+_CompanyIgsGroup_ObjectIdentity = ObjectIdentity
+companyIgsGroup = _CompanyIgsGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22)
+)
+_IgsSystem_ObjectIdentity = ObjectIdentity
+igsSystem = _IgsSystem_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 1)
+)
+
+
+class _IgsStatus_Type(Integer32):
+    """Custom type igsStatus based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_IgsStatus_Type.__name__ = "Integer32"
+_IgsStatus_Object = MibScalar
+igsStatus = _IgsStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 1, 2),
+    _IgsStatus_Type()
+)
+igsStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    igsStatus.setStatus("mandatory")
+
+
+class _Igsv3Processing_Type(Integer32):
+    """Custom type igsv3Processing based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_Igsv3Processing_Type.__name__ = "Integer32"
+_Igsv3Processing_Object = MibScalar
+igsv3Processing = _Igsv3Processing_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 1, 3),
+    _Igsv3Processing_Type()
+)
+igsv3Processing.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    igsv3Processing.setStatus("mandatory")
+
+
+class _IgsRouterPortPurgeInterval_Type(Integer32):
+    """Custom type igsRouterPortPurgeInterval based on Integer32"""
+    defaultValue = 260
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(60, 600),
+    )
+
+
+_IgsRouterPortPurgeInterval_Type.__name__ = "Integer32"
+_IgsRouterPortPurgeInterval_Object = MibScalar
+igsRouterPortPurgeInterval = _IgsRouterPortPurgeInterval_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 1, 4),
+    _IgsRouterPortPurgeInterval_Type()
+)
+igsRouterPortPurgeInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    igsRouterPortPurgeInterval.setStatus("mandatory")
+
+
+class _IgsHostPortPurgeInterval_Type(Integer32):
+    """Custom type igsHostPortPurgeInterval based on Integer32"""
+    defaultValue = 260
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(130, 153025),
+    )
+
+
+_IgsHostPortPurgeInterval_Type.__name__ = "Integer32"
+_IgsHostPortPurgeInterval_Object = MibScalar
+igsHostPortPurgeInterval = _IgsHostPortPurgeInterval_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 1, 5),
+    _IgsHostPortPurgeInterval_Type()
+)
+igsHostPortPurgeInterval.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    igsHostPortPurgeInterval.setStatus("mandatory")
+
+
+class _IgsReportForwardInterval_Type(Integer32):
+    """Custom type igsReportForwardInterval based on Integer32"""
+    defaultValue = 5
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 25),
+    )
+
+
+_IgsReportForwardInterval_Type.__name__ = "Integer32"
+_IgsReportForwardInterval_Object = MibScalar
+igsReportForwardInterval = _IgsReportForwardInterval_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 1, 6),
+    _IgsReportForwardInterval_Type()
+)
+igsReportForwardInterval.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    igsReportForwardInterval.setStatus("mandatory")
+
+
+class _IgsLeaveProcessInterval_Type(Integer32):
+    """Custom type igsLeaveProcessInterval based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 25),
+    )
+
+
+_IgsLeaveProcessInterval_Type.__name__ = "Integer32"
+_IgsLeaveProcessInterval_Object = MibScalar
+igsLeaveProcessInterval = _IgsLeaveProcessInterval_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 1, 7),
+    _IgsLeaveProcessInterval_Type()
+)
+igsLeaveProcessInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    igsLeaveProcessInterval.setStatus("mandatory")
+
+
+class _IgsMcastEntryAgeingInterval_Type(Integer32):
+    """Custom type igsMcastEntryAgeingInterval based on Integer32"""
+    defaultValue = 600
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(60, 600),
+    )
+
+
+_IgsMcastEntryAgeingInterval_Type.__name__ = "Integer32"
+_IgsMcastEntryAgeingInterval_Object = MibScalar
+igsMcastEntryAgeingInterval = _IgsMcastEntryAgeingInterval_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 1, 8),
+    _IgsMcastEntryAgeingInterval_Type()
+)
+igsMcastEntryAgeingInterval.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    igsMcastEntryAgeingInterval.setStatus("mandatory")
+
+
+class _IgsSharedSegmentAggregationInterval_Type(Integer32):
+    """Custom type igsSharedSegmentAggregationInterval based on Integer32"""
+    defaultValue = 30
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 60),
+    )
+
+
+_IgsSharedSegmentAggregationInterval_Type.__name__ = "Integer32"
+_IgsSharedSegmentAggregationInterval_Object = MibScalar
+igsSharedSegmentAggregationInterval = _IgsSharedSegmentAggregationInterval_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 1, 9),
+    _IgsSharedSegmentAggregationInterval_Type()
+)
+igsSharedSegmentAggregationInterval.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    igsSharedSegmentAggregationInterval.setStatus("mandatory")
+
+
+class _IgsGblReportFwdOnAllPorts_Type(Integer32):
+    """Custom type igsGblReportFwdOnAllPorts based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("allports", 1),
+          ("rtrports", 2))
+    )
+
+
+_IgsGblReportFwdOnAllPorts_Type.__name__ = "Integer32"
+_IgsGblReportFwdOnAllPorts_Object = MibScalar
+igsGblReportFwdOnAllPorts = _IgsGblReportFwdOnAllPorts_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 1, 10),
+    _IgsGblReportFwdOnAllPorts_Type()
+)
+igsGblReportFwdOnAllPorts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    igsGblReportFwdOnAllPorts.setStatus("mandatory")
+
+
+class _IgsNextMcastFwdMode_Type(Integer32):
+    """Custom type igsNextMcastFwdMode based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ipbased", 1),
+          ("macbased", 2))
+    )
+
+
+_IgsNextMcastFwdMode_Type.__name__ = "Integer32"
+_IgsNextMcastFwdMode_Object = MibScalar
+igsNextMcastFwdMode = _IgsNextMcastFwdMode_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 1, 13),
+    _IgsNextMcastFwdMode_Type()
+)
+igsNextMcastFwdMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    igsNextMcastFwdMode.setStatus("mandatory")
+
+
+class _IgsQueryInterval_Type(Integer32):
+    """Custom type igsQueryInterval based on Integer32"""
+    defaultValue = 125
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(60, 600),
+    )
+
+
+_IgsQueryInterval_Type.__name__ = "Integer32"
+_IgsQueryInterval_Object = MibScalar
+igsQueryInterval = _IgsQueryInterval_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 1, 14),
+    _IgsQueryInterval_Type()
+)
+igsQueryInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    igsQueryInterval.setStatus("mandatory")
+
+
+class _IgsQueryMaxResponseTime_Type(Integer32):
+    """Custom type igsQueryMaxResponseTime based on Integer32"""
+    defaultValue = 10
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(10, 25),
+    )
+
+
+_IgsQueryMaxResponseTime_Type.__name__ = "Integer32"
+_IgsQueryMaxResponseTime_Object = MibScalar
+igsQueryMaxResponseTime = _IgsQueryMaxResponseTime_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 1, 15),
+    _IgsQueryMaxResponseTime_Type()
+)
+igsQueryMaxResponseTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    igsQueryMaxResponseTime.setStatus("mandatory")
+
+
+class _IgsRobustnessValue_Type(Integer32):
+    """Custom type igsRobustnessValue based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(2, 255),
+    )
+
+
+_IgsRobustnessValue_Type.__name__ = "Integer32"
+_IgsRobustnessValue_Object = MibScalar
+igsRobustnessValue = _IgsRobustnessValue_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 1, 16),
+    _IgsRobustnessValue_Type()
+)
+igsRobustnessValue.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    igsRobustnessValue.setStatus("mandatory")
+
+
+class _IgsLastMembQueryInterval_Type(Integer32):
+    """Custom type igsLastMembQueryInterval based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 25),
+    )
+
+
+_IgsLastMembQueryInterval_Type.__name__ = "Integer32"
+_IgsLastMembQueryInterval_Object = MibScalar
+igsLastMembQueryInterval = _IgsLastMembQueryInterval_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 1, 17),
+    _IgsLastMembQueryInterval_Type()
+)
+igsLastMembQueryInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    igsLastMembQueryInterval.setStatus("mandatory")
+_IgsVlan_ObjectIdentity = ObjectIdentity
+igsVlan = _IgsVlan_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 3)
+)
+_IgsVlanMcastFwdTable_Object = MibTable
+igsVlanMcastFwdTable = _IgsVlanMcastFwdTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 3, 1)
+)
+if mibBuilder.loadTexts:
+    igsVlanMcastFwdTable.setStatus("mandatory")
+_IgsVlanMcastFwdEntry_Object = MibTableRow
+igsVlanMcastFwdEntry = _IgsVlanMcastFwdEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 3, 1, 1)
+)
+igsVlanMcastFwdEntry.setIndexNames(
+    (0, "DGS-1248T-B1-MIB", "igsVlanMcastFwdVlanIdMac"),
+    (0, "DGS-1248T-B1-MIB", "igsVlanMcastFwdGroupAddress"),
+)
+if mibBuilder.loadTexts:
+    igsVlanMcastFwdEntry.setStatus("mandatory")
+
+
+class _IgsVlanMcastFwdVlanIdMac_Type(Integer32):
+    """Custom type igsVlanMcastFwdVlanIdMac based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_IgsVlanMcastFwdVlanIdMac_Type.__name__ = "Integer32"
+_IgsVlanMcastFwdVlanIdMac_Object = MibTableColumn
+igsVlanMcastFwdVlanIdMac = _IgsVlanMcastFwdVlanIdMac_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 3, 1, 1, 1),
+    _IgsVlanMcastFwdVlanIdMac_Type()
+)
+igsVlanMcastFwdVlanIdMac.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    igsVlanMcastFwdVlanIdMac.setStatus("mandatory")
+_IgsVlanMcastFwdGroupAddress_Type = MacAddress
+_IgsVlanMcastFwdGroupAddress_Object = MibTableColumn
+igsVlanMcastFwdGroupAddress = _IgsVlanMcastFwdGroupAddress_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 3, 1, 1, 2),
+    _IgsVlanMcastFwdGroupAddress_Type()
+)
+igsVlanMcastFwdGroupAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    igsVlanMcastFwdGroupAddress.setStatus("mandatory")
+_IgsVlanMcastFwdPortListMac_Type = PortList
+_IgsVlanMcastFwdPortListMac_Object = MibTableColumn
+igsVlanMcastFwdPortListMac = _IgsVlanMcastFwdPortListMac_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 3, 1, 1, 3),
+    _IgsVlanMcastFwdPortListMac_Type()
+)
+igsVlanMcastFwdPortListMac.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    igsVlanMcastFwdPortListMac.setStatus("mandatory")
+_IgsVlanRouterPortListTable_Object = MibTable
+igsVlanRouterPortListTable = _IgsVlanRouterPortListTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 3, 3)
+)
+if mibBuilder.loadTexts:
+    igsVlanRouterPortListTable.setStatus("mandatory")
+_IgsVlanRouterPortListEntry_Object = MibTableRow
+igsVlanRouterPortListEntry = _IgsVlanRouterPortListEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 3, 3, 1)
+)
+igsVlanRouterPortListEntry.setIndexNames(
+    (0, "DGS-1248T-B1-MIB", "igsVlanRouterPortListVlanId"),
+)
+if mibBuilder.loadTexts:
+    igsVlanRouterPortListEntry.setStatus("mandatory")
+
+
+class _IgsVlanRouterPortListVlanId_Type(Integer32):
+    """Custom type igsVlanRouterPortListVlanId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_IgsVlanRouterPortListVlanId_Type.__name__ = "Integer32"
+_IgsVlanRouterPortListVlanId_Object = MibTableColumn
+igsVlanRouterPortListVlanId = _IgsVlanRouterPortListVlanId_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 3, 3, 1, 1),
+    _IgsVlanRouterPortListVlanId_Type()
+)
+igsVlanRouterPortListVlanId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    igsVlanRouterPortListVlanId.setStatus("mandatory")
+_IgsVlanRouterPortList_Type = PortList
+_IgsVlanRouterPortList_Object = MibTableColumn
+igsVlanRouterPortList = _IgsVlanRouterPortList_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 3, 3, 1, 2),
+    _IgsVlanRouterPortList_Type()
+)
+igsVlanRouterPortList.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    igsVlanRouterPortList.setStatus("mandatory")
+_IgsVlanFilterTable_Object = MibTable
+igsVlanFilterTable = _IgsVlanFilterTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 3, 4)
+)
+if mibBuilder.loadTexts:
+    igsVlanFilterTable.setStatus("mandatory")
+_IgsVlanFilterEntry_Object = MibTableRow
+igsVlanFilterEntry = _IgsVlanFilterEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 3, 4, 1)
+)
+igsVlanFilterEntry.setIndexNames(
+    (0, "DGS-1248T-B1-MIB", "igsVlanId"),
+)
+if mibBuilder.loadTexts:
+    igsVlanFilterEntry.setStatus("mandatory")
+
+
+class _IgsVlanId_Type(Integer32):
+    """Custom type igsVlanId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_IgsVlanId_Type.__name__ = "Integer32"
+_IgsVlanId_Object = MibTableColumn
+igsVlanId = _IgsVlanId_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 3, 4, 1, 1),
+    _IgsVlanId_Type()
+)
+igsVlanId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    igsVlanId.setStatus("mandatory")
+
+
+class _IgsVlanFilterStatus_Type(Integer32):
+    """Custom type igsVlanFilterStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_IgsVlanFilterStatus_Type.__name__ = "Integer32"
+_IgsVlanFilterStatus_Object = MibTableColumn
+igsVlanFilterStatus = _IgsVlanFilterStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 22, 3, 4, 1, 2),
+    _IgsVlanFilterStatus_Type()
+)
+igsVlanFilterStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    igsVlanFilterStatus.setStatus("mandatory")
+_CompanyDot1xGroup_ObjectIdentity = ObjectIdentity
+companyDot1xGroup = _CompanyDot1xGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23)
+)
+_Radius_ObjectIdentity = ObjectIdentity
+radius = _Radius_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 1)
+)
+_RadiusServerAddress_Type = IpAddress
+_RadiusServerAddress_Object = MibScalar
+radiusServerAddress = _RadiusServerAddress_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 1, 1),
+    _RadiusServerAddress_Type()
+)
+radiusServerAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    radiusServerAddress.setStatus("mandatory")
+
+
+class _RadiusServerPort_Type(Integer32):
+    """Custom type radiusServerPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_RadiusServerPort_Type.__name__ = "Integer32"
+_RadiusServerPort_Object = MibScalar
+radiusServerPort = _RadiusServerPort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 1, 2),
+    _RadiusServerPort_Type()
+)
+radiusServerPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    radiusServerPort.setStatus("mandatory")
+_RadiusServerSharedSecret_Type = DisplayString
+_RadiusServerSharedSecret_Object = MibScalar
+radiusServerSharedSecret = _RadiusServerSharedSecret_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 1, 3),
+    _RadiusServerSharedSecret_Type()
+)
+radiusServerSharedSecret.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    radiusServerSharedSecret.setStatus("mandatory")
+_Dot1xAuth_ObjectIdentity = ObjectIdentity
+dot1xAuth = _Dot1xAuth_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 2)
+)
+
+
+class _Dot1xAuthSystemControl_Type(Integer32):
+    """Custom type dot1xAuthSystemControl based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_Dot1xAuthSystemControl_Type.__name__ = "Integer32"
+_Dot1xAuthSystemControl_Object = MibScalar
+dot1xAuthSystemControl = _Dot1xAuthSystemControl_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 2, 1),
+    _Dot1xAuthSystemControl_Type()
+)
+dot1xAuthSystemControl.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dot1xAuthSystemControl.setStatus("mandatory")
+
+
+class _Dot1xAuthQuietPeriod_Type(Integer32):
+    """Custom type dot1xAuthQuietPeriod based on Integer32"""
+    defaultValue = 60
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_Dot1xAuthQuietPeriod_Type.__name__ = "Integer32"
+_Dot1xAuthQuietPeriod_Object = MibScalar
+dot1xAuthQuietPeriod = _Dot1xAuthQuietPeriod_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 2, 2),
+    _Dot1xAuthQuietPeriod_Type()
+)
+dot1xAuthQuietPeriod.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dot1xAuthQuietPeriod.setStatus("mandatory")
+
+
+class _Dot1xAuthTxPeriod_Type(Integer32):
+    """Custom type dot1xAuthTxPeriod based on Integer32"""
+    defaultValue = 30
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_Dot1xAuthTxPeriod_Type.__name__ = "Integer32"
+_Dot1xAuthTxPeriod_Object = MibScalar
+dot1xAuthTxPeriod = _Dot1xAuthTxPeriod_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 2, 3),
+    _Dot1xAuthTxPeriod_Type()
+)
+dot1xAuthTxPeriod.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dot1xAuthTxPeriod.setStatus("mandatory")
+
+
+class _Dot1xAuthSuppTimeout_Type(Integer32):
+    """Custom type dot1xAuthSuppTimeout based on Integer32"""
+    defaultValue = 30
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_Dot1xAuthSuppTimeout_Type.__name__ = "Integer32"
+_Dot1xAuthSuppTimeout_Object = MibScalar
+dot1xAuthSuppTimeout = _Dot1xAuthSuppTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 2, 4),
+    _Dot1xAuthSuppTimeout_Type()
+)
+dot1xAuthSuppTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dot1xAuthSuppTimeout.setStatus("mandatory")
+
+
+class _Dot1xAuthServerTimeout_Type(Integer32):
+    """Custom type dot1xAuthServerTimeout based on Integer32"""
+    defaultValue = 30
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_Dot1xAuthServerTimeout_Type.__name__ = "Integer32"
+_Dot1xAuthServerTimeout_Object = MibScalar
+dot1xAuthServerTimeout = _Dot1xAuthServerTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 2, 5),
+    _Dot1xAuthServerTimeout_Type()
+)
+dot1xAuthServerTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dot1xAuthServerTimeout.setStatus("mandatory")
+
+
+class _Dot1xAuthMaxReq_Type(Integer32):
+    """Custom type dot1xAuthMaxReq based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 10),
+    )
+
+
+_Dot1xAuthMaxReq_Type.__name__ = "Integer32"
+_Dot1xAuthMaxReq_Object = MibScalar
+dot1xAuthMaxReq = _Dot1xAuthMaxReq_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 2, 6),
+    _Dot1xAuthMaxReq_Type()
+)
+dot1xAuthMaxReq.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dot1xAuthMaxReq.setStatus("mandatory")
+
+
+class _Dot1xAuthReAuthPeriod_Type(Unsigned32):
+    """Custom type dot1xAuthReAuthPeriod based on Unsigned32"""
+    defaultValue = 3600
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4294967295),
+    )
+
+
+_Dot1xAuthReAuthPeriod_Type.__name__ = "Unsigned32"
+_Dot1xAuthReAuthPeriod_Object = MibScalar
+dot1xAuthReAuthPeriod = _Dot1xAuthReAuthPeriod_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 2, 7),
+    _Dot1xAuthReAuthPeriod_Type()
+)
+dot1xAuthReAuthPeriod.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dot1xAuthReAuthPeriod.setStatus("mandatory")
+
+
+class _Dot1xAuthReAuthEnabled_Type(Integer32):
+    """Custom type dot1xAuthReAuthEnabled based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_Dot1xAuthReAuthEnabled_Type.__name__ = "Integer32"
+_Dot1xAuthReAuthEnabled_Object = MibScalar
+dot1xAuthReAuthEnabled = _Dot1xAuthReAuthEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 2, 8),
+    _Dot1xAuthReAuthEnabled_Type()
+)
+dot1xAuthReAuthEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dot1xAuthReAuthEnabled.setStatus("mandatory")
+_Dot1xAuthConfigPortTable_Object = MibTable
+dot1xAuthConfigPortTable = _Dot1xAuthConfigPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 2, 9)
+)
+if mibBuilder.loadTexts:
+    dot1xAuthConfigPortTable.setStatus("mandatory")
+_Dot1xAuthConfigPortEntry_Object = MibTableRow
+dot1xAuthConfigPortEntry = _Dot1xAuthConfigPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 2, 9, 1)
+)
+dot1xAuthConfigPortEntry.setIndexNames(
+    (0, "DGS-1248T-B1-MIB", "dot1xAuthConfigPortNumber"),
+)
+if mibBuilder.loadTexts:
+    dot1xAuthConfigPortEntry.setStatus("mandatory")
+_Dot1xAuthConfigPortNumber_Type = Integer32
+_Dot1xAuthConfigPortNumber_Object = MibTableColumn
+dot1xAuthConfigPortNumber = _Dot1xAuthConfigPortNumber_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 2, 9, 1, 1),
+    _Dot1xAuthConfigPortNumber_Type()
+)
+dot1xAuthConfigPortNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dot1xAuthConfigPortNumber.setStatus("mandatory")
+
+
+class _Dot1xAuthConfigPortControl_Type(Integer32):
+    """Custom type dot1xAuthConfigPortControl based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_Dot1xAuthConfigPortControl_Type.__name__ = "Integer32"
+_Dot1xAuthConfigPortControl_Object = MibTableColumn
+dot1xAuthConfigPortControl = _Dot1xAuthConfigPortControl_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 2, 9, 1, 2),
+    _Dot1xAuthConfigPortControl_Type()
+)
+dot1xAuthConfigPortControl.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dot1xAuthConfigPortControl.setStatus("mandatory")
+
+
+class _Dot1xAuthConfigPortStatus_Type(Integer32):
+    """Custom type dot1xAuthConfigPortStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("authnull", 0),
+          ("authorized", 1),
+          ("unauthorized", 2))
+    )
+
+
+_Dot1xAuthConfigPortStatus_Type.__name__ = "Integer32"
+_Dot1xAuthConfigPortStatus_Object = MibTableColumn
+dot1xAuthConfigPortStatus = _Dot1xAuthConfigPortStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 2, 9, 1, 3),
+    _Dot1xAuthConfigPortStatus_Type()
+)
+dot1xAuthConfigPortStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dot1xAuthConfigPortStatus.setStatus("mandatory")
+_Dot1xAuthConfigPortSessionTime_Type = TimeTicks
+_Dot1xAuthConfigPortSessionTime_Object = MibTableColumn
+dot1xAuthConfigPortSessionTime = _Dot1xAuthConfigPortSessionTime_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 2, 9, 1, 4),
+    _Dot1xAuthConfigPortSessionTime_Type()
+)
+dot1xAuthConfigPortSessionTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dot1xAuthConfigPortSessionTime.setStatus("mandatory")
+_Dot1xAuthConfigPortSessionUserName_Type = DisplayString
+_Dot1xAuthConfigPortSessionUserName_Object = MibTableColumn
+dot1xAuthConfigPortSessionUserName = _Dot1xAuthConfigPortSessionUserName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 23, 2, 9, 1, 5),
+    _Dot1xAuthConfigPortSessionUserName_Type()
+)
+dot1xAuthConfigPortSessionUserName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dot1xAuthConfigPortSessionUserName.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+swFiberInsert = NotificationType(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 0, 1)
+)
+if mibBuilder.loadTexts:
+    swFiberInsert.setStatus(
+        ""
+    )
+
+swFiberRemove = NotificationType(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 0, 2)
+)
+if mibBuilder.loadTexts:
+    swFiberRemove.setStatus(
+        ""
+    )
+
+swFiberAbnormalRXError = NotificationType(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 0, 3)
+)
+if mibBuilder.loadTexts:
+    swFiberAbnormalRXError.setStatus(
+        ""
+    )
+
+swFiberAbnormalTXError = NotificationType(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 0, 4)
+)
+if mibBuilder.loadTexts:
+    swFiberAbnormalTXError.setStatus(
+        ""
+    )
+
+swTPAbnormalRXError = NotificationType(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 0, 5)
+)
+if mibBuilder.loadTexts:
+    swTPAbnormalRXError.setStatus(
+        ""
+    )
+
+swTPAbnormalTXError = NotificationType(
+    (1, 3, 6, 1, 4, 1, 171, 10, 76, 6, 0, 6)
+)
+if mibBuilder.loadTexts:
+    swTPAbnormalTXError.setStatus(
+        ""
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "DGS-1248T-B1-MIB",
+    **{"OwnerString": OwnerString,
+       "MacAddress": MacAddress,
+       "PortList": PortList,
+       "RowStatus": RowStatus,
+       "d-link": d_link,
+       "dlink-products": dlink_products,
+       "dlink-DGS12XXTSeriesProd": dlink_DGS12XXTSeriesProd,
+       "dgs-1248tb1": dgs_1248tb1,
+       "swFiberInsert": swFiberInsert,
+       "swFiberRemove": swFiberRemove,
+       "swFiberAbnormalRXError": swFiberAbnormalRXError,
+       "swFiberAbnormalTXError": swFiberAbnormalTXError,
+       "swTPAbnormalRXError": swTPAbnormalRXError,
+       "swTPAbnormalTXError": swTPAbnormalTXError,
+       "companyCommGroup": companyCommGroup,
+       "commSetTable": commSetTable,
+       "commSetEntry": commSetEntry,
+       "commSetIndex": commSetIndex,
+       "commSetName": commSetName,
+       "commSetStatus": commSetStatus,
+       "commGetTable": commGetTable,
+       "commGetEntry": commGetEntry,
+       "commGetIndex": commGetIndex,
+       "commGetName": commGetName,
+       "commGetStatus": commGetStatus,
+       "commTrapTable": commTrapTable,
+       "commTrapEntry": commTrapEntry,
+       "commTrapIndex": commTrapIndex,
+       "commTrapName": commTrapName,
+       "commTrapIpAddress": commTrapIpAddress,
+       "commTrapSNMPBootup": commTrapSNMPBootup,
+       "commTrapSNMPTPLinkUpDown": commTrapSNMPTPLinkUpDown,
+       "commTrapSNMPFiberLinkUpDown": commTrapSNMPFiberLinkUpDown,
+       "commTrapTrapAbnormalTPRXError": commTrapTrapAbnormalTPRXError,
+       "commTrapTrapAbnormalTPTXError": commTrapTrapAbnormalTPTXError,
+       "commTrapTrapAbnormalFiberRXError": commTrapTrapAbnormalFiberRXError,
+       "commTrapTrapAbnormalFiberTXError": commTrapTrapAbnormalFiberTXError,
+       "commTrapStatus": commTrapStatus,
+       "companyMiscGroup": companyMiscGroup,
+       "miscReset": miscReset,
+       "miscStatisticsReset": miscStatisticsReset,
+       "companySpanGroup": companySpanGroup,
+       "spanOnOff": spanOnOff,
+       "companyConfigGroup": companyConfigGroup,
+       "configVerSwPrimary": configVerSwPrimary,
+       "configVerHwChipSet": configVerHwChipSet,
+       "configPortTable": configPortTable,
+       "configPortEntry": configPortEntry,
+       "configPort": configPort,
+       "configPortSpeed": configPortSpeed,
+       "configPortOperStatus": configPortOperStatus,
+       "configPortFlowControl": configPortFlowControl,
+       "configPortFlowControlOper": configPortFlowControlOper,
+       "configPortPriority": configPortPriority,
+       "configVLANMode": configVLANMode,
+       "configMirrorTable": configMirrorTable,
+       "configMirrorEntry": configMirrorEntry,
+       "configMirrorId": configMirrorId,
+       "configMirrorMon": configMirrorMon,
+       "configMirrorTXSrc": configMirrorTXSrc,
+       "configMirrorRXSrc": configMirrorRXSrc,
+       "configMirrorStatus": configMirrorStatus,
+       "configSNMPEnable": configSNMPEnable,
+       "configIpAssignmentMode": configIpAssignmentMode,
+       "configPhysAddress": configPhysAddress,
+       "configPasswordAdmin": configPasswordAdmin,
+       "configIpAddress": configIpAddress,
+       "configNetMask": configNetMask,
+       "configGateway": configGateway,
+       "configSave": configSave,
+       "configRestoreDefaults": configRestoreDefaults,
+       "companyTVlanGroup": companyTVlanGroup,
+       "tvlanTable": tvlanTable,
+       "tvlanEntry": tvlanEntry,
+       "tvlanId": tvlanId,
+       "tvlanName": tvlanName,
+       "tvlanMember": tvlanMember,
+       "tvlanUntaggedPorts": tvlanUntaggedPorts,
+       "tvlanStatus": tvlanStatus,
+       "companyPortTrunkGroup": companyPortTrunkGroup,
+       "portTrunkTable": portTrunkTable,
+       "portTrunkEntry": portTrunkEntry,
+       "portTrunkId": portTrunkId,
+       "portTrunkName": portTrunkName,
+       "portTrunkMember": portTrunkMember,
+       "companyStaticGroup": companyStaticGroup,
+       "staticOnOff": staticOnOff,
+       "staticAutoLearning": staticAutoLearning,
+       "staticTable": staticTable,
+       "staticEntry": staticEntry,
+       "staticId": staticId,
+       "staticMac": staticMac,
+       "staticPort": staticPort,
+       "staticVlanID": staticVlanID,
+       "staticStatus": staticStatus,
+       "companyIgsGroup": companyIgsGroup,
+       "igsSystem": igsSystem,
+       "igsStatus": igsStatus,
+       "igsv3Processing": igsv3Processing,
+       "igsRouterPortPurgeInterval": igsRouterPortPurgeInterval,
+       "igsHostPortPurgeInterval": igsHostPortPurgeInterval,
+       "igsReportForwardInterval": igsReportForwardInterval,
+       "igsLeaveProcessInterval": igsLeaveProcessInterval,
+       "igsMcastEntryAgeingInterval": igsMcastEntryAgeingInterval,
+       "igsSharedSegmentAggregationInterval": igsSharedSegmentAggregationInterval,
+       "igsGblReportFwdOnAllPorts": igsGblReportFwdOnAllPorts,
+       "igsNextMcastFwdMode": igsNextMcastFwdMode,
+       "igsQueryInterval": igsQueryInterval,
+       "igsQueryMaxResponseTime": igsQueryMaxResponseTime,
+       "igsRobustnessValue": igsRobustnessValue,
+       "igsLastMembQueryInterval": igsLastMembQueryInterval,
+       "igsVlan": igsVlan,
+       "igsVlanMcastFwdTable": igsVlanMcastFwdTable,
+       "igsVlanMcastFwdEntry": igsVlanMcastFwdEntry,
+       "igsVlanMcastFwdVlanIdMac": igsVlanMcastFwdVlanIdMac,
+       "igsVlanMcastFwdGroupAddress": igsVlanMcastFwdGroupAddress,
+       "igsVlanMcastFwdPortListMac": igsVlanMcastFwdPortListMac,
+       "igsVlanRouterPortListTable": igsVlanRouterPortListTable,
+       "igsVlanRouterPortListEntry": igsVlanRouterPortListEntry,
+       "igsVlanRouterPortListVlanId": igsVlanRouterPortListVlanId,
+       "igsVlanRouterPortList": igsVlanRouterPortList,
+       "igsVlanFilterTable": igsVlanFilterTable,
+       "igsVlanFilterEntry": igsVlanFilterEntry,
+       "igsVlanId": igsVlanId,
+       "igsVlanFilterStatus": igsVlanFilterStatus,
+       "companyDot1xGroup": companyDot1xGroup,
+       "radius": radius,
+       "radiusServerAddress": radiusServerAddress,
+       "radiusServerPort": radiusServerPort,
+       "radiusServerSharedSecret": radiusServerSharedSecret,
+       "dot1xAuth": dot1xAuth,
+       "dot1xAuthSystemControl": dot1xAuthSystemControl,
+       "dot1xAuthQuietPeriod": dot1xAuthQuietPeriod,
+       "dot1xAuthTxPeriod": dot1xAuthTxPeriod,
+       "dot1xAuthSuppTimeout": dot1xAuthSuppTimeout,
+       "dot1xAuthServerTimeout": dot1xAuthServerTimeout,
+       "dot1xAuthMaxReq": dot1xAuthMaxReq,
+       "dot1xAuthReAuthPeriod": dot1xAuthReAuthPeriod,
+       "dot1xAuthReAuthEnabled": dot1xAuthReAuthEnabled,
+       "dot1xAuthConfigPortTable": dot1xAuthConfigPortTable,
+       "dot1xAuthConfigPortEntry": dot1xAuthConfigPortEntry,
+       "dot1xAuthConfigPortNumber": dot1xAuthConfigPortNumber,
+       "dot1xAuthConfigPortControl": dot1xAuthConfigPortControl,
+       "dot1xAuthConfigPortStatus": dot1xAuthConfigPortStatus,
+       "dot1xAuthConfigPortSessionTime": dot1xAuthConfigPortSessionTime,
+       "dot1xAuthConfigPortSessionUserName": dot1xAuthConfigPortSessionUserName}
+)

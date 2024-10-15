@@ -1,20 +1,170 @@
+# SNMP MIB module (IBM-CPS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module IBM-CPS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/IBM-CPS-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:39:15 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-NotificationType, Bits, Counter32, iso, ModuleIdentity, ObjectIdentity, NotificationType, Integer32, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, IpAddress, MibIdentifier, Unsigned32, enterprises, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Bits", "Counter32", "iso", "ModuleIdentity", "ObjectIdentity", "NotificationType", "Integer32", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "IpAddress", "MibIdentifier", "Unsigned32", "enterprises", "TimeTicks")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-ibm = MibIdentifier((1, 3, 6, 1, 4, 1, 2))
-ibmProd = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6))
-cps = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6, 201))
-cpsSystemSendTrap = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 201, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cpsSystemSendTrap.setStatus('optional')
-problemTrap = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 201) + (0,3)).setObjects(("IBM-CPS-MIB", "cpsSystemSendTrap"))
-mibBuilder.exportSymbols("IBM-CPS-MIB", problemTrap=problemTrap, ibmProd=ibmProd, cpsSystemSendTrap=cpsSystemSendTrap, ibm=ibm, cps=cps)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/IBM-CPS-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:07:26 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ NotificationType,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "NotificationType",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Ibm_ObjectIdentity = ObjectIdentity
+ibm = _Ibm_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2)
+)
+_IbmProd_ObjectIdentity = ObjectIdentity
+ibmProd = _IbmProd_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2, 6)
+)
+_Cps_ObjectIdentity = ObjectIdentity
+cps = _Cps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2, 6, 201)
+)
+_CpsSystemSendTrap_Type = DisplayString
+_CpsSystemSendTrap_Object = MibScalar
+cpsSystemSendTrap = _CpsSystemSendTrap_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 201, 3),
+    _CpsSystemSendTrap_Type()
+)
+cpsSystemSendTrap.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cpsSystemSendTrap.setStatus("optional")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+problemTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 201, 0, 3)
+)
+problemTrap.setObjects(
+    ("IBM-CPS-MIB", "cpsSystemSendTrap")
+)
+if mibBuilder.loadTexts:
+    problemTrap.setStatus(
+        ""
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "IBM-CPS-MIB",
+    **{"ibm": ibm,
+       "ibmProd": ibmProd,
+       "cps": cps,
+       "problemTrap": problemTrap,
+       "cpsSystemSendTrap": cpsSystemSendTrap}
+)

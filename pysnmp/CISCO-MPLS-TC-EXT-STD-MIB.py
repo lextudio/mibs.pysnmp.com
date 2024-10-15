@@ -1,38 +1,182 @@
+# SNMP MIB module (CISCO-MPLS-TC-EXT-STD-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-MPLS-TC-EXT-STD-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/CISCO-MPLS-TC-EXT-STD-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:43:20 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint")
-ciscoExperiment, = mibBuilder.importSymbols("CISCO-SMI", "ciscoExperiment")
-mplsStdMIB, = mibBuilder.importSymbols("MPLS-TC-STD-MIB", "mplsStdMIB")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, TimeTicks, MibIdentifier, Bits, Counter32, ObjectIdentity, IpAddress, Counter64, iso, Gauge32, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "TimeTicks", "MibIdentifier", "Bits", "Counter32", "ObjectIdentity", "IpAddress", "Counter64", "iso", "Gauge32", "Unsigned32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-cmplsTcExtStdMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 10, 144))
-cmplsTcExtStdMIB.setRevisions(('2012-02-22 00:00',))
-if mibBuilder.loadTexts: cmplsTcExtStdMIB.setLastUpdated('201202220000Z')
-if mibBuilder.loadTexts: cmplsTcExtStdMIB.setOrganization('Multiprotocol Label Switching (MPLS) Working Group')
-class CMplsGlobalId(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(4, 4)
-    fixedLength = 4
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CISCO-MPLS-TC-EXT-STD-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:01:41 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class CMplsNodeId(TextualConvention, Unsigned32):
-    status = 'current'
-    displayHint = 'd'
+if 'mibBuilder' not in globals():
+    import sys
 
-class CMplsIccId(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(1, 6)
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-class CMplsLocalId(TextualConvention, Unsigned32):
-    status = 'current'
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 16777215)
+# Import base ASN.1 objects even if this MIB does not use it
 
-mibBuilder.exportSymbols("CISCO-MPLS-TC-EXT-STD-MIB", CMplsNodeId=CMplsNodeId, cmplsTcExtStdMIB=cmplsTcExtStdMIB, PYSNMP_MODULE_ID=cmplsTcExtStdMIB, CMplsIccId=CMplsIccId, CMplsGlobalId=CMplsGlobalId, CMplsLocalId=CMplsLocalId)
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ciscoExperiment,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoExperiment")
+
+(mplsStdMIB,) = mibBuilder.importSymbols(
+    "MPLS-TC-STD-MIB",
+    "mplsStdMIB")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+cmplsTcExtStdMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 144)
+)
+cmplsTcExtStdMIB.setRevisions(
+        ("2012-02-22 00:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class CMplsGlobalId(OctetString, TextualConvention):
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+    )
+
+
+
+class CMplsNodeId(Unsigned32, TextualConvention):
+    status = "current"
+    displayHint = "d"
+
+
+class CMplsIccId(OctetString, TextualConvention):
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 6),
+    )
+
+
+
+class CMplsLocalId(Unsigned32, TextualConvention):
+    status = "current"
+    displayHint = "d"
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16777215),
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-MPLS-TC-EXT-STD-MIB",
+    **{"CMplsGlobalId": CMplsGlobalId,
+       "CMplsNodeId": CMplsNodeId,
+       "CMplsIccId": CMplsIccId,
+       "CMplsLocalId": CMplsLocalId,
+       "cmplsTcExtStdMIB": cmplsTcExtStdMIB}
+)

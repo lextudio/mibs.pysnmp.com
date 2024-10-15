@@ -1,508 +1,3192 @@
+# SNMP MIB module (SL10-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module SL10-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/SL10-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:57:53 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-iso, NotificationType, TimeTicks, Counter32, enterprises, internet, Unsigned32, private, MibIdentifier, Integer32, mgmt, ModuleIdentity, ObjectIdentity, NotificationType, Gauge32, IpAddress, Counter64, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "NotificationType", "TimeTicks", "Counter32", "enterprises", "internet", "Unsigned32", "private", "MibIdentifier", "Integer32", "mgmt", "ModuleIdentity", "ObjectIdentity", "NotificationType", "Gauge32", "IpAddress", "Counter64", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-asentria = MibIdentifier((1, 3, 6, 1, 4, 1, 3052))
-sl10 = MibIdentifier((1, 3, 6, 1, 4, 1, 3052, 40))
-device = MibIdentifier((1, 3, 6, 1, 4, 1, 3052, 40, 1))
-contacts = MibIdentifier((1, 3, 6, 1, 4, 1, 3052, 40, 2))
-relays = MibIdentifier((1, 3, 6, 1, 4, 1, 3052, 40, 3))
-tempsensor = MibIdentifier((1, 3, 6, 1, 4, 1, 3052, 40, 4))
-humiditysensor = MibIdentifier((1, 3, 6, 1, 4, 1, 3052, 40, 5))
-passthrough = MibIdentifier((1, 3, 6, 1, 4, 1, 3052, 40, 6))
-ftp = MibIdentifier((1, 3, 6, 1, 4, 1, 3052, 40, 7))
-analog = MibIdentifier((1, 3, 6, 1, 4, 1, 3052, 40, 8))
-eventSensorStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 3052, 40, 10))
-eventSensorConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 3052, 40, 11))
-techsupport = MibIdentifier((1, 3, 6, 1, 4, 1, 3052, 40, 99))
-mibend = MibIdentifier((1, 3, 6, 1, 4, 1, 3052, 40, 100))
-contact1 = MibIdentifier((1, 3, 6, 1, 4, 1, 3052, 40, 2, 1))
-contact2 = MibIdentifier((1, 3, 6, 1, 4, 1, 3052, 40, 2, 2))
-contact3 = MibIdentifier((1, 3, 6, 1, 4, 1, 3052, 40, 2, 3))
-contact4 = MibIdentifier((1, 3, 6, 1, 4, 1, 3052, 40, 2, 4))
-contact5 = MibIdentifier((1, 3, 6, 1, 4, 1, 3052, 40, 2, 5))
-contact6 = MibIdentifier((1, 3, 6, 1, 4, 1, 3052, 40, 2, 6))
-contact7 = MibIdentifier((1, 3, 6, 1, 4, 1, 3052, 40, 2, 7))
-contact8 = MibIdentifier((1, 3, 6, 1, 4, 1, 3052, 40, 2, 8))
-contact9 = MibIdentifier((1, 3, 6, 1, 4, 1, 3052, 40, 2, 9))
-relay1 = MibIdentifier((1, 3, 6, 1, 4, 1, 3052, 40, 3, 1))
-relay2 = MibIdentifier((1, 3, 6, 1, 4, 1, 3052, 40, 3, 2))
-analog1 = MibIdentifier((1, 3, 6, 1, 4, 1, 3052, 40, 8, 1))
-analog2 = MibIdentifier((1, 3, 6, 1, 4, 1, 3052, 40, 8, 2))
-serialNumber = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 1, 1), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: serialNumber.setStatus('mandatory')
-firmwareVersion = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: firmwareVersion.setStatus('mandatory')
-siteID = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 1, 3), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: siteID.setStatus('mandatory')
-snmpManager = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 1, 4), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: snmpManager.setStatus('deprecated')
-input78Mode = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: input78Mode.setStatus('deprecated')
-forceTraps = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 1, 6), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: forceTraps.setStatus('mandatory')
-thisTrapText = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 1, 7), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: thisTrapText.setStatus('mandatory')
-alarmStatus = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 1, 8), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmStatus.setStatus('mandatory')
-snmpManager1 = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 1, 9), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: snmpManager1.setStatus('mandatory')
-snmpManager2 = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 1, 10), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: snmpManager2.setStatus('mandatory')
-snmpManager3 = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 1, 11), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: snmpManager3.setStatus('mandatory')
-snmpManager4 = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 1, 12), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: snmpManager4.setStatus('mandatory')
-statusRepeatHours = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 1, 13), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: statusRepeatHours.setStatus('mandatory')
-serialTimeout = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 1, 14), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: serialTimeout.setStatus('mandatory')
-powerupTrapsend = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 1, 15), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: powerupTrapsend.setStatus('mandatory')
-netlossTrapsend = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 1, 16), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: netlossTrapsend.setStatus('mandatory')
-buildID = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 1, 17), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: buildID.setStatus('mandatory')
-contact1Name = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 1, 1), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact1Name.setStatus('mandatory')
-contact1State = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: contact1State.setStatus('mandatory')
-contact1AlarmEnable = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 1, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact1AlarmEnable.setStatus('mandatory')
-contact1ActiveDirection = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 1, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact1ActiveDirection.setStatus('mandatory')
-contact1Threshold = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 1, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact1Threshold.setStatus('mandatory')
-contact1ReturnNormalTrap = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 1, 6), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact1ReturnNormalTrap.setStatus('mandatory')
-contact1TrapRepeat = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 1, 7), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact1TrapRepeat.setStatus('mandatory')
-contact1Severity = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 1, 8), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact1Severity.setStatus('mandatory')
-contact2Name = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 2, 1), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact2Name.setStatus('mandatory')
-contact2State = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 2, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: contact2State.setStatus('mandatory')
-contact2AlarmEnable = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 2, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact2AlarmEnable.setStatus('mandatory')
-contact2ActiveDirection = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 2, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact2ActiveDirection.setStatus('mandatory')
-contact2Threshold = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 2, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact2Threshold.setStatus('mandatory')
-contact2ReturnNormalTrap = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 2, 6), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact2ReturnNormalTrap.setStatus('mandatory')
-contact2TrapRepeat = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 2, 7), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact2TrapRepeat.setStatus('mandatory')
-contact2Severity = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 2, 8), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact2Severity.setStatus('mandatory')
-contact3Name = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 3, 1), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact3Name.setStatus('mandatory')
-contact3State = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 3, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: contact3State.setStatus('mandatory')
-contact3AlarmEnable = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 3, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact3AlarmEnable.setStatus('mandatory')
-contact3ActiveDirection = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 3, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact3ActiveDirection.setStatus('mandatory')
-contact3Threshold = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 3, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact3Threshold.setStatus('mandatory')
-contact3ReturnNormalTrap = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 3, 6), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact3ReturnNormalTrap.setStatus('mandatory')
-contact3TrapRepeat = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 3, 7), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact3TrapRepeat.setStatus('mandatory')
-contact3Severity = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 3, 8), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact3Severity.setStatus('mandatory')
-contact4Name = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 4, 1), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact4Name.setStatus('mandatory')
-contact4State = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 4, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: contact4State.setStatus('mandatory')
-contact4AlarmEnable = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 4, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact4AlarmEnable.setStatus('mandatory')
-contact4ActiveDirection = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 4, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact4ActiveDirection.setStatus('mandatory')
-contact4Threshold = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 4, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact4Threshold.setStatus('mandatory')
-contact4ReturnNormalTrap = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 4, 6), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact4ReturnNormalTrap.setStatus('mandatory')
-contact4TrapRepeat = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 4, 7), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact4TrapRepeat.setStatus('mandatory')
-contact4Severity = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 4, 8), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact4Severity.setStatus('mandatory')
-contact5Name = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 5, 1), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact5Name.setStatus('mandatory')
-contact5State = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 5, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: contact5State.setStatus('mandatory')
-contact5AlarmEnable = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 5, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact5AlarmEnable.setStatus('mandatory')
-contact5ActiveDirection = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 5, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact5ActiveDirection.setStatus('mandatory')
-contact5Threshold = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 5, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact5Threshold.setStatus('mandatory')
-contact5ReturnNormalTrap = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 5, 6), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact5ReturnNormalTrap.setStatus('mandatory')
-contact5TrapRepeat = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 5, 7), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact5TrapRepeat.setStatus('mandatory')
-contact5Severity = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 5, 8), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact5Severity.setStatus('mandatory')
-contact6Name = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 6, 1), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact6Name.setStatus('mandatory')
-contact6State = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 6, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: contact6State.setStatus('mandatory')
-contact6AlarmEnable = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 6, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact6AlarmEnable.setStatus('mandatory')
-contact6ActiveDirection = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 6, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact6ActiveDirection.setStatus('mandatory')
-contact6Threshold = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 6, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact6Threshold.setStatus('mandatory')
-contact6ReturnNormalTrap = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 6, 6), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact6ReturnNormalTrap.setStatus('mandatory')
-contact6TrapRepeat = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 6, 7), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact6TrapRepeat.setStatus('mandatory')
-contact6Severity = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 6, 8), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact6Severity.setStatus('mandatory')
-contact7Name = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 7, 1), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact7Name.setStatus('mandatory')
-contact7State = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 7, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: contact7State.setStatus('mandatory')
-contact7AlarmEnable = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 7, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact7AlarmEnable.setStatus('mandatory')
-contact7ActiveDirection = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 7, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact7ActiveDirection.setStatus('mandatory')
-contact7Threshold = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 7, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact7Threshold.setStatus('mandatory')
-contact7ReturnNormalTrap = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 7, 6), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact7ReturnNormalTrap.setStatus('mandatory')
-contact7TrapRepeat = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 7, 7), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact7TrapRepeat.setStatus('mandatory')
-contact7Severity = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 7, 8), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact7Severity.setStatus('mandatory')
-contact8Name = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 8, 1), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact8Name.setStatus('mandatory')
-contact8State = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 8, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: contact8State.setStatus('mandatory')
-contact8AlarmEnable = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 8, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact8AlarmEnable.setStatus('mandatory')
-contact8ActiveDirection = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 8, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact8ActiveDirection.setStatus('mandatory')
-contact8Threshold = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 8, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact8Threshold.setStatus('mandatory')
-contact8ReturnNormalTrap = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 8, 6), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact8ReturnNormalTrap.setStatus('mandatory')
-contact8TrapRepeat = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 8, 7), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact8TrapRepeat.setStatus('mandatory')
-contact8Severity = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 8, 8), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact8Severity.setStatus('mandatory')
-contact9Name = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 9, 1), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact9Name.setStatus('mandatory')
-contact9State = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 9, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: contact9State.setStatus('mandatory')
-contact9AlarmEnable = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 9, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact9AlarmEnable.setStatus('mandatory')
-contact9ActiveDirection = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 9, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact9ActiveDirection.setStatus('mandatory')
-contact9Threshold = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 9, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact9Threshold.setStatus('mandatory')
-contact9ReturnNormalTrap = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 9, 6), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact9ReturnNormalTrap.setStatus('mandatory')
-contact9TrapRepeat = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 9, 7), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact9TrapRepeat.setStatus('mandatory')
-contact9Severity = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 2, 9, 8), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: contact9Severity.setStatus('mandatory')
-relay1Name = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 3, 1, 1), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: relay1Name.setStatus('mandatory')
-relay1CurrentState = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 3, 1, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: relay1CurrentState.setStatus('mandatory')
-relay1PowerupState = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 3, 1, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: relay1PowerupState.setStatus('mandatory')
-relay2Name = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 3, 2, 1), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: relay2Name.setStatus('mandatory')
-relay2CurrentState = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 3, 2, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: relay2CurrentState.setStatus('mandatory')
-relay2PowerupState = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 3, 2, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: relay2PowerupState.setStatus('mandatory')
-tempValue = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 4, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tempValue.setStatus('mandatory')
-tempAlarmEnable = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 4, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tempAlarmEnable.setStatus('mandatory')
-tempHighLevel = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 4, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tempHighLevel.setStatus('mandatory')
-tempVeryHighLevel = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 4, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tempVeryHighLevel.setStatus('mandatory')
-tempLowLevel = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 4, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tempLowLevel.setStatus('mandatory')
-tempVeryLowLevel = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 4, 6), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tempVeryLowLevel.setStatus('mandatory')
-tempAlarmThreshold = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 4, 7), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tempAlarmThreshold.setStatus('mandatory')
-tempReturnNormalTrap = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 4, 8), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tempReturnNormalTrap.setStatus('mandatory')
-tempTrapRepeat = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 4, 9), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tempTrapRepeat.setStatus('mandatory')
-tempMode = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 4, 10), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tempMode.setStatus('mandatory')
-tempHighSeverity = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 4, 11), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tempHighSeverity.setStatus('mandatory')
-tempVeryHighSeverity = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 4, 12), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tempVeryHighSeverity.setStatus('mandatory')
-tempLowSeverity = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 4, 13), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tempLowSeverity.setStatus('mandatory')
-tempVeryLowSeverity = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 4, 14), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tempVeryLowSeverity.setStatus('mandatory')
-tempName = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 4, 15), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tempName.setStatus('mandatory')
-humidityValue = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 5, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: humidityValue.setStatus('mandatory')
-humidityAlarmEnable = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 5, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: humidityAlarmEnable.setStatus('mandatory')
-humidityHighLevel = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 5, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: humidityHighLevel.setStatus('mandatory')
-humidityVeryHighLevel = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 5, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: humidityVeryHighLevel.setStatus('mandatory')
-humidityLowLevel = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 5, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: humidityLowLevel.setStatus('mandatory')
-humidityVeryLowLevel = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 5, 6), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: humidityVeryLowLevel.setStatus('mandatory')
-humidityAlarmThreshold = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 5, 7), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: humidityAlarmThreshold.setStatus('mandatory')
-humidityReturnNormalTrap = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 5, 8), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: humidityReturnNormalTrap.setStatus('mandatory')
-humidityTrapRepeat = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 5, 9), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: humidityTrapRepeat.setStatus('mandatory')
-humidityHighSeverity = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 5, 10), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: humidityHighSeverity.setStatus('mandatory')
-humidityVeryHighSeverity = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 5, 11), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: humidityVeryHighSeverity.setStatus('mandatory')
-humidityLowSeverity = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 5, 12), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: humidityLowSeverity.setStatus('mandatory')
-humidityVeryLowSeverity = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 5, 13), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: humidityVeryLowSeverity.setStatus('mandatory')
-humidityName = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 5, 14), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: humidityName.setStatus('mandatory')
-ptNeedPassword = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 6, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ptNeedPassword.setStatus('mandatory')
-ptSayLoginText = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 6, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ptSayLoginText.setStatus('mandatory')
-ptLoginText = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 6, 3), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ptLoginText.setStatus('mandatory')
-ptSaySiteID = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 6, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ptSaySiteID.setStatus('mandatory')
-ptUsername = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 6, 5), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ptUsername.setStatus('mandatory')
-ptPassword = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 6, 6), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ptPassword.setStatus('mandatory')
-ptTimeout = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 6, 7), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ptTimeout.setStatus('mandatory')
-ptEscChar = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 6, 8), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ptEscChar.setStatus('mandatory')
-ptLfstripToPort = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 6, 9), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ptLfstripToPort.setStatus('mandatory')
-ptLfstripFromPort = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 6, 10), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ptLfstripFromPort.setStatus('mandatory')
-ptSerialBaudrate = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 6, 11), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ptSerialBaudrate.setStatus('mandatory')
-ptSerialWordlength = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 6, 12), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ptSerialWordlength.setStatus('mandatory')
-ptSerialParity = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 6, 13), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ptSerialParity.setStatus('mandatory')
-ptTCPPortnumber = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 6, 14), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ptTCPPortnumber.setStatus('mandatory')
-ftpUsername = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 7, 1), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ftpUsername.setStatus('mandatory')
-ftpPassword = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 7, 2), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ftpPassword.setStatus('mandatory')
-analog1Value = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 8, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: analog1Value.setStatus('mandatory')
-analog1AlarmEnable = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 8, 1, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: analog1AlarmEnable.setStatus('mandatory')
-analog1HighLevel = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 8, 1, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: analog1HighLevel.setStatus('mandatory')
-analog1VeryHighLevel = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 8, 1, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: analog1VeryHighLevel.setStatus('mandatory')
-analog1LowLevel = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 8, 1, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: analog1LowLevel.setStatus('mandatory')
-analog1VeryLowLevel = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 8, 1, 6), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: analog1VeryLowLevel.setStatus('mandatory')
-analog1AlarmThreshold = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 8, 1, 7), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: analog1AlarmThreshold.setStatus('mandatory')
-analog1ReturnNormalTrap = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 8, 1, 8), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: analog1ReturnNormalTrap.setStatus('mandatory')
-analog1TrapRepeat = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 8, 1, 9), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: analog1TrapRepeat.setStatus('mandatory')
-analog1HighSeverity = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 8, 1, 10), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: analog1HighSeverity.setStatus('mandatory')
-analog1VeryHighSeverity = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 8, 1, 11), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: analog1VeryHighSeverity.setStatus('mandatory')
-analog1LowSeverity = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 8, 1, 12), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: analog1LowSeverity.setStatus('mandatory')
-analog1VeryLowSeverity = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 8, 1, 13), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: analog1VeryLowSeverity.setStatus('mandatory')
-analog1Name = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 8, 1, 14), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: analog1Name.setStatus('mandatory')
-analog2Value = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 8, 2, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: analog2Value.setStatus('mandatory')
-analog2AlarmEnable = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 8, 2, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: analog2AlarmEnable.setStatus('mandatory')
-analog2HighLevel = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 8, 2, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: analog2HighLevel.setStatus('mandatory')
-analog2VeryHighLevel = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 8, 2, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: analog2VeryHighLevel.setStatus('mandatory')
-analog2LowLevel = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 8, 2, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: analog2LowLevel.setStatus('mandatory')
-analog2VeryLowLevel = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 8, 2, 6), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: analog2VeryLowLevel.setStatus('mandatory')
-analog2AlarmThreshold = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 8, 2, 7), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: analog2AlarmThreshold.setStatus('mandatory')
-analog2ReturnNormalTrap = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 8, 2, 8), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: analog2ReturnNormalTrap.setStatus('mandatory')
-analog2TrapRepeat = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 8, 2, 9), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: analog2TrapRepeat.setStatus('mandatory')
-analog2HighSeverity = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 8, 2, 10), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: analog2HighSeverity.setStatus('mandatory')
-analog2VeryHighSeverity = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 8, 2, 11), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: analog2VeryHighSeverity.setStatus('mandatory')
-analog2LowSeverity = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 8, 2, 12), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: analog2LowSeverity.setStatus('mandatory')
-analog2VeryLowSeverity = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 8, 2, 13), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: analog2VeryLowSeverity.setStatus('mandatory')
-analog2Name = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 8, 2, 14), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: analog2Name.setStatus('mandatory')
-esPointTable = MibTable((1, 3, 6, 1, 4, 1, 3052, 40, 10, 1), )
-if mibBuilder.loadTexts: esPointTable.setStatus('mandatory')
-esPointEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3052, 40, 10, 1, 1), ).setIndexNames((0, "SL10-MIB", "esIndexES"), (0, "SL10-MIB", "esIndexPC"), (0, "SL10-MIB", "esIndexPoint"))
-if mibBuilder.loadTexts: esPointEntry.setStatus('mandatory')
-esIndexES = MibTableColumn((1, 3, 6, 1, 4, 1, 3052, 40, 10, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: esIndexES.setStatus('mandatory')
-esIndexPC = MibTableColumn((1, 3, 6, 1, 4, 1, 3052, 40, 10, 1, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: esIndexPC.setStatus('mandatory')
-esIndexPoint = MibTableColumn((1, 3, 6, 1, 4, 1, 3052, 40, 10, 1, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: esIndexPoint.setStatus('mandatory')
-esPointName = MibTableColumn((1, 3, 6, 1, 4, 1, 3052, 40, 10, 1, 1, 4), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: esPointName.setStatus('mandatory')
-esPointInEventState = MibTableColumn((1, 3, 6, 1, 4, 1, 3052, 40, 10, 1, 1, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: esPointInEventState.setStatus('mandatory')
-esPointValueInt = MibTableColumn((1, 3, 6, 1, 4, 1, 3052, 40, 10, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32768, 32767))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: esPointValueInt.setStatus('mandatory')
-esPointValueStr = MibTableColumn((1, 3, 6, 1, 4, 1, 3052, 40, 10, 1, 1, 7), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: esPointValueStr.setStatus('mandatory')
-esNumberEventSensors = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 11, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: esNumberEventSensors.setStatus('mandatory')
-esTable = MibTable((1, 3, 6, 1, 4, 1, 3052, 40, 11, 2), )
-if mibBuilder.loadTexts: esTable.setStatus('mandatory')
-esEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3052, 40, 11, 2, 1), ).setIndexNames((0, "SL10-MIB", "esIndex"))
-if mibBuilder.loadTexts: esEntry.setStatus('mandatory')
-esIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3052, 40, 11, 2, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: esIndex.setStatus('mandatory')
-esID = MibTableColumn((1, 3, 6, 1, 4, 1, 3052, 40, 11, 2, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: esID.setStatus('mandatory')
-esNumberTempSensors = MibTableColumn((1, 3, 6, 1, 4, 1, 3052, 40, 11, 2, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: esNumberTempSensors.setStatus('mandatory')
-esTempReportingMode = MibTableColumn((1, 3, 6, 1, 4, 1, 3052, 40, 11, 2, 1, 4), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: esTempReportingMode.setStatus('mandatory')
-esNumberCCs = MibTableColumn((1, 3, 6, 1, 4, 1, 3052, 40, 11, 2, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: esNumberCCs.setStatus('mandatory')
-esCCReportingMode = MibTableColumn((1, 3, 6, 1, 4, 1, 3052, 40, 11, 2, 1, 6), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: esCCReportingMode.setStatus('mandatory')
-esNumberHumidSensors = MibTableColumn((1, 3, 6, 1, 4, 1, 3052, 40, 11, 2, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: esNumberHumidSensors.setStatus('mandatory')
-esHumidReportingMode = MibTableColumn((1, 3, 6, 1, 4, 1, 3052, 40, 11, 2, 1, 8), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: esHumidReportingMode.setStatus('mandatory')
-esNumberNoiseSensors = MibTableColumn((1, 3, 6, 1, 4, 1, 3052, 40, 11, 2, 1, 9), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: esNumberNoiseSensors.setStatus('mandatory')
-esNoiseReportingMode = MibTableColumn((1, 3, 6, 1, 4, 1, 3052, 40, 11, 2, 1, 10), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: esNoiseReportingMode.setStatus('mandatory')
-esNumberAirflowSensors = MibTableColumn((1, 3, 6, 1, 4, 1, 3052, 40, 11, 2, 1, 11), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: esNumberAirflowSensors.setStatus('mandatory')
-esAirflowReportingMode = MibTableColumn((1, 3, 6, 1, 4, 1, 3052, 40, 11, 2, 1, 12), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: esAirflowReportingMode.setStatus('mandatory')
-esNumberAnalog = MibTableColumn((1, 3, 6, 1, 4, 1, 3052, 40, 11, 2, 1, 13), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: esNumberAnalog.setStatus('mandatory')
-esAnalogReportingMode = MibTableColumn((1, 3, 6, 1, 4, 1, 3052, 40, 11, 2, 1, 14), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: esAnalogReportingMode.setStatus('mandatory')
-esNumberRelayOutputs = MibTableColumn((1, 3, 6, 1, 4, 1, 3052, 40, 11, 2, 1, 15), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: esNumberRelayOutputs.setStatus('mandatory')
-esRelayReportingMode = MibTableColumn((1, 3, 6, 1, 4, 1, 3052, 40, 11, 2, 1, 16), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: esRelayReportingMode.setStatus('mandatory')
-techsupportIPAddress = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 99, 1), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: techsupportIPAddress.setStatus('mandatory')
-techsupportNetMask = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 99, 2), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: techsupportNetMask.setStatus('mandatory')
-techsupportRouter = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 99, 3), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: techsupportRouter.setStatus('mandatory')
-techsupportRestart = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 99, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: techsupportRestart.setStatus('mandatory')
-techsupportSerialNumber = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 99, 5), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: techsupportSerialNumber.setStatus('mandatory')
-techsupportBoxTemp = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 99, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: techsupportBoxTemp.setStatus('mandatory')
-techsupportHeaterState = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 99, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: techsupportHeaterState.setStatus('mandatory')
-techsupportPSVolts = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 99, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: techsupportPSVolts.setStatus('mandatory')
-mibendObject = MibScalar((1, 3, 6, 1, 4, 1, 3052, 40, 100, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mibendObject.setStatus('mandatory')
-contact1ActiveTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,20001)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "contact1Name"), ("SL10-MIB", "contact1State"))
-contact2ActiveTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,20002)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "contact2Name"), ("SL10-MIB", "contact2State"))
-contact3ActiveTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,20003)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "contact3Name"), ("SL10-MIB", "contact3State"))
-contact4ActiveTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,20004)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "contact4Name"), ("SL10-MIB", "contact4State"))
-contact5ActiveTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,20005)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "contact5Name"), ("SL10-MIB", "contact5State"))
-contact6ActiveTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,20006)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "contact6Name"), ("SL10-MIB", "contact6State"))
-contact7ActiveTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,20007)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "contact7Name"), ("SL10-MIB", "contact7State"))
-contact8ActiveTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,20008)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "contact8Name"), ("SL10-MIB", "contact8State"))
-contact9ActiveTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,20009)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "contact9Name"), ("SL10-MIB", "contact9State"))
-tempHighTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,20010)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "tempValue"))
-tempVeryHighTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,20011)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "tempValue"))
-tempLowTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,20012)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "tempValue"))
-tempVeryLowTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,20013)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "tempValue"))
-humidityHighTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,20020)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "humidityValue"))
-humidityVeryHighTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,20021)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "humidityValue"))
-humidityLowTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,20022)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "humidityValue"))
-humidityVeryLowTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,20023)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "humidityValue"))
-analog1HighTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,20030)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "analog1Name"), ("SL10-MIB", "analog1Value"))
-analog1VeryHighTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,20031)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "analog1Name"), ("SL10-MIB", "analog1Value"))
-analog1LowTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,20032)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "analog1Name"), ("SL10-MIB", "analog1Value"))
-analog1VeryLowTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,20033)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "analog1Name"), ("SL10-MIB", "analog1Value"))
-analog2HighTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,20040)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "analog2Name"), ("SL10-MIB", "analog2Value"))
-analog2VeryHighTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,20041)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "analog2Name"), ("SL10-MIB", "analog2Value"))
-analog2LowTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,20042)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "analog2Name"), ("SL10-MIB", "analog2Value"))
-analog2VeryLowTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,20043)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "analog2Name"), ("SL10-MIB", "analog2Value"))
-contactESActiveTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,20101)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "esPointName"), ("SL10-MIB", "esPointValueInt"), ("SL10-MIB", "esIndexES"), ("SL10-MIB", "esIndexPoint"))
-tempESHighTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,20110)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "esPointName"), ("SL10-MIB", "esPointValueInt"), ("SL10-MIB", "esIndexES"), ("SL10-MIB", "esIndexPoint"))
-tempESVeryHighTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,20111)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "esPointName"), ("SL10-MIB", "esPointValueInt"), ("SL10-MIB", "esIndexES"), ("SL10-MIB", "esIndexPoint"))
-tempESLowTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,20112)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "esPointName"), ("SL10-MIB", "esPointValueInt"), ("SL10-MIB", "esIndexES"), ("SL10-MIB", "esIndexPoint"))
-tempESVeryLowTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,20113)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "esPointName"), ("SL10-MIB", "esPointValueInt"), ("SL10-MIB", "esIndexES"), ("SL10-MIB", "esIndexPoint"))
-humidityESHighTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,20120)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "esPointName"), ("SL10-MIB", "esPointValueInt"), ("SL10-MIB", "esIndexES"), ("SL10-MIB", "esIndexPoint"))
-humidityESVeryHighTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,20121)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "esPointName"), ("SL10-MIB", "esPointValueInt"), ("SL10-MIB", "esIndexES"), ("SL10-MIB", "esIndexPoint"))
-humidityESLowTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,20122)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "esPointName"), ("SL10-MIB", "esPointValueInt"), ("SL10-MIB", "esIndexES"), ("SL10-MIB", "esIndexPoint"))
-humidityESVeryLowTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,20123)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "esPointName"), ("SL10-MIB", "esPointValueInt"), ("SL10-MIB", "esIndexES"), ("SL10-MIB", "esIndexPoint"))
-voltageESHighTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,20130)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "esPointName"), ("SL10-MIB", "esPointValueInt"), ("SL10-MIB", "esIndexES"), ("SL10-MIB", "esIndexPoint"))
-voltageESVeryHighTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,20131)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "esPointName"), ("SL10-MIB", "esPointValueInt"), ("SL10-MIB", "esIndexES"), ("SL10-MIB", "esIndexPoint"))
-voltageESLowTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,20132)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "esPointName"), ("SL10-MIB", "esPointValueInt"), ("SL10-MIB", "esIndexES"), ("SL10-MIB", "esIndexPoint"))
-voltageESVeryLowTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,20133)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "esPointName"), ("SL10-MIB", "esPointValueInt"), ("SL10-MIB", "esIndexES"), ("SL10-MIB", "esIndexPoint"))
-contact1NormalTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,21001)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "contact1Name"), ("SL10-MIB", "contact1State"))
-contact2NormalTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,21002)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "contact2Name"), ("SL10-MIB", "contact2State"))
-contact3NormalTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,21003)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "contact3Name"), ("SL10-MIB", "contact3State"))
-contact4NormalTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,21004)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "contact4Name"), ("SL10-MIB", "contact4State"))
-contact5NormalTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,21005)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "contact5Name"), ("SL10-MIB", "contact5State"))
-contact6NormalTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,21006)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "contact6Name"), ("SL10-MIB", "contact6State"))
-contact7NormalTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,21007)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "contact7Name"), ("SL10-MIB", "contact7State"))
-contact8NormalTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,21008)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "contact8Name"), ("SL10-MIB", "contact8State"))
-contact9NormalTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,21009)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "contact9Name"), ("SL10-MIB", "contact9State"))
-tempNormalTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,21010)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "tempValue"))
-humidityNormalTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,21020)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "humidityValue"))
-analog1NormalTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,21030)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "analog1Name"), ("SL10-MIB", "analog1Value"))
-analog2NormalTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,21040)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "analog2Name"), ("SL10-MIB", "analog2Value"))
-contactESNormalTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,21101)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "esPointName"), ("SL10-MIB", "esPointValueInt"), ("SL10-MIB", "esIndexES"), ("SL10-MIB", "esIndexPoint"))
-tempESNormalTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,21110)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "esPointName"), ("SL10-MIB", "esPointValueInt"), ("SL10-MIB", "esIndexES"), ("SL10-MIB", "esIndexPoint"))
-humidityESNormalTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,21120)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "esPointName"), ("SL10-MIB", "esPointValueInt"), ("SL10-MIB", "esIndexES"), ("SL10-MIB", "esIndexPoint"))
-voltageESNormalTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,21130)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"), ("SL10-MIB", "esPointName"), ("SL10-MIB", "esPointValueInt"), ("SL10-MIB", "esIndexES"), ("SL10-MIB", "esIndexPoint"))
-testTrap = NotificationType((1, 3, 6, 1, 4, 1, 3052, 40) + (0,22000)).setObjects(("SL10-MIB", "thisTrapText"), ("SL10-MIB", "siteID"))
-mibBuilder.exportSymbols("SL10-MIB", contact2NormalTrap=contact2NormalTrap, contact6ActiveDirection=contact6ActiveDirection, analog1VeryLowTrap=analog1VeryLowTrap, contact5=contact5, contact3ActiveDirection=contact3ActiveDirection, tempVeryHighSeverity=tempVeryHighSeverity, humidityESNormalTrap=humidityESNormalTrap, humidityReturnNormalTrap=humidityReturnNormalTrap, contact1AlarmEnable=contact1AlarmEnable, esPointName=esPointName, contact8State=contact8State, analog2VeryHighLevel=analog2VeryHighLevel, esNumberRelayOutputs=esNumberRelayOutputs, ptTCPPortnumber=ptTCPPortnumber, techsupportNetMask=techsupportNetMask, contact4ReturnNormalTrap=contact4ReturnNormalTrap, relay2PowerupState=relay2PowerupState, humidityVeryHighTrap=humidityVeryHighTrap, relay1CurrentState=relay1CurrentState, contact4NormalTrap=contact4NormalTrap, contact2AlarmEnable=contact2AlarmEnable, sl10=sl10, contact1Name=contact1Name, analog1HighSeverity=analog1HighSeverity, contact7ReturnNormalTrap=contact7ReturnNormalTrap, contact1NormalTrap=contact1NormalTrap, contact7Name=contact7Name, contact9State=contact9State, tempHighLevel=tempHighLevel, analog1AlarmEnable=analog1AlarmEnable, esNumberCCs=esNumberCCs, contact5State=contact5State, tempVeryHighLevel=tempVeryHighLevel, esHumidReportingMode=esHumidReportingMode, analog2Value=analog2Value, esEntry=esEntry, esNumberAirflowSensors=esNumberAirflowSensors, humidityLowLevel=humidityLowLevel, contact6ActiveTrap=contact6ActiveTrap, contact5Name=contact5Name, relay2Name=relay2Name, ptSerialBaudrate=ptSerialBaudrate, contact4Severity=contact4Severity, tempVeryHighTrap=tempVeryHighTrap, asentria=asentria, contact3TrapRepeat=contact3TrapRepeat, contact4ActiveTrap=contact4ActiveTrap, contact4AlarmEnable=contact4AlarmEnable, contact5Severity=contact5Severity, relay1Name=relay1Name, contact7Threshold=contact7Threshold, humidityVeryHighSeverity=humidityVeryHighSeverity, analog1VeryLowSeverity=analog1VeryLowSeverity, contact4TrapRepeat=contact4TrapRepeat, esPointInEventState=esPointInEventState, tempESNormalTrap=tempESNormalTrap, input78Mode=input78Mode, contact1State=contact1State, serialNumber=serialNumber, ptLfstripToPort=ptLfstripToPort, ptSerialParity=ptSerialParity, analog1LowLevel=analog1LowLevel, analog2AlarmEnable=analog2AlarmEnable, contact7AlarmEnable=contact7AlarmEnable, contact5ActiveTrap=contact5ActiveTrap, analog1VeryHighLevel=analog1VeryHighLevel, contact4ActiveDirection=contact4ActiveDirection, relays=relays, esNumberEventSensors=esNumberEventSensors, humidityVeryLowLevel=humidityVeryLowLevel, tempLowTrap=tempLowTrap, contact2State=contact2State, snmpManager1=snmpManager1, tempAlarmThreshold=tempAlarmThreshold, analog2AlarmThreshold=analog2AlarmThreshold, contact6Threshold=contact6Threshold, ftp=ftp, contact7Severity=contact7Severity, alarmStatus=alarmStatus, contact3Threshold=contact3Threshold, analog2VeryLowTrap=analog2VeryLowTrap, humidityTrapRepeat=humidityTrapRepeat, contact8AlarmEnable=contact8AlarmEnable, tempLowLevel=tempLowLevel, esAnalogReportingMode=esAnalogReportingMode, contact4=contact4, esRelayReportingMode=esRelayReportingMode, contact8Name=contact8Name, humidityAlarmEnable=humidityAlarmEnable, analog1VeryLowLevel=analog1VeryLowLevel, esNoiseReportingMode=esNoiseReportingMode, tempESVeryHighTrap=tempESVeryHighTrap, contact1TrapRepeat=contact1TrapRepeat, contact9AlarmEnable=contact9AlarmEnable, analog2VeryHighSeverity=analog2VeryHighSeverity, esPointValueInt=esPointValueInt, relay2=relay2, testTrap=testTrap, contact1ActiveTrap=contact1ActiveTrap, snmpManager3=snmpManager3, esIndexPoint=esIndexPoint, esIndex=esIndex, tempHighTrap=tempHighTrap, analog2Name=analog2Name, analog1VeryHighTrap=analog1VeryHighTrap, ptSaySiteID=ptSaySiteID, contact8Threshold=contact8Threshold, esAirflowReportingMode=esAirflowReportingMode, snmpManager4=snmpManager4, humidityESVeryHighTrap=humidityESVeryHighTrap, statusRepeatHours=statusRepeatHours, tempName=tempName, tempVeryLowSeverity=tempVeryLowSeverity, contact7ActiveTrap=contact7ActiveTrap, contact6Severity=contact6Severity, serialTimeout=serialTimeout, eventSensorConfig=eventSensorConfig, contact9Threshold=contact9Threshold, analog2VeryHighTrap=analog2VeryHighTrap, ptNeedPassword=ptNeedPassword, contacts=contacts, contact7ActiveDirection=contact7ActiveDirection, analog2LowLevel=analog2LowLevel, analog2ReturnNormalTrap=analog2ReturnNormalTrap, contact9Severity=contact9Severity, esIndexPC=esIndexPC, contact3=contact3, ftpUsername=ftpUsername, ptPassword=ptPassword, analog2VeryLowLevel=analog2VeryLowLevel, relay1=relay1, analog2LowSeverity=analog2LowSeverity, esNumberHumidSensors=esNumberHumidSensors, eventSensorStatus=eventSensorStatus, powerupTrapsend=powerupTrapsend, contact2ActiveDirection=contact2ActiveDirection, analog2LowTrap=analog2LowTrap, esTempReportingMode=esTempReportingMode, mibendObject=mibendObject, contact9NormalTrap=contact9NormalTrap, esNumberNoiseSensors=esNumberNoiseSensors, passthrough=passthrough, analog1ReturnNormalTrap=analog1ReturnNormalTrap, contact5Threshold=contact5Threshold, esIndexES=esIndexES, humiditysensor=humiditysensor, contact2Severity=contact2Severity, contact5ReturnNormalTrap=contact5ReturnNormalTrap, contact2TrapRepeat=contact2TrapRepeat, contact8=contact8, voltageESLowTrap=voltageESLowTrap, buildID=buildID, contact9=contact9, contact9TrapRepeat=contact9TrapRepeat, contact2Threshold=contact2Threshold, esPointEntry=esPointEntry, contact5ActiveDirection=contact5ActiveDirection, contact6NormalTrap=contact6NormalTrap, contact1Threshold=contact1Threshold, analog1HighTrap=analog1HighTrap, contact3State=contact3State, analog1LowSeverity=analog1LowSeverity, esCCReportingMode=esCCReportingMode, contact8NormalTrap=contact8NormalTrap, contact6TrapRepeat=contact6TrapRepeat, techsupportSerialNumber=techsupportSerialNumber, humidityName=humidityName, techsupportRestart=techsupportRestart, contact7NormalTrap=contact7NormalTrap, contact3Name=contact3Name, humidityAlarmThreshold=humidityAlarmThreshold, contact1ReturnNormalTrap=contact1ReturnNormalTrap, humidityLowSeverity=humidityLowSeverity, analog2HighSeverity=analog2HighSeverity, contact3ReturnNormalTrap=contact3ReturnNormalTrap, contact7TrapRepeat=contact7TrapRepeat, contact8ActiveTrap=contact8ActiveTrap, mibend=mibend, analog2HighTrap=analog2HighTrap, contact6State=contact6State, tempESHighTrap=tempESHighTrap, contact9Name=contact9Name, tempValue=tempValue, humidityESHighTrap=humidityESHighTrap, voltageESHighTrap=voltageESHighTrap, humidityVeryLowSeverity=humidityVeryLowSeverity, contact2=contact2, contact6AlarmEnable=contact6AlarmEnable, contact2ActiveTrap=contact2ActiveTrap, humidityESVeryLowTrap=humidityESVeryLowTrap, ptLoginText=ptLoginText, ptLfstripFromPort=ptLfstripFromPort, ftpPassword=ftpPassword, contact4Threshold=contact4Threshold, tempESVeryLowTrap=tempESVeryLowTrap, analog1LowTrap=analog1LowTrap, techsupport=techsupport, thisTrapText=thisTrapText, humidityHighSeverity=humidityHighSeverity, netlossTrapsend=netlossTrapsend, tempsensor=tempsensor, analog2HighLevel=analog2HighLevel, contact7State=contact7State, contact5TrapRepeat=contact5TrapRepeat, device=device, contact8Severity=contact8Severity, humidityValue=humidityValue, techsupportRouter=techsupportRouter, voltageESNormalTrap=voltageESNormalTrap, contact8ReturnNormalTrap=contact8ReturnNormalTrap, techsupportIPAddress=techsupportIPAddress, contact3AlarmEnable=contact3AlarmEnable, esNumberAnalog=esNumberAnalog, contact5AlarmEnable=contact5AlarmEnable, humidityHighLevel=humidityHighLevel, contact3Severity=contact3Severity, forceTraps=forceTraps, contact9ReturnNormalTrap=contact9ReturnNormalTrap, analog1NormalTrap=analog1NormalTrap, techsupportPSVolts=techsupportPSVolts, humidityLowTrap=humidityLowTrap, esID=esID, tempHighSeverity=tempHighSeverity, analog2=analog2, humidityVeryHighLevel=humidityVeryHighLevel, tempAlarmEnable=tempAlarmEnable, ptSerialWordlength=ptSerialWordlength, tempReturnNormalTrap=tempReturnNormalTrap, contact8ActiveDirection=contact8ActiveDirection, contact2Name=contact2Name, relay2CurrentState=relay2CurrentState, contact4State=contact4State, contact8TrapRepeat=contact8TrapRepeat, analog=analog, tempTrapRepeat=tempTrapRepeat, tempLowSeverity=tempLowSeverity, tempNormalTrap=tempNormalTrap, analog1HighLevel=analog1HighLevel, contact1=contact1, contact6ReturnNormalTrap=contact6ReturnNormalTrap, esPointTable=esPointTable, tempESLowTrap=tempESLowTrap, firmwareVersion=firmwareVersion, contact9ActiveDirection=contact9ActiveDirection, esPointValueStr=esPointValueStr, humidityHighTrap=humidityHighTrap, contact1Severity=contact1Severity, analog2TrapRepeat=analog2TrapRepeat, analog1AlarmThreshold=analog1AlarmThreshold, contact7=contact7, tempMode=tempMode, esNumberTempSensors=esNumberTempSensors, analog2VeryLowSeverity=analog2VeryLowSeverity, techsupportBoxTemp=techsupportBoxTemp)
-mibBuilder.exportSymbols("SL10-MIB", techsupportHeaterState=techsupportHeaterState, tempVeryLowLevel=tempVeryLowLevel, contact3ActiveTrap=contact3ActiveTrap, ptSayLoginText=ptSayLoginText, tempVeryLowTrap=tempVeryLowTrap, contactESNormalTrap=contactESNormalTrap, contact4Name=contact4Name, snmpManager2=snmpManager2, analog1TrapRepeat=analog1TrapRepeat, relay1PowerupState=relay1PowerupState, humidityVeryLowTrap=humidityVeryLowTrap, voltageESVeryHighTrap=voltageESVeryHighTrap, contactESActiveTrap=contactESActiveTrap, humidityNormalTrap=humidityNormalTrap, ptEscChar=ptEscChar, humidityESLowTrap=humidityESLowTrap, contact1ActiveDirection=contact1ActiveDirection, siteID=siteID, ptUsername=ptUsername, contact9ActiveTrap=contact9ActiveTrap, contact6Name=contact6Name, analog1Value=analog1Value, analog1VeryHighSeverity=analog1VeryHighSeverity, snmpManager=snmpManager, contact6=contact6, analog1Name=analog1Name, contact3NormalTrap=contact3NormalTrap, contact2ReturnNormalTrap=contact2ReturnNormalTrap, analog2NormalTrap=analog2NormalTrap, esTable=esTable, ptTimeout=ptTimeout, analog1=analog1, voltageESVeryLowTrap=voltageESVeryLowTrap, contact5NormalTrap=contact5NormalTrap)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/SL10-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:53:47 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ NotificationType,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ internet,
+ iso,
+ mgmt,
+ private) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "NotificationType",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "internet",
+    "iso",
+    "mgmt",
+    "private")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Asentria_ObjectIdentity = ObjectIdentity
+asentria = _Asentria_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3052)
+)
+_Sl10_ObjectIdentity = ObjectIdentity
+sl10 = _Sl10_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3052, 40)
+)
+_Device_ObjectIdentity = ObjectIdentity
+device = _Device_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 1)
+)
+_SerialNumber_Type = DisplayString
+_SerialNumber_Object = MibScalar
+serialNumber = _SerialNumber_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 1, 1),
+    _SerialNumber_Type()
+)
+serialNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    serialNumber.setStatus("mandatory")
+_FirmwareVersion_Type = DisplayString
+_FirmwareVersion_Object = MibScalar
+firmwareVersion = _FirmwareVersion_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 1, 2),
+    _FirmwareVersion_Type()
+)
+firmwareVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    firmwareVersion.setStatus("mandatory")
+_SiteID_Type = DisplayString
+_SiteID_Object = MibScalar
+siteID = _SiteID_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 1, 3),
+    _SiteID_Type()
+)
+siteID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    siteID.setStatus("mandatory")
+_SnmpManager_Type = IpAddress
+_SnmpManager_Object = MibScalar
+snmpManager = _SnmpManager_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 1, 4),
+    _SnmpManager_Type()
+)
+snmpManager.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    snmpManager.setStatus("deprecated")
+_Input78Mode_Type = Integer32
+_Input78Mode_Object = MibScalar
+input78Mode = _Input78Mode_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 1, 5),
+    _Input78Mode_Type()
+)
+input78Mode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    input78Mode.setStatus("deprecated")
+_ForceTraps_Type = Integer32
+_ForceTraps_Object = MibScalar
+forceTraps = _ForceTraps_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 1, 6),
+    _ForceTraps_Type()
+)
+forceTraps.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    forceTraps.setStatus("mandatory")
+_ThisTrapText_Type = DisplayString
+_ThisTrapText_Object = MibScalar
+thisTrapText = _ThisTrapText_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 1, 7),
+    _ThisTrapText_Type()
+)
+thisTrapText.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    thisTrapText.setStatus("mandatory")
+_AlarmStatus_Type = DisplayString
+_AlarmStatus_Object = MibScalar
+alarmStatus = _AlarmStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 1, 8),
+    _AlarmStatus_Type()
+)
+alarmStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alarmStatus.setStatus("mandatory")
+_SnmpManager1_Type = IpAddress
+_SnmpManager1_Object = MibScalar
+snmpManager1 = _SnmpManager1_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 1, 9),
+    _SnmpManager1_Type()
+)
+snmpManager1.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    snmpManager1.setStatus("mandatory")
+_SnmpManager2_Type = IpAddress
+_SnmpManager2_Object = MibScalar
+snmpManager2 = _SnmpManager2_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 1, 10),
+    _SnmpManager2_Type()
+)
+snmpManager2.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    snmpManager2.setStatus("mandatory")
+_SnmpManager3_Type = IpAddress
+_SnmpManager3_Object = MibScalar
+snmpManager3 = _SnmpManager3_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 1, 11),
+    _SnmpManager3_Type()
+)
+snmpManager3.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    snmpManager3.setStatus("mandatory")
+_SnmpManager4_Type = IpAddress
+_SnmpManager4_Object = MibScalar
+snmpManager4 = _SnmpManager4_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 1, 12),
+    _SnmpManager4_Type()
+)
+snmpManager4.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    snmpManager4.setStatus("mandatory")
+_StatusRepeatHours_Type = Integer32
+_StatusRepeatHours_Object = MibScalar
+statusRepeatHours = _StatusRepeatHours_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 1, 13),
+    _StatusRepeatHours_Type()
+)
+statusRepeatHours.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    statusRepeatHours.setStatus("mandatory")
+_SerialTimeout_Type = Integer32
+_SerialTimeout_Object = MibScalar
+serialTimeout = _SerialTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 1, 14),
+    _SerialTimeout_Type()
+)
+serialTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    serialTimeout.setStatus("mandatory")
+_PowerupTrapsend_Type = Integer32
+_PowerupTrapsend_Object = MibScalar
+powerupTrapsend = _PowerupTrapsend_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 1, 15),
+    _PowerupTrapsend_Type()
+)
+powerupTrapsend.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    powerupTrapsend.setStatus("mandatory")
+_NetlossTrapsend_Type = Integer32
+_NetlossTrapsend_Object = MibScalar
+netlossTrapsend = _NetlossTrapsend_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 1, 16),
+    _NetlossTrapsend_Type()
+)
+netlossTrapsend.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    netlossTrapsend.setStatus("mandatory")
+_BuildID_Type = DisplayString
+_BuildID_Object = MibScalar
+buildID = _BuildID_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 1, 17),
+    _BuildID_Type()
+)
+buildID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    buildID.setStatus("mandatory")
+_Contacts_ObjectIdentity = ObjectIdentity
+contacts = _Contacts_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2)
+)
+_Contact1_ObjectIdentity = ObjectIdentity
+contact1 = _Contact1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 1)
+)
+_Contact1Name_Type = DisplayString
+_Contact1Name_Object = MibScalar
+contact1Name = _Contact1Name_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 1, 1),
+    _Contact1Name_Type()
+)
+contact1Name.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact1Name.setStatus("mandatory")
+_Contact1State_Type = Integer32
+_Contact1State_Object = MibScalar
+contact1State = _Contact1State_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 1, 2),
+    _Contact1State_Type()
+)
+contact1State.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    contact1State.setStatus("mandatory")
+_Contact1AlarmEnable_Type = Integer32
+_Contact1AlarmEnable_Object = MibScalar
+contact1AlarmEnable = _Contact1AlarmEnable_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 1, 3),
+    _Contact1AlarmEnable_Type()
+)
+contact1AlarmEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact1AlarmEnable.setStatus("mandatory")
+_Contact1ActiveDirection_Type = Integer32
+_Contact1ActiveDirection_Object = MibScalar
+contact1ActiveDirection = _Contact1ActiveDirection_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 1, 4),
+    _Contact1ActiveDirection_Type()
+)
+contact1ActiveDirection.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact1ActiveDirection.setStatus("mandatory")
+_Contact1Threshold_Type = Integer32
+_Contact1Threshold_Object = MibScalar
+contact1Threshold = _Contact1Threshold_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 1, 5),
+    _Contact1Threshold_Type()
+)
+contact1Threshold.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact1Threshold.setStatus("mandatory")
+_Contact1ReturnNormalTrap_Type = Integer32
+_Contact1ReturnNormalTrap_Object = MibScalar
+contact1ReturnNormalTrap = _Contact1ReturnNormalTrap_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 1, 6),
+    _Contact1ReturnNormalTrap_Type()
+)
+contact1ReturnNormalTrap.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact1ReturnNormalTrap.setStatus("mandatory")
+_Contact1TrapRepeat_Type = Integer32
+_Contact1TrapRepeat_Object = MibScalar
+contact1TrapRepeat = _Contact1TrapRepeat_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 1, 7),
+    _Contact1TrapRepeat_Type()
+)
+contact1TrapRepeat.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact1TrapRepeat.setStatus("mandatory")
+_Contact1Severity_Type = Integer32
+_Contact1Severity_Object = MibScalar
+contact1Severity = _Contact1Severity_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 1, 8),
+    _Contact1Severity_Type()
+)
+contact1Severity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact1Severity.setStatus("mandatory")
+_Contact2_ObjectIdentity = ObjectIdentity
+contact2 = _Contact2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 2)
+)
+_Contact2Name_Type = DisplayString
+_Contact2Name_Object = MibScalar
+contact2Name = _Contact2Name_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 2, 1),
+    _Contact2Name_Type()
+)
+contact2Name.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact2Name.setStatus("mandatory")
+_Contact2State_Type = Integer32
+_Contact2State_Object = MibScalar
+contact2State = _Contact2State_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 2, 2),
+    _Contact2State_Type()
+)
+contact2State.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    contact2State.setStatus("mandatory")
+_Contact2AlarmEnable_Type = Integer32
+_Contact2AlarmEnable_Object = MibScalar
+contact2AlarmEnable = _Contact2AlarmEnable_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 2, 3),
+    _Contact2AlarmEnable_Type()
+)
+contact2AlarmEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact2AlarmEnable.setStatus("mandatory")
+_Contact2ActiveDirection_Type = Integer32
+_Contact2ActiveDirection_Object = MibScalar
+contact2ActiveDirection = _Contact2ActiveDirection_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 2, 4),
+    _Contact2ActiveDirection_Type()
+)
+contact2ActiveDirection.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact2ActiveDirection.setStatus("mandatory")
+_Contact2Threshold_Type = Integer32
+_Contact2Threshold_Object = MibScalar
+contact2Threshold = _Contact2Threshold_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 2, 5),
+    _Contact2Threshold_Type()
+)
+contact2Threshold.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact2Threshold.setStatus("mandatory")
+_Contact2ReturnNormalTrap_Type = Integer32
+_Contact2ReturnNormalTrap_Object = MibScalar
+contact2ReturnNormalTrap = _Contact2ReturnNormalTrap_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 2, 6),
+    _Contact2ReturnNormalTrap_Type()
+)
+contact2ReturnNormalTrap.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact2ReturnNormalTrap.setStatus("mandatory")
+_Contact2TrapRepeat_Type = Integer32
+_Contact2TrapRepeat_Object = MibScalar
+contact2TrapRepeat = _Contact2TrapRepeat_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 2, 7),
+    _Contact2TrapRepeat_Type()
+)
+contact2TrapRepeat.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact2TrapRepeat.setStatus("mandatory")
+_Contact2Severity_Type = Integer32
+_Contact2Severity_Object = MibScalar
+contact2Severity = _Contact2Severity_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 2, 8),
+    _Contact2Severity_Type()
+)
+contact2Severity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact2Severity.setStatus("mandatory")
+_Contact3_ObjectIdentity = ObjectIdentity
+contact3 = _Contact3_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 3)
+)
+_Contact3Name_Type = DisplayString
+_Contact3Name_Object = MibScalar
+contact3Name = _Contact3Name_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 3, 1),
+    _Contact3Name_Type()
+)
+contact3Name.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact3Name.setStatus("mandatory")
+_Contact3State_Type = Integer32
+_Contact3State_Object = MibScalar
+contact3State = _Contact3State_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 3, 2),
+    _Contact3State_Type()
+)
+contact3State.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    contact3State.setStatus("mandatory")
+_Contact3AlarmEnable_Type = Integer32
+_Contact3AlarmEnable_Object = MibScalar
+contact3AlarmEnable = _Contact3AlarmEnable_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 3, 3),
+    _Contact3AlarmEnable_Type()
+)
+contact3AlarmEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact3AlarmEnable.setStatus("mandatory")
+_Contact3ActiveDirection_Type = Integer32
+_Contact3ActiveDirection_Object = MibScalar
+contact3ActiveDirection = _Contact3ActiveDirection_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 3, 4),
+    _Contact3ActiveDirection_Type()
+)
+contact3ActiveDirection.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact3ActiveDirection.setStatus("mandatory")
+_Contact3Threshold_Type = Integer32
+_Contact3Threshold_Object = MibScalar
+contact3Threshold = _Contact3Threshold_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 3, 5),
+    _Contact3Threshold_Type()
+)
+contact3Threshold.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact3Threshold.setStatus("mandatory")
+_Contact3ReturnNormalTrap_Type = Integer32
+_Contact3ReturnNormalTrap_Object = MibScalar
+contact3ReturnNormalTrap = _Contact3ReturnNormalTrap_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 3, 6),
+    _Contact3ReturnNormalTrap_Type()
+)
+contact3ReturnNormalTrap.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact3ReturnNormalTrap.setStatus("mandatory")
+_Contact3TrapRepeat_Type = Integer32
+_Contact3TrapRepeat_Object = MibScalar
+contact3TrapRepeat = _Contact3TrapRepeat_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 3, 7),
+    _Contact3TrapRepeat_Type()
+)
+contact3TrapRepeat.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact3TrapRepeat.setStatus("mandatory")
+_Contact3Severity_Type = Integer32
+_Contact3Severity_Object = MibScalar
+contact3Severity = _Contact3Severity_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 3, 8),
+    _Contact3Severity_Type()
+)
+contact3Severity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact3Severity.setStatus("mandatory")
+_Contact4_ObjectIdentity = ObjectIdentity
+contact4 = _Contact4_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 4)
+)
+_Contact4Name_Type = DisplayString
+_Contact4Name_Object = MibScalar
+contact4Name = _Contact4Name_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 4, 1),
+    _Contact4Name_Type()
+)
+contact4Name.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact4Name.setStatus("mandatory")
+_Contact4State_Type = Integer32
+_Contact4State_Object = MibScalar
+contact4State = _Contact4State_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 4, 2),
+    _Contact4State_Type()
+)
+contact4State.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    contact4State.setStatus("mandatory")
+_Contact4AlarmEnable_Type = Integer32
+_Contact4AlarmEnable_Object = MibScalar
+contact4AlarmEnable = _Contact4AlarmEnable_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 4, 3),
+    _Contact4AlarmEnable_Type()
+)
+contact4AlarmEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact4AlarmEnable.setStatus("mandatory")
+_Contact4ActiveDirection_Type = Integer32
+_Contact4ActiveDirection_Object = MibScalar
+contact4ActiveDirection = _Contact4ActiveDirection_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 4, 4),
+    _Contact4ActiveDirection_Type()
+)
+contact4ActiveDirection.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact4ActiveDirection.setStatus("mandatory")
+_Contact4Threshold_Type = Integer32
+_Contact4Threshold_Object = MibScalar
+contact4Threshold = _Contact4Threshold_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 4, 5),
+    _Contact4Threshold_Type()
+)
+contact4Threshold.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact4Threshold.setStatus("mandatory")
+_Contact4ReturnNormalTrap_Type = Integer32
+_Contact4ReturnNormalTrap_Object = MibScalar
+contact4ReturnNormalTrap = _Contact4ReturnNormalTrap_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 4, 6),
+    _Contact4ReturnNormalTrap_Type()
+)
+contact4ReturnNormalTrap.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact4ReturnNormalTrap.setStatus("mandatory")
+_Contact4TrapRepeat_Type = Integer32
+_Contact4TrapRepeat_Object = MibScalar
+contact4TrapRepeat = _Contact4TrapRepeat_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 4, 7),
+    _Contact4TrapRepeat_Type()
+)
+contact4TrapRepeat.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact4TrapRepeat.setStatus("mandatory")
+_Contact4Severity_Type = Integer32
+_Contact4Severity_Object = MibScalar
+contact4Severity = _Contact4Severity_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 4, 8),
+    _Contact4Severity_Type()
+)
+contact4Severity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact4Severity.setStatus("mandatory")
+_Contact5_ObjectIdentity = ObjectIdentity
+contact5 = _Contact5_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 5)
+)
+_Contact5Name_Type = DisplayString
+_Contact5Name_Object = MibScalar
+contact5Name = _Contact5Name_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 5, 1),
+    _Contact5Name_Type()
+)
+contact5Name.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact5Name.setStatus("mandatory")
+_Contact5State_Type = Integer32
+_Contact5State_Object = MibScalar
+contact5State = _Contact5State_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 5, 2),
+    _Contact5State_Type()
+)
+contact5State.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    contact5State.setStatus("mandatory")
+_Contact5AlarmEnable_Type = Integer32
+_Contact5AlarmEnable_Object = MibScalar
+contact5AlarmEnable = _Contact5AlarmEnable_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 5, 3),
+    _Contact5AlarmEnable_Type()
+)
+contact5AlarmEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact5AlarmEnable.setStatus("mandatory")
+_Contact5ActiveDirection_Type = Integer32
+_Contact5ActiveDirection_Object = MibScalar
+contact5ActiveDirection = _Contact5ActiveDirection_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 5, 4),
+    _Contact5ActiveDirection_Type()
+)
+contact5ActiveDirection.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact5ActiveDirection.setStatus("mandatory")
+_Contact5Threshold_Type = Integer32
+_Contact5Threshold_Object = MibScalar
+contact5Threshold = _Contact5Threshold_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 5, 5),
+    _Contact5Threshold_Type()
+)
+contact5Threshold.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact5Threshold.setStatus("mandatory")
+_Contact5ReturnNormalTrap_Type = Integer32
+_Contact5ReturnNormalTrap_Object = MibScalar
+contact5ReturnNormalTrap = _Contact5ReturnNormalTrap_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 5, 6),
+    _Contact5ReturnNormalTrap_Type()
+)
+contact5ReturnNormalTrap.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact5ReturnNormalTrap.setStatus("mandatory")
+_Contact5TrapRepeat_Type = Integer32
+_Contact5TrapRepeat_Object = MibScalar
+contact5TrapRepeat = _Contact5TrapRepeat_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 5, 7),
+    _Contact5TrapRepeat_Type()
+)
+contact5TrapRepeat.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact5TrapRepeat.setStatus("mandatory")
+_Contact5Severity_Type = Integer32
+_Contact5Severity_Object = MibScalar
+contact5Severity = _Contact5Severity_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 5, 8),
+    _Contact5Severity_Type()
+)
+contact5Severity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact5Severity.setStatus("mandatory")
+_Contact6_ObjectIdentity = ObjectIdentity
+contact6 = _Contact6_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 6)
+)
+_Contact6Name_Type = DisplayString
+_Contact6Name_Object = MibScalar
+contact6Name = _Contact6Name_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 6, 1),
+    _Contact6Name_Type()
+)
+contact6Name.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact6Name.setStatus("mandatory")
+_Contact6State_Type = Integer32
+_Contact6State_Object = MibScalar
+contact6State = _Contact6State_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 6, 2),
+    _Contact6State_Type()
+)
+contact6State.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    contact6State.setStatus("mandatory")
+_Contact6AlarmEnable_Type = Integer32
+_Contact6AlarmEnable_Object = MibScalar
+contact6AlarmEnable = _Contact6AlarmEnable_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 6, 3),
+    _Contact6AlarmEnable_Type()
+)
+contact6AlarmEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact6AlarmEnable.setStatus("mandatory")
+_Contact6ActiveDirection_Type = Integer32
+_Contact6ActiveDirection_Object = MibScalar
+contact6ActiveDirection = _Contact6ActiveDirection_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 6, 4),
+    _Contact6ActiveDirection_Type()
+)
+contact6ActiveDirection.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact6ActiveDirection.setStatus("mandatory")
+_Contact6Threshold_Type = Integer32
+_Contact6Threshold_Object = MibScalar
+contact6Threshold = _Contact6Threshold_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 6, 5),
+    _Contact6Threshold_Type()
+)
+contact6Threshold.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact6Threshold.setStatus("mandatory")
+_Contact6ReturnNormalTrap_Type = Integer32
+_Contact6ReturnNormalTrap_Object = MibScalar
+contact6ReturnNormalTrap = _Contact6ReturnNormalTrap_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 6, 6),
+    _Contact6ReturnNormalTrap_Type()
+)
+contact6ReturnNormalTrap.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact6ReturnNormalTrap.setStatus("mandatory")
+_Contact6TrapRepeat_Type = Integer32
+_Contact6TrapRepeat_Object = MibScalar
+contact6TrapRepeat = _Contact6TrapRepeat_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 6, 7),
+    _Contact6TrapRepeat_Type()
+)
+contact6TrapRepeat.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact6TrapRepeat.setStatus("mandatory")
+_Contact6Severity_Type = Integer32
+_Contact6Severity_Object = MibScalar
+contact6Severity = _Contact6Severity_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 6, 8),
+    _Contact6Severity_Type()
+)
+contact6Severity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact6Severity.setStatus("mandatory")
+_Contact7_ObjectIdentity = ObjectIdentity
+contact7 = _Contact7_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 7)
+)
+_Contact7Name_Type = DisplayString
+_Contact7Name_Object = MibScalar
+contact7Name = _Contact7Name_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 7, 1),
+    _Contact7Name_Type()
+)
+contact7Name.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact7Name.setStatus("mandatory")
+_Contact7State_Type = Integer32
+_Contact7State_Object = MibScalar
+contact7State = _Contact7State_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 7, 2),
+    _Contact7State_Type()
+)
+contact7State.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    contact7State.setStatus("mandatory")
+_Contact7AlarmEnable_Type = Integer32
+_Contact7AlarmEnable_Object = MibScalar
+contact7AlarmEnable = _Contact7AlarmEnable_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 7, 3),
+    _Contact7AlarmEnable_Type()
+)
+contact7AlarmEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact7AlarmEnable.setStatus("mandatory")
+_Contact7ActiveDirection_Type = Integer32
+_Contact7ActiveDirection_Object = MibScalar
+contact7ActiveDirection = _Contact7ActiveDirection_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 7, 4),
+    _Contact7ActiveDirection_Type()
+)
+contact7ActiveDirection.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact7ActiveDirection.setStatus("mandatory")
+_Contact7Threshold_Type = Integer32
+_Contact7Threshold_Object = MibScalar
+contact7Threshold = _Contact7Threshold_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 7, 5),
+    _Contact7Threshold_Type()
+)
+contact7Threshold.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact7Threshold.setStatus("mandatory")
+_Contact7ReturnNormalTrap_Type = Integer32
+_Contact7ReturnNormalTrap_Object = MibScalar
+contact7ReturnNormalTrap = _Contact7ReturnNormalTrap_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 7, 6),
+    _Contact7ReturnNormalTrap_Type()
+)
+contact7ReturnNormalTrap.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact7ReturnNormalTrap.setStatus("mandatory")
+_Contact7TrapRepeat_Type = Integer32
+_Contact7TrapRepeat_Object = MibScalar
+contact7TrapRepeat = _Contact7TrapRepeat_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 7, 7),
+    _Contact7TrapRepeat_Type()
+)
+contact7TrapRepeat.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact7TrapRepeat.setStatus("mandatory")
+_Contact7Severity_Type = Integer32
+_Contact7Severity_Object = MibScalar
+contact7Severity = _Contact7Severity_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 7, 8),
+    _Contact7Severity_Type()
+)
+contact7Severity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact7Severity.setStatus("mandatory")
+_Contact8_ObjectIdentity = ObjectIdentity
+contact8 = _Contact8_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 8)
+)
+_Contact8Name_Type = DisplayString
+_Contact8Name_Object = MibScalar
+contact8Name = _Contact8Name_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 8, 1),
+    _Contact8Name_Type()
+)
+contact8Name.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact8Name.setStatus("mandatory")
+_Contact8State_Type = Integer32
+_Contact8State_Object = MibScalar
+contact8State = _Contact8State_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 8, 2),
+    _Contact8State_Type()
+)
+contact8State.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    contact8State.setStatus("mandatory")
+_Contact8AlarmEnable_Type = Integer32
+_Contact8AlarmEnable_Object = MibScalar
+contact8AlarmEnable = _Contact8AlarmEnable_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 8, 3),
+    _Contact8AlarmEnable_Type()
+)
+contact8AlarmEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact8AlarmEnable.setStatus("mandatory")
+_Contact8ActiveDirection_Type = Integer32
+_Contact8ActiveDirection_Object = MibScalar
+contact8ActiveDirection = _Contact8ActiveDirection_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 8, 4),
+    _Contact8ActiveDirection_Type()
+)
+contact8ActiveDirection.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact8ActiveDirection.setStatus("mandatory")
+_Contact8Threshold_Type = Integer32
+_Contact8Threshold_Object = MibScalar
+contact8Threshold = _Contact8Threshold_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 8, 5),
+    _Contact8Threshold_Type()
+)
+contact8Threshold.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact8Threshold.setStatus("mandatory")
+_Contact8ReturnNormalTrap_Type = Integer32
+_Contact8ReturnNormalTrap_Object = MibScalar
+contact8ReturnNormalTrap = _Contact8ReturnNormalTrap_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 8, 6),
+    _Contact8ReturnNormalTrap_Type()
+)
+contact8ReturnNormalTrap.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact8ReturnNormalTrap.setStatus("mandatory")
+_Contact8TrapRepeat_Type = Integer32
+_Contact8TrapRepeat_Object = MibScalar
+contact8TrapRepeat = _Contact8TrapRepeat_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 8, 7),
+    _Contact8TrapRepeat_Type()
+)
+contact8TrapRepeat.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact8TrapRepeat.setStatus("mandatory")
+_Contact8Severity_Type = Integer32
+_Contact8Severity_Object = MibScalar
+contact8Severity = _Contact8Severity_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 8, 8),
+    _Contact8Severity_Type()
+)
+contact8Severity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact8Severity.setStatus("mandatory")
+_Contact9_ObjectIdentity = ObjectIdentity
+contact9 = _Contact9_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 9)
+)
+_Contact9Name_Type = DisplayString
+_Contact9Name_Object = MibScalar
+contact9Name = _Contact9Name_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 9, 1),
+    _Contact9Name_Type()
+)
+contact9Name.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact9Name.setStatus("mandatory")
+_Contact9State_Type = Integer32
+_Contact9State_Object = MibScalar
+contact9State = _Contact9State_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 9, 2),
+    _Contact9State_Type()
+)
+contact9State.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    contact9State.setStatus("mandatory")
+_Contact9AlarmEnable_Type = Integer32
+_Contact9AlarmEnable_Object = MibScalar
+contact9AlarmEnable = _Contact9AlarmEnable_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 9, 3),
+    _Contact9AlarmEnable_Type()
+)
+contact9AlarmEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact9AlarmEnable.setStatus("mandatory")
+_Contact9ActiveDirection_Type = Integer32
+_Contact9ActiveDirection_Object = MibScalar
+contact9ActiveDirection = _Contact9ActiveDirection_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 9, 4),
+    _Contact9ActiveDirection_Type()
+)
+contact9ActiveDirection.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact9ActiveDirection.setStatus("mandatory")
+_Contact9Threshold_Type = Integer32
+_Contact9Threshold_Object = MibScalar
+contact9Threshold = _Contact9Threshold_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 9, 5),
+    _Contact9Threshold_Type()
+)
+contact9Threshold.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact9Threshold.setStatus("mandatory")
+_Contact9ReturnNormalTrap_Type = Integer32
+_Contact9ReturnNormalTrap_Object = MibScalar
+contact9ReturnNormalTrap = _Contact9ReturnNormalTrap_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 9, 6),
+    _Contact9ReturnNormalTrap_Type()
+)
+contact9ReturnNormalTrap.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact9ReturnNormalTrap.setStatus("mandatory")
+_Contact9TrapRepeat_Type = Integer32
+_Contact9TrapRepeat_Object = MibScalar
+contact9TrapRepeat = _Contact9TrapRepeat_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 9, 7),
+    _Contact9TrapRepeat_Type()
+)
+contact9TrapRepeat.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact9TrapRepeat.setStatus("mandatory")
+_Contact9Severity_Type = Integer32
+_Contact9Severity_Object = MibScalar
+contact9Severity = _Contact9Severity_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 2, 9, 8),
+    _Contact9Severity_Type()
+)
+contact9Severity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    contact9Severity.setStatus("mandatory")
+_Relays_ObjectIdentity = ObjectIdentity
+relays = _Relays_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 3)
+)
+_Relay1_ObjectIdentity = ObjectIdentity
+relay1 = _Relay1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 3, 1)
+)
+_Relay1Name_Type = DisplayString
+_Relay1Name_Object = MibScalar
+relay1Name = _Relay1Name_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 3, 1, 1),
+    _Relay1Name_Type()
+)
+relay1Name.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    relay1Name.setStatus("mandatory")
+_Relay1CurrentState_Type = Integer32
+_Relay1CurrentState_Object = MibScalar
+relay1CurrentState = _Relay1CurrentState_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 3, 1, 2),
+    _Relay1CurrentState_Type()
+)
+relay1CurrentState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    relay1CurrentState.setStatus("mandatory")
+_Relay1PowerupState_Type = Integer32
+_Relay1PowerupState_Object = MibScalar
+relay1PowerupState = _Relay1PowerupState_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 3, 1, 3),
+    _Relay1PowerupState_Type()
+)
+relay1PowerupState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    relay1PowerupState.setStatus("mandatory")
+_Relay2_ObjectIdentity = ObjectIdentity
+relay2 = _Relay2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 3, 2)
+)
+_Relay2Name_Type = DisplayString
+_Relay2Name_Object = MibScalar
+relay2Name = _Relay2Name_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 3, 2, 1),
+    _Relay2Name_Type()
+)
+relay2Name.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    relay2Name.setStatus("mandatory")
+_Relay2CurrentState_Type = Integer32
+_Relay2CurrentState_Object = MibScalar
+relay2CurrentState = _Relay2CurrentState_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 3, 2, 2),
+    _Relay2CurrentState_Type()
+)
+relay2CurrentState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    relay2CurrentState.setStatus("mandatory")
+_Relay2PowerupState_Type = Integer32
+_Relay2PowerupState_Object = MibScalar
+relay2PowerupState = _Relay2PowerupState_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 3, 2, 3),
+    _Relay2PowerupState_Type()
+)
+relay2PowerupState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    relay2PowerupState.setStatus("mandatory")
+_Tempsensor_ObjectIdentity = ObjectIdentity
+tempsensor = _Tempsensor_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 4)
+)
+_TempValue_Type = Integer32
+_TempValue_Object = MibScalar
+tempValue = _TempValue_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 4, 1),
+    _TempValue_Type()
+)
+tempValue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tempValue.setStatus("mandatory")
+_TempAlarmEnable_Type = Integer32
+_TempAlarmEnable_Object = MibScalar
+tempAlarmEnable = _TempAlarmEnable_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 4, 2),
+    _TempAlarmEnable_Type()
+)
+tempAlarmEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tempAlarmEnable.setStatus("mandatory")
+_TempHighLevel_Type = Integer32
+_TempHighLevel_Object = MibScalar
+tempHighLevel = _TempHighLevel_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 4, 3),
+    _TempHighLevel_Type()
+)
+tempHighLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tempHighLevel.setStatus("mandatory")
+_TempVeryHighLevel_Type = Integer32
+_TempVeryHighLevel_Object = MibScalar
+tempVeryHighLevel = _TempVeryHighLevel_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 4, 4),
+    _TempVeryHighLevel_Type()
+)
+tempVeryHighLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tempVeryHighLevel.setStatus("mandatory")
+_TempLowLevel_Type = Integer32
+_TempLowLevel_Object = MibScalar
+tempLowLevel = _TempLowLevel_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 4, 5),
+    _TempLowLevel_Type()
+)
+tempLowLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tempLowLevel.setStatus("mandatory")
+_TempVeryLowLevel_Type = Integer32
+_TempVeryLowLevel_Object = MibScalar
+tempVeryLowLevel = _TempVeryLowLevel_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 4, 6),
+    _TempVeryLowLevel_Type()
+)
+tempVeryLowLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tempVeryLowLevel.setStatus("mandatory")
+_TempAlarmThreshold_Type = Integer32
+_TempAlarmThreshold_Object = MibScalar
+tempAlarmThreshold = _TempAlarmThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 4, 7),
+    _TempAlarmThreshold_Type()
+)
+tempAlarmThreshold.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tempAlarmThreshold.setStatus("mandatory")
+_TempReturnNormalTrap_Type = Integer32
+_TempReturnNormalTrap_Object = MibScalar
+tempReturnNormalTrap = _TempReturnNormalTrap_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 4, 8),
+    _TempReturnNormalTrap_Type()
+)
+tempReturnNormalTrap.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tempReturnNormalTrap.setStatus("mandatory")
+_TempTrapRepeat_Type = Integer32
+_TempTrapRepeat_Object = MibScalar
+tempTrapRepeat = _TempTrapRepeat_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 4, 9),
+    _TempTrapRepeat_Type()
+)
+tempTrapRepeat.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tempTrapRepeat.setStatus("mandatory")
+_TempMode_Type = Integer32
+_TempMode_Object = MibScalar
+tempMode = _TempMode_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 4, 10),
+    _TempMode_Type()
+)
+tempMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tempMode.setStatus("mandatory")
+_TempHighSeverity_Type = Integer32
+_TempHighSeverity_Object = MibScalar
+tempHighSeverity = _TempHighSeverity_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 4, 11),
+    _TempHighSeverity_Type()
+)
+tempHighSeverity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tempHighSeverity.setStatus("mandatory")
+_TempVeryHighSeverity_Type = Integer32
+_TempVeryHighSeverity_Object = MibScalar
+tempVeryHighSeverity = _TempVeryHighSeverity_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 4, 12),
+    _TempVeryHighSeverity_Type()
+)
+tempVeryHighSeverity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tempVeryHighSeverity.setStatus("mandatory")
+_TempLowSeverity_Type = Integer32
+_TempLowSeverity_Object = MibScalar
+tempLowSeverity = _TempLowSeverity_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 4, 13),
+    _TempLowSeverity_Type()
+)
+tempLowSeverity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tempLowSeverity.setStatus("mandatory")
+_TempVeryLowSeverity_Type = Integer32
+_TempVeryLowSeverity_Object = MibScalar
+tempVeryLowSeverity = _TempVeryLowSeverity_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 4, 14),
+    _TempVeryLowSeverity_Type()
+)
+tempVeryLowSeverity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tempVeryLowSeverity.setStatus("mandatory")
+_TempName_Type = DisplayString
+_TempName_Object = MibScalar
+tempName = _TempName_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 4, 15),
+    _TempName_Type()
+)
+tempName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tempName.setStatus("mandatory")
+_Humiditysensor_ObjectIdentity = ObjectIdentity
+humiditysensor = _Humiditysensor_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 5)
+)
+_HumidityValue_Type = Integer32
+_HumidityValue_Object = MibScalar
+humidityValue = _HumidityValue_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 5, 1),
+    _HumidityValue_Type()
+)
+humidityValue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    humidityValue.setStatus("mandatory")
+_HumidityAlarmEnable_Type = Integer32
+_HumidityAlarmEnable_Object = MibScalar
+humidityAlarmEnable = _HumidityAlarmEnable_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 5, 2),
+    _HumidityAlarmEnable_Type()
+)
+humidityAlarmEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    humidityAlarmEnable.setStatus("mandatory")
+_HumidityHighLevel_Type = Integer32
+_HumidityHighLevel_Object = MibScalar
+humidityHighLevel = _HumidityHighLevel_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 5, 3),
+    _HumidityHighLevel_Type()
+)
+humidityHighLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    humidityHighLevel.setStatus("mandatory")
+_HumidityVeryHighLevel_Type = Integer32
+_HumidityVeryHighLevel_Object = MibScalar
+humidityVeryHighLevel = _HumidityVeryHighLevel_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 5, 4),
+    _HumidityVeryHighLevel_Type()
+)
+humidityVeryHighLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    humidityVeryHighLevel.setStatus("mandatory")
+_HumidityLowLevel_Type = Integer32
+_HumidityLowLevel_Object = MibScalar
+humidityLowLevel = _HumidityLowLevel_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 5, 5),
+    _HumidityLowLevel_Type()
+)
+humidityLowLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    humidityLowLevel.setStatus("mandatory")
+_HumidityVeryLowLevel_Type = Integer32
+_HumidityVeryLowLevel_Object = MibScalar
+humidityVeryLowLevel = _HumidityVeryLowLevel_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 5, 6),
+    _HumidityVeryLowLevel_Type()
+)
+humidityVeryLowLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    humidityVeryLowLevel.setStatus("mandatory")
+_HumidityAlarmThreshold_Type = Integer32
+_HumidityAlarmThreshold_Object = MibScalar
+humidityAlarmThreshold = _HumidityAlarmThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 5, 7),
+    _HumidityAlarmThreshold_Type()
+)
+humidityAlarmThreshold.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    humidityAlarmThreshold.setStatus("mandatory")
+_HumidityReturnNormalTrap_Type = Integer32
+_HumidityReturnNormalTrap_Object = MibScalar
+humidityReturnNormalTrap = _HumidityReturnNormalTrap_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 5, 8),
+    _HumidityReturnNormalTrap_Type()
+)
+humidityReturnNormalTrap.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    humidityReturnNormalTrap.setStatus("mandatory")
+_HumidityTrapRepeat_Type = Integer32
+_HumidityTrapRepeat_Object = MibScalar
+humidityTrapRepeat = _HumidityTrapRepeat_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 5, 9),
+    _HumidityTrapRepeat_Type()
+)
+humidityTrapRepeat.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    humidityTrapRepeat.setStatus("mandatory")
+_HumidityHighSeverity_Type = Integer32
+_HumidityHighSeverity_Object = MibScalar
+humidityHighSeverity = _HumidityHighSeverity_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 5, 10),
+    _HumidityHighSeverity_Type()
+)
+humidityHighSeverity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    humidityHighSeverity.setStatus("mandatory")
+_HumidityVeryHighSeverity_Type = Integer32
+_HumidityVeryHighSeverity_Object = MibScalar
+humidityVeryHighSeverity = _HumidityVeryHighSeverity_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 5, 11),
+    _HumidityVeryHighSeverity_Type()
+)
+humidityVeryHighSeverity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    humidityVeryHighSeverity.setStatus("mandatory")
+_HumidityLowSeverity_Type = Integer32
+_HumidityLowSeverity_Object = MibScalar
+humidityLowSeverity = _HumidityLowSeverity_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 5, 12),
+    _HumidityLowSeverity_Type()
+)
+humidityLowSeverity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    humidityLowSeverity.setStatus("mandatory")
+_HumidityVeryLowSeverity_Type = Integer32
+_HumidityVeryLowSeverity_Object = MibScalar
+humidityVeryLowSeverity = _HumidityVeryLowSeverity_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 5, 13),
+    _HumidityVeryLowSeverity_Type()
+)
+humidityVeryLowSeverity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    humidityVeryLowSeverity.setStatus("mandatory")
+_HumidityName_Type = DisplayString
+_HumidityName_Object = MibScalar
+humidityName = _HumidityName_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 5, 14),
+    _HumidityName_Type()
+)
+humidityName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    humidityName.setStatus("mandatory")
+_Passthrough_ObjectIdentity = ObjectIdentity
+passthrough = _Passthrough_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 6)
+)
+_PtNeedPassword_Type = Integer32
+_PtNeedPassword_Object = MibScalar
+ptNeedPassword = _PtNeedPassword_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 6, 1),
+    _PtNeedPassword_Type()
+)
+ptNeedPassword.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ptNeedPassword.setStatus("mandatory")
+_PtSayLoginText_Type = Integer32
+_PtSayLoginText_Object = MibScalar
+ptSayLoginText = _PtSayLoginText_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 6, 2),
+    _PtSayLoginText_Type()
+)
+ptSayLoginText.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ptSayLoginText.setStatus("mandatory")
+_PtLoginText_Type = DisplayString
+_PtLoginText_Object = MibScalar
+ptLoginText = _PtLoginText_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 6, 3),
+    _PtLoginText_Type()
+)
+ptLoginText.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ptLoginText.setStatus("mandatory")
+_PtSaySiteID_Type = Integer32
+_PtSaySiteID_Object = MibScalar
+ptSaySiteID = _PtSaySiteID_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 6, 4),
+    _PtSaySiteID_Type()
+)
+ptSaySiteID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ptSaySiteID.setStatus("mandatory")
+_PtUsername_Type = DisplayString
+_PtUsername_Object = MibScalar
+ptUsername = _PtUsername_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 6, 5),
+    _PtUsername_Type()
+)
+ptUsername.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ptUsername.setStatus("mandatory")
+_PtPassword_Type = DisplayString
+_PtPassword_Object = MibScalar
+ptPassword = _PtPassword_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 6, 6),
+    _PtPassword_Type()
+)
+ptPassword.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ptPassword.setStatus("mandatory")
+_PtTimeout_Type = Integer32
+_PtTimeout_Object = MibScalar
+ptTimeout = _PtTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 6, 7),
+    _PtTimeout_Type()
+)
+ptTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ptTimeout.setStatus("mandatory")
+_PtEscChar_Type = Integer32
+_PtEscChar_Object = MibScalar
+ptEscChar = _PtEscChar_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 6, 8),
+    _PtEscChar_Type()
+)
+ptEscChar.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ptEscChar.setStatus("mandatory")
+_PtLfstripToPort_Type = Integer32
+_PtLfstripToPort_Object = MibScalar
+ptLfstripToPort = _PtLfstripToPort_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 6, 9),
+    _PtLfstripToPort_Type()
+)
+ptLfstripToPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ptLfstripToPort.setStatus("mandatory")
+_PtLfstripFromPort_Type = Integer32
+_PtLfstripFromPort_Object = MibScalar
+ptLfstripFromPort = _PtLfstripFromPort_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 6, 10),
+    _PtLfstripFromPort_Type()
+)
+ptLfstripFromPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ptLfstripFromPort.setStatus("mandatory")
+_PtSerialBaudrate_Type = Integer32
+_PtSerialBaudrate_Object = MibScalar
+ptSerialBaudrate = _PtSerialBaudrate_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 6, 11),
+    _PtSerialBaudrate_Type()
+)
+ptSerialBaudrate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ptSerialBaudrate.setStatus("mandatory")
+_PtSerialWordlength_Type = Integer32
+_PtSerialWordlength_Object = MibScalar
+ptSerialWordlength = _PtSerialWordlength_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 6, 12),
+    _PtSerialWordlength_Type()
+)
+ptSerialWordlength.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ptSerialWordlength.setStatus("mandatory")
+_PtSerialParity_Type = DisplayString
+_PtSerialParity_Object = MibScalar
+ptSerialParity = _PtSerialParity_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 6, 13),
+    _PtSerialParity_Type()
+)
+ptSerialParity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ptSerialParity.setStatus("mandatory")
+_PtTCPPortnumber_Type = Integer32
+_PtTCPPortnumber_Object = MibScalar
+ptTCPPortnumber = _PtTCPPortnumber_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 6, 14),
+    _PtTCPPortnumber_Type()
+)
+ptTCPPortnumber.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ptTCPPortnumber.setStatus("mandatory")
+_Ftp_ObjectIdentity = ObjectIdentity
+ftp = _Ftp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 7)
+)
+_FtpUsername_Type = DisplayString
+_FtpUsername_Object = MibScalar
+ftpUsername = _FtpUsername_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 7, 1),
+    _FtpUsername_Type()
+)
+ftpUsername.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ftpUsername.setStatus("mandatory")
+_FtpPassword_Type = DisplayString
+_FtpPassword_Object = MibScalar
+ftpPassword = _FtpPassword_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 7, 2),
+    _FtpPassword_Type()
+)
+ftpPassword.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ftpPassword.setStatus("mandatory")
+_Analog_ObjectIdentity = ObjectIdentity
+analog = _Analog_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 8)
+)
+_Analog1_ObjectIdentity = ObjectIdentity
+analog1 = _Analog1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 8, 1)
+)
+_Analog1Value_Type = Integer32
+_Analog1Value_Object = MibScalar
+analog1Value = _Analog1Value_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 8, 1, 1),
+    _Analog1Value_Type()
+)
+analog1Value.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    analog1Value.setStatus("mandatory")
+_Analog1AlarmEnable_Type = Integer32
+_Analog1AlarmEnable_Object = MibScalar
+analog1AlarmEnable = _Analog1AlarmEnable_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 8, 1, 2),
+    _Analog1AlarmEnable_Type()
+)
+analog1AlarmEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    analog1AlarmEnable.setStatus("mandatory")
+_Analog1HighLevel_Type = Integer32
+_Analog1HighLevel_Object = MibScalar
+analog1HighLevel = _Analog1HighLevel_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 8, 1, 3),
+    _Analog1HighLevel_Type()
+)
+analog1HighLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    analog1HighLevel.setStatus("mandatory")
+_Analog1VeryHighLevel_Type = Integer32
+_Analog1VeryHighLevel_Object = MibScalar
+analog1VeryHighLevel = _Analog1VeryHighLevel_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 8, 1, 4),
+    _Analog1VeryHighLevel_Type()
+)
+analog1VeryHighLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    analog1VeryHighLevel.setStatus("mandatory")
+_Analog1LowLevel_Type = Integer32
+_Analog1LowLevel_Object = MibScalar
+analog1LowLevel = _Analog1LowLevel_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 8, 1, 5),
+    _Analog1LowLevel_Type()
+)
+analog1LowLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    analog1LowLevel.setStatus("mandatory")
+_Analog1VeryLowLevel_Type = Integer32
+_Analog1VeryLowLevel_Object = MibScalar
+analog1VeryLowLevel = _Analog1VeryLowLevel_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 8, 1, 6),
+    _Analog1VeryLowLevel_Type()
+)
+analog1VeryLowLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    analog1VeryLowLevel.setStatus("mandatory")
+_Analog1AlarmThreshold_Type = Integer32
+_Analog1AlarmThreshold_Object = MibScalar
+analog1AlarmThreshold = _Analog1AlarmThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 8, 1, 7),
+    _Analog1AlarmThreshold_Type()
+)
+analog1AlarmThreshold.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    analog1AlarmThreshold.setStatus("mandatory")
+_Analog1ReturnNormalTrap_Type = Integer32
+_Analog1ReturnNormalTrap_Object = MibScalar
+analog1ReturnNormalTrap = _Analog1ReturnNormalTrap_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 8, 1, 8),
+    _Analog1ReturnNormalTrap_Type()
+)
+analog1ReturnNormalTrap.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    analog1ReturnNormalTrap.setStatus("mandatory")
+_Analog1TrapRepeat_Type = Integer32
+_Analog1TrapRepeat_Object = MibScalar
+analog1TrapRepeat = _Analog1TrapRepeat_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 8, 1, 9),
+    _Analog1TrapRepeat_Type()
+)
+analog1TrapRepeat.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    analog1TrapRepeat.setStatus("mandatory")
+_Analog1HighSeverity_Type = Integer32
+_Analog1HighSeverity_Object = MibScalar
+analog1HighSeverity = _Analog1HighSeverity_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 8, 1, 10),
+    _Analog1HighSeverity_Type()
+)
+analog1HighSeverity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    analog1HighSeverity.setStatus("mandatory")
+_Analog1VeryHighSeverity_Type = Integer32
+_Analog1VeryHighSeverity_Object = MibScalar
+analog1VeryHighSeverity = _Analog1VeryHighSeverity_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 8, 1, 11),
+    _Analog1VeryHighSeverity_Type()
+)
+analog1VeryHighSeverity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    analog1VeryHighSeverity.setStatus("mandatory")
+_Analog1LowSeverity_Type = Integer32
+_Analog1LowSeverity_Object = MibScalar
+analog1LowSeverity = _Analog1LowSeverity_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 8, 1, 12),
+    _Analog1LowSeverity_Type()
+)
+analog1LowSeverity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    analog1LowSeverity.setStatus("mandatory")
+_Analog1VeryLowSeverity_Type = Integer32
+_Analog1VeryLowSeverity_Object = MibScalar
+analog1VeryLowSeverity = _Analog1VeryLowSeverity_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 8, 1, 13),
+    _Analog1VeryLowSeverity_Type()
+)
+analog1VeryLowSeverity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    analog1VeryLowSeverity.setStatus("mandatory")
+_Analog1Name_Type = DisplayString
+_Analog1Name_Object = MibScalar
+analog1Name = _Analog1Name_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 8, 1, 14),
+    _Analog1Name_Type()
+)
+analog1Name.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    analog1Name.setStatus("mandatory")
+_Analog2_ObjectIdentity = ObjectIdentity
+analog2 = _Analog2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 8, 2)
+)
+_Analog2Value_Type = Integer32
+_Analog2Value_Object = MibScalar
+analog2Value = _Analog2Value_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 8, 2, 1),
+    _Analog2Value_Type()
+)
+analog2Value.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    analog2Value.setStatus("mandatory")
+_Analog2AlarmEnable_Type = Integer32
+_Analog2AlarmEnable_Object = MibScalar
+analog2AlarmEnable = _Analog2AlarmEnable_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 8, 2, 2),
+    _Analog2AlarmEnable_Type()
+)
+analog2AlarmEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    analog2AlarmEnable.setStatus("mandatory")
+_Analog2HighLevel_Type = Integer32
+_Analog2HighLevel_Object = MibScalar
+analog2HighLevel = _Analog2HighLevel_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 8, 2, 3),
+    _Analog2HighLevel_Type()
+)
+analog2HighLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    analog2HighLevel.setStatus("mandatory")
+_Analog2VeryHighLevel_Type = Integer32
+_Analog2VeryHighLevel_Object = MibScalar
+analog2VeryHighLevel = _Analog2VeryHighLevel_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 8, 2, 4),
+    _Analog2VeryHighLevel_Type()
+)
+analog2VeryHighLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    analog2VeryHighLevel.setStatus("mandatory")
+_Analog2LowLevel_Type = Integer32
+_Analog2LowLevel_Object = MibScalar
+analog2LowLevel = _Analog2LowLevel_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 8, 2, 5),
+    _Analog2LowLevel_Type()
+)
+analog2LowLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    analog2LowLevel.setStatus("mandatory")
+_Analog2VeryLowLevel_Type = Integer32
+_Analog2VeryLowLevel_Object = MibScalar
+analog2VeryLowLevel = _Analog2VeryLowLevel_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 8, 2, 6),
+    _Analog2VeryLowLevel_Type()
+)
+analog2VeryLowLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    analog2VeryLowLevel.setStatus("mandatory")
+_Analog2AlarmThreshold_Type = Integer32
+_Analog2AlarmThreshold_Object = MibScalar
+analog2AlarmThreshold = _Analog2AlarmThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 8, 2, 7),
+    _Analog2AlarmThreshold_Type()
+)
+analog2AlarmThreshold.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    analog2AlarmThreshold.setStatus("mandatory")
+_Analog2ReturnNormalTrap_Type = Integer32
+_Analog2ReturnNormalTrap_Object = MibScalar
+analog2ReturnNormalTrap = _Analog2ReturnNormalTrap_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 8, 2, 8),
+    _Analog2ReturnNormalTrap_Type()
+)
+analog2ReturnNormalTrap.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    analog2ReturnNormalTrap.setStatus("mandatory")
+_Analog2TrapRepeat_Type = Integer32
+_Analog2TrapRepeat_Object = MibScalar
+analog2TrapRepeat = _Analog2TrapRepeat_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 8, 2, 9),
+    _Analog2TrapRepeat_Type()
+)
+analog2TrapRepeat.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    analog2TrapRepeat.setStatus("mandatory")
+_Analog2HighSeverity_Type = Integer32
+_Analog2HighSeverity_Object = MibScalar
+analog2HighSeverity = _Analog2HighSeverity_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 8, 2, 10),
+    _Analog2HighSeverity_Type()
+)
+analog2HighSeverity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    analog2HighSeverity.setStatus("mandatory")
+_Analog2VeryHighSeverity_Type = Integer32
+_Analog2VeryHighSeverity_Object = MibScalar
+analog2VeryHighSeverity = _Analog2VeryHighSeverity_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 8, 2, 11),
+    _Analog2VeryHighSeverity_Type()
+)
+analog2VeryHighSeverity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    analog2VeryHighSeverity.setStatus("mandatory")
+_Analog2LowSeverity_Type = Integer32
+_Analog2LowSeverity_Object = MibScalar
+analog2LowSeverity = _Analog2LowSeverity_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 8, 2, 12),
+    _Analog2LowSeverity_Type()
+)
+analog2LowSeverity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    analog2LowSeverity.setStatus("mandatory")
+_Analog2VeryLowSeverity_Type = Integer32
+_Analog2VeryLowSeverity_Object = MibScalar
+analog2VeryLowSeverity = _Analog2VeryLowSeverity_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 8, 2, 13),
+    _Analog2VeryLowSeverity_Type()
+)
+analog2VeryLowSeverity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    analog2VeryLowSeverity.setStatus("mandatory")
+_Analog2Name_Type = DisplayString
+_Analog2Name_Object = MibScalar
+analog2Name = _Analog2Name_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 8, 2, 14),
+    _Analog2Name_Type()
+)
+analog2Name.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    analog2Name.setStatus("mandatory")
+_EventSensorStatus_ObjectIdentity = ObjectIdentity
+eventSensorStatus = _EventSensorStatus_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 10)
+)
+_EsPointTable_Object = MibTable
+esPointTable = _EsPointTable_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 10, 1)
+)
+if mibBuilder.loadTexts:
+    esPointTable.setStatus("mandatory")
+_EsPointEntry_Object = MibTableRow
+esPointEntry = _EsPointEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 10, 1, 1)
+)
+esPointEntry.setIndexNames(
+    (0, "SL10-MIB", "esIndexES"),
+    (0, "SL10-MIB", "esIndexPC"),
+    (0, "SL10-MIB", "esIndexPoint"),
+)
+if mibBuilder.loadTexts:
+    esPointEntry.setStatus("mandatory")
+_EsIndexES_Type = Integer32
+_EsIndexES_Object = MibTableColumn
+esIndexES = _EsIndexES_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 10, 1, 1, 1),
+    _EsIndexES_Type()
+)
+esIndexES.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    esIndexES.setStatus("mandatory")
+_EsIndexPC_Type = Integer32
+_EsIndexPC_Object = MibTableColumn
+esIndexPC = _EsIndexPC_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 10, 1, 1, 2),
+    _EsIndexPC_Type()
+)
+esIndexPC.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    esIndexPC.setStatus("mandatory")
+_EsIndexPoint_Type = Integer32
+_EsIndexPoint_Object = MibTableColumn
+esIndexPoint = _EsIndexPoint_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 10, 1, 1, 3),
+    _EsIndexPoint_Type()
+)
+esIndexPoint.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    esIndexPoint.setStatus("mandatory")
+_EsPointName_Type = DisplayString
+_EsPointName_Object = MibTableColumn
+esPointName = _EsPointName_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 10, 1, 1, 4),
+    _EsPointName_Type()
+)
+esPointName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    esPointName.setStatus("mandatory")
+_EsPointInEventState_Type = Integer32
+_EsPointInEventState_Object = MibTableColumn
+esPointInEventState = _EsPointInEventState_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 10, 1, 1, 5),
+    _EsPointInEventState_Type()
+)
+esPointInEventState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    esPointInEventState.setStatus("mandatory")
+
+
+class _EsPointValueInt_Type(Integer32):
+    """Custom type esPointValueInt based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32768, 32767),
+    )
+
+
+_EsPointValueInt_Type.__name__ = "Integer32"
+_EsPointValueInt_Object = MibTableColumn
+esPointValueInt = _EsPointValueInt_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 10, 1, 1, 6),
+    _EsPointValueInt_Type()
+)
+esPointValueInt.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    esPointValueInt.setStatus("mandatory")
+_EsPointValueStr_Type = DisplayString
+_EsPointValueStr_Object = MibTableColumn
+esPointValueStr = _EsPointValueStr_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 10, 1, 1, 7),
+    _EsPointValueStr_Type()
+)
+esPointValueStr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    esPointValueStr.setStatus("mandatory")
+_EventSensorConfig_ObjectIdentity = ObjectIdentity
+eventSensorConfig = _EventSensorConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 11)
+)
+_EsNumberEventSensors_Type = Integer32
+_EsNumberEventSensors_Object = MibScalar
+esNumberEventSensors = _EsNumberEventSensors_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 11, 1),
+    _EsNumberEventSensors_Type()
+)
+esNumberEventSensors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    esNumberEventSensors.setStatus("mandatory")
+_EsTable_Object = MibTable
+esTable = _EsTable_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 11, 2)
+)
+if mibBuilder.loadTexts:
+    esTable.setStatus("mandatory")
+_EsEntry_Object = MibTableRow
+esEntry = _EsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 11, 2, 1)
+)
+esEntry.setIndexNames(
+    (0, "SL10-MIB", "esIndex"),
+)
+if mibBuilder.loadTexts:
+    esEntry.setStatus("mandatory")
+_EsIndex_Type = Integer32
+_EsIndex_Object = MibTableColumn
+esIndex = _EsIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 11, 2, 1, 1),
+    _EsIndex_Type()
+)
+esIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    esIndex.setStatus("mandatory")
+_EsID_Type = DisplayString
+_EsID_Object = MibTableColumn
+esID = _EsID_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 11, 2, 1, 2),
+    _EsID_Type()
+)
+esID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    esID.setStatus("mandatory")
+_EsNumberTempSensors_Type = Integer32
+_EsNumberTempSensors_Object = MibTableColumn
+esNumberTempSensors = _EsNumberTempSensors_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 11, 2, 1, 3),
+    _EsNumberTempSensors_Type()
+)
+esNumberTempSensors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    esNumberTempSensors.setStatus("mandatory")
+_EsTempReportingMode_Type = DisplayString
+_EsTempReportingMode_Object = MibTableColumn
+esTempReportingMode = _EsTempReportingMode_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 11, 2, 1, 4),
+    _EsTempReportingMode_Type()
+)
+esTempReportingMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    esTempReportingMode.setStatus("mandatory")
+_EsNumberCCs_Type = Integer32
+_EsNumberCCs_Object = MibTableColumn
+esNumberCCs = _EsNumberCCs_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 11, 2, 1, 5),
+    _EsNumberCCs_Type()
+)
+esNumberCCs.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    esNumberCCs.setStatus("mandatory")
+_EsCCReportingMode_Type = DisplayString
+_EsCCReportingMode_Object = MibTableColumn
+esCCReportingMode = _EsCCReportingMode_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 11, 2, 1, 6),
+    _EsCCReportingMode_Type()
+)
+esCCReportingMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    esCCReportingMode.setStatus("mandatory")
+_EsNumberHumidSensors_Type = Integer32
+_EsNumberHumidSensors_Object = MibTableColumn
+esNumberHumidSensors = _EsNumberHumidSensors_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 11, 2, 1, 7),
+    _EsNumberHumidSensors_Type()
+)
+esNumberHumidSensors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    esNumberHumidSensors.setStatus("mandatory")
+_EsHumidReportingMode_Type = DisplayString
+_EsHumidReportingMode_Object = MibTableColumn
+esHumidReportingMode = _EsHumidReportingMode_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 11, 2, 1, 8),
+    _EsHumidReportingMode_Type()
+)
+esHumidReportingMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    esHumidReportingMode.setStatus("mandatory")
+_EsNumberNoiseSensors_Type = Integer32
+_EsNumberNoiseSensors_Object = MibTableColumn
+esNumberNoiseSensors = _EsNumberNoiseSensors_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 11, 2, 1, 9),
+    _EsNumberNoiseSensors_Type()
+)
+esNumberNoiseSensors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    esNumberNoiseSensors.setStatus("mandatory")
+_EsNoiseReportingMode_Type = DisplayString
+_EsNoiseReportingMode_Object = MibTableColumn
+esNoiseReportingMode = _EsNoiseReportingMode_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 11, 2, 1, 10),
+    _EsNoiseReportingMode_Type()
+)
+esNoiseReportingMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    esNoiseReportingMode.setStatus("mandatory")
+_EsNumberAirflowSensors_Type = Integer32
+_EsNumberAirflowSensors_Object = MibTableColumn
+esNumberAirflowSensors = _EsNumberAirflowSensors_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 11, 2, 1, 11),
+    _EsNumberAirflowSensors_Type()
+)
+esNumberAirflowSensors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    esNumberAirflowSensors.setStatus("mandatory")
+_EsAirflowReportingMode_Type = DisplayString
+_EsAirflowReportingMode_Object = MibTableColumn
+esAirflowReportingMode = _EsAirflowReportingMode_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 11, 2, 1, 12),
+    _EsAirflowReportingMode_Type()
+)
+esAirflowReportingMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    esAirflowReportingMode.setStatus("mandatory")
+_EsNumberAnalog_Type = Integer32
+_EsNumberAnalog_Object = MibTableColumn
+esNumberAnalog = _EsNumberAnalog_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 11, 2, 1, 13),
+    _EsNumberAnalog_Type()
+)
+esNumberAnalog.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    esNumberAnalog.setStatus("mandatory")
+_EsAnalogReportingMode_Type = DisplayString
+_EsAnalogReportingMode_Object = MibTableColumn
+esAnalogReportingMode = _EsAnalogReportingMode_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 11, 2, 1, 14),
+    _EsAnalogReportingMode_Type()
+)
+esAnalogReportingMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    esAnalogReportingMode.setStatus("mandatory")
+_EsNumberRelayOutputs_Type = Integer32
+_EsNumberRelayOutputs_Object = MibTableColumn
+esNumberRelayOutputs = _EsNumberRelayOutputs_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 11, 2, 1, 15),
+    _EsNumberRelayOutputs_Type()
+)
+esNumberRelayOutputs.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    esNumberRelayOutputs.setStatus("mandatory")
+_EsRelayReportingMode_Type = DisplayString
+_EsRelayReportingMode_Object = MibTableColumn
+esRelayReportingMode = _EsRelayReportingMode_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 11, 2, 1, 16),
+    _EsRelayReportingMode_Type()
+)
+esRelayReportingMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    esRelayReportingMode.setStatus("mandatory")
+_Techsupport_ObjectIdentity = ObjectIdentity
+techsupport = _Techsupport_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 99)
+)
+_TechsupportIPAddress_Type = IpAddress
+_TechsupportIPAddress_Object = MibScalar
+techsupportIPAddress = _TechsupportIPAddress_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 99, 1),
+    _TechsupportIPAddress_Type()
+)
+techsupportIPAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    techsupportIPAddress.setStatus("mandatory")
+_TechsupportNetMask_Type = IpAddress
+_TechsupportNetMask_Object = MibScalar
+techsupportNetMask = _TechsupportNetMask_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 99, 2),
+    _TechsupportNetMask_Type()
+)
+techsupportNetMask.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    techsupportNetMask.setStatus("mandatory")
+_TechsupportRouter_Type = IpAddress
+_TechsupportRouter_Object = MibScalar
+techsupportRouter = _TechsupportRouter_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 99, 3),
+    _TechsupportRouter_Type()
+)
+techsupportRouter.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    techsupportRouter.setStatus("mandatory")
+_TechsupportRestart_Type = Integer32
+_TechsupportRestart_Object = MibScalar
+techsupportRestart = _TechsupportRestart_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 99, 4),
+    _TechsupportRestart_Type()
+)
+techsupportRestart.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    techsupportRestart.setStatus("mandatory")
+_TechsupportSerialNumber_Type = DisplayString
+_TechsupportSerialNumber_Object = MibScalar
+techsupportSerialNumber = _TechsupportSerialNumber_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 99, 5),
+    _TechsupportSerialNumber_Type()
+)
+techsupportSerialNumber.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    techsupportSerialNumber.setStatus("mandatory")
+_TechsupportBoxTemp_Type = Integer32
+_TechsupportBoxTemp_Object = MibScalar
+techsupportBoxTemp = _TechsupportBoxTemp_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 99, 6),
+    _TechsupportBoxTemp_Type()
+)
+techsupportBoxTemp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    techsupportBoxTemp.setStatus("mandatory")
+_TechsupportHeaterState_Type = Integer32
+_TechsupportHeaterState_Object = MibScalar
+techsupportHeaterState = _TechsupportHeaterState_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 99, 7),
+    _TechsupportHeaterState_Type()
+)
+techsupportHeaterState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    techsupportHeaterState.setStatus("mandatory")
+_TechsupportPSVolts_Type = Integer32
+_TechsupportPSVolts_Object = MibScalar
+techsupportPSVolts = _TechsupportPSVolts_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 99, 8),
+    _TechsupportPSVolts_Type()
+)
+techsupportPSVolts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    techsupportPSVolts.setStatus("mandatory")
+_Mibend_ObjectIdentity = ObjectIdentity
+mibend = _Mibend_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 100)
+)
+_MibendObject_Type = Integer32
+_MibendObject_Object = MibScalar
+mibendObject = _MibendObject_Object(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 100, 1),
+    _MibendObject_Type()
+)
+mibendObject.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mibendObject.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+contact1ActiveTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 20001)
+)
+contact1ActiveTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "contact1Name"),
+        ("SL10-MIB", "contact1State"))
+)
+if mibBuilder.loadTexts:
+    contact1ActiveTrap.setStatus(
+        ""
+    )
+
+contact2ActiveTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 20002)
+)
+contact2ActiveTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "contact2Name"),
+        ("SL10-MIB", "contact2State"))
+)
+if mibBuilder.loadTexts:
+    contact2ActiveTrap.setStatus(
+        ""
+    )
+
+contact3ActiveTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 20003)
+)
+contact3ActiveTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "contact3Name"),
+        ("SL10-MIB", "contact3State"))
+)
+if mibBuilder.loadTexts:
+    contact3ActiveTrap.setStatus(
+        ""
+    )
+
+contact4ActiveTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 20004)
+)
+contact4ActiveTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "contact4Name"),
+        ("SL10-MIB", "contact4State"))
+)
+if mibBuilder.loadTexts:
+    contact4ActiveTrap.setStatus(
+        ""
+    )
+
+contact5ActiveTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 20005)
+)
+contact5ActiveTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "contact5Name"),
+        ("SL10-MIB", "contact5State"))
+)
+if mibBuilder.loadTexts:
+    contact5ActiveTrap.setStatus(
+        ""
+    )
+
+contact6ActiveTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 20006)
+)
+contact6ActiveTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "contact6Name"),
+        ("SL10-MIB", "contact6State"))
+)
+if mibBuilder.loadTexts:
+    contact6ActiveTrap.setStatus(
+        ""
+    )
+
+contact7ActiveTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 20007)
+)
+contact7ActiveTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "contact7Name"),
+        ("SL10-MIB", "contact7State"))
+)
+if mibBuilder.loadTexts:
+    contact7ActiveTrap.setStatus(
+        ""
+    )
+
+contact8ActiveTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 20008)
+)
+contact8ActiveTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "contact8Name"),
+        ("SL10-MIB", "contact8State"))
+)
+if mibBuilder.loadTexts:
+    contact8ActiveTrap.setStatus(
+        ""
+    )
+
+contact9ActiveTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 20009)
+)
+contact9ActiveTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "contact9Name"),
+        ("SL10-MIB", "contact9State"))
+)
+if mibBuilder.loadTexts:
+    contact9ActiveTrap.setStatus(
+        ""
+    )
+
+tempHighTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 20010)
+)
+tempHighTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "tempValue"))
+)
+if mibBuilder.loadTexts:
+    tempHighTrap.setStatus(
+        ""
+    )
+
+tempVeryHighTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 20011)
+)
+tempVeryHighTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "tempValue"))
+)
+if mibBuilder.loadTexts:
+    tempVeryHighTrap.setStatus(
+        ""
+    )
+
+tempLowTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 20012)
+)
+tempLowTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "tempValue"))
+)
+if mibBuilder.loadTexts:
+    tempLowTrap.setStatus(
+        ""
+    )
+
+tempVeryLowTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 20013)
+)
+tempVeryLowTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "tempValue"))
+)
+if mibBuilder.loadTexts:
+    tempVeryLowTrap.setStatus(
+        ""
+    )
+
+humidityHighTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 20020)
+)
+humidityHighTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "humidityValue"))
+)
+if mibBuilder.loadTexts:
+    humidityHighTrap.setStatus(
+        ""
+    )
+
+humidityVeryHighTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 20021)
+)
+humidityVeryHighTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "humidityValue"))
+)
+if mibBuilder.loadTexts:
+    humidityVeryHighTrap.setStatus(
+        ""
+    )
+
+humidityLowTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 20022)
+)
+humidityLowTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "humidityValue"))
+)
+if mibBuilder.loadTexts:
+    humidityLowTrap.setStatus(
+        ""
+    )
+
+humidityVeryLowTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 20023)
+)
+humidityVeryLowTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "humidityValue"))
+)
+if mibBuilder.loadTexts:
+    humidityVeryLowTrap.setStatus(
+        ""
+    )
+
+analog1HighTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 20030)
+)
+analog1HighTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "analog1Name"),
+        ("SL10-MIB", "analog1Value"))
+)
+if mibBuilder.loadTexts:
+    analog1HighTrap.setStatus(
+        ""
+    )
+
+analog1VeryHighTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 20031)
+)
+analog1VeryHighTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "analog1Name"),
+        ("SL10-MIB", "analog1Value"))
+)
+if mibBuilder.loadTexts:
+    analog1VeryHighTrap.setStatus(
+        ""
+    )
+
+analog1LowTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 20032)
+)
+analog1LowTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "analog1Name"),
+        ("SL10-MIB", "analog1Value"))
+)
+if mibBuilder.loadTexts:
+    analog1LowTrap.setStatus(
+        ""
+    )
+
+analog1VeryLowTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 20033)
+)
+analog1VeryLowTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "analog1Name"),
+        ("SL10-MIB", "analog1Value"))
+)
+if mibBuilder.loadTexts:
+    analog1VeryLowTrap.setStatus(
+        ""
+    )
+
+analog2HighTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 20040)
+)
+analog2HighTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "analog2Name"),
+        ("SL10-MIB", "analog2Value"))
+)
+if mibBuilder.loadTexts:
+    analog2HighTrap.setStatus(
+        ""
+    )
+
+analog2VeryHighTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 20041)
+)
+analog2VeryHighTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "analog2Name"),
+        ("SL10-MIB", "analog2Value"))
+)
+if mibBuilder.loadTexts:
+    analog2VeryHighTrap.setStatus(
+        ""
+    )
+
+analog2LowTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 20042)
+)
+analog2LowTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "analog2Name"),
+        ("SL10-MIB", "analog2Value"))
+)
+if mibBuilder.loadTexts:
+    analog2LowTrap.setStatus(
+        ""
+    )
+
+analog2VeryLowTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 20043)
+)
+analog2VeryLowTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "analog2Name"),
+        ("SL10-MIB", "analog2Value"))
+)
+if mibBuilder.loadTexts:
+    analog2VeryLowTrap.setStatus(
+        ""
+    )
+
+contactESActiveTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 20101)
+)
+contactESActiveTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "esPointName"),
+        ("SL10-MIB", "esPointValueInt"),
+        ("SL10-MIB", "esIndexES"),
+        ("SL10-MIB", "esIndexPoint"))
+)
+if mibBuilder.loadTexts:
+    contactESActiveTrap.setStatus(
+        ""
+    )
+
+tempESHighTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 20110)
+)
+tempESHighTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "esPointName"),
+        ("SL10-MIB", "esPointValueInt"),
+        ("SL10-MIB", "esIndexES"),
+        ("SL10-MIB", "esIndexPoint"))
+)
+if mibBuilder.loadTexts:
+    tempESHighTrap.setStatus(
+        ""
+    )
+
+tempESVeryHighTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 20111)
+)
+tempESVeryHighTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "esPointName"),
+        ("SL10-MIB", "esPointValueInt"),
+        ("SL10-MIB", "esIndexES"),
+        ("SL10-MIB", "esIndexPoint"))
+)
+if mibBuilder.loadTexts:
+    tempESVeryHighTrap.setStatus(
+        ""
+    )
+
+tempESLowTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 20112)
+)
+tempESLowTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "esPointName"),
+        ("SL10-MIB", "esPointValueInt"),
+        ("SL10-MIB", "esIndexES"),
+        ("SL10-MIB", "esIndexPoint"))
+)
+if mibBuilder.loadTexts:
+    tempESLowTrap.setStatus(
+        ""
+    )
+
+tempESVeryLowTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 20113)
+)
+tempESVeryLowTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "esPointName"),
+        ("SL10-MIB", "esPointValueInt"),
+        ("SL10-MIB", "esIndexES"),
+        ("SL10-MIB", "esIndexPoint"))
+)
+if mibBuilder.loadTexts:
+    tempESVeryLowTrap.setStatus(
+        ""
+    )
+
+humidityESHighTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 20120)
+)
+humidityESHighTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "esPointName"),
+        ("SL10-MIB", "esPointValueInt"),
+        ("SL10-MIB", "esIndexES"),
+        ("SL10-MIB", "esIndexPoint"))
+)
+if mibBuilder.loadTexts:
+    humidityESHighTrap.setStatus(
+        ""
+    )
+
+humidityESVeryHighTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 20121)
+)
+humidityESVeryHighTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "esPointName"),
+        ("SL10-MIB", "esPointValueInt"),
+        ("SL10-MIB", "esIndexES"),
+        ("SL10-MIB", "esIndexPoint"))
+)
+if mibBuilder.loadTexts:
+    humidityESVeryHighTrap.setStatus(
+        ""
+    )
+
+humidityESLowTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 20122)
+)
+humidityESLowTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "esPointName"),
+        ("SL10-MIB", "esPointValueInt"),
+        ("SL10-MIB", "esIndexES"),
+        ("SL10-MIB", "esIndexPoint"))
+)
+if mibBuilder.loadTexts:
+    humidityESLowTrap.setStatus(
+        ""
+    )
+
+humidityESVeryLowTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 20123)
+)
+humidityESVeryLowTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "esPointName"),
+        ("SL10-MIB", "esPointValueInt"),
+        ("SL10-MIB", "esIndexES"),
+        ("SL10-MIB", "esIndexPoint"))
+)
+if mibBuilder.loadTexts:
+    humidityESVeryLowTrap.setStatus(
+        ""
+    )
+
+voltageESHighTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 20130)
+)
+voltageESHighTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "esPointName"),
+        ("SL10-MIB", "esPointValueInt"),
+        ("SL10-MIB", "esIndexES"),
+        ("SL10-MIB", "esIndexPoint"))
+)
+if mibBuilder.loadTexts:
+    voltageESHighTrap.setStatus(
+        ""
+    )
+
+voltageESVeryHighTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 20131)
+)
+voltageESVeryHighTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "esPointName"),
+        ("SL10-MIB", "esPointValueInt"),
+        ("SL10-MIB", "esIndexES"),
+        ("SL10-MIB", "esIndexPoint"))
+)
+if mibBuilder.loadTexts:
+    voltageESVeryHighTrap.setStatus(
+        ""
+    )
+
+voltageESLowTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 20132)
+)
+voltageESLowTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "esPointName"),
+        ("SL10-MIB", "esPointValueInt"),
+        ("SL10-MIB", "esIndexES"),
+        ("SL10-MIB", "esIndexPoint"))
+)
+if mibBuilder.loadTexts:
+    voltageESLowTrap.setStatus(
+        ""
+    )
+
+voltageESVeryLowTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 20133)
+)
+voltageESVeryLowTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "esPointName"),
+        ("SL10-MIB", "esPointValueInt"),
+        ("SL10-MIB", "esIndexES"),
+        ("SL10-MIB", "esIndexPoint"))
+)
+if mibBuilder.loadTexts:
+    voltageESVeryLowTrap.setStatus(
+        ""
+    )
+
+contact1NormalTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 21001)
+)
+contact1NormalTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "contact1Name"),
+        ("SL10-MIB", "contact1State"))
+)
+if mibBuilder.loadTexts:
+    contact1NormalTrap.setStatus(
+        ""
+    )
+
+contact2NormalTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 21002)
+)
+contact2NormalTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "contact2Name"),
+        ("SL10-MIB", "contact2State"))
+)
+if mibBuilder.loadTexts:
+    contact2NormalTrap.setStatus(
+        ""
+    )
+
+contact3NormalTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 21003)
+)
+contact3NormalTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "contact3Name"),
+        ("SL10-MIB", "contact3State"))
+)
+if mibBuilder.loadTexts:
+    contact3NormalTrap.setStatus(
+        ""
+    )
+
+contact4NormalTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 21004)
+)
+contact4NormalTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "contact4Name"),
+        ("SL10-MIB", "contact4State"))
+)
+if mibBuilder.loadTexts:
+    contact4NormalTrap.setStatus(
+        ""
+    )
+
+contact5NormalTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 21005)
+)
+contact5NormalTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "contact5Name"),
+        ("SL10-MIB", "contact5State"))
+)
+if mibBuilder.loadTexts:
+    contact5NormalTrap.setStatus(
+        ""
+    )
+
+contact6NormalTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 21006)
+)
+contact6NormalTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "contact6Name"),
+        ("SL10-MIB", "contact6State"))
+)
+if mibBuilder.loadTexts:
+    contact6NormalTrap.setStatus(
+        ""
+    )
+
+contact7NormalTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 21007)
+)
+contact7NormalTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "contact7Name"),
+        ("SL10-MIB", "contact7State"))
+)
+if mibBuilder.loadTexts:
+    contact7NormalTrap.setStatus(
+        ""
+    )
+
+contact8NormalTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 21008)
+)
+contact8NormalTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "contact8Name"),
+        ("SL10-MIB", "contact8State"))
+)
+if mibBuilder.loadTexts:
+    contact8NormalTrap.setStatus(
+        ""
+    )
+
+contact9NormalTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 21009)
+)
+contact9NormalTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "contact9Name"),
+        ("SL10-MIB", "contact9State"))
+)
+if mibBuilder.loadTexts:
+    contact9NormalTrap.setStatus(
+        ""
+    )
+
+tempNormalTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 21010)
+)
+tempNormalTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "tempValue"))
+)
+if mibBuilder.loadTexts:
+    tempNormalTrap.setStatus(
+        ""
+    )
+
+humidityNormalTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 21020)
+)
+humidityNormalTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "humidityValue"))
+)
+if mibBuilder.loadTexts:
+    humidityNormalTrap.setStatus(
+        ""
+    )
+
+analog1NormalTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 21030)
+)
+analog1NormalTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "analog1Name"),
+        ("SL10-MIB", "analog1Value"))
+)
+if mibBuilder.loadTexts:
+    analog1NormalTrap.setStatus(
+        ""
+    )
+
+analog2NormalTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 21040)
+)
+analog2NormalTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "analog2Name"),
+        ("SL10-MIB", "analog2Value"))
+)
+if mibBuilder.loadTexts:
+    analog2NormalTrap.setStatus(
+        ""
+    )
+
+contactESNormalTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 21101)
+)
+contactESNormalTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "esPointName"),
+        ("SL10-MIB", "esPointValueInt"),
+        ("SL10-MIB", "esIndexES"),
+        ("SL10-MIB", "esIndexPoint"))
+)
+if mibBuilder.loadTexts:
+    contactESNormalTrap.setStatus(
+        ""
+    )
+
+tempESNormalTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 21110)
+)
+tempESNormalTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "esPointName"),
+        ("SL10-MIB", "esPointValueInt"),
+        ("SL10-MIB", "esIndexES"),
+        ("SL10-MIB", "esIndexPoint"))
+)
+if mibBuilder.loadTexts:
+    tempESNormalTrap.setStatus(
+        ""
+    )
+
+humidityESNormalTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 21120)
+)
+humidityESNormalTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "esPointName"),
+        ("SL10-MIB", "esPointValueInt"),
+        ("SL10-MIB", "esIndexES"),
+        ("SL10-MIB", "esIndexPoint"))
+)
+if mibBuilder.loadTexts:
+    humidityESNormalTrap.setStatus(
+        ""
+    )
+
+voltageESNormalTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 21130)
+)
+voltageESNormalTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"),
+        ("SL10-MIB", "esPointName"),
+        ("SL10-MIB", "esPointValueInt"),
+        ("SL10-MIB", "esIndexES"),
+        ("SL10-MIB", "esIndexPoint"))
+)
+if mibBuilder.loadTexts:
+    voltageESNormalTrap.setStatus(
+        ""
+    )
+
+testTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3052, 40, 0, 22000)
+)
+testTrap.setObjects(
+      *(("SL10-MIB", "thisTrapText"),
+        ("SL10-MIB", "siteID"))
+)
+if mibBuilder.loadTexts:
+    testTrap.setStatus(
+        ""
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "SL10-MIB",
+    **{"asentria": asentria,
+       "sl10": sl10,
+       "contact1ActiveTrap": contact1ActiveTrap,
+       "contact2ActiveTrap": contact2ActiveTrap,
+       "contact3ActiveTrap": contact3ActiveTrap,
+       "contact4ActiveTrap": contact4ActiveTrap,
+       "contact5ActiveTrap": contact5ActiveTrap,
+       "contact6ActiveTrap": contact6ActiveTrap,
+       "contact7ActiveTrap": contact7ActiveTrap,
+       "contact8ActiveTrap": contact8ActiveTrap,
+       "contact9ActiveTrap": contact9ActiveTrap,
+       "tempHighTrap": tempHighTrap,
+       "tempVeryHighTrap": tempVeryHighTrap,
+       "tempLowTrap": tempLowTrap,
+       "tempVeryLowTrap": tempVeryLowTrap,
+       "humidityHighTrap": humidityHighTrap,
+       "humidityVeryHighTrap": humidityVeryHighTrap,
+       "humidityLowTrap": humidityLowTrap,
+       "humidityVeryLowTrap": humidityVeryLowTrap,
+       "analog1HighTrap": analog1HighTrap,
+       "analog1VeryHighTrap": analog1VeryHighTrap,
+       "analog1LowTrap": analog1LowTrap,
+       "analog1VeryLowTrap": analog1VeryLowTrap,
+       "analog2HighTrap": analog2HighTrap,
+       "analog2VeryHighTrap": analog2VeryHighTrap,
+       "analog2LowTrap": analog2LowTrap,
+       "analog2VeryLowTrap": analog2VeryLowTrap,
+       "contactESActiveTrap": contactESActiveTrap,
+       "tempESHighTrap": tempESHighTrap,
+       "tempESVeryHighTrap": tempESVeryHighTrap,
+       "tempESLowTrap": tempESLowTrap,
+       "tempESVeryLowTrap": tempESVeryLowTrap,
+       "humidityESHighTrap": humidityESHighTrap,
+       "humidityESVeryHighTrap": humidityESVeryHighTrap,
+       "humidityESLowTrap": humidityESLowTrap,
+       "humidityESVeryLowTrap": humidityESVeryLowTrap,
+       "voltageESHighTrap": voltageESHighTrap,
+       "voltageESVeryHighTrap": voltageESVeryHighTrap,
+       "voltageESLowTrap": voltageESLowTrap,
+       "voltageESVeryLowTrap": voltageESVeryLowTrap,
+       "contact1NormalTrap": contact1NormalTrap,
+       "contact2NormalTrap": contact2NormalTrap,
+       "contact3NormalTrap": contact3NormalTrap,
+       "contact4NormalTrap": contact4NormalTrap,
+       "contact5NormalTrap": contact5NormalTrap,
+       "contact6NormalTrap": contact6NormalTrap,
+       "contact7NormalTrap": contact7NormalTrap,
+       "contact8NormalTrap": contact8NormalTrap,
+       "contact9NormalTrap": contact9NormalTrap,
+       "tempNormalTrap": tempNormalTrap,
+       "humidityNormalTrap": humidityNormalTrap,
+       "analog1NormalTrap": analog1NormalTrap,
+       "analog2NormalTrap": analog2NormalTrap,
+       "contactESNormalTrap": contactESNormalTrap,
+       "tempESNormalTrap": tempESNormalTrap,
+       "humidityESNormalTrap": humidityESNormalTrap,
+       "voltageESNormalTrap": voltageESNormalTrap,
+       "testTrap": testTrap,
+       "device": device,
+       "serialNumber": serialNumber,
+       "firmwareVersion": firmwareVersion,
+       "siteID": siteID,
+       "snmpManager": snmpManager,
+       "input78Mode": input78Mode,
+       "forceTraps": forceTraps,
+       "thisTrapText": thisTrapText,
+       "alarmStatus": alarmStatus,
+       "snmpManager1": snmpManager1,
+       "snmpManager2": snmpManager2,
+       "snmpManager3": snmpManager3,
+       "snmpManager4": snmpManager4,
+       "statusRepeatHours": statusRepeatHours,
+       "serialTimeout": serialTimeout,
+       "powerupTrapsend": powerupTrapsend,
+       "netlossTrapsend": netlossTrapsend,
+       "buildID": buildID,
+       "contacts": contacts,
+       "contact1": contact1,
+       "contact1Name": contact1Name,
+       "contact1State": contact1State,
+       "contact1AlarmEnable": contact1AlarmEnable,
+       "contact1ActiveDirection": contact1ActiveDirection,
+       "contact1Threshold": contact1Threshold,
+       "contact1ReturnNormalTrap": contact1ReturnNormalTrap,
+       "contact1TrapRepeat": contact1TrapRepeat,
+       "contact1Severity": contact1Severity,
+       "contact2": contact2,
+       "contact2Name": contact2Name,
+       "contact2State": contact2State,
+       "contact2AlarmEnable": contact2AlarmEnable,
+       "contact2ActiveDirection": contact2ActiveDirection,
+       "contact2Threshold": contact2Threshold,
+       "contact2ReturnNormalTrap": contact2ReturnNormalTrap,
+       "contact2TrapRepeat": contact2TrapRepeat,
+       "contact2Severity": contact2Severity,
+       "contact3": contact3,
+       "contact3Name": contact3Name,
+       "contact3State": contact3State,
+       "contact3AlarmEnable": contact3AlarmEnable,
+       "contact3ActiveDirection": contact3ActiveDirection,
+       "contact3Threshold": contact3Threshold,
+       "contact3ReturnNormalTrap": contact3ReturnNormalTrap,
+       "contact3TrapRepeat": contact3TrapRepeat,
+       "contact3Severity": contact3Severity,
+       "contact4": contact4,
+       "contact4Name": contact4Name,
+       "contact4State": contact4State,
+       "contact4AlarmEnable": contact4AlarmEnable,
+       "contact4ActiveDirection": contact4ActiveDirection,
+       "contact4Threshold": contact4Threshold,
+       "contact4ReturnNormalTrap": contact4ReturnNormalTrap,
+       "contact4TrapRepeat": contact4TrapRepeat,
+       "contact4Severity": contact4Severity,
+       "contact5": contact5,
+       "contact5Name": contact5Name,
+       "contact5State": contact5State,
+       "contact5AlarmEnable": contact5AlarmEnable,
+       "contact5ActiveDirection": contact5ActiveDirection,
+       "contact5Threshold": contact5Threshold,
+       "contact5ReturnNormalTrap": contact5ReturnNormalTrap,
+       "contact5TrapRepeat": contact5TrapRepeat,
+       "contact5Severity": contact5Severity,
+       "contact6": contact6,
+       "contact6Name": contact6Name,
+       "contact6State": contact6State,
+       "contact6AlarmEnable": contact6AlarmEnable,
+       "contact6ActiveDirection": contact6ActiveDirection,
+       "contact6Threshold": contact6Threshold,
+       "contact6ReturnNormalTrap": contact6ReturnNormalTrap,
+       "contact6TrapRepeat": contact6TrapRepeat,
+       "contact6Severity": contact6Severity,
+       "contact7": contact7,
+       "contact7Name": contact7Name,
+       "contact7State": contact7State,
+       "contact7AlarmEnable": contact7AlarmEnable,
+       "contact7ActiveDirection": contact7ActiveDirection,
+       "contact7Threshold": contact7Threshold,
+       "contact7ReturnNormalTrap": contact7ReturnNormalTrap,
+       "contact7TrapRepeat": contact7TrapRepeat,
+       "contact7Severity": contact7Severity,
+       "contact8": contact8,
+       "contact8Name": contact8Name,
+       "contact8State": contact8State,
+       "contact8AlarmEnable": contact8AlarmEnable,
+       "contact8ActiveDirection": contact8ActiveDirection,
+       "contact8Threshold": contact8Threshold,
+       "contact8ReturnNormalTrap": contact8ReturnNormalTrap,
+       "contact8TrapRepeat": contact8TrapRepeat,
+       "contact8Severity": contact8Severity,
+       "contact9": contact9,
+       "contact9Name": contact9Name,
+       "contact9State": contact9State,
+       "contact9AlarmEnable": contact9AlarmEnable,
+       "contact9ActiveDirection": contact9ActiveDirection,
+       "contact9Threshold": contact9Threshold,
+       "contact9ReturnNormalTrap": contact9ReturnNormalTrap,
+       "contact9TrapRepeat": contact9TrapRepeat,
+       "contact9Severity": contact9Severity,
+       "relays": relays,
+       "relay1": relay1,
+       "relay1Name": relay1Name,
+       "relay1CurrentState": relay1CurrentState,
+       "relay1PowerupState": relay1PowerupState,
+       "relay2": relay2,
+       "relay2Name": relay2Name,
+       "relay2CurrentState": relay2CurrentState,
+       "relay2PowerupState": relay2PowerupState,
+       "tempsensor": tempsensor,
+       "tempValue": tempValue,
+       "tempAlarmEnable": tempAlarmEnable,
+       "tempHighLevel": tempHighLevel,
+       "tempVeryHighLevel": tempVeryHighLevel,
+       "tempLowLevel": tempLowLevel,
+       "tempVeryLowLevel": tempVeryLowLevel,
+       "tempAlarmThreshold": tempAlarmThreshold,
+       "tempReturnNormalTrap": tempReturnNormalTrap,
+       "tempTrapRepeat": tempTrapRepeat,
+       "tempMode": tempMode,
+       "tempHighSeverity": tempHighSeverity,
+       "tempVeryHighSeverity": tempVeryHighSeverity,
+       "tempLowSeverity": tempLowSeverity,
+       "tempVeryLowSeverity": tempVeryLowSeverity,
+       "tempName": tempName,
+       "humiditysensor": humiditysensor,
+       "humidityValue": humidityValue,
+       "humidityAlarmEnable": humidityAlarmEnable,
+       "humidityHighLevel": humidityHighLevel,
+       "humidityVeryHighLevel": humidityVeryHighLevel,
+       "humidityLowLevel": humidityLowLevel,
+       "humidityVeryLowLevel": humidityVeryLowLevel,
+       "humidityAlarmThreshold": humidityAlarmThreshold,
+       "humidityReturnNormalTrap": humidityReturnNormalTrap,
+       "humidityTrapRepeat": humidityTrapRepeat,
+       "humidityHighSeverity": humidityHighSeverity,
+       "humidityVeryHighSeverity": humidityVeryHighSeverity,
+       "humidityLowSeverity": humidityLowSeverity,
+       "humidityVeryLowSeverity": humidityVeryLowSeverity,
+       "humidityName": humidityName,
+       "passthrough": passthrough,
+       "ptNeedPassword": ptNeedPassword,
+       "ptSayLoginText": ptSayLoginText,
+       "ptLoginText": ptLoginText,
+       "ptSaySiteID": ptSaySiteID,
+       "ptUsername": ptUsername,
+       "ptPassword": ptPassword,
+       "ptTimeout": ptTimeout,
+       "ptEscChar": ptEscChar,
+       "ptLfstripToPort": ptLfstripToPort,
+       "ptLfstripFromPort": ptLfstripFromPort,
+       "ptSerialBaudrate": ptSerialBaudrate,
+       "ptSerialWordlength": ptSerialWordlength,
+       "ptSerialParity": ptSerialParity,
+       "ptTCPPortnumber": ptTCPPortnumber,
+       "ftp": ftp,
+       "ftpUsername": ftpUsername,
+       "ftpPassword": ftpPassword,
+       "analog": analog,
+       "analog1": analog1,
+       "analog1Value": analog1Value,
+       "analog1AlarmEnable": analog1AlarmEnable,
+       "analog1HighLevel": analog1HighLevel,
+       "analog1VeryHighLevel": analog1VeryHighLevel,
+       "analog1LowLevel": analog1LowLevel,
+       "analog1VeryLowLevel": analog1VeryLowLevel,
+       "analog1AlarmThreshold": analog1AlarmThreshold,
+       "analog1ReturnNormalTrap": analog1ReturnNormalTrap,
+       "analog1TrapRepeat": analog1TrapRepeat,
+       "analog1HighSeverity": analog1HighSeverity,
+       "analog1VeryHighSeverity": analog1VeryHighSeverity,
+       "analog1LowSeverity": analog1LowSeverity,
+       "analog1VeryLowSeverity": analog1VeryLowSeverity,
+       "analog1Name": analog1Name,
+       "analog2": analog2,
+       "analog2Value": analog2Value,
+       "analog2AlarmEnable": analog2AlarmEnable,
+       "analog2HighLevel": analog2HighLevel,
+       "analog2VeryHighLevel": analog2VeryHighLevel,
+       "analog2LowLevel": analog2LowLevel,
+       "analog2VeryLowLevel": analog2VeryLowLevel,
+       "analog2AlarmThreshold": analog2AlarmThreshold,
+       "analog2ReturnNormalTrap": analog2ReturnNormalTrap,
+       "analog2TrapRepeat": analog2TrapRepeat,
+       "analog2HighSeverity": analog2HighSeverity,
+       "analog2VeryHighSeverity": analog2VeryHighSeverity,
+       "analog2LowSeverity": analog2LowSeverity,
+       "analog2VeryLowSeverity": analog2VeryLowSeverity,
+       "analog2Name": analog2Name,
+       "eventSensorStatus": eventSensorStatus,
+       "esPointTable": esPointTable,
+       "esPointEntry": esPointEntry,
+       "esIndexES": esIndexES,
+       "esIndexPC": esIndexPC,
+       "esIndexPoint": esIndexPoint,
+       "esPointName": esPointName,
+       "esPointInEventState": esPointInEventState,
+       "esPointValueInt": esPointValueInt,
+       "esPointValueStr": esPointValueStr,
+       "eventSensorConfig": eventSensorConfig,
+       "esNumberEventSensors": esNumberEventSensors,
+       "esTable": esTable,
+       "esEntry": esEntry,
+       "esIndex": esIndex,
+       "esID": esID,
+       "esNumberTempSensors": esNumberTempSensors,
+       "esTempReportingMode": esTempReportingMode,
+       "esNumberCCs": esNumberCCs,
+       "esCCReportingMode": esCCReportingMode,
+       "esNumberHumidSensors": esNumberHumidSensors,
+       "esHumidReportingMode": esHumidReportingMode,
+       "esNumberNoiseSensors": esNumberNoiseSensors,
+       "esNoiseReportingMode": esNoiseReportingMode,
+       "esNumberAirflowSensors": esNumberAirflowSensors,
+       "esAirflowReportingMode": esAirflowReportingMode,
+       "esNumberAnalog": esNumberAnalog,
+       "esAnalogReportingMode": esAnalogReportingMode,
+       "esNumberRelayOutputs": esNumberRelayOutputs,
+       "esRelayReportingMode": esRelayReportingMode,
+       "techsupport": techsupport,
+       "techsupportIPAddress": techsupportIPAddress,
+       "techsupportNetMask": techsupportNetMask,
+       "techsupportRouter": techsupportRouter,
+       "techsupportRestart": techsupportRestart,
+       "techsupportSerialNumber": techsupportSerialNumber,
+       "techsupportBoxTemp": techsupportBoxTemp,
+       "techsupportHeaterState": techsupportHeaterState,
+       "techsupportPSVolts": techsupportPSVolts,
+       "mibend": mibend,
+       "mibendObject": mibendObject}
+)

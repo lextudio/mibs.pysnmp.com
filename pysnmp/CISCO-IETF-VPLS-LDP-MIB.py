@@ -1,48 +1,276 @@
+# SNMP MIB module (CISCO-IETF-VPLS-LDP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-IETF-VPLS-LDP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/CISCO-IETF-VPLS-LDP-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:44:03 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
-cvplsPwBindIndex, cvplsConfigIndex = mibBuilder.importSymbols("CISCO-IETF-VPLS-GENERIC-MIB", "cvplsPwBindIndex", "cvplsConfigIndex")
-ciscoExperiment, = mibBuilder.importSymbols("CISCO-SMI", "ciscoExperiment")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-Counter32, iso, NotificationType, TimeTicks, Gauge32, ModuleIdentity, ObjectIdentity, Integer32, Counter64, Bits, IpAddress, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "iso", "NotificationType", "TimeTicks", "Gauge32", "ModuleIdentity", "ObjectIdentity", "Integer32", "Counter64", "Bits", "IpAddress", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32")
-DisplayString, TextualConvention, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "TruthValue")
-VPNId, = mibBuilder.importSymbols("VPN-TC-STD-MIB", "VPNId")
-cvplsLdpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 10, 141))
-cvplsLdpMIB.setRevisions(('2007-11-22 12:00',))
-if mibBuilder.loadTexts: cvplsLdpMIB.setLastUpdated('200711221200Z')
-if mibBuilder.loadTexts: cvplsLdpMIB.setOrganization('Cisco Systems, Inc.')
-cvplsLdpObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 141, 1))
-cvplsLdpConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 141, 2))
-cvplsLdpConfigTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 141, 1, 1), )
-if mibBuilder.loadTexts: cvplsLdpConfigTable.setStatus('current')
-cvplsLdpConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 141, 1, 1, 1), ).setIndexNames((0, "CISCO-IETF-VPLS-GENERIC-MIB", "cvplsConfigIndex"))
-if mibBuilder.loadTexts: cvplsLdpConfigEntry.setStatus('current')
-cvplsLdpConfigMacAddrWithdraw = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 141, 1, 1, 1, 1), TruthValue().clone('true')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cvplsLdpConfigMacAddrWithdraw.setStatus('current')
-cvplsLdpPwBindTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 141, 1, 2), )
-if mibBuilder.loadTexts: cvplsLdpPwBindTable.setStatus('current')
-cvplsLdpPwBindEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 141, 1, 2, 1), ).setIndexNames((0, "CISCO-IETF-VPLS-GENERIC-MIB", "cvplsConfigIndex"), (0, "CISCO-IETF-VPLS-GENERIC-MIB", "cvplsPwBindIndex"))
-if mibBuilder.loadTexts: cvplsLdpPwBindEntry.setStatus('current')
-cvplsLdpPwBindMacAddressLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 141, 1, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cvplsLdpPwBindMacAddressLimit.setStatus('current')
-cvplsLdpCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 141, 2, 1))
-cvplsLdpModuleFullCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 10, 141, 2, 1, 1)).setObjects(("CISCO-IETF-VPLS-LDP-MIB", "cvplsLdpGroup"))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CISCO-IETF-VPLS-LDP-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:02:06 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cvplsLdpModuleFullCompliance = cvplsLdpModuleFullCompliance.setStatus('current')
-cvplsLdpModuleReadOnlyCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 10, 141, 2, 1, 2)).setObjects(("CISCO-IETF-VPLS-LDP-MIB", "cvplsLdpGroup"))
+if 'mibBuilder' not in globals():
+    import sys
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cvplsLdpModuleReadOnlyCompliance = cvplsLdpModuleReadOnlyCompliance.setStatus('current')
-cvplsLdpGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 141, 2, 2))
-cvplsLdpGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 141, 2, 2, 1)).setObjects(("CISCO-IETF-VPLS-LDP-MIB", "cvplsLdpConfigMacAddrWithdraw"), ("CISCO-IETF-VPLS-LDP-MIB", "cvplsLdpPwBindMacAddressLimit"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cvplsLdpGroup = cvplsLdpGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-IETF-VPLS-LDP-MIB", cvplsLdpPwBindTable=cvplsLdpPwBindTable, cvplsLdpModuleReadOnlyCompliance=cvplsLdpModuleReadOnlyCompliance, cvplsLdpConfigMacAddrWithdraw=cvplsLdpConfigMacAddrWithdraw, cvplsLdpGroup=cvplsLdpGroup, cvplsLdpPwBindMacAddressLimit=cvplsLdpPwBindMacAddressLimit, cvplsLdpConfigEntry=cvplsLdpConfigEntry, cvplsLdpPwBindEntry=cvplsLdpPwBindEntry, cvplsLdpObjects=cvplsLdpObjects, cvplsLdpConformance=cvplsLdpConformance, cvplsLdpGroups=cvplsLdpGroups, PYSNMP_MODULE_ID=cvplsLdpMIB, cvplsLdpMIB=cvplsLdpMIB, cvplsLdpModuleFullCompliance=cvplsLdpModuleFullCompliance, cvplsLdpCompliances=cvplsLdpCompliances, cvplsLdpConfigTable=cvplsLdpConfigTable)
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(cvplsConfigIndex,
+ cvplsPwBindIndex) = mibBuilder.importSymbols(
+    "CISCO-IETF-VPLS-GENERIC-MIB",
+    "cvplsConfigIndex",
+    "cvplsPwBindIndex")
+
+(ciscoExperiment,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoExperiment")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention",
+    "TruthValue")
+
+(VPNId,) = mibBuilder.importSymbols(
+    "VPN-TC-STD-MIB",
+    "VPNId")
+
+
+# MODULE-IDENTITY
+
+cvplsLdpMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 141)
+)
+cvplsLdpMIB.setRevisions(
+        ("2007-11-22 12:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CvplsLdpObjects_ObjectIdentity = ObjectIdentity
+cvplsLdpObjects = _CvplsLdpObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 141, 1)
+)
+_CvplsLdpConfigTable_Object = MibTable
+cvplsLdpConfigTable = _CvplsLdpConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 141, 1, 1)
+)
+if mibBuilder.loadTexts:
+    cvplsLdpConfigTable.setStatus("current")
+_CvplsLdpConfigEntry_Object = MibTableRow
+cvplsLdpConfigEntry = _CvplsLdpConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 141, 1, 1, 1)
+)
+cvplsLdpConfigEntry.setIndexNames(
+    (0, "CISCO-IETF-VPLS-GENERIC-MIB", "cvplsConfigIndex"),
+)
+if mibBuilder.loadTexts:
+    cvplsLdpConfigEntry.setStatus("current")
+
+
+class _CvplsLdpConfigMacAddrWithdraw_Type(TruthValue):
+    """Custom type cvplsLdpConfigMacAddrWithdraw based on TruthValue"""
+
+
+_CvplsLdpConfigMacAddrWithdraw_Object = MibTableColumn
+cvplsLdpConfigMacAddrWithdraw = _CvplsLdpConfigMacAddrWithdraw_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 141, 1, 1, 1, 1),
+    _CvplsLdpConfigMacAddrWithdraw_Type()
+)
+cvplsLdpConfigMacAddrWithdraw.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cvplsLdpConfigMacAddrWithdraw.setStatus("current")
+_CvplsLdpPwBindTable_Object = MibTable
+cvplsLdpPwBindTable = _CvplsLdpPwBindTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 141, 1, 2)
+)
+if mibBuilder.loadTexts:
+    cvplsLdpPwBindTable.setStatus("current")
+_CvplsLdpPwBindEntry_Object = MibTableRow
+cvplsLdpPwBindEntry = _CvplsLdpPwBindEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 141, 1, 2, 1)
+)
+cvplsLdpPwBindEntry.setIndexNames(
+    (0, "CISCO-IETF-VPLS-GENERIC-MIB", "cvplsConfigIndex"),
+    (0, "CISCO-IETF-VPLS-GENERIC-MIB", "cvplsPwBindIndex"),
+)
+if mibBuilder.loadTexts:
+    cvplsLdpPwBindEntry.setStatus("current")
+
+
+class _CvplsLdpPwBindMacAddressLimit_Type(Unsigned32):
+    """Custom type cvplsLdpPwBindMacAddressLimit based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4294967295),
+    )
+
+
+_CvplsLdpPwBindMacAddressLimit_Type.__name__ = "Unsigned32"
+_CvplsLdpPwBindMacAddressLimit_Object = MibTableColumn
+cvplsLdpPwBindMacAddressLimit = _CvplsLdpPwBindMacAddressLimit_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 141, 1, 2, 1, 1),
+    _CvplsLdpPwBindMacAddressLimit_Type()
+)
+cvplsLdpPwBindMacAddressLimit.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cvplsLdpPwBindMacAddressLimit.setStatus("current")
+_CvplsLdpConformance_ObjectIdentity = ObjectIdentity
+cvplsLdpConformance = _CvplsLdpConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 141, 2)
+)
+_CvplsLdpCompliances_ObjectIdentity = ObjectIdentity
+cvplsLdpCompliances = _CvplsLdpCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 141, 2, 1)
+)
+_CvplsLdpGroups_ObjectIdentity = ObjectIdentity
+cvplsLdpGroups = _CvplsLdpGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 141, 2, 2)
+)
+
+# Managed Objects groups
+
+cvplsLdpGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 10, 141, 2, 2, 1)
+)
+cvplsLdpGroup.setObjects(
+      *(("CISCO-IETF-VPLS-LDP-MIB", "cvplsLdpConfigMacAddrWithdraw"),
+        ("CISCO-IETF-VPLS-LDP-MIB", "cvplsLdpPwBindMacAddressLimit"))
+)
+if mibBuilder.loadTexts:
+    cvplsLdpGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+cvplsLdpModuleFullCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 10, 141, 2, 1, 1)
+)
+if mibBuilder.loadTexts:
+    cvplsLdpModuleFullCompliance.setStatus(
+        "current"
+    )
+
+cvplsLdpModuleReadOnlyCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 10, 141, 2, 1, 2)
+)
+if mibBuilder.loadTexts:
+    cvplsLdpModuleReadOnlyCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-IETF-VPLS-LDP-MIB",
+    **{"cvplsLdpMIB": cvplsLdpMIB,
+       "cvplsLdpObjects": cvplsLdpObjects,
+       "cvplsLdpConfigTable": cvplsLdpConfigTable,
+       "cvplsLdpConfigEntry": cvplsLdpConfigEntry,
+       "cvplsLdpConfigMacAddrWithdraw": cvplsLdpConfigMacAddrWithdraw,
+       "cvplsLdpPwBindTable": cvplsLdpPwBindTable,
+       "cvplsLdpPwBindEntry": cvplsLdpPwBindEntry,
+       "cvplsLdpPwBindMacAddressLimit": cvplsLdpPwBindMacAddressLimit,
+       "cvplsLdpConformance": cvplsLdpConformance,
+       "cvplsLdpCompliances": cvplsLdpCompliances,
+       "cvplsLdpModuleFullCompliance": cvplsLdpModuleFullCompliance,
+       "cvplsLdpModuleReadOnlyCompliance": cvplsLdpModuleReadOnlyCompliance,
+       "cvplsLdpGroups": cvplsLdpGroups,
+       "cvplsLdpGroup": cvplsLdpGroup}
+)

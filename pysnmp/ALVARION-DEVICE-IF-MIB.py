@@ -1,75 +1,465 @@
+# SNMP MIB module (ALVARION-DEVICE-IF-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ALVARION-DEVICE-IF-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/ALVARION-DEVICE-IF-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:06:16 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-coDevDisIndex, = mibBuilder.importSymbols("ALVARION-DEVICE-MIB", "coDevDisIndex")
-alvarionMgmtV2, = mibBuilder.importSymbols("ALVARION-SMI", "alvarionMgmtV2")
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-IpAddress, iso, Unsigned32, Bits, Counter64, Gauge32, ModuleIdentity, MibIdentifier, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, ObjectIdentity, NotificationType, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "iso", "Unsigned32", "Bits", "Counter64", "Gauge32", "ModuleIdentity", "MibIdentifier", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "ObjectIdentity", "NotificationType", "Counter32")
-TextualConvention, MacAddress, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "MacAddress", "DisplayString")
-alvarionDeviceIfMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24))
-if mibBuilder.loadTexts: alvarionDeviceIfMIB.setLastUpdated('200710310000Z')
-if mibBuilder.loadTexts: alvarionDeviceIfMIB.setOrganization('Alvarion Ltd.')
-alvarionDeviceIfMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1))
-coDeviceIfStatusGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 1))
-coDeviceIfStatsGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 2))
-coDeviceIfStatusTable = MibTable((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 1, 1), )
-if mibBuilder.loadTexts: coDeviceIfStatusTable.setStatus('current')
-coDeviceIfStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 1, 1, 1), ).setIndexNames((0, "ALVARION-DEVICE-MIB", "coDevDisIndex"), (0, "ALVARION-DEVICE-IF-MIB", "coDevIfStaIfIndex"))
-if mibBuilder.loadTexts: coDeviceIfStatusEntry.setStatus('current')
-coDevIfStaIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: coDevIfStaIfIndex.setStatus('current')
-coDevIfStaFriendlyInterfaceName = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 1, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: coDevIfStaFriendlyInterfaceName.setStatus('current')
-coDevIfStaType = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("other", 1), ("ethernet", 2), ("l2vlan", 3), ("bridge", 4), ("ieee80211", 5), ("ieee80211Wds", 6)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: coDevIfStaType.setStatus('current')
-coDevIfStaVLAN = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4094))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: coDevIfStaVLAN.setStatus('current')
-coDevIfStaIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 1, 1, 1, 5), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: coDevIfStaIpAddress.setStatus('current')
-coDevIfStaNetworkMask = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 1, 1, 1, 6), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: coDevIfStaNetworkMask.setStatus('current')
-coDevIfStaMACAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 1, 1, 1, 7), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: coDevIfStaMACAddress.setStatus('current')
-coDevIfStaState = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 1, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: coDevIfStaState.setStatus('current')
-coDeviceIfStatsTable = MibTable((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 2, 1), )
-if mibBuilder.loadTexts: coDeviceIfStatsTable.setStatus('current')
-coDeviceIfStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 2, 1, 1), )
-coDeviceIfStatusEntry.registerAugmentions(("ALVARION-DEVICE-IF-MIB", "coDeviceIfStatsEntry"))
-coDeviceIfStatsEntry.setIndexNames(*coDeviceIfStatusEntry.getIndexNames())
-if mibBuilder.loadTexts: coDeviceIfStatsEntry.setStatus('current')
-coDevIfStsRxBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 2, 1, 1, 1), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: coDevIfStsRxBytes.setStatus('current')
-coDevIfStsRxPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 2, 1, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: coDevIfStsRxPackets.setStatus('current')
-coDevIfStsRxErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 2, 1, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: coDevIfStsRxErrors.setStatus('current')
-coDevIfStsTxBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 2, 1, 1, 4), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: coDevIfStsTxBytes.setStatus('current')
-coDevIfStsTxPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 2, 1, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: coDevIfStsTxPackets.setStatus('current')
-coDevIfStsTxErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 2, 1, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: coDevIfStsTxErrors.setStatus('current')
-alvarionDeviceIfMIBNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 2))
-alvarionDeviceIfMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 2, 0))
-alvarionDeviceIfMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 3))
-alvarionDeviceIfMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 3, 1))
-alvarionDeviceIfMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 3, 2))
-alvarionDeviceIfMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 3, 1, 1)).setObjects(("ALVARION-DEVICE-IF-MIB", "alvarionDeviceIfStatusMIBGroup"), ("ALVARION-DEVICE-IF-MIB", "alvarionDeviceIfStatsMIBGroup"))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/ALVARION-DEVICE-IF-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 20:38:34 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alvarionDeviceIfMIBCompliance = alvarionDeviceIfMIBCompliance.setStatus('current')
-alvarionDeviceIfStatusMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 3, 2, 1)).setObjects(("ALVARION-DEVICE-IF-MIB", "coDevIfStaFriendlyInterfaceName"), ("ALVARION-DEVICE-IF-MIB", "coDevIfStaType"), ("ALVARION-DEVICE-IF-MIB", "coDevIfStaVLAN"), ("ALVARION-DEVICE-IF-MIB", "coDevIfStaIpAddress"), ("ALVARION-DEVICE-IF-MIB", "coDevIfStaNetworkMask"), ("ALVARION-DEVICE-IF-MIB", "coDevIfStaMACAddress"), ("ALVARION-DEVICE-IF-MIB", "coDevIfStaState"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alvarionDeviceIfStatusMIBGroup = alvarionDeviceIfStatusMIBGroup.setStatus('current')
-alvarionDeviceIfStatsMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 3, 2, 2)).setObjects(("ALVARION-DEVICE-IF-MIB", "coDevIfStsRxBytes"), ("ALVARION-DEVICE-IF-MIB", "coDevIfStsRxPackets"), ("ALVARION-DEVICE-IF-MIB", "coDevIfStsRxErrors"), ("ALVARION-DEVICE-IF-MIB", "coDevIfStsTxBytes"), ("ALVARION-DEVICE-IF-MIB", "coDevIfStsTxPackets"), ("ALVARION-DEVICE-IF-MIB", "coDevIfStsTxErrors"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alvarionDeviceIfStatsMIBGroup = alvarionDeviceIfStatsMIBGroup.setStatus('current')
-mibBuilder.exportSymbols("ALVARION-DEVICE-IF-MIB", alvarionDeviceIfStatusMIBGroup=alvarionDeviceIfStatusMIBGroup, alvarionDeviceIfMIBCompliances=alvarionDeviceIfMIBCompliances, coDevIfStaIfIndex=coDevIfStaIfIndex, coDevIfStaType=coDevIfStaType, coDevIfStaMACAddress=coDevIfStaMACAddress, coDeviceIfStatsTable=coDeviceIfStatsTable, coDeviceIfStatsGroup=coDeviceIfStatsGroup, coDeviceIfStatusGroup=coDeviceIfStatusGroup, coDevIfStaFriendlyInterfaceName=coDevIfStaFriendlyInterfaceName, alvarionDeviceIfMIBGroups=alvarionDeviceIfMIBGroups, coDevIfStsRxBytes=coDevIfStsRxBytes, coDevIfStsTxBytes=coDevIfStsTxBytes, coDeviceIfStatusTable=coDeviceIfStatusTable, coDevIfStsRxPackets=coDevIfStsRxPackets, alvarionDeviceIfMIB=alvarionDeviceIfMIB, alvarionDeviceIfMIBNotifications=alvarionDeviceIfMIBNotifications, coDeviceIfStatusEntry=coDeviceIfStatusEntry, PYSNMP_MODULE_ID=alvarionDeviceIfMIB, coDevIfStsRxErrors=coDevIfStsRxErrors, coDevIfStaVLAN=coDevIfStaVLAN, alvarionDeviceIfMIBCompliance=alvarionDeviceIfMIBCompliance, coDevIfStsTxErrors=coDevIfStsTxErrors, coDevIfStaNetworkMask=coDevIfStaNetworkMask, alvarionDeviceIfMIBNotificationPrefix=alvarionDeviceIfMIBNotificationPrefix, alvarionDeviceIfMIBConformance=alvarionDeviceIfMIBConformance, coDeviceIfStatsEntry=coDeviceIfStatsEntry, alvarionDeviceIfMIBObjects=alvarionDeviceIfMIBObjects, alvarionDeviceIfStatsMIBGroup=alvarionDeviceIfStatsMIBGroup, coDevIfStsTxPackets=coDevIfStsTxPackets, coDevIfStaIpAddress=coDevIfStaIpAddress, coDevIfStaState=coDevIfStaState)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(coDevDisIndex,) = mibBuilder.importSymbols(
+    "ALVARION-DEVICE-MIB",
+    "coDevDisIndex")
+
+(alvarionMgmtV2,) = mibBuilder.importSymbols(
+    "ALVARION-SMI",
+    "alvarionMgmtV2")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+alvarionDeviceIfMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AlvarionDeviceIfMIBObjects_ObjectIdentity = ObjectIdentity
+alvarionDeviceIfMIBObjects = _AlvarionDeviceIfMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1)
+)
+_CoDeviceIfStatusGroup_ObjectIdentity = ObjectIdentity
+coDeviceIfStatusGroup = _CoDeviceIfStatusGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 1)
+)
+_CoDeviceIfStatusTable_Object = MibTable
+coDeviceIfStatusTable = _CoDeviceIfStatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    coDeviceIfStatusTable.setStatus("current")
+_CoDeviceIfStatusEntry_Object = MibTableRow
+coDeviceIfStatusEntry = _CoDeviceIfStatusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 1, 1, 1)
+)
+coDeviceIfStatusEntry.setIndexNames(
+    (0, "ALVARION-DEVICE-MIB", "coDevDisIndex"),
+    (0, "ALVARION-DEVICE-IF-MIB", "coDevIfStaIfIndex"),
+)
+if mibBuilder.loadTexts:
+    coDeviceIfStatusEntry.setStatus("current")
+
+
+class _CoDevIfStaIfIndex_Type(Integer32):
+    """Custom type coDevIfStaIfIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_CoDevIfStaIfIndex_Type.__name__ = "Integer32"
+_CoDevIfStaIfIndex_Object = MibTableColumn
+coDevIfStaIfIndex = _CoDevIfStaIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 1, 1, 1, 1),
+    _CoDevIfStaIfIndex_Type()
+)
+coDevIfStaIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    coDevIfStaIfIndex.setStatus("current")
+_CoDevIfStaFriendlyInterfaceName_Type = DisplayString
+_CoDevIfStaFriendlyInterfaceName_Object = MibTableColumn
+coDevIfStaFriendlyInterfaceName = _CoDevIfStaFriendlyInterfaceName_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 1, 1, 1, 2),
+    _CoDevIfStaFriendlyInterfaceName_Type()
+)
+coDevIfStaFriendlyInterfaceName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    coDevIfStaFriendlyInterfaceName.setStatus("current")
+
+
+class _CoDevIfStaType_Type(Integer32):
+    """Custom type coDevIfStaType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("bridge", 4),
+          ("ethernet", 2),
+          ("ieee80211", 5),
+          ("ieee80211Wds", 6),
+          ("l2vlan", 3),
+          ("other", 1))
+    )
+
+
+_CoDevIfStaType_Type.__name__ = "Integer32"
+_CoDevIfStaType_Object = MibTableColumn
+coDevIfStaType = _CoDevIfStaType_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 1, 1, 1, 3),
+    _CoDevIfStaType_Type()
+)
+coDevIfStaType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    coDevIfStaType.setStatus("current")
+
+
+class _CoDevIfStaVLAN_Type(Integer32):
+    """Custom type coDevIfStaVLAN based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4094),
+    )
+
+
+_CoDevIfStaVLAN_Type.__name__ = "Integer32"
+_CoDevIfStaVLAN_Object = MibTableColumn
+coDevIfStaVLAN = _CoDevIfStaVLAN_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 1, 1, 1, 4),
+    _CoDevIfStaVLAN_Type()
+)
+coDevIfStaVLAN.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    coDevIfStaVLAN.setStatus("current")
+_CoDevIfStaIpAddress_Type = IpAddress
+_CoDevIfStaIpAddress_Object = MibTableColumn
+coDevIfStaIpAddress = _CoDevIfStaIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 1, 1, 1, 5),
+    _CoDevIfStaIpAddress_Type()
+)
+coDevIfStaIpAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    coDevIfStaIpAddress.setStatus("current")
+_CoDevIfStaNetworkMask_Type = IpAddress
+_CoDevIfStaNetworkMask_Object = MibTableColumn
+coDevIfStaNetworkMask = _CoDevIfStaNetworkMask_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 1, 1, 1, 6),
+    _CoDevIfStaNetworkMask_Type()
+)
+coDevIfStaNetworkMask.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    coDevIfStaNetworkMask.setStatus("current")
+_CoDevIfStaMACAddress_Type = MacAddress
+_CoDevIfStaMACAddress_Object = MibTableColumn
+coDevIfStaMACAddress = _CoDevIfStaMACAddress_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 1, 1, 1, 7),
+    _CoDevIfStaMACAddress_Type()
+)
+coDevIfStaMACAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    coDevIfStaMACAddress.setStatus("current")
+
+
+class _CoDevIfStaState_Type(Integer32):
+    """Custom type coDevIfStaState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 2),
+          ("up", 1))
+    )
+
+
+_CoDevIfStaState_Type.__name__ = "Integer32"
+_CoDevIfStaState_Object = MibTableColumn
+coDevIfStaState = _CoDevIfStaState_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 1, 1, 1, 8),
+    _CoDevIfStaState_Type()
+)
+coDevIfStaState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    coDevIfStaState.setStatus("current")
+_CoDeviceIfStatsGroup_ObjectIdentity = ObjectIdentity
+coDeviceIfStatsGroup = _CoDeviceIfStatsGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 2)
+)
+_CoDeviceIfStatsTable_Object = MibTable
+coDeviceIfStatsTable = _CoDeviceIfStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    coDeviceIfStatsTable.setStatus("current")
+_CoDeviceIfStatsEntry_Object = MibTableRow
+coDeviceIfStatsEntry = _CoDeviceIfStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 2, 1, 1)
+)
+if mibBuilder.loadTexts:
+    coDeviceIfStatsEntry.setStatus("current")
+_CoDevIfStsRxBytes_Type = Counter64
+_CoDevIfStsRxBytes_Object = MibTableColumn
+coDevIfStsRxBytes = _CoDevIfStsRxBytes_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 2, 1, 1, 1),
+    _CoDevIfStsRxBytes_Type()
+)
+coDevIfStsRxBytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    coDevIfStsRxBytes.setStatus("current")
+_CoDevIfStsRxPackets_Type = Counter32
+_CoDevIfStsRxPackets_Object = MibTableColumn
+coDevIfStsRxPackets = _CoDevIfStsRxPackets_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 2, 1, 1, 2),
+    _CoDevIfStsRxPackets_Type()
+)
+coDevIfStsRxPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    coDevIfStsRxPackets.setStatus("current")
+_CoDevIfStsRxErrors_Type = Counter32
+_CoDevIfStsRxErrors_Object = MibTableColumn
+coDevIfStsRxErrors = _CoDevIfStsRxErrors_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 2, 1, 1, 3),
+    _CoDevIfStsRxErrors_Type()
+)
+coDevIfStsRxErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    coDevIfStsRxErrors.setStatus("current")
+_CoDevIfStsTxBytes_Type = Counter64
+_CoDevIfStsTxBytes_Object = MibTableColumn
+coDevIfStsTxBytes = _CoDevIfStsTxBytes_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 2, 1, 1, 4),
+    _CoDevIfStsTxBytes_Type()
+)
+coDevIfStsTxBytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    coDevIfStsTxBytes.setStatus("current")
+_CoDevIfStsTxPackets_Type = Counter32
+_CoDevIfStsTxPackets_Object = MibTableColumn
+coDevIfStsTxPackets = _CoDevIfStsTxPackets_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 2, 1, 1, 5),
+    _CoDevIfStsTxPackets_Type()
+)
+coDevIfStsTxPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    coDevIfStsTxPackets.setStatus("current")
+_CoDevIfStsTxErrors_Type = Counter32
+_CoDevIfStsTxErrors_Object = MibTableColumn
+coDevIfStsTxErrors = _CoDevIfStsTxErrors_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 1, 2, 1, 1, 6),
+    _CoDevIfStsTxErrors_Type()
+)
+coDevIfStsTxErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    coDevIfStsTxErrors.setStatus("current")
+_AlvarionDeviceIfMIBNotificationPrefix_ObjectIdentity = ObjectIdentity
+alvarionDeviceIfMIBNotificationPrefix = _AlvarionDeviceIfMIBNotificationPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 2)
+)
+_AlvarionDeviceIfMIBNotifications_ObjectIdentity = ObjectIdentity
+alvarionDeviceIfMIBNotifications = _AlvarionDeviceIfMIBNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 2, 0)
+)
+_AlvarionDeviceIfMIBConformance_ObjectIdentity = ObjectIdentity
+alvarionDeviceIfMIBConformance = _AlvarionDeviceIfMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 3)
+)
+_AlvarionDeviceIfMIBCompliances_ObjectIdentity = ObjectIdentity
+alvarionDeviceIfMIBCompliances = _AlvarionDeviceIfMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 3, 1)
+)
+_AlvarionDeviceIfMIBGroups_ObjectIdentity = ObjectIdentity
+alvarionDeviceIfMIBGroups = _AlvarionDeviceIfMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 3, 2)
+)
+coDeviceIfStatusEntry.registerAugmentions(
+    ("ALVARION-DEVICE-IF-MIB",
+     "coDeviceIfStatsEntry")
+)
+coDeviceIfStatsEntry.setIndexNames(*coDeviceIfStatusEntry.getIndexNames())
+
+# Managed Objects groups
+
+alvarionDeviceIfStatusMIBGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 3, 2, 1)
+)
+alvarionDeviceIfStatusMIBGroup.setObjects(
+      *(("ALVARION-DEVICE-IF-MIB", "coDevIfStaFriendlyInterfaceName"),
+        ("ALVARION-DEVICE-IF-MIB", "coDevIfStaType"),
+        ("ALVARION-DEVICE-IF-MIB", "coDevIfStaVLAN"),
+        ("ALVARION-DEVICE-IF-MIB", "coDevIfStaIpAddress"),
+        ("ALVARION-DEVICE-IF-MIB", "coDevIfStaNetworkMask"),
+        ("ALVARION-DEVICE-IF-MIB", "coDevIfStaMACAddress"),
+        ("ALVARION-DEVICE-IF-MIB", "coDevIfStaState"))
+)
+if mibBuilder.loadTexts:
+    alvarionDeviceIfStatusMIBGroup.setStatus("current")
+
+alvarionDeviceIfStatsMIBGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 3, 2, 2)
+)
+alvarionDeviceIfStatsMIBGroup.setObjects(
+      *(("ALVARION-DEVICE-IF-MIB", "coDevIfStsRxBytes"),
+        ("ALVARION-DEVICE-IF-MIB", "coDevIfStsRxPackets"),
+        ("ALVARION-DEVICE-IF-MIB", "coDevIfStsRxErrors"),
+        ("ALVARION-DEVICE-IF-MIB", "coDevIfStsTxBytes"),
+        ("ALVARION-DEVICE-IF-MIB", "coDevIfStsTxPackets"),
+        ("ALVARION-DEVICE-IF-MIB", "coDevIfStsTxErrors"))
+)
+if mibBuilder.loadTexts:
+    alvarionDeviceIfStatsMIBGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+alvarionDeviceIfMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 24, 3, 1, 1)
+)
+if mibBuilder.loadTexts:
+    alvarionDeviceIfMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ALVARION-DEVICE-IF-MIB",
+    **{"alvarionDeviceIfMIB": alvarionDeviceIfMIB,
+       "alvarionDeviceIfMIBObjects": alvarionDeviceIfMIBObjects,
+       "coDeviceIfStatusGroup": coDeviceIfStatusGroup,
+       "coDeviceIfStatusTable": coDeviceIfStatusTable,
+       "coDeviceIfStatusEntry": coDeviceIfStatusEntry,
+       "coDevIfStaIfIndex": coDevIfStaIfIndex,
+       "coDevIfStaFriendlyInterfaceName": coDevIfStaFriendlyInterfaceName,
+       "coDevIfStaType": coDevIfStaType,
+       "coDevIfStaVLAN": coDevIfStaVLAN,
+       "coDevIfStaIpAddress": coDevIfStaIpAddress,
+       "coDevIfStaNetworkMask": coDevIfStaNetworkMask,
+       "coDevIfStaMACAddress": coDevIfStaMACAddress,
+       "coDevIfStaState": coDevIfStaState,
+       "coDeviceIfStatsGroup": coDeviceIfStatsGroup,
+       "coDeviceIfStatsTable": coDeviceIfStatsTable,
+       "coDeviceIfStatsEntry": coDeviceIfStatsEntry,
+       "coDevIfStsRxBytes": coDevIfStsRxBytes,
+       "coDevIfStsRxPackets": coDevIfStsRxPackets,
+       "coDevIfStsRxErrors": coDevIfStsRxErrors,
+       "coDevIfStsTxBytes": coDevIfStsTxBytes,
+       "coDevIfStsTxPackets": coDevIfStsTxPackets,
+       "coDevIfStsTxErrors": coDevIfStsTxErrors,
+       "alvarionDeviceIfMIBNotificationPrefix": alvarionDeviceIfMIBNotificationPrefix,
+       "alvarionDeviceIfMIBNotifications": alvarionDeviceIfMIBNotifications,
+       "alvarionDeviceIfMIBConformance": alvarionDeviceIfMIBConformance,
+       "alvarionDeviceIfMIBCompliances": alvarionDeviceIfMIBCompliances,
+       "alvarionDeviceIfMIBCompliance": alvarionDeviceIfMIBCompliance,
+       "alvarionDeviceIfMIBGroups": alvarionDeviceIfMIBGroups,
+       "alvarionDeviceIfStatusMIBGroup": alvarionDeviceIfStatusMIBGroup,
+       "alvarionDeviceIfStatsMIBGroup": alvarionDeviceIfStatsMIBGroup}
+)

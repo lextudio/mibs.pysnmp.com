@@ -1,39 +1,258 @@
+# SNMP MIB module (RADLAN-SMON-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module RADLAN-SMON-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/RADLAN-SMON-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:40:44 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
-dot1dBasePort, = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dBasePort")
-rnd, = mibBuilder.importSymbols("RADLAN-MIB", "rnd")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-NotificationType, IpAddress, Counter64, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Counter32, iso, Unsigned32, Bits, Integer32, Gauge32, ObjectIdentity, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "IpAddress", "Counter64", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Counter32", "iso", "Unsigned32", "Bits", "Integer32", "Gauge32", "ObjectIdentity", "ModuleIdentity")
-TextualConvention, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TruthValue", "DisplayString")
-class CopyModeType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("monitor-only", 1), ("network", 2))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/RADLAN-SMON-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:43:22 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-rlSmon = ModuleIdentity((1, 3, 6, 1, 4, 1, 89, 84))
-rlSmon.setRevisions(('2007-01-02 00:00',))
-if mibBuilder.loadTexts: rlSmon.setLastUpdated('200701020000Z')
-if mibBuilder.loadTexts: rlSmon.setOrganization('Radlan - a MARVELL company. Marvell Semiconductor, Inc.')
-rlPortCopyMibVersion = MibScalar((1, 3, 6, 1, 4, 1, 89, 84, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlPortCopyMibVersion.setStatus('current')
-rlPortCopySupport = MibScalar((1, 3, 6, 1, 4, 1, 89, 84, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("supported", 1), ("notSupported", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlPortCopySupport.setStatus('current')
-rlPortCopyVlanTaggingTable = MibTable((1, 3, 6, 1, 4, 1, 89, 84, 3), )
-if mibBuilder.loadTexts: rlPortCopyVlanTaggingTable.setStatus('current')
-rlPortCopyVlanTaggingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 84, 3, 1), ).setIndexNames((0, "BRIDGE-MIB", "dot1dBasePort"))
-if mibBuilder.loadTexts: rlPortCopyVlanTaggingEntry.setStatus('current')
-rlPortCopyVlanTagging = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 84, 3, 1, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlPortCopyVlanTagging.setStatus('current')
-rlPortCopyMode = MibScalar((1, 3, 6, 1, 4, 1, 89, 84, 4), CopyModeType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlPortCopyMode.setStatus('current')
-rlPortCopySessionsEnabled = MibScalar((1, 3, 6, 1, 4, 1, 89, 84, 5), TruthValue().clone('true')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlPortCopySessionsEnabled.setStatus('current')
-mibBuilder.exportSymbols("RADLAN-SMON-MIB", rlPortCopySupport=rlPortCopySupport, PYSNMP_MODULE_ID=rlSmon, rlPortCopyVlanTaggingEntry=rlPortCopyVlanTaggingEntry, CopyModeType=CopyModeType, rlPortCopyVlanTagging=rlPortCopyVlanTagging, rlPortCopyVlanTaggingTable=rlPortCopyVlanTaggingTable, rlPortCopyMibVersion=rlPortCopyMibVersion, rlPortCopySessionsEnabled=rlPortCopySessionsEnabled, rlSmon=rlSmon, rlPortCopyMode=rlPortCopyMode)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(dot1dBasePort,) = mibBuilder.importSymbols(
+    "BRIDGE-MIB",
+    "dot1dBasePort")
+
+(rnd,) = mibBuilder.importSymbols(
+    "RADLAN-MIB",
+    "rnd")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+rlSmon = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 89, 84)
+)
+rlSmon.setRevisions(
+        ("2007-01-02 00:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class CopyModeType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("monitor-only", 1),
+          ("network", 2))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_RlPortCopyMibVersion_Type = Integer32
+_RlPortCopyMibVersion_Object = MibScalar
+rlPortCopyMibVersion = _RlPortCopyMibVersion_Object(
+    (1, 3, 6, 1, 4, 1, 89, 84, 1),
+    _RlPortCopyMibVersion_Type()
+)
+rlPortCopyMibVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlPortCopyMibVersion.setStatus("current")
+
+
+class _RlPortCopySupport_Type(Integer32):
+    """Custom type rlPortCopySupport based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notSupported", 2),
+          ("supported", 1))
+    )
+
+
+_RlPortCopySupport_Type.__name__ = "Integer32"
+_RlPortCopySupport_Object = MibScalar
+rlPortCopySupport = _RlPortCopySupport_Object(
+    (1, 3, 6, 1, 4, 1, 89, 84, 2),
+    _RlPortCopySupport_Type()
+)
+rlPortCopySupport.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlPortCopySupport.setStatus("current")
+_RlPortCopyVlanTaggingTable_Object = MibTable
+rlPortCopyVlanTaggingTable = _RlPortCopyVlanTaggingTable_Object(
+    (1, 3, 6, 1, 4, 1, 89, 84, 3)
+)
+if mibBuilder.loadTexts:
+    rlPortCopyVlanTaggingTable.setStatus("current")
+_RlPortCopyVlanTaggingEntry_Object = MibTableRow
+rlPortCopyVlanTaggingEntry = _RlPortCopyVlanTaggingEntry_Object(
+    (1, 3, 6, 1, 4, 1, 89, 84, 3, 1)
+)
+rlPortCopyVlanTaggingEntry.setIndexNames(
+    (0, "BRIDGE-MIB", "dot1dBasePort"),
+)
+if mibBuilder.loadTexts:
+    rlPortCopyVlanTaggingEntry.setStatus("current")
+
+
+class _RlPortCopyVlanTagging_Type(TruthValue):
+    """Custom type rlPortCopyVlanTagging based on TruthValue"""
+
+
+_RlPortCopyVlanTagging_Object = MibTableColumn
+rlPortCopyVlanTagging = _RlPortCopyVlanTagging_Object(
+    (1, 3, 6, 1, 4, 1, 89, 84, 3, 1, 1),
+    _RlPortCopyVlanTagging_Type()
+)
+rlPortCopyVlanTagging.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlPortCopyVlanTagging.setStatus("current")
+_RlPortCopyMode_Type = CopyModeType
+_RlPortCopyMode_Object = MibScalar
+rlPortCopyMode = _RlPortCopyMode_Object(
+    (1, 3, 6, 1, 4, 1, 89, 84, 4),
+    _RlPortCopyMode_Type()
+)
+rlPortCopyMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlPortCopyMode.setStatus("current")
+
+
+class _RlPortCopySessionsEnabled_Type(TruthValue):
+    """Custom type rlPortCopySessionsEnabled based on TruthValue"""
+
+
+_RlPortCopySessionsEnabled_Object = MibScalar
+rlPortCopySessionsEnabled = _RlPortCopySessionsEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 89, 84, 5),
+    _RlPortCopySessionsEnabled_Type()
+)
+rlPortCopySessionsEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlPortCopySessionsEnabled.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "RADLAN-SMON-MIB",
+    **{"CopyModeType": CopyModeType,
+       "rlSmon": rlSmon,
+       "rlPortCopyMibVersion": rlPortCopyMibVersion,
+       "rlPortCopySupport": rlPortCopySupport,
+       "rlPortCopyVlanTaggingTable": rlPortCopyVlanTaggingTable,
+       "rlPortCopyVlanTaggingEntry": rlPortCopyVlanTaggingEntry,
+       "rlPortCopyVlanTagging": rlPortCopyVlanTagging,
+       "rlPortCopyMode": rlPortCopyMode,
+       "rlPortCopySessionsEnabled": rlPortCopySessionsEnabled}
+)

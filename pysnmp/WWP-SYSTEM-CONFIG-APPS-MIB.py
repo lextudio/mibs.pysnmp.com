@@ -1,55 +1,356 @@
+# SNMP MIB module (WWP-SYSTEM-CONFIG-APPS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module WWP-SYSTEM-CONFIG-APPS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/WWP-SYSTEM-CONFIG-APPS-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 21:32:03 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-TimeTicks, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, MibIdentifier, iso, Counter32, ObjectIdentity, IpAddress, Integer32, Bits, Counter64, Unsigned32, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "MibIdentifier", "iso", "Counter32", "ObjectIdentity", "IpAddress", "Integer32", "Bits", "Counter64", "Unsigned32", "Gauge32")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
-wwpModules, = mibBuilder.importSymbols("WWP-SMI", "wwpModules")
-wwpSystemConfAppsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6141, 2, 20))
-wwpSystemConfAppsMIB.setRevisions(('2001-04-03 17:00',))
-if mibBuilder.loadTexts: wwpSystemConfAppsMIB.setLastUpdated('200104031700Z')
-if mibBuilder.loadTexts: wwpSystemConfAppsMIB.setOrganization('World Wide Packets, Inc')
-wwpSystemConfAppsMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 20, 1))
-wwpSystemApps = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 20, 1, 1))
-wwpSystemConf = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 20, 1, 2))
-wwpSystemConfAppsMIBNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 20, 2))
-wwpSystemConfAppsMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 20, 2, 0))
-wwpSystemConfAppsMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 20, 3))
-wwpSystemConfAppsMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 20, 3, 1))
-wwpSystemConfAppsMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 20, 3, 2))
-wwpSystemRunningApps = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 20, 1, 1, 1), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpSystemRunningApps.setStatus('current')
-wwpSystemAppsSwapActivate = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 20, 1, 1, 2), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wwpSystemAppsSwapActivate.setStatus('current')
-wwpSystemAppsTable = MibTable((1, 3, 6, 1, 4, 1, 6141, 2, 20, 1, 1, 3), )
-if mibBuilder.loadTexts: wwpSystemAppsTable.setStatus('current')
-wwpSystemAppsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6141, 2, 20, 1, 1, 3, 1), ).setIndexNames((0, "WWP-SYSTEM-CONFIG-APPS-MIB", "wwpSystemAppsImage"))
-if mibBuilder.loadTexts: wwpSystemAppsEntry.setStatus('current')
-wwpSystemAppsImage = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 20, 1, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("primary", 1), ("backup", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpSystemAppsImage.setStatus('current')
-wwpSystemAppsName = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 20, 1, 1, 3, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpSystemAppsName.setStatus('current')
-wwpSystemBackupNotifEnabled = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 20, 1, 1, 4), TruthValue().clone('true')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wwpSystemBackupNotifEnabled.setStatus('current')
-wwpSystemConfTable = MibTable((1, 3, 6, 1, 4, 1, 6141, 2, 20, 1, 2, 1), )
-if mibBuilder.loadTexts: wwpSystemConfTable.setStatus('current')
-wwpSystemConfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6141, 2, 20, 1, 2, 1, 1), ).setIndexNames((0, "WWP-SYSTEM-CONFIG-APPS-MIB", "wwpSystemConfIndex"))
-if mibBuilder.loadTexts: wwpSystemConfEntry.setStatus('current')
-wwpSystemConfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 20, 1, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpSystemConfIndex.setStatus('current')
-wwpSystemConfName = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 20, 1, 2, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpSystemConfName.setStatus('current')
-wwpSystemBootConfName = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 20, 1, 2, 2), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wwpSystemBootConfName.setStatus('current')
-wwpSystemConfSaveName = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 20, 1, 2, 3), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wwpSystemConfSaveName.setStatus('current')
-wwpSystemLoadBackupAppNotification = NotificationType((1, 3, 6, 1, 4, 1, 6141, 2, 20, 2, 0, 1)).setObjects(("WWP-SYSTEM-CONFIG-APPS-MIB", "wwpSystemAppsName"))
-if mibBuilder.loadTexts: wwpSystemLoadBackupAppNotification.setStatus('current')
-mibBuilder.exportSymbols("WWP-SYSTEM-CONFIG-APPS-MIB", wwpSystemConfAppsMIB=wwpSystemConfAppsMIB, wwpSystemConfIndex=wwpSystemConfIndex, wwpSystemRunningApps=wwpSystemRunningApps, wwpSystemConfEntry=wwpSystemConfEntry, wwpSystemConfName=wwpSystemConfName, wwpSystemAppsSwapActivate=wwpSystemAppsSwapActivate, wwpSystemBootConfName=wwpSystemBootConfName, wwpSystemAppsEntry=wwpSystemAppsEntry, wwpSystemConfAppsMIBNotifications=wwpSystemConfAppsMIBNotifications, PYSNMP_MODULE_ID=wwpSystemConfAppsMIB, wwpSystemApps=wwpSystemApps, wwpSystemAppsName=wwpSystemAppsName, wwpSystemAppsImage=wwpSystemAppsImage, wwpSystemConf=wwpSystemConf, wwpSystemBackupNotifEnabled=wwpSystemBackupNotifEnabled, wwpSystemConfAppsMIBGroups=wwpSystemConfAppsMIBGroups, wwpSystemConfAppsMIBCompliances=wwpSystemConfAppsMIBCompliances, wwpSystemConfAppsMIBNotificationPrefix=wwpSystemConfAppsMIBNotificationPrefix, wwpSystemAppsTable=wwpSystemAppsTable, wwpSystemLoadBackupAppNotification=wwpSystemLoadBackupAppNotification, wwpSystemConfAppsMIBConformance=wwpSystemConfAppsMIBConformance, wwpSystemConfSaveName=wwpSystemConfSaveName, wwpSystemConfTable=wwpSystemConfTable, wwpSystemConfAppsMIBObjects=wwpSystemConfAppsMIBObjects)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/WWP-SYSTEM-CONFIG-APPS-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:15:25 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention",
+    "TruthValue")
+
+(wwpModules,) = mibBuilder.importSymbols(
+    "WWP-SMI",
+    "wwpModules")
+
+
+# MODULE-IDENTITY
+
+wwpSystemConfAppsMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 20)
+)
+wwpSystemConfAppsMIB.setRevisions(
+        ("2001-04-03 17:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_WwpSystemConfAppsMIBObjects_ObjectIdentity = ObjectIdentity
+wwpSystemConfAppsMIBObjects = _WwpSystemConfAppsMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 20, 1)
+)
+_WwpSystemApps_ObjectIdentity = ObjectIdentity
+wwpSystemApps = _WwpSystemApps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 20, 1, 1)
+)
+_WwpSystemRunningApps_Type = DisplayString
+_WwpSystemRunningApps_Object = MibScalar
+wwpSystemRunningApps = _WwpSystemRunningApps_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 20, 1, 1, 1),
+    _WwpSystemRunningApps_Type()
+)
+wwpSystemRunningApps.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpSystemRunningApps.setStatus("current")
+
+
+class _WwpSystemAppsSwapActivate_Type(TruthValue):
+    """Custom type wwpSystemAppsSwapActivate based on TruthValue"""
+
+
+_WwpSystemAppsSwapActivate_Object = MibScalar
+wwpSystemAppsSwapActivate = _WwpSystemAppsSwapActivate_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 20, 1, 1, 2),
+    _WwpSystemAppsSwapActivate_Type()
+)
+wwpSystemAppsSwapActivate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wwpSystemAppsSwapActivate.setStatus("current")
+_WwpSystemAppsTable_Object = MibTable
+wwpSystemAppsTable = _WwpSystemAppsTable_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 20, 1, 1, 3)
+)
+if mibBuilder.loadTexts:
+    wwpSystemAppsTable.setStatus("current")
+_WwpSystemAppsEntry_Object = MibTableRow
+wwpSystemAppsEntry = _WwpSystemAppsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 20, 1, 1, 3, 1)
+)
+wwpSystemAppsEntry.setIndexNames(
+    (0, "WWP-SYSTEM-CONFIG-APPS-MIB", "wwpSystemAppsImage"),
+)
+if mibBuilder.loadTexts:
+    wwpSystemAppsEntry.setStatus("current")
+
+
+class _WwpSystemAppsImage_Type(Integer32):
+    """Custom type wwpSystemAppsImage based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("backup", 2),
+          ("primary", 1))
+    )
+
+
+_WwpSystemAppsImage_Type.__name__ = "Integer32"
+_WwpSystemAppsImage_Object = MibTableColumn
+wwpSystemAppsImage = _WwpSystemAppsImage_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 20, 1, 1, 3, 1, 1),
+    _WwpSystemAppsImage_Type()
+)
+wwpSystemAppsImage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpSystemAppsImage.setStatus("current")
+_WwpSystemAppsName_Type = DisplayString
+_WwpSystemAppsName_Object = MibTableColumn
+wwpSystemAppsName = _WwpSystemAppsName_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 20, 1, 1, 3, 1, 2),
+    _WwpSystemAppsName_Type()
+)
+wwpSystemAppsName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpSystemAppsName.setStatus("current")
+
+
+class _WwpSystemBackupNotifEnabled_Type(TruthValue):
+    """Custom type wwpSystemBackupNotifEnabled based on TruthValue"""
+
+
+_WwpSystemBackupNotifEnabled_Object = MibScalar
+wwpSystemBackupNotifEnabled = _WwpSystemBackupNotifEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 20, 1, 1, 4),
+    _WwpSystemBackupNotifEnabled_Type()
+)
+wwpSystemBackupNotifEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wwpSystemBackupNotifEnabled.setStatus("current")
+_WwpSystemConf_ObjectIdentity = ObjectIdentity
+wwpSystemConf = _WwpSystemConf_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 20, 1, 2)
+)
+_WwpSystemConfTable_Object = MibTable
+wwpSystemConfTable = _WwpSystemConfTable_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 20, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    wwpSystemConfTable.setStatus("current")
+_WwpSystemConfEntry_Object = MibTableRow
+wwpSystemConfEntry = _WwpSystemConfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 20, 1, 2, 1, 1)
+)
+wwpSystemConfEntry.setIndexNames(
+    (0, "WWP-SYSTEM-CONFIG-APPS-MIB", "wwpSystemConfIndex"),
+)
+if mibBuilder.loadTexts:
+    wwpSystemConfEntry.setStatus("current")
+
+
+class _WwpSystemConfIndex_Type(Integer32):
+    """Custom type wwpSystemConfIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_WwpSystemConfIndex_Type.__name__ = "Integer32"
+_WwpSystemConfIndex_Object = MibTableColumn
+wwpSystemConfIndex = _WwpSystemConfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 20, 1, 2, 1, 1, 1),
+    _WwpSystemConfIndex_Type()
+)
+wwpSystemConfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpSystemConfIndex.setStatus("current")
+_WwpSystemConfName_Type = DisplayString
+_WwpSystemConfName_Object = MibTableColumn
+wwpSystemConfName = _WwpSystemConfName_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 20, 1, 2, 1, 1, 2),
+    _WwpSystemConfName_Type()
+)
+wwpSystemConfName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpSystemConfName.setStatus("current")
+_WwpSystemBootConfName_Type = DisplayString
+_WwpSystemBootConfName_Object = MibScalar
+wwpSystemBootConfName = _WwpSystemBootConfName_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 20, 1, 2, 2),
+    _WwpSystemBootConfName_Type()
+)
+wwpSystemBootConfName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wwpSystemBootConfName.setStatus("current")
+_WwpSystemConfSaveName_Type = DisplayString
+_WwpSystemConfSaveName_Object = MibScalar
+wwpSystemConfSaveName = _WwpSystemConfSaveName_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 20, 1, 2, 3),
+    _WwpSystemConfSaveName_Type()
+)
+wwpSystemConfSaveName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wwpSystemConfSaveName.setStatus("current")
+_WwpSystemConfAppsMIBNotificationPrefix_ObjectIdentity = ObjectIdentity
+wwpSystemConfAppsMIBNotificationPrefix = _WwpSystemConfAppsMIBNotificationPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 20, 2)
+)
+_WwpSystemConfAppsMIBNotifications_ObjectIdentity = ObjectIdentity
+wwpSystemConfAppsMIBNotifications = _WwpSystemConfAppsMIBNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 20, 2, 0)
+)
+_WwpSystemConfAppsMIBConformance_ObjectIdentity = ObjectIdentity
+wwpSystemConfAppsMIBConformance = _WwpSystemConfAppsMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 20, 3)
+)
+_WwpSystemConfAppsMIBCompliances_ObjectIdentity = ObjectIdentity
+wwpSystemConfAppsMIBCompliances = _WwpSystemConfAppsMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 20, 3, 1)
+)
+_WwpSystemConfAppsMIBGroups_ObjectIdentity = ObjectIdentity
+wwpSystemConfAppsMIBGroups = _WwpSystemConfAppsMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 20, 3, 2)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+wwpSystemLoadBackupAppNotification = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 20, 2, 0, 1)
+)
+wwpSystemLoadBackupAppNotification.setObjects(
+    ("WWP-SYSTEM-CONFIG-APPS-MIB", "wwpSystemAppsName")
+)
+if mibBuilder.loadTexts:
+    wwpSystemLoadBackupAppNotification.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "WWP-SYSTEM-CONFIG-APPS-MIB",
+    **{"wwpSystemConfAppsMIB": wwpSystemConfAppsMIB,
+       "wwpSystemConfAppsMIBObjects": wwpSystemConfAppsMIBObjects,
+       "wwpSystemApps": wwpSystemApps,
+       "wwpSystemRunningApps": wwpSystemRunningApps,
+       "wwpSystemAppsSwapActivate": wwpSystemAppsSwapActivate,
+       "wwpSystemAppsTable": wwpSystemAppsTable,
+       "wwpSystemAppsEntry": wwpSystemAppsEntry,
+       "wwpSystemAppsImage": wwpSystemAppsImage,
+       "wwpSystemAppsName": wwpSystemAppsName,
+       "wwpSystemBackupNotifEnabled": wwpSystemBackupNotifEnabled,
+       "wwpSystemConf": wwpSystemConf,
+       "wwpSystemConfTable": wwpSystemConfTable,
+       "wwpSystemConfEntry": wwpSystemConfEntry,
+       "wwpSystemConfIndex": wwpSystemConfIndex,
+       "wwpSystemConfName": wwpSystemConfName,
+       "wwpSystemBootConfName": wwpSystemBootConfName,
+       "wwpSystemConfSaveName": wwpSystemConfSaveName,
+       "wwpSystemConfAppsMIBNotificationPrefix": wwpSystemConfAppsMIBNotificationPrefix,
+       "wwpSystemConfAppsMIBNotifications": wwpSystemConfAppsMIBNotifications,
+       "wwpSystemLoadBackupAppNotification": wwpSystemLoadBackupAppNotification,
+       "wwpSystemConfAppsMIBConformance": wwpSystemConfAppsMIBConformance,
+       "wwpSystemConfAppsMIBCompliances": wwpSystemConfAppsMIBCompliances,
+       "wwpSystemConfAppsMIBGroups": wwpSystemConfAppsMIBGroups}
+)

@@ -1,52 +1,328 @@
+# SNMP MIB module (HUAWEI-MSDP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HUAWEI-MSDP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/HUAWEI-MSDP-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:35:29 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
-hwDatacomm, = mibBuilder.importSymbols("HUAWEI-MIB", "hwDatacomm")
-msdpPeerRemoteAddress, msdpPeerState, msdpPeerFsmEstablishedTransitions = mibBuilder.importSymbols("MSDP-MIB", "msdpPeerRemoteAddress", "msdpPeerState", "msdpPeerFsmEstablishedTransitions")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-Gauge32, IpAddress, ObjectIdentity, Counter32, MibIdentifier, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, ModuleIdentity, Unsigned32, NotificationType, Integer32, TimeTicks, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "IpAddress", "ObjectIdentity", "Counter32", "MibIdentifier", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "ModuleIdentity", "Unsigned32", "NotificationType", "Integer32", "TimeTicks", "Counter64")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-hwMsdpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 5, 25, 218))
-hwMsdpMIB.setRevisions(('2015-02-05 00:00', '2009-10-31 00:00',))
-if mibBuilder.loadTexts: hwMsdpMIB.setLastUpdated('201502050000Z')
-if mibBuilder.loadTexts: hwMsdpMIB.setOrganization('Huawei Technologies Co.,Ltd.')
-hwMsdpMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 5, 25, 218, 1))
-hwMsdp = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 5, 25, 218, 1, 1))
-hwMsdpObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 5, 25, 218, 1, 1, 1))
-hwMsdpTrapsObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 5, 25, 218, 1, 1, 2))
-hwMsdpInstanceID = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 218, 1, 1, 2, 1), Unsigned32()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: hwMsdpInstanceID.setStatus('current')
-hwMsdpInstanceName = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 218, 1, 1, 2, 2), DisplayString()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: hwMsdpInstanceName.setStatus('current')
-hwMsdpNotificationReason = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 218, 1, 1, 2, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 100))).clone(namedValues=NamedValues(("holdTimerExpired", 1), ("tcpNotEstablish", 2), ("sockerError", 3), ("receiveInvalidTLV", 4), ("receiveNotificationTLV", 5), ("userOperation", 6), ("peerUpAgain", 7), ("deletePeer", 8), ("alarmTimeout", 9), ("alarmClear", 100)))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: hwMsdpNotificationReason.setStatus('current')
-hwMsdpTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 5, 25, 218, 1, 1, 3))
-hwMsdpNeighborUnavailable = NotificationType((1, 3, 6, 1, 4, 1, 2011, 5, 25, 218, 1, 1, 3, 1)).setObjects(("HUAWEI-MSDP-MIB", "hwMsdpInstanceID"), ("HUAWEI-MSDP-MIB", "hwMsdpInstanceName"), ("MSDP-MIB", "msdpPeerState"), ("HUAWEI-MSDP-MIB", "hwMsdpNotificationReason"))
-if mibBuilder.loadTexts: hwMsdpNeighborUnavailable.setStatus('current')
-hwMsdpNeighborUnvailableClear = NotificationType((1, 3, 6, 1, 4, 1, 2011, 5, 25, 218, 1, 1, 3, 2)).setObjects(("HUAWEI-MSDP-MIB", "hwMsdpInstanceID"), ("HUAWEI-MSDP-MIB", "hwMsdpInstanceName"), ("MSDP-MIB", "msdpPeerState"), ("HUAWEI-MSDP-MIB", "hwMsdpNotificationReason"))
-if mibBuilder.loadTexts: hwMsdpNeighborUnvailableClear.setStatus('current')
-hwMsdpMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 5, 25, 218, 1, 1, 4))
-hwMsdpMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 5, 25, 218, 1, 1, 4, 1))
-hwMsdpMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 2011, 5, 25, 218, 1, 1, 4, 1, 1)).setObjects()
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-MSDP-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:05:14 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hwMsdpMIBCompliance = hwMsdpMIBCompliance.setStatus('deprecated')
-hwMsdpMIBFullCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 2011, 5, 25, 218, 1, 1, 4, 1, 2)).setObjects(("HUAWEI-MSDP-MIB", "hwMsdpMIBPeerGroup"), ("HUAWEI-MSDP-MIB", "hwMsdpMIBNotificationGroup"), ("HUAWEI-MSDP-MIB", "hwMsdpMIBPeerGroup"))
+if 'mibBuilder' not in globals():
+    import sys
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hwMsdpMIBFullCompliance = hwMsdpMIBFullCompliance.setStatus('current')
-hwMsdpMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 5, 25, 218, 1, 1, 4, 2))
-hwMsdpMIBPeerGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2011, 5, 25, 218, 1, 1, 4, 2, 1)).setObjects(("HUAWEI-MSDP-MIB", "hwMsdpNotificationReason"), ("HUAWEI-MSDP-MIB", "hwMsdpInstanceName"), ("HUAWEI-MSDP-MIB", "hwMsdpInstanceID"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hwMsdpMIBPeerGroup = hwMsdpMIBPeerGroup.setStatus('current')
-hwMsdpMIBNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 2011, 5, 25, 218, 1, 1, 4, 2, 2)).setObjects(("HUAWEI-MSDP-MIB", "hwMsdpNeighborUnavailable"), ("HUAWEI-MSDP-MIB", "hwMsdpNeighborUnvailableClear"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hwMsdpMIBNotificationGroup = hwMsdpMIBNotificationGroup.setStatus('current')
-mibBuilder.exportSymbols("HUAWEI-MSDP-MIB", hwMsdp=hwMsdp, hwMsdpObjects=hwMsdpObjects, hwMsdpNotificationReason=hwMsdpNotificationReason, hwMsdpMIBNotificationGroup=hwMsdpMIBNotificationGroup, hwMsdpNeighborUnvailableClear=hwMsdpNeighborUnvailableClear, hwMsdpMIBFullCompliance=hwMsdpMIBFullCompliance, hwMsdpMIBConformance=hwMsdpMIBConformance, hwMsdpMIBGroups=hwMsdpMIBGroups, hwMsdpMIBCompliances=hwMsdpMIBCompliances, hwMsdpInstanceName=hwMsdpInstanceName, hwMsdpNeighborUnavailable=hwMsdpNeighborUnavailable, hwMsdpMIBCompliance=hwMsdpMIBCompliance, hwMsdpTraps=hwMsdpTraps, hwMsdpMIBPeerGroup=hwMsdpMIBPeerGroup, PYSNMP_MODULE_ID=hwMsdpMIB, hwMsdpTrapsObjects=hwMsdpTrapsObjects, hwMsdpInstanceID=hwMsdpInstanceID, hwMsdpMIBObjects=hwMsdpMIBObjects, hwMsdpMIB=hwMsdpMIB)
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(hwDatacomm,) = mibBuilder.importSymbols(
+    "HUAWEI-MIB",
+    "hwDatacomm")
+
+(msdpPeerFsmEstablishedTransitions,
+ msdpPeerRemoteAddress,
+ msdpPeerState) = mibBuilder.importSymbols(
+    "MSDP-MIB",
+    "msdpPeerFsmEstablishedTransitions",
+    "msdpPeerRemoteAddress",
+    "msdpPeerState")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+hwMsdpMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 218)
+)
+hwMsdpMIB.setRevisions(
+        ("2015-02-05 00:00",
+         "2009-10-31 00:00")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_HwMsdpMIBObjects_ObjectIdentity = ObjectIdentity
+hwMsdpMIBObjects = _HwMsdpMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 218, 1)
+)
+_HwMsdp_ObjectIdentity = ObjectIdentity
+hwMsdp = _HwMsdp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 218, 1, 1)
+)
+_HwMsdpObjects_ObjectIdentity = ObjectIdentity
+hwMsdpObjects = _HwMsdpObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 218, 1, 1, 1)
+)
+_HwMsdpTrapsObjects_ObjectIdentity = ObjectIdentity
+hwMsdpTrapsObjects = _HwMsdpTrapsObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 218, 1, 1, 2)
+)
+_HwMsdpInstanceID_Type = Unsigned32
+_HwMsdpInstanceID_Object = MibScalar
+hwMsdpInstanceID = _HwMsdpInstanceID_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 218, 1, 1, 2, 1),
+    _HwMsdpInstanceID_Type()
+)
+hwMsdpInstanceID.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    hwMsdpInstanceID.setStatus("current")
+_HwMsdpInstanceName_Type = DisplayString
+_HwMsdpInstanceName_Object = MibScalar
+hwMsdpInstanceName = _HwMsdpInstanceName_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 218, 1, 1, 2, 2),
+    _HwMsdpInstanceName_Type()
+)
+hwMsdpInstanceName.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    hwMsdpInstanceName.setStatus("current")
+
+
+class _HwMsdpNotificationReason_Type(Integer32):
+    """Custom type hwMsdpNotificationReason based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              100)
+        )
+    )
+    namedValues = NamedValues(
+        *(("alarmClear", 100),
+          ("alarmTimeout", 9),
+          ("deletePeer", 8),
+          ("holdTimerExpired", 1),
+          ("peerUpAgain", 7),
+          ("receiveInvalidTLV", 4),
+          ("receiveNotificationTLV", 5),
+          ("sockerError", 3),
+          ("tcpNotEstablish", 2),
+          ("userOperation", 6))
+    )
+
+
+_HwMsdpNotificationReason_Type.__name__ = "Integer32"
+_HwMsdpNotificationReason_Object = MibScalar
+hwMsdpNotificationReason = _HwMsdpNotificationReason_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 218, 1, 1, 2, 3),
+    _HwMsdpNotificationReason_Type()
+)
+hwMsdpNotificationReason.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    hwMsdpNotificationReason.setStatus("current")
+_HwMsdpTraps_ObjectIdentity = ObjectIdentity
+hwMsdpTraps = _HwMsdpTraps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 218, 1, 1, 3)
+)
+_HwMsdpMIBConformance_ObjectIdentity = ObjectIdentity
+hwMsdpMIBConformance = _HwMsdpMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 218, 1, 1, 4)
+)
+_HwMsdpMIBCompliances_ObjectIdentity = ObjectIdentity
+hwMsdpMIBCompliances = _HwMsdpMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 218, 1, 1, 4, 1)
+)
+_HwMsdpMIBGroups_ObjectIdentity = ObjectIdentity
+hwMsdpMIBGroups = _HwMsdpMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 218, 1, 1, 4, 2)
+)
+
+# Managed Objects groups
+
+hwMsdpMIBPeerGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 218, 1, 1, 4, 2, 1)
+)
+hwMsdpMIBPeerGroup.setObjects(
+      *(("HUAWEI-MSDP-MIB", "hwMsdpNotificationReason"),
+        ("HUAWEI-MSDP-MIB", "hwMsdpInstanceName"),
+        ("HUAWEI-MSDP-MIB", "hwMsdpInstanceID"))
+)
+if mibBuilder.loadTexts:
+    hwMsdpMIBPeerGroup.setStatus("current")
+
+
+# Notification objects
+
+hwMsdpNeighborUnavailable = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 218, 1, 1, 3, 1)
+)
+hwMsdpNeighborUnavailable.setObjects(
+      *(("HUAWEI-MSDP-MIB", "hwMsdpInstanceID"),
+        ("HUAWEI-MSDP-MIB", "hwMsdpInstanceName"),
+        ("MSDP-MIB", "msdpPeerState"),
+        ("HUAWEI-MSDP-MIB", "hwMsdpNotificationReason"))
+)
+if mibBuilder.loadTexts:
+    hwMsdpNeighborUnavailable.setStatus(
+        "current"
+    )
+
+hwMsdpNeighborUnvailableClear = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 218, 1, 1, 3, 2)
+)
+hwMsdpNeighborUnvailableClear.setObjects(
+      *(("HUAWEI-MSDP-MIB", "hwMsdpInstanceID"),
+        ("HUAWEI-MSDP-MIB", "hwMsdpInstanceName"),
+        ("MSDP-MIB", "msdpPeerState"),
+        ("HUAWEI-MSDP-MIB", "hwMsdpNotificationReason"))
+)
+if mibBuilder.loadTexts:
+    hwMsdpNeighborUnvailableClear.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+hwMsdpMIBNotificationGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 218, 1, 1, 4, 2, 2)
+)
+hwMsdpMIBNotificationGroup.setObjects(
+      *(("HUAWEI-MSDP-MIB", "hwMsdpNeighborUnavailable"),
+        ("HUAWEI-MSDP-MIB", "hwMsdpNeighborUnvailableClear"))
+)
+if mibBuilder.loadTexts:
+    hwMsdpMIBNotificationGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+hwMsdpMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 218, 1, 1, 4, 1, 1)
+)
+if mibBuilder.loadTexts:
+    hwMsdpMIBCompliance.setStatus(
+        "deprecated"
+    )
+
+hwMsdpMIBFullCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 218, 1, 1, 4, 1, 2)
+)
+if mibBuilder.loadTexts:
+    hwMsdpMIBFullCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HUAWEI-MSDP-MIB",
+    **{"hwMsdpMIB": hwMsdpMIB,
+       "hwMsdpMIBObjects": hwMsdpMIBObjects,
+       "hwMsdp": hwMsdp,
+       "hwMsdpObjects": hwMsdpObjects,
+       "hwMsdpTrapsObjects": hwMsdpTrapsObjects,
+       "hwMsdpInstanceID": hwMsdpInstanceID,
+       "hwMsdpInstanceName": hwMsdpInstanceName,
+       "hwMsdpNotificationReason": hwMsdpNotificationReason,
+       "hwMsdpTraps": hwMsdpTraps,
+       "hwMsdpNeighborUnavailable": hwMsdpNeighborUnavailable,
+       "hwMsdpNeighborUnvailableClear": hwMsdpNeighborUnvailableClear,
+       "hwMsdpMIBConformance": hwMsdpMIBConformance,
+       "hwMsdpMIBCompliances": hwMsdpMIBCompliances,
+       "hwMsdpMIBCompliance": hwMsdpMIBCompliance,
+       "hwMsdpMIBFullCompliance": hwMsdpMIBFullCompliance,
+       "hwMsdpMIBGroups": hwMsdpMIBGroups,
+       "hwMsdpMIBPeerGroup": hwMsdpMIBPeerGroup,
+       "hwMsdpMIBNotificationGroup": hwMsdpMIBNotificationGroup}
+)

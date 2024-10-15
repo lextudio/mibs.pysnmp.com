@@ -1,94 +1,762 @@
+# SNMP MIB module (RFC1316-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module RFC1316-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/RFC1316-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:45:13 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ObjectIdentity, Integer32, MibIdentifier, Counter32, Gauge32, NotificationType, IpAddress, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, mib_2, ModuleIdentity, iso, Unsigned32, TimeTicks, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Integer32", "MibIdentifier", "Counter32", "Gauge32", "NotificationType", "IpAddress", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "mib-2", "ModuleIdentity", "iso", "Unsigned32", "TimeTicks", "Counter64")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-char = MibIdentifier((1, 3, 6, 1, 2, 1, 19))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/RFC1316-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:36:50 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso,
+ mib_2) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso",
+    "mib-2")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+
 class AutonomousType(ObjectIdentifier):
-    pass
+    """Custom type AutonomousType based on ObjectIdentifier"""
+
+
+
 
 class InstancePointer(ObjectIdentifier):
-    pass
+    """Custom type InstancePointer based on ObjectIdentifier"""
 
-charNumber = MibScalar((1, 3, 6, 1, 2, 1, 19, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charNumber.setStatus('mandatory')
-charPortTable = MibTable((1, 3, 6, 1, 2, 1, 19, 2), )
-if mibBuilder.loadTexts: charPortTable.setStatus('mandatory')
-charPortEntry = MibTableRow((1, 3, 6, 1, 2, 1, 19, 2, 1), ).setIndexNames((0, "RFC1316-MIB", "charPortIndex"))
-if mibBuilder.loadTexts: charPortEntry.setStatus('mandatory')
-charPortIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charPortIndex.setStatus('mandatory')
-charPortName = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: charPortName.setStatus('mandatory')
-charPortType = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("physical", 1), ("virtual", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charPortType.setStatus('mandatory')
-charPortHardware = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 4), AutonomousType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charPortHardware.setStatus('mandatory')
-charPortReset = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("ready", 1), ("execute", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: charPortReset.setStatus('mandatory')
-charPortAdminStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2), ("off", 3), ("maintenance", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: charPortAdminStatus.setStatus('mandatory')
-charPortOperStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("up", 1), ("down", 2), ("maintenance", 3), ("absent", 4), ("active", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charPortOperStatus.setStatus('mandatory')
-charPortLastChange = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 8), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charPortLastChange.setStatus('mandatory')
-charPortInFlowType = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("none", 1), ("xonXoff", 2), ("hardware", 3), ("ctsRts", 4), ("dsrDtr", 5)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: charPortInFlowType.setStatus('mandatory')
-charPortOutFlowType = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("none", 1), ("xonXoff", 2), ("hardware", 3), ("ctsRts", 4), ("dsrDtr", 5)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: charPortOutFlowType.setStatus('mandatory')
-charPortInFlowState = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("none", 1), ("unknown", 2), ("stop", 3), ("go", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charPortInFlowState.setStatus('mandatory')
-charPortOutFlowState = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("none", 1), ("unknown", 2), ("stop", 3), ("go", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charPortOutFlowState.setStatus('mandatory')
-charPortInCharacters = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charPortInCharacters.setStatus('mandatory')
-charPortOutCharacters = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charPortOutCharacters.setStatus('mandatory')
-charPortAdminOrigin = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("dynamic", 1), ("network", 2), ("local", 3), ("none", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: charPortAdminOrigin.setStatus('mandatory')
-charPortSessionMaximum = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 16), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: charPortSessionMaximum.setStatus('mandatory')
-charPortSessionNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 17), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charPortSessionNumber.setStatus('mandatory')
-charPortSessionIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 18), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charPortSessionIndex.setStatus('mandatory')
-charSessTable = MibTable((1, 3, 6, 1, 2, 1, 19, 3), )
-if mibBuilder.loadTexts: charSessTable.setStatus('mandatory')
-charSessEntry = MibTableRow((1, 3, 6, 1, 2, 1, 19, 3, 1), ).setIndexNames((0, "RFC1316-MIB", "charSessPortIndex"), (0, "RFC1316-MIB", "charSessIndex"))
-if mibBuilder.loadTexts: charSessEntry.setStatus('mandatory')
-charSessPortIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 3, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charSessPortIndex.setStatus('mandatory')
-charSessIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 3, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charSessIndex.setStatus('mandatory')
-charSessKill = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("ready", 1), ("execute", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: charSessKill.setStatus('mandatory')
-charSessState = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("connecting", 1), ("connected", 2), ("disconnecting", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charSessState.setStatus('mandatory')
-charSessProtocol = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 3, 1, 5), AutonomousType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charSessProtocol.setStatus('mandatory')
-wellKnownProtocols = MibIdentifier((1, 3, 6, 1, 2, 1, 19, 4))
-protocolOther = MibIdentifier((1, 3, 6, 1, 2, 1, 19, 4, 1))
-protocolTelnet = MibIdentifier((1, 3, 6, 1, 2, 1, 19, 4, 2))
-protocolRlogin = MibIdentifier((1, 3, 6, 1, 2, 1, 19, 4, 3))
-protocolLat = MibIdentifier((1, 3, 6, 1, 2, 1, 19, 4, 4))
-protocolX29 = MibIdentifier((1, 3, 6, 1, 2, 1, 19, 4, 5))
-protocolVtp = MibIdentifier((1, 3, 6, 1, 2, 1, 19, 4, 6))
-charSessOperOrigin = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 3, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("network", 2), ("local", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charSessOperOrigin.setStatus('mandatory')
-charSessInCharacters = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 3, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charSessInCharacters.setStatus('mandatory')
-charSessOutCharacters = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 3, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charSessOutCharacters.setStatus('mandatory')
-charSessConnectionId = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 3, 1, 9), InstancePointer()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charSessConnectionId.setStatus('mandatory')
-charSessStartTime = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 3, 1, 10), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charSessStartTime.setStatus('mandatory')
-mibBuilder.exportSymbols("RFC1316-MIB", protocolX29=protocolX29, charSessIndex=charSessIndex, charPortSessionIndex=charPortSessionIndex, protocolLat=protocolLat, charSessOutCharacters=charSessOutCharacters, charPortSessionMaximum=charPortSessionMaximum, charSessTable=charSessTable, charPortHardware=charPortHardware, charPortName=charPortName, wellKnownProtocols=wellKnownProtocols, protocolVtp=protocolVtp, AutonomousType=AutonomousType, charPortOutCharacters=charPortOutCharacters, charPortSessionNumber=charPortSessionNumber, charSessEntry=charSessEntry, charNumber=charNumber, charSessInCharacters=charSessInCharacters, charPortLastChange=charPortLastChange, charPortInCharacters=charPortInCharacters, charPortTable=charPortTable, charPortOutFlowState=charPortOutFlowState, protocolOther=protocolOther, charPortAdminOrigin=charPortAdminOrigin, charSessKill=charSessKill, charPortOutFlowType=charPortOutFlowType, charPortAdminStatus=charPortAdminStatus, charSessState=charSessState, charPortEntry=charPortEntry, charPortReset=charPortReset, char=char, charPortType=charPortType, charPortOperStatus=charPortOperStatus, charPortInFlowType=charPortInFlowType, charPortIndex=charPortIndex, InstancePointer=InstancePointer, charSessPortIndex=charSessPortIndex, charPortInFlowState=charPortInFlowState, protocolTelnet=protocolTelnet, protocolRlogin=protocolRlogin, charSessStartTime=charSessStartTime, charSessOperOrigin=charSessOperOrigin, charSessConnectionId=charSessConnectionId, charSessProtocol=charSessProtocol)
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Char_ObjectIdentity = ObjectIdentity
+char = _Char_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 19)
+)
+_CharNumber_Type = Integer32
+_CharNumber_Object = MibScalar
+charNumber = _CharNumber_Object(
+    (1, 3, 6, 1, 2, 1, 19, 1),
+    _CharNumber_Type()
+)
+charNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    charNumber.setStatus("mandatory")
+_CharPortTable_Object = MibTable
+charPortTable = _CharPortTable_Object(
+    (1, 3, 6, 1, 2, 1, 19, 2)
+)
+if mibBuilder.loadTexts:
+    charPortTable.setStatus("mandatory")
+_CharPortEntry_Object = MibTableRow
+charPortEntry = _CharPortEntry_Object(
+    (1, 3, 6, 1, 2, 1, 19, 2, 1)
+)
+charPortEntry.setIndexNames(
+    (0, "RFC1316-MIB", "charPortIndex"),
+)
+if mibBuilder.loadTexts:
+    charPortEntry.setStatus("mandatory")
+_CharPortIndex_Type = Integer32
+_CharPortIndex_Object = MibTableColumn
+charPortIndex = _CharPortIndex_Object(
+    (1, 3, 6, 1, 2, 1, 19, 2, 1, 1),
+    _CharPortIndex_Type()
+)
+charPortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    charPortIndex.setStatus("mandatory")
+
+
+class _CharPortName_Type(DisplayString):
+    """Custom type charPortName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_CharPortName_Type.__name__ = "DisplayString"
+_CharPortName_Object = MibTableColumn
+charPortName = _CharPortName_Object(
+    (1, 3, 6, 1, 2, 1, 19, 2, 1, 2),
+    _CharPortName_Type()
+)
+charPortName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    charPortName.setStatus("mandatory")
+
+
+class _CharPortType_Type(Integer32):
+    """Custom type charPortType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("physical", 1),
+          ("virtual", 2))
+    )
+
+
+_CharPortType_Type.__name__ = "Integer32"
+_CharPortType_Object = MibTableColumn
+charPortType = _CharPortType_Object(
+    (1, 3, 6, 1, 2, 1, 19, 2, 1, 3),
+    _CharPortType_Type()
+)
+charPortType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    charPortType.setStatus("mandatory")
+_CharPortHardware_Type = AutonomousType
+_CharPortHardware_Object = MibTableColumn
+charPortHardware = _CharPortHardware_Object(
+    (1, 3, 6, 1, 2, 1, 19, 2, 1, 4),
+    _CharPortHardware_Type()
+)
+charPortHardware.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    charPortHardware.setStatus("mandatory")
+
+
+class _CharPortReset_Type(Integer32):
+    """Custom type charPortReset based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("execute", 2),
+          ("ready", 1))
+    )
+
+
+_CharPortReset_Type.__name__ = "Integer32"
+_CharPortReset_Object = MibTableColumn
+charPortReset = _CharPortReset_Object(
+    (1, 3, 6, 1, 2, 1, 19, 2, 1, 5),
+    _CharPortReset_Type()
+)
+charPortReset.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    charPortReset.setStatus("mandatory")
+
+
+class _CharPortAdminStatus_Type(Integer32):
+    """Custom type charPortAdminStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1),
+          ("maintenance", 4),
+          ("off", 3))
+    )
+
+
+_CharPortAdminStatus_Type.__name__ = "Integer32"
+_CharPortAdminStatus_Object = MibTableColumn
+charPortAdminStatus = _CharPortAdminStatus_Object(
+    (1, 3, 6, 1, 2, 1, 19, 2, 1, 6),
+    _CharPortAdminStatus_Type()
+)
+charPortAdminStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    charPortAdminStatus.setStatus("mandatory")
+
+
+class _CharPortOperStatus_Type(Integer32):
+    """Custom type charPortOperStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("absent", 4),
+          ("active", 5),
+          ("down", 2),
+          ("maintenance", 3),
+          ("up", 1))
+    )
+
+
+_CharPortOperStatus_Type.__name__ = "Integer32"
+_CharPortOperStatus_Object = MibTableColumn
+charPortOperStatus = _CharPortOperStatus_Object(
+    (1, 3, 6, 1, 2, 1, 19, 2, 1, 7),
+    _CharPortOperStatus_Type()
+)
+charPortOperStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    charPortOperStatus.setStatus("mandatory")
+_CharPortLastChange_Type = TimeTicks
+_CharPortLastChange_Object = MibTableColumn
+charPortLastChange = _CharPortLastChange_Object(
+    (1, 3, 6, 1, 2, 1, 19, 2, 1, 8),
+    _CharPortLastChange_Type()
+)
+charPortLastChange.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    charPortLastChange.setStatus("mandatory")
+
+
+class _CharPortInFlowType_Type(Integer32):
+    """Custom type charPortInFlowType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ctsRts", 4),
+          ("dsrDtr", 5),
+          ("hardware", 3),
+          ("none", 1),
+          ("xonXoff", 2))
+    )
+
+
+_CharPortInFlowType_Type.__name__ = "Integer32"
+_CharPortInFlowType_Object = MibTableColumn
+charPortInFlowType = _CharPortInFlowType_Object(
+    (1, 3, 6, 1, 2, 1, 19, 2, 1, 9),
+    _CharPortInFlowType_Type()
+)
+charPortInFlowType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    charPortInFlowType.setStatus("mandatory")
+
+
+class _CharPortOutFlowType_Type(Integer32):
+    """Custom type charPortOutFlowType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ctsRts", 4),
+          ("dsrDtr", 5),
+          ("hardware", 3),
+          ("none", 1),
+          ("xonXoff", 2))
+    )
+
+
+_CharPortOutFlowType_Type.__name__ = "Integer32"
+_CharPortOutFlowType_Object = MibTableColumn
+charPortOutFlowType = _CharPortOutFlowType_Object(
+    (1, 3, 6, 1, 2, 1, 19, 2, 1, 10),
+    _CharPortOutFlowType_Type()
+)
+charPortOutFlowType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    charPortOutFlowType.setStatus("mandatory")
+
+
+class _CharPortInFlowState_Type(Integer32):
+    """Custom type charPortInFlowState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("go", 4),
+          ("none", 1),
+          ("stop", 3),
+          ("unknown", 2))
+    )
+
+
+_CharPortInFlowState_Type.__name__ = "Integer32"
+_CharPortInFlowState_Object = MibTableColumn
+charPortInFlowState = _CharPortInFlowState_Object(
+    (1, 3, 6, 1, 2, 1, 19, 2, 1, 11),
+    _CharPortInFlowState_Type()
+)
+charPortInFlowState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    charPortInFlowState.setStatus("mandatory")
+
+
+class _CharPortOutFlowState_Type(Integer32):
+    """Custom type charPortOutFlowState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("go", 4),
+          ("none", 1),
+          ("stop", 3),
+          ("unknown", 2))
+    )
+
+
+_CharPortOutFlowState_Type.__name__ = "Integer32"
+_CharPortOutFlowState_Object = MibTableColumn
+charPortOutFlowState = _CharPortOutFlowState_Object(
+    (1, 3, 6, 1, 2, 1, 19, 2, 1, 12),
+    _CharPortOutFlowState_Type()
+)
+charPortOutFlowState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    charPortOutFlowState.setStatus("mandatory")
+_CharPortInCharacters_Type = Counter32
+_CharPortInCharacters_Object = MibTableColumn
+charPortInCharacters = _CharPortInCharacters_Object(
+    (1, 3, 6, 1, 2, 1, 19, 2, 1, 13),
+    _CharPortInCharacters_Type()
+)
+charPortInCharacters.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    charPortInCharacters.setStatus("mandatory")
+_CharPortOutCharacters_Type = Counter32
+_CharPortOutCharacters_Object = MibTableColumn
+charPortOutCharacters = _CharPortOutCharacters_Object(
+    (1, 3, 6, 1, 2, 1, 19, 2, 1, 14),
+    _CharPortOutCharacters_Type()
+)
+charPortOutCharacters.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    charPortOutCharacters.setStatus("mandatory")
+
+
+class _CharPortAdminOrigin_Type(Integer32):
+    """Custom type charPortAdminOrigin based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dynamic", 1),
+          ("local", 3),
+          ("network", 2),
+          ("none", 4))
+    )
+
+
+_CharPortAdminOrigin_Type.__name__ = "Integer32"
+_CharPortAdminOrigin_Object = MibTableColumn
+charPortAdminOrigin = _CharPortAdminOrigin_Object(
+    (1, 3, 6, 1, 2, 1, 19, 2, 1, 15),
+    _CharPortAdminOrigin_Type()
+)
+charPortAdminOrigin.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    charPortAdminOrigin.setStatus("mandatory")
+_CharPortSessionMaximum_Type = Integer32
+_CharPortSessionMaximum_Object = MibTableColumn
+charPortSessionMaximum = _CharPortSessionMaximum_Object(
+    (1, 3, 6, 1, 2, 1, 19, 2, 1, 16),
+    _CharPortSessionMaximum_Type()
+)
+charPortSessionMaximum.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    charPortSessionMaximum.setStatus("mandatory")
+_CharPortSessionNumber_Type = Gauge32
+_CharPortSessionNumber_Object = MibTableColumn
+charPortSessionNumber = _CharPortSessionNumber_Object(
+    (1, 3, 6, 1, 2, 1, 19, 2, 1, 17),
+    _CharPortSessionNumber_Type()
+)
+charPortSessionNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    charPortSessionNumber.setStatus("mandatory")
+_CharPortSessionIndex_Type = Integer32
+_CharPortSessionIndex_Object = MibTableColumn
+charPortSessionIndex = _CharPortSessionIndex_Object(
+    (1, 3, 6, 1, 2, 1, 19, 2, 1, 18),
+    _CharPortSessionIndex_Type()
+)
+charPortSessionIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    charPortSessionIndex.setStatus("mandatory")
+_CharSessTable_Object = MibTable
+charSessTable = _CharSessTable_Object(
+    (1, 3, 6, 1, 2, 1, 19, 3)
+)
+if mibBuilder.loadTexts:
+    charSessTable.setStatus("mandatory")
+_CharSessEntry_Object = MibTableRow
+charSessEntry = _CharSessEntry_Object(
+    (1, 3, 6, 1, 2, 1, 19, 3, 1)
+)
+charSessEntry.setIndexNames(
+    (0, "RFC1316-MIB", "charSessPortIndex"),
+    (0, "RFC1316-MIB", "charSessIndex"),
+)
+if mibBuilder.loadTexts:
+    charSessEntry.setStatus("mandatory")
+_CharSessPortIndex_Type = Integer32
+_CharSessPortIndex_Object = MibTableColumn
+charSessPortIndex = _CharSessPortIndex_Object(
+    (1, 3, 6, 1, 2, 1, 19, 3, 1, 1),
+    _CharSessPortIndex_Type()
+)
+charSessPortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    charSessPortIndex.setStatus("mandatory")
+_CharSessIndex_Type = Integer32
+_CharSessIndex_Object = MibTableColumn
+charSessIndex = _CharSessIndex_Object(
+    (1, 3, 6, 1, 2, 1, 19, 3, 1, 2),
+    _CharSessIndex_Type()
+)
+charSessIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    charSessIndex.setStatus("mandatory")
+
+
+class _CharSessKill_Type(Integer32):
+    """Custom type charSessKill based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("execute", 2),
+          ("ready", 1))
+    )
+
+
+_CharSessKill_Type.__name__ = "Integer32"
+_CharSessKill_Object = MibTableColumn
+charSessKill = _CharSessKill_Object(
+    (1, 3, 6, 1, 2, 1, 19, 3, 1, 3),
+    _CharSessKill_Type()
+)
+charSessKill.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    charSessKill.setStatus("mandatory")
+
+
+class _CharSessState_Type(Integer32):
+    """Custom type charSessState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("connected", 2),
+          ("connecting", 1),
+          ("disconnecting", 3))
+    )
+
+
+_CharSessState_Type.__name__ = "Integer32"
+_CharSessState_Object = MibTableColumn
+charSessState = _CharSessState_Object(
+    (1, 3, 6, 1, 2, 1, 19, 3, 1, 4),
+    _CharSessState_Type()
+)
+charSessState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    charSessState.setStatus("mandatory")
+_CharSessProtocol_Type = AutonomousType
+_CharSessProtocol_Object = MibTableColumn
+charSessProtocol = _CharSessProtocol_Object(
+    (1, 3, 6, 1, 2, 1, 19, 3, 1, 5),
+    _CharSessProtocol_Type()
+)
+charSessProtocol.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    charSessProtocol.setStatus("mandatory")
+
+
+class _CharSessOperOrigin_Type(Integer32):
+    """Custom type charSessOperOrigin based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("local", 3),
+          ("network", 2),
+          ("unknown", 1))
+    )
+
+
+_CharSessOperOrigin_Type.__name__ = "Integer32"
+_CharSessOperOrigin_Object = MibTableColumn
+charSessOperOrigin = _CharSessOperOrigin_Object(
+    (1, 3, 6, 1, 2, 1, 19, 3, 1, 6),
+    _CharSessOperOrigin_Type()
+)
+charSessOperOrigin.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    charSessOperOrigin.setStatus("mandatory")
+_CharSessInCharacters_Type = Counter32
+_CharSessInCharacters_Object = MibTableColumn
+charSessInCharacters = _CharSessInCharacters_Object(
+    (1, 3, 6, 1, 2, 1, 19, 3, 1, 7),
+    _CharSessInCharacters_Type()
+)
+charSessInCharacters.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    charSessInCharacters.setStatus("mandatory")
+_CharSessOutCharacters_Type = Counter32
+_CharSessOutCharacters_Object = MibTableColumn
+charSessOutCharacters = _CharSessOutCharacters_Object(
+    (1, 3, 6, 1, 2, 1, 19, 3, 1, 8),
+    _CharSessOutCharacters_Type()
+)
+charSessOutCharacters.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    charSessOutCharacters.setStatus("mandatory")
+_CharSessConnectionId_Type = InstancePointer
+_CharSessConnectionId_Object = MibTableColumn
+charSessConnectionId = _CharSessConnectionId_Object(
+    (1, 3, 6, 1, 2, 1, 19, 3, 1, 9),
+    _CharSessConnectionId_Type()
+)
+charSessConnectionId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    charSessConnectionId.setStatus("mandatory")
+_CharSessStartTime_Type = TimeTicks
+_CharSessStartTime_Object = MibTableColumn
+charSessStartTime = _CharSessStartTime_Object(
+    (1, 3, 6, 1, 2, 1, 19, 3, 1, 10),
+    _CharSessStartTime_Type()
+)
+charSessStartTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    charSessStartTime.setStatus("mandatory")
+_WellKnownProtocols_ObjectIdentity = ObjectIdentity
+wellKnownProtocols = _WellKnownProtocols_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 19, 4)
+)
+_ProtocolOther_ObjectIdentity = ObjectIdentity
+protocolOther = _ProtocolOther_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 19, 4, 1)
+)
+_ProtocolTelnet_ObjectIdentity = ObjectIdentity
+protocolTelnet = _ProtocolTelnet_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 19, 4, 2)
+)
+_ProtocolRlogin_ObjectIdentity = ObjectIdentity
+protocolRlogin = _ProtocolRlogin_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 19, 4, 3)
+)
+_ProtocolLat_ObjectIdentity = ObjectIdentity
+protocolLat = _ProtocolLat_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 19, 4, 4)
+)
+_ProtocolX29_ObjectIdentity = ObjectIdentity
+protocolX29 = _ProtocolX29_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 19, 4, 5)
+)
+_ProtocolVtp_ObjectIdentity = ObjectIdentity
+protocolVtp = _ProtocolVtp_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 19, 4, 6)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "RFC1316-MIB",
+    **{"AutonomousType": AutonomousType,
+       "InstancePointer": InstancePointer,
+       "char": char,
+       "charNumber": charNumber,
+       "charPortTable": charPortTable,
+       "charPortEntry": charPortEntry,
+       "charPortIndex": charPortIndex,
+       "charPortName": charPortName,
+       "charPortType": charPortType,
+       "charPortHardware": charPortHardware,
+       "charPortReset": charPortReset,
+       "charPortAdminStatus": charPortAdminStatus,
+       "charPortOperStatus": charPortOperStatus,
+       "charPortLastChange": charPortLastChange,
+       "charPortInFlowType": charPortInFlowType,
+       "charPortOutFlowType": charPortOutFlowType,
+       "charPortInFlowState": charPortInFlowState,
+       "charPortOutFlowState": charPortOutFlowState,
+       "charPortInCharacters": charPortInCharacters,
+       "charPortOutCharacters": charPortOutCharacters,
+       "charPortAdminOrigin": charPortAdminOrigin,
+       "charPortSessionMaximum": charPortSessionMaximum,
+       "charPortSessionNumber": charPortSessionNumber,
+       "charPortSessionIndex": charPortSessionIndex,
+       "charSessTable": charSessTable,
+       "charSessEntry": charSessEntry,
+       "charSessPortIndex": charSessPortIndex,
+       "charSessIndex": charSessIndex,
+       "charSessKill": charSessKill,
+       "charSessState": charSessState,
+       "charSessProtocol": charSessProtocol,
+       "charSessOperOrigin": charSessOperOrigin,
+       "charSessInCharacters": charSessInCharacters,
+       "charSessOutCharacters": charSessOutCharacters,
+       "charSessConnectionId": charSessConnectionId,
+       "charSessStartTime": charSessStartTime,
+       "wellKnownProtocols": wellKnownProtocols,
+       "protocolOther": protocolOther,
+       "protocolTelnet": protocolTelnet,
+       "protocolRlogin": protocolRlogin,
+       "protocolLat": protocolLat,
+       "protocolX29": protocolX29,
+       "protocolVtp": protocolVtp}
+)

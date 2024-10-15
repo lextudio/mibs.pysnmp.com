@@ -1,132 +1,1159 @@
+# SNMP MIB module (LANPLEX-OPT-FDDI-MIB-1-2-2) expressed in pysnmp data model.
 #
-# PySNMP MIB module LANPLEX-OPT-FDDI-MIB-1-2-2 (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/LANPLEX-OPT-FDDI-MIB-1-2-2
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:55:14 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint")
-fddimibMACUpstreamNbr, fddimibSMTPeerWrapFlag, fddimibMACNotCopiedCts, fddimibPORTRequestedPaths, fddimibMACFrameErrorFlag, fddimibPORTNeighborType, fddimibMACFrameCts, fddimibPORTLemCts, fddimibPORTCurrentPath, fddimibMACCopiedCts, fddimibMACCurrentPath, FddiTimeNano, fddimibMACFrameErrorRatio, fddimibPORTPCWithhold, fddimibPORTLerFlag, fddimibPORTConnectState, fddimibMACNotCopiedRatio, fddimibMACOldDownstreamNbr, fddimibMACLostCts, fddimibMACAvailablePaths, fddimibMACNotCopiedFlag, fddimibSMTStationId, fddimibMACDaFlag, fddimibMACUnaDaFlag, fddimibPORTLemRejectCts, fddimibPORTLerCutoff, fddimibPORTMyType, FddiSMTStationIdType, fddimibMACRequestedPaths, fddimibPORTLerEstimate, fddimibPORTAvailablePaths, fddimibMACErrorCts, fddimibMACOldUpstreamNbr, fddimibSMTCFState, fddimibMACDownstreamNbr, fddimibMACSMTAddress, fddimibPORTLerAlarm = mibBuilder.importSymbols("FDDI-SMT73-MIB", "fddimibMACUpstreamNbr", "fddimibSMTPeerWrapFlag", "fddimibMACNotCopiedCts", "fddimibPORTRequestedPaths", "fddimibMACFrameErrorFlag", "fddimibPORTNeighborType", "fddimibMACFrameCts", "fddimibPORTLemCts", "fddimibPORTCurrentPath", "fddimibMACCopiedCts", "fddimibMACCurrentPath", "FddiTimeNano", "fddimibMACFrameErrorRatio", "fddimibPORTPCWithhold", "fddimibPORTLerFlag", "fddimibPORTConnectState", "fddimibMACNotCopiedRatio", "fddimibMACOldDownstreamNbr", "fddimibMACLostCts", "fddimibMACAvailablePaths", "fddimibMACNotCopiedFlag", "fddimibSMTStationId", "fddimibMACDaFlag", "fddimibMACUnaDaFlag", "fddimibPORTLemRejectCts", "fddimibPORTLerCutoff", "fddimibPORTMyType", "FddiSMTStationIdType", "fddimibMACRequestedPaths", "fddimibPORTLerEstimate", "fddimibPORTAvailablePaths", "fddimibMACErrorCts", "fddimibMACOldUpstreamNbr", "fddimibSMTCFState", "fddimibMACDownstreamNbr", "fddimibMACSMTAddress", "fddimibPORTLerAlarm")
-lanplex, = mibBuilder.importSymbols("LANPLEX-SYSTEMS-MIB-1-2-2", "lanplex")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Bits, NotificationType, Integer32, Gauge32, TimeTicks, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, IpAddress, Counter64, ObjectIdentity, Unsigned32, MibIdentifier, ModuleIdentity, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "NotificationType", "Integer32", "Gauge32", "TimeTicks", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "IpAddress", "Counter64", "ObjectIdentity", "Unsigned32", "MibIdentifier", "ModuleIdentity", "iso")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-lanplexOptFddi = MibIdentifier((1, 3, 6, 1, 4, 1, 114, 1, 10))
-lpOptSMT = MibIdentifier((1, 3, 6, 1, 4, 1, 114, 1, 10, 1))
-lpOptMAC = MibIdentifier((1, 3, 6, 1, 4, 1, 114, 1, 10, 2))
-lpOptPATH = MibIdentifier((1, 3, 6, 1, 4, 1, 114, 1, 10, 3))
-lpOptPORT = MibIdentifier((1, 3, 6, 1, 4, 1, 114, 1, 10, 4))
-lpOptSMTTable = MibTable((1, 3, 6, 1, 4, 1, 114, 1, 10, 1, 1), )
-if mibBuilder.loadTexts: lpOptSMTTable.setStatus('mandatory')
-lpOptSMTEntry = MibTableRow((1, 3, 6, 1, 4, 1, 114, 1, 10, 1, 1, 1), ).setIndexNames((0, "LANPLEX-OPT-FDDI-MIB-1-2-2", "lpOptSMTIndex"))
-if mibBuilder.loadTexts: lpOptSMTEntry.setStatus('mandatory')
-lpOptSMTIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 114, 1, 10, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lpOptSMTIndex.setStatus('mandatory')
-lpOptSMTManufacturerOUI = MibTableColumn((1, 3, 6, 1, 4, 1, 114, 1, 10, 1, 1, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(3, 3)).setFixedLength(3)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lpOptSMTManufacturerOUI.setStatus('mandatory')
-lpOptSMTManufacturerData = MibTableColumn((1, 3, 6, 1, 4, 1, 114, 1, 10, 1, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(29, 29)).setFixedLength(29)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lpOptSMTManufacturerData.setStatus('mandatory')
-lpOptSMTHoldState = MibTableColumn((1, 3, 6, 1, 4, 1, 114, 1, 10, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("not-implemented", 1), ("not-holding", 2), ("holding-prm", 3), ("holding-sec", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lpOptSMTHoldState.setStatus('mandatory')
-lpOptSMTSetCount = MibTableColumn((1, 3, 6, 1, 4, 1, 114, 1, 10, 1, 1, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lpOptSMTSetCount.setStatus('mandatory')
-lpOptSMTLastSetStationId = MibTableColumn((1, 3, 6, 1, 4, 1, 114, 1, 10, 1, 1, 1, 6), FddiSMTStationIdType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lpOptSMTLastSetStationId.setStatus('mandatory')
-lpOptMACBridgeFunctionTable = MibTable((1, 3, 6, 1, 4, 1, 114, 1, 10, 2, 1), )
-if mibBuilder.loadTexts: lpOptMACBridgeFunctionTable.setStatus('mandatory')
-lpOptMACBridgeFunctionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 114, 1, 10, 2, 1, 1), ).setIndexNames((0, "LANPLEX-OPT-FDDI-MIB-1-2-2", "lpOptMACBridgeFunctionSMTIndex"), (0, "LANPLEX-OPT-FDDI-MIB-1-2-2", "lpOptMACBridgeFunctionMACIndex"))
-if mibBuilder.loadTexts: lpOptMACBridgeFunctionEntry.setStatus('mandatory')
-lpOptMACBridgeFunctionSMTIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 114, 1, 10, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lpOptMACBridgeFunctionSMTIndex.setStatus('mandatory')
-lpOptMACBridgeFunctionMACIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 114, 1, 10, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lpOptMACBridgeFunctionMACIndex.setStatus('mandatory')
-lpOptMACBridgeFunctions = MibTableColumn((1, 3, 6, 1, 4, 1, 114, 1, 10, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 7))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lpOptMACBridgeFunctions.setStatus('mandatory')
-lpOptMACTPriTable = MibTable((1, 3, 6, 1, 4, 1, 114, 1, 10, 2, 2), )
-if mibBuilder.loadTexts: lpOptMACTPriTable.setStatus('mandatory')
-lpOptMACTPriEntry = MibTableRow((1, 3, 6, 1, 4, 1, 114, 1, 10, 2, 2, 1), ).setIndexNames((0, "LANPLEX-OPT-FDDI-MIB-1-2-2", "lpOptMACTPriSMTIndex"), (0, "LANPLEX-OPT-FDDI-MIB-1-2-2", "lpOptMACTPriMACIndex"))
-if mibBuilder.loadTexts: lpOptMACTPriEntry.setStatus('mandatory')
-lpOptMACTPriSMTIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 114, 1, 10, 2, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lpOptMACTPriSMTIndex.setStatus('mandatory')
-lpOptMACTPriMACIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 114, 1, 10, 2, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lpOptMACTPriMACIndex.setStatus('mandatory')
-lpOptMACTPri0 = MibTableColumn((1, 3, 6, 1, 4, 1, 114, 1, 10, 2, 2, 1, 3), FddiTimeNano()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lpOptMACTPri0.setStatus('mandatory')
-lpOptMACTPri1 = MibTableColumn((1, 3, 6, 1, 4, 1, 114, 1, 10, 2, 2, 1, 4), FddiTimeNano()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lpOptMACTPri1.setStatus('mandatory')
-lpOptMACTPri2 = MibTableColumn((1, 3, 6, 1, 4, 1, 114, 1, 10, 2, 2, 1, 5), FddiTimeNano()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lpOptMACTPri2.setStatus('mandatory')
-lpOptMACTPri3 = MibTableColumn((1, 3, 6, 1, 4, 1, 114, 1, 10, 2, 2, 1, 6), FddiTimeNano()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lpOptMACTPri3.setStatus('mandatory')
-lpOptMACTPri4 = MibTableColumn((1, 3, 6, 1, 4, 1, 114, 1, 10, 2, 2, 1, 7), FddiTimeNano()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lpOptMACTPri4.setStatus('mandatory')
-lpOptMACTPri5 = MibTableColumn((1, 3, 6, 1, 4, 1, 114, 1, 10, 2, 2, 1, 8), FddiTimeNano()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lpOptMACTPri5.setStatus('mandatory')
-lpOptMACTPri6 = MibTableColumn((1, 3, 6, 1, 4, 1, 114, 1, 10, 2, 2, 1, 9), FddiTimeNano()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lpOptMACTPri6.setStatus('mandatory')
-lpOptPATHRingTable = MibTable((1, 3, 6, 1, 4, 1, 114, 1, 10, 3, 1), )
-if mibBuilder.loadTexts: lpOptPATHRingTable.setStatus('mandatory')
-lpOptPATHRingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 114, 1, 10, 3, 1, 1), ).setIndexNames((0, "LANPLEX-OPT-FDDI-MIB-1-2-2", "lpOptPATHRingSMTIndex"), (0, "LANPLEX-OPT-FDDI-MIB-1-2-2", "lpOptPATHRingPATHIndex"))
-if mibBuilder.loadTexts: lpOptPATHRingEntry.setStatus('mandatory')
-lpOptPATHRingSMTIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 114, 1, 10, 3, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lpOptPATHRingSMTIndex.setStatus('mandatory')
-lpOptPATHRingPATHIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 114, 1, 10, 3, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lpOptPATHRingPATHIndex.setStatus('mandatory')
-lpOptPATHRingLatency = MibTableColumn((1, 3, 6, 1, 4, 1, 114, 1, 10, 3, 1, 1, 3), FddiTimeNano()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lpOptPATHRingLatency.setStatus('mandatory')
-lpOptPATHTraceStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 114, 1, 10, 3, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 15))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lpOptPATHTraceStatus.setStatus('mandatory')
-lpOptPATHT_Rmode = MibScalar((1, 3, 6, 1, 4, 1, 114, 1, 10, 3, 1, 1, 5), FddiTimeNano()).setLabel("lpOptPATHT-Rmode").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lpOptPATHT_Rmode.setStatus('mandatory')
-lpOptPATHSbaTable = MibTable((1, 3, 6, 1, 4, 1, 114, 1, 10, 3, 2), )
-if mibBuilder.loadTexts: lpOptPATHSbaTable.setStatus('mandatory')
-lpOptPATHSbaEntry = MibTableRow((1, 3, 6, 1, 4, 1, 114, 1, 10, 3, 2, 1), ).setIndexNames((0, "LANPLEX-OPT-FDDI-MIB-1-2-2", "lpOptPATHSbaSMTIndex"), (0, "LANPLEX-OPT-FDDI-MIB-1-2-2", "lpOptPATHSbaPATHIndex"))
-if mibBuilder.loadTexts: lpOptPATHSbaEntry.setStatus('mandatory')
-lpOptPATHSbaSMTIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 114, 1, 10, 3, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lpOptPATHSbaSMTIndex.setStatus('mandatory')
-lpOptPATHSbaPATHIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 114, 1, 10, 3, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lpOptPATHSbaPATHIndex.setStatus('mandatory')
-lpOptPATHSbaPayload = MibTableColumn((1, 3, 6, 1, 4, 1, 114, 1, 10, 3, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1562))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lpOptPATHSbaPayload.setStatus('mandatory')
-lpOptPATHSbaOverhead = MibTableColumn((1, 3, 6, 1, 4, 1, 114, 1, 10, 3, 2, 1, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lpOptPATHSbaOverhead.setStatus('mandatory')
-lpOptPATHSbaAvailable = MibTableColumn((1, 3, 6, 1, 4, 1, 114, 1, 10, 3, 2, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 12500000))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lpOptPATHSbaAvailable.setStatus('mandatory')
-lpOptPORTTable = MibTable((1, 3, 6, 1, 4, 1, 114, 1, 10, 4, 1), )
-if mibBuilder.loadTexts: lpOptPORTTable.setStatus('mandatory')
-lpOptPORTEntry = MibTableRow((1, 3, 6, 1, 4, 1, 114, 1, 10, 4, 1, 1), ).setIndexNames((0, "LANPLEX-OPT-FDDI-MIB-1-2-2", "lpOptPORTSMTIndex"), (0, "LANPLEX-OPT-FDDI-MIB-1-2-2", "lpOptPORTIndex"))
-if mibBuilder.loadTexts: lpOptPORTEntry.setStatus('mandatory')
-lpOptPORTSMTIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 114, 1, 10, 4, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lpOptPORTSMTIndex.setStatus('mandatory')
-lpOptPORTIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 114, 1, 10, 4, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lpOptPORTIndex.setStatus('mandatory')
-lpOptPORTMACLoopTime = MibTableColumn((1, 3, 6, 1, 4, 1, 114, 1, 10, 4, 1, 1, 3), FddiTimeNano()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lpOptPORTMACLoopTime.setStatus('mandatory')
-lpOptPORTEBErrorCt = MibTableColumn((1, 3, 6, 1, 4, 1, 114, 1, 10, 4, 1, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lpOptPORTEBErrorCt.setStatus('mandatory')
-lpOptPORTLSTable = MibTable((1, 3, 6, 1, 4, 1, 114, 1, 10, 4, 2), )
-if mibBuilder.loadTexts: lpOptPORTLSTable.setStatus('mandatory')
-lpOptPORTLSEntry = MibTableRow((1, 3, 6, 1, 4, 1, 114, 1, 10, 4, 2, 1), ).setIndexNames((0, "LANPLEX-OPT-FDDI-MIB-1-2-2", "lpOptPORTLSSMTIndex"), (0, "LANPLEX-OPT-FDDI-MIB-1-2-2", "lpOptPORTLSPORTIndex"))
-if mibBuilder.loadTexts: lpOptPORTLSEntry.setStatus('mandatory')
-lpOptPORTLSSMTIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 114, 1, 10, 4, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lpOptPORTLSSMTIndex.setStatus('mandatory')
-lpOptPORTLSPORTIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 114, 1, 10, 4, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lpOptPORTLSPORTIndex.setStatus('mandatory')
-lpOptPORTMaintLS = MibTableColumn((1, 3, 6, 1, 4, 1, 114, 1, 10, 4, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("quiet", 1), ("idle", 2), ("master", 3), ("halt", 4), ("receive-active", 5), ("receive-unknown", 6), ("receive-noise", 7)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lpOptPORTMaintLS.setStatus('mandatory')
-lpOptPORTPCLS = MibTableColumn((1, 3, 6, 1, 4, 1, 114, 1, 10, 4, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("quiet", 1), ("idle", 2), ("master", 3), ("halt", 4), ("receive-active", 5), ("receive-unknown", 6), ("receive-noise", 7)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lpOptPORTPCLS.setStatus('mandatory')
-lpOptSMTHoldCondition = NotificationType((1, 3, 6, 1, 4, 1, 114, 1, 10) + (0,1)).setObjects(("FDDI-SMT73-MIB", "fddimibSMTStationId"), ("LANPLEX-OPT-FDDI-MIB-1-2-2", "lpOptSMTHoldState"))
-lpOptSMTPeerWrapCondition = NotificationType((1, 3, 6, 1, 4, 1, 114, 1, 10) + (0,2)).setObjects(("FDDI-SMT73-MIB", "fddimibSMTStationId"), ("FDDI-SMT73-MIB", "fddimibSMTCFState"), ("FDDI-SMT73-MIB", "fddimibSMTPeerWrapFlag"))
-lpOptMACDuplicateAddressCondition = NotificationType((1, 3, 6, 1, 4, 1, 114, 1, 10) + (0,3)).setObjects(("FDDI-SMT73-MIB", "fddimibSMTStationId"), ("FDDI-SMT73-MIB", "fddimibMACSMTAddress"), ("FDDI-SMT73-MIB", "fddimibMACUpstreamNbr"), ("FDDI-SMT73-MIB", "fddimibMACDaFlag"), ("FDDI-SMT73-MIB", "fddimibMACUnaDaFlag"))
-lpOptMACFrameErrorCondition = NotificationType((1, 3, 6, 1, 4, 1, 114, 1, 10) + (0,4)).setObjects(("FDDI-SMT73-MIB", "fddimibSMTStationId"), ("FDDI-SMT73-MIB", "fddimibMACFrameErrorFlag"), ("FDDI-SMT73-MIB", "fddimibMACFrameCts"), ("FDDI-SMT73-MIB", "fddimibMACErrorCts"), ("FDDI-SMT73-MIB", "fddimibMACLostCts"), ("FDDI-SMT73-MIB", "fddimibMACFrameErrorRatio"))
-lpOptMACNotCopiedCondition = NotificationType((1, 3, 6, 1, 4, 1, 114, 1, 10) + (0,5)).setObjects(("FDDI-SMT73-MIB", "fddimibSMTStationId"), ("FDDI-SMT73-MIB", "fddimibMACNotCopiedCts"), ("FDDI-SMT73-MIB", "fddimibMACCopiedCts"), ("FDDI-SMT73-MIB", "fddimibMACNotCopiedRatio"), ("FDDI-SMT73-MIB", "fddimibMACNotCopiedFlag"))
-lpOptMACNeighborChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 114, 1, 10) + (0,6)).setObjects(("FDDI-SMT73-MIB", "fddimibSMTStationId"), ("FDDI-SMT73-MIB", "fddimibMACUpstreamNbr"), ("FDDI-SMT73-MIB", "fddimibMACOldUpstreamNbr"), ("FDDI-SMT73-MIB", "fddimibMACDownstreamNbr"), ("FDDI-SMT73-MIB", "fddimibMACOldDownstreamNbr"), ("FDDI-SMT73-MIB", "fddimibMACCurrentPath"), ("FDDI-SMT73-MIB", "fddimibMACSMTAddress"))
-lpOptMACPathChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 114, 1, 10) + (0,7)).setObjects(("FDDI-SMT73-MIB", "fddimibSMTStationId"), ("FDDI-SMT73-MIB", "fddimibMACAvailablePaths"), ("FDDI-SMT73-MIB", "fddimibMACCurrentPath"), ("FDDI-SMT73-MIB", "fddimibMACRequestedPaths"))
-lpOptPORTLerCondition = NotificationType((1, 3, 6, 1, 4, 1, 114, 1, 10) + (0,8)).setObjects(("FDDI-SMT73-MIB", "fddimibSMTStationId"), ("FDDI-SMT73-MIB", "fddimibPORTLerCutoff"), ("FDDI-SMT73-MIB", "fddimibPORTLerAlarm"), ("FDDI-SMT73-MIB", "fddimibPORTLerEstimate"), ("FDDI-SMT73-MIB", "fddimibPORTLemRejectCts"), ("FDDI-SMT73-MIB", "fddimibPORTLemCts"), ("FDDI-SMT73-MIB", "fddimibPORTLerFlag"))
-lpOptPORTUndesiredConnAttemptEvent = NotificationType((1, 3, 6, 1, 4, 1, 114, 1, 10) + (0,9)).setObjects(("FDDI-SMT73-MIB", "fddimibSMTStationId"), ("FDDI-SMT73-MIB", "fddimibPORTMyType"), ("FDDI-SMT73-MIB", "fddimibPORTConnectState"), ("FDDI-SMT73-MIB", "fddimibPORTNeighborType"), ("FDDI-SMT73-MIB", "fddimibPORTPCWithhold"))
-lpOptPORTEBErrorCondition = NotificationType((1, 3, 6, 1, 4, 1, 114, 1, 10) + (0,10)).setObjects(("FDDI-SMT73-MIB", "fddimibSMTStationId"), ("LANPLEX-OPT-FDDI-MIB-1-2-2", "lpOptPORTEBErrorCt"))
-lpOptPORTPathChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 114, 1, 10) + (0,11)).setObjects(("FDDI-SMT73-MIB", "fddimibSMTStationId"), ("FDDI-SMT73-MIB", "fddimibPORTAvailablePaths"), ("FDDI-SMT73-MIB", "fddimibPORTCurrentPath"), ("FDDI-SMT73-MIB", "fddimibPORTRequestedPaths"), ("FDDI-SMT73-MIB", "fddimibPORTMyType"), ("FDDI-SMT73-MIB", "fddimibPORTNeighborType"))
-mibBuilder.exportSymbols("LANPLEX-OPT-FDDI-MIB-1-2-2", lpOptPORTIndex=lpOptPORTIndex, lpOptPORT=lpOptPORT, lpOptSMTTable=lpOptSMTTable, lpOptMAC=lpOptMAC, lpOptPATHRingSMTIndex=lpOptPATHRingSMTIndex, lanplexOptFddi=lanplexOptFddi, lpOptPATHSbaSMTIndex=lpOptPATHSbaSMTIndex, lpOptPATHSbaPATHIndex=lpOptPATHSbaPATHIndex, lpOptSMTHoldCondition=lpOptSMTHoldCondition, lpOptMACDuplicateAddressCondition=lpOptMACDuplicateAddressCondition, lpOptMACTPri5=lpOptMACTPri5, lpOptMACTPriEntry=lpOptMACTPriEntry, lpOptMACFrameErrorCondition=lpOptMACFrameErrorCondition, lpOptMACTPri6=lpOptMACTPri6, lpOptSMTManufacturerOUI=lpOptSMTManufacturerOUI, lpOptPATHRingTable=lpOptPATHRingTable, lpOptSMTSetCount=lpOptSMTSetCount, lpOptMACBridgeFunctions=lpOptMACBridgeFunctions, lpOptMACTPri1=lpOptMACTPri1, lpOptSMTEntry=lpOptSMTEntry, lpOptPORTEntry=lpOptPORTEntry, lpOptPORTLSSMTIndex=lpOptPORTLSSMTIndex, lpOptPORTLerCondition=lpOptPORTLerCondition, lpOptMACTPri2=lpOptMACTPri2, lpOptMACBridgeFunctionEntry=lpOptMACBridgeFunctionEntry, lpOptPORTMaintLS=lpOptPORTMaintLS, lpOptPORTPCLS=lpOptPORTPCLS, lpOptMACPathChangeEvent=lpOptMACPathChangeEvent, lpOptMACTPriMACIndex=lpOptMACTPriMACIndex, lpOptPORTLSPORTIndex=lpOptPORTLSPORTIndex, lpOptMACTPri3=lpOptMACTPri3, lpOptPORTLSEntry=lpOptPORTLSEntry, lpOptPORTEBErrorCondition=lpOptPORTEBErrorCondition, lpOptPATHSbaTable=lpOptPATHSbaTable, lpOptPATHSbaAvailable=lpOptPATHSbaAvailable, lpOptSMTLastSetStationId=lpOptSMTLastSetStationId, lpOptPATHRingPATHIndex=lpOptPATHRingPATHIndex, lpOptPORTUndesiredConnAttemptEvent=lpOptPORTUndesiredConnAttemptEvent, lpOptPORTEBErrorCt=lpOptPORTEBErrorCt, lpOptSMTManufacturerData=lpOptSMTManufacturerData, lpOptPATHT_Rmode=lpOptPATHT_Rmode, lpOptPORTSMTIndex=lpOptPORTSMTIndex, lpOptMACTPri4=lpOptMACTPri4, lpOptPATHSbaOverhead=lpOptPATHSbaOverhead, lpOptMACTPri0=lpOptMACTPri0, lpOptPATHRingLatency=lpOptPATHRingLatency, lpOptSMTPeerWrapCondition=lpOptSMTPeerWrapCondition, lpOptMACNotCopiedCondition=lpOptMACNotCopiedCondition, lpOptMACBridgeFunctionSMTIndex=lpOptMACBridgeFunctionSMTIndex, lpOptPATH=lpOptPATH, lpOptSMTIndex=lpOptSMTIndex, lpOptMACTPriTable=lpOptMACTPriTable, lpOptMACTPriSMTIndex=lpOptMACTPriSMTIndex, lpOptPORTMACLoopTime=lpOptPORTMACLoopTime, lpOptPORTLSTable=lpOptPORTLSTable, lpOptPORTPathChangeEvent=lpOptPORTPathChangeEvent, lpOptSMTHoldState=lpOptSMTHoldState, lpOptMACBridgeFunctionTable=lpOptMACBridgeFunctionTable, lpOptMACBridgeFunctionMACIndex=lpOptMACBridgeFunctionMACIndex, lpOptPATHRingEntry=lpOptPATHRingEntry, lpOptPATHSbaPayload=lpOptPATHSbaPayload, lpOptSMT=lpOptSMT, lpOptMACNeighborChangeEvent=lpOptMACNeighborChangeEvent, lpOptPATHSbaEntry=lpOptPATHSbaEntry, lpOptPATHTraceStatus=lpOptPATHTraceStatus, lpOptPORTTable=lpOptPORTTable)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/LANPLEX-OPT-FDDI-MIB-1-2-2
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:17:18 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(FddiSMTStationIdType,
+ FddiTimeNano,
+ fddimibMACAvailablePaths,
+ fddimibMACCopiedCts,
+ fddimibMACCurrentPath,
+ fddimibMACDaFlag,
+ fddimibMACDownstreamNbr,
+ fddimibMACErrorCts,
+ fddimibMACFrameCts,
+ fddimibMACFrameErrorFlag,
+ fddimibMACFrameErrorRatio,
+ fddimibMACLostCts,
+ fddimibMACNotCopiedCts,
+ fddimibMACNotCopiedFlag,
+ fddimibMACNotCopiedRatio,
+ fddimibMACOldDownstreamNbr,
+ fddimibMACOldUpstreamNbr,
+ fddimibMACRequestedPaths,
+ fddimibMACSMTAddress,
+ fddimibMACUnaDaFlag,
+ fddimibMACUpstreamNbr,
+ fddimibPORTAvailablePaths,
+ fddimibPORTConnectState,
+ fddimibPORTCurrentPath,
+ fddimibPORTLemCts,
+ fddimibPORTLemRejectCts,
+ fddimibPORTLerAlarm,
+ fddimibPORTLerCutoff,
+ fddimibPORTLerEstimate,
+ fddimibPORTLerFlag,
+ fddimibPORTMyType,
+ fddimibPORTNeighborType,
+ fddimibPORTPCWithhold,
+ fddimibPORTRequestedPaths,
+ fddimibSMTCFState,
+ fddimibSMTPeerWrapFlag,
+ fddimibSMTStationId) = mibBuilder.importSymbols(
+    "FDDI-SMT73-MIB",
+    "FddiSMTStationIdType",
+    "FddiTimeNano",
+    "fddimibMACAvailablePaths",
+    "fddimibMACCopiedCts",
+    "fddimibMACCurrentPath",
+    "fddimibMACDaFlag",
+    "fddimibMACDownstreamNbr",
+    "fddimibMACErrorCts",
+    "fddimibMACFrameCts",
+    "fddimibMACFrameErrorFlag",
+    "fddimibMACFrameErrorRatio",
+    "fddimibMACLostCts",
+    "fddimibMACNotCopiedCts",
+    "fddimibMACNotCopiedFlag",
+    "fddimibMACNotCopiedRatio",
+    "fddimibMACOldDownstreamNbr",
+    "fddimibMACOldUpstreamNbr",
+    "fddimibMACRequestedPaths",
+    "fddimibMACSMTAddress",
+    "fddimibMACUnaDaFlag",
+    "fddimibMACUpstreamNbr",
+    "fddimibPORTAvailablePaths",
+    "fddimibPORTConnectState",
+    "fddimibPORTCurrentPath",
+    "fddimibPORTLemCts",
+    "fddimibPORTLemRejectCts",
+    "fddimibPORTLerAlarm",
+    "fddimibPORTLerCutoff",
+    "fddimibPORTLerEstimate",
+    "fddimibPORTLerFlag",
+    "fddimibPORTMyType",
+    "fddimibPORTNeighborType",
+    "fddimibPORTPCWithhold",
+    "fddimibPORTRequestedPaths",
+    "fddimibSMTCFState",
+    "fddimibSMTPeerWrapFlag",
+    "fddimibSMTStationId")
+
+(lanplex,) = mibBuilder.importSymbols(
+    "LANPLEX-SYSTEMS-MIB-1-2-2",
+    "lanplex")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ NotificationType,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "NotificationType",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_LanplexOptFddi_ObjectIdentity = ObjectIdentity
+lanplexOptFddi = _LanplexOptFddi_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10)
+)
+_LpOptSMT_ObjectIdentity = ObjectIdentity
+lpOptSMT = _LpOptSMT_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 1)
+)
+_LpOptSMTTable_Object = MibTable
+lpOptSMTTable = _LpOptSMTTable_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 1, 1)
+)
+if mibBuilder.loadTexts:
+    lpOptSMTTable.setStatus("mandatory")
+_LpOptSMTEntry_Object = MibTableRow
+lpOptSMTEntry = _LpOptSMTEntry_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 1, 1, 1)
+)
+lpOptSMTEntry.setIndexNames(
+    (0, "LANPLEX-OPT-FDDI-MIB-1-2-2", "lpOptSMTIndex"),
+)
+if mibBuilder.loadTexts:
+    lpOptSMTEntry.setStatus("mandatory")
+
+
+class _LpOptSMTIndex_Type(Integer32):
+    """Custom type lpOptSMTIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_LpOptSMTIndex_Type.__name__ = "Integer32"
+_LpOptSMTIndex_Object = MibTableColumn
+lpOptSMTIndex = _LpOptSMTIndex_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 1, 1, 1, 1),
+    _LpOptSMTIndex_Type()
+)
+lpOptSMTIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lpOptSMTIndex.setStatus("mandatory")
+
+
+class _LpOptSMTManufacturerOUI_Type(OctetString):
+    """Custom type lpOptSMTManufacturerOUI based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(3, 3),
+    )
+
+
+_LpOptSMTManufacturerOUI_Type.__name__ = "OctetString"
+_LpOptSMTManufacturerOUI_Object = MibTableColumn
+lpOptSMTManufacturerOUI = _LpOptSMTManufacturerOUI_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 1, 1, 1, 2),
+    _LpOptSMTManufacturerOUI_Type()
+)
+lpOptSMTManufacturerOUI.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lpOptSMTManufacturerOUI.setStatus("mandatory")
+
+
+class _LpOptSMTManufacturerData_Type(OctetString):
+    """Custom type lpOptSMTManufacturerData based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(29, 29),
+    )
+
+
+_LpOptSMTManufacturerData_Type.__name__ = "OctetString"
+_LpOptSMTManufacturerData_Object = MibTableColumn
+lpOptSMTManufacturerData = _LpOptSMTManufacturerData_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 1, 1, 1, 3),
+    _LpOptSMTManufacturerData_Type()
+)
+lpOptSMTManufacturerData.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lpOptSMTManufacturerData.setStatus("mandatory")
+
+
+class _LpOptSMTHoldState_Type(Integer32):
+    """Custom type lpOptSMTHoldState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("holding-prm", 3),
+          ("holding-sec", 4),
+          ("not-holding", 2),
+          ("not-implemented", 1))
+    )
+
+
+_LpOptSMTHoldState_Type.__name__ = "Integer32"
+_LpOptSMTHoldState_Object = MibTableColumn
+lpOptSMTHoldState = _LpOptSMTHoldState_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 1, 1, 1, 4),
+    _LpOptSMTHoldState_Type()
+)
+lpOptSMTHoldState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lpOptSMTHoldState.setStatus("mandatory")
+_LpOptSMTSetCount_Type = Integer32
+_LpOptSMTSetCount_Object = MibTableColumn
+lpOptSMTSetCount = _LpOptSMTSetCount_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 1, 1, 1, 5),
+    _LpOptSMTSetCount_Type()
+)
+lpOptSMTSetCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lpOptSMTSetCount.setStatus("mandatory")
+_LpOptSMTLastSetStationId_Type = FddiSMTStationIdType
+_LpOptSMTLastSetStationId_Object = MibTableColumn
+lpOptSMTLastSetStationId = _LpOptSMTLastSetStationId_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 1, 1, 1, 6),
+    _LpOptSMTLastSetStationId_Type()
+)
+lpOptSMTLastSetStationId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lpOptSMTLastSetStationId.setStatus("mandatory")
+_LpOptMAC_ObjectIdentity = ObjectIdentity
+lpOptMAC = _LpOptMAC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 2)
+)
+_LpOptMACBridgeFunctionTable_Object = MibTable
+lpOptMACBridgeFunctionTable = _LpOptMACBridgeFunctionTable_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 2, 1)
+)
+if mibBuilder.loadTexts:
+    lpOptMACBridgeFunctionTable.setStatus("mandatory")
+_LpOptMACBridgeFunctionEntry_Object = MibTableRow
+lpOptMACBridgeFunctionEntry = _LpOptMACBridgeFunctionEntry_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 2, 1, 1)
+)
+lpOptMACBridgeFunctionEntry.setIndexNames(
+    (0, "LANPLEX-OPT-FDDI-MIB-1-2-2", "lpOptMACBridgeFunctionSMTIndex"),
+    (0, "LANPLEX-OPT-FDDI-MIB-1-2-2", "lpOptMACBridgeFunctionMACIndex"),
+)
+if mibBuilder.loadTexts:
+    lpOptMACBridgeFunctionEntry.setStatus("mandatory")
+
+
+class _LpOptMACBridgeFunctionSMTIndex_Type(Integer32):
+    """Custom type lpOptMACBridgeFunctionSMTIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_LpOptMACBridgeFunctionSMTIndex_Type.__name__ = "Integer32"
+_LpOptMACBridgeFunctionSMTIndex_Object = MibTableColumn
+lpOptMACBridgeFunctionSMTIndex = _LpOptMACBridgeFunctionSMTIndex_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 2, 1, 1, 1),
+    _LpOptMACBridgeFunctionSMTIndex_Type()
+)
+lpOptMACBridgeFunctionSMTIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lpOptMACBridgeFunctionSMTIndex.setStatus("mandatory")
+
+
+class _LpOptMACBridgeFunctionMACIndex_Type(Integer32):
+    """Custom type lpOptMACBridgeFunctionMACIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_LpOptMACBridgeFunctionMACIndex_Type.__name__ = "Integer32"
+_LpOptMACBridgeFunctionMACIndex_Object = MibTableColumn
+lpOptMACBridgeFunctionMACIndex = _LpOptMACBridgeFunctionMACIndex_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 2, 1, 1, 2),
+    _LpOptMACBridgeFunctionMACIndex_Type()
+)
+lpOptMACBridgeFunctionMACIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lpOptMACBridgeFunctionMACIndex.setStatus("mandatory")
+
+
+class _LpOptMACBridgeFunctions_Type(Integer32):
+    """Custom type lpOptMACBridgeFunctions based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-1, 7),
+    )
+
+
+_LpOptMACBridgeFunctions_Type.__name__ = "Integer32"
+_LpOptMACBridgeFunctions_Object = MibTableColumn
+lpOptMACBridgeFunctions = _LpOptMACBridgeFunctions_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 2, 1, 1, 3),
+    _LpOptMACBridgeFunctions_Type()
+)
+lpOptMACBridgeFunctions.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lpOptMACBridgeFunctions.setStatus("mandatory")
+_LpOptMACTPriTable_Object = MibTable
+lpOptMACTPriTable = _LpOptMACTPriTable_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 2, 2)
+)
+if mibBuilder.loadTexts:
+    lpOptMACTPriTable.setStatus("mandatory")
+_LpOptMACTPriEntry_Object = MibTableRow
+lpOptMACTPriEntry = _LpOptMACTPriEntry_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 2, 2, 1)
+)
+lpOptMACTPriEntry.setIndexNames(
+    (0, "LANPLEX-OPT-FDDI-MIB-1-2-2", "lpOptMACTPriSMTIndex"),
+    (0, "LANPLEX-OPT-FDDI-MIB-1-2-2", "lpOptMACTPriMACIndex"),
+)
+if mibBuilder.loadTexts:
+    lpOptMACTPriEntry.setStatus("mandatory")
+
+
+class _LpOptMACTPriSMTIndex_Type(Integer32):
+    """Custom type lpOptMACTPriSMTIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_LpOptMACTPriSMTIndex_Type.__name__ = "Integer32"
+_LpOptMACTPriSMTIndex_Object = MibTableColumn
+lpOptMACTPriSMTIndex = _LpOptMACTPriSMTIndex_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 2, 2, 1, 1),
+    _LpOptMACTPriSMTIndex_Type()
+)
+lpOptMACTPriSMTIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lpOptMACTPriSMTIndex.setStatus("mandatory")
+
+
+class _LpOptMACTPriMACIndex_Type(Integer32):
+    """Custom type lpOptMACTPriMACIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_LpOptMACTPriMACIndex_Type.__name__ = "Integer32"
+_LpOptMACTPriMACIndex_Object = MibTableColumn
+lpOptMACTPriMACIndex = _LpOptMACTPriMACIndex_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 2, 2, 1, 2),
+    _LpOptMACTPriMACIndex_Type()
+)
+lpOptMACTPriMACIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lpOptMACTPriMACIndex.setStatus("mandatory")
+_LpOptMACTPri0_Type = FddiTimeNano
+_LpOptMACTPri0_Object = MibTableColumn
+lpOptMACTPri0 = _LpOptMACTPri0_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 2, 2, 1, 3),
+    _LpOptMACTPri0_Type()
+)
+lpOptMACTPri0.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lpOptMACTPri0.setStatus("mandatory")
+_LpOptMACTPri1_Type = FddiTimeNano
+_LpOptMACTPri1_Object = MibTableColumn
+lpOptMACTPri1 = _LpOptMACTPri1_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 2, 2, 1, 4),
+    _LpOptMACTPri1_Type()
+)
+lpOptMACTPri1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lpOptMACTPri1.setStatus("mandatory")
+_LpOptMACTPri2_Type = FddiTimeNano
+_LpOptMACTPri2_Object = MibTableColumn
+lpOptMACTPri2 = _LpOptMACTPri2_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 2, 2, 1, 5),
+    _LpOptMACTPri2_Type()
+)
+lpOptMACTPri2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lpOptMACTPri2.setStatus("mandatory")
+_LpOptMACTPri3_Type = FddiTimeNano
+_LpOptMACTPri3_Object = MibTableColumn
+lpOptMACTPri3 = _LpOptMACTPri3_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 2, 2, 1, 6),
+    _LpOptMACTPri3_Type()
+)
+lpOptMACTPri3.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lpOptMACTPri3.setStatus("mandatory")
+_LpOptMACTPri4_Type = FddiTimeNano
+_LpOptMACTPri4_Object = MibTableColumn
+lpOptMACTPri4 = _LpOptMACTPri4_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 2, 2, 1, 7),
+    _LpOptMACTPri4_Type()
+)
+lpOptMACTPri4.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lpOptMACTPri4.setStatus("mandatory")
+_LpOptMACTPri5_Type = FddiTimeNano
+_LpOptMACTPri5_Object = MibTableColumn
+lpOptMACTPri5 = _LpOptMACTPri5_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 2, 2, 1, 8),
+    _LpOptMACTPri5_Type()
+)
+lpOptMACTPri5.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lpOptMACTPri5.setStatus("mandatory")
+_LpOptMACTPri6_Type = FddiTimeNano
+_LpOptMACTPri6_Object = MibTableColumn
+lpOptMACTPri6 = _LpOptMACTPri6_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 2, 2, 1, 9),
+    _LpOptMACTPri6_Type()
+)
+lpOptMACTPri6.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lpOptMACTPri6.setStatus("mandatory")
+_LpOptPATH_ObjectIdentity = ObjectIdentity
+lpOptPATH = _LpOptPATH_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 3)
+)
+_LpOptPATHRingTable_Object = MibTable
+lpOptPATHRingTable = _LpOptPATHRingTable_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 3, 1)
+)
+if mibBuilder.loadTexts:
+    lpOptPATHRingTable.setStatus("mandatory")
+_LpOptPATHRingEntry_Object = MibTableRow
+lpOptPATHRingEntry = _LpOptPATHRingEntry_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 3, 1, 1)
+)
+lpOptPATHRingEntry.setIndexNames(
+    (0, "LANPLEX-OPT-FDDI-MIB-1-2-2", "lpOptPATHRingSMTIndex"),
+    (0, "LANPLEX-OPT-FDDI-MIB-1-2-2", "lpOptPATHRingPATHIndex"),
+)
+if mibBuilder.loadTexts:
+    lpOptPATHRingEntry.setStatus("mandatory")
+
+
+class _LpOptPATHRingSMTIndex_Type(Integer32):
+    """Custom type lpOptPATHRingSMTIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_LpOptPATHRingSMTIndex_Type.__name__ = "Integer32"
+_LpOptPATHRingSMTIndex_Object = MibTableColumn
+lpOptPATHRingSMTIndex = _LpOptPATHRingSMTIndex_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 3, 1, 1, 1),
+    _LpOptPATHRingSMTIndex_Type()
+)
+lpOptPATHRingSMTIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lpOptPATHRingSMTIndex.setStatus("mandatory")
+
+
+class _LpOptPATHRingPATHIndex_Type(Integer32):
+    """Custom type lpOptPATHRingPATHIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_LpOptPATHRingPATHIndex_Type.__name__ = "Integer32"
+_LpOptPATHRingPATHIndex_Object = MibTableColumn
+lpOptPATHRingPATHIndex = _LpOptPATHRingPATHIndex_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 3, 1, 1, 2),
+    _LpOptPATHRingPATHIndex_Type()
+)
+lpOptPATHRingPATHIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lpOptPATHRingPATHIndex.setStatus("mandatory")
+_LpOptPATHRingLatency_Type = FddiTimeNano
+_LpOptPATHRingLatency_Object = MibTableColumn
+lpOptPATHRingLatency = _LpOptPATHRingLatency_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 3, 1, 1, 3),
+    _LpOptPATHRingLatency_Type()
+)
+lpOptPATHRingLatency.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    lpOptPATHRingLatency.setStatus("mandatory")
+
+
+class _LpOptPATHTraceStatus_Type(Integer32):
+    """Custom type lpOptPATHTraceStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 15),
+    )
+
+
+_LpOptPATHTraceStatus_Type.__name__ = "Integer32"
+_LpOptPATHTraceStatus_Object = MibTableColumn
+lpOptPATHTraceStatus = _LpOptPATHTraceStatus_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 3, 1, 1, 4),
+    _LpOptPATHTraceStatus_Type()
+)
+lpOptPATHTraceStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lpOptPATHTraceStatus.setStatus("mandatory")
+_LpOptPATHT_Rmode_Type = FddiTimeNano
+_LpOptPATHT_Rmode_Object = MibScalar
+lpOptPATHT_Rmode = _LpOptPATHT_Rmode_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 3, 1, 1, 5),
+    _LpOptPATHT_Rmode_Type()
+)
+lpOptPATHT_Rmode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    lpOptPATHT_Rmode.setStatus("mandatory")
+_LpOptPATHSbaTable_Object = MibTable
+lpOptPATHSbaTable = _LpOptPATHSbaTable_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 3, 2)
+)
+if mibBuilder.loadTexts:
+    lpOptPATHSbaTable.setStatus("mandatory")
+_LpOptPATHSbaEntry_Object = MibTableRow
+lpOptPATHSbaEntry = _LpOptPATHSbaEntry_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 3, 2, 1)
+)
+lpOptPATHSbaEntry.setIndexNames(
+    (0, "LANPLEX-OPT-FDDI-MIB-1-2-2", "lpOptPATHSbaSMTIndex"),
+    (0, "LANPLEX-OPT-FDDI-MIB-1-2-2", "lpOptPATHSbaPATHIndex"),
+)
+if mibBuilder.loadTexts:
+    lpOptPATHSbaEntry.setStatus("mandatory")
+
+
+class _LpOptPATHSbaSMTIndex_Type(Integer32):
+    """Custom type lpOptPATHSbaSMTIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_LpOptPATHSbaSMTIndex_Type.__name__ = "Integer32"
+_LpOptPATHSbaSMTIndex_Object = MibTableColumn
+lpOptPATHSbaSMTIndex = _LpOptPATHSbaSMTIndex_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 3, 2, 1, 1),
+    _LpOptPATHSbaSMTIndex_Type()
+)
+lpOptPATHSbaSMTIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lpOptPATHSbaSMTIndex.setStatus("mandatory")
+
+
+class _LpOptPATHSbaPATHIndex_Type(Integer32):
+    """Custom type lpOptPATHSbaPATHIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_LpOptPATHSbaPATHIndex_Type.__name__ = "Integer32"
+_LpOptPATHSbaPATHIndex_Object = MibTableColumn
+lpOptPATHSbaPATHIndex = _LpOptPATHSbaPATHIndex_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 3, 2, 1, 2),
+    _LpOptPATHSbaPATHIndex_Type()
+)
+lpOptPATHSbaPATHIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lpOptPATHSbaPATHIndex.setStatus("mandatory")
+
+
+class _LpOptPATHSbaPayload_Type(Integer32):
+    """Custom type lpOptPATHSbaPayload based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1562),
+    )
+
+
+_LpOptPATHSbaPayload_Type.__name__ = "Integer32"
+_LpOptPATHSbaPayload_Object = MibTableColumn
+lpOptPATHSbaPayload = _LpOptPATHSbaPayload_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 3, 2, 1, 3),
+    _LpOptPATHSbaPayload_Type()
+)
+lpOptPATHSbaPayload.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    lpOptPATHSbaPayload.setStatus("mandatory")
+_LpOptPATHSbaOverhead_Type = Integer32
+_LpOptPATHSbaOverhead_Object = MibTableColumn
+lpOptPATHSbaOverhead = _LpOptPATHSbaOverhead_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 3, 2, 1, 4),
+    _LpOptPATHSbaOverhead_Type()
+)
+lpOptPATHSbaOverhead.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    lpOptPATHSbaOverhead.setStatus("mandatory")
+
+
+class _LpOptPATHSbaAvailable_Type(Integer32):
+    """Custom type lpOptPATHSbaAvailable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 12500000),
+    )
+
+
+_LpOptPATHSbaAvailable_Type.__name__ = "Integer32"
+_LpOptPATHSbaAvailable_Object = MibTableColumn
+lpOptPATHSbaAvailable = _LpOptPATHSbaAvailable_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 3, 2, 1, 5),
+    _LpOptPATHSbaAvailable_Type()
+)
+lpOptPATHSbaAvailable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    lpOptPATHSbaAvailable.setStatus("mandatory")
+_LpOptPORT_ObjectIdentity = ObjectIdentity
+lpOptPORT = _LpOptPORT_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 4)
+)
+_LpOptPORTTable_Object = MibTable
+lpOptPORTTable = _LpOptPORTTable_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 4, 1)
+)
+if mibBuilder.loadTexts:
+    lpOptPORTTable.setStatus("mandatory")
+_LpOptPORTEntry_Object = MibTableRow
+lpOptPORTEntry = _LpOptPORTEntry_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 4, 1, 1)
+)
+lpOptPORTEntry.setIndexNames(
+    (0, "LANPLEX-OPT-FDDI-MIB-1-2-2", "lpOptPORTSMTIndex"),
+    (0, "LANPLEX-OPT-FDDI-MIB-1-2-2", "lpOptPORTIndex"),
+)
+if mibBuilder.loadTexts:
+    lpOptPORTEntry.setStatus("mandatory")
+
+
+class _LpOptPORTSMTIndex_Type(Integer32):
+    """Custom type lpOptPORTSMTIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_LpOptPORTSMTIndex_Type.__name__ = "Integer32"
+_LpOptPORTSMTIndex_Object = MibTableColumn
+lpOptPORTSMTIndex = _LpOptPORTSMTIndex_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 4, 1, 1, 1),
+    _LpOptPORTSMTIndex_Type()
+)
+lpOptPORTSMTIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lpOptPORTSMTIndex.setStatus("mandatory")
+
+
+class _LpOptPORTIndex_Type(Integer32):
+    """Custom type lpOptPORTIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_LpOptPORTIndex_Type.__name__ = "Integer32"
+_LpOptPORTIndex_Object = MibTableColumn
+lpOptPORTIndex = _LpOptPORTIndex_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 4, 1, 1, 2),
+    _LpOptPORTIndex_Type()
+)
+lpOptPORTIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lpOptPORTIndex.setStatus("mandatory")
+_LpOptPORTMACLoopTime_Type = FddiTimeNano
+_LpOptPORTMACLoopTime_Object = MibTableColumn
+lpOptPORTMACLoopTime = _LpOptPORTMACLoopTime_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 4, 1, 1, 3),
+    _LpOptPORTMACLoopTime_Type()
+)
+lpOptPORTMACLoopTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    lpOptPORTMACLoopTime.setStatus("mandatory")
+_LpOptPORTEBErrorCt_Type = Counter32
+_LpOptPORTEBErrorCt_Object = MibTableColumn
+lpOptPORTEBErrorCt = _LpOptPORTEBErrorCt_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 4, 1, 1, 4),
+    _LpOptPORTEBErrorCt_Type()
+)
+lpOptPORTEBErrorCt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lpOptPORTEBErrorCt.setStatus("mandatory")
+_LpOptPORTLSTable_Object = MibTable
+lpOptPORTLSTable = _LpOptPORTLSTable_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 4, 2)
+)
+if mibBuilder.loadTexts:
+    lpOptPORTLSTable.setStatus("mandatory")
+_LpOptPORTLSEntry_Object = MibTableRow
+lpOptPORTLSEntry = _LpOptPORTLSEntry_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 4, 2, 1)
+)
+lpOptPORTLSEntry.setIndexNames(
+    (0, "LANPLEX-OPT-FDDI-MIB-1-2-2", "lpOptPORTLSSMTIndex"),
+    (0, "LANPLEX-OPT-FDDI-MIB-1-2-2", "lpOptPORTLSPORTIndex"),
+)
+if mibBuilder.loadTexts:
+    lpOptPORTLSEntry.setStatus("mandatory")
+
+
+class _LpOptPORTLSSMTIndex_Type(Integer32):
+    """Custom type lpOptPORTLSSMTIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_LpOptPORTLSSMTIndex_Type.__name__ = "Integer32"
+_LpOptPORTLSSMTIndex_Object = MibTableColumn
+lpOptPORTLSSMTIndex = _LpOptPORTLSSMTIndex_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 4, 2, 1, 1),
+    _LpOptPORTLSSMTIndex_Type()
+)
+lpOptPORTLSSMTIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lpOptPORTLSSMTIndex.setStatus("mandatory")
+
+
+class _LpOptPORTLSPORTIndex_Type(Integer32):
+    """Custom type lpOptPORTLSPORTIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_LpOptPORTLSPORTIndex_Type.__name__ = "Integer32"
+_LpOptPORTLSPORTIndex_Object = MibTableColumn
+lpOptPORTLSPORTIndex = _LpOptPORTLSPORTIndex_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 4, 2, 1, 2),
+    _LpOptPORTLSPORTIndex_Type()
+)
+lpOptPORTLSPORTIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lpOptPORTLSPORTIndex.setStatus("mandatory")
+
+
+class _LpOptPORTMaintLS_Type(Integer32):
+    """Custom type lpOptPORTMaintLS based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("halt", 4),
+          ("idle", 2),
+          ("master", 3),
+          ("quiet", 1),
+          ("receive-active", 5),
+          ("receive-noise", 7),
+          ("receive-unknown", 6))
+    )
+
+
+_LpOptPORTMaintLS_Type.__name__ = "Integer32"
+_LpOptPORTMaintLS_Object = MibTableColumn
+lpOptPORTMaintLS = _LpOptPORTMaintLS_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 4, 2, 1, 3),
+    _LpOptPORTMaintLS_Type()
+)
+lpOptPORTMaintLS.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    lpOptPORTMaintLS.setStatus("mandatory")
+
+
+class _LpOptPORTPCLS_Type(Integer32):
+    """Custom type lpOptPORTPCLS based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("halt", 4),
+          ("idle", 2),
+          ("master", 3),
+          ("quiet", 1),
+          ("receive-active", 5),
+          ("receive-noise", 7),
+          ("receive-unknown", 6))
+    )
+
+
+_LpOptPORTPCLS_Type.__name__ = "Integer32"
+_LpOptPORTPCLS_Object = MibTableColumn
+lpOptPORTPCLS = _LpOptPORTPCLS_Object(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 4, 2, 1, 4),
+    _LpOptPORTPCLS_Type()
+)
+lpOptPORTPCLS.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lpOptPORTPCLS.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+lpOptSMTHoldCondition = NotificationType(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 0, 1)
+)
+lpOptSMTHoldCondition.setObjects(
+      *(("FDDI-SMT73-MIB", "fddimibSMTStationId"),
+        ("LANPLEX-OPT-FDDI-MIB-1-2-2", "lpOptSMTHoldState"))
+)
+if mibBuilder.loadTexts:
+    lpOptSMTHoldCondition.setStatus(
+        ""
+    )
+
+lpOptSMTPeerWrapCondition = NotificationType(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 0, 2)
+)
+lpOptSMTPeerWrapCondition.setObjects(
+      *(("FDDI-SMT73-MIB", "fddimibSMTStationId"),
+        ("FDDI-SMT73-MIB", "fddimibSMTCFState"),
+        ("FDDI-SMT73-MIB", "fddimibSMTPeerWrapFlag"))
+)
+if mibBuilder.loadTexts:
+    lpOptSMTPeerWrapCondition.setStatus(
+        ""
+    )
+
+lpOptMACDuplicateAddressCondition = NotificationType(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 0, 3)
+)
+lpOptMACDuplicateAddressCondition.setObjects(
+      *(("FDDI-SMT73-MIB", "fddimibSMTStationId"),
+        ("FDDI-SMT73-MIB", "fddimibMACSMTAddress"),
+        ("FDDI-SMT73-MIB", "fddimibMACUpstreamNbr"),
+        ("FDDI-SMT73-MIB", "fddimibMACDaFlag"),
+        ("FDDI-SMT73-MIB", "fddimibMACUnaDaFlag"))
+)
+if mibBuilder.loadTexts:
+    lpOptMACDuplicateAddressCondition.setStatus(
+        ""
+    )
+
+lpOptMACFrameErrorCondition = NotificationType(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 0, 4)
+)
+lpOptMACFrameErrorCondition.setObjects(
+      *(("FDDI-SMT73-MIB", "fddimibSMTStationId"),
+        ("FDDI-SMT73-MIB", "fddimibMACFrameErrorFlag"),
+        ("FDDI-SMT73-MIB", "fddimibMACFrameCts"),
+        ("FDDI-SMT73-MIB", "fddimibMACErrorCts"),
+        ("FDDI-SMT73-MIB", "fddimibMACLostCts"),
+        ("FDDI-SMT73-MIB", "fddimibMACFrameErrorRatio"))
+)
+if mibBuilder.loadTexts:
+    lpOptMACFrameErrorCondition.setStatus(
+        ""
+    )
+
+lpOptMACNotCopiedCondition = NotificationType(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 0, 5)
+)
+lpOptMACNotCopiedCondition.setObjects(
+      *(("FDDI-SMT73-MIB", "fddimibSMTStationId"),
+        ("FDDI-SMT73-MIB", "fddimibMACNotCopiedCts"),
+        ("FDDI-SMT73-MIB", "fddimibMACCopiedCts"),
+        ("FDDI-SMT73-MIB", "fddimibMACNotCopiedRatio"),
+        ("FDDI-SMT73-MIB", "fddimibMACNotCopiedFlag"))
+)
+if mibBuilder.loadTexts:
+    lpOptMACNotCopiedCondition.setStatus(
+        ""
+    )
+
+lpOptMACNeighborChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 0, 6)
+)
+lpOptMACNeighborChangeEvent.setObjects(
+      *(("FDDI-SMT73-MIB", "fddimibSMTStationId"),
+        ("FDDI-SMT73-MIB", "fddimibMACUpstreamNbr"),
+        ("FDDI-SMT73-MIB", "fddimibMACOldUpstreamNbr"),
+        ("FDDI-SMT73-MIB", "fddimibMACDownstreamNbr"),
+        ("FDDI-SMT73-MIB", "fddimibMACOldDownstreamNbr"),
+        ("FDDI-SMT73-MIB", "fddimibMACCurrentPath"),
+        ("FDDI-SMT73-MIB", "fddimibMACSMTAddress"))
+)
+if mibBuilder.loadTexts:
+    lpOptMACNeighborChangeEvent.setStatus(
+        ""
+    )
+
+lpOptMACPathChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 0, 7)
+)
+lpOptMACPathChangeEvent.setObjects(
+      *(("FDDI-SMT73-MIB", "fddimibSMTStationId"),
+        ("FDDI-SMT73-MIB", "fddimibMACAvailablePaths"),
+        ("FDDI-SMT73-MIB", "fddimibMACCurrentPath"),
+        ("FDDI-SMT73-MIB", "fddimibMACRequestedPaths"))
+)
+if mibBuilder.loadTexts:
+    lpOptMACPathChangeEvent.setStatus(
+        ""
+    )
+
+lpOptPORTLerCondition = NotificationType(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 0, 8)
+)
+lpOptPORTLerCondition.setObjects(
+      *(("FDDI-SMT73-MIB", "fddimibSMTStationId"),
+        ("FDDI-SMT73-MIB", "fddimibPORTLerCutoff"),
+        ("FDDI-SMT73-MIB", "fddimibPORTLerAlarm"),
+        ("FDDI-SMT73-MIB", "fddimibPORTLerEstimate"),
+        ("FDDI-SMT73-MIB", "fddimibPORTLemRejectCts"),
+        ("FDDI-SMT73-MIB", "fddimibPORTLemCts"),
+        ("FDDI-SMT73-MIB", "fddimibPORTLerFlag"))
+)
+if mibBuilder.loadTexts:
+    lpOptPORTLerCondition.setStatus(
+        ""
+    )
+
+lpOptPORTUndesiredConnAttemptEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 0, 9)
+)
+lpOptPORTUndesiredConnAttemptEvent.setObjects(
+      *(("FDDI-SMT73-MIB", "fddimibSMTStationId"),
+        ("FDDI-SMT73-MIB", "fddimibPORTMyType"),
+        ("FDDI-SMT73-MIB", "fddimibPORTConnectState"),
+        ("FDDI-SMT73-MIB", "fddimibPORTNeighborType"),
+        ("FDDI-SMT73-MIB", "fddimibPORTPCWithhold"))
+)
+if mibBuilder.loadTexts:
+    lpOptPORTUndesiredConnAttemptEvent.setStatus(
+        ""
+    )
+
+lpOptPORTEBErrorCondition = NotificationType(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 0, 10)
+)
+lpOptPORTEBErrorCondition.setObjects(
+      *(("FDDI-SMT73-MIB", "fddimibSMTStationId"),
+        ("LANPLEX-OPT-FDDI-MIB-1-2-2", "lpOptPORTEBErrorCt"))
+)
+if mibBuilder.loadTexts:
+    lpOptPORTEBErrorCondition.setStatus(
+        ""
+    )
+
+lpOptPORTPathChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 114, 1, 10, 0, 11)
+)
+lpOptPORTPathChangeEvent.setObjects(
+      *(("FDDI-SMT73-MIB", "fddimibSMTStationId"),
+        ("FDDI-SMT73-MIB", "fddimibPORTAvailablePaths"),
+        ("FDDI-SMT73-MIB", "fddimibPORTCurrentPath"),
+        ("FDDI-SMT73-MIB", "fddimibPORTRequestedPaths"),
+        ("FDDI-SMT73-MIB", "fddimibPORTMyType"),
+        ("FDDI-SMT73-MIB", "fddimibPORTNeighborType"))
+)
+if mibBuilder.loadTexts:
+    lpOptPORTPathChangeEvent.setStatus(
+        ""
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "LANPLEX-OPT-FDDI-MIB-1-2-2",
+    **{"lanplexOptFddi": lanplexOptFddi,
+       "lpOptSMTHoldCondition": lpOptSMTHoldCondition,
+       "lpOptSMTPeerWrapCondition": lpOptSMTPeerWrapCondition,
+       "lpOptMACDuplicateAddressCondition": lpOptMACDuplicateAddressCondition,
+       "lpOptMACFrameErrorCondition": lpOptMACFrameErrorCondition,
+       "lpOptMACNotCopiedCondition": lpOptMACNotCopiedCondition,
+       "lpOptMACNeighborChangeEvent": lpOptMACNeighborChangeEvent,
+       "lpOptMACPathChangeEvent": lpOptMACPathChangeEvent,
+       "lpOptPORTLerCondition": lpOptPORTLerCondition,
+       "lpOptPORTUndesiredConnAttemptEvent": lpOptPORTUndesiredConnAttemptEvent,
+       "lpOptPORTEBErrorCondition": lpOptPORTEBErrorCondition,
+       "lpOptPORTPathChangeEvent": lpOptPORTPathChangeEvent,
+       "lpOptSMT": lpOptSMT,
+       "lpOptSMTTable": lpOptSMTTable,
+       "lpOptSMTEntry": lpOptSMTEntry,
+       "lpOptSMTIndex": lpOptSMTIndex,
+       "lpOptSMTManufacturerOUI": lpOptSMTManufacturerOUI,
+       "lpOptSMTManufacturerData": lpOptSMTManufacturerData,
+       "lpOptSMTHoldState": lpOptSMTHoldState,
+       "lpOptSMTSetCount": lpOptSMTSetCount,
+       "lpOptSMTLastSetStationId": lpOptSMTLastSetStationId,
+       "lpOptMAC": lpOptMAC,
+       "lpOptMACBridgeFunctionTable": lpOptMACBridgeFunctionTable,
+       "lpOptMACBridgeFunctionEntry": lpOptMACBridgeFunctionEntry,
+       "lpOptMACBridgeFunctionSMTIndex": lpOptMACBridgeFunctionSMTIndex,
+       "lpOptMACBridgeFunctionMACIndex": lpOptMACBridgeFunctionMACIndex,
+       "lpOptMACBridgeFunctions": lpOptMACBridgeFunctions,
+       "lpOptMACTPriTable": lpOptMACTPriTable,
+       "lpOptMACTPriEntry": lpOptMACTPriEntry,
+       "lpOptMACTPriSMTIndex": lpOptMACTPriSMTIndex,
+       "lpOptMACTPriMACIndex": lpOptMACTPriMACIndex,
+       "lpOptMACTPri0": lpOptMACTPri0,
+       "lpOptMACTPri1": lpOptMACTPri1,
+       "lpOptMACTPri2": lpOptMACTPri2,
+       "lpOptMACTPri3": lpOptMACTPri3,
+       "lpOptMACTPri4": lpOptMACTPri4,
+       "lpOptMACTPri5": lpOptMACTPri5,
+       "lpOptMACTPri6": lpOptMACTPri6,
+       "lpOptPATH": lpOptPATH,
+       "lpOptPATHRingTable": lpOptPATHRingTable,
+       "lpOptPATHRingEntry": lpOptPATHRingEntry,
+       "lpOptPATHRingSMTIndex": lpOptPATHRingSMTIndex,
+       "lpOptPATHRingPATHIndex": lpOptPATHRingPATHIndex,
+       "lpOptPATHRingLatency": lpOptPATHRingLatency,
+       "lpOptPATHTraceStatus": lpOptPATHTraceStatus,
+       "lpOptPATHT-Rmode": lpOptPATHT_Rmode,
+       "lpOptPATHSbaTable": lpOptPATHSbaTable,
+       "lpOptPATHSbaEntry": lpOptPATHSbaEntry,
+       "lpOptPATHSbaSMTIndex": lpOptPATHSbaSMTIndex,
+       "lpOptPATHSbaPATHIndex": lpOptPATHSbaPATHIndex,
+       "lpOptPATHSbaPayload": lpOptPATHSbaPayload,
+       "lpOptPATHSbaOverhead": lpOptPATHSbaOverhead,
+       "lpOptPATHSbaAvailable": lpOptPATHSbaAvailable,
+       "lpOptPORT": lpOptPORT,
+       "lpOptPORTTable": lpOptPORTTable,
+       "lpOptPORTEntry": lpOptPORTEntry,
+       "lpOptPORTSMTIndex": lpOptPORTSMTIndex,
+       "lpOptPORTIndex": lpOptPORTIndex,
+       "lpOptPORTMACLoopTime": lpOptPORTMACLoopTime,
+       "lpOptPORTEBErrorCt": lpOptPORTEBErrorCt,
+       "lpOptPORTLSTable": lpOptPORTLSTable,
+       "lpOptPORTLSEntry": lpOptPORTLSEntry,
+       "lpOptPORTLSSMTIndex": lpOptPORTLSSMTIndex,
+       "lpOptPORTLSPORTIndex": lpOptPORTLSPORTIndex,
+       "lpOptPORTMaintLS": lpOptPORTMaintLS,
+       "lpOptPORTPCLS": lpOptPORTPCLS}
+)

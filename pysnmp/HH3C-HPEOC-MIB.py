@@ -1,94 +1,575 @@
+# SNMP MIB module (HH3C-HPEOC-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HH3C-HPEOC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/HH3C-HPEOC-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:13:40 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint")
-hh3cCommon, = mibBuilder.importSymbols("HH3C-OID-MIB", "hh3cCommon")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ObjectIdentity, iso, Unsigned32, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, Bits, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, Counter64, Gauge32, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "iso", "Unsigned32", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "Bits", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "Counter64", "Gauge32", "TimeTicks")
-TruthValue, TextualConvention, MacAddress, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "MacAddress", "DisplayString")
-hh3cHPEOC = ModuleIdentity((1, 3, 6, 1, 4, 1, 25506, 2, 84))
-if mibBuilder.loadTexts: hh3cHPEOC.setLastUpdated('200708281008Z')
-if mibBuilder.loadTexts: hh3cHPEOC.setOrganization('Hangzhou H3C Tech. Co., Ltd.')
-hh3cHPEOCSystem = MibIdentifier((1, 3, 6, 1, 4, 1, 25506, 2, 84, 1))
-hh3cHPEOCCltVlanType = MibScalar((1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("ieee8021q", 1), ("portbased", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hh3cHPEOCCltVlanType.setStatus('current')
-hh3cHPEOCCltVlanManTable = MibTable((1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 2), )
-if mibBuilder.loadTexts: hh3cHPEOCCltVlanManTable.setStatus('current')
-hh3cHPEOCCltVlanManEntry = MibTableRow((1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: hh3cHPEOCCltVlanManEntry.setStatus('current')
-hh3cHPEOCCltEthPortType = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("normal", 1), ("debug", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hh3cHPEOCCltEthPortType.setStatus('current')
-hh3cHPEOCCltSysManTable = MibTable((1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 3), )
-if mibBuilder.loadTexts: hh3cHPEOCCltSysManTable.setStatus('current')
-hh3cHPEOCCltSysManEntry = MibTableRow((1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: hh3cHPEOCCltSysManEntry.setStatus('current')
-hh3cHPEOCCltDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 3, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 126))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hh3cHPEOCCltDescr.setStatus('current')
-hh3cHPEOCCltFwVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 3, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hh3cHPEOCCltFwVersion.setStatus('current')
-hh3cHPEOCCnuSysManTable = MibTable((1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 4), )
-if mibBuilder.loadTexts: hh3cHPEOCCnuSysManTable.setStatus('current')
-hh3cHPEOCCnuSysManEntry = MibTableRow((1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 4, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: hh3cHPEOCCnuSysManEntry.setStatus('current')
-hh3cHPEOCCnuBcastControl = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 4, 1, 1), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hh3cHPEOCCnuBcastControl.setStatus('current')
-hh3cHPEOCCnuAnonymStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 4, 1, 2), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hh3cHPEOCCnuAnonymStatus.setStatus('current')
-hh3cHPEOCCnuMacLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 4, 1, 3), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hh3cHPEOCCnuMacLimit.setStatus('current')
-hh3cHPEOCCltAutoUpgrade = MibScalar((1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 5), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hh3cHPEOCCltAutoUpgrade.setStatus('current')
-hh3cHPEOCOnLineCnuNumber = MibScalar((1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hh3cHPEOCOnLineCnuNumber.setStatus('current')
-hh3cHPEOCCpuMacAddress = MibScalar((1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 7), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hh3cHPEOCCpuMacAddress.setStatus('current')
-hh3cHPEOCOffLineCnuNumber = MibScalar((1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hh3cHPEOCOffLineCnuNumber.setStatus('current')
-hh3cHPEOCDownLoadCNUFWResult = MibScalar((1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 9), DisplayString()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: hh3cHPEOCDownLoadCNUFWResult.setStatus('current')
-hh3cHPEOCCltAutoUpgradeType = MibScalar((1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("flash", 1), ("ftp", 2), ("tftp", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hh3cHPEOCCltAutoUpgradeType.setStatus('current')
-hh3cHPEOCAutoUpObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 11))
-hh3cHPEOCServerAddress = MibScalar((1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 11, 1), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hh3cHPEOCServerAddress.setStatus('current')
-hh3cHPEOCServerUser = MibScalar((1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 11, 2), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hh3cHPEOCServerUser.setStatus('current')
-hh3cHPEOCServerPassword = MibScalar((1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 11, 3), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hh3cHPEOCServerPassword.setStatus('current')
-hh3cHPEOCCableInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 25506, 2, 84, 2))
-hh3cHPEOCCableInfoTable = MibTable((1, 3, 6, 1, 4, 1, 25506, 2, 84, 2, 1), )
-if mibBuilder.loadTexts: hh3cHPEOCCableInfoTable.setStatus('current')
-hh3cHPEOCCableInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 25506, 2, 84, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: hh3cHPEOCCableInfoEntry.setStatus('current')
-hh3cHPEOCFECErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 84, 2, 1, 1, 1), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hh3cHPEOCFECErrors.setStatus('current')
-hh3cHPEOCAvgBitsPerCarrier = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 84, 2, 1, 1, 2), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hh3cHPEOCAvgBitsPerCarrier.setStatus('current')
-hh3cHPEOCAvgSNRPerCarrier = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 84, 2, 1, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hh3cHPEOCAvgSNRPerCarrier.setStatus('current')
-hh3cHPEOCAvgInPBCRCErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 84, 2, 1, 1, 4), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hh3cHPEOCAvgInPBCRCErrors.setStatus('current')
-hh3cHPEOCInTotalPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 84, 2, 1, 1, 5), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hh3cHPEOCInTotalPkts.setStatus('current')
-hh3cHPEOCAvgOutPower = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 84, 2, 1, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hh3cHPEOCAvgOutPower.setStatus('current')
-hh3cHPEOCAvgOutPBCRCErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 84, 2, 1, 1, 7), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hh3cHPEOCAvgOutPBCRCErrors.setStatus('current')
-hh3cHPEOCOutTotalPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 84, 2, 1, 1, 8), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hh3cHPEOCOutTotalPkts.setStatus('current')
-hh3cHPEOCBitPerSymbolTable = MibTable((1, 3, 6, 1, 4, 1, 25506, 2, 84, 2, 2), )
-if mibBuilder.loadTexts: hh3cHPEOCBitPerSymbolTable.setStatus('current')
-hh3cHPEOCBitPerSymbolEntry = MibTableRow((1, 3, 6, 1, 4, 1, 25506, 2, 84, 2, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "HH3C-HPEOC-MIB", "hh3cHPEOCBitPerSymbolIndex"))
-if mibBuilder.loadTexts: hh3cHPEOCBitPerSymbolEntry.setStatus('current')
-hh3cHPEOCBitPerSymbolIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 84, 2, 2, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: hh3cHPEOCBitPerSymbolIndex.setStatus('current')
-hh3cHPEOCBitPerSymbol = MibTableColumn((1, 3, 6, 1, 4, 1, 25506, 2, 84, 2, 2, 1, 2), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hh3cHPEOCBitPerSymbol.setStatus('current')
-mibBuilder.exportSymbols("HH3C-HPEOC-MIB", hh3cHPEOCCableInfo=hh3cHPEOCCableInfo, hh3cHPEOCAvgOutPower=hh3cHPEOCAvgOutPower, hh3cHPEOCBitPerSymbolTable=hh3cHPEOCBitPerSymbolTable, hh3cHPEOCCableInfoTable=hh3cHPEOCCableInfoTable, hh3cHPEOCFECErrors=hh3cHPEOCFECErrors, hh3cHPEOCAvgBitsPerCarrier=hh3cHPEOCAvgBitsPerCarrier, hh3cHPEOCCltVlanManEntry=hh3cHPEOCCltVlanManEntry, hh3cHPEOCCltFwVersion=hh3cHPEOCCltFwVersion, hh3cHPEOCServerAddress=hh3cHPEOCServerAddress, hh3cHPEOCCltVlanType=hh3cHPEOCCltVlanType, hh3cHPEOCAutoUpObjects=hh3cHPEOCAutoUpObjects, hh3cHPEOCInTotalPkts=hh3cHPEOCInTotalPkts, hh3cHPEOCSystem=hh3cHPEOCSystem, hh3cHPEOCServerUser=hh3cHPEOCServerUser, hh3cHPEOCCnuSysManEntry=hh3cHPEOCCnuSysManEntry, hh3cHPEOCAvgOutPBCRCErrors=hh3cHPEOCAvgOutPBCRCErrors, hh3cHPEOCCltAutoUpgrade=hh3cHPEOCCltAutoUpgrade, hh3cHPEOCAvgInPBCRCErrors=hh3cHPEOCAvgInPBCRCErrors, hh3cHPEOCBitPerSymbol=hh3cHPEOCBitPerSymbol, hh3cHPEOCCnuSysManTable=hh3cHPEOCCnuSysManTable, hh3cHPEOCDownLoadCNUFWResult=hh3cHPEOCDownLoadCNUFWResult, hh3cHPEOCCltAutoUpgradeType=hh3cHPEOCCltAutoUpgradeType, hh3cHPEOCCnuBcastControl=hh3cHPEOCCnuBcastControl, PYSNMP_MODULE_ID=hh3cHPEOC, hh3cHPEOC=hh3cHPEOC, hh3cHPEOCAvgSNRPerCarrier=hh3cHPEOCAvgSNRPerCarrier, hh3cHPEOCCltVlanManTable=hh3cHPEOCCltVlanManTable, hh3cHPEOCCableInfoEntry=hh3cHPEOCCableInfoEntry, hh3cHPEOCBitPerSymbolIndex=hh3cHPEOCBitPerSymbolIndex, hh3cHPEOCCpuMacAddress=hh3cHPEOCCpuMacAddress, hh3cHPEOCCnuAnonymStatus=hh3cHPEOCCnuAnonymStatus, hh3cHPEOCCltEthPortType=hh3cHPEOCCltEthPortType, hh3cHPEOCCnuMacLimit=hh3cHPEOCCnuMacLimit, hh3cHPEOCOnLineCnuNumber=hh3cHPEOCOnLineCnuNumber, hh3cHPEOCOutTotalPkts=hh3cHPEOCOutTotalPkts, hh3cHPEOCOffLineCnuNumber=hh3cHPEOCOffLineCnuNumber, hh3cHPEOCServerPassword=hh3cHPEOCServerPassword, hh3cHPEOCBitPerSymbolEntry=hh3cHPEOCBitPerSymbolEntry, hh3cHPEOCCltSysManEntry=hh3cHPEOCCltSysManEntry, hh3cHPEOCCltDescr=hh3cHPEOCCltDescr, hh3cHPEOCCltSysManTable=hh3cHPEOCCltSysManTable)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HH3C-HPEOC-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:53:07 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(hh3cCommon,) = mibBuilder.importSymbols(
+    "HH3C-OID-MIB",
+    "hh3cCommon")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+hh3cHPEOC = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Hh3cHPEOCSystem_ObjectIdentity = ObjectIdentity
+hh3cHPEOCSystem = _Hh3cHPEOCSystem_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 1)
+)
+
+
+class _Hh3cHPEOCCltVlanType_Type(Integer32):
+    """Custom type hh3cHPEOCCltVlanType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ieee8021q", 1),
+          ("portbased", 2))
+    )
+
+
+_Hh3cHPEOCCltVlanType_Type.__name__ = "Integer32"
+_Hh3cHPEOCCltVlanType_Object = MibScalar
+hh3cHPEOCCltVlanType = _Hh3cHPEOCCltVlanType_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 1),
+    _Hh3cHPEOCCltVlanType_Type()
+)
+hh3cHPEOCCltVlanType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hh3cHPEOCCltVlanType.setStatus("current")
+_Hh3cHPEOCCltVlanManTable_Object = MibTable
+hh3cHPEOCCltVlanManTable = _Hh3cHPEOCCltVlanManTable_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 2)
+)
+if mibBuilder.loadTexts:
+    hh3cHPEOCCltVlanManTable.setStatus("current")
+_Hh3cHPEOCCltVlanManEntry_Object = MibTableRow
+hh3cHPEOCCltVlanManEntry = _Hh3cHPEOCCltVlanManEntry_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 2, 1)
+)
+hh3cHPEOCCltVlanManEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    hh3cHPEOCCltVlanManEntry.setStatus("current")
+
+
+class _Hh3cHPEOCCltEthPortType_Type(Integer32):
+    """Custom type hh3cHPEOCCltEthPortType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("debug", 2),
+          ("normal", 1))
+    )
+
+
+_Hh3cHPEOCCltEthPortType_Type.__name__ = "Integer32"
+_Hh3cHPEOCCltEthPortType_Object = MibTableColumn
+hh3cHPEOCCltEthPortType = _Hh3cHPEOCCltEthPortType_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 2, 1, 1),
+    _Hh3cHPEOCCltEthPortType_Type()
+)
+hh3cHPEOCCltEthPortType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hh3cHPEOCCltEthPortType.setStatus("current")
+_Hh3cHPEOCCltSysManTable_Object = MibTable
+hh3cHPEOCCltSysManTable = _Hh3cHPEOCCltSysManTable_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 3)
+)
+if mibBuilder.loadTexts:
+    hh3cHPEOCCltSysManTable.setStatus("current")
+_Hh3cHPEOCCltSysManEntry_Object = MibTableRow
+hh3cHPEOCCltSysManEntry = _Hh3cHPEOCCltSysManEntry_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 3, 1)
+)
+hh3cHPEOCCltSysManEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    hh3cHPEOCCltSysManEntry.setStatus("current")
+
+
+class _Hh3cHPEOCCltDescr_Type(DisplayString):
+    """Custom type hh3cHPEOCCltDescr based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 126),
+    )
+
+
+_Hh3cHPEOCCltDescr_Type.__name__ = "DisplayString"
+_Hh3cHPEOCCltDescr_Object = MibTableColumn
+hh3cHPEOCCltDescr = _Hh3cHPEOCCltDescr_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 3, 1, 1),
+    _Hh3cHPEOCCltDescr_Type()
+)
+hh3cHPEOCCltDescr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hh3cHPEOCCltDescr.setStatus("current")
+_Hh3cHPEOCCltFwVersion_Type = DisplayString
+_Hh3cHPEOCCltFwVersion_Object = MibTableColumn
+hh3cHPEOCCltFwVersion = _Hh3cHPEOCCltFwVersion_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 3, 1, 2),
+    _Hh3cHPEOCCltFwVersion_Type()
+)
+hh3cHPEOCCltFwVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hh3cHPEOCCltFwVersion.setStatus("current")
+_Hh3cHPEOCCnuSysManTable_Object = MibTable
+hh3cHPEOCCnuSysManTable = _Hh3cHPEOCCnuSysManTable_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 4)
+)
+if mibBuilder.loadTexts:
+    hh3cHPEOCCnuSysManTable.setStatus("current")
+_Hh3cHPEOCCnuSysManEntry_Object = MibTableRow
+hh3cHPEOCCnuSysManEntry = _Hh3cHPEOCCnuSysManEntry_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 4, 1)
+)
+hh3cHPEOCCnuSysManEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    hh3cHPEOCCnuSysManEntry.setStatus("current")
+_Hh3cHPEOCCnuBcastControl_Type = TruthValue
+_Hh3cHPEOCCnuBcastControl_Object = MibTableColumn
+hh3cHPEOCCnuBcastControl = _Hh3cHPEOCCnuBcastControl_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 4, 1, 1),
+    _Hh3cHPEOCCnuBcastControl_Type()
+)
+hh3cHPEOCCnuBcastControl.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hh3cHPEOCCnuBcastControl.setStatus("current")
+_Hh3cHPEOCCnuAnonymStatus_Type = TruthValue
+_Hh3cHPEOCCnuAnonymStatus_Object = MibTableColumn
+hh3cHPEOCCnuAnonymStatus = _Hh3cHPEOCCnuAnonymStatus_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 4, 1, 2),
+    _Hh3cHPEOCCnuAnonymStatus_Type()
+)
+hh3cHPEOCCnuAnonymStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hh3cHPEOCCnuAnonymStatus.setStatus("current")
+_Hh3cHPEOCCnuMacLimit_Type = Unsigned32
+_Hh3cHPEOCCnuMacLimit_Object = MibTableColumn
+hh3cHPEOCCnuMacLimit = _Hh3cHPEOCCnuMacLimit_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 4, 1, 3),
+    _Hh3cHPEOCCnuMacLimit_Type()
+)
+hh3cHPEOCCnuMacLimit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hh3cHPEOCCnuMacLimit.setStatus("current")
+
+
+class _Hh3cHPEOCCltAutoUpgrade_Type(TruthValue):
+    """Custom type hh3cHPEOCCltAutoUpgrade based on TruthValue"""
+
+
+_Hh3cHPEOCCltAutoUpgrade_Object = MibScalar
+hh3cHPEOCCltAutoUpgrade = _Hh3cHPEOCCltAutoUpgrade_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 5),
+    _Hh3cHPEOCCltAutoUpgrade_Type()
+)
+hh3cHPEOCCltAutoUpgrade.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hh3cHPEOCCltAutoUpgrade.setStatus("current")
+_Hh3cHPEOCOnLineCnuNumber_Type = Integer32
+_Hh3cHPEOCOnLineCnuNumber_Object = MibScalar
+hh3cHPEOCOnLineCnuNumber = _Hh3cHPEOCOnLineCnuNumber_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 6),
+    _Hh3cHPEOCOnLineCnuNumber_Type()
+)
+hh3cHPEOCOnLineCnuNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hh3cHPEOCOnLineCnuNumber.setStatus("current")
+_Hh3cHPEOCCpuMacAddress_Type = MacAddress
+_Hh3cHPEOCCpuMacAddress_Object = MibScalar
+hh3cHPEOCCpuMacAddress = _Hh3cHPEOCCpuMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 7),
+    _Hh3cHPEOCCpuMacAddress_Type()
+)
+hh3cHPEOCCpuMacAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hh3cHPEOCCpuMacAddress.setStatus("current")
+_Hh3cHPEOCOffLineCnuNumber_Type = Integer32
+_Hh3cHPEOCOffLineCnuNumber_Object = MibScalar
+hh3cHPEOCOffLineCnuNumber = _Hh3cHPEOCOffLineCnuNumber_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 8),
+    _Hh3cHPEOCOffLineCnuNumber_Type()
+)
+hh3cHPEOCOffLineCnuNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hh3cHPEOCOffLineCnuNumber.setStatus("current")
+_Hh3cHPEOCDownLoadCNUFWResult_Type = DisplayString
+_Hh3cHPEOCDownLoadCNUFWResult_Object = MibScalar
+hh3cHPEOCDownLoadCNUFWResult = _Hh3cHPEOCDownLoadCNUFWResult_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 9),
+    _Hh3cHPEOCDownLoadCNUFWResult_Type()
+)
+hh3cHPEOCDownLoadCNUFWResult.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    hh3cHPEOCDownLoadCNUFWResult.setStatus("current")
+
+
+class _Hh3cHPEOCCltAutoUpgradeType_Type(Integer32):
+    """Custom type hh3cHPEOCCltAutoUpgradeType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("flash", 1),
+          ("ftp", 2),
+          ("tftp", 3))
+    )
+
+
+_Hh3cHPEOCCltAutoUpgradeType_Type.__name__ = "Integer32"
+_Hh3cHPEOCCltAutoUpgradeType_Object = MibScalar
+hh3cHPEOCCltAutoUpgradeType = _Hh3cHPEOCCltAutoUpgradeType_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 10),
+    _Hh3cHPEOCCltAutoUpgradeType_Type()
+)
+hh3cHPEOCCltAutoUpgradeType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hh3cHPEOCCltAutoUpgradeType.setStatus("current")
+_Hh3cHPEOCAutoUpObjects_ObjectIdentity = ObjectIdentity
+hh3cHPEOCAutoUpObjects = _Hh3cHPEOCAutoUpObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 11)
+)
+_Hh3cHPEOCServerAddress_Type = IpAddress
+_Hh3cHPEOCServerAddress_Object = MibScalar
+hh3cHPEOCServerAddress = _Hh3cHPEOCServerAddress_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 11, 1),
+    _Hh3cHPEOCServerAddress_Type()
+)
+hh3cHPEOCServerAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hh3cHPEOCServerAddress.setStatus("current")
+_Hh3cHPEOCServerUser_Type = DisplayString
+_Hh3cHPEOCServerUser_Object = MibScalar
+hh3cHPEOCServerUser = _Hh3cHPEOCServerUser_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 11, 2),
+    _Hh3cHPEOCServerUser_Type()
+)
+hh3cHPEOCServerUser.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hh3cHPEOCServerUser.setStatus("current")
+_Hh3cHPEOCServerPassword_Type = DisplayString
+_Hh3cHPEOCServerPassword_Object = MibScalar
+hh3cHPEOCServerPassword = _Hh3cHPEOCServerPassword_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 1, 11, 3),
+    _Hh3cHPEOCServerPassword_Type()
+)
+hh3cHPEOCServerPassword.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hh3cHPEOCServerPassword.setStatus("current")
+_Hh3cHPEOCCableInfo_ObjectIdentity = ObjectIdentity
+hh3cHPEOCCableInfo = _Hh3cHPEOCCableInfo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 2)
+)
+_Hh3cHPEOCCableInfoTable_Object = MibTable
+hh3cHPEOCCableInfoTable = _Hh3cHPEOCCableInfoTable_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 2, 1)
+)
+if mibBuilder.loadTexts:
+    hh3cHPEOCCableInfoTable.setStatus("current")
+_Hh3cHPEOCCableInfoEntry_Object = MibTableRow
+hh3cHPEOCCableInfoEntry = _Hh3cHPEOCCableInfoEntry_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 2, 1, 1)
+)
+hh3cHPEOCCableInfoEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    hh3cHPEOCCableInfoEntry.setStatus("current")
+_Hh3cHPEOCFECErrors_Type = Counter64
+_Hh3cHPEOCFECErrors_Object = MibTableColumn
+hh3cHPEOCFECErrors = _Hh3cHPEOCFECErrors_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 2, 1, 1, 1),
+    _Hh3cHPEOCFECErrors_Type()
+)
+hh3cHPEOCFECErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hh3cHPEOCFECErrors.setStatus("current")
+_Hh3cHPEOCAvgBitsPerCarrier_Type = Unsigned32
+_Hh3cHPEOCAvgBitsPerCarrier_Object = MibTableColumn
+hh3cHPEOCAvgBitsPerCarrier = _Hh3cHPEOCAvgBitsPerCarrier_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 2, 1, 1, 2),
+    _Hh3cHPEOCAvgBitsPerCarrier_Type()
+)
+hh3cHPEOCAvgBitsPerCarrier.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hh3cHPEOCAvgBitsPerCarrier.setStatus("current")
+_Hh3cHPEOCAvgSNRPerCarrier_Type = Integer32
+_Hh3cHPEOCAvgSNRPerCarrier_Object = MibTableColumn
+hh3cHPEOCAvgSNRPerCarrier = _Hh3cHPEOCAvgSNRPerCarrier_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 2, 1, 1, 3),
+    _Hh3cHPEOCAvgSNRPerCarrier_Type()
+)
+hh3cHPEOCAvgSNRPerCarrier.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hh3cHPEOCAvgSNRPerCarrier.setStatus("current")
+_Hh3cHPEOCAvgInPBCRCErrors_Type = Unsigned32
+_Hh3cHPEOCAvgInPBCRCErrors_Object = MibTableColumn
+hh3cHPEOCAvgInPBCRCErrors = _Hh3cHPEOCAvgInPBCRCErrors_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 2, 1, 1, 4),
+    _Hh3cHPEOCAvgInPBCRCErrors_Type()
+)
+hh3cHPEOCAvgInPBCRCErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hh3cHPEOCAvgInPBCRCErrors.setStatus("current")
+_Hh3cHPEOCInTotalPkts_Type = Counter64
+_Hh3cHPEOCInTotalPkts_Object = MibTableColumn
+hh3cHPEOCInTotalPkts = _Hh3cHPEOCInTotalPkts_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 2, 1, 1, 5),
+    _Hh3cHPEOCInTotalPkts_Type()
+)
+hh3cHPEOCInTotalPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hh3cHPEOCInTotalPkts.setStatus("current")
+_Hh3cHPEOCAvgOutPower_Type = Integer32
+_Hh3cHPEOCAvgOutPower_Object = MibTableColumn
+hh3cHPEOCAvgOutPower = _Hh3cHPEOCAvgOutPower_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 2, 1, 1, 6),
+    _Hh3cHPEOCAvgOutPower_Type()
+)
+hh3cHPEOCAvgOutPower.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hh3cHPEOCAvgOutPower.setStatus("current")
+_Hh3cHPEOCAvgOutPBCRCErrors_Type = Unsigned32
+_Hh3cHPEOCAvgOutPBCRCErrors_Object = MibTableColumn
+hh3cHPEOCAvgOutPBCRCErrors = _Hh3cHPEOCAvgOutPBCRCErrors_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 2, 1, 1, 7),
+    _Hh3cHPEOCAvgOutPBCRCErrors_Type()
+)
+hh3cHPEOCAvgOutPBCRCErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hh3cHPEOCAvgOutPBCRCErrors.setStatus("current")
+_Hh3cHPEOCOutTotalPkts_Type = Counter64
+_Hh3cHPEOCOutTotalPkts_Object = MibTableColumn
+hh3cHPEOCOutTotalPkts = _Hh3cHPEOCOutTotalPkts_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 2, 1, 1, 8),
+    _Hh3cHPEOCOutTotalPkts_Type()
+)
+hh3cHPEOCOutTotalPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hh3cHPEOCOutTotalPkts.setStatus("current")
+_Hh3cHPEOCBitPerSymbolTable_Object = MibTable
+hh3cHPEOCBitPerSymbolTable = _Hh3cHPEOCBitPerSymbolTable_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 2, 2)
+)
+if mibBuilder.loadTexts:
+    hh3cHPEOCBitPerSymbolTable.setStatus("current")
+_Hh3cHPEOCBitPerSymbolEntry_Object = MibTableRow
+hh3cHPEOCBitPerSymbolEntry = _Hh3cHPEOCBitPerSymbolEntry_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 2, 2, 1)
+)
+hh3cHPEOCBitPerSymbolEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+    (0, "HH3C-HPEOC-MIB", "hh3cHPEOCBitPerSymbolIndex"),
+)
+if mibBuilder.loadTexts:
+    hh3cHPEOCBitPerSymbolEntry.setStatus("current")
+_Hh3cHPEOCBitPerSymbolIndex_Type = Unsigned32
+_Hh3cHPEOCBitPerSymbolIndex_Object = MibTableColumn
+hh3cHPEOCBitPerSymbolIndex = _Hh3cHPEOCBitPerSymbolIndex_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 2, 2, 1, 1),
+    _Hh3cHPEOCBitPerSymbolIndex_Type()
+)
+hh3cHPEOCBitPerSymbolIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hh3cHPEOCBitPerSymbolIndex.setStatus("current")
+_Hh3cHPEOCBitPerSymbol_Type = OctetString
+_Hh3cHPEOCBitPerSymbol_Object = MibTableColumn
+hh3cHPEOCBitPerSymbol = _Hh3cHPEOCBitPerSymbol_Object(
+    (1, 3, 6, 1, 4, 1, 25506, 2, 84, 2, 2, 1, 2),
+    _Hh3cHPEOCBitPerSymbol_Type()
+)
+hh3cHPEOCBitPerSymbol.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hh3cHPEOCBitPerSymbol.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HH3C-HPEOC-MIB",
+    **{"hh3cHPEOC": hh3cHPEOC,
+       "hh3cHPEOCSystem": hh3cHPEOCSystem,
+       "hh3cHPEOCCltVlanType": hh3cHPEOCCltVlanType,
+       "hh3cHPEOCCltVlanManTable": hh3cHPEOCCltVlanManTable,
+       "hh3cHPEOCCltVlanManEntry": hh3cHPEOCCltVlanManEntry,
+       "hh3cHPEOCCltEthPortType": hh3cHPEOCCltEthPortType,
+       "hh3cHPEOCCltSysManTable": hh3cHPEOCCltSysManTable,
+       "hh3cHPEOCCltSysManEntry": hh3cHPEOCCltSysManEntry,
+       "hh3cHPEOCCltDescr": hh3cHPEOCCltDescr,
+       "hh3cHPEOCCltFwVersion": hh3cHPEOCCltFwVersion,
+       "hh3cHPEOCCnuSysManTable": hh3cHPEOCCnuSysManTable,
+       "hh3cHPEOCCnuSysManEntry": hh3cHPEOCCnuSysManEntry,
+       "hh3cHPEOCCnuBcastControl": hh3cHPEOCCnuBcastControl,
+       "hh3cHPEOCCnuAnonymStatus": hh3cHPEOCCnuAnonymStatus,
+       "hh3cHPEOCCnuMacLimit": hh3cHPEOCCnuMacLimit,
+       "hh3cHPEOCCltAutoUpgrade": hh3cHPEOCCltAutoUpgrade,
+       "hh3cHPEOCOnLineCnuNumber": hh3cHPEOCOnLineCnuNumber,
+       "hh3cHPEOCCpuMacAddress": hh3cHPEOCCpuMacAddress,
+       "hh3cHPEOCOffLineCnuNumber": hh3cHPEOCOffLineCnuNumber,
+       "hh3cHPEOCDownLoadCNUFWResult": hh3cHPEOCDownLoadCNUFWResult,
+       "hh3cHPEOCCltAutoUpgradeType": hh3cHPEOCCltAutoUpgradeType,
+       "hh3cHPEOCAutoUpObjects": hh3cHPEOCAutoUpObjects,
+       "hh3cHPEOCServerAddress": hh3cHPEOCServerAddress,
+       "hh3cHPEOCServerUser": hh3cHPEOCServerUser,
+       "hh3cHPEOCServerPassword": hh3cHPEOCServerPassword,
+       "hh3cHPEOCCableInfo": hh3cHPEOCCableInfo,
+       "hh3cHPEOCCableInfoTable": hh3cHPEOCCableInfoTable,
+       "hh3cHPEOCCableInfoEntry": hh3cHPEOCCableInfoEntry,
+       "hh3cHPEOCFECErrors": hh3cHPEOCFECErrors,
+       "hh3cHPEOCAvgBitsPerCarrier": hh3cHPEOCAvgBitsPerCarrier,
+       "hh3cHPEOCAvgSNRPerCarrier": hh3cHPEOCAvgSNRPerCarrier,
+       "hh3cHPEOCAvgInPBCRCErrors": hh3cHPEOCAvgInPBCRCErrors,
+       "hh3cHPEOCInTotalPkts": hh3cHPEOCInTotalPkts,
+       "hh3cHPEOCAvgOutPower": hh3cHPEOCAvgOutPower,
+       "hh3cHPEOCAvgOutPBCRCErrors": hh3cHPEOCAvgOutPBCRCErrors,
+       "hh3cHPEOCOutTotalPkts": hh3cHPEOCOutTotalPkts,
+       "hh3cHPEOCBitPerSymbolTable": hh3cHPEOCBitPerSymbolTable,
+       "hh3cHPEOCBitPerSymbolEntry": hh3cHPEOCBitPerSymbolEntry,
+       "hh3cHPEOCBitPerSymbolIndex": hh3cHPEOCBitPerSymbolIndex,
+       "hh3cHPEOCBitPerSymbol": hh3cHPEOCBitPerSymbol}
+)

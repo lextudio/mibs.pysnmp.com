@@ -1,32 +1,244 @@
+# SNMP MIB module (SONICWALL-SSL-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module SONICWALL-SSL-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/SONICWALL-SSL-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 21:01:15 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, ObjectIdentity, MibIdentifier, Counter32, NotificationType, Bits, Integer32, iso, Gauge32, IpAddress, ModuleIdentity, Counter64, Unsigned32, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "ObjectIdentity", "MibIdentifier", "Counter32", "NotificationType", "Bits", "Integer32", "iso", "Gauge32", "IpAddress", "ModuleIdentity", "Counter64", "Unsigned32", "enterprises")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-sonicWall = MibIdentifier((1, 3, 6, 1, 4, 1, 3884))
-sonicWallSSLMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 3884, 2))
-sonicWallSSLMIB.setRevisions(('2001-02-08 13:30', '2001-02-07 10:30',))
-if mibBuilder.loadTexts: sonicWallSSLMIB.setLastUpdated('200102081330Z')
-if mibBuilder.loadTexts: sonicWallSSLMIB.setOrganization('SonicWALL Inc.')
-information = MibIdentifier((1, 3, 6, 1, 4, 1, 3884, 2, 1))
-lastConfigChangeInitiator = MibScalar((1, 3, 6, 1, 4, 1, 3884, 2, 1, 4), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lastConfigChangeInitiator.setStatus('mandatory')
-lastConfigChangeCmd = MibScalar((1, 3, 6, 1, 4, 1, 3884, 2, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lastConfigChangeCmd.setStatus('mandatory')
-sslTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 3884, 2, 0))
-cpuUtilChangeHi = NotificationType((1, 3, 6, 1, 4, 1, 3884) + (0,1))
-cpuUtilChangeLo = NotificationType((1, 3, 6, 1, 4, 1, 3884) + (0,2))
-sslTpsChangeHi = NotificationType((1, 3, 6, 1, 4, 1, 3884) + (0,3))
-sslTpsChangeLo = NotificationType((1, 3, 6, 1, 4, 1, 3884) + (0,4))
-sslTotalConnectsChangeHi = NotificationType((1, 3, 6, 1, 4, 1, 3884) + (0,5))
-sslTotalConnectsChangeLo = NotificationType((1, 3, 6, 1, 4, 1, 3884) + (0,6))
-configChange = NotificationType((1, 3, 6, 1, 4, 1, 3884) + (0,7)).setObjects(("SONICWALL-SSL-MIB", "lastConfigChangeInitiator"), ("SONICWALL-SSL-MIB", "lastConfigChangeCmd"))
-mibBuilder.exportSymbols("SONICWALL-SSL-MIB", cpuUtilChangeHi=cpuUtilChangeHi, cpuUtilChangeLo=cpuUtilChangeLo, lastConfigChangeInitiator=lastConfigChangeInitiator, information=information, PYSNMP_MODULE_ID=sonicWallSSLMIB, sslTpsChangeHi=sslTpsChangeHi, configChange=configChange, sonicWallSSLMIB=sonicWallSSLMIB, sslTpsChangeLo=sslTpsChangeLo, lastConfigChangeCmd=lastConfigChangeCmd, sslTotalConnectsChangeHi=sslTotalConnectsChangeHi, sonicWall=sonicWall, sslTotalConnectsChangeLo=sslTotalConnectsChangeLo, sslTraps=sslTraps)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/SONICWALL-SSL-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:56:37 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ NotificationType,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "NotificationType",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+sonicWallSSLMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 3884, 2)
+)
+sonicWallSSLMIB.setRevisions(
+        ("2001-02-08 13:30",
+         "2001-02-07 10:30")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_SonicWall_ObjectIdentity = ObjectIdentity
+sonicWall = _SonicWall_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3884)
+)
+_SslTraps_ObjectIdentity = ObjectIdentity
+sslTraps = _SslTraps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3884, 2, 0)
+)
+_Information_ObjectIdentity = ObjectIdentity
+information = _Information_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3884, 2, 1)
+)
+_LastConfigChangeInitiator_Type = IpAddress
+_LastConfigChangeInitiator_Object = MibScalar
+lastConfigChangeInitiator = _LastConfigChangeInitiator_Object(
+    (1, 3, 6, 1, 4, 1, 3884, 2, 1, 4),
+    _LastConfigChangeInitiator_Type()
+)
+lastConfigChangeInitiator.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lastConfigChangeInitiator.setStatus("mandatory")
+_LastConfigChangeCmd_Type = Integer32
+_LastConfigChangeCmd_Object = MibScalar
+lastConfigChangeCmd = _LastConfigChangeCmd_Object(
+    (1, 3, 6, 1, 4, 1, 3884, 2, 1, 5),
+    _LastConfigChangeCmd_Type()
+)
+lastConfigChangeCmd.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lastConfigChangeCmd.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+cpuUtilChangeHi = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3884, 0, 1)
+)
+if mibBuilder.loadTexts:
+    cpuUtilChangeHi.setStatus(
+        ""
+    )
+
+cpuUtilChangeLo = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3884, 0, 2)
+)
+if mibBuilder.loadTexts:
+    cpuUtilChangeLo.setStatus(
+        ""
+    )
+
+sslTpsChangeHi = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3884, 0, 3)
+)
+if mibBuilder.loadTexts:
+    sslTpsChangeHi.setStatus(
+        ""
+    )
+
+sslTpsChangeLo = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3884, 0, 4)
+)
+if mibBuilder.loadTexts:
+    sslTpsChangeLo.setStatus(
+        ""
+    )
+
+sslTotalConnectsChangeHi = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3884, 0, 5)
+)
+if mibBuilder.loadTexts:
+    sslTotalConnectsChangeHi.setStatus(
+        ""
+    )
+
+sslTotalConnectsChangeLo = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3884, 0, 6)
+)
+if mibBuilder.loadTexts:
+    sslTotalConnectsChangeLo.setStatus(
+        ""
+    )
+
+configChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3884, 0, 7)
+)
+configChange.setObjects(
+      *(("SONICWALL-SSL-MIB", "lastConfigChangeInitiator"),
+        ("SONICWALL-SSL-MIB", "lastConfigChangeCmd"))
+)
+if mibBuilder.loadTexts:
+    configChange.setStatus(
+        ""
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "SONICWALL-SSL-MIB",
+    **{"sonicWall": sonicWall,
+       "cpuUtilChangeHi": cpuUtilChangeHi,
+       "cpuUtilChangeLo": cpuUtilChangeLo,
+       "sslTpsChangeHi": sslTpsChangeHi,
+       "sslTpsChangeLo": sslTpsChangeLo,
+       "sslTotalConnectsChangeHi": sslTotalConnectsChangeHi,
+       "sslTotalConnectsChangeLo": sslTotalConnectsChangeLo,
+       "configChange": configChange,
+       "sonicWallSSLMIB": sonicWallSSLMIB,
+       "sslTraps": sslTraps,
+       "information": information,
+       "lastConfigChangeInitiator": lastConfigChangeInitiator,
+       "lastConfigChangeCmd": lastConfigChangeCmd}
+)

@@ -1,39 +1,188 @@
+# SNMP MIB module (CISCO-WAN-ATM-CONN-STAT-CAPABILITY) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-WAN-ATM-CONN-STAT-CAPABILITY (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/CISCO-WAN-ATM-CONN-STAT-CAPABILITY
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:03:46 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion")
-ciscoAgentCapability, = mibBuilder.importSymbols("CISCO-SMI", "ciscoAgentCapability")
-NotificationGroup, AgentCapabilities, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "AgentCapabilities", "ModuleCompliance")
-ModuleIdentity, Counter32, Unsigned32, Bits, MibIdentifier, iso, Counter64, TimeTicks, NotificationType, Gauge32, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter32", "Unsigned32", "Bits", "MibIdentifier", "iso", "Counter64", "TimeTicks", "NotificationType", "Gauge32", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-ciscoWanAtmConnStatCapability = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 7, 9999))
-ciscoWanAtmConnStatCapability.setRevisions(('2003-04-08 00:00', '2001-03-21 00:00',))
-if mibBuilder.loadTexts: ciscoWanAtmConnStatCapability.setLastUpdated('200304080000Z')
-if mibBuilder.loadTexts: ciscoWanAtmConnStatCapability.setOrganization('Cisco Systems, Inc.')
-cwaConnStatCapabilityAxsmV21R60 = AgentCapabilities((1, 3, 6, 1, 4, 1, 9, 7, 9999, 1))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cwaConnStatCapabilityAxsmV21R60 = cwaConnStatCapabilityAxsmV21R60.setProductRelease('MGX8850 Release 2.1.60')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cwaConnStatCapabilityAxsmV21R60 = cwaConnStatCapabilityAxsmV21R60.setStatus('current')
-cwAtmConnStatCapabilityAxsmeV2R0170 = AgentCapabilities((1, 3, 6, 1, 4, 1, 9, 7, 9999, 2))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cwAtmConnStatCapabilityAxsmeV2R0170 = cwAtmConnStatCapabilityAxsmeV2R0170.setProductRelease('MGX8850 Release 2.1.70')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cwAtmConnStatCapabilityAxsmeV2R0170 = cwAtmConnStatCapabilityAxsmeV2R0170.setStatus('current')
-cwAtmConnStatCapabilityPxm1eV2R300 = AgentCapabilities((1, 3, 6, 1, 4, 1, 9, 7, 9999, 3))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cwAtmConnStatCapabilityPxm1eV2R300 = cwAtmConnStatCapabilityPxm1eV2R300.setProductRelease('MGX8850 Release 3.0.00')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cwAtmConnStatCapabilityPxm1eV2R300 = cwAtmConnStatCapabilityPxm1eV2R300.setStatus('current')
-cwacsCapabilityAxsmxgV4R00 = AgentCapabilities((1, 3, 6, 1, 4, 1, 9, 7, 9999, 4))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cwacsCapabilityAxsmxgV4R00 = cwacsCapabilityAxsmxgV4R00.setProductRelease('MGX8950 Release 4.0.00')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cwacsCapabilityAxsmxgV4R00 = cwacsCapabilityAxsmxgV4R00.setStatus('current')
-mibBuilder.exportSymbols("CISCO-WAN-ATM-CONN-STAT-CAPABILITY", ciscoWanAtmConnStatCapability=ciscoWanAtmConnStatCapability, cwacsCapabilityAxsmxgV4R00=cwacsCapabilityAxsmxgV4R00, cwAtmConnStatCapabilityAxsmeV2R0170=cwAtmConnStatCapabilityAxsmeV2R0170, PYSNMP_MODULE_ID=ciscoWanAtmConnStatCapability, cwaConnStatCapabilityAxsmV21R60=cwaConnStatCapabilityAxsmV21R60, cwAtmConnStatCapabilityPxm1eV2R300=cwAtmConnStatCapabilityPxm1eV2R300)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CISCO-WAN-ATM-CONN-STAT-CAPABILITY
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:12:47 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ciscoAgentCapability,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoAgentCapability")
+
+(AgentCapabilities,
+ ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "AgentCapabilities",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+ciscoWanAtmConnStatCapability = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 7, 9999)
+)
+ciscoWanAtmConnStatCapability.setRevisions(
+        ("2003-04-08 00:00",
+         "2001-03-21 00:00")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+cwaConnStatCapabilityAxsmV21R60 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 9, 7, 9999, 1)
+)
+if mibBuilder.loadTexts:
+    cwaConnStatCapabilityAxsmV21R60.setProductRelease("MGX8850 Release 2.1.60")
+if mibBuilder.loadTexts:
+    cwaConnStatCapabilityAxsmV21R60.setStatus(
+        "current"
+    )
+
+cwAtmConnStatCapabilityAxsmeV2R0170 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 9, 7, 9999, 2)
+)
+if mibBuilder.loadTexts:
+    cwAtmConnStatCapabilityAxsmeV2R0170.setProductRelease("MGX8850 Release 2.1.70")
+if mibBuilder.loadTexts:
+    cwAtmConnStatCapabilityAxsmeV2R0170.setStatus(
+        "current"
+    )
+
+cwAtmConnStatCapabilityPxm1eV2R300 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 9, 7, 9999, 3)
+)
+if mibBuilder.loadTexts:
+    cwAtmConnStatCapabilityPxm1eV2R300.setProductRelease("MGX8850 Release 3.0.00")
+if mibBuilder.loadTexts:
+    cwAtmConnStatCapabilityPxm1eV2R300.setStatus(
+        "current"
+    )
+
+cwacsCapabilityAxsmxgV4R00 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 9, 7, 9999, 4)
+)
+if mibBuilder.loadTexts:
+    cwacsCapabilityAxsmxgV4R00.setProductRelease("MGX8950 Release 4.0.00")
+if mibBuilder.loadTexts:
+    cwacsCapabilityAxsmxgV4R00.setStatus(
+        "current"
+    )
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-WAN-ATM-CONN-STAT-CAPABILITY",
+    **{"ciscoWanAtmConnStatCapability": ciscoWanAtmConnStatCapability,
+       "cwaConnStatCapabilityAxsmV21R60": cwaConnStatCapabilityAxsmV21R60,
+       "cwAtmConnStatCapabilityAxsmeV2R0170": cwAtmConnStatCapabilityAxsmeV2R0170,
+       "cwAtmConnStatCapabilityPxm1eV2R300": cwAtmConnStatCapabilityPxm1eV2R300,
+       "cwacsCapabilityAxsmxgV4R00": cwacsCapabilityAxsmxgV4R00}
+)

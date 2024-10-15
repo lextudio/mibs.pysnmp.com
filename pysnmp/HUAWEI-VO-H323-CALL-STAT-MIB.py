@@ -1,197 +1,1031 @@
+# SNMP MIB module (HUAWEI-VO-H323-CALL-STAT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HUAWEI-VO-H323-CALL-STAT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/HUAWEI-VO-H323-CALL-STAT-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:37:53 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-voice, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "voice")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Unsigned32, NotificationType, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Counter32, Counter64, ObjectIdentity, Bits, MibIdentifier, IpAddress, TimeTicks, iso, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "NotificationType", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Counter32", "Counter64", "ObjectIdentity", "Bits", "MibIdentifier", "IpAddress", "TimeTicks", "iso", "Integer32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-hwVoiceH323CallStatMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11))
-hwVoiceH323CallStatMIB.setRevisions(('2004-04-08 13:45',))
-if mibBuilder.loadTexts: hwVoiceH323CallStatMIB.setLastUpdated('200410200000Z')
-if mibBuilder.loadTexts: hwVoiceH323CallStatMIB.setOrganization('Huawei-3COM Technologies Co., Ltd.')
-hwVoH323CallStatObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1))
-hwVoIPPH225StatObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1))
-hwVoSend_Setup = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 1), Counter32()).setLabel("hwVoSend-Setup").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_Setup.setStatus('current')
-hwVoSend_CallProceeding = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 2), Counter32()).setLabel("hwVoSend-CallProceeding").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_CallProceeding.setStatus('current')
-hwVoSend_Alerting = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 3), Counter32()).setLabel("hwVoSend-Alerting").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_Alerting.setStatus('current')
-hwVoSend_Connect = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 4), Counter32()).setLabel("hwVoSend-Connect").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_Connect.setStatus('current')
-hwVoSend_ReleaseComplete = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 5), Counter32()).setLabel("hwVoSend-ReleaseComplete").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_ReleaseComplete.setStatus('current')
-hwVoSend_FacilityIndUserInput = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 6), Counter32()).setLabel("hwVoSend-FacilityIndUserInput").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_FacilityIndUserInput.setStatus('current')
-hwVoSend_FacilityTCSRequest = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 7), Counter32()).setLabel("hwVoSend-FacilityTCSRequest").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_FacilityTCSRequest.setStatus('current')
-hwVoSend_FacilityTCSAck = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 8), Counter32()).setLabel("hwVoSend-FacilityTCSAck").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_FacilityTCSAck.setStatus('current')
-hwVoSend_FacilityTCSReject = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 9), Counter32()).setLabel("hwVoSend-FacilityTCSReject").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_FacilityTCSReject.setStatus('current')
-hwVoSend_FacilityOLCRequest = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 10), Counter32()).setLabel("hwVoSend-FacilityOLCRequest").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_FacilityOLCRequest.setStatus('current')
-hwVoSend_FacilityOLCAck = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 11), Counter32()).setLabel("hwVoSend-FacilityOLCAck").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_FacilityOLCAck.setStatus('current')
-hwVoSend_FacilityOLCReject = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 12), Counter32()).setLabel("hwVoSend-FacilityOLCReject").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_FacilityOLCReject.setStatus('current')
-hwVoSend_FacilityMSDRequest = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 13), Counter32()).setLabel("hwVoSend-FacilityMSDRequest").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_FacilityMSDRequest.setStatus('current')
-hwVoSend_FacilityMSDAck = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 14), Counter32()).setLabel("hwVoSend-FacilityMSDAck").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_FacilityMSDAck.setStatus('current')
-hwVoSend_FacilityMSDReject = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 15), Counter32()).setLabel("hwVoSend-FacilityMSDReject").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_FacilityMSDReject.setStatus('current')
-hwVoSend_FacilityCLCRequest = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 16), Counter32()).setLabel("hwVoSend-FacilityCLCRequest").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_FacilityCLCRequest.setStatus('current')
-hwVoSend_FacilityCLCAck = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 17), Counter32()).setLabel("hwVoSend-FacilityCLCAck").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_FacilityCLCAck.setStatus('current')
-hwVoSend_FacilityStartH245 = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 18), Counter32()).setLabel("hwVoSend-FacilityStartH245").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_FacilityStartH245.setStatus('current')
-hwVoSend_ErrorH225Msg = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 19), Counter32()).setLabel("hwVoSend-ErrorH225Msg").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_ErrorH225Msg.setStatus('current')
-hwVoRecv_Setup = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 20), Counter32()).setLabel("hwVoRecv-Setup").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_Setup.setStatus('current')
-hwVoRecv_CallProceeding = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 21), Counter32()).setLabel("hwVoRecv-CallProceeding").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_CallProceeding.setStatus('current')
-hwVoRecv_Alerting = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 22), Counter32()).setLabel("hwVoRecv-Alerting").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_Alerting.setStatus('current')
-hwVoRecv_Connect = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 23), Counter32()).setLabel("hwVoRecv-Connect").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_Connect.setStatus('current')
-hwVoRecv_ReleaseComplete = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 24), Counter32()).setLabel("hwVoRecv-ReleaseComplete").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_ReleaseComplete.setStatus('current')
-hwVoRecv_Progress = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 25), Counter32()).setLabel("hwVoRecv-Progress").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_Progress.setStatus('current')
-hwVoRecv_FacilityTCSRequest = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 26), Counter32()).setLabel("hwVoRecv-FacilityTCSRequest").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_FacilityTCSRequest.setStatus('current')
-hwVoRecv_FacilityTCSAck = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 27), Counter32()).setLabel("hwVoRecv-FacilityTCSAck").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_FacilityTCSAck.setStatus('current')
-hwVoRecv_FacilityTCSReject = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 28), Counter32()).setLabel("hwVoRecv-FacilityTCSReject").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_FacilityTCSReject.setStatus('current')
-hwVoRecv_FacilityOLCRequest = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 29), Counter32()).setLabel("hwVoRecv-FacilityOLCRequest").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_FacilityOLCRequest.setStatus('current')
-hwVoRecv_FacilityOLCAck = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 30), Counter32()).setLabel("hwVoRecv-FacilityOLCAck").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_FacilityOLCAck.setStatus('current')
-hwVoRecv_FacilityOLCReject = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 31), Counter32()).setLabel("hwVoRecv-FacilityOLCReject").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_FacilityOLCReject.setStatus('current')
-hwVoRecv_FacilityMSDRequest = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 32), Counter32()).setLabel("hwVoRecv-FacilityMSDRequest").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_FacilityMSDRequest.setStatus('current')
-hwVoRecv_FacilityMSDAck = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 33), Counter32()).setLabel("hwVoRecv-FacilityMSDAck").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_FacilityMSDAck.setStatus('current')
-hwVoRecv_FacilityMSDReject = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 34), Counter32()).setLabel("hwVoRecv-FacilityMSDReject").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_FacilityMSDReject.setStatus('current')
-hwVoRecv_FacilityCLCRequest = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 35), Counter32()).setLabel("hwVoRecv-FacilityCLCRequest").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_FacilityCLCRequest.setStatus('current')
-hwVoRecv_FacilityCLCAck = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 36), Counter32()).setLabel("hwVoRecv-FacilityCLCAck").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_FacilityCLCAck.setStatus('current')
-hwVoRecv_UnknownH225Msg = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 37), Counter32()).setLabel("hwVoRecv-UnknownH225Msg").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_UnknownH225Msg.setStatus('current')
-hwVoIPPH245StatObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2))
-hwVoSend_TCSRequest = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 1), Counter32()).setLabel("hwVoSend-TCSRequest").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_TCSRequest.setStatus('current')
-hwVoSend_TCSAck = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 2), Counter32()).setLabel("hwVoSend-TCSAck").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_TCSAck.setStatus('current')
-hwVoSend_TCSReject = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 3), Counter32()).setLabel("hwVoSend-TCSReject").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_TCSReject.setStatus('current')
-hwVoSend_MSDRequest = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 4), Counter32()).setLabel("hwVoSend-MSDRequest").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_MSDRequest.setStatus('current')
-hwVoSend_MSDAck = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 5), Counter32()).setLabel("hwVoSend-MSDAck").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_MSDAck.setStatus('current')
-hwVoSend_MSDReject = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 6), Counter32()).setLabel("hwVoSend-MSDReject").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_MSDReject.setStatus('current')
-hwVoSend_OLCRequest = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 7), Counter32()).setLabel("hwVoSend-OLCRequest").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_OLCRequest.setStatus('current')
-hwVoSend_OLCAck = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 8), Counter32()).setLabel("hwVoSend-OLCAck").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_OLCAck.setStatus('current')
-hwVoSend_OLCReject = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 9), Counter32()).setLabel("hwVoSend-OLCReject").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_OLCReject.setStatus('current')
-hwVoSend_CLCRequest = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 10), Counter32()).setLabel("hwVoSend-CLCRequest").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_CLCRequest.setStatus('current')
-hwVoSend_CLCAck = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 11), Counter32()).setLabel("hwVoSend-CLCAck").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_CLCAck.setStatus('current')
-hwVoSend_UserInput = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 12), Counter32()).setLabel("hwVoSend-UserInput").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_UserInput.setStatus('current')
-hwVoSend_ErrorH245Msg = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 13), Counter32()).setLabel("hwVoSend-ErrorH245Msg").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_ErrorH245Msg.setStatus('current')
-hwVoRecv_TCSRequest = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 14), Counter32()).setLabel("hwVoRecv-TCSRequest").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_TCSRequest.setStatus('current')
-hwVoRecv_TCSAck = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 15), Counter32()).setLabel("hwVoRecv-TCSAck").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_TCSAck.setStatus('current')
-hwVoRecv_TCSReject = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 16), Counter32()).setLabel("hwVoRecv-TCSReject").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_TCSReject.setStatus('current')
-hwVoRecv_MSDRequest = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 17), Counter32()).setLabel("hwVoRecv-MSDRequest").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_MSDRequest.setStatus('current')
-hwVoRecv_MSDAck = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 18), Counter32()).setLabel("hwVoRecv-MSDAck").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_MSDAck.setStatus('current')
-hwVoRecv_MSDReject = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 19), Counter32()).setLabel("hwVoRecv-MSDReject").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_MSDReject.setStatus('current')
-hwVoRecv_OLCRequest = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 20), Counter32()).setLabel("hwVoRecv-OLCRequest").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_OLCRequest.setStatus('current')
-hwVoRecv_OLCAck = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 21), Counter32()).setLabel("hwVoRecv-OLCAck").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_OLCAck.setStatus('current')
-hwVoRecv_OLCReject = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 22), Counter32()).setLabel("hwVoRecv-OLCReject").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_OLCReject.setStatus('current')
-hwVoRecv_CLCRequest = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 23), Counter32()).setLabel("hwVoRecv-CLCRequest").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_CLCRequest.setStatus('current')
-hwVoRecv_CLCAck = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 24), Counter32()).setLabel("hwVoRecv-CLCAck").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_CLCAck.setStatus('current')
-hwVoRecv_UserInput = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 25), Counter32()).setLabel("hwVoRecv-UserInput").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_UserInput.setStatus('current')
-hwVoRecv_UnknownH245Msg = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 26), Counter32()).setLabel("hwVoRecv-UnknownH245Msg").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_UnknownH245Msg.setStatus('current')
-hwVoIPPRASStatObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3))
-hwVoSend_GRQ = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 1), Counter32()).setLabel("hwVoSend-GRQ").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_GRQ.setStatus('current')
-hwVoSend_RRQ = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 2), Counter32()).setLabel("hwVoSend-RRQ").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_RRQ.setStatus('current')
-hwVoSend_ARQ = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 3), Counter32()).setLabel("hwVoSend-ARQ").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_ARQ.setStatus('current')
-hwVoSend_BRQ = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 4), Counter32()).setLabel("hwVoSend-BRQ").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_BRQ.setStatus('current')
-hwVoSend_DRQ = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 5), Counter32()).setLabel("hwVoSend-DRQ").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_DRQ.setStatus('current')
-hwVoSend_URQ = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 6), Counter32()).setLabel("hwVoSend-URQ").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_URQ.setStatus('current')
-hwVoSend_UCF = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 7), Counter32()).setLabel("hwVoSend-UCF").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_UCF.setStatus('current')
-hwVoSend_IRR = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 8), Counter32()).setLabel("hwVoSend-IRR").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_IRR.setStatus('current')
-hwVoSend_ErrorRASMsg = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 9), Counter32()).setLabel("hwVoSend-ErrorRASMsg").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoSend_ErrorRASMsg.setStatus('current')
-hwVoRecv_GCF = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 10), Counter32()).setLabel("hwVoRecv-GCF").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_GCF.setStatus('current')
-hwVoRecv_RCF = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 11), Counter32()).setLabel("hwVoRecv-RCF").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_RCF.setStatus('current')
-hwVoRecv_ACF = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 12), Counter32()).setLabel("hwVoRecv-ACF").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_ACF.setStatus('current')
-hwVoRecv_BCF = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 13), Counter32()).setLabel("hwVoRecv-BCF").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_BCF.setStatus('current')
-hwVoRecv_DCF = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 14), Counter32()).setLabel("hwVoRecv-DCF").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_DCF.setStatus('current')
-hwVoRecv_GRJ = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 15), Counter32()).setLabel("hwVoRecv-GRJ").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_GRJ.setStatus('current')
-hwVoRecv_RRJ = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 16), Counter32()).setLabel("hwVoRecv-RRJ").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_RRJ.setStatus('current')
-hwVoRecv_ARJ = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 17), Counter32()).setLabel("hwVoRecv-ARJ").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_ARJ.setStatus('current')
-hwVoRecv_BRJ = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 18), Counter32()).setLabel("hwVoRecv-BRJ").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_BRJ.setStatus('current')
-hwVoRecv_DRJ = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 19), Counter32()).setLabel("hwVoRecv-DRJ").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_DRJ.setStatus('current')
-hwVoRecv_URQ = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 20), Counter32()).setLabel("hwVoRecv-URQ").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_URQ.setStatus('current')
-hwVoRecv_UCF = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 21), Counter32()).setLabel("hwVoRecv-UCF").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_UCF.setStatus('current')
-hwVoRecv_URJ = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 22), Counter32()).setLabel("hwVoRecv-URJ").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_URJ.setStatus('current')
-hwVoRecv_IRQ = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 23), Counter32()).setLabel("hwVoRecv-IRQ").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_IRQ.setStatus('current')
-hwVoRecv_UnknownRASMsg = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 24), Counter32()).setLabel("hwVoRecv-UnknownRASMsg").setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwVoRecv_UnknownRASMsg.setStatus('current')
-mibBuilder.exportSymbols("HUAWEI-VO-H323-CALL-STAT-MIB", hwVoSend_TCSAck=hwVoSend_TCSAck, hwVoRecv_DCF=hwVoRecv_DCF, hwVoSend_FacilityCLCAck=hwVoSend_FacilityCLCAck, hwVoRecv_DRJ=hwVoRecv_DRJ, hwVoRecv_FacilityOLCAck=hwVoRecv_FacilityOLCAck, hwVoRecv_MSDRequest=hwVoRecv_MSDRequest, PYSNMP_MODULE_ID=hwVoiceH323CallStatMIB, hwVoSend_FacilityTCSAck=hwVoSend_FacilityTCSAck, hwVoRecv_FacilityOLCReject=hwVoRecv_FacilityOLCReject, hwVoSend_GRQ=hwVoSend_GRQ, hwVoRecv_TCSRequest=hwVoRecv_TCSRequest, hwVoRecv_CLCRequest=hwVoRecv_CLCRequest, hwVoRecv_MSDReject=hwVoRecv_MSDReject, hwVoRecv_FacilityTCSReject=hwVoRecv_FacilityTCSReject, hwVoRecv_FacilityCLCRequest=hwVoRecv_FacilityCLCRequest, hwVoSend_FacilityOLCRequest=hwVoSend_FacilityOLCRequest, hwVoRecv_FacilityOLCRequest=hwVoRecv_FacilityOLCRequest, hwVoSend_ReleaseComplete=hwVoSend_ReleaseComplete, hwVoSend_FacilityOLCReject=hwVoSend_FacilityOLCReject, hwVoSend_OLCAck=hwVoSend_OLCAck, hwVoSend_TCSRequest=hwVoSend_TCSRequest, hwVoSend_FacilityTCSReject=hwVoSend_FacilityTCSReject, hwVoSend_FacilityOLCAck=hwVoSend_FacilityOLCAck, hwVoRecv_Progress=hwVoRecv_Progress, hwVoRecv_Setup=hwVoRecv_Setup, hwVoSend_OLCRequest=hwVoSend_OLCRequest, hwVoRecv_TCSAck=hwVoRecv_TCSAck, hwVoIPPH245StatObjects=hwVoIPPH245StatObjects, hwVoRecv_IRQ=hwVoRecv_IRQ, hwVoRecv_UnknownH245Msg=hwVoRecv_UnknownH245Msg, hwVoRecv_URQ=hwVoRecv_URQ, hwVoSend_ErrorRASMsg=hwVoSend_ErrorRASMsg, hwVoRecv_UnknownH225Msg=hwVoRecv_UnknownH225Msg, hwVoRecv_UserInput=hwVoRecv_UserInput, hwVoRecv_FacilityMSDRequest=hwVoRecv_FacilityMSDRequest, hwVoRecv_OLCReject=hwVoRecv_OLCReject, hwVoSend_FacilityCLCRequest=hwVoSend_FacilityCLCRequest, hwVoSend_Setup=hwVoSend_Setup, hwVoRecv_BCF=hwVoRecv_BCF, hwVoSend_UserInput=hwVoSend_UserInput, hwVoRecv_MSDAck=hwVoRecv_MSDAck, hwVoSend_MSDReject=hwVoSend_MSDReject, hwVoRecv_Alerting=hwVoRecv_Alerting, hwVoRecv_GRJ=hwVoRecv_GRJ, hwVoSend_TCSReject=hwVoSend_TCSReject, hwVoSend_CLCRequest=hwVoSend_CLCRequest, hwVoSend_MSDRequest=hwVoSend_MSDRequest, hwVoSend_FacilityTCSRequest=hwVoSend_FacilityTCSRequest, hwVoSend_ErrorH225Msg=hwVoSend_ErrorH225Msg, hwVoSend_MSDAck=hwVoSend_MSDAck, hwVoIPPH225StatObjects=hwVoIPPH225StatObjects, hwVoRecv_OLCAck=hwVoRecv_OLCAck, hwVoSend_Alerting=hwVoSend_Alerting, hwVoRecv_FacilityMSDReject=hwVoRecv_FacilityMSDReject, hwVoSend_CLCAck=hwVoSend_CLCAck, hwVoSend_OLCReject=hwVoSend_OLCReject, hwVoRecv_GCF=hwVoRecv_GCF, hwVoRecv_RRJ=hwVoRecv_RRJ, hwVoSend_BRQ=hwVoSend_BRQ, hwVoRecv_RCF=hwVoRecv_RCF, hwVoSend_FacilityMSDReject=hwVoSend_FacilityMSDReject, hwVoRecv_CallProceeding=hwVoRecv_CallProceeding, hwVoSend_DRQ=hwVoSend_DRQ, hwVoRecv_FacilityTCSRequest=hwVoRecv_FacilityTCSRequest, hwVoRecv_FacilityMSDAck=hwVoRecv_FacilityMSDAck, hwVoiceH323CallStatMIB=hwVoiceH323CallStatMIB, hwVoRecv_Connect=hwVoRecv_Connect, hwVoSend_IRR=hwVoSend_IRR, hwVoRecv_URJ=hwVoRecv_URJ, hwVoRecv_FacilityCLCAck=hwVoRecv_FacilityCLCAck, hwVoSend_CallProceeding=hwVoSend_CallProceeding, hwVoRecv_ReleaseComplete=hwVoRecv_ReleaseComplete, hwVoSend_FacilityStartH245=hwVoSend_FacilityStartH245, hwVoH323CallStatObjects=hwVoH323CallStatObjects, hwVoSend_FacilityMSDAck=hwVoSend_FacilityMSDAck, hwVoSend_UCF=hwVoSend_UCF, hwVoRecv_OLCRequest=hwVoRecv_OLCRequest, hwVoRecv_FacilityTCSAck=hwVoRecv_FacilityTCSAck, hwVoSend_RRQ=hwVoSend_RRQ, hwVoRecv_ACF=hwVoRecv_ACF, hwVoRecv_BRJ=hwVoRecv_BRJ, hwVoSend_URQ=hwVoSend_URQ, hwVoSend_ARQ=hwVoSend_ARQ, hwVoRecv_ARJ=hwVoRecv_ARJ, hwVoRecv_TCSReject=hwVoRecv_TCSReject, hwVoSend_FacilityMSDRequest=hwVoSend_FacilityMSDRequest, hwVoIPPRASStatObjects=hwVoIPPRASStatObjects, hwVoRecv_UCF=hwVoRecv_UCF, hwVoSend_FacilityIndUserInput=hwVoSend_FacilityIndUserInput, hwVoSend_ErrorH245Msg=hwVoSend_ErrorH245Msg, hwVoRecv_CLCAck=hwVoRecv_CLCAck, hwVoSend_Connect=hwVoSend_Connect, hwVoRecv_UnknownRASMsg=hwVoRecv_UnknownRASMsg)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-VO-H323-CALL-STAT-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:06:32 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(voice,) = mibBuilder.importSymbols(
+    "HUAWEI-3COM-OID-MIB",
+    "voice")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+hwVoiceH323CallStatMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11)
+)
+hwVoiceH323CallStatMIB.setRevisions(
+        ("2004-04-08 13:45",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_HwVoH323CallStatObjects_ObjectIdentity = ObjectIdentity
+hwVoH323CallStatObjects = _HwVoH323CallStatObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1)
+)
+_HwVoIPPH225StatObjects_ObjectIdentity = ObjectIdentity
+hwVoIPPH225StatObjects = _HwVoIPPH225StatObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1)
+)
+_HwVoSend_Setup_Type = Counter32
+_HwVoSend_Setup_Object = MibScalar
+hwVoSend_Setup = _HwVoSend_Setup_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 1),
+    _HwVoSend_Setup_Type()
+)
+hwVoSend_Setup.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_Setup.setStatus("current")
+_HwVoSend_CallProceeding_Type = Counter32
+_HwVoSend_CallProceeding_Object = MibScalar
+hwVoSend_CallProceeding = _HwVoSend_CallProceeding_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 2),
+    _HwVoSend_CallProceeding_Type()
+)
+hwVoSend_CallProceeding.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_CallProceeding.setStatus("current")
+_HwVoSend_Alerting_Type = Counter32
+_HwVoSend_Alerting_Object = MibScalar
+hwVoSend_Alerting = _HwVoSend_Alerting_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 3),
+    _HwVoSend_Alerting_Type()
+)
+hwVoSend_Alerting.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_Alerting.setStatus("current")
+_HwVoSend_Connect_Type = Counter32
+_HwVoSend_Connect_Object = MibScalar
+hwVoSend_Connect = _HwVoSend_Connect_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 4),
+    _HwVoSend_Connect_Type()
+)
+hwVoSend_Connect.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_Connect.setStatus("current")
+_HwVoSend_ReleaseComplete_Type = Counter32
+_HwVoSend_ReleaseComplete_Object = MibScalar
+hwVoSend_ReleaseComplete = _HwVoSend_ReleaseComplete_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 5),
+    _HwVoSend_ReleaseComplete_Type()
+)
+hwVoSend_ReleaseComplete.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_ReleaseComplete.setStatus("current")
+_HwVoSend_FacilityIndUserInput_Type = Counter32
+_HwVoSend_FacilityIndUserInput_Object = MibScalar
+hwVoSend_FacilityIndUserInput = _HwVoSend_FacilityIndUserInput_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 6),
+    _HwVoSend_FacilityIndUserInput_Type()
+)
+hwVoSend_FacilityIndUserInput.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_FacilityIndUserInput.setStatus("current")
+_HwVoSend_FacilityTCSRequest_Type = Counter32
+_HwVoSend_FacilityTCSRequest_Object = MibScalar
+hwVoSend_FacilityTCSRequest = _HwVoSend_FacilityTCSRequest_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 7),
+    _HwVoSend_FacilityTCSRequest_Type()
+)
+hwVoSend_FacilityTCSRequest.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_FacilityTCSRequest.setStatus("current")
+_HwVoSend_FacilityTCSAck_Type = Counter32
+_HwVoSend_FacilityTCSAck_Object = MibScalar
+hwVoSend_FacilityTCSAck = _HwVoSend_FacilityTCSAck_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 8),
+    _HwVoSend_FacilityTCSAck_Type()
+)
+hwVoSend_FacilityTCSAck.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_FacilityTCSAck.setStatus("current")
+_HwVoSend_FacilityTCSReject_Type = Counter32
+_HwVoSend_FacilityTCSReject_Object = MibScalar
+hwVoSend_FacilityTCSReject = _HwVoSend_FacilityTCSReject_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 9),
+    _HwVoSend_FacilityTCSReject_Type()
+)
+hwVoSend_FacilityTCSReject.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_FacilityTCSReject.setStatus("current")
+_HwVoSend_FacilityOLCRequest_Type = Counter32
+_HwVoSend_FacilityOLCRequest_Object = MibScalar
+hwVoSend_FacilityOLCRequest = _HwVoSend_FacilityOLCRequest_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 10),
+    _HwVoSend_FacilityOLCRequest_Type()
+)
+hwVoSend_FacilityOLCRequest.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_FacilityOLCRequest.setStatus("current")
+_HwVoSend_FacilityOLCAck_Type = Counter32
+_HwVoSend_FacilityOLCAck_Object = MibScalar
+hwVoSend_FacilityOLCAck = _HwVoSend_FacilityOLCAck_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 11),
+    _HwVoSend_FacilityOLCAck_Type()
+)
+hwVoSend_FacilityOLCAck.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_FacilityOLCAck.setStatus("current")
+_HwVoSend_FacilityOLCReject_Type = Counter32
+_HwVoSend_FacilityOLCReject_Object = MibScalar
+hwVoSend_FacilityOLCReject = _HwVoSend_FacilityOLCReject_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 12),
+    _HwVoSend_FacilityOLCReject_Type()
+)
+hwVoSend_FacilityOLCReject.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_FacilityOLCReject.setStatus("current")
+_HwVoSend_FacilityMSDRequest_Type = Counter32
+_HwVoSend_FacilityMSDRequest_Object = MibScalar
+hwVoSend_FacilityMSDRequest = _HwVoSend_FacilityMSDRequest_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 13),
+    _HwVoSend_FacilityMSDRequest_Type()
+)
+hwVoSend_FacilityMSDRequest.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_FacilityMSDRequest.setStatus("current")
+_HwVoSend_FacilityMSDAck_Type = Counter32
+_HwVoSend_FacilityMSDAck_Object = MibScalar
+hwVoSend_FacilityMSDAck = _HwVoSend_FacilityMSDAck_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 14),
+    _HwVoSend_FacilityMSDAck_Type()
+)
+hwVoSend_FacilityMSDAck.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_FacilityMSDAck.setStatus("current")
+_HwVoSend_FacilityMSDReject_Type = Counter32
+_HwVoSend_FacilityMSDReject_Object = MibScalar
+hwVoSend_FacilityMSDReject = _HwVoSend_FacilityMSDReject_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 15),
+    _HwVoSend_FacilityMSDReject_Type()
+)
+hwVoSend_FacilityMSDReject.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_FacilityMSDReject.setStatus("current")
+_HwVoSend_FacilityCLCRequest_Type = Counter32
+_HwVoSend_FacilityCLCRequest_Object = MibScalar
+hwVoSend_FacilityCLCRequest = _HwVoSend_FacilityCLCRequest_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 16),
+    _HwVoSend_FacilityCLCRequest_Type()
+)
+hwVoSend_FacilityCLCRequest.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_FacilityCLCRequest.setStatus("current")
+_HwVoSend_FacilityCLCAck_Type = Counter32
+_HwVoSend_FacilityCLCAck_Object = MibScalar
+hwVoSend_FacilityCLCAck = _HwVoSend_FacilityCLCAck_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 17),
+    _HwVoSend_FacilityCLCAck_Type()
+)
+hwVoSend_FacilityCLCAck.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_FacilityCLCAck.setStatus("current")
+_HwVoSend_FacilityStartH245_Type = Counter32
+_HwVoSend_FacilityStartH245_Object = MibScalar
+hwVoSend_FacilityStartH245 = _HwVoSend_FacilityStartH245_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 18),
+    _HwVoSend_FacilityStartH245_Type()
+)
+hwVoSend_FacilityStartH245.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_FacilityStartH245.setStatus("current")
+_HwVoSend_ErrorH225Msg_Type = Counter32
+_HwVoSend_ErrorH225Msg_Object = MibScalar
+hwVoSend_ErrorH225Msg = _HwVoSend_ErrorH225Msg_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 19),
+    _HwVoSend_ErrorH225Msg_Type()
+)
+hwVoSend_ErrorH225Msg.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_ErrorH225Msg.setStatus("current")
+_HwVoRecv_Setup_Type = Counter32
+_HwVoRecv_Setup_Object = MibScalar
+hwVoRecv_Setup = _HwVoRecv_Setup_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 20),
+    _HwVoRecv_Setup_Type()
+)
+hwVoRecv_Setup.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_Setup.setStatus("current")
+_HwVoRecv_CallProceeding_Type = Counter32
+_HwVoRecv_CallProceeding_Object = MibScalar
+hwVoRecv_CallProceeding = _HwVoRecv_CallProceeding_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 21),
+    _HwVoRecv_CallProceeding_Type()
+)
+hwVoRecv_CallProceeding.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_CallProceeding.setStatus("current")
+_HwVoRecv_Alerting_Type = Counter32
+_HwVoRecv_Alerting_Object = MibScalar
+hwVoRecv_Alerting = _HwVoRecv_Alerting_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 22),
+    _HwVoRecv_Alerting_Type()
+)
+hwVoRecv_Alerting.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_Alerting.setStatus("current")
+_HwVoRecv_Connect_Type = Counter32
+_HwVoRecv_Connect_Object = MibScalar
+hwVoRecv_Connect = _HwVoRecv_Connect_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 23),
+    _HwVoRecv_Connect_Type()
+)
+hwVoRecv_Connect.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_Connect.setStatus("current")
+_HwVoRecv_ReleaseComplete_Type = Counter32
+_HwVoRecv_ReleaseComplete_Object = MibScalar
+hwVoRecv_ReleaseComplete = _HwVoRecv_ReleaseComplete_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 24),
+    _HwVoRecv_ReleaseComplete_Type()
+)
+hwVoRecv_ReleaseComplete.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_ReleaseComplete.setStatus("current")
+_HwVoRecv_Progress_Type = Counter32
+_HwVoRecv_Progress_Object = MibScalar
+hwVoRecv_Progress = _HwVoRecv_Progress_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 25),
+    _HwVoRecv_Progress_Type()
+)
+hwVoRecv_Progress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_Progress.setStatus("current")
+_HwVoRecv_FacilityTCSRequest_Type = Counter32
+_HwVoRecv_FacilityTCSRequest_Object = MibScalar
+hwVoRecv_FacilityTCSRequest = _HwVoRecv_FacilityTCSRequest_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 26),
+    _HwVoRecv_FacilityTCSRequest_Type()
+)
+hwVoRecv_FacilityTCSRequest.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_FacilityTCSRequest.setStatus("current")
+_HwVoRecv_FacilityTCSAck_Type = Counter32
+_HwVoRecv_FacilityTCSAck_Object = MibScalar
+hwVoRecv_FacilityTCSAck = _HwVoRecv_FacilityTCSAck_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 27),
+    _HwVoRecv_FacilityTCSAck_Type()
+)
+hwVoRecv_FacilityTCSAck.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_FacilityTCSAck.setStatus("current")
+_HwVoRecv_FacilityTCSReject_Type = Counter32
+_HwVoRecv_FacilityTCSReject_Object = MibScalar
+hwVoRecv_FacilityTCSReject = _HwVoRecv_FacilityTCSReject_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 28),
+    _HwVoRecv_FacilityTCSReject_Type()
+)
+hwVoRecv_FacilityTCSReject.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_FacilityTCSReject.setStatus("current")
+_HwVoRecv_FacilityOLCRequest_Type = Counter32
+_HwVoRecv_FacilityOLCRequest_Object = MibScalar
+hwVoRecv_FacilityOLCRequest = _HwVoRecv_FacilityOLCRequest_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 29),
+    _HwVoRecv_FacilityOLCRequest_Type()
+)
+hwVoRecv_FacilityOLCRequest.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_FacilityOLCRequest.setStatus("current")
+_HwVoRecv_FacilityOLCAck_Type = Counter32
+_HwVoRecv_FacilityOLCAck_Object = MibScalar
+hwVoRecv_FacilityOLCAck = _HwVoRecv_FacilityOLCAck_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 30),
+    _HwVoRecv_FacilityOLCAck_Type()
+)
+hwVoRecv_FacilityOLCAck.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_FacilityOLCAck.setStatus("current")
+_HwVoRecv_FacilityOLCReject_Type = Counter32
+_HwVoRecv_FacilityOLCReject_Object = MibScalar
+hwVoRecv_FacilityOLCReject = _HwVoRecv_FacilityOLCReject_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 31),
+    _HwVoRecv_FacilityOLCReject_Type()
+)
+hwVoRecv_FacilityOLCReject.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_FacilityOLCReject.setStatus("current")
+_HwVoRecv_FacilityMSDRequest_Type = Counter32
+_HwVoRecv_FacilityMSDRequest_Object = MibScalar
+hwVoRecv_FacilityMSDRequest = _HwVoRecv_FacilityMSDRequest_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 32),
+    _HwVoRecv_FacilityMSDRequest_Type()
+)
+hwVoRecv_FacilityMSDRequest.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_FacilityMSDRequest.setStatus("current")
+_HwVoRecv_FacilityMSDAck_Type = Counter32
+_HwVoRecv_FacilityMSDAck_Object = MibScalar
+hwVoRecv_FacilityMSDAck = _HwVoRecv_FacilityMSDAck_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 33),
+    _HwVoRecv_FacilityMSDAck_Type()
+)
+hwVoRecv_FacilityMSDAck.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_FacilityMSDAck.setStatus("current")
+_HwVoRecv_FacilityMSDReject_Type = Counter32
+_HwVoRecv_FacilityMSDReject_Object = MibScalar
+hwVoRecv_FacilityMSDReject = _HwVoRecv_FacilityMSDReject_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 34),
+    _HwVoRecv_FacilityMSDReject_Type()
+)
+hwVoRecv_FacilityMSDReject.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_FacilityMSDReject.setStatus("current")
+_HwVoRecv_FacilityCLCRequest_Type = Counter32
+_HwVoRecv_FacilityCLCRequest_Object = MibScalar
+hwVoRecv_FacilityCLCRequest = _HwVoRecv_FacilityCLCRequest_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 35),
+    _HwVoRecv_FacilityCLCRequest_Type()
+)
+hwVoRecv_FacilityCLCRequest.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_FacilityCLCRequest.setStatus("current")
+_HwVoRecv_FacilityCLCAck_Type = Counter32
+_HwVoRecv_FacilityCLCAck_Object = MibScalar
+hwVoRecv_FacilityCLCAck = _HwVoRecv_FacilityCLCAck_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 36),
+    _HwVoRecv_FacilityCLCAck_Type()
+)
+hwVoRecv_FacilityCLCAck.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_FacilityCLCAck.setStatus("current")
+_HwVoRecv_UnknownH225Msg_Type = Counter32
+_HwVoRecv_UnknownH225Msg_Object = MibScalar
+hwVoRecv_UnknownH225Msg = _HwVoRecv_UnknownH225Msg_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 1, 37),
+    _HwVoRecv_UnknownH225Msg_Type()
+)
+hwVoRecv_UnknownH225Msg.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_UnknownH225Msg.setStatus("current")
+_HwVoIPPH245StatObjects_ObjectIdentity = ObjectIdentity
+hwVoIPPH245StatObjects = _HwVoIPPH245StatObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2)
+)
+_HwVoSend_TCSRequest_Type = Counter32
+_HwVoSend_TCSRequest_Object = MibScalar
+hwVoSend_TCSRequest = _HwVoSend_TCSRequest_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 1),
+    _HwVoSend_TCSRequest_Type()
+)
+hwVoSend_TCSRequest.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_TCSRequest.setStatus("current")
+_HwVoSend_TCSAck_Type = Counter32
+_HwVoSend_TCSAck_Object = MibScalar
+hwVoSend_TCSAck = _HwVoSend_TCSAck_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 2),
+    _HwVoSend_TCSAck_Type()
+)
+hwVoSend_TCSAck.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_TCSAck.setStatus("current")
+_HwVoSend_TCSReject_Type = Counter32
+_HwVoSend_TCSReject_Object = MibScalar
+hwVoSend_TCSReject = _HwVoSend_TCSReject_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 3),
+    _HwVoSend_TCSReject_Type()
+)
+hwVoSend_TCSReject.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_TCSReject.setStatus("current")
+_HwVoSend_MSDRequest_Type = Counter32
+_HwVoSend_MSDRequest_Object = MibScalar
+hwVoSend_MSDRequest = _HwVoSend_MSDRequest_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 4),
+    _HwVoSend_MSDRequest_Type()
+)
+hwVoSend_MSDRequest.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_MSDRequest.setStatus("current")
+_HwVoSend_MSDAck_Type = Counter32
+_HwVoSend_MSDAck_Object = MibScalar
+hwVoSend_MSDAck = _HwVoSend_MSDAck_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 5),
+    _HwVoSend_MSDAck_Type()
+)
+hwVoSend_MSDAck.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_MSDAck.setStatus("current")
+_HwVoSend_MSDReject_Type = Counter32
+_HwVoSend_MSDReject_Object = MibScalar
+hwVoSend_MSDReject = _HwVoSend_MSDReject_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 6),
+    _HwVoSend_MSDReject_Type()
+)
+hwVoSend_MSDReject.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_MSDReject.setStatus("current")
+_HwVoSend_OLCRequest_Type = Counter32
+_HwVoSend_OLCRequest_Object = MibScalar
+hwVoSend_OLCRequest = _HwVoSend_OLCRequest_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 7),
+    _HwVoSend_OLCRequest_Type()
+)
+hwVoSend_OLCRequest.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_OLCRequest.setStatus("current")
+_HwVoSend_OLCAck_Type = Counter32
+_HwVoSend_OLCAck_Object = MibScalar
+hwVoSend_OLCAck = _HwVoSend_OLCAck_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 8),
+    _HwVoSend_OLCAck_Type()
+)
+hwVoSend_OLCAck.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_OLCAck.setStatus("current")
+_HwVoSend_OLCReject_Type = Counter32
+_HwVoSend_OLCReject_Object = MibScalar
+hwVoSend_OLCReject = _HwVoSend_OLCReject_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 9),
+    _HwVoSend_OLCReject_Type()
+)
+hwVoSend_OLCReject.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_OLCReject.setStatus("current")
+_HwVoSend_CLCRequest_Type = Counter32
+_HwVoSend_CLCRequest_Object = MibScalar
+hwVoSend_CLCRequest = _HwVoSend_CLCRequest_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 10),
+    _HwVoSend_CLCRequest_Type()
+)
+hwVoSend_CLCRequest.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_CLCRequest.setStatus("current")
+_HwVoSend_CLCAck_Type = Counter32
+_HwVoSend_CLCAck_Object = MibScalar
+hwVoSend_CLCAck = _HwVoSend_CLCAck_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 11),
+    _HwVoSend_CLCAck_Type()
+)
+hwVoSend_CLCAck.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_CLCAck.setStatus("current")
+_HwVoSend_UserInput_Type = Counter32
+_HwVoSend_UserInput_Object = MibScalar
+hwVoSend_UserInput = _HwVoSend_UserInput_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 12),
+    _HwVoSend_UserInput_Type()
+)
+hwVoSend_UserInput.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_UserInput.setStatus("current")
+_HwVoSend_ErrorH245Msg_Type = Counter32
+_HwVoSend_ErrorH245Msg_Object = MibScalar
+hwVoSend_ErrorH245Msg = _HwVoSend_ErrorH245Msg_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 13),
+    _HwVoSend_ErrorH245Msg_Type()
+)
+hwVoSend_ErrorH245Msg.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_ErrorH245Msg.setStatus("current")
+_HwVoRecv_TCSRequest_Type = Counter32
+_HwVoRecv_TCSRequest_Object = MibScalar
+hwVoRecv_TCSRequest = _HwVoRecv_TCSRequest_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 14),
+    _HwVoRecv_TCSRequest_Type()
+)
+hwVoRecv_TCSRequest.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_TCSRequest.setStatus("current")
+_HwVoRecv_TCSAck_Type = Counter32
+_HwVoRecv_TCSAck_Object = MibScalar
+hwVoRecv_TCSAck = _HwVoRecv_TCSAck_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 15),
+    _HwVoRecv_TCSAck_Type()
+)
+hwVoRecv_TCSAck.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_TCSAck.setStatus("current")
+_HwVoRecv_TCSReject_Type = Counter32
+_HwVoRecv_TCSReject_Object = MibScalar
+hwVoRecv_TCSReject = _HwVoRecv_TCSReject_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 16),
+    _HwVoRecv_TCSReject_Type()
+)
+hwVoRecv_TCSReject.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_TCSReject.setStatus("current")
+_HwVoRecv_MSDRequest_Type = Counter32
+_HwVoRecv_MSDRequest_Object = MibScalar
+hwVoRecv_MSDRequest = _HwVoRecv_MSDRequest_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 17),
+    _HwVoRecv_MSDRequest_Type()
+)
+hwVoRecv_MSDRequest.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_MSDRequest.setStatus("current")
+_HwVoRecv_MSDAck_Type = Counter32
+_HwVoRecv_MSDAck_Object = MibScalar
+hwVoRecv_MSDAck = _HwVoRecv_MSDAck_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 18),
+    _HwVoRecv_MSDAck_Type()
+)
+hwVoRecv_MSDAck.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_MSDAck.setStatus("current")
+_HwVoRecv_MSDReject_Type = Counter32
+_HwVoRecv_MSDReject_Object = MibScalar
+hwVoRecv_MSDReject = _HwVoRecv_MSDReject_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 19),
+    _HwVoRecv_MSDReject_Type()
+)
+hwVoRecv_MSDReject.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_MSDReject.setStatus("current")
+_HwVoRecv_OLCRequest_Type = Counter32
+_HwVoRecv_OLCRequest_Object = MibScalar
+hwVoRecv_OLCRequest = _HwVoRecv_OLCRequest_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 20),
+    _HwVoRecv_OLCRequest_Type()
+)
+hwVoRecv_OLCRequest.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_OLCRequest.setStatus("current")
+_HwVoRecv_OLCAck_Type = Counter32
+_HwVoRecv_OLCAck_Object = MibScalar
+hwVoRecv_OLCAck = _HwVoRecv_OLCAck_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 21),
+    _HwVoRecv_OLCAck_Type()
+)
+hwVoRecv_OLCAck.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_OLCAck.setStatus("current")
+_HwVoRecv_OLCReject_Type = Counter32
+_HwVoRecv_OLCReject_Object = MibScalar
+hwVoRecv_OLCReject = _HwVoRecv_OLCReject_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 22),
+    _HwVoRecv_OLCReject_Type()
+)
+hwVoRecv_OLCReject.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_OLCReject.setStatus("current")
+_HwVoRecv_CLCRequest_Type = Counter32
+_HwVoRecv_CLCRequest_Object = MibScalar
+hwVoRecv_CLCRequest = _HwVoRecv_CLCRequest_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 23),
+    _HwVoRecv_CLCRequest_Type()
+)
+hwVoRecv_CLCRequest.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_CLCRequest.setStatus("current")
+_HwVoRecv_CLCAck_Type = Counter32
+_HwVoRecv_CLCAck_Object = MibScalar
+hwVoRecv_CLCAck = _HwVoRecv_CLCAck_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 24),
+    _HwVoRecv_CLCAck_Type()
+)
+hwVoRecv_CLCAck.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_CLCAck.setStatus("current")
+_HwVoRecv_UserInput_Type = Counter32
+_HwVoRecv_UserInput_Object = MibScalar
+hwVoRecv_UserInput = _HwVoRecv_UserInput_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 25),
+    _HwVoRecv_UserInput_Type()
+)
+hwVoRecv_UserInput.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_UserInput.setStatus("current")
+_HwVoRecv_UnknownH245Msg_Type = Counter32
+_HwVoRecv_UnknownH245Msg_Object = MibScalar
+hwVoRecv_UnknownH245Msg = _HwVoRecv_UnknownH245Msg_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 2, 26),
+    _HwVoRecv_UnknownH245Msg_Type()
+)
+hwVoRecv_UnknownH245Msg.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_UnknownH245Msg.setStatus("current")
+_HwVoIPPRASStatObjects_ObjectIdentity = ObjectIdentity
+hwVoIPPRASStatObjects = _HwVoIPPRASStatObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3)
+)
+_HwVoSend_GRQ_Type = Counter32
+_HwVoSend_GRQ_Object = MibScalar
+hwVoSend_GRQ = _HwVoSend_GRQ_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 1),
+    _HwVoSend_GRQ_Type()
+)
+hwVoSend_GRQ.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_GRQ.setStatus("current")
+_HwVoSend_RRQ_Type = Counter32
+_HwVoSend_RRQ_Object = MibScalar
+hwVoSend_RRQ = _HwVoSend_RRQ_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 2),
+    _HwVoSend_RRQ_Type()
+)
+hwVoSend_RRQ.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_RRQ.setStatus("current")
+_HwVoSend_ARQ_Type = Counter32
+_HwVoSend_ARQ_Object = MibScalar
+hwVoSend_ARQ = _HwVoSend_ARQ_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 3),
+    _HwVoSend_ARQ_Type()
+)
+hwVoSend_ARQ.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_ARQ.setStatus("current")
+_HwVoSend_BRQ_Type = Counter32
+_HwVoSend_BRQ_Object = MibScalar
+hwVoSend_BRQ = _HwVoSend_BRQ_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 4),
+    _HwVoSend_BRQ_Type()
+)
+hwVoSend_BRQ.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_BRQ.setStatus("current")
+_HwVoSend_DRQ_Type = Counter32
+_HwVoSend_DRQ_Object = MibScalar
+hwVoSend_DRQ = _HwVoSend_DRQ_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 5),
+    _HwVoSend_DRQ_Type()
+)
+hwVoSend_DRQ.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_DRQ.setStatus("current")
+_HwVoSend_URQ_Type = Counter32
+_HwVoSend_URQ_Object = MibScalar
+hwVoSend_URQ = _HwVoSend_URQ_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 6),
+    _HwVoSend_URQ_Type()
+)
+hwVoSend_URQ.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_URQ.setStatus("current")
+_HwVoSend_UCF_Type = Counter32
+_HwVoSend_UCF_Object = MibScalar
+hwVoSend_UCF = _HwVoSend_UCF_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 7),
+    _HwVoSend_UCF_Type()
+)
+hwVoSend_UCF.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_UCF.setStatus("current")
+_HwVoSend_IRR_Type = Counter32
+_HwVoSend_IRR_Object = MibScalar
+hwVoSend_IRR = _HwVoSend_IRR_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 8),
+    _HwVoSend_IRR_Type()
+)
+hwVoSend_IRR.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_IRR.setStatus("current")
+_HwVoSend_ErrorRASMsg_Type = Counter32
+_HwVoSend_ErrorRASMsg_Object = MibScalar
+hwVoSend_ErrorRASMsg = _HwVoSend_ErrorRASMsg_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 9),
+    _HwVoSend_ErrorRASMsg_Type()
+)
+hwVoSend_ErrorRASMsg.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoSend_ErrorRASMsg.setStatus("current")
+_HwVoRecv_GCF_Type = Counter32
+_HwVoRecv_GCF_Object = MibScalar
+hwVoRecv_GCF = _HwVoRecv_GCF_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 10),
+    _HwVoRecv_GCF_Type()
+)
+hwVoRecv_GCF.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_GCF.setStatus("current")
+_HwVoRecv_RCF_Type = Counter32
+_HwVoRecv_RCF_Object = MibScalar
+hwVoRecv_RCF = _HwVoRecv_RCF_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 11),
+    _HwVoRecv_RCF_Type()
+)
+hwVoRecv_RCF.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_RCF.setStatus("current")
+_HwVoRecv_ACF_Type = Counter32
+_HwVoRecv_ACF_Object = MibScalar
+hwVoRecv_ACF = _HwVoRecv_ACF_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 12),
+    _HwVoRecv_ACF_Type()
+)
+hwVoRecv_ACF.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_ACF.setStatus("current")
+_HwVoRecv_BCF_Type = Counter32
+_HwVoRecv_BCF_Object = MibScalar
+hwVoRecv_BCF = _HwVoRecv_BCF_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 13),
+    _HwVoRecv_BCF_Type()
+)
+hwVoRecv_BCF.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_BCF.setStatus("current")
+_HwVoRecv_DCF_Type = Counter32
+_HwVoRecv_DCF_Object = MibScalar
+hwVoRecv_DCF = _HwVoRecv_DCF_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 14),
+    _HwVoRecv_DCF_Type()
+)
+hwVoRecv_DCF.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_DCF.setStatus("current")
+_HwVoRecv_GRJ_Type = Counter32
+_HwVoRecv_GRJ_Object = MibScalar
+hwVoRecv_GRJ = _HwVoRecv_GRJ_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 15),
+    _HwVoRecv_GRJ_Type()
+)
+hwVoRecv_GRJ.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_GRJ.setStatus("current")
+_HwVoRecv_RRJ_Type = Counter32
+_HwVoRecv_RRJ_Object = MibScalar
+hwVoRecv_RRJ = _HwVoRecv_RRJ_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 16),
+    _HwVoRecv_RRJ_Type()
+)
+hwVoRecv_RRJ.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_RRJ.setStatus("current")
+_HwVoRecv_ARJ_Type = Counter32
+_HwVoRecv_ARJ_Object = MibScalar
+hwVoRecv_ARJ = _HwVoRecv_ARJ_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 17),
+    _HwVoRecv_ARJ_Type()
+)
+hwVoRecv_ARJ.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_ARJ.setStatus("current")
+_HwVoRecv_BRJ_Type = Counter32
+_HwVoRecv_BRJ_Object = MibScalar
+hwVoRecv_BRJ = _HwVoRecv_BRJ_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 18),
+    _HwVoRecv_BRJ_Type()
+)
+hwVoRecv_BRJ.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_BRJ.setStatus("current")
+_HwVoRecv_DRJ_Type = Counter32
+_HwVoRecv_DRJ_Object = MibScalar
+hwVoRecv_DRJ = _HwVoRecv_DRJ_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 19),
+    _HwVoRecv_DRJ_Type()
+)
+hwVoRecv_DRJ.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_DRJ.setStatus("current")
+_HwVoRecv_URQ_Type = Counter32
+_HwVoRecv_URQ_Object = MibScalar
+hwVoRecv_URQ = _HwVoRecv_URQ_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 20),
+    _HwVoRecv_URQ_Type()
+)
+hwVoRecv_URQ.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_URQ.setStatus("current")
+_HwVoRecv_UCF_Type = Counter32
+_HwVoRecv_UCF_Object = MibScalar
+hwVoRecv_UCF = _HwVoRecv_UCF_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 21),
+    _HwVoRecv_UCF_Type()
+)
+hwVoRecv_UCF.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_UCF.setStatus("current")
+_HwVoRecv_URJ_Type = Counter32
+_HwVoRecv_URJ_Object = MibScalar
+hwVoRecv_URJ = _HwVoRecv_URJ_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 22),
+    _HwVoRecv_URJ_Type()
+)
+hwVoRecv_URJ.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_URJ.setStatus("current")
+_HwVoRecv_IRQ_Type = Counter32
+_HwVoRecv_IRQ_Object = MibScalar
+hwVoRecv_IRQ = _HwVoRecv_IRQ_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 23),
+    _HwVoRecv_IRQ_Type()
+)
+hwVoRecv_IRQ.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_IRQ.setStatus("current")
+_HwVoRecv_UnknownRASMsg_Type = Counter32
+_HwVoRecv_UnknownRASMsg_Object = MibScalar
+hwVoRecv_UnknownRASMsg = _HwVoRecv_UnknownRASMsg_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 11, 1, 3, 24),
+    _HwVoRecv_UnknownRASMsg_Type()
+)
+hwVoRecv_UnknownRASMsg.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwVoRecv_UnknownRASMsg.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HUAWEI-VO-H323-CALL-STAT-MIB",
+    **{"hwVoiceH323CallStatMIB": hwVoiceH323CallStatMIB,
+       "hwVoH323CallStatObjects": hwVoH323CallStatObjects,
+       "hwVoIPPH225StatObjects": hwVoIPPH225StatObjects,
+       "hwVoSend-Setup": hwVoSend_Setup,
+       "hwVoSend-CallProceeding": hwVoSend_CallProceeding,
+       "hwVoSend-Alerting": hwVoSend_Alerting,
+       "hwVoSend-Connect": hwVoSend_Connect,
+       "hwVoSend-ReleaseComplete": hwVoSend_ReleaseComplete,
+       "hwVoSend-FacilityIndUserInput": hwVoSend_FacilityIndUserInput,
+       "hwVoSend-FacilityTCSRequest": hwVoSend_FacilityTCSRequest,
+       "hwVoSend-FacilityTCSAck": hwVoSend_FacilityTCSAck,
+       "hwVoSend-FacilityTCSReject": hwVoSend_FacilityTCSReject,
+       "hwVoSend-FacilityOLCRequest": hwVoSend_FacilityOLCRequest,
+       "hwVoSend-FacilityOLCAck": hwVoSend_FacilityOLCAck,
+       "hwVoSend-FacilityOLCReject": hwVoSend_FacilityOLCReject,
+       "hwVoSend-FacilityMSDRequest": hwVoSend_FacilityMSDRequest,
+       "hwVoSend-FacilityMSDAck": hwVoSend_FacilityMSDAck,
+       "hwVoSend-FacilityMSDReject": hwVoSend_FacilityMSDReject,
+       "hwVoSend-FacilityCLCRequest": hwVoSend_FacilityCLCRequest,
+       "hwVoSend-FacilityCLCAck": hwVoSend_FacilityCLCAck,
+       "hwVoSend-FacilityStartH245": hwVoSend_FacilityStartH245,
+       "hwVoSend-ErrorH225Msg": hwVoSend_ErrorH225Msg,
+       "hwVoRecv-Setup": hwVoRecv_Setup,
+       "hwVoRecv-CallProceeding": hwVoRecv_CallProceeding,
+       "hwVoRecv-Alerting": hwVoRecv_Alerting,
+       "hwVoRecv-Connect": hwVoRecv_Connect,
+       "hwVoRecv-ReleaseComplete": hwVoRecv_ReleaseComplete,
+       "hwVoRecv-Progress": hwVoRecv_Progress,
+       "hwVoRecv-FacilityTCSRequest": hwVoRecv_FacilityTCSRequest,
+       "hwVoRecv-FacilityTCSAck": hwVoRecv_FacilityTCSAck,
+       "hwVoRecv-FacilityTCSReject": hwVoRecv_FacilityTCSReject,
+       "hwVoRecv-FacilityOLCRequest": hwVoRecv_FacilityOLCRequest,
+       "hwVoRecv-FacilityOLCAck": hwVoRecv_FacilityOLCAck,
+       "hwVoRecv-FacilityOLCReject": hwVoRecv_FacilityOLCReject,
+       "hwVoRecv-FacilityMSDRequest": hwVoRecv_FacilityMSDRequest,
+       "hwVoRecv-FacilityMSDAck": hwVoRecv_FacilityMSDAck,
+       "hwVoRecv-FacilityMSDReject": hwVoRecv_FacilityMSDReject,
+       "hwVoRecv-FacilityCLCRequest": hwVoRecv_FacilityCLCRequest,
+       "hwVoRecv-FacilityCLCAck": hwVoRecv_FacilityCLCAck,
+       "hwVoRecv-UnknownH225Msg": hwVoRecv_UnknownH225Msg,
+       "hwVoIPPH245StatObjects": hwVoIPPH245StatObjects,
+       "hwVoSend-TCSRequest": hwVoSend_TCSRequest,
+       "hwVoSend-TCSAck": hwVoSend_TCSAck,
+       "hwVoSend-TCSReject": hwVoSend_TCSReject,
+       "hwVoSend-MSDRequest": hwVoSend_MSDRequest,
+       "hwVoSend-MSDAck": hwVoSend_MSDAck,
+       "hwVoSend-MSDReject": hwVoSend_MSDReject,
+       "hwVoSend-OLCRequest": hwVoSend_OLCRequest,
+       "hwVoSend-OLCAck": hwVoSend_OLCAck,
+       "hwVoSend-OLCReject": hwVoSend_OLCReject,
+       "hwVoSend-CLCRequest": hwVoSend_CLCRequest,
+       "hwVoSend-CLCAck": hwVoSend_CLCAck,
+       "hwVoSend-UserInput": hwVoSend_UserInput,
+       "hwVoSend-ErrorH245Msg": hwVoSend_ErrorH245Msg,
+       "hwVoRecv-TCSRequest": hwVoRecv_TCSRequest,
+       "hwVoRecv-TCSAck": hwVoRecv_TCSAck,
+       "hwVoRecv-TCSReject": hwVoRecv_TCSReject,
+       "hwVoRecv-MSDRequest": hwVoRecv_MSDRequest,
+       "hwVoRecv-MSDAck": hwVoRecv_MSDAck,
+       "hwVoRecv-MSDReject": hwVoRecv_MSDReject,
+       "hwVoRecv-OLCRequest": hwVoRecv_OLCRequest,
+       "hwVoRecv-OLCAck": hwVoRecv_OLCAck,
+       "hwVoRecv-OLCReject": hwVoRecv_OLCReject,
+       "hwVoRecv-CLCRequest": hwVoRecv_CLCRequest,
+       "hwVoRecv-CLCAck": hwVoRecv_CLCAck,
+       "hwVoRecv-UserInput": hwVoRecv_UserInput,
+       "hwVoRecv-UnknownH245Msg": hwVoRecv_UnknownH245Msg,
+       "hwVoIPPRASStatObjects": hwVoIPPRASStatObjects,
+       "hwVoSend-GRQ": hwVoSend_GRQ,
+       "hwVoSend-RRQ": hwVoSend_RRQ,
+       "hwVoSend-ARQ": hwVoSend_ARQ,
+       "hwVoSend-BRQ": hwVoSend_BRQ,
+       "hwVoSend-DRQ": hwVoSend_DRQ,
+       "hwVoSend-URQ": hwVoSend_URQ,
+       "hwVoSend-UCF": hwVoSend_UCF,
+       "hwVoSend-IRR": hwVoSend_IRR,
+       "hwVoSend-ErrorRASMsg": hwVoSend_ErrorRASMsg,
+       "hwVoRecv-GCF": hwVoRecv_GCF,
+       "hwVoRecv-RCF": hwVoRecv_RCF,
+       "hwVoRecv-ACF": hwVoRecv_ACF,
+       "hwVoRecv-BCF": hwVoRecv_BCF,
+       "hwVoRecv-DCF": hwVoRecv_DCF,
+       "hwVoRecv-GRJ": hwVoRecv_GRJ,
+       "hwVoRecv-RRJ": hwVoRecv_RRJ,
+       "hwVoRecv-ARJ": hwVoRecv_ARJ,
+       "hwVoRecv-BRJ": hwVoRecv_BRJ,
+       "hwVoRecv-DRJ": hwVoRecv_DRJ,
+       "hwVoRecv-URQ": hwVoRecv_URQ,
+       "hwVoRecv-UCF": hwVoRecv_UCF,
+       "hwVoRecv-URJ": hwVoRecv_URJ,
+       "hwVoRecv-IRQ": hwVoRecv_IRQ,
+       "hwVoRecv-UnknownRASMsg": hwVoRecv_UnknownRASMsg}
+)

@@ -1,86 +1,747 @@
+# SNMP MIB module (Wellfleet-SPAN-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module Wellfleet-SPAN-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/Wellfleet-SPAN-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 21:35:06 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, ModuleIdentity, Counter32, ObjectIdentity, IpAddress, Integer32, iso, Unsigned32, NotificationType, TimeTicks, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "ModuleIdentity", "Counter32", "ObjectIdentity", "IpAddress", "Integer32", "iso", "Unsigned32", "NotificationType", "TimeTicks", "Counter64")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-wfSpanningTree, = mibBuilder.importSymbols("Wellfleet-COMMON-MIB", "wfSpanningTree")
-wfBrStp = MibIdentifier((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 1))
-wfBrStpBaseDelete = MibScalar((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("created", 1), ("deleted", 2))).clone('created')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wfBrStpBaseDelete.setStatus('mandatory')
-wfBrStpBaseEnable = MibScalar((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('enabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wfBrStpBaseEnable.setStatus('mandatory')
-wfBrStpBaseState = MibScalar((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("up", 1), ("down", 2), ("init", 3), ("pres", 4))).clone('down')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfBrStpBaseState.setStatus('mandatory')
-wfBrStpProtocolSpecification = MibScalar((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("declb100", 2), ("ieee8021d", 3))).clone('ieee8021d')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfBrStpProtocolSpecification.setStatus('mandatory')
-wfBrStpBridgeID = MibScalar((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 1, 5), OctetString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wfBrStpBridgeID.setStatus('mandatory')
-wfBrStpTimeSinceTopologyChange = MibScalar((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfBrStpTimeSinceTopologyChange.setStatus('mandatory')
-wfBrStpTopChanges = MibScalar((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfBrStpTopChanges.setStatus('mandatory')
-wfBrStpDesignatedRoot = MibScalar((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 1, 8), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfBrStpDesignatedRoot.setStatus('mandatory')
-wfBrStpRootCost = MibScalar((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 1, 9), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfBrStpRootCost.setStatus('mandatory')
-wfBrStpRootPort = MibScalar((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 1, 10), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfBrStpRootPort.setStatus('mandatory')
-wfBrStpMaxAge = MibScalar((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 1, 11), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfBrStpMaxAge.setStatus('mandatory')
-wfBrStpHelloTime = MibScalar((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 1, 12), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfBrStpHelloTime.setStatus('mandatory')
-wfBrStpHoldTime = MibScalar((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(100))).clone(namedValues=NamedValues(("time", 100))).clone('time')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfBrStpHoldTime.setStatus('mandatory')
-wfBrStpForwardDelay = MibScalar((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 1, 14), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfBrStpForwardDelay.setStatus('mandatory')
-wfBrStpBridgeMaxAge = MibScalar((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 1, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(600, 4000)).clone(2000)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wfBrStpBridgeMaxAge.setStatus('mandatory')
-wfBrStpBridgeHelloTime = MibScalar((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 1, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(100, 1000)).clone(200)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wfBrStpBridgeHelloTime.setStatus('mandatory')
-wfBrStpBridgeForwardDelay = MibScalar((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 1, 17), Integer32().subtype(subtypeSpec=ValueRangeConstraint(400, 3000)).clone(1500)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wfBrStpBridgeForwardDelay.setStatus('mandatory')
-wfBrStpBaseTrueConverge = MibScalar((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wfBrStpBaseTrueConverge.setStatus('mandatory')
-wfBrStpInterfaceTable = MibTable((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 2), )
-if mibBuilder.loadTexts: wfBrStpInterfaceTable.setStatus('mandatory')
-wfBrStpInterfaceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 2, 1), ).setIndexNames((0, "Wellfleet-SPAN-MIB", "wfBrStpInterfaceCircuit"))
-if mibBuilder.loadTexts: wfBrStpInterfaceEntry.setStatus('mandatory')
-wfBrStpInterfaceDelete = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("created", 1), ("deleted", 2))).clone('created')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wfBrStpInterfaceDelete.setStatus('mandatory')
-wfBrStpInterfaceEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('enabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wfBrStpInterfaceEnable.setStatus('mandatory')
-wfBrStpInterfaceCircuit = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 2, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfBrStpInterfaceCircuit.setStatus('mandatory')
-wfBrStpInterfacePriority = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255)).clone(128)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wfBrStpInterfacePriority.setStatus('mandatory')
-wfBrStpInterfaceState = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("disabled", 1), ("blocking", 2), ("listening", 3), ("learning", 4), ("forwarding", 5), ("broken", 6))).clone('disabled')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfBrStpInterfaceState.setStatus('mandatory')
-wfBrStpInterfaceMultiCastAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 2, 1, 6), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfBrStpInterfaceMultiCastAddr.setStatus('mandatory')
-wfBrStpInterfacePathCost = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 2, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wfBrStpInterfacePathCost.setStatus('mandatory')
-wfBrStpInterfaceDesignatedRoot = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 2, 1, 8), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfBrStpInterfaceDesignatedRoot.setStatus('mandatory')
-wfBrStpInterfaceDesignatedCost = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 2, 1, 9), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfBrStpInterfaceDesignatedCost.setStatus('mandatory')
-wfBrStpInterfaceDesignatedBridge = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 2, 1, 10), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfBrStpInterfaceDesignatedBridge.setStatus('mandatory')
-wfBrStpInterfaceDesignatedPort = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 2, 1, 11), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfBrStpInterfaceDesignatedPort.setStatus('mandatory')
-wfBrStpInterfaceForwardTransitions = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 2, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfBrStpInterfaceForwardTransitions.setStatus('mandatory')
-wfBrStpInterfacePktsXmitd = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 2, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfBrStpInterfacePktsXmitd.setStatus('mandatory')
-wfBrStpInterfacePktsRcvd = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 2, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfBrStpInterfacePktsRcvd.setStatus('mandatory')
-wfBrStpInterfaceTranslationDisable = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 2, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wfBrStpInterfaceTranslationDisable.setStatus('mandatory')
-mibBuilder.exportSymbols("Wellfleet-SPAN-MIB", wfBrStpBridgeID=wfBrStpBridgeID, wfBrStpInterfaceEntry=wfBrStpInterfaceEntry, wfBrStpInterfaceCircuit=wfBrStpInterfaceCircuit, wfBrStpInterfaceTable=wfBrStpInterfaceTable, wfBrStpTimeSinceTopologyChange=wfBrStpTimeSinceTopologyChange, wfBrStp=wfBrStp, wfBrStpHelloTime=wfBrStpHelloTime, wfBrStpBridgeMaxAge=wfBrStpBridgeMaxAge, wfBrStpInterfaceDelete=wfBrStpInterfaceDelete, wfBrStpInterfacePktsRcvd=wfBrStpInterfacePktsRcvd, wfBrStpProtocolSpecification=wfBrStpProtocolSpecification, wfBrStpInterfacePathCost=wfBrStpInterfacePathCost, wfBrStpInterfaceTranslationDisable=wfBrStpInterfaceTranslationDisable, wfBrStpBridgeForwardDelay=wfBrStpBridgeForwardDelay, wfBrStpInterfaceDesignatedCost=wfBrStpInterfaceDesignatedCost, wfBrStpBridgeHelloTime=wfBrStpBridgeHelloTime, wfBrStpInterfaceState=wfBrStpInterfaceState, wfBrStpInterfaceForwardTransitions=wfBrStpInterfaceForwardTransitions, wfBrStpInterfaceDesignatedRoot=wfBrStpInterfaceDesignatedRoot, wfBrStpDesignatedRoot=wfBrStpDesignatedRoot, wfBrStpBaseState=wfBrStpBaseState, wfBrStpInterfaceEnable=wfBrStpInterfaceEnable, wfBrStpInterfacePktsXmitd=wfBrStpInterfacePktsXmitd, wfBrStpInterfaceMultiCastAddr=wfBrStpInterfaceMultiCastAddr, wfBrStpBaseDelete=wfBrStpBaseDelete, wfBrStpBaseTrueConverge=wfBrStpBaseTrueConverge, wfBrStpInterfaceDesignatedPort=wfBrStpInterfaceDesignatedPort, wfBrStpInterfaceDesignatedBridge=wfBrStpInterfaceDesignatedBridge, wfBrStpRootCost=wfBrStpRootCost, wfBrStpForwardDelay=wfBrStpForwardDelay, wfBrStpRootPort=wfBrStpRootPort, wfBrStpHoldTime=wfBrStpHoldTime, wfBrStpBaseEnable=wfBrStpBaseEnable, wfBrStpMaxAge=wfBrStpMaxAge, wfBrStpTopChanges=wfBrStpTopChanges, wfBrStpInterfacePriority=wfBrStpInterfacePriority)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/Wellfleet-SPAN-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:17:07 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+(wfSpanningTree,) = mibBuilder.importSymbols(
+    "Wellfleet-COMMON-MIB",
+    "wfSpanningTree")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_WfBrStp_ObjectIdentity = ObjectIdentity
+wfBrStp = _WfBrStp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 1)
+)
+
+
+class _WfBrStpBaseDelete_Type(Integer32):
+    """Custom type wfBrStpBaseDelete based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("created", 1),
+          ("deleted", 2))
+    )
+
+
+_WfBrStpBaseDelete_Type.__name__ = "Integer32"
+_WfBrStpBaseDelete_Object = MibScalar
+wfBrStpBaseDelete = _WfBrStpBaseDelete_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 1, 1),
+    _WfBrStpBaseDelete_Type()
+)
+wfBrStpBaseDelete.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wfBrStpBaseDelete.setStatus("mandatory")
+
+
+class _WfBrStpBaseEnable_Type(Integer32):
+    """Custom type wfBrStpBaseEnable based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_WfBrStpBaseEnable_Type.__name__ = "Integer32"
+_WfBrStpBaseEnable_Object = MibScalar
+wfBrStpBaseEnable = _WfBrStpBaseEnable_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 1, 2),
+    _WfBrStpBaseEnable_Type()
+)
+wfBrStpBaseEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wfBrStpBaseEnable.setStatus("mandatory")
+
+
+class _WfBrStpBaseState_Type(Integer32):
+    """Custom type wfBrStpBaseState based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 2),
+          ("init", 3),
+          ("pres", 4),
+          ("up", 1))
+    )
+
+
+_WfBrStpBaseState_Type.__name__ = "Integer32"
+_WfBrStpBaseState_Object = MibScalar
+wfBrStpBaseState = _WfBrStpBaseState_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 1, 3),
+    _WfBrStpBaseState_Type()
+)
+wfBrStpBaseState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfBrStpBaseState.setStatus("mandatory")
+
+
+class _WfBrStpProtocolSpecification_Type(Integer32):
+    """Custom type wfBrStpProtocolSpecification based on Integer32"""
+    defaultValue = 3
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("declb100", 2),
+          ("ieee8021d", 3),
+          ("unknown", 1))
+    )
+
+
+_WfBrStpProtocolSpecification_Type.__name__ = "Integer32"
+_WfBrStpProtocolSpecification_Object = MibScalar
+wfBrStpProtocolSpecification = _WfBrStpProtocolSpecification_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 1, 4),
+    _WfBrStpProtocolSpecification_Type()
+)
+wfBrStpProtocolSpecification.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfBrStpProtocolSpecification.setStatus("mandatory")
+_WfBrStpBridgeID_Type = OctetString
+_WfBrStpBridgeID_Object = MibScalar
+wfBrStpBridgeID = _WfBrStpBridgeID_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 1, 5),
+    _WfBrStpBridgeID_Type()
+)
+wfBrStpBridgeID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wfBrStpBridgeID.setStatus("mandatory")
+_WfBrStpTimeSinceTopologyChange_Type = Counter32
+_WfBrStpTimeSinceTopologyChange_Object = MibScalar
+wfBrStpTimeSinceTopologyChange = _WfBrStpTimeSinceTopologyChange_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 1, 6),
+    _WfBrStpTimeSinceTopologyChange_Type()
+)
+wfBrStpTimeSinceTopologyChange.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfBrStpTimeSinceTopologyChange.setStatus("mandatory")
+_WfBrStpTopChanges_Type = Counter32
+_WfBrStpTopChanges_Object = MibScalar
+wfBrStpTopChanges = _WfBrStpTopChanges_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 1, 7),
+    _WfBrStpTopChanges_Type()
+)
+wfBrStpTopChanges.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfBrStpTopChanges.setStatus("mandatory")
+_WfBrStpDesignatedRoot_Type = OctetString
+_WfBrStpDesignatedRoot_Object = MibScalar
+wfBrStpDesignatedRoot = _WfBrStpDesignatedRoot_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 1, 8),
+    _WfBrStpDesignatedRoot_Type()
+)
+wfBrStpDesignatedRoot.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfBrStpDesignatedRoot.setStatus("mandatory")
+_WfBrStpRootCost_Type = Integer32
+_WfBrStpRootCost_Object = MibScalar
+wfBrStpRootCost = _WfBrStpRootCost_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 1, 9),
+    _WfBrStpRootCost_Type()
+)
+wfBrStpRootCost.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfBrStpRootCost.setStatus("mandatory")
+_WfBrStpRootPort_Type = Integer32
+_WfBrStpRootPort_Object = MibScalar
+wfBrStpRootPort = _WfBrStpRootPort_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 1, 10),
+    _WfBrStpRootPort_Type()
+)
+wfBrStpRootPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfBrStpRootPort.setStatus("mandatory")
+_WfBrStpMaxAge_Type = Integer32
+_WfBrStpMaxAge_Object = MibScalar
+wfBrStpMaxAge = _WfBrStpMaxAge_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 1, 11),
+    _WfBrStpMaxAge_Type()
+)
+wfBrStpMaxAge.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfBrStpMaxAge.setStatus("mandatory")
+_WfBrStpHelloTime_Type = Integer32
+_WfBrStpHelloTime_Object = MibScalar
+wfBrStpHelloTime = _WfBrStpHelloTime_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 1, 12),
+    _WfBrStpHelloTime_Type()
+)
+wfBrStpHelloTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfBrStpHelloTime.setStatus("mandatory")
+
+
+class _WfBrStpHoldTime_Type(Integer32):
+    """Custom type wfBrStpHoldTime based on Integer32"""
+    defaultValue = 100
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            100
+        )
+    )
+    namedValues = NamedValues(
+        ("time", 100)
+    )
+
+
+_WfBrStpHoldTime_Type.__name__ = "Integer32"
+_WfBrStpHoldTime_Object = MibScalar
+wfBrStpHoldTime = _WfBrStpHoldTime_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 1, 13),
+    _WfBrStpHoldTime_Type()
+)
+wfBrStpHoldTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfBrStpHoldTime.setStatus("mandatory")
+_WfBrStpForwardDelay_Type = Integer32
+_WfBrStpForwardDelay_Object = MibScalar
+wfBrStpForwardDelay = _WfBrStpForwardDelay_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 1, 14),
+    _WfBrStpForwardDelay_Type()
+)
+wfBrStpForwardDelay.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfBrStpForwardDelay.setStatus("mandatory")
+
+
+class _WfBrStpBridgeMaxAge_Type(Integer32):
+    """Custom type wfBrStpBridgeMaxAge based on Integer32"""
+    defaultValue = 2000
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(600, 4000),
+    )
+
+
+_WfBrStpBridgeMaxAge_Type.__name__ = "Integer32"
+_WfBrStpBridgeMaxAge_Object = MibScalar
+wfBrStpBridgeMaxAge = _WfBrStpBridgeMaxAge_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 1, 15),
+    _WfBrStpBridgeMaxAge_Type()
+)
+wfBrStpBridgeMaxAge.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wfBrStpBridgeMaxAge.setStatus("mandatory")
+
+
+class _WfBrStpBridgeHelloTime_Type(Integer32):
+    """Custom type wfBrStpBridgeHelloTime based on Integer32"""
+    defaultValue = 200
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(100, 1000),
+    )
+
+
+_WfBrStpBridgeHelloTime_Type.__name__ = "Integer32"
+_WfBrStpBridgeHelloTime_Object = MibScalar
+wfBrStpBridgeHelloTime = _WfBrStpBridgeHelloTime_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 1, 16),
+    _WfBrStpBridgeHelloTime_Type()
+)
+wfBrStpBridgeHelloTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wfBrStpBridgeHelloTime.setStatus("mandatory")
+
+
+class _WfBrStpBridgeForwardDelay_Type(Integer32):
+    """Custom type wfBrStpBridgeForwardDelay based on Integer32"""
+    defaultValue = 1500
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(400, 3000),
+    )
+
+
+_WfBrStpBridgeForwardDelay_Type.__name__ = "Integer32"
+_WfBrStpBridgeForwardDelay_Object = MibScalar
+wfBrStpBridgeForwardDelay = _WfBrStpBridgeForwardDelay_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 1, 17),
+    _WfBrStpBridgeForwardDelay_Type()
+)
+wfBrStpBridgeForwardDelay.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wfBrStpBridgeForwardDelay.setStatus("mandatory")
+
+
+class _WfBrStpBaseTrueConverge_Type(Integer32):
+    """Custom type wfBrStpBaseTrueConverge based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_WfBrStpBaseTrueConverge_Type.__name__ = "Integer32"
+_WfBrStpBaseTrueConverge_Object = MibScalar
+wfBrStpBaseTrueConverge = _WfBrStpBaseTrueConverge_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 1, 18),
+    _WfBrStpBaseTrueConverge_Type()
+)
+wfBrStpBaseTrueConverge.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wfBrStpBaseTrueConverge.setStatus("mandatory")
+_WfBrStpInterfaceTable_Object = MibTable
+wfBrStpInterfaceTable = _WfBrStpInterfaceTable_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 2)
+)
+if mibBuilder.loadTexts:
+    wfBrStpInterfaceTable.setStatus("mandatory")
+_WfBrStpInterfaceEntry_Object = MibTableRow
+wfBrStpInterfaceEntry = _WfBrStpInterfaceEntry_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 2, 1)
+)
+wfBrStpInterfaceEntry.setIndexNames(
+    (0, "Wellfleet-SPAN-MIB", "wfBrStpInterfaceCircuit"),
+)
+if mibBuilder.loadTexts:
+    wfBrStpInterfaceEntry.setStatus("mandatory")
+
+
+class _WfBrStpInterfaceDelete_Type(Integer32):
+    """Custom type wfBrStpInterfaceDelete based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("created", 1),
+          ("deleted", 2))
+    )
+
+
+_WfBrStpInterfaceDelete_Type.__name__ = "Integer32"
+_WfBrStpInterfaceDelete_Object = MibTableColumn
+wfBrStpInterfaceDelete = _WfBrStpInterfaceDelete_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 2, 1, 1),
+    _WfBrStpInterfaceDelete_Type()
+)
+wfBrStpInterfaceDelete.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wfBrStpInterfaceDelete.setStatus("mandatory")
+
+
+class _WfBrStpInterfaceEnable_Type(Integer32):
+    """Custom type wfBrStpInterfaceEnable based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_WfBrStpInterfaceEnable_Type.__name__ = "Integer32"
+_WfBrStpInterfaceEnable_Object = MibTableColumn
+wfBrStpInterfaceEnable = _WfBrStpInterfaceEnable_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 2, 1, 2),
+    _WfBrStpInterfaceEnable_Type()
+)
+wfBrStpInterfaceEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wfBrStpInterfaceEnable.setStatus("mandatory")
+_WfBrStpInterfaceCircuit_Type = Integer32
+_WfBrStpInterfaceCircuit_Object = MibTableColumn
+wfBrStpInterfaceCircuit = _WfBrStpInterfaceCircuit_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 2, 1, 3),
+    _WfBrStpInterfaceCircuit_Type()
+)
+wfBrStpInterfaceCircuit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfBrStpInterfaceCircuit.setStatus("mandatory")
+
+
+class _WfBrStpInterfacePriority_Type(Integer32):
+    """Custom type wfBrStpInterfacePriority based on Integer32"""
+    defaultValue = 128
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_WfBrStpInterfacePriority_Type.__name__ = "Integer32"
+_WfBrStpInterfacePriority_Object = MibTableColumn
+wfBrStpInterfacePriority = _WfBrStpInterfacePriority_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 2, 1, 4),
+    _WfBrStpInterfacePriority_Type()
+)
+wfBrStpInterfacePriority.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wfBrStpInterfacePriority.setStatus("mandatory")
+
+
+class _WfBrStpInterfaceState_Type(Integer32):
+    """Custom type wfBrStpInterfaceState based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("blocking", 2),
+          ("broken", 6),
+          ("disabled", 1),
+          ("forwarding", 5),
+          ("learning", 4),
+          ("listening", 3))
+    )
+
+
+_WfBrStpInterfaceState_Type.__name__ = "Integer32"
+_WfBrStpInterfaceState_Object = MibTableColumn
+wfBrStpInterfaceState = _WfBrStpInterfaceState_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 2, 1, 5),
+    _WfBrStpInterfaceState_Type()
+)
+wfBrStpInterfaceState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfBrStpInterfaceState.setStatus("mandatory")
+_WfBrStpInterfaceMultiCastAddr_Type = OctetString
+_WfBrStpInterfaceMultiCastAddr_Object = MibTableColumn
+wfBrStpInterfaceMultiCastAddr = _WfBrStpInterfaceMultiCastAddr_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 2, 1, 6),
+    _WfBrStpInterfaceMultiCastAddr_Type()
+)
+wfBrStpInterfaceMultiCastAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfBrStpInterfaceMultiCastAddr.setStatus("mandatory")
+
+
+class _WfBrStpInterfacePathCost_Type(Integer32):
+    """Custom type wfBrStpInterfacePathCost based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_WfBrStpInterfacePathCost_Type.__name__ = "Integer32"
+_WfBrStpInterfacePathCost_Object = MibTableColumn
+wfBrStpInterfacePathCost = _WfBrStpInterfacePathCost_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 2, 1, 7),
+    _WfBrStpInterfacePathCost_Type()
+)
+wfBrStpInterfacePathCost.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wfBrStpInterfacePathCost.setStatus("mandatory")
+_WfBrStpInterfaceDesignatedRoot_Type = OctetString
+_WfBrStpInterfaceDesignatedRoot_Object = MibTableColumn
+wfBrStpInterfaceDesignatedRoot = _WfBrStpInterfaceDesignatedRoot_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 2, 1, 8),
+    _WfBrStpInterfaceDesignatedRoot_Type()
+)
+wfBrStpInterfaceDesignatedRoot.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfBrStpInterfaceDesignatedRoot.setStatus("mandatory")
+_WfBrStpInterfaceDesignatedCost_Type = Integer32
+_WfBrStpInterfaceDesignatedCost_Object = MibTableColumn
+wfBrStpInterfaceDesignatedCost = _WfBrStpInterfaceDesignatedCost_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 2, 1, 9),
+    _WfBrStpInterfaceDesignatedCost_Type()
+)
+wfBrStpInterfaceDesignatedCost.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfBrStpInterfaceDesignatedCost.setStatus("mandatory")
+_WfBrStpInterfaceDesignatedBridge_Type = OctetString
+_WfBrStpInterfaceDesignatedBridge_Object = MibTableColumn
+wfBrStpInterfaceDesignatedBridge = _WfBrStpInterfaceDesignatedBridge_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 2, 1, 10),
+    _WfBrStpInterfaceDesignatedBridge_Type()
+)
+wfBrStpInterfaceDesignatedBridge.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfBrStpInterfaceDesignatedBridge.setStatus("mandatory")
+_WfBrStpInterfaceDesignatedPort_Type = Integer32
+_WfBrStpInterfaceDesignatedPort_Object = MibTableColumn
+wfBrStpInterfaceDesignatedPort = _WfBrStpInterfaceDesignatedPort_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 2, 1, 11),
+    _WfBrStpInterfaceDesignatedPort_Type()
+)
+wfBrStpInterfaceDesignatedPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfBrStpInterfaceDesignatedPort.setStatus("mandatory")
+_WfBrStpInterfaceForwardTransitions_Type = Counter32
+_WfBrStpInterfaceForwardTransitions_Object = MibTableColumn
+wfBrStpInterfaceForwardTransitions = _WfBrStpInterfaceForwardTransitions_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 2, 1, 12),
+    _WfBrStpInterfaceForwardTransitions_Type()
+)
+wfBrStpInterfaceForwardTransitions.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfBrStpInterfaceForwardTransitions.setStatus("mandatory")
+_WfBrStpInterfacePktsXmitd_Type = Counter32
+_WfBrStpInterfacePktsXmitd_Object = MibTableColumn
+wfBrStpInterfacePktsXmitd = _WfBrStpInterfacePktsXmitd_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 2, 1, 13),
+    _WfBrStpInterfacePktsXmitd_Type()
+)
+wfBrStpInterfacePktsXmitd.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfBrStpInterfacePktsXmitd.setStatus("mandatory")
+_WfBrStpInterfacePktsRcvd_Type = Counter32
+_WfBrStpInterfacePktsRcvd_Object = MibTableColumn
+wfBrStpInterfacePktsRcvd = _WfBrStpInterfacePktsRcvd_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 2, 1, 14),
+    _WfBrStpInterfacePktsRcvd_Type()
+)
+wfBrStpInterfacePktsRcvd.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfBrStpInterfacePktsRcvd.setStatus("mandatory")
+
+
+class _WfBrStpInterfaceTranslationDisable_Type(Integer32):
+    """Custom type wfBrStpInterfaceTranslationDisable based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_WfBrStpInterfaceTranslationDisable_Type.__name__ = "Integer32"
+_WfBrStpInterfaceTranslationDisable_Object = MibTableColumn
+wfBrStpInterfaceTranslationDisable = _WfBrStpInterfaceTranslationDisable_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 2, 2, 1, 15),
+    _WfBrStpInterfaceTranslationDisable_Type()
+)
+wfBrStpInterfaceTranslationDisable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wfBrStpInterfaceTranslationDisable.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "Wellfleet-SPAN-MIB",
+    **{"wfBrStp": wfBrStp,
+       "wfBrStpBaseDelete": wfBrStpBaseDelete,
+       "wfBrStpBaseEnable": wfBrStpBaseEnable,
+       "wfBrStpBaseState": wfBrStpBaseState,
+       "wfBrStpProtocolSpecification": wfBrStpProtocolSpecification,
+       "wfBrStpBridgeID": wfBrStpBridgeID,
+       "wfBrStpTimeSinceTopologyChange": wfBrStpTimeSinceTopologyChange,
+       "wfBrStpTopChanges": wfBrStpTopChanges,
+       "wfBrStpDesignatedRoot": wfBrStpDesignatedRoot,
+       "wfBrStpRootCost": wfBrStpRootCost,
+       "wfBrStpRootPort": wfBrStpRootPort,
+       "wfBrStpMaxAge": wfBrStpMaxAge,
+       "wfBrStpHelloTime": wfBrStpHelloTime,
+       "wfBrStpHoldTime": wfBrStpHoldTime,
+       "wfBrStpForwardDelay": wfBrStpForwardDelay,
+       "wfBrStpBridgeMaxAge": wfBrStpBridgeMaxAge,
+       "wfBrStpBridgeHelloTime": wfBrStpBridgeHelloTime,
+       "wfBrStpBridgeForwardDelay": wfBrStpBridgeForwardDelay,
+       "wfBrStpBaseTrueConverge": wfBrStpBaseTrueConverge,
+       "wfBrStpInterfaceTable": wfBrStpInterfaceTable,
+       "wfBrStpInterfaceEntry": wfBrStpInterfaceEntry,
+       "wfBrStpInterfaceDelete": wfBrStpInterfaceDelete,
+       "wfBrStpInterfaceEnable": wfBrStpInterfaceEnable,
+       "wfBrStpInterfaceCircuit": wfBrStpInterfaceCircuit,
+       "wfBrStpInterfacePriority": wfBrStpInterfacePriority,
+       "wfBrStpInterfaceState": wfBrStpInterfaceState,
+       "wfBrStpInterfaceMultiCastAddr": wfBrStpInterfaceMultiCastAddr,
+       "wfBrStpInterfacePathCost": wfBrStpInterfacePathCost,
+       "wfBrStpInterfaceDesignatedRoot": wfBrStpInterfaceDesignatedRoot,
+       "wfBrStpInterfaceDesignatedCost": wfBrStpInterfaceDesignatedCost,
+       "wfBrStpInterfaceDesignatedBridge": wfBrStpInterfaceDesignatedBridge,
+       "wfBrStpInterfaceDesignatedPort": wfBrStpInterfaceDesignatedPort,
+       "wfBrStpInterfaceForwardTransitions": wfBrStpInterfaceForwardTransitions,
+       "wfBrStpInterfacePktsXmitd": wfBrStpInterfacePktsXmitd,
+       "wfBrStpInterfacePktsRcvd": wfBrStpInterfacePktsRcvd,
+       "wfBrStpInterfaceTranslationDisable": wfBrStpInterfaceTranslationDisable}
+)

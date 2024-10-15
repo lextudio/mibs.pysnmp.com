@@ -1,46 +1,283 @@
+# SNMP MIB module (FDRY-RADIUS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module FDRY-RADIUS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/FDRY-RADIUS-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:59:41 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
-fdryRadius, = mibBuilder.importSymbols("FOUNDRY-SN-ROOT-MIB", "fdryRadius")
-InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibScalar, MibTable, MibTableRow, MibTableColumn, iso, ModuleIdentity, Integer32, TimeTicks, Unsigned32, Counter32, Counter64, NotificationType, MibIdentifier, Gauge32, Bits, ObjectIdentity, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "ModuleIdentity", "Integer32", "TimeTicks", "Unsigned32", "Counter32", "Counter64", "NotificationType", "MibIdentifier", "Gauge32", "Bits", "ObjectIdentity", "IpAddress")
-TextualConvention, RowStatus, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "RowStatus", "DisplayString")
-fdryRadiusMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 1991, 1, 1, 8, 1))
-fdryRadiusMIB.setRevisions(('2010-06-02 00:00', '2008-02-25 00:00',))
-if mibBuilder.loadTexts: fdryRadiusMIB.setLastUpdated('201006020000Z')
-if mibBuilder.loadTexts: fdryRadiusMIB.setOrganization('Brocade Communications Systems, Inc.')
-class ServerUsage(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("default", 1), ("authenticationOnly", 2), ("authorizationOnly", 3), ("accountingOnly", 4))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/FDRY-RADIUS-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:44:45 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-fdryRadiusServer = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 1, 8, 1, 1))
-fdryRadiusServerTable = MibTable((1, 3, 6, 1, 4, 1, 1991, 1, 1, 8, 1, 1, 1), )
-if mibBuilder.loadTexts: fdryRadiusServerTable.setStatus('current')
-fdryRadiusServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1991, 1, 1, 8, 1, 1, 1, 1), ).setIndexNames((0, "FDRY-RADIUS-MIB", "fdryRadiusServerIndex"))
-if mibBuilder.loadTexts: fdryRadiusServerEntry.setStatus('current')
-fdryRadiusServerIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 8, 1, 1, 1, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: fdryRadiusServerIndex.setStatus('current')
-fdryRadiusServerAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 8, 1, 1, 1, 1, 2), InetAddressType().clone('ipv4')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: fdryRadiusServerAddrType.setStatus('current')
-fdryRadiusServerAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 8, 1, 1, 1, 1, 3), InetAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: fdryRadiusServerAddr.setStatus('current')
-fdryRadiusServerAuthPort = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 8, 1, 1, 1, 1, 4), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: fdryRadiusServerAuthPort.setStatus('current')
-fdryRadiusServerAcctPort = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 8, 1, 1, 1, 1, 5), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: fdryRadiusServerAcctPort.setStatus('current')
-fdryRadiusServerRowKey = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 8, 1, 1, 1, 1, 6), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: fdryRadiusServerRowKey.setStatus('current')
-fdryRadiusServerUsage = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 8, 1, 1, 1, 1, 7), ServerUsage().clone('default')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: fdryRadiusServerUsage.setStatus('current')
-fdryRadiusServerRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 8, 1, 1, 1, 1, 8), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: fdryRadiusServerRowStatus.setStatus('current')
-mibBuilder.exportSymbols("FDRY-RADIUS-MIB", fdryRadiusServerTable=fdryRadiusServerTable, fdryRadiusServerAddr=fdryRadiusServerAddr, PYSNMP_MODULE_ID=fdryRadiusMIB, ServerUsage=ServerUsage, fdryRadiusServerAddrType=fdryRadiusServerAddrType, fdryRadiusMIB=fdryRadiusMIB, fdryRadiusServerEntry=fdryRadiusServerEntry, fdryRadiusServerIndex=fdryRadiusServerIndex, fdryRadiusServer=fdryRadiusServer, fdryRadiusServerUsage=fdryRadiusServerUsage, fdryRadiusServerAcctPort=fdryRadiusServerAcctPort, fdryRadiusServerAuthPort=fdryRadiusServerAuthPort, fdryRadiusServerRowStatus=fdryRadiusServerRowStatus, fdryRadiusServerRowKey=fdryRadiusServerRowKey)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(fdryRadius,) = mibBuilder.importSymbols(
+    "FOUNDRY-SN-ROOT-MIB",
+    "fdryRadius")
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+fdryRadiusMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 8, 1)
+)
+fdryRadiusMIB.setRevisions(
+        ("2010-06-02 00:00",
+         "2008-02-25 00:00")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class ServerUsage(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("accountingOnly", 4),
+          ("authenticationOnly", 2),
+          ("authorizationOnly", 3),
+          ("default", 1))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_FdryRadiusServer_ObjectIdentity = ObjectIdentity
+fdryRadiusServer = _FdryRadiusServer_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 8, 1, 1)
+)
+_FdryRadiusServerTable_Object = MibTable
+fdryRadiusServerTable = _FdryRadiusServerTable_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 8, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    fdryRadiusServerTable.setStatus("current")
+_FdryRadiusServerEntry_Object = MibTableRow
+fdryRadiusServerEntry = _FdryRadiusServerEntry_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 8, 1, 1, 1, 1)
+)
+fdryRadiusServerEntry.setIndexNames(
+    (0, "FDRY-RADIUS-MIB", "fdryRadiusServerIndex"),
+)
+if mibBuilder.loadTexts:
+    fdryRadiusServerEntry.setStatus("current")
+_FdryRadiusServerIndex_Type = Unsigned32
+_FdryRadiusServerIndex_Object = MibTableColumn
+fdryRadiusServerIndex = _FdryRadiusServerIndex_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 8, 1, 1, 1, 1, 1),
+    _FdryRadiusServerIndex_Type()
+)
+fdryRadiusServerIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    fdryRadiusServerIndex.setStatus("current")
+
+
+class _FdryRadiusServerAddrType_Type(InetAddressType):
+    """Custom type fdryRadiusServerAddrType based on InetAddressType"""
+
+
+_FdryRadiusServerAddrType_Object = MibTableColumn
+fdryRadiusServerAddrType = _FdryRadiusServerAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 8, 1, 1, 1, 1, 2),
+    _FdryRadiusServerAddrType_Type()
+)
+fdryRadiusServerAddrType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    fdryRadiusServerAddrType.setStatus("current")
+_FdryRadiusServerAddr_Type = InetAddress
+_FdryRadiusServerAddr_Object = MibTableColumn
+fdryRadiusServerAddr = _FdryRadiusServerAddr_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 8, 1, 1, 1, 1, 3),
+    _FdryRadiusServerAddr_Type()
+)
+fdryRadiusServerAddr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    fdryRadiusServerAddr.setStatus("current")
+_FdryRadiusServerAuthPort_Type = Unsigned32
+_FdryRadiusServerAuthPort_Object = MibTableColumn
+fdryRadiusServerAuthPort = _FdryRadiusServerAuthPort_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 8, 1, 1, 1, 1, 4),
+    _FdryRadiusServerAuthPort_Type()
+)
+fdryRadiusServerAuthPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    fdryRadiusServerAuthPort.setStatus("current")
+_FdryRadiusServerAcctPort_Type = Unsigned32
+_FdryRadiusServerAcctPort_Object = MibTableColumn
+fdryRadiusServerAcctPort = _FdryRadiusServerAcctPort_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 8, 1, 1, 1, 1, 5),
+    _FdryRadiusServerAcctPort_Type()
+)
+fdryRadiusServerAcctPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    fdryRadiusServerAcctPort.setStatus("current")
+_FdryRadiusServerRowKey_Type = DisplayString
+_FdryRadiusServerRowKey_Object = MibTableColumn
+fdryRadiusServerRowKey = _FdryRadiusServerRowKey_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 8, 1, 1, 1, 1, 6),
+    _FdryRadiusServerRowKey_Type()
+)
+fdryRadiusServerRowKey.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    fdryRadiusServerRowKey.setStatus("current")
+
+
+class _FdryRadiusServerUsage_Type(ServerUsage):
+    """Custom type fdryRadiusServerUsage based on ServerUsage"""
+
+
+_FdryRadiusServerUsage_Object = MibTableColumn
+fdryRadiusServerUsage = _FdryRadiusServerUsage_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 8, 1, 1, 1, 1, 7),
+    _FdryRadiusServerUsage_Type()
+)
+fdryRadiusServerUsage.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    fdryRadiusServerUsage.setStatus("current")
+_FdryRadiusServerRowStatus_Type = RowStatus
+_FdryRadiusServerRowStatus_Object = MibTableColumn
+fdryRadiusServerRowStatus = _FdryRadiusServerRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 8, 1, 1, 1, 1, 8),
+    _FdryRadiusServerRowStatus_Type()
+)
+fdryRadiusServerRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    fdryRadiusServerRowStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "FDRY-RADIUS-MIB",
+    **{"ServerUsage": ServerUsage,
+       "fdryRadiusMIB": fdryRadiusMIB,
+       "fdryRadiusServer": fdryRadiusServer,
+       "fdryRadiusServerTable": fdryRadiusServerTable,
+       "fdryRadiusServerEntry": fdryRadiusServerEntry,
+       "fdryRadiusServerIndex": fdryRadiusServerIndex,
+       "fdryRadiusServerAddrType": fdryRadiusServerAddrType,
+       "fdryRadiusServerAddr": fdryRadiusServerAddr,
+       "fdryRadiusServerAuthPort": fdryRadiusServerAuthPort,
+       "fdryRadiusServerAcctPort": fdryRadiusServerAcctPort,
+       "fdryRadiusServerRowKey": fdryRadiusServerRowKey,
+       "fdryRadiusServerUsage": fdryRadiusServerUsage,
+       "fdryRadiusServerRowStatus": fdryRadiusServerRowStatus}
+)

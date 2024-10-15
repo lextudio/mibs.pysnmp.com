@@ -1,33 +1,248 @@
+# SNMP MIB module (ASCEND-MIBOSPFNBMA-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ASCEND-MIBOSPFNBMA-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/ASCEND-MIBOSPFNBMA-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:11:54 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-configuration, = mibBuilder.importSymbols("ASCEND-MIB", "configuration")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, iso, ObjectIdentity, Gauge32, Unsigned32, Bits, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Integer32, TimeTicks, NotificationType, ModuleIdentity, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "iso", "ObjectIdentity", "Gauge32", "Unsigned32", "Bits", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Integer32", "TimeTicks", "NotificationType", "ModuleIdentity", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-class DisplayString(OctetString):
-    pass
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/ASCEND-MIBOSPFNBMA-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 20:41:59 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-mibospfNbmaNeighborProfile = MibIdentifier((1, 3, 6, 1, 4, 1, 529, 23, 98))
-mibospfNbmaNeighborProfileTable = MibTable((1, 3, 6, 1, 4, 1, 529, 23, 98, 1), )
-if mibBuilder.loadTexts: mibospfNbmaNeighborProfileTable.setStatus('mandatory')
-mibospfNbmaNeighborProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 529, 23, 98, 1, 1), ).setIndexNames((0, "ASCEND-MIBOSPFNBMA-MIB", "ospfNbmaNeighborProfile-Name"))
-if mibBuilder.loadTexts: mibospfNbmaNeighborProfileEntry.setStatus('mandatory')
-ospfNbmaNeighborProfile_Name = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 98, 1, 1, 1), DisplayString()).setLabel("ospfNbmaNeighborProfile-Name").setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfNbmaNeighborProfile_Name.setStatus('mandatory')
-ospfNbmaNeighborProfile_HostName = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 98, 1, 1, 2), DisplayString()).setLabel("ospfNbmaNeighborProfile-HostName").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfNbmaNeighborProfile_HostName.setStatus('mandatory')
-ospfNbmaNeighborProfile_IpAddress = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 98, 1, 1, 3), IpAddress()).setLabel("ospfNbmaNeighborProfile-IpAddress").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfNbmaNeighborProfile_IpAddress.setStatus('mandatory')
-ospfNbmaNeighborProfile_DrCapable = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 98, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("no", 1), ("yes", 2)))).setLabel("ospfNbmaNeighborProfile-DrCapable").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfNbmaNeighborProfile_DrCapable.setStatus('mandatory')
-ospfNbmaNeighborProfile_Action_o = MibScalar((1, 3, 6, 1, 4, 1, 529, 23, 98, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("noAction", 1), ("createProfile", 2), ("deleteProfile", 3)))).setLabel("ospfNbmaNeighborProfile-Action-o").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfNbmaNeighborProfile_Action_o.setStatus('mandatory')
-mibBuilder.exportSymbols("ASCEND-MIBOSPFNBMA-MIB", ospfNbmaNeighborProfile_HostName=ospfNbmaNeighborProfile_HostName, ospfNbmaNeighborProfile_IpAddress=ospfNbmaNeighborProfile_IpAddress, mibospfNbmaNeighborProfileEntry=mibospfNbmaNeighborProfileEntry, ospfNbmaNeighborProfile_DrCapable=ospfNbmaNeighborProfile_DrCapable, mibospfNbmaNeighborProfile=mibospfNbmaNeighborProfile, DisplayString=DisplayString, ospfNbmaNeighborProfile_Action_o=ospfNbmaNeighborProfile_Action_o, ospfNbmaNeighborProfile_Name=ospfNbmaNeighborProfile_Name, mibospfNbmaNeighborProfileTable=mibospfNbmaNeighborProfileTable)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(configuration,) = mibBuilder.importSymbols(
+    "ASCEND-MIB",
+    "configuration")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+
+class DisplayString(OctetString):
+    """Custom type DisplayString based on OctetString"""
+
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_MibospfNbmaNeighborProfile_ObjectIdentity = ObjectIdentity
+mibospfNbmaNeighborProfile = _MibospfNbmaNeighborProfile_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 529, 23, 98)
+)
+_MibospfNbmaNeighborProfileTable_Object = MibTable
+mibospfNbmaNeighborProfileTable = _MibospfNbmaNeighborProfileTable_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 98, 1)
+)
+if mibBuilder.loadTexts:
+    mibospfNbmaNeighborProfileTable.setStatus("mandatory")
+_MibospfNbmaNeighborProfileEntry_Object = MibTableRow
+mibospfNbmaNeighborProfileEntry = _MibospfNbmaNeighborProfileEntry_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 98, 1, 1)
+)
+mibospfNbmaNeighborProfileEntry.setIndexNames(
+    (0, "ASCEND-MIBOSPFNBMA-MIB", "ospfNbmaNeighborProfile-Name"),
+)
+if mibBuilder.loadTexts:
+    mibospfNbmaNeighborProfileEntry.setStatus("mandatory")
+_OspfNbmaNeighborProfile_Name_Type = DisplayString
+_OspfNbmaNeighborProfile_Name_Object = MibScalar
+ospfNbmaNeighborProfile_Name = _OspfNbmaNeighborProfile_Name_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 98, 1, 1, 1),
+    _OspfNbmaNeighborProfile_Name_Type()
+)
+ospfNbmaNeighborProfile_Name.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ospfNbmaNeighborProfile_Name.setStatus("mandatory")
+_OspfNbmaNeighborProfile_HostName_Type = DisplayString
+_OspfNbmaNeighborProfile_HostName_Object = MibScalar
+ospfNbmaNeighborProfile_HostName = _OspfNbmaNeighborProfile_HostName_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 98, 1, 1, 2),
+    _OspfNbmaNeighborProfile_HostName_Type()
+)
+ospfNbmaNeighborProfile_HostName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ospfNbmaNeighborProfile_HostName.setStatus("mandatory")
+_OspfNbmaNeighborProfile_IpAddress_Type = IpAddress
+_OspfNbmaNeighborProfile_IpAddress_Object = MibScalar
+ospfNbmaNeighborProfile_IpAddress = _OspfNbmaNeighborProfile_IpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 98, 1, 1, 3),
+    _OspfNbmaNeighborProfile_IpAddress_Type()
+)
+ospfNbmaNeighborProfile_IpAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ospfNbmaNeighborProfile_IpAddress.setStatus("mandatory")
+
+
+class _OspfNbmaNeighborProfile_DrCapable_Type(Integer32):
+    """Custom type ospfNbmaNeighborProfile_DrCapable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 1),
+          ("yes", 2))
+    )
+
+
+_OspfNbmaNeighborProfile_DrCapable_Type.__name__ = "Integer32"
+_OspfNbmaNeighborProfile_DrCapable_Object = MibScalar
+ospfNbmaNeighborProfile_DrCapable = _OspfNbmaNeighborProfile_DrCapable_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 98, 1, 1, 4),
+    _OspfNbmaNeighborProfile_DrCapable_Type()
+)
+ospfNbmaNeighborProfile_DrCapable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ospfNbmaNeighborProfile_DrCapable.setStatus("mandatory")
+
+
+class _OspfNbmaNeighborProfile_Action_o_Type(Integer32):
+    """Custom type ospfNbmaNeighborProfile_Action_o based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("createProfile", 2),
+          ("deleteProfile", 3),
+          ("noAction", 1))
+    )
+
+
+_OspfNbmaNeighborProfile_Action_o_Type.__name__ = "Integer32"
+_OspfNbmaNeighborProfile_Action_o_Object = MibScalar
+ospfNbmaNeighborProfile_Action_o = _OspfNbmaNeighborProfile_Action_o_Object(
+    (1, 3, 6, 1, 4, 1, 529, 23, 98, 1, 1, 5),
+    _OspfNbmaNeighborProfile_Action_o_Type()
+)
+ospfNbmaNeighborProfile_Action_o.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ospfNbmaNeighborProfile_Action_o.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ASCEND-MIBOSPFNBMA-MIB",
+    **{"DisplayString": DisplayString,
+       "mibospfNbmaNeighborProfile": mibospfNbmaNeighborProfile,
+       "mibospfNbmaNeighborProfileTable": mibospfNbmaNeighborProfileTable,
+       "mibospfNbmaNeighborProfileEntry": mibospfNbmaNeighborProfileEntry,
+       "ospfNbmaNeighborProfile-Name": ospfNbmaNeighborProfile_Name,
+       "ospfNbmaNeighborProfile-HostName": ospfNbmaNeighborProfile_HostName,
+       "ospfNbmaNeighborProfile-IpAddress": ospfNbmaNeighborProfile_IpAddress,
+       "ospfNbmaNeighborProfile-DrCapable": ospfNbmaNeighborProfile_DrCapable,
+       "ospfNbmaNeighborProfile-Action-o": ospfNbmaNeighborProfile_Action_o}
+)

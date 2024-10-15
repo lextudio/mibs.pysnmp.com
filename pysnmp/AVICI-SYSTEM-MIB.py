@@ -1,73 +1,451 @@
+# SNMP MIB module (AVICI-SYSTEM-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module AVICI-SYSTEM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/AVICI-SYSTEM-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:16:29 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint")
-aviciMibs, = mibBuilder.importSymbols("AVICI-SMI", "aviciMibs")
-AviciTrapDescrType, AviciSlotType, AviciSystemType, AviciBayType, AviciPlatformIndexType, AviciInventoryType = mibBuilder.importSymbols("AVICI-TC", "AviciTrapDescrType", "AviciSlotType", "AviciSystemType", "AviciBayType", "AviciPlatformIndexType", "AviciInventoryType")
-IANAifType, = mibBuilder.importSymbols("IANAifType-MIB", "IANAifType")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, IpAddress, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, NotificationType, TimeTicks, MibIdentifier, Counter64, ObjectIdentity, Integer32, Gauge32, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "IpAddress", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "NotificationType", "TimeTicks", "MibIdentifier", "Counter64", "ObjectIdentity", "Integer32", "Gauge32", "Counter32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-aviciSystemMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2474, 1, 2))
-if mibBuilder.loadTexts: aviciSystemMIB.setLastUpdated('990330095500Z')
-if mibBuilder.loadTexts: aviciSystemMIB.setOrganization('Avici Systems Inc.')
-aviciSystemObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2474, 1, 2, 1))
-aviciSystemGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 2474, 1, 2, 2))
-aviciSysRouterId = MibScalar((1, 3, 6, 1, 4, 1, 2474, 1, 2, 2, 1), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aviciSysRouterId.setStatus('current')
-aviciSysType = MibScalar((1, 3, 6, 1, 4, 1, 2474, 1, 2, 2, 2), AviciSystemType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aviciSysType.setStatus('current')
-aviciSysInventoryTableChange = MibScalar((1, 3, 6, 1, 4, 1, 2474, 1, 2, 2, 3), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aviciSysInventoryTableChange.setStatus('current')
-aviciSysTrapDescr = MibScalar((1, 3, 6, 1, 4, 1, 2474, 1, 2, 2, 4), AviciTrapDescrType()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: aviciSysTrapDescr.setStatus('current')
-aviciSysInventoryTable = MibTable((1, 3, 6, 1, 4, 1, 2474, 1, 2, 1, 1), )
-if mibBuilder.loadTexts: aviciSysInventoryTable.setStatus('current')
-aviciSysInventoryEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2474, 1, 2, 1, 1, 1), ).setIndexNames((0, "AVICI-SYSTEM-MIB", "aviciSysInventoryId"))
-if mibBuilder.loadTexts: aviciSysInventoryEntry.setStatus('current')
-aviciSysInventoryId = MibTableColumn((1, 3, 6, 1, 4, 1, 2474, 1, 2, 1, 1, 1, 1), AviciPlatformIndexType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aviciSysInventoryId.setStatus('current')
-aviciSysInventoryType = MibTableColumn((1, 3, 6, 1, 4, 1, 2474, 1, 2, 1, 1, 1, 2), AviciInventoryType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aviciSysInventoryType.setStatus('current')
-aviciSysInventoryOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2474, 1, 2, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aviciSysInventoryOperStatus.setStatus('current')
-aviciSysInventoryBay = MibTableColumn((1, 3, 6, 1, 4, 1, 2474, 1, 2, 1, 1, 1, 4), AviciBayType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aviciSysInventoryBay.setStatus('current')
-aviciSysInventorySlot = MibTableColumn((1, 3, 6, 1, 4, 1, 2474, 1, 2, 1, 1, 1, 5), AviciSlotType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aviciSysInventorySlot.setStatus('current')
-aviciSysInventoryDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 2474, 1, 2, 1, 1, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aviciSysInventoryDescr.setStatus('current')
-aviciSysIfTransTable = MibTable((1, 3, 6, 1, 4, 1, 2474, 1, 2, 1, 2), )
-if mibBuilder.loadTexts: aviciSysIfTransTable.setStatus('current')
-aviciSysIfTransEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2474, 1, 2, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: aviciSysIfTransEntry.setStatus('current')
-aviciSysIfTransBay = MibTableColumn((1, 3, 6, 1, 4, 1, 2474, 1, 2, 1, 2, 1, 1), AviciBayType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aviciSysIfTransBay.setStatus('current')
-aviciSysIfTransSlot = MibTableColumn((1, 3, 6, 1, 4, 1, 2474, 1, 2, 1, 2, 1, 2), AviciSlotType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aviciSysIfTransSlot.setStatus('current')
-aviciSysIfTransPort = MibTableColumn((1, 3, 6, 1, 4, 1, 2474, 1, 2, 1, 2, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aviciSysIfTransPort.setStatus('current')
-aviciSysIfTransIfc = MibTableColumn((1, 3, 6, 1, 4, 1, 2474, 1, 2, 1, 2, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aviciSysIfTransIfc.setStatus('current')
-aviciSysIfTransType = MibTableColumn((1, 3, 6, 1, 4, 1, 2474, 1, 2, 1, 2, 1, 5), IANAifType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aviciSysIfTransType.setStatus('current')
-aviciSysIfTransName = MibTableColumn((1, 3, 6, 1, 4, 1, 2474, 1, 2, 1, 2, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aviciSysIfTransName.setStatus('current')
-aviciSystemMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 2474, 1, 2, 3))
-aviciSystemMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 2474, 1, 2, 3, 1))
-aviciSystemMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 2474, 1, 2, 3, 2))
-aviciSystemMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 2474, 1, 2, 3, 1, 1)).setObjects(("AVICI-SYSTEM-MIB", "aviciSysGroup"))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/AVICI-SYSTEM-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 20:44:40 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    aviciSystemMIBCompliance = aviciSystemMIBCompliance.setStatus('current')
-aviciSysGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2474, 1, 2, 3, 2, 1)).setObjects(("AVICI-SYSTEM-MIB", "aviciSysRouterId"), ("AVICI-SYSTEM-MIB", "aviciSysType"), ("AVICI-SYSTEM-MIB", "aviciSysInventoryTableChange"), ("AVICI-SYSTEM-MIB", "aviciSysInventoryId"), ("AVICI-SYSTEM-MIB", "aviciSysInventoryType"), ("AVICI-SYSTEM-MIB", "aviciSysInventoryOperStatus"), ("AVICI-SYSTEM-MIB", "aviciSysInventoryBay"), ("AVICI-SYSTEM-MIB", "aviciSysInventorySlot"), ("AVICI-SYSTEM-MIB", "aviciSysInventoryDescr"), ("AVICI-SYSTEM-MIB", "aviciSysIfTransBay"), ("AVICI-SYSTEM-MIB", "aviciSysIfTransSlot"), ("AVICI-SYSTEM-MIB", "aviciSysIfTransPort"), ("AVICI-SYSTEM-MIB", "aviciSysIfTransIfc"), ("AVICI-SYSTEM-MIB", "aviciSysIfTransType"), ("AVICI-SYSTEM-MIB", "aviciSysIfTransName"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    aviciSysGroup = aviciSysGroup.setStatus('current')
-mibBuilder.exportSymbols("AVICI-SYSTEM-MIB", aviciSysInventoryTable=aviciSysInventoryTable, aviciSysInventoryEntry=aviciSysInventoryEntry, aviciSysInventoryOperStatus=aviciSysInventoryOperStatus, aviciSystemGroup=aviciSystemGroup, aviciSystemMIBCompliance=aviciSystemMIBCompliance, aviciSysInventoryId=aviciSysInventoryId, aviciSysIfTransIfc=aviciSysIfTransIfc, aviciSysGroup=aviciSysGroup, aviciSystemMIBConformance=aviciSystemMIBConformance, aviciSysRouterId=aviciSysRouterId, aviciSysIfTransBay=aviciSysIfTransBay, aviciSystemMIBCompliances=aviciSystemMIBCompliances, aviciSysType=aviciSysType, aviciSysInventoryTableChange=aviciSysInventoryTableChange, aviciSysInventoryBay=aviciSysInventoryBay, aviciSysIfTransSlot=aviciSysIfTransSlot, aviciSysIfTransName=aviciSysIfTransName, aviciSysInventorySlot=aviciSysInventorySlot, aviciSysIfTransTable=aviciSysIfTransTable, aviciSysTrapDescr=aviciSysTrapDescr, aviciSystemMIBGroups=aviciSystemMIBGroups, aviciSysIfTransPort=aviciSysIfTransPort, aviciSystemObjects=aviciSystemObjects, aviciSysIfTransEntry=aviciSysIfTransEntry, aviciSysIfTransType=aviciSysIfTransType, aviciSysInventoryType=aviciSysInventoryType, aviciSystemMIB=aviciSystemMIB, PYSNMP_MODULE_ID=aviciSystemMIB, aviciSysInventoryDescr=aviciSysInventoryDescr)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(aviciMibs,) = mibBuilder.importSymbols(
+    "AVICI-SMI",
+    "aviciMibs")
+
+(AviciBayType,
+ AviciInventoryType,
+ AviciPlatformIndexType,
+ AviciSlotType,
+ AviciSystemType,
+ AviciTrapDescrType) = mibBuilder.importSymbols(
+    "AVICI-TC",
+    "AviciBayType",
+    "AviciInventoryType",
+    "AviciPlatformIndexType",
+    "AviciSlotType",
+    "AviciSystemType",
+    "AviciTrapDescrType")
+
+(IANAifType,) = mibBuilder.importSymbols(
+    "IANAifType-MIB",
+    "IANAifType")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+aviciSystemMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2474, 1, 2)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AviciSystemObjects_ObjectIdentity = ObjectIdentity
+aviciSystemObjects = _AviciSystemObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2474, 1, 2, 1)
+)
+_AviciSysInventoryTable_Object = MibTable
+aviciSysInventoryTable = _AviciSysInventoryTable_Object(
+    (1, 3, 6, 1, 4, 1, 2474, 1, 2, 1, 1)
+)
+if mibBuilder.loadTexts:
+    aviciSysInventoryTable.setStatus("current")
+_AviciSysInventoryEntry_Object = MibTableRow
+aviciSysInventoryEntry = _AviciSysInventoryEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2474, 1, 2, 1, 1, 1)
+)
+aviciSysInventoryEntry.setIndexNames(
+    (0, "AVICI-SYSTEM-MIB", "aviciSysInventoryId"),
+)
+if mibBuilder.loadTexts:
+    aviciSysInventoryEntry.setStatus("current")
+_AviciSysInventoryId_Type = AviciPlatformIndexType
+_AviciSysInventoryId_Object = MibTableColumn
+aviciSysInventoryId = _AviciSysInventoryId_Object(
+    (1, 3, 6, 1, 4, 1, 2474, 1, 2, 1, 1, 1, 1),
+    _AviciSysInventoryId_Type()
+)
+aviciSysInventoryId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aviciSysInventoryId.setStatus("current")
+_AviciSysInventoryType_Type = AviciInventoryType
+_AviciSysInventoryType_Object = MibTableColumn
+aviciSysInventoryType = _AviciSysInventoryType_Object(
+    (1, 3, 6, 1, 4, 1, 2474, 1, 2, 1, 1, 1, 2),
+    _AviciSysInventoryType_Type()
+)
+aviciSysInventoryType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aviciSysInventoryType.setStatus("current")
+
+
+class _AviciSysInventoryOperStatus_Type(Integer32):
+    """Custom type aviciSysInventoryOperStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 2),
+          ("up", 1))
+    )
+
+
+_AviciSysInventoryOperStatus_Type.__name__ = "Integer32"
+_AviciSysInventoryOperStatus_Object = MibTableColumn
+aviciSysInventoryOperStatus = _AviciSysInventoryOperStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2474, 1, 2, 1, 1, 1, 3),
+    _AviciSysInventoryOperStatus_Type()
+)
+aviciSysInventoryOperStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aviciSysInventoryOperStatus.setStatus("current")
+_AviciSysInventoryBay_Type = AviciBayType
+_AviciSysInventoryBay_Object = MibTableColumn
+aviciSysInventoryBay = _AviciSysInventoryBay_Object(
+    (1, 3, 6, 1, 4, 1, 2474, 1, 2, 1, 1, 1, 4),
+    _AviciSysInventoryBay_Type()
+)
+aviciSysInventoryBay.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aviciSysInventoryBay.setStatus("current")
+_AviciSysInventorySlot_Type = AviciSlotType
+_AviciSysInventorySlot_Object = MibTableColumn
+aviciSysInventorySlot = _AviciSysInventorySlot_Object(
+    (1, 3, 6, 1, 4, 1, 2474, 1, 2, 1, 1, 1, 5),
+    _AviciSysInventorySlot_Type()
+)
+aviciSysInventorySlot.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aviciSysInventorySlot.setStatus("current")
+
+
+class _AviciSysInventoryDescr_Type(DisplayString):
+    """Custom type aviciSysInventoryDescr based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_AviciSysInventoryDescr_Type.__name__ = "DisplayString"
+_AviciSysInventoryDescr_Object = MibTableColumn
+aviciSysInventoryDescr = _AviciSysInventoryDescr_Object(
+    (1, 3, 6, 1, 4, 1, 2474, 1, 2, 1, 1, 1, 6),
+    _AviciSysInventoryDescr_Type()
+)
+aviciSysInventoryDescr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aviciSysInventoryDescr.setStatus("current")
+_AviciSysIfTransTable_Object = MibTable
+aviciSysIfTransTable = _AviciSysIfTransTable_Object(
+    (1, 3, 6, 1, 4, 1, 2474, 1, 2, 1, 2)
+)
+if mibBuilder.loadTexts:
+    aviciSysIfTransTable.setStatus("current")
+_AviciSysIfTransEntry_Object = MibTableRow
+aviciSysIfTransEntry = _AviciSysIfTransEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2474, 1, 2, 1, 2, 1)
+)
+aviciSysIfTransEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    aviciSysIfTransEntry.setStatus("current")
+_AviciSysIfTransBay_Type = AviciBayType
+_AviciSysIfTransBay_Object = MibTableColumn
+aviciSysIfTransBay = _AviciSysIfTransBay_Object(
+    (1, 3, 6, 1, 4, 1, 2474, 1, 2, 1, 2, 1, 1),
+    _AviciSysIfTransBay_Type()
+)
+aviciSysIfTransBay.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aviciSysIfTransBay.setStatus("current")
+_AviciSysIfTransSlot_Type = AviciSlotType
+_AviciSysIfTransSlot_Object = MibTableColumn
+aviciSysIfTransSlot = _AviciSysIfTransSlot_Object(
+    (1, 3, 6, 1, 4, 1, 2474, 1, 2, 1, 2, 1, 2),
+    _AviciSysIfTransSlot_Type()
+)
+aviciSysIfTransSlot.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aviciSysIfTransSlot.setStatus("current")
+_AviciSysIfTransPort_Type = Integer32
+_AviciSysIfTransPort_Object = MibTableColumn
+aviciSysIfTransPort = _AviciSysIfTransPort_Object(
+    (1, 3, 6, 1, 4, 1, 2474, 1, 2, 1, 2, 1, 3),
+    _AviciSysIfTransPort_Type()
+)
+aviciSysIfTransPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aviciSysIfTransPort.setStatus("current")
+_AviciSysIfTransIfc_Type = Integer32
+_AviciSysIfTransIfc_Object = MibTableColumn
+aviciSysIfTransIfc = _AviciSysIfTransIfc_Object(
+    (1, 3, 6, 1, 4, 1, 2474, 1, 2, 1, 2, 1, 4),
+    _AviciSysIfTransIfc_Type()
+)
+aviciSysIfTransIfc.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aviciSysIfTransIfc.setStatus("current")
+_AviciSysIfTransType_Type = IANAifType
+_AviciSysIfTransType_Object = MibTableColumn
+aviciSysIfTransType = _AviciSysIfTransType_Object(
+    (1, 3, 6, 1, 4, 1, 2474, 1, 2, 1, 2, 1, 5),
+    _AviciSysIfTransType_Type()
+)
+aviciSysIfTransType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aviciSysIfTransType.setStatus("current")
+
+
+class _AviciSysIfTransName_Type(DisplayString):
+    """Custom type aviciSysIfTransName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_AviciSysIfTransName_Type.__name__ = "DisplayString"
+_AviciSysIfTransName_Object = MibTableColumn
+aviciSysIfTransName = _AviciSysIfTransName_Object(
+    (1, 3, 6, 1, 4, 1, 2474, 1, 2, 1, 2, 1, 6),
+    _AviciSysIfTransName_Type()
+)
+aviciSysIfTransName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aviciSysIfTransName.setStatus("current")
+_AviciSystemGroup_ObjectIdentity = ObjectIdentity
+aviciSystemGroup = _AviciSystemGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2474, 1, 2, 2)
+)
+_AviciSysRouterId_Type = IpAddress
+_AviciSysRouterId_Object = MibScalar
+aviciSysRouterId = _AviciSysRouterId_Object(
+    (1, 3, 6, 1, 4, 1, 2474, 1, 2, 2, 1),
+    _AviciSysRouterId_Type()
+)
+aviciSysRouterId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aviciSysRouterId.setStatus("current")
+_AviciSysType_Type = AviciSystemType
+_AviciSysType_Object = MibScalar
+aviciSysType = _AviciSysType_Object(
+    (1, 3, 6, 1, 4, 1, 2474, 1, 2, 2, 2),
+    _AviciSysType_Type()
+)
+aviciSysType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aviciSysType.setStatus("current")
+_AviciSysInventoryTableChange_Type = TimeTicks
+_AviciSysInventoryTableChange_Object = MibScalar
+aviciSysInventoryTableChange = _AviciSysInventoryTableChange_Object(
+    (1, 3, 6, 1, 4, 1, 2474, 1, 2, 2, 3),
+    _AviciSysInventoryTableChange_Type()
+)
+aviciSysInventoryTableChange.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aviciSysInventoryTableChange.setStatus("current")
+_AviciSysTrapDescr_Type = AviciTrapDescrType
+_AviciSysTrapDescr_Object = MibScalar
+aviciSysTrapDescr = _AviciSysTrapDescr_Object(
+    (1, 3, 6, 1, 4, 1, 2474, 1, 2, 2, 4),
+    _AviciSysTrapDescr_Type()
+)
+aviciSysTrapDescr.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    aviciSysTrapDescr.setStatus("current")
+_AviciSystemMIBConformance_ObjectIdentity = ObjectIdentity
+aviciSystemMIBConformance = _AviciSystemMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2474, 1, 2, 3)
+)
+_AviciSystemMIBCompliances_ObjectIdentity = ObjectIdentity
+aviciSystemMIBCompliances = _AviciSystemMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2474, 1, 2, 3, 1)
+)
+_AviciSystemMIBGroups_ObjectIdentity = ObjectIdentity
+aviciSystemMIBGroups = _AviciSystemMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2474, 1, 2, 3, 2)
+)
+
+# Managed Objects groups
+
+aviciSysGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 2474, 1, 2, 3, 2, 1)
+)
+aviciSysGroup.setObjects(
+      *(("AVICI-SYSTEM-MIB", "aviciSysRouterId"),
+        ("AVICI-SYSTEM-MIB", "aviciSysType"),
+        ("AVICI-SYSTEM-MIB", "aviciSysInventoryTableChange"),
+        ("AVICI-SYSTEM-MIB", "aviciSysInventoryId"),
+        ("AVICI-SYSTEM-MIB", "aviciSysInventoryType"),
+        ("AVICI-SYSTEM-MIB", "aviciSysInventoryOperStatus"),
+        ("AVICI-SYSTEM-MIB", "aviciSysInventoryBay"),
+        ("AVICI-SYSTEM-MIB", "aviciSysInventorySlot"),
+        ("AVICI-SYSTEM-MIB", "aviciSysInventoryDescr"),
+        ("AVICI-SYSTEM-MIB", "aviciSysIfTransBay"),
+        ("AVICI-SYSTEM-MIB", "aviciSysIfTransSlot"),
+        ("AVICI-SYSTEM-MIB", "aviciSysIfTransPort"),
+        ("AVICI-SYSTEM-MIB", "aviciSysIfTransIfc"),
+        ("AVICI-SYSTEM-MIB", "aviciSysIfTransType"),
+        ("AVICI-SYSTEM-MIB", "aviciSysIfTransName"))
+)
+if mibBuilder.loadTexts:
+    aviciSysGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+aviciSystemMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 2474, 1, 2, 3, 1, 1)
+)
+if mibBuilder.loadTexts:
+    aviciSystemMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "AVICI-SYSTEM-MIB",
+    **{"aviciSystemMIB": aviciSystemMIB,
+       "aviciSystemObjects": aviciSystemObjects,
+       "aviciSysInventoryTable": aviciSysInventoryTable,
+       "aviciSysInventoryEntry": aviciSysInventoryEntry,
+       "aviciSysInventoryId": aviciSysInventoryId,
+       "aviciSysInventoryType": aviciSysInventoryType,
+       "aviciSysInventoryOperStatus": aviciSysInventoryOperStatus,
+       "aviciSysInventoryBay": aviciSysInventoryBay,
+       "aviciSysInventorySlot": aviciSysInventorySlot,
+       "aviciSysInventoryDescr": aviciSysInventoryDescr,
+       "aviciSysIfTransTable": aviciSysIfTransTable,
+       "aviciSysIfTransEntry": aviciSysIfTransEntry,
+       "aviciSysIfTransBay": aviciSysIfTransBay,
+       "aviciSysIfTransSlot": aviciSysIfTransSlot,
+       "aviciSysIfTransPort": aviciSysIfTransPort,
+       "aviciSysIfTransIfc": aviciSysIfTransIfc,
+       "aviciSysIfTransType": aviciSysIfTransType,
+       "aviciSysIfTransName": aviciSysIfTransName,
+       "aviciSystemGroup": aviciSystemGroup,
+       "aviciSysRouterId": aviciSysRouterId,
+       "aviciSysType": aviciSysType,
+       "aviciSysInventoryTableChange": aviciSysInventoryTableChange,
+       "aviciSysTrapDescr": aviciSysTrapDescr,
+       "aviciSystemMIBConformance": aviciSystemMIBConformance,
+       "aviciSystemMIBCompliances": aviciSystemMIBCompliances,
+       "aviciSystemMIBCompliance": aviciSystemMIBCompliance,
+       "aviciSystemMIBGroups": aviciSystemMIBGroups,
+       "aviciSysGroup": aviciSysGroup}
+)

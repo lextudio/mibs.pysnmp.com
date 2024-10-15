@@ -1,35 +1,251 @@
+# SNMP MIB module (Unisphere-Data-IP-Policy-CONF) expressed in pysnmp data model.
 #
-# PySNMP MIB module Unisphere-Data-IP-Policy-CONF (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/Unisphere-Data-IP-Policy-CONF
-# Produced by pysmi-0.3.4 at Mon Apr 29 21:24:22 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
-AgentCapabilities, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "AgentCapabilities", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, IpAddress, Counter64, Gauge32, ModuleIdentity, ObjectIdentity, Bits, Counter32, Unsigned32, NotificationType, iso, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "IpAddress", "Counter64", "Gauge32", "ModuleIdentity", "ObjectIdentity", "Bits", "Counter32", "Unsigned32", "NotificationType", "iso", "Integer32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-usDataAgents, = mibBuilder.importSymbols("Unisphere-Data-Agents", "usDataAgents")
-usdIpPrefixTreePolicy, usdIpCommunityListExpression, usdIpAccessListGroup, usdIpPrefixListGroup, usdIpPrefixListGeValue, usdIpCommunityListPolicy, usdIpRedistributeRowStatus, usdIpPrefixListLeValue, usdIpRedistributeState, usdIpRedistributeRouteMapName, usdIpPrefixTreeRowStatus, usdIpDynRedistributeState, usdIpExtCommunityListGroup, usdIpPrefixTreeGroup, usdIpPrefixListDescription, usdIpExtCommunityListPolicy, usdIpRouteMapGroup, usdIpPrefixListPolicy, usdIpDynRedistributeRowStatus, usdIpRedistributeGroup, usdIpAspAccessListGroup, usdIpExtCommunityListExpression, usdIpAspAccessRowStatus, usdIpCommunityListGroup, usdIpCommunityListExtended, usdIpAspAccessExpression, usdIpAspAccessPolicy, usdIpNamedAccessListGroup, usdIpExtCommunityListRowStatus, usdIpCommunityListRowStatus, usdIpPrefixListRowStatus, usdIpPrefixTreeDescription = mibBuilder.importSymbols("Unisphere-Data-IP-POLICY-MIB", "usdIpPrefixTreePolicy", "usdIpCommunityListExpression", "usdIpAccessListGroup", "usdIpPrefixListGroup", "usdIpPrefixListGeValue", "usdIpCommunityListPolicy", "usdIpRedistributeRowStatus", "usdIpPrefixListLeValue", "usdIpRedistributeState", "usdIpRedistributeRouteMapName", "usdIpPrefixTreeRowStatus", "usdIpDynRedistributeState", "usdIpExtCommunityListGroup", "usdIpPrefixTreeGroup", "usdIpPrefixListDescription", "usdIpExtCommunityListPolicy", "usdIpRouteMapGroup", "usdIpPrefixListPolicy", "usdIpDynRedistributeRowStatus", "usdIpRedistributeGroup", "usdIpAspAccessListGroup", "usdIpExtCommunityListExpression", "usdIpAspAccessRowStatus", "usdIpCommunityListGroup", "usdIpCommunityListExtended", "usdIpAspAccessExpression", "usdIpAspAccessPolicy", "usdIpNamedAccessListGroup", "usdIpExtCommunityListRowStatus", "usdIpCommunityListRowStatus", "usdIpPrefixListRowStatus", "usdIpPrefixTreeDescription")
-usdIpPolicyAgent = ModuleIdentity((1, 3, 6, 1, 4, 1, 4874, 5, 2, 22))
-usdIpPolicyAgent.setRevisions(('2001-05-01 20:13',))
-if mibBuilder.loadTexts: usdIpPolicyAgent.setLastUpdated('200105012013Z')
-if mibBuilder.loadTexts: usdIpPolicyAgent.setOrganization('Unisphere Networks, Inc.')
-usdIpPolicyAgentV1 = AgentCapabilities((1, 3, 6, 1, 4, 1, 4874, 5, 2, 22, 1))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    usdIpPolicyAgentV1 = usdIpPolicyAgentV1.setProductRelease('Version 1 of the IP Policy component of the Unisphere Routing Switch\n        SNMP agent.  This version of the IP Policy component was supported in\n        the Unisphere RX 1.x system releases.')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    usdIpPolicyAgentV1 = usdIpPolicyAgentV1.setStatus('obsolete')
-usdIpPolicyAgentV2 = AgentCapabilities((1, 3, 6, 1, 4, 1, 4874, 5, 2, 22, 2))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    usdIpPolicyAgentV2 = usdIpPolicyAgentV2.setProductRelease('Version 2 of the IP Policy component of the Unisphere Routing Switch\n        SNMP agent.  This version of the IP Policy component was supported in\n        the Unisphere RX 2.x system releases.')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    usdIpPolicyAgentV2 = usdIpPolicyAgentV2.setStatus('obsolete')
-usdIpPolicyAgentV3 = AgentCapabilities((1, 3, 6, 1, 4, 1, 4874, 5, 2, 22, 3))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    usdIpPolicyAgentV3 = usdIpPolicyAgentV3.setProductRelease('Version 3 of the IP Policy component of the Unisphere Routing Switch\n        SNMP agent.  This version of the IP Policy component is supported in the\n        Unisphere RX 3.0 and subsequent system releases.')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    usdIpPolicyAgentV3 = usdIpPolicyAgentV3.setStatus('current')
-mibBuilder.exportSymbols("Unisphere-Data-IP-Policy-CONF", usdIpPolicyAgent=usdIpPolicyAgent, PYSNMP_MODULE_ID=usdIpPolicyAgent, usdIpPolicyAgentV3=usdIpPolicyAgentV3, usdIpPolicyAgentV2=usdIpPolicyAgentV2, usdIpPolicyAgentV1=usdIpPolicyAgentV1)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/Unisphere-Data-IP-Policy-CONF
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:10:55 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(AgentCapabilities,
+ ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "AgentCapabilities",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+(usDataAgents,) = mibBuilder.importSymbols(
+    "Unisphere-Data-Agents",
+    "usDataAgents")
+
+(usdIpAccessListGroup,
+ usdIpAspAccessExpression,
+ usdIpAspAccessListGroup,
+ usdIpAspAccessPolicy,
+ usdIpAspAccessRowStatus,
+ usdIpCommunityListExpression,
+ usdIpCommunityListExtended,
+ usdIpCommunityListGroup,
+ usdIpCommunityListPolicy,
+ usdIpCommunityListRowStatus,
+ usdIpDynRedistributeRowStatus,
+ usdIpDynRedistributeState,
+ usdIpExtCommunityListExpression,
+ usdIpExtCommunityListGroup,
+ usdIpExtCommunityListPolicy,
+ usdIpExtCommunityListRowStatus,
+ usdIpNamedAccessListGroup,
+ usdIpPrefixListDescription,
+ usdIpPrefixListGeValue,
+ usdIpPrefixListGroup,
+ usdIpPrefixListLeValue,
+ usdIpPrefixListPolicy,
+ usdIpPrefixListRowStatus,
+ usdIpPrefixTreeDescription,
+ usdIpPrefixTreeGroup,
+ usdIpPrefixTreePolicy,
+ usdIpPrefixTreeRowStatus,
+ usdIpRedistributeGroup,
+ usdIpRedistributeRouteMapName,
+ usdIpRedistributeRowStatus,
+ usdIpRedistributeState,
+ usdIpRouteMapGroup) = mibBuilder.importSymbols(
+    "Unisphere-Data-IP-POLICY-MIB",
+    "usdIpAccessListGroup",
+    "usdIpAspAccessExpression",
+    "usdIpAspAccessListGroup",
+    "usdIpAspAccessPolicy",
+    "usdIpAspAccessRowStatus",
+    "usdIpCommunityListExpression",
+    "usdIpCommunityListExtended",
+    "usdIpCommunityListGroup",
+    "usdIpCommunityListPolicy",
+    "usdIpCommunityListRowStatus",
+    "usdIpDynRedistributeRowStatus",
+    "usdIpDynRedistributeState",
+    "usdIpExtCommunityListExpression",
+    "usdIpExtCommunityListGroup",
+    "usdIpExtCommunityListPolicy",
+    "usdIpExtCommunityListRowStatus",
+    "usdIpNamedAccessListGroup",
+    "usdIpPrefixListDescription",
+    "usdIpPrefixListGeValue",
+    "usdIpPrefixListGroup",
+    "usdIpPrefixListLeValue",
+    "usdIpPrefixListPolicy",
+    "usdIpPrefixListRowStatus",
+    "usdIpPrefixTreeDescription",
+    "usdIpPrefixTreeGroup",
+    "usdIpPrefixTreePolicy",
+    "usdIpPrefixTreeRowStatus",
+    "usdIpRedistributeGroup",
+    "usdIpRedistributeRouteMapName",
+    "usdIpRedistributeRowStatus",
+    "usdIpRedistributeState",
+    "usdIpRouteMapGroup")
+
+
+# MODULE-IDENTITY
+
+usdIpPolicyAgent = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 22)
+)
+usdIpPolicyAgent.setRevisions(
+        ("2001-05-01 20:13",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+usdIpPolicyAgentV1 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 22, 1)
+)
+if mibBuilder.loadTexts:
+    usdIpPolicyAgentV1.setProductRelease("""\
+Version 1 of the IP Policy component of the Unisphere Routing Switch
+        SNMP agent.  This version of the IP Policy component was supported in
+        the Unisphere RX 1.x system releases.""")
+if mibBuilder.loadTexts:
+    usdIpPolicyAgentV1.setStatus(
+        "obsolete"
+    )
+
+usdIpPolicyAgentV2 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 22, 2)
+)
+if mibBuilder.loadTexts:
+    usdIpPolicyAgentV2.setProductRelease("""\
+Version 2 of the IP Policy component of the Unisphere Routing Switch
+        SNMP agent.  This version of the IP Policy component was supported in
+        the Unisphere RX 2.x system releases.""")
+if mibBuilder.loadTexts:
+    usdIpPolicyAgentV2.setStatus(
+        "obsolete"
+    )
+
+usdIpPolicyAgentV3 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 22, 3)
+)
+if mibBuilder.loadTexts:
+    usdIpPolicyAgentV3.setProductRelease("""\
+Version 3 of the IP Policy component of the Unisphere Routing Switch
+        SNMP agent.  This version of the IP Policy component is supported in the
+        Unisphere RX 3.0 and subsequent system releases.""")
+if mibBuilder.loadTexts:
+    usdIpPolicyAgentV3.setStatus(
+        "current"
+    )
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "Unisphere-Data-IP-Policy-CONF",
+    **{"usdIpPolicyAgent": usdIpPolicyAgent,
+       "usdIpPolicyAgentV1": usdIpPolicyAgentV1,
+       "usdIpPolicyAgentV2": usdIpPolicyAgentV2,
+       "usdIpPolicyAgentV3": usdIpPolicyAgentV3}
+)

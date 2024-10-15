@@ -1,48 +1,325 @@
+# SNMP MIB module (JUNIPER-LSYSSP-NATDSTRULE-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module JUNIPER-LSYSSP-NATDSTRULE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/JUNIPER-LSYSSP-NATDSTRULE-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:49:03 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
-jnxLsysSpNATdstrule, = mibBuilder.importSymbols("JUNIPER-LSYS-SECURITYPROFILE-MIB", "jnxLsysSpNATdstrule")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-NotificationType, Integer32, Unsigned32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, ObjectIdentity, TimeTicks, Counter64, ModuleIdentity, Bits, iso, IpAddress, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Integer32", "Unsigned32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "ObjectIdentity", "TimeTicks", "Counter64", "ModuleIdentity", "Bits", "iso", "IpAddress", "Counter32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-jnxLsysSpNATdstruleMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2636, 3, 39, 1, 17, 13, 1))
-if mibBuilder.loadTexts: jnxLsysSpNATdstruleMIB.setLastUpdated('201005191644Z')
-if mibBuilder.loadTexts: jnxLsysSpNATdstruleMIB.setOrganization('Juniper Networks, Inc.')
-jnxLsysSpNATdstruleObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2636, 3, 39, 1, 17, 13, 1, 1))
-jnxLsysSpNATdstruleSummary = MibIdentifier((1, 3, 6, 1, 4, 1, 2636, 3, 39, 1, 17, 13, 1, 2))
-jnxLsysSpNATdstruleTable = MibTable((1, 3, 6, 1, 4, 1, 2636, 3, 39, 1, 17, 13, 1, 1, 1), )
-if mibBuilder.loadTexts: jnxLsysSpNATdstruleTable.setStatus('current')
-jnxLsysSpNATdstruleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2636, 3, 39, 1, 17, 13, 1, 1, 1, 1), ).setIndexNames((1, "JUNIPER-LSYSSP-NATDSTRULE-MIB", "jnxLsysSpNATdstruleLsysName"))
-if mibBuilder.loadTexts: jnxLsysSpNATdstruleEntry.setStatus('current')
-jnxLsysSpNATdstruleLsysName = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 39, 1, 17, 13, 1, 1, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 64)))
-if mibBuilder.loadTexts: jnxLsysSpNATdstruleLsysName.setStatus('current')
-jnxLsysSpNATdstruleProfileName = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 39, 1, 17, 13, 1, 1, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxLsysSpNATdstruleProfileName.setStatus('current')
-jnxLsysSpNATdstruleUsage = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 39, 1, 17, 13, 1, 1, 1, 1, 3), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxLsysSpNATdstruleUsage.setStatus('current')
-jnxLsysSpNATdstruleReserved = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 39, 1, 17, 13, 1, 1, 1, 1, 4), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxLsysSpNATdstruleReserved.setStatus('current')
-jnxLsysSpNATdstruleMaximum = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 39, 1, 17, 13, 1, 1, 1, 1, 5), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxLsysSpNATdstruleMaximum.setStatus('current')
-jnxLsysSpNATdstruleUsedAmount = MibScalar((1, 3, 6, 1, 4, 1, 2636, 3, 39, 1, 17, 13, 1, 2, 1), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxLsysSpNATdstruleUsedAmount.setStatus('current')
-jnxLsysSpNATdstruleMaxQuota = MibScalar((1, 3, 6, 1, 4, 1, 2636, 3, 39, 1, 17, 13, 1, 2, 2), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxLsysSpNATdstruleMaxQuota.setStatus('current')
-jnxLsysSpNATdstruleAvailableAmount = MibScalar((1, 3, 6, 1, 4, 1, 2636, 3, 39, 1, 17, 13, 1, 2, 3), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxLsysSpNATdstruleAvailableAmount.setStatus('current')
-jnxLsysSpNATdstruleHeaviestUsage = MibScalar((1, 3, 6, 1, 4, 1, 2636, 3, 39, 1, 17, 13, 1, 2, 4), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxLsysSpNATdstruleHeaviestUsage.setStatus('current')
-jnxLsysSpNATdstruleHeaviestUser = MibScalar((1, 3, 6, 1, 4, 1, 2636, 3, 39, 1, 17, 13, 1, 2, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxLsysSpNATdstruleHeaviestUser.setStatus('current')
-jnxLsysSpNATdstruleLightestUsage = MibScalar((1, 3, 6, 1, 4, 1, 2636, 3, 39, 1, 17, 13, 1, 2, 6), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxLsysSpNATdstruleLightestUsage.setStatus('current')
-jnxLsysSpNATdstruleLightestUser = MibScalar((1, 3, 6, 1, 4, 1, 2636, 3, 39, 1, 17, 13, 1, 2, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxLsysSpNATdstruleLightestUser.setStatus('current')
-mibBuilder.exportSymbols("JUNIPER-LSYSSP-NATDSTRULE-MIB", jnxLsysSpNATdstruleHeaviestUser=jnxLsysSpNATdstruleHeaviestUser, jnxLsysSpNATdstruleObjects=jnxLsysSpNATdstruleObjects, jnxLsysSpNATdstruleLightestUsage=jnxLsysSpNATdstruleLightestUsage, jnxLsysSpNATdstruleMIB=jnxLsysSpNATdstruleMIB, jnxLsysSpNATdstruleProfileName=jnxLsysSpNATdstruleProfileName, PYSNMP_MODULE_ID=jnxLsysSpNATdstruleMIB, jnxLsysSpNATdstruleLightestUser=jnxLsysSpNATdstruleLightestUser, jnxLsysSpNATdstruleUsage=jnxLsysSpNATdstruleUsage, jnxLsysSpNATdstruleAvailableAmount=jnxLsysSpNATdstruleAvailableAmount, jnxLsysSpNATdstruleLsysName=jnxLsysSpNATdstruleLsysName, jnxLsysSpNATdstruleMaximum=jnxLsysSpNATdstruleMaximum, jnxLsysSpNATdstruleReserved=jnxLsysSpNATdstruleReserved, jnxLsysSpNATdstruleEntry=jnxLsysSpNATdstruleEntry, jnxLsysSpNATdstruleUsedAmount=jnxLsysSpNATdstruleUsedAmount, jnxLsysSpNATdstruleHeaviestUsage=jnxLsysSpNATdstruleHeaviestUsage, jnxLsysSpNATdstruleMaxQuota=jnxLsysSpNATdstruleMaxQuota, jnxLsysSpNATdstruleSummary=jnxLsysSpNATdstruleSummary, jnxLsysSpNATdstruleTable=jnxLsysSpNATdstruleTable)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/JUNIPER-LSYSSP-NATDSTRULE-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:13:32 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(jnxLsysSpNATdstrule,) = mibBuilder.importSymbols(
+    "JUNIPER-LSYS-SECURITYPROFILE-MIB",
+    "jnxLsysSpNATdstrule")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+jnxLsysSpNATdstruleMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 39, 1, 17, 13, 1)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_JnxLsysSpNATdstruleObjects_ObjectIdentity = ObjectIdentity
+jnxLsysSpNATdstruleObjects = _JnxLsysSpNATdstruleObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 39, 1, 17, 13, 1, 1)
+)
+_JnxLsysSpNATdstruleTable_Object = MibTable
+jnxLsysSpNATdstruleTable = _JnxLsysSpNATdstruleTable_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 39, 1, 17, 13, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    jnxLsysSpNATdstruleTable.setStatus("current")
+_JnxLsysSpNATdstruleEntry_Object = MibTableRow
+jnxLsysSpNATdstruleEntry = _JnxLsysSpNATdstruleEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 39, 1, 17, 13, 1, 1, 1, 1)
+)
+jnxLsysSpNATdstruleEntry.setIndexNames(
+    (1, "JUNIPER-LSYSSP-NATDSTRULE-MIB", "jnxLsysSpNATdstruleLsysName"),
+)
+if mibBuilder.loadTexts:
+    jnxLsysSpNATdstruleEntry.setStatus("current")
+
+
+class _JnxLsysSpNATdstruleLsysName_Type(DisplayString):
+    """Custom type jnxLsysSpNATdstruleLsysName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 64),
+    )
+
+
+_JnxLsysSpNATdstruleLsysName_Type.__name__ = "DisplayString"
+_JnxLsysSpNATdstruleLsysName_Object = MibTableColumn
+jnxLsysSpNATdstruleLsysName = _JnxLsysSpNATdstruleLsysName_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 39, 1, 17, 13, 1, 1, 1, 1, 1),
+    _JnxLsysSpNATdstruleLsysName_Type()
+)
+jnxLsysSpNATdstruleLsysName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    jnxLsysSpNATdstruleLsysName.setStatus("current")
+
+
+class _JnxLsysSpNATdstruleProfileName_Type(DisplayString):
+    """Custom type jnxLsysSpNATdstruleProfileName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_JnxLsysSpNATdstruleProfileName_Type.__name__ = "DisplayString"
+_JnxLsysSpNATdstruleProfileName_Object = MibTableColumn
+jnxLsysSpNATdstruleProfileName = _JnxLsysSpNATdstruleProfileName_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 39, 1, 17, 13, 1, 1, 1, 1, 2),
+    _JnxLsysSpNATdstruleProfileName_Type()
+)
+jnxLsysSpNATdstruleProfileName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxLsysSpNATdstruleProfileName.setStatus("current")
+_JnxLsysSpNATdstruleUsage_Type = Unsigned32
+_JnxLsysSpNATdstruleUsage_Object = MibTableColumn
+jnxLsysSpNATdstruleUsage = _JnxLsysSpNATdstruleUsage_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 39, 1, 17, 13, 1, 1, 1, 1, 3),
+    _JnxLsysSpNATdstruleUsage_Type()
+)
+jnxLsysSpNATdstruleUsage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxLsysSpNATdstruleUsage.setStatus("current")
+_JnxLsysSpNATdstruleReserved_Type = Unsigned32
+_JnxLsysSpNATdstruleReserved_Object = MibTableColumn
+jnxLsysSpNATdstruleReserved = _JnxLsysSpNATdstruleReserved_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 39, 1, 17, 13, 1, 1, 1, 1, 4),
+    _JnxLsysSpNATdstruleReserved_Type()
+)
+jnxLsysSpNATdstruleReserved.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxLsysSpNATdstruleReserved.setStatus("current")
+_JnxLsysSpNATdstruleMaximum_Type = Unsigned32
+_JnxLsysSpNATdstruleMaximum_Object = MibTableColumn
+jnxLsysSpNATdstruleMaximum = _JnxLsysSpNATdstruleMaximum_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 39, 1, 17, 13, 1, 1, 1, 1, 5),
+    _JnxLsysSpNATdstruleMaximum_Type()
+)
+jnxLsysSpNATdstruleMaximum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxLsysSpNATdstruleMaximum.setStatus("current")
+_JnxLsysSpNATdstruleSummary_ObjectIdentity = ObjectIdentity
+jnxLsysSpNATdstruleSummary = _JnxLsysSpNATdstruleSummary_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 39, 1, 17, 13, 1, 2)
+)
+_JnxLsysSpNATdstruleUsedAmount_Type = Unsigned32
+_JnxLsysSpNATdstruleUsedAmount_Object = MibScalar
+jnxLsysSpNATdstruleUsedAmount = _JnxLsysSpNATdstruleUsedAmount_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 39, 1, 17, 13, 1, 2, 1),
+    _JnxLsysSpNATdstruleUsedAmount_Type()
+)
+jnxLsysSpNATdstruleUsedAmount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxLsysSpNATdstruleUsedAmount.setStatus("current")
+_JnxLsysSpNATdstruleMaxQuota_Type = Unsigned32
+_JnxLsysSpNATdstruleMaxQuota_Object = MibScalar
+jnxLsysSpNATdstruleMaxQuota = _JnxLsysSpNATdstruleMaxQuota_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 39, 1, 17, 13, 1, 2, 2),
+    _JnxLsysSpNATdstruleMaxQuota_Type()
+)
+jnxLsysSpNATdstruleMaxQuota.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxLsysSpNATdstruleMaxQuota.setStatus("current")
+_JnxLsysSpNATdstruleAvailableAmount_Type = Unsigned32
+_JnxLsysSpNATdstruleAvailableAmount_Object = MibScalar
+jnxLsysSpNATdstruleAvailableAmount = _JnxLsysSpNATdstruleAvailableAmount_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 39, 1, 17, 13, 1, 2, 3),
+    _JnxLsysSpNATdstruleAvailableAmount_Type()
+)
+jnxLsysSpNATdstruleAvailableAmount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxLsysSpNATdstruleAvailableAmount.setStatus("current")
+_JnxLsysSpNATdstruleHeaviestUsage_Type = Unsigned32
+_JnxLsysSpNATdstruleHeaviestUsage_Object = MibScalar
+jnxLsysSpNATdstruleHeaviestUsage = _JnxLsysSpNATdstruleHeaviestUsage_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 39, 1, 17, 13, 1, 2, 4),
+    _JnxLsysSpNATdstruleHeaviestUsage_Type()
+)
+jnxLsysSpNATdstruleHeaviestUsage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxLsysSpNATdstruleHeaviestUsage.setStatus("current")
+
+
+class _JnxLsysSpNATdstruleHeaviestUser_Type(DisplayString):
+    """Custom type jnxLsysSpNATdstruleHeaviestUser based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 64),
+    )
+
+
+_JnxLsysSpNATdstruleHeaviestUser_Type.__name__ = "DisplayString"
+_JnxLsysSpNATdstruleHeaviestUser_Object = MibScalar
+jnxLsysSpNATdstruleHeaviestUser = _JnxLsysSpNATdstruleHeaviestUser_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 39, 1, 17, 13, 1, 2, 5),
+    _JnxLsysSpNATdstruleHeaviestUser_Type()
+)
+jnxLsysSpNATdstruleHeaviestUser.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxLsysSpNATdstruleHeaviestUser.setStatus("current")
+_JnxLsysSpNATdstruleLightestUsage_Type = Unsigned32
+_JnxLsysSpNATdstruleLightestUsage_Object = MibScalar
+jnxLsysSpNATdstruleLightestUsage = _JnxLsysSpNATdstruleLightestUsage_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 39, 1, 17, 13, 1, 2, 6),
+    _JnxLsysSpNATdstruleLightestUsage_Type()
+)
+jnxLsysSpNATdstruleLightestUsage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxLsysSpNATdstruleLightestUsage.setStatus("current")
+
+
+class _JnxLsysSpNATdstruleLightestUser_Type(DisplayString):
+    """Custom type jnxLsysSpNATdstruleLightestUser based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 64),
+    )
+
+
+_JnxLsysSpNATdstruleLightestUser_Type.__name__ = "DisplayString"
+_JnxLsysSpNATdstruleLightestUser_Object = MibScalar
+jnxLsysSpNATdstruleLightestUser = _JnxLsysSpNATdstruleLightestUser_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 39, 1, 17, 13, 1, 2, 7),
+    _JnxLsysSpNATdstruleLightestUser_Type()
+)
+jnxLsysSpNATdstruleLightestUser.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxLsysSpNATdstruleLightestUser.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "JUNIPER-LSYSSP-NATDSTRULE-MIB",
+    **{"jnxLsysSpNATdstruleMIB": jnxLsysSpNATdstruleMIB,
+       "jnxLsysSpNATdstruleObjects": jnxLsysSpNATdstruleObjects,
+       "jnxLsysSpNATdstruleTable": jnxLsysSpNATdstruleTable,
+       "jnxLsysSpNATdstruleEntry": jnxLsysSpNATdstruleEntry,
+       "jnxLsysSpNATdstruleLsysName": jnxLsysSpNATdstruleLsysName,
+       "jnxLsysSpNATdstruleProfileName": jnxLsysSpNATdstruleProfileName,
+       "jnxLsysSpNATdstruleUsage": jnxLsysSpNATdstruleUsage,
+       "jnxLsysSpNATdstruleReserved": jnxLsysSpNATdstruleReserved,
+       "jnxLsysSpNATdstruleMaximum": jnxLsysSpNATdstruleMaximum,
+       "jnxLsysSpNATdstruleSummary": jnxLsysSpNATdstruleSummary,
+       "jnxLsysSpNATdstruleUsedAmount": jnxLsysSpNATdstruleUsedAmount,
+       "jnxLsysSpNATdstruleMaxQuota": jnxLsysSpNATdstruleMaxQuota,
+       "jnxLsysSpNATdstruleAvailableAmount": jnxLsysSpNATdstruleAvailableAmount,
+       "jnxLsysSpNATdstruleHeaviestUsage": jnxLsysSpNATdstruleHeaviestUsage,
+       "jnxLsysSpNATdstruleHeaviestUser": jnxLsysSpNATdstruleHeaviestUser,
+       "jnxLsysSpNATdstruleLightestUsage": jnxLsysSpNATdstruleLightestUsage,
+       "jnxLsysSpNATdstruleLightestUser": jnxLsysSpNATdstruleLightestUser}
+)

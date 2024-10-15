@@ -1,110 +1,604 @@
+# SNMP MIB module (Juniper-Agents) expressed in pysnmp data model.
 #
-# PySNMP MIB module Juniper-Agents (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/Juniper-Agents
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:50:49 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint")
-juniAgentCapability, = mibBuilder.importSymbols("Juniper-UNI-SMI", "juniAgentCapability")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter32, MibIdentifier, NotificationType, Unsigned32, IpAddress, Counter64, Bits, iso, ModuleIdentity, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, TimeTicks, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "MibIdentifier", "NotificationType", "Unsigned32", "IpAddress", "Counter64", "Bits", "iso", "ModuleIdentity", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "TimeTicks", "Integer32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-juniAgents = ModuleIdentity((1, 3, 6, 1, 4, 1, 4874, 5, 2))
-juniAgents.setRevisions(('2008-01-07 11:12', '2006-10-18 14:36', '2006-07-22 07:26', '2006-03-29 18:03', '2006-01-01 00:00', '2005-06-30 18:03', '2004-06-23 17:41', '2004-06-08 15:39', '2003-10-03 18:35', '2003-05-08 17:44', '2003-05-02 18:18', '2003-04-29 14:14', '2003-04-23 13:56', '2002-01-24 15:23', '2001-04-13 17:16',))
-if mibBuilder.loadTexts: juniAgents.setLastUpdated('200801071112Z')
-if mibBuilder.loadTexts: juniAgents.setOrganization('Juniper Networks, Inc.')
-juniAaaServerAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 1))
-juniAccountingAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 2))
-juniAtmAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 3))
-juniBgpAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 4))
-juniBridgedEthernetAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 5))
-juniCliAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 6))
-juniCopsAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 7))
-juniDhcpAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 8))
-juniDnsAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 9))
-juniDs1Agent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 10))
-juniDs3Agent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 11))
-juniDvmrpAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 12))
-juniEntityAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 13))
-juniEthernetAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 14))
-juniFileTransferAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 15))
-juniFractionalT1Agent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 16))
-juniFrameRelayAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 17))
-juniHdlcAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 18))
-juniIgmpAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 19))
-juniInterfacesAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 20))
-juniInternetAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 21))
-juniIpPolicyAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 22))
-juniIsisAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 23))
-juniL2tpAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 24))
-juniLocalAddressServerAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 25))
-juniLogAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 26))
-juniNsLookupAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 27))
-juniOspfAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 28))
-juniPimAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 29))
-juniPingAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 30))
-juniPolicyManagerAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 31))
-juniPppAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 32))
-juniPppoeAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 33))
-juniProfileAgents = ObjectIdentity((1, 3, 6, 1, 4, 1, 4874, 5, 2, 34))
-if mibBuilder.loadTexts: juniProfileAgents.setStatus('current')
-juniProfileManagerAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 34, 1))
-juniIpProfileAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 34, 2))
-juniPppProfileAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 34, 3))
-juniPppoeProfileAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 34, 4))
-juniIpv6ProfileAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 34, 5))
-juniAtm1483ProfileAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 34, 6))
-juniHttpProfileAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 34, 7))
-juniRadiusClientAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 35))
-juniRipAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 36))
-juniRouterAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 37))
-juniSlepAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 38))
-juniSnmpAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 39))
-juniSonetAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 40))
-juniSscClientAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 41))
-juniSystemAgents = ObjectIdentity((1, 3, 6, 1, 4, 1, 4874, 5, 2, 42))
-if mibBuilder.loadTexts: juniSystemAgents.setStatus('current')
-juniErxSystemAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 42, 1))
-juniSystemAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 42, 2))
-juniTraceRouteAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 43))
-juniAutoConfAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 44))
-juniSubscriberAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 45))
-juniSmdsAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 46))
-juniIpTunnelAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 47))
-juniCbfAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 48))
-juniL2fAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 49))
-juniQosManagerAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 50))
-juniMplsAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 51))
-juniSysClockAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 52))
-juniVrrpAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 53))
-juniV35Agent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 54))
-juniMRouterAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 55))
-juniNotificationLogAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 56))
-juniTacacsPlusClientAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 57))
-juniL2tpDialoutAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 59))
-juniBridgeAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 60))
-juniBridgingMgrAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 61))
-juniEventManagerAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 62))
-juniRadiusDisconnectAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 63))
-juniDhcpv6Agent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 64))
-juniIpsecTunnelAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 65))
-juniIkeAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 66))
-juniTsmAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 67))
-juniRadiusProxyAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 68))
-juniHaRedundancyAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 69))
-juniRadiusRequestAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 70))
-juniLicenseMgrAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 71))
-juniPacketMirrorAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 72))
-juniVpnmibAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 73))
-juniHttpAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 74))
-juniBfdmibAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 75))
-juniDosProtectionAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 76))
-juniDosProtectionPlatformAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 77))
-juniMplsteAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 78))
-juniMplsLdpAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 79))
-juniMobileIpv4HaAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 80))
-juniFtnMgrAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 5, 2, 81))
-mibBuilder.exportSymbols("Juniper-Agents", PYSNMP_MODULE_ID=juniAgents, juniDosProtectionPlatformAgent=juniDosProtectionPlatformAgent, juniPppAgent=juniPppAgent, juniSonetAgent=juniSonetAgent, juniV35Agent=juniV35Agent, juniBgpAgent=juniBgpAgent, juniDs3Agent=juniDs3Agent, juniBridgedEthernetAgent=juniBridgedEthernetAgent, juniBridgingMgrAgent=juniBridgingMgrAgent, juniHttpAgent=juniHttpAgent, juniFractionalT1Agent=juniFractionalT1Agent, juniPppProfileAgent=juniPppProfileAgent, juniVpnmibAgent=juniVpnmibAgent, juniTacacsPlusClientAgent=juniTacacsPlusClientAgent, juniInterfacesAgent=juniInterfacesAgent, juniL2tpAgent=juniL2tpAgent, juniMplsteAgent=juniMplsteAgent, juniEventManagerAgent=juniEventManagerAgent, juniAtmAgent=juniAtmAgent, juniDnsAgent=juniDnsAgent, juniIgmpAgent=juniIgmpAgent, juniBfdmibAgent=juniBfdmibAgent, juniDs1Agent=juniDs1Agent, juniLocalAddressServerAgent=juniLocalAddressServerAgent, juniPppoeAgent=juniPppoeAgent, juniSnmpAgent=juniSnmpAgent, juniL2fAgent=juniL2fAgent, juniPolicyManagerAgent=juniPolicyManagerAgent, juniEthernetAgent=juniEthernetAgent, juniAgents=juniAgents, juniOspfAgent=juniOspfAgent, juniMRouterAgent=juniMRouterAgent, juniIpPolicyAgent=juniIpPolicyAgent, juniTsmAgent=juniTsmAgent, juniCbfAgent=juniCbfAgent, juniL2tpDialoutAgent=juniL2tpDialoutAgent, juniNsLookupAgent=juniNsLookupAgent, juniRadiusProxyAgent=juniRadiusProxyAgent, juniIkeAgent=juniIkeAgent, juniEntityAgent=juniEntityAgent, juniFileTransferAgent=juniFileTransferAgent, juniSubscriberAgent=juniSubscriberAgent, juniAccountingAgent=juniAccountingAgent, juniHaRedundancyAgent=juniHaRedundancyAgent, juniSystemAgent=juniSystemAgent, juniMplsLdpAgent=juniMplsLdpAgent, juniSystemAgents=juniSystemAgents, juniProfileManagerAgent=juniProfileManagerAgent, juniIsisAgent=juniIsisAgent, juniHttpProfileAgent=juniHttpProfileAgent, juniSlepAgent=juniSlepAgent, juniPimAgent=juniPimAgent, juniErxSystemAgent=juniErxSystemAgent, juniRouterAgent=juniRouterAgent, juniSscClientAgent=juniSscClientAgent, juniHdlcAgent=juniHdlcAgent, juniTraceRouteAgent=juniTraceRouteAgent, juniLogAgent=juniLogAgent, juniAtm1483ProfileAgent=juniAtm1483ProfileAgent, juniDosProtectionAgent=juniDosProtectionAgent, juniProfileAgents=juniProfileAgents, juniSysClockAgent=juniSysClockAgent, juniIpv6ProfileAgent=juniIpv6ProfileAgent, juniRadiusRequestAgent=juniRadiusRequestAgent, juniDhcpAgent=juniDhcpAgent, juniQosManagerAgent=juniQosManagerAgent, juniRipAgent=juniRipAgent, juniFrameRelayAgent=juniFrameRelayAgent, juniIpTunnelAgent=juniIpTunnelAgent, juniPppoeProfileAgent=juniPppoeProfileAgent, juniBridgeAgent=juniBridgeAgent, juniCliAgent=juniCliAgent, juniIpProfileAgent=juniIpProfileAgent, juniAutoConfAgent=juniAutoConfAgent, juniDhcpv6Agent=juniDhcpv6Agent, juniMplsAgent=juniMplsAgent, juniIpsecTunnelAgent=juniIpsecTunnelAgent, juniVrrpAgent=juniVrrpAgent, juniPacketMirrorAgent=juniPacketMirrorAgent, juniRadiusDisconnectAgent=juniRadiusDisconnectAgent, juniAaaServerAgent=juniAaaServerAgent, juniCopsAgent=juniCopsAgent, juniDvmrpAgent=juniDvmrpAgent, juniMobileIpv4HaAgent=juniMobileIpv4HaAgent, juniInternetAgent=juniInternetAgent, juniFtnMgrAgent=juniFtnMgrAgent, juniSmdsAgent=juniSmdsAgent, juniRadiusClientAgent=juniRadiusClientAgent, juniLicenseMgrAgent=juniLicenseMgrAgent, juniPingAgent=juniPingAgent, juniNotificationLogAgent=juniNotificationLogAgent)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/Juniper-Agents
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:14:36 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(juniAgentCapability,) = mibBuilder.importSymbols(
+    "Juniper-UNI-SMI",
+    "juniAgentCapability")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+juniAgents = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2)
+)
+juniAgents.setRevisions(
+        ("2008-01-07 11:12",
+         "2006-10-18 14:36",
+         "2006-07-22 07:26",
+         "2006-03-29 18:03",
+         "2006-01-01 00:00",
+         "2005-06-30 18:03",
+         "2004-06-23 17:41",
+         "2004-06-08 15:39",
+         "2003-10-03 18:35",
+         "2003-05-08 17:44",
+         "2003-05-02 18:18",
+         "2003-04-29 14:14",
+         "2003-04-23 13:56",
+         "2002-01-24 15:23",
+         "2001-04-13 17:16")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_JuniAaaServerAgent_ObjectIdentity = ObjectIdentity
+juniAaaServerAgent = _JuniAaaServerAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 1)
+)
+_JuniAccountingAgent_ObjectIdentity = ObjectIdentity
+juniAccountingAgent = _JuniAccountingAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 2)
+)
+_JuniAtmAgent_ObjectIdentity = ObjectIdentity
+juniAtmAgent = _JuniAtmAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 3)
+)
+_JuniBgpAgent_ObjectIdentity = ObjectIdentity
+juniBgpAgent = _JuniBgpAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 4)
+)
+_JuniBridgedEthernetAgent_ObjectIdentity = ObjectIdentity
+juniBridgedEthernetAgent = _JuniBridgedEthernetAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 5)
+)
+_JuniCliAgent_ObjectIdentity = ObjectIdentity
+juniCliAgent = _JuniCliAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 6)
+)
+_JuniCopsAgent_ObjectIdentity = ObjectIdentity
+juniCopsAgent = _JuniCopsAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 7)
+)
+_JuniDhcpAgent_ObjectIdentity = ObjectIdentity
+juniDhcpAgent = _JuniDhcpAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 8)
+)
+_JuniDnsAgent_ObjectIdentity = ObjectIdentity
+juniDnsAgent = _JuniDnsAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 9)
+)
+_JuniDs1Agent_ObjectIdentity = ObjectIdentity
+juniDs1Agent = _JuniDs1Agent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 10)
+)
+_JuniDs3Agent_ObjectIdentity = ObjectIdentity
+juniDs3Agent = _JuniDs3Agent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 11)
+)
+_JuniDvmrpAgent_ObjectIdentity = ObjectIdentity
+juniDvmrpAgent = _JuniDvmrpAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 12)
+)
+_JuniEntityAgent_ObjectIdentity = ObjectIdentity
+juniEntityAgent = _JuniEntityAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 13)
+)
+_JuniEthernetAgent_ObjectIdentity = ObjectIdentity
+juniEthernetAgent = _JuniEthernetAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 14)
+)
+_JuniFileTransferAgent_ObjectIdentity = ObjectIdentity
+juniFileTransferAgent = _JuniFileTransferAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 15)
+)
+_JuniFractionalT1Agent_ObjectIdentity = ObjectIdentity
+juniFractionalT1Agent = _JuniFractionalT1Agent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 16)
+)
+_JuniFrameRelayAgent_ObjectIdentity = ObjectIdentity
+juniFrameRelayAgent = _JuniFrameRelayAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 17)
+)
+_JuniHdlcAgent_ObjectIdentity = ObjectIdentity
+juniHdlcAgent = _JuniHdlcAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 18)
+)
+_JuniIgmpAgent_ObjectIdentity = ObjectIdentity
+juniIgmpAgent = _JuniIgmpAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 19)
+)
+_JuniInterfacesAgent_ObjectIdentity = ObjectIdentity
+juniInterfacesAgent = _JuniInterfacesAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 20)
+)
+_JuniInternetAgent_ObjectIdentity = ObjectIdentity
+juniInternetAgent = _JuniInternetAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 21)
+)
+_JuniIpPolicyAgent_ObjectIdentity = ObjectIdentity
+juniIpPolicyAgent = _JuniIpPolicyAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 22)
+)
+_JuniIsisAgent_ObjectIdentity = ObjectIdentity
+juniIsisAgent = _JuniIsisAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 23)
+)
+_JuniL2tpAgent_ObjectIdentity = ObjectIdentity
+juniL2tpAgent = _JuniL2tpAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 24)
+)
+_JuniLocalAddressServerAgent_ObjectIdentity = ObjectIdentity
+juniLocalAddressServerAgent = _JuniLocalAddressServerAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 25)
+)
+_JuniLogAgent_ObjectIdentity = ObjectIdentity
+juniLogAgent = _JuniLogAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 26)
+)
+_JuniNsLookupAgent_ObjectIdentity = ObjectIdentity
+juniNsLookupAgent = _JuniNsLookupAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 27)
+)
+_JuniOspfAgent_ObjectIdentity = ObjectIdentity
+juniOspfAgent = _JuniOspfAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 28)
+)
+_JuniPimAgent_ObjectIdentity = ObjectIdentity
+juniPimAgent = _JuniPimAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 29)
+)
+_JuniPingAgent_ObjectIdentity = ObjectIdentity
+juniPingAgent = _JuniPingAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 30)
+)
+_JuniPolicyManagerAgent_ObjectIdentity = ObjectIdentity
+juniPolicyManagerAgent = _JuniPolicyManagerAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 31)
+)
+_JuniPppAgent_ObjectIdentity = ObjectIdentity
+juniPppAgent = _JuniPppAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 32)
+)
+_JuniPppoeAgent_ObjectIdentity = ObjectIdentity
+juniPppoeAgent = _JuniPppoeAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 33)
+)
+_JuniProfileAgents_ObjectIdentity = ObjectIdentity
+juniProfileAgents = _JuniProfileAgents_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 34)
+)
+if mibBuilder.loadTexts:
+    juniProfileAgents.setStatus("current")
+_JuniProfileManagerAgent_ObjectIdentity = ObjectIdentity
+juniProfileManagerAgent = _JuniProfileManagerAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 34, 1)
+)
+_JuniIpProfileAgent_ObjectIdentity = ObjectIdentity
+juniIpProfileAgent = _JuniIpProfileAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 34, 2)
+)
+_JuniPppProfileAgent_ObjectIdentity = ObjectIdentity
+juniPppProfileAgent = _JuniPppProfileAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 34, 3)
+)
+_JuniPppoeProfileAgent_ObjectIdentity = ObjectIdentity
+juniPppoeProfileAgent = _JuniPppoeProfileAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 34, 4)
+)
+_JuniIpv6ProfileAgent_ObjectIdentity = ObjectIdentity
+juniIpv6ProfileAgent = _JuniIpv6ProfileAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 34, 5)
+)
+_JuniAtm1483ProfileAgent_ObjectIdentity = ObjectIdentity
+juniAtm1483ProfileAgent = _JuniAtm1483ProfileAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 34, 6)
+)
+_JuniHttpProfileAgent_ObjectIdentity = ObjectIdentity
+juniHttpProfileAgent = _JuniHttpProfileAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 34, 7)
+)
+_JuniRadiusClientAgent_ObjectIdentity = ObjectIdentity
+juniRadiusClientAgent = _JuniRadiusClientAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 35)
+)
+_JuniRipAgent_ObjectIdentity = ObjectIdentity
+juniRipAgent = _JuniRipAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 36)
+)
+_JuniRouterAgent_ObjectIdentity = ObjectIdentity
+juniRouterAgent = _JuniRouterAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 37)
+)
+_JuniSlepAgent_ObjectIdentity = ObjectIdentity
+juniSlepAgent = _JuniSlepAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 38)
+)
+_JuniSnmpAgent_ObjectIdentity = ObjectIdentity
+juniSnmpAgent = _JuniSnmpAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 39)
+)
+_JuniSonetAgent_ObjectIdentity = ObjectIdentity
+juniSonetAgent = _JuniSonetAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 40)
+)
+_JuniSscClientAgent_ObjectIdentity = ObjectIdentity
+juniSscClientAgent = _JuniSscClientAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 41)
+)
+_JuniSystemAgents_ObjectIdentity = ObjectIdentity
+juniSystemAgents = _JuniSystemAgents_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 42)
+)
+if mibBuilder.loadTexts:
+    juniSystemAgents.setStatus("current")
+_JuniErxSystemAgent_ObjectIdentity = ObjectIdentity
+juniErxSystemAgent = _JuniErxSystemAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 42, 1)
+)
+_JuniSystemAgent_ObjectIdentity = ObjectIdentity
+juniSystemAgent = _JuniSystemAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 42, 2)
+)
+_JuniTraceRouteAgent_ObjectIdentity = ObjectIdentity
+juniTraceRouteAgent = _JuniTraceRouteAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 43)
+)
+_JuniAutoConfAgent_ObjectIdentity = ObjectIdentity
+juniAutoConfAgent = _JuniAutoConfAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 44)
+)
+_JuniSubscriberAgent_ObjectIdentity = ObjectIdentity
+juniSubscriberAgent = _JuniSubscriberAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 45)
+)
+_JuniSmdsAgent_ObjectIdentity = ObjectIdentity
+juniSmdsAgent = _JuniSmdsAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 46)
+)
+_JuniIpTunnelAgent_ObjectIdentity = ObjectIdentity
+juniIpTunnelAgent = _JuniIpTunnelAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 47)
+)
+_JuniCbfAgent_ObjectIdentity = ObjectIdentity
+juniCbfAgent = _JuniCbfAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 48)
+)
+_JuniL2fAgent_ObjectIdentity = ObjectIdentity
+juniL2fAgent = _JuniL2fAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 49)
+)
+_JuniQosManagerAgent_ObjectIdentity = ObjectIdentity
+juniQosManagerAgent = _JuniQosManagerAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 50)
+)
+_JuniMplsAgent_ObjectIdentity = ObjectIdentity
+juniMplsAgent = _JuniMplsAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 51)
+)
+_JuniSysClockAgent_ObjectIdentity = ObjectIdentity
+juniSysClockAgent = _JuniSysClockAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 52)
+)
+_JuniVrrpAgent_ObjectIdentity = ObjectIdentity
+juniVrrpAgent = _JuniVrrpAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 53)
+)
+_JuniV35Agent_ObjectIdentity = ObjectIdentity
+juniV35Agent = _JuniV35Agent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 54)
+)
+_JuniMRouterAgent_ObjectIdentity = ObjectIdentity
+juniMRouterAgent = _JuniMRouterAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 55)
+)
+_JuniNotificationLogAgent_ObjectIdentity = ObjectIdentity
+juniNotificationLogAgent = _JuniNotificationLogAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 56)
+)
+_JuniTacacsPlusClientAgent_ObjectIdentity = ObjectIdentity
+juniTacacsPlusClientAgent = _JuniTacacsPlusClientAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 57)
+)
+_JuniL2tpDialoutAgent_ObjectIdentity = ObjectIdentity
+juniL2tpDialoutAgent = _JuniL2tpDialoutAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 59)
+)
+_JuniBridgeAgent_ObjectIdentity = ObjectIdentity
+juniBridgeAgent = _JuniBridgeAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 60)
+)
+_JuniBridgingMgrAgent_ObjectIdentity = ObjectIdentity
+juniBridgingMgrAgent = _JuniBridgingMgrAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 61)
+)
+_JuniEventManagerAgent_ObjectIdentity = ObjectIdentity
+juniEventManagerAgent = _JuniEventManagerAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 62)
+)
+_JuniRadiusDisconnectAgent_ObjectIdentity = ObjectIdentity
+juniRadiusDisconnectAgent = _JuniRadiusDisconnectAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 63)
+)
+_JuniDhcpv6Agent_ObjectIdentity = ObjectIdentity
+juniDhcpv6Agent = _JuniDhcpv6Agent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 64)
+)
+_JuniIpsecTunnelAgent_ObjectIdentity = ObjectIdentity
+juniIpsecTunnelAgent = _JuniIpsecTunnelAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 65)
+)
+_JuniIkeAgent_ObjectIdentity = ObjectIdentity
+juniIkeAgent = _JuniIkeAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 66)
+)
+_JuniTsmAgent_ObjectIdentity = ObjectIdentity
+juniTsmAgent = _JuniTsmAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 67)
+)
+_JuniRadiusProxyAgent_ObjectIdentity = ObjectIdentity
+juniRadiusProxyAgent = _JuniRadiusProxyAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 68)
+)
+_JuniHaRedundancyAgent_ObjectIdentity = ObjectIdentity
+juniHaRedundancyAgent = _JuniHaRedundancyAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 69)
+)
+_JuniRadiusRequestAgent_ObjectIdentity = ObjectIdentity
+juniRadiusRequestAgent = _JuniRadiusRequestAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 70)
+)
+_JuniLicenseMgrAgent_ObjectIdentity = ObjectIdentity
+juniLicenseMgrAgent = _JuniLicenseMgrAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 71)
+)
+_JuniPacketMirrorAgent_ObjectIdentity = ObjectIdentity
+juniPacketMirrorAgent = _JuniPacketMirrorAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 72)
+)
+_JuniVpnmibAgent_ObjectIdentity = ObjectIdentity
+juniVpnmibAgent = _JuniVpnmibAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 73)
+)
+_JuniHttpAgent_ObjectIdentity = ObjectIdentity
+juniHttpAgent = _JuniHttpAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 74)
+)
+_JuniBfdmibAgent_ObjectIdentity = ObjectIdentity
+juniBfdmibAgent = _JuniBfdmibAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 75)
+)
+_JuniDosProtectionAgent_ObjectIdentity = ObjectIdentity
+juniDosProtectionAgent = _JuniDosProtectionAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 76)
+)
+_JuniDosProtectionPlatformAgent_ObjectIdentity = ObjectIdentity
+juniDosProtectionPlatformAgent = _JuniDosProtectionPlatformAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 77)
+)
+_JuniMplsteAgent_ObjectIdentity = ObjectIdentity
+juniMplsteAgent = _JuniMplsteAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 78)
+)
+_JuniMplsLdpAgent_ObjectIdentity = ObjectIdentity
+juniMplsLdpAgent = _JuniMplsLdpAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 79)
+)
+_JuniMobileIpv4HaAgent_ObjectIdentity = ObjectIdentity
+juniMobileIpv4HaAgent = _JuniMobileIpv4HaAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 80)
+)
+_JuniFtnMgrAgent_ObjectIdentity = ObjectIdentity
+juniFtnMgrAgent = _JuniFtnMgrAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 5, 2, 81)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "Juniper-Agents",
+    **{"juniAgents": juniAgents,
+       "juniAaaServerAgent": juniAaaServerAgent,
+       "juniAccountingAgent": juniAccountingAgent,
+       "juniAtmAgent": juniAtmAgent,
+       "juniBgpAgent": juniBgpAgent,
+       "juniBridgedEthernetAgent": juniBridgedEthernetAgent,
+       "juniCliAgent": juniCliAgent,
+       "juniCopsAgent": juniCopsAgent,
+       "juniDhcpAgent": juniDhcpAgent,
+       "juniDnsAgent": juniDnsAgent,
+       "juniDs1Agent": juniDs1Agent,
+       "juniDs3Agent": juniDs3Agent,
+       "juniDvmrpAgent": juniDvmrpAgent,
+       "juniEntityAgent": juniEntityAgent,
+       "juniEthernetAgent": juniEthernetAgent,
+       "juniFileTransferAgent": juniFileTransferAgent,
+       "juniFractionalT1Agent": juniFractionalT1Agent,
+       "juniFrameRelayAgent": juniFrameRelayAgent,
+       "juniHdlcAgent": juniHdlcAgent,
+       "juniIgmpAgent": juniIgmpAgent,
+       "juniInterfacesAgent": juniInterfacesAgent,
+       "juniInternetAgent": juniInternetAgent,
+       "juniIpPolicyAgent": juniIpPolicyAgent,
+       "juniIsisAgent": juniIsisAgent,
+       "juniL2tpAgent": juniL2tpAgent,
+       "juniLocalAddressServerAgent": juniLocalAddressServerAgent,
+       "juniLogAgent": juniLogAgent,
+       "juniNsLookupAgent": juniNsLookupAgent,
+       "juniOspfAgent": juniOspfAgent,
+       "juniPimAgent": juniPimAgent,
+       "juniPingAgent": juniPingAgent,
+       "juniPolicyManagerAgent": juniPolicyManagerAgent,
+       "juniPppAgent": juniPppAgent,
+       "juniPppoeAgent": juniPppoeAgent,
+       "juniProfileAgents": juniProfileAgents,
+       "juniProfileManagerAgent": juniProfileManagerAgent,
+       "juniIpProfileAgent": juniIpProfileAgent,
+       "juniPppProfileAgent": juniPppProfileAgent,
+       "juniPppoeProfileAgent": juniPppoeProfileAgent,
+       "juniIpv6ProfileAgent": juniIpv6ProfileAgent,
+       "juniAtm1483ProfileAgent": juniAtm1483ProfileAgent,
+       "juniHttpProfileAgent": juniHttpProfileAgent,
+       "juniRadiusClientAgent": juniRadiusClientAgent,
+       "juniRipAgent": juniRipAgent,
+       "juniRouterAgent": juniRouterAgent,
+       "juniSlepAgent": juniSlepAgent,
+       "juniSnmpAgent": juniSnmpAgent,
+       "juniSonetAgent": juniSonetAgent,
+       "juniSscClientAgent": juniSscClientAgent,
+       "juniSystemAgents": juniSystemAgents,
+       "juniErxSystemAgent": juniErxSystemAgent,
+       "juniSystemAgent": juniSystemAgent,
+       "juniTraceRouteAgent": juniTraceRouteAgent,
+       "juniAutoConfAgent": juniAutoConfAgent,
+       "juniSubscriberAgent": juniSubscriberAgent,
+       "juniSmdsAgent": juniSmdsAgent,
+       "juniIpTunnelAgent": juniIpTunnelAgent,
+       "juniCbfAgent": juniCbfAgent,
+       "juniL2fAgent": juniL2fAgent,
+       "juniQosManagerAgent": juniQosManagerAgent,
+       "juniMplsAgent": juniMplsAgent,
+       "juniSysClockAgent": juniSysClockAgent,
+       "juniVrrpAgent": juniVrrpAgent,
+       "juniV35Agent": juniV35Agent,
+       "juniMRouterAgent": juniMRouterAgent,
+       "juniNotificationLogAgent": juniNotificationLogAgent,
+       "juniTacacsPlusClientAgent": juniTacacsPlusClientAgent,
+       "juniL2tpDialoutAgent": juniL2tpDialoutAgent,
+       "juniBridgeAgent": juniBridgeAgent,
+       "juniBridgingMgrAgent": juniBridgingMgrAgent,
+       "juniEventManagerAgent": juniEventManagerAgent,
+       "juniRadiusDisconnectAgent": juniRadiusDisconnectAgent,
+       "juniDhcpv6Agent": juniDhcpv6Agent,
+       "juniIpsecTunnelAgent": juniIpsecTunnelAgent,
+       "juniIkeAgent": juniIkeAgent,
+       "juniTsmAgent": juniTsmAgent,
+       "juniRadiusProxyAgent": juniRadiusProxyAgent,
+       "juniHaRedundancyAgent": juniHaRedundancyAgent,
+       "juniRadiusRequestAgent": juniRadiusRequestAgent,
+       "juniLicenseMgrAgent": juniLicenseMgrAgent,
+       "juniPacketMirrorAgent": juniPacketMirrorAgent,
+       "juniVpnmibAgent": juniVpnmibAgent,
+       "juniHttpAgent": juniHttpAgent,
+       "juniBfdmibAgent": juniBfdmibAgent,
+       "juniDosProtectionAgent": juniDosProtectionAgent,
+       "juniDosProtectionPlatformAgent": juniDosProtectionPlatformAgent,
+       "juniMplsteAgent": juniMplsteAgent,
+       "juniMplsLdpAgent": juniMplsLdpAgent,
+       "juniMobileIpv4HaAgent": juniMobileIpv4HaAgent,
+       "juniFtnMgrAgent": juniFtnMgrAgent}
+)

@@ -1,17 +1,17 @@
-"""SNMP MIB module (XEROX-SERVICE-MONITORING-TC) expressed in pysnmp data model.
+# SNMP MIB module (XEROX-SERVICE-MONITORING-TC) expressed in pysnmp data model.
+#
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/XEROX-SERVICE-MONITORING-TC
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:18:35 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-This Python module is designed to be imported and executed by the
-pysnmp library.
-
-See https://www.pysnmp.com/pysnmp for further information.
-
-Notes
------
-ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/XEROX-SERVICE-MONITORING-TC
-Produced by pysmi-1.3.3 at Sun Mar 10 06:00:43 2024
-On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm
-Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
-"""
 if 'mibBuilder' not in globals():
     import sys
 
@@ -45,53 +45,53 @@ if 'mibBuilder' not in globals():
 
 # Import SMI symbols from the MIBs this MIB depends on
 
-(NotificationGroup,
- ModuleCompliance) = mibBuilder.importSymbols(
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
     "SNMPv2-CONF",
-    "NotificationGroup",
-    "ModuleCompliance")
+    "ModuleCompliance",
+    "NotificationGroup")
 
-(TimeTicks,
+(Bits,
+ Counter32,
+ Counter64,
  Gauge32,
  Integer32,
  IpAddress,
- Bits,
- Counter32,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
  MibScalar,
  MibTable,
  MibTableRow,
  MibTableColumn,
- NotificationType,
- ModuleIdentity,
- Counter64,
- MibIdentifier,
+ TimeTicks,
  Unsigned32,
- iso,
- ObjectIdentity) = mibBuilder.importSymbols(
+ iso) = mibBuilder.importSymbols(
     "SNMPv2-SMI",
-    "TimeTicks",
+    "Bits",
+    "Counter32",
+    "Counter64",
     "Gauge32",
     "Integer32",
     "IpAddress",
-    "Bits",
-    "Counter32",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
     "MibScalar",
     "MibTable",
     "MibTableRow",
     "MibTableColumn",
-    "NotificationType",
-    "ModuleIdentity",
-    "Counter64",
-    "MibIdentifier",
+    "TimeTicks",
     "Unsigned32",
-    "iso",
-    "ObjectIdentity")
+    "iso")
 
-(TextualConvention,
- DisplayString) = mibBuilder.importSymbols(
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
     "SNMPv2-TC",
-    "TextualConvention",
-    "DisplayString")
+    "DisplayString",
+    "TextualConvention")
 
 (xeroxCommonMIB,) = mibBuilder.importSymbols(
     "XEROX-COMMON-MIB",
@@ -112,7 +112,7 @@ xcmSvcMonTC = ModuleIdentity(
 
 
 
-class XcmSvcMonGroupSupport(TextualConvention, Integer32):
+class XcmSvcMonGroupSupport(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -121,7 +121,7 @@ class XcmSvcMonGroupSupport(TextualConvention, Integer32):
 
 
 
-class XcmSvcMonJobConfirmSupport(TextualConvention, Integer32):
+class XcmSvcMonJobConfirmSupport(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -130,7 +130,7 @@ class XcmSvcMonJobConfirmSupport(TextualConvention, Integer32):
 
 
 
-class XcmSvcMonAttachmentPDLSupport(TextualConvention, Integer32):
+class XcmSvcMonAttachmentPDLSupport(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -139,7 +139,7 @@ class XcmSvcMonAttachmentPDLSupport(TextualConvention, Integer32):
 
 
 
-class XcmSvcMonServiceMgmtOperation(TextualConvention, Integer32):
+class XcmSvcMonServiceMgmtOperation(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -205,7 +205,7 @@ class XcmSvcMonServiceMgmtOperation(TextualConvention, Integer32):
 
 
 
-class XcmSvcMonServiceMgmtData(TextualConvention, OctetString):
+class XcmSvcMonServiceMgmtData(OctetString, TextualConvention):
     status = "current"
     subtypeSpec = OctetString.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -214,7 +214,7 @@ class XcmSvcMonServiceMgmtData(TextualConvention, OctetString):
 
 
 
-class XcmSvcMonServiceDetailClass(TextualConvention, Integer32):
+class XcmSvcMonServiceDetailClass(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -352,7 +352,7 @@ class XcmSvcMonServiceDetailClass(TextualConvention, Integer32):
 
 
 
-class XcmSvcMonServiceDetailType(TextualConvention, Integer32):
+class XcmSvcMonServiceDetailType(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -902,7 +902,7 @@ class XcmSvcMonServiceDetailType(TextualConvention, Integer32):
 
 
 
-class XcmSvcMonServiceType(TextualConvention, Integer32):
+class XcmSvcMonServiceType(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -1094,7 +1094,7 @@ class XcmSvcMonServiceType(TextualConvention, Integer32):
 
 
 
-class XcmSvcMonServiceStateDetail(TextualConvention, Integer32):
+class XcmSvcMonServiceStateDetail(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -1190,7 +1190,7 @@ class XcmSvcMonServiceStateDetail(TextualConvention, Integer32):
 
 
 
-class XcmSvcMonSystemMailSenderNetAuthSupport(TextualConvention, Integer32):
+class XcmSvcMonSystemMailSenderNetAuthSupport(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -1214,7 +1214,7 @@ class XcmSvcMonSystemMailSenderNetAuthSupport(TextualConvention, Integer32):
 
 
 
-class XcmImageQualityType(TextualConvention, Integer32):
+class XcmImageQualityType(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -1240,7 +1240,7 @@ class XcmImageQualityType(TextualConvention, Integer32):
 
 
 
-class XcmOriginalType(TextualConvention, Integer32):
+class XcmOriginalType(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -1264,7 +1264,7 @@ class XcmOriginalType(TextualConvention, Integer32):
 
 
 
-class XcmOutputUsage(TextualConvention, Integer32):
+class XcmOutputUsage(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(
@@ -1288,7 +1288,7 @@ class XcmOutputUsage(TextualConvention, Integer32):
 
 
 
-class XcmLoginCredentialsSource(TextualConvention, Integer32):
+class XcmLoginCredentialsSource(Integer32, TextualConvention):
     status = "current"
     subtypeSpec = Integer32.subtypeSpec
     subtypeSpec += ConstraintsUnion(

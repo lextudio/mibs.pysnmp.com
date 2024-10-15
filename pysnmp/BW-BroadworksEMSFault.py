@@ -1,35 +1,323 @@
+# SNMP MIB module (BW-BroadworksEMSFault) expressed in pysnmp data model.
 #
-# PySNMP MIB module BW-BroadworksEMSFault (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/BW-BroadworksEMSFault
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:24:56 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion")
-timeStamp, faultFields, recommendedActionsText, component, identifier, systemName, severity, common, alarmState, problemText, subcomponent, alarmName = mibBuilder.importSymbols("BroadworksFault", "timeStamp", "faultFields", "recommendedActionsText", "component", "identifier", "systemName", "severity", "common", "alarmState", "problemText", "subcomponent", "alarmName")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, IpAddress, Counter64, Integer32, Unsigned32, iso, ModuleIdentity, Gauge32, NotificationType, MibIdentifier, Bits, TimeTicks, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "IpAddress", "Counter64", "Integer32", "Unsigned32", "iso", "ModuleIdentity", "Gauge32", "NotificationType", "MibIdentifier", "Bits", "TimeTicks", "ObjectIdentity")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-systemFaults = ModuleIdentity((1, 3, 6, 1, 4, 1, 6431, 1, 1, 1))
-systemFaults.setRevisions(('2000-09-19 14:31',))
-if mibBuilder.loadTexts: systemFaults.setLastUpdated('200201220000Z')
-if mibBuilder.loadTexts: systemFaults.setOrganization('Broadsoft, Inc')
-bwPMElementManagementSystemBELaunched = NotificationType((1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 3001)).setObjects(("BroadworksFault", "identifier"), ("BroadworksFault", "timeStamp"), ("BroadworksFault", "alarmName"), ("BroadworksFault", "systemName"), ("BroadworksFault", "severity"), ("BroadworksFault", "component"), ("BroadworksFault", "subcomponent"), ("BroadworksFault", "problemText"), ("BroadworksFault", "recommendedActionsText"))
-if mibBuilder.loadTexts: bwPMElementManagementSystemBELaunched.setStatus('current')
-bwPMElementManagementSystemBEShutDown = NotificationType((1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 3002)).setObjects(("BroadworksFault", "identifier"), ("BroadworksFault", "timeStamp"), ("BroadworksFault", "alarmName"), ("BroadworksFault", "systemName"), ("BroadworksFault", "severity"), ("BroadworksFault", "component"), ("BroadworksFault", "subcomponent"), ("BroadworksFault", "problemText"), ("BroadworksFault", "recommendedActionsText"))
-if mibBuilder.loadTexts: bwPMElementManagementSystemBEShutDown.setStatus('current')
-bwPMElementManagementSystemBERestarted = NotificationType((1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 3003)).setObjects(("BroadworksFault", "identifier"), ("BroadworksFault", "timeStamp"), ("BroadworksFault", "alarmName"), ("BroadworksFault", "systemName"), ("BroadworksFault", "severity"), ("BroadworksFault", "component"), ("BroadworksFault", "subcomponent"), ("BroadworksFault", "problemText"), ("BroadworksFault", "recommendedActionsText"))
-if mibBuilder.loadTexts: bwPMElementManagementSystemBERestarted.setStatus('current')
-bwPMElementManagementSystemBEDeath = NotificationType((1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 3004)).setObjects(("BroadworksFault", "identifier"), ("BroadworksFault", "timeStamp"), ("BroadworksFault", "alarmName"), ("BroadworksFault", "systemName"), ("BroadworksFault", "severity"), ("BroadworksFault", "component"), ("BroadworksFault", "subcomponent"), ("BroadworksFault", "problemText"), ("BroadworksFault", "recommendedActionsText"))
-if mibBuilder.loadTexts: bwPMElementManagementSystemBEDeath.setStatus('current')
-bwPMElementManagementSystemFELaunched = NotificationType((1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 3005)).setObjects(("BroadworksFault", "identifier"), ("BroadworksFault", "timeStamp"), ("BroadworksFault", "alarmName"), ("BroadworksFault", "systemName"), ("BroadworksFault", "severity"), ("BroadworksFault", "component"), ("BroadworksFault", "subcomponent"), ("BroadworksFault", "problemText"), ("BroadworksFault", "recommendedActionsText"))
-if mibBuilder.loadTexts: bwPMElementManagementSystemFELaunched.setStatus('current')
-bwPMElementManagementSystemFEShutDown = NotificationType((1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 3006)).setObjects(("BroadworksFault", "identifier"), ("BroadworksFault", "timeStamp"), ("BroadworksFault", "alarmName"), ("BroadworksFault", "systemName"), ("BroadworksFault", "severity"), ("BroadworksFault", "component"), ("BroadworksFault", "subcomponent"), ("BroadworksFault", "problemText"), ("BroadworksFault", "recommendedActionsText"))
-if mibBuilder.loadTexts: bwPMElementManagementSystemFEShutDown.setStatus('current')
-bwPMElementManagementSystemFERestarted = NotificationType((1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 3007)).setObjects(("BroadworksFault", "identifier"), ("BroadworksFault", "timeStamp"), ("BroadworksFault", "alarmName"), ("BroadworksFault", "systemName"), ("BroadworksFault", "severity"), ("BroadworksFault", "component"), ("BroadworksFault", "subcomponent"), ("BroadworksFault", "problemText"), ("BroadworksFault", "recommendedActionsText"))
-if mibBuilder.loadTexts: bwPMElementManagementSystemFERestarted.setStatus('current')
-bwPMElementManagementSystemFEDeath = NotificationType((1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 3008)).setObjects(("BroadworksFault", "identifier"), ("BroadworksFault", "timeStamp"), ("BroadworksFault", "alarmName"), ("BroadworksFault", "systemName"), ("BroadworksFault", "severity"), ("BroadworksFault", "component"), ("BroadworksFault", "subcomponent"), ("BroadworksFault", "problemText"), ("BroadworksFault", "recommendedActionsText"))
-if mibBuilder.loadTexts: bwPMElementManagementSystemFEDeath.setStatus('current')
-mibBuilder.exportSymbols("BW-BroadworksEMSFault", bwPMElementManagementSystemFERestarted=bwPMElementManagementSystemFERestarted, bwPMElementManagementSystemBERestarted=bwPMElementManagementSystemBERestarted, bwPMElementManagementSystemBEDeath=bwPMElementManagementSystemBEDeath, bwPMElementManagementSystemFEDeath=bwPMElementManagementSystemFEDeath, bwPMElementManagementSystemBELaunched=bwPMElementManagementSystemBELaunched, PYSNMP_MODULE_ID=systemFaults, bwPMElementManagementSystemBEShutDown=bwPMElementManagementSystemBEShutDown, bwPMElementManagementSystemFELaunched=bwPMElementManagementSystemFELaunched, systemFaults=systemFaults, bwPMElementManagementSystemFEShutDown=bwPMElementManagementSystemFEShutDown)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/BW-BroadworksEMSFault
+# Produced by pysmi-1.5.4 at Mon Oct 14 20:50:03 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(alarmName,
+ alarmState,
+ common,
+ component,
+ faultFields,
+ identifier,
+ problemText,
+ recommendedActionsText,
+ severity,
+ subcomponent,
+ systemName,
+ timeStamp) = mibBuilder.importSymbols(
+    "BroadworksFault",
+    "alarmName",
+    "alarmState",
+    "common",
+    "component",
+    "faultFields",
+    "identifier",
+    "problemText",
+    "recommendedActionsText",
+    "severity",
+    "subcomponent",
+    "systemName",
+    "timeStamp")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+systemFaults = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 1, 1)
+)
+systemFaults.setRevisions(
+        ("2000-09-19 14:31",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+bwPMElementManagementSystemBELaunched = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 3001)
+)
+bwPMElementManagementSystemBELaunched.setObjects(
+      *(("BroadworksFault", "identifier"),
+        ("BroadworksFault", "timeStamp"),
+        ("BroadworksFault", "alarmName"),
+        ("BroadworksFault", "systemName"),
+        ("BroadworksFault", "severity"),
+        ("BroadworksFault", "component"),
+        ("BroadworksFault", "subcomponent"),
+        ("BroadworksFault", "problemText"),
+        ("BroadworksFault", "recommendedActionsText"))
+)
+if mibBuilder.loadTexts:
+    bwPMElementManagementSystemBELaunched.setStatus(
+        "current"
+    )
+
+bwPMElementManagementSystemBEShutDown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 3002)
+)
+bwPMElementManagementSystemBEShutDown.setObjects(
+      *(("BroadworksFault", "identifier"),
+        ("BroadworksFault", "timeStamp"),
+        ("BroadworksFault", "alarmName"),
+        ("BroadworksFault", "systemName"),
+        ("BroadworksFault", "severity"),
+        ("BroadworksFault", "component"),
+        ("BroadworksFault", "subcomponent"),
+        ("BroadworksFault", "problemText"),
+        ("BroadworksFault", "recommendedActionsText"))
+)
+if mibBuilder.loadTexts:
+    bwPMElementManagementSystemBEShutDown.setStatus(
+        "current"
+    )
+
+bwPMElementManagementSystemBERestarted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 3003)
+)
+bwPMElementManagementSystemBERestarted.setObjects(
+      *(("BroadworksFault", "identifier"),
+        ("BroadworksFault", "timeStamp"),
+        ("BroadworksFault", "alarmName"),
+        ("BroadworksFault", "systemName"),
+        ("BroadworksFault", "severity"),
+        ("BroadworksFault", "component"),
+        ("BroadworksFault", "subcomponent"),
+        ("BroadworksFault", "problemText"),
+        ("BroadworksFault", "recommendedActionsText"))
+)
+if mibBuilder.loadTexts:
+    bwPMElementManagementSystemBERestarted.setStatus(
+        "current"
+    )
+
+bwPMElementManagementSystemBEDeath = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 3004)
+)
+bwPMElementManagementSystemBEDeath.setObjects(
+      *(("BroadworksFault", "identifier"),
+        ("BroadworksFault", "timeStamp"),
+        ("BroadworksFault", "alarmName"),
+        ("BroadworksFault", "systemName"),
+        ("BroadworksFault", "severity"),
+        ("BroadworksFault", "component"),
+        ("BroadworksFault", "subcomponent"),
+        ("BroadworksFault", "problemText"),
+        ("BroadworksFault", "recommendedActionsText"))
+)
+if mibBuilder.loadTexts:
+    bwPMElementManagementSystemBEDeath.setStatus(
+        "current"
+    )
+
+bwPMElementManagementSystemFELaunched = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 3005)
+)
+bwPMElementManagementSystemFELaunched.setObjects(
+      *(("BroadworksFault", "identifier"),
+        ("BroadworksFault", "timeStamp"),
+        ("BroadworksFault", "alarmName"),
+        ("BroadworksFault", "systemName"),
+        ("BroadworksFault", "severity"),
+        ("BroadworksFault", "component"),
+        ("BroadworksFault", "subcomponent"),
+        ("BroadworksFault", "problemText"),
+        ("BroadworksFault", "recommendedActionsText"))
+)
+if mibBuilder.loadTexts:
+    bwPMElementManagementSystemFELaunched.setStatus(
+        "current"
+    )
+
+bwPMElementManagementSystemFEShutDown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 3006)
+)
+bwPMElementManagementSystemFEShutDown.setObjects(
+      *(("BroadworksFault", "identifier"),
+        ("BroadworksFault", "timeStamp"),
+        ("BroadworksFault", "alarmName"),
+        ("BroadworksFault", "systemName"),
+        ("BroadworksFault", "severity"),
+        ("BroadworksFault", "component"),
+        ("BroadworksFault", "subcomponent"),
+        ("BroadworksFault", "problemText"),
+        ("BroadworksFault", "recommendedActionsText"))
+)
+if mibBuilder.loadTexts:
+    bwPMElementManagementSystemFEShutDown.setStatus(
+        "current"
+    )
+
+bwPMElementManagementSystemFERestarted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 3007)
+)
+bwPMElementManagementSystemFERestarted.setObjects(
+      *(("BroadworksFault", "identifier"),
+        ("BroadworksFault", "timeStamp"),
+        ("BroadworksFault", "alarmName"),
+        ("BroadworksFault", "systemName"),
+        ("BroadworksFault", "severity"),
+        ("BroadworksFault", "component"),
+        ("BroadworksFault", "subcomponent"),
+        ("BroadworksFault", "problemText"),
+        ("BroadworksFault", "recommendedActionsText"))
+)
+if mibBuilder.loadTexts:
+    bwPMElementManagementSystemFERestarted.setStatus(
+        "current"
+    )
+
+bwPMElementManagementSystemFEDeath = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 3008)
+)
+bwPMElementManagementSystemFEDeath.setObjects(
+      *(("BroadworksFault", "identifier"),
+        ("BroadworksFault", "timeStamp"),
+        ("BroadworksFault", "alarmName"),
+        ("BroadworksFault", "systemName"),
+        ("BroadworksFault", "severity"),
+        ("BroadworksFault", "component"),
+        ("BroadworksFault", "subcomponent"),
+        ("BroadworksFault", "problemText"),
+        ("BroadworksFault", "recommendedActionsText"))
+)
+if mibBuilder.loadTexts:
+    bwPMElementManagementSystemFEDeath.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "BW-BroadworksEMSFault",
+    **{"systemFaults": systemFaults,
+       "bwPMElementManagementSystemBELaunched": bwPMElementManagementSystemBELaunched,
+       "bwPMElementManagementSystemBEShutDown": bwPMElementManagementSystemBEShutDown,
+       "bwPMElementManagementSystemBERestarted": bwPMElementManagementSystemBERestarted,
+       "bwPMElementManagementSystemBEDeath": bwPMElementManagementSystemBEDeath,
+       "bwPMElementManagementSystemFELaunched": bwPMElementManagementSystemFELaunched,
+       "bwPMElementManagementSystemFEShutDown": bwPMElementManagementSystemFEShutDown,
+       "bwPMElementManagementSystemFERestarted": bwPMElementManagementSystemFERestarted,
+       "bwPMElementManagementSystemFEDeath": bwPMElementManagementSystemFEDeath}
+)

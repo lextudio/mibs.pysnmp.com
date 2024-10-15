@@ -1,48 +1,366 @@
+# SNMP MIB module (RADLAN-rlDvmrp-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module RADLAN-rlDvmrp-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/RADLAN-rlDvmrp-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:42:28 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint")
-dvmrpRouteNextHopSource, dvmrpRouteNextHopSourceMask, dvmrpRouteNextHopEntry, dvmrpRouteNextHopIfIndex = mibBuilder.importSymbols("DVMRP-STD-MIB", "dvmrpRouteNextHopSource", "dvmrpRouteNextHopSourceMask", "dvmrpRouteNextHopEntry", "dvmrpRouteNextHopIfIndex")
-rndErrorSeverity, rndErrorDesc = mibBuilder.importSymbols("RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity", "rndErrorDesc")
-rndNotifications, rnd = mibBuilder.importSymbols("RADLAN-MIB", "rndNotifications", "rnd")
-rlIPmulticast, = mibBuilder.importSymbols("RADLAN-rlIPMulticast-MIB", "rlIPmulticast")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-iso, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, ObjectIdentity, TimeTicks, Unsigned32, Gauge32, MibIdentifier, NotificationType, IpAddress, Counter64, ModuleIdentity, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "ObjectIdentity", "TimeTicks", "Unsigned32", "Gauge32", "MibIdentifier", "NotificationType", "IpAddress", "Counter64", "ModuleIdentity", "Integer32")
-TextualConvention, RowStatus, DisplayString, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "RowStatus", "DisplayString", "TruthValue")
-rlDvmrp = ModuleIdentity((1, 3, 6, 1, 4, 1, 89, 46, 4))
-rlDvmrp.setRevisions(('2004-04-19 00:00',))
-if mibBuilder.loadTexts: rlDvmrp.setLastUpdated('200404190000Z')
-if mibBuilder.loadTexts: rlDvmrp.setOrganization('Radlan Computer Communications Ltd.')
-rlDvmrpMibVersion = MibScalar((1, 3, 6, 1, 4, 1, 89, 46, 4, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlDvmrpMibVersion.setStatus('current')
-rlDvmrpEnable = MibScalar((1, 3, 6, 1, 4, 1, 89, 46, 4, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlDvmrpEnable.setStatus('current')
-rlDvmrpProbeInterval = MibScalar((1, 3, 6, 1, 4, 1, 89, 46, 4, 4), Integer32().clone(10)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlDvmrpProbeInterval.setStatus('current')
-rlDvmrpNeighborTimeOutInterval = MibScalar((1, 3, 6, 1, 4, 1, 89, 46, 4, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(25, 400)).clone(35)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlDvmrpNeighborTimeOutInterval.setStatus('current')
-rlDvmrpMinFlashUpdateInterval = MibScalar((1, 3, 6, 1, 4, 1, 89, 46, 4, 6), Integer32().clone(5)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlDvmrpMinFlashUpdateInterval.setStatus('current')
-rlDvmrpRouteReportInterval = MibScalar((1, 3, 6, 1, 4, 1, 89, 46, 4, 7), Integer32().clone(60)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlDvmrpRouteReportInterval.setStatus('current')
-rlDvmrpRouteExpirationTime = MibScalar((1, 3, 6, 1, 4, 1, 89, 46, 4, 8), Integer32().clone(140)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlDvmrpRouteExpirationTime.setStatus('current')
-rlDvmrpPruneLifetime = MibScalar((1, 3, 6, 1, 4, 1, 89, 46, 4, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(200, 7200)).clone(200)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlDvmrpPruneLifetime.setStatus('current')
-rlDvmrpRouteDesignatedForwarderExtTable = MibTable((1, 3, 6, 1, 4, 1, 89, 46, 4, 10), )
-if mibBuilder.loadTexts: rlDvmrpRouteDesignatedForwarderExtTable.setStatus('current')
-rlDvmrpRouteDesignatedForwarderExtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 46, 4, 10, 1), )
-dvmrpRouteNextHopEntry.registerAugmentions(("RADLAN-rlDvmrp-MIB", "rlDvmrpRouteDesignatedForwarderExtEntry"))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/RADLAN-rlDvmrp-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:44:09 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(dvmrpRouteNextHopEntry,
+ dvmrpRouteNextHopIfIndex,
+ dvmrpRouteNextHopSource,
+ dvmrpRouteNextHopSourceMask) = mibBuilder.importSymbols(
+    "DVMRP-STD-MIB",
+    "dvmrpRouteNextHopEntry",
+    "dvmrpRouteNextHopIfIndex",
+    "dvmrpRouteNextHopSource",
+    "dvmrpRouteNextHopSourceMask")
+
+(rndErrorDesc,
+ rndErrorSeverity) = mibBuilder.importSymbols(
+    "RADLAN-DEVICEPARAMS-MIB",
+    "rndErrorDesc",
+    "rndErrorSeverity")
+
+(rnd,
+ rndNotifications) = mibBuilder.importSymbols(
+    "RADLAN-MIB",
+    "rnd",
+    "rndNotifications")
+
+(rlIPmulticast,) = mibBuilder.importSymbols(
+    "RADLAN-rlIPMulticast-MIB",
+    "rlIPmulticast")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+rlDvmrp = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 89, 46, 4)
+)
+rlDvmrp.setRevisions(
+        ("2004-04-19 00:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_RlDvmrpMibVersion_Type = Integer32
+_RlDvmrpMibVersion_Object = MibScalar
+rlDvmrpMibVersion = _RlDvmrpMibVersion_Object(
+    (1, 3, 6, 1, 4, 1, 89, 46, 4, 2),
+    _RlDvmrpMibVersion_Type()
+)
+rlDvmrpMibVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlDvmrpMibVersion.setStatus("current")
+
+
+class _RlDvmrpEnable_Type(Integer32):
+    """Custom type rlDvmrpEnable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 2),
+          ("enabled", 1))
+    )
+
+
+_RlDvmrpEnable_Type.__name__ = "Integer32"
+_RlDvmrpEnable_Object = MibScalar
+rlDvmrpEnable = _RlDvmrpEnable_Object(
+    (1, 3, 6, 1, 4, 1, 89, 46, 4, 3),
+    _RlDvmrpEnable_Type()
+)
+rlDvmrpEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlDvmrpEnable.setStatus("current")
+
+
+class _RlDvmrpProbeInterval_Type(Integer32):
+    """Custom type rlDvmrpProbeInterval based on Integer32"""
+    defaultValue = 10
+
+
+_RlDvmrpProbeInterval_Object = MibScalar
+rlDvmrpProbeInterval = _RlDvmrpProbeInterval_Object(
+    (1, 3, 6, 1, 4, 1, 89, 46, 4, 4),
+    _RlDvmrpProbeInterval_Type()
+)
+rlDvmrpProbeInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlDvmrpProbeInterval.setStatus("current")
+if mibBuilder.loadTexts:
+    rlDvmrpProbeInterval.setUnits("seconds")
+
+
+class _RlDvmrpNeighborTimeOutInterval_Type(Integer32):
+    """Custom type rlDvmrpNeighborTimeOutInterval based on Integer32"""
+    defaultValue = 35
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(25, 400),
+    )
+
+
+_RlDvmrpNeighborTimeOutInterval_Type.__name__ = "Integer32"
+_RlDvmrpNeighborTimeOutInterval_Object = MibScalar
+rlDvmrpNeighborTimeOutInterval = _RlDvmrpNeighborTimeOutInterval_Object(
+    (1, 3, 6, 1, 4, 1, 89, 46, 4, 5),
+    _RlDvmrpNeighborTimeOutInterval_Type()
+)
+rlDvmrpNeighborTimeOutInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlDvmrpNeighborTimeOutInterval.setStatus("current")
+if mibBuilder.loadTexts:
+    rlDvmrpNeighborTimeOutInterval.setUnits("seconds")
+
+
+class _RlDvmrpMinFlashUpdateInterval_Type(Integer32):
+    """Custom type rlDvmrpMinFlashUpdateInterval based on Integer32"""
+    defaultValue = 5
+
+
+_RlDvmrpMinFlashUpdateInterval_Object = MibScalar
+rlDvmrpMinFlashUpdateInterval = _RlDvmrpMinFlashUpdateInterval_Object(
+    (1, 3, 6, 1, 4, 1, 89, 46, 4, 6),
+    _RlDvmrpMinFlashUpdateInterval_Type()
+)
+rlDvmrpMinFlashUpdateInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlDvmrpMinFlashUpdateInterval.setStatus("current")
+if mibBuilder.loadTexts:
+    rlDvmrpMinFlashUpdateInterval.setUnits("seconds")
+
+
+class _RlDvmrpRouteReportInterval_Type(Integer32):
+    """Custom type rlDvmrpRouteReportInterval based on Integer32"""
+    defaultValue = 60
+
+
+_RlDvmrpRouteReportInterval_Object = MibScalar
+rlDvmrpRouteReportInterval = _RlDvmrpRouteReportInterval_Object(
+    (1, 3, 6, 1, 4, 1, 89, 46, 4, 7),
+    _RlDvmrpRouteReportInterval_Type()
+)
+rlDvmrpRouteReportInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlDvmrpRouteReportInterval.setStatus("current")
+if mibBuilder.loadTexts:
+    rlDvmrpRouteReportInterval.setUnits("seconds")
+
+
+class _RlDvmrpRouteExpirationTime_Type(Integer32):
+    """Custom type rlDvmrpRouteExpirationTime based on Integer32"""
+    defaultValue = 140
+
+
+_RlDvmrpRouteExpirationTime_Object = MibScalar
+rlDvmrpRouteExpirationTime = _RlDvmrpRouteExpirationTime_Object(
+    (1, 3, 6, 1, 4, 1, 89, 46, 4, 8),
+    _RlDvmrpRouteExpirationTime_Type()
+)
+rlDvmrpRouteExpirationTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlDvmrpRouteExpirationTime.setStatus("current")
+if mibBuilder.loadTexts:
+    rlDvmrpRouteExpirationTime.setUnits("seconds")
+
+
+class _RlDvmrpPruneLifetime_Type(Integer32):
+    """Custom type rlDvmrpPruneLifetime based on Integer32"""
+    defaultValue = 200
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(200, 7200),
+    )
+
+
+_RlDvmrpPruneLifetime_Type.__name__ = "Integer32"
+_RlDvmrpPruneLifetime_Object = MibScalar
+rlDvmrpPruneLifetime = _RlDvmrpPruneLifetime_Object(
+    (1, 3, 6, 1, 4, 1, 89, 46, 4, 9),
+    _RlDvmrpPruneLifetime_Type()
+)
+rlDvmrpPruneLifetime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlDvmrpPruneLifetime.setStatus("current")
+if mibBuilder.loadTexts:
+    rlDvmrpPruneLifetime.setUnits("seconds")
+_RlDvmrpRouteDesignatedForwarderExtTable_Object = MibTable
+rlDvmrpRouteDesignatedForwarderExtTable = _RlDvmrpRouteDesignatedForwarderExtTable_Object(
+    (1, 3, 6, 1, 4, 1, 89, 46, 4, 10)
+)
+if mibBuilder.loadTexts:
+    rlDvmrpRouteDesignatedForwarderExtTable.setStatus("current")
+_RlDvmrpRouteDesignatedForwarderExtEntry_Object = MibTableRow
+rlDvmrpRouteDesignatedForwarderExtEntry = _RlDvmrpRouteDesignatedForwarderExtEntry_Object(
+    (1, 3, 6, 1, 4, 1, 89, 46, 4, 10, 1)
+)
+if mibBuilder.loadTexts:
+    rlDvmrpRouteDesignatedForwarderExtEntry.setStatus("current")
+_RlDvmrpRouteDesignatedForwarder_Type = IpAddress
+_RlDvmrpRouteDesignatedForwarder_Object = MibTableColumn
+rlDvmrpRouteDesignatedForwarder = _RlDvmrpRouteDesignatedForwarder_Object(
+    (1, 3, 6, 1, 4, 1, 89, 46, 4, 10, 1, 1),
+    _RlDvmrpRouteDesignatedForwarder_Type()
+)
+rlDvmrpRouteDesignatedForwarder.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlDvmrpRouteDesignatedForwarder.setStatus("current")
+dvmrpRouteNextHopEntry.registerAugmentions(
+    ("RADLAN-rlDvmrp-MIB",
+     "rlDvmrpRouteDesignatedForwarderExtEntry")
+)
 rlDvmrpRouteDesignatedForwarderExtEntry.setIndexNames(*dvmrpRouteNextHopEntry.getIndexNames())
-if mibBuilder.loadTexts: rlDvmrpRouteDesignatedForwarderExtEntry.setStatus('current')
-rlDvmrpRouteDesignatedForwarder = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 46, 4, 10, 1, 1), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlDvmrpRouteDesignatedForwarder.setStatus('current')
-rlDvmrpTableOverflow = NotificationType((1, 3, 6, 1, 4, 1, 89, 0, 155)).setObjects(("RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlDvmrpTableOverflow.setStatus('current')
-mibBuilder.exportSymbols("RADLAN-rlDvmrp-MIB", rlDvmrp=rlDvmrp, rlDvmrpRouteDesignatedForwarderExtTable=rlDvmrpRouteDesignatedForwarderExtTable, rlDvmrpRouteDesignatedForwarder=rlDvmrpRouteDesignatedForwarder, PYSNMP_MODULE_ID=rlDvmrp, rlDvmrpTableOverflow=rlDvmrpTableOverflow, rlDvmrpRouteDesignatedForwarderExtEntry=rlDvmrpRouteDesignatedForwarderExtEntry, rlDvmrpMibVersion=rlDvmrpMibVersion, rlDvmrpProbeInterval=rlDvmrpProbeInterval, rlDvmrpMinFlashUpdateInterval=rlDvmrpMinFlashUpdateInterval, rlDvmrpRouteReportInterval=rlDvmrpRouteReportInterval, rlDvmrpPruneLifetime=rlDvmrpPruneLifetime, rlDvmrpNeighborTimeOutInterval=rlDvmrpNeighborTimeOutInterval, rlDvmrpRouteExpirationTime=rlDvmrpRouteExpirationTime, rlDvmrpEnable=rlDvmrpEnable)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+rlDvmrpTableOverflow = NotificationType(
+    (1, 3, 6, 1, 4, 1, 89, 0, 155)
+)
+rlDvmrpTableOverflow.setObjects(
+      *(("RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlDvmrpTableOverflow.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "RADLAN-rlDvmrp-MIB",
+    **{"rlDvmrpTableOverflow": rlDvmrpTableOverflow,
+       "rlDvmrp": rlDvmrp,
+       "rlDvmrpMibVersion": rlDvmrpMibVersion,
+       "rlDvmrpEnable": rlDvmrpEnable,
+       "rlDvmrpProbeInterval": rlDvmrpProbeInterval,
+       "rlDvmrpNeighborTimeOutInterval": rlDvmrpNeighborTimeOutInterval,
+       "rlDvmrpMinFlashUpdateInterval": rlDvmrpMinFlashUpdateInterval,
+       "rlDvmrpRouteReportInterval": rlDvmrpRouteReportInterval,
+       "rlDvmrpRouteExpirationTime": rlDvmrpRouteExpirationTime,
+       "rlDvmrpPruneLifetime": rlDvmrpPruneLifetime,
+       "rlDvmrpRouteDesignatedForwarderExtTable": rlDvmrpRouteDesignatedForwarderExtTable,
+       "rlDvmrpRouteDesignatedForwarderExtEntry": rlDvmrpRouteDesignatedForwarderExtEntry,
+       "rlDvmrpRouteDesignatedForwarder": rlDvmrpRouteDesignatedForwarder}
+)

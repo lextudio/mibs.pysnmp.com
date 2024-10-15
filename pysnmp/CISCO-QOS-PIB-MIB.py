@@ -1,390 +1,2166 @@
+# SNMP MIB module (CISCO-QOS-PIB-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-QOS-PIB-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/CISCO-QOS-PIB-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:35:14 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
-ciscoPibToMib, = mibBuilder.importSymbols("CISCO-SMI", "ciscoPibToMib")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-Counter32, Unsigned32, ModuleIdentity, Bits, IpAddress, iso, Integer32, TimeTicks, MibIdentifier, ObjectIdentity, Counter64, Gauge32, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Unsigned32", "ModuleIdentity", "Bits", "IpAddress", "iso", "Integer32", "TimeTicks", "MibIdentifier", "ObjectIdentity", "Counter64", "Gauge32", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-TruthValue, MacAddress, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "MacAddress", "DisplayString", "TextualConvention")
-ciscoQosPIBMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 18, 2, 1))
-ciscoQosPIBMIB.setRevisions(('2007-08-29 00:00', '2004-05-03 00:00', '2003-02-21 00:00', '2002-05-02 00:00', '2000-06-16 00:00', '2000-05-11 00:00',))
-if mibBuilder.loadTexts: ciscoQosPIBMIB.setLastUpdated('200708290000Z')
-if mibBuilder.loadTexts: ciscoQosPIBMIB.setOrganization('Cisco Systems Inc.')
-class Dscp(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 63)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CISCO-QOS-PIB-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 20:57:01 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class QosLayer2Cos(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 7)
+if 'mibBuilder' not in globals():
+    import sys
 
-class QueueRange(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 8, 16, 32, 64))
-    namedValues = NamedValues(("oneQ", 1), ("twoQ", 2), ("threeQ", 3), ("fourQ", 4), ("eightQ", 8), ("sixteenQ", 16), ("thirtyTwoQ", 32), ("sixtyFourQ", 64))
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-class ThresholdSetRange(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 4, 8))
-    namedValues = NamedValues(("zeroT", 0), ("oneT", 1), ("twoT", 2), ("fourT", 4), ("eightT", 8))
+# Import base ASN.1 objects even if this MIB does not use it
 
-class Percent(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 100)
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
 
-class QosInterfaceQueueType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45))
-    namedValues = NamedValues(("oneQ1t", 1), ("oneQ2t", 2), ("oneQ4t", 3), ("oneQ8t", 4), ("twoQ1t", 5), ("twoQ2t", 6), ("twoQ4t", 7), ("twoQ8t", 8), ("threeQ1t", 9), ("threeQ2t", 10), ("threeQ4t", 11), ("threeQ8t", 12), ("fourQ1t", 13), ("fourQ2t", 14), ("fourQ4t", 15), ("fourQ8t", 16), ("eightQ1t", 17), ("eightQ2t", 18), ("eightQ4t", 19), ("eightQ8t", 20), ("sixteenQ1t", 21), ("sixteenQ2t", 22), ("sixteenQ4t", 23), ("sixtyfourQ1t", 24), ("sixtyfourQ2t", 25), ("sixtyfourQ4t", 26), ("oneP1Q0t", 27), ("oneP1Q4t", 28), ("oneP1Q8t", 29), ("oneP2Q1t", 30), ("oneP2Q2t", 31), ("oneP3Q1t", 32), ("oneP7Q8t", 33), ("oneP3Q8t", 34), ("sixteenQ8t", 35), ("oneP15Q8t", 36), ("oneP15Q1t", 37), ("oneP7Q1t", 38), ("oneP31Q1t", 39), ("thirtytwoQ1t", 40), ("thirtytwoQ8t", 41), ("oneP31Q8t", 42), ("oneP7Q4t", 43), ("oneP3Q4t", 44), ("oneP7Q2t", 45))
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
 
-class QosInterfaceTypeCapabilities(TextualConvention, Bits):
-    status = 'current'
-    namedValues = NamedValues(("unspecified", 0), ("inputL2Classification", 1), ("inputIpClassification", 2), ("outputL2Classification", 3), ("outputIpClassification", 4), ("inputPortClassification", 19), ("outputPortClassification", 20), ("inputUflowPolicing", 5), ("inputAggregatePolicing", 6), ("outputUflowPolicing", 7), ("outputAggregatePolicing", 8), ("policeByMarkingDown", 9), ("policeByDropping", 10), ("inputUflowShaping", 21), ("inputAggregateShaping", 22), ("outputUflowShaping", 23), ("outputAggregateShaping", 24), ("fifo", 11), ("wrr", 12), ("wfq", 13), ("cq", 14), ("pq", 15), ("cbwfq", 16), ("pqWrr", 25), ("pqCbwfq", 26), ("tailDrop", 17), ("wred", 18))
+# Import SMI symbols from the MIBs this MIB depends on
 
-class RoleCombination(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 255)
+(ciscoPibToMib,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoPibToMib")
 
-class PolicyInstanceId(TextualConvention, Unsigned32):
-    status = 'current'
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
 
-class Unsigned64(TextualConvention, Counter64):
-    status = 'current'
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
 
-qosPIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1))
-qosDeviceConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2))
-qosDevicePibIncarnationTable = MibTable((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 1), )
-if mibBuilder.loadTexts: qosDevicePibIncarnationTable.setStatus('current')
-qosDevicePibIncarnationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 1, 1), ).setIndexNames((0, "CISCO-QOS-PIB-MIB", "qosDeviceIncarnationId"))
-if mibBuilder.loadTexts: qosDevicePibIncarnationEntry.setStatus('current')
-qosDeviceIncarnationId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 1, 1, 1), PolicyInstanceId())
-if mibBuilder.loadTexts: qosDeviceIncarnationId.setStatus('current')
-qosDevicePdpName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosDevicePdpName.setStatus('current')
-qosDevicePibIncarnation = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(128, 128)).setFixedLength(128)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosDevicePibIncarnation.setStatus('current')
-qosDevicePibTtl = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 1, 1, 4), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosDevicePibTtl.setStatus('current')
-qosDeviceAttributeTable = MibTable((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 2), )
-if mibBuilder.loadTexts: qosDeviceAttributeTable.setStatus('current')
-qosDeviceAttributeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 2, 1), ).setIndexNames((0, "CISCO-QOS-PIB-MIB", "qosDeviceAttributeId"))
-if mibBuilder.loadTexts: qosDeviceAttributeEntry.setStatus('current')
-qosDeviceAttributeId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 2, 1, 1), PolicyInstanceId())
-if mibBuilder.loadTexts: qosDeviceAttributeId.setStatus('current')
-qosDevicePepDomain = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 2, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosDevicePepDomain.setStatus('current')
-qosDevicePrimaryPdp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 2, 1, 3), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosDevicePrimaryPdp.setStatus('current')
-qosDeviceSecondaryPdp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 2, 1, 4), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosDeviceSecondaryPdp.setStatus('current')
-qosDeviceMaxMessageSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 2, 1, 5), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosDeviceMaxMessageSize.setStatus('current')
-qosDeviceCapabilities = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 2, 1, 6), Bits().clone(namedValues=NamedValues(("unspecified", 0), ("layer2Cos", 1), ("ipPrecedence", 2), ("dscp", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosDeviceCapabilities.setStatus('current')
-qosInterfaceTypeTable = MibTable((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 3), )
-if mibBuilder.loadTexts: qosInterfaceTypeTable.setStatus('current')
-qosInterfaceTypeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 3, 1), ).setIndexNames((0, "CISCO-QOS-PIB-MIB", "qosInterfaceTypeId"))
-if mibBuilder.loadTexts: qosInterfaceTypeEntry.setStatus('current')
-qosInterfaceTypeId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 3, 1, 1), PolicyInstanceId())
-if mibBuilder.loadTexts: qosInterfaceTypeId.setStatus('current')
-qosInterfaceQueueType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 3, 1, 2), QosInterfaceQueueType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosInterfaceQueueType.setStatus('current')
-qosInterfaceTypeRoles = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 3, 1, 3), RoleCombination()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosInterfaceTypeRoles.setStatus('current')
-qosInterfaceTypeCapabilities = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 3, 1, 4), QosInterfaceTypeCapabilities()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosInterfaceTypeCapabilities.setStatus('current')
-qosDomainConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 3))
-qosDiffServMappingTable = MibTable((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 3, 1), )
-if mibBuilder.loadTexts: qosDiffServMappingTable.setStatus('current')
-qosDiffServMappingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 3, 1, 1), ).setIndexNames((0, "CISCO-QOS-PIB-MIB", "qosDscp"))
-if mibBuilder.loadTexts: qosDiffServMappingEntry.setStatus('current')
-qosDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 3, 1, 1, 1), Dscp())
-if mibBuilder.loadTexts: qosDscp.setStatus('current')
-qosMarkedDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 3, 1, 1, 2), Dscp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosMarkedDscp.setStatus('current')
-qosL2Cos = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 3, 1, 1, 3), QosLayer2Cos()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosL2Cos.setStatus('current')
-qosCosToDscpTable = MibTable((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 3, 2), )
-if mibBuilder.loadTexts: qosCosToDscpTable.setStatus('current')
-qosCosToDscpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 3, 2, 1), ).setIndexNames((0, "CISCO-QOS-PIB-MIB", "qosCosToDscpCos"))
-if mibBuilder.loadTexts: qosCosToDscpEntry.setStatus('current')
-qosCosToDscpCos = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 3, 2, 1, 1), QosLayer2Cos())
-if mibBuilder.loadTexts: qosCosToDscpCos.setStatus('current')
-qosCosToDscpDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 3, 2, 1, 2), Dscp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosCosToDscpDscp.setStatus('current')
-qosUnmatchedPolicy = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 4))
-qosUnmatchedPolicyTable = MibTable((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 4, 1), )
-if mibBuilder.loadTexts: qosUnmatchedPolicyTable.setStatus('current')
-qosUnmatchedPolicyEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 4, 1, 1), ).setIndexNames((0, "CISCO-QOS-PIB-MIB", "qosUnmatchedPolicyId"))
-if mibBuilder.loadTexts: qosUnmatchedPolicyEntry.setStatus('current')
-qosUnmatchedPolicyId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 4, 1, 1, 1), PolicyInstanceId())
-if mibBuilder.loadTexts: qosUnmatchedPolicyId.setStatus('current')
-qosUnmatchedPolicyRole = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 4, 1, 1, 2), RoleCombination()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosUnmatchedPolicyRole.setStatus('current')
-qosUnmatchedPolicyDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 4, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("in", 0), ("out", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosUnmatchedPolicyDirection.setStatus('current')
-qosUnmatchedPolicyDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 4, 1, 1, 4), Dscp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosUnmatchedPolicyDscp.setStatus('current')
-qosUnmatchedPolicyDscpTrusted = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 4, 1, 1, 5), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosUnmatchedPolicyDscpTrusted.setStatus('current')
-qosUnmatchPolMicroFlowPolicerId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 4, 1, 1, 6), PolicyInstanceId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosUnmatchPolMicroFlowPolicerId.setStatus('current')
-qosUnmatchedPolicyAggregateId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 4, 1, 1, 7), PolicyInstanceId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosUnmatchedPolicyAggregateId.setStatus('current')
-qosPolicer = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 5))
-qosPolicerTable = MibTable((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 5, 1), )
-if mibBuilder.loadTexts: qosPolicerTable.setStatus('current')
-qosPolicerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 5, 1, 1), ).setIndexNames((0, "CISCO-QOS-PIB-MIB", "qosPolicerId"))
-if mibBuilder.loadTexts: qosPolicerEntry.setStatus('current')
-qosPolicerId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 5, 1, 1, 1), PolicyInstanceId())
-if mibBuilder.loadTexts: qosPolicerId.setStatus('current')
-qosPolicerRate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 5, 1, 1, 2), Unsigned64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosPolicerRate.setStatus('current')
-qosPolicerNormalBurst = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 5, 1, 1, 3), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosPolicerNormalBurst.setStatus('current')
-qosPolicerExcessBurst = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 5, 1, 1, 4), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosPolicerExcessBurst.setStatus('current')
-qosPolicerAction = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 5, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("drop", 0), ("mark", 1), ("shape", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosPolicerAction.setStatus('current')
-qosAggregateTable = MibTable((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 5, 2), )
-if mibBuilder.loadTexts: qosAggregateTable.setStatus('current')
-qosAggregateEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 5, 2, 1), ).setIndexNames((0, "CISCO-QOS-PIB-MIB", "qosAggregateId"))
-if mibBuilder.loadTexts: qosAggregateEntry.setStatus('current')
-qosAggregateId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 5, 2, 1, 1), PolicyInstanceId())
-if mibBuilder.loadTexts: qosAggregateId.setStatus('current')
-qosAggregatePolicerId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 5, 2, 1, 2), PolicyInstanceId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosAggregatePolicerId.setStatus('current')
-qosMacQos = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 6))
-qosMacClassificationTable = MibTable((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 6, 1), )
-if mibBuilder.loadTexts: qosMacClassificationTable.setStatus('current')
-qosMacClassificationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 6, 1, 1), ).setIndexNames((0, "CISCO-QOS-PIB-MIB", "qosMacClassificationId"))
-if mibBuilder.loadTexts: qosMacClassificationEntry.setStatus('current')
-qosMacClassificationId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 6, 1, 1, 1), PolicyInstanceId())
-if mibBuilder.loadTexts: qosMacClassificationId.setStatus('current')
-qosDstMacVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 6, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosDstMacVlan.setStatus('current')
-qosDstMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 6, 1, 1, 3), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosDstMacAddress.setStatus('current')
-qosDstMacCos = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 6, 1, 1, 4), QosLayer2Cos()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosDstMacCos.setStatus('current')
-qosIpQos = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7))
-qosIpAceTable = MibTable((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 1), )
-if mibBuilder.loadTexts: qosIpAceTable.setStatus('current')
-qosIpAceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 1, 1), ).setIndexNames((0, "CISCO-QOS-PIB-MIB", "qosIpAceId"))
-if mibBuilder.loadTexts: qosIpAceEntry.setStatus('current')
-qosIpAceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 1, 1, 1), PolicyInstanceId())
-if mibBuilder.loadTexts: qosIpAceId.setStatus('current')
-qosIpAceDstAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 1, 1, 2), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIpAceDstAddr.setStatus('current')
-qosIpAceDstAddrMask = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 1, 1, 3), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIpAceDstAddrMask.setStatus('current')
-qosIpAceSrcAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 1, 1, 4), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIpAceSrcAddr.setStatus('current')
-qosIpAceSrcAddrMask = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 1, 1, 5), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIpAceSrcAddrMask.setStatus('current')
-qosIpAceDscpMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 1, 1, 6), Dscp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIpAceDscpMin.setStatus('current')
-qosIpAceDscpMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 1, 1, 7), Dscp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIpAceDscpMax.setStatus('current')
-qosIpAceProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 1, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIpAceProtocol.setStatus('current')
-qosIpAceDstL4PortMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 1, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIpAceDstL4PortMin.setStatus('current')
-qosIpAceDstL4PortMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 1, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIpAceDstL4PortMax.setStatus('current')
-qosIpAceSrcL4PortMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 1, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIpAceSrcL4PortMin.setStatus('current')
-qosIpAceSrcL4PortMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 1, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIpAceSrcL4PortMax.setStatus('current')
-qosIpAcePermit = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 1, 1, 13), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIpAcePermit.setStatus('current')
-qosIpAclDefinitionTable = MibTable((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 2), )
-if mibBuilder.loadTexts: qosIpAclDefinitionTable.setStatus('current')
-qosIpAclDefinitionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 2, 1), ).setIndexNames((0, "CISCO-QOS-PIB-MIB", "qosIpAclDefinitionId"))
-if mibBuilder.loadTexts: qosIpAclDefinitionEntry.setStatus('current')
-qosIpAclDefinitionId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 2, 1, 1), PolicyInstanceId())
-if mibBuilder.loadTexts: qosIpAclDefinitionId.setStatus('current')
-qosIpAclId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 2, 1, 2), PolicyInstanceId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIpAclId.setStatus('current')
-qosIpAceOrder = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 2, 1, 3), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIpAceOrder.setStatus('current')
-qosIpAclDefAceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 2, 1, 4), PolicyInstanceId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIpAclDefAceId.setStatus('current')
-qosIpAclActionTable = MibTable((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 3), )
-if mibBuilder.loadTexts: qosIpAclActionTable.setStatus('current')
-qosIpAclActionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 3, 1), ).setIndexNames((0, "CISCO-QOS-PIB-MIB", "qosIpAclActionId"))
-if mibBuilder.loadTexts: qosIpAclActionEntry.setStatus('current')
-qosIpAclActionId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 3, 1, 1), PolicyInstanceId())
-if mibBuilder.loadTexts: qosIpAclActionId.setStatus('current')
-qosIpAclActAclId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 3, 1, 2), PolicyInstanceId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIpAclActAclId.setStatus('current')
-qosIpAclInterfaceRoles = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 3, 1, 3), RoleCombination()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIpAclInterfaceRoles.setStatus('current')
-qosIpAclInterfaceDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("in", 0), ("out", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIpAclInterfaceDirection.setStatus('current')
-qosIpAclOrder = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 3, 1, 5), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIpAclOrder.setStatus('current')
-qosIpAclDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 3, 1, 6), Dscp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIpAclDscp.setStatus('current')
-qosIpAclDscpTrusted = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 3, 1, 7), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIpAclDscpTrusted.setStatus('current')
-qosIpAclMicroFlowPolicerId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 3, 1, 8), PolicyInstanceId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIpAclMicroFlowPolicerId.setStatus('current')
-qosIpAclAggregateId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 3, 1, 9), PolicyInstanceId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIpAclAggregateId.setStatus('current')
-qosIfParameters = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8))
-qosIfSchedulingPreferencesTable = MibTable((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 1), )
-if mibBuilder.loadTexts: qosIfSchedulingPreferencesTable.setStatus('current')
-qosIfSchedulingPreferenceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 1, 1), ).setIndexNames((0, "CISCO-QOS-PIB-MIB", "qosIfSchedulingPreferenceId"))
-if mibBuilder.loadTexts: qosIfSchedulingPreferenceEntry.setStatus('current')
-qosIfSchedulingPreferenceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 1, 1, 1), PolicyInstanceId())
-if mibBuilder.loadTexts: qosIfSchedulingPreferenceId.setStatus('current')
-qosIfSchedulingRoles = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 1, 1, 2), RoleCombination()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIfSchedulingRoles.setStatus('current')
-qosIfSchedulingPreference = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIfSchedulingPreference.setStatus('current')
-qosIfSchedulingDiscipline = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("weightedFairQueueing", 1), ("weightedRoundRobin", 2), ("customQueueing", 3), ("priorityQueueing", 4), ("classBasedWFQ", 5), ("fifo", 6), ("pqWrr", 7), ("pqCbwfq", 8)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIfSchedulingDiscipline.setStatus('current')
-qosIfSchedulingQueueType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 1, 1, 5), QosInterfaceQueueType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIfSchedulingQueueType.setStatus('current')
-qosIfDropPreferenceTable = MibTable((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 2), )
-if mibBuilder.loadTexts: qosIfDropPreferenceTable.setStatus('current')
-qosIfDropPreferenceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 2, 1), ).setIndexNames((0, "CISCO-QOS-PIB-MIB", "qosIfDropPreferenceId"))
-if mibBuilder.loadTexts: qosIfDropPreferenceEntry.setStatus('current')
-qosIfDropPreferenceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 2, 1, 1), PolicyInstanceId())
-if mibBuilder.loadTexts: qosIfDropPreferenceId.setStatus('current')
-qosIfDropRoles = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 2, 1, 2), RoleCombination()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIfDropRoles.setStatus('current')
-qosIfDropPreference = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIfDropPreference.setStatus('current')
-qosIfDropDiscipline = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("qosIfDropWRED", 1), ("qosIfDropTailDrop", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIfDropDiscipline.setStatus('current')
-qosIfDscpAssignmentTable = MibTable((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 3), )
-if mibBuilder.loadTexts: qosIfDscpAssignmentTable.setStatus('current')
-qosIfDscpAssignmentEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 3, 1), ).setIndexNames((0, "CISCO-QOS-PIB-MIB", "qosIfDscpAssignmentId"))
-if mibBuilder.loadTexts: qosIfDscpAssignmentEntry.setStatus('current')
-qosIfDscpAssignmentId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 3, 1, 1), PolicyInstanceId())
-if mibBuilder.loadTexts: qosIfDscpAssignmentId.setStatus('current')
-qosIfDscpRoles = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 3, 1, 2), RoleCombination()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIfDscpRoles.setStatus('current')
-qosIfQueueType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 3, 1, 3), QosInterfaceQueueType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIfQueueType.setStatus('current')
-qosIfDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 3, 1, 4), Dscp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIfDscp.setStatus('current')
-qosIfQueue = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 3, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIfQueue.setStatus('current')
-qosIfThresholdSet = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 3, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIfThresholdSet.setStatus('current')
-qosIfRedTable = MibTable((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 4), )
-if mibBuilder.loadTexts: qosIfRedTable.setStatus('current')
-qosIfRedEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 4, 1), ).setIndexNames((0, "CISCO-QOS-PIB-MIB", "qosIfRedId"))
-if mibBuilder.loadTexts: qosIfRedEntry.setStatus('current')
-qosIfRedId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 4, 1, 1), PolicyInstanceId())
-if mibBuilder.loadTexts: qosIfRedId.setStatus('current')
-qosIfRedRoles = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 4, 1, 2), RoleCombination()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIfRedRoles.setStatus('current')
-qosIfRedNumThresholdSets = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 4, 1, 3), ThresholdSetRange()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIfRedNumThresholdSets.setStatus('current')
-qosIfRedThresholdSet = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 4, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIfRedThresholdSet.setStatus('current')
-qosIfRedThresholdSetLower = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 4, 1, 5), Percent()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIfRedThresholdSetLower.setStatus('current')
-qosIfRedThresholdSetUpper = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 4, 1, 6), Percent()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIfRedThresholdSetUpper.setStatus('current')
-qosIfTailDropTable = MibTable((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 5), )
-if mibBuilder.loadTexts: qosIfTailDropTable.setStatus('current')
-qosIfTailDropEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 5, 1), ).setIndexNames((0, "CISCO-QOS-PIB-MIB", "qosIfTailDropId"))
-if mibBuilder.loadTexts: qosIfTailDropEntry.setStatus('current')
-qosIfTailDropId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 5, 1, 1), PolicyInstanceId())
-if mibBuilder.loadTexts: qosIfTailDropId.setStatus('current')
-qosIfTailDropRoles = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 5, 1, 2), RoleCombination()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIfTailDropRoles.setStatus('current')
-qosIfTailDropNumThresholdSets = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 5, 1, 3), ThresholdSetRange()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIfTailDropNumThresholdSets.setStatus('current')
-qosIfTailDropThresholdSet = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 5, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIfTailDropThresholdSet.setStatus('current')
-qosIfTailDropThresholdSetValue = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 5, 1, 5), Percent()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIfTailDropThresholdSetValue.setStatus('current')
-qosIfWeightsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 6), )
-if mibBuilder.loadTexts: qosIfWeightsTable.setStatus('current')
-qosIfWeightsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 6, 1), ).setIndexNames((0, "CISCO-QOS-PIB-MIB", "qosIfWeightsId"))
-if mibBuilder.loadTexts: qosIfWeightsEntry.setStatus('current')
-qosIfWeightsId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 6, 1, 1), PolicyInstanceId())
-if mibBuilder.loadTexts: qosIfWeightsId.setStatus('current')
-qosIfWeightsRoles = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 6, 1, 2), RoleCombination()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIfWeightsRoles.setStatus('current')
-qosIfWeightsNumQueues = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 6, 1, 3), QueueRange()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIfWeightsNumQueues.setStatus('current')
-qosIfWeightsQueue = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 6, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIfWeightsQueue.setStatus('current')
-qosIfWeightsDrainSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 6, 1, 5), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIfWeightsDrainSize.setStatus('current')
-qosIfWeightsQueueSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 6, 1, 6), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qosIfWeightsQueueSize.setStatus('current')
-qosPIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 1))
-qosPIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 2))
-qosPIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 1, 1)).setObjects(("CISCO-QOS-PIB-MIB", "qosDevicePibIncarnationTableGroup"), ("CISCO-QOS-PIB-MIB", "qosDeviceAttributeTableGroup"), ("CISCO-QOS-PIB-MIB", "qosInterfaceTypeTableGroup"))
+(DisplayString,
+ MacAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "TextualConvention",
+    "TruthValue")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    qosPIBCompliance = qosPIBCompliance.setStatus('current')
-qosDevicePibIncarnationTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 2, 1)).setObjects(("CISCO-QOS-PIB-MIB", "qosDevicePdpName"), ("CISCO-QOS-PIB-MIB", "qosDevicePibIncarnation"), ("CISCO-QOS-PIB-MIB", "qosDevicePibTtl"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    qosDevicePibIncarnationTableGroup = qosDevicePibIncarnationTableGroup.setStatus('current')
-qosDeviceAttributeTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 2, 2)).setObjects(("CISCO-QOS-PIB-MIB", "qosDevicePepDomain"), ("CISCO-QOS-PIB-MIB", "qosDevicePrimaryPdp"), ("CISCO-QOS-PIB-MIB", "qosDeviceSecondaryPdp"), ("CISCO-QOS-PIB-MIB", "qosDeviceMaxMessageSize"), ("CISCO-QOS-PIB-MIB", "qosDeviceCapabilities"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    qosDeviceAttributeTableGroup = qosDeviceAttributeTableGroup.setStatus('current')
-qosInterfaceTypeTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 2, 3)).setObjects(("CISCO-QOS-PIB-MIB", "qosInterfaceQueueType"), ("CISCO-QOS-PIB-MIB", "qosInterfaceTypeRoles"), ("CISCO-QOS-PIB-MIB", "qosInterfaceTypeCapabilities"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    qosInterfaceTypeTableGroup = qosInterfaceTypeTableGroup.setStatus('current')
-qosDiffServMappingTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 2, 4)).setObjects(("CISCO-QOS-PIB-MIB", "qosMarkedDscp"), ("CISCO-QOS-PIB-MIB", "qosL2Cos"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    qosDiffServMappingTableGroup = qosDiffServMappingTableGroup.setStatus('current')
-qosCosToDscpTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 2, 5)).setObjects(("CISCO-QOS-PIB-MIB", "qosCosToDscpDscp"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    qosCosToDscpTableGroup = qosCosToDscpTableGroup.setStatus('current')
-qosUnmatchedPolicyTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 2, 6)).setObjects(("CISCO-QOS-PIB-MIB", "qosUnmatchedPolicyRole"), ("CISCO-QOS-PIB-MIB", "qosUnmatchedPolicyDirection"), ("CISCO-QOS-PIB-MIB", "qosUnmatchedPolicyDscp"), ("CISCO-QOS-PIB-MIB", "qosUnmatchedPolicyDscpTrusted"), ("CISCO-QOS-PIB-MIB", "qosUnmatchPolMicroFlowPolicerId"), ("CISCO-QOS-PIB-MIB", "qosUnmatchedPolicyAggregateId"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    qosUnmatchedPolicyTableGroup = qosUnmatchedPolicyTableGroup.setStatus('current')
-qosPolicerTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 2, 7)).setObjects(("CISCO-QOS-PIB-MIB", "qosPolicerRate"), ("CISCO-QOS-PIB-MIB", "qosPolicerNormalBurst"), ("CISCO-QOS-PIB-MIB", "qosPolicerExcessBurst"), ("CISCO-QOS-PIB-MIB", "qosPolicerAction"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    qosPolicerTableGroup = qosPolicerTableGroup.setStatus('current')
-qosAggregateTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 2, 8)).setObjects(("CISCO-QOS-PIB-MIB", "qosAggregatePolicerId"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    qosAggregateTableGroup = qosAggregateTableGroup.setStatus('current')
-qosMacClassificationTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 2, 9)).setObjects(("CISCO-QOS-PIB-MIB", "qosDstMacVlan"), ("CISCO-QOS-PIB-MIB", "qosDstMacAddress"), ("CISCO-QOS-PIB-MIB", "qosDstMacCos"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    qosMacClassificationTableGroup = qosMacClassificationTableGroup.setStatus('current')
-qosIpAceTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 2, 10)).setObjects(("CISCO-QOS-PIB-MIB", "qosIpAceDstAddr"), ("CISCO-QOS-PIB-MIB", "qosIpAceDstAddrMask"), ("CISCO-QOS-PIB-MIB", "qosIpAceSrcAddr"), ("CISCO-QOS-PIB-MIB", "qosIpAceSrcAddrMask"), ("CISCO-QOS-PIB-MIB", "qosIpAceDscpMin"), ("CISCO-QOS-PIB-MIB", "qosIpAceDscpMax"), ("CISCO-QOS-PIB-MIB", "qosIpAceProtocol"), ("CISCO-QOS-PIB-MIB", "qosIpAceDstL4PortMin"), ("CISCO-QOS-PIB-MIB", "qosIpAceDstL4PortMax"), ("CISCO-QOS-PIB-MIB", "qosIpAceSrcL4PortMin"), ("CISCO-QOS-PIB-MIB", "qosIpAceSrcL4PortMax"), ("CISCO-QOS-PIB-MIB", "qosIpAcePermit"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    qosIpAceTableGroup = qosIpAceTableGroup.setStatus('current')
-qosIpAclDefinitionTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 2, 11)).setObjects(("CISCO-QOS-PIB-MIB", "qosIpAclId"), ("CISCO-QOS-PIB-MIB", "qosIpAceOrder"), ("CISCO-QOS-PIB-MIB", "qosIpAclDefAceId"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    qosIpAclDefinitionTableGroup = qosIpAclDefinitionTableGroup.setStatus('current')
-qosIpAclActionTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 2, 12)).setObjects(("CISCO-QOS-PIB-MIB", "qosIpAclActAclId"), ("CISCO-QOS-PIB-MIB", "qosIpAclInterfaceRoles"), ("CISCO-QOS-PIB-MIB", "qosIpAclInterfaceDirection"), ("CISCO-QOS-PIB-MIB", "qosIpAclOrder"), ("CISCO-QOS-PIB-MIB", "qosIpAclDscp"), ("CISCO-QOS-PIB-MIB", "qosIpAclDscpTrusted"), ("CISCO-QOS-PIB-MIB", "qosIpAclMicroFlowPolicerId"), ("CISCO-QOS-PIB-MIB", "qosIpAclAggregateId"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    qosIpAclActionTableGroup = qosIpAclActionTableGroup.setStatus('current')
-qosIfSchedulingPreferencesTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 2, 13)).setObjects(("CISCO-QOS-PIB-MIB", "qosIfSchedulingRoles"), ("CISCO-QOS-PIB-MIB", "qosIfSchedulingPreference"), ("CISCO-QOS-PIB-MIB", "qosIfSchedulingDiscipline"), ("CISCO-QOS-PIB-MIB", "qosIfSchedulingQueueType"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    qosIfSchedulingPreferencesTableGroup = qosIfSchedulingPreferencesTableGroup.setStatus('current')
-qosIfDropPreferenceTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 2, 14)).setObjects(("CISCO-QOS-PIB-MIB", "qosIfDropRoles"), ("CISCO-QOS-PIB-MIB", "qosIfDropPreference"), ("CISCO-QOS-PIB-MIB", "qosIfDropDiscipline"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    qosIfDropPreferenceTableGroup = qosIfDropPreferenceTableGroup.setStatus('current')
-qosIfDscpAssignmentTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 2, 15)).setObjects(("CISCO-QOS-PIB-MIB", "qosIfDscpRoles"), ("CISCO-QOS-PIB-MIB", "qosIfQueueType"), ("CISCO-QOS-PIB-MIB", "qosIfDscp"), ("CISCO-QOS-PIB-MIB", "qosIfQueue"), ("CISCO-QOS-PIB-MIB", "qosIfThresholdSet"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    qosIfDscpAssignmentTableGroup = qosIfDscpAssignmentTableGroup.setStatus('current')
-qosIfRedTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 2, 16)).setObjects(("CISCO-QOS-PIB-MIB", "qosIfRedRoles"), ("CISCO-QOS-PIB-MIB", "qosIfRedNumThresholdSets"), ("CISCO-QOS-PIB-MIB", "qosIfRedThresholdSet"), ("CISCO-QOS-PIB-MIB", "qosIfRedThresholdSetLower"), ("CISCO-QOS-PIB-MIB", "qosIfRedThresholdSetUpper"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    qosIfRedTableGroup = qosIfRedTableGroup.setStatus('current')
-qosIfTailDropTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 2, 17)).setObjects(("CISCO-QOS-PIB-MIB", "qosIfTailDropRoles"), ("CISCO-QOS-PIB-MIB", "qosIfTailDropNumThresholdSets"), ("CISCO-QOS-PIB-MIB", "qosIfTailDropThresholdSet"), ("CISCO-QOS-PIB-MIB", "qosIfTailDropThresholdSetValue"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    qosIfTailDropTableGroup = qosIfTailDropTableGroup.setStatus('current')
-qosIfWeightsTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 2, 18)).setObjects(("CISCO-QOS-PIB-MIB", "qosIfWeightsRoles"), ("CISCO-QOS-PIB-MIB", "qosIfWeightsNumQueues"), ("CISCO-QOS-PIB-MIB", "qosIfWeightsQueue"), ("CISCO-QOS-PIB-MIB", "qosIfWeightsDrainSize"), ("CISCO-QOS-PIB-MIB", "qosIfWeightsQueueSize"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    qosIfWeightsTableGroup = qosIfWeightsTableGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-QOS-PIB-MIB", qosPolicerId=qosPolicerId, qosMacClassificationTableGroup=qosMacClassificationTableGroup, qosInterfaceTypeId=qosInterfaceTypeId, qosIfWeightsQueueSize=qosIfWeightsQueueSize, qosCosToDscpDscp=qosCosToDscpDscp, qosIfDscp=qosIfDscp, qosDevicePibIncarnationEntry=qosDevicePibIncarnationEntry, qosMarkedDscp=qosMarkedDscp, qosMacQos=qosMacQos, qosUnmatchedPolicyTable=qosUnmatchedPolicyTable, qosIpAceDstL4PortMax=qosIpAceDstL4PortMax, qosInterfaceTypeEntry=qosInterfaceTypeEntry, qosUnmatchedPolicyId=qosUnmatchedPolicyId, qosIfRedThresholdSet=qosIfRedThresholdSet, qosIpAclDefinitionTableGroup=qosIpAclDefinitionTableGroup, qosPolicerExcessBurst=qosPolicerExcessBurst, qosPIBConformance=qosPIBConformance, qosDstMacAddress=qosDstMacAddress, qosIpAceEntry=qosIpAceEntry, qosIpAceSrcL4PortMin=qosIpAceSrcL4PortMin, qosIfDscpRoles=qosIfDscpRoles, qosUnmatchedPolicy=qosUnmatchedPolicy, qosIfDropPreference=qosIfDropPreference, qosIpAceTable=qosIpAceTable, qosIpAclInterfaceDirection=qosIpAclInterfaceDirection, qosUnmatchedPolicyEntry=qosUnmatchedPolicyEntry, qosDstMacCos=qosDstMacCos, qosIfWeightsEntry=qosIfWeightsEntry, qosIpAclDefAceId=qosIpAclDefAceId, qosIpAceSrcAddrMask=qosIpAceSrcAddrMask, qosIfDropPreferenceTableGroup=qosIfDropPreferenceTableGroup, RoleCombination=RoleCombination, qosIfQueueType=qosIfQueueType, qosIfRedId=qosIfRedId, qosDeviceAttributeTableGroup=qosDeviceAttributeTableGroup, qosPolicerEntry=qosPolicerEntry, qosPIBCompliance=qosPIBCompliance, qosIfDscpAssignmentTableGroup=qosIfDscpAssignmentTableGroup, qosIpAclId=qosIpAclId, qosIfRedNumThresholdSets=qosIfRedNumThresholdSets, qosAggregateId=qosAggregateId, qosIpAclOrder=qosIpAclOrder, ciscoQosPIBMIB=ciscoQosPIBMIB, qosIfDropPreferenceEntry=qosIfDropPreferenceEntry, qosIfRedTableGroup=qosIfRedTableGroup, qosCosToDscpTable=qosCosToDscpTable, qosCosToDscpEntry=qosCosToDscpEntry, qosIpAceProtocol=qosIpAceProtocol, qosIpAcePermit=qosIpAcePermit, Percent=Percent, qosPIBGroups=qosPIBGroups, qosIfWeightsTableGroup=qosIfWeightsTableGroup, qosIfDropDiscipline=qosIfDropDiscipline, qosIfQueue=qosIfQueue, qosIfDscpAssignmentTable=qosIfDscpAssignmentTable, qosIpAceDscpMax=qosIpAceDscpMax, qosIfWeightsQueue=qosIfWeightsQueue, qosIfTailDropTable=qosIfTailDropTable, qosDeviceIncarnationId=qosDeviceIncarnationId, qosInterfaceTypeTableGroup=qosInterfaceTypeTableGroup, qosMacClassificationTable=qosMacClassificationTable, qosDeviceSecondaryPdp=qosDeviceSecondaryPdp, qosIpAceSrcAddr=qosIpAceSrcAddr, qosPolicerNormalBurst=qosPolicerNormalBurst, qosIpAceDstAddr=qosIpAceDstAddr, qosPolicer=qosPolicer, qosPolicerAction=qosPolicerAction, qosIpAceDscpMin=qosIpAceDscpMin, qosIfWeightsNumQueues=qosIfWeightsNumQueues, qosPIBCompliances=qosPIBCompliances, qosIpAceDstAddrMask=qosIpAceDstAddrMask, qosUnmatchedPolicyAggregateId=qosUnmatchedPolicyAggregateId, qosIfSchedulingQueueType=qosIfSchedulingQueueType, Unsigned64=Unsigned64, qosIfDropPreferenceTable=qosIfDropPreferenceTable, qosCosToDscpCos=qosCosToDscpCos, qosIpAceOrder=qosIpAceOrder, qosDeviceMaxMessageSize=qosDeviceMaxMessageSize, qosDiffServMappingTable=qosDiffServMappingTable, qosDeviceAttributeId=qosDeviceAttributeId, qosDevicePibIncarnation=qosDevicePibIncarnation, qosIfRedThresholdSetLower=qosIfRedThresholdSetLower, qosInterfaceTypeTable=qosInterfaceTypeTable, qosDevicePdpName=qosDevicePdpName, qosDevicePibIncarnationTable=qosDevicePibIncarnationTable, qosDevicePrimaryPdp=qosDevicePrimaryPdp, qosIfDropPreferenceId=qosIfDropPreferenceId, qosIfTailDropNumThresholdSets=qosIfTailDropNumThresholdSets, qosDstMacVlan=qosDstMacVlan, qosUnmatchedPolicyDirection=qosUnmatchedPolicyDirection, qosCosToDscpTableGroup=qosCosToDscpTableGroup, qosIpAceTableGroup=qosIpAceTableGroup, qosAggregateTable=qosAggregateTable, qosInterfaceQueueType=qosInterfaceQueueType, qosPolicerRate=qosPolicerRate, qosIfDropRoles=qosIfDropRoles, qosIfTailDropTableGroup=qosIfTailDropTableGroup, qosDeviceAttributeEntry=qosDeviceAttributeEntry, qosIfDscpAssignmentEntry=qosIfDscpAssignmentEntry, qosPolicerTable=qosPolicerTable, qosMacClassificationId=qosMacClassificationId, qosDeviceCapabilities=qosDeviceCapabilities, qosDomainConfig=qosDomainConfig, qosIfRedRoles=qosIfRedRoles, qosIfThresholdSet=qosIfThresholdSet, qosIfTailDropId=qosIfTailDropId, qosDeviceConfig=qosDeviceConfig, qosUnmatchedPolicyDscp=qosUnmatchedPolicyDscp, qosAggregateTableGroup=qosAggregateTableGroup, qosIpAceId=qosIpAceId, PYSNMP_MODULE_ID=ciscoQosPIBMIB, qosAggregateEntry=qosAggregateEntry, qosIfSchedulingPreferenceId=qosIfSchedulingPreferenceId, qosIfTailDropEntry=qosIfTailDropEntry, qosIfRedTable=qosIfRedTable, qosIpAclActAclId=qosIpAclActAclId, qosIfWeightsTable=qosIfWeightsTable, qosPolicerTableGroup=qosPolicerTableGroup, qosIpAclInterfaceRoles=qosIpAclInterfaceRoles, qosAggregatePolicerId=qosAggregatePolicerId, qosDscp=qosDscp, qosDiffServMappingEntry=qosDiffServMappingEntry, qosUnmatchPolMicroFlowPolicerId=qosUnmatchPolMicroFlowPolicerId, qosIpAclActionId=qosIpAclActionId, QueueRange=QueueRange, qosIpQos=qosIpQos, qosIfTailDropThresholdSet=qosIfTailDropThresholdSet, qosUnmatchedPolicyTableGroup=qosUnmatchedPolicyTableGroup, qosIpAclDefinitionId=qosIpAclDefinitionId, qosIpAceSrcL4PortMax=qosIpAceSrcL4PortMax, qosInterfaceTypeCapabilities=qosInterfaceTypeCapabilities, qosIpAclActionTable=qosIpAclActionTable, qosIfTailDropRoles=qosIfTailDropRoles, qosDiffServMappingTableGroup=qosDiffServMappingTableGroup, qosIpAclAggregateId=qosIpAclAggregateId, qosIfWeightsDrainSize=qosIfWeightsDrainSize, qosIpAclDefinitionTable=qosIpAclDefinitionTable, qosIpAclDscpTrusted=qosIpAclDscpTrusted, qosIfSchedulingPreference=qosIfSchedulingPreference, qosIfTailDropThresholdSetValue=qosIfTailDropThresholdSetValue, Dscp=Dscp, ThresholdSetRange=ThresholdSetRange, qosIfSchedulingPreferencesTable=qosIfSchedulingPreferencesTable, qosDevicePibIncarnationTableGroup=qosDevicePibIncarnationTableGroup, qosL2Cos=qosL2Cos, qosInterfaceTypeRoles=qosInterfaceTypeRoles, qosUnmatchedPolicyDscpTrusted=qosUnmatchedPolicyDscpTrusted, qosIfWeightsRoles=qosIfWeightsRoles, PolicyInstanceId=PolicyInstanceId, qosIfDscpAssignmentId=qosIfDscpAssignmentId, qosIpAceDstL4PortMin=qosIpAceDstL4PortMin, qosIfSchedulingDiscipline=qosIfSchedulingDiscipline, qosIfSchedulingPreferenceEntry=qosIfSchedulingPreferenceEntry, qosDeviceAttributeTable=qosDeviceAttributeTable, qosIpAclActionTableGroup=qosIpAclActionTableGroup, QosLayer2Cos=QosLayer2Cos, qosIfParameters=qosIfParameters, qosIpAclDefinitionEntry=qosIpAclDefinitionEntry, qosIfRedEntry=qosIfRedEntry, qosIfWeightsId=qosIfWeightsId, qosUnmatchedPolicyRole=qosUnmatchedPolicyRole, QosInterfaceQueueType=QosInterfaceQueueType, qosIpAclDscp=qosIpAclDscp, qosDevicePibTtl=qosDevicePibTtl, qosMacClassificationEntry=qosMacClassificationEntry, qosIfSchedulingRoles=qosIfSchedulingRoles, qosDevicePepDomain=qosDevicePepDomain, qosIfRedThresholdSetUpper=qosIfRedThresholdSetUpper, qosIfSchedulingPreferencesTableGroup=qosIfSchedulingPreferencesTableGroup, QosInterfaceTypeCapabilities=QosInterfaceTypeCapabilities, qosIpAclActionEntry=qosIpAclActionEntry, qosIpAclMicroFlowPolicerId=qosIpAclMicroFlowPolicerId)
+
+# MODULE-IDENTITY
+
+ciscoQosPIBMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1)
+)
+ciscoQosPIBMIB.setRevisions(
+        ("2007-08-29 00:00",
+         "2004-05-03 00:00",
+         "2003-02-21 00:00",
+         "2002-05-02 00:00",
+         "2000-06-16 00:00",
+         "2000-05-11 00:00")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class Dscp(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 63),
+    )
+
+
+
+class QosLayer2Cos(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+
+class QueueRange(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              8,
+              16,
+              32,
+              64)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eightQ", 8),
+          ("fourQ", 4),
+          ("oneQ", 1),
+          ("sixteenQ", 16),
+          ("sixtyFourQ", 64),
+          ("thirtyTwoQ", 32),
+          ("threeQ", 3),
+          ("twoQ", 2))
+    )
+
+
+
+class ThresholdSetRange(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              4,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eightT", 8),
+          ("fourT", 4),
+          ("oneT", 1),
+          ("twoT", 2),
+          ("zeroT", 0))
+    )
+
+
+
+class Percent(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+
+class QosInterfaceQueueType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eightQ1t", 17),
+          ("eightQ2t", 18),
+          ("eightQ4t", 19),
+          ("eightQ8t", 20),
+          ("fourQ1t", 13),
+          ("fourQ2t", 14),
+          ("fourQ4t", 15),
+          ("fourQ8t", 16),
+          ("oneP15Q1t", 37),
+          ("oneP15Q8t", 36),
+          ("oneP1Q0t", 27),
+          ("oneP1Q4t", 28),
+          ("oneP1Q8t", 29),
+          ("oneP2Q1t", 30),
+          ("oneP2Q2t", 31),
+          ("oneP31Q1t", 39),
+          ("oneP31Q8t", 42),
+          ("oneP3Q1t", 32),
+          ("oneP3Q4t", 44),
+          ("oneP3Q8t", 34),
+          ("oneP7Q1t", 38),
+          ("oneP7Q2t", 45),
+          ("oneP7Q4t", 43),
+          ("oneP7Q8t", 33),
+          ("oneQ1t", 1),
+          ("oneQ2t", 2),
+          ("oneQ4t", 3),
+          ("oneQ8t", 4),
+          ("sixteenQ1t", 21),
+          ("sixteenQ2t", 22),
+          ("sixteenQ4t", 23),
+          ("sixteenQ8t", 35),
+          ("sixtyfourQ1t", 24),
+          ("sixtyfourQ2t", 25),
+          ("sixtyfourQ4t", 26),
+          ("thirtytwoQ1t", 40),
+          ("thirtytwoQ8t", 41),
+          ("threeQ1t", 9),
+          ("threeQ2t", 10),
+          ("threeQ4t", 11),
+          ("threeQ8t", 12),
+          ("twoQ1t", 5),
+          ("twoQ2t", 6),
+          ("twoQ4t", 7),
+          ("twoQ8t", 8))
+    )
+
+
+
+class QosInterfaceTypeCapabilities(Bits, TextualConvention):
+    status = "current"
+
+
+class RoleCombination(OctetString, TextualConvention):
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+
+class PolicyInstanceId(Unsigned32, TextualConvention):
+    status = "current"
+
+
+class Unsigned64(Counter64, TextualConvention):
+    status = "current"
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_QosPIBConformance_ObjectIdentity = ObjectIdentity
+qosPIBConformance = _QosPIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1)
+)
+_QosPIBCompliances_ObjectIdentity = ObjectIdentity
+qosPIBCompliances = _QosPIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 1)
+)
+_QosPIBGroups_ObjectIdentity = ObjectIdentity
+qosPIBGroups = _QosPIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 2)
+)
+_QosDeviceConfig_ObjectIdentity = ObjectIdentity
+qosDeviceConfig = _QosDeviceConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2)
+)
+_QosDevicePibIncarnationTable_Object = MibTable
+qosDevicePibIncarnationTable = _QosDevicePibIncarnationTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    qosDevicePibIncarnationTable.setStatus("current")
+_QosDevicePibIncarnationEntry_Object = MibTableRow
+qosDevicePibIncarnationEntry = _QosDevicePibIncarnationEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 1, 1)
+)
+qosDevicePibIncarnationEntry.setIndexNames(
+    (0, "CISCO-QOS-PIB-MIB", "qosDeviceIncarnationId"),
+)
+if mibBuilder.loadTexts:
+    qosDevicePibIncarnationEntry.setStatus("current")
+_QosDeviceIncarnationId_Type = PolicyInstanceId
+_QosDeviceIncarnationId_Object = MibTableColumn
+qosDeviceIncarnationId = _QosDeviceIncarnationId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 1, 1, 1),
+    _QosDeviceIncarnationId_Type()
+)
+qosDeviceIncarnationId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    qosDeviceIncarnationId.setStatus("current")
+_QosDevicePdpName_Type = DisplayString
+_QosDevicePdpName_Object = MibTableColumn
+qosDevicePdpName = _QosDevicePdpName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 1, 1, 2),
+    _QosDevicePdpName_Type()
+)
+qosDevicePdpName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosDevicePdpName.setStatus("current")
+
+
+class _QosDevicePibIncarnation_Type(OctetString):
+    """Custom type qosDevicePibIncarnation based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(128, 128),
+    )
+
+
+_QosDevicePibIncarnation_Type.__name__ = "OctetString"
+_QosDevicePibIncarnation_Object = MibTableColumn
+qosDevicePibIncarnation = _QosDevicePibIncarnation_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 1, 1, 3),
+    _QosDevicePibIncarnation_Type()
+)
+qosDevicePibIncarnation.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosDevicePibIncarnation.setStatus("current")
+_QosDevicePibTtl_Type = Unsigned32
+_QosDevicePibTtl_Object = MibTableColumn
+qosDevicePibTtl = _QosDevicePibTtl_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 1, 1, 4),
+    _QosDevicePibTtl_Type()
+)
+qosDevicePibTtl.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosDevicePibTtl.setStatus("current")
+_QosDeviceAttributeTable_Object = MibTable
+qosDeviceAttributeTable = _QosDeviceAttributeTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 2)
+)
+if mibBuilder.loadTexts:
+    qosDeviceAttributeTable.setStatus("current")
+_QosDeviceAttributeEntry_Object = MibTableRow
+qosDeviceAttributeEntry = _QosDeviceAttributeEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 2, 1)
+)
+qosDeviceAttributeEntry.setIndexNames(
+    (0, "CISCO-QOS-PIB-MIB", "qosDeviceAttributeId"),
+)
+if mibBuilder.loadTexts:
+    qosDeviceAttributeEntry.setStatus("current")
+_QosDeviceAttributeId_Type = PolicyInstanceId
+_QosDeviceAttributeId_Object = MibTableColumn
+qosDeviceAttributeId = _QosDeviceAttributeId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 2, 1, 1),
+    _QosDeviceAttributeId_Type()
+)
+qosDeviceAttributeId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    qosDeviceAttributeId.setStatus("current")
+_QosDevicePepDomain_Type = DisplayString
+_QosDevicePepDomain_Object = MibTableColumn
+qosDevicePepDomain = _QosDevicePepDomain_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 2, 1, 2),
+    _QosDevicePepDomain_Type()
+)
+qosDevicePepDomain.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosDevicePepDomain.setStatus("current")
+_QosDevicePrimaryPdp_Type = IpAddress
+_QosDevicePrimaryPdp_Object = MibTableColumn
+qosDevicePrimaryPdp = _QosDevicePrimaryPdp_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 2, 1, 3),
+    _QosDevicePrimaryPdp_Type()
+)
+qosDevicePrimaryPdp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosDevicePrimaryPdp.setStatus("current")
+_QosDeviceSecondaryPdp_Type = IpAddress
+_QosDeviceSecondaryPdp_Object = MibTableColumn
+qosDeviceSecondaryPdp = _QosDeviceSecondaryPdp_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 2, 1, 4),
+    _QosDeviceSecondaryPdp_Type()
+)
+qosDeviceSecondaryPdp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosDeviceSecondaryPdp.setStatus("current")
+_QosDeviceMaxMessageSize_Type = Unsigned32
+_QosDeviceMaxMessageSize_Object = MibTableColumn
+qosDeviceMaxMessageSize = _QosDeviceMaxMessageSize_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 2, 1, 5),
+    _QosDeviceMaxMessageSize_Type()
+)
+qosDeviceMaxMessageSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosDeviceMaxMessageSize.setStatus("current")
+
+
+class _QosDeviceCapabilities_Type(Bits):
+    """Custom type qosDeviceCapabilities based on Bits"""
+    namedValues = NamedValues(
+        *(("dscp", 3),
+          ("ipPrecedence", 2),
+          ("layer2Cos", 1),
+          ("unspecified", 0))
+    )
+
+_QosDeviceCapabilities_Type.__name__ = "Bits"
+_QosDeviceCapabilities_Object = MibTableColumn
+qosDeviceCapabilities = _QosDeviceCapabilities_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 2, 1, 6),
+    _QosDeviceCapabilities_Type()
+)
+qosDeviceCapabilities.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosDeviceCapabilities.setStatus("current")
+_QosInterfaceTypeTable_Object = MibTable
+qosInterfaceTypeTable = _QosInterfaceTypeTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 3)
+)
+if mibBuilder.loadTexts:
+    qosInterfaceTypeTable.setStatus("current")
+_QosInterfaceTypeEntry_Object = MibTableRow
+qosInterfaceTypeEntry = _QosInterfaceTypeEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 3, 1)
+)
+qosInterfaceTypeEntry.setIndexNames(
+    (0, "CISCO-QOS-PIB-MIB", "qosInterfaceTypeId"),
+)
+if mibBuilder.loadTexts:
+    qosInterfaceTypeEntry.setStatus("current")
+_QosInterfaceTypeId_Type = PolicyInstanceId
+_QosInterfaceTypeId_Object = MibTableColumn
+qosInterfaceTypeId = _QosInterfaceTypeId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 3, 1, 1),
+    _QosInterfaceTypeId_Type()
+)
+qosInterfaceTypeId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    qosInterfaceTypeId.setStatus("current")
+_QosInterfaceQueueType_Type = QosInterfaceQueueType
+_QosInterfaceQueueType_Object = MibTableColumn
+qosInterfaceQueueType = _QosInterfaceQueueType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 3, 1, 2),
+    _QosInterfaceQueueType_Type()
+)
+qosInterfaceQueueType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosInterfaceQueueType.setStatus("current")
+_QosInterfaceTypeRoles_Type = RoleCombination
+_QosInterfaceTypeRoles_Object = MibTableColumn
+qosInterfaceTypeRoles = _QosInterfaceTypeRoles_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 3, 1, 3),
+    _QosInterfaceTypeRoles_Type()
+)
+qosInterfaceTypeRoles.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosInterfaceTypeRoles.setStatus("current")
+_QosInterfaceTypeCapabilities_Type = QosInterfaceTypeCapabilities
+_QosInterfaceTypeCapabilities_Object = MibTableColumn
+qosInterfaceTypeCapabilities = _QosInterfaceTypeCapabilities_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 2, 3, 1, 4),
+    _QosInterfaceTypeCapabilities_Type()
+)
+qosInterfaceTypeCapabilities.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosInterfaceTypeCapabilities.setStatus("current")
+_QosDomainConfig_ObjectIdentity = ObjectIdentity
+qosDomainConfig = _QosDomainConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 3)
+)
+_QosDiffServMappingTable_Object = MibTable
+qosDiffServMappingTable = _QosDiffServMappingTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 3, 1)
+)
+if mibBuilder.loadTexts:
+    qosDiffServMappingTable.setStatus("current")
+_QosDiffServMappingEntry_Object = MibTableRow
+qosDiffServMappingEntry = _QosDiffServMappingEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 3, 1, 1)
+)
+qosDiffServMappingEntry.setIndexNames(
+    (0, "CISCO-QOS-PIB-MIB", "qosDscp"),
+)
+if mibBuilder.loadTexts:
+    qosDiffServMappingEntry.setStatus("current")
+_QosDscp_Type = Dscp
+_QosDscp_Object = MibTableColumn
+qosDscp = _QosDscp_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 3, 1, 1, 1),
+    _QosDscp_Type()
+)
+qosDscp.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    qosDscp.setStatus("current")
+_QosMarkedDscp_Type = Dscp
+_QosMarkedDscp_Object = MibTableColumn
+qosMarkedDscp = _QosMarkedDscp_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 3, 1, 1, 2),
+    _QosMarkedDscp_Type()
+)
+qosMarkedDscp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosMarkedDscp.setStatus("current")
+_QosL2Cos_Type = QosLayer2Cos
+_QosL2Cos_Object = MibTableColumn
+qosL2Cos = _QosL2Cos_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 3, 1, 1, 3),
+    _QosL2Cos_Type()
+)
+qosL2Cos.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosL2Cos.setStatus("current")
+_QosCosToDscpTable_Object = MibTable
+qosCosToDscpTable = _QosCosToDscpTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 3, 2)
+)
+if mibBuilder.loadTexts:
+    qosCosToDscpTable.setStatus("current")
+_QosCosToDscpEntry_Object = MibTableRow
+qosCosToDscpEntry = _QosCosToDscpEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 3, 2, 1)
+)
+qosCosToDscpEntry.setIndexNames(
+    (0, "CISCO-QOS-PIB-MIB", "qosCosToDscpCos"),
+)
+if mibBuilder.loadTexts:
+    qosCosToDscpEntry.setStatus("current")
+_QosCosToDscpCos_Type = QosLayer2Cos
+_QosCosToDscpCos_Object = MibTableColumn
+qosCosToDscpCos = _QosCosToDscpCos_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 3, 2, 1, 1),
+    _QosCosToDscpCos_Type()
+)
+qosCosToDscpCos.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    qosCosToDscpCos.setStatus("current")
+_QosCosToDscpDscp_Type = Dscp
+_QosCosToDscpDscp_Object = MibTableColumn
+qosCosToDscpDscp = _QosCosToDscpDscp_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 3, 2, 1, 2),
+    _QosCosToDscpDscp_Type()
+)
+qosCosToDscpDscp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosCosToDscpDscp.setStatus("current")
+_QosUnmatchedPolicy_ObjectIdentity = ObjectIdentity
+qosUnmatchedPolicy = _QosUnmatchedPolicy_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 4)
+)
+_QosUnmatchedPolicyTable_Object = MibTable
+qosUnmatchedPolicyTable = _QosUnmatchedPolicyTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 4, 1)
+)
+if mibBuilder.loadTexts:
+    qosUnmatchedPolicyTable.setStatus("current")
+_QosUnmatchedPolicyEntry_Object = MibTableRow
+qosUnmatchedPolicyEntry = _QosUnmatchedPolicyEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 4, 1, 1)
+)
+qosUnmatchedPolicyEntry.setIndexNames(
+    (0, "CISCO-QOS-PIB-MIB", "qosUnmatchedPolicyId"),
+)
+if mibBuilder.loadTexts:
+    qosUnmatchedPolicyEntry.setStatus("current")
+_QosUnmatchedPolicyId_Type = PolicyInstanceId
+_QosUnmatchedPolicyId_Object = MibTableColumn
+qosUnmatchedPolicyId = _QosUnmatchedPolicyId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 4, 1, 1, 1),
+    _QosUnmatchedPolicyId_Type()
+)
+qosUnmatchedPolicyId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    qosUnmatchedPolicyId.setStatus("current")
+_QosUnmatchedPolicyRole_Type = RoleCombination
+_QosUnmatchedPolicyRole_Object = MibTableColumn
+qosUnmatchedPolicyRole = _QosUnmatchedPolicyRole_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 4, 1, 1, 2),
+    _QosUnmatchedPolicyRole_Type()
+)
+qosUnmatchedPolicyRole.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosUnmatchedPolicyRole.setStatus("current")
+
+
+class _QosUnmatchedPolicyDirection_Type(Integer32):
+    """Custom type qosUnmatchedPolicyDirection based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("in", 0),
+          ("out", 1))
+    )
+
+
+_QosUnmatchedPolicyDirection_Type.__name__ = "Integer32"
+_QosUnmatchedPolicyDirection_Object = MibTableColumn
+qosUnmatchedPolicyDirection = _QosUnmatchedPolicyDirection_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 4, 1, 1, 3),
+    _QosUnmatchedPolicyDirection_Type()
+)
+qosUnmatchedPolicyDirection.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosUnmatchedPolicyDirection.setStatus("current")
+_QosUnmatchedPolicyDscp_Type = Dscp
+_QosUnmatchedPolicyDscp_Object = MibTableColumn
+qosUnmatchedPolicyDscp = _QosUnmatchedPolicyDscp_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 4, 1, 1, 4),
+    _QosUnmatchedPolicyDscp_Type()
+)
+qosUnmatchedPolicyDscp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosUnmatchedPolicyDscp.setStatus("current")
+_QosUnmatchedPolicyDscpTrusted_Type = TruthValue
+_QosUnmatchedPolicyDscpTrusted_Object = MibTableColumn
+qosUnmatchedPolicyDscpTrusted = _QosUnmatchedPolicyDscpTrusted_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 4, 1, 1, 5),
+    _QosUnmatchedPolicyDscpTrusted_Type()
+)
+qosUnmatchedPolicyDscpTrusted.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosUnmatchedPolicyDscpTrusted.setStatus("current")
+_QosUnmatchPolMicroFlowPolicerId_Type = PolicyInstanceId
+_QosUnmatchPolMicroFlowPolicerId_Object = MibTableColumn
+qosUnmatchPolMicroFlowPolicerId = _QosUnmatchPolMicroFlowPolicerId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 4, 1, 1, 6),
+    _QosUnmatchPolMicroFlowPolicerId_Type()
+)
+qosUnmatchPolMicroFlowPolicerId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosUnmatchPolMicroFlowPolicerId.setStatus("current")
+_QosUnmatchedPolicyAggregateId_Type = PolicyInstanceId
+_QosUnmatchedPolicyAggregateId_Object = MibTableColumn
+qosUnmatchedPolicyAggregateId = _QosUnmatchedPolicyAggregateId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 4, 1, 1, 7),
+    _QosUnmatchedPolicyAggregateId_Type()
+)
+qosUnmatchedPolicyAggregateId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosUnmatchedPolicyAggregateId.setStatus("current")
+_QosPolicer_ObjectIdentity = ObjectIdentity
+qosPolicer = _QosPolicer_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 5)
+)
+_QosPolicerTable_Object = MibTable
+qosPolicerTable = _QosPolicerTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 5, 1)
+)
+if mibBuilder.loadTexts:
+    qosPolicerTable.setStatus("current")
+_QosPolicerEntry_Object = MibTableRow
+qosPolicerEntry = _QosPolicerEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 5, 1, 1)
+)
+qosPolicerEntry.setIndexNames(
+    (0, "CISCO-QOS-PIB-MIB", "qosPolicerId"),
+)
+if mibBuilder.loadTexts:
+    qosPolicerEntry.setStatus("current")
+_QosPolicerId_Type = PolicyInstanceId
+_QosPolicerId_Object = MibTableColumn
+qosPolicerId = _QosPolicerId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 5, 1, 1, 1),
+    _QosPolicerId_Type()
+)
+qosPolicerId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    qosPolicerId.setStatus("current")
+_QosPolicerRate_Type = Unsigned64
+_QosPolicerRate_Object = MibTableColumn
+qosPolicerRate = _QosPolicerRate_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 5, 1, 1, 2),
+    _QosPolicerRate_Type()
+)
+qosPolicerRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosPolicerRate.setStatus("current")
+_QosPolicerNormalBurst_Type = Unsigned32
+_QosPolicerNormalBurst_Object = MibTableColumn
+qosPolicerNormalBurst = _QosPolicerNormalBurst_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 5, 1, 1, 3),
+    _QosPolicerNormalBurst_Type()
+)
+qosPolicerNormalBurst.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosPolicerNormalBurst.setStatus("current")
+_QosPolicerExcessBurst_Type = Unsigned32
+_QosPolicerExcessBurst_Object = MibTableColumn
+qosPolicerExcessBurst = _QosPolicerExcessBurst_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 5, 1, 1, 4),
+    _QosPolicerExcessBurst_Type()
+)
+qosPolicerExcessBurst.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosPolicerExcessBurst.setStatus("current")
+
+
+class _QosPolicerAction_Type(Integer32):
+    """Custom type qosPolicerAction based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("drop", 0),
+          ("mark", 1),
+          ("shape", 2))
+    )
+
+
+_QosPolicerAction_Type.__name__ = "Integer32"
+_QosPolicerAction_Object = MibTableColumn
+qosPolicerAction = _QosPolicerAction_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 5, 1, 1, 5),
+    _QosPolicerAction_Type()
+)
+qosPolicerAction.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosPolicerAction.setStatus("current")
+_QosAggregateTable_Object = MibTable
+qosAggregateTable = _QosAggregateTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 5, 2)
+)
+if mibBuilder.loadTexts:
+    qosAggregateTable.setStatus("current")
+_QosAggregateEntry_Object = MibTableRow
+qosAggregateEntry = _QosAggregateEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 5, 2, 1)
+)
+qosAggregateEntry.setIndexNames(
+    (0, "CISCO-QOS-PIB-MIB", "qosAggregateId"),
+)
+if mibBuilder.loadTexts:
+    qosAggregateEntry.setStatus("current")
+_QosAggregateId_Type = PolicyInstanceId
+_QosAggregateId_Object = MibTableColumn
+qosAggregateId = _QosAggregateId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 5, 2, 1, 1),
+    _QosAggregateId_Type()
+)
+qosAggregateId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    qosAggregateId.setStatus("current")
+_QosAggregatePolicerId_Type = PolicyInstanceId
+_QosAggregatePolicerId_Object = MibTableColumn
+qosAggregatePolicerId = _QosAggregatePolicerId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 5, 2, 1, 2),
+    _QosAggregatePolicerId_Type()
+)
+qosAggregatePolicerId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosAggregatePolicerId.setStatus("current")
+_QosMacQos_ObjectIdentity = ObjectIdentity
+qosMacQos = _QosMacQos_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 6)
+)
+_QosMacClassificationTable_Object = MibTable
+qosMacClassificationTable = _QosMacClassificationTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 6, 1)
+)
+if mibBuilder.loadTexts:
+    qosMacClassificationTable.setStatus("current")
+_QosMacClassificationEntry_Object = MibTableRow
+qosMacClassificationEntry = _QosMacClassificationEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 6, 1, 1)
+)
+qosMacClassificationEntry.setIndexNames(
+    (0, "CISCO-QOS-PIB-MIB", "qosMacClassificationId"),
+)
+if mibBuilder.loadTexts:
+    qosMacClassificationEntry.setStatus("current")
+_QosMacClassificationId_Type = PolicyInstanceId
+_QosMacClassificationId_Object = MibTableColumn
+qosMacClassificationId = _QosMacClassificationId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 6, 1, 1, 1),
+    _QosMacClassificationId_Type()
+)
+qosMacClassificationId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    qosMacClassificationId.setStatus("current")
+
+
+class _QosDstMacVlan_Type(Integer32):
+    """Custom type qosDstMacVlan based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_QosDstMacVlan_Type.__name__ = "Integer32"
+_QosDstMacVlan_Object = MibTableColumn
+qosDstMacVlan = _QosDstMacVlan_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 6, 1, 1, 2),
+    _QosDstMacVlan_Type()
+)
+qosDstMacVlan.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosDstMacVlan.setStatus("current")
+_QosDstMacAddress_Type = MacAddress
+_QosDstMacAddress_Object = MibTableColumn
+qosDstMacAddress = _QosDstMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 6, 1, 1, 3),
+    _QosDstMacAddress_Type()
+)
+qosDstMacAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosDstMacAddress.setStatus("current")
+_QosDstMacCos_Type = QosLayer2Cos
+_QosDstMacCos_Object = MibTableColumn
+qosDstMacCos = _QosDstMacCos_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 6, 1, 1, 4),
+    _QosDstMacCos_Type()
+)
+qosDstMacCos.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosDstMacCos.setStatus("current")
+_QosIpQos_ObjectIdentity = ObjectIdentity
+qosIpQos = _QosIpQos_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7)
+)
+_QosIpAceTable_Object = MibTable
+qosIpAceTable = _QosIpAceTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 1)
+)
+if mibBuilder.loadTexts:
+    qosIpAceTable.setStatus("current")
+_QosIpAceEntry_Object = MibTableRow
+qosIpAceEntry = _QosIpAceEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 1, 1)
+)
+qosIpAceEntry.setIndexNames(
+    (0, "CISCO-QOS-PIB-MIB", "qosIpAceId"),
+)
+if mibBuilder.loadTexts:
+    qosIpAceEntry.setStatus("current")
+_QosIpAceId_Type = PolicyInstanceId
+_QosIpAceId_Object = MibTableColumn
+qosIpAceId = _QosIpAceId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 1, 1, 1),
+    _QosIpAceId_Type()
+)
+qosIpAceId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    qosIpAceId.setStatus("current")
+_QosIpAceDstAddr_Type = IpAddress
+_QosIpAceDstAddr_Object = MibTableColumn
+qosIpAceDstAddr = _QosIpAceDstAddr_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 1, 1, 2),
+    _QosIpAceDstAddr_Type()
+)
+qosIpAceDstAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIpAceDstAddr.setStatus("current")
+_QosIpAceDstAddrMask_Type = IpAddress
+_QosIpAceDstAddrMask_Object = MibTableColumn
+qosIpAceDstAddrMask = _QosIpAceDstAddrMask_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 1, 1, 3),
+    _QosIpAceDstAddrMask_Type()
+)
+qosIpAceDstAddrMask.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIpAceDstAddrMask.setStatus("current")
+_QosIpAceSrcAddr_Type = IpAddress
+_QosIpAceSrcAddr_Object = MibTableColumn
+qosIpAceSrcAddr = _QosIpAceSrcAddr_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 1, 1, 4),
+    _QosIpAceSrcAddr_Type()
+)
+qosIpAceSrcAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIpAceSrcAddr.setStatus("current")
+_QosIpAceSrcAddrMask_Type = IpAddress
+_QosIpAceSrcAddrMask_Object = MibTableColumn
+qosIpAceSrcAddrMask = _QosIpAceSrcAddrMask_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 1, 1, 5),
+    _QosIpAceSrcAddrMask_Type()
+)
+qosIpAceSrcAddrMask.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIpAceSrcAddrMask.setStatus("current")
+_QosIpAceDscpMin_Type = Dscp
+_QosIpAceDscpMin_Object = MibTableColumn
+qosIpAceDscpMin = _QosIpAceDscpMin_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 1, 1, 6),
+    _QosIpAceDscpMin_Type()
+)
+qosIpAceDscpMin.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIpAceDscpMin.setStatus("current")
+_QosIpAceDscpMax_Type = Dscp
+_QosIpAceDscpMax_Object = MibTableColumn
+qosIpAceDscpMax = _QosIpAceDscpMax_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 1, 1, 7),
+    _QosIpAceDscpMax_Type()
+)
+qosIpAceDscpMax.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIpAceDscpMax.setStatus("current")
+
+
+class _QosIpAceProtocol_Type(Integer32):
+    """Custom type qosIpAceProtocol based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_QosIpAceProtocol_Type.__name__ = "Integer32"
+_QosIpAceProtocol_Object = MibTableColumn
+qosIpAceProtocol = _QosIpAceProtocol_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 1, 1, 8),
+    _QosIpAceProtocol_Type()
+)
+qosIpAceProtocol.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIpAceProtocol.setStatus("current")
+
+
+class _QosIpAceDstL4PortMin_Type(Integer32):
+    """Custom type qosIpAceDstL4PortMin based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_QosIpAceDstL4PortMin_Type.__name__ = "Integer32"
+_QosIpAceDstL4PortMin_Object = MibTableColumn
+qosIpAceDstL4PortMin = _QosIpAceDstL4PortMin_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 1, 1, 9),
+    _QosIpAceDstL4PortMin_Type()
+)
+qosIpAceDstL4PortMin.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIpAceDstL4PortMin.setStatus("current")
+
+
+class _QosIpAceDstL4PortMax_Type(Integer32):
+    """Custom type qosIpAceDstL4PortMax based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_QosIpAceDstL4PortMax_Type.__name__ = "Integer32"
+_QosIpAceDstL4PortMax_Object = MibTableColumn
+qosIpAceDstL4PortMax = _QosIpAceDstL4PortMax_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 1, 1, 10),
+    _QosIpAceDstL4PortMax_Type()
+)
+qosIpAceDstL4PortMax.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIpAceDstL4PortMax.setStatus("current")
+
+
+class _QosIpAceSrcL4PortMin_Type(Integer32):
+    """Custom type qosIpAceSrcL4PortMin based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_QosIpAceSrcL4PortMin_Type.__name__ = "Integer32"
+_QosIpAceSrcL4PortMin_Object = MibTableColumn
+qosIpAceSrcL4PortMin = _QosIpAceSrcL4PortMin_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 1, 1, 11),
+    _QosIpAceSrcL4PortMin_Type()
+)
+qosIpAceSrcL4PortMin.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIpAceSrcL4PortMin.setStatus("current")
+
+
+class _QosIpAceSrcL4PortMax_Type(Integer32):
+    """Custom type qosIpAceSrcL4PortMax based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_QosIpAceSrcL4PortMax_Type.__name__ = "Integer32"
+_QosIpAceSrcL4PortMax_Object = MibTableColumn
+qosIpAceSrcL4PortMax = _QosIpAceSrcL4PortMax_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 1, 1, 12),
+    _QosIpAceSrcL4PortMax_Type()
+)
+qosIpAceSrcL4PortMax.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIpAceSrcL4PortMax.setStatus("current")
+_QosIpAcePermit_Type = TruthValue
+_QosIpAcePermit_Object = MibTableColumn
+qosIpAcePermit = _QosIpAcePermit_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 1, 1, 13),
+    _QosIpAcePermit_Type()
+)
+qosIpAcePermit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIpAcePermit.setStatus("current")
+_QosIpAclDefinitionTable_Object = MibTable
+qosIpAclDefinitionTable = _QosIpAclDefinitionTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 2)
+)
+if mibBuilder.loadTexts:
+    qosIpAclDefinitionTable.setStatus("current")
+_QosIpAclDefinitionEntry_Object = MibTableRow
+qosIpAclDefinitionEntry = _QosIpAclDefinitionEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 2, 1)
+)
+qosIpAclDefinitionEntry.setIndexNames(
+    (0, "CISCO-QOS-PIB-MIB", "qosIpAclDefinitionId"),
+)
+if mibBuilder.loadTexts:
+    qosIpAclDefinitionEntry.setStatus("current")
+_QosIpAclDefinitionId_Type = PolicyInstanceId
+_QosIpAclDefinitionId_Object = MibTableColumn
+qosIpAclDefinitionId = _QosIpAclDefinitionId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 2, 1, 1),
+    _QosIpAclDefinitionId_Type()
+)
+qosIpAclDefinitionId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    qosIpAclDefinitionId.setStatus("current")
+_QosIpAclId_Type = PolicyInstanceId
+_QosIpAclId_Object = MibTableColumn
+qosIpAclId = _QosIpAclId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 2, 1, 2),
+    _QosIpAclId_Type()
+)
+qosIpAclId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIpAclId.setStatus("current")
+_QosIpAceOrder_Type = Unsigned32
+_QosIpAceOrder_Object = MibTableColumn
+qosIpAceOrder = _QosIpAceOrder_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 2, 1, 3),
+    _QosIpAceOrder_Type()
+)
+qosIpAceOrder.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIpAceOrder.setStatus("current")
+_QosIpAclDefAceId_Type = PolicyInstanceId
+_QosIpAclDefAceId_Object = MibTableColumn
+qosIpAclDefAceId = _QosIpAclDefAceId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 2, 1, 4),
+    _QosIpAclDefAceId_Type()
+)
+qosIpAclDefAceId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIpAclDefAceId.setStatus("current")
+_QosIpAclActionTable_Object = MibTable
+qosIpAclActionTable = _QosIpAclActionTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 3)
+)
+if mibBuilder.loadTexts:
+    qosIpAclActionTable.setStatus("current")
+_QosIpAclActionEntry_Object = MibTableRow
+qosIpAclActionEntry = _QosIpAclActionEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 3, 1)
+)
+qosIpAclActionEntry.setIndexNames(
+    (0, "CISCO-QOS-PIB-MIB", "qosIpAclActionId"),
+)
+if mibBuilder.loadTexts:
+    qosIpAclActionEntry.setStatus("current")
+_QosIpAclActionId_Type = PolicyInstanceId
+_QosIpAclActionId_Object = MibTableColumn
+qosIpAclActionId = _QosIpAclActionId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 3, 1, 1),
+    _QosIpAclActionId_Type()
+)
+qosIpAclActionId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    qosIpAclActionId.setStatus("current")
+_QosIpAclActAclId_Type = PolicyInstanceId
+_QosIpAclActAclId_Object = MibTableColumn
+qosIpAclActAclId = _QosIpAclActAclId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 3, 1, 2),
+    _QosIpAclActAclId_Type()
+)
+qosIpAclActAclId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIpAclActAclId.setStatus("current")
+_QosIpAclInterfaceRoles_Type = RoleCombination
+_QosIpAclInterfaceRoles_Object = MibTableColumn
+qosIpAclInterfaceRoles = _QosIpAclInterfaceRoles_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 3, 1, 3),
+    _QosIpAclInterfaceRoles_Type()
+)
+qosIpAclInterfaceRoles.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIpAclInterfaceRoles.setStatus("current")
+
+
+class _QosIpAclInterfaceDirection_Type(Integer32):
+    """Custom type qosIpAclInterfaceDirection based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("in", 0),
+          ("out", 1))
+    )
+
+
+_QosIpAclInterfaceDirection_Type.__name__ = "Integer32"
+_QosIpAclInterfaceDirection_Object = MibTableColumn
+qosIpAclInterfaceDirection = _QosIpAclInterfaceDirection_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 3, 1, 4),
+    _QosIpAclInterfaceDirection_Type()
+)
+qosIpAclInterfaceDirection.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIpAclInterfaceDirection.setStatus("current")
+_QosIpAclOrder_Type = Unsigned32
+_QosIpAclOrder_Object = MibTableColumn
+qosIpAclOrder = _QosIpAclOrder_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 3, 1, 5),
+    _QosIpAclOrder_Type()
+)
+qosIpAclOrder.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIpAclOrder.setStatus("current")
+_QosIpAclDscp_Type = Dscp
+_QosIpAclDscp_Object = MibTableColumn
+qosIpAclDscp = _QosIpAclDscp_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 3, 1, 6),
+    _QosIpAclDscp_Type()
+)
+qosIpAclDscp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIpAclDscp.setStatus("current")
+_QosIpAclDscpTrusted_Type = TruthValue
+_QosIpAclDscpTrusted_Object = MibTableColumn
+qosIpAclDscpTrusted = _QosIpAclDscpTrusted_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 3, 1, 7),
+    _QosIpAclDscpTrusted_Type()
+)
+qosIpAclDscpTrusted.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIpAclDscpTrusted.setStatus("current")
+_QosIpAclMicroFlowPolicerId_Type = PolicyInstanceId
+_QosIpAclMicroFlowPolicerId_Object = MibTableColumn
+qosIpAclMicroFlowPolicerId = _QosIpAclMicroFlowPolicerId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 3, 1, 8),
+    _QosIpAclMicroFlowPolicerId_Type()
+)
+qosIpAclMicroFlowPolicerId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIpAclMicroFlowPolicerId.setStatus("current")
+_QosIpAclAggregateId_Type = PolicyInstanceId
+_QosIpAclAggregateId_Object = MibTableColumn
+qosIpAclAggregateId = _QosIpAclAggregateId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 7, 3, 1, 9),
+    _QosIpAclAggregateId_Type()
+)
+qosIpAclAggregateId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIpAclAggregateId.setStatus("current")
+_QosIfParameters_ObjectIdentity = ObjectIdentity
+qosIfParameters = _QosIfParameters_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8)
+)
+_QosIfSchedulingPreferencesTable_Object = MibTable
+qosIfSchedulingPreferencesTable = _QosIfSchedulingPreferencesTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 1)
+)
+if mibBuilder.loadTexts:
+    qosIfSchedulingPreferencesTable.setStatus("current")
+_QosIfSchedulingPreferenceEntry_Object = MibTableRow
+qosIfSchedulingPreferenceEntry = _QosIfSchedulingPreferenceEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 1, 1)
+)
+qosIfSchedulingPreferenceEntry.setIndexNames(
+    (0, "CISCO-QOS-PIB-MIB", "qosIfSchedulingPreferenceId"),
+)
+if mibBuilder.loadTexts:
+    qosIfSchedulingPreferenceEntry.setStatus("current")
+_QosIfSchedulingPreferenceId_Type = PolicyInstanceId
+_QosIfSchedulingPreferenceId_Object = MibTableColumn
+qosIfSchedulingPreferenceId = _QosIfSchedulingPreferenceId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 1, 1, 1),
+    _QosIfSchedulingPreferenceId_Type()
+)
+qosIfSchedulingPreferenceId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    qosIfSchedulingPreferenceId.setStatus("current")
+_QosIfSchedulingRoles_Type = RoleCombination
+_QosIfSchedulingRoles_Object = MibTableColumn
+qosIfSchedulingRoles = _QosIfSchedulingRoles_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 1, 1, 2),
+    _QosIfSchedulingRoles_Type()
+)
+qosIfSchedulingRoles.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIfSchedulingRoles.setStatus("current")
+
+
+class _QosIfSchedulingPreference_Type(Integer32):
+    """Custom type qosIfSchedulingPreference based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16),
+    )
+
+
+_QosIfSchedulingPreference_Type.__name__ = "Integer32"
+_QosIfSchedulingPreference_Object = MibTableColumn
+qosIfSchedulingPreference = _QosIfSchedulingPreference_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 1, 1, 3),
+    _QosIfSchedulingPreference_Type()
+)
+qosIfSchedulingPreference.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIfSchedulingPreference.setStatus("current")
+
+
+class _QosIfSchedulingDiscipline_Type(Integer32):
+    """Custom type qosIfSchedulingDiscipline based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("classBasedWFQ", 5),
+          ("customQueueing", 3),
+          ("fifo", 6),
+          ("pqCbwfq", 8),
+          ("pqWrr", 7),
+          ("priorityQueueing", 4),
+          ("weightedFairQueueing", 1),
+          ("weightedRoundRobin", 2))
+    )
+
+
+_QosIfSchedulingDiscipline_Type.__name__ = "Integer32"
+_QosIfSchedulingDiscipline_Object = MibTableColumn
+qosIfSchedulingDiscipline = _QosIfSchedulingDiscipline_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 1, 1, 4),
+    _QosIfSchedulingDiscipline_Type()
+)
+qosIfSchedulingDiscipline.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIfSchedulingDiscipline.setStatus("current")
+_QosIfSchedulingQueueType_Type = QosInterfaceQueueType
+_QosIfSchedulingQueueType_Object = MibTableColumn
+qosIfSchedulingQueueType = _QosIfSchedulingQueueType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 1, 1, 5),
+    _QosIfSchedulingQueueType_Type()
+)
+qosIfSchedulingQueueType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIfSchedulingQueueType.setStatus("current")
+_QosIfDropPreferenceTable_Object = MibTable
+qosIfDropPreferenceTable = _QosIfDropPreferenceTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 2)
+)
+if mibBuilder.loadTexts:
+    qosIfDropPreferenceTable.setStatus("current")
+_QosIfDropPreferenceEntry_Object = MibTableRow
+qosIfDropPreferenceEntry = _QosIfDropPreferenceEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 2, 1)
+)
+qosIfDropPreferenceEntry.setIndexNames(
+    (0, "CISCO-QOS-PIB-MIB", "qosIfDropPreferenceId"),
+)
+if mibBuilder.loadTexts:
+    qosIfDropPreferenceEntry.setStatus("current")
+_QosIfDropPreferenceId_Type = PolicyInstanceId
+_QosIfDropPreferenceId_Object = MibTableColumn
+qosIfDropPreferenceId = _QosIfDropPreferenceId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 2, 1, 1),
+    _QosIfDropPreferenceId_Type()
+)
+qosIfDropPreferenceId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    qosIfDropPreferenceId.setStatus("current")
+_QosIfDropRoles_Type = RoleCombination
+_QosIfDropRoles_Object = MibTableColumn
+qosIfDropRoles = _QosIfDropRoles_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 2, 1, 2),
+    _QosIfDropRoles_Type()
+)
+qosIfDropRoles.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIfDropRoles.setStatus("current")
+
+
+class _QosIfDropPreference_Type(Integer32):
+    """Custom type qosIfDropPreference based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16),
+    )
+
+
+_QosIfDropPreference_Type.__name__ = "Integer32"
+_QosIfDropPreference_Object = MibTableColumn
+qosIfDropPreference = _QosIfDropPreference_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 2, 1, 3),
+    _QosIfDropPreference_Type()
+)
+qosIfDropPreference.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIfDropPreference.setStatus("current")
+
+
+class _QosIfDropDiscipline_Type(Integer32):
+    """Custom type qosIfDropDiscipline based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("qosIfDropTailDrop", 2),
+          ("qosIfDropWRED", 1))
+    )
+
+
+_QosIfDropDiscipline_Type.__name__ = "Integer32"
+_QosIfDropDiscipline_Object = MibTableColumn
+qosIfDropDiscipline = _QosIfDropDiscipline_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 2, 1, 4),
+    _QosIfDropDiscipline_Type()
+)
+qosIfDropDiscipline.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIfDropDiscipline.setStatus("current")
+_QosIfDscpAssignmentTable_Object = MibTable
+qosIfDscpAssignmentTable = _QosIfDscpAssignmentTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 3)
+)
+if mibBuilder.loadTexts:
+    qosIfDscpAssignmentTable.setStatus("current")
+_QosIfDscpAssignmentEntry_Object = MibTableRow
+qosIfDscpAssignmentEntry = _QosIfDscpAssignmentEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 3, 1)
+)
+qosIfDscpAssignmentEntry.setIndexNames(
+    (0, "CISCO-QOS-PIB-MIB", "qosIfDscpAssignmentId"),
+)
+if mibBuilder.loadTexts:
+    qosIfDscpAssignmentEntry.setStatus("current")
+_QosIfDscpAssignmentId_Type = PolicyInstanceId
+_QosIfDscpAssignmentId_Object = MibTableColumn
+qosIfDscpAssignmentId = _QosIfDscpAssignmentId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 3, 1, 1),
+    _QosIfDscpAssignmentId_Type()
+)
+qosIfDscpAssignmentId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    qosIfDscpAssignmentId.setStatus("current")
+_QosIfDscpRoles_Type = RoleCombination
+_QosIfDscpRoles_Object = MibTableColumn
+qosIfDscpRoles = _QosIfDscpRoles_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 3, 1, 2),
+    _QosIfDscpRoles_Type()
+)
+qosIfDscpRoles.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIfDscpRoles.setStatus("current")
+_QosIfQueueType_Type = QosInterfaceQueueType
+_QosIfQueueType_Object = MibTableColumn
+qosIfQueueType = _QosIfQueueType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 3, 1, 3),
+    _QosIfQueueType_Type()
+)
+qosIfQueueType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIfQueueType.setStatus("current")
+_QosIfDscp_Type = Dscp
+_QosIfDscp_Object = MibTableColumn
+qosIfDscp = _QosIfDscp_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 3, 1, 4),
+    _QosIfDscp_Type()
+)
+qosIfDscp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIfDscp.setStatus("current")
+
+
+class _QosIfQueue_Type(Integer32):
+    """Custom type qosIfQueue based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 64),
+    )
+
+
+_QosIfQueue_Type.__name__ = "Integer32"
+_QosIfQueue_Object = MibTableColumn
+qosIfQueue = _QosIfQueue_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 3, 1, 5),
+    _QosIfQueue_Type()
+)
+qosIfQueue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIfQueue.setStatus("current")
+
+
+class _QosIfThresholdSet_Type(Integer32):
+    """Custom type qosIfThresholdSet based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 8),
+    )
+
+
+_QosIfThresholdSet_Type.__name__ = "Integer32"
+_QosIfThresholdSet_Object = MibTableColumn
+qosIfThresholdSet = _QosIfThresholdSet_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 3, 1, 6),
+    _QosIfThresholdSet_Type()
+)
+qosIfThresholdSet.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIfThresholdSet.setStatus("current")
+_QosIfRedTable_Object = MibTable
+qosIfRedTable = _QosIfRedTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 4)
+)
+if mibBuilder.loadTexts:
+    qosIfRedTable.setStatus("current")
+_QosIfRedEntry_Object = MibTableRow
+qosIfRedEntry = _QosIfRedEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 4, 1)
+)
+qosIfRedEntry.setIndexNames(
+    (0, "CISCO-QOS-PIB-MIB", "qosIfRedId"),
+)
+if mibBuilder.loadTexts:
+    qosIfRedEntry.setStatus("current")
+_QosIfRedId_Type = PolicyInstanceId
+_QosIfRedId_Object = MibTableColumn
+qosIfRedId = _QosIfRedId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 4, 1, 1),
+    _QosIfRedId_Type()
+)
+qosIfRedId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    qosIfRedId.setStatus("current")
+_QosIfRedRoles_Type = RoleCombination
+_QosIfRedRoles_Object = MibTableColumn
+qosIfRedRoles = _QosIfRedRoles_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 4, 1, 2),
+    _QosIfRedRoles_Type()
+)
+qosIfRedRoles.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIfRedRoles.setStatus("current")
+_QosIfRedNumThresholdSets_Type = ThresholdSetRange
+_QosIfRedNumThresholdSets_Object = MibTableColumn
+qosIfRedNumThresholdSets = _QosIfRedNumThresholdSets_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 4, 1, 3),
+    _QosIfRedNumThresholdSets_Type()
+)
+qosIfRedNumThresholdSets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIfRedNumThresholdSets.setStatus("current")
+
+
+class _QosIfRedThresholdSet_Type(Integer32):
+    """Custom type qosIfRedThresholdSet based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 8),
+    )
+
+
+_QosIfRedThresholdSet_Type.__name__ = "Integer32"
+_QosIfRedThresholdSet_Object = MibTableColumn
+qosIfRedThresholdSet = _QosIfRedThresholdSet_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 4, 1, 4),
+    _QosIfRedThresholdSet_Type()
+)
+qosIfRedThresholdSet.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIfRedThresholdSet.setStatus("current")
+_QosIfRedThresholdSetLower_Type = Percent
+_QosIfRedThresholdSetLower_Object = MibTableColumn
+qosIfRedThresholdSetLower = _QosIfRedThresholdSetLower_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 4, 1, 5),
+    _QosIfRedThresholdSetLower_Type()
+)
+qosIfRedThresholdSetLower.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIfRedThresholdSetLower.setStatus("current")
+_QosIfRedThresholdSetUpper_Type = Percent
+_QosIfRedThresholdSetUpper_Object = MibTableColumn
+qosIfRedThresholdSetUpper = _QosIfRedThresholdSetUpper_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 4, 1, 6),
+    _QosIfRedThresholdSetUpper_Type()
+)
+qosIfRedThresholdSetUpper.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIfRedThresholdSetUpper.setStatus("current")
+_QosIfTailDropTable_Object = MibTable
+qosIfTailDropTable = _QosIfTailDropTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 5)
+)
+if mibBuilder.loadTexts:
+    qosIfTailDropTable.setStatus("current")
+_QosIfTailDropEntry_Object = MibTableRow
+qosIfTailDropEntry = _QosIfTailDropEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 5, 1)
+)
+qosIfTailDropEntry.setIndexNames(
+    (0, "CISCO-QOS-PIB-MIB", "qosIfTailDropId"),
+)
+if mibBuilder.loadTexts:
+    qosIfTailDropEntry.setStatus("current")
+_QosIfTailDropId_Type = PolicyInstanceId
+_QosIfTailDropId_Object = MibTableColumn
+qosIfTailDropId = _QosIfTailDropId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 5, 1, 1),
+    _QosIfTailDropId_Type()
+)
+qosIfTailDropId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    qosIfTailDropId.setStatus("current")
+_QosIfTailDropRoles_Type = RoleCombination
+_QosIfTailDropRoles_Object = MibTableColumn
+qosIfTailDropRoles = _QosIfTailDropRoles_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 5, 1, 2),
+    _QosIfTailDropRoles_Type()
+)
+qosIfTailDropRoles.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIfTailDropRoles.setStatus("current")
+_QosIfTailDropNumThresholdSets_Type = ThresholdSetRange
+_QosIfTailDropNumThresholdSets_Object = MibTableColumn
+qosIfTailDropNumThresholdSets = _QosIfTailDropNumThresholdSets_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 5, 1, 3),
+    _QosIfTailDropNumThresholdSets_Type()
+)
+qosIfTailDropNumThresholdSets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIfTailDropNumThresholdSets.setStatus("current")
+
+
+class _QosIfTailDropThresholdSet_Type(Integer32):
+    """Custom type qosIfTailDropThresholdSet based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 8),
+    )
+
+
+_QosIfTailDropThresholdSet_Type.__name__ = "Integer32"
+_QosIfTailDropThresholdSet_Object = MibTableColumn
+qosIfTailDropThresholdSet = _QosIfTailDropThresholdSet_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 5, 1, 4),
+    _QosIfTailDropThresholdSet_Type()
+)
+qosIfTailDropThresholdSet.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIfTailDropThresholdSet.setStatus("current")
+_QosIfTailDropThresholdSetValue_Type = Percent
+_QosIfTailDropThresholdSetValue_Object = MibTableColumn
+qosIfTailDropThresholdSetValue = _QosIfTailDropThresholdSetValue_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 5, 1, 5),
+    _QosIfTailDropThresholdSetValue_Type()
+)
+qosIfTailDropThresholdSetValue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIfTailDropThresholdSetValue.setStatus("current")
+_QosIfWeightsTable_Object = MibTable
+qosIfWeightsTable = _QosIfWeightsTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 6)
+)
+if mibBuilder.loadTexts:
+    qosIfWeightsTable.setStatus("current")
+_QosIfWeightsEntry_Object = MibTableRow
+qosIfWeightsEntry = _QosIfWeightsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 6, 1)
+)
+qosIfWeightsEntry.setIndexNames(
+    (0, "CISCO-QOS-PIB-MIB", "qosIfWeightsId"),
+)
+if mibBuilder.loadTexts:
+    qosIfWeightsEntry.setStatus("current")
+_QosIfWeightsId_Type = PolicyInstanceId
+_QosIfWeightsId_Object = MibTableColumn
+qosIfWeightsId = _QosIfWeightsId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 6, 1, 1),
+    _QosIfWeightsId_Type()
+)
+qosIfWeightsId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    qosIfWeightsId.setStatus("current")
+_QosIfWeightsRoles_Type = RoleCombination
+_QosIfWeightsRoles_Object = MibTableColumn
+qosIfWeightsRoles = _QosIfWeightsRoles_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 6, 1, 2),
+    _QosIfWeightsRoles_Type()
+)
+qosIfWeightsRoles.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIfWeightsRoles.setStatus("current")
+_QosIfWeightsNumQueues_Type = QueueRange
+_QosIfWeightsNumQueues_Object = MibTableColumn
+qosIfWeightsNumQueues = _QosIfWeightsNumQueues_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 6, 1, 3),
+    _QosIfWeightsNumQueues_Type()
+)
+qosIfWeightsNumQueues.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIfWeightsNumQueues.setStatus("current")
+
+
+class _QosIfWeightsQueue_Type(Integer32):
+    """Custom type qosIfWeightsQueue based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 64),
+    )
+
+
+_QosIfWeightsQueue_Type.__name__ = "Integer32"
+_QosIfWeightsQueue_Object = MibTableColumn
+qosIfWeightsQueue = _QosIfWeightsQueue_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 6, 1, 4),
+    _QosIfWeightsQueue_Type()
+)
+qosIfWeightsQueue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIfWeightsQueue.setStatus("current")
+_QosIfWeightsDrainSize_Type = Unsigned32
+_QosIfWeightsDrainSize_Object = MibTableColumn
+qosIfWeightsDrainSize = _QosIfWeightsDrainSize_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 6, 1, 5),
+    _QosIfWeightsDrainSize_Type()
+)
+qosIfWeightsDrainSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIfWeightsDrainSize.setStatus("current")
+_QosIfWeightsQueueSize_Type = Unsigned32
+_QosIfWeightsQueueSize_Object = MibTableColumn
+qosIfWeightsQueueSize = _QosIfWeightsQueueSize_Object(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 8, 6, 1, 6),
+    _QosIfWeightsQueueSize_Type()
+)
+qosIfWeightsQueueSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qosIfWeightsQueueSize.setStatus("current")
+
+# Managed Objects groups
+
+qosDevicePibIncarnationTableGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 2, 1)
+)
+qosDevicePibIncarnationTableGroup.setObjects(
+      *(("CISCO-QOS-PIB-MIB", "qosDevicePdpName"),
+        ("CISCO-QOS-PIB-MIB", "qosDevicePibIncarnation"),
+        ("CISCO-QOS-PIB-MIB", "qosDevicePibTtl"))
+)
+if mibBuilder.loadTexts:
+    qosDevicePibIncarnationTableGroup.setStatus("current")
+
+qosDeviceAttributeTableGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 2, 2)
+)
+qosDeviceAttributeTableGroup.setObjects(
+      *(("CISCO-QOS-PIB-MIB", "qosDevicePepDomain"),
+        ("CISCO-QOS-PIB-MIB", "qosDevicePrimaryPdp"),
+        ("CISCO-QOS-PIB-MIB", "qosDeviceSecondaryPdp"),
+        ("CISCO-QOS-PIB-MIB", "qosDeviceMaxMessageSize"),
+        ("CISCO-QOS-PIB-MIB", "qosDeviceCapabilities"))
+)
+if mibBuilder.loadTexts:
+    qosDeviceAttributeTableGroup.setStatus("current")
+
+qosInterfaceTypeTableGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 2, 3)
+)
+qosInterfaceTypeTableGroup.setObjects(
+      *(("CISCO-QOS-PIB-MIB", "qosInterfaceQueueType"),
+        ("CISCO-QOS-PIB-MIB", "qosInterfaceTypeRoles"),
+        ("CISCO-QOS-PIB-MIB", "qosInterfaceTypeCapabilities"))
+)
+if mibBuilder.loadTexts:
+    qosInterfaceTypeTableGroup.setStatus("current")
+
+qosDiffServMappingTableGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 2, 4)
+)
+qosDiffServMappingTableGroup.setObjects(
+      *(("CISCO-QOS-PIB-MIB", "qosMarkedDscp"),
+        ("CISCO-QOS-PIB-MIB", "qosL2Cos"))
+)
+if mibBuilder.loadTexts:
+    qosDiffServMappingTableGroup.setStatus("current")
+
+qosCosToDscpTableGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 2, 5)
+)
+qosCosToDscpTableGroup.setObjects(
+    ("CISCO-QOS-PIB-MIB", "qosCosToDscpDscp")
+)
+if mibBuilder.loadTexts:
+    qosCosToDscpTableGroup.setStatus("current")
+
+qosUnmatchedPolicyTableGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 2, 6)
+)
+qosUnmatchedPolicyTableGroup.setObjects(
+      *(("CISCO-QOS-PIB-MIB", "qosUnmatchedPolicyRole"),
+        ("CISCO-QOS-PIB-MIB", "qosUnmatchedPolicyDirection"),
+        ("CISCO-QOS-PIB-MIB", "qosUnmatchedPolicyDscp"),
+        ("CISCO-QOS-PIB-MIB", "qosUnmatchedPolicyDscpTrusted"),
+        ("CISCO-QOS-PIB-MIB", "qosUnmatchPolMicroFlowPolicerId"),
+        ("CISCO-QOS-PIB-MIB", "qosUnmatchedPolicyAggregateId"))
+)
+if mibBuilder.loadTexts:
+    qosUnmatchedPolicyTableGroup.setStatus("current")
+
+qosPolicerTableGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 2, 7)
+)
+qosPolicerTableGroup.setObjects(
+      *(("CISCO-QOS-PIB-MIB", "qosPolicerRate"),
+        ("CISCO-QOS-PIB-MIB", "qosPolicerNormalBurst"),
+        ("CISCO-QOS-PIB-MIB", "qosPolicerExcessBurst"),
+        ("CISCO-QOS-PIB-MIB", "qosPolicerAction"))
+)
+if mibBuilder.loadTexts:
+    qosPolicerTableGroup.setStatus("current")
+
+qosAggregateTableGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 2, 8)
+)
+qosAggregateTableGroup.setObjects(
+    ("CISCO-QOS-PIB-MIB", "qosAggregatePolicerId")
+)
+if mibBuilder.loadTexts:
+    qosAggregateTableGroup.setStatus("current")
+
+qosMacClassificationTableGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 2, 9)
+)
+qosMacClassificationTableGroup.setObjects(
+      *(("CISCO-QOS-PIB-MIB", "qosDstMacVlan"),
+        ("CISCO-QOS-PIB-MIB", "qosDstMacAddress"),
+        ("CISCO-QOS-PIB-MIB", "qosDstMacCos"))
+)
+if mibBuilder.loadTexts:
+    qosMacClassificationTableGroup.setStatus("current")
+
+qosIpAceTableGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 2, 10)
+)
+qosIpAceTableGroup.setObjects(
+      *(("CISCO-QOS-PIB-MIB", "qosIpAceDstAddr"),
+        ("CISCO-QOS-PIB-MIB", "qosIpAceDstAddrMask"),
+        ("CISCO-QOS-PIB-MIB", "qosIpAceSrcAddr"),
+        ("CISCO-QOS-PIB-MIB", "qosIpAceSrcAddrMask"),
+        ("CISCO-QOS-PIB-MIB", "qosIpAceDscpMin"),
+        ("CISCO-QOS-PIB-MIB", "qosIpAceDscpMax"),
+        ("CISCO-QOS-PIB-MIB", "qosIpAceProtocol"),
+        ("CISCO-QOS-PIB-MIB", "qosIpAceDstL4PortMin"),
+        ("CISCO-QOS-PIB-MIB", "qosIpAceDstL4PortMax"),
+        ("CISCO-QOS-PIB-MIB", "qosIpAceSrcL4PortMin"),
+        ("CISCO-QOS-PIB-MIB", "qosIpAceSrcL4PortMax"),
+        ("CISCO-QOS-PIB-MIB", "qosIpAcePermit"))
+)
+if mibBuilder.loadTexts:
+    qosIpAceTableGroup.setStatus("current")
+
+qosIpAclDefinitionTableGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 2, 11)
+)
+qosIpAclDefinitionTableGroup.setObjects(
+      *(("CISCO-QOS-PIB-MIB", "qosIpAclId"),
+        ("CISCO-QOS-PIB-MIB", "qosIpAceOrder"),
+        ("CISCO-QOS-PIB-MIB", "qosIpAclDefAceId"))
+)
+if mibBuilder.loadTexts:
+    qosIpAclDefinitionTableGroup.setStatus("current")
+
+qosIpAclActionTableGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 2, 12)
+)
+qosIpAclActionTableGroup.setObjects(
+      *(("CISCO-QOS-PIB-MIB", "qosIpAclActAclId"),
+        ("CISCO-QOS-PIB-MIB", "qosIpAclInterfaceRoles"),
+        ("CISCO-QOS-PIB-MIB", "qosIpAclInterfaceDirection"),
+        ("CISCO-QOS-PIB-MIB", "qosIpAclOrder"),
+        ("CISCO-QOS-PIB-MIB", "qosIpAclDscp"),
+        ("CISCO-QOS-PIB-MIB", "qosIpAclDscpTrusted"),
+        ("CISCO-QOS-PIB-MIB", "qosIpAclMicroFlowPolicerId"),
+        ("CISCO-QOS-PIB-MIB", "qosIpAclAggregateId"))
+)
+if mibBuilder.loadTexts:
+    qosIpAclActionTableGroup.setStatus("current")
+
+qosIfSchedulingPreferencesTableGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 2, 13)
+)
+qosIfSchedulingPreferencesTableGroup.setObjects(
+      *(("CISCO-QOS-PIB-MIB", "qosIfSchedulingRoles"),
+        ("CISCO-QOS-PIB-MIB", "qosIfSchedulingPreference"),
+        ("CISCO-QOS-PIB-MIB", "qosIfSchedulingDiscipline"),
+        ("CISCO-QOS-PIB-MIB", "qosIfSchedulingQueueType"))
+)
+if mibBuilder.loadTexts:
+    qosIfSchedulingPreferencesTableGroup.setStatus("current")
+
+qosIfDropPreferenceTableGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 2, 14)
+)
+qosIfDropPreferenceTableGroup.setObjects(
+      *(("CISCO-QOS-PIB-MIB", "qosIfDropRoles"),
+        ("CISCO-QOS-PIB-MIB", "qosIfDropPreference"),
+        ("CISCO-QOS-PIB-MIB", "qosIfDropDiscipline"))
+)
+if mibBuilder.loadTexts:
+    qosIfDropPreferenceTableGroup.setStatus("current")
+
+qosIfDscpAssignmentTableGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 2, 15)
+)
+qosIfDscpAssignmentTableGroup.setObjects(
+      *(("CISCO-QOS-PIB-MIB", "qosIfDscpRoles"),
+        ("CISCO-QOS-PIB-MIB", "qosIfQueueType"),
+        ("CISCO-QOS-PIB-MIB", "qosIfDscp"),
+        ("CISCO-QOS-PIB-MIB", "qosIfQueue"),
+        ("CISCO-QOS-PIB-MIB", "qosIfThresholdSet"))
+)
+if mibBuilder.loadTexts:
+    qosIfDscpAssignmentTableGroup.setStatus("current")
+
+qosIfRedTableGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 2, 16)
+)
+qosIfRedTableGroup.setObjects(
+      *(("CISCO-QOS-PIB-MIB", "qosIfRedRoles"),
+        ("CISCO-QOS-PIB-MIB", "qosIfRedNumThresholdSets"),
+        ("CISCO-QOS-PIB-MIB", "qosIfRedThresholdSet"),
+        ("CISCO-QOS-PIB-MIB", "qosIfRedThresholdSetLower"),
+        ("CISCO-QOS-PIB-MIB", "qosIfRedThresholdSetUpper"))
+)
+if mibBuilder.loadTexts:
+    qosIfRedTableGroup.setStatus("current")
+
+qosIfTailDropTableGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 2, 17)
+)
+qosIfTailDropTableGroup.setObjects(
+      *(("CISCO-QOS-PIB-MIB", "qosIfTailDropRoles"),
+        ("CISCO-QOS-PIB-MIB", "qosIfTailDropNumThresholdSets"),
+        ("CISCO-QOS-PIB-MIB", "qosIfTailDropThresholdSet"),
+        ("CISCO-QOS-PIB-MIB", "qosIfTailDropThresholdSetValue"))
+)
+if mibBuilder.loadTexts:
+    qosIfTailDropTableGroup.setStatus("current")
+
+qosIfWeightsTableGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 2, 18)
+)
+qosIfWeightsTableGroup.setObjects(
+      *(("CISCO-QOS-PIB-MIB", "qosIfWeightsRoles"),
+        ("CISCO-QOS-PIB-MIB", "qosIfWeightsNumQueues"),
+        ("CISCO-QOS-PIB-MIB", "qosIfWeightsQueue"),
+        ("CISCO-QOS-PIB-MIB", "qosIfWeightsDrainSize"),
+        ("CISCO-QOS-PIB-MIB", "qosIfWeightsQueueSize"))
+)
+if mibBuilder.loadTexts:
+    qosIfWeightsTableGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+qosPIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 18, 2, 1, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    qosPIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-QOS-PIB-MIB",
+    **{"Dscp": Dscp,
+       "QosLayer2Cos": QosLayer2Cos,
+       "QueueRange": QueueRange,
+       "ThresholdSetRange": ThresholdSetRange,
+       "Percent": Percent,
+       "QosInterfaceQueueType": QosInterfaceQueueType,
+       "QosInterfaceTypeCapabilities": QosInterfaceTypeCapabilities,
+       "RoleCombination": RoleCombination,
+       "PolicyInstanceId": PolicyInstanceId,
+       "Unsigned64": Unsigned64,
+       "ciscoQosPIBMIB": ciscoQosPIBMIB,
+       "qosPIBConformance": qosPIBConformance,
+       "qosPIBCompliances": qosPIBCompliances,
+       "qosPIBCompliance": qosPIBCompliance,
+       "qosPIBGroups": qosPIBGroups,
+       "qosDevicePibIncarnationTableGroup": qosDevicePibIncarnationTableGroup,
+       "qosDeviceAttributeTableGroup": qosDeviceAttributeTableGroup,
+       "qosInterfaceTypeTableGroup": qosInterfaceTypeTableGroup,
+       "qosDiffServMappingTableGroup": qosDiffServMappingTableGroup,
+       "qosCosToDscpTableGroup": qosCosToDscpTableGroup,
+       "qosUnmatchedPolicyTableGroup": qosUnmatchedPolicyTableGroup,
+       "qosPolicerTableGroup": qosPolicerTableGroup,
+       "qosAggregateTableGroup": qosAggregateTableGroup,
+       "qosMacClassificationTableGroup": qosMacClassificationTableGroup,
+       "qosIpAceTableGroup": qosIpAceTableGroup,
+       "qosIpAclDefinitionTableGroup": qosIpAclDefinitionTableGroup,
+       "qosIpAclActionTableGroup": qosIpAclActionTableGroup,
+       "qosIfSchedulingPreferencesTableGroup": qosIfSchedulingPreferencesTableGroup,
+       "qosIfDropPreferenceTableGroup": qosIfDropPreferenceTableGroup,
+       "qosIfDscpAssignmentTableGroup": qosIfDscpAssignmentTableGroup,
+       "qosIfRedTableGroup": qosIfRedTableGroup,
+       "qosIfTailDropTableGroup": qosIfTailDropTableGroup,
+       "qosIfWeightsTableGroup": qosIfWeightsTableGroup,
+       "qosDeviceConfig": qosDeviceConfig,
+       "qosDevicePibIncarnationTable": qosDevicePibIncarnationTable,
+       "qosDevicePibIncarnationEntry": qosDevicePibIncarnationEntry,
+       "qosDeviceIncarnationId": qosDeviceIncarnationId,
+       "qosDevicePdpName": qosDevicePdpName,
+       "qosDevicePibIncarnation": qosDevicePibIncarnation,
+       "qosDevicePibTtl": qosDevicePibTtl,
+       "qosDeviceAttributeTable": qosDeviceAttributeTable,
+       "qosDeviceAttributeEntry": qosDeviceAttributeEntry,
+       "qosDeviceAttributeId": qosDeviceAttributeId,
+       "qosDevicePepDomain": qosDevicePepDomain,
+       "qosDevicePrimaryPdp": qosDevicePrimaryPdp,
+       "qosDeviceSecondaryPdp": qosDeviceSecondaryPdp,
+       "qosDeviceMaxMessageSize": qosDeviceMaxMessageSize,
+       "qosDeviceCapabilities": qosDeviceCapabilities,
+       "qosInterfaceTypeTable": qosInterfaceTypeTable,
+       "qosInterfaceTypeEntry": qosInterfaceTypeEntry,
+       "qosInterfaceTypeId": qosInterfaceTypeId,
+       "qosInterfaceQueueType": qosInterfaceQueueType,
+       "qosInterfaceTypeRoles": qosInterfaceTypeRoles,
+       "qosInterfaceTypeCapabilities": qosInterfaceTypeCapabilities,
+       "qosDomainConfig": qosDomainConfig,
+       "qosDiffServMappingTable": qosDiffServMappingTable,
+       "qosDiffServMappingEntry": qosDiffServMappingEntry,
+       "qosDscp": qosDscp,
+       "qosMarkedDscp": qosMarkedDscp,
+       "qosL2Cos": qosL2Cos,
+       "qosCosToDscpTable": qosCosToDscpTable,
+       "qosCosToDscpEntry": qosCosToDscpEntry,
+       "qosCosToDscpCos": qosCosToDscpCos,
+       "qosCosToDscpDscp": qosCosToDscpDscp,
+       "qosUnmatchedPolicy": qosUnmatchedPolicy,
+       "qosUnmatchedPolicyTable": qosUnmatchedPolicyTable,
+       "qosUnmatchedPolicyEntry": qosUnmatchedPolicyEntry,
+       "qosUnmatchedPolicyId": qosUnmatchedPolicyId,
+       "qosUnmatchedPolicyRole": qosUnmatchedPolicyRole,
+       "qosUnmatchedPolicyDirection": qosUnmatchedPolicyDirection,
+       "qosUnmatchedPolicyDscp": qosUnmatchedPolicyDscp,
+       "qosUnmatchedPolicyDscpTrusted": qosUnmatchedPolicyDscpTrusted,
+       "qosUnmatchPolMicroFlowPolicerId": qosUnmatchPolMicroFlowPolicerId,
+       "qosUnmatchedPolicyAggregateId": qosUnmatchedPolicyAggregateId,
+       "qosPolicer": qosPolicer,
+       "qosPolicerTable": qosPolicerTable,
+       "qosPolicerEntry": qosPolicerEntry,
+       "qosPolicerId": qosPolicerId,
+       "qosPolicerRate": qosPolicerRate,
+       "qosPolicerNormalBurst": qosPolicerNormalBurst,
+       "qosPolicerExcessBurst": qosPolicerExcessBurst,
+       "qosPolicerAction": qosPolicerAction,
+       "qosAggregateTable": qosAggregateTable,
+       "qosAggregateEntry": qosAggregateEntry,
+       "qosAggregateId": qosAggregateId,
+       "qosAggregatePolicerId": qosAggregatePolicerId,
+       "qosMacQos": qosMacQos,
+       "qosMacClassificationTable": qosMacClassificationTable,
+       "qosMacClassificationEntry": qosMacClassificationEntry,
+       "qosMacClassificationId": qosMacClassificationId,
+       "qosDstMacVlan": qosDstMacVlan,
+       "qosDstMacAddress": qosDstMacAddress,
+       "qosDstMacCos": qosDstMacCos,
+       "qosIpQos": qosIpQos,
+       "qosIpAceTable": qosIpAceTable,
+       "qosIpAceEntry": qosIpAceEntry,
+       "qosIpAceId": qosIpAceId,
+       "qosIpAceDstAddr": qosIpAceDstAddr,
+       "qosIpAceDstAddrMask": qosIpAceDstAddrMask,
+       "qosIpAceSrcAddr": qosIpAceSrcAddr,
+       "qosIpAceSrcAddrMask": qosIpAceSrcAddrMask,
+       "qosIpAceDscpMin": qosIpAceDscpMin,
+       "qosIpAceDscpMax": qosIpAceDscpMax,
+       "qosIpAceProtocol": qosIpAceProtocol,
+       "qosIpAceDstL4PortMin": qosIpAceDstL4PortMin,
+       "qosIpAceDstL4PortMax": qosIpAceDstL4PortMax,
+       "qosIpAceSrcL4PortMin": qosIpAceSrcL4PortMin,
+       "qosIpAceSrcL4PortMax": qosIpAceSrcL4PortMax,
+       "qosIpAcePermit": qosIpAcePermit,
+       "qosIpAclDefinitionTable": qosIpAclDefinitionTable,
+       "qosIpAclDefinitionEntry": qosIpAclDefinitionEntry,
+       "qosIpAclDefinitionId": qosIpAclDefinitionId,
+       "qosIpAclId": qosIpAclId,
+       "qosIpAceOrder": qosIpAceOrder,
+       "qosIpAclDefAceId": qosIpAclDefAceId,
+       "qosIpAclActionTable": qosIpAclActionTable,
+       "qosIpAclActionEntry": qosIpAclActionEntry,
+       "qosIpAclActionId": qosIpAclActionId,
+       "qosIpAclActAclId": qosIpAclActAclId,
+       "qosIpAclInterfaceRoles": qosIpAclInterfaceRoles,
+       "qosIpAclInterfaceDirection": qosIpAclInterfaceDirection,
+       "qosIpAclOrder": qosIpAclOrder,
+       "qosIpAclDscp": qosIpAclDscp,
+       "qosIpAclDscpTrusted": qosIpAclDscpTrusted,
+       "qosIpAclMicroFlowPolicerId": qosIpAclMicroFlowPolicerId,
+       "qosIpAclAggregateId": qosIpAclAggregateId,
+       "qosIfParameters": qosIfParameters,
+       "qosIfSchedulingPreferencesTable": qosIfSchedulingPreferencesTable,
+       "qosIfSchedulingPreferenceEntry": qosIfSchedulingPreferenceEntry,
+       "qosIfSchedulingPreferenceId": qosIfSchedulingPreferenceId,
+       "qosIfSchedulingRoles": qosIfSchedulingRoles,
+       "qosIfSchedulingPreference": qosIfSchedulingPreference,
+       "qosIfSchedulingDiscipline": qosIfSchedulingDiscipline,
+       "qosIfSchedulingQueueType": qosIfSchedulingQueueType,
+       "qosIfDropPreferenceTable": qosIfDropPreferenceTable,
+       "qosIfDropPreferenceEntry": qosIfDropPreferenceEntry,
+       "qosIfDropPreferenceId": qosIfDropPreferenceId,
+       "qosIfDropRoles": qosIfDropRoles,
+       "qosIfDropPreference": qosIfDropPreference,
+       "qosIfDropDiscipline": qosIfDropDiscipline,
+       "qosIfDscpAssignmentTable": qosIfDscpAssignmentTable,
+       "qosIfDscpAssignmentEntry": qosIfDscpAssignmentEntry,
+       "qosIfDscpAssignmentId": qosIfDscpAssignmentId,
+       "qosIfDscpRoles": qosIfDscpRoles,
+       "qosIfQueueType": qosIfQueueType,
+       "qosIfDscp": qosIfDscp,
+       "qosIfQueue": qosIfQueue,
+       "qosIfThresholdSet": qosIfThresholdSet,
+       "qosIfRedTable": qosIfRedTable,
+       "qosIfRedEntry": qosIfRedEntry,
+       "qosIfRedId": qosIfRedId,
+       "qosIfRedRoles": qosIfRedRoles,
+       "qosIfRedNumThresholdSets": qosIfRedNumThresholdSets,
+       "qosIfRedThresholdSet": qosIfRedThresholdSet,
+       "qosIfRedThresholdSetLower": qosIfRedThresholdSetLower,
+       "qosIfRedThresholdSetUpper": qosIfRedThresholdSetUpper,
+       "qosIfTailDropTable": qosIfTailDropTable,
+       "qosIfTailDropEntry": qosIfTailDropEntry,
+       "qosIfTailDropId": qosIfTailDropId,
+       "qosIfTailDropRoles": qosIfTailDropRoles,
+       "qosIfTailDropNumThresholdSets": qosIfTailDropNumThresholdSets,
+       "qosIfTailDropThresholdSet": qosIfTailDropThresholdSet,
+       "qosIfTailDropThresholdSetValue": qosIfTailDropThresholdSetValue,
+       "qosIfWeightsTable": qosIfWeightsTable,
+       "qosIfWeightsEntry": qosIfWeightsEntry,
+       "qosIfWeightsId": qosIfWeightsId,
+       "qosIfWeightsRoles": qosIfWeightsRoles,
+       "qosIfWeightsNumQueues": qosIfWeightsNumQueues,
+       "qosIfWeightsQueue": qosIfWeightsQueue,
+       "qosIfWeightsDrainSize": qosIfWeightsDrainSize,
+       "qosIfWeightsQueueSize": qosIfWeightsQueueSize}
+)

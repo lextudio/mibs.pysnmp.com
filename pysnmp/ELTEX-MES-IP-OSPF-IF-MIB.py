@@ -1,29 +1,207 @@
+# SNMP MIB module (ELTEX-MES-IP-OSPF-IF-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ELTEX-MES-IP-OSPF-IF-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/ELTEX-MES-IP-OSPF-IF-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:47:03 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
-eltMes, = mibBuilder.importSymbols("ELTEX-MES", "eltMes")
-eltMesOspf, = mibBuilder.importSymbols("ELTEX-MES-IP", "eltMesOspf")
-PortList, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "PortList")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter64, Unsigned32, iso, IpAddress, ModuleIdentity, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, Counter32, ObjectIdentity, MibIdentifier, TimeTicks, Bits, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Unsigned32", "iso", "IpAddress", "ModuleIdentity", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "Counter32", "ObjectIdentity", "MibIdentifier", "TimeTicks", "Bits", "NotificationType")
-DisplayString, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TruthValue", "TextualConvention")
-eltIpOspfIfTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 23, 91, 1, 2), )
-if mibBuilder.loadTexts: eltIpOspfIfTable.setStatus('current')
-eltIpOspfIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 23, 91, 1, 2, 1), ).setIndexNames((0, "ELTEX-MES-IP-OSPF-IF-MIB", "eltOspfIfAddress"))
-if mibBuilder.loadTexts: eltIpOspfIfEntry.setStatus('current')
-eltOspfIfAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 91, 1, 2, 1, 1), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: eltOspfIfAddress.setStatus('current')
-eltOspfIfPassiveDefault = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 91, 1, 2, 1, 2), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: eltOspfIfPassiveDefault.setStatus('current')
-eltOspfIfPassiveList = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 91, 1, 2, 1, 3), PortList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: eltOspfIfPassiveList.setStatus('current')
-eltOspfIfStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 91, 1, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: eltOspfIfStatus.setStatus('current')
-mibBuilder.exportSymbols("ELTEX-MES-IP-OSPF-IF-MIB", eltOspfIfAddress=eltOspfIfAddress, eltOspfIfStatus=eltOspfIfStatus, eltOspfIfPassiveDefault=eltOspfIfPassiveDefault, eltOspfIfPassiveList=eltOspfIfPassiveList, eltIpOspfIfTable=eltIpOspfIfTable, eltIpOspfIfEntry=eltIpOspfIfEntry)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/ELTEX-MES-IP-OSPF-IF-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:37:47 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(eltMes,) = mibBuilder.importSymbols(
+    "ELTEX-MES",
+    "eltMes")
+
+(eltMesOspf,) = mibBuilder.importSymbols(
+    "ELTEX-MES-IP",
+    "eltMesOspf")
+
+(PortList,) = mibBuilder.importSymbols(
+    "Q-BRIDGE-MIB",
+    "PortList")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_EltIpOspfIfTable_Object = MibTable
+eltIpOspfIfTable = _EltIpOspfIfTable_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 91, 1, 2)
+)
+if mibBuilder.loadTexts:
+    eltIpOspfIfTable.setStatus("current")
+_EltIpOspfIfEntry_Object = MibTableRow
+eltIpOspfIfEntry = _EltIpOspfIfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 91, 1, 2, 1)
+)
+eltIpOspfIfEntry.setIndexNames(
+    (0, "ELTEX-MES-IP-OSPF-IF-MIB", "eltOspfIfAddress"),
+)
+if mibBuilder.loadTexts:
+    eltIpOspfIfEntry.setStatus("current")
+_EltOspfIfAddress_Type = IpAddress
+_EltOspfIfAddress_Object = MibTableColumn
+eltOspfIfAddress = _EltOspfIfAddress_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 91, 1, 2, 1, 1),
+    _EltOspfIfAddress_Type()
+)
+eltOspfIfAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    eltOspfIfAddress.setStatus("current")
+
+
+class _EltOspfIfPassiveDefault_Type(TruthValue):
+    """Custom type eltOspfIfPassiveDefault based on TruthValue"""
+
+
+_EltOspfIfPassiveDefault_Object = MibTableColumn
+eltOspfIfPassiveDefault = _EltOspfIfPassiveDefault_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 91, 1, 2, 1, 2),
+    _EltOspfIfPassiveDefault_Type()
+)
+eltOspfIfPassiveDefault.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    eltOspfIfPassiveDefault.setStatus("current")
+_EltOspfIfPassiveList_Type = PortList
+_EltOspfIfPassiveList_Object = MibTableColumn
+eltOspfIfPassiveList = _EltOspfIfPassiveList_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 91, 1, 2, 1, 3),
+    _EltOspfIfPassiveList_Type()
+)
+eltOspfIfPassiveList.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    eltOspfIfPassiveList.setStatus("current")
+_EltOspfIfStatus_Type = RowStatus
+_EltOspfIfStatus_Object = MibTableColumn
+eltOspfIfStatus = _EltOspfIfStatus_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 91, 1, 2, 1, 4),
+    _EltOspfIfStatus_Type()
+)
+eltOspfIfStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    eltOspfIfStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ELTEX-MES-IP-OSPF-IF-MIB",
+    **{"eltIpOspfIfTable": eltIpOspfIfTable,
+       "eltIpOspfIfEntry": eltIpOspfIfEntry,
+       "eltOspfIfAddress": eltOspfIfAddress,
+       "eltOspfIfPassiveDefault": eltOspfIfPassiveDefault,
+       "eltOspfIfPassiveList": eltOspfIfPassiveList,
+       "eltOspfIfStatus": eltOspfIfStatus}
+)

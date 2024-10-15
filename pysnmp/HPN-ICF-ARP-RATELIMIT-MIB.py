@@ -1,39 +1,252 @@
+# SNMP MIB module (HPN-ICF-ARP-RATELIMIT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HPN-ICF-ARP-RATELIMIT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/HPN-ICF-ARP-RATELIMIT-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:25:05 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
-hpnicfCommon, = mibBuilder.importSymbols("HPN-ICF-OID-MIB", "hpnicfCommon")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter64, Bits, IpAddress, Integer32, NotificationType, TimeTicks, iso, MibIdentifier, Gauge32, Counter32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Bits", "IpAddress", "Integer32", "NotificationType", "TimeTicks", "iso", "MibIdentifier", "Gauge32", "Counter32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Unsigned32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-hpnicfARPRatelimit = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 110))
-hpnicfARPRatelimit.setRevisions(('2013-10-14 18:00', '2009-12-08 19:12',))
-if mibBuilder.loadTexts: hpnicfARPRatelimit.setLastUpdated('201310141800Z')
-if mibBuilder.loadTexts: hpnicfARPRatelimit.setOrganization('')
-hpnicfARPRatelimitObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 110, 1))
-hpnicfARPRatelimitTrap = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 110, 1, 1))
-hpnicfARPRatelimitConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 110, 1, 2))
-hpnicfARPRatelimitTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 110, 1, 1, 0))
-hpnicfARPRatelimitOverspeedTrap = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 110, 1, 1, 0, 1)).setObjects(("HPN-ICF-ARP-RATELIMIT-MIB", "hpnicfARPRatelimitTrapVer"), ("HPN-ICF-ARP-RATELIMIT-MIB", "hpnicfARPRatelimitTrapCount"), ("HPN-ICF-ARP-RATELIMIT-MIB", "hpnicfARPRatelimitTrapMsg"))
-if mibBuilder.loadTexts: hpnicfARPRatelimitOverspeedTrap.setStatus('current')
-hpnicfARPRatelimitTrapObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 110, 1, 1, 1))
-hpnicfARPRatelimitTrapVer = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 110, 1, 1, 1, 1), Unsigned32()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: hpnicfARPRatelimitTrapVer.setStatus('current')
-hpnicfARPRatelimitTrapCount = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 110, 1, 1, 1, 2), Unsigned32()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: hpnicfARPRatelimitTrapCount.setStatus('current')
-hpnicfARPRatelimitTrapMsg = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 110, 1, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 254))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: hpnicfARPRatelimitTrapMsg.setStatus('current')
-hpnicfARPRatelimitConfigTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 110, 1, 2, 1), )
-if mibBuilder.loadTexts: hpnicfARPRatelimitConfigTable.setStatus('current')
-hpnicfARPRatelimitConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 110, 1, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: hpnicfARPRatelimitConfigEntry.setStatus('current')
-hpnicfARPRatelimitValue = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 110, 1, 2, 1, 1, 1), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfARPRatelimitValue.setStatus('current')
-mibBuilder.exportSymbols("HPN-ICF-ARP-RATELIMIT-MIB", hpnicfARPRatelimitConfigTable=hpnicfARPRatelimitConfigTable, hpnicfARPRatelimitTraps=hpnicfARPRatelimitTraps, hpnicfARPRatelimit=hpnicfARPRatelimit, hpnicfARPRatelimitTrapCount=hpnicfARPRatelimitTrapCount, hpnicfARPRatelimitTrapVer=hpnicfARPRatelimitTrapVer, hpnicfARPRatelimitObjects=hpnicfARPRatelimitObjects, hpnicfARPRatelimitTrap=hpnicfARPRatelimitTrap, hpnicfARPRatelimitTrapMsg=hpnicfARPRatelimitTrapMsg, hpnicfARPRatelimitConfig=hpnicfARPRatelimitConfig, hpnicfARPRatelimitTrapObjects=hpnicfARPRatelimitTrapObjects, PYSNMP_MODULE_ID=hpnicfARPRatelimit, hpnicfARPRatelimitOverspeedTrap=hpnicfARPRatelimitOverspeedTrap, hpnicfARPRatelimitValue=hpnicfARPRatelimitValue, hpnicfARPRatelimitConfigEntry=hpnicfARPRatelimitConfigEntry)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HPN-ICF-ARP-RATELIMIT-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:59:28 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(hpnicfCommon,) = mibBuilder.importSymbols(
+    "HPN-ICF-OID-MIB",
+    "hpnicfCommon")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+hpnicfARPRatelimit = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 110)
+)
+hpnicfARPRatelimit.setRevisions(
+        ("2013-10-14 18:00",
+         "2009-12-08 19:12")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_HpnicfARPRatelimitObjects_ObjectIdentity = ObjectIdentity
+hpnicfARPRatelimitObjects = _HpnicfARPRatelimitObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 110, 1)
+)
+_HpnicfARPRatelimitTrap_ObjectIdentity = ObjectIdentity
+hpnicfARPRatelimitTrap = _HpnicfARPRatelimitTrap_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 110, 1, 1)
+)
+_HpnicfARPRatelimitTraps_ObjectIdentity = ObjectIdentity
+hpnicfARPRatelimitTraps = _HpnicfARPRatelimitTraps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 110, 1, 1, 0)
+)
+_HpnicfARPRatelimitTrapObjects_ObjectIdentity = ObjectIdentity
+hpnicfARPRatelimitTrapObjects = _HpnicfARPRatelimitTrapObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 110, 1, 1, 1)
+)
+_HpnicfARPRatelimitTrapVer_Type = Unsigned32
+_HpnicfARPRatelimitTrapVer_Object = MibScalar
+hpnicfARPRatelimitTrapVer = _HpnicfARPRatelimitTrapVer_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 110, 1, 1, 1, 1),
+    _HpnicfARPRatelimitTrapVer_Type()
+)
+hpnicfARPRatelimitTrapVer.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    hpnicfARPRatelimitTrapVer.setStatus("current")
+_HpnicfARPRatelimitTrapCount_Type = Unsigned32
+_HpnicfARPRatelimitTrapCount_Object = MibScalar
+hpnicfARPRatelimitTrapCount = _HpnicfARPRatelimitTrapCount_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 110, 1, 1, 1, 2),
+    _HpnicfARPRatelimitTrapCount_Type()
+)
+hpnicfARPRatelimitTrapCount.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    hpnicfARPRatelimitTrapCount.setStatus("current")
+
+
+class _HpnicfARPRatelimitTrapMsg_Type(OctetString):
+    """Custom type hpnicfARPRatelimitTrapMsg based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 254),
+    )
+
+
+_HpnicfARPRatelimitTrapMsg_Type.__name__ = "OctetString"
+_HpnicfARPRatelimitTrapMsg_Object = MibScalar
+hpnicfARPRatelimitTrapMsg = _HpnicfARPRatelimitTrapMsg_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 110, 1, 1, 1, 3),
+    _HpnicfARPRatelimitTrapMsg_Type()
+)
+hpnicfARPRatelimitTrapMsg.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    hpnicfARPRatelimitTrapMsg.setStatus("current")
+_HpnicfARPRatelimitConfig_ObjectIdentity = ObjectIdentity
+hpnicfARPRatelimitConfig = _HpnicfARPRatelimitConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 110, 1, 2)
+)
+_HpnicfARPRatelimitConfigTable_Object = MibTable
+hpnicfARPRatelimitConfigTable = _HpnicfARPRatelimitConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 110, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    hpnicfARPRatelimitConfigTable.setStatus("current")
+_HpnicfARPRatelimitConfigEntry_Object = MibTableRow
+hpnicfARPRatelimitConfigEntry = _HpnicfARPRatelimitConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 110, 1, 2, 1, 1)
+)
+hpnicfARPRatelimitConfigEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    hpnicfARPRatelimitConfigEntry.setStatus("current")
+_HpnicfARPRatelimitValue_Type = Unsigned32
+_HpnicfARPRatelimitValue_Object = MibTableColumn
+hpnicfARPRatelimitValue = _HpnicfARPRatelimitValue_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 110, 1, 2, 1, 1, 1),
+    _HpnicfARPRatelimitValue_Type()
+)
+hpnicfARPRatelimitValue.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfARPRatelimitValue.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+hpnicfARPRatelimitOverspeedTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 110, 1, 1, 0, 1)
+)
+hpnicfARPRatelimitOverspeedTrap.setObjects(
+      *(("HPN-ICF-ARP-RATELIMIT-MIB", "hpnicfARPRatelimitTrapVer"),
+        ("HPN-ICF-ARP-RATELIMIT-MIB", "hpnicfARPRatelimitTrapCount"),
+        ("HPN-ICF-ARP-RATELIMIT-MIB", "hpnicfARPRatelimitTrapMsg"))
+)
+if mibBuilder.loadTexts:
+    hpnicfARPRatelimitOverspeedTrap.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HPN-ICF-ARP-RATELIMIT-MIB",
+    **{"hpnicfARPRatelimit": hpnicfARPRatelimit,
+       "hpnicfARPRatelimitObjects": hpnicfARPRatelimitObjects,
+       "hpnicfARPRatelimitTrap": hpnicfARPRatelimitTrap,
+       "hpnicfARPRatelimitTraps": hpnicfARPRatelimitTraps,
+       "hpnicfARPRatelimitOverspeedTrap": hpnicfARPRatelimitOverspeedTrap,
+       "hpnicfARPRatelimitTrapObjects": hpnicfARPRatelimitTrapObjects,
+       "hpnicfARPRatelimitTrapVer": hpnicfARPRatelimitTrapVer,
+       "hpnicfARPRatelimitTrapCount": hpnicfARPRatelimitTrapCount,
+       "hpnicfARPRatelimitTrapMsg": hpnicfARPRatelimitTrapMsg,
+       "hpnicfARPRatelimitConfig": hpnicfARPRatelimitConfig,
+       "hpnicfARPRatelimitConfigTable": hpnicfARPRatelimitConfigTable,
+       "hpnicfARPRatelimitConfigEntry": hpnicfARPRatelimitConfigEntry,
+       "hpnicfARPRatelimitValue": hpnicfARPRatelimitValue}
+)

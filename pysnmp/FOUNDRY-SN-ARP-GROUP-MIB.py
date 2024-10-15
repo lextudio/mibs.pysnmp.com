@@ -1,34 +1,216 @@
+# SNMP MIB module (FOUNDRY-SN-ARP-GROUP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module FOUNDRY-SN-ARP-GROUP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/FOUNDRY-SN-ARP-GROUP-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:01:29 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection")
-snSwitch, = mibBuilder.importSymbols("FOUNDRY-SN-ROOT-MIB", "snSwitch")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ModuleIdentity, Integer32, Gauge32, iso, NotificationType, Unsigned32, IpAddress, ObjectIdentity, MibIdentifier, TimeTicks, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Gauge32", "iso", "NotificationType", "Unsigned32", "IpAddress", "ObjectIdentity", "MibIdentifier", "TimeTicks", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Bits")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-snArpInfo = ModuleIdentity((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 22))
-snArpInfo.setRevisions(('2010-06-02 00:00',))
-if mibBuilder.loadTexts: snArpInfo.setLastUpdated('201006020000Z')
-if mibBuilder.loadTexts: snArpInfo.setOrganization('Brocade Communications Systems, Inc.')
-snArpStats = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 22, 1))
-snArpStatsTotalReceived = MibScalar((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 22, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snArpStatsTotalReceived.setStatus('current')
-snArpStatsRequestReceived = MibScalar((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 22, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snArpStatsRequestReceived.setStatus('current')
-snArpStatsRequestSent = MibScalar((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 22, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snArpStatsRequestSent.setStatus('current')
-snArpStatsRepliesSent = MibScalar((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 22, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snArpStatsRepliesSent.setStatus('current')
-snArpStatsPendingDrop = MibScalar((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 22, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snArpStatsPendingDrop.setStatus('current')
-snArpStatsInvalidSource = MibScalar((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 22, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snArpStatsInvalidSource.setStatus('current')
-snArpStatsInvalidDestination = MibScalar((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 22, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snArpStatsInvalidDestination.setStatus('current')
-mibBuilder.exportSymbols("FOUNDRY-SN-ARP-GROUP-MIB", snArpStatsInvalidDestination=snArpStatsInvalidDestination, PYSNMP_MODULE_ID=snArpInfo, snArpStatsRepliesSent=snArpStatsRepliesSent, snArpInfo=snArpInfo, snArpStats=snArpStats, snArpStatsTotalReceived=snArpStatsTotalReceived, snArpStatsRequestSent=snArpStatsRequestSent, snArpStatsPendingDrop=snArpStatsPendingDrop, snArpStatsRequestReceived=snArpStatsRequestReceived, snArpStatsInvalidSource=snArpStatsInvalidSource)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/FOUNDRY-SN-ARP-GROUP-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:45:51 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(snSwitch,) = mibBuilder.importSymbols(
+    "FOUNDRY-SN-ROOT-MIB",
+    "snSwitch")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+snArpInfo = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 22)
+)
+snArpInfo.setRevisions(
+        ("2010-06-02 00:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_SnArpStats_ObjectIdentity = ObjectIdentity
+snArpStats = _SnArpStats_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 22, 1)
+)
+_SnArpStatsTotalReceived_Type = Counter32
+_SnArpStatsTotalReceived_Object = MibScalar
+snArpStatsTotalReceived = _SnArpStatsTotalReceived_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 22, 1, 1),
+    _SnArpStatsTotalReceived_Type()
+)
+snArpStatsTotalReceived.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snArpStatsTotalReceived.setStatus("current")
+_SnArpStatsRequestReceived_Type = Counter32
+_SnArpStatsRequestReceived_Object = MibScalar
+snArpStatsRequestReceived = _SnArpStatsRequestReceived_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 22, 1, 2),
+    _SnArpStatsRequestReceived_Type()
+)
+snArpStatsRequestReceived.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snArpStatsRequestReceived.setStatus("current")
+_SnArpStatsRequestSent_Type = Counter32
+_SnArpStatsRequestSent_Object = MibScalar
+snArpStatsRequestSent = _SnArpStatsRequestSent_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 22, 1, 3),
+    _SnArpStatsRequestSent_Type()
+)
+snArpStatsRequestSent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snArpStatsRequestSent.setStatus("current")
+_SnArpStatsRepliesSent_Type = Counter32
+_SnArpStatsRepliesSent_Object = MibScalar
+snArpStatsRepliesSent = _SnArpStatsRepliesSent_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 22, 1, 4),
+    _SnArpStatsRepliesSent_Type()
+)
+snArpStatsRepliesSent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snArpStatsRepliesSent.setStatus("current")
+_SnArpStatsPendingDrop_Type = Counter32
+_SnArpStatsPendingDrop_Object = MibScalar
+snArpStatsPendingDrop = _SnArpStatsPendingDrop_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 22, 1, 5),
+    _SnArpStatsPendingDrop_Type()
+)
+snArpStatsPendingDrop.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snArpStatsPendingDrop.setStatus("current")
+_SnArpStatsInvalidSource_Type = Counter32
+_SnArpStatsInvalidSource_Object = MibScalar
+snArpStatsInvalidSource = _SnArpStatsInvalidSource_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 22, 1, 6),
+    _SnArpStatsInvalidSource_Type()
+)
+snArpStatsInvalidSource.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snArpStatsInvalidSource.setStatus("current")
+_SnArpStatsInvalidDestination_Type = Counter32
+_SnArpStatsInvalidDestination_Object = MibScalar
+snArpStatsInvalidDestination = _SnArpStatsInvalidDestination_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 22, 1, 7),
+    _SnArpStatsInvalidDestination_Type()
+)
+snArpStatsInvalidDestination.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snArpStatsInvalidDestination.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "FOUNDRY-SN-ARP-GROUP-MIB",
+    **{"snArpInfo": snArpInfo,
+       "snArpStats": snArpStats,
+       "snArpStatsTotalReceived": snArpStatsTotalReceived,
+       "snArpStatsRequestReceived": snArpStatsRequestReceived,
+       "snArpStatsRequestSent": snArpStatsRequestSent,
+       "snArpStatsRepliesSent": snArpStatsRepliesSent,
+       "snArpStatsPendingDrop": snArpStatsPendingDrop,
+       "snArpStatsInvalidSource": snArpStatsInvalidSource,
+       "snArpStatsInvalidDestination": snArpStatsInvalidDestination}
+)

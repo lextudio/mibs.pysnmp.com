@@ -1,31 +1,215 @@
+# SNMP MIB module (H3C-ARP-RATELIMIT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module H3C-ARP-RATELIMIT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/H3C-ARP-RATELIMIT-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:08:06 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
-h3cCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cCommon")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-IpAddress, ObjectIdentity, Counter32, Integer32, NotificationType, ModuleIdentity, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Bits, TimeTicks, Counter64, MibIdentifier, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "ObjectIdentity", "Counter32", "Integer32", "NotificationType", "ModuleIdentity", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Bits", "TimeTicks", "Counter64", "MibIdentifier", "Unsigned32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-h3cARPRatelimit = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 110))
-h3cARPRatelimit.setRevisions(('2009-12-08 19:12',))
-if mibBuilder.loadTexts: h3cARPRatelimit.setLastUpdated('200912081912Z')
-if mibBuilder.loadTexts: h3cARPRatelimit.setOrganization('Hangzhou H3C Technologies Co., Ltd.')
-h3cARPRatelimitObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 110, 1))
-h3cARPRatelimitTrap = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 110, 1, 1))
-h3cARPRatelimitTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 110, 1, 1, 0))
-h3cARPRatelimitOverspeedTrap = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 110, 1, 1, 0, 1)).setObjects(("H3C-ARP-RATELIMIT-MIB", "h3cARPRatelimitTrapVer"), ("H3C-ARP-RATELIMIT-MIB", "h3cARPRatelimitTrapCount"), ("H3C-ARP-RATELIMIT-MIB", "h3cARPRatelimitTrapMsg"))
-if mibBuilder.loadTexts: h3cARPRatelimitOverspeedTrap.setStatus('current')
-h3cARPRatelimitTrapObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 110, 1, 1, 1))
-h3cARPRatelimitTrapVer = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 110, 1, 1, 1, 1), Unsigned32()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: h3cARPRatelimitTrapVer.setStatus('current')
-h3cARPRatelimitTrapCount = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 110, 1, 1, 1, 2), Unsigned32()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: h3cARPRatelimitTrapCount.setStatus('current')
-h3cARPRatelimitTrapMsg = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 110, 1, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 254))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: h3cARPRatelimitTrapMsg.setStatus('current')
-mibBuilder.exportSymbols("H3C-ARP-RATELIMIT-MIB", h3cARPRatelimitTrapVer=h3cARPRatelimitTrapVer, h3cARPRatelimit=h3cARPRatelimit, h3cARPRatelimitTraps=h3cARPRatelimitTraps, h3cARPRatelimitTrapCount=h3cARPRatelimitTrapCount, h3cARPRatelimitTrapMsg=h3cARPRatelimitTrapMsg, PYSNMP_MODULE_ID=h3cARPRatelimit, h3cARPRatelimitTrap=h3cARPRatelimitTrap, h3cARPRatelimitObjects=h3cARPRatelimitObjects, h3cARPRatelimitOverspeedTrap=h3cARPRatelimitOverspeedTrap, h3cARPRatelimitTrapObjects=h3cARPRatelimitTrapObjects)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/H3C-ARP-RATELIMIT-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:49:54 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(h3cCommon,) = mibBuilder.importSymbols(
+    "HUAWEI-3COM-OID-MIB",
+    "h3cCommon")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+h3cARPRatelimit = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 110)
+)
+h3cARPRatelimit.setRevisions(
+        ("2009-12-08 19:12",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_H3cARPRatelimitObjects_ObjectIdentity = ObjectIdentity
+h3cARPRatelimitObjects = _H3cARPRatelimitObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 110, 1)
+)
+_H3cARPRatelimitTrap_ObjectIdentity = ObjectIdentity
+h3cARPRatelimitTrap = _H3cARPRatelimitTrap_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 110, 1, 1)
+)
+_H3cARPRatelimitTraps_ObjectIdentity = ObjectIdentity
+h3cARPRatelimitTraps = _H3cARPRatelimitTraps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 110, 1, 1, 0)
+)
+_H3cARPRatelimitTrapObjects_ObjectIdentity = ObjectIdentity
+h3cARPRatelimitTrapObjects = _H3cARPRatelimitTrapObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 110, 1, 1, 1)
+)
+_H3cARPRatelimitTrapVer_Type = Unsigned32
+_H3cARPRatelimitTrapVer_Object = MibScalar
+h3cARPRatelimitTrapVer = _H3cARPRatelimitTrapVer_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 110, 1, 1, 1, 1),
+    _H3cARPRatelimitTrapVer_Type()
+)
+h3cARPRatelimitTrapVer.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    h3cARPRatelimitTrapVer.setStatus("current")
+_H3cARPRatelimitTrapCount_Type = Unsigned32
+_H3cARPRatelimitTrapCount_Object = MibScalar
+h3cARPRatelimitTrapCount = _H3cARPRatelimitTrapCount_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 110, 1, 1, 1, 2),
+    _H3cARPRatelimitTrapCount_Type()
+)
+h3cARPRatelimitTrapCount.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    h3cARPRatelimitTrapCount.setStatus("current")
+
+
+class _H3cARPRatelimitTrapMsg_Type(OctetString):
+    """Custom type h3cARPRatelimitTrapMsg based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 254),
+    )
+
+
+_H3cARPRatelimitTrapMsg_Type.__name__ = "OctetString"
+_H3cARPRatelimitTrapMsg_Object = MibScalar
+h3cARPRatelimitTrapMsg = _H3cARPRatelimitTrapMsg_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 110, 1, 1, 1, 3),
+    _H3cARPRatelimitTrapMsg_Type()
+)
+h3cARPRatelimitTrapMsg.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    h3cARPRatelimitTrapMsg.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+h3cARPRatelimitOverspeedTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 110, 1, 1, 0, 1)
+)
+h3cARPRatelimitOverspeedTrap.setObjects(
+      *(("H3C-ARP-RATELIMIT-MIB", "h3cARPRatelimitTrapVer"),
+        ("H3C-ARP-RATELIMIT-MIB", "h3cARPRatelimitTrapCount"),
+        ("H3C-ARP-RATELIMIT-MIB", "h3cARPRatelimitTrapMsg"))
+)
+if mibBuilder.loadTexts:
+    h3cARPRatelimitOverspeedTrap.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "H3C-ARP-RATELIMIT-MIB",
+    **{"h3cARPRatelimit": h3cARPRatelimit,
+       "h3cARPRatelimitObjects": h3cARPRatelimitObjects,
+       "h3cARPRatelimitTrap": h3cARPRatelimitTrap,
+       "h3cARPRatelimitTraps": h3cARPRatelimitTraps,
+       "h3cARPRatelimitOverspeedTrap": h3cARPRatelimitOverspeedTrap,
+       "h3cARPRatelimitTrapObjects": h3cARPRatelimitTrapObjects,
+       "h3cARPRatelimitTrapVer": h3cARPRatelimitTrapVer,
+       "h3cARPRatelimitTrapCount": h3cARPRatelimitTrapCount,
+       "h3cARPRatelimitTrapMsg": h3cARPRatelimitTrapMsg}
+)

@@ -1,354 +1,2263 @@
+# SNMP MIB module (GSM7312-QOS-DIFFSERV-PRIVATE-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module GSM7312-QOS-DIFFSERV-PRIVATE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/GSM7312-QOS-DIFFSERV-PRIVATE-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 19:06:45 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint")
-gsm7312QOS, = mibBuilder.importSymbols("GSM7312-QOS-MIB", "gsm7312QOS")
-IANAifType, = mibBuilder.importSymbols("IANAifType-MIB", "IANAifType")
-InterfaceIndex, ifIndex = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex", "ifIndex")
-InetPortNumber, = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetPortNumber")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, IpAddress, iso, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, MibIdentifier, Counter32, Gauge32, Counter64, ObjectIdentity, Integer32, NotificationType, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "IpAddress", "iso", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "MibIdentifier", "Counter32", "Gauge32", "Counter64", "ObjectIdentity", "Integer32", "NotificationType", "TimeTicks")
-StorageType, TruthValue, RowStatus, DisplayString, PhysAddress, TextualConvention, MacAddress, RowPointer = mibBuilder.importSymbols("SNMPv2-TC", "StorageType", "TruthValue", "RowStatus", "DisplayString", "PhysAddress", "TextualConvention", "MacAddress", "RowPointer")
-gsm7312QOSDiffServPrivate = ModuleIdentity((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4))
-gsm7312QOSDiffServPrivate.setRevisions(('2003-05-06 12:00',))
-if mibBuilder.loadTexts: gsm7312QOSDiffServPrivate.setLastUpdated('200305061200Z')
-if mibBuilder.loadTexts: gsm7312QOSDiffServPrivate.setOrganization('Netgear')
-class QosBurstSize(TextualConvention, Unsigned32):
-    status = 'current'
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 128)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/GSM7312-QOS-DIFFSERV-PRIVATE-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:49:02 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class IntfDirection(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("in", 1), ("out", 2))
+if 'mibBuilder' not in globals():
+    import sys
 
-agentDiffServGenStatusGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 1))
-agentDiffServGenStatusAdminMode = MibScalar((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDiffServGenStatusAdminMode.setStatus('current')
-agentDiffServGenStatusClassTableSize = MibScalar((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 1, 2), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServGenStatusClassTableSize.setStatus('current')
-agentDiffServGenStatusClassTableMax = MibScalar((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 1, 3), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServGenStatusClassTableMax.setStatus('current')
-agentDiffServGenStatusClassRuleTableSize = MibScalar((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 1, 4), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServGenStatusClassRuleTableSize.setStatus('current')
-agentDiffServGenStatusClassRuleTableMax = MibScalar((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 1, 5), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServGenStatusClassRuleTableMax.setStatus('current')
-agentDiffServGenStatusPolicyTableSize = MibScalar((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 1, 6), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServGenStatusPolicyTableSize.setStatus('current')
-agentDiffServGenStatusPolicyTableMax = MibScalar((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 1, 7), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServGenStatusPolicyTableMax.setStatus('current')
-agentDiffServGenStatusPolicyInstTableSize = MibScalar((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 1, 8), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServGenStatusPolicyInstTableSize.setStatus('current')
-agentDiffServGenStatusPolicyInstTableMax = MibScalar((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 1, 9), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServGenStatusPolicyInstTableMax.setStatus('current')
-agentDiffServGenStatusPolicyAttrTableSize = MibScalar((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 1, 10), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServGenStatusPolicyAttrTableSize.setStatus('current')
-agentDiffServGenStatusPolicyAttrTableMax = MibScalar((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 1, 11), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServGenStatusPolicyAttrTableMax.setStatus('current')
-agentDiffServGenStatusServiceTableSize = MibScalar((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 1, 12), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServGenStatusServiceTableSize.setStatus('current')
-agentDiffServGenStatusServiceTableMax = MibScalar((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 1, 13), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServGenStatusServiceTableMax.setStatus('current')
-agentDiffServClassGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2))
-agentDiffServClassIndexNextFree = MibScalar((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 1), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServClassIndexNextFree.setStatus('current')
-agentDiffServClassTable = MibTable((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 2), )
-if mibBuilder.loadTexts: agentDiffServClassTable.setStatus('current')
-agentDiffServClassEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 2, 1), ).setIndexNames((0, "GSM7312-QOS-DIFFSERV-PRIVATE-MIB", "agentDiffServClassIndex"))
-if mibBuilder.loadTexts: agentDiffServClassEntry.setStatus('current')
-agentDiffServClassIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 2, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: agentDiffServClassIndex.setStatus('current')
-agentDiffServClassName = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 31))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServClassName.setStatus('current')
-agentDiffServClassType = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("all", 1), ("any", 2), ("acl", 3)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServClassType.setStatus('current')
-agentDiffServClassAclNum = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 2, 1, 4), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServClassAclNum.setStatus('current')
-agentDiffServClassRuleIndexNextFree = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 2, 1, 5), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServClassRuleIndexNextFree.setStatus('current')
-agentDiffServClassStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 2, 1, 6), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServClassStorageType.setStatus('current')
-agentDiffServClassRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 2, 1, 7), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServClassRowStatus.setStatus('current')
-agentDiffServClassRuleTable = MibTable((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3), )
-if mibBuilder.loadTexts: agentDiffServClassRuleTable.setStatus('current')
-agentDiffServClassRuleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1), ).setIndexNames((0, "GSM7312-QOS-DIFFSERV-PRIVATE-MIB", "agentDiffServClassIndex"), (0, "GSM7312-QOS-DIFFSERV-PRIVATE-MIB", "agentDiffServClassRuleIndex"))
-if mibBuilder.loadTexts: agentDiffServClassRuleEntry.setStatus('current')
-agentDiffServClassRuleIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: agentDiffServClassRuleIndex.setStatus('current')
-agentDiffServClassRuleMatchEntryType = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14))).clone(namedValues=NamedValues(("cos", 1), ("dstip", 2), ("dstl4port", 3), ("dstmac", 4), ("every", 5), ("ipdscp", 6), ("ipprecedence", 7), ("iptos", 8), ("protocol", 9), ("refclass", 10), ("srcip", 11), ("srcl4port", 12), ("srcmac", 13), ("vlan", 14)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServClassRuleMatchEntryType.setStatus('current')
-agentDiffServClassRuleMatchCos = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServClassRuleMatchCos.setStatus('current')
-agentDiffServClassRuleMatchDstIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 4), IpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServClassRuleMatchDstIpAddr.setStatus('current')
-agentDiffServClassRuleMatchDstIpMask = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 5), IpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServClassRuleMatchDstIpMask.setStatus('current')
-agentDiffServClassRuleMatchDstL4PortStart = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 6), InetPortNumber()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServClassRuleMatchDstL4PortStart.setStatus('current')
-agentDiffServClassRuleMatchDstL4PortEnd = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 7), InetPortNumber()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServClassRuleMatchDstL4PortEnd.setStatus('current')
-agentDiffServClassRuleMatchDstMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 8), MacAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServClassRuleMatchDstMacAddr.setStatus('current')
-agentDiffServClassRuleMatchDstMacMask = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 9), MacAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServClassRuleMatchDstMacMask.setStatus('current')
-agentDiffServClassRuleMatchEvery = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 10), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServClassRuleMatchEvery.setStatus('current')
-agentDiffServClassRuleMatchIpDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 11), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 63))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServClassRuleMatchIpDscp.setStatus('current')
-agentDiffServClassRuleMatchIpPrecedence = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 12), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServClassRuleMatchIpPrecedence.setStatus('current')
-agentDiffServClassRuleMatchIpTosBits = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 13), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 1)).setFixedLength(1)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServClassRuleMatchIpTosBits.setStatus('current')
-agentDiffServClassRuleMatchIpTosMask = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 14), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 1)).setFixedLength(1)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServClassRuleMatchIpTosMask.setStatus('current')
-agentDiffServClassRuleMatchProtocolNum = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 15), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServClassRuleMatchProtocolNum.setStatus('current')
-agentDiffServClassRuleMatchRefClassIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 16), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServClassRuleMatchRefClassIndex.setStatus('current')
-agentDiffServClassRuleMatchSrcIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 17), IpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServClassRuleMatchSrcIpAddr.setStatus('current')
-agentDiffServClassRuleMatchSrcIpMask = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 18), IpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServClassRuleMatchSrcIpMask.setStatus('current')
-agentDiffServClassRuleMatchSrcL4PortStart = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 19), InetPortNumber()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServClassRuleMatchSrcL4PortStart.setStatus('current')
-agentDiffServClassRuleMatchSrcL4PortEnd = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 20), InetPortNumber()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServClassRuleMatchSrcL4PortEnd.setStatus('current')
-agentDiffServClassRuleMatchSrcMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 21), MacAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServClassRuleMatchSrcMacAddr.setStatus('current')
-agentDiffServClassRuleMatchSrcMacMask = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 22), MacAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServClassRuleMatchSrcMacMask.setStatus('current')
-agentDiffServClassRuleMatchVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 23), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServClassRuleMatchVlanId.setStatus('current')
-agentDiffServClassRuleMatchExcludeFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 24), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServClassRuleMatchExcludeFlag.setStatus('current')
-agentDiffServClassRuleStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 25), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServClassRuleStorageType.setStatus('current')
-agentDiffServClassRuleRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 26), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServClassRuleRowStatus.setStatus('current')
-agentDiffServPolicyGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3))
-agentDiffServPolicyIndexNextFree = MibScalar((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 1), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServPolicyIndexNextFree.setStatus('current')
-agentDiffServPolicyTable = MibTable((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 2), )
-if mibBuilder.loadTexts: agentDiffServPolicyTable.setStatus('current')
-agentDiffServPolicyEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 2, 1), ).setIndexNames((0, "GSM7312-QOS-DIFFSERV-PRIVATE-MIB", "agentDiffServPolicyIndex"))
-if mibBuilder.loadTexts: agentDiffServPolicyEntry.setStatus('current')
-agentDiffServPolicyIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 2, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: agentDiffServPolicyIndex.setStatus('current')
-agentDiffServPolicyName = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 31))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyName.setStatus('current')
-agentDiffServPolicyType = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 2, 1, 3), IntfDirection()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyType.setStatus('current')
-agentDiffServPolicyInstIndexNextFree = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 2, 1, 4), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServPolicyInstIndexNextFree.setStatus('current')
-agentDiffServPolicyStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 2, 1, 5), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyStorageType.setStatus('current')
-agentDiffServPolicyRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 2, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyRowStatus.setStatus('current')
-agentDiffServPolicyInstTable = MibTable((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 3), )
-if mibBuilder.loadTexts: agentDiffServPolicyInstTable.setStatus('current')
-agentDiffServPolicyInstEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 3, 1), ).setIndexNames((0, "GSM7312-QOS-DIFFSERV-PRIVATE-MIB", "agentDiffServPolicyIndex"), (0, "GSM7312-QOS-DIFFSERV-PRIVATE-MIB", "agentDiffServPolicyInstIndex"))
-if mibBuilder.loadTexts: agentDiffServPolicyInstEntry.setStatus('current')
-agentDiffServPolicyInstIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 3, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: agentDiffServPolicyInstIndex.setStatus('current')
-agentDiffServPolicyInstClassIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 3, 1, 2), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyInstClassIndex.setStatus('current')
-agentDiffServPolicyInstAttrIndexNextFree = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 3, 1, 3), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServPolicyInstAttrIndexNextFree.setStatus('current')
-agentDiffServPolicyInstStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 3, 1, 4), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyInstStorageType.setStatus('current')
-agentDiffServPolicyInstRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 3, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyInstRowStatus.setStatus('current')
-agentDiffServPolicyAttrTable = MibTable((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4), )
-if mibBuilder.loadTexts: agentDiffServPolicyAttrTable.setStatus('current')
-agentDiffServPolicyAttrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1), ).setIndexNames((0, "GSM7312-QOS-DIFFSERV-PRIVATE-MIB", "agentDiffServPolicyIndex"), (0, "GSM7312-QOS-DIFFSERV-PRIVATE-MIB", "agentDiffServPolicyInstIndex"), (0, "GSM7312-QOS-DIFFSERV-PRIVATE-MIB", "agentDiffServPolicyAttrIndex"))
-if mibBuilder.loadTexts: agentDiffServPolicyAttrEntry.setStatus('current')
-agentDiffServPolicyAttrIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: agentDiffServPolicyAttrIndex.setStatus('current')
-agentDiffServPolicyAttrStmtEntryType = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))).clone(namedValues=NamedValues(("bandwidth", 1), ("expedite", 2), ("markCosVal", 3), ("markIpDscpVal", 4), ("markIpPrecedenceVal", 5), ("policeSimple", 6), ("policeSinglerate", 7), ("policeTworate", 8), ("randomdrop", 9), ("shapeAverage", 10), ("shapePeak", 11)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyAttrStmtEntryType.setStatus('current')
-agentDiffServPolicyAttrStmtBandwidthCrate = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 3), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyAttrStmtBandwidthCrate.setStatus('current')
-agentDiffServPolicyAttrStmtBandwidthCrateUnits = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("kbps", 1), ("percentage", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyAttrStmtBandwidthCrateUnits.setStatus('current')
-agentDiffServPolicyAttrStmtExpediteCrate = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 5), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyAttrStmtExpediteCrate.setStatus('current')
-agentDiffServPolicyAttrStmtExpediteCrateUnits = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("kbps", 1), ("percentage", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyAttrStmtExpediteCrateUnits.setStatus('current')
-agentDiffServPolicyAttrStmtExpediteCburst = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 7), QosBurstSize().clone(4)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyAttrStmtExpediteCburst.setStatus('current')
-agentDiffServPolicyAttrStmtMarkCosVal = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 8), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyAttrStmtMarkCosVal.setStatus('current')
-agentDiffServPolicyAttrStmtMarkIpDscpVal = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 9), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 63))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyAttrStmtMarkIpDscpVal.setStatus('current')
-agentDiffServPolicyAttrStmtMarkIpPrecedenceVal = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 10), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyAttrStmtMarkIpPrecedenceVal.setStatus('current')
-agentDiffServPolicyAttrStmtPoliceConformAct = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("drop", 1), ("markdscp", 2), ("markprec", 3), ("send", 4))).clone('send')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyAttrStmtPoliceConformAct.setStatus('current')
-agentDiffServPolicyAttrStmtPoliceConformVal = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 12), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 63))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyAttrStmtPoliceConformVal.setStatus('current')
-agentDiffServPolicyAttrStmtPoliceExceedAct = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("drop", 1), ("markdscp", 2), ("markprec", 3), ("send", 4))).clone('drop')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyAttrStmtPoliceExceedAct.setStatus('current')
-agentDiffServPolicyAttrStmtPoliceExceedVal = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 14), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 63))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyAttrStmtPoliceExceedVal.setStatus('current')
-agentDiffServPolicyAttrStmtPoliceNonconformAct = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("drop", 1), ("markdscp", 2), ("markprec", 3), ("send", 4))).clone('drop')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyAttrStmtPoliceNonconformAct.setStatus('current')
-agentDiffServPolicyAttrStmtPoliceNonconformVal = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 16), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 63))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyAttrStmtPoliceNonconformVal.setStatus('current')
-agentDiffServPolicyAttrStmtPoliceSimpleCrate = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 17), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyAttrStmtPoliceSimpleCrate.setStatus('current')
-agentDiffServPolicyAttrStmtPoliceSimpleCburst = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 18), QosBurstSize()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyAttrStmtPoliceSimpleCburst.setStatus('current')
-agentDiffServPolicyAttrStmtPoliceSinglerateCrate = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 19), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyAttrStmtPoliceSinglerateCrate.setStatus('current')
-agentDiffServPolicyAttrStmtPoliceSinglerateCburst = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 20), QosBurstSize()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyAttrStmtPoliceSinglerateCburst.setStatus('current')
-agentDiffServPolicyAttrStmtPoliceSinglerateEburst = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 21), QosBurstSize()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyAttrStmtPoliceSinglerateEburst.setStatus('current')
-agentDiffServPolicyAttrStmtPoliceTworateCrate = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 22), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyAttrStmtPoliceTworateCrate.setStatus('current')
-agentDiffServPolicyAttrStmtPoliceTworateCburst = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 23), QosBurstSize()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyAttrStmtPoliceTworateCburst.setStatus('current')
-agentDiffServPolicyAttrStmtPoliceTworatePrate = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 24), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyAttrStmtPoliceTworatePrate.setStatus('current')
-agentDiffServPolicyAttrStmtPoliceTworatePburst = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 25), QosBurstSize()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyAttrStmtPoliceTworatePburst.setStatus('current')
-agentDiffServPolicyAttrStmtRandomdropMinThresh = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 26), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 250000))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyAttrStmtRandomdropMinThresh.setStatus('current')
-agentDiffServPolicyAttrStmtRandomdropMaxThresh = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 27), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 500000))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyAttrStmtRandomdropMaxThresh.setStatus('current')
-agentDiffServPolicyAttrStmtRandomdropMaxDropProb = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 28), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyAttrStmtRandomdropMaxDropProb.setStatus('current')
-agentDiffServPolicyAttrStmtRandomdropSamplingRate = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 29), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 1000000))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyAttrStmtRandomdropSamplingRate.setStatus('current')
-agentDiffServPolicyAttrStmtRandomdropDecayExponent = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 30), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 16)).clone(9)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyAttrStmtRandomdropDecayExponent.setStatus('current')
-agentDiffServPolicyAttrStmtShapeAverageCrate = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 31), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyAttrStmtShapeAverageCrate.setStatus('current')
-agentDiffServPolicyAttrStmtShapePeakCrate = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 32), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyAttrStmtShapePeakCrate.setStatus('current')
-agentDiffServPolicyAttrStmtShapePeakPrate = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 33), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyAttrStmtShapePeakPrate.setStatus('current')
-agentDiffServPolicyAttrStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 34), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyAttrStorageType.setStatus('current')
-agentDiffServPolicyAttrRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 35), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServPolicyAttrRowStatus.setStatus('current')
-agentDiffServPolicyPerfInTable = MibTable((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 5), )
-if mibBuilder.loadTexts: agentDiffServPolicyPerfInTable.setStatus('current')
-agentDiffServPolicyPerfInEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 5, 1), ).setIndexNames((0, "GSM7312-QOS-DIFFSERV-PRIVATE-MIB", "agentDiffServPolicyIndex"), (0, "GSM7312-QOS-DIFFSERV-PRIVATE-MIB", "agentDiffServPolicyInstIndex"), (0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: agentDiffServPolicyPerfInEntry.setStatus('current')
-agentDiffServPolicyPerfInOfferedOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 5, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServPolicyPerfInOfferedOctets.setStatus('current')
-agentDiffServPolicyPerfInOfferedPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 5, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServPolicyPerfInOfferedPackets.setStatus('current')
-agentDiffServPolicyPerfInDiscardedOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 5, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServPolicyPerfInDiscardedOctets.setStatus('current')
-agentDiffServPolicyPerfInDiscardedPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 5, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServPolicyPerfInDiscardedPackets.setStatus('current')
-agentDiffServPolicyPerfInHCOfferedOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 5, 1, 5), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServPolicyPerfInHCOfferedOctets.setStatus('current')
-agentDiffServPolicyPerfInHCOfferedPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 5, 1, 6), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServPolicyPerfInHCOfferedPackets.setStatus('current')
-agentDiffServPolicyPerfInHCDiscardedOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 5, 1, 7), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServPolicyPerfInHCDiscardedOctets.setStatus('current')
-agentDiffServPolicyPerfInHCDiscardedPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 5, 1, 8), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServPolicyPerfInHCDiscardedPackets.setStatus('current')
-agentDiffServPolicyPerfInStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 5, 1, 9), StorageType().clone('nonVolatile')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServPolicyPerfInStorageType.setStatus('current')
-agentDiffServPolicyPerfInRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 5, 1, 10), RowStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServPolicyPerfInRowStatus.setStatus('current')
-agentDiffServPolicyPerfOutTable = MibTable((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6), )
-if mibBuilder.loadTexts: agentDiffServPolicyPerfOutTable.setStatus('current')
-agentDiffServPolicyPerfOutEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6, 1), ).setIndexNames((0, "GSM7312-QOS-DIFFSERV-PRIVATE-MIB", "agentDiffServPolicyIndex"), (0, "GSM7312-QOS-DIFFSERV-PRIVATE-MIB", "agentDiffServPolicyInstIndex"), (0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: agentDiffServPolicyPerfOutEntry.setStatus('current')
-agentDiffServPolicyPerfOutTailDroppedOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServPolicyPerfOutTailDroppedOctets.setStatus('current')
-agentDiffServPolicyPerfOutTailDroppedPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServPolicyPerfOutTailDroppedPackets.setStatus('current')
-agentDiffServPolicyPerfOutRandomDroppedOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServPolicyPerfOutRandomDroppedOctets.setStatus('current')
-agentDiffServPolicyPerfOutRandomDroppedPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServPolicyPerfOutRandomDroppedPackets.setStatus('current')
-agentDiffServPolicyPerfOutShapeDelayedOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServPolicyPerfOutShapeDelayedOctets.setStatus('current')
-agentDiffServPolicyPerfOutShapeDelayedPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServPolicyPerfOutShapeDelayedPackets.setStatus('current')
-agentDiffServPolicyPerfOutSentOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServPolicyPerfOutSentOctets.setStatus('current')
-agentDiffServPolicyPerfOutSentPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServPolicyPerfOutSentPackets.setStatus('current')
-agentDiffServPolicyPerfOutHCTailDroppedOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6, 1, 9), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServPolicyPerfOutHCTailDroppedOctets.setStatus('current')
-agentDiffServPolicyPerfOutHCTailDroppedPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6, 1, 10), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServPolicyPerfOutHCTailDroppedPackets.setStatus('current')
-agentDiffServPolicyPerfOutHCRandomDroppedOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6, 1, 11), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServPolicyPerfOutHCRandomDroppedOctets.setStatus('current')
-agentDiffServPolicyPerfOutHCRandomDroppedPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6, 1, 12), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServPolicyPerfOutHCRandomDroppedPackets.setStatus('current')
-agentDiffServPolicyPerfOutHCShapeDelayedOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6, 1, 13), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServPolicyPerfOutHCShapeDelayedOctets.setStatus('current')
-agentDiffServPolicyPerfOutHCShapeDelayedPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6, 1, 14), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServPolicyPerfOutHCShapeDelayedPackets.setStatus('current')
-agentDiffServPolicyPerfOutHCSentOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6, 1, 15), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServPolicyPerfOutHCSentOctets.setStatus('current')
-agentDiffServPolicyPerfOutHCSentPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6, 1, 16), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServPolicyPerfOutHCSentPackets.setStatus('current')
-agentDiffServPolicyPerfOutStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6, 1, 17), StorageType().clone('nonVolatile')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServPolicyPerfOutStorageType.setStatus('current')
-agentDiffServPolicyPerfOutRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6, 1, 18), RowStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServPolicyPerfOutRowStatus.setStatus('current')
-agentDiffServServiceGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4))
-agentDiffServServiceTable = MibTable((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 1), )
-if mibBuilder.loadTexts: agentDiffServServiceTable.setStatus('current')
-agentDiffServServiceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 1, 1), ).setIndexNames((0, "GSM7312-QOS-DIFFSERV-PRIVATE-MIB", "agentDiffServServiceIfIndex"), (0, "GSM7312-QOS-DIFFSERV-PRIVATE-MIB", "agentDiffServServiceIfDirection"))
-if mibBuilder.loadTexts: agentDiffServServiceEntry.setStatus('current')
-agentDiffServServiceIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 1, 1, 1), InterfaceIndex())
-if mibBuilder.loadTexts: agentDiffServServiceIfIndex.setStatus('current')
-agentDiffServServiceIfDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 1, 1, 2), IntfDirection())
-if mibBuilder.loadTexts: agentDiffServServiceIfDirection.setStatus('current')
-agentDiffServServicePolicyIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 1, 1, 3), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServServicePolicyIndex.setStatus('current')
-agentDiffServServiceIfOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServServiceIfOperStatus.setStatus('current')
-agentDiffServServiceStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 1, 1, 5), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServServiceStorageType.setStatus('current')
-agentDiffServServiceRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 1, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentDiffServServiceRowStatus.setStatus('current')
-agentDiffServServicePerfTable = MibTable((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 2), )
-if mibBuilder.loadTexts: agentDiffServServicePerfTable.setStatus('current')
-agentDiffServServicePerfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 2, 1), )
-agentDiffServServiceEntry.registerAugmentions(("GSM7312-QOS-DIFFSERV-PRIVATE-MIB", "agentDiffServServicePerfEntry"))
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(gsm7312QOS,) = mibBuilder.importSymbols(
+    "GSM7312-QOS-MIB",
+    "gsm7312QOS")
+
+(IANAifType,) = mibBuilder.importSymbols(
+    "IANAifType-MIB",
+    "IANAifType")
+
+(InterfaceIndex,
+ ifIndex) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex",
+    "ifIndex")
+
+(InetPortNumber,) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetPortNumber")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ RowPointer,
+ RowStatus,
+ StorageType,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "RowPointer",
+    "RowStatus",
+    "StorageType",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+gsm7312QOSDiffServPrivate = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4)
+)
+gsm7312QOSDiffServPrivate.setRevisions(
+        ("2003-05-06 12:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class QosBurstSize(Unsigned32, TextualConvention):
+    status = "current"
+    displayHint = "d"
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 128),
+    )
+
+
+
+class IntfDirection(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("in", 1),
+          ("out", 2))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AgentDiffServGenStatusGroup_ObjectIdentity = ObjectIdentity
+agentDiffServGenStatusGroup = _AgentDiffServGenStatusGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 1)
+)
+
+
+class _AgentDiffServGenStatusAdminMode_Type(Integer32):
+    """Custom type agentDiffServGenStatusAdminMode based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 2),
+          ("enable", 1))
+    )
+
+
+_AgentDiffServGenStatusAdminMode_Type.__name__ = "Integer32"
+_AgentDiffServGenStatusAdminMode_Object = MibScalar
+agentDiffServGenStatusAdminMode = _AgentDiffServGenStatusAdminMode_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 1, 1),
+    _AgentDiffServGenStatusAdminMode_Type()
+)
+agentDiffServGenStatusAdminMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDiffServGenStatusAdminMode.setStatus("current")
+_AgentDiffServGenStatusClassTableSize_Type = Unsigned32
+_AgentDiffServGenStatusClassTableSize_Object = MibScalar
+agentDiffServGenStatusClassTableSize = _AgentDiffServGenStatusClassTableSize_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 1, 2),
+    _AgentDiffServGenStatusClassTableSize_Type()
+)
+agentDiffServGenStatusClassTableSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServGenStatusClassTableSize.setStatus("current")
+_AgentDiffServGenStatusClassTableMax_Type = Unsigned32
+_AgentDiffServGenStatusClassTableMax_Object = MibScalar
+agentDiffServGenStatusClassTableMax = _AgentDiffServGenStatusClassTableMax_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 1, 3),
+    _AgentDiffServGenStatusClassTableMax_Type()
+)
+agentDiffServGenStatusClassTableMax.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServGenStatusClassTableMax.setStatus("current")
+_AgentDiffServGenStatusClassRuleTableSize_Type = Unsigned32
+_AgentDiffServGenStatusClassRuleTableSize_Object = MibScalar
+agentDiffServGenStatusClassRuleTableSize = _AgentDiffServGenStatusClassRuleTableSize_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 1, 4),
+    _AgentDiffServGenStatusClassRuleTableSize_Type()
+)
+agentDiffServGenStatusClassRuleTableSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServGenStatusClassRuleTableSize.setStatus("current")
+_AgentDiffServGenStatusClassRuleTableMax_Type = Unsigned32
+_AgentDiffServGenStatusClassRuleTableMax_Object = MibScalar
+agentDiffServGenStatusClassRuleTableMax = _AgentDiffServGenStatusClassRuleTableMax_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 1, 5),
+    _AgentDiffServGenStatusClassRuleTableMax_Type()
+)
+agentDiffServGenStatusClassRuleTableMax.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServGenStatusClassRuleTableMax.setStatus("current")
+_AgentDiffServGenStatusPolicyTableSize_Type = Unsigned32
+_AgentDiffServGenStatusPolicyTableSize_Object = MibScalar
+agentDiffServGenStatusPolicyTableSize = _AgentDiffServGenStatusPolicyTableSize_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 1, 6),
+    _AgentDiffServGenStatusPolicyTableSize_Type()
+)
+agentDiffServGenStatusPolicyTableSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServGenStatusPolicyTableSize.setStatus("current")
+_AgentDiffServGenStatusPolicyTableMax_Type = Unsigned32
+_AgentDiffServGenStatusPolicyTableMax_Object = MibScalar
+agentDiffServGenStatusPolicyTableMax = _AgentDiffServGenStatusPolicyTableMax_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 1, 7),
+    _AgentDiffServGenStatusPolicyTableMax_Type()
+)
+agentDiffServGenStatusPolicyTableMax.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServGenStatusPolicyTableMax.setStatus("current")
+_AgentDiffServGenStatusPolicyInstTableSize_Type = Unsigned32
+_AgentDiffServGenStatusPolicyInstTableSize_Object = MibScalar
+agentDiffServGenStatusPolicyInstTableSize = _AgentDiffServGenStatusPolicyInstTableSize_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 1, 8),
+    _AgentDiffServGenStatusPolicyInstTableSize_Type()
+)
+agentDiffServGenStatusPolicyInstTableSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServGenStatusPolicyInstTableSize.setStatus("current")
+_AgentDiffServGenStatusPolicyInstTableMax_Type = Unsigned32
+_AgentDiffServGenStatusPolicyInstTableMax_Object = MibScalar
+agentDiffServGenStatusPolicyInstTableMax = _AgentDiffServGenStatusPolicyInstTableMax_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 1, 9),
+    _AgentDiffServGenStatusPolicyInstTableMax_Type()
+)
+agentDiffServGenStatusPolicyInstTableMax.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServGenStatusPolicyInstTableMax.setStatus("current")
+_AgentDiffServGenStatusPolicyAttrTableSize_Type = Unsigned32
+_AgentDiffServGenStatusPolicyAttrTableSize_Object = MibScalar
+agentDiffServGenStatusPolicyAttrTableSize = _AgentDiffServGenStatusPolicyAttrTableSize_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 1, 10),
+    _AgentDiffServGenStatusPolicyAttrTableSize_Type()
+)
+agentDiffServGenStatusPolicyAttrTableSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServGenStatusPolicyAttrTableSize.setStatus("current")
+_AgentDiffServGenStatusPolicyAttrTableMax_Type = Unsigned32
+_AgentDiffServGenStatusPolicyAttrTableMax_Object = MibScalar
+agentDiffServGenStatusPolicyAttrTableMax = _AgentDiffServGenStatusPolicyAttrTableMax_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 1, 11),
+    _AgentDiffServGenStatusPolicyAttrTableMax_Type()
+)
+agentDiffServGenStatusPolicyAttrTableMax.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServGenStatusPolicyAttrTableMax.setStatus("current")
+_AgentDiffServGenStatusServiceTableSize_Type = Unsigned32
+_AgentDiffServGenStatusServiceTableSize_Object = MibScalar
+agentDiffServGenStatusServiceTableSize = _AgentDiffServGenStatusServiceTableSize_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 1, 12),
+    _AgentDiffServGenStatusServiceTableSize_Type()
+)
+agentDiffServGenStatusServiceTableSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServGenStatusServiceTableSize.setStatus("current")
+_AgentDiffServGenStatusServiceTableMax_Type = Unsigned32
+_AgentDiffServGenStatusServiceTableMax_Object = MibScalar
+agentDiffServGenStatusServiceTableMax = _AgentDiffServGenStatusServiceTableMax_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 1, 13),
+    _AgentDiffServGenStatusServiceTableMax_Type()
+)
+agentDiffServGenStatusServiceTableMax.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServGenStatusServiceTableMax.setStatus("current")
+_AgentDiffServClassGroup_ObjectIdentity = ObjectIdentity
+agentDiffServClassGroup = _AgentDiffServClassGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2)
+)
+_AgentDiffServClassIndexNextFree_Type = Unsigned32
+_AgentDiffServClassIndexNextFree_Object = MibScalar
+agentDiffServClassIndexNextFree = _AgentDiffServClassIndexNextFree_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 1),
+    _AgentDiffServClassIndexNextFree_Type()
+)
+agentDiffServClassIndexNextFree.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServClassIndexNextFree.setStatus("current")
+_AgentDiffServClassTable_Object = MibTable
+agentDiffServClassTable = _AgentDiffServClassTable_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 2)
+)
+if mibBuilder.loadTexts:
+    agentDiffServClassTable.setStatus("current")
+_AgentDiffServClassEntry_Object = MibTableRow
+agentDiffServClassEntry = _AgentDiffServClassEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 2, 1)
+)
+agentDiffServClassEntry.setIndexNames(
+    (0, "GSM7312-QOS-DIFFSERV-PRIVATE-MIB", "agentDiffServClassIndex"),
+)
+if mibBuilder.loadTexts:
+    agentDiffServClassEntry.setStatus("current")
+_AgentDiffServClassIndex_Type = Unsigned32
+_AgentDiffServClassIndex_Object = MibTableColumn
+agentDiffServClassIndex = _AgentDiffServClassIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 2, 1, 1),
+    _AgentDiffServClassIndex_Type()
+)
+agentDiffServClassIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    agentDiffServClassIndex.setStatus("current")
+
+
+class _AgentDiffServClassName_Type(DisplayString):
+    """Custom type agentDiffServClassName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 31),
+    )
+
+
+_AgentDiffServClassName_Type.__name__ = "DisplayString"
+_AgentDiffServClassName_Object = MibTableColumn
+agentDiffServClassName = _AgentDiffServClassName_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 2, 1, 2),
+    _AgentDiffServClassName_Type()
+)
+agentDiffServClassName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServClassName.setStatus("current")
+
+
+class _AgentDiffServClassType_Type(Integer32):
+    """Custom type agentDiffServClassType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("acl", 3),
+          ("all", 1),
+          ("any", 2))
+    )
+
+
+_AgentDiffServClassType_Type.__name__ = "Integer32"
+_AgentDiffServClassType_Object = MibTableColumn
+agentDiffServClassType = _AgentDiffServClassType_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 2, 1, 3),
+    _AgentDiffServClassType_Type()
+)
+agentDiffServClassType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServClassType.setStatus("current")
+_AgentDiffServClassAclNum_Type = Unsigned32
+_AgentDiffServClassAclNum_Object = MibTableColumn
+agentDiffServClassAclNum = _AgentDiffServClassAclNum_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 2, 1, 4),
+    _AgentDiffServClassAclNum_Type()
+)
+agentDiffServClassAclNum.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServClassAclNum.setStatus("current")
+_AgentDiffServClassRuleIndexNextFree_Type = Unsigned32
+_AgentDiffServClassRuleIndexNextFree_Object = MibTableColumn
+agentDiffServClassRuleIndexNextFree = _AgentDiffServClassRuleIndexNextFree_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 2, 1, 5),
+    _AgentDiffServClassRuleIndexNextFree_Type()
+)
+agentDiffServClassRuleIndexNextFree.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServClassRuleIndexNextFree.setStatus("current")
+
+
+class _AgentDiffServClassStorageType_Type(StorageType):
+    """Custom type agentDiffServClassStorageType based on StorageType"""
+
+
+_AgentDiffServClassStorageType_Object = MibTableColumn
+agentDiffServClassStorageType = _AgentDiffServClassStorageType_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 2, 1, 6),
+    _AgentDiffServClassStorageType_Type()
+)
+agentDiffServClassStorageType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServClassStorageType.setStatus("current")
+_AgentDiffServClassRowStatus_Type = RowStatus
+_AgentDiffServClassRowStatus_Object = MibTableColumn
+agentDiffServClassRowStatus = _AgentDiffServClassRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 2, 1, 7),
+    _AgentDiffServClassRowStatus_Type()
+)
+agentDiffServClassRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServClassRowStatus.setStatus("current")
+_AgentDiffServClassRuleTable_Object = MibTable
+agentDiffServClassRuleTable = _AgentDiffServClassRuleTable_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3)
+)
+if mibBuilder.loadTexts:
+    agentDiffServClassRuleTable.setStatus("current")
+_AgentDiffServClassRuleEntry_Object = MibTableRow
+agentDiffServClassRuleEntry = _AgentDiffServClassRuleEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1)
+)
+agentDiffServClassRuleEntry.setIndexNames(
+    (0, "GSM7312-QOS-DIFFSERV-PRIVATE-MIB", "agentDiffServClassIndex"),
+    (0, "GSM7312-QOS-DIFFSERV-PRIVATE-MIB", "agentDiffServClassRuleIndex"),
+)
+if mibBuilder.loadTexts:
+    agentDiffServClassRuleEntry.setStatus("current")
+_AgentDiffServClassRuleIndex_Type = Unsigned32
+_AgentDiffServClassRuleIndex_Object = MibTableColumn
+agentDiffServClassRuleIndex = _AgentDiffServClassRuleIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 1),
+    _AgentDiffServClassRuleIndex_Type()
+)
+agentDiffServClassRuleIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    agentDiffServClassRuleIndex.setStatus("current")
+
+
+class _AgentDiffServClassRuleMatchEntryType_Type(Integer32):
+    """Custom type agentDiffServClassRuleMatchEntryType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14)
+        )
+    )
+    namedValues = NamedValues(
+        *(("cos", 1),
+          ("dstip", 2),
+          ("dstl4port", 3),
+          ("dstmac", 4),
+          ("every", 5),
+          ("ipdscp", 6),
+          ("ipprecedence", 7),
+          ("iptos", 8),
+          ("protocol", 9),
+          ("refclass", 10),
+          ("srcip", 11),
+          ("srcl4port", 12),
+          ("srcmac", 13),
+          ("vlan", 14))
+    )
+
+
+_AgentDiffServClassRuleMatchEntryType_Type.__name__ = "Integer32"
+_AgentDiffServClassRuleMatchEntryType_Object = MibTableColumn
+agentDiffServClassRuleMatchEntryType = _AgentDiffServClassRuleMatchEntryType_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 2),
+    _AgentDiffServClassRuleMatchEntryType_Type()
+)
+agentDiffServClassRuleMatchEntryType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServClassRuleMatchEntryType.setStatus("current")
+
+
+class _AgentDiffServClassRuleMatchCos_Type(Unsigned32):
+    """Custom type agentDiffServClassRuleMatchCos based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_AgentDiffServClassRuleMatchCos_Type.__name__ = "Unsigned32"
+_AgentDiffServClassRuleMatchCos_Object = MibTableColumn
+agentDiffServClassRuleMatchCos = _AgentDiffServClassRuleMatchCos_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 3),
+    _AgentDiffServClassRuleMatchCos_Type()
+)
+agentDiffServClassRuleMatchCos.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServClassRuleMatchCos.setStatus("current")
+_AgentDiffServClassRuleMatchDstIpAddr_Type = IpAddress
+_AgentDiffServClassRuleMatchDstIpAddr_Object = MibTableColumn
+agentDiffServClassRuleMatchDstIpAddr = _AgentDiffServClassRuleMatchDstIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 4),
+    _AgentDiffServClassRuleMatchDstIpAddr_Type()
+)
+agentDiffServClassRuleMatchDstIpAddr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServClassRuleMatchDstIpAddr.setStatus("current")
+_AgentDiffServClassRuleMatchDstIpMask_Type = IpAddress
+_AgentDiffServClassRuleMatchDstIpMask_Object = MibTableColumn
+agentDiffServClassRuleMatchDstIpMask = _AgentDiffServClassRuleMatchDstIpMask_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 5),
+    _AgentDiffServClassRuleMatchDstIpMask_Type()
+)
+agentDiffServClassRuleMatchDstIpMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServClassRuleMatchDstIpMask.setStatus("current")
+_AgentDiffServClassRuleMatchDstL4PortStart_Type = InetPortNumber
+_AgentDiffServClassRuleMatchDstL4PortStart_Object = MibTableColumn
+agentDiffServClassRuleMatchDstL4PortStart = _AgentDiffServClassRuleMatchDstL4PortStart_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 6),
+    _AgentDiffServClassRuleMatchDstL4PortStart_Type()
+)
+agentDiffServClassRuleMatchDstL4PortStart.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServClassRuleMatchDstL4PortStart.setStatus("current")
+_AgentDiffServClassRuleMatchDstL4PortEnd_Type = InetPortNumber
+_AgentDiffServClassRuleMatchDstL4PortEnd_Object = MibTableColumn
+agentDiffServClassRuleMatchDstL4PortEnd = _AgentDiffServClassRuleMatchDstL4PortEnd_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 7),
+    _AgentDiffServClassRuleMatchDstL4PortEnd_Type()
+)
+agentDiffServClassRuleMatchDstL4PortEnd.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServClassRuleMatchDstL4PortEnd.setStatus("current")
+_AgentDiffServClassRuleMatchDstMacAddr_Type = MacAddress
+_AgentDiffServClassRuleMatchDstMacAddr_Object = MibTableColumn
+agentDiffServClassRuleMatchDstMacAddr = _AgentDiffServClassRuleMatchDstMacAddr_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 8),
+    _AgentDiffServClassRuleMatchDstMacAddr_Type()
+)
+agentDiffServClassRuleMatchDstMacAddr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServClassRuleMatchDstMacAddr.setStatus("current")
+_AgentDiffServClassRuleMatchDstMacMask_Type = MacAddress
+_AgentDiffServClassRuleMatchDstMacMask_Object = MibTableColumn
+agentDiffServClassRuleMatchDstMacMask = _AgentDiffServClassRuleMatchDstMacMask_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 9),
+    _AgentDiffServClassRuleMatchDstMacMask_Type()
+)
+agentDiffServClassRuleMatchDstMacMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServClassRuleMatchDstMacMask.setStatus("current")
+_AgentDiffServClassRuleMatchEvery_Type = TruthValue
+_AgentDiffServClassRuleMatchEvery_Object = MibTableColumn
+agentDiffServClassRuleMatchEvery = _AgentDiffServClassRuleMatchEvery_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 10),
+    _AgentDiffServClassRuleMatchEvery_Type()
+)
+agentDiffServClassRuleMatchEvery.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServClassRuleMatchEvery.setStatus("current")
+
+
+class _AgentDiffServClassRuleMatchIpDscp_Type(Unsigned32):
+    """Custom type agentDiffServClassRuleMatchIpDscp based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 63),
+    )
+
+
+_AgentDiffServClassRuleMatchIpDscp_Type.__name__ = "Unsigned32"
+_AgentDiffServClassRuleMatchIpDscp_Object = MibTableColumn
+agentDiffServClassRuleMatchIpDscp = _AgentDiffServClassRuleMatchIpDscp_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 11),
+    _AgentDiffServClassRuleMatchIpDscp_Type()
+)
+agentDiffServClassRuleMatchIpDscp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServClassRuleMatchIpDscp.setStatus("current")
+
+
+class _AgentDiffServClassRuleMatchIpPrecedence_Type(Unsigned32):
+    """Custom type agentDiffServClassRuleMatchIpPrecedence based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_AgentDiffServClassRuleMatchIpPrecedence_Type.__name__ = "Unsigned32"
+_AgentDiffServClassRuleMatchIpPrecedence_Object = MibTableColumn
+agentDiffServClassRuleMatchIpPrecedence = _AgentDiffServClassRuleMatchIpPrecedence_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 12),
+    _AgentDiffServClassRuleMatchIpPrecedence_Type()
+)
+agentDiffServClassRuleMatchIpPrecedence.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServClassRuleMatchIpPrecedence.setStatus("current")
+
+
+class _AgentDiffServClassRuleMatchIpTosBits_Type(OctetString):
+    """Custom type agentDiffServClassRuleMatchIpTosBits based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 1),
+    )
+
+
+_AgentDiffServClassRuleMatchIpTosBits_Type.__name__ = "OctetString"
+_AgentDiffServClassRuleMatchIpTosBits_Object = MibTableColumn
+agentDiffServClassRuleMatchIpTosBits = _AgentDiffServClassRuleMatchIpTosBits_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 13),
+    _AgentDiffServClassRuleMatchIpTosBits_Type()
+)
+agentDiffServClassRuleMatchIpTosBits.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServClassRuleMatchIpTosBits.setStatus("current")
+
+
+class _AgentDiffServClassRuleMatchIpTosMask_Type(OctetString):
+    """Custom type agentDiffServClassRuleMatchIpTosMask based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 1),
+    )
+
+
+_AgentDiffServClassRuleMatchIpTosMask_Type.__name__ = "OctetString"
+_AgentDiffServClassRuleMatchIpTosMask_Object = MibTableColumn
+agentDiffServClassRuleMatchIpTosMask = _AgentDiffServClassRuleMatchIpTosMask_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 14),
+    _AgentDiffServClassRuleMatchIpTosMask_Type()
+)
+agentDiffServClassRuleMatchIpTosMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServClassRuleMatchIpTosMask.setStatus("current")
+
+
+class _AgentDiffServClassRuleMatchProtocolNum_Type(Unsigned32):
+    """Custom type agentDiffServClassRuleMatchProtocolNum based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_AgentDiffServClassRuleMatchProtocolNum_Type.__name__ = "Unsigned32"
+_AgentDiffServClassRuleMatchProtocolNum_Object = MibTableColumn
+agentDiffServClassRuleMatchProtocolNum = _AgentDiffServClassRuleMatchProtocolNum_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 15),
+    _AgentDiffServClassRuleMatchProtocolNum_Type()
+)
+agentDiffServClassRuleMatchProtocolNum.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServClassRuleMatchProtocolNum.setStatus("current")
+_AgentDiffServClassRuleMatchRefClassIndex_Type = Unsigned32
+_AgentDiffServClassRuleMatchRefClassIndex_Object = MibTableColumn
+agentDiffServClassRuleMatchRefClassIndex = _AgentDiffServClassRuleMatchRefClassIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 16),
+    _AgentDiffServClassRuleMatchRefClassIndex_Type()
+)
+agentDiffServClassRuleMatchRefClassIndex.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServClassRuleMatchRefClassIndex.setStatus("current")
+_AgentDiffServClassRuleMatchSrcIpAddr_Type = IpAddress
+_AgentDiffServClassRuleMatchSrcIpAddr_Object = MibTableColumn
+agentDiffServClassRuleMatchSrcIpAddr = _AgentDiffServClassRuleMatchSrcIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 17),
+    _AgentDiffServClassRuleMatchSrcIpAddr_Type()
+)
+agentDiffServClassRuleMatchSrcIpAddr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServClassRuleMatchSrcIpAddr.setStatus("current")
+_AgentDiffServClassRuleMatchSrcIpMask_Type = IpAddress
+_AgentDiffServClassRuleMatchSrcIpMask_Object = MibTableColumn
+agentDiffServClassRuleMatchSrcIpMask = _AgentDiffServClassRuleMatchSrcIpMask_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 18),
+    _AgentDiffServClassRuleMatchSrcIpMask_Type()
+)
+agentDiffServClassRuleMatchSrcIpMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServClassRuleMatchSrcIpMask.setStatus("current")
+_AgentDiffServClassRuleMatchSrcL4PortStart_Type = InetPortNumber
+_AgentDiffServClassRuleMatchSrcL4PortStart_Object = MibTableColumn
+agentDiffServClassRuleMatchSrcL4PortStart = _AgentDiffServClassRuleMatchSrcL4PortStart_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 19),
+    _AgentDiffServClassRuleMatchSrcL4PortStart_Type()
+)
+agentDiffServClassRuleMatchSrcL4PortStart.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServClassRuleMatchSrcL4PortStart.setStatus("current")
+_AgentDiffServClassRuleMatchSrcL4PortEnd_Type = InetPortNumber
+_AgentDiffServClassRuleMatchSrcL4PortEnd_Object = MibTableColumn
+agentDiffServClassRuleMatchSrcL4PortEnd = _AgentDiffServClassRuleMatchSrcL4PortEnd_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 20),
+    _AgentDiffServClassRuleMatchSrcL4PortEnd_Type()
+)
+agentDiffServClassRuleMatchSrcL4PortEnd.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServClassRuleMatchSrcL4PortEnd.setStatus("current")
+_AgentDiffServClassRuleMatchSrcMacAddr_Type = MacAddress
+_AgentDiffServClassRuleMatchSrcMacAddr_Object = MibTableColumn
+agentDiffServClassRuleMatchSrcMacAddr = _AgentDiffServClassRuleMatchSrcMacAddr_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 21),
+    _AgentDiffServClassRuleMatchSrcMacAddr_Type()
+)
+agentDiffServClassRuleMatchSrcMacAddr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServClassRuleMatchSrcMacAddr.setStatus("current")
+_AgentDiffServClassRuleMatchSrcMacMask_Type = MacAddress
+_AgentDiffServClassRuleMatchSrcMacMask_Object = MibTableColumn
+agentDiffServClassRuleMatchSrcMacMask = _AgentDiffServClassRuleMatchSrcMacMask_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 22),
+    _AgentDiffServClassRuleMatchSrcMacMask_Type()
+)
+agentDiffServClassRuleMatchSrcMacMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServClassRuleMatchSrcMacMask.setStatus("current")
+
+
+class _AgentDiffServClassRuleMatchVlanId_Type(Unsigned32):
+    """Custom type agentDiffServClassRuleMatchVlanId based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_AgentDiffServClassRuleMatchVlanId_Type.__name__ = "Unsigned32"
+_AgentDiffServClassRuleMatchVlanId_Object = MibTableColumn
+agentDiffServClassRuleMatchVlanId = _AgentDiffServClassRuleMatchVlanId_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 23),
+    _AgentDiffServClassRuleMatchVlanId_Type()
+)
+agentDiffServClassRuleMatchVlanId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServClassRuleMatchVlanId.setStatus("current")
+_AgentDiffServClassRuleMatchExcludeFlag_Type = TruthValue
+_AgentDiffServClassRuleMatchExcludeFlag_Object = MibTableColumn
+agentDiffServClassRuleMatchExcludeFlag = _AgentDiffServClassRuleMatchExcludeFlag_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 24),
+    _AgentDiffServClassRuleMatchExcludeFlag_Type()
+)
+agentDiffServClassRuleMatchExcludeFlag.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServClassRuleMatchExcludeFlag.setStatus("current")
+
+
+class _AgentDiffServClassRuleStorageType_Type(StorageType):
+    """Custom type agentDiffServClassRuleStorageType based on StorageType"""
+
+
+_AgentDiffServClassRuleStorageType_Object = MibTableColumn
+agentDiffServClassRuleStorageType = _AgentDiffServClassRuleStorageType_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 25),
+    _AgentDiffServClassRuleStorageType_Type()
+)
+agentDiffServClassRuleStorageType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServClassRuleStorageType.setStatus("current")
+_AgentDiffServClassRuleRowStatus_Type = RowStatus
+_AgentDiffServClassRuleRowStatus_Object = MibTableColumn
+agentDiffServClassRuleRowStatus = _AgentDiffServClassRuleRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 2, 3, 1, 26),
+    _AgentDiffServClassRuleRowStatus_Type()
+)
+agentDiffServClassRuleRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServClassRuleRowStatus.setStatus("current")
+_AgentDiffServPolicyGroup_ObjectIdentity = ObjectIdentity
+agentDiffServPolicyGroup = _AgentDiffServPolicyGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3)
+)
+_AgentDiffServPolicyIndexNextFree_Type = Unsigned32
+_AgentDiffServPolicyIndexNextFree_Object = MibScalar
+agentDiffServPolicyIndexNextFree = _AgentDiffServPolicyIndexNextFree_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 1),
+    _AgentDiffServPolicyIndexNextFree_Type()
+)
+agentDiffServPolicyIndexNextFree.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyIndexNextFree.setStatus("current")
+_AgentDiffServPolicyTable_Object = MibTable
+agentDiffServPolicyTable = _AgentDiffServPolicyTable_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 2)
+)
+if mibBuilder.loadTexts:
+    agentDiffServPolicyTable.setStatus("current")
+_AgentDiffServPolicyEntry_Object = MibTableRow
+agentDiffServPolicyEntry = _AgentDiffServPolicyEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 2, 1)
+)
+agentDiffServPolicyEntry.setIndexNames(
+    (0, "GSM7312-QOS-DIFFSERV-PRIVATE-MIB", "agentDiffServPolicyIndex"),
+)
+if mibBuilder.loadTexts:
+    agentDiffServPolicyEntry.setStatus("current")
+_AgentDiffServPolicyIndex_Type = Unsigned32
+_AgentDiffServPolicyIndex_Object = MibTableColumn
+agentDiffServPolicyIndex = _AgentDiffServPolicyIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 2, 1, 1),
+    _AgentDiffServPolicyIndex_Type()
+)
+agentDiffServPolicyIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyIndex.setStatus("current")
+
+
+class _AgentDiffServPolicyName_Type(DisplayString):
+    """Custom type agentDiffServPolicyName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 31),
+    )
+
+
+_AgentDiffServPolicyName_Type.__name__ = "DisplayString"
+_AgentDiffServPolicyName_Object = MibTableColumn
+agentDiffServPolicyName = _AgentDiffServPolicyName_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 2, 1, 2),
+    _AgentDiffServPolicyName_Type()
+)
+agentDiffServPolicyName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyName.setStatus("current")
+_AgentDiffServPolicyType_Type = IntfDirection
+_AgentDiffServPolicyType_Object = MibTableColumn
+agentDiffServPolicyType = _AgentDiffServPolicyType_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 2, 1, 3),
+    _AgentDiffServPolicyType_Type()
+)
+agentDiffServPolicyType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyType.setStatus("current")
+_AgentDiffServPolicyInstIndexNextFree_Type = Unsigned32
+_AgentDiffServPolicyInstIndexNextFree_Object = MibTableColumn
+agentDiffServPolicyInstIndexNextFree = _AgentDiffServPolicyInstIndexNextFree_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 2, 1, 4),
+    _AgentDiffServPolicyInstIndexNextFree_Type()
+)
+agentDiffServPolicyInstIndexNextFree.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyInstIndexNextFree.setStatus("current")
+
+
+class _AgentDiffServPolicyStorageType_Type(StorageType):
+    """Custom type agentDiffServPolicyStorageType based on StorageType"""
+
+
+_AgentDiffServPolicyStorageType_Object = MibTableColumn
+agentDiffServPolicyStorageType = _AgentDiffServPolicyStorageType_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 2, 1, 5),
+    _AgentDiffServPolicyStorageType_Type()
+)
+agentDiffServPolicyStorageType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyStorageType.setStatus("current")
+_AgentDiffServPolicyRowStatus_Type = RowStatus
+_AgentDiffServPolicyRowStatus_Object = MibTableColumn
+agentDiffServPolicyRowStatus = _AgentDiffServPolicyRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 2, 1, 6),
+    _AgentDiffServPolicyRowStatus_Type()
+)
+agentDiffServPolicyRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyRowStatus.setStatus("current")
+_AgentDiffServPolicyInstTable_Object = MibTable
+agentDiffServPolicyInstTable = _AgentDiffServPolicyInstTable_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 3)
+)
+if mibBuilder.loadTexts:
+    agentDiffServPolicyInstTable.setStatus("current")
+_AgentDiffServPolicyInstEntry_Object = MibTableRow
+agentDiffServPolicyInstEntry = _AgentDiffServPolicyInstEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 3, 1)
+)
+agentDiffServPolicyInstEntry.setIndexNames(
+    (0, "GSM7312-QOS-DIFFSERV-PRIVATE-MIB", "agentDiffServPolicyIndex"),
+    (0, "GSM7312-QOS-DIFFSERV-PRIVATE-MIB", "agentDiffServPolicyInstIndex"),
+)
+if mibBuilder.loadTexts:
+    agentDiffServPolicyInstEntry.setStatus("current")
+_AgentDiffServPolicyInstIndex_Type = Unsigned32
+_AgentDiffServPolicyInstIndex_Object = MibTableColumn
+agentDiffServPolicyInstIndex = _AgentDiffServPolicyInstIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 3, 1, 1),
+    _AgentDiffServPolicyInstIndex_Type()
+)
+agentDiffServPolicyInstIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyInstIndex.setStatus("current")
+_AgentDiffServPolicyInstClassIndex_Type = Unsigned32
+_AgentDiffServPolicyInstClassIndex_Object = MibTableColumn
+agentDiffServPolicyInstClassIndex = _AgentDiffServPolicyInstClassIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 3, 1, 2),
+    _AgentDiffServPolicyInstClassIndex_Type()
+)
+agentDiffServPolicyInstClassIndex.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyInstClassIndex.setStatus("current")
+_AgentDiffServPolicyInstAttrIndexNextFree_Type = Unsigned32
+_AgentDiffServPolicyInstAttrIndexNextFree_Object = MibTableColumn
+agentDiffServPolicyInstAttrIndexNextFree = _AgentDiffServPolicyInstAttrIndexNextFree_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 3, 1, 3),
+    _AgentDiffServPolicyInstAttrIndexNextFree_Type()
+)
+agentDiffServPolicyInstAttrIndexNextFree.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyInstAttrIndexNextFree.setStatus("current")
+
+
+class _AgentDiffServPolicyInstStorageType_Type(StorageType):
+    """Custom type agentDiffServPolicyInstStorageType based on StorageType"""
+
+
+_AgentDiffServPolicyInstStorageType_Object = MibTableColumn
+agentDiffServPolicyInstStorageType = _AgentDiffServPolicyInstStorageType_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 3, 1, 4),
+    _AgentDiffServPolicyInstStorageType_Type()
+)
+agentDiffServPolicyInstStorageType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyInstStorageType.setStatus("current")
+_AgentDiffServPolicyInstRowStatus_Type = RowStatus
+_AgentDiffServPolicyInstRowStatus_Object = MibTableColumn
+agentDiffServPolicyInstRowStatus = _AgentDiffServPolicyInstRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 3, 1, 5),
+    _AgentDiffServPolicyInstRowStatus_Type()
+)
+agentDiffServPolicyInstRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyInstRowStatus.setStatus("current")
+_AgentDiffServPolicyAttrTable_Object = MibTable
+agentDiffServPolicyAttrTable = _AgentDiffServPolicyAttrTable_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4)
+)
+if mibBuilder.loadTexts:
+    agentDiffServPolicyAttrTable.setStatus("current")
+_AgentDiffServPolicyAttrEntry_Object = MibTableRow
+agentDiffServPolicyAttrEntry = _AgentDiffServPolicyAttrEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1)
+)
+agentDiffServPolicyAttrEntry.setIndexNames(
+    (0, "GSM7312-QOS-DIFFSERV-PRIVATE-MIB", "agentDiffServPolicyIndex"),
+    (0, "GSM7312-QOS-DIFFSERV-PRIVATE-MIB", "agentDiffServPolicyInstIndex"),
+    (0, "GSM7312-QOS-DIFFSERV-PRIVATE-MIB", "agentDiffServPolicyAttrIndex"),
+)
+if mibBuilder.loadTexts:
+    agentDiffServPolicyAttrEntry.setStatus("current")
+_AgentDiffServPolicyAttrIndex_Type = Unsigned32
+_AgentDiffServPolicyAttrIndex_Object = MibTableColumn
+agentDiffServPolicyAttrIndex = _AgentDiffServPolicyAttrIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 1),
+    _AgentDiffServPolicyAttrIndex_Type()
+)
+agentDiffServPolicyAttrIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyAttrIndex.setStatus("current")
+
+
+class _AgentDiffServPolicyAttrStmtEntryType_Type(Integer32):
+    """Custom type agentDiffServPolicyAttrStmtEntryType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11)
+        )
+    )
+    namedValues = NamedValues(
+        *(("bandwidth", 1),
+          ("expedite", 2),
+          ("markCosVal", 3),
+          ("markIpDscpVal", 4),
+          ("markIpPrecedenceVal", 5),
+          ("policeSimple", 6),
+          ("policeSinglerate", 7),
+          ("policeTworate", 8),
+          ("randomdrop", 9),
+          ("shapeAverage", 10),
+          ("shapePeak", 11))
+    )
+
+
+_AgentDiffServPolicyAttrStmtEntryType_Type.__name__ = "Integer32"
+_AgentDiffServPolicyAttrStmtEntryType_Object = MibTableColumn
+agentDiffServPolicyAttrStmtEntryType = _AgentDiffServPolicyAttrStmtEntryType_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 2),
+    _AgentDiffServPolicyAttrStmtEntryType_Type()
+)
+agentDiffServPolicyAttrStmtEntryType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyAttrStmtEntryType.setStatus("current")
+_AgentDiffServPolicyAttrStmtBandwidthCrate_Type = Unsigned32
+_AgentDiffServPolicyAttrStmtBandwidthCrate_Object = MibTableColumn
+agentDiffServPolicyAttrStmtBandwidthCrate = _AgentDiffServPolicyAttrStmtBandwidthCrate_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 3),
+    _AgentDiffServPolicyAttrStmtBandwidthCrate_Type()
+)
+agentDiffServPolicyAttrStmtBandwidthCrate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyAttrStmtBandwidthCrate.setStatus("current")
+
+
+class _AgentDiffServPolicyAttrStmtBandwidthCrateUnits_Type(Integer32):
+    """Custom type agentDiffServPolicyAttrStmtBandwidthCrateUnits based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("kbps", 1),
+          ("percentage", 2))
+    )
+
+
+_AgentDiffServPolicyAttrStmtBandwidthCrateUnits_Type.__name__ = "Integer32"
+_AgentDiffServPolicyAttrStmtBandwidthCrateUnits_Object = MibTableColumn
+agentDiffServPolicyAttrStmtBandwidthCrateUnits = _AgentDiffServPolicyAttrStmtBandwidthCrateUnits_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 4),
+    _AgentDiffServPolicyAttrStmtBandwidthCrateUnits_Type()
+)
+agentDiffServPolicyAttrStmtBandwidthCrateUnits.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyAttrStmtBandwidthCrateUnits.setStatus("current")
+_AgentDiffServPolicyAttrStmtExpediteCrate_Type = Unsigned32
+_AgentDiffServPolicyAttrStmtExpediteCrate_Object = MibTableColumn
+agentDiffServPolicyAttrStmtExpediteCrate = _AgentDiffServPolicyAttrStmtExpediteCrate_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 5),
+    _AgentDiffServPolicyAttrStmtExpediteCrate_Type()
+)
+agentDiffServPolicyAttrStmtExpediteCrate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyAttrStmtExpediteCrate.setStatus("current")
+
+
+class _AgentDiffServPolicyAttrStmtExpediteCrateUnits_Type(Integer32):
+    """Custom type agentDiffServPolicyAttrStmtExpediteCrateUnits based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("kbps", 1),
+          ("percentage", 2))
+    )
+
+
+_AgentDiffServPolicyAttrStmtExpediteCrateUnits_Type.__name__ = "Integer32"
+_AgentDiffServPolicyAttrStmtExpediteCrateUnits_Object = MibTableColumn
+agentDiffServPolicyAttrStmtExpediteCrateUnits = _AgentDiffServPolicyAttrStmtExpediteCrateUnits_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 6),
+    _AgentDiffServPolicyAttrStmtExpediteCrateUnits_Type()
+)
+agentDiffServPolicyAttrStmtExpediteCrateUnits.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyAttrStmtExpediteCrateUnits.setStatus("current")
+
+
+class _AgentDiffServPolicyAttrStmtExpediteCburst_Type(QosBurstSize):
+    """Custom type agentDiffServPolicyAttrStmtExpediteCburst based on QosBurstSize"""
+    defaultValue = 4
+
+
+_AgentDiffServPolicyAttrStmtExpediteCburst_Object = MibTableColumn
+agentDiffServPolicyAttrStmtExpediteCburst = _AgentDiffServPolicyAttrStmtExpediteCburst_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 7),
+    _AgentDiffServPolicyAttrStmtExpediteCburst_Type()
+)
+agentDiffServPolicyAttrStmtExpediteCburst.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyAttrStmtExpediteCburst.setStatus("current")
+
+
+class _AgentDiffServPolicyAttrStmtMarkCosVal_Type(Unsigned32):
+    """Custom type agentDiffServPolicyAttrStmtMarkCosVal based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_AgentDiffServPolicyAttrStmtMarkCosVal_Type.__name__ = "Unsigned32"
+_AgentDiffServPolicyAttrStmtMarkCosVal_Object = MibTableColumn
+agentDiffServPolicyAttrStmtMarkCosVal = _AgentDiffServPolicyAttrStmtMarkCosVal_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 8),
+    _AgentDiffServPolicyAttrStmtMarkCosVal_Type()
+)
+agentDiffServPolicyAttrStmtMarkCosVal.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyAttrStmtMarkCosVal.setStatus("current")
+
+
+class _AgentDiffServPolicyAttrStmtMarkIpDscpVal_Type(Unsigned32):
+    """Custom type agentDiffServPolicyAttrStmtMarkIpDscpVal based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 63),
+    )
+
+
+_AgentDiffServPolicyAttrStmtMarkIpDscpVal_Type.__name__ = "Unsigned32"
+_AgentDiffServPolicyAttrStmtMarkIpDscpVal_Object = MibTableColumn
+agentDiffServPolicyAttrStmtMarkIpDscpVal = _AgentDiffServPolicyAttrStmtMarkIpDscpVal_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 9),
+    _AgentDiffServPolicyAttrStmtMarkIpDscpVal_Type()
+)
+agentDiffServPolicyAttrStmtMarkIpDscpVal.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyAttrStmtMarkIpDscpVal.setStatus("current")
+
+
+class _AgentDiffServPolicyAttrStmtMarkIpPrecedenceVal_Type(Unsigned32):
+    """Custom type agentDiffServPolicyAttrStmtMarkIpPrecedenceVal based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_AgentDiffServPolicyAttrStmtMarkIpPrecedenceVal_Type.__name__ = "Unsigned32"
+_AgentDiffServPolicyAttrStmtMarkIpPrecedenceVal_Object = MibTableColumn
+agentDiffServPolicyAttrStmtMarkIpPrecedenceVal = _AgentDiffServPolicyAttrStmtMarkIpPrecedenceVal_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 10),
+    _AgentDiffServPolicyAttrStmtMarkIpPrecedenceVal_Type()
+)
+agentDiffServPolicyAttrStmtMarkIpPrecedenceVal.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyAttrStmtMarkIpPrecedenceVal.setStatus("current")
+
+
+class _AgentDiffServPolicyAttrStmtPoliceConformAct_Type(Integer32):
+    """Custom type agentDiffServPolicyAttrStmtPoliceConformAct based on Integer32"""
+    defaultValue = 4
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("drop", 1),
+          ("markdscp", 2),
+          ("markprec", 3),
+          ("send", 4))
+    )
+
+
+_AgentDiffServPolicyAttrStmtPoliceConformAct_Type.__name__ = "Integer32"
+_AgentDiffServPolicyAttrStmtPoliceConformAct_Object = MibTableColumn
+agentDiffServPolicyAttrStmtPoliceConformAct = _AgentDiffServPolicyAttrStmtPoliceConformAct_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 11),
+    _AgentDiffServPolicyAttrStmtPoliceConformAct_Type()
+)
+agentDiffServPolicyAttrStmtPoliceConformAct.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyAttrStmtPoliceConformAct.setStatus("current")
+
+
+class _AgentDiffServPolicyAttrStmtPoliceConformVal_Type(Unsigned32):
+    """Custom type agentDiffServPolicyAttrStmtPoliceConformVal based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 63),
+    )
+
+
+_AgentDiffServPolicyAttrStmtPoliceConformVal_Type.__name__ = "Unsigned32"
+_AgentDiffServPolicyAttrStmtPoliceConformVal_Object = MibTableColumn
+agentDiffServPolicyAttrStmtPoliceConformVal = _AgentDiffServPolicyAttrStmtPoliceConformVal_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 12),
+    _AgentDiffServPolicyAttrStmtPoliceConformVal_Type()
+)
+agentDiffServPolicyAttrStmtPoliceConformVal.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyAttrStmtPoliceConformVal.setStatus("current")
+
+
+class _AgentDiffServPolicyAttrStmtPoliceExceedAct_Type(Integer32):
+    """Custom type agentDiffServPolicyAttrStmtPoliceExceedAct based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("drop", 1),
+          ("markdscp", 2),
+          ("markprec", 3),
+          ("send", 4))
+    )
+
+
+_AgentDiffServPolicyAttrStmtPoliceExceedAct_Type.__name__ = "Integer32"
+_AgentDiffServPolicyAttrStmtPoliceExceedAct_Object = MibTableColumn
+agentDiffServPolicyAttrStmtPoliceExceedAct = _AgentDiffServPolicyAttrStmtPoliceExceedAct_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 13),
+    _AgentDiffServPolicyAttrStmtPoliceExceedAct_Type()
+)
+agentDiffServPolicyAttrStmtPoliceExceedAct.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyAttrStmtPoliceExceedAct.setStatus("current")
+
+
+class _AgentDiffServPolicyAttrStmtPoliceExceedVal_Type(Unsigned32):
+    """Custom type agentDiffServPolicyAttrStmtPoliceExceedVal based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 63),
+    )
+
+
+_AgentDiffServPolicyAttrStmtPoliceExceedVal_Type.__name__ = "Unsigned32"
+_AgentDiffServPolicyAttrStmtPoliceExceedVal_Object = MibTableColumn
+agentDiffServPolicyAttrStmtPoliceExceedVal = _AgentDiffServPolicyAttrStmtPoliceExceedVal_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 14),
+    _AgentDiffServPolicyAttrStmtPoliceExceedVal_Type()
+)
+agentDiffServPolicyAttrStmtPoliceExceedVal.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyAttrStmtPoliceExceedVal.setStatus("current")
+
+
+class _AgentDiffServPolicyAttrStmtPoliceNonconformAct_Type(Integer32):
+    """Custom type agentDiffServPolicyAttrStmtPoliceNonconformAct based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("drop", 1),
+          ("markdscp", 2),
+          ("markprec", 3),
+          ("send", 4))
+    )
+
+
+_AgentDiffServPolicyAttrStmtPoliceNonconformAct_Type.__name__ = "Integer32"
+_AgentDiffServPolicyAttrStmtPoliceNonconformAct_Object = MibTableColumn
+agentDiffServPolicyAttrStmtPoliceNonconformAct = _AgentDiffServPolicyAttrStmtPoliceNonconformAct_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 15),
+    _AgentDiffServPolicyAttrStmtPoliceNonconformAct_Type()
+)
+agentDiffServPolicyAttrStmtPoliceNonconformAct.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyAttrStmtPoliceNonconformAct.setStatus("current")
+
+
+class _AgentDiffServPolicyAttrStmtPoliceNonconformVal_Type(Unsigned32):
+    """Custom type agentDiffServPolicyAttrStmtPoliceNonconformVal based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 63),
+    )
+
+
+_AgentDiffServPolicyAttrStmtPoliceNonconformVal_Type.__name__ = "Unsigned32"
+_AgentDiffServPolicyAttrStmtPoliceNonconformVal_Object = MibTableColumn
+agentDiffServPolicyAttrStmtPoliceNonconformVal = _AgentDiffServPolicyAttrStmtPoliceNonconformVal_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 16),
+    _AgentDiffServPolicyAttrStmtPoliceNonconformVal_Type()
+)
+agentDiffServPolicyAttrStmtPoliceNonconformVal.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyAttrStmtPoliceNonconformVal.setStatus("current")
+_AgentDiffServPolicyAttrStmtPoliceSimpleCrate_Type = Unsigned32
+_AgentDiffServPolicyAttrStmtPoliceSimpleCrate_Object = MibTableColumn
+agentDiffServPolicyAttrStmtPoliceSimpleCrate = _AgentDiffServPolicyAttrStmtPoliceSimpleCrate_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 17),
+    _AgentDiffServPolicyAttrStmtPoliceSimpleCrate_Type()
+)
+agentDiffServPolicyAttrStmtPoliceSimpleCrate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyAttrStmtPoliceSimpleCrate.setStatus("current")
+_AgentDiffServPolicyAttrStmtPoliceSimpleCburst_Type = QosBurstSize
+_AgentDiffServPolicyAttrStmtPoliceSimpleCburst_Object = MibTableColumn
+agentDiffServPolicyAttrStmtPoliceSimpleCburst = _AgentDiffServPolicyAttrStmtPoliceSimpleCburst_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 18),
+    _AgentDiffServPolicyAttrStmtPoliceSimpleCburst_Type()
+)
+agentDiffServPolicyAttrStmtPoliceSimpleCburst.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyAttrStmtPoliceSimpleCburst.setStatus("current")
+_AgentDiffServPolicyAttrStmtPoliceSinglerateCrate_Type = Unsigned32
+_AgentDiffServPolicyAttrStmtPoliceSinglerateCrate_Object = MibTableColumn
+agentDiffServPolicyAttrStmtPoliceSinglerateCrate = _AgentDiffServPolicyAttrStmtPoliceSinglerateCrate_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 19),
+    _AgentDiffServPolicyAttrStmtPoliceSinglerateCrate_Type()
+)
+agentDiffServPolicyAttrStmtPoliceSinglerateCrate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyAttrStmtPoliceSinglerateCrate.setStatus("current")
+_AgentDiffServPolicyAttrStmtPoliceSinglerateCburst_Type = QosBurstSize
+_AgentDiffServPolicyAttrStmtPoliceSinglerateCburst_Object = MibTableColumn
+agentDiffServPolicyAttrStmtPoliceSinglerateCburst = _AgentDiffServPolicyAttrStmtPoliceSinglerateCburst_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 20),
+    _AgentDiffServPolicyAttrStmtPoliceSinglerateCburst_Type()
+)
+agentDiffServPolicyAttrStmtPoliceSinglerateCburst.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyAttrStmtPoliceSinglerateCburst.setStatus("current")
+_AgentDiffServPolicyAttrStmtPoliceSinglerateEburst_Type = QosBurstSize
+_AgentDiffServPolicyAttrStmtPoliceSinglerateEburst_Object = MibTableColumn
+agentDiffServPolicyAttrStmtPoliceSinglerateEburst = _AgentDiffServPolicyAttrStmtPoliceSinglerateEburst_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 21),
+    _AgentDiffServPolicyAttrStmtPoliceSinglerateEburst_Type()
+)
+agentDiffServPolicyAttrStmtPoliceSinglerateEburst.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyAttrStmtPoliceSinglerateEburst.setStatus("current")
+_AgentDiffServPolicyAttrStmtPoliceTworateCrate_Type = Unsigned32
+_AgentDiffServPolicyAttrStmtPoliceTworateCrate_Object = MibTableColumn
+agentDiffServPolicyAttrStmtPoliceTworateCrate = _AgentDiffServPolicyAttrStmtPoliceTworateCrate_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 22),
+    _AgentDiffServPolicyAttrStmtPoliceTworateCrate_Type()
+)
+agentDiffServPolicyAttrStmtPoliceTworateCrate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyAttrStmtPoliceTworateCrate.setStatus("current")
+_AgentDiffServPolicyAttrStmtPoliceTworateCburst_Type = QosBurstSize
+_AgentDiffServPolicyAttrStmtPoliceTworateCburst_Object = MibTableColumn
+agentDiffServPolicyAttrStmtPoliceTworateCburst = _AgentDiffServPolicyAttrStmtPoliceTworateCburst_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 23),
+    _AgentDiffServPolicyAttrStmtPoliceTworateCburst_Type()
+)
+agentDiffServPolicyAttrStmtPoliceTworateCburst.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyAttrStmtPoliceTworateCburst.setStatus("current")
+_AgentDiffServPolicyAttrStmtPoliceTworatePrate_Type = Unsigned32
+_AgentDiffServPolicyAttrStmtPoliceTworatePrate_Object = MibTableColumn
+agentDiffServPolicyAttrStmtPoliceTworatePrate = _AgentDiffServPolicyAttrStmtPoliceTworatePrate_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 24),
+    _AgentDiffServPolicyAttrStmtPoliceTworatePrate_Type()
+)
+agentDiffServPolicyAttrStmtPoliceTworatePrate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyAttrStmtPoliceTworatePrate.setStatus("current")
+_AgentDiffServPolicyAttrStmtPoliceTworatePburst_Type = QosBurstSize
+_AgentDiffServPolicyAttrStmtPoliceTworatePburst_Object = MibTableColumn
+agentDiffServPolicyAttrStmtPoliceTworatePburst = _AgentDiffServPolicyAttrStmtPoliceTworatePburst_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 25),
+    _AgentDiffServPolicyAttrStmtPoliceTworatePburst_Type()
+)
+agentDiffServPolicyAttrStmtPoliceTworatePburst.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyAttrStmtPoliceTworatePburst.setStatus("current")
+
+
+class _AgentDiffServPolicyAttrStmtRandomdropMinThresh_Type(Unsigned32):
+    """Custom type agentDiffServPolicyAttrStmtRandomdropMinThresh based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 250000),
+    )
+
+
+_AgentDiffServPolicyAttrStmtRandomdropMinThresh_Type.__name__ = "Unsigned32"
+_AgentDiffServPolicyAttrStmtRandomdropMinThresh_Object = MibTableColumn
+agentDiffServPolicyAttrStmtRandomdropMinThresh = _AgentDiffServPolicyAttrStmtRandomdropMinThresh_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 26),
+    _AgentDiffServPolicyAttrStmtRandomdropMinThresh_Type()
+)
+agentDiffServPolicyAttrStmtRandomdropMinThresh.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyAttrStmtRandomdropMinThresh.setStatus("current")
+
+
+class _AgentDiffServPolicyAttrStmtRandomdropMaxThresh_Type(Unsigned32):
+    """Custom type agentDiffServPolicyAttrStmtRandomdropMaxThresh based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 500000),
+    )
+
+
+_AgentDiffServPolicyAttrStmtRandomdropMaxThresh_Type.__name__ = "Unsigned32"
+_AgentDiffServPolicyAttrStmtRandomdropMaxThresh_Object = MibTableColumn
+agentDiffServPolicyAttrStmtRandomdropMaxThresh = _AgentDiffServPolicyAttrStmtRandomdropMaxThresh_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 27),
+    _AgentDiffServPolicyAttrStmtRandomdropMaxThresh_Type()
+)
+agentDiffServPolicyAttrStmtRandomdropMaxThresh.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyAttrStmtRandomdropMaxThresh.setStatus("current")
+
+
+class _AgentDiffServPolicyAttrStmtRandomdropMaxDropProb_Type(Unsigned32):
+    """Custom type agentDiffServPolicyAttrStmtRandomdropMaxDropProb based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+_AgentDiffServPolicyAttrStmtRandomdropMaxDropProb_Type.__name__ = "Unsigned32"
+_AgentDiffServPolicyAttrStmtRandomdropMaxDropProb_Object = MibTableColumn
+agentDiffServPolicyAttrStmtRandomdropMaxDropProb = _AgentDiffServPolicyAttrStmtRandomdropMaxDropProb_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 28),
+    _AgentDiffServPolicyAttrStmtRandomdropMaxDropProb_Type()
+)
+agentDiffServPolicyAttrStmtRandomdropMaxDropProb.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyAttrStmtRandomdropMaxDropProb.setStatus("current")
+
+
+class _AgentDiffServPolicyAttrStmtRandomdropSamplingRate_Type(Unsigned32):
+    """Custom type agentDiffServPolicyAttrStmtRandomdropSamplingRate based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1000000),
+    )
+
+
+_AgentDiffServPolicyAttrStmtRandomdropSamplingRate_Type.__name__ = "Unsigned32"
+_AgentDiffServPolicyAttrStmtRandomdropSamplingRate_Object = MibTableColumn
+agentDiffServPolicyAttrStmtRandomdropSamplingRate = _AgentDiffServPolicyAttrStmtRandomdropSamplingRate_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 29),
+    _AgentDiffServPolicyAttrStmtRandomdropSamplingRate_Type()
+)
+agentDiffServPolicyAttrStmtRandomdropSamplingRate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyAttrStmtRandomdropSamplingRate.setStatus("current")
+
+
+class _AgentDiffServPolicyAttrStmtRandomdropDecayExponent_Type(Unsigned32):
+    """Custom type agentDiffServPolicyAttrStmtRandomdropDecayExponent based on Unsigned32"""
+    defaultValue = 9
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 16),
+    )
+
+
+_AgentDiffServPolicyAttrStmtRandomdropDecayExponent_Type.__name__ = "Unsigned32"
+_AgentDiffServPolicyAttrStmtRandomdropDecayExponent_Object = MibTableColumn
+agentDiffServPolicyAttrStmtRandomdropDecayExponent = _AgentDiffServPolicyAttrStmtRandomdropDecayExponent_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 30),
+    _AgentDiffServPolicyAttrStmtRandomdropDecayExponent_Type()
+)
+agentDiffServPolicyAttrStmtRandomdropDecayExponent.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyAttrStmtRandomdropDecayExponent.setStatus("current")
+_AgentDiffServPolicyAttrStmtShapeAverageCrate_Type = Unsigned32
+_AgentDiffServPolicyAttrStmtShapeAverageCrate_Object = MibTableColumn
+agentDiffServPolicyAttrStmtShapeAverageCrate = _AgentDiffServPolicyAttrStmtShapeAverageCrate_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 31),
+    _AgentDiffServPolicyAttrStmtShapeAverageCrate_Type()
+)
+agentDiffServPolicyAttrStmtShapeAverageCrate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyAttrStmtShapeAverageCrate.setStatus("current")
+_AgentDiffServPolicyAttrStmtShapePeakCrate_Type = Unsigned32
+_AgentDiffServPolicyAttrStmtShapePeakCrate_Object = MibTableColumn
+agentDiffServPolicyAttrStmtShapePeakCrate = _AgentDiffServPolicyAttrStmtShapePeakCrate_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 32),
+    _AgentDiffServPolicyAttrStmtShapePeakCrate_Type()
+)
+agentDiffServPolicyAttrStmtShapePeakCrate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyAttrStmtShapePeakCrate.setStatus("current")
+_AgentDiffServPolicyAttrStmtShapePeakPrate_Type = Unsigned32
+_AgentDiffServPolicyAttrStmtShapePeakPrate_Object = MibTableColumn
+agentDiffServPolicyAttrStmtShapePeakPrate = _AgentDiffServPolicyAttrStmtShapePeakPrate_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 33),
+    _AgentDiffServPolicyAttrStmtShapePeakPrate_Type()
+)
+agentDiffServPolicyAttrStmtShapePeakPrate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyAttrStmtShapePeakPrate.setStatus("current")
+
+
+class _AgentDiffServPolicyAttrStorageType_Type(StorageType):
+    """Custom type agentDiffServPolicyAttrStorageType based on StorageType"""
+
+
+_AgentDiffServPolicyAttrStorageType_Object = MibTableColumn
+agentDiffServPolicyAttrStorageType = _AgentDiffServPolicyAttrStorageType_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 34),
+    _AgentDiffServPolicyAttrStorageType_Type()
+)
+agentDiffServPolicyAttrStorageType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyAttrStorageType.setStatus("current")
+_AgentDiffServPolicyAttrRowStatus_Type = RowStatus
+_AgentDiffServPolicyAttrRowStatus_Object = MibTableColumn
+agentDiffServPolicyAttrRowStatus = _AgentDiffServPolicyAttrRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 4, 1, 35),
+    _AgentDiffServPolicyAttrRowStatus_Type()
+)
+agentDiffServPolicyAttrRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyAttrRowStatus.setStatus("current")
+_AgentDiffServPolicyPerfInTable_Object = MibTable
+agentDiffServPolicyPerfInTable = _AgentDiffServPolicyPerfInTable_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 5)
+)
+if mibBuilder.loadTexts:
+    agentDiffServPolicyPerfInTable.setStatus("current")
+_AgentDiffServPolicyPerfInEntry_Object = MibTableRow
+agentDiffServPolicyPerfInEntry = _AgentDiffServPolicyPerfInEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 5, 1)
+)
+agentDiffServPolicyPerfInEntry.setIndexNames(
+    (0, "GSM7312-QOS-DIFFSERV-PRIVATE-MIB", "agentDiffServPolicyIndex"),
+    (0, "GSM7312-QOS-DIFFSERV-PRIVATE-MIB", "agentDiffServPolicyInstIndex"),
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    agentDiffServPolicyPerfInEntry.setStatus("current")
+_AgentDiffServPolicyPerfInOfferedOctets_Type = Counter32
+_AgentDiffServPolicyPerfInOfferedOctets_Object = MibTableColumn
+agentDiffServPolicyPerfInOfferedOctets = _AgentDiffServPolicyPerfInOfferedOctets_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 5, 1, 1),
+    _AgentDiffServPolicyPerfInOfferedOctets_Type()
+)
+agentDiffServPolicyPerfInOfferedOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyPerfInOfferedOctets.setStatus("current")
+_AgentDiffServPolicyPerfInOfferedPackets_Type = Counter32
+_AgentDiffServPolicyPerfInOfferedPackets_Object = MibTableColumn
+agentDiffServPolicyPerfInOfferedPackets = _AgentDiffServPolicyPerfInOfferedPackets_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 5, 1, 2),
+    _AgentDiffServPolicyPerfInOfferedPackets_Type()
+)
+agentDiffServPolicyPerfInOfferedPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyPerfInOfferedPackets.setStatus("current")
+_AgentDiffServPolicyPerfInDiscardedOctets_Type = Counter32
+_AgentDiffServPolicyPerfInDiscardedOctets_Object = MibTableColumn
+agentDiffServPolicyPerfInDiscardedOctets = _AgentDiffServPolicyPerfInDiscardedOctets_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 5, 1, 3),
+    _AgentDiffServPolicyPerfInDiscardedOctets_Type()
+)
+agentDiffServPolicyPerfInDiscardedOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyPerfInDiscardedOctets.setStatus("current")
+_AgentDiffServPolicyPerfInDiscardedPackets_Type = Counter32
+_AgentDiffServPolicyPerfInDiscardedPackets_Object = MibTableColumn
+agentDiffServPolicyPerfInDiscardedPackets = _AgentDiffServPolicyPerfInDiscardedPackets_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 5, 1, 4),
+    _AgentDiffServPolicyPerfInDiscardedPackets_Type()
+)
+agentDiffServPolicyPerfInDiscardedPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyPerfInDiscardedPackets.setStatus("current")
+_AgentDiffServPolicyPerfInHCOfferedOctets_Type = Counter64
+_AgentDiffServPolicyPerfInHCOfferedOctets_Object = MibTableColumn
+agentDiffServPolicyPerfInHCOfferedOctets = _AgentDiffServPolicyPerfInHCOfferedOctets_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 5, 1, 5),
+    _AgentDiffServPolicyPerfInHCOfferedOctets_Type()
+)
+agentDiffServPolicyPerfInHCOfferedOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyPerfInHCOfferedOctets.setStatus("current")
+_AgentDiffServPolicyPerfInHCOfferedPackets_Type = Counter64
+_AgentDiffServPolicyPerfInHCOfferedPackets_Object = MibTableColumn
+agentDiffServPolicyPerfInHCOfferedPackets = _AgentDiffServPolicyPerfInHCOfferedPackets_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 5, 1, 6),
+    _AgentDiffServPolicyPerfInHCOfferedPackets_Type()
+)
+agentDiffServPolicyPerfInHCOfferedPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyPerfInHCOfferedPackets.setStatus("current")
+_AgentDiffServPolicyPerfInHCDiscardedOctets_Type = Counter64
+_AgentDiffServPolicyPerfInHCDiscardedOctets_Object = MibTableColumn
+agentDiffServPolicyPerfInHCDiscardedOctets = _AgentDiffServPolicyPerfInHCDiscardedOctets_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 5, 1, 7),
+    _AgentDiffServPolicyPerfInHCDiscardedOctets_Type()
+)
+agentDiffServPolicyPerfInHCDiscardedOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyPerfInHCDiscardedOctets.setStatus("current")
+_AgentDiffServPolicyPerfInHCDiscardedPackets_Type = Counter64
+_AgentDiffServPolicyPerfInHCDiscardedPackets_Object = MibTableColumn
+agentDiffServPolicyPerfInHCDiscardedPackets = _AgentDiffServPolicyPerfInHCDiscardedPackets_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 5, 1, 8),
+    _AgentDiffServPolicyPerfInHCDiscardedPackets_Type()
+)
+agentDiffServPolicyPerfInHCDiscardedPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyPerfInHCDiscardedPackets.setStatus("current")
+
+
+class _AgentDiffServPolicyPerfInStorageType_Type(StorageType):
+    """Custom type agentDiffServPolicyPerfInStorageType based on StorageType"""
+
+
+_AgentDiffServPolicyPerfInStorageType_Object = MibTableColumn
+agentDiffServPolicyPerfInStorageType = _AgentDiffServPolicyPerfInStorageType_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 5, 1, 9),
+    _AgentDiffServPolicyPerfInStorageType_Type()
+)
+agentDiffServPolicyPerfInStorageType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyPerfInStorageType.setStatus("current")
+_AgentDiffServPolicyPerfInRowStatus_Type = RowStatus
+_AgentDiffServPolicyPerfInRowStatus_Object = MibTableColumn
+agentDiffServPolicyPerfInRowStatus = _AgentDiffServPolicyPerfInRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 5, 1, 10),
+    _AgentDiffServPolicyPerfInRowStatus_Type()
+)
+agentDiffServPolicyPerfInRowStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyPerfInRowStatus.setStatus("current")
+_AgentDiffServPolicyPerfOutTable_Object = MibTable
+agentDiffServPolicyPerfOutTable = _AgentDiffServPolicyPerfOutTable_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6)
+)
+if mibBuilder.loadTexts:
+    agentDiffServPolicyPerfOutTable.setStatus("current")
+_AgentDiffServPolicyPerfOutEntry_Object = MibTableRow
+agentDiffServPolicyPerfOutEntry = _AgentDiffServPolicyPerfOutEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6, 1)
+)
+agentDiffServPolicyPerfOutEntry.setIndexNames(
+    (0, "GSM7312-QOS-DIFFSERV-PRIVATE-MIB", "agentDiffServPolicyIndex"),
+    (0, "GSM7312-QOS-DIFFSERV-PRIVATE-MIB", "agentDiffServPolicyInstIndex"),
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    agentDiffServPolicyPerfOutEntry.setStatus("current")
+_AgentDiffServPolicyPerfOutTailDroppedOctets_Type = Counter32
+_AgentDiffServPolicyPerfOutTailDroppedOctets_Object = MibTableColumn
+agentDiffServPolicyPerfOutTailDroppedOctets = _AgentDiffServPolicyPerfOutTailDroppedOctets_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6, 1, 1),
+    _AgentDiffServPolicyPerfOutTailDroppedOctets_Type()
+)
+agentDiffServPolicyPerfOutTailDroppedOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyPerfOutTailDroppedOctets.setStatus("current")
+_AgentDiffServPolicyPerfOutTailDroppedPackets_Type = Counter32
+_AgentDiffServPolicyPerfOutTailDroppedPackets_Object = MibTableColumn
+agentDiffServPolicyPerfOutTailDroppedPackets = _AgentDiffServPolicyPerfOutTailDroppedPackets_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6, 1, 2),
+    _AgentDiffServPolicyPerfOutTailDroppedPackets_Type()
+)
+agentDiffServPolicyPerfOutTailDroppedPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyPerfOutTailDroppedPackets.setStatus("current")
+_AgentDiffServPolicyPerfOutRandomDroppedOctets_Type = Counter32
+_AgentDiffServPolicyPerfOutRandomDroppedOctets_Object = MibTableColumn
+agentDiffServPolicyPerfOutRandomDroppedOctets = _AgentDiffServPolicyPerfOutRandomDroppedOctets_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6, 1, 3),
+    _AgentDiffServPolicyPerfOutRandomDroppedOctets_Type()
+)
+agentDiffServPolicyPerfOutRandomDroppedOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyPerfOutRandomDroppedOctets.setStatus("current")
+_AgentDiffServPolicyPerfOutRandomDroppedPackets_Type = Counter32
+_AgentDiffServPolicyPerfOutRandomDroppedPackets_Object = MibTableColumn
+agentDiffServPolicyPerfOutRandomDroppedPackets = _AgentDiffServPolicyPerfOutRandomDroppedPackets_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6, 1, 4),
+    _AgentDiffServPolicyPerfOutRandomDroppedPackets_Type()
+)
+agentDiffServPolicyPerfOutRandomDroppedPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyPerfOutRandomDroppedPackets.setStatus("current")
+_AgentDiffServPolicyPerfOutShapeDelayedOctets_Type = Counter32
+_AgentDiffServPolicyPerfOutShapeDelayedOctets_Object = MibTableColumn
+agentDiffServPolicyPerfOutShapeDelayedOctets = _AgentDiffServPolicyPerfOutShapeDelayedOctets_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6, 1, 5),
+    _AgentDiffServPolicyPerfOutShapeDelayedOctets_Type()
+)
+agentDiffServPolicyPerfOutShapeDelayedOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyPerfOutShapeDelayedOctets.setStatus("current")
+_AgentDiffServPolicyPerfOutShapeDelayedPackets_Type = Counter32
+_AgentDiffServPolicyPerfOutShapeDelayedPackets_Object = MibTableColumn
+agentDiffServPolicyPerfOutShapeDelayedPackets = _AgentDiffServPolicyPerfOutShapeDelayedPackets_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6, 1, 6),
+    _AgentDiffServPolicyPerfOutShapeDelayedPackets_Type()
+)
+agentDiffServPolicyPerfOutShapeDelayedPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyPerfOutShapeDelayedPackets.setStatus("current")
+_AgentDiffServPolicyPerfOutSentOctets_Type = Counter32
+_AgentDiffServPolicyPerfOutSentOctets_Object = MibTableColumn
+agentDiffServPolicyPerfOutSentOctets = _AgentDiffServPolicyPerfOutSentOctets_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6, 1, 7),
+    _AgentDiffServPolicyPerfOutSentOctets_Type()
+)
+agentDiffServPolicyPerfOutSentOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyPerfOutSentOctets.setStatus("current")
+_AgentDiffServPolicyPerfOutSentPackets_Type = Counter32
+_AgentDiffServPolicyPerfOutSentPackets_Object = MibTableColumn
+agentDiffServPolicyPerfOutSentPackets = _AgentDiffServPolicyPerfOutSentPackets_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6, 1, 8),
+    _AgentDiffServPolicyPerfOutSentPackets_Type()
+)
+agentDiffServPolicyPerfOutSentPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyPerfOutSentPackets.setStatus("current")
+_AgentDiffServPolicyPerfOutHCTailDroppedOctets_Type = Counter64
+_AgentDiffServPolicyPerfOutHCTailDroppedOctets_Object = MibTableColumn
+agentDiffServPolicyPerfOutHCTailDroppedOctets = _AgentDiffServPolicyPerfOutHCTailDroppedOctets_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6, 1, 9),
+    _AgentDiffServPolicyPerfOutHCTailDroppedOctets_Type()
+)
+agentDiffServPolicyPerfOutHCTailDroppedOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyPerfOutHCTailDroppedOctets.setStatus("current")
+_AgentDiffServPolicyPerfOutHCTailDroppedPackets_Type = Counter64
+_AgentDiffServPolicyPerfOutHCTailDroppedPackets_Object = MibTableColumn
+agentDiffServPolicyPerfOutHCTailDroppedPackets = _AgentDiffServPolicyPerfOutHCTailDroppedPackets_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6, 1, 10),
+    _AgentDiffServPolicyPerfOutHCTailDroppedPackets_Type()
+)
+agentDiffServPolicyPerfOutHCTailDroppedPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyPerfOutHCTailDroppedPackets.setStatus("current")
+_AgentDiffServPolicyPerfOutHCRandomDroppedOctets_Type = Counter64
+_AgentDiffServPolicyPerfOutHCRandomDroppedOctets_Object = MibTableColumn
+agentDiffServPolicyPerfOutHCRandomDroppedOctets = _AgentDiffServPolicyPerfOutHCRandomDroppedOctets_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6, 1, 11),
+    _AgentDiffServPolicyPerfOutHCRandomDroppedOctets_Type()
+)
+agentDiffServPolicyPerfOutHCRandomDroppedOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyPerfOutHCRandomDroppedOctets.setStatus("current")
+_AgentDiffServPolicyPerfOutHCRandomDroppedPackets_Type = Counter64
+_AgentDiffServPolicyPerfOutHCRandomDroppedPackets_Object = MibTableColumn
+agentDiffServPolicyPerfOutHCRandomDroppedPackets = _AgentDiffServPolicyPerfOutHCRandomDroppedPackets_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6, 1, 12),
+    _AgentDiffServPolicyPerfOutHCRandomDroppedPackets_Type()
+)
+agentDiffServPolicyPerfOutHCRandomDroppedPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyPerfOutHCRandomDroppedPackets.setStatus("current")
+_AgentDiffServPolicyPerfOutHCShapeDelayedOctets_Type = Counter64
+_AgentDiffServPolicyPerfOutHCShapeDelayedOctets_Object = MibTableColumn
+agentDiffServPolicyPerfOutHCShapeDelayedOctets = _AgentDiffServPolicyPerfOutHCShapeDelayedOctets_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6, 1, 13),
+    _AgentDiffServPolicyPerfOutHCShapeDelayedOctets_Type()
+)
+agentDiffServPolicyPerfOutHCShapeDelayedOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyPerfOutHCShapeDelayedOctets.setStatus("current")
+_AgentDiffServPolicyPerfOutHCShapeDelayedPackets_Type = Counter64
+_AgentDiffServPolicyPerfOutHCShapeDelayedPackets_Object = MibTableColumn
+agentDiffServPolicyPerfOutHCShapeDelayedPackets = _AgentDiffServPolicyPerfOutHCShapeDelayedPackets_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6, 1, 14),
+    _AgentDiffServPolicyPerfOutHCShapeDelayedPackets_Type()
+)
+agentDiffServPolicyPerfOutHCShapeDelayedPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyPerfOutHCShapeDelayedPackets.setStatus("current")
+_AgentDiffServPolicyPerfOutHCSentOctets_Type = Counter64
+_AgentDiffServPolicyPerfOutHCSentOctets_Object = MibTableColumn
+agentDiffServPolicyPerfOutHCSentOctets = _AgentDiffServPolicyPerfOutHCSentOctets_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6, 1, 15),
+    _AgentDiffServPolicyPerfOutHCSentOctets_Type()
+)
+agentDiffServPolicyPerfOutHCSentOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyPerfOutHCSentOctets.setStatus("current")
+_AgentDiffServPolicyPerfOutHCSentPackets_Type = Counter64
+_AgentDiffServPolicyPerfOutHCSentPackets_Object = MibTableColumn
+agentDiffServPolicyPerfOutHCSentPackets = _AgentDiffServPolicyPerfOutHCSentPackets_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6, 1, 16),
+    _AgentDiffServPolicyPerfOutHCSentPackets_Type()
+)
+agentDiffServPolicyPerfOutHCSentPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyPerfOutHCSentPackets.setStatus("current")
+
+
+class _AgentDiffServPolicyPerfOutStorageType_Type(StorageType):
+    """Custom type agentDiffServPolicyPerfOutStorageType based on StorageType"""
+
+
+_AgentDiffServPolicyPerfOutStorageType_Object = MibTableColumn
+agentDiffServPolicyPerfOutStorageType = _AgentDiffServPolicyPerfOutStorageType_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6, 1, 17),
+    _AgentDiffServPolicyPerfOutStorageType_Type()
+)
+agentDiffServPolicyPerfOutStorageType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyPerfOutStorageType.setStatus("current")
+_AgentDiffServPolicyPerfOutRowStatus_Type = RowStatus
+_AgentDiffServPolicyPerfOutRowStatus_Object = MibTableColumn
+agentDiffServPolicyPerfOutRowStatus = _AgentDiffServPolicyPerfOutRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 3, 6, 1, 18),
+    _AgentDiffServPolicyPerfOutRowStatus_Type()
+)
+agentDiffServPolicyPerfOutRowStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServPolicyPerfOutRowStatus.setStatus("current")
+_AgentDiffServServiceGroup_ObjectIdentity = ObjectIdentity
+agentDiffServServiceGroup = _AgentDiffServServiceGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4)
+)
+_AgentDiffServServiceTable_Object = MibTable
+agentDiffServServiceTable = _AgentDiffServServiceTable_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 1)
+)
+if mibBuilder.loadTexts:
+    agentDiffServServiceTable.setStatus("current")
+_AgentDiffServServiceEntry_Object = MibTableRow
+agentDiffServServiceEntry = _AgentDiffServServiceEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 1, 1)
+)
+agentDiffServServiceEntry.setIndexNames(
+    (0, "GSM7312-QOS-DIFFSERV-PRIVATE-MIB", "agentDiffServServiceIfIndex"),
+    (0, "GSM7312-QOS-DIFFSERV-PRIVATE-MIB", "agentDiffServServiceIfDirection"),
+)
+if mibBuilder.loadTexts:
+    agentDiffServServiceEntry.setStatus("current")
+_AgentDiffServServiceIfIndex_Type = InterfaceIndex
+_AgentDiffServServiceIfIndex_Object = MibTableColumn
+agentDiffServServiceIfIndex = _AgentDiffServServiceIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 1, 1, 1),
+    _AgentDiffServServiceIfIndex_Type()
+)
+agentDiffServServiceIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    agentDiffServServiceIfIndex.setStatus("current")
+_AgentDiffServServiceIfDirection_Type = IntfDirection
+_AgentDiffServServiceIfDirection_Object = MibTableColumn
+agentDiffServServiceIfDirection = _AgentDiffServServiceIfDirection_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 1, 1, 2),
+    _AgentDiffServServiceIfDirection_Type()
+)
+agentDiffServServiceIfDirection.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    agentDiffServServiceIfDirection.setStatus("current")
+_AgentDiffServServicePolicyIndex_Type = Unsigned32
+_AgentDiffServServicePolicyIndex_Object = MibTableColumn
+agentDiffServServicePolicyIndex = _AgentDiffServServicePolicyIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 1, 1, 3),
+    _AgentDiffServServicePolicyIndex_Type()
+)
+agentDiffServServicePolicyIndex.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServServicePolicyIndex.setStatus("current")
+
+
+class _AgentDiffServServiceIfOperStatus_Type(Integer32):
+    """Custom type agentDiffServServiceIfOperStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 2),
+          ("up", 1))
+    )
+
+
+_AgentDiffServServiceIfOperStatus_Type.__name__ = "Integer32"
+_AgentDiffServServiceIfOperStatus_Object = MibTableColumn
+agentDiffServServiceIfOperStatus = _AgentDiffServServiceIfOperStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 1, 1, 4),
+    _AgentDiffServServiceIfOperStatus_Type()
+)
+agentDiffServServiceIfOperStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServServiceIfOperStatus.setStatus("current")
+
+
+class _AgentDiffServServiceStorageType_Type(StorageType):
+    """Custom type agentDiffServServiceStorageType based on StorageType"""
+
+
+_AgentDiffServServiceStorageType_Object = MibTableColumn
+agentDiffServServiceStorageType = _AgentDiffServServiceStorageType_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 1, 1, 5),
+    _AgentDiffServServiceStorageType_Type()
+)
+agentDiffServServiceStorageType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServServiceStorageType.setStatus("current")
+_AgentDiffServServiceRowStatus_Type = RowStatus
+_AgentDiffServServiceRowStatus_Object = MibTableColumn
+agentDiffServServiceRowStatus = _AgentDiffServServiceRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 1, 1, 6),
+    _AgentDiffServServiceRowStatus_Type()
+)
+agentDiffServServiceRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentDiffServServiceRowStatus.setStatus("current")
+_AgentDiffServServicePerfTable_Object = MibTable
+agentDiffServServicePerfTable = _AgentDiffServServicePerfTable_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 2)
+)
+if mibBuilder.loadTexts:
+    agentDiffServServicePerfTable.setStatus("current")
+_AgentDiffServServicePerfEntry_Object = MibTableRow
+agentDiffServServicePerfEntry = _AgentDiffServServicePerfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 2, 1)
+)
+if mibBuilder.loadTexts:
+    agentDiffServServicePerfEntry.setStatus("current")
+_AgentDiffServServicePerfOfferedOctets_Type = Counter32
+_AgentDiffServServicePerfOfferedOctets_Object = MibTableColumn
+agentDiffServServicePerfOfferedOctets = _AgentDiffServServicePerfOfferedOctets_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 2, 1, 1),
+    _AgentDiffServServicePerfOfferedOctets_Type()
+)
+agentDiffServServicePerfOfferedOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServServicePerfOfferedOctets.setStatus("current")
+_AgentDiffServServicePerfOfferedPackets_Type = Counter32
+_AgentDiffServServicePerfOfferedPackets_Object = MibTableColumn
+agentDiffServServicePerfOfferedPackets = _AgentDiffServServicePerfOfferedPackets_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 2, 1, 2),
+    _AgentDiffServServicePerfOfferedPackets_Type()
+)
+agentDiffServServicePerfOfferedPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServServicePerfOfferedPackets.setStatus("current")
+_AgentDiffServServicePerfDiscardedOctets_Type = Counter32
+_AgentDiffServServicePerfDiscardedOctets_Object = MibTableColumn
+agentDiffServServicePerfDiscardedOctets = _AgentDiffServServicePerfDiscardedOctets_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 2, 1, 3),
+    _AgentDiffServServicePerfDiscardedOctets_Type()
+)
+agentDiffServServicePerfDiscardedOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServServicePerfDiscardedOctets.setStatus("current")
+_AgentDiffServServicePerfDiscardedPackets_Type = Counter32
+_AgentDiffServServicePerfDiscardedPackets_Object = MibTableColumn
+agentDiffServServicePerfDiscardedPackets = _AgentDiffServServicePerfDiscardedPackets_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 2, 1, 4),
+    _AgentDiffServServicePerfDiscardedPackets_Type()
+)
+agentDiffServServicePerfDiscardedPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServServicePerfDiscardedPackets.setStatus("current")
+_AgentDiffServServicePerfSentOctets_Type = Counter32
+_AgentDiffServServicePerfSentOctets_Object = MibTableColumn
+agentDiffServServicePerfSentOctets = _AgentDiffServServicePerfSentOctets_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 2, 1, 5),
+    _AgentDiffServServicePerfSentOctets_Type()
+)
+agentDiffServServicePerfSentOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServServicePerfSentOctets.setStatus("current")
+_AgentDiffServServicePerfSentPackets_Type = Counter32
+_AgentDiffServServicePerfSentPackets_Object = MibTableColumn
+agentDiffServServicePerfSentPackets = _AgentDiffServServicePerfSentPackets_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 2, 1, 6),
+    _AgentDiffServServicePerfSentPackets_Type()
+)
+agentDiffServServicePerfSentPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServServicePerfSentPackets.setStatus("current")
+_AgentDiffServServicePerfHCOfferedOctets_Type = Counter64
+_AgentDiffServServicePerfHCOfferedOctets_Object = MibTableColumn
+agentDiffServServicePerfHCOfferedOctets = _AgentDiffServServicePerfHCOfferedOctets_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 2, 1, 7),
+    _AgentDiffServServicePerfHCOfferedOctets_Type()
+)
+agentDiffServServicePerfHCOfferedOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServServicePerfHCOfferedOctets.setStatus("current")
+_AgentDiffServServicePerfHCOfferedPackets_Type = Counter64
+_AgentDiffServServicePerfHCOfferedPackets_Object = MibTableColumn
+agentDiffServServicePerfHCOfferedPackets = _AgentDiffServServicePerfHCOfferedPackets_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 2, 1, 8),
+    _AgentDiffServServicePerfHCOfferedPackets_Type()
+)
+agentDiffServServicePerfHCOfferedPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServServicePerfHCOfferedPackets.setStatus("current")
+_AgentDiffServServicePerfHCDiscardedOctets_Type = Counter64
+_AgentDiffServServicePerfHCDiscardedOctets_Object = MibTableColumn
+agentDiffServServicePerfHCDiscardedOctets = _AgentDiffServServicePerfHCDiscardedOctets_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 2, 1, 9),
+    _AgentDiffServServicePerfHCDiscardedOctets_Type()
+)
+agentDiffServServicePerfHCDiscardedOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServServicePerfHCDiscardedOctets.setStatus("current")
+_AgentDiffServServicePerfHCDiscardedPackets_Type = Counter64
+_AgentDiffServServicePerfHCDiscardedPackets_Object = MibTableColumn
+agentDiffServServicePerfHCDiscardedPackets = _AgentDiffServServicePerfHCDiscardedPackets_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 2, 1, 10),
+    _AgentDiffServServicePerfHCDiscardedPackets_Type()
+)
+agentDiffServServicePerfHCDiscardedPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServServicePerfHCDiscardedPackets.setStatus("current")
+_AgentDiffServServicePerfHCSentOctets_Type = Counter64
+_AgentDiffServServicePerfHCSentOctets_Object = MibTableColumn
+agentDiffServServicePerfHCSentOctets = _AgentDiffServServicePerfHCSentOctets_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 2, 1, 11),
+    _AgentDiffServServicePerfHCSentOctets_Type()
+)
+agentDiffServServicePerfHCSentOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServServicePerfHCSentOctets.setStatus("current")
+_AgentDiffServServicePerfHCSentPackets_Type = Counter64
+_AgentDiffServServicePerfHCSentPackets_Object = MibTableColumn
+agentDiffServServicePerfHCSentPackets = _AgentDiffServServicePerfHCSentPackets_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 2, 1, 12),
+    _AgentDiffServServicePerfHCSentPackets_Type()
+)
+agentDiffServServicePerfHCSentPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDiffServServicePerfHCSentPackets.setStatus("current")
+agentDiffServServiceEntry.registerAugmentions(
+    ("GSM7312-QOS-DIFFSERV-PRIVATE-MIB",
+     "agentDiffServServicePerfEntry")
+)
 agentDiffServServicePerfEntry.setIndexNames(*agentDiffServServiceEntry.getIndexNames())
-if mibBuilder.loadTexts: agentDiffServServicePerfEntry.setStatus('current')
-agentDiffServServicePerfOfferedOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 2, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServServicePerfOfferedOctets.setStatus('current')
-agentDiffServServicePerfOfferedPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 2, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServServicePerfOfferedPackets.setStatus('current')
-agentDiffServServicePerfDiscardedOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 2, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServServicePerfDiscardedOctets.setStatus('current')
-agentDiffServServicePerfDiscardedPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 2, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServServicePerfDiscardedPackets.setStatus('current')
-agentDiffServServicePerfSentOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 2, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServServicePerfSentOctets.setStatus('current')
-agentDiffServServicePerfSentPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 2, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServServicePerfSentPackets.setStatus('current')
-agentDiffServServicePerfHCOfferedOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 2, 1, 7), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServServicePerfHCOfferedOctets.setStatus('current')
-agentDiffServServicePerfHCOfferedPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 2, 1, 8), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServServicePerfHCOfferedPackets.setStatus('current')
-agentDiffServServicePerfHCDiscardedOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 2, 1, 9), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServServicePerfHCDiscardedOctets.setStatus('current')
-agentDiffServServicePerfHCDiscardedPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 2, 1, 10), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServServicePerfHCDiscardedPackets.setStatus('current')
-agentDiffServServicePerfHCSentOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 2, 1, 11), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServServicePerfHCSentOctets.setStatus('current')
-agentDiffServServicePerfHCSentPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 4, 4, 2, 1, 12), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDiffServServicePerfHCSentPackets.setStatus('current')
-mibBuilder.exportSymbols("GSM7312-QOS-DIFFSERV-PRIVATE-MIB", agentDiffServClassGroup=agentDiffServClassGroup, agentDiffServPolicyAttrStmtPoliceSimpleCrate=agentDiffServPolicyAttrStmtPoliceSimpleCrate, agentDiffServPolicyAttrStmtExpediteCrateUnits=agentDiffServPolicyAttrStmtExpediteCrateUnits, agentDiffServGenStatusAdminMode=agentDiffServGenStatusAdminMode, agentDiffServPolicyInstStorageType=agentDiffServPolicyInstStorageType, agentDiffServPolicyAttrStmtPoliceTworateCrate=agentDiffServPolicyAttrStmtPoliceTworateCrate, agentDiffServPolicyPerfInOfferedOctets=agentDiffServPolicyPerfInOfferedOctets, agentDiffServPolicyName=agentDiffServPolicyName, agentDiffServServiceTable=agentDiffServServiceTable, agentDiffServPolicyAttrStmtExpediteCburst=agentDiffServPolicyAttrStmtExpediteCburst, agentDiffServPolicyAttrStmtRandomdropMinThresh=agentDiffServPolicyAttrStmtRandomdropMinThresh, agentDiffServClassRuleTable=agentDiffServClassRuleTable, agentDiffServServicePerfHCSentPackets=agentDiffServServicePerfHCSentPackets, agentDiffServServiceIfIndex=agentDiffServServiceIfIndex, agentDiffServServicePerfOfferedPackets=agentDiffServServicePerfOfferedPackets, agentDiffServPolicyAttrStmtMarkIpDscpVal=agentDiffServPolicyAttrStmtMarkIpDscpVal, agentDiffServServiceGroup=agentDiffServServiceGroup, agentDiffServPolicyAttrRowStatus=agentDiffServPolicyAttrRowStatus, agentDiffServGenStatusServiceTableSize=agentDiffServGenStatusServiceTableSize, agentDiffServPolicyTable=agentDiffServPolicyTable, agentDiffServPolicyAttrStmtEntryType=agentDiffServPolicyAttrStmtEntryType, agentDiffServClassRuleStorageType=agentDiffServClassRuleStorageType, agentDiffServPolicyAttrStmtRandomdropDecayExponent=agentDiffServPolicyAttrStmtRandomdropDecayExponent, agentDiffServClassRuleRowStatus=agentDiffServClassRuleRowStatus, agentDiffServPolicyAttrStmtExpediteCrate=agentDiffServPolicyAttrStmtExpediteCrate, agentDiffServPolicyAttrIndex=agentDiffServPolicyAttrIndex, agentDiffServServiceRowStatus=agentDiffServServiceRowStatus, agentDiffServPolicyPerfOutRandomDroppedOctets=agentDiffServPolicyPerfOutRandomDroppedOctets, agentDiffServPolicyAttrStmtPoliceSimpleCburst=agentDiffServPolicyAttrStmtPoliceSimpleCburst, agentDiffServClassRuleMatchDstIpMask=agentDiffServClassRuleMatchDstIpMask, agentDiffServPolicyPerfOutTailDroppedOctets=agentDiffServPolicyPerfOutTailDroppedOctets, agentDiffServClassType=agentDiffServClassType, agentDiffServPolicyPerfInHCDiscardedOctets=agentDiffServPolicyPerfInHCDiscardedOctets, agentDiffServPolicyAttrStmtPoliceSinglerateCrate=agentDiffServPolicyAttrStmtPoliceSinglerateCrate, agentDiffServServicePerfHCDiscardedOctets=agentDiffServServicePerfHCDiscardedOctets, agentDiffServPolicyPerfOutHCTailDroppedOctets=agentDiffServPolicyPerfOutHCTailDroppedOctets, agentDiffServGenStatusPolicyInstTableSize=agentDiffServGenStatusPolicyInstTableSize, agentDiffServPolicyAttrStorageType=agentDiffServPolicyAttrStorageType, agentDiffServPolicyRowStatus=agentDiffServPolicyRowStatus, agentDiffServClassRuleMatchRefClassIndex=agentDiffServClassRuleMatchRefClassIndex, agentDiffServClassRuleMatchDstL4PortEnd=agentDiffServClassRuleMatchDstL4PortEnd, agentDiffServClassIndex=agentDiffServClassIndex, agentDiffServClassRuleMatchSrcIpMask=agentDiffServClassRuleMatchSrcIpMask, agentDiffServPolicyInstRowStatus=agentDiffServPolicyInstRowStatus, agentDiffServServicePerfHCDiscardedPackets=agentDiffServServicePerfHCDiscardedPackets, agentDiffServClassRuleMatchIpTosBits=agentDiffServClassRuleMatchIpTosBits, agentDiffServPolicyAttrStmtPoliceExceedAct=agentDiffServPolicyAttrStmtPoliceExceedAct, agentDiffServPolicyAttrStmtMarkCosVal=agentDiffServPolicyAttrStmtMarkCosVal, agentDiffServClassRuleMatchDstIpAddr=agentDiffServClassRuleMatchDstIpAddr, agentDiffServServicePerfOfferedOctets=agentDiffServServicePerfOfferedOctets, agentDiffServPolicyPerfOutShapeDelayedPackets=agentDiffServPolicyPerfOutShapeDelayedPackets, agentDiffServServicePerfHCOfferedOctets=agentDiffServServicePerfHCOfferedOctets, agentDiffServClassRuleMatchIpDscp=agentDiffServClassRuleMatchIpDscp, agentDiffServClassRuleMatchSrcL4PortEnd=agentDiffServClassRuleMatchSrcL4PortEnd, agentDiffServPolicyPerfOutHCRandomDroppedOctets=agentDiffServPolicyPerfOutHCRandomDroppedOctets, agentDiffServPolicyPerfInTable=agentDiffServPolicyPerfInTable, agentDiffServPolicyPerfInEntry=agentDiffServPolicyPerfInEntry, agentDiffServServiceStorageType=agentDiffServServiceStorageType, agentDiffServClassRuleMatchIpTosMask=agentDiffServClassRuleMatchIpTosMask, agentDiffServClassStorageType=agentDiffServClassStorageType, agentDiffServPolicyIndexNextFree=agentDiffServPolicyIndexNextFree, agentDiffServPolicyPerfOutHCSentPackets=agentDiffServPolicyPerfOutHCSentPackets, agentDiffServClassRuleMatchSrcMacMask=agentDiffServClassRuleMatchSrcMacMask, agentDiffServPolicyAttrStmtShapeAverageCrate=agentDiffServPolicyAttrStmtShapeAverageCrate, agentDiffServPolicyAttrStmtMarkIpPrecedenceVal=agentDiffServPolicyAttrStmtMarkIpPrecedenceVal, agentDiffServServiceEntry=agentDiffServServiceEntry, agentDiffServPolicyAttrStmtRandomdropSamplingRate=agentDiffServPolicyAttrStmtRandomdropSamplingRate, agentDiffServPolicyPerfInDiscardedPackets=agentDiffServPolicyPerfInDiscardedPackets, agentDiffServPolicyAttrStmtPoliceTworatePrate=agentDiffServPolicyAttrStmtPoliceTworatePrate, agentDiffServClassTable=agentDiffServClassTable, agentDiffServClassRuleMatchSrcL4PortStart=agentDiffServClassRuleMatchSrcL4PortStart, agentDiffServClassAclNum=agentDiffServClassAclNum, agentDiffServPolicyAttrStmtPoliceSinglerateEburst=agentDiffServPolicyAttrStmtPoliceSinglerateEburst, agentDiffServServicePerfDiscardedOctets=agentDiffServServicePerfDiscardedOctets, agentDiffServPolicyInstClassIndex=agentDiffServPolicyInstClassIndex, agentDiffServClassRuleIndexNextFree=agentDiffServClassRuleIndexNextFree, agentDiffServGenStatusPolicyTableSize=agentDiffServGenStatusPolicyTableSize, agentDiffServPolicyStorageType=agentDiffServPolicyStorageType, agentDiffServPolicyAttrStmtShapePeakCrate=agentDiffServPolicyAttrStmtShapePeakCrate, agentDiffServPolicyAttrStmtPoliceExceedVal=agentDiffServPolicyAttrStmtPoliceExceedVal, agentDiffServPolicyPerfInStorageType=agentDiffServPolicyPerfInStorageType, agentDiffServClassRuleMatchProtocolNum=agentDiffServClassRuleMatchProtocolNum, agentDiffServPolicyPerfOutStorageType=agentDiffServPolicyPerfOutStorageType, agentDiffServPolicyAttrStmtPoliceNonconformVal=agentDiffServPolicyAttrStmtPoliceNonconformVal, agentDiffServGenStatusServiceTableMax=agentDiffServGenStatusServiceTableMax, agentDiffServGenStatusClassRuleTableSize=agentDiffServGenStatusClassRuleTableSize, agentDiffServPolicyPerfOutHCSentOctets=agentDiffServPolicyPerfOutHCSentOctets, agentDiffServPolicyPerfInRowStatus=agentDiffServPolicyPerfInRowStatus, gsm7312QOSDiffServPrivate=gsm7312QOSDiffServPrivate, agentDiffServGenStatusPolicyAttrTableMax=agentDiffServGenStatusPolicyAttrTableMax, agentDiffServPolicyPerfOutShapeDelayedOctets=agentDiffServPolicyPerfOutShapeDelayedOctets, agentDiffServClassRuleMatchDstL4PortStart=agentDiffServClassRuleMatchDstL4PortStart, agentDiffServPolicyInstIndexNextFree=agentDiffServPolicyInstIndexNextFree, agentDiffServPolicyAttrStmtPoliceNonconformAct=agentDiffServPolicyAttrStmtPoliceNonconformAct, agentDiffServPolicyAttrEntry=agentDiffServPolicyAttrEntry, agentDiffServClassRuleMatchVlanId=agentDiffServClassRuleMatchVlanId, agentDiffServClassRuleMatchEntryType=agentDiffServClassRuleMatchEntryType, agentDiffServServicePerfHCSentOctets=agentDiffServServicePerfHCSentOctets, agentDiffServGenStatusPolicyTableMax=agentDiffServGenStatusPolicyTableMax, agentDiffServPolicyPerfOutHCShapeDelayedOctets=agentDiffServPolicyPerfOutHCShapeDelayedOctets, agentDiffServPolicyPerfOutHCTailDroppedPackets=agentDiffServPolicyPerfOutHCTailDroppedPackets, agentDiffServServicePerfEntry=agentDiffServServicePerfEntry, agentDiffServClassIndexNextFree=agentDiffServClassIndexNextFree, agentDiffServGenStatusPolicyAttrTableSize=agentDiffServGenStatusPolicyAttrTableSize, agentDiffServPolicyInstTable=agentDiffServPolicyInstTable, agentDiffServPolicyPerfOutHCRandomDroppedPackets=agentDiffServPolicyPerfOutHCRandomDroppedPackets, agentDiffServPolicyAttrStmtBandwidthCrateUnits=agentDiffServPolicyAttrStmtBandwidthCrateUnits, agentDiffServPolicyAttrTable=agentDiffServPolicyAttrTable, agentDiffServServicePerfHCOfferedPackets=agentDiffServServicePerfHCOfferedPackets, agentDiffServPolicyPerfInHCDiscardedPackets=agentDiffServPolicyPerfInHCDiscardedPackets, agentDiffServPolicyPerfInOfferedPackets=agentDiffServPolicyPerfInOfferedPackets, agentDiffServGenStatusClassTableMax=agentDiffServGenStatusClassTableMax, agentDiffServPolicyPerfOutTable=agentDiffServPolicyPerfOutTable, agentDiffServPolicyPerfOutRowStatus=agentDiffServPolicyPerfOutRowStatus, agentDiffServClassRuleMatchEvery=agentDiffServClassRuleMatchEvery, agentDiffServPolicyType=agentDiffServPolicyType, agentDiffServPolicyInstEntry=agentDiffServPolicyInstEntry, agentDiffServPolicyPerfOutEntry=agentDiffServPolicyPerfOutEntry, agentDiffServPolicyPerfOutSentOctets=agentDiffServPolicyPerfOutSentOctets, agentDiffServPolicyPerfInHCOfferedOctets=agentDiffServPolicyPerfInHCOfferedOctets, PYSNMP_MODULE_ID=gsm7312QOSDiffServPrivate, agentDiffServPolicyPerfInHCOfferedPackets=agentDiffServPolicyPerfInHCOfferedPackets, agentDiffServClassRuleMatchCos=agentDiffServClassRuleMatchCos, agentDiffServPolicyPerfOutRandomDroppedPackets=agentDiffServPolicyPerfOutRandomDroppedPackets, agentDiffServClassRuleMatchSrcMacAddr=agentDiffServClassRuleMatchSrcMacAddr, agentDiffServServicePerfDiscardedPackets=agentDiffServServicePerfDiscardedPackets, agentDiffServPolicyAttrStmtRandomdropMaxDropProb=agentDiffServPolicyAttrStmtRandomdropMaxDropProb, agentDiffServPolicyGroup=agentDiffServPolicyGroup, agentDiffServGenStatusClassTableSize=agentDiffServGenStatusClassTableSize, agentDiffServPolicyPerfOutHCShapeDelayedPackets=agentDiffServPolicyPerfOutHCShapeDelayedPackets, agentDiffServServiceIfDirection=agentDiffServServiceIfDirection, agentDiffServServicePerfTable=agentDiffServServicePerfTable, agentDiffServGenStatusGroup=agentDiffServGenStatusGroup, agentDiffServClassRowStatus=agentDiffServClassRowStatus, agentDiffServServicePerfSentOctets=agentDiffServServicePerfSentOctets, agentDiffServPolicyIndex=agentDiffServPolicyIndex, agentDiffServPolicyPerfInDiscardedOctets=agentDiffServPolicyPerfInDiscardedOctets, agentDiffServGenStatusClassRuleTableMax=agentDiffServGenStatusClassRuleTableMax, agentDiffServClassRuleMatchDstMacMask=agentDiffServClassRuleMatchDstMacMask, agentDiffServClassRuleMatchExcludeFlag=agentDiffServClassRuleMatchExcludeFlag, agentDiffServPolicyAttrStmtPoliceTworateCburst=agentDiffServPolicyAttrStmtPoliceTworateCburst, agentDiffServClassRuleMatchIpPrecedence=agentDiffServClassRuleMatchIpPrecedence, agentDiffServPolicyPerfOutTailDroppedPackets=agentDiffServPolicyPerfOutTailDroppedPackets, agentDiffServPolicyAttrStmtPoliceSinglerateCburst=agentDiffServPolicyAttrStmtPoliceSinglerateCburst, agentDiffServGenStatusPolicyInstTableMax=agentDiffServGenStatusPolicyInstTableMax, agentDiffServClassRuleMatchSrcIpAddr=agentDiffServClassRuleMatchSrcIpAddr, agentDiffServClassRuleIndex=agentDiffServClassRuleIndex, agentDiffServServicePerfSentPackets=agentDiffServServicePerfSentPackets, agentDiffServPolicyAttrStmtPoliceConformAct=agentDiffServPolicyAttrStmtPoliceConformAct, agentDiffServPolicyEntry=agentDiffServPolicyEntry, QosBurstSize=QosBurstSize, agentDiffServPolicyInstIndex=agentDiffServPolicyInstIndex, agentDiffServPolicyPerfOutSentPackets=agentDiffServPolicyPerfOutSentPackets, agentDiffServPolicyAttrStmtBandwidthCrate=agentDiffServPolicyAttrStmtBandwidthCrate, agentDiffServClassRuleMatchDstMacAddr=agentDiffServClassRuleMatchDstMacAddr, agentDiffServPolicyAttrStmtShapePeakPrate=agentDiffServPolicyAttrStmtShapePeakPrate, agentDiffServPolicyAttrStmtRandomdropMaxThresh=agentDiffServPolicyAttrStmtRandomdropMaxThresh, agentDiffServServiceIfOperStatus=agentDiffServServiceIfOperStatus, agentDiffServServicePolicyIndex=agentDiffServServicePolicyIndex, agentDiffServPolicyAttrStmtPoliceConformVal=agentDiffServPolicyAttrStmtPoliceConformVal, agentDiffServPolicyAttrStmtPoliceTworatePburst=agentDiffServPolicyAttrStmtPoliceTworatePburst, agentDiffServClassEntry=agentDiffServClassEntry, agentDiffServClassRuleEntry=agentDiffServClassRuleEntry, agentDiffServClassName=agentDiffServClassName, agentDiffServPolicyInstAttrIndexNextFree=agentDiffServPolicyInstAttrIndexNextFree, IntfDirection=IntfDirection)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "GSM7312-QOS-DIFFSERV-PRIVATE-MIB",
+    **{"QosBurstSize": QosBurstSize,
+       "IntfDirection": IntfDirection,
+       "gsm7312QOSDiffServPrivate": gsm7312QOSDiffServPrivate,
+       "agentDiffServGenStatusGroup": agentDiffServGenStatusGroup,
+       "agentDiffServGenStatusAdminMode": agentDiffServGenStatusAdminMode,
+       "agentDiffServGenStatusClassTableSize": agentDiffServGenStatusClassTableSize,
+       "agentDiffServGenStatusClassTableMax": agentDiffServGenStatusClassTableMax,
+       "agentDiffServGenStatusClassRuleTableSize": agentDiffServGenStatusClassRuleTableSize,
+       "agentDiffServGenStatusClassRuleTableMax": agentDiffServGenStatusClassRuleTableMax,
+       "agentDiffServGenStatusPolicyTableSize": agentDiffServGenStatusPolicyTableSize,
+       "agentDiffServGenStatusPolicyTableMax": agentDiffServGenStatusPolicyTableMax,
+       "agentDiffServGenStatusPolicyInstTableSize": agentDiffServGenStatusPolicyInstTableSize,
+       "agentDiffServGenStatusPolicyInstTableMax": agentDiffServGenStatusPolicyInstTableMax,
+       "agentDiffServGenStatusPolicyAttrTableSize": agentDiffServGenStatusPolicyAttrTableSize,
+       "agentDiffServGenStatusPolicyAttrTableMax": agentDiffServGenStatusPolicyAttrTableMax,
+       "agentDiffServGenStatusServiceTableSize": agentDiffServGenStatusServiceTableSize,
+       "agentDiffServGenStatusServiceTableMax": agentDiffServGenStatusServiceTableMax,
+       "agentDiffServClassGroup": agentDiffServClassGroup,
+       "agentDiffServClassIndexNextFree": agentDiffServClassIndexNextFree,
+       "agentDiffServClassTable": agentDiffServClassTable,
+       "agentDiffServClassEntry": agentDiffServClassEntry,
+       "agentDiffServClassIndex": agentDiffServClassIndex,
+       "agentDiffServClassName": agentDiffServClassName,
+       "agentDiffServClassType": agentDiffServClassType,
+       "agentDiffServClassAclNum": agentDiffServClassAclNum,
+       "agentDiffServClassRuleIndexNextFree": agentDiffServClassRuleIndexNextFree,
+       "agentDiffServClassStorageType": agentDiffServClassStorageType,
+       "agentDiffServClassRowStatus": agentDiffServClassRowStatus,
+       "agentDiffServClassRuleTable": agentDiffServClassRuleTable,
+       "agentDiffServClassRuleEntry": agentDiffServClassRuleEntry,
+       "agentDiffServClassRuleIndex": agentDiffServClassRuleIndex,
+       "agentDiffServClassRuleMatchEntryType": agentDiffServClassRuleMatchEntryType,
+       "agentDiffServClassRuleMatchCos": agentDiffServClassRuleMatchCos,
+       "agentDiffServClassRuleMatchDstIpAddr": agentDiffServClassRuleMatchDstIpAddr,
+       "agentDiffServClassRuleMatchDstIpMask": agentDiffServClassRuleMatchDstIpMask,
+       "agentDiffServClassRuleMatchDstL4PortStart": agentDiffServClassRuleMatchDstL4PortStart,
+       "agentDiffServClassRuleMatchDstL4PortEnd": agentDiffServClassRuleMatchDstL4PortEnd,
+       "agentDiffServClassRuleMatchDstMacAddr": agentDiffServClassRuleMatchDstMacAddr,
+       "agentDiffServClassRuleMatchDstMacMask": agentDiffServClassRuleMatchDstMacMask,
+       "agentDiffServClassRuleMatchEvery": agentDiffServClassRuleMatchEvery,
+       "agentDiffServClassRuleMatchIpDscp": agentDiffServClassRuleMatchIpDscp,
+       "agentDiffServClassRuleMatchIpPrecedence": agentDiffServClassRuleMatchIpPrecedence,
+       "agentDiffServClassRuleMatchIpTosBits": agentDiffServClassRuleMatchIpTosBits,
+       "agentDiffServClassRuleMatchIpTosMask": agentDiffServClassRuleMatchIpTosMask,
+       "agentDiffServClassRuleMatchProtocolNum": agentDiffServClassRuleMatchProtocolNum,
+       "agentDiffServClassRuleMatchRefClassIndex": agentDiffServClassRuleMatchRefClassIndex,
+       "agentDiffServClassRuleMatchSrcIpAddr": agentDiffServClassRuleMatchSrcIpAddr,
+       "agentDiffServClassRuleMatchSrcIpMask": agentDiffServClassRuleMatchSrcIpMask,
+       "agentDiffServClassRuleMatchSrcL4PortStart": agentDiffServClassRuleMatchSrcL4PortStart,
+       "agentDiffServClassRuleMatchSrcL4PortEnd": agentDiffServClassRuleMatchSrcL4PortEnd,
+       "agentDiffServClassRuleMatchSrcMacAddr": agentDiffServClassRuleMatchSrcMacAddr,
+       "agentDiffServClassRuleMatchSrcMacMask": agentDiffServClassRuleMatchSrcMacMask,
+       "agentDiffServClassRuleMatchVlanId": agentDiffServClassRuleMatchVlanId,
+       "agentDiffServClassRuleMatchExcludeFlag": agentDiffServClassRuleMatchExcludeFlag,
+       "agentDiffServClassRuleStorageType": agentDiffServClassRuleStorageType,
+       "agentDiffServClassRuleRowStatus": agentDiffServClassRuleRowStatus,
+       "agentDiffServPolicyGroup": agentDiffServPolicyGroup,
+       "agentDiffServPolicyIndexNextFree": agentDiffServPolicyIndexNextFree,
+       "agentDiffServPolicyTable": agentDiffServPolicyTable,
+       "agentDiffServPolicyEntry": agentDiffServPolicyEntry,
+       "agentDiffServPolicyIndex": agentDiffServPolicyIndex,
+       "agentDiffServPolicyName": agentDiffServPolicyName,
+       "agentDiffServPolicyType": agentDiffServPolicyType,
+       "agentDiffServPolicyInstIndexNextFree": agentDiffServPolicyInstIndexNextFree,
+       "agentDiffServPolicyStorageType": agentDiffServPolicyStorageType,
+       "agentDiffServPolicyRowStatus": agentDiffServPolicyRowStatus,
+       "agentDiffServPolicyInstTable": agentDiffServPolicyInstTable,
+       "agentDiffServPolicyInstEntry": agentDiffServPolicyInstEntry,
+       "agentDiffServPolicyInstIndex": agentDiffServPolicyInstIndex,
+       "agentDiffServPolicyInstClassIndex": agentDiffServPolicyInstClassIndex,
+       "agentDiffServPolicyInstAttrIndexNextFree": agentDiffServPolicyInstAttrIndexNextFree,
+       "agentDiffServPolicyInstStorageType": agentDiffServPolicyInstStorageType,
+       "agentDiffServPolicyInstRowStatus": agentDiffServPolicyInstRowStatus,
+       "agentDiffServPolicyAttrTable": agentDiffServPolicyAttrTable,
+       "agentDiffServPolicyAttrEntry": agentDiffServPolicyAttrEntry,
+       "agentDiffServPolicyAttrIndex": agentDiffServPolicyAttrIndex,
+       "agentDiffServPolicyAttrStmtEntryType": agentDiffServPolicyAttrStmtEntryType,
+       "agentDiffServPolicyAttrStmtBandwidthCrate": agentDiffServPolicyAttrStmtBandwidthCrate,
+       "agentDiffServPolicyAttrStmtBandwidthCrateUnits": agentDiffServPolicyAttrStmtBandwidthCrateUnits,
+       "agentDiffServPolicyAttrStmtExpediteCrate": agentDiffServPolicyAttrStmtExpediteCrate,
+       "agentDiffServPolicyAttrStmtExpediteCrateUnits": agentDiffServPolicyAttrStmtExpediteCrateUnits,
+       "agentDiffServPolicyAttrStmtExpediteCburst": agentDiffServPolicyAttrStmtExpediteCburst,
+       "agentDiffServPolicyAttrStmtMarkCosVal": agentDiffServPolicyAttrStmtMarkCosVal,
+       "agentDiffServPolicyAttrStmtMarkIpDscpVal": agentDiffServPolicyAttrStmtMarkIpDscpVal,
+       "agentDiffServPolicyAttrStmtMarkIpPrecedenceVal": agentDiffServPolicyAttrStmtMarkIpPrecedenceVal,
+       "agentDiffServPolicyAttrStmtPoliceConformAct": agentDiffServPolicyAttrStmtPoliceConformAct,
+       "agentDiffServPolicyAttrStmtPoliceConformVal": agentDiffServPolicyAttrStmtPoliceConformVal,
+       "agentDiffServPolicyAttrStmtPoliceExceedAct": agentDiffServPolicyAttrStmtPoliceExceedAct,
+       "agentDiffServPolicyAttrStmtPoliceExceedVal": agentDiffServPolicyAttrStmtPoliceExceedVal,
+       "agentDiffServPolicyAttrStmtPoliceNonconformAct": agentDiffServPolicyAttrStmtPoliceNonconformAct,
+       "agentDiffServPolicyAttrStmtPoliceNonconformVal": agentDiffServPolicyAttrStmtPoliceNonconformVal,
+       "agentDiffServPolicyAttrStmtPoliceSimpleCrate": agentDiffServPolicyAttrStmtPoliceSimpleCrate,
+       "agentDiffServPolicyAttrStmtPoliceSimpleCburst": agentDiffServPolicyAttrStmtPoliceSimpleCburst,
+       "agentDiffServPolicyAttrStmtPoliceSinglerateCrate": agentDiffServPolicyAttrStmtPoliceSinglerateCrate,
+       "agentDiffServPolicyAttrStmtPoliceSinglerateCburst": agentDiffServPolicyAttrStmtPoliceSinglerateCburst,
+       "agentDiffServPolicyAttrStmtPoliceSinglerateEburst": agentDiffServPolicyAttrStmtPoliceSinglerateEburst,
+       "agentDiffServPolicyAttrStmtPoliceTworateCrate": agentDiffServPolicyAttrStmtPoliceTworateCrate,
+       "agentDiffServPolicyAttrStmtPoliceTworateCburst": agentDiffServPolicyAttrStmtPoliceTworateCburst,
+       "agentDiffServPolicyAttrStmtPoliceTworatePrate": agentDiffServPolicyAttrStmtPoliceTworatePrate,
+       "agentDiffServPolicyAttrStmtPoliceTworatePburst": agentDiffServPolicyAttrStmtPoliceTworatePburst,
+       "agentDiffServPolicyAttrStmtRandomdropMinThresh": agentDiffServPolicyAttrStmtRandomdropMinThresh,
+       "agentDiffServPolicyAttrStmtRandomdropMaxThresh": agentDiffServPolicyAttrStmtRandomdropMaxThresh,
+       "agentDiffServPolicyAttrStmtRandomdropMaxDropProb": agentDiffServPolicyAttrStmtRandomdropMaxDropProb,
+       "agentDiffServPolicyAttrStmtRandomdropSamplingRate": agentDiffServPolicyAttrStmtRandomdropSamplingRate,
+       "agentDiffServPolicyAttrStmtRandomdropDecayExponent": agentDiffServPolicyAttrStmtRandomdropDecayExponent,
+       "agentDiffServPolicyAttrStmtShapeAverageCrate": agentDiffServPolicyAttrStmtShapeAverageCrate,
+       "agentDiffServPolicyAttrStmtShapePeakCrate": agentDiffServPolicyAttrStmtShapePeakCrate,
+       "agentDiffServPolicyAttrStmtShapePeakPrate": agentDiffServPolicyAttrStmtShapePeakPrate,
+       "agentDiffServPolicyAttrStorageType": agentDiffServPolicyAttrStorageType,
+       "agentDiffServPolicyAttrRowStatus": agentDiffServPolicyAttrRowStatus,
+       "agentDiffServPolicyPerfInTable": agentDiffServPolicyPerfInTable,
+       "agentDiffServPolicyPerfInEntry": agentDiffServPolicyPerfInEntry,
+       "agentDiffServPolicyPerfInOfferedOctets": agentDiffServPolicyPerfInOfferedOctets,
+       "agentDiffServPolicyPerfInOfferedPackets": agentDiffServPolicyPerfInOfferedPackets,
+       "agentDiffServPolicyPerfInDiscardedOctets": agentDiffServPolicyPerfInDiscardedOctets,
+       "agentDiffServPolicyPerfInDiscardedPackets": agentDiffServPolicyPerfInDiscardedPackets,
+       "agentDiffServPolicyPerfInHCOfferedOctets": agentDiffServPolicyPerfInHCOfferedOctets,
+       "agentDiffServPolicyPerfInHCOfferedPackets": agentDiffServPolicyPerfInHCOfferedPackets,
+       "agentDiffServPolicyPerfInHCDiscardedOctets": agentDiffServPolicyPerfInHCDiscardedOctets,
+       "agentDiffServPolicyPerfInHCDiscardedPackets": agentDiffServPolicyPerfInHCDiscardedPackets,
+       "agentDiffServPolicyPerfInStorageType": agentDiffServPolicyPerfInStorageType,
+       "agentDiffServPolicyPerfInRowStatus": agentDiffServPolicyPerfInRowStatus,
+       "agentDiffServPolicyPerfOutTable": agentDiffServPolicyPerfOutTable,
+       "agentDiffServPolicyPerfOutEntry": agentDiffServPolicyPerfOutEntry,
+       "agentDiffServPolicyPerfOutTailDroppedOctets": agentDiffServPolicyPerfOutTailDroppedOctets,
+       "agentDiffServPolicyPerfOutTailDroppedPackets": agentDiffServPolicyPerfOutTailDroppedPackets,
+       "agentDiffServPolicyPerfOutRandomDroppedOctets": agentDiffServPolicyPerfOutRandomDroppedOctets,
+       "agentDiffServPolicyPerfOutRandomDroppedPackets": agentDiffServPolicyPerfOutRandomDroppedPackets,
+       "agentDiffServPolicyPerfOutShapeDelayedOctets": agentDiffServPolicyPerfOutShapeDelayedOctets,
+       "agentDiffServPolicyPerfOutShapeDelayedPackets": agentDiffServPolicyPerfOutShapeDelayedPackets,
+       "agentDiffServPolicyPerfOutSentOctets": agentDiffServPolicyPerfOutSentOctets,
+       "agentDiffServPolicyPerfOutSentPackets": agentDiffServPolicyPerfOutSentPackets,
+       "agentDiffServPolicyPerfOutHCTailDroppedOctets": agentDiffServPolicyPerfOutHCTailDroppedOctets,
+       "agentDiffServPolicyPerfOutHCTailDroppedPackets": agentDiffServPolicyPerfOutHCTailDroppedPackets,
+       "agentDiffServPolicyPerfOutHCRandomDroppedOctets": agentDiffServPolicyPerfOutHCRandomDroppedOctets,
+       "agentDiffServPolicyPerfOutHCRandomDroppedPackets": agentDiffServPolicyPerfOutHCRandomDroppedPackets,
+       "agentDiffServPolicyPerfOutHCShapeDelayedOctets": agentDiffServPolicyPerfOutHCShapeDelayedOctets,
+       "agentDiffServPolicyPerfOutHCShapeDelayedPackets": agentDiffServPolicyPerfOutHCShapeDelayedPackets,
+       "agentDiffServPolicyPerfOutHCSentOctets": agentDiffServPolicyPerfOutHCSentOctets,
+       "agentDiffServPolicyPerfOutHCSentPackets": agentDiffServPolicyPerfOutHCSentPackets,
+       "agentDiffServPolicyPerfOutStorageType": agentDiffServPolicyPerfOutStorageType,
+       "agentDiffServPolicyPerfOutRowStatus": agentDiffServPolicyPerfOutRowStatus,
+       "agentDiffServServiceGroup": agentDiffServServiceGroup,
+       "agentDiffServServiceTable": agentDiffServServiceTable,
+       "agentDiffServServiceEntry": agentDiffServServiceEntry,
+       "agentDiffServServiceIfIndex": agentDiffServServiceIfIndex,
+       "agentDiffServServiceIfDirection": agentDiffServServiceIfDirection,
+       "agentDiffServServicePolicyIndex": agentDiffServServicePolicyIndex,
+       "agentDiffServServiceIfOperStatus": agentDiffServServiceIfOperStatus,
+       "agentDiffServServiceStorageType": agentDiffServServiceStorageType,
+       "agentDiffServServiceRowStatus": agentDiffServServiceRowStatus,
+       "agentDiffServServicePerfTable": agentDiffServServicePerfTable,
+       "agentDiffServServicePerfEntry": agentDiffServServicePerfEntry,
+       "agentDiffServServicePerfOfferedOctets": agentDiffServServicePerfOfferedOctets,
+       "agentDiffServServicePerfOfferedPackets": agentDiffServServicePerfOfferedPackets,
+       "agentDiffServServicePerfDiscardedOctets": agentDiffServServicePerfDiscardedOctets,
+       "agentDiffServServicePerfDiscardedPackets": agentDiffServServicePerfDiscardedPackets,
+       "agentDiffServServicePerfSentOctets": agentDiffServServicePerfSentOctets,
+       "agentDiffServServicePerfSentPackets": agentDiffServServicePerfSentPackets,
+       "agentDiffServServicePerfHCOfferedOctets": agentDiffServServicePerfHCOfferedOctets,
+       "agentDiffServServicePerfHCOfferedPackets": agentDiffServServicePerfHCOfferedPackets,
+       "agentDiffServServicePerfHCDiscardedOctets": agentDiffServServicePerfHCDiscardedOctets,
+       "agentDiffServServicePerfHCDiscardedPackets": agentDiffServServicePerfHCDiscardedPackets,
+       "agentDiffServServicePerfHCSentOctets": agentDiffServServicePerfHCSentOctets,
+       "agentDiffServServicePerfHCSentPackets": agentDiffServServicePerfHCSentPackets}
+)

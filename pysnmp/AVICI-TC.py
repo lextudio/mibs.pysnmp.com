@@ -1,94 +1,401 @@
+# SNMP MIB module (AVICI-TC) expressed in pysnmp data model.
 #
-# PySNMP MIB module AVICI-TC (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/AVICI-TC
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:16:29 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint")
-aviciTypes, = mibBuilder.importSymbols("AVICI-SMI", "aviciTypes")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Unsigned32, IpAddress, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, NotificationType, TimeTicks, MibIdentifier, Counter64, ObjectIdentity, Integer32, Gauge32, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Unsigned32", "IpAddress", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "NotificationType", "TimeTicks", "MibIdentifier", "Counter64", "ObjectIdentity", "Integer32", "Gauge32", "Counter32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-aviciTextualConventions = ModuleIdentity((1, 3, 6, 1, 4, 1, 2474, 4, 1))
-aviciTextualConventions.setRevisions(('0009-07-14 00:00', '1970-01-01 00:00',))
-if mibBuilder.loadTexts: aviciTextualConventions.setLastUpdated('000907140000Z')
-if mibBuilder.loadTexts: aviciTextualConventions.setOrganization('Avici Systems, Inc.')
-class AviciSystemType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1))
-    namedValues = NamedValues(("tsr", 1))
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/AVICI-TC
+# Produced by pysmi-1.5.4 at Mon Oct 14 20:44:40 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class AviciInventoryType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("server", 1), ("bayController", 2), ("module", 3), ("serverAccessModule", 4))
+if 'mibBuilder' not in globals():
+    import sys
 
-class AviciHighAvailabilityType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("primary", 1), ("secondary", 2))
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-class AviciVoltageType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("other", 1), ("bayInput", 2), ("controllerInput", 3), ("voltageRail", 4))
+# Import base ASN.1 objects even if this MIB does not use it
 
-class AviciBayType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 14)
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
 
-class AviciSlotType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 40)
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
 
-class AviciSerialNumberType(DisplayString):
-    status = 'current'
-    subtypeSpec = DisplayString.subtypeSpec + ValueSizeConstraint(0, 13)
+# Import SMI symbols from the MIBs this MIB depends on
 
-class AviciPartNumberType(DisplayString):
-    status = 'current'
-    subtypeSpec = DisplayString.subtypeSpec + ValueSizeConstraint(0, 9)
+(aviciTypes,) = mibBuilder.importSymbols(
+    "AVICI-SMI",
+    "aviciTypes")
 
-class AviciProductIdType(DisplayString):
-    status = 'current'
-    subtypeSpec = DisplayString.subtypeSpec + ValueSizeConstraint(0, 26)
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
 
-class AviciProductRevisionType(DisplayString):
-    status = 'current'
-    subtypeSpec = DisplayString.subtypeSpec + ValueSizeConstraint(0, 3)
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
 
-class AviciRevisionType(DisplayString):
-    status = 'current'
-    subtypeSpec = DisplayString.subtypeSpec + ValueSizeConstraint(1, 6)
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
 
-class AviciTrapDescrType(DisplayString):
-    status = 'current'
-    subtypeSpec = DisplayString.subtypeSpec + ValueSizeConstraint(0, 255)
 
-class AviciUnitType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))
-    namedValues = NamedValues(("fan", 1), ("module", 2), ("breaker", 3), ("bayController", 4), ("voltageRail", 5), ("server", 6), ("multipleFailures", 7))
+# MODULE-IDENTITY
 
-class AviciLedValue(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))
-    namedValues = NamedValues(("on", 1), ("off", 2), ("red", 3), ("redblink", 4), ("amber", 5), ("amberblink", 6), ("green", 7), ("greenblink", 8))
+aviciTextualConventions = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2474, 4, 1)
+)
+aviciTextualConventions.setRevisions(
+        ("0009-07-14 00:00",
+         "1970-01-01 00:00")
+)
 
-class AviciPlatformIndexType(TextualConvention, Unsigned32):
-    status = 'current'
-    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 4294967295)
 
-class AviciFabricLinkType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))
-    namedValues = NamedValues(("plusX", 0), ("minusX", 1), ("plusY", 2), ("minusY", 3), ("plusZ", 4), ("minusZ", 5), ("plusE", 6), ("minusE", 7))
+# Types definitions
 
-class AviciModuleName(DisplayString):
-    status = 'current'
-    subtypeSpec = DisplayString.subtypeSpec + ValueSizeConstraint(0, 16)
 
-mibBuilder.exportSymbols("AVICI-TC", AviciSystemType=AviciSystemType, AviciFabricLinkType=AviciFabricLinkType, AviciInventoryType=AviciInventoryType, AviciModuleName=AviciModuleName, AviciLedValue=AviciLedValue, AviciVoltageType=AviciVoltageType, PYSNMP_MODULE_ID=aviciTextualConventions, AviciUnitType=AviciUnitType, AviciHighAvailabilityType=AviciHighAvailabilityType, AviciSerialNumberType=AviciSerialNumberType, AviciPartNumberType=AviciPartNumberType, AviciTrapDescrType=AviciTrapDescrType, AviciProductRevisionType=AviciProductRevisionType, AviciProductIdType=AviciProductIdType, AviciPlatformIndexType=AviciPlatformIndexType, aviciTextualConventions=aviciTextualConventions, AviciBayType=AviciBayType, AviciSlotType=AviciSlotType, AviciRevisionType=AviciRevisionType)
+# TEXTUAL-CONVENTIONS
+
+
+
+class AviciSystemType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            1
+        )
+    )
+    namedValues = NamedValues(
+        ("tsr", 1)
+    )
+
+
+
+class AviciInventoryType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("bayController", 2),
+          ("module", 3),
+          ("server", 1),
+          ("serverAccessModule", 4))
+    )
+
+
+
+class AviciHighAvailabilityType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("primary", 1),
+          ("secondary", 2))
+    )
+
+
+
+class AviciVoltageType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("bayInput", 2),
+          ("controllerInput", 3),
+          ("other", 1),
+          ("voltageRail", 4))
+    )
+
+
+
+class AviciBayType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 14),
+    )
+
+
+
+class AviciSlotType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 40),
+    )
+
+
+
+class AviciSerialNumberType(DisplayString, TextualConvention):
+    status = "current"
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 13),
+    )
+
+
+
+class AviciPartNumberType(DisplayString, TextualConvention):
+    status = "current"
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 9),
+    )
+
+
+
+class AviciProductIdType(DisplayString, TextualConvention):
+    status = "current"
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 26),
+    )
+
+
+
+class AviciProductRevisionType(DisplayString, TextualConvention):
+    status = "current"
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 3),
+    )
+
+
+
+class AviciRevisionType(DisplayString, TextualConvention):
+    status = "current"
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 6),
+    )
+
+
+
+class AviciTrapDescrType(DisplayString, TextualConvention):
+    status = "current"
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+
+class AviciUnitType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("bayController", 4),
+          ("breaker", 3),
+          ("fan", 1),
+          ("module", 2),
+          ("multipleFailures", 7),
+          ("server", 6),
+          ("voltageRail", 5))
+    )
+
+
+
+class AviciLedValue(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("amber", 5),
+          ("amberblink", 6),
+          ("green", 7),
+          ("greenblink", 8),
+          ("off", 2),
+          ("on", 1),
+          ("red", 3),
+          ("redblink", 4))
+    )
+
+
+
+class AviciPlatformIndexType(Unsigned32, TextualConvention):
+    status = "current"
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4294967295),
+    )
+
+
+
+class AviciFabricLinkType(Integer32, TextualConvention):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("minusE", 7),
+          ("minusX", 1),
+          ("minusY", 3),
+          ("minusZ", 5),
+          ("plusE", 6),
+          ("plusX", 0),
+          ("plusY", 2),
+          ("plusZ", 4))
+    )
+
+
+
+class AviciModuleName(DisplayString, TextualConvention):
+    status = "current"
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 16),
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "AVICI-TC",
+    **{"AviciSystemType": AviciSystemType,
+       "AviciInventoryType": AviciInventoryType,
+       "AviciHighAvailabilityType": AviciHighAvailabilityType,
+       "AviciVoltageType": AviciVoltageType,
+       "AviciBayType": AviciBayType,
+       "AviciSlotType": AviciSlotType,
+       "AviciSerialNumberType": AviciSerialNumberType,
+       "AviciPartNumberType": AviciPartNumberType,
+       "AviciProductIdType": AviciProductIdType,
+       "AviciProductRevisionType": AviciProductRevisionType,
+       "AviciRevisionType": AviciRevisionType,
+       "AviciTrapDescrType": AviciTrapDescrType,
+       "AviciUnitType": AviciUnitType,
+       "AviciLedValue": AviciLedValue,
+       "AviciPlatformIndexType": AviciPlatformIndexType,
+       "AviciFabricLinkType": AviciFabricLinkType,
+       "AviciModuleName": AviciModuleName,
+       "aviciTextualConventions": aviciTextualConventions}
+)

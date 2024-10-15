@@ -1,68 +1,392 @@
+# SNMP MIB module (PRETUPS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module PRETUPS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/PRETUPS-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:33:11 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
-SnmpAdminString, SnmpEngineID = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString", "SnmpEngineID")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-TimeTicks, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Bits, iso, IpAddress, MibIdentifier, Counter64, Opaque, Counter32, Integer32, Unsigned32, enterprises, ObjectIdentity, mib_2, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Bits", "iso", "IpAddress", "MibIdentifier", "Counter64", "Opaque", "Counter32", "Integer32", "Unsigned32", "enterprises", "ObjectIdentity", "mib-2", "Gauge32")
-DateAndTime, TDomain, RowStatus, TAddress, DisplayString, TextualConvention, TimeStamp, StorageType = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TDomain", "RowStatus", "TAddress", "DisplayString", "TextualConvention", "TimeStamp", "StorageType")
-btsl = ModuleIdentity((1, 3, 6, 1, 4, 1, 19338))
-if mibBuilder.loadTexts: btsl.setLastUpdated('200406120718Z')
-if mibBuilder.loadTexts: btsl.setOrganization('Bharti Telesoft International Pvt. Limited ')
-pretups = MibIdentifier((1, 3, 6, 1, 4, 1, 19338, 9))
-pretupsnotification = MibIdentifier((1, 3, 6, 1, 4, 1, 19338, 9, 2))
-pretupsnotification1 = MibIdentifier((1, 3, 6, 1, 4, 1, 19338, 9, 2, 0))
-database = MibIdentifier((1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 1))
-databasedown = NotificationType((1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 1, 0))
-if mibBuilder.loadTexts: databasedown.setStatus('current')
-databaseup = NotificationType((1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 1, 1))
-if mibBuilder.loadTexts: databaseup.setStatus('current')
-systemerrorerror = MibIdentifier((1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 2))
-systemerrorerrordown = NotificationType((1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 2, 0))
-if mibBuilder.loadTexts: systemerrorerrordown.setStatus('current')
-systemerrorerrorup = NotificationType((1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 2, 1))
-if mibBuilder.loadTexts: systemerrorerrorup.setStatus('current')
-systeminfo = MibIdentifier((1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 3))
-systeminfodown = NotificationType((1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 3, 0))
-if mibBuilder.loadTexts: systeminfodown.setStatus('current')
-systeminfoup = NotificationType((1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 3, 1))
-if mibBuilder.loadTexts: systeminfoup.setStatus('current')
-interfaceinvaliedresponse = MibIdentifier((1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 4))
-interfaceinvaliedresponsedown = NotificationType((1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 4, 0))
-if mibBuilder.loadTexts: interfaceinvaliedresponsedown.setStatus('current')
-interfaceinvaliedresponseup = NotificationType((1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 4, 1))
-if mibBuilder.loadTexts: interfaceinvaliedresponseup.setStatus('current')
-retry = MibIdentifier((1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 5))
-retrydown = NotificationType((1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 5, 0))
-if mibBuilder.loadTexts: retrydown.setStatus('current')
-retryup = NotificationType((1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 5, 1))
-if mibBuilder.loadTexts: retryup.setStatus('current')
-interface = MibIdentifier((1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 6))
-interfacedown = NotificationType((1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 6, 0))
-if mibBuilder.loadTexts: interfacedown.setStatus('current')
-interfaceup = NotificationType((1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 6, 1))
-if mibBuilder.loadTexts: interfaceup.setStatus('current')
-interfaceresponse = MibIdentifier((1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 7))
-interfaceresponsedown = NotificationType((1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 7, 0))
-if mibBuilder.loadTexts: interfaceresponsedown.setStatus('current')
-interfaceresponseup = NotificationType((1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 7, 1))
-if mibBuilder.loadTexts: interfaceresponseup.setStatus('current')
-adminopt = MibIdentifier((1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 8))
-adminoptdown = NotificationType((1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 8, 0))
-if mibBuilder.loadTexts: adminoptdown.setStatus('current')
-adminoptup = NotificationType((1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 8, 1))
-if mibBuilder.loadTexts: adminoptup.setStatus('current')
-urlMonitoring = MibIdentifier((1, 3, 6, 1, 4, 1, 19338, 9, 1))
-alarm = MibIdentifier((1, 3, 6, 1, 4, 1, 19338, 9, 1, 1))
-oam = MibIdentifier((1, 3, 6, 1, 4, 1, 19338, 9, 1, 1, 6))
-loadBlancer1 = NotificationType((1, 3, 6, 1, 4, 1, 19338, 9, 1, 1, 6, 0))
-if mibBuilder.loadTexts: loadBlancer1.setStatus('current')
-loadBlancer2 = NotificationType((1, 3, 6, 1, 4, 1, 19338, 9, 1, 1, 6, 1))
-if mibBuilder.loadTexts: loadBlancer2.setStatus('current')
-mibBuilder.exportSymbols("PRETUPS-MIB", PYSNMP_MODULE_ID=btsl, loadBlancer1=loadBlancer1, interfacedown=interfacedown, adminoptdown=adminoptdown, oam=oam, interface=interface, databasedown=databasedown, adminoptup=adminoptup, retryup=retryup, database=database, systemerrorerrordown=systemerrorerrordown, systemerrorerrorup=systemerrorerrorup, systemerrorerror=systemerrorerror, adminopt=adminopt, retrydown=retrydown, systeminfo=systeminfo, interfaceup=interfaceup, interfaceresponseup=interfaceresponseup, btsl=btsl, interfaceresponsedown=interfaceresponsedown, systeminfodown=systeminfodown, interfaceinvaliedresponse=interfaceinvaliedresponse, retry=retry, systeminfoup=systeminfoup, pretupsnotification1=pretupsnotification1, interfaceresponse=interfaceresponse, databaseup=databaseup, interfaceinvaliedresponsedown=interfaceinvaliedresponsedown, alarm=alarm, loadBlancer2=loadBlancer2, pretups=pretups, pretupsnotification=pretupsnotification, urlMonitoring=urlMonitoring, interfaceinvaliedresponseup=interfaceinvaliedresponseup)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/PRETUPS-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:39:39 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(SnmpAdminString,
+ SnmpEngineID) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString",
+    "SnmpEngineID")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ Opaque,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso,
+ mib_2) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "Opaque",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso",
+    "mib-2")
+
+(DateAndTime,
+ DisplayString,
+ RowStatus,
+ StorageType,
+ TAddress,
+ TDomain,
+ TextualConvention,
+ TimeStamp) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "RowStatus",
+    "StorageType",
+    "TAddress",
+    "TDomain",
+    "TextualConvention",
+    "TimeStamp")
+
+
+# MODULE-IDENTITY
+
+btsl = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 19338)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Pretups_ObjectIdentity = ObjectIdentity
+pretups = _Pretups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 19338, 9)
+)
+_UrlMonitoring_ObjectIdentity = ObjectIdentity
+urlMonitoring = _UrlMonitoring_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 19338, 9, 1)
+)
+_Alarm_ObjectIdentity = ObjectIdentity
+alarm = _Alarm_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 19338, 9, 1, 1)
+)
+_Oam_ObjectIdentity = ObjectIdentity
+oam = _Oam_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 19338, 9, 1, 1, 6)
+)
+_Pretupsnotification_ObjectIdentity = ObjectIdentity
+pretupsnotification = _Pretupsnotification_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 19338, 9, 2)
+)
+_Pretupsnotification1_ObjectIdentity = ObjectIdentity
+pretupsnotification1 = _Pretupsnotification1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 19338, 9, 2, 0)
+)
+_Database_ObjectIdentity = ObjectIdentity
+database = _Database_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 1)
+)
+_Systemerrorerror_ObjectIdentity = ObjectIdentity
+systemerrorerror = _Systemerrorerror_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 2)
+)
+_Systeminfo_ObjectIdentity = ObjectIdentity
+systeminfo = _Systeminfo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 3)
+)
+_Interfaceinvaliedresponse_ObjectIdentity = ObjectIdentity
+interfaceinvaliedresponse = _Interfaceinvaliedresponse_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 4)
+)
+_Retry_ObjectIdentity = ObjectIdentity
+retry = _Retry_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 5)
+)
+_Interface_ObjectIdentity = ObjectIdentity
+interface = _Interface_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 6)
+)
+_Interfaceresponse_ObjectIdentity = ObjectIdentity
+interfaceresponse = _Interfaceresponse_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 7)
+)
+_Adminopt_ObjectIdentity = ObjectIdentity
+adminopt = _Adminopt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 8)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+loadBlancer1 = NotificationType(
+    (1, 3, 6, 1, 4, 1, 19338, 9, 1, 1, 6, 0)
+)
+if mibBuilder.loadTexts:
+    loadBlancer1.setStatus(
+        "current"
+    )
+
+loadBlancer2 = NotificationType(
+    (1, 3, 6, 1, 4, 1, 19338, 9, 1, 1, 6, 1)
+)
+if mibBuilder.loadTexts:
+    loadBlancer2.setStatus(
+        "current"
+    )
+
+databasedown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 1, 0)
+)
+if mibBuilder.loadTexts:
+    databasedown.setStatus(
+        "current"
+    )
+
+databaseup = NotificationType(
+    (1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 1, 1)
+)
+if mibBuilder.loadTexts:
+    databaseup.setStatus(
+        "current"
+    )
+
+systemerrorerrordown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 2, 0)
+)
+if mibBuilder.loadTexts:
+    systemerrorerrordown.setStatus(
+        "current"
+    )
+
+systemerrorerrorup = NotificationType(
+    (1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 2, 1)
+)
+if mibBuilder.loadTexts:
+    systemerrorerrorup.setStatus(
+        "current"
+    )
+
+systeminfodown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 3, 0)
+)
+if mibBuilder.loadTexts:
+    systeminfodown.setStatus(
+        "current"
+    )
+
+systeminfoup = NotificationType(
+    (1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 3, 1)
+)
+if mibBuilder.loadTexts:
+    systeminfoup.setStatus(
+        "current"
+    )
+
+interfaceinvaliedresponsedown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 4, 0)
+)
+if mibBuilder.loadTexts:
+    interfaceinvaliedresponsedown.setStatus(
+        "current"
+    )
+
+interfaceinvaliedresponseup = NotificationType(
+    (1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 4, 1)
+)
+if mibBuilder.loadTexts:
+    interfaceinvaliedresponseup.setStatus(
+        "current"
+    )
+
+retrydown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 5, 0)
+)
+if mibBuilder.loadTexts:
+    retrydown.setStatus(
+        "current"
+    )
+
+retryup = NotificationType(
+    (1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 5, 1)
+)
+if mibBuilder.loadTexts:
+    retryup.setStatus(
+        "current"
+    )
+
+interfacedown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 6, 0)
+)
+if mibBuilder.loadTexts:
+    interfacedown.setStatus(
+        "current"
+    )
+
+interfaceup = NotificationType(
+    (1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 6, 1)
+)
+if mibBuilder.loadTexts:
+    interfaceup.setStatus(
+        "current"
+    )
+
+interfaceresponsedown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 7, 0)
+)
+if mibBuilder.loadTexts:
+    interfaceresponsedown.setStatus(
+        "current"
+    )
+
+interfaceresponseup = NotificationType(
+    (1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 7, 1)
+)
+if mibBuilder.loadTexts:
+    interfaceresponseup.setStatus(
+        "current"
+    )
+
+adminoptdown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 8, 0)
+)
+if mibBuilder.loadTexts:
+    adminoptdown.setStatus(
+        "current"
+    )
+
+adminoptup = NotificationType(
+    (1, 3, 6, 1, 4, 1, 19338, 9, 2, 0, 8, 1)
+)
+if mibBuilder.loadTexts:
+    adminoptup.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "PRETUPS-MIB",
+    **{"btsl": btsl,
+       "pretups": pretups,
+       "urlMonitoring": urlMonitoring,
+       "alarm": alarm,
+       "oam": oam,
+       "loadBlancer1": loadBlancer1,
+       "loadBlancer2": loadBlancer2,
+       "pretupsnotification": pretupsnotification,
+       "pretupsnotification1": pretupsnotification1,
+       "database": database,
+       "databasedown": databasedown,
+       "databaseup": databaseup,
+       "systemerrorerror": systemerrorerror,
+       "systemerrorerrordown": systemerrorerrordown,
+       "systemerrorerrorup": systemerrorerrorup,
+       "systeminfo": systeminfo,
+       "systeminfodown": systeminfodown,
+       "systeminfoup": systeminfoup,
+       "interfaceinvaliedresponse": interfaceinvaliedresponse,
+       "interfaceinvaliedresponsedown": interfaceinvaliedresponsedown,
+       "interfaceinvaliedresponseup": interfaceinvaliedresponseup,
+       "retry": retry,
+       "retrydown": retrydown,
+       "retryup": retryup,
+       "interface": interface,
+       "interfacedown": interfacedown,
+       "interfaceup": interfaceup,
+       "interfaceresponse": interfaceresponse,
+       "interfaceresponsedown": interfaceresponsedown,
+       "interfaceresponseup": interfaceresponseup,
+       "adminopt": adminopt,
+       "adminoptdown": adminoptdown,
+       "adminoptup": adminoptup}
+)

@@ -1,17 +1,17 @@
-"""SNMP MIB module (S412-MIB) expressed in pysnmp data model.
+# SNMP MIB module (S412-MIB) expressed in pysnmp data model.
+#
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/S412-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:49:00 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-This Python module is designed to be imported and executed by the
-pysnmp library.
-
-See https://www.pysnmp.com/pysnmp for further information.
-
-Notes
------
-ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/S412-MIB
-Produced by pysmi-1.3.3 at Sun Mar 10 05:41:22 2024
-On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm
-Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
-"""
 if 'mibBuilder' not in globals():
     import sys
 
@@ -51,51 +51,51 @@ if 'mibBuilder' not in globals():
     "ModuleCompliance",
     "NotificationGroup")
 
-(NotificationType,
- Counter64,
- private,
- Unsigned32,
- IpAddress,
- mgmt,
- Bits,
+(Bits,
  Counter32,
- iso,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
  ModuleIdentity,
- enterprises,
- NotificationType,
  MibIdentifier,
- internet,
+ NotificationType,
+ ObjectIdentity,
  MibScalar,
  MibTable,
  MibTableRow,
  MibTableColumn,
- Integer32,
- ObjectIdentity,
- Gauge32,
- TimeTicks) = mibBuilder.importSymbols(
+ NotificationType,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ internet,
+ iso,
+ mgmt,
+ private) = mibBuilder.importSymbols(
     "SNMPv2-SMI",
-    "NotificationType",
-    "Counter64",
-    "private",
-    "Unsigned32",
-    "IpAddress",
-    "mgmt",
     "Bits",
     "Counter32",
-    "iso",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
     "ModuleIdentity",
-    "enterprises",
-    "NotificationType",
     "MibIdentifier",
-    "internet",
+    "NotificationType",
+    "ObjectIdentity",
     "MibScalar",
     "MibTable",
     "MibTableRow",
     "MibTableColumn",
-    "Integer32",
-    "ObjectIdentity",
-    "Gauge32",
-    "TimeTicks")
+    "NotificationType",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "internet",
+    "iso",
+    "mgmt",
+    "private")
 
 (DisplayString,
  TextualConvention) = mibBuilder.importSymbols(

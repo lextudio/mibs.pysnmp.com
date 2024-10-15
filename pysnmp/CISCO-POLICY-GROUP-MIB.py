@@ -1,104 +1,553 @@
+# SNMP MIB module (CISCO-POLICY-GROUP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-POLICY-GROUP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/CISCO-POLICY-GROUP-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:51:17 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
-ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-InetAddress, InetAddressType = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress", "InetAddressType")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, MibIdentifier, ModuleIdentity, Bits, Unsigned32, Counter32, Counter64, IpAddress, Gauge32, ObjectIdentity, TimeTicks, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "MibIdentifier", "ModuleIdentity", "Bits", "Unsigned32", "Counter32", "Counter64", "IpAddress", "Gauge32", "ObjectIdentity", "TimeTicks", "NotificationType")
-RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TextualConvention")
-ciscoPolicyGroupMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 507))
-ciscoPolicyGroupMIB.setRevisions(('2006-01-13 16:00',))
-if mibBuilder.loadTexts: ciscoPolicyGroupMIB.setLastUpdated('200601131600Z')
-if mibBuilder.loadTexts: ciscoPolicyGroupMIB.setOrganization('Cisco Systems, Inc.')
-class CpgPolicyName(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '128a'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(1, 128)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CISCO-POLICY-GROUP-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:06:01 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class CpgPolicyNameOrEmpty(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '128a'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 128)
+if 'mibBuilder' not in globals():
+    import sys
 
-class CpgGroupName(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '128a'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(1, 128)
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-ciscoPolicyGroupMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 507, 0))
-ciscoPolicyGroupMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 507, 1))
-ciscoPolicyGroupMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 507, 2))
-cpgGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 1))
-cpgPolicy = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 2))
-cpgGroupTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 1, 1), )
-if mibBuilder.loadTexts: cpgGroupTable.setStatus('current')
-cpgGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 1, 1, 1), ).setIndexNames((1, "CISCO-POLICY-GROUP-MIB", "cpgGroupName"))
-if mibBuilder.loadTexts: cpgGroupEntry.setStatus('current')
-cpgGroupName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 1, 1, 1, 1), CpgGroupName())
-if mibBuilder.loadTexts: cpgGroupName.setStatus('current')
-cpgGroupSourceType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("accessList", 2), ("configured", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cpgGroupSourceType.setStatus('current')
-cpgGroupIpAddrCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 1, 1, 1, 3), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cpgGroupIpAddrCount.setStatus('current')
-cpgGroupRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 1, 1, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cpgGroupRowStatus.setStatus('current')
-cpgGroupIpTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 1, 2), )
-if mibBuilder.loadTexts: cpgGroupIpTable.setStatus('current')
-cpgGroupIpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 1, 2, 1), ).setIndexNames((0, "CISCO-POLICY-GROUP-MIB", "cpgGroupIpGroupName"), (0, "CISCO-POLICY-GROUP-MIB", "cpgGroupIpAddrType"), (0, "CISCO-POLICY-GROUP-MIB", "cpgGroupIpAddress"))
-if mibBuilder.loadTexts: cpgGroupIpEntry.setStatus('current')
-cpgGroupIpGroupName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 1, 2, 1, 1), CpgGroupName())
-if mibBuilder.loadTexts: cpgGroupIpGroupName.setStatus('current')
-cpgGroupIpAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 1, 2, 1, 2), InetAddressType())
-if mibBuilder.loadTexts: cpgGroupIpAddrType.setStatus('current')
-cpgGroupIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 1, 2, 1, 3), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(1, 64)))
-if mibBuilder.loadTexts: cpgGroupIpAddress.setStatus('current')
-cpgGroupIpMask = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 1, 2, 1, 4), InetAddress().clone(hexValue="FFFFFFFF")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cpgGroupIpMask.setStatus('current')
-cpgGroupIpSourceType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 1, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("other", 1), ("configured", 2), ("dot1x", 3), ("nac", 4), ("webAuth", 5), ("macAuth", 6)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cpgGroupIpSourceType.setStatus('current')
-cpgGroupIpRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 1, 2, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cpgGroupIpRowStatus.setStatus('current')
-cpgPolicyTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 2, 1), )
-if mibBuilder.loadTexts: cpgPolicyTable.setStatus('current')
-cpgPolicyEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 2, 1, 1), ).setIndexNames((1, "CISCO-POLICY-GROUP-MIB", "cpgPolicyName"))
-if mibBuilder.loadTexts: cpgPolicyEntry.setStatus('current')
-cpgPolicyName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 2, 1, 1, 1), CpgPolicyName())
-if mibBuilder.loadTexts: cpgPolicyName.setStatus('current')
-cpgPolicyGroupCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 2, 1, 1, 2), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cpgPolicyGroupCount.setStatus('current')
-cpgPolicyGroupTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 2, 2), )
-if mibBuilder.loadTexts: cpgPolicyGroupTable.setStatus('current')
-cpgPolicyGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 2, 2, 1), ).setIndexNames((0, "CISCO-POLICY-GROUP-MIB", "cpgPolicyGroupPolicyName"), (1, "CISCO-POLICY-GROUP-MIB", "cpgPolicyGroupGroupName"))
-if mibBuilder.loadTexts: cpgPolicyGroupEntry.setStatus('current')
-cpgPolicyGroupPolicyName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 2, 2, 1, 1), CpgPolicyName())
-if mibBuilder.loadTexts: cpgPolicyGroupPolicyName.setStatus('current')
-cpgPolicyGroupGroupName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 2, 2, 1, 2), CpgGroupName())
-if mibBuilder.loadTexts: cpgPolicyGroupGroupName.setStatus('current')
-cpgPolicyGroupRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 2, 2, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cpgPolicyGroupRowStatus.setStatus('current')
-ciscoPolicyGroupMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 507, 2, 1))
-ciscoPolicyGroupMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 507, 2, 2))
-ciscoPolicyGroupMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 507, 2, 1, 1)).setObjects(("CISCO-POLICY-GROUP-MIB", "ciscoCpgPolicyInfoGroup"), ("CISCO-POLICY-GROUP-MIB", "ciscoCpgGroupInfoGroup"), ("CISCO-POLICY-GROUP-MIB", "ciscoCpgGroupIpInfoGroup"), ("CISCO-POLICY-GROUP-MIB", "ciscoCpgPolicyGroupInfoGroup"))
+# Import base ASN.1 objects even if this MIB does not use it
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoPolicyGroupMIBCompliance = ciscoPolicyGroupMIBCompliance.setStatus('current')
-ciscoCpgGroupInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 507, 2, 2, 1)).setObjects(("CISCO-POLICY-GROUP-MIB", "cpgGroupSourceType"), ("CISCO-POLICY-GROUP-MIB", "cpgGroupIpAddrCount"), ("CISCO-POLICY-GROUP-MIB", "cpgGroupRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoCpgGroupInfoGroup = ciscoCpgGroupInfoGroup.setStatus('current')
-ciscoCpgGroupIpInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 507, 2, 2, 2)).setObjects(("CISCO-POLICY-GROUP-MIB", "cpgGroupIpMask"), ("CISCO-POLICY-GROUP-MIB", "cpgGroupIpSourceType"), ("CISCO-POLICY-GROUP-MIB", "cpgGroupIpRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoCpgGroupIpInfoGroup = ciscoCpgGroupIpInfoGroup.setStatus('current')
-ciscoCpgPolicyInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 507, 2, 2, 3)).setObjects(("CISCO-POLICY-GROUP-MIB", "cpgPolicyGroupCount"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoCpgPolicyInfoGroup = ciscoCpgPolicyInfoGroup.setStatus('current')
-ciscoCpgPolicyGroupInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 507, 2, 2, 4)).setObjects(("CISCO-POLICY-GROUP-MIB", "cpgPolicyGroupRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoCpgPolicyGroupInfoGroup = ciscoCpgPolicyGroupInfoGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-POLICY-GROUP-MIB", cpgPolicyGroupRowStatus=cpgPolicyGroupRowStatus, ciscoCpgGroupInfoGroup=ciscoCpgGroupInfoGroup, cpgGroupRowStatus=cpgGroupRowStatus, cpgPolicyEntry=cpgPolicyEntry, ciscoPolicyGroupMIB=ciscoPolicyGroupMIB, ciscoCpgPolicyGroupInfoGroup=ciscoCpgPolicyGroupInfoGroup, PYSNMP_MODULE_ID=ciscoPolicyGroupMIB, cpgGroupIpAddress=cpgGroupIpAddress, ciscoPolicyGroupMIBNotifs=ciscoPolicyGroupMIBNotifs, cpgGroupIpMask=cpgGroupIpMask, ciscoCpgPolicyInfoGroup=ciscoCpgPolicyInfoGroup, CpgPolicyName=CpgPolicyName, cpgGroupIpGroupName=cpgGroupIpGroupName, cpgGroupName=cpgGroupName, ciscoPolicyGroupMIBGroups=ciscoPolicyGroupMIBGroups, CpgPolicyNameOrEmpty=CpgPolicyNameOrEmpty, cpgPolicyGroupCount=cpgPolicyGroupCount, cpgPolicyTable=cpgPolicyTable, cpgPolicyGroupTable=cpgPolicyGroupTable, cpgGroupSourceType=cpgGroupSourceType, cpgGroupIpRowStatus=cpgGroupIpRowStatus, ciscoCpgGroupIpInfoGroup=ciscoCpgGroupIpInfoGroup, cpgGroupTable=cpgGroupTable, cpgGroupIpTable=cpgGroupIpTable, CpgGroupName=CpgGroupName, cpgPolicy=cpgPolicy, cpgGroupIpAddrType=cpgGroupIpAddrType, ciscoPolicyGroupMIBCompliances=ciscoPolicyGroupMIBCompliances, ciscoPolicyGroupMIBCompliance=ciscoPolicyGroupMIBCompliance, ciscoPolicyGroupMIBConformance=ciscoPolicyGroupMIBConformance, cpgGroupIpSourceType=cpgGroupIpSourceType, cpgGroupEntry=cpgGroupEntry, cpgPolicyName=cpgPolicyName, cpgGroup=cpgGroup, cpgPolicyGroupPolicyName=cpgPolicyGroupPolicyName, cpgPolicyGroupGroupName=cpgPolicyGroupGroupName, cpgPolicyGroupEntry=cpgPolicyGroupEntry, cpgGroupIpAddrCount=cpgGroupIpAddrCount, cpgGroupIpEntry=cpgGroupIpEntry, ciscoPolicyGroupMIBObjects=ciscoPolicyGroupMIBObjects)
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ciscoMgmt,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoMgmt")
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+ciscoPolicyGroupMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 507)
+)
+ciscoPolicyGroupMIB.setRevisions(
+        ("2006-01-13 16:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class CpgPolicyName(OctetString, TextualConvention):
+    status = "current"
+    displayHint = "128a"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 128),
+    )
+
+
+
+class CpgPolicyNameOrEmpty(OctetString, TextualConvention):
+    status = "current"
+    displayHint = "128a"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 128),
+    )
+
+
+
+class CpgGroupName(OctetString, TextualConvention):
+    status = "current"
+    displayHint = "128a"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 128),
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CiscoPolicyGroupMIBNotifs_ObjectIdentity = ObjectIdentity
+ciscoPolicyGroupMIBNotifs = _CiscoPolicyGroupMIBNotifs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 507, 0)
+)
+_CiscoPolicyGroupMIBObjects_ObjectIdentity = ObjectIdentity
+ciscoPolicyGroupMIBObjects = _CiscoPolicyGroupMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 507, 1)
+)
+_CpgGroup_ObjectIdentity = ObjectIdentity
+cpgGroup = _CpgGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 1)
+)
+_CpgGroupTable_Object = MibTable
+cpgGroupTable = _CpgGroupTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    cpgGroupTable.setStatus("current")
+_CpgGroupEntry_Object = MibTableRow
+cpgGroupEntry = _CpgGroupEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 1, 1, 1)
+)
+cpgGroupEntry.setIndexNames(
+    (1, "CISCO-POLICY-GROUP-MIB", "cpgGroupName"),
+)
+if mibBuilder.loadTexts:
+    cpgGroupEntry.setStatus("current")
+_CpgGroupName_Type = CpgGroupName
+_CpgGroupName_Object = MibTableColumn
+cpgGroupName = _CpgGroupName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 1, 1, 1, 1),
+    _CpgGroupName_Type()
+)
+cpgGroupName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cpgGroupName.setStatus("current")
+
+
+class _CpgGroupSourceType_Type(Integer32):
+    """Custom type cpgGroupSourceType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("accessList", 2),
+          ("configured", 3),
+          ("unknown", 1))
+    )
+
+
+_CpgGroupSourceType_Type.__name__ = "Integer32"
+_CpgGroupSourceType_Object = MibTableColumn
+cpgGroupSourceType = _CpgGroupSourceType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 1, 1, 1, 2),
+    _CpgGroupSourceType_Type()
+)
+cpgGroupSourceType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cpgGroupSourceType.setStatus("current")
+_CpgGroupIpAddrCount_Type = Unsigned32
+_CpgGroupIpAddrCount_Object = MibTableColumn
+cpgGroupIpAddrCount = _CpgGroupIpAddrCount_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 1, 1, 1, 3),
+    _CpgGroupIpAddrCount_Type()
+)
+cpgGroupIpAddrCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cpgGroupIpAddrCount.setStatus("current")
+_CpgGroupRowStatus_Type = RowStatus
+_CpgGroupRowStatus_Object = MibTableColumn
+cpgGroupRowStatus = _CpgGroupRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 1, 1, 1, 4),
+    _CpgGroupRowStatus_Type()
+)
+cpgGroupRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cpgGroupRowStatus.setStatus("current")
+_CpgGroupIpTable_Object = MibTable
+cpgGroupIpTable = _CpgGroupIpTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    cpgGroupIpTable.setStatus("current")
+_CpgGroupIpEntry_Object = MibTableRow
+cpgGroupIpEntry = _CpgGroupIpEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 1, 2, 1)
+)
+cpgGroupIpEntry.setIndexNames(
+    (0, "CISCO-POLICY-GROUP-MIB", "cpgGroupIpGroupName"),
+    (0, "CISCO-POLICY-GROUP-MIB", "cpgGroupIpAddrType"),
+    (0, "CISCO-POLICY-GROUP-MIB", "cpgGroupIpAddress"),
+)
+if mibBuilder.loadTexts:
+    cpgGroupIpEntry.setStatus("current")
+_CpgGroupIpGroupName_Type = CpgGroupName
+_CpgGroupIpGroupName_Object = MibTableColumn
+cpgGroupIpGroupName = _CpgGroupIpGroupName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 1, 2, 1, 1),
+    _CpgGroupIpGroupName_Type()
+)
+cpgGroupIpGroupName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cpgGroupIpGroupName.setStatus("current")
+_CpgGroupIpAddrType_Type = InetAddressType
+_CpgGroupIpAddrType_Object = MibTableColumn
+cpgGroupIpAddrType = _CpgGroupIpAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 1, 2, 1, 2),
+    _CpgGroupIpAddrType_Type()
+)
+cpgGroupIpAddrType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cpgGroupIpAddrType.setStatus("current")
+
+
+class _CpgGroupIpAddress_Type(InetAddress):
+    """Custom type cpgGroupIpAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 64),
+    )
+
+
+_CpgGroupIpAddress_Type.__name__ = "InetAddress"
+_CpgGroupIpAddress_Object = MibTableColumn
+cpgGroupIpAddress = _CpgGroupIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 1, 2, 1, 3),
+    _CpgGroupIpAddress_Type()
+)
+cpgGroupIpAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cpgGroupIpAddress.setStatus("current")
+
+
+class _CpgGroupIpMask_Type(InetAddress):
+    """Custom type cpgGroupIpMask based on InetAddress"""
+    defaultHexValue = "FFFFFFFF"
+
+
+_CpgGroupIpMask_Object = MibTableColumn
+cpgGroupIpMask = _CpgGroupIpMask_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 1, 2, 1, 4),
+    _CpgGroupIpMask_Type()
+)
+cpgGroupIpMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cpgGroupIpMask.setStatus("current")
+
+
+class _CpgGroupIpSourceType_Type(Integer32):
+    """Custom type cpgGroupIpSourceType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("configured", 2),
+          ("dot1x", 3),
+          ("macAuth", 6),
+          ("nac", 4),
+          ("other", 1),
+          ("webAuth", 5))
+    )
+
+
+_CpgGroupIpSourceType_Type.__name__ = "Integer32"
+_CpgGroupIpSourceType_Object = MibTableColumn
+cpgGroupIpSourceType = _CpgGroupIpSourceType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 1, 2, 1, 5),
+    _CpgGroupIpSourceType_Type()
+)
+cpgGroupIpSourceType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cpgGroupIpSourceType.setStatus("current")
+_CpgGroupIpRowStatus_Type = RowStatus
+_CpgGroupIpRowStatus_Object = MibTableColumn
+cpgGroupIpRowStatus = _CpgGroupIpRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 1, 2, 1, 6),
+    _CpgGroupIpRowStatus_Type()
+)
+cpgGroupIpRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cpgGroupIpRowStatus.setStatus("current")
+_CpgPolicy_ObjectIdentity = ObjectIdentity
+cpgPolicy = _CpgPolicy_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 2)
+)
+_CpgPolicyTable_Object = MibTable
+cpgPolicyTable = _CpgPolicyTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    cpgPolicyTable.setStatus("current")
+_CpgPolicyEntry_Object = MibTableRow
+cpgPolicyEntry = _CpgPolicyEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 2, 1, 1)
+)
+cpgPolicyEntry.setIndexNames(
+    (1, "CISCO-POLICY-GROUP-MIB", "cpgPolicyName"),
+)
+if mibBuilder.loadTexts:
+    cpgPolicyEntry.setStatus("current")
+_CpgPolicyName_Type = CpgPolicyName
+_CpgPolicyName_Object = MibTableColumn
+cpgPolicyName = _CpgPolicyName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 2, 1, 1, 1),
+    _CpgPolicyName_Type()
+)
+cpgPolicyName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cpgPolicyName.setStatus("current")
+_CpgPolicyGroupCount_Type = Unsigned32
+_CpgPolicyGroupCount_Object = MibTableColumn
+cpgPolicyGroupCount = _CpgPolicyGroupCount_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 2, 1, 1, 2),
+    _CpgPolicyGroupCount_Type()
+)
+cpgPolicyGroupCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cpgPolicyGroupCount.setStatus("current")
+_CpgPolicyGroupTable_Object = MibTable
+cpgPolicyGroupTable = _CpgPolicyGroupTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 2, 2)
+)
+if mibBuilder.loadTexts:
+    cpgPolicyGroupTable.setStatus("current")
+_CpgPolicyGroupEntry_Object = MibTableRow
+cpgPolicyGroupEntry = _CpgPolicyGroupEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 2, 2, 1)
+)
+cpgPolicyGroupEntry.setIndexNames(
+    (0, "CISCO-POLICY-GROUP-MIB", "cpgPolicyGroupPolicyName"),
+    (1, "CISCO-POLICY-GROUP-MIB", "cpgPolicyGroupGroupName"),
+)
+if mibBuilder.loadTexts:
+    cpgPolicyGroupEntry.setStatus("current")
+_CpgPolicyGroupPolicyName_Type = CpgPolicyName
+_CpgPolicyGroupPolicyName_Object = MibTableColumn
+cpgPolicyGroupPolicyName = _CpgPolicyGroupPolicyName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 2, 2, 1, 1),
+    _CpgPolicyGroupPolicyName_Type()
+)
+cpgPolicyGroupPolicyName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cpgPolicyGroupPolicyName.setStatus("current")
+_CpgPolicyGroupGroupName_Type = CpgGroupName
+_CpgPolicyGroupGroupName_Object = MibTableColumn
+cpgPolicyGroupGroupName = _CpgPolicyGroupGroupName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 2, 2, 1, 2),
+    _CpgPolicyGroupGroupName_Type()
+)
+cpgPolicyGroupGroupName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cpgPolicyGroupGroupName.setStatus("current")
+_CpgPolicyGroupRowStatus_Type = RowStatus
+_CpgPolicyGroupRowStatus_Object = MibTableColumn
+cpgPolicyGroupRowStatus = _CpgPolicyGroupRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 507, 1, 2, 2, 1, 3),
+    _CpgPolicyGroupRowStatus_Type()
+)
+cpgPolicyGroupRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cpgPolicyGroupRowStatus.setStatus("current")
+_CiscoPolicyGroupMIBConformance_ObjectIdentity = ObjectIdentity
+ciscoPolicyGroupMIBConformance = _CiscoPolicyGroupMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 507, 2)
+)
+_CiscoPolicyGroupMIBCompliances_ObjectIdentity = ObjectIdentity
+ciscoPolicyGroupMIBCompliances = _CiscoPolicyGroupMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 507, 2, 1)
+)
+_CiscoPolicyGroupMIBGroups_ObjectIdentity = ObjectIdentity
+ciscoPolicyGroupMIBGroups = _CiscoPolicyGroupMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 507, 2, 2)
+)
+
+# Managed Objects groups
+
+ciscoCpgGroupInfoGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 507, 2, 2, 1)
+)
+ciscoCpgGroupInfoGroup.setObjects(
+      *(("CISCO-POLICY-GROUP-MIB", "cpgGroupSourceType"),
+        ("CISCO-POLICY-GROUP-MIB", "cpgGroupIpAddrCount"),
+        ("CISCO-POLICY-GROUP-MIB", "cpgGroupRowStatus"))
+)
+if mibBuilder.loadTexts:
+    ciscoCpgGroupInfoGroup.setStatus("current")
+
+ciscoCpgGroupIpInfoGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 507, 2, 2, 2)
+)
+ciscoCpgGroupIpInfoGroup.setObjects(
+      *(("CISCO-POLICY-GROUP-MIB", "cpgGroupIpMask"),
+        ("CISCO-POLICY-GROUP-MIB", "cpgGroupIpSourceType"),
+        ("CISCO-POLICY-GROUP-MIB", "cpgGroupIpRowStatus"))
+)
+if mibBuilder.loadTexts:
+    ciscoCpgGroupIpInfoGroup.setStatus("current")
+
+ciscoCpgPolicyInfoGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 507, 2, 2, 3)
+)
+ciscoCpgPolicyInfoGroup.setObjects(
+    ("CISCO-POLICY-GROUP-MIB", "cpgPolicyGroupCount")
+)
+if mibBuilder.loadTexts:
+    ciscoCpgPolicyInfoGroup.setStatus("current")
+
+ciscoCpgPolicyGroupInfoGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 507, 2, 2, 4)
+)
+ciscoCpgPolicyGroupInfoGroup.setObjects(
+    ("CISCO-POLICY-GROUP-MIB", "cpgPolicyGroupRowStatus")
+)
+if mibBuilder.loadTexts:
+    ciscoCpgPolicyGroupInfoGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+ciscoPolicyGroupMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 507, 2, 1, 1)
+)
+if mibBuilder.loadTexts:
+    ciscoPolicyGroupMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-POLICY-GROUP-MIB",
+    **{"CpgPolicyName": CpgPolicyName,
+       "CpgPolicyNameOrEmpty": CpgPolicyNameOrEmpty,
+       "CpgGroupName": CpgGroupName,
+       "ciscoPolicyGroupMIB": ciscoPolicyGroupMIB,
+       "ciscoPolicyGroupMIBNotifs": ciscoPolicyGroupMIBNotifs,
+       "ciscoPolicyGroupMIBObjects": ciscoPolicyGroupMIBObjects,
+       "cpgGroup": cpgGroup,
+       "cpgGroupTable": cpgGroupTable,
+       "cpgGroupEntry": cpgGroupEntry,
+       "cpgGroupName": cpgGroupName,
+       "cpgGroupSourceType": cpgGroupSourceType,
+       "cpgGroupIpAddrCount": cpgGroupIpAddrCount,
+       "cpgGroupRowStatus": cpgGroupRowStatus,
+       "cpgGroupIpTable": cpgGroupIpTable,
+       "cpgGroupIpEntry": cpgGroupIpEntry,
+       "cpgGroupIpGroupName": cpgGroupIpGroupName,
+       "cpgGroupIpAddrType": cpgGroupIpAddrType,
+       "cpgGroupIpAddress": cpgGroupIpAddress,
+       "cpgGroupIpMask": cpgGroupIpMask,
+       "cpgGroupIpSourceType": cpgGroupIpSourceType,
+       "cpgGroupIpRowStatus": cpgGroupIpRowStatus,
+       "cpgPolicy": cpgPolicy,
+       "cpgPolicyTable": cpgPolicyTable,
+       "cpgPolicyEntry": cpgPolicyEntry,
+       "cpgPolicyName": cpgPolicyName,
+       "cpgPolicyGroupCount": cpgPolicyGroupCount,
+       "cpgPolicyGroupTable": cpgPolicyGroupTable,
+       "cpgPolicyGroupEntry": cpgPolicyGroupEntry,
+       "cpgPolicyGroupPolicyName": cpgPolicyGroupPolicyName,
+       "cpgPolicyGroupGroupName": cpgPolicyGroupGroupName,
+       "cpgPolicyGroupRowStatus": cpgPolicyGroupRowStatus,
+       "ciscoPolicyGroupMIBConformance": ciscoPolicyGroupMIBConformance,
+       "ciscoPolicyGroupMIBCompliances": ciscoPolicyGroupMIBCompliances,
+       "ciscoPolicyGroupMIBCompliance": ciscoPolicyGroupMIBCompliance,
+       "ciscoPolicyGroupMIBGroups": ciscoPolicyGroupMIBGroups,
+       "ciscoCpgGroupInfoGroup": ciscoCpgGroupInfoGroup,
+       "ciscoCpgGroupIpInfoGroup": ciscoCpgGroupIpInfoGroup,
+       "ciscoCpgPolicyInfoGroup": ciscoCpgPolicyInfoGroup,
+       "ciscoCpgPolicyGroupInfoGroup": ciscoCpgPolicyGroupInfoGroup}
+)

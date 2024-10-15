@@ -1,109 +1,745 @@
+# SNMP MIB module (NBS-PRBS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module NBS-PRBS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/NBS-PRBS-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 20:07:39 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
-nbs, nbsCmmcSlotIndex, nbsCmmcChassisIndex, nbsCmmcPortName, nbsCmmcPortIndex = mibBuilder.importSymbols("NBS-CMMC-MIB", "nbs", "nbsCmmcSlotIndex", "nbsCmmcChassisIndex", "nbsCmmcPortName", "nbsCmmcPortIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Gauge32, Counter32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, TimeTicks, IpAddress, MibIdentifier, Counter64, Unsigned32, Integer32, ObjectIdentity, Bits, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Counter32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "TimeTicks", "IpAddress", "MibIdentifier", "Counter64", "Unsigned32", "Integer32", "ObjectIdentity", "Bits", "NotificationType")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-nbsPrbsMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 629, 212))
-if mibBuilder.loadTexts: nbsPrbsMib.setLastUpdated('201010120000Z')
-if mibBuilder.loadTexts: nbsPrbsMib.setOrganization('NBS')
-class InterfaceIndex(Integer32):
-    pass
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/NBS-PRBS-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 22:24:57 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-nbsPrbsPatternGrp = ObjectIdentity((1, 3, 6, 1, 4, 1, 629, 212, 1))
-if mibBuilder.loadTexts: nbsPrbsPatternGrp.setStatus('current')
-nbsPrbsGenGrp = ObjectIdentity((1, 3, 6, 1, 4, 1, 629, 212, 2))
-if mibBuilder.loadTexts: nbsPrbsGenGrp.setStatus('current')
-nbsPrbsCheckGrp = ObjectIdentity((1, 3, 6, 1, 4, 1, 629, 212, 3))
-if mibBuilder.loadTexts: nbsPrbsCheckGrp.setStatus('current')
-nbsPrbsTrapGrp = ObjectIdentity((1, 3, 6, 1, 4, 1, 629, 212, 200))
-if mibBuilder.loadTexts: nbsPrbsTrapGrp.setStatus('current')
-nbsPrbsTraps0 = ObjectIdentity((1, 3, 6, 1, 4, 1, 629, 212, 200, 0))
-if mibBuilder.loadTexts: nbsPrbsTraps0.setStatus('current')
-nbsPrbsPatternTableSize = MibScalar((1, 3, 6, 1, 4, 1, 629, 212, 1, 1), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsPrbsPatternTableSize.setStatus('current')
-nbsPrbsPatternTable = MibTable((1, 3, 6, 1, 4, 1, 629, 212, 1, 2), )
-if mibBuilder.loadTexts: nbsPrbsPatternTable.setStatus('current')
-nbsPrbsPatternEntry = MibTableRow((1, 3, 6, 1, 4, 1, 629, 212, 1, 2, 1), ).setIndexNames((0, "NBS-PRBS-MIB", "nbsPrbsPatternIndex"))
-if mibBuilder.loadTexts: nbsPrbsPatternEntry.setStatus('current')
-nbsPrbsPatternIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 212, 1, 2, 1, 1), Integer32())
-if mibBuilder.loadTexts: nbsPrbsPatternIndex.setStatus('current')
-nbsPrbsPatternName = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 212, 1, 2, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsPrbsPatternName.setStatus('current')
-nbsPrbsPatternDesc = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 212, 1, 2, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsPrbsPatternDesc.setStatus('current')
-nbsPrbsGenTableSize = MibScalar((1, 3, 6, 1, 4, 1, 629, 212, 2, 1), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsPrbsGenTableSize.setStatus('current')
-nbsPrbsGenTable = MibTable((1, 3, 6, 1, 4, 1, 629, 212, 2, 2), )
-if mibBuilder.loadTexts: nbsPrbsGenTable.setStatus('current')
-nbsPrbsGenEntry = MibTableRow((1, 3, 6, 1, 4, 1, 629, 212, 2, 2, 1), ).setIndexNames((0, "NBS-PRBS-MIB", "nbsPrbsGenIfIndex"))
-if mibBuilder.loadTexts: nbsPrbsGenEntry.setStatus('current')
-nbsPrbsGenIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 212, 2, 2, 1, 1), InterfaceIndex())
-if mibBuilder.loadTexts: nbsPrbsGenIfIndex.setStatus('current')
-nbsPrbsGenPatternCaps = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 212, 2, 2, 1, 2), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsPrbsGenPatternCaps.setStatus('current')
-nbsPrbsGenPatternIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 212, 2, 2, 1, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nbsPrbsGenPatternIndex.setStatus('current')
-nbsPrbsGenDurationMax = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 212, 2, 2, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsPrbsGenDurationMax.setStatus('current')
-nbsPrbsGenDuration = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 212, 2, 2, 1, 5), Integer32().clone(60)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nbsPrbsGenDuration.setStatus('current')
-nbsPrbsGenAction = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 212, 2, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("notSupported", 1), ("stop", 2), ("start", 3))).clone('stop')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nbsPrbsGenAction.setStatus('current')
-nbsPrbsGenStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 212, 2, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("notSupported", 1), ("unknown", 2), ("idle", 3), ("generating", 4))).clone('idle')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsPrbsGenStatus.setStatus('current')
-nbsPrbsGenProgress = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 212, 2, 2, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsPrbsGenProgress.setStatus('current')
-nbsPrbsCheckTableSize = MibScalar((1, 3, 6, 1, 4, 1, 629, 212, 3, 1), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsPrbsCheckTableSize.setStatus('current')
-nbsPrbsCheckTable = MibTable((1, 3, 6, 1, 4, 1, 629, 212, 3, 2), )
-if mibBuilder.loadTexts: nbsPrbsCheckTable.setStatus('current')
-nbsPrbsCheckEntry = MibTableRow((1, 3, 6, 1, 4, 1, 629, 212, 3, 2, 1), ).setIndexNames((0, "NBS-PRBS-MIB", "nbsPrbsCheckIfIndex"))
-if mibBuilder.loadTexts: nbsPrbsCheckEntry.setStatus('current')
-nbsPrbsCheckIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 212, 3, 2, 1, 1), InterfaceIndex())
-if mibBuilder.loadTexts: nbsPrbsCheckIfIndex.setStatus('current')
-nbsPrbsCheckPatternCaps = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 212, 3, 2, 1, 2), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsPrbsCheckPatternCaps.setStatus('current')
-nbsPrbsCheckPatternIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 212, 3, 2, 1, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nbsPrbsCheckPatternIndex.setStatus('current')
-nbsPrbsCheckDurationMax = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 212, 3, 2, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsPrbsCheckDurationMax.setStatus('current')
-nbsPrbsCheckDuration = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 212, 3, 2, 1, 5), Integer32().clone(60)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nbsPrbsCheckDuration.setStatus('current')
-nbsPrbsCheckAction = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 212, 3, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("notSupported", 1), ("stop", 2), ("start", 3))).clone('stop')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nbsPrbsCheckAction.setStatus('current')
-nbsPrbsCheckStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 212, 3, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("notSupported", 1), ("idle", 2), ("syncIn", 3), ("syncOut", 4), ("error", 5), ("errOverflow", 6), ("gaveUp", 7))).clone('idle')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsPrbsCheckStatus.setStatus('current')
-nbsPrbsCheckProgress = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 212, 3, 2, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsPrbsCheckProgress.setStatus('current')
-nbsPrbsCheckErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 212, 3, 2, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsPrbsCheckErrors.setStatus('current')
-nbsPrbsCheckUpdateFreq = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 212, 3, 2, 1, 10), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nbsPrbsCheckUpdateFreq.setStatus('current')
-nbsPrbsTrapGeneratorStarted = NotificationType((1, 3, 6, 1, 4, 1, 629, 212, 200, 0, 10)).setObjects(("NBS-CMMC-MIB", "nbsCmmcChassisIndex"), ("NBS-CMMC-MIB", "nbsCmmcSlotIndex"), ("NBS-CMMC-MIB", "nbsCmmcPortIndex"), ("NBS-CMMC-MIB", "nbsCmmcPortName"))
-if mibBuilder.loadTexts: nbsPrbsTrapGeneratorStarted.setStatus('current')
-nbsPrbsTrapGeneratorStopped = NotificationType((1, 3, 6, 1, 4, 1, 629, 212, 200, 0, 11)).setObjects(("NBS-CMMC-MIB", "nbsCmmcChassisIndex"), ("NBS-CMMC-MIB", "nbsCmmcSlotIndex"), ("NBS-CMMC-MIB", "nbsCmmcPortIndex"), ("NBS-CMMC-MIB", "nbsCmmcPortName"))
-if mibBuilder.loadTexts: nbsPrbsTrapGeneratorStopped.setStatus('current')
-nbsPrbsTrapCheckerStarted = NotificationType((1, 3, 6, 1, 4, 1, 629, 212, 200, 0, 20)).setObjects(("NBS-CMMC-MIB", "nbsCmmcChassisIndex"), ("NBS-CMMC-MIB", "nbsCmmcSlotIndex"), ("NBS-CMMC-MIB", "nbsCmmcPortIndex"), ("NBS-CMMC-MIB", "nbsCmmcPortName"))
-if mibBuilder.loadTexts: nbsPrbsTrapCheckerStarted.setStatus('current')
-nbsPrbsTrapCheckerStopped = NotificationType((1, 3, 6, 1, 4, 1, 629, 212, 200, 0, 21)).setObjects(("NBS-CMMC-MIB", "nbsCmmcChassisIndex"), ("NBS-CMMC-MIB", "nbsCmmcSlotIndex"), ("NBS-CMMC-MIB", "nbsCmmcPortIndex"), ("NBS-CMMC-MIB", "nbsCmmcPortName"), ("NBS-PRBS-MIB", "nbsPrbsCheckStatus"))
-if mibBuilder.loadTexts: nbsPrbsTrapCheckerStopped.setStatus('current')
-nbsPrbsTrapCheckerOverflowed = NotificationType((1, 3, 6, 1, 4, 1, 629, 212, 200, 0, 22)).setObjects(("NBS-CMMC-MIB", "nbsCmmcChassisIndex"), ("NBS-CMMC-MIB", "nbsCmmcSlotIndex"), ("NBS-CMMC-MIB", "nbsCmmcPortIndex"), ("NBS-CMMC-MIB", "nbsCmmcPortName"))
-if mibBuilder.loadTexts: nbsPrbsTrapCheckerOverflowed.setStatus('current')
-nbsPrbsTrapCheckerErrorDetected = NotificationType((1, 3, 6, 1, 4, 1, 629, 212, 200, 0, 23)).setObjects(("NBS-CMMC-MIB", "nbsCmmcChassisIndex"), ("NBS-CMMC-MIB", "nbsCmmcSlotIndex"), ("NBS-CMMC-MIB", "nbsCmmcPortIndex"), ("NBS-CMMC-MIB", "nbsCmmcPortName"), ("NBS-PRBS-MIB", "nbsPrbsCheckStatus"))
-if mibBuilder.loadTexts: nbsPrbsTrapCheckerErrorDetected.setStatus('current')
-nbsPrbsTrapCheckerStatusUpdate = NotificationType((1, 3, 6, 1, 4, 1, 629, 212, 200, 0, 24)).setObjects(("NBS-CMMC-MIB", "nbsCmmcChassisIndex"), ("NBS-CMMC-MIB", "nbsCmmcSlotIndex"), ("NBS-CMMC-MIB", "nbsCmmcPortIndex"), ("NBS-CMMC-MIB", "nbsCmmcPortName"), ("NBS-PRBS-MIB", "nbsPrbsCheckStatus"), ("NBS-PRBS-MIB", "nbsPrbsCheckErrors"), ("NBS-PRBS-MIB", "nbsPrbsCheckProgress"))
-if mibBuilder.loadTexts: nbsPrbsTrapCheckerStatusUpdate.setStatus('current')
-nbsPrbsTrapCheckerSyncIn = NotificationType((1, 3, 6, 1, 4, 1, 629, 212, 200, 0, 25)).setObjects(("NBS-CMMC-MIB", "nbsCmmcChassisIndex"), ("NBS-CMMC-MIB", "nbsCmmcSlotIndex"), ("NBS-CMMC-MIB", "nbsCmmcPortIndex"), ("NBS-CMMC-MIB", "nbsCmmcPortName"), ("NBS-PRBS-MIB", "nbsPrbsCheckStatus"))
-if mibBuilder.loadTexts: nbsPrbsTrapCheckerSyncIn.setStatus('current')
-nbsPrbsTrapCheckerSyncOut = NotificationType((1, 3, 6, 1, 4, 1, 629, 212, 200, 0, 26)).setObjects(("NBS-CMMC-MIB", "nbsCmmcChassisIndex"), ("NBS-CMMC-MIB", "nbsCmmcSlotIndex"), ("NBS-CMMC-MIB", "nbsCmmcPortIndex"), ("NBS-CMMC-MIB", "nbsCmmcPortName"), ("NBS-PRBS-MIB", "nbsPrbsCheckStatus"))
-if mibBuilder.loadTexts: nbsPrbsTrapCheckerSyncOut.setStatus('current')
-mibBuilder.exportSymbols("NBS-PRBS-MIB", nbsPrbsGenPatternCaps=nbsPrbsGenPatternCaps, PYSNMP_MODULE_ID=nbsPrbsMib, nbsPrbsCheckPatternIndex=nbsPrbsCheckPatternIndex, nbsPrbsCheckTableSize=nbsPrbsCheckTableSize, nbsPrbsTrapGrp=nbsPrbsTrapGrp, nbsPrbsPatternTableSize=nbsPrbsPatternTableSize, nbsPrbsCheckUpdateFreq=nbsPrbsCheckUpdateFreq, nbsPrbsGenProgress=nbsPrbsGenProgress, nbsPrbsPatternIndex=nbsPrbsPatternIndex, nbsPrbsMib=nbsPrbsMib, nbsPrbsTrapCheckerSyncIn=nbsPrbsTrapCheckerSyncIn, nbsPrbsTrapCheckerSyncOut=nbsPrbsTrapCheckerSyncOut, nbsPrbsPatternDesc=nbsPrbsPatternDesc, nbsPrbsTrapGeneratorStarted=nbsPrbsTrapGeneratorStarted, InterfaceIndex=InterfaceIndex, nbsPrbsTrapCheckerErrorDetected=nbsPrbsTrapCheckerErrorDetected, nbsPrbsCheckStatus=nbsPrbsCheckStatus, nbsPrbsGenTableSize=nbsPrbsGenTableSize, nbsPrbsTrapGeneratorStopped=nbsPrbsTrapGeneratorStopped, nbsPrbsCheckProgress=nbsPrbsCheckProgress, nbsPrbsCheckTable=nbsPrbsCheckTable, nbsPrbsGenPatternIndex=nbsPrbsGenPatternIndex, nbsPrbsCheckIfIndex=nbsPrbsCheckIfIndex, nbsPrbsCheckEntry=nbsPrbsCheckEntry, nbsPrbsGenStatus=nbsPrbsGenStatus, nbsPrbsCheckGrp=nbsPrbsCheckGrp, nbsPrbsTrapCheckerStarted=nbsPrbsTrapCheckerStarted, nbsPrbsPatternGrp=nbsPrbsPatternGrp, nbsPrbsTrapCheckerStopped=nbsPrbsTrapCheckerStopped, nbsPrbsTrapCheckerStatusUpdate=nbsPrbsTrapCheckerStatusUpdate, nbsPrbsGenGrp=nbsPrbsGenGrp, nbsPrbsPatternEntry=nbsPrbsPatternEntry, nbsPrbsGenDuration=nbsPrbsGenDuration, nbsPrbsCheckDurationMax=nbsPrbsCheckDurationMax, nbsPrbsCheckDuration=nbsPrbsCheckDuration, nbsPrbsPatternTable=nbsPrbsPatternTable, nbsPrbsTraps0=nbsPrbsTraps0, nbsPrbsCheckAction=nbsPrbsCheckAction, nbsPrbsGenIfIndex=nbsPrbsGenIfIndex, nbsPrbsGenAction=nbsPrbsGenAction, nbsPrbsCheckPatternCaps=nbsPrbsCheckPatternCaps, nbsPrbsTrapCheckerOverflowed=nbsPrbsTrapCheckerOverflowed, nbsPrbsGenEntry=nbsPrbsGenEntry, nbsPrbsGenTable=nbsPrbsGenTable, nbsPrbsGenDurationMax=nbsPrbsGenDurationMax, nbsPrbsCheckErrors=nbsPrbsCheckErrors, nbsPrbsPatternName=nbsPrbsPatternName)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(nbs,
+ nbsCmmcChassisIndex,
+ nbsCmmcPortIndex,
+ nbsCmmcPortName,
+ nbsCmmcSlotIndex) = mibBuilder.importSymbols(
+    "NBS-CMMC-MIB",
+    "nbs",
+    "nbsCmmcChassisIndex",
+    "nbsCmmcPortIndex",
+    "nbsCmmcPortName",
+    "nbsCmmcSlotIndex")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+nbsPrbsMib = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 629, 212)
+)
+
+
+# Types definitions
+
+
+
+class InterfaceIndex(Integer32):
+    """Custom type InterfaceIndex based on Integer32"""
+
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_NbsPrbsPatternGrp_ObjectIdentity = ObjectIdentity
+nbsPrbsPatternGrp = _NbsPrbsPatternGrp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 629, 212, 1)
+)
+if mibBuilder.loadTexts:
+    nbsPrbsPatternGrp.setStatus("current")
+_NbsPrbsPatternTableSize_Type = Unsigned32
+_NbsPrbsPatternTableSize_Object = MibScalar
+nbsPrbsPatternTableSize = _NbsPrbsPatternTableSize_Object(
+    (1, 3, 6, 1, 4, 1, 629, 212, 1, 1),
+    _NbsPrbsPatternTableSize_Type()
+)
+nbsPrbsPatternTableSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsPrbsPatternTableSize.setStatus("current")
+_NbsPrbsPatternTable_Object = MibTable
+nbsPrbsPatternTable = _NbsPrbsPatternTable_Object(
+    (1, 3, 6, 1, 4, 1, 629, 212, 1, 2)
+)
+if mibBuilder.loadTexts:
+    nbsPrbsPatternTable.setStatus("current")
+_NbsPrbsPatternEntry_Object = MibTableRow
+nbsPrbsPatternEntry = _NbsPrbsPatternEntry_Object(
+    (1, 3, 6, 1, 4, 1, 629, 212, 1, 2, 1)
+)
+nbsPrbsPatternEntry.setIndexNames(
+    (0, "NBS-PRBS-MIB", "nbsPrbsPatternIndex"),
+)
+if mibBuilder.loadTexts:
+    nbsPrbsPatternEntry.setStatus("current")
+_NbsPrbsPatternIndex_Type = Integer32
+_NbsPrbsPatternIndex_Object = MibTableColumn
+nbsPrbsPatternIndex = _NbsPrbsPatternIndex_Object(
+    (1, 3, 6, 1, 4, 1, 629, 212, 1, 2, 1, 1),
+    _NbsPrbsPatternIndex_Type()
+)
+nbsPrbsPatternIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    nbsPrbsPatternIndex.setStatus("current")
+_NbsPrbsPatternName_Type = DisplayString
+_NbsPrbsPatternName_Object = MibTableColumn
+nbsPrbsPatternName = _NbsPrbsPatternName_Object(
+    (1, 3, 6, 1, 4, 1, 629, 212, 1, 2, 1, 2),
+    _NbsPrbsPatternName_Type()
+)
+nbsPrbsPatternName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsPrbsPatternName.setStatus("current")
+_NbsPrbsPatternDesc_Type = DisplayString
+_NbsPrbsPatternDesc_Object = MibTableColumn
+nbsPrbsPatternDesc = _NbsPrbsPatternDesc_Object(
+    (1, 3, 6, 1, 4, 1, 629, 212, 1, 2, 1, 3),
+    _NbsPrbsPatternDesc_Type()
+)
+nbsPrbsPatternDesc.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsPrbsPatternDesc.setStatus("current")
+_NbsPrbsGenGrp_ObjectIdentity = ObjectIdentity
+nbsPrbsGenGrp = _NbsPrbsGenGrp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 629, 212, 2)
+)
+if mibBuilder.loadTexts:
+    nbsPrbsGenGrp.setStatus("current")
+_NbsPrbsGenTableSize_Type = Unsigned32
+_NbsPrbsGenTableSize_Object = MibScalar
+nbsPrbsGenTableSize = _NbsPrbsGenTableSize_Object(
+    (1, 3, 6, 1, 4, 1, 629, 212, 2, 1),
+    _NbsPrbsGenTableSize_Type()
+)
+nbsPrbsGenTableSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsPrbsGenTableSize.setStatus("current")
+_NbsPrbsGenTable_Object = MibTable
+nbsPrbsGenTable = _NbsPrbsGenTable_Object(
+    (1, 3, 6, 1, 4, 1, 629, 212, 2, 2)
+)
+if mibBuilder.loadTexts:
+    nbsPrbsGenTable.setStatus("current")
+_NbsPrbsGenEntry_Object = MibTableRow
+nbsPrbsGenEntry = _NbsPrbsGenEntry_Object(
+    (1, 3, 6, 1, 4, 1, 629, 212, 2, 2, 1)
+)
+nbsPrbsGenEntry.setIndexNames(
+    (0, "NBS-PRBS-MIB", "nbsPrbsGenIfIndex"),
+)
+if mibBuilder.loadTexts:
+    nbsPrbsGenEntry.setStatus("current")
+_NbsPrbsGenIfIndex_Type = InterfaceIndex
+_NbsPrbsGenIfIndex_Object = MibTableColumn
+nbsPrbsGenIfIndex = _NbsPrbsGenIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 629, 212, 2, 2, 1, 1),
+    _NbsPrbsGenIfIndex_Type()
+)
+nbsPrbsGenIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    nbsPrbsGenIfIndex.setStatus("current")
+_NbsPrbsGenPatternCaps_Type = OctetString
+_NbsPrbsGenPatternCaps_Object = MibTableColumn
+nbsPrbsGenPatternCaps = _NbsPrbsGenPatternCaps_Object(
+    (1, 3, 6, 1, 4, 1, 629, 212, 2, 2, 1, 2),
+    _NbsPrbsGenPatternCaps_Type()
+)
+nbsPrbsGenPatternCaps.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsPrbsGenPatternCaps.setStatus("current")
+_NbsPrbsGenPatternIndex_Type = Integer32
+_NbsPrbsGenPatternIndex_Object = MibTableColumn
+nbsPrbsGenPatternIndex = _NbsPrbsGenPatternIndex_Object(
+    (1, 3, 6, 1, 4, 1, 629, 212, 2, 2, 1, 3),
+    _NbsPrbsGenPatternIndex_Type()
+)
+nbsPrbsGenPatternIndex.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nbsPrbsGenPatternIndex.setStatus("current")
+
+
+class _NbsPrbsGenDurationMax_Type(Integer32):
+    """Custom type nbsPrbsGenDurationMax based on Integer32"""
+    defaultValue = 0
+
+
+_NbsPrbsGenDurationMax_Object = MibTableColumn
+nbsPrbsGenDurationMax = _NbsPrbsGenDurationMax_Object(
+    (1, 3, 6, 1, 4, 1, 629, 212, 2, 2, 1, 4),
+    _NbsPrbsGenDurationMax_Type()
+)
+nbsPrbsGenDurationMax.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsPrbsGenDurationMax.setStatus("current")
+
+
+class _NbsPrbsGenDuration_Type(Integer32):
+    """Custom type nbsPrbsGenDuration based on Integer32"""
+    defaultValue = 60
+
+
+_NbsPrbsGenDuration_Object = MibTableColumn
+nbsPrbsGenDuration = _NbsPrbsGenDuration_Object(
+    (1, 3, 6, 1, 4, 1, 629, 212, 2, 2, 1, 5),
+    _NbsPrbsGenDuration_Type()
+)
+nbsPrbsGenDuration.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nbsPrbsGenDuration.setStatus("current")
+
+
+class _NbsPrbsGenAction_Type(Integer32):
+    """Custom type nbsPrbsGenAction based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notSupported", 1),
+          ("start", 3),
+          ("stop", 2))
+    )
+
+
+_NbsPrbsGenAction_Type.__name__ = "Integer32"
+_NbsPrbsGenAction_Object = MibTableColumn
+nbsPrbsGenAction = _NbsPrbsGenAction_Object(
+    (1, 3, 6, 1, 4, 1, 629, 212, 2, 2, 1, 6),
+    _NbsPrbsGenAction_Type()
+)
+nbsPrbsGenAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nbsPrbsGenAction.setStatus("current")
+
+
+class _NbsPrbsGenStatus_Type(Integer32):
+    """Custom type nbsPrbsGenStatus based on Integer32"""
+    defaultValue = 3
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("generating", 4),
+          ("idle", 3),
+          ("notSupported", 1),
+          ("unknown", 2))
+    )
+
+
+_NbsPrbsGenStatus_Type.__name__ = "Integer32"
+_NbsPrbsGenStatus_Object = MibTableColumn
+nbsPrbsGenStatus = _NbsPrbsGenStatus_Object(
+    (1, 3, 6, 1, 4, 1, 629, 212, 2, 2, 1, 7),
+    _NbsPrbsGenStatus_Type()
+)
+nbsPrbsGenStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsPrbsGenStatus.setStatus("current")
+_NbsPrbsGenProgress_Type = Counter32
+_NbsPrbsGenProgress_Object = MibTableColumn
+nbsPrbsGenProgress = _NbsPrbsGenProgress_Object(
+    (1, 3, 6, 1, 4, 1, 629, 212, 2, 2, 1, 8),
+    _NbsPrbsGenProgress_Type()
+)
+nbsPrbsGenProgress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsPrbsGenProgress.setStatus("current")
+_NbsPrbsCheckGrp_ObjectIdentity = ObjectIdentity
+nbsPrbsCheckGrp = _NbsPrbsCheckGrp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 629, 212, 3)
+)
+if mibBuilder.loadTexts:
+    nbsPrbsCheckGrp.setStatus("current")
+_NbsPrbsCheckTableSize_Type = Unsigned32
+_NbsPrbsCheckTableSize_Object = MibScalar
+nbsPrbsCheckTableSize = _NbsPrbsCheckTableSize_Object(
+    (1, 3, 6, 1, 4, 1, 629, 212, 3, 1),
+    _NbsPrbsCheckTableSize_Type()
+)
+nbsPrbsCheckTableSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsPrbsCheckTableSize.setStatus("current")
+_NbsPrbsCheckTable_Object = MibTable
+nbsPrbsCheckTable = _NbsPrbsCheckTable_Object(
+    (1, 3, 6, 1, 4, 1, 629, 212, 3, 2)
+)
+if mibBuilder.loadTexts:
+    nbsPrbsCheckTable.setStatus("current")
+_NbsPrbsCheckEntry_Object = MibTableRow
+nbsPrbsCheckEntry = _NbsPrbsCheckEntry_Object(
+    (1, 3, 6, 1, 4, 1, 629, 212, 3, 2, 1)
+)
+nbsPrbsCheckEntry.setIndexNames(
+    (0, "NBS-PRBS-MIB", "nbsPrbsCheckIfIndex"),
+)
+if mibBuilder.loadTexts:
+    nbsPrbsCheckEntry.setStatus("current")
+_NbsPrbsCheckIfIndex_Type = InterfaceIndex
+_NbsPrbsCheckIfIndex_Object = MibTableColumn
+nbsPrbsCheckIfIndex = _NbsPrbsCheckIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 629, 212, 3, 2, 1, 1),
+    _NbsPrbsCheckIfIndex_Type()
+)
+nbsPrbsCheckIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    nbsPrbsCheckIfIndex.setStatus("current")
+_NbsPrbsCheckPatternCaps_Type = OctetString
+_NbsPrbsCheckPatternCaps_Object = MibTableColumn
+nbsPrbsCheckPatternCaps = _NbsPrbsCheckPatternCaps_Object(
+    (1, 3, 6, 1, 4, 1, 629, 212, 3, 2, 1, 2),
+    _NbsPrbsCheckPatternCaps_Type()
+)
+nbsPrbsCheckPatternCaps.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsPrbsCheckPatternCaps.setStatus("current")
+_NbsPrbsCheckPatternIndex_Type = Integer32
+_NbsPrbsCheckPatternIndex_Object = MibTableColumn
+nbsPrbsCheckPatternIndex = _NbsPrbsCheckPatternIndex_Object(
+    (1, 3, 6, 1, 4, 1, 629, 212, 3, 2, 1, 3),
+    _NbsPrbsCheckPatternIndex_Type()
+)
+nbsPrbsCheckPatternIndex.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nbsPrbsCheckPatternIndex.setStatus("current")
+
+
+class _NbsPrbsCheckDurationMax_Type(Integer32):
+    """Custom type nbsPrbsCheckDurationMax based on Integer32"""
+    defaultValue = 0
+
+
+_NbsPrbsCheckDurationMax_Object = MibTableColumn
+nbsPrbsCheckDurationMax = _NbsPrbsCheckDurationMax_Object(
+    (1, 3, 6, 1, 4, 1, 629, 212, 3, 2, 1, 4),
+    _NbsPrbsCheckDurationMax_Type()
+)
+nbsPrbsCheckDurationMax.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsPrbsCheckDurationMax.setStatus("current")
+
+
+class _NbsPrbsCheckDuration_Type(Integer32):
+    """Custom type nbsPrbsCheckDuration based on Integer32"""
+    defaultValue = 60
+
+
+_NbsPrbsCheckDuration_Object = MibTableColumn
+nbsPrbsCheckDuration = _NbsPrbsCheckDuration_Object(
+    (1, 3, 6, 1, 4, 1, 629, 212, 3, 2, 1, 5),
+    _NbsPrbsCheckDuration_Type()
+)
+nbsPrbsCheckDuration.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nbsPrbsCheckDuration.setStatus("current")
+
+
+class _NbsPrbsCheckAction_Type(Integer32):
+    """Custom type nbsPrbsCheckAction based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notSupported", 1),
+          ("start", 3),
+          ("stop", 2))
+    )
+
+
+_NbsPrbsCheckAction_Type.__name__ = "Integer32"
+_NbsPrbsCheckAction_Object = MibTableColumn
+nbsPrbsCheckAction = _NbsPrbsCheckAction_Object(
+    (1, 3, 6, 1, 4, 1, 629, 212, 3, 2, 1, 6),
+    _NbsPrbsCheckAction_Type()
+)
+nbsPrbsCheckAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nbsPrbsCheckAction.setStatus("current")
+
+
+class _NbsPrbsCheckStatus_Type(Integer32):
+    """Custom type nbsPrbsCheckStatus based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("errOverflow", 6),
+          ("error", 5),
+          ("gaveUp", 7),
+          ("idle", 2),
+          ("notSupported", 1),
+          ("syncIn", 3),
+          ("syncOut", 4))
+    )
+
+
+_NbsPrbsCheckStatus_Type.__name__ = "Integer32"
+_NbsPrbsCheckStatus_Object = MibTableColumn
+nbsPrbsCheckStatus = _NbsPrbsCheckStatus_Object(
+    (1, 3, 6, 1, 4, 1, 629, 212, 3, 2, 1, 7),
+    _NbsPrbsCheckStatus_Type()
+)
+nbsPrbsCheckStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsPrbsCheckStatus.setStatus("current")
+_NbsPrbsCheckProgress_Type = Counter32
+_NbsPrbsCheckProgress_Object = MibTableColumn
+nbsPrbsCheckProgress = _NbsPrbsCheckProgress_Object(
+    (1, 3, 6, 1, 4, 1, 629, 212, 3, 2, 1, 8),
+    _NbsPrbsCheckProgress_Type()
+)
+nbsPrbsCheckProgress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsPrbsCheckProgress.setStatus("current")
+_NbsPrbsCheckErrors_Type = Counter32
+_NbsPrbsCheckErrors_Object = MibTableColumn
+nbsPrbsCheckErrors = _NbsPrbsCheckErrors_Object(
+    (1, 3, 6, 1, 4, 1, 629, 212, 3, 2, 1, 9),
+    _NbsPrbsCheckErrors_Type()
+)
+nbsPrbsCheckErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsPrbsCheckErrors.setStatus("current")
+
+
+class _NbsPrbsCheckUpdateFreq_Type(Integer32):
+    """Custom type nbsPrbsCheckUpdateFreq based on Integer32"""
+    defaultValue = 0
+
+
+_NbsPrbsCheckUpdateFreq_Object = MibTableColumn
+nbsPrbsCheckUpdateFreq = _NbsPrbsCheckUpdateFreq_Object(
+    (1, 3, 6, 1, 4, 1, 629, 212, 3, 2, 1, 10),
+    _NbsPrbsCheckUpdateFreq_Type()
+)
+nbsPrbsCheckUpdateFreq.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nbsPrbsCheckUpdateFreq.setStatus("current")
+_NbsPrbsTrapGrp_ObjectIdentity = ObjectIdentity
+nbsPrbsTrapGrp = _NbsPrbsTrapGrp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 629, 212, 200)
+)
+if mibBuilder.loadTexts:
+    nbsPrbsTrapGrp.setStatus("current")
+_NbsPrbsTraps0_ObjectIdentity = ObjectIdentity
+nbsPrbsTraps0 = _NbsPrbsTraps0_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 629, 212, 200, 0)
+)
+if mibBuilder.loadTexts:
+    nbsPrbsTraps0.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+nbsPrbsTrapGeneratorStarted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 629, 212, 200, 0, 10)
+)
+nbsPrbsTrapGeneratorStarted.setObjects(
+      *(("NBS-CMMC-MIB", "nbsCmmcChassisIndex"),
+        ("NBS-CMMC-MIB", "nbsCmmcSlotIndex"),
+        ("NBS-CMMC-MIB", "nbsCmmcPortIndex"),
+        ("NBS-CMMC-MIB", "nbsCmmcPortName"))
+)
+if mibBuilder.loadTexts:
+    nbsPrbsTrapGeneratorStarted.setStatus(
+        "current"
+    )
+
+nbsPrbsTrapGeneratorStopped = NotificationType(
+    (1, 3, 6, 1, 4, 1, 629, 212, 200, 0, 11)
+)
+nbsPrbsTrapGeneratorStopped.setObjects(
+      *(("NBS-CMMC-MIB", "nbsCmmcChassisIndex"),
+        ("NBS-CMMC-MIB", "nbsCmmcSlotIndex"),
+        ("NBS-CMMC-MIB", "nbsCmmcPortIndex"),
+        ("NBS-CMMC-MIB", "nbsCmmcPortName"))
+)
+if mibBuilder.loadTexts:
+    nbsPrbsTrapGeneratorStopped.setStatus(
+        "current"
+    )
+
+nbsPrbsTrapCheckerStarted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 629, 212, 200, 0, 20)
+)
+nbsPrbsTrapCheckerStarted.setObjects(
+      *(("NBS-CMMC-MIB", "nbsCmmcChassisIndex"),
+        ("NBS-CMMC-MIB", "nbsCmmcSlotIndex"),
+        ("NBS-CMMC-MIB", "nbsCmmcPortIndex"),
+        ("NBS-CMMC-MIB", "nbsCmmcPortName"))
+)
+if mibBuilder.loadTexts:
+    nbsPrbsTrapCheckerStarted.setStatus(
+        "current"
+    )
+
+nbsPrbsTrapCheckerStopped = NotificationType(
+    (1, 3, 6, 1, 4, 1, 629, 212, 200, 0, 21)
+)
+nbsPrbsTrapCheckerStopped.setObjects(
+      *(("NBS-CMMC-MIB", "nbsCmmcChassisIndex"),
+        ("NBS-CMMC-MIB", "nbsCmmcSlotIndex"),
+        ("NBS-CMMC-MIB", "nbsCmmcPortIndex"),
+        ("NBS-CMMC-MIB", "nbsCmmcPortName"),
+        ("NBS-PRBS-MIB", "nbsPrbsCheckStatus"))
+)
+if mibBuilder.loadTexts:
+    nbsPrbsTrapCheckerStopped.setStatus(
+        "current"
+    )
+
+nbsPrbsTrapCheckerOverflowed = NotificationType(
+    (1, 3, 6, 1, 4, 1, 629, 212, 200, 0, 22)
+)
+nbsPrbsTrapCheckerOverflowed.setObjects(
+      *(("NBS-CMMC-MIB", "nbsCmmcChassisIndex"),
+        ("NBS-CMMC-MIB", "nbsCmmcSlotIndex"),
+        ("NBS-CMMC-MIB", "nbsCmmcPortIndex"),
+        ("NBS-CMMC-MIB", "nbsCmmcPortName"))
+)
+if mibBuilder.loadTexts:
+    nbsPrbsTrapCheckerOverflowed.setStatus(
+        "current"
+    )
+
+nbsPrbsTrapCheckerErrorDetected = NotificationType(
+    (1, 3, 6, 1, 4, 1, 629, 212, 200, 0, 23)
+)
+nbsPrbsTrapCheckerErrorDetected.setObjects(
+      *(("NBS-CMMC-MIB", "nbsCmmcChassisIndex"),
+        ("NBS-CMMC-MIB", "nbsCmmcSlotIndex"),
+        ("NBS-CMMC-MIB", "nbsCmmcPortIndex"),
+        ("NBS-CMMC-MIB", "nbsCmmcPortName"),
+        ("NBS-PRBS-MIB", "nbsPrbsCheckStatus"))
+)
+if mibBuilder.loadTexts:
+    nbsPrbsTrapCheckerErrorDetected.setStatus(
+        "current"
+    )
+
+nbsPrbsTrapCheckerStatusUpdate = NotificationType(
+    (1, 3, 6, 1, 4, 1, 629, 212, 200, 0, 24)
+)
+nbsPrbsTrapCheckerStatusUpdate.setObjects(
+      *(("NBS-CMMC-MIB", "nbsCmmcChassisIndex"),
+        ("NBS-CMMC-MIB", "nbsCmmcSlotIndex"),
+        ("NBS-CMMC-MIB", "nbsCmmcPortIndex"),
+        ("NBS-CMMC-MIB", "nbsCmmcPortName"),
+        ("NBS-PRBS-MIB", "nbsPrbsCheckStatus"),
+        ("NBS-PRBS-MIB", "nbsPrbsCheckErrors"),
+        ("NBS-PRBS-MIB", "nbsPrbsCheckProgress"))
+)
+if mibBuilder.loadTexts:
+    nbsPrbsTrapCheckerStatusUpdate.setStatus(
+        "current"
+    )
+
+nbsPrbsTrapCheckerSyncIn = NotificationType(
+    (1, 3, 6, 1, 4, 1, 629, 212, 200, 0, 25)
+)
+nbsPrbsTrapCheckerSyncIn.setObjects(
+      *(("NBS-CMMC-MIB", "nbsCmmcChassisIndex"),
+        ("NBS-CMMC-MIB", "nbsCmmcSlotIndex"),
+        ("NBS-CMMC-MIB", "nbsCmmcPortIndex"),
+        ("NBS-CMMC-MIB", "nbsCmmcPortName"),
+        ("NBS-PRBS-MIB", "nbsPrbsCheckStatus"))
+)
+if mibBuilder.loadTexts:
+    nbsPrbsTrapCheckerSyncIn.setStatus(
+        "current"
+    )
+
+nbsPrbsTrapCheckerSyncOut = NotificationType(
+    (1, 3, 6, 1, 4, 1, 629, 212, 200, 0, 26)
+)
+nbsPrbsTrapCheckerSyncOut.setObjects(
+      *(("NBS-CMMC-MIB", "nbsCmmcChassisIndex"),
+        ("NBS-CMMC-MIB", "nbsCmmcSlotIndex"),
+        ("NBS-CMMC-MIB", "nbsCmmcPortIndex"),
+        ("NBS-CMMC-MIB", "nbsCmmcPortName"),
+        ("NBS-PRBS-MIB", "nbsPrbsCheckStatus"))
+)
+if mibBuilder.loadTexts:
+    nbsPrbsTrapCheckerSyncOut.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "NBS-PRBS-MIB",
+    **{"InterfaceIndex": InterfaceIndex,
+       "nbsPrbsMib": nbsPrbsMib,
+       "nbsPrbsPatternGrp": nbsPrbsPatternGrp,
+       "nbsPrbsPatternTableSize": nbsPrbsPatternTableSize,
+       "nbsPrbsPatternTable": nbsPrbsPatternTable,
+       "nbsPrbsPatternEntry": nbsPrbsPatternEntry,
+       "nbsPrbsPatternIndex": nbsPrbsPatternIndex,
+       "nbsPrbsPatternName": nbsPrbsPatternName,
+       "nbsPrbsPatternDesc": nbsPrbsPatternDesc,
+       "nbsPrbsGenGrp": nbsPrbsGenGrp,
+       "nbsPrbsGenTableSize": nbsPrbsGenTableSize,
+       "nbsPrbsGenTable": nbsPrbsGenTable,
+       "nbsPrbsGenEntry": nbsPrbsGenEntry,
+       "nbsPrbsGenIfIndex": nbsPrbsGenIfIndex,
+       "nbsPrbsGenPatternCaps": nbsPrbsGenPatternCaps,
+       "nbsPrbsGenPatternIndex": nbsPrbsGenPatternIndex,
+       "nbsPrbsGenDurationMax": nbsPrbsGenDurationMax,
+       "nbsPrbsGenDuration": nbsPrbsGenDuration,
+       "nbsPrbsGenAction": nbsPrbsGenAction,
+       "nbsPrbsGenStatus": nbsPrbsGenStatus,
+       "nbsPrbsGenProgress": nbsPrbsGenProgress,
+       "nbsPrbsCheckGrp": nbsPrbsCheckGrp,
+       "nbsPrbsCheckTableSize": nbsPrbsCheckTableSize,
+       "nbsPrbsCheckTable": nbsPrbsCheckTable,
+       "nbsPrbsCheckEntry": nbsPrbsCheckEntry,
+       "nbsPrbsCheckIfIndex": nbsPrbsCheckIfIndex,
+       "nbsPrbsCheckPatternCaps": nbsPrbsCheckPatternCaps,
+       "nbsPrbsCheckPatternIndex": nbsPrbsCheckPatternIndex,
+       "nbsPrbsCheckDurationMax": nbsPrbsCheckDurationMax,
+       "nbsPrbsCheckDuration": nbsPrbsCheckDuration,
+       "nbsPrbsCheckAction": nbsPrbsCheckAction,
+       "nbsPrbsCheckStatus": nbsPrbsCheckStatus,
+       "nbsPrbsCheckProgress": nbsPrbsCheckProgress,
+       "nbsPrbsCheckErrors": nbsPrbsCheckErrors,
+       "nbsPrbsCheckUpdateFreq": nbsPrbsCheckUpdateFreq,
+       "nbsPrbsTrapGrp": nbsPrbsTrapGrp,
+       "nbsPrbsTraps0": nbsPrbsTraps0,
+       "nbsPrbsTrapGeneratorStarted": nbsPrbsTrapGeneratorStarted,
+       "nbsPrbsTrapGeneratorStopped": nbsPrbsTrapGeneratorStopped,
+       "nbsPrbsTrapCheckerStarted": nbsPrbsTrapCheckerStarted,
+       "nbsPrbsTrapCheckerStopped": nbsPrbsTrapCheckerStopped,
+       "nbsPrbsTrapCheckerOverflowed": nbsPrbsTrapCheckerOverflowed,
+       "nbsPrbsTrapCheckerErrorDetected": nbsPrbsTrapCheckerErrorDetected,
+       "nbsPrbsTrapCheckerStatusUpdate": nbsPrbsTrapCheckerStatusUpdate,
+       "nbsPrbsTrapCheckerSyncIn": nbsPrbsTrapCheckerSyncIn,
+       "nbsPrbsTrapCheckerSyncOut": nbsPrbsTrapCheckerSyncOut}
+)

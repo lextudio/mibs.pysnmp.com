@@ -1,59 +1,246 @@
+# SNMP MIB module (CISCO-RMON-CONFIG-CAPABILITY) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-RMON-CONFIG-CAPABILITY (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/CISCO-RMON-CONFIG-CAPABILITY
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:54:09 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
-ciscoAgentCapability, = mibBuilder.importSymbols("CISCO-SMI", "ciscoAgentCapability")
-AgentCapabilities, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "AgentCapabilities", "ModuleCompliance", "NotificationGroup")
-IpAddress, Counter32, Gauge32, iso, ModuleIdentity, ObjectIdentity, TimeTicks, Unsigned32, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Integer32, MibIdentifier, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Counter32", "Gauge32", "iso", "ModuleIdentity", "ObjectIdentity", "TimeTicks", "Unsigned32", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Integer32", "MibIdentifier", "Bits")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-ciscoRmonConfigCapability = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 7, 346))
-ciscoRmonConfigCapability.setRevisions(('2008-10-28 00:00', '2008-05-09 00:00', '2007-06-28 00:00', '2006-01-18 00:00', '2005-08-24 10:00', '2004-03-30 00:00',))
-if mibBuilder.loadTexts: ciscoRmonConfigCapability.setLastUpdated('200810280000Z')
-if mibBuilder.loadTexts: ciscoRmonConfigCapability.setOrganization('Cisco Systems, Inc.')
-ciscoRmonConfigCapV12R0111ECat6K = AgentCapabilities((1, 3, 6, 1, 4, 1, 9, 7, 346, 1))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoRmonConfigCapV12R0111ECat6K = ciscoRmonConfigCapV12R0111ECat6K.setProductRelease('Cisco IOS 12.1(11E) on Catalyst 6000/6500\n                         and Cisco 7600 series devices.')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoRmonConfigCapV12R0111ECat6K = ciscoRmonConfigCapV12R0111ECat6K.setStatus('current')
-ciscoRmonConfigCapCatOSV6R0301 = AgentCapabilities((1, 3, 6, 1, 4, 1, 9, 7, 346, 2))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoRmonConfigCapCatOSV6R0301 = ciscoRmonConfigCapCatOSV6R0301.setProductRelease('Cisco CatOS 6.3(1).')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoRmonConfigCapCatOSV6R0301 = ciscoRmonConfigCapCatOSV6R0301.setStatus('current')
-ciscoRmonConfigCapCatOSV08R0501 = AgentCapabilities((1, 3, 6, 1, 4, 1, 9, 7, 346, 3))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoRmonConfigCapCatOSV08R0501 = ciscoRmonConfigCapCatOSV08R0501.setProductRelease('Cisco CatOS 8.5(1).')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoRmonConfigCapCatOSV08R0501 = ciscoRmonConfigCapCatOSV08R0501.setStatus('current')
-crcCapV12R0218SXDPCat6k = AgentCapabilities((1, 3, 6, 1, 4, 1, 9, 7, 346, 4))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    crcCapV12R0218SXDPCat6k = crcCapV12R0218SXDPCat6k.setProductRelease('Cisco IOS 12.2(18)SXD on Catalyst 6000/6500\n                         and Cisco 7600 series devices.')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    crcCapV12R0218SXDPCat6k = crcCapV12R0218SXDPCat6k.setStatus('current')
-crcCapV12R0218SXEPCat6k = AgentCapabilities((1, 3, 6, 1, 4, 1, 9, 7, 346, 5))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    crcCapV12R0218SXEPCat6k = crcCapV12R0218SXEPCat6k.setProductRelease('Cisco IOS 12.2(18)SXE on Catalyst 6000/6500\n                         and Cisco 7600 series devices.')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    crcCapV12R0218SXEPCat6k = crcCapV12R0218SXEPCat6k.setStatus('current')
-crcCapV12R0233SXHPCat6k = AgentCapabilities((1, 3, 6, 1, 4, 1, 9, 7, 346, 6))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    crcCapV12R0233SXHPCat6k = crcCapV12R0233SXHPCat6k.setProductRelease('Cisco IOS 12.2(33)SXH on Catalyst 6000/6500\n                         series devices.')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    crcCapV12R0233SXHPCat6k = crcCapV12R0233SXHPCat6k.setStatus('current')
-ciscoRmonConfigCapSanOSV34R1 = AgentCapabilities((1, 3, 6, 1, 4, 1, 9, 7, 346, 7))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoRmonConfigCapSanOSV34R1 = ciscoRmonConfigCapSanOSV34R1.setProductRelease('Cisco SanOS 3.4(1) on MDS9000 Storage Switches.')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoRmonConfigCapSanOSV34R1 = ciscoRmonConfigCapSanOSV34R1.setStatus('current')
-crcCapV12R0233SXIPCat6K = AgentCapabilities((1, 3, 6, 1, 4, 1, 9, 7, 346, 8))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    crcCapV12R0233SXIPCat6K = crcCapV12R0233SXIPCat6K.setProductRelease('Cisco IOS 12.2(33)SXI on Catalyst 6000/6500\n                    series devices.')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    crcCapV12R0233SXIPCat6K = crcCapV12R0233SXIPCat6K.setStatus('current')
-mibBuilder.exportSymbols("CISCO-RMON-CONFIG-CAPABILITY", crcCapV12R0218SXEPCat6k=crcCapV12R0218SXEPCat6k, ciscoRmonConfigCapCatOSV6R0301=ciscoRmonConfigCapCatOSV6R0301, PYSNMP_MODULE_ID=ciscoRmonConfigCapability, ciscoRmonConfigCapV12R0111ECat6K=ciscoRmonConfigCapV12R0111ECat6K, ciscoRmonConfigCapability=ciscoRmonConfigCapability, ciscoRmonConfigCapSanOSV34R1=ciscoRmonConfigCapSanOSV34R1, crcCapV12R0218SXDPCat6k=crcCapV12R0218SXDPCat6k, crcCapV12R0233SXHPCat6k=crcCapV12R0233SXHPCat6k, crcCapV12R0233SXIPCat6K=crcCapV12R0233SXIPCat6K, ciscoRmonConfigCapCatOSV08R0501=ciscoRmonConfigCapCatOSV08R0501)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CISCO-RMON-CONFIG-CAPABILITY
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:07:38 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ciscoAgentCapability,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoAgentCapability")
+
+(AgentCapabilities,
+ ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "AgentCapabilities",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+ciscoRmonConfigCapability = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 7, 346)
+)
+ciscoRmonConfigCapability.setRevisions(
+        ("2008-10-28 00:00",
+         "2008-05-09 00:00",
+         "2007-06-28 00:00",
+         "2006-01-18 00:00",
+         "2005-08-24 10:00",
+         "2004-03-30 00:00")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+ciscoRmonConfigCapV12R0111ECat6K = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 9, 7, 346, 1)
+)
+if mibBuilder.loadTexts:
+    ciscoRmonConfigCapV12R0111ECat6K.setProductRelease("""\
+Cisco IOS 12.1(11E) on Catalyst 6000/6500
+                         and Cisco 7600 series devices.""")
+if mibBuilder.loadTexts:
+    ciscoRmonConfigCapV12R0111ECat6K.setStatus(
+        "current"
+    )
+
+ciscoRmonConfigCapCatOSV6R0301 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 9, 7, 346, 2)
+)
+if mibBuilder.loadTexts:
+    ciscoRmonConfigCapCatOSV6R0301.setProductRelease("Cisco CatOS 6.3(1).")
+if mibBuilder.loadTexts:
+    ciscoRmonConfigCapCatOSV6R0301.setStatus(
+        "current"
+    )
+
+ciscoRmonConfigCapCatOSV08R0501 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 9, 7, 346, 3)
+)
+if mibBuilder.loadTexts:
+    ciscoRmonConfigCapCatOSV08R0501.setProductRelease("Cisco CatOS 8.5(1).")
+if mibBuilder.loadTexts:
+    ciscoRmonConfigCapCatOSV08R0501.setStatus(
+        "current"
+    )
+
+crcCapV12R0218SXDPCat6k = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 9, 7, 346, 4)
+)
+if mibBuilder.loadTexts:
+    crcCapV12R0218SXDPCat6k.setProductRelease("""\
+Cisco IOS 12.2(18)SXD on Catalyst 6000/6500
+                         and Cisco 7600 series devices.""")
+if mibBuilder.loadTexts:
+    crcCapV12R0218SXDPCat6k.setStatus(
+        "current"
+    )
+
+crcCapV12R0218SXEPCat6k = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 9, 7, 346, 5)
+)
+if mibBuilder.loadTexts:
+    crcCapV12R0218SXEPCat6k.setProductRelease("""\
+Cisco IOS 12.2(18)SXE on Catalyst 6000/6500
+                         and Cisco 7600 series devices.""")
+if mibBuilder.loadTexts:
+    crcCapV12R0218SXEPCat6k.setStatus(
+        "current"
+    )
+
+crcCapV12R0233SXHPCat6k = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 9, 7, 346, 6)
+)
+if mibBuilder.loadTexts:
+    crcCapV12R0233SXHPCat6k.setProductRelease("""\
+Cisco IOS 12.2(33)SXH on Catalyst 6000/6500
+                         series devices.""")
+if mibBuilder.loadTexts:
+    crcCapV12R0233SXHPCat6k.setStatus(
+        "current"
+    )
+
+ciscoRmonConfigCapSanOSV34R1 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 9, 7, 346, 7)
+)
+if mibBuilder.loadTexts:
+    ciscoRmonConfigCapSanOSV34R1.setProductRelease("Cisco SanOS 3.4(1) on MDS9000 Storage Switches.")
+if mibBuilder.loadTexts:
+    ciscoRmonConfigCapSanOSV34R1.setStatus(
+        "current"
+    )
+
+crcCapV12R0233SXIPCat6K = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 9, 7, 346, 8)
+)
+if mibBuilder.loadTexts:
+    crcCapV12R0233SXIPCat6K.setProductRelease("""\
+Cisco IOS 12.2(33)SXI on Catalyst 6000/6500
+                    series devices.""")
+if mibBuilder.loadTexts:
+    crcCapV12R0233SXIPCat6K.setStatus(
+        "current"
+    )
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-RMON-CONFIG-CAPABILITY",
+    **{"ciscoRmonConfigCapability": ciscoRmonConfigCapability,
+       "ciscoRmonConfigCapV12R0111ECat6K": ciscoRmonConfigCapV12R0111ECat6K,
+       "ciscoRmonConfigCapCatOSV6R0301": ciscoRmonConfigCapCatOSV6R0301,
+       "ciscoRmonConfigCapCatOSV08R0501": ciscoRmonConfigCapCatOSV08R0501,
+       "crcCapV12R0218SXDPCat6k": crcCapV12R0218SXDPCat6k,
+       "crcCapV12R0218SXEPCat6k": crcCapV12R0218SXEPCat6k,
+       "crcCapV12R0233SXHPCat6k": crcCapV12R0233SXHPCat6k,
+       "ciscoRmonConfigCapSanOSV34R1": ciscoRmonConfigCapSanOSV34R1,
+       "crcCapV12R0233SXIPCat6K": crcCapV12R0233SXIPCat6K}
+)

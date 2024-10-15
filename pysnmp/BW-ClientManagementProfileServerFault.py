@@ -1,27 +1,243 @@
+# SNMP MIB module (BW-ClientManagementProfileServerFault) expressed in pysnmp data model.
 #
-# PySNMP MIB module BW-ClientManagementProfileServerFault (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/BW-ClientManagementProfileServerFault
-# Produced by pysmi-0.3.4 at Mon Apr 29 17:25:03 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint")
-faultFields, severity, component, common, alarmState, subcomponent, recommendedActionsText, identifier, problemText, systemName, alarmName, timeStamp = mibBuilder.importSymbols("BroadworksFault", "faultFields", "severity", "component", "common", "alarmState", "subcomponent", "recommendedActionsText", "identifier", "problemText", "systemName", "alarmName", "timeStamp")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Bits, Integer32, iso, Counter32, Gauge32, Unsigned32, IpAddress, TimeTicks, Counter64, NotificationType, ModuleIdentity, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Integer32", "iso", "Counter32", "Gauge32", "Unsigned32", "IpAddress", "TimeTicks", "Counter64", "NotificationType", "ModuleIdentity", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-systemFaults = ModuleIdentity((1, 3, 6, 1, 4, 1, 6431, 1, 1, 1))
-systemFaults.setRevisions(('2000-09-19 14:31',))
-if mibBuilder.loadTexts: systemFaults.setLastUpdated('200201220000Z')
-if mibBuilder.loadTexts: systemFaults.setOrganization('Broadsoft, Inc')
-bwPMClientManagementProfileServerLaunched = NotificationType((1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 5001)).setObjects(("BroadworksFault", "identifier"), ("BroadworksFault", "timeStamp"), ("BroadworksFault", "alarmName"), ("BroadworksFault", "systemName"), ("BroadworksFault", "severity"), ("BroadworksFault", "component"), ("BroadworksFault", "subcomponent"), ("BroadworksFault", "problemText"), ("BroadworksFault", "recommendedActionsText"))
-if mibBuilder.loadTexts: bwPMClientManagementProfileServerLaunched.setStatus('current')
-bwPMClientManagementProfileServerShutDown = NotificationType((1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 5002)).setObjects(("BroadworksFault", "identifier"), ("BroadworksFault", "timeStamp"), ("BroadworksFault", "alarmName"), ("BroadworksFault", "systemName"), ("BroadworksFault", "severity"), ("BroadworksFault", "component"), ("BroadworksFault", "subcomponent"), ("BroadworksFault", "problemText"), ("BroadworksFault", "recommendedActionsText"))
-if mibBuilder.loadTexts: bwPMClientManagementProfileServerShutDown.setStatus('current')
-bwPMClientManagementProfileServerRestarted = NotificationType((1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 5003)).setObjects(("BroadworksFault", "identifier"), ("BroadworksFault", "timeStamp"), ("BroadworksFault", "alarmName"), ("BroadworksFault", "systemName"), ("BroadworksFault", "severity"), ("BroadworksFault", "component"), ("BroadworksFault", "subcomponent"), ("BroadworksFault", "problemText"), ("BroadworksFault", "recommendedActionsText"))
-if mibBuilder.loadTexts: bwPMClientManagementProfileServerRestarted.setStatus('current')
-bwPMClientManagementProfileServerServerDeath = NotificationType((1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 5004)).setObjects(("BroadworksFault", "identifier"), ("BroadworksFault", "timeStamp"), ("BroadworksFault", "alarmName"), ("BroadworksFault", "systemName"), ("BroadworksFault", "severity"), ("BroadworksFault", "component"), ("BroadworksFault", "subcomponent"), ("BroadworksFault", "problemText"), ("BroadworksFault", "recommendedActionsText"))
-if mibBuilder.loadTexts: bwPMClientManagementProfileServerServerDeath.setStatus('current')
-mibBuilder.exportSymbols("BW-ClientManagementProfileServerFault", bwPMClientManagementProfileServerLaunched=bwPMClientManagementProfileServerLaunched, systemFaults=systemFaults, bwPMClientManagementProfileServerRestarted=bwPMClientManagementProfileServerRestarted, PYSNMP_MODULE_ID=systemFaults, bwPMClientManagementProfileServerShutDown=bwPMClientManagementProfileServerShutDown, bwPMClientManagementProfileServerServerDeath=bwPMClientManagementProfileServerServerDeath)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/BW-ClientManagementProfileServerFault
+# Produced by pysmi-1.5.4 at Mon Oct 14 20:50:07 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(alarmName,
+ alarmState,
+ common,
+ component,
+ faultFields,
+ identifier,
+ problemText,
+ recommendedActionsText,
+ severity,
+ subcomponent,
+ systemName,
+ timeStamp) = mibBuilder.importSymbols(
+    "BroadworksFault",
+    "alarmName",
+    "alarmState",
+    "common",
+    "component",
+    "faultFields",
+    "identifier",
+    "problemText",
+    "recommendedActionsText",
+    "severity",
+    "subcomponent",
+    "systemName",
+    "timeStamp")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+systemFaults = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 1, 1)
+)
+systemFaults.setRevisions(
+        ("2000-09-19 14:31",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+bwPMClientManagementProfileServerLaunched = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 5001)
+)
+bwPMClientManagementProfileServerLaunched.setObjects(
+      *(("BroadworksFault", "identifier"),
+        ("BroadworksFault", "timeStamp"),
+        ("BroadworksFault", "alarmName"),
+        ("BroadworksFault", "systemName"),
+        ("BroadworksFault", "severity"),
+        ("BroadworksFault", "component"),
+        ("BroadworksFault", "subcomponent"),
+        ("BroadworksFault", "problemText"),
+        ("BroadworksFault", "recommendedActionsText"))
+)
+if mibBuilder.loadTexts:
+    bwPMClientManagementProfileServerLaunched.setStatus(
+        "current"
+    )
+
+bwPMClientManagementProfileServerShutDown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 5002)
+)
+bwPMClientManagementProfileServerShutDown.setObjects(
+      *(("BroadworksFault", "identifier"),
+        ("BroadworksFault", "timeStamp"),
+        ("BroadworksFault", "alarmName"),
+        ("BroadworksFault", "systemName"),
+        ("BroadworksFault", "severity"),
+        ("BroadworksFault", "component"),
+        ("BroadworksFault", "subcomponent"),
+        ("BroadworksFault", "problemText"),
+        ("BroadworksFault", "recommendedActionsText"))
+)
+if mibBuilder.loadTexts:
+    bwPMClientManagementProfileServerShutDown.setStatus(
+        "current"
+    )
+
+bwPMClientManagementProfileServerRestarted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 5003)
+)
+bwPMClientManagementProfileServerRestarted.setObjects(
+      *(("BroadworksFault", "identifier"),
+        ("BroadworksFault", "timeStamp"),
+        ("BroadworksFault", "alarmName"),
+        ("BroadworksFault", "systemName"),
+        ("BroadworksFault", "severity"),
+        ("BroadworksFault", "component"),
+        ("BroadworksFault", "subcomponent"),
+        ("BroadworksFault", "problemText"),
+        ("BroadworksFault", "recommendedActionsText"))
+)
+if mibBuilder.loadTexts:
+    bwPMClientManagementProfileServerRestarted.setStatus(
+        "current"
+    )
+
+bwPMClientManagementProfileServerServerDeath = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6431, 1, 1, 1, 5004)
+)
+bwPMClientManagementProfileServerServerDeath.setObjects(
+      *(("BroadworksFault", "identifier"),
+        ("BroadworksFault", "timeStamp"),
+        ("BroadworksFault", "alarmName"),
+        ("BroadworksFault", "systemName"),
+        ("BroadworksFault", "severity"),
+        ("BroadworksFault", "component"),
+        ("BroadworksFault", "subcomponent"),
+        ("BroadworksFault", "problemText"),
+        ("BroadworksFault", "recommendedActionsText"))
+)
+if mibBuilder.loadTexts:
+    bwPMClientManagementProfileServerServerDeath.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "BW-ClientManagementProfileServerFault",
+    **{"systemFaults": systemFaults,
+       "bwPMClientManagementProfileServerLaunched": bwPMClientManagementProfileServerLaunched,
+       "bwPMClientManagementProfileServerShutDown": bwPMClientManagementProfileServerShutDown,
+       "bwPMClientManagementProfileServerRestarted": bwPMClientManagementProfileServerRestarted,
+       "bwPMClientManagementProfileServerServerDeath": bwPMClientManagementProfileServerServerDeath}
+)

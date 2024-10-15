@@ -1,74 +1,424 @@
+# SNMP MIB module (TIME-AGGREGATE-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module TIME-AGGREGATE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/TIME-AGGREGATE-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 21:09:20 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection")
-OwnerString, = mibBuilder.importSymbols("RMON-MIB", "OwnerString")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-MibIdentifier, Integer32, IpAddress, Unsigned32, Bits, Opaque, ObjectIdentity, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, experimental, TimeTicks, NotificationType, Counter64, ModuleIdentity, iso, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Integer32", "IpAddress", "Unsigned32", "Bits", "Opaque", "ObjectIdentity", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "experimental", "TimeTicks", "NotificationType", "Counter64", "ModuleIdentity", "iso", "Counter32")
-RowStatus, StorageType, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "StorageType", "TextualConvention", "DisplayString")
-tAggrMIB = ModuleIdentity((1, 3, 6, 1, 3, 124))
-tAggrMIB.setRevisions(('2006-04-27 00:00',))
-if mibBuilder.loadTexts: tAggrMIB.setLastUpdated('200604270000Z')
-if mibBuilder.loadTexts: tAggrMIB.setOrganization('Cyber Solutions Inc. NetMan Working Group')
-class TAggrMOErrorStatus(TextualConvention, Opaque):
-    status = 'current'
-    subtypeSpec = Opaque.subtypeSpec + ValueSizeConstraint(0, 1024)
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/TIME-AGGREGATE-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 23:01:47 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class TimeAggrMOValue(TextualConvention, Opaque):
-    status = 'current'
-    subtypeSpec = Opaque.subtypeSpec + ValueSizeConstraint(0, 1024)
+if 'mibBuilder' not in globals():
+    import sys
 
-class CompressedTimeAggrMOValue(TextualConvention, Opaque):
-    status = 'current'
-    subtypeSpec = Opaque.subtypeSpec + ValueSizeConstraint(0, 1024)
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-tAggrCtlTable = MibTable((1, 3, 6, 1, 3, 124, 1), )
-if mibBuilder.loadTexts: tAggrCtlTable.setStatus('current')
-tAggrCtlEntry = MibTableRow((1, 3, 6, 1, 3, 124, 1, 1), ).setIndexNames((0, "TIME-AGGREGATE-MIB", "tAggrCtlEntryID"))
-if mibBuilder.loadTexts: tAggrCtlEntry.setStatus('current')
-tAggrCtlEntryID = MibTableColumn((1, 3, 6, 1, 3, 124, 1, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 32)))
-if mibBuilder.loadTexts: tAggrCtlEntryID.setStatus('current')
-tAggrCtlMOInstance = MibTableColumn((1, 3, 6, 1, 3, 124, 1, 1, 2), ObjectIdentifier()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tAggrCtlMOInstance.setStatus('current')
-tAggrCtlAgMODescr = MibTableColumn((1, 3, 6, 1, 3, 124, 1, 1, 3), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tAggrCtlAgMODescr.setStatus('current')
-tAggrCtlInterval = MibTableColumn((1, 3, 6, 1, 3, 124, 1, 1, 4), Integer32()).setUnits('micro seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tAggrCtlInterval.setStatus('current')
-tAggrCtlSamples = MibTableColumn((1, 3, 6, 1, 3, 124, 1, 1, 5), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tAggrCtlSamples.setStatus('current')
-tAggrCtlCompressionAlgorithm = MibTableColumn((1, 3, 6, 1, 3, 124, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("none", 1), ("deflate", 2))).clone('none')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tAggrCtlCompressionAlgorithm.setStatus('current')
-tAggrCtlEntryOwner = MibTableColumn((1, 3, 6, 1, 3, 124, 1, 1, 7), OwnerString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tAggrCtlEntryOwner.setStatus('current')
-tAggrCtlEntryStorageType = MibTableColumn((1, 3, 6, 1, 3, 124, 1, 1, 8), StorageType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tAggrCtlEntryStorageType.setStatus('current')
-tAggrCtlEntryStatus = MibTableColumn((1, 3, 6, 1, 3, 124, 1, 1, 9), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tAggrCtlEntryStatus.setStatus('current')
-tAggrDataTable = MibTable((1, 3, 6, 1, 3, 124, 2), )
-if mibBuilder.loadTexts: tAggrDataTable.setStatus('current')
-tAggrDataEntry = MibTableRow((1, 3, 6, 1, 3, 124, 2, 1), ).setIndexNames((0, "TIME-AGGREGATE-MIB", "tAggrCtlEntryID"))
-if mibBuilder.loadTexts: tAggrDataEntry.setStatus('current')
-tAggrDataRecord = MibTableColumn((1, 3, 6, 1, 3, 124, 2, 1, 1), TimeAggrMOValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tAggrDataRecord.setStatus('current')
-tAggrDataRecordCompressed = MibTableColumn((1, 3, 6, 1, 3, 124, 2, 1, 2), CompressedTimeAggrMOValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tAggrDataRecordCompressed.setStatus('current')
-tAggrDataErrorRecord = MibTableColumn((1, 3, 6, 1, 3, 124, 2, 1, 3), TAggrMOErrorStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tAggrDataErrorRecord.setStatus('current')
-tAggrConformance = MibIdentifier((1, 3, 6, 1, 3, 124, 3))
-tAggrGroups = MibIdentifier((1, 3, 6, 1, 3, 124, 3, 1))
-tAggrCompliances = MibIdentifier((1, 3, 6, 1, 3, 124, 3, 2))
-tAggrMibCompliance = ModuleCompliance((1, 3, 6, 1, 3, 124, 3, 2, 1)).setObjects(("TIME-AGGREGATE-MIB", "tAggrMibBasicGroup"))
+# Import base ASN.1 objects even if this MIB does not use it
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tAggrMibCompliance = tAggrMibCompliance.setStatus('current')
-tAggrMibBasicGroup = ObjectGroup((1, 3, 6, 1, 3, 124, 3, 1, 1)).setObjects(("TIME-AGGREGATE-MIB", "tAggrCtlMOInstance"), ("TIME-AGGREGATE-MIB", "tAggrCtlAgMODescr"), ("TIME-AGGREGATE-MIB", "tAggrCtlInterval"), ("TIME-AGGREGATE-MIB", "tAggrCtlSamples"), ("TIME-AGGREGATE-MIB", "tAggrCtlCompressionAlgorithm"), ("TIME-AGGREGATE-MIB", "tAggrCtlEntryOwner"), ("TIME-AGGREGATE-MIB", "tAggrCtlEntryStorageType"), ("TIME-AGGREGATE-MIB", "tAggrCtlEntryStatus"), ("TIME-AGGREGATE-MIB", "tAggrDataRecord"), ("TIME-AGGREGATE-MIB", "tAggrDataRecordCompressed"), ("TIME-AGGREGATE-MIB", "tAggrDataErrorRecord"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tAggrMibBasicGroup = tAggrMibBasicGroup.setStatus('current')
-mibBuilder.exportSymbols("TIME-AGGREGATE-MIB", tAggrCtlInterval=tAggrCtlInterval, tAggrDataEntry=tAggrDataEntry, tAggrDataTable=tAggrDataTable, tAggrCtlTable=tAggrCtlTable, tAggrGroups=tAggrGroups, tAggrDataErrorRecord=tAggrDataErrorRecord, tAggrCompliances=tAggrCompliances, tAggrCtlEntry=tAggrCtlEntry, tAggrConformance=tAggrConformance, tAggrCtlEntryOwner=tAggrCtlEntryOwner, tAggrCtlAgMODescr=tAggrCtlAgMODescr, tAggrCtlEntryStorageType=tAggrCtlEntryStorageType, tAggrCtlSamples=tAggrCtlSamples, tAggrCtlEntryStatus=tAggrCtlEntryStatus, tAggrMibBasicGroup=tAggrMibBasicGroup, tAggrMibCompliance=tAggrMibCompliance, TimeAggrMOValue=TimeAggrMOValue, tAggrMIB=tAggrMIB, PYSNMP_MODULE_ID=tAggrMIB, tAggrCtlEntryID=tAggrCtlEntryID, tAggrDataRecord=tAggrDataRecord, tAggrDataRecordCompressed=tAggrDataRecordCompressed, tAggrCtlCompressionAlgorithm=tAggrCtlCompressionAlgorithm, CompressedTimeAggrMOValue=CompressedTimeAggrMOValue, tAggrCtlMOInstance=tAggrCtlMOInstance, TAggrMOErrorStatus=TAggrMOErrorStatus)
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(OwnerString,) = mibBuilder.importSymbols(
+    "RMON-MIB",
+    "OwnerString")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ Opaque,
+ TimeTicks,
+ Unsigned32,
+ experimental,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "Opaque",
+    "TimeTicks",
+    "Unsigned32",
+    "experimental",
+    "iso")
+
+(DisplayString,
+ RowStatus,
+ StorageType,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "RowStatus",
+    "StorageType",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+tAggrMIB = ModuleIdentity(
+    (1, 3, 6, 1, 3, 124)
+)
+tAggrMIB.setRevisions(
+        ("2006-04-27 00:00",)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class TAggrMOErrorStatus(Opaque, TextualConvention):
+    status = "current"
+    subtypeSpec = Opaque.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 1024),
+    )
+
+
+
+class TimeAggrMOValue(Opaque, TextualConvention):
+    status = "current"
+    subtypeSpec = Opaque.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 1024),
+    )
+
+
+
+class CompressedTimeAggrMOValue(Opaque, TextualConvention):
+    status = "current"
+    subtypeSpec = Opaque.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 1024),
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_TAggrCtlTable_Object = MibTable
+tAggrCtlTable = _TAggrCtlTable_Object(
+    (1, 3, 6, 1, 3, 124, 1)
+)
+if mibBuilder.loadTexts:
+    tAggrCtlTable.setStatus("current")
+_TAggrCtlEntry_Object = MibTableRow
+tAggrCtlEntry = _TAggrCtlEntry_Object(
+    (1, 3, 6, 1, 3, 124, 1, 1)
+)
+tAggrCtlEntry.setIndexNames(
+    (0, "TIME-AGGREGATE-MIB", "tAggrCtlEntryID"),
+)
+if mibBuilder.loadTexts:
+    tAggrCtlEntry.setStatus("current")
+
+
+class _TAggrCtlEntryID_Type(SnmpAdminString):
+    """Custom type tAggrCtlEntryID based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_TAggrCtlEntryID_Type.__name__ = "SnmpAdminString"
+_TAggrCtlEntryID_Object = MibTableColumn
+tAggrCtlEntryID = _TAggrCtlEntryID_Object(
+    (1, 3, 6, 1, 3, 124, 1, 1, 1),
+    _TAggrCtlEntryID_Type()
+)
+tAggrCtlEntryID.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tAggrCtlEntryID.setStatus("current")
+_TAggrCtlMOInstance_Type = ObjectIdentifier
+_TAggrCtlMOInstance_Object = MibTableColumn
+tAggrCtlMOInstance = _TAggrCtlMOInstance_Object(
+    (1, 3, 6, 1, 3, 124, 1, 1, 2),
+    _TAggrCtlMOInstance_Type()
+)
+tAggrCtlMOInstance.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tAggrCtlMOInstance.setStatus("current")
+
+
+class _TAggrCtlAgMODescr_Type(SnmpAdminString):
+    """Custom type tAggrCtlAgMODescr based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_TAggrCtlAgMODescr_Type.__name__ = "SnmpAdminString"
+_TAggrCtlAgMODescr_Object = MibTableColumn
+tAggrCtlAgMODescr = _TAggrCtlAgMODescr_Object(
+    (1, 3, 6, 1, 3, 124, 1, 1, 3),
+    _TAggrCtlAgMODescr_Type()
+)
+tAggrCtlAgMODescr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tAggrCtlAgMODescr.setStatus("current")
+_TAggrCtlInterval_Type = Integer32
+_TAggrCtlInterval_Object = MibTableColumn
+tAggrCtlInterval = _TAggrCtlInterval_Object(
+    (1, 3, 6, 1, 3, 124, 1, 1, 4),
+    _TAggrCtlInterval_Type()
+)
+tAggrCtlInterval.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tAggrCtlInterval.setStatus("current")
+if mibBuilder.loadTexts:
+    tAggrCtlInterval.setUnits("micro seconds")
+_TAggrCtlSamples_Type = Integer32
+_TAggrCtlSamples_Object = MibTableColumn
+tAggrCtlSamples = _TAggrCtlSamples_Object(
+    (1, 3, 6, 1, 3, 124, 1, 1, 5),
+    _TAggrCtlSamples_Type()
+)
+tAggrCtlSamples.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tAggrCtlSamples.setStatus("current")
+
+
+class _TAggrCtlCompressionAlgorithm_Type(Integer32):
+    """Custom type tAggrCtlCompressionAlgorithm based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("deflate", 2),
+          ("none", 1))
+    )
+
+
+_TAggrCtlCompressionAlgorithm_Type.__name__ = "Integer32"
+_TAggrCtlCompressionAlgorithm_Object = MibTableColumn
+tAggrCtlCompressionAlgorithm = _TAggrCtlCompressionAlgorithm_Object(
+    (1, 3, 6, 1, 3, 124, 1, 1, 6),
+    _TAggrCtlCompressionAlgorithm_Type()
+)
+tAggrCtlCompressionAlgorithm.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tAggrCtlCompressionAlgorithm.setStatus("current")
+_TAggrCtlEntryOwner_Type = OwnerString
+_TAggrCtlEntryOwner_Object = MibTableColumn
+tAggrCtlEntryOwner = _TAggrCtlEntryOwner_Object(
+    (1, 3, 6, 1, 3, 124, 1, 1, 7),
+    _TAggrCtlEntryOwner_Type()
+)
+tAggrCtlEntryOwner.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tAggrCtlEntryOwner.setStatus("current")
+_TAggrCtlEntryStorageType_Type = StorageType
+_TAggrCtlEntryStorageType_Object = MibTableColumn
+tAggrCtlEntryStorageType = _TAggrCtlEntryStorageType_Object(
+    (1, 3, 6, 1, 3, 124, 1, 1, 8),
+    _TAggrCtlEntryStorageType_Type()
+)
+tAggrCtlEntryStorageType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tAggrCtlEntryStorageType.setStatus("current")
+_TAggrCtlEntryStatus_Type = RowStatus
+_TAggrCtlEntryStatus_Object = MibTableColumn
+tAggrCtlEntryStatus = _TAggrCtlEntryStatus_Object(
+    (1, 3, 6, 1, 3, 124, 1, 1, 9),
+    _TAggrCtlEntryStatus_Type()
+)
+tAggrCtlEntryStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tAggrCtlEntryStatus.setStatus("current")
+_TAggrDataTable_Object = MibTable
+tAggrDataTable = _TAggrDataTable_Object(
+    (1, 3, 6, 1, 3, 124, 2)
+)
+if mibBuilder.loadTexts:
+    tAggrDataTable.setStatus("current")
+_TAggrDataEntry_Object = MibTableRow
+tAggrDataEntry = _TAggrDataEntry_Object(
+    (1, 3, 6, 1, 3, 124, 2, 1)
+)
+tAggrDataEntry.setIndexNames(
+    (0, "TIME-AGGREGATE-MIB", "tAggrCtlEntryID"),
+)
+if mibBuilder.loadTexts:
+    tAggrDataEntry.setStatus("current")
+_TAggrDataRecord_Type = TimeAggrMOValue
+_TAggrDataRecord_Object = MibTableColumn
+tAggrDataRecord = _TAggrDataRecord_Object(
+    (1, 3, 6, 1, 3, 124, 2, 1, 1),
+    _TAggrDataRecord_Type()
+)
+tAggrDataRecord.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tAggrDataRecord.setStatus("current")
+_TAggrDataRecordCompressed_Type = CompressedTimeAggrMOValue
+_TAggrDataRecordCompressed_Object = MibTableColumn
+tAggrDataRecordCompressed = _TAggrDataRecordCompressed_Object(
+    (1, 3, 6, 1, 3, 124, 2, 1, 2),
+    _TAggrDataRecordCompressed_Type()
+)
+tAggrDataRecordCompressed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tAggrDataRecordCompressed.setStatus("current")
+_TAggrDataErrorRecord_Type = TAggrMOErrorStatus
+_TAggrDataErrorRecord_Object = MibTableColumn
+tAggrDataErrorRecord = _TAggrDataErrorRecord_Object(
+    (1, 3, 6, 1, 3, 124, 2, 1, 3),
+    _TAggrDataErrorRecord_Type()
+)
+tAggrDataErrorRecord.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tAggrDataErrorRecord.setStatus("current")
+_TAggrConformance_ObjectIdentity = ObjectIdentity
+tAggrConformance = _TAggrConformance_ObjectIdentity(
+    (1, 3, 6, 1, 3, 124, 3)
+)
+_TAggrGroups_ObjectIdentity = ObjectIdentity
+tAggrGroups = _TAggrGroups_ObjectIdentity(
+    (1, 3, 6, 1, 3, 124, 3, 1)
+)
+_TAggrCompliances_ObjectIdentity = ObjectIdentity
+tAggrCompliances = _TAggrCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 3, 124, 3, 2)
+)
+
+# Managed Objects groups
+
+tAggrMibBasicGroup = ObjectGroup(
+    (1, 3, 6, 1, 3, 124, 3, 1, 1)
+)
+tAggrMibBasicGroup.setObjects(
+      *(("TIME-AGGREGATE-MIB", "tAggrCtlMOInstance"),
+        ("TIME-AGGREGATE-MIB", "tAggrCtlAgMODescr"),
+        ("TIME-AGGREGATE-MIB", "tAggrCtlInterval"),
+        ("TIME-AGGREGATE-MIB", "tAggrCtlSamples"),
+        ("TIME-AGGREGATE-MIB", "tAggrCtlCompressionAlgorithm"),
+        ("TIME-AGGREGATE-MIB", "tAggrCtlEntryOwner"),
+        ("TIME-AGGREGATE-MIB", "tAggrCtlEntryStorageType"),
+        ("TIME-AGGREGATE-MIB", "tAggrCtlEntryStatus"),
+        ("TIME-AGGREGATE-MIB", "tAggrDataRecord"),
+        ("TIME-AGGREGATE-MIB", "tAggrDataRecordCompressed"),
+        ("TIME-AGGREGATE-MIB", "tAggrDataErrorRecord"))
+)
+if mibBuilder.loadTexts:
+    tAggrMibBasicGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+tAggrMibCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 3, 124, 3, 2, 1)
+)
+if mibBuilder.loadTexts:
+    tAggrMibCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "TIME-AGGREGATE-MIB",
+    **{"TAggrMOErrorStatus": TAggrMOErrorStatus,
+       "TimeAggrMOValue": TimeAggrMOValue,
+       "CompressedTimeAggrMOValue": CompressedTimeAggrMOValue,
+       "tAggrMIB": tAggrMIB,
+       "tAggrCtlTable": tAggrCtlTable,
+       "tAggrCtlEntry": tAggrCtlEntry,
+       "tAggrCtlEntryID": tAggrCtlEntryID,
+       "tAggrCtlMOInstance": tAggrCtlMOInstance,
+       "tAggrCtlAgMODescr": tAggrCtlAgMODescr,
+       "tAggrCtlInterval": tAggrCtlInterval,
+       "tAggrCtlSamples": tAggrCtlSamples,
+       "tAggrCtlCompressionAlgorithm": tAggrCtlCompressionAlgorithm,
+       "tAggrCtlEntryOwner": tAggrCtlEntryOwner,
+       "tAggrCtlEntryStorageType": tAggrCtlEntryStorageType,
+       "tAggrCtlEntryStatus": tAggrCtlEntryStatus,
+       "tAggrDataTable": tAggrDataTable,
+       "tAggrDataEntry": tAggrDataEntry,
+       "tAggrDataRecord": tAggrDataRecord,
+       "tAggrDataRecordCompressed": tAggrDataRecordCompressed,
+       "tAggrDataErrorRecord": tAggrDataErrorRecord,
+       "tAggrConformance": tAggrConformance,
+       "tAggrGroups": tAggrGroups,
+       "tAggrMibBasicGroup": tAggrMibBasicGroup,
+       "tAggrCompliances": tAggrCompliances,
+       "tAggrMibCompliance": tAggrMibCompliance}
+)

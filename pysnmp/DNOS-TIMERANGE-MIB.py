@@ -1,92 +1,559 @@
+# SNMP MIB module (DNOS-TIMERANGE-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module DNOS-TIMERANGE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/DNOS-TIMERANGE-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 18:37:21 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
-dnOS, = mibBuilder.importSymbols("DELL-REF-MIB", "dnOS")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ObjectIdentity, ModuleIdentity, NotificationType, TimeTicks, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Unsigned32, Counter64, Gauge32, Counter32, Integer32, IpAddress, iso = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "ModuleIdentity", "NotificationType", "TimeTicks", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Unsigned32", "Counter64", "Gauge32", "Counter32", "Integer32", "IpAddress", "iso")
-DisplayString, TextualConvention, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "RowStatus")
-fastPathTimeRange = ModuleIdentity((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53))
-fastPathTimeRange.setRevisions(('2011-01-26 00:00', '2009-09-24 00:00',))
-if mibBuilder.loadTexts: fastPathTimeRange.setLastUpdated('201101260000Z')
-if mibBuilder.loadTexts: fastPathTimeRange.setOrganization('Dell, Inc.')
-fastPathTimeRangeGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1))
-class TimeRangeAbsoluteDateAndTime(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '2d-1d-1d,1d:1d'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(6, 6)
-    fixedLength = 6
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/DNOS-TIMERANGE-MIB
+# Produced by pysmi-1.5.4 at Mon Oct 14 21:32:19 2024
+# On host MacBook-Pro.local platform Darwin version 24.0.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 
-class TimeRangePeriodicTime(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '1d:1d'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(2, 2)
-    fixedLength = 2
+if 'mibBuilder' not in globals():
+    import sys
 
-class TimeRangePeriodicDate(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '2d-1d-1d'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(4, 4)
-    fixedLength = 4
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-timeRangeAdminMode = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: timeRangeAdminMode.setStatus('current')
-timeRangeIndexNextFree = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: timeRangeIndexNextFree.setStatus('current')
-timeRangeTable = MibTable((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 3), )
-if mibBuilder.loadTexts: timeRangeTable.setStatus('current')
-timeRangeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 3, 1), ).setIndexNames((0, "DNOS-TIMERANGE-MIB", "timeRangeIndex"))
-if mibBuilder.loadTexts: timeRangeEntry.setStatus('current')
-timeRangeIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 3, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: timeRangeIndex.setStatus('current')
-timeRangeName = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 3, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 31))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: timeRangeName.setStatus('current')
-timeRangeOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("active", 0), ("inactive", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: timeRangeOperState.setStatus('current')
-timeRangeStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 3, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: timeRangeStatus.setStatus('current')
-timeRangeAbsoluteEntryTable = MibTable((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 4), )
-if mibBuilder.loadTexts: timeRangeAbsoluteEntryTable.setStatus('current')
-timeRangeAbsoluteEntry = MibTableRow((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 4, 1), ).setIndexNames((0, "DNOS-TIMERANGE-MIB", "timeRangeIndex"), (0, "DNOS-TIMERANGE-MIB", "timeRangeAbsoluteEntryIndex"))
-if mibBuilder.loadTexts: timeRangeAbsoluteEntry.setStatus('current')
-timeRangeAbsoluteEntryIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10)))
-if mibBuilder.loadTexts: timeRangeAbsoluteEntryIndex.setStatus('current')
-timeRangeAbsoluteStartDateAndTime = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 4, 1, 2), TimeRangeAbsoluteDateAndTime()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: timeRangeAbsoluteStartDateAndTime.setStatus('current')
-timeRangeAbsoluteEndDateAndTime = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 4, 1, 3), TimeRangeAbsoluteDateAndTime()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: timeRangeAbsoluteEndDateAndTime.setStatus('current')
-timeRangeAbsoluteStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 4, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: timeRangeAbsoluteStatus.setStatus('current')
-timeRangePeriodicEntryTable = MibTable((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 5), )
-if mibBuilder.loadTexts: timeRangePeriodicEntryTable.setStatus('current')
-timeRangePeriodicEntry = MibTableRow((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 5, 1), ).setIndexNames((0, "DNOS-TIMERANGE-MIB", "timeRangeIndex"), (0, "DNOS-TIMERANGE-MIB", "timeRangePeriodicEntryIndex"))
-if mibBuilder.loadTexts: timeRangePeriodicEntry.setStatus('current')
-timeRangePeriodicEntryIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10)))
-if mibBuilder.loadTexts: timeRangePeriodicEntryIndex.setStatus('current')
-timeRangePeriodicFrequency = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 5, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: timeRangePeriodicFrequency.setStatus('current')
-timeRangePeriodicPattern = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 5, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: timeRangePeriodicPattern.setStatus('current')
-timeRangePeriodicDayMask = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 5, 1, 4), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: timeRangePeriodicDayMask.setStatus('current')
-timeRangePeriodicStartDate = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 5, 1, 5), TimeRangePeriodicDate()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: timeRangePeriodicStartDate.setStatus('current')
-timeRangePeriodicStartDay = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 5, 1, 6), Bits().clone(namedValues=NamedValues(("sunday", 1), ("monday", 2), ("tuesday", 3), ("wednesday", 4), ("thursday", 5), ("friday", 6), ("saturday", 7)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: timeRangePeriodicStartDay.setStatus('current')
-timeRangePeriodicStartTime = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 5, 1, 7), TimeRangePeriodicTime()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: timeRangePeriodicStartTime.setStatus('current')
-timeRangePeriodicEndDate = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 5, 1, 8), TimeRangePeriodicDate()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: timeRangePeriodicEndDate.setStatus('current')
-timeRangePeriodicEndDay = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 5, 1, 9), Bits().clone(namedValues=NamedValues(("sunday", 1), ("monday", 2), ("tuesday", 3), ("wednesday", 4), ("thursday", 5), ("friday", 6), ("saturday", 7)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: timeRangePeriodicEndDay.setStatus('current')
-timeRangePeriodicEndTime = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 5, 1, 10), TimeRangePeriodicTime()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: timeRangePeriodicEndTime.setStatus('current')
-timeRangePeriodicStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 5, 1, 11), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: timeRangePeriodicStatus.setStatus('current')
-mibBuilder.exportSymbols("DNOS-TIMERANGE-MIB", timeRangeAbsoluteEntryTable=timeRangeAbsoluteEntryTable, timeRangePeriodicEntryTable=timeRangePeriodicEntryTable, timeRangePeriodicEndDay=timeRangePeriodicEndDay, PYSNMP_MODULE_ID=fastPathTimeRange, timeRangePeriodicStartDate=timeRangePeriodicStartDate, timeRangeName=timeRangeName, timeRangePeriodicFrequency=timeRangePeriodicFrequency, timeRangeAbsoluteEntry=timeRangeAbsoluteEntry, timeRangePeriodicEntry=timeRangePeriodicEntry, TimeRangeAbsoluteDateAndTime=TimeRangeAbsoluteDateAndTime, timeRangePeriodicPattern=timeRangePeriodicPattern, timeRangeStatus=timeRangeStatus, timeRangeAbsoluteStatus=timeRangeAbsoluteStatus, fastPathTimeRangeGroup=fastPathTimeRangeGroup, timeRangePeriodicStartTime=timeRangePeriodicStartTime, timeRangeAbsoluteStartDateAndTime=timeRangeAbsoluteStartDateAndTime, timeRangeOperState=timeRangeOperState, timeRangePeriodicEndTime=timeRangePeriodicEndTime, timeRangePeriodicStatus=timeRangePeriodicStatus, timeRangeIndexNextFree=timeRangeIndexNextFree, timeRangeIndex=timeRangeIndex, fastPathTimeRange=fastPathTimeRange, timeRangeTable=timeRangeTable, timeRangePeriodicEndDate=timeRangePeriodicEndDate, timeRangeAdminMode=timeRangeAdminMode, timeRangeEntry=timeRangeEntry, TimeRangePeriodicDate=TimeRangePeriodicDate, timeRangePeriodicStartDay=timeRangePeriodicStartDay, TimeRangePeriodicTime=TimeRangePeriodicTime, timeRangeAbsoluteEndDateAndTime=timeRangeAbsoluteEndDateAndTime, timeRangePeriodicDayMask=timeRangePeriodicDayMask, timeRangePeriodicEntryIndex=timeRangePeriodicEntryIndex, timeRangeAbsoluteEntryIndex=timeRangeAbsoluteEntryIndex)
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint,
+ ConstraintsUnion) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint",
+    "ConstraintsUnion")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(dnOS,) = mibBuilder.importSymbols(
+    "DELL-REF-MIB",
+    "dnOS")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+fastPathTimeRange = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53)
+)
+fastPathTimeRange.setRevisions(
+        ("2011-01-26 00:00",
+         "2009-09-24 00:00")
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class TimeRangeAbsoluteDateAndTime(OctetString, TextualConvention):
+    status = "current"
+    displayHint = "2d-1d-1d,1d:1d"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(6, 6),
+    )
+
+
+
+class TimeRangePeriodicTime(OctetString, TextualConvention):
+    status = "current"
+    displayHint = "1d:1d"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 2),
+    )
+
+
+
+class TimeRangePeriodicDate(OctetString, TextualConvention):
+    status = "current"
+    displayHint = "2d-1d-1d"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_FastPathTimeRangeGroup_ObjectIdentity = ObjectIdentity
+fastPathTimeRangeGroup = _FastPathTimeRangeGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1)
+)
+
+
+class _TimeRangeAdminMode_Type(Integer32):
+    """Custom type timeRangeAdminMode based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 2),
+          ("enable", 1))
+    )
+
+
+_TimeRangeAdminMode_Type.__name__ = "Integer32"
+_TimeRangeAdminMode_Object = MibScalar
+timeRangeAdminMode = _TimeRangeAdminMode_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 1),
+    _TimeRangeAdminMode_Type()
+)
+timeRangeAdminMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    timeRangeAdminMode.setStatus("current")
+_TimeRangeIndexNextFree_Type = Integer32
+_TimeRangeIndexNextFree_Object = MibScalar
+timeRangeIndexNextFree = _TimeRangeIndexNextFree_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 2),
+    _TimeRangeIndexNextFree_Type()
+)
+timeRangeIndexNextFree.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    timeRangeIndexNextFree.setStatus("current")
+_TimeRangeTable_Object = MibTable
+timeRangeTable = _TimeRangeTable_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 3)
+)
+if mibBuilder.loadTexts:
+    timeRangeTable.setStatus("current")
+_TimeRangeEntry_Object = MibTableRow
+timeRangeEntry = _TimeRangeEntry_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 3, 1)
+)
+timeRangeEntry.setIndexNames(
+    (0, "DNOS-TIMERANGE-MIB", "timeRangeIndex"),
+)
+if mibBuilder.loadTexts:
+    timeRangeEntry.setStatus("current")
+_TimeRangeIndex_Type = Unsigned32
+_TimeRangeIndex_Object = MibTableColumn
+timeRangeIndex = _TimeRangeIndex_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 3, 1, 1),
+    _TimeRangeIndex_Type()
+)
+timeRangeIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    timeRangeIndex.setStatus("current")
+
+
+class _TimeRangeName_Type(DisplayString):
+    """Custom type timeRangeName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 31),
+    )
+
+
+_TimeRangeName_Type.__name__ = "DisplayString"
+_TimeRangeName_Object = MibTableColumn
+timeRangeName = _TimeRangeName_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 3, 1, 2),
+    _TimeRangeName_Type()
+)
+timeRangeName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    timeRangeName.setStatus("current")
+
+
+class _TimeRangeOperState_Type(Integer32):
+    """Custom type timeRangeOperState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 0),
+          ("inactive", 1))
+    )
+
+
+_TimeRangeOperState_Type.__name__ = "Integer32"
+_TimeRangeOperState_Object = MibTableColumn
+timeRangeOperState = _TimeRangeOperState_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 3, 1, 3),
+    _TimeRangeOperState_Type()
+)
+timeRangeOperState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    timeRangeOperState.setStatus("current")
+_TimeRangeStatus_Type = RowStatus
+_TimeRangeStatus_Object = MibTableColumn
+timeRangeStatus = _TimeRangeStatus_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 3, 1, 4),
+    _TimeRangeStatus_Type()
+)
+timeRangeStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    timeRangeStatus.setStatus("current")
+_TimeRangeAbsoluteEntryTable_Object = MibTable
+timeRangeAbsoluteEntryTable = _TimeRangeAbsoluteEntryTable_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 4)
+)
+if mibBuilder.loadTexts:
+    timeRangeAbsoluteEntryTable.setStatus("current")
+_TimeRangeAbsoluteEntry_Object = MibTableRow
+timeRangeAbsoluteEntry = _TimeRangeAbsoluteEntry_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 4, 1)
+)
+timeRangeAbsoluteEntry.setIndexNames(
+    (0, "DNOS-TIMERANGE-MIB", "timeRangeIndex"),
+    (0, "DNOS-TIMERANGE-MIB", "timeRangeAbsoluteEntryIndex"),
+)
+if mibBuilder.loadTexts:
+    timeRangeAbsoluteEntry.setStatus("current")
+
+
+class _TimeRangeAbsoluteEntryIndex_Type(Integer32):
+    """Custom type timeRangeAbsoluteEntryIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 10),
+    )
+
+
+_TimeRangeAbsoluteEntryIndex_Type.__name__ = "Integer32"
+_TimeRangeAbsoluteEntryIndex_Object = MibTableColumn
+timeRangeAbsoluteEntryIndex = _TimeRangeAbsoluteEntryIndex_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 4, 1, 1),
+    _TimeRangeAbsoluteEntryIndex_Type()
+)
+timeRangeAbsoluteEntryIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    timeRangeAbsoluteEntryIndex.setStatus("current")
+_TimeRangeAbsoluteStartDateAndTime_Type = TimeRangeAbsoluteDateAndTime
+_TimeRangeAbsoluteStartDateAndTime_Object = MibTableColumn
+timeRangeAbsoluteStartDateAndTime = _TimeRangeAbsoluteStartDateAndTime_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 4, 1, 2),
+    _TimeRangeAbsoluteStartDateAndTime_Type()
+)
+timeRangeAbsoluteStartDateAndTime.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    timeRangeAbsoluteStartDateAndTime.setStatus("current")
+_TimeRangeAbsoluteEndDateAndTime_Type = TimeRangeAbsoluteDateAndTime
+_TimeRangeAbsoluteEndDateAndTime_Object = MibTableColumn
+timeRangeAbsoluteEndDateAndTime = _TimeRangeAbsoluteEndDateAndTime_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 4, 1, 3),
+    _TimeRangeAbsoluteEndDateAndTime_Type()
+)
+timeRangeAbsoluteEndDateAndTime.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    timeRangeAbsoluteEndDateAndTime.setStatus("current")
+_TimeRangeAbsoluteStatus_Type = RowStatus
+_TimeRangeAbsoluteStatus_Object = MibTableColumn
+timeRangeAbsoluteStatus = _TimeRangeAbsoluteStatus_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 4, 1, 4),
+    _TimeRangeAbsoluteStatus_Type()
+)
+timeRangeAbsoluteStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    timeRangeAbsoluteStatus.setStatus("current")
+_TimeRangePeriodicEntryTable_Object = MibTable
+timeRangePeriodicEntryTable = _TimeRangePeriodicEntryTable_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 5)
+)
+if mibBuilder.loadTexts:
+    timeRangePeriodicEntryTable.setStatus("current")
+_TimeRangePeriodicEntry_Object = MibTableRow
+timeRangePeriodicEntry = _TimeRangePeriodicEntry_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 5, 1)
+)
+timeRangePeriodicEntry.setIndexNames(
+    (0, "DNOS-TIMERANGE-MIB", "timeRangeIndex"),
+    (0, "DNOS-TIMERANGE-MIB", "timeRangePeriodicEntryIndex"),
+)
+if mibBuilder.loadTexts:
+    timeRangePeriodicEntry.setStatus("current")
+
+
+class _TimeRangePeriodicEntryIndex_Type(Integer32):
+    """Custom type timeRangePeriodicEntryIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 10),
+    )
+
+
+_TimeRangePeriodicEntryIndex_Type.__name__ = "Integer32"
+_TimeRangePeriodicEntryIndex_Object = MibTableColumn
+timeRangePeriodicEntryIndex = _TimeRangePeriodicEntryIndex_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 5, 1, 1),
+    _TimeRangePeriodicEntryIndex_Type()
+)
+timeRangePeriodicEntryIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    timeRangePeriodicEntryIndex.setStatus("current")
+
+
+class _TimeRangePeriodicFrequency_Type(Integer32):
+    """Custom type timeRangePeriodicFrequency based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_TimeRangePeriodicFrequency_Type.__name__ = "Integer32"
+_TimeRangePeriodicFrequency_Object = MibTableColumn
+timeRangePeriodicFrequency = _TimeRangePeriodicFrequency_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 5, 1, 2),
+    _TimeRangePeriodicFrequency_Type()
+)
+timeRangePeriodicFrequency.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    timeRangePeriodicFrequency.setStatus("current")
+
+
+class _TimeRangePeriodicPattern_Type(Integer32):
+    """Custom type timeRangePeriodicPattern based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2),
+    )
+
+
+_TimeRangePeriodicPattern_Type.__name__ = "Integer32"
+_TimeRangePeriodicPattern_Object = MibTableColumn
+timeRangePeriodicPattern = _TimeRangePeriodicPattern_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 5, 1, 3),
+    _TimeRangePeriodicPattern_Type()
+)
+timeRangePeriodicPattern.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    timeRangePeriodicPattern.setStatus("current")
+_TimeRangePeriodicDayMask_Type = Integer32
+_TimeRangePeriodicDayMask_Object = MibTableColumn
+timeRangePeriodicDayMask = _TimeRangePeriodicDayMask_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 5, 1, 4),
+    _TimeRangePeriodicDayMask_Type()
+)
+timeRangePeriodicDayMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    timeRangePeriodicDayMask.setStatus("current")
+_TimeRangePeriodicStartDate_Type = TimeRangePeriodicDate
+_TimeRangePeriodicStartDate_Object = MibTableColumn
+timeRangePeriodicStartDate = _TimeRangePeriodicStartDate_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 5, 1, 5),
+    _TimeRangePeriodicStartDate_Type()
+)
+timeRangePeriodicStartDate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    timeRangePeriodicStartDate.setStatus("current")
+
+
+class _TimeRangePeriodicStartDay_Type(Bits):
+    """Custom type timeRangePeriodicStartDay based on Bits"""
+    namedValues = NamedValues(
+        *(("friday", 6),
+          ("monday", 2),
+          ("saturday", 7),
+          ("sunday", 1),
+          ("thursday", 5),
+          ("tuesday", 3),
+          ("wednesday", 4))
+    )
+
+_TimeRangePeriodicStartDay_Type.__name__ = "Bits"
+_TimeRangePeriodicStartDay_Object = MibTableColumn
+timeRangePeriodicStartDay = _TimeRangePeriodicStartDay_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 5, 1, 6),
+    _TimeRangePeriodicStartDay_Type()
+)
+timeRangePeriodicStartDay.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    timeRangePeriodicStartDay.setStatus("current")
+_TimeRangePeriodicStartTime_Type = TimeRangePeriodicTime
+_TimeRangePeriodicStartTime_Object = MibTableColumn
+timeRangePeriodicStartTime = _TimeRangePeriodicStartTime_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 5, 1, 7),
+    _TimeRangePeriodicStartTime_Type()
+)
+timeRangePeriodicStartTime.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    timeRangePeriodicStartTime.setStatus("current")
+_TimeRangePeriodicEndDate_Type = TimeRangePeriodicDate
+_TimeRangePeriodicEndDate_Object = MibTableColumn
+timeRangePeriodicEndDate = _TimeRangePeriodicEndDate_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 5, 1, 8),
+    _TimeRangePeriodicEndDate_Type()
+)
+timeRangePeriodicEndDate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    timeRangePeriodicEndDate.setStatus("current")
+
+
+class _TimeRangePeriodicEndDay_Type(Bits):
+    """Custom type timeRangePeriodicEndDay based on Bits"""
+    namedValues = NamedValues(
+        *(("friday", 6),
+          ("monday", 2),
+          ("saturday", 7),
+          ("sunday", 1),
+          ("thursday", 5),
+          ("tuesday", 3),
+          ("wednesday", 4))
+    )
+
+_TimeRangePeriodicEndDay_Type.__name__ = "Bits"
+_TimeRangePeriodicEndDay_Object = MibTableColumn
+timeRangePeriodicEndDay = _TimeRangePeriodicEndDay_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 5, 1, 9),
+    _TimeRangePeriodicEndDay_Type()
+)
+timeRangePeriodicEndDay.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    timeRangePeriodicEndDay.setStatus("current")
+_TimeRangePeriodicEndTime_Type = TimeRangePeriodicTime
+_TimeRangePeriodicEndTime_Object = MibTableColumn
+timeRangePeriodicEndTime = _TimeRangePeriodicEndTime_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 5, 1, 10),
+    _TimeRangePeriodicEndTime_Type()
+)
+timeRangePeriodicEndTime.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    timeRangePeriodicEndTime.setStatus("current")
+_TimeRangePeriodicStatus_Type = RowStatus
+_TimeRangePeriodicStatus_Object = MibTableColumn
+timeRangePeriodicStatus = _TimeRangePeriodicStatus_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 53, 1, 5, 1, 11),
+    _TimeRangePeriodicStatus_Type()
+)
+timeRangePeriodicStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    timeRangePeriodicStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "DNOS-TIMERANGE-MIB",
+    **{"TimeRangeAbsoluteDateAndTime": TimeRangeAbsoluteDateAndTime,
+       "TimeRangePeriodicTime": TimeRangePeriodicTime,
+       "TimeRangePeriodicDate": TimeRangePeriodicDate,
+       "fastPathTimeRange": fastPathTimeRange,
+       "fastPathTimeRangeGroup": fastPathTimeRangeGroup,
+       "timeRangeAdminMode": timeRangeAdminMode,
+       "timeRangeIndexNextFree": timeRangeIndexNextFree,
+       "timeRangeTable": timeRangeTable,
+       "timeRangeEntry": timeRangeEntry,
+       "timeRangeIndex": timeRangeIndex,
+       "timeRangeName": timeRangeName,
+       "timeRangeOperState": timeRangeOperState,
+       "timeRangeStatus": timeRangeStatus,
+       "timeRangeAbsoluteEntryTable": timeRangeAbsoluteEntryTable,
+       "timeRangeAbsoluteEntry": timeRangeAbsoluteEntry,
+       "timeRangeAbsoluteEntryIndex": timeRangeAbsoluteEntryIndex,
+       "timeRangeAbsoluteStartDateAndTime": timeRangeAbsoluteStartDateAndTime,
+       "timeRangeAbsoluteEndDateAndTime": timeRangeAbsoluteEndDateAndTime,
+       "timeRangeAbsoluteStatus": timeRangeAbsoluteStatus,
+       "timeRangePeriodicEntryTable": timeRangePeriodicEntryTable,
+       "timeRangePeriodicEntry": timeRangePeriodicEntry,
+       "timeRangePeriodicEntryIndex": timeRangePeriodicEntryIndex,
+       "timeRangePeriodicFrequency": timeRangePeriodicFrequency,
+       "timeRangePeriodicPattern": timeRangePeriodicPattern,
+       "timeRangePeriodicDayMask": timeRangePeriodicDayMask,
+       "timeRangePeriodicStartDate": timeRangePeriodicStartDate,
+       "timeRangePeriodicStartDay": timeRangePeriodicStartDay,
+       "timeRangePeriodicStartTime": timeRangePeriodicStartTime,
+       "timeRangePeriodicEndDate": timeRangePeriodicEndDate,
+       "timeRangePeriodicEndDay": timeRangePeriodicEndDay,
+       "timeRangePeriodicEndTime": timeRangePeriodicEndTime,
+       "timeRangePeriodicStatus": timeRangePeriodicStatus}
+)
