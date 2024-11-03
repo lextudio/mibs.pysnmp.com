@@ -1,0 +1,31 @@
+LEXTUDIO-TEST-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+    OBJECT-TYPE, enterprises
+        FROM SNMPv2-SMI
+    DateAndTime, PhysAddress
+        FROM SNMPv2-TC;
+
+-- Define the base OID for LeXtudio without MODULE-IDENTITY
+lextudio OBJECT IDENTIFIER ::= { enterprises 60069 }
+
+-- Define the OID for test objects under LeXtudio
+testObjects OBJECT IDENTIFIER ::= { lextudio 9 }
+
+testDateAndTime OBJECT-TYPE
+    SYNTAX      DateAndTime
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "A test scalar object representing the current date and time."
+    ::= { testObjects 5 }
+
+testPhysAddress OBJECT-TYPE
+    SYNTAX      PhysAddress
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "A test object representing a physical address (e.g., MAC address)."
+    ::= { testObjects 6 }
+
+END
