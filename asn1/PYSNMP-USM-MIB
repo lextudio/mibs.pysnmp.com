@@ -16,11 +16,17 @@ IMPORTS
 pysnmpUsmMIB MODULE-IDENTITY
     LAST-UPDATED "201704140000Z"
     ORGANIZATION "The PySNMP Project"
-    CONTACT-INFO "E-mail: Ilya Etingof <etingof@gmail.com>
-                  GitHub: https://github.com/etingof/pysnmp"
+    CONTACT-INFO "E-mail: Lex Li <support@lextudio.com>
+                  GitHub: https://github.com/lextudio/pysnmp"
     DESCRIPTION
         "This MIB module defines objects specific to User
          Security Model (USM) implementation at PySNMP."
+    REVISION    "202211120000Z" 
+    DESCRIPTION "Updated contact"
+    REVISION    "201908300000Z"
+    DESCRIPTION "Added USM key types"
+    REVISION    "201707300000Z"
+    DESCRIPTION "Extended authentication key size"
     REVISION    "201704140000Z"
     DESCRIPTION "Updated addresses"
     REVISION "200505140000Z"          -- 14 May 2005, midnight
@@ -53,6 +59,19 @@ pysnmpUsmDiscovery OBJECT-TYPE
                  of its peers by sending discover requests."
     DEFVAL      { doDiscover }
     ::= { pysnmpUsmCfg 2 }
+
+pysnmpUsmKeyType OBJECT-TYPE
+    SYNTAX       INTEGER { passphrase (0), master(1), localized(2) }
+    MAX-ACCESS   not-accessible
+    STATUS       current
+    DESCRIPTION "When configuring USM user, the value of this enumeration
+                 determines how the keys should be treated. The default
+                 value 'passphrase' means that given keys are plain-text
+                 pass-phrases, 'master' indicates that the keys are pre-hashed
+                 pass-phrases, while 'localized' stands for pre-hashed
+                 pass-phrases mixed with SNMP Security Engine ID value."
+    DEFVAL      { passphrase }
+    ::= { pysnmpUsmCfg 3 }
 
 -- The usmUser Group ************************************************
 
@@ -153,7 +172,7 @@ PysnmpUsmKeyEntry ::= SEQUENCE {
 }
 
 pysnmpUsmKeyAuthLocalized OBJECT-TYPE
-    SYNTAX       OCTET STRING (SIZE(8..32))
+    SYNTAX       OCTET STRING (SIZE(8..64))
     MAX-ACCESS   not-accessible
     STATUS       current
     DESCRIPTION
@@ -161,7 +180,7 @@ pysnmpUsmKeyAuthLocalized OBJECT-TYPE
     ::= { pysnmpUsmKeyEntry 1 }
 
 pysnmpUsmKeyPrivLocalized OBJECT-TYPE
-    SYNTAX       OCTET STRING (SIZE(8..32))
+    SYNTAX       OCTET STRING (SIZE(8..64))
     MAX-ACCESS   not-accessible
     STATUS       current
     DESCRIPTION
@@ -169,7 +188,7 @@ pysnmpUsmKeyPrivLocalized OBJECT-TYPE
     ::= { pysnmpUsmKeyEntry 2 }
 
 pysnmpUsmKeyAuth OBJECT-TYPE
-    SYNTAX       OCTET STRING (SIZE(8..32))
+    SYNTAX       OCTET STRING (SIZE(8..64))
     MAX-ACCESS   not-accessible
     STATUS       current
     DESCRIPTION
@@ -177,7 +196,7 @@ pysnmpUsmKeyAuth OBJECT-TYPE
     ::= { pysnmpUsmKeyEntry 3 }
 
 pysnmpUsmKeyPriv OBJECT-TYPE
-    SYNTAX       OCTET STRING (SIZE(8..32))
+    SYNTAX       OCTET STRING (SIZE(8..64))
     MAX-ACCESS   not-accessible
     STATUS       current
     DESCRIPTION
