@@ -1,7 +1,7 @@
 LEXTUDIO-TEST-MIB DEFINITIONS ::= BEGIN
 
 IMPORTS
-    OBJECT-TYPE, enterprises
+    Integer32, Unsigned32, OBJECT-TYPE, enterprises
         FROM SNMPv2-SMI
     DateAndTime, PhysAddress
         FROM SNMPv2-TC;
@@ -27,5 +27,37 @@ testPhysAddress OBJECT-TYPE
     DESCRIPTION
         "A test object representing a physical address (e.g., MAC address)."
     ::= { testObjects 6 }
+
+ScaledInteger ::= TEXTUAL-CONVENTION
+    DISPLAY-HINT "d-1"
+    STATUS       current
+    DESCRIPTION
+        "A integer value from 1 to 100 to indicate 
+        the appropriate value."
+    SYNTAX       Integer32 (1..100)
+
+testScaledInteger OBJECT-TYPE
+    SYNTAX      ScaledInteger
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "A test object with display hint 'd-1'."
+    ::= { testObjects 7 }
+
+ScaledUnsigned ::= TEXTUAL-CONVENTION
+    DISPLAY-HINT "d-1"
+    STATUS       current
+    DESCRIPTION
+       "A integer value from 1 to 100 to indicate 
+       the appropriate value."
+    SYNTAX       Unsigned32 (1..100)
+
+testScaledUnsigned OBJECT-TYPE
+    SYNTAX      ScaledUnsigned
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "A test object with display hint 'd-1'."
+    ::= { testObjects 8 }
 
 END
