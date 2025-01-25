@@ -68,4 +68,42 @@ testMacAddress OBJECT-TYPE
         "A test object with fixed length of 6."
     ::= { testObjects 9 }
 
+macAddressTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF MacAddressTableEntry
+    MAX-ACCESS not-accessible
+    STATUS current
+    ::= { testObjects 101 }
+
+macAddressTableEntry OBJECT-TYPE
+    SYNTAX MacAddressTableEntry
+    MAX-ACCESS not-accessible
+    STATUS current
+    INDEX {macAddressIndex}
+    ::= { macAddressTable 1 }
+
+MacAddressTableEntry ::= SEQUENCE
+   {
+      macAddressIndex          MacAddress,
+      macAddressName           PhysAddress,
+      macAddressRowStatus      RowStatus
+   }
+
+macAddressIndex OBJECT-TYPE
+    SYNTAX MacAddress
+    MAX-ACCESS not-accessible
+    STATUS current
+    ::= { macAddressTableEntry 1 }
+
+macAddressName OBJECT-TYPE
+    SYNTAX PhysAddress
+    MAX-ACCESS read-create
+    STATUS current
+    ::= { macAddressTableEntry 2 }
+
+macAddressRowStatus  OBJECT-TYPE
+    SYNTAX RowStatus
+    MAX-ACCESS read-create
+    STATUS current
+    ::= { macAddressTableEntry 3 }
+
 END
