@@ -3,7 +3,6 @@
 WLSX-WLAN-MIB DEFINITIONS ::= BEGIN
 
    IMPORTS
-       TEXTUAL-CONVENTION,
        MODULE-IDENTITY,
        OBJECT-TYPE,
        snmpModules,
@@ -14,6 +13,7 @@ WLSX-WLAN-MIB DEFINITIONS ::= BEGIN
 	   NOTIFICATION-TYPE
            FROM SNMPv2-SMI
 
+       TEXTUAL-CONVENTION,
        TDomain,
        DisplayString,
        PhysAddress,
