@@ -47,8 +47,7 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
     && chmod 644 /etc/nginx/certs/*.pem \
     && rm -f /tmp/openssl.cnf || true
 
-# Allow external certs to be mounted here if desired (mounting will override baked certs)
-VOLUME ["/etc/nginx/certs"]
+# If you prefer to override certs at runtime, mount a directory over /etc/nginx/certs
 
 EXPOSE 80 443
 
