@@ -1,0 +1,9 @@
+# Ignore local certificate files and other local artifacts
+docker/certs
+*.pem
+.env
+.DS_Store
+.git
+node_modules
+__pycache__
+*.pyc
